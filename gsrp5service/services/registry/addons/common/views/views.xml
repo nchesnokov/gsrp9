@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.views">
+        <record id="view.common.application.form">
+          <column name="name">view.common.application.form</column>
+          <column name="model">common.application</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="app"/>
+              <field name="sequences"/>
+              <field name="conditions"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.common.application.list">
+          <column name="name">view.common.application.list</column>
+          <column name="model">common.application</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="app"/>
+              <field name="sequences"/>
+              <field name="conditions"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.common.application.m2mlist">
+          <column name="name">view.common.application.m2mlist</column>
+          <column name="model">common.application</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="app"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.common.application.search">
+          <column name="name">view.common.application.search</column>
+          <column name="model">common.application</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="app"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.common.application.find">
+          <column name="name">view.common.application.find</column>
+          <column name="model">common.application</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="app"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.common.access.sequences.form">
+          <column name="name">view.common.access.sequences.form</column>
+          <column name="model">common.access.sequences</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="app_id"/>
+              <field name="fullname"/>
+              <field name="name"/>
+              <field name="models"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.common.access.sequences.list">
+          <column name="name">view.common.access.sequences.list</column>
+          <column name="model">common.access.sequences</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="app_id"/>
+              <field name="fullname"/>
+              <field name="name"/>
+              <field name="models"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.common.access.sequences.m2mlist">
+          <column name="name">view.common.access.sequences.m2mlist</column>
+          <column name="model">common.access.sequences</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="app_id"/>
+              <field name="fullname"/>
+              <field name="name"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.common.access.sequences.search">
+          <column name="name">view.common.access.sequences.search</column>
+          <column name="model">common.access.sequences</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="app_id"/>
+              <field name="fullname"/>
+              <field name="name"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.common.access.sequences.find">
+          <column name="name">view.common.access.sequences.find</column>
+          <column name="model">common.access.sequences</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="app_id"/>
+              <field name="fullname"/>
+              <field name="name"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.common.access.sequence.models.form">
+          <column name="name">view.common.access.sequence.models.form</column>
+          <column name="model">common.access.sequence.models</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="access_sequence_id"/>
+              <field name="fullname"/>
+              <field name="name"/>
+              <field name="model"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.common.access.sequence.models.list">
+          <column name="name">view.common.access.sequence.models.list</column>
+          <column name="model">common.access.sequence.models</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="access_sequence_id"/>
+              <field name="fullname"/>
+              <field name="name"/>
+              <field name="model"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.common.access.sequence.models.m2mlist">
+          <column name="name">view.common.access.sequence.models.m2mlist</column>
+          <column name="model">common.access.sequence.models</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="access_sequence_id"/>
+              <field name="fullname"/>
+              <field name="name"/>
+              <field name="model"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.common.access.sequence.models.search">
+          <column name="name">view.common.access.sequence.models.search</column>
+          <column name="model">common.access.sequence.models</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="access_sequence_id"/>
+              <field name="fullname"/>
+              <field name="name"/>
+              <field name="model"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.common.access.sequence.models.find">
+          <column name="name">view.common.access.sequence.models.find</column>
+          <column name="model">common.access.sequence.models</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="access_sequence_id"/>
+              <field name="fullname"/>
+              <field name="name"/>
+              <field name="model"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.common.conditions.form">
+          <column name="name">view.common.conditions.form</column>
+          <column name="model">common.conditions</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="app_id"/>
+              <field name="fullname"/>
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="access_sequense"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.common.conditions.list">
+          <column name="name">view.common.conditions.list</column>
+          <column name="model">common.conditions</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="app_id"/>
+              <field name="fullname"/>
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="access_sequense"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.common.conditions.m2mlist">
+          <column name="name">view.common.conditions.m2mlist</column>
+          <column name="model">common.conditions</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="app_id"/>
+              <field name="fullname"/>
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="access_sequense"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.common.conditions.search">
+          <column name="name">view.common.conditions.search</column>
+          <column name="model">common.conditions</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="app_id"/>
+              <field name="fullname"/>
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="access_sequense"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.common.conditions.find">
+          <column name="name">view.common.conditions.find</column>
+          <column name="model">common.conditions</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="app_id"/>
+              <field name="fullname"/>
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="access_sequense"/>
+            </find>
+          </column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

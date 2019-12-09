@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.ctrm">
+          <column name="name">ui.menu.ctrm</column>
+          <column name="label">Commodity Trade &amp; Risk Managament</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.ctrm.request.categories.search">
+          <column name="name">action.ctrm.request.categories.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.offer.categories.search">
+          <column name="name">action.ctrm.offer.categories.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.contract.categories.search">
+          <column name="name">action.ctrm.contract.categories.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.requests.search">
+          <column name="name">action.ctrm.requests.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.offers.search">
+          <column name="name">action.ctrm.offers.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.contracts.search">
+          <column name="name">action.ctrm.contracts.search</column>
+          <column name="ta">View</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.ctrm.request.categories.report">
+          <column name="name">action.ctrm.request.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.ctrm.offer.categories.report">
+          <column name="name">action.ctrm.offer.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.ctrm.contract.categories.report">
+          <column name="name">action.ctrm.contract.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.ctrm.requests.report">
+          <column name="name">action.ctrm.requests.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.ctrm.offers.report">
+          <column name="name">action.ctrm.offers.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.ctrm.contracts.report">
+          <column name="name">action.ctrm.contracts.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.view.actions">
+        <record id="view.action.ctrm.request.categories.search">
+          <column name="action_id">action.ctrm.request.categories.search</column>
+          <column name="view_id">view.ctrm.request.categories.search</column>
+        </record>
+        <record id="view.action.ctrm.offer.categories.search">
+          <column name="action_id">action.ctrm.offer.categories.search</column>
+          <column name="view_id">view.ctrm.offer.categories.search</column>
+        </record>
+        <record id="view.action.ctrm.contract.categories.search">
+          <column name="action_id">action.ctrm.contract.categories.search</column>
+          <column name="view_id">view.ctrm.contract.categories.search</column>
+        </record>
+        <record id="view.action.ctrm.requests.search">
+          <column name="action_id">action.ctrm.requests.search</column>
+          <column name="view_id">view.ctrm.requests.search</column>
+        </record>
+        <record id="view.action.ctrm.offers.search">
+          <column name="action_id">action.ctrm.offers.search</column>
+          <column name="view_id">view.ctrm.offers.search</column>
+        </record>
+        <record id="view.action.ctrm.contracts.search">
+          <column name="action_id">action.ctrm.contracts.search</column>
+          <column name="view_id">view.ctrm.contracts.search</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.ctrm.request.categories">
+          <column name="name">bc.ui.report.docx.ctrm.request.categories</column>
+          <column name="label">Category CTRM Request</column>
+          <column name="report">report_ctrm_request_categories</column>
+          <column name="infile">infile_ctrm_request_categories.docx</column>
+          <column name="outfile">outfile_ctrm_request_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.ctrm.offer.categories">
+          <column name="name">bc.ui.report.docx.ctrm.offer.categories</column>
+          <column name="label">Category CTRM Offer</column>
+          <column name="report">report_ctrm_offer_categories</column>
+          <column name="infile">infile_ctrm_offer_categories.docx</column>
+          <column name="outfile">outfile_ctrm_offer_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.ctrm.contract.categories">
+          <column name="name">bc.ui.report.docx.ctrm.contract.categories</column>
+          <column name="label">Category CTRM Contract</column>
+          <column name="report">report_ctrm_contract_categories</column>
+          <column name="infile">infile_ctrm_contract_categories.docx</column>
+          <column name="outfile">outfile_ctrm_contract_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.ctrm.requests">
+          <column name="name">bc.ui.report.docx.ctrm.requests</column>
+          <column name="label">CTRM Request</column>
+          <column name="report">report_ctrm_requests</column>
+          <column name="infile">infile_ctrm_requests.docx</column>
+          <column name="outfile">outfile_ctrm_requests.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.ctrm.offers">
+          <column name="name">bc.ui.report.docx.ctrm.offers</column>
+          <column name="label">CTRM Offer</column>
+          <column name="report">report_ctrm_offers</column>
+          <column name="infile">infile_ctrm_offers.docx</column>
+          <column name="outfile">outfile_ctrm_offers.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.ctrm.contracts">
+          <column name="name">bc.ui.report.docx.ctrm.contracts</column>
+          <column name="label">CTRM Contract</column>
+          <column name="report">report_ctrm_contracts</column>
+          <column name="infile">infile_ctrm_contracts.docx</column>
+          <column name="outfile">outfile_ctrm_contracts.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.ctrm.request.categories.report">
+          <column name="action_id">action.ctrm.request.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.ctrm.request.categories</column>
+        </record>
+        <record id="report.action.ctrm.offer.categories.report">
+          <column name="action_id">action.ctrm.offer.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.ctrm.offer.categories</column>
+        </record>
+        <record id="report.action.ctrm.contract.categories.report">
+          <column name="action_id">action.ctrm.contract.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.ctrm.contract.categories</column>
+        </record>
+        <record id="report.action.ctrm.requests.report">
+          <column name="action_id">action.ctrm.requests.report</column>
+          <column name="report_id">bc.ui.report.docx.ctrm.requests</column>
+        </record>
+        <record id="report.action.ctrm.offers.report">
+          <column name="action_id">action.ctrm.offers.report</column>
+          <column name="report_id">bc.ui.report.docx.ctrm.offers</column>
+        </record>
+        <record id="report.action.ctrm.contracts.report">
+          <column name="action_id">action.ctrm.contracts.report</column>
+          <column name="report_id">bc.ui.report.docx.ctrm.contracts</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.ctrm.request.categories.search">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.ctrm.request.categories.search</column>
+            <column name="label">Category CTRM Request</column>
+          <column name="parent_id">ui.menu.ctrm</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.ctrm.request.categories.search</column>
+          </record>
+          <record id="ui.menu.ctrm.offer.categories.search">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.ctrm.offer.categories.search</column>
+            <column name="label">Category CTRM Offer</column>
+          <column name="parent_id">ui.menu.ctrm</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.ctrm.offer.categories.search</column>
+          </record>
+          <record id="ui.menu.ctrm.contract.categories.search">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.ctrm.contract.categories.search</column>
+            <column name="label">Category CTRM Contract</column>
+          <column name="parent_id">ui.menu.ctrm</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.ctrm.contract.categories.search</column>
+          </record>
+          <record id="ui.menu.ctrm.requests.search">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.ctrm.requests.search</column>
+            <column name="label">CTRM Request</column>
+          <column name="parent_id">ui.menu.ctrm</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.ctrm.requests.search</column>
+          </record>
+          <record id="ui.menu.ctrm.offers.search">
+          <column name="sequence">8</column>
+            <column name="name">ui.menu.ctrm.offers.search</column>
+            <column name="label">CTRM Offer</column>
+          <column name="parent_id">ui.menu.ctrm</column>
+          <column name="sequence">80</column>
+          <column name="action_id">action.ctrm.offers.search</column>
+          </record>
+          <record id="ui.menu.ctrm.contracts.search">
+          <column name="sequence">13</column>
+            <column name="name">ui.menu.ctrm.contracts.search</column>
+            <column name="label">CTRM Contract</column>
+          <column name="parent_id">ui.menu.ctrm</column>
+          <column name="sequence">130</column>
+          <column name="action_id">action.ctrm.contracts.search</column>
+          </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.ctrm.report">
+          <column name="name">ui.menu.ctrm.report</column>
+          <column name="label">Reports</column>
+        <column name="parent_id">ui.menu.ctrm</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.ctrm.request.categories.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.ctrm.request.categories.report</column>
+            <column name="label">Category CTRM Request</column>
+          <column name="parent_id">ui.menu.ctrm.report</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.ctrm.request.categories.report</column>
+          </record>
+          <record id="ui.menu.ctrm.offer.categories.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.ctrm.offer.categories.report</column>
+            <column name="label">Category CTRM Offer</column>
+          <column name="parent_id">ui.menu.ctrm.report</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.ctrm.offer.categories.report</column>
+          </record>
+          <record id="ui.menu.ctrm.contract.categories.report">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.ctrm.contract.categories.report</column>
+            <column name="label">Category CTRM Contract</column>
+          <column name="parent_id">ui.menu.ctrm.report</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.ctrm.contract.categories.report</column>
+          </record>
+          <record id="ui.menu.ctrm.requests.report">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.ctrm.requests.report</column>
+            <column name="label">CTRM Request</column>
+          <column name="parent_id">ui.menu.ctrm.report</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.ctrm.requests.report</column>
+          </record>
+          <record id="ui.menu.ctrm.offers.report">
+          <column name="sequence">8</column>
+            <column name="name">ui.menu.ctrm.offers.report</column>
+            <column name="label">CTRM Offer</column>
+          <column name="parent_id">ui.menu.ctrm.report</column>
+          <column name="sequence">80</column>
+          <column name="action_id">action.ctrm.offers.report</column>
+          </record>
+          <record id="ui.menu.ctrm.contracts.report">
+          <column name="sequence">13</column>
+            <column name="name">ui.menu.ctrm.contracts.report</column>
+            <column name="label">CTRM Contract</column>
+          <column name="parent_id">ui.menu.ctrm.report</column>
+          <column name="sequence">130</column>
+          <column name="action_id">action.ctrm.contracts.report</column>
+          </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.ctrm.channels.custom">
+          <column name="name">action.ctrm.channels.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.sectors.custom">
+          <column name="name">action.ctrm.sectors.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.teams.custom">
+          <column name="name">action.ctrm.teams.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.groups.custom">
+          <column name="name">action.ctrm.groups.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.texts.custom">
+          <column name="name">action.ctrm.texts.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.schema.texts.custom">
+          <column name="name">action.ctrm.schema.texts.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.request.types.custom">
+          <column name="name">action.ctrm.request.types.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.offer.types.custom">
+          <column name="name">action.ctrm.offer.types.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.ctrm.contract.types.custom">
+          <column name="name">action.ctrm.contract.types.custom</column>
+          <column name="ta">View</column>
+        </record>
+      </records>
+      <records model="bc.view.actions">
+        <record id="view.action.ctrm.channels.custom">
+          <column name="action_id">action.ctrm.channels.custom</column>
+          <column name="view_id">view.ctrm.channels.search</column>
+        </record>
+        <record id="view.action.ctrm.sectors.custom">
+          <column name="action_id">action.ctrm.sectors.custom</column>
+          <column name="view_id">view.ctrm.sectors.search</column>
+        </record>
+        <record id="view.action.ctrm.teams.custom">
+          <column name="action_id">action.ctrm.teams.custom</column>
+          <column name="view_id">view.ctrm.teams.search</column>
+        </record>
+        <record id="view.action.ctrm.groups.custom">
+          <column name="action_id">action.ctrm.groups.custom</column>
+          <column name="view_id">view.ctrm.groups.search</column>
+        </record>
+        <record id="view.action.ctrm.texts.custom">
+          <column name="action_id">action.ctrm.texts.custom</column>
+          <column name="view_id">view.ctrm.texts.search</column>
+        </record>
+        <record id="view.action.ctrm.schema.texts.custom">
+          <column name="action_id">action.ctrm.schema.texts.custom</column>
+          <column name="view_id">view.ctrm.schema.texts.search</column>
+        </record>
+        <record id="view.action.ctrm.request.types.custom">
+          <column name="action_id">action.ctrm.request.types.custom</column>
+          <column name="view_id">view.ctrm.request.types.search</column>
+        </record>
+        <record id="view.action.ctrm.offer.types.custom">
+          <column name="action_id">action.ctrm.offer.types.custom</column>
+          <column name="view_id">view.ctrm.offer.types.search</column>
+        </record>
+        <record id="view.action.ctrm.contract.types.custom">
+          <column name="action_id">action.ctrm.contract.types.custom</column>
+          <column name="view_id">view.ctrm.contract.types.search</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.ctrm.custom">
+          <column name="name">ui.menu.ctrm.custom</column>
+          <column name="label">Customs</column>
+        <column name="parent_id">ui.menu.ctrm</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.ctrm.channels.custom">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.ctrm.channels.custom</column>
+            <column name="label">CTRM Cannels</column>
+          <column name="parent_id">ui.menu.ctrm.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.ctrm.channels.custom</column>
+          </record>
+          <record id="ui.menu.ctrm.sectors.custom">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.ctrm.sectors.custom</column>
+            <column name="label">CTRM Sectors</column>
+          <column name="parent_id">ui.menu.ctrm.custom</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.ctrm.sectors.custom</column>
+          </record>
+          <record id="ui.menu.ctrm.teams.custom">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.ctrm.teams.custom</column>
+            <column name="label">CTRM Teams</column>
+          <column name="parent_id">ui.menu.ctrm.custom</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.ctrm.teams.custom</column>
+          </record>
+          <record id="ui.menu.ctrm.groups.custom">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.ctrm.groups.custom</column>
+            <column name="label">CTRM Groups</column>
+          <column name="parent_id">ui.menu.ctrm.custom</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.ctrm.groups.custom</column>
+          </record>
+          <record id="ui.menu.ctrm.texts.custom">
+          <column name="sequence">4</column>
+            <column name="name">ui.menu.ctrm.texts.custom</column>
+            <column name="label">CTRM Texts</column>
+          <column name="parent_id">ui.menu.ctrm.custom</column>
+          <column name="sequence">40</column>
+          <column name="action_id">action.ctrm.texts.custom</column>
+          </record>
+          <record id="ui.menu.ctrm.schema.texts.custom">
+          <column name="sequence">5</column>
+            <column name="name">ui.menu.ctrm.schema.texts.custom</column>
+            <column name="label">Schema Of CTRM Texts</column>
+          <column name="parent_id">ui.menu.ctrm.custom</column>
+          <column name="sequence">50</column>
+          <column name="action_id">action.ctrm.schema.texts.custom</column>
+          </record>
+          <record id="ui.menu.ctrm.request.types.custom">
+          <column name="sequence">8</column>
+            <column name="name">ui.menu.ctrm.request.types.custom</column>
+            <column name="label">Types CTRM Request</column>
+          <column name="parent_id">ui.menu.ctrm.custom</column>
+          <column name="sequence">80</column>
+          <column name="action_id">action.ctrm.request.types.custom</column>
+          </record>
+          <record id="ui.menu.ctrm.offer.types.custom">
+          <column name="sequence">10</column>
+            <column name="name">ui.menu.ctrm.offer.types.custom</column>
+            <column name="label">Types CTRM Offer</column>
+          <column name="parent_id">ui.menu.ctrm.custom</column>
+          <column name="sequence">100</column>
+          <column name="action_id">action.ctrm.offer.types.custom</column>
+          </record>
+          <record id="ui.menu.ctrm.contract.types.custom">
+          <column name="sequence">12</column>
+            <column name="name">ui.menu.ctrm.contract.types.custom</column>
+            <column name="label">Types CTRM Contract</column>
+          <column name="parent_id">ui.menu.ctrm.custom</column>
+          <column name="sequence">120</column>
+          <column name="action_id">action.ctrm.contract.types.custom</column>
+          </record>
+      </records>
+    </data>
+  </gsrp>

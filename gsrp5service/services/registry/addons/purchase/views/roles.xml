@@ -1,0 +1,1707 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="purchase.readonly">
+          <column name="name">purchase.readonly</column>
+          <column name="note">Module purchase grant readonly</column>
+        </record>
+        <record id="purchase.nodrop">
+          <column name="name">purchase.nodrop</column>
+          <column name="note">Module purchase grant nodrop</column>
+        </record>
+        <record id="purchase.full">
+          <column name="name">purchase.full</column>
+          <column name="note">Module purchase grant full</column>
+        </record>
+        <record id="purchase.crw">
+          <column name="name">purchase.crw</column>
+          <column name="note">Module purchase grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="purchase.texts.readonly">
+          <column name="name">purchase.texts.readonly</column>
+          <column name="note">Model purchase.texts grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.texts.nodrop">
+          <column name="name">purchase.texts.nodrop</column>
+          <column name="note">Model purchase.texts grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.texts.full">
+          <column name="name">purchase.texts.full</column>
+          <column name="note">Model purchase.texts grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.texts.crw">
+          <column name="name">purchase.texts.crw</column>
+          <column name="note">Model purchase.texts grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.schema.texts.readonly">
+          <column name="name">purchase.schema.texts.readonly</column>
+          <column name="note">Model purchase.schema.texts grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.schema.texts.nodrop">
+          <column name="name">purchase.schema.texts.nodrop</column>
+          <column name="note">Model purchase.schema.texts grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.schema.texts.full">
+          <column name="name">purchase.schema.texts.full</column>
+          <column name="note">Model purchase.schema.texts grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.schema.texts.crw">
+          <column name="name">purchase.schema.texts.crw</column>
+          <column name="note">Model purchase.schema.texts grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.schema.text.items.readonly">
+          <column name="name">purchase.schema.text.items.readonly</column>
+          <column name="note">Model purchase.schema.text.items grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.schema.text.items.nodrop">
+          <column name="name">purchase.schema.text.items.nodrop</column>
+          <column name="note">Model purchase.schema.text.items grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.schema.text.items.full">
+          <column name="name">purchase.schema.text.items.full</column>
+          <column name="note">Model purchase.schema.text.items grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.schema.text.items.crw">
+          <column name="name">purchase.schema.text.items.crw</column>
+          <column name="note">Model purchase.schema.text.items grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.order.types.readonly">
+          <column name="name">purchase.order.types.readonly</column>
+          <column name="note">Model purchase.order.types grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.order.types.nodrop">
+          <column name="name">purchase.order.types.nodrop</column>
+          <column name="note">Model purchase.order.types grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.order.types.full">
+          <column name="name">purchase.order.types.full</column>
+          <column name="note">Model purchase.order.types grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.order.types.crw">
+          <column name="name">purchase.order.types.crw</column>
+          <column name="note">Model purchase.order.types grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.order.type.roles.readonly">
+          <column name="name">purchase.order.type.roles.readonly</column>
+          <column name="note">Model purchase.order.type.roles grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.order.type.roles.nodrop">
+          <column name="name">purchase.order.type.roles.nodrop</column>
+          <column name="note">Model purchase.order.type.roles grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.order.type.roles.full">
+          <column name="name">purchase.order.type.roles.full</column>
+          <column name="note">Model purchase.order.type.roles grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.order.type.roles.crw">
+          <column name="name">purchase.order.type.roles.crw</column>
+          <column name="note">Model purchase.order.type.roles grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.invoice.types.readonly">
+          <column name="name">purchase.invoice.types.readonly</column>
+          <column name="note">Model purchase.invoice.types grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.invoice.types.nodrop">
+          <column name="name">purchase.invoice.types.nodrop</column>
+          <column name="note">Model purchase.invoice.types grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.invoice.types.full">
+          <column name="name">purchase.invoice.types.full</column>
+          <column name="note">Model purchase.invoice.types grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.invoice.types.crw">
+          <column name="name">purchase.invoice.types.crw</column>
+          <column name="note">Model purchase.invoice.types grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.invoice.type.roles.readonly">
+          <column name="name">purchase.invoice.type.roles.readonly</column>
+          <column name="note">Model purchase.invoice.type.roles grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.invoice.type.roles.nodrop">
+          <column name="name">purchase.invoice.type.roles.nodrop</column>
+          <column name="note">Model purchase.invoice.type.roles grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.invoice.type.roles.full">
+          <column name="name">purchase.invoice.type.roles.full</column>
+          <column name="note">Model purchase.invoice.type.roles grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.invoice.type.roles.crw">
+          <column name="name">purchase.invoice.type.roles.crw</column>
+          <column name="note">Model purchase.invoice.type.roles grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.order.categories.readonly">
+          <column name="name">purchase.order.categories.readonly</column>
+          <column name="note">Model purchase.order.categories grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.order.categories.nodrop">
+          <column name="name">purchase.order.categories.nodrop</column>
+          <column name="note">Model purchase.order.categories grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.order.categories.full">
+          <column name="name">purchase.order.categories.full</column>
+          <column name="note">Model purchase.order.categories grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.order.categories.crw">
+          <column name="name">purchase.order.categories.crw</column>
+          <column name="note">Model purchase.order.categories grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.invoce.categories.readonly">
+          <column name="name">purchase.invoce.categories.readonly</column>
+          <column name="note">Model purchase.invoce.categories grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.invoce.categories.nodrop">
+          <column name="name">purchase.invoce.categories.nodrop</column>
+          <column name="note">Model purchase.invoce.categories grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.invoce.categories.full">
+          <column name="name">purchase.invoce.categories.full</column>
+          <column name="note">Model purchase.invoce.categories grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.invoce.categories.crw">
+          <column name="name">purchase.invoce.categories.crw</column>
+          <column name="note">Model purchase.invoce.categories grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.orders.readonly">
+          <column name="name">purchase.orders.readonly</column>
+          <column name="note">Model purchase.orders grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.orders.nodrop">
+          <column name="name">purchase.orders.nodrop</column>
+          <column name="note">Model purchase.orders grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.orders.full">
+          <column name="name">purchase.orders.full</column>
+          <column name="note">Model purchase.orders grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.orders.crw">
+          <column name="name">purchase.orders.crw</column>
+          <column name="note">Model purchase.orders grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.order.texts.readonly">
+          <column name="name">purchase.order.texts.readonly</column>
+          <column name="note">Model purchase.order.texts grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.order.texts.nodrop">
+          <column name="name">purchase.order.texts.nodrop</column>
+          <column name="note">Model purchase.order.texts grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.order.texts.full">
+          <column name="name">purchase.order.texts.full</column>
+          <column name="note">Model purchase.order.texts grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.order.texts.crw">
+          <column name="name">purchase.order.texts.crw</column>
+          <column name="note">Model purchase.order.texts grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.order.roles.readonly">
+          <column name="name">purchase.order.roles.readonly</column>
+          <column name="note">Model purchase.order.roles grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.order.roles.nodrop">
+          <column name="name">purchase.order.roles.nodrop</column>
+          <column name="note">Model purchase.order.roles grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.order.roles.full">
+          <column name="name">purchase.order.roles.full</column>
+          <column name="note">Model purchase.order.roles grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.order.roles.crw">
+          <column name="name">purchase.order.roles.crw</column>
+          <column name="note">Model purchase.order.roles grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.order.items.readonly">
+          <column name="name">purchase.order.items.readonly</column>
+          <column name="note">Model purchase.order.items grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.order.items.nodrop">
+          <column name="name">purchase.order.items.nodrop</column>
+          <column name="note">Model purchase.order.items grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.order.items.full">
+          <column name="name">purchase.order.items.full</column>
+          <column name="note">Model purchase.order.items grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.order.items.crw">
+          <column name="name">purchase.order.items.crw</column>
+          <column name="note">Model purchase.order.items grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.order.item.texts.readonly">
+          <column name="name">purchase.order.item.texts.readonly</column>
+          <column name="note">Model purchase.order.item.texts grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.order.item.texts.nodrop">
+          <column name="name">purchase.order.item.texts.nodrop</column>
+          <column name="note">Model purchase.order.item.texts grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.order.item.texts.full">
+          <column name="name">purchase.order.item.texts.full</column>
+          <column name="note">Model purchase.order.item.texts grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.order.item.texts.crw">
+          <column name="name">purchase.order.item.texts.crw</column>
+          <column name="note">Model purchase.order.item.texts grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.order.item.roles.readonly">
+          <column name="name">purchase.order.item.roles.readonly</column>
+          <column name="note">Model purchase.order.item.roles grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.order.item.roles.nodrop">
+          <column name="name">purchase.order.item.roles.nodrop</column>
+          <column name="note">Model purchase.order.item.roles grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.order.item.roles.full">
+          <column name="name">purchase.order.item.roles.full</column>
+          <column name="note">Model purchase.order.item.roles grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.order.item.roles.crw">
+          <column name="name">purchase.order.item.roles.crw</column>
+          <column name="note">Model purchase.order.item.roles grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.order.item.delivery.schedules.readonly">
+          <column name="name">purchase.order.item.delivery.schedules.readonly</column>
+          <column name="note">Model purchase.order.item.delivery.schedules grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.order.item.delivery.schedules.nodrop">
+          <column name="name">purchase.order.item.delivery.schedules.nodrop</column>
+          <column name="note">Model purchase.order.item.delivery.schedules grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.order.item.delivery.schedules.full">
+          <column name="name">purchase.order.item.delivery.schedules.full</column>
+          <column name="note">Model purchase.order.item.delivery.schedules grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.order.item.delivery.schedules.crw">
+          <column name="name">purchase.order.item.delivery.schedules.crw</column>
+          <column name="note">Model purchase.order.item.delivery.schedules grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.invoices.readonly">
+          <column name="name">purchase.invoices.readonly</column>
+          <column name="note">Model purchase.invoices grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.invoices.nodrop">
+          <column name="name">purchase.invoices.nodrop</column>
+          <column name="note">Model purchase.invoices grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.invoices.full">
+          <column name="name">purchase.invoices.full</column>
+          <column name="note">Model purchase.invoices grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.invoices.crw">
+          <column name="name">purchase.invoices.crw</column>
+          <column name="note">Model purchase.invoices grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.invoice.texts.readonly">
+          <column name="name">purchase.invoice.texts.readonly</column>
+          <column name="note">Model purchase.invoice.texts grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.invoice.texts.nodrop">
+          <column name="name">purchase.invoice.texts.nodrop</column>
+          <column name="note">Model purchase.invoice.texts grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.invoice.texts.full">
+          <column name="name">purchase.invoice.texts.full</column>
+          <column name="note">Model purchase.invoice.texts grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.invoice.texts.crw">
+          <column name="name">purchase.invoice.texts.crw</column>
+          <column name="note">Model purchase.invoice.texts grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.invoice.roles.readonly">
+          <column name="name">purchase.invoice.roles.readonly</column>
+          <column name="note">Model purchase.invoice.roles grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.invoice.roles.nodrop">
+          <column name="name">purchase.invoice.roles.nodrop</column>
+          <column name="note">Model purchase.invoice.roles grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.invoice.roles.full">
+          <column name="name">purchase.invoice.roles.full</column>
+          <column name="note">Model purchase.invoice.roles grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.invoice.roles.crw">
+          <column name="name">purchase.invoice.roles.crw</column>
+          <column name="note">Model purchase.invoice.roles grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.invoice.items.readonly">
+          <column name="name">purchase.invoice.items.readonly</column>
+          <column name="note">Model purchase.invoice.items grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.invoice.items.nodrop">
+          <column name="name">purchase.invoice.items.nodrop</column>
+          <column name="note">Model purchase.invoice.items grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.invoice.items.full">
+          <column name="name">purchase.invoice.items.full</column>
+          <column name="note">Model purchase.invoice.items grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.invoice.items.crw">
+          <column name="name">purchase.invoice.items.crw</column>
+          <column name="note">Model purchase.invoice.items grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.invoice.item.texts.readonly">
+          <column name="name">purchase.invoice.item.texts.readonly</column>
+          <column name="note">Model purchase.invoice.item.texts grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.invoice.item.texts.nodrop">
+          <column name="name">purchase.invoice.item.texts.nodrop</column>
+          <column name="note">Model purchase.invoice.item.texts grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.invoice.item.texts.full">
+          <column name="name">purchase.invoice.item.texts.full</column>
+          <column name="note">Model purchase.invoice.item.texts grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.invoice.item.texts.crw">
+          <column name="name">purchase.invoice.item.texts.crw</column>
+          <column name="note">Model purchase.invoice.item.texts grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.invoice.item.roles.readonly">
+          <column name="name">purchase.invoice.item.roles.readonly</column>
+          <column name="note">Model purchase.invoice.item.roles grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.invoice.item.roles.nodrop">
+          <column name="name">purchase.invoice.item.roles.nodrop</column>
+          <column name="note">Model purchase.invoice.item.roles grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.invoice.item.roles.full">
+          <column name="name">purchase.invoice.item.roles.full</column>
+          <column name="note">Model purchase.invoice.item.roles grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.invoice.item.roles.crw">
+          <column name="name">purchase.invoice.item.roles.crw</column>
+          <column name="note">Model purchase.invoice.item.roles grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="purchase.invoce.item.delivery.schedules.readonly">
+          <column name="name">purchase.invoce.item.delivery.schedules.readonly</column>
+          <column name="note">Model purchase.invoce.item.delivery.schedules grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="purchase.invoce.item.delivery.schedules.nodrop">
+          <column name="name">purchase.invoce.item.delivery.schedules.nodrop</column>
+          <column name="note">Model purchase.invoce.item.delivery.schedules grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="purchase.invoce.item.delivery.schedules.full">
+          <column name="name">purchase.invoce.item.delivery.schedules.full</column>
+          <column name="note">Model purchase.invoce.item.delivery.schedules grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="purchase.invoce.item.delivery.schedules.crw">
+          <column name="name">purchase.invoce.item.delivery.schedules.crw</column>
+          <column name="note">Model purchase.invoce.item.delivery.schedules grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+        <record id="md.purchase.product.readonly">
+          <column name="name">md.purchase.product.readonly</column>
+          <column name="note">Model md.purchase.product grant readonly</column>
+          <column name="group_id">purchase.readonly</column>
+        </record>
+        <record id="md.purchase.product.nodrop">
+          <column name="name">md.purchase.product.nodrop</column>
+          <column name="note">Model md.purchase.product grant nodrop</column>
+          <column name="group_id">purchase.nodrop</column>
+        </record>
+        <record id="md.purchase.product.full">
+          <column name="name">md.purchase.product.full</column>
+          <column name="note">Model md.purchase.product grant full</column>
+          <column name="group_id">purchase.full</column>
+        </record>
+        <record id="md.purchase.product.crw">
+          <column name="name">md.purchase.product.crw</column>
+          <column name="note">Model md.purchase.product grant crw</column>
+          <column name="group_id">purchase.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="purchase.purchase.texts.readonly">
+          <column name="access_id">purchase.texts.readonly</column>
+          <column name="model_id">purchase.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.texts.nodrop">
+          <column name="access_id">purchase.texts.nodrop</column>
+          <column name="model_id">purchase.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.texts.full">
+          <column name="access_id">purchase.texts.full</column>
+          <column name="model_id">purchase.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.texts.crw">
+          <column name="access_id">purchase.texts.crw</column>
+          <column name="model_id">purchase.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.schema.texts.readonly">
+          <column name="access_id">purchase.schema.texts.readonly</column>
+          <column name="model_id">purchase.schema.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.schema.texts.nodrop">
+          <column name="access_id">purchase.schema.texts.nodrop</column>
+          <column name="model_id">purchase.schema.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.schema.texts.full">
+          <column name="access_id">purchase.schema.texts.full</column>
+          <column name="model_id">purchase.schema.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.schema.texts.crw">
+          <column name="access_id">purchase.schema.texts.crw</column>
+          <column name="model_id">purchase.schema.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.schema.text.items.readonly">
+          <column name="access_id">purchase.schema.text.items.readonly</column>
+          <column name="model_id">purchase.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.schema.text.items.nodrop">
+          <column name="access_id">purchase.schema.text.items.nodrop</column>
+          <column name="model_id">purchase.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.schema.text.items.full">
+          <column name="access_id">purchase.schema.text.items.full</column>
+          <column name="model_id">purchase.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.schema.text.items.crw">
+          <column name="access_id">purchase.schema.text.items.crw</column>
+          <column name="model_id">purchase.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.types.readonly">
+          <column name="access_id">purchase.order.types.readonly</column>
+          <column name="model_id">purchase.order.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.order.types.nodrop">
+          <column name="access_id">purchase.order.types.nodrop</column>
+          <column name="model_id">purchase.order.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.types.full">
+          <column name="access_id">purchase.order.types.full</column>
+          <column name="model_id">purchase.order.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.types.crw">
+          <column name="access_id">purchase.order.types.crw</column>
+          <column name="model_id">purchase.order.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.type.roles.readonly">
+          <column name="access_id">purchase.order.type.roles.readonly</column>
+          <column name="model_id">purchase.order.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.order.type.roles.nodrop">
+          <column name="access_id">purchase.order.type.roles.nodrop</column>
+          <column name="model_id">purchase.order.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.type.roles.full">
+          <column name="access_id">purchase.order.type.roles.full</column>
+          <column name="model_id">purchase.order.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.type.roles.crw">
+          <column name="access_id">purchase.order.type.roles.crw</column>
+          <column name="model_id">purchase.order.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.types.readonly">
+          <column name="access_id">purchase.invoice.types.readonly</column>
+          <column name="model_id">purchase.invoice.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.types.nodrop">
+          <column name="access_id">purchase.invoice.types.nodrop</column>
+          <column name="model_id">purchase.invoice.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.types.full">
+          <column name="access_id">purchase.invoice.types.full</column>
+          <column name="model_id">purchase.invoice.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.types.crw">
+          <column name="access_id">purchase.invoice.types.crw</column>
+          <column name="model_id">purchase.invoice.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.type.roles.readonly">
+          <column name="access_id">purchase.invoice.type.roles.readonly</column>
+          <column name="model_id">purchase.invoice.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.type.roles.nodrop">
+          <column name="access_id">purchase.invoice.type.roles.nodrop</column>
+          <column name="model_id">purchase.invoice.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.type.roles.full">
+          <column name="access_id">purchase.invoice.type.roles.full</column>
+          <column name="model_id">purchase.invoice.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.type.roles.crw">
+          <column name="access_id">purchase.invoice.type.roles.crw</column>
+          <column name="model_id">purchase.invoice.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.categories.readonly">
+          <column name="access_id">purchase.order.categories.readonly</column>
+          <column name="model_id">purchase.order.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.order.categories.nodrop">
+          <column name="access_id">purchase.order.categories.nodrop</column>
+          <column name="model_id">purchase.order.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.categories.full">
+          <column name="access_id">purchase.order.categories.full</column>
+          <column name="model_id">purchase.order.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.categories.crw">
+          <column name="access_id">purchase.order.categories.crw</column>
+          <column name="model_id">purchase.order.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoce.categories.readonly">
+          <column name="access_id">purchase.invoce.categories.readonly</column>
+          <column name="model_id">purchase.invoce.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.invoce.categories.nodrop">
+          <column name="access_id">purchase.invoce.categories.nodrop</column>
+          <column name="model_id">purchase.invoce.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoce.categories.full">
+          <column name="access_id">purchase.invoce.categories.full</column>
+          <column name="model_id">purchase.invoce.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoce.categories.crw">
+          <column name="access_id">purchase.invoce.categories.crw</column>
+          <column name="model_id">purchase.invoce.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.orders.readonly">
+          <column name="access_id">purchase.orders.readonly</column>
+          <column name="model_id">purchase.orders</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.orders.nodrop">
+          <column name="access_id">purchase.orders.nodrop</column>
+          <column name="model_id">purchase.orders</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.orders.full">
+          <column name="access_id">purchase.orders.full</column>
+          <column name="model_id">purchase.orders</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.orders.crw">
+          <column name="access_id">purchase.orders.crw</column>
+          <column name="model_id">purchase.orders</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.texts.readonly">
+          <column name="access_id">purchase.order.texts.readonly</column>
+          <column name="model_id">purchase.order.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.order.texts.nodrop">
+          <column name="access_id">purchase.order.texts.nodrop</column>
+          <column name="model_id">purchase.order.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.texts.full">
+          <column name="access_id">purchase.order.texts.full</column>
+          <column name="model_id">purchase.order.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.texts.crw">
+          <column name="access_id">purchase.order.texts.crw</column>
+          <column name="model_id">purchase.order.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.roles.readonly">
+          <column name="access_id">purchase.order.roles.readonly</column>
+          <column name="model_id">purchase.order.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.order.roles.nodrop">
+          <column name="access_id">purchase.order.roles.nodrop</column>
+          <column name="model_id">purchase.order.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.roles.full">
+          <column name="access_id">purchase.order.roles.full</column>
+          <column name="model_id">purchase.order.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.roles.crw">
+          <column name="access_id">purchase.order.roles.crw</column>
+          <column name="model_id">purchase.order.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.items.readonly">
+          <column name="access_id">purchase.order.items.readonly</column>
+          <column name="model_id">purchase.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.order.items.nodrop">
+          <column name="access_id">purchase.order.items.nodrop</column>
+          <column name="model_id">purchase.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.items.full">
+          <column name="access_id">purchase.order.items.full</column>
+          <column name="model_id">purchase.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.items.crw">
+          <column name="access_id">purchase.order.items.crw</column>
+          <column name="model_id">purchase.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.item.texts.readonly">
+          <column name="access_id">purchase.order.item.texts.readonly</column>
+          <column name="model_id">purchase.order.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.order.item.texts.nodrop">
+          <column name="access_id">purchase.order.item.texts.nodrop</column>
+          <column name="model_id">purchase.order.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.item.texts.full">
+          <column name="access_id">purchase.order.item.texts.full</column>
+          <column name="model_id">purchase.order.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.item.texts.crw">
+          <column name="access_id">purchase.order.item.texts.crw</column>
+          <column name="model_id">purchase.order.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.item.roles.readonly">
+          <column name="access_id">purchase.order.item.roles.readonly</column>
+          <column name="model_id">purchase.order.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.order.item.roles.nodrop">
+          <column name="access_id">purchase.order.item.roles.nodrop</column>
+          <column name="model_id">purchase.order.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.item.roles.full">
+          <column name="access_id">purchase.order.item.roles.full</column>
+          <column name="model_id">purchase.order.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.item.roles.crw">
+          <column name="access_id">purchase.order.item.roles.crw</column>
+          <column name="model_id">purchase.order.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.item.delivery.schedules.readonly">
+          <column name="access_id">purchase.order.item.delivery.schedules.readonly</column>
+          <column name="model_id">purchase.order.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.order.item.delivery.schedules.nodrop">
+          <column name="access_id">purchase.order.item.delivery.schedules.nodrop</column>
+          <column name="model_id">purchase.order.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.item.delivery.schedules.full">
+          <column name="access_id">purchase.order.item.delivery.schedules.full</column>
+          <column name="model_id">purchase.order.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.order.item.delivery.schedules.crw">
+          <column name="access_id">purchase.order.item.delivery.schedules.crw</column>
+          <column name="model_id">purchase.order.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoices.readonly">
+          <column name="access_id">purchase.invoices.readonly</column>
+          <column name="model_id">purchase.invoices</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.invoices.nodrop">
+          <column name="access_id">purchase.invoices.nodrop</column>
+          <column name="model_id">purchase.invoices</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoices.full">
+          <column name="access_id">purchase.invoices.full</column>
+          <column name="model_id">purchase.invoices</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoices.crw">
+          <column name="access_id">purchase.invoices.crw</column>
+          <column name="model_id">purchase.invoices</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.texts.readonly">
+          <column name="access_id">purchase.invoice.texts.readonly</column>
+          <column name="model_id">purchase.invoice.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.texts.nodrop">
+          <column name="access_id">purchase.invoice.texts.nodrop</column>
+          <column name="model_id">purchase.invoice.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.texts.full">
+          <column name="access_id">purchase.invoice.texts.full</column>
+          <column name="model_id">purchase.invoice.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.texts.crw">
+          <column name="access_id">purchase.invoice.texts.crw</column>
+          <column name="model_id">purchase.invoice.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.roles.readonly">
+          <column name="access_id">purchase.invoice.roles.readonly</column>
+          <column name="model_id">purchase.invoice.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.roles.nodrop">
+          <column name="access_id">purchase.invoice.roles.nodrop</column>
+          <column name="model_id">purchase.invoice.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.roles.full">
+          <column name="access_id">purchase.invoice.roles.full</column>
+          <column name="model_id">purchase.invoice.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.roles.crw">
+          <column name="access_id">purchase.invoice.roles.crw</column>
+          <column name="model_id">purchase.invoice.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.items.readonly">
+          <column name="access_id">purchase.invoice.items.readonly</column>
+          <column name="model_id">purchase.invoice.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.items.nodrop">
+          <column name="access_id">purchase.invoice.items.nodrop</column>
+          <column name="model_id">purchase.invoice.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.items.full">
+          <column name="access_id">purchase.invoice.items.full</column>
+          <column name="model_id">purchase.invoice.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.items.crw">
+          <column name="access_id">purchase.invoice.items.crw</column>
+          <column name="model_id">purchase.invoice.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.item.texts.readonly">
+          <column name="access_id">purchase.invoice.item.texts.readonly</column>
+          <column name="model_id">purchase.invoice.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.item.texts.nodrop">
+          <column name="access_id">purchase.invoice.item.texts.nodrop</column>
+          <column name="model_id">purchase.invoice.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.item.texts.full">
+          <column name="access_id">purchase.invoice.item.texts.full</column>
+          <column name="model_id">purchase.invoice.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.item.texts.crw">
+          <column name="access_id">purchase.invoice.item.texts.crw</column>
+          <column name="model_id">purchase.invoice.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.item.roles.readonly">
+          <column name="access_id">purchase.invoice.item.roles.readonly</column>
+          <column name="model_id">purchase.invoice.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.item.roles.nodrop">
+          <column name="access_id">purchase.invoice.item.roles.nodrop</column>
+          <column name="model_id">purchase.invoice.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.item.roles.full">
+          <column name="access_id">purchase.invoice.item.roles.full</column>
+          <column name="model_id">purchase.invoice.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoice.item.roles.crw">
+          <column name="access_id">purchase.invoice.item.roles.crw</column>
+          <column name="model_id">purchase.invoice.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoce.item.delivery.schedules.readonly">
+          <column name="access_id">purchase.invoce.item.delivery.schedules.readonly</column>
+          <column name="model_id">purchase.invoce.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.purchase.invoce.item.delivery.schedules.nodrop">
+          <column name="access_id">purchase.invoce.item.delivery.schedules.nodrop</column>
+          <column name="model_id">purchase.invoce.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoce.item.delivery.schedules.full">
+          <column name="access_id">purchase.invoce.item.delivery.schedules.full</column>
+          <column name="model_id">purchase.invoce.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.purchase.invoce.item.delivery.schedules.crw">
+          <column name="access_id">purchase.invoce.item.delivery.schedules.crw</column>
+          <column name="model_id">purchase.invoce.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.md.purchase.product.readonly">
+          <column name="access_id">md.purchase.product.readonly</column>
+          <column name="model_id">md.purchase.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="purchase.md.purchase.product.nodrop">
+          <column name="access_id">md.purchase.product.nodrop</column>
+          <column name="model_id">md.purchase.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.md.purchase.product.full">
+          <column name="access_id">md.purchase.product.full</column>
+          <column name="model_id">md.purchase.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="purchase.md.purchase.product.crw">
+          <column name="access_id">md.purchase.product.crw</column>
+          <column name="model_id">md.purchase.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

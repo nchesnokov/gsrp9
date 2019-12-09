@@ -1,0 +1,2687 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="ctrm.readonly">
+          <column name="name">ctrm.readonly</column>
+          <column name="note">Module ctrm grant readonly</column>
+        </record>
+        <record id="ctrm.nodrop">
+          <column name="name">ctrm.nodrop</column>
+          <column name="note">Module ctrm grant nodrop</column>
+        </record>
+        <record id="ctrm.full">
+          <column name="name">ctrm.full</column>
+          <column name="note">Module ctrm grant full</column>
+        </record>
+        <record id="ctrm.crw">
+          <column name="name">ctrm.crw</column>
+          <column name="note">Module ctrm grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="ctrm.channels.readonly">
+          <column name="name">ctrm.channels.readonly</column>
+          <column name="note">Model ctrm.channels grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.channels.nodrop">
+          <column name="name">ctrm.channels.nodrop</column>
+          <column name="note">Model ctrm.channels grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.channels.full">
+          <column name="name">ctrm.channels.full</column>
+          <column name="note">Model ctrm.channels grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.channels.crw">
+          <column name="name">ctrm.channels.crw</column>
+          <column name="note">Model ctrm.channels grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.sectors.readonly">
+          <column name="name">ctrm.sectors.readonly</column>
+          <column name="note">Model ctrm.sectors grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.sectors.nodrop">
+          <column name="name">ctrm.sectors.nodrop</column>
+          <column name="note">Model ctrm.sectors grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.sectors.full">
+          <column name="name">ctrm.sectors.full</column>
+          <column name="note">Model ctrm.sectors grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.sectors.crw">
+          <column name="name">ctrm.sectors.crw</column>
+          <column name="note">Model ctrm.sectors grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.teams.readonly">
+          <column name="name">ctrm.teams.readonly</column>
+          <column name="note">Model ctrm.teams grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.teams.nodrop">
+          <column name="name">ctrm.teams.nodrop</column>
+          <column name="note">Model ctrm.teams grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.teams.full">
+          <column name="name">ctrm.teams.full</column>
+          <column name="note">Model ctrm.teams grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.teams.crw">
+          <column name="name">ctrm.teams.crw</column>
+          <column name="note">Model ctrm.teams grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.groups.readonly">
+          <column name="name">ctrm.groups.readonly</column>
+          <column name="note">Model ctrm.groups grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.groups.nodrop">
+          <column name="name">ctrm.groups.nodrop</column>
+          <column name="note">Model ctrm.groups grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.groups.full">
+          <column name="name">ctrm.groups.full</column>
+          <column name="note">Model ctrm.groups grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.groups.crw">
+          <column name="name">ctrm.groups.crw</column>
+          <column name="note">Model ctrm.groups grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.texts.readonly">
+          <column name="name">ctrm.texts.readonly</column>
+          <column name="note">Model ctrm.texts grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.texts.nodrop">
+          <column name="name">ctrm.texts.nodrop</column>
+          <column name="note">Model ctrm.texts grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.texts.full">
+          <column name="name">ctrm.texts.full</column>
+          <column name="note">Model ctrm.texts grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.texts.crw">
+          <column name="name">ctrm.texts.crw</column>
+          <column name="note">Model ctrm.texts grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.schema.texts.readonly">
+          <column name="name">ctrm.schema.texts.readonly</column>
+          <column name="note">Model ctrm.schema.texts grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.schema.texts.nodrop">
+          <column name="name">ctrm.schema.texts.nodrop</column>
+          <column name="note">Model ctrm.schema.texts grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.schema.texts.full">
+          <column name="name">ctrm.schema.texts.full</column>
+          <column name="note">Model ctrm.schema.texts grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.schema.texts.crw">
+          <column name="name">ctrm.schema.texts.crw</column>
+          <column name="note">Model ctrm.schema.texts grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.schema.text.items.readonly">
+          <column name="name">ctrm.schema.text.items.readonly</column>
+          <column name="note">Model ctrm.schema.text.items grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.schema.text.items.nodrop">
+          <column name="name">ctrm.schema.text.items.nodrop</column>
+          <column name="note">Model ctrm.schema.text.items grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.schema.text.items.full">
+          <column name="name">ctrm.schema.text.items.full</column>
+          <column name="note">Model ctrm.schema.text.items grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.schema.text.items.crw">
+          <column name="name">ctrm.schema.text.items.crw</column>
+          <column name="note">Model ctrm.schema.text.items grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.origin.quotes.readonly">
+          <column name="name">ctrm.origin.quotes.readonly</column>
+          <column name="note">Model ctrm.origin.quotes grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.origin.quotes.nodrop">
+          <column name="name">ctrm.origin.quotes.nodrop</column>
+          <column name="note">Model ctrm.origin.quotes grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.origin.quotes.full">
+          <column name="name">ctrm.origin.quotes.full</column>
+          <column name="note">Model ctrm.origin.quotes grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.origin.quotes.crw">
+          <column name="name">ctrm.origin.quotes.crw</column>
+          <column name="note">Model ctrm.origin.quotes grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.request.types.readonly">
+          <column name="name">ctrm.request.types.readonly</column>
+          <column name="note">Model ctrm.request.types grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.request.types.nodrop">
+          <column name="name">ctrm.request.types.nodrop</column>
+          <column name="note">Model ctrm.request.types grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.request.types.full">
+          <column name="name">ctrm.request.types.full</column>
+          <column name="note">Model ctrm.request.types grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.request.types.crw">
+          <column name="name">ctrm.request.types.crw</column>
+          <column name="note">Model ctrm.request.types grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.request.type.roles.readonly">
+          <column name="name">ctrm.request.type.roles.readonly</column>
+          <column name="note">Model ctrm.request.type.roles grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.request.type.roles.nodrop">
+          <column name="name">ctrm.request.type.roles.nodrop</column>
+          <column name="note">Model ctrm.request.type.roles grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.request.type.roles.full">
+          <column name="name">ctrm.request.type.roles.full</column>
+          <column name="note">Model ctrm.request.type.roles grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.request.type.roles.crw">
+          <column name="name">ctrm.request.type.roles.crw</column>
+          <column name="note">Model ctrm.request.type.roles grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.offer.types.readonly">
+          <column name="name">ctrm.offer.types.readonly</column>
+          <column name="note">Model ctrm.offer.types grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.offer.types.nodrop">
+          <column name="name">ctrm.offer.types.nodrop</column>
+          <column name="note">Model ctrm.offer.types grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.offer.types.full">
+          <column name="name">ctrm.offer.types.full</column>
+          <column name="note">Model ctrm.offer.types grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.offer.types.crw">
+          <column name="name">ctrm.offer.types.crw</column>
+          <column name="note">Model ctrm.offer.types grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.offer.type.roles.readonly">
+          <column name="name">ctrm.offer.type.roles.readonly</column>
+          <column name="note">Model ctrm.offer.type.roles grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.offer.type.roles.nodrop">
+          <column name="name">ctrm.offer.type.roles.nodrop</column>
+          <column name="note">Model ctrm.offer.type.roles grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.offer.type.roles.full">
+          <column name="name">ctrm.offer.type.roles.full</column>
+          <column name="note">Model ctrm.offer.type.roles grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.offer.type.roles.crw">
+          <column name="name">ctrm.offer.type.roles.crw</column>
+          <column name="note">Model ctrm.offer.type.roles grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.contract.types.readonly">
+          <column name="name">ctrm.contract.types.readonly</column>
+          <column name="note">Model ctrm.contract.types grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.contract.types.nodrop">
+          <column name="name">ctrm.contract.types.nodrop</column>
+          <column name="note">Model ctrm.contract.types grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.contract.types.full">
+          <column name="name">ctrm.contract.types.full</column>
+          <column name="note">Model ctrm.contract.types grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.contract.types.crw">
+          <column name="name">ctrm.contract.types.crw</column>
+          <column name="note">Model ctrm.contract.types grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.contract.type.roles.readonly">
+          <column name="name">ctrm.contract.type.roles.readonly</column>
+          <column name="note">Model ctrm.contract.type.roles grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.contract.type.roles.nodrop">
+          <column name="name">ctrm.contract.type.roles.nodrop</column>
+          <column name="note">Model ctrm.contract.type.roles grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.contract.type.roles.full">
+          <column name="name">ctrm.contract.type.roles.full</column>
+          <column name="note">Model ctrm.contract.type.roles grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.contract.type.roles.crw">
+          <column name="name">ctrm.contract.type.roles.crw</column>
+          <column name="note">Model ctrm.contract.type.roles grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.request.categories.readonly">
+          <column name="name">ctrm.request.categories.readonly</column>
+          <column name="note">Model ctrm.request.categories grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.request.categories.nodrop">
+          <column name="name">ctrm.request.categories.nodrop</column>
+          <column name="note">Model ctrm.request.categories grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.request.categories.full">
+          <column name="name">ctrm.request.categories.full</column>
+          <column name="note">Model ctrm.request.categories grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.request.categories.crw">
+          <column name="name">ctrm.request.categories.crw</column>
+          <column name="note">Model ctrm.request.categories grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.offer.categories.readonly">
+          <column name="name">ctrm.offer.categories.readonly</column>
+          <column name="note">Model ctrm.offer.categories grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.offer.categories.nodrop">
+          <column name="name">ctrm.offer.categories.nodrop</column>
+          <column name="note">Model ctrm.offer.categories grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.offer.categories.full">
+          <column name="name">ctrm.offer.categories.full</column>
+          <column name="note">Model ctrm.offer.categories grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.offer.categories.crw">
+          <column name="name">ctrm.offer.categories.crw</column>
+          <column name="note">Model ctrm.offer.categories grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.contract.categories.readonly">
+          <column name="name">ctrm.contract.categories.readonly</column>
+          <column name="note">Model ctrm.contract.categories grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.contract.categories.nodrop">
+          <column name="name">ctrm.contract.categories.nodrop</column>
+          <column name="note">Model ctrm.contract.categories grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.contract.categories.full">
+          <column name="name">ctrm.contract.categories.full</column>
+          <column name="note">Model ctrm.contract.categories grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.contract.categories.crw">
+          <column name="name">ctrm.contract.categories.crw</column>
+          <column name="note">Model ctrm.contract.categories grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.requests.readonly">
+          <column name="name">ctrm.requests.readonly</column>
+          <column name="note">Model ctrm.requests grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.requests.nodrop">
+          <column name="name">ctrm.requests.nodrop</column>
+          <column name="note">Model ctrm.requests grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.requests.full">
+          <column name="name">ctrm.requests.full</column>
+          <column name="note">Model ctrm.requests grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.requests.crw">
+          <column name="name">ctrm.requests.crw</column>
+          <column name="note">Model ctrm.requests grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.request.texts.readonly">
+          <column name="name">ctrm.request.texts.readonly</column>
+          <column name="note">Model ctrm.request.texts grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.request.texts.nodrop">
+          <column name="name">ctrm.request.texts.nodrop</column>
+          <column name="note">Model ctrm.request.texts grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.request.texts.full">
+          <column name="name">ctrm.request.texts.full</column>
+          <column name="note">Model ctrm.request.texts grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.request.texts.crw">
+          <column name="name">ctrm.request.texts.crw</column>
+          <column name="note">Model ctrm.request.texts grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.request.roles.readonly">
+          <column name="name">ctrm.request.roles.readonly</column>
+          <column name="note">Model ctrm.request.roles grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.request.roles.nodrop">
+          <column name="name">ctrm.request.roles.nodrop</column>
+          <column name="note">Model ctrm.request.roles grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.request.roles.full">
+          <column name="name">ctrm.request.roles.full</column>
+          <column name="note">Model ctrm.request.roles grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.request.roles.crw">
+          <column name="name">ctrm.request.roles.crw</column>
+          <column name="note">Model ctrm.request.roles grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.request.items.readonly">
+          <column name="name">ctrm.request.items.readonly</column>
+          <column name="note">Model ctrm.request.items grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.request.items.nodrop">
+          <column name="name">ctrm.request.items.nodrop</column>
+          <column name="note">Model ctrm.request.items grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.request.items.full">
+          <column name="name">ctrm.request.items.full</column>
+          <column name="note">Model ctrm.request.items grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.request.items.crw">
+          <column name="name">ctrm.request.items.crw</column>
+          <column name="note">Model ctrm.request.items grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.request.item.texts.readonly">
+          <column name="name">ctrm.request.item.texts.readonly</column>
+          <column name="note">Model ctrm.request.item.texts grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.request.item.texts.nodrop">
+          <column name="name">ctrm.request.item.texts.nodrop</column>
+          <column name="note">Model ctrm.request.item.texts grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.request.item.texts.full">
+          <column name="name">ctrm.request.item.texts.full</column>
+          <column name="note">Model ctrm.request.item.texts grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.request.item.texts.crw">
+          <column name="name">ctrm.request.item.texts.crw</column>
+          <column name="note">Model ctrm.request.item.texts grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.request.item.roles.readonly">
+          <column name="name">ctrm.request.item.roles.readonly</column>
+          <column name="note">Model ctrm.request.item.roles grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.request.item.roles.nodrop">
+          <column name="name">ctrm.request.item.roles.nodrop</column>
+          <column name="note">Model ctrm.request.item.roles grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.request.item.roles.full">
+          <column name="name">ctrm.request.item.roles.full</column>
+          <column name="note">Model ctrm.request.item.roles grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.request.item.roles.crw">
+          <column name="name">ctrm.request.item.roles.crw</column>
+          <column name="note">Model ctrm.request.item.roles grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.request.item.delivery.schedules.readonly">
+          <column name="name">ctrm.request.item.delivery.schedules.readonly</column>
+          <column name="note">Model ctrm.request.item.delivery.schedules grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.request.item.delivery.schedules.nodrop">
+          <column name="name">ctrm.request.item.delivery.schedules.nodrop</column>
+          <column name="note">Model ctrm.request.item.delivery.schedules grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.request.item.delivery.schedules.full">
+          <column name="name">ctrm.request.item.delivery.schedules.full</column>
+          <column name="note">Model ctrm.request.item.delivery.schedules grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.request.item.delivery.schedules.crw">
+          <column name="name">ctrm.request.item.delivery.schedules.crw</column>
+          <column name="note">Model ctrm.request.item.delivery.schedules grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.offers.readonly">
+          <column name="name">ctrm.offers.readonly</column>
+          <column name="note">Model ctrm.offers grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.offers.nodrop">
+          <column name="name">ctrm.offers.nodrop</column>
+          <column name="note">Model ctrm.offers grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.offers.full">
+          <column name="name">ctrm.offers.full</column>
+          <column name="note">Model ctrm.offers grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.offers.crw">
+          <column name="name">ctrm.offers.crw</column>
+          <column name="note">Model ctrm.offers grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.offer.texts.readonly">
+          <column name="name">ctrm.offer.texts.readonly</column>
+          <column name="note">Model ctrm.offer.texts grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.offer.texts.nodrop">
+          <column name="name">ctrm.offer.texts.nodrop</column>
+          <column name="note">Model ctrm.offer.texts grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.offer.texts.full">
+          <column name="name">ctrm.offer.texts.full</column>
+          <column name="note">Model ctrm.offer.texts grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.offer.texts.crw">
+          <column name="name">ctrm.offer.texts.crw</column>
+          <column name="note">Model ctrm.offer.texts grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.offer.roles.readonly">
+          <column name="name">ctrm.offer.roles.readonly</column>
+          <column name="note">Model ctrm.offer.roles grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.offer.roles.nodrop">
+          <column name="name">ctrm.offer.roles.nodrop</column>
+          <column name="note">Model ctrm.offer.roles grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.offer.roles.full">
+          <column name="name">ctrm.offer.roles.full</column>
+          <column name="note">Model ctrm.offer.roles grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.offer.roles.crw">
+          <column name="name">ctrm.offer.roles.crw</column>
+          <column name="note">Model ctrm.offer.roles grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.offer.items.readonly">
+          <column name="name">ctrm.offer.items.readonly</column>
+          <column name="note">Model ctrm.offer.items grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.offer.items.nodrop">
+          <column name="name">ctrm.offer.items.nodrop</column>
+          <column name="note">Model ctrm.offer.items grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.offer.items.full">
+          <column name="name">ctrm.offer.items.full</column>
+          <column name="note">Model ctrm.offer.items grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.offer.items.crw">
+          <column name="name">ctrm.offer.items.crw</column>
+          <column name="note">Model ctrm.offer.items grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.offer.item.texts.readonly">
+          <column name="name">ctrm.offer.item.texts.readonly</column>
+          <column name="note">Model ctrm.offer.item.texts grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.offer.item.texts.nodrop">
+          <column name="name">ctrm.offer.item.texts.nodrop</column>
+          <column name="note">Model ctrm.offer.item.texts grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.offer.item.texts.full">
+          <column name="name">ctrm.offer.item.texts.full</column>
+          <column name="note">Model ctrm.offer.item.texts grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.offer.item.texts.crw">
+          <column name="name">ctrm.offer.item.texts.crw</column>
+          <column name="note">Model ctrm.offer.item.texts grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.offer.item.roles.readonly">
+          <column name="name">ctrm.offer.item.roles.readonly</column>
+          <column name="note">Model ctrm.offer.item.roles grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.offer.item.roles.nodrop">
+          <column name="name">ctrm.offer.item.roles.nodrop</column>
+          <column name="note">Model ctrm.offer.item.roles grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.offer.item.roles.full">
+          <column name="name">ctrm.offer.item.roles.full</column>
+          <column name="note">Model ctrm.offer.item.roles grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.offer.item.roles.crw">
+          <column name="name">ctrm.offer.item.roles.crw</column>
+          <column name="note">Model ctrm.offer.item.roles grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.offer.item.delivery.schedules.readonly">
+          <column name="name">ctrm.offer.item.delivery.schedules.readonly</column>
+          <column name="note">Model ctrm.offer.item.delivery.schedules grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.offer.item.delivery.schedules.nodrop">
+          <column name="name">ctrm.offer.item.delivery.schedules.nodrop</column>
+          <column name="note">Model ctrm.offer.item.delivery.schedules grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.offer.item.delivery.schedules.full">
+          <column name="name">ctrm.offer.item.delivery.schedules.full</column>
+          <column name="note">Model ctrm.offer.item.delivery.schedules grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.offer.item.delivery.schedules.crw">
+          <column name="name">ctrm.offer.item.delivery.schedules.crw</column>
+          <column name="note">Model ctrm.offer.item.delivery.schedules grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.contracts.readonly">
+          <column name="name">ctrm.contracts.readonly</column>
+          <column name="note">Model ctrm.contracts grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.contracts.nodrop">
+          <column name="name">ctrm.contracts.nodrop</column>
+          <column name="note">Model ctrm.contracts grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.contracts.full">
+          <column name="name">ctrm.contracts.full</column>
+          <column name="note">Model ctrm.contracts grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.contracts.crw">
+          <column name="name">ctrm.contracts.crw</column>
+          <column name="note">Model ctrm.contracts grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.contract.texts.readonly">
+          <column name="name">ctrm.contract.texts.readonly</column>
+          <column name="note">Model ctrm.contract.texts grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.contract.texts.nodrop">
+          <column name="name">ctrm.contract.texts.nodrop</column>
+          <column name="note">Model ctrm.contract.texts grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.contract.texts.full">
+          <column name="name">ctrm.contract.texts.full</column>
+          <column name="note">Model ctrm.contract.texts grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.contract.texts.crw">
+          <column name="name">ctrm.contract.texts.crw</column>
+          <column name="note">Model ctrm.contract.texts grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.contract.roles.readonly">
+          <column name="name">ctrm.contract.roles.readonly</column>
+          <column name="note">Model ctrm.contract.roles grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.contract.roles.nodrop">
+          <column name="name">ctrm.contract.roles.nodrop</column>
+          <column name="note">Model ctrm.contract.roles grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.contract.roles.full">
+          <column name="name">ctrm.contract.roles.full</column>
+          <column name="note">Model ctrm.contract.roles grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.contract.roles.crw">
+          <column name="name">ctrm.contract.roles.crw</column>
+          <column name="note">Model ctrm.contract.roles grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.contract.items.readonly">
+          <column name="name">ctrm.contract.items.readonly</column>
+          <column name="note">Model ctrm.contract.items grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.contract.items.nodrop">
+          <column name="name">ctrm.contract.items.nodrop</column>
+          <column name="note">Model ctrm.contract.items grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.contract.items.full">
+          <column name="name">ctrm.contract.items.full</column>
+          <column name="note">Model ctrm.contract.items grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.contract.items.crw">
+          <column name="name">ctrm.contract.items.crw</column>
+          <column name="note">Model ctrm.contract.items grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.contract.item.texts.readonly">
+          <column name="name">ctrm.contract.item.texts.readonly</column>
+          <column name="note">Model ctrm.contract.item.texts grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.contract.item.texts.nodrop">
+          <column name="name">ctrm.contract.item.texts.nodrop</column>
+          <column name="note">Model ctrm.contract.item.texts grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.contract.item.texts.full">
+          <column name="name">ctrm.contract.item.texts.full</column>
+          <column name="note">Model ctrm.contract.item.texts grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.contract.item.texts.crw">
+          <column name="name">ctrm.contract.item.texts.crw</column>
+          <column name="note">Model ctrm.contract.item.texts grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.contract.item.roles.readonly">
+          <column name="name">ctrm.contract.item.roles.readonly</column>
+          <column name="note">Model ctrm.contract.item.roles grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.contract.item.roles.nodrop">
+          <column name="name">ctrm.contract.item.roles.nodrop</column>
+          <column name="note">Model ctrm.contract.item.roles grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.contract.item.roles.full">
+          <column name="name">ctrm.contract.item.roles.full</column>
+          <column name="note">Model ctrm.contract.item.roles grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.contract.item.roles.crw">
+          <column name="name">ctrm.contract.item.roles.crw</column>
+          <column name="note">Model ctrm.contract.item.roles grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+        <record id="ctrm.contract.item.delivery.schedules.readonly">
+          <column name="name">ctrm.contract.item.delivery.schedules.readonly</column>
+          <column name="note">Model ctrm.contract.item.delivery.schedules grant readonly</column>
+          <column name="group_id">ctrm.readonly</column>
+        </record>
+        <record id="ctrm.contract.item.delivery.schedules.nodrop">
+          <column name="name">ctrm.contract.item.delivery.schedules.nodrop</column>
+          <column name="note">Model ctrm.contract.item.delivery.schedules grant nodrop</column>
+          <column name="group_id">ctrm.nodrop</column>
+        </record>
+        <record id="ctrm.contract.item.delivery.schedules.full">
+          <column name="name">ctrm.contract.item.delivery.schedules.full</column>
+          <column name="note">Model ctrm.contract.item.delivery.schedules grant full</column>
+          <column name="group_id">ctrm.full</column>
+        </record>
+        <record id="ctrm.contract.item.delivery.schedules.crw">
+          <column name="name">ctrm.contract.item.delivery.schedules.crw</column>
+          <column name="note">Model ctrm.contract.item.delivery.schedules grant crw</column>
+          <column name="group_id">ctrm.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="ctrm.ctrm.channels.readonly">
+          <column name="access_id">ctrm.channels.readonly</column>
+          <column name="model_id">ctrm.channels</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.channels.nodrop">
+          <column name="access_id">ctrm.channels.nodrop</column>
+          <column name="model_id">ctrm.channels</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.channels.full">
+          <column name="access_id">ctrm.channels.full</column>
+          <column name="model_id">ctrm.channels</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.channels.crw">
+          <column name="access_id">ctrm.channels.crw</column>
+          <column name="model_id">ctrm.channels</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.sectors.readonly">
+          <column name="access_id">ctrm.sectors.readonly</column>
+          <column name="model_id">ctrm.sectors</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.sectors.nodrop">
+          <column name="access_id">ctrm.sectors.nodrop</column>
+          <column name="model_id">ctrm.sectors</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.sectors.full">
+          <column name="access_id">ctrm.sectors.full</column>
+          <column name="model_id">ctrm.sectors</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.sectors.crw">
+          <column name="access_id">ctrm.sectors.crw</column>
+          <column name="model_id">ctrm.sectors</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.teams.readonly">
+          <column name="access_id">ctrm.teams.readonly</column>
+          <column name="model_id">ctrm.teams</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.teams.nodrop">
+          <column name="access_id">ctrm.teams.nodrop</column>
+          <column name="model_id">ctrm.teams</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.teams.full">
+          <column name="access_id">ctrm.teams.full</column>
+          <column name="model_id">ctrm.teams</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.teams.crw">
+          <column name="access_id">ctrm.teams.crw</column>
+          <column name="model_id">ctrm.teams</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.groups.readonly">
+          <column name="access_id">ctrm.groups.readonly</column>
+          <column name="model_id">ctrm.groups</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.groups.nodrop">
+          <column name="access_id">ctrm.groups.nodrop</column>
+          <column name="model_id">ctrm.groups</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.groups.full">
+          <column name="access_id">ctrm.groups.full</column>
+          <column name="model_id">ctrm.groups</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.groups.crw">
+          <column name="access_id">ctrm.groups.crw</column>
+          <column name="model_id">ctrm.groups</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.texts.readonly">
+          <column name="access_id">ctrm.texts.readonly</column>
+          <column name="model_id">ctrm.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.texts.nodrop">
+          <column name="access_id">ctrm.texts.nodrop</column>
+          <column name="model_id">ctrm.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.texts.full">
+          <column name="access_id">ctrm.texts.full</column>
+          <column name="model_id">ctrm.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.texts.crw">
+          <column name="access_id">ctrm.texts.crw</column>
+          <column name="model_id">ctrm.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.schema.texts.readonly">
+          <column name="access_id">ctrm.schema.texts.readonly</column>
+          <column name="model_id">ctrm.schema.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.schema.texts.nodrop">
+          <column name="access_id">ctrm.schema.texts.nodrop</column>
+          <column name="model_id">ctrm.schema.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.schema.texts.full">
+          <column name="access_id">ctrm.schema.texts.full</column>
+          <column name="model_id">ctrm.schema.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.schema.texts.crw">
+          <column name="access_id">ctrm.schema.texts.crw</column>
+          <column name="model_id">ctrm.schema.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.schema.text.items.readonly">
+          <column name="access_id">ctrm.schema.text.items.readonly</column>
+          <column name="model_id">ctrm.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.schema.text.items.nodrop">
+          <column name="access_id">ctrm.schema.text.items.nodrop</column>
+          <column name="model_id">ctrm.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.schema.text.items.full">
+          <column name="access_id">ctrm.schema.text.items.full</column>
+          <column name="model_id">ctrm.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.schema.text.items.crw">
+          <column name="access_id">ctrm.schema.text.items.crw</column>
+          <column name="model_id">ctrm.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.origin.quotes.readonly">
+          <column name="access_id">ctrm.origin.quotes.readonly</column>
+          <column name="model_id">ctrm.origin.quotes</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.origin.quotes.nodrop">
+          <column name="access_id">ctrm.origin.quotes.nodrop</column>
+          <column name="model_id">ctrm.origin.quotes</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.origin.quotes.full">
+          <column name="access_id">ctrm.origin.quotes.full</column>
+          <column name="model_id">ctrm.origin.quotes</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.origin.quotes.crw">
+          <column name="access_id">ctrm.origin.quotes.crw</column>
+          <column name="model_id">ctrm.origin.quotes</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.types.readonly">
+          <column name="access_id">ctrm.request.types.readonly</column>
+          <column name="model_id">ctrm.request.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.types.nodrop">
+          <column name="access_id">ctrm.request.types.nodrop</column>
+          <column name="model_id">ctrm.request.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.types.full">
+          <column name="access_id">ctrm.request.types.full</column>
+          <column name="model_id">ctrm.request.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.types.crw">
+          <column name="access_id">ctrm.request.types.crw</column>
+          <column name="model_id">ctrm.request.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.type.roles.readonly">
+          <column name="access_id">ctrm.request.type.roles.readonly</column>
+          <column name="model_id">ctrm.request.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.type.roles.nodrop">
+          <column name="access_id">ctrm.request.type.roles.nodrop</column>
+          <column name="model_id">ctrm.request.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.type.roles.full">
+          <column name="access_id">ctrm.request.type.roles.full</column>
+          <column name="model_id">ctrm.request.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.type.roles.crw">
+          <column name="access_id">ctrm.request.type.roles.crw</column>
+          <column name="model_id">ctrm.request.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.types.readonly">
+          <column name="access_id">ctrm.offer.types.readonly</column>
+          <column name="model_id">ctrm.offer.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.types.nodrop">
+          <column name="access_id">ctrm.offer.types.nodrop</column>
+          <column name="model_id">ctrm.offer.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.types.full">
+          <column name="access_id">ctrm.offer.types.full</column>
+          <column name="model_id">ctrm.offer.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.types.crw">
+          <column name="access_id">ctrm.offer.types.crw</column>
+          <column name="model_id">ctrm.offer.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.type.roles.readonly">
+          <column name="access_id">ctrm.offer.type.roles.readonly</column>
+          <column name="model_id">ctrm.offer.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.type.roles.nodrop">
+          <column name="access_id">ctrm.offer.type.roles.nodrop</column>
+          <column name="model_id">ctrm.offer.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.type.roles.full">
+          <column name="access_id">ctrm.offer.type.roles.full</column>
+          <column name="model_id">ctrm.offer.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.type.roles.crw">
+          <column name="access_id">ctrm.offer.type.roles.crw</column>
+          <column name="model_id">ctrm.offer.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.types.readonly">
+          <column name="access_id">ctrm.contract.types.readonly</column>
+          <column name="model_id">ctrm.contract.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.types.nodrop">
+          <column name="access_id">ctrm.contract.types.nodrop</column>
+          <column name="model_id">ctrm.contract.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.types.full">
+          <column name="access_id">ctrm.contract.types.full</column>
+          <column name="model_id">ctrm.contract.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.types.crw">
+          <column name="access_id">ctrm.contract.types.crw</column>
+          <column name="model_id">ctrm.contract.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.type.roles.readonly">
+          <column name="access_id">ctrm.contract.type.roles.readonly</column>
+          <column name="model_id">ctrm.contract.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.type.roles.nodrop">
+          <column name="access_id">ctrm.contract.type.roles.nodrop</column>
+          <column name="model_id">ctrm.contract.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.type.roles.full">
+          <column name="access_id">ctrm.contract.type.roles.full</column>
+          <column name="model_id">ctrm.contract.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.type.roles.crw">
+          <column name="access_id">ctrm.contract.type.roles.crw</column>
+          <column name="model_id">ctrm.contract.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.categories.readonly">
+          <column name="access_id">ctrm.request.categories.readonly</column>
+          <column name="model_id">ctrm.request.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.categories.nodrop">
+          <column name="access_id">ctrm.request.categories.nodrop</column>
+          <column name="model_id">ctrm.request.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.categories.full">
+          <column name="access_id">ctrm.request.categories.full</column>
+          <column name="model_id">ctrm.request.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.categories.crw">
+          <column name="access_id">ctrm.request.categories.crw</column>
+          <column name="model_id">ctrm.request.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.categories.readonly">
+          <column name="access_id">ctrm.offer.categories.readonly</column>
+          <column name="model_id">ctrm.offer.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.categories.nodrop">
+          <column name="access_id">ctrm.offer.categories.nodrop</column>
+          <column name="model_id">ctrm.offer.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.categories.full">
+          <column name="access_id">ctrm.offer.categories.full</column>
+          <column name="model_id">ctrm.offer.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.categories.crw">
+          <column name="access_id">ctrm.offer.categories.crw</column>
+          <column name="model_id">ctrm.offer.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.categories.readonly">
+          <column name="access_id">ctrm.contract.categories.readonly</column>
+          <column name="model_id">ctrm.contract.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.categories.nodrop">
+          <column name="access_id">ctrm.contract.categories.nodrop</column>
+          <column name="model_id">ctrm.contract.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.categories.full">
+          <column name="access_id">ctrm.contract.categories.full</column>
+          <column name="model_id">ctrm.contract.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.categories.crw">
+          <column name="access_id">ctrm.contract.categories.crw</column>
+          <column name="model_id">ctrm.contract.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.requests.readonly">
+          <column name="access_id">ctrm.requests.readonly</column>
+          <column name="model_id">ctrm.requests</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.requests.nodrop">
+          <column name="access_id">ctrm.requests.nodrop</column>
+          <column name="model_id">ctrm.requests</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.requests.full">
+          <column name="access_id">ctrm.requests.full</column>
+          <column name="model_id">ctrm.requests</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.requests.crw">
+          <column name="access_id">ctrm.requests.crw</column>
+          <column name="model_id">ctrm.requests</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.texts.readonly">
+          <column name="access_id">ctrm.request.texts.readonly</column>
+          <column name="model_id">ctrm.request.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.texts.nodrop">
+          <column name="access_id">ctrm.request.texts.nodrop</column>
+          <column name="model_id">ctrm.request.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.texts.full">
+          <column name="access_id">ctrm.request.texts.full</column>
+          <column name="model_id">ctrm.request.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.texts.crw">
+          <column name="access_id">ctrm.request.texts.crw</column>
+          <column name="model_id">ctrm.request.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.roles.readonly">
+          <column name="access_id">ctrm.request.roles.readonly</column>
+          <column name="model_id">ctrm.request.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.roles.nodrop">
+          <column name="access_id">ctrm.request.roles.nodrop</column>
+          <column name="model_id">ctrm.request.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.roles.full">
+          <column name="access_id">ctrm.request.roles.full</column>
+          <column name="model_id">ctrm.request.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.roles.crw">
+          <column name="access_id">ctrm.request.roles.crw</column>
+          <column name="model_id">ctrm.request.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.items.readonly">
+          <column name="access_id">ctrm.request.items.readonly</column>
+          <column name="model_id">ctrm.request.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.items.nodrop">
+          <column name="access_id">ctrm.request.items.nodrop</column>
+          <column name="model_id">ctrm.request.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.items.full">
+          <column name="access_id">ctrm.request.items.full</column>
+          <column name="model_id">ctrm.request.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.items.crw">
+          <column name="access_id">ctrm.request.items.crw</column>
+          <column name="model_id">ctrm.request.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.item.texts.readonly">
+          <column name="access_id">ctrm.request.item.texts.readonly</column>
+          <column name="model_id">ctrm.request.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.item.texts.nodrop">
+          <column name="access_id">ctrm.request.item.texts.nodrop</column>
+          <column name="model_id">ctrm.request.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.item.texts.full">
+          <column name="access_id">ctrm.request.item.texts.full</column>
+          <column name="model_id">ctrm.request.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.item.texts.crw">
+          <column name="access_id">ctrm.request.item.texts.crw</column>
+          <column name="model_id">ctrm.request.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.item.roles.readonly">
+          <column name="access_id">ctrm.request.item.roles.readonly</column>
+          <column name="model_id">ctrm.request.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.item.roles.nodrop">
+          <column name="access_id">ctrm.request.item.roles.nodrop</column>
+          <column name="model_id">ctrm.request.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.item.roles.full">
+          <column name="access_id">ctrm.request.item.roles.full</column>
+          <column name="model_id">ctrm.request.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.item.roles.crw">
+          <column name="access_id">ctrm.request.item.roles.crw</column>
+          <column name="model_id">ctrm.request.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.item.delivery.schedules.readonly">
+          <column name="access_id">ctrm.request.item.delivery.schedules.readonly</column>
+          <column name="model_id">ctrm.request.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.item.delivery.schedules.nodrop">
+          <column name="access_id">ctrm.request.item.delivery.schedules.nodrop</column>
+          <column name="model_id">ctrm.request.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.item.delivery.schedules.full">
+          <column name="access_id">ctrm.request.item.delivery.schedules.full</column>
+          <column name="model_id">ctrm.request.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.request.item.delivery.schedules.crw">
+          <column name="access_id">ctrm.request.item.delivery.schedules.crw</column>
+          <column name="model_id">ctrm.request.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offers.readonly">
+          <column name="access_id">ctrm.offers.readonly</column>
+          <column name="model_id">ctrm.offers</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.offers.nodrop">
+          <column name="access_id">ctrm.offers.nodrop</column>
+          <column name="model_id">ctrm.offers</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offers.full">
+          <column name="access_id">ctrm.offers.full</column>
+          <column name="model_id">ctrm.offers</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offers.crw">
+          <column name="access_id">ctrm.offers.crw</column>
+          <column name="model_id">ctrm.offers</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.texts.readonly">
+          <column name="access_id">ctrm.offer.texts.readonly</column>
+          <column name="model_id">ctrm.offer.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.texts.nodrop">
+          <column name="access_id">ctrm.offer.texts.nodrop</column>
+          <column name="model_id">ctrm.offer.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.texts.full">
+          <column name="access_id">ctrm.offer.texts.full</column>
+          <column name="model_id">ctrm.offer.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.texts.crw">
+          <column name="access_id">ctrm.offer.texts.crw</column>
+          <column name="model_id">ctrm.offer.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.roles.readonly">
+          <column name="access_id">ctrm.offer.roles.readonly</column>
+          <column name="model_id">ctrm.offer.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.roles.nodrop">
+          <column name="access_id">ctrm.offer.roles.nodrop</column>
+          <column name="model_id">ctrm.offer.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.roles.full">
+          <column name="access_id">ctrm.offer.roles.full</column>
+          <column name="model_id">ctrm.offer.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.roles.crw">
+          <column name="access_id">ctrm.offer.roles.crw</column>
+          <column name="model_id">ctrm.offer.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.items.readonly">
+          <column name="access_id">ctrm.offer.items.readonly</column>
+          <column name="model_id">ctrm.offer.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.items.nodrop">
+          <column name="access_id">ctrm.offer.items.nodrop</column>
+          <column name="model_id">ctrm.offer.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.items.full">
+          <column name="access_id">ctrm.offer.items.full</column>
+          <column name="model_id">ctrm.offer.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.items.crw">
+          <column name="access_id">ctrm.offer.items.crw</column>
+          <column name="model_id">ctrm.offer.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.item.texts.readonly">
+          <column name="access_id">ctrm.offer.item.texts.readonly</column>
+          <column name="model_id">ctrm.offer.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.item.texts.nodrop">
+          <column name="access_id">ctrm.offer.item.texts.nodrop</column>
+          <column name="model_id">ctrm.offer.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.item.texts.full">
+          <column name="access_id">ctrm.offer.item.texts.full</column>
+          <column name="model_id">ctrm.offer.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.item.texts.crw">
+          <column name="access_id">ctrm.offer.item.texts.crw</column>
+          <column name="model_id">ctrm.offer.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.item.roles.readonly">
+          <column name="access_id">ctrm.offer.item.roles.readonly</column>
+          <column name="model_id">ctrm.offer.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.item.roles.nodrop">
+          <column name="access_id">ctrm.offer.item.roles.nodrop</column>
+          <column name="model_id">ctrm.offer.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.item.roles.full">
+          <column name="access_id">ctrm.offer.item.roles.full</column>
+          <column name="model_id">ctrm.offer.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.item.roles.crw">
+          <column name="access_id">ctrm.offer.item.roles.crw</column>
+          <column name="model_id">ctrm.offer.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.item.delivery.schedules.readonly">
+          <column name="access_id">ctrm.offer.item.delivery.schedules.readonly</column>
+          <column name="model_id">ctrm.offer.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.item.delivery.schedules.nodrop">
+          <column name="access_id">ctrm.offer.item.delivery.schedules.nodrop</column>
+          <column name="model_id">ctrm.offer.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.item.delivery.schedules.full">
+          <column name="access_id">ctrm.offer.item.delivery.schedules.full</column>
+          <column name="model_id">ctrm.offer.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.offer.item.delivery.schedules.crw">
+          <column name="access_id">ctrm.offer.item.delivery.schedules.crw</column>
+          <column name="model_id">ctrm.offer.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contracts.readonly">
+          <column name="access_id">ctrm.contracts.readonly</column>
+          <column name="model_id">ctrm.contracts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.contracts.nodrop">
+          <column name="access_id">ctrm.contracts.nodrop</column>
+          <column name="model_id">ctrm.contracts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contracts.full">
+          <column name="access_id">ctrm.contracts.full</column>
+          <column name="model_id">ctrm.contracts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contracts.crw">
+          <column name="access_id">ctrm.contracts.crw</column>
+          <column name="model_id">ctrm.contracts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.texts.readonly">
+          <column name="access_id">ctrm.contract.texts.readonly</column>
+          <column name="model_id">ctrm.contract.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.texts.nodrop">
+          <column name="access_id">ctrm.contract.texts.nodrop</column>
+          <column name="model_id">ctrm.contract.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.texts.full">
+          <column name="access_id">ctrm.contract.texts.full</column>
+          <column name="model_id">ctrm.contract.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.texts.crw">
+          <column name="access_id">ctrm.contract.texts.crw</column>
+          <column name="model_id">ctrm.contract.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.roles.readonly">
+          <column name="access_id">ctrm.contract.roles.readonly</column>
+          <column name="model_id">ctrm.contract.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.roles.nodrop">
+          <column name="access_id">ctrm.contract.roles.nodrop</column>
+          <column name="model_id">ctrm.contract.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.roles.full">
+          <column name="access_id">ctrm.contract.roles.full</column>
+          <column name="model_id">ctrm.contract.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.roles.crw">
+          <column name="access_id">ctrm.contract.roles.crw</column>
+          <column name="model_id">ctrm.contract.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.items.readonly">
+          <column name="access_id">ctrm.contract.items.readonly</column>
+          <column name="model_id">ctrm.contract.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.items.nodrop">
+          <column name="access_id">ctrm.contract.items.nodrop</column>
+          <column name="model_id">ctrm.contract.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.items.full">
+          <column name="access_id">ctrm.contract.items.full</column>
+          <column name="model_id">ctrm.contract.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.items.crw">
+          <column name="access_id">ctrm.contract.items.crw</column>
+          <column name="model_id">ctrm.contract.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.item.texts.readonly">
+          <column name="access_id">ctrm.contract.item.texts.readonly</column>
+          <column name="model_id">ctrm.contract.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.item.texts.nodrop">
+          <column name="access_id">ctrm.contract.item.texts.nodrop</column>
+          <column name="model_id">ctrm.contract.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.item.texts.full">
+          <column name="access_id">ctrm.contract.item.texts.full</column>
+          <column name="model_id">ctrm.contract.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.item.texts.crw">
+          <column name="access_id">ctrm.contract.item.texts.crw</column>
+          <column name="model_id">ctrm.contract.item.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.item.roles.readonly">
+          <column name="access_id">ctrm.contract.item.roles.readonly</column>
+          <column name="model_id">ctrm.contract.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.item.roles.nodrop">
+          <column name="access_id">ctrm.contract.item.roles.nodrop</column>
+          <column name="model_id">ctrm.contract.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.item.roles.full">
+          <column name="access_id">ctrm.contract.item.roles.full</column>
+          <column name="model_id">ctrm.contract.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.item.roles.crw">
+          <column name="access_id">ctrm.contract.item.roles.crw</column>
+          <column name="model_id">ctrm.contract.item.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.item.delivery.schedules.readonly">
+          <column name="access_id">ctrm.contract.item.delivery.schedules.readonly</column>
+          <column name="model_id">ctrm.contract.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.item.delivery.schedules.nodrop">
+          <column name="access_id">ctrm.contract.item.delivery.schedules.nodrop</column>
+          <column name="model_id">ctrm.contract.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.item.delivery.schedules.full">
+          <column name="access_id">ctrm.contract.item.delivery.schedules.full</column>
+          <column name="model_id">ctrm.contract.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="ctrm.ctrm.contract.item.delivery.schedules.crw">
+          <column name="access_id">ctrm.contract.item.delivery.schedules.crw</column>
+          <column name="model_id">ctrm.contract.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.common">
+          <column name="name">ui.menu.common</column>
+          <column name="label">Common properties &amp; methods</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.common.application.custom">
+          <column name="name">action.common.application.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.common.access.sequences.custom">
+          <column name="name">action.common.access.sequences.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.common.access.sequence.models.custom">
+          <column name="name">action.common.access.sequence.models.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.common.conditions.custom">
+          <column name="name">action.common.conditions.custom</column>
+          <column name="ta">View</column>
+        </record>
+      </records>
+      <records model="bc.view.actions">
+        <record id="view.action.common.application.custom">
+          <column name="action_id">action.common.application.custom</column>
+          <column name="view_id">view.common.application.search</column>
+        </record>
+        <record id="view.action.common.access.sequences.custom">
+          <column name="action_id">action.common.access.sequences.custom</column>
+          <column name="view_id">view.common.access.sequences.search</column>
+        </record>
+        <record id="view.action.common.access.sequence.models.custom">
+          <column name="action_id">action.common.access.sequence.models.custom</column>
+          <column name="view_id">view.common.access.sequence.models.search</column>
+        </record>
+        <record id="view.action.common.conditions.custom">
+          <column name="action_id">action.common.conditions.custom</column>
+          <column name="view_id">view.common.conditions.search</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.common.custom">
+          <column name="name">ui.menu.common.custom</column>
+          <column name="label">Customs</column>
+        <column name="parent_id">ui.menu.common</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.common.application.custom">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.common.application.custom</column>
+            <column name="label">Sequence Access</column>
+          <column name="parent_id">ui.menu.common.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.common.application.custom</column>
+          </record>
+          <record id="ui.menu.common.access.sequences.custom">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.common.access.sequences.custom</column>
+            <column name="label">Sequence Access</column>
+          <column name="parent_id">ui.menu.common.custom</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.common.access.sequences.custom</column>
+          </record>
+          <record id="ui.menu.common.access.sequence.models.custom">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.common.access.sequence.models.custom</column>
+            <column name="label">Models Sequence Access</column>
+          <column name="parent_id">ui.menu.common.custom</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.common.access.sequence.models.custom</column>
+          </record>
+          <record id="ui.menu.common.conditions.custom">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.common.conditions.custom</column>
+            <column name="label">Conditions</column>
+          <column name="parent_id">ui.menu.common.custom</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.common.conditions.custom</column>
+          </record>
+      </records>
+    </data>
+  </gsrp>

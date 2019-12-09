@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="wkf_srm.readonly">
+          <column name="name">wkf_srm.readonly</column>
+          <column name="note">Module wkf_srm grant readonly</column>
+        </record>
+        <record id="wkf_srm.nodrop">
+          <column name="name">wkf_srm.nodrop</column>
+          <column name="note">Module wkf_srm grant nodrop</column>
+        </record>
+        <record id="wkf_srm.full">
+          <column name="name">wkf_srm.full</column>
+          <column name="note">Module wkf_srm grant full</column>
+        </record>
+        <record id="wkf_srm.crw">
+          <column name="name">wkf_srm.crw</column>
+          <column name="note">Module wkf_srm grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="wkf1.workplace.readonly">
+          <column name="name">wkf1.workplace.readonly</column>
+          <column name="note">Model wkf1.workplace grant readonly</column>
+          <column name="group_id">wkf_srm.readonly</column>
+        </record>
+        <record id="wkf1.workplace.nodrop">
+          <column name="name">wkf1.workplace.nodrop</column>
+          <column name="note">Model wkf1.workplace grant nodrop</column>
+          <column name="group_id">wkf_srm.nodrop</column>
+        </record>
+        <record id="wkf1.workplace.full">
+          <column name="name">wkf1.workplace.full</column>
+          <column name="note">Model wkf1.workplace grant full</column>
+          <column name="group_id">wkf_srm.full</column>
+        </record>
+        <record id="wkf1.workplace.crw">
+          <column name="name">wkf1.workplace.crw</column>
+          <column name="note">Model wkf1.workplace grant crw</column>
+          <column name="group_id">wkf_srm.crw</column>
+        </record>
+        <record id="wkf1.element.categories.readonly">
+          <column name="name">wkf1.element.categories.readonly</column>
+          <column name="note">Model wkf1.element.categories grant readonly</column>
+          <column name="group_id">wkf_srm.readonly</column>
+        </record>
+        <record id="wkf1.element.categories.nodrop">
+          <column name="name">wkf1.element.categories.nodrop</column>
+          <column name="note">Model wkf1.element.categories grant nodrop</column>
+          <column name="group_id">wkf_srm.nodrop</column>
+        </record>
+        <record id="wkf1.element.categories.full">
+          <column name="name">wkf1.element.categories.full</column>
+          <column name="note">Model wkf1.element.categories grant full</column>
+          <column name="group_id">wkf_srm.full</column>
+        </record>
+        <record id="wkf1.element.categories.crw">
+          <column name="name">wkf1.element.categories.crw</column>
+          <column name="note">Model wkf1.element.categories grant crw</column>
+          <column name="group_id">wkf_srm.crw</column>
+        </record>
+        <record id="wkf1.elements.readonly">
+          <column name="name">wkf1.elements.readonly</column>
+          <column name="note">Model wkf1.elements grant readonly</column>
+          <column name="group_id">wkf_srm.readonly</column>
+        </record>
+        <record id="wkf1.elements.nodrop">
+          <column name="name">wkf1.elements.nodrop</column>
+          <column name="note">Model wkf1.elements grant nodrop</column>
+          <column name="group_id">wkf_srm.nodrop</column>
+        </record>
+        <record id="wkf1.elements.full">
+          <column name="name">wkf1.elements.full</column>
+          <column name="note">Model wkf1.elements grant full</column>
+          <column name="group_id">wkf_srm.full</column>
+        </record>
+        <record id="wkf1.elements.crw">
+          <column name="name">wkf1.elements.crw</column>
+          <column name="note">Model wkf1.elements grant crw</column>
+          <column name="group_id">wkf_srm.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="wkf_srm.wkf1.workplace.readonly">
+          <column name="access_id">wkf1.workplace.readonly</column>
+          <column name="model_id">wkf1.workplace</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="wkf_srm.wkf1.workplace.nodrop">
+          <column name="access_id">wkf1.workplace.nodrop</column>
+          <column name="model_id">wkf1.workplace</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wkf_srm.wkf1.workplace.full">
+          <column name="access_id">wkf1.workplace.full</column>
+          <column name="model_id">wkf1.workplace</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wkf_srm.wkf1.workplace.crw">
+          <column name="access_id">wkf1.workplace.crw</column>
+          <column name="model_id">wkf1.workplace</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wkf_srm.wkf1.element.categories.readonly">
+          <column name="access_id">wkf1.element.categories.readonly</column>
+          <column name="model_id">wkf1.element.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="wkf_srm.wkf1.element.categories.nodrop">
+          <column name="access_id">wkf1.element.categories.nodrop</column>
+          <column name="model_id">wkf1.element.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wkf_srm.wkf1.element.categories.full">
+          <column name="access_id">wkf1.element.categories.full</column>
+          <column name="model_id">wkf1.element.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wkf_srm.wkf1.element.categories.crw">
+          <column name="access_id">wkf1.element.categories.crw</column>
+          <column name="model_id">wkf1.element.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wkf_srm.wkf1.elements.readonly">
+          <column name="access_id">wkf1.elements.readonly</column>
+          <column name="model_id">wkf1.elements</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="wkf_srm.wkf1.elements.nodrop">
+          <column name="access_id">wkf1.elements.nodrop</column>
+          <column name="model_id">wkf1.elements</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wkf_srm.wkf1.elements.full">
+          <column name="access_id">wkf1.elements.full</column>
+          <column name="model_id">wkf1.elements</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wkf_srm.wkf1.elements.crw">
+          <column name="access_id">wkf1.elements.crw</column>
+          <column name="model_id">wkf1.elements</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

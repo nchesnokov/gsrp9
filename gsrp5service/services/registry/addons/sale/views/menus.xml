@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.sale">
+          <column name="name">ui.menu.sale</column>
+          <column name="label">Sales Managament</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.sale.order.categories.search">
+          <column name="name">action.sale.order.categories.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.sale.invoice.categories.search">
+          <column name="name">action.sale.invoice.categories.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.sale.orders.search">
+          <column name="name">action.sale.orders.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.sale.invoices.search">
+          <column name="name">action.sale.invoices.search</column>
+          <column name="ta">View</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.sale.order.categories.report">
+          <column name="name">action.sale.order.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.sale.invoice.categories.report">
+          <column name="name">action.sale.invoice.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.sale.orders.report">
+          <column name="name">action.sale.orders.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.sale.invoices.report">
+          <column name="name">action.sale.invoices.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.view.actions">
+        <record id="view.action.sale.order.categories.search">
+          <column name="action_id">action.sale.order.categories.search</column>
+          <column name="view_id">view.sale.order.categories.search</column>
+        </record>
+        <record id="view.action.sale.invoice.categories.search">
+          <column name="action_id">action.sale.invoice.categories.search</column>
+          <column name="view_id">view.sale.invoice.categories.search</column>
+        </record>
+        <record id="view.action.sale.orders.search">
+          <column name="action_id">action.sale.orders.search</column>
+          <column name="view_id">view.sale.orders.search</column>
+        </record>
+        <record id="view.action.sale.invoices.search">
+          <column name="action_id">action.sale.invoices.search</column>
+          <column name="view_id">view.sale.invoices.search</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.sale.order.categories">
+          <column name="name">bc.ui.report.docx.sale.order.categories</column>
+          <column name="label">Category Sale Order</column>
+          <column name="report">report_sale_order_categories</column>
+          <column name="infile">infile_sale_order_categories.docx</column>
+          <column name="outfile">outfile_sale_order_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.sale.invoice.categories">
+          <column name="name">bc.ui.report.docx.sale.invoice.categories</column>
+          <column name="label">Category Sale Invoice</column>
+          <column name="report">report_sale_invoice_categories</column>
+          <column name="infile">infile_sale_invoice_categories.docx</column>
+          <column name="outfile">outfile_sale_invoice_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.sale.orders">
+          <column name="name">bc.ui.report.docx.sale.orders</column>
+          <column name="label">Sale Orders</column>
+          <column name="report">report_sale_orders</column>
+          <column name="infile">infile_sale_orders.docx</column>
+          <column name="outfile">outfile_sale_orders.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.sale.invoices">
+          <column name="name">bc.ui.report.docx.sale.invoices</column>
+          <column name="label">Sale Invoices</column>
+          <column name="report">report_sale_invoices</column>
+          <column name="infile">infile_sale_invoices.docx</column>
+          <column name="outfile">outfile_sale_invoices.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.sale.order.categories.report">
+          <column name="action_id">action.sale.order.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.sale.order.categories</column>
+        </record>
+        <record id="report.action.sale.invoice.categories.report">
+          <column name="action_id">action.sale.invoice.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.sale.invoice.categories</column>
+        </record>
+        <record id="report.action.sale.orders.report">
+          <column name="action_id">action.sale.orders.report</column>
+          <column name="report_id">bc.ui.report.docx.sale.orders</column>
+        </record>
+        <record id="report.action.sale.invoices.report">
+          <column name="action_id">action.sale.invoices.report</column>
+          <column name="report_id">bc.ui.report.docx.sale.invoices</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.sale.order.categories.search">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.sale.order.categories.search</column>
+            <column name="label">Category Sale Order</column>
+          <column name="parent_id">ui.menu.sale</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.sale.order.categories.search</column>
+          </record>
+          <record id="ui.menu.sale.invoice.categories.search">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.sale.invoice.categories.search</column>
+            <column name="label">Category Sale Invoice</column>
+          <column name="parent_id">ui.menu.sale</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.sale.invoice.categories.search</column>
+          </record>
+          <record id="ui.menu.sale.orders.search">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.sale.orders.search</column>
+            <column name="label">Sale Orders</column>
+          <column name="parent_id">ui.menu.sale</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.sale.orders.search</column>
+          </record>
+          <record id="ui.menu.sale.invoices.search">
+          <column name="sequence">7</column>
+            <column name="name">ui.menu.sale.invoices.search</column>
+            <column name="label">Sale Invoices</column>
+          <column name="parent_id">ui.menu.sale</column>
+          <column name="sequence">70</column>
+          <column name="action_id">action.sale.invoices.search</column>
+          </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.sale.report">
+          <column name="name">ui.menu.sale.report</column>
+          <column name="label">Reports</column>
+        <column name="parent_id">ui.menu.sale</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.sale.order.categories.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.sale.order.categories.report</column>
+            <column name="label">Category Sale Order</column>
+          <column name="parent_id">ui.menu.sale.report</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.sale.order.categories.report</column>
+          </record>
+          <record id="ui.menu.sale.invoice.categories.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.sale.invoice.categories.report</column>
+            <column name="label">Category Sale Invoice</column>
+          <column name="parent_id">ui.menu.sale.report</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.sale.invoice.categories.report</column>
+          </record>
+          <record id="ui.menu.sale.orders.report">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.sale.orders.report</column>
+            <column name="label">Sale Orders</column>
+          <column name="parent_id">ui.menu.sale.report</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.sale.orders.report</column>
+          </record>
+          <record id="ui.menu.sale.invoices.report">
+          <column name="sequence">7</column>
+            <column name="name">ui.menu.sale.invoices.report</column>
+            <column name="label">Sale Invoices</column>
+          <column name="parent_id">ui.menu.sale.report</column>
+          <column name="sequence">70</column>
+          <column name="action_id">action.sale.invoices.report</column>
+          </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.sale.texts.custom">
+          <column name="name">action.sale.texts.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.sale.schema.texts.custom">
+          <column name="name">action.sale.schema.texts.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.sale.order.types.custom">
+          <column name="name">action.sale.order.types.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.sale.invoice.types.custom">
+          <column name="name">action.sale.invoice.types.custom</column>
+          <column name="ta">View</column>
+        </record>
+      </records>
+      <records model="bc.view.actions">
+        <record id="view.action.sale.texts.custom">
+          <column name="action_id">action.sale.texts.custom</column>
+          <column name="view_id">view.sale.texts.search</column>
+        </record>
+        <record id="view.action.sale.schema.texts.custom">
+          <column name="action_id">action.sale.schema.texts.custom</column>
+          <column name="view_id">view.sale.schema.texts.search</column>
+        </record>
+        <record id="view.action.sale.order.types.custom">
+          <column name="action_id">action.sale.order.types.custom</column>
+          <column name="view_id">view.sale.order.types.search</column>
+        </record>
+        <record id="view.action.sale.invoice.types.custom">
+          <column name="action_id">action.sale.invoice.types.custom</column>
+          <column name="view_id">view.sale.invoice.types.search</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.sale.custom">
+          <column name="name">ui.menu.sale.custom</column>
+          <column name="label">Customs</column>
+        <column name="parent_id">ui.menu.sale</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.sale.texts.custom">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.sale.texts.custom</column>
+            <column name="label">Sale Texts</column>
+          <column name="parent_id">ui.menu.sale.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.sale.texts.custom</column>
+          </record>
+          <record id="ui.menu.sale.schema.texts.custom">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.sale.schema.texts.custom</column>
+            <column name="label">Schema Of Sale Texts</column>
+          <column name="parent_id">ui.menu.sale.custom</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.sale.schema.texts.custom</column>
+          </record>
+          <record id="ui.menu.sale.order.types.custom">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.sale.order.types.custom</column>
+            <column name="label">Types Sale Order</column>
+          <column name="parent_id">ui.menu.sale.custom</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.sale.order.types.custom</column>
+          </record>
+          <record id="ui.menu.sale.invoice.types.custom">
+          <column name="sequence">5</column>
+            <column name="name">ui.menu.sale.invoice.types.custom</column>
+            <column name="label">Types Sale Invoice</column>
+          <column name="parent_id">ui.menu.sale.custom</column>
+          <column name="sequence">50</column>
+          <column name="action_id">action.sale.invoice.types.custom</column>
+          </record>
+      </records>
+    </data>
+  </gsrp>

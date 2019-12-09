@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.views">
+        <record id="view.md.quality.product.form">
+          <column name="name">view.md.quality.product.form</column>
+          <column name="model">md.quality.product</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="product_id"/>
+              <field name="type_quailty"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.quality.product.list">
+          <column name="name">view.md.quality.product.list</column>
+          <column name="model">md.quality.product</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="product_id"/>
+              <field name="type_quailty"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.quality.product.m2mlist">
+          <column name="name">view.md.quality.product.m2mlist</column>
+          <column name="model">md.quality.product</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="product_id"/>
+              <field name="type_quailty"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.qm.category.form">
+          <column name="name">view.qm.category.form</column>
+          <column name="model">qm.category</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.qm.category.list">
+          <column name="name">view.qm.category.list</column>
+          <column name="model">qm.category</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.qm.category.m2mlist">
+          <column name="name">view.qm.category.m2mlist</column>
+          <column name="model">qm.category</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.qm.category.search">
+          <column name="name">view.qm.category.search</column>
+          <column name="model">qm.category</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.qm.category.find">
+          <column name="name">view.qm.category.find</column>
+          <column name="model">qm.category</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+            </find>
+          </column>
+        </record>
+      </records>
+      <records model="bc.ui.views.inherit">
+        <record id="view.md.quality.product.inherit.form.inherit.md.product">
+          <column name="view_id">view.md.product.form</column>
+          <column name="name">view.md.quality.product.inherit.form.inherit.md.product</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="qm"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.quality.product.inherit.list.inherit.md.product">
+          <column name="view_id">view.md.product.list</column>
+          <column name="name">view.md.quality.product.inherit.list.inherit.md.product</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="qm"/>
+            </list>
+          </column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

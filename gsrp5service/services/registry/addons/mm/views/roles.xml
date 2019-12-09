@@ -1,0 +1,1637 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="mm.readonly">
+          <column name="name">mm.readonly</column>
+          <column name="note">Module mm grant readonly</column>
+        </record>
+        <record id="mm.nodrop">
+          <column name="name">mm.nodrop</column>
+          <column name="note">Module mm grant nodrop</column>
+        </record>
+        <record id="mm.full">
+          <column name="name">mm.full</column>
+          <column name="note">Module mm grant full</column>
+        </record>
+        <record id="mm.crw">
+          <column name="name">mm.crw</column>
+          <column name="note">Module mm grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="mm.workcenter.category.readonly">
+          <column name="name">mm.workcenter.category.readonly</column>
+          <column name="note">Model mm.workcenter.category grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.workcenter.category.nodrop">
+          <column name="name">mm.workcenter.category.nodrop</column>
+          <column name="note">Model mm.workcenter.category grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.workcenter.category.full">
+          <column name="name">mm.workcenter.category.full</column>
+          <column name="note">Model mm.workcenter.category grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.workcenter.category.crw">
+          <column name="name">mm.workcenter.category.crw</column>
+          <column name="note">Model mm.workcenter.category grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.route.category.readonly">
+          <column name="name">mm.route.category.readonly</column>
+          <column name="note">Model mm.route.category grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.route.category.nodrop">
+          <column name="name">mm.route.category.nodrop</column>
+          <column name="note">Model mm.route.category grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.route.category.full">
+          <column name="name">mm.route.category.full</column>
+          <column name="note">Model mm.route.category grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.route.category.crw">
+          <column name="name">mm.route.category.crw</column>
+          <column name="note">Model mm.route.category grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.production.order.category.readonly">
+          <column name="name">mm.production.order.category.readonly</column>
+          <column name="note">Model mm.production.order.category grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.production.order.category.nodrop">
+          <column name="name">mm.production.order.category.nodrop</column>
+          <column name="note">Model mm.production.order.category grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.production.order.category.full">
+          <column name="name">mm.production.order.category.full</column>
+          <column name="note">Model mm.production.order.category grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.production.order.category.crw">
+          <column name="name">mm.production.order.category.crw</column>
+          <column name="note">Model mm.production.order.category grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.technologic.order.category.readonly">
+          <column name="name">mm.technologic.order.category.readonly</column>
+          <column name="note">Model mm.technologic.order.category grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.technologic.order.category.nodrop">
+          <column name="name">mm.technologic.order.category.nodrop</column>
+          <column name="note">Model mm.technologic.order.category grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.technologic.order.category.full">
+          <column name="name">mm.technologic.order.category.full</column>
+          <column name="note">Model mm.technologic.order.category grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.technologic.order.category.crw">
+          <column name="name">mm.technologic.order.category.crw</column>
+          <column name="note">Model mm.technologic.order.category grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.disassembly.order.category.readonly">
+          <column name="name">mm.disassembly.order.category.readonly</column>
+          <column name="note">Model mm.disassembly.order.category grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.disassembly.order.category.nodrop">
+          <column name="name">mm.disassembly.order.category.nodrop</column>
+          <column name="note">Model mm.disassembly.order.category grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.disassembly.order.category.full">
+          <column name="name">mm.disassembly.order.category.full</column>
+          <column name="note">Model mm.disassembly.order.category grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.disassembly.order.category.crw">
+          <column name="name">mm.disassembly.order.category.crw</column>
+          <column name="note">Model mm.disassembly.order.category grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.workcenter.readonly">
+          <column name="name">mm.workcenter.readonly</column>
+          <column name="note">Model mm.workcenter grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.workcenter.nodrop">
+          <column name="name">mm.workcenter.nodrop</column>
+          <column name="note">Model mm.workcenter grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.workcenter.full">
+          <column name="name">mm.workcenter.full</column>
+          <column name="note">Model mm.workcenter grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.workcenter.crw">
+          <column name="name">mm.workcenter.crw</column>
+          <column name="note">Model mm.workcenter grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.workcenter.products.readonly">
+          <column name="name">mm.workcenter.products.readonly</column>
+          <column name="note">Model mm.workcenter.products grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.workcenter.products.nodrop">
+          <column name="name">mm.workcenter.products.nodrop</column>
+          <column name="note">Model mm.workcenter.products grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.workcenter.products.full">
+          <column name="name">mm.workcenter.products.full</column>
+          <column name="note">Model mm.workcenter.products grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.workcenter.products.crw">
+          <column name="name">mm.workcenter.products.crw</column>
+          <column name="note">Model mm.workcenter.products grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.workcenter.product.prices.readonly">
+          <column name="name">mm.workcenter.product.prices.readonly</column>
+          <column name="note">Model mm.workcenter.product.prices grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.workcenter.product.prices.nodrop">
+          <column name="name">mm.workcenter.product.prices.nodrop</column>
+          <column name="note">Model mm.workcenter.product.prices grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.workcenter.product.prices.full">
+          <column name="name">mm.workcenter.product.prices.full</column>
+          <column name="note">Model mm.workcenter.product.prices grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.workcenter.product.prices.crw">
+          <column name="name">mm.workcenter.product.prices.crw</column>
+          <column name="note">Model mm.workcenter.product.prices grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.route.readonly">
+          <column name="name">mm.route.readonly</column>
+          <column name="note">Model mm.route grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.route.nodrop">
+          <column name="name">mm.route.nodrop</column>
+          <column name="note">Model mm.route grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.route.full">
+          <column name="name">mm.route.full</column>
+          <column name="note">Model mm.route grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.route.crw">
+          <column name="name">mm.route.crw</column>
+          <column name="note">Model mm.route grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.route.items.readonly">
+          <column name="name">mm.route.items.readonly</column>
+          <column name="note">Model mm.route.items grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.route.items.nodrop">
+          <column name="name">mm.route.items.nodrop</column>
+          <column name="note">Model mm.route.items grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.route.items.full">
+          <column name="name">mm.route.items.full</column>
+          <column name="note">Model mm.route.items grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.route.items.crw">
+          <column name="name">mm.route.items.crw</column>
+          <column name="note">Model mm.route.items grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.production.order.readonly">
+          <column name="name">mm.production.order.readonly</column>
+          <column name="note">Model mm.production.order grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.production.order.nodrop">
+          <column name="name">mm.production.order.nodrop</column>
+          <column name="note">Model mm.production.order grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.production.order.full">
+          <column name="name">mm.production.order.full</column>
+          <column name="note">Model mm.production.order grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.production.order.crw">
+          <column name="name">mm.production.order.crw</column>
+          <column name="note">Model mm.production.order grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.production.order.items.readonly">
+          <column name="name">mm.production.order.items.readonly</column>
+          <column name="note">Model mm.production.order.items grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.production.order.items.nodrop">
+          <column name="name">mm.production.order.items.nodrop</column>
+          <column name="note">Model mm.production.order.items grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.production.order.items.full">
+          <column name="name">mm.production.order.items.full</column>
+          <column name="note">Model mm.production.order.items grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.production.order.items.crw">
+          <column name="name">mm.production.order.items.crw</column>
+          <column name="note">Model mm.production.order.items grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.production.order.item.bom.readonly">
+          <column name="name">mm.production.order.item.bom.readonly</column>
+          <column name="note">Model mm.production.order.item.bom grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.production.order.item.bom.nodrop">
+          <column name="name">mm.production.order.item.bom.nodrop</column>
+          <column name="note">Model mm.production.order.item.bom grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.production.order.item.bom.full">
+          <column name="name">mm.production.order.item.bom.full</column>
+          <column name="note">Model mm.production.order.item.bom grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.production.order.item.bom.crw">
+          <column name="name">mm.production.order.item.bom.crw</column>
+          <column name="note">Model mm.production.order.item.bom grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.production.order.delivery.schedules.readonly">
+          <column name="name">mm.production.order.delivery.schedules.readonly</column>
+          <column name="note">Model mm.production.order.delivery.schedules grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.production.order.delivery.schedules.nodrop">
+          <column name="name">mm.production.order.delivery.schedules.nodrop</column>
+          <column name="note">Model mm.production.order.delivery.schedules grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.production.order.delivery.schedules.full">
+          <column name="name">mm.production.order.delivery.schedules.full</column>
+          <column name="note">Model mm.production.order.delivery.schedules grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.production.order.delivery.schedules.crw">
+          <column name="name">mm.production.order.delivery.schedules.crw</column>
+          <column name="note">Model mm.production.order.delivery.schedules grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.technologic.order.readonly">
+          <column name="name">mm.technologic.order.readonly</column>
+          <column name="note">Model mm.technologic.order grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.technologic.order.nodrop">
+          <column name="name">mm.technologic.order.nodrop</column>
+          <column name="note">Model mm.technologic.order grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.technologic.order.full">
+          <column name="name">mm.technologic.order.full</column>
+          <column name="note">Model mm.technologic.order grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.technologic.order.crw">
+          <column name="name">mm.technologic.order.crw</column>
+          <column name="note">Model mm.technologic.order grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.technologic.order.items.readonly">
+          <column name="name">mm.technologic.order.items.readonly</column>
+          <column name="note">Model mm.technologic.order.items grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.technologic.order.items.nodrop">
+          <column name="name">mm.technologic.order.items.nodrop</column>
+          <column name="note">Model mm.technologic.order.items grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.technologic.order.items.full">
+          <column name="name">mm.technologic.order.items.full</column>
+          <column name="note">Model mm.technologic.order.items grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.technologic.order.items.crw">
+          <column name="name">mm.technologic.order.items.crw</column>
+          <column name="note">Model mm.technologic.order.items grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.technologic.order.item.ibob.readonly">
+          <column name="name">mm.technologic.order.item.ibob.readonly</column>
+          <column name="note">Model mm.technologic.order.item.ibob grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.technologic.order.item.ibob.nodrop">
+          <column name="name">mm.technologic.order.item.ibob.nodrop</column>
+          <column name="note">Model mm.technologic.order.item.ibob grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.technologic.order.item.ibob.full">
+          <column name="name">mm.technologic.order.item.ibob.full</column>
+          <column name="note">Model mm.technologic.order.item.ibob grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.technologic.order.item.ibob.crw">
+          <column name="name">mm.technologic.order.item.ibob.crw</column>
+          <column name="note">Model mm.technologic.order.item.ibob grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.technologic.order.item.obob.readonly">
+          <column name="name">mm.technologic.order.item.obob.readonly</column>
+          <column name="note">Model mm.technologic.order.item.obob grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.technologic.order.item.obob.nodrop">
+          <column name="name">mm.technologic.order.item.obob.nodrop</column>
+          <column name="note">Model mm.technologic.order.item.obob grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.technologic.order.item.obob.full">
+          <column name="name">mm.technologic.order.item.obob.full</column>
+          <column name="note">Model mm.technologic.order.item.obob grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.technologic.order.item.obob.crw">
+          <column name="name">mm.technologic.order.item.obob.crw</column>
+          <column name="note">Model mm.technologic.order.item.obob grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.technologic.order.delivery.schedules.readonly">
+          <column name="name">mm.technologic.order.delivery.schedules.readonly</column>
+          <column name="note">Model mm.technologic.order.delivery.schedules grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.technologic.order.delivery.schedules.nodrop">
+          <column name="name">mm.technologic.order.delivery.schedules.nodrop</column>
+          <column name="note">Model mm.technologic.order.delivery.schedules grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.technologic.order.delivery.schedules.full">
+          <column name="name">mm.technologic.order.delivery.schedules.full</column>
+          <column name="note">Model mm.technologic.order.delivery.schedules grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.technologic.order.delivery.schedules.crw">
+          <column name="name">mm.technologic.order.delivery.schedules.crw</column>
+          <column name="note">Model mm.technologic.order.delivery.schedules grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.disassembly.order.readonly">
+          <column name="name">mm.disassembly.order.readonly</column>
+          <column name="note">Model mm.disassembly.order grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.disassembly.order.nodrop">
+          <column name="name">mm.disassembly.order.nodrop</column>
+          <column name="note">Model mm.disassembly.order grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.disassembly.order.full">
+          <column name="name">mm.disassembly.order.full</column>
+          <column name="note">Model mm.disassembly.order grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.disassembly.order.crw">
+          <column name="name">mm.disassembly.order.crw</column>
+          <column name="note">Model mm.disassembly.order grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.disassembly.order.items.readonly">
+          <column name="name">mm.disassembly.order.items.readonly</column>
+          <column name="note">Model mm.disassembly.order.items grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.disassembly.order.items.nodrop">
+          <column name="name">mm.disassembly.order.items.nodrop</column>
+          <column name="note">Model mm.disassembly.order.items grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.disassembly.order.items.full">
+          <column name="name">mm.disassembly.order.items.full</column>
+          <column name="note">Model mm.disassembly.order.items grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.disassembly.order.items.crw">
+          <column name="name">mm.disassembly.order.items.crw</column>
+          <column name="note">Model mm.disassembly.order.items grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.disassembly.order.item.mob.readonly">
+          <column name="name">mm.disassembly.order.item.mob.readonly</column>
+          <column name="note">Model mm.disassembly.order.item.mob grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.disassembly.order.item.mob.nodrop">
+          <column name="name">mm.disassembly.order.item.mob.nodrop</column>
+          <column name="note">Model mm.disassembly.order.item.mob grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.disassembly.order.item.mob.full">
+          <column name="name">mm.disassembly.order.item.mob.full</column>
+          <column name="note">Model mm.disassembly.order.item.mob grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.disassembly.order.item.mob.crw">
+          <column name="name">mm.disassembly.order.item.mob.crw</column>
+          <column name="note">Model mm.disassembly.order.item.mob grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+        <record id="mm.disassembly.order.delivery.schedules.readonly">
+          <column name="name">mm.disassembly.order.delivery.schedules.readonly</column>
+          <column name="note">Model mm.disassembly.order.delivery.schedules grant readonly</column>
+          <column name="group_id">mm.readonly</column>
+        </record>
+        <record id="mm.disassembly.order.delivery.schedules.nodrop">
+          <column name="name">mm.disassembly.order.delivery.schedules.nodrop</column>
+          <column name="note">Model mm.disassembly.order.delivery.schedules grant nodrop</column>
+          <column name="group_id">mm.nodrop</column>
+        </record>
+        <record id="mm.disassembly.order.delivery.schedules.full">
+          <column name="name">mm.disassembly.order.delivery.schedules.full</column>
+          <column name="note">Model mm.disassembly.order.delivery.schedules grant full</column>
+          <column name="group_id">mm.full</column>
+        </record>
+        <record id="mm.disassembly.order.delivery.schedules.crw">
+          <column name="name">mm.disassembly.order.delivery.schedules.crw</column>
+          <column name="note">Model mm.disassembly.order.delivery.schedules grant crw</column>
+          <column name="group_id">mm.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="mm.mm.workcenter.category.readonly">
+          <column name="access_id">mm.workcenter.category.readonly</column>
+          <column name="model_id">mm.workcenter.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.workcenter.category.nodrop">
+          <column name="access_id">mm.workcenter.category.nodrop</column>
+          <column name="model_id">mm.workcenter.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.workcenter.category.full">
+          <column name="access_id">mm.workcenter.category.full</column>
+          <column name="model_id">mm.workcenter.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.workcenter.category.crw">
+          <column name="access_id">mm.workcenter.category.crw</column>
+          <column name="model_id">mm.workcenter.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.route.category.readonly">
+          <column name="access_id">mm.route.category.readonly</column>
+          <column name="model_id">mm.route.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.route.category.nodrop">
+          <column name="access_id">mm.route.category.nodrop</column>
+          <column name="model_id">mm.route.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.route.category.full">
+          <column name="access_id">mm.route.category.full</column>
+          <column name="model_id">mm.route.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.route.category.crw">
+          <column name="access_id">mm.route.category.crw</column>
+          <column name="model_id">mm.route.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.category.readonly">
+          <column name="access_id">mm.production.order.category.readonly</column>
+          <column name="model_id">mm.production.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.production.order.category.nodrop">
+          <column name="access_id">mm.production.order.category.nodrop</column>
+          <column name="model_id">mm.production.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.category.full">
+          <column name="access_id">mm.production.order.category.full</column>
+          <column name="model_id">mm.production.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.category.crw">
+          <column name="access_id">mm.production.order.category.crw</column>
+          <column name="model_id">mm.production.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.category.readonly">
+          <column name="access_id">mm.technologic.order.category.readonly</column>
+          <column name="model_id">mm.technologic.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.category.nodrop">
+          <column name="access_id">mm.technologic.order.category.nodrop</column>
+          <column name="model_id">mm.technologic.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.category.full">
+          <column name="access_id">mm.technologic.order.category.full</column>
+          <column name="model_id">mm.technologic.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.category.crw">
+          <column name="access_id">mm.technologic.order.category.crw</column>
+          <column name="model_id">mm.technologic.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.category.readonly">
+          <column name="access_id">mm.disassembly.order.category.readonly</column>
+          <column name="model_id">mm.disassembly.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.category.nodrop">
+          <column name="access_id">mm.disassembly.order.category.nodrop</column>
+          <column name="model_id">mm.disassembly.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.category.full">
+          <column name="access_id">mm.disassembly.order.category.full</column>
+          <column name="model_id">mm.disassembly.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.category.crw">
+          <column name="access_id">mm.disassembly.order.category.crw</column>
+          <column name="model_id">mm.disassembly.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.workcenter.readonly">
+          <column name="access_id">mm.workcenter.readonly</column>
+          <column name="model_id">mm.workcenter</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.workcenter.nodrop">
+          <column name="access_id">mm.workcenter.nodrop</column>
+          <column name="model_id">mm.workcenter</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.workcenter.full">
+          <column name="access_id">mm.workcenter.full</column>
+          <column name="model_id">mm.workcenter</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.workcenter.crw">
+          <column name="access_id">mm.workcenter.crw</column>
+          <column name="model_id">mm.workcenter</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.workcenter.products.readonly">
+          <column name="access_id">mm.workcenter.products.readonly</column>
+          <column name="model_id">mm.workcenter.products</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.workcenter.products.nodrop">
+          <column name="access_id">mm.workcenter.products.nodrop</column>
+          <column name="model_id">mm.workcenter.products</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.workcenter.products.full">
+          <column name="access_id">mm.workcenter.products.full</column>
+          <column name="model_id">mm.workcenter.products</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.workcenter.products.crw">
+          <column name="access_id">mm.workcenter.products.crw</column>
+          <column name="model_id">mm.workcenter.products</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.workcenter.product.prices.readonly">
+          <column name="access_id">mm.workcenter.product.prices.readonly</column>
+          <column name="model_id">mm.workcenter.product.prices</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.workcenter.product.prices.nodrop">
+          <column name="access_id">mm.workcenter.product.prices.nodrop</column>
+          <column name="model_id">mm.workcenter.product.prices</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.workcenter.product.prices.full">
+          <column name="access_id">mm.workcenter.product.prices.full</column>
+          <column name="model_id">mm.workcenter.product.prices</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.workcenter.product.prices.crw">
+          <column name="access_id">mm.workcenter.product.prices.crw</column>
+          <column name="model_id">mm.workcenter.product.prices</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.route.readonly">
+          <column name="access_id">mm.route.readonly</column>
+          <column name="model_id">mm.route</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.route.nodrop">
+          <column name="access_id">mm.route.nodrop</column>
+          <column name="model_id">mm.route</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.route.full">
+          <column name="access_id">mm.route.full</column>
+          <column name="model_id">mm.route</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.route.crw">
+          <column name="access_id">mm.route.crw</column>
+          <column name="model_id">mm.route</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.route.items.readonly">
+          <column name="access_id">mm.route.items.readonly</column>
+          <column name="model_id">mm.route.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.route.items.nodrop">
+          <column name="access_id">mm.route.items.nodrop</column>
+          <column name="model_id">mm.route.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.route.items.full">
+          <column name="access_id">mm.route.items.full</column>
+          <column name="model_id">mm.route.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.route.items.crw">
+          <column name="access_id">mm.route.items.crw</column>
+          <column name="model_id">mm.route.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.readonly">
+          <column name="access_id">mm.production.order.readonly</column>
+          <column name="model_id">mm.production.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.production.order.nodrop">
+          <column name="access_id">mm.production.order.nodrop</column>
+          <column name="model_id">mm.production.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.full">
+          <column name="access_id">mm.production.order.full</column>
+          <column name="model_id">mm.production.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.crw">
+          <column name="access_id">mm.production.order.crw</column>
+          <column name="model_id">mm.production.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.items.readonly">
+          <column name="access_id">mm.production.order.items.readonly</column>
+          <column name="model_id">mm.production.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.production.order.items.nodrop">
+          <column name="access_id">mm.production.order.items.nodrop</column>
+          <column name="model_id">mm.production.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.items.full">
+          <column name="access_id">mm.production.order.items.full</column>
+          <column name="model_id">mm.production.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.items.crw">
+          <column name="access_id">mm.production.order.items.crw</column>
+          <column name="model_id">mm.production.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.item.bom.readonly">
+          <column name="access_id">mm.production.order.item.bom.readonly</column>
+          <column name="model_id">mm.production.order.item.bom</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.production.order.item.bom.nodrop">
+          <column name="access_id">mm.production.order.item.bom.nodrop</column>
+          <column name="model_id">mm.production.order.item.bom</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.item.bom.full">
+          <column name="access_id">mm.production.order.item.bom.full</column>
+          <column name="model_id">mm.production.order.item.bom</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.item.bom.crw">
+          <column name="access_id">mm.production.order.item.bom.crw</column>
+          <column name="model_id">mm.production.order.item.bom</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.delivery.schedules.readonly">
+          <column name="access_id">mm.production.order.delivery.schedules.readonly</column>
+          <column name="model_id">mm.production.order.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.production.order.delivery.schedules.nodrop">
+          <column name="access_id">mm.production.order.delivery.schedules.nodrop</column>
+          <column name="model_id">mm.production.order.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.delivery.schedules.full">
+          <column name="access_id">mm.production.order.delivery.schedules.full</column>
+          <column name="model_id">mm.production.order.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.production.order.delivery.schedules.crw">
+          <column name="access_id">mm.production.order.delivery.schedules.crw</column>
+          <column name="model_id">mm.production.order.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.readonly">
+          <column name="access_id">mm.technologic.order.readonly</column>
+          <column name="model_id">mm.technologic.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.nodrop">
+          <column name="access_id">mm.technologic.order.nodrop</column>
+          <column name="model_id">mm.technologic.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.full">
+          <column name="access_id">mm.technologic.order.full</column>
+          <column name="model_id">mm.technologic.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.crw">
+          <column name="access_id">mm.technologic.order.crw</column>
+          <column name="model_id">mm.technologic.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.items.readonly">
+          <column name="access_id">mm.technologic.order.items.readonly</column>
+          <column name="model_id">mm.technologic.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.items.nodrop">
+          <column name="access_id">mm.technologic.order.items.nodrop</column>
+          <column name="model_id">mm.technologic.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.items.full">
+          <column name="access_id">mm.technologic.order.items.full</column>
+          <column name="model_id">mm.technologic.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.items.crw">
+          <column name="access_id">mm.technologic.order.items.crw</column>
+          <column name="model_id">mm.technologic.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.item.ibob.readonly">
+          <column name="access_id">mm.technologic.order.item.ibob.readonly</column>
+          <column name="model_id">mm.technologic.order.item.ibob</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.item.ibob.nodrop">
+          <column name="access_id">mm.technologic.order.item.ibob.nodrop</column>
+          <column name="model_id">mm.technologic.order.item.ibob</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.item.ibob.full">
+          <column name="access_id">mm.technologic.order.item.ibob.full</column>
+          <column name="model_id">mm.technologic.order.item.ibob</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.item.ibob.crw">
+          <column name="access_id">mm.technologic.order.item.ibob.crw</column>
+          <column name="model_id">mm.technologic.order.item.ibob</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.item.obob.readonly">
+          <column name="access_id">mm.technologic.order.item.obob.readonly</column>
+          <column name="model_id">mm.technologic.order.item.obob</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.item.obob.nodrop">
+          <column name="access_id">mm.technologic.order.item.obob.nodrop</column>
+          <column name="model_id">mm.technologic.order.item.obob</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.item.obob.full">
+          <column name="access_id">mm.technologic.order.item.obob.full</column>
+          <column name="model_id">mm.technologic.order.item.obob</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.item.obob.crw">
+          <column name="access_id">mm.technologic.order.item.obob.crw</column>
+          <column name="model_id">mm.technologic.order.item.obob</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.delivery.schedules.readonly">
+          <column name="access_id">mm.technologic.order.delivery.schedules.readonly</column>
+          <column name="model_id">mm.technologic.order.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.delivery.schedules.nodrop">
+          <column name="access_id">mm.technologic.order.delivery.schedules.nodrop</column>
+          <column name="model_id">mm.technologic.order.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.delivery.schedules.full">
+          <column name="access_id">mm.technologic.order.delivery.schedules.full</column>
+          <column name="model_id">mm.technologic.order.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.technologic.order.delivery.schedules.crw">
+          <column name="access_id">mm.technologic.order.delivery.schedules.crw</column>
+          <column name="model_id">mm.technologic.order.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.readonly">
+          <column name="access_id">mm.disassembly.order.readonly</column>
+          <column name="model_id">mm.disassembly.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.nodrop">
+          <column name="access_id">mm.disassembly.order.nodrop</column>
+          <column name="model_id">mm.disassembly.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.full">
+          <column name="access_id">mm.disassembly.order.full</column>
+          <column name="model_id">mm.disassembly.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.crw">
+          <column name="access_id">mm.disassembly.order.crw</column>
+          <column name="model_id">mm.disassembly.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.items.readonly">
+          <column name="access_id">mm.disassembly.order.items.readonly</column>
+          <column name="model_id">mm.disassembly.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.items.nodrop">
+          <column name="access_id">mm.disassembly.order.items.nodrop</column>
+          <column name="model_id">mm.disassembly.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.items.full">
+          <column name="access_id">mm.disassembly.order.items.full</column>
+          <column name="model_id">mm.disassembly.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.items.crw">
+          <column name="access_id">mm.disassembly.order.items.crw</column>
+          <column name="model_id">mm.disassembly.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.item.mob.readonly">
+          <column name="access_id">mm.disassembly.order.item.mob.readonly</column>
+          <column name="model_id">mm.disassembly.order.item.mob</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.item.mob.nodrop">
+          <column name="access_id">mm.disassembly.order.item.mob.nodrop</column>
+          <column name="model_id">mm.disassembly.order.item.mob</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.item.mob.full">
+          <column name="access_id">mm.disassembly.order.item.mob.full</column>
+          <column name="model_id">mm.disassembly.order.item.mob</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.item.mob.crw">
+          <column name="access_id">mm.disassembly.order.item.mob.crw</column>
+          <column name="model_id">mm.disassembly.order.item.mob</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.delivery.schedules.readonly">
+          <column name="access_id">mm.disassembly.order.delivery.schedules.readonly</column>
+          <column name="model_id">mm.disassembly.order.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.delivery.schedules.nodrop">
+          <column name="access_id">mm.disassembly.order.delivery.schedules.nodrop</column>
+          <column name="model_id">mm.disassembly.order.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.delivery.schedules.full">
+          <column name="access_id">mm.disassembly.order.delivery.schedules.full</column>
+          <column name="model_id">mm.disassembly.order.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mm.mm.disassembly.order.delivery.schedules.crw">
+          <column name="access_id">mm.disassembly.order.delivery.schedules.crw</column>
+          <column name="model_id">mm.disassembly.order.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

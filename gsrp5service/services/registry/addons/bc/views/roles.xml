@@ -1,0 +1,1777 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="bc.readonly">
+          <column name="name">bc.readonly</column>
+          <column name="note">Module bc grant readonly</column>
+        </record>
+        <record id="bc.nodrop">
+          <column name="name">bc.nodrop</column>
+          <column name="note">Module bc grant nodrop</column>
+        </record>
+        <record id="bc.full">
+          <column name="name">bc.full</column>
+          <column name="note">Module bc grant full</column>
+        </record>
+        <record id="bc.crw">
+          <column name="name">bc.crw</column>
+          <column name="note">Module bc grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="bc.users.readonly">
+          <column name="name">bc.users.readonly</column>
+          <column name="note">Model bc.users grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.users.nodrop">
+          <column name="name">bc.users.nodrop</column>
+          <column name="note">Model bc.users grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.users.full">
+          <column name="name">bc.users.full</column>
+          <column name="note">Model bc.users grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.users.crw">
+          <column name="name">bc.users.crw</column>
+          <column name="note">Model bc.users grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.langs.readonly">
+          <column name="name">bc.langs.readonly</column>
+          <column name="note">Model bc.langs grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.langs.nodrop">
+          <column name="name">bc.langs.nodrop</column>
+          <column name="note">Model bc.langs grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.langs.full">
+          <column name="name">bc.langs.full</column>
+          <column name="note">Model bc.langs grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.langs.crw">
+          <column name="name">bc.langs.crw</column>
+          <column name="note">Model bc.langs grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.group.modules.readonly">
+          <column name="name">bc.group.modules.readonly</column>
+          <column name="note">Model bc.group.modules grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.group.modules.nodrop">
+          <column name="name">bc.group.modules.nodrop</column>
+          <column name="note">Model bc.group.modules grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.group.modules.full">
+          <column name="name">bc.group.modules.full</column>
+          <column name="note">Model bc.group.modules grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.group.modules.crw">
+          <column name="name">bc.group.modules.crw</column>
+          <column name="note">Model bc.group.modules grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.modules.readonly">
+          <column name="name">bc.modules.readonly</column>
+          <column name="note">Model bc.modules grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.modules.nodrop">
+          <column name="name">bc.modules.nodrop</column>
+          <column name="note">Model bc.modules grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.modules.full">
+          <column name="name">bc.modules.full</column>
+          <column name="note">Model bc.modules grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.modules.crw">
+          <column name="name">bc.modules.crw</column>
+          <column name="note">Model bc.modules grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.module.files.readonly">
+          <column name="name">bc.module.files.readonly</column>
+          <column name="note">Model bc.module.files grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.module.files.nodrop">
+          <column name="name">bc.module.files.nodrop</column>
+          <column name="note">Model bc.module.files grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.module.files.full">
+          <column name="name">bc.module.files.full</column>
+          <column name="note">Model bc.module.files grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.module.files.crw">
+          <column name="name">bc.module.files.crw</column>
+          <column name="note">Model bc.module.files grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.class.models.readonly">
+          <column name="name">bc.class.models.readonly</column>
+          <column name="note">Model bc.class.models grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.class.models.nodrop">
+          <column name="name">bc.class.models.nodrop</column>
+          <column name="note">Model bc.class.models grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.class.models.full">
+          <column name="name">bc.class.models.full</column>
+          <column name="note">Model bc.class.models grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.class.models.crw">
+          <column name="name">bc.class.models.crw</column>
+          <column name="note">Model bc.class.models grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.class.categories.readonly">
+          <column name="name">bc.class.categories.readonly</column>
+          <column name="note">Model bc.class.categories grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.class.categories.nodrop">
+          <column name="name">bc.class.categories.nodrop</column>
+          <column name="note">Model bc.class.categories grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.class.categories.full">
+          <column name="name">bc.class.categories.full</column>
+          <column name="note">Model bc.class.categories grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.class.categories.crw">
+          <column name="name">bc.class.categories.crw</column>
+          <column name="note">Model bc.class.categories grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.models.readonly">
+          <column name="name">bc.models.readonly</column>
+          <column name="note">Model bc.models grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.models.nodrop">
+          <column name="name">bc.models.nodrop</column>
+          <column name="note">Model bc.models grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.models.full">
+          <column name="name">bc.models.full</column>
+          <column name="note">Model bc.models grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.models.crw">
+          <column name="name">bc.models.crw</column>
+          <column name="note">Model bc.models grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.inherits.readonly">
+          <column name="name">bc.inherits.readonly</column>
+          <column name="note">Model bc.inherits grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.inherits.nodrop">
+          <column name="name">bc.inherits.nodrop</column>
+          <column name="note">Model bc.inherits grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.inherits.full">
+          <column name="name">bc.inherits.full</column>
+          <column name="note">Model bc.inherits grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.inherits.crw">
+          <column name="name">bc.inherits.crw</column>
+          <column name="note">Model bc.inherits grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.model.columns.readonly">
+          <column name="name">bc.model.columns.readonly</column>
+          <column name="note">Model bc.model.columns grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.model.columns.nodrop">
+          <column name="name">bc.model.columns.nodrop</column>
+          <column name="note">Model bc.model.columns grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.model.columns.full">
+          <column name="name">bc.model.columns.full</column>
+          <column name="note">Model bc.model.columns grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.model.columns.crw">
+          <column name="name">bc.model.columns.crw</column>
+          <column name="note">Model bc.model.columns grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.inherit.columns.readonly">
+          <column name="name">bc.inherit.columns.readonly</column>
+          <column name="note">Model bc.inherit.columns grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.inherit.columns.nodrop">
+          <column name="name">bc.inherit.columns.nodrop</column>
+          <column name="note">Model bc.inherit.columns grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.inherit.columns.full">
+          <column name="name">bc.inherit.columns.full</column>
+          <column name="note">Model bc.inherit.columns grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.inherit.columns.crw">
+          <column name="name">bc.inherit.columns.crw</column>
+          <column name="note">Model bc.inherit.columns grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.translations.readonly">
+          <column name="name">bc.translations.readonly</column>
+          <column name="note">Model bc.translations grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.translations.nodrop">
+          <column name="name">bc.translations.nodrop</column>
+          <column name="note">Model bc.translations grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.translations.full">
+          <column name="name">bc.translations.full</column>
+          <column name="note">Model bc.translations grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.translations.crw">
+          <column name="name">bc.translations.crw</column>
+          <column name="note">Model bc.translations grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.group.access.readonly">
+          <column name="name">bc.group.access.readonly</column>
+          <column name="note">Model bc.group.access grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.group.access.nodrop">
+          <column name="name">bc.group.access.nodrop</column>
+          <column name="note">Model bc.group.access grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.group.access.full">
+          <column name="name">bc.group.access.full</column>
+          <column name="note">Model bc.group.access grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.group.access.crw">
+          <column name="name">bc.group.access.crw</column>
+          <column name="note">Model bc.group.access grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.access.readonly">
+          <column name="name">bc.access.readonly</column>
+          <column name="note">Model bc.access grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.access.nodrop">
+          <column name="name">bc.access.nodrop</column>
+          <column name="note">Model bc.access grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.access.full">
+          <column name="name">bc.access.full</column>
+          <column name="note">Model bc.access grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.access.crw">
+          <column name="name">bc.access.crw</column>
+          <column name="note">Model bc.access grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.model.access.readonly">
+          <column name="name">bc.model.access.readonly</column>
+          <column name="note">Model bc.model.access grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.model.access.nodrop">
+          <column name="name">bc.model.access.nodrop</column>
+          <column name="note">Model bc.model.access grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.model.access.full">
+          <column name="name">bc.model.access.full</column>
+          <column name="note">Model bc.model.access grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.model.access.crw">
+          <column name="name">bc.model.access.crw</column>
+          <column name="note">Model bc.model.access grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.model.data.readonly">
+          <column name="name">bc.model.data.readonly</column>
+          <column name="note">Model bc.model.data grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.model.data.nodrop">
+          <column name="name">bc.model.data.nodrop</column>
+          <column name="note">Model bc.model.data grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.model.data.full">
+          <column name="name">bc.model.data.full</column>
+          <column name="note">Model bc.model.data grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.model.data.crw">
+          <column name="name">bc.model.data.crw</column>
+          <column name="note">Model bc.model.data grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.ui.views.readonly">
+          <column name="name">bc.ui.views.readonly</column>
+          <column name="note">Model bc.ui.views grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.ui.views.nodrop">
+          <column name="name">bc.ui.views.nodrop</column>
+          <column name="note">Model bc.ui.views grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.ui.views.full">
+          <column name="name">bc.ui.views.full</column>
+          <column name="note">Model bc.ui.views grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.ui.views.crw">
+          <column name="name">bc.ui.views.crw</column>
+          <column name="note">Model bc.ui.views grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.ui.views.inherit.readonly">
+          <column name="name">bc.ui.views.inherit.readonly</column>
+          <column name="note">Model bc.ui.views.inherit grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.ui.views.inherit.nodrop">
+          <column name="name">bc.ui.views.inherit.nodrop</column>
+          <column name="note">Model bc.ui.views.inherit grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.ui.views.inherit.full">
+          <column name="name">bc.ui.views.inherit.full</column>
+          <column name="note">Model bc.ui.views.inherit grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.ui.views.inherit.crw">
+          <column name="name">bc.ui.views.inherit.crw</column>
+          <column name="note">Model bc.ui.views.inherit grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.tuning.ui.views.readonly">
+          <column name="name">bc.tuning.ui.views.readonly</column>
+          <column name="note">Model bc.tuning.ui.views grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.tuning.ui.views.nodrop">
+          <column name="name">bc.tuning.ui.views.nodrop</column>
+          <column name="note">Model bc.tuning.ui.views grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.tuning.ui.views.full">
+          <column name="name">bc.tuning.ui.views.full</column>
+          <column name="note">Model bc.tuning.ui.views grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.tuning.ui.views.crw">
+          <column name="name">bc.tuning.ui.views.crw</column>
+          <column name="note">Model bc.tuning.ui.views grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.general.tuning.ui.views.readonly">
+          <column name="name">bc.general.tuning.ui.views.readonly</column>
+          <column name="note">Model bc.general.tuning.ui.views grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.general.tuning.ui.views.nodrop">
+          <column name="name">bc.general.tuning.ui.views.nodrop</column>
+          <column name="note">Model bc.general.tuning.ui.views grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.general.tuning.ui.views.full">
+          <column name="name">bc.general.tuning.ui.views.full</column>
+          <column name="note">Model bc.general.tuning.ui.views grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.general.tuning.ui.views.crw">
+          <column name="name">bc.general.tuning.ui.views.crw</column>
+          <column name="note">Model bc.general.tuning.ui.views grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.ui.reports.readonly">
+          <column name="name">bc.ui.reports.readonly</column>
+          <column name="note">Model bc.ui.reports grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.ui.reports.nodrop">
+          <column name="name">bc.ui.reports.nodrop</column>
+          <column name="note">Model bc.ui.reports grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.ui.reports.full">
+          <column name="name">bc.ui.reports.full</column>
+          <column name="note">Model bc.ui.reports grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.ui.reports.crw">
+          <column name="name">bc.ui.reports.crw</column>
+          <column name="note">Model bc.ui.reports grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.actions.readonly">
+          <column name="name">bc.actions.readonly</column>
+          <column name="note">Model bc.actions grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.actions.nodrop">
+          <column name="name">bc.actions.nodrop</column>
+          <column name="note">Model bc.actions grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.actions.full">
+          <column name="name">bc.actions.full</column>
+          <column name="note">Model bc.actions grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.actions.crw">
+          <column name="name">bc.actions.crw</column>
+          <column name="note">Model bc.actions grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.view.actions.readonly">
+          <column name="name">bc.view.actions.readonly</column>
+          <column name="note">Model bc.view.actions grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.view.actions.nodrop">
+          <column name="name">bc.view.actions.nodrop</column>
+          <column name="note">Model bc.view.actions grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.view.actions.full">
+          <column name="name">bc.view.actions.full</column>
+          <column name="note">Model bc.view.actions grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.view.actions.crw">
+          <column name="name">bc.view.actions.crw</column>
+          <column name="note">Model bc.view.actions grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.report.actions.readonly">
+          <column name="name">bc.report.actions.readonly</column>
+          <column name="note">Model bc.report.actions grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.report.actions.nodrop">
+          <column name="name">bc.report.actions.nodrop</column>
+          <column name="note">Model bc.report.actions grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.report.actions.full">
+          <column name="name">bc.report.actions.full</column>
+          <column name="note">Model bc.report.actions grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.report.actions.crw">
+          <column name="name">bc.report.actions.crw</column>
+          <column name="note">Model bc.report.actions grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.ui.menus.readonly">
+          <column name="name">bc.ui.menus.readonly</column>
+          <column name="note">Model bc.ui.menus grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.ui.menus.nodrop">
+          <column name="name">bc.ui.menus.nodrop</column>
+          <column name="note">Model bc.ui.menus grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.ui.menus.full">
+          <column name="name">bc.ui.menus.full</column>
+          <column name="note">Model bc.ui.menus grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.ui.menus.crw">
+          <column name="name">bc.ui.menus.crw</column>
+          <column name="note">Model bc.ui.menus grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="bc.bc.users.readonly">
+          <column name="access_id">bc.users.readonly</column>
+          <column name="model_id">bc.users</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.users.nodrop">
+          <column name="access_id">bc.users.nodrop</column>
+          <column name="model_id">bc.users</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.users.full">
+          <column name="access_id">bc.users.full</column>
+          <column name="model_id">bc.users</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.users.crw">
+          <column name="access_id">bc.users.crw</column>
+          <column name="model_id">bc.users</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.langs.readonly">
+          <column name="access_id">bc.langs.readonly</column>
+          <column name="model_id">bc.langs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.langs.nodrop">
+          <column name="access_id">bc.langs.nodrop</column>
+          <column name="model_id">bc.langs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.langs.full">
+          <column name="access_id">bc.langs.full</column>
+          <column name="model_id">bc.langs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.langs.crw">
+          <column name="access_id">bc.langs.crw</column>
+          <column name="model_id">bc.langs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.group.modules.readonly">
+          <column name="access_id">bc.group.modules.readonly</column>
+          <column name="model_id">bc.group.modules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.group.modules.nodrop">
+          <column name="access_id">bc.group.modules.nodrop</column>
+          <column name="model_id">bc.group.modules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.group.modules.full">
+          <column name="access_id">bc.group.modules.full</column>
+          <column name="model_id">bc.group.modules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.group.modules.crw">
+          <column name="access_id">bc.group.modules.crw</column>
+          <column name="model_id">bc.group.modules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.modules.readonly">
+          <column name="access_id">bc.modules.readonly</column>
+          <column name="model_id">bc.modules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.modules.nodrop">
+          <column name="access_id">bc.modules.nodrop</column>
+          <column name="model_id">bc.modules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.modules.full">
+          <column name="access_id">bc.modules.full</column>
+          <column name="model_id">bc.modules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.modules.crw">
+          <column name="access_id">bc.modules.crw</column>
+          <column name="model_id">bc.modules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.module.files.readonly">
+          <column name="access_id">bc.module.files.readonly</column>
+          <column name="model_id">bc.module.files</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.module.files.nodrop">
+          <column name="access_id">bc.module.files.nodrop</column>
+          <column name="model_id">bc.module.files</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.module.files.full">
+          <column name="access_id">bc.module.files.full</column>
+          <column name="model_id">bc.module.files</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.module.files.crw">
+          <column name="access_id">bc.module.files.crw</column>
+          <column name="model_id">bc.module.files</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.class.models.readonly">
+          <column name="access_id">bc.class.models.readonly</column>
+          <column name="model_id">bc.class.models</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.class.models.nodrop">
+          <column name="access_id">bc.class.models.nodrop</column>
+          <column name="model_id">bc.class.models</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.class.models.full">
+          <column name="access_id">bc.class.models.full</column>
+          <column name="model_id">bc.class.models</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.class.models.crw">
+          <column name="access_id">bc.class.models.crw</column>
+          <column name="model_id">bc.class.models</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.class.categories.readonly">
+          <column name="access_id">bc.class.categories.readonly</column>
+          <column name="model_id">bc.class.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.class.categories.nodrop">
+          <column name="access_id">bc.class.categories.nodrop</column>
+          <column name="model_id">bc.class.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.class.categories.full">
+          <column name="access_id">bc.class.categories.full</column>
+          <column name="model_id">bc.class.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.class.categories.crw">
+          <column name="access_id">bc.class.categories.crw</column>
+          <column name="model_id">bc.class.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.models.readonly">
+          <column name="access_id">bc.models.readonly</column>
+          <column name="model_id">bc.models</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.models.nodrop">
+          <column name="access_id">bc.models.nodrop</column>
+          <column name="model_id">bc.models</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.models.full">
+          <column name="access_id">bc.models.full</column>
+          <column name="model_id">bc.models</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.models.crw">
+          <column name="access_id">bc.models.crw</column>
+          <column name="model_id">bc.models</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.inherits.readonly">
+          <column name="access_id">bc.inherits.readonly</column>
+          <column name="model_id">bc.inherits</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.inherits.nodrop">
+          <column name="access_id">bc.inherits.nodrop</column>
+          <column name="model_id">bc.inherits</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.inherits.full">
+          <column name="access_id">bc.inherits.full</column>
+          <column name="model_id">bc.inherits</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.inherits.crw">
+          <column name="access_id">bc.inherits.crw</column>
+          <column name="model_id">bc.inherits</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.model.columns.readonly">
+          <column name="access_id">bc.model.columns.readonly</column>
+          <column name="model_id">bc.model.columns</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.model.columns.nodrop">
+          <column name="access_id">bc.model.columns.nodrop</column>
+          <column name="model_id">bc.model.columns</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.model.columns.full">
+          <column name="access_id">bc.model.columns.full</column>
+          <column name="model_id">bc.model.columns</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.model.columns.crw">
+          <column name="access_id">bc.model.columns.crw</column>
+          <column name="model_id">bc.model.columns</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.inherit.columns.readonly">
+          <column name="access_id">bc.inherit.columns.readonly</column>
+          <column name="model_id">bc.inherit.columns</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.inherit.columns.nodrop">
+          <column name="access_id">bc.inherit.columns.nodrop</column>
+          <column name="model_id">bc.inherit.columns</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.inherit.columns.full">
+          <column name="access_id">bc.inherit.columns.full</column>
+          <column name="model_id">bc.inherit.columns</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.inherit.columns.crw">
+          <column name="access_id">bc.inherit.columns.crw</column>
+          <column name="model_id">bc.inherit.columns</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.translations.readonly">
+          <column name="access_id">bc.translations.readonly</column>
+          <column name="model_id">bc.translations</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.translations.nodrop">
+          <column name="access_id">bc.translations.nodrop</column>
+          <column name="model_id">bc.translations</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.translations.full">
+          <column name="access_id">bc.translations.full</column>
+          <column name="model_id">bc.translations</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.translations.crw">
+          <column name="access_id">bc.translations.crw</column>
+          <column name="model_id">bc.translations</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.group.access.readonly">
+          <column name="access_id">bc.group.access.readonly</column>
+          <column name="model_id">bc.group.access</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.group.access.nodrop">
+          <column name="access_id">bc.group.access.nodrop</column>
+          <column name="model_id">bc.group.access</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.group.access.full">
+          <column name="access_id">bc.group.access.full</column>
+          <column name="model_id">bc.group.access</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.group.access.crw">
+          <column name="access_id">bc.group.access.crw</column>
+          <column name="model_id">bc.group.access</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.access.readonly">
+          <column name="access_id">bc.access.readonly</column>
+          <column name="model_id">bc.access</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.access.nodrop">
+          <column name="access_id">bc.access.nodrop</column>
+          <column name="model_id">bc.access</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.access.full">
+          <column name="access_id">bc.access.full</column>
+          <column name="model_id">bc.access</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.access.crw">
+          <column name="access_id">bc.access.crw</column>
+          <column name="model_id">bc.access</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.model.access.readonly">
+          <column name="access_id">bc.model.access.readonly</column>
+          <column name="model_id">bc.model.access</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.model.access.nodrop">
+          <column name="access_id">bc.model.access.nodrop</column>
+          <column name="model_id">bc.model.access</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.model.access.full">
+          <column name="access_id">bc.model.access.full</column>
+          <column name="model_id">bc.model.access</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.model.access.crw">
+          <column name="access_id">bc.model.access.crw</column>
+          <column name="model_id">bc.model.access</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.model.data.readonly">
+          <column name="access_id">bc.model.data.readonly</column>
+          <column name="model_id">bc.model.data</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.model.data.nodrop">
+          <column name="access_id">bc.model.data.nodrop</column>
+          <column name="model_id">bc.model.data</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.model.data.full">
+          <column name="access_id">bc.model.data.full</column>
+          <column name="model_id">bc.model.data</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.model.data.crw">
+          <column name="access_id">bc.model.data.crw</column>
+          <column name="model_id">bc.model.data</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.ui.views.readonly">
+          <column name="access_id">bc.ui.views.readonly</column>
+          <column name="model_id">bc.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.ui.views.nodrop">
+          <column name="access_id">bc.ui.views.nodrop</column>
+          <column name="model_id">bc.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.ui.views.full">
+          <column name="access_id">bc.ui.views.full</column>
+          <column name="model_id">bc.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.ui.views.crw">
+          <column name="access_id">bc.ui.views.crw</column>
+          <column name="model_id">bc.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.ui.views.inherit.readonly">
+          <column name="access_id">bc.ui.views.inherit.readonly</column>
+          <column name="model_id">bc.ui.views.inherit</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.ui.views.inherit.nodrop">
+          <column name="access_id">bc.ui.views.inherit.nodrop</column>
+          <column name="model_id">bc.ui.views.inherit</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.ui.views.inherit.full">
+          <column name="access_id">bc.ui.views.inherit.full</column>
+          <column name="model_id">bc.ui.views.inherit</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.ui.views.inherit.crw">
+          <column name="access_id">bc.ui.views.inherit.crw</column>
+          <column name="model_id">bc.ui.views.inherit</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.tuning.ui.views.readonly">
+          <column name="access_id">bc.tuning.ui.views.readonly</column>
+          <column name="model_id">bc.tuning.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.tuning.ui.views.nodrop">
+          <column name="access_id">bc.tuning.ui.views.nodrop</column>
+          <column name="model_id">bc.tuning.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.tuning.ui.views.full">
+          <column name="access_id">bc.tuning.ui.views.full</column>
+          <column name="model_id">bc.tuning.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.tuning.ui.views.crw">
+          <column name="access_id">bc.tuning.ui.views.crw</column>
+          <column name="model_id">bc.tuning.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.general.tuning.ui.views.readonly">
+          <column name="access_id">bc.general.tuning.ui.views.readonly</column>
+          <column name="model_id">bc.general.tuning.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.general.tuning.ui.views.nodrop">
+          <column name="access_id">bc.general.tuning.ui.views.nodrop</column>
+          <column name="model_id">bc.general.tuning.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.general.tuning.ui.views.full">
+          <column name="access_id">bc.general.tuning.ui.views.full</column>
+          <column name="model_id">bc.general.tuning.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.general.tuning.ui.views.crw">
+          <column name="access_id">bc.general.tuning.ui.views.crw</column>
+          <column name="model_id">bc.general.tuning.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.ui.reports.readonly">
+          <column name="access_id">bc.ui.reports.readonly</column>
+          <column name="model_id">bc.ui.reports</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.ui.reports.nodrop">
+          <column name="access_id">bc.ui.reports.nodrop</column>
+          <column name="model_id">bc.ui.reports</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.ui.reports.full">
+          <column name="access_id">bc.ui.reports.full</column>
+          <column name="model_id">bc.ui.reports</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.ui.reports.crw">
+          <column name="access_id">bc.ui.reports.crw</column>
+          <column name="model_id">bc.ui.reports</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.actions.readonly">
+          <column name="access_id">bc.actions.readonly</column>
+          <column name="model_id">bc.actions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.actions.nodrop">
+          <column name="access_id">bc.actions.nodrop</column>
+          <column name="model_id">bc.actions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.actions.full">
+          <column name="access_id">bc.actions.full</column>
+          <column name="model_id">bc.actions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.actions.crw">
+          <column name="access_id">bc.actions.crw</column>
+          <column name="model_id">bc.actions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.view.actions.readonly">
+          <column name="access_id">bc.view.actions.readonly</column>
+          <column name="model_id">bc.view.actions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.view.actions.nodrop">
+          <column name="access_id">bc.view.actions.nodrop</column>
+          <column name="model_id">bc.view.actions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.view.actions.full">
+          <column name="access_id">bc.view.actions.full</column>
+          <column name="model_id">bc.view.actions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.view.actions.crw">
+          <column name="access_id">bc.view.actions.crw</column>
+          <column name="model_id">bc.view.actions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.report.actions.readonly">
+          <column name="access_id">bc.report.actions.readonly</column>
+          <column name="model_id">bc.report.actions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.report.actions.nodrop">
+          <column name="access_id">bc.report.actions.nodrop</column>
+          <column name="model_id">bc.report.actions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.report.actions.full">
+          <column name="access_id">bc.report.actions.full</column>
+          <column name="model_id">bc.report.actions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.report.actions.crw">
+          <column name="access_id">bc.report.actions.crw</column>
+          <column name="model_id">bc.report.actions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.ui.menus.readonly">
+          <column name="access_id">bc.ui.menus.readonly</column>
+          <column name="model_id">bc.ui.menus</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.ui.menus.nodrop">
+          <column name="access_id">bc.ui.menus.nodrop</column>
+          <column name="model_id">bc.ui.menus</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.ui.menus.full">
+          <column name="access_id">bc.ui.menus.full</column>
+          <column name="model_id">bc.ui.menus</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.ui.menus.crw">
+          <column name="access_id">bc.ui.menus.crw</column>
+          <column name="model_id">bc.ui.menus</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

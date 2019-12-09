@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.ml">
+          <column name="name">ui.menu.ml</column>
+          <column name="label">Mashine Learning</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.ml.category.search">
+          <column name="name">action.ml.category.search</column>
+          <column name="ta">View</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.ml.category.report">
+          <column name="name">action.ml.category.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.view.actions">
+        <record id="view.action.ml.category.search">
+          <column name="action_id">action.ml.category.search</column>
+          <column name="view_id">view.ml.category.search</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.ml.category">
+          <column name="name">bc.ui.report.docx.ml.category</column>
+          <column name="label">Mashine Learning Category</column>
+          <column name="report">report_ml_category</column>
+          <column name="infile">infile_ml_category.docx</column>
+          <column name="outfile">outfile_ml_category.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.ml.category.report">
+          <column name="action_id">action.ml.category.report</column>
+          <column name="report_id">bc.ui.report.docx.ml.category</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.ml.category.search">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.ml.category.search</column>
+            <column name="label">Mashine Learning Category</column>
+          <column name="parent_id">ui.menu.ml</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.ml.category.search</column>
+          </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.ml.report">
+          <column name="name">ui.menu.ml.report</column>
+          <column name="label">Reports</column>
+        <column name="parent_id">ui.menu.ml</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.ml.category.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.ml.category.report</column>
+            <column name="label">Mashine Learning Category</column>
+          <column name="parent_id">ui.menu.ml.report</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.ml.category.report</column>
+          </record>
+      </records>
+    </data>
+  </gsrp>

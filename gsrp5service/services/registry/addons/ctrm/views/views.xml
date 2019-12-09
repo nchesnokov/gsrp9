@@ -1,0 +1,2531 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.views">
+        <record id="view.ctrm.channels.form">
+          <column name="name">view.ctrm.channels.form</column>
+          <column name="model">ctrm.channels</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="sectors"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.channels.list">
+          <column name="name">view.ctrm.channels.list</column>
+          <column name="model">ctrm.channels</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="sectors"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.channels.m2mlist">
+          <column name="name">view.ctrm.channels.m2mlist</column>
+          <column name="model">ctrm.channels</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.channels.search">
+          <column name="name">view.ctrm.channels.search</column>
+          <column name="model">ctrm.channels</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.channels.find">
+          <column name="name">view.ctrm.channels.find</column>
+          <column name="model">ctrm.channels</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.sectors.form">
+          <column name="name">view.ctrm.sectors.form</column>
+          <column name="model">ctrm.sectors</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="channel_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.sectors.list">
+          <column name="name">view.ctrm.sectors.list</column>
+          <column name="model">ctrm.sectors</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="channel_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.sectors.m2mlist">
+          <column name="name">view.ctrm.sectors.m2mlist</column>
+          <column name="model">ctrm.sectors</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="channel_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.sectors.search">
+          <column name="name">view.ctrm.sectors.search</column>
+          <column name="model">ctrm.sectors</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="channel_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.sectors.find">
+          <column name="name">view.ctrm.sectors.find</column>
+          <column name="model">ctrm.sectors</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="channel_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.teams.form">
+          <column name="name">view.ctrm.teams.form</column>
+          <column name="model">ctrm.teams</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="groups"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.teams.list">
+          <column name="name">view.ctrm.teams.list</column>
+          <column name="model">ctrm.teams</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="groups"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.teams.m2mlist">
+          <column name="name">view.ctrm.teams.m2mlist</column>
+          <column name="model">ctrm.teams</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.teams.search">
+          <column name="name">view.ctrm.teams.search</column>
+          <column name="model">ctrm.teams</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.teams.find">
+          <column name="name">view.ctrm.teams.find</column>
+          <column name="model">ctrm.teams</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.groups.form">
+          <column name="name">view.ctrm.groups.form</column>
+          <column name="model">ctrm.groups</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="team_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.groups.list">
+          <column name="name">view.ctrm.groups.list</column>
+          <column name="model">ctrm.groups</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="team_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.groups.m2mlist">
+          <column name="name">view.ctrm.groups.m2mlist</column>
+          <column name="model">ctrm.groups</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="team_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.groups.search">
+          <column name="name">view.ctrm.groups.search</column>
+          <column name="model">ctrm.groups</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="team_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.groups.find">
+          <column name="name">view.ctrm.groups.find</column>
+          <column name="model">ctrm.groups</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="team_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.texts.form">
+          <column name="name">view.ctrm.texts.form</column>
+          <column name="model">ctrm.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.texts.list">
+          <column name="name">view.ctrm.texts.list</column>
+          <column name="model">ctrm.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.texts.m2mlist">
+          <column name="name">view.ctrm.texts.m2mlist</column>
+          <column name="model">ctrm.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.texts.search">
+          <column name="name">view.ctrm.texts.search</column>
+          <column name="model">ctrm.texts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.texts.find">
+          <column name="name">view.ctrm.texts.find</column>
+          <column name="model">ctrm.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.schema.texts.form">
+          <column name="name">view.ctrm.schema.texts.form</column>
+          <column name="model">ctrm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="texts"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.schema.texts.list">
+          <column name="name">view.ctrm.schema.texts.list</column>
+          <column name="model">ctrm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="texts"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.schema.texts.m2mlist">
+          <column name="name">view.ctrm.schema.texts.m2mlist</column>
+          <column name="model">ctrm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.schema.texts.search">
+          <column name="name">view.ctrm.schema.texts.search</column>
+          <column name="model">ctrm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.schema.texts.find">
+          <column name="name">view.ctrm.schema.texts.find</column>
+          <column name="model">ctrm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.schema.text.items.form">
+          <column name="name">view.ctrm.schema.text.items.form</column>
+          <column name="model">ctrm.schema.text.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="schema_id"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.schema.text.items.list">
+          <column name="name">view.ctrm.schema.text.items.list</column>
+          <column name="model">ctrm.schema.text.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="schema_id"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.schema.text.items.m2mlist">
+          <column name="name">view.ctrm.schema.text.items.m2mlist</column>
+          <column name="model">ctrm.schema.text.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="schema_id"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.origin.quotes.form">
+          <column name="name">view.ctrm.origin.quotes.form</column>
+          <column name="model">ctrm.origin.quotes</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="schema_id"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.origin.quotes.list">
+          <column name="name">view.ctrm.origin.quotes.list</column>
+          <column name="model">ctrm.origin.quotes</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="schema_id"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.origin.quotes.m2mlist">
+          <column name="name">view.ctrm.origin.quotes.m2mlist</column>
+          <column name="model">ctrm.origin.quotes</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="schema_id"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.request.types.form">
+          <column name="name">view.ctrm.request.types.form</column>
+          <column name="model">ctrm.request.types</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="roles"/>
+              <field name="required"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.request.types.list">
+          <column name="name">view.ctrm.request.types.list</column>
+          <column name="model">ctrm.request.types</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="roles"/>
+              <field name="required"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.request.types.m2mlist">
+          <column name="name">view.ctrm.request.types.m2mlist</column>
+          <column name="model">ctrm.request.types</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="required"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.request.types.search">
+          <column name="name">view.ctrm.request.types.search</column>
+          <column name="model">ctrm.request.types</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="required"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.request.types.find">
+          <column name="name">view.ctrm.request.types.find</column>
+          <column name="model">ctrm.request.types</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="required"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.request.type.roles.form">
+          <column name="name">view.ctrm.request.type.roles.form</column>
+          <column name="model">ctrm.request.type.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="type_id"/>
+              <field name="role_id"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.request.type.roles.list">
+          <column name="name">view.ctrm.request.type.roles.list</column>
+          <column name="model">ctrm.request.type.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="type_id"/>
+              <field name="role_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.request.type.roles.m2mlist">
+          <column name="name">view.ctrm.request.type.roles.m2mlist</column>
+          <column name="model">ctrm.request.type.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="type_id"/>
+              <field name="role_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.types.form">
+          <column name="name">view.ctrm.offer.types.form</column>
+          <column name="model">ctrm.offer.types</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="roles"/>
+              <field name="required"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.types.list">
+          <column name="name">view.ctrm.offer.types.list</column>
+          <column name="model">ctrm.offer.types</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="roles"/>
+              <field name="required"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.types.m2mlist">
+          <column name="name">view.ctrm.offer.types.m2mlist</column>
+          <column name="model">ctrm.offer.types</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="required"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.types.search">
+          <column name="name">view.ctrm.offer.types.search</column>
+          <column name="model">ctrm.offer.types</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="required"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.types.find">
+          <column name="name">view.ctrm.offer.types.find</column>
+          <column name="model">ctrm.offer.types</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="required"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.type.roles.form">
+          <column name="name">view.ctrm.offer.type.roles.form</column>
+          <column name="model">ctrm.offer.type.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="type_id"/>
+              <field name="role_id"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.type.roles.list">
+          <column name="name">view.ctrm.offer.type.roles.list</column>
+          <column name="model">ctrm.offer.type.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="type_id"/>
+              <field name="role_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.type.roles.m2mlist">
+          <column name="name">view.ctrm.offer.type.roles.m2mlist</column>
+          <column name="model">ctrm.offer.type.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="type_id"/>
+              <field name="role_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.types.form">
+          <column name="name">view.ctrm.contract.types.form</column>
+          <column name="model">ctrm.contract.types</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="roles"/>
+              <field name="required"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.types.list">
+          <column name="name">view.ctrm.contract.types.list</column>
+          <column name="model">ctrm.contract.types</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="roles"/>
+              <field name="required"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.types.m2mlist">
+          <column name="name">view.ctrm.contract.types.m2mlist</column>
+          <column name="model">ctrm.contract.types</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="required"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.types.search">
+          <column name="name">view.ctrm.contract.types.search</column>
+          <column name="model">ctrm.contract.types</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="required"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.types.find">
+          <column name="name">view.ctrm.contract.types.find</column>
+          <column name="model">ctrm.contract.types</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="required"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.type.roles.form">
+          <column name="name">view.ctrm.contract.type.roles.form</column>
+          <column name="model">ctrm.contract.type.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="type_id"/>
+              <field name="role_id"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.type.roles.list">
+          <column name="name">view.ctrm.contract.type.roles.list</column>
+          <column name="model">ctrm.contract.type.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="type_id"/>
+              <field name="role_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.type.roles.m2mlist">
+          <column name="name">view.ctrm.contract.type.roles.m2mlist</column>
+          <column name="model">ctrm.contract.type.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="type_id"/>
+              <field name="role_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.request.categories.form">
+          <column name="name">view.ctrm.request.categories.form</column>
+          <column name="model">ctrm.request.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="requests"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.request.categories.list">
+          <column name="name">view.ctrm.request.categories.list</column>
+          <column name="model">ctrm.request.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="requests"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.request.categories.m2mlist">
+          <column name="name">view.ctrm.request.categories.m2mlist</column>
+          <column name="model">ctrm.request.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.request.categories.search">
+          <column name="name">view.ctrm.request.categories.search</column>
+          <column name="model">ctrm.request.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.request.categories.find">
+          <column name="name">view.ctrm.request.categories.find</column>
+          <column name="model">ctrm.request.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.request.categories.tree">
+          <column name="name">view.ctrm.request.categories.tree</column>
+          <column name="model">ctrm.request.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.categories.form">
+          <column name="name">view.ctrm.offer.categories.form</column>
+          <column name="model">ctrm.offer.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="offers"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.categories.list">
+          <column name="name">view.ctrm.offer.categories.list</column>
+          <column name="model">ctrm.offer.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="offers"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.categories.m2mlist">
+          <column name="name">view.ctrm.offer.categories.m2mlist</column>
+          <column name="model">ctrm.offer.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.categories.search">
+          <column name="name">view.ctrm.offer.categories.search</column>
+          <column name="model">ctrm.offer.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.categories.find">
+          <column name="name">view.ctrm.offer.categories.find</column>
+          <column name="model">ctrm.offer.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.categories.tree">
+          <column name="name">view.ctrm.offer.categories.tree</column>
+          <column name="model">ctrm.offer.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.categories.form">
+          <column name="name">view.ctrm.contract.categories.form</column>
+          <column name="model">ctrm.contract.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="contracts"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.categories.list">
+          <column name="name">view.ctrm.contract.categories.list</column>
+          <column name="model">ctrm.contract.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="contracts"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.categories.m2mlist">
+          <column name="name">view.ctrm.contract.categories.m2mlist</column>
+          <column name="model">ctrm.contract.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.categories.search">
+          <column name="name">view.ctrm.contract.categories.search</column>
+          <column name="model">ctrm.contract.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.categories.find">
+          <column name="name">view.ctrm.contract.categories.find</column>
+          <column name="model">ctrm.contract.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.categories.tree">
+          <column name="name">view.ctrm.contract.categories.tree</column>
+          <column name="model">ctrm.contract.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.ctrm.requests.calendar">
+          <column name="name">view.ctrm.requests.calendar</column>
+          <column name="model">ctrm.requests</column>
+          <column name="arch" type="Xml">
+            <calendar date="dor">
+              <field name="rtype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="dor"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </calendar>
+          </column>
+        </record>
+        <record id="view.ctrm.requests.schedule">
+          <column name="name">view.ctrm.requests.schedule</column>
+          <column name="model">ctrm.requests</column>
+          <column name="arch" type="Xml">
+            <schedule>
+              <field name="rtype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="dor"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </schedule>
+          </column>
+        </record>
+        <record id="view.ctrm.requests.form">
+          <column name="name">view.ctrm.requests.form</column>
+          <column name="model">ctrm.requests</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="rtype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="dor"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+              <field name="items"/>
+              <field name="roles"/>
+              <field name="texts"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.requests.graph">
+          <column name="name">view.ctrm.requests.graph</column>
+          <column name="model">ctrm.requests</column>
+          <column name="arch" type="Xml">
+            <graph date="dor">
+              <field name="rtype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="dor"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </graph>
+          </column>
+        </record>
+        <record id="view.ctrm.requests.kanban">
+          <column name="name">view.ctrm.requests.kanban</column>
+          <column name="model">ctrm.requests</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="rtype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="dor"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+              <field name="note"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.ctrm.requests.list">
+          <column name="name">view.ctrm.requests.list</column>
+          <column name="model">ctrm.requests</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="rtype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="dor"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+              <field name="items"/>
+              <field name="roles"/>
+              <field name="texts"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.requests.m2mlist">
+          <column name="name">view.ctrm.requests.m2mlist</column>
+          <column name="model">ctrm.requests</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="rtype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="dor"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.requests.mdx">
+          <column name="name">view.ctrm.requests.mdx</column>
+          <column name="model">ctrm.requests</column>
+          <column name="arch" type="Xml">
+            <mdx date="dor">
+              <field name="rtype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="dor"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </mdx>
+          </column>
+        </record>
+        <record id="view.ctrm.requests.search">
+          <column name="name">view.ctrm.requests.search</column>
+          <column name="model">ctrm.requests</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="rtype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="dor"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.requests.find">
+          <column name="name">view.ctrm.requests.find</column>
+          <column name="model">ctrm.requests</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="rtype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="dor"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.request.texts.form">
+          <column name="name">view.ctrm.request.texts.form</column>
+          <column name="model">ctrm.request.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="request_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.request.texts.list">
+          <column name="name">view.ctrm.request.texts.list</column>
+          <column name="model">ctrm.request.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="request_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.request.texts.m2mlist">
+          <column name="name">view.ctrm.request.texts.m2mlist</column>
+          <column name="model">ctrm.request.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="request_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.request.roles.form">
+          <column name="name">view.ctrm.request.roles.form</column>
+          <column name="model">ctrm.request.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="request_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.request.roles.list">
+          <column name="name">view.ctrm.request.roles.list</column>
+          <column name="model">ctrm.request.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="request_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.request.roles.m2mlist">
+          <column name="name">view.ctrm.request.roles.m2mlist</column>
+          <column name="model">ctrm.request.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="request_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.request.items.form">
+          <column name="name">view.ctrm.request.items.form</column>
+          <column name="model">ctrm.request.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="request_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="vat_code"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="delivery_schedules"/>
+              <field name="roles"/>
+              <field name="texts"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.request.items.list">
+          <column name="name">view.ctrm.request.items.list</column>
+          <column name="model">ctrm.request.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="request_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="vat_code"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="delivery_schedules"/>
+              <field name="roles"/>
+              <field name="texts"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.request.items.m2mlist">
+          <column name="name">view.ctrm.request.items.m2mlist</column>
+          <column name="model">ctrm.request.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="request_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="vat_code"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.request.item.texts.form">
+          <column name="name">view.ctrm.request.item.texts.form</column>
+          <column name="model">ctrm.request.item.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.request.item.texts.list">
+          <column name="name">view.ctrm.request.item.texts.list</column>
+          <column name="model">ctrm.request.item.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.request.item.texts.m2mlist">
+          <column name="name">view.ctrm.request.item.texts.m2mlist</column>
+          <column name="model">ctrm.request.item.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.request.item.roles.form">
+          <column name="name">view.ctrm.request.item.roles.form</column>
+          <column name="model">ctrm.request.item.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.request.item.roles.list">
+          <column name="name">view.ctrm.request.item.roles.list</column>
+          <column name="model">ctrm.request.item.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.request.item.roles.m2mlist">
+          <column name="name">view.ctrm.request.item.roles.m2mlist</column>
+          <column name="model">ctrm.request.item.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.request.item.delivery.schedules.form">
+          <column name="name">view.ctrm.request.item.delivery.schedules.form</column>
+          <column name="model">ctrm.request.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.request.item.delivery.schedules.list">
+          <column name="name">view.ctrm.request.item.delivery.schedules.list</column>
+          <column name="model">ctrm.request.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="schedule"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.request.item.delivery.schedules.m2mlist">
+          <column name="name">view.ctrm.request.item.delivery.schedules.m2mlist</column>
+          <column name="model">ctrm.request.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="schedule"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.offers.calendar">
+          <column name="name">view.ctrm.offers.calendar</column>
+          <column name="model">ctrm.offers</column>
+          <column name="arch" type="Xml">
+            <calendar date="doo">
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doo"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </calendar>
+          </column>
+        </record>
+        <record id="view.ctrm.offers.schedule">
+          <column name="name">view.ctrm.offers.schedule</column>
+          <column name="model">ctrm.offers</column>
+          <column name="arch" type="Xml">
+            <schedule>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doo"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </schedule>
+          </column>
+        </record>
+        <record id="view.ctrm.offers.form">
+          <column name="name">view.ctrm.offers.form</column>
+          <column name="model">ctrm.offers</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doo"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+              <field name="items"/>
+              <field name="roles"/>
+              <field name="texts"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.offers.graph">
+          <column name="name">view.ctrm.offers.graph</column>
+          <column name="model">ctrm.offers</column>
+          <column name="arch" type="Xml">
+            <graph date="doo">
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doo"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </graph>
+          </column>
+        </record>
+        <record id="view.ctrm.offers.kanban">
+          <column name="name">view.ctrm.offers.kanban</column>
+          <column name="model">ctrm.offers</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doo"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+              <field name="note"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.ctrm.offers.list">
+          <column name="name">view.ctrm.offers.list</column>
+          <column name="model">ctrm.offers</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doo"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+              <field name="items"/>
+              <field name="roles"/>
+              <field name="texts"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.offers.m2mlist">
+          <column name="name">view.ctrm.offers.m2mlist</column>
+          <column name="model">ctrm.offers</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doo"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.offers.mdx">
+          <column name="name">view.ctrm.offers.mdx</column>
+          <column name="model">ctrm.offers</column>
+          <column name="arch" type="Xml">
+            <mdx date="doo">
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doo"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </mdx>
+          </column>
+        </record>
+        <record id="view.ctrm.offers.search">
+          <column name="name">view.ctrm.offers.search</column>
+          <column name="model">ctrm.offers</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doo"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.offers.find">
+          <column name="name">view.ctrm.offers.find</column>
+          <column name="model">ctrm.offers</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doo"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.texts.form">
+          <column name="name">view.ctrm.offer.texts.form</column>
+          <column name="model">ctrm.offer.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="offer_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.texts.list">
+          <column name="name">view.ctrm.offer.texts.list</column>
+          <column name="model">ctrm.offer.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="offer_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.texts.m2mlist">
+          <column name="name">view.ctrm.offer.texts.m2mlist</column>
+          <column name="model">ctrm.offer.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="offer_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.roles.form">
+          <column name="name">view.ctrm.offer.roles.form</column>
+          <column name="model">ctrm.offer.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="offer_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.roles.list">
+          <column name="name">view.ctrm.offer.roles.list</column>
+          <column name="model">ctrm.offer.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="offer_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.roles.m2mlist">
+          <column name="name">view.ctrm.offer.roles.m2mlist</column>
+          <column name="model">ctrm.offer.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="offer_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.items.form">
+          <column name="name">view.ctrm.offer.items.form</column>
+          <column name="model">ctrm.offer.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="offer_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="vat_code"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="delivery_schedules"/>
+              <field name="roles"/>
+              <field name="texts"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.items.list">
+          <column name="name">view.ctrm.offer.items.list</column>
+          <column name="model">ctrm.offer.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="offer_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="vat_code"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="delivery_schedules"/>
+              <field name="roles"/>
+              <field name="texts"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.items.m2mlist">
+          <column name="name">view.ctrm.offer.items.m2mlist</column>
+          <column name="model">ctrm.offer.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="offer_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="vat_code"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.item.texts.form">
+          <column name="name">view.ctrm.offer.item.texts.form</column>
+          <column name="model">ctrm.offer.item.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.item.texts.list">
+          <column name="name">view.ctrm.offer.item.texts.list</column>
+          <column name="model">ctrm.offer.item.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.item.texts.m2mlist">
+          <column name="name">view.ctrm.offer.item.texts.m2mlist</column>
+          <column name="model">ctrm.offer.item.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.item.roles.form">
+          <column name="name">view.ctrm.offer.item.roles.form</column>
+          <column name="model">ctrm.offer.item.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.item.roles.list">
+          <column name="name">view.ctrm.offer.item.roles.list</column>
+          <column name="model">ctrm.offer.item.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.item.roles.m2mlist">
+          <column name="name">view.ctrm.offer.item.roles.m2mlist</column>
+          <column name="model">ctrm.offer.item.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.item.delivery.schedules.form">
+          <column name="name">view.ctrm.offer.item.delivery.schedules.form</column>
+          <column name="model">ctrm.offer.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.item.delivery.schedules.list">
+          <column name="name">view.ctrm.offer.item.delivery.schedules.list</column>
+          <column name="model">ctrm.offer.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="schedule"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.offer.item.delivery.schedules.m2mlist">
+          <column name="name">view.ctrm.offer.item.delivery.schedules.m2mlist</column>
+          <column name="model">ctrm.offer.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="schedule"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.contracts.calendar">
+          <column name="name">view.ctrm.contracts.calendar</column>
+          <column name="model">ctrm.contracts</column>
+          <column name="arch" type="Xml">
+            <calendar date="doc">
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doc"/>
+              <field name="futures_date"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </calendar>
+          </column>
+        </record>
+        <record id="view.ctrm.contracts.schedule">
+          <column name="name">view.ctrm.contracts.schedule</column>
+          <column name="model">ctrm.contracts</column>
+          <column name="arch" type="Xml">
+            <schedule>
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doc"/>
+              <field name="futures_date"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </schedule>
+          </column>
+        </record>
+        <record id="view.ctrm.contracts.form">
+          <column name="name">view.ctrm.contracts.form</column>
+          <column name="model">ctrm.contracts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doc"/>
+              <field name="futures_date"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+              <field name="items"/>
+              <field name="roles"/>
+              <field name="texts"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.contracts.graph">
+          <column name="name">view.ctrm.contracts.graph</column>
+          <column name="model">ctrm.contracts</column>
+          <column name="arch" type="Xml">
+            <graph date="doc">
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doc"/>
+              <field name="futures_date"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </graph>
+          </column>
+        </record>
+        <record id="view.ctrm.contracts.kanban">
+          <column name="name">view.ctrm.contracts.kanban</column>
+          <column name="model">ctrm.contracts</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doc"/>
+              <field name="futures_date"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+              <field name="note"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.ctrm.contracts.list">
+          <column name="name">view.ctrm.contracts.list</column>
+          <column name="model">ctrm.contracts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doc"/>
+              <field name="futures_date"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+              <field name="items"/>
+              <field name="roles"/>
+              <field name="texts"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.contracts.m2mlist">
+          <column name="name">view.ctrm.contracts.m2mlist</column>
+          <column name="model">ctrm.contracts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doc"/>
+              <field name="futures_date"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.contracts.mdx">
+          <column name="name">view.ctrm.contracts.mdx</column>
+          <column name="model">ctrm.contracts</column>
+          <column name="arch" type="Xml">
+            <mdx date="doc">
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doc"/>
+              <field name="futures_date"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </mdx>
+          </column>
+        </record>
+        <record id="view.ctrm.contracts.search">
+          <column name="name">view.ctrm.contracts.search</column>
+          <column name="model">ctrm.contracts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doc"/>
+              <field name="futures_date"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.contracts.find">
+          <column name="name">view.ctrm.contracts.find</column>
+          <column name="model">ctrm.contracts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="ctype"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="channel_id"/>
+              <field name="sector_id"/>
+              <field name="team_id"/>
+              <field name="group_id"/>
+              <field name="manager"/>
+              <field name="origin"/>
+              <field name="doc"/>
+              <field name="futures_date"/>
+              <field name="from_date"/>
+              <field name="to_date"/>
+              <field name="partner"/>
+              <field name="currency"/>
+              <field name="incoterms1"/>
+              <field name="incoterms2"/>
+              <field name="state"/>
+              <field name="amount"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="recepture"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.texts.form">
+          <column name="name">view.ctrm.contract.texts.form</column>
+          <column name="model">ctrm.contract.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="contract_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.texts.list">
+          <column name="name">view.ctrm.contract.texts.list</column>
+          <column name="model">ctrm.contract.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="contract_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.texts.m2mlist">
+          <column name="name">view.ctrm.contract.texts.m2mlist</column>
+          <column name="model">ctrm.contract.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="contract_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.roles.form">
+          <column name="name">view.ctrm.contract.roles.form</column>
+          <column name="model">ctrm.contract.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="offer_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.roles.list">
+          <column name="name">view.ctrm.contract.roles.list</column>
+          <column name="model">ctrm.contract.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="offer_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.roles.m2mlist">
+          <column name="name">view.ctrm.contract.roles.m2mlist</column>
+          <column name="model">ctrm.contract.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="offer_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.items.form">
+          <column name="name">view.ctrm.contract.items.form</column>
+          <column name="model">ctrm.contract.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="contract_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="vat_code"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="delivery_schedules"/>
+              <field name="roles"/>
+              <field name="texts"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.items.list">
+          <column name="name">view.ctrm.contract.items.list</column>
+          <column name="model">ctrm.contract.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="contract_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="vat_code"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+              <field name="delivery_schedules"/>
+              <field name="roles"/>
+              <field name="texts"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.items.m2mlist">
+          <column name="name">view.ctrm.contract.items.m2mlist</column>
+          <column name="model">ctrm.contract.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="contract_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="vat_code"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.item.texts.form">
+          <column name="name">view.ctrm.contract.item.texts.form</column>
+          <column name="model">ctrm.contract.item.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.item.texts.list">
+          <column name="name">view.ctrm.contract.item.texts.list</column>
+          <column name="model">ctrm.contract.item.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.item.texts.m2mlist">
+          <column name="name">view.ctrm.contract.item.texts.m2mlist</column>
+          <column name="model">ctrm.contract.item.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.item.roles.form">
+          <column name="name">view.ctrm.contract.item.roles.form</column>
+          <column name="model">ctrm.contract.item.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.item.roles.list">
+          <column name="name">view.ctrm.contract.item.roles.list</column>
+          <column name="model">ctrm.contract.item.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.item.roles.m2mlist">
+          <column name="name">view.ctrm.contract.item.roles.m2mlist</column>
+          <column name="model">ctrm.contract.item.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.item.delivery.schedules.form">
+          <column name="name">view.ctrm.contract.item.delivery.schedules.form</column>
+          <column name="model">ctrm.contract.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.item.delivery.schedules.list">
+          <column name="name">view.ctrm.contract.item.delivery.schedules.list</column>
+          <column name="model">ctrm.contract.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="schedule"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ctrm.contract.item.delivery.schedules.m2mlist">
+          <column name="name">view.ctrm.contract.item.delivery.schedules.m2mlist</column>
+          <column name="model">ctrm.contract.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="schedule"/>
+            </m2mlist>
+          </column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

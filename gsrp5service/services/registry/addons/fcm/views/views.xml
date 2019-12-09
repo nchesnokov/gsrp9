@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.views">
+        <record id="view.fcm.departament.categories.form">
+          <column name="name">view.fcm.departament.categories.form</column>
+          <column name="model">fcm.departament.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="departaments"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fcm.departament.categories.list">
+          <column name="name">view.fcm.departament.categories.list</column>
+          <column name="model">fcm.departament.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="departaments"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fcm.departament.categories.m2mlist">
+          <column name="name">view.fcm.departament.categories.m2mlist</column>
+          <column name="model">fcm.departament.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fcm.departament.categories.search">
+          <column name="name">view.fcm.departament.categories.search</column>
+          <column name="model">fcm.departament.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fcm.departament.categories.find">
+          <column name="name">view.fcm.departament.categories.find</column>
+          <column name="model">fcm.departament.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fcm.departament.categories.tree">
+          <column name="name">view.fcm.departament.categories.tree</column>
+          <column name="model">fcm.departament.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.fcm.obj.categories.form">
+          <column name="name">view.fcm.obj.categories.form</column>
+          <column name="model">fcm.obj.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="objs"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fcm.obj.categories.list">
+          <column name="name">view.fcm.obj.categories.list</column>
+          <column name="model">fcm.obj.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="objs"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fcm.obj.categories.m2mlist">
+          <column name="name">view.fcm.obj.categories.m2mlist</column>
+          <column name="model">fcm.obj.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fcm.obj.categories.search">
+          <column name="name">view.fcm.obj.categories.search</column>
+          <column name="model">fcm.obj.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fcm.obj.categories.find">
+          <column name="name">view.fcm.obj.categories.find</column>
+          <column name="model">fcm.obj.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fcm.obj.categories.tree">
+          <column name="name">view.fcm.obj.categories.tree</column>
+          <column name="model">fcm.obj.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.fcm.article.categories.form">
+          <column name="name">view.fcm.article.categories.form</column>
+          <column name="model">fcm.article.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="articles"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fcm.article.categories.list">
+          <column name="name">view.fcm.article.categories.list</column>
+          <column name="model">fcm.article.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="articles"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fcm.article.categories.m2mlist">
+          <column name="name">view.fcm.article.categories.m2mlist</column>
+          <column name="model">fcm.article.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fcm.article.categories.search">
+          <column name="name">view.fcm.article.categories.search</column>
+          <column name="model">fcm.article.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fcm.article.categories.find">
+          <column name="name">view.fcm.article.categories.find</column>
+          <column name="model">fcm.article.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fcm.article.categories.tree">
+          <column name="name">view.fcm.article.categories.tree</column>
+          <column name="model">fcm.article.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.fcm.departaments.form">
+          <column name="name">view.fcm.departaments.form</column>
+          <column name="model">fcm.departaments</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="name"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fcm.departaments.list">
+          <column name="name">view.fcm.departaments.list</column>
+          <column name="model">fcm.departaments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="name"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fcm.departaments.m2mlist">
+          <column name="name">view.fcm.departaments.m2mlist</column>
+          <column name="model">fcm.departaments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="name"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fcm.departaments.search">
+          <column name="name">view.fcm.departaments.search</column>
+          <column name="model">fcm.departaments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="name"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fcm.departaments.find">
+          <column name="name">view.fcm.departaments.find</column>
+          <column name="model">fcm.departaments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="name"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fcm.objs.form">
+          <column name="name">view.fcm.objs.form</column>
+          <column name="model">fcm.objs</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+              <field name="category_id"/>
+              <field name="name"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fcm.objs.list">
+          <column name="name">view.fcm.objs.list</column>
+          <column name="model">fcm.objs</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+              <field name="category_id"/>
+              <field name="name"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fcm.objs.m2mlist">
+          <column name="name">view.fcm.objs.m2mlist</column>
+          <column name="model">fcm.objs</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="usage"/>
+              <field name="category_id"/>
+              <field name="name"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fcm.objs.search">
+          <column name="name">view.fcm.objs.search</column>
+          <column name="model">fcm.objs</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+              <field name="category_id"/>
+              <field name="name"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fcm.objs.find">
+          <column name="name">view.fcm.objs.find</column>
+          <column name="model">fcm.objs</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="usage"/>
+              <field name="category_id"/>
+              <field name="name"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fcm.articles.form">
+          <column name="name">view.fcm.articles.form</column>
+          <column name="model">fcm.articles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="name"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fcm.articles.list">
+          <column name="name">view.fcm.articles.list</column>
+          <column name="model">fcm.articles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="name"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fcm.articles.m2mlist">
+          <column name="name">view.fcm.articles.m2mlist</column>
+          <column name="model">fcm.articles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="name"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fcm.articles.search">
+          <column name="name">view.fcm.articles.search</column>
+          <column name="model">fcm.articles</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="name"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fcm.articles.find">
+          <column name="name">view.fcm.articles.find</column>
+          <column name="model">fcm.articles</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="name"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fcm.company.departaments.form">
+          <column name="name">view.fcm.company.departaments.form</column>
+          <column name="model">fcm.company.departaments</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="company_id"/>
+              <field name="departament_id"/>
+              <field name="fullname"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fcm.company.departaments.list">
+          <column name="name">view.fcm.company.departaments.list</column>
+          <column name="model">fcm.company.departaments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="company_id"/>
+              <field name="departament_id"/>
+              <field name="fullname"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fcm.company.departaments.m2mlist">
+          <column name="name">view.fcm.company.departaments.m2mlist</column>
+          <column name="model">fcm.company.departaments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="company_id"/>
+              <field name="departament_id"/>
+              <field name="fullname"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fcm.company.departaments.search">
+          <column name="name">view.fcm.company.departaments.search</column>
+          <column name="model">fcm.company.departaments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="company_id"/>
+              <field name="departament_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fcm.company.departaments.find">
+          <column name="name">view.fcm.company.departaments.find</column>
+          <column name="model">fcm.company.departaments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="company_id"/>
+              <field name="departament_id"/>
+              <field name="fullname"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fcm.company.objs.form">
+          <column name="name">view.fcm.company.objs.form</column>
+          <column name="model">fcm.company.objs</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="company_id"/>
+              <field name="obj_id"/>
+              <field name="fullname"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fcm.company.objs.list">
+          <column name="name">view.fcm.company.objs.list</column>
+          <column name="model">fcm.company.objs</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="company_id"/>
+              <field name="obj_id"/>
+              <field name="fullname"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fcm.company.objs.m2mlist">
+          <column name="name">view.fcm.company.objs.m2mlist</column>
+          <column name="model">fcm.company.objs</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="company_id"/>
+              <field name="obj_id"/>
+              <field name="fullname"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fcm.company.objs.search">
+          <column name="name">view.fcm.company.objs.search</column>
+          <column name="model">fcm.company.objs</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="company_id"/>
+              <field name="obj_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fcm.company.objs.find">
+          <column name="name">view.fcm.company.objs.find</column>
+          <column name="model">fcm.company.objs</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="company_id"/>
+              <field name="obj_id"/>
+              <field name="fullname"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fcm.company.articles.form">
+          <column name="name">view.fcm.company.articles.form</column>
+          <column name="model">fcm.company.articles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="company_id"/>
+              <field name="article_id"/>
+              <field name="fullname"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fcm.company.articles.list">
+          <column name="name">view.fcm.company.articles.list</column>
+          <column name="model">fcm.company.articles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="company_id"/>
+              <field name="article_id"/>
+              <field name="fullname"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fcm.company.articles.m2mlist">
+          <column name="name">view.fcm.company.articles.m2mlist</column>
+          <column name="model">fcm.company.articles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="company_id"/>
+              <field name="article_id"/>
+              <field name="fullname"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fcm.company.articles.search">
+          <column name="name">view.fcm.company.articles.search</column>
+          <column name="model">fcm.company.articles</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="company_id"/>
+              <field name="article_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fcm.company.articles.find">
+          <column name="name">view.fcm.company.articles.find</column>
+          <column name="model">fcm.company.articles</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="company_id"/>
+              <field name="article_id"/>
+              <field name="fullname"/>
+            </find>
+          </column>
+        </record>
+      </records>
+      <records model="bc.ui.views.inherit">
+        <record id="view.md.fcm.company.inherit.form.inherit.md.company">
+          <column name="view_id">view.md.company.form</column>
+          <column name="name">view.md.fcm.company.inherit.form.inherit.md.company</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="fcm_departaments"/>
+              <field name="fcm_objs"/>
+              <field name="fcm_articles"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.fcm.company.inherit.list.inherit.md.company">
+          <column name="view_id">view.md.company.list</column>
+          <column name="name">view.md.fcm.company.inherit.list.inherit.md.company</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="fcm_departaments"/>
+              <field name="fcm_objs"/>
+              <field name="fcm_articles"/>
+            </list>
+          </column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

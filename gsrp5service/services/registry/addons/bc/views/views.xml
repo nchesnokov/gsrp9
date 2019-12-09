@@ -1,0 +1,1632 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.views">
+        <record id="view.bc.users.form">
+          <column name="name">view.bc.users.form</column>
+          <column name="model">bc.users</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="login"/>
+              <field name="password"/>
+              <field name="firstname"/>
+              <field name="lastname"/>
+              <field name="issuperuser"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.users.list">
+          <column name="name">view.bc.users.list</column>
+          <column name="model">bc.users</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="login"/>
+              <field name="password"/>
+              <field name="firstname"/>
+              <field name="lastname"/>
+              <field name="issuperuser"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.users.m2mlist">
+          <column name="name">view.bc.users.m2mlist</column>
+          <column name="model">bc.users</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="login"/>
+              <field name="password"/>
+              <field name="firstname"/>
+              <field name="lastname"/>
+              <field name="issuperuser"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.users.search">
+          <column name="name">view.bc.users.search</column>
+          <column name="model">bc.users</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="login"/>
+              <field name="password"/>
+              <field name="firstname"/>
+              <field name="lastname"/>
+              <field name="issuperuser"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.users.find">
+          <column name="name">view.bc.users.find</column>
+          <column name="model">bc.users</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="login"/>
+              <field name="password"/>
+              <field name="firstname"/>
+              <field name="lastname"/>
+              <field name="issuperuser"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.langs.form">
+          <column name="name">view.bc.langs.form</column>
+          <column name="model">bc.langs</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="description"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.langs.list">
+          <column name="name">view.bc.langs.list</column>
+          <column name="model">bc.langs</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="description"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.langs.m2mlist">
+          <column name="name">view.bc.langs.m2mlist</column>
+          <column name="model">bc.langs</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="description"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.langs.search">
+          <column name="name">view.bc.langs.search</column>
+          <column name="model">bc.langs</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="description"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.langs.find">
+          <column name="name">view.bc.langs.find</column>
+          <column name="model">bc.langs</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="description"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.group.modules.form">
+          <column name="name">view.bc.group.modules.form</column>
+          <column name="model">bc.group.modules</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="name2"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="bc_modules"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.group.modules.list">
+          <column name="name">view.bc.group.modules.list</column>
+          <column name="model">bc.group.modules</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="name2"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="bc_modules"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.group.modules.m2mlist">
+          <column name="name">view.bc.group.modules.m2mlist</column>
+          <column name="model">bc.group.modules</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="name2"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.group.modules.search">
+          <column name="name">view.bc.group.modules.search</column>
+          <column name="model">bc.group.modules</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="name2"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.group.modules.find">
+          <column name="name">view.bc.group.modules.find</column>
+          <column name="model">bc.group.modules</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="name2"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.group.modules.tree">
+          <column name="name">view.bc.group.modules.tree</column>
+          <column name="model">bc.group.modules</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="name2"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.bc.modules.form">
+          <column name="name">view.bc.modules.form</column>
+          <column name="model">bc.modules</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="bc_group_module_id"/>
+              <field name="code"/>
+              <field name="name"/>
+              <field name="version"/>
+              <field name="category"/>
+              <field name="shortdescription"/>
+              <field name="author"/>
+              <field name="website"/>
+              <field name="maintainer"/>
+              <field name="able"/>
+              <field name="area"/>
+              <field name="icon"/>
+              <field name="image"/>
+              <field name="state"/>
+              <field name="description"/>
+              <field name="models"/>
+              <field name="inherits"/>
+              <field name="files"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.modules.kanban">
+          <column name="name">view.bc.modules.kanban</column>
+          <column name="model">bc.modules</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="bc_group_module_id"/>
+              <field name="code"/>
+              <field name="name"/>
+              <field name="version"/>
+              <field name="category"/>
+              <field name="shortdescription"/>
+              <field name="author"/>
+              <field name="website"/>
+              <field name="maintainer"/>
+              <field name="able"/>
+              <field name="area"/>
+              <field name="icon"/>
+              <field name="image"/>
+              <field name="state"/>
+              <field name="description"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.bc.modules.list">
+          <column name="name">view.bc.modules.list</column>
+          <column name="model">bc.modules</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="bc_group_module_id"/>
+              <field name="code"/>
+              <field name="name"/>
+              <field name="version"/>
+              <field name="category"/>
+              <field name="shortdescription"/>
+              <field name="author"/>
+              <field name="website"/>
+              <field name="maintainer"/>
+              <field name="able"/>
+              <field name="area"/>
+              <field name="icon"/>
+              <field name="image"/>
+              <field name="state"/>
+              <field name="models"/>
+              <field name="inherits"/>
+              <field name="files"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.modules.m2mlist">
+          <column name="name">view.bc.modules.m2mlist</column>
+          <column name="model">bc.modules</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="bc_group_module_id"/>
+              <field name="code"/>
+              <field name="name"/>
+              <field name="version"/>
+              <field name="category"/>
+              <field name="shortdescription"/>
+              <field name="author"/>
+              <field name="website"/>
+              <field name="maintainer"/>
+              <field name="able"/>
+              <field name="area"/>
+              <field name="icon"/>
+              <field name="image"/>
+              <field name="state"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.modules.search">
+          <column name="name">view.bc.modules.search</column>
+          <column name="model">bc.modules</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="bc_group_module_id"/>
+              <field name="code"/>
+              <field name="name"/>
+              <field name="version"/>
+              <field name="category"/>
+              <field name="shortdescription"/>
+              <field name="author"/>
+              <field name="website"/>
+              <field name="maintainer"/>
+              <field name="able"/>
+              <field name="area"/>
+              <field name="icon"/>
+              <field name="image"/>
+              <field name="state"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.modules.find">
+          <column name="name">view.bc.modules.find</column>
+          <column name="model">bc.modules</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="bc_group_module_id"/>
+              <field name="code"/>
+              <field name="name"/>
+              <field name="version"/>
+              <field name="category"/>
+              <field name="shortdescription"/>
+              <field name="author"/>
+              <field name="website"/>
+              <field name="maintainer"/>
+              <field name="able"/>
+              <field name="area"/>
+              <field name="icon"/>
+              <field name="image"/>
+              <field name="state"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.module.files.form">
+          <column name="name">view.bc.module.files.form</column>
+          <column name="model">bc.module.files</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="module_id"/>
+              <field name="filename"/>
+              <field name="size"/>
+              <field name="ctime"/>
+              <field name="mtime"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.module.files.list">
+          <column name="name">view.bc.module.files.list</column>
+          <column name="model">bc.module.files</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="module_id"/>
+              <field name="filename"/>
+              <field name="size"/>
+              <field name="ctime"/>
+              <field name="mtime"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.module.files.m2mlist">
+          <column name="name">view.bc.module.files.m2mlist</column>
+          <column name="model">bc.module.files</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="module_id"/>
+              <field name="filename"/>
+              <field name="size"/>
+              <field name="ctime"/>
+              <field name="mtime"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.module.files.search">
+          <column name="name">view.bc.module.files.search</column>
+          <column name="model">bc.module.files</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="module_id"/>
+              <field name="filename"/>
+              <field name="size"/>
+              <field name="ctime"/>
+              <field name="mtime"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.module.files.find">
+          <column name="name">view.bc.module.files.find</column>
+          <column name="model">bc.module.files</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="module_id"/>
+              <field name="filename"/>
+              <field name="size"/>
+              <field name="ctime"/>
+              <field name="mtime"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.class.models.form">
+          <column name="name">view.bc.class.models.form</column>
+          <column name="model">bc.class.models</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="descr"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.class.models.list">
+          <column name="name">view.bc.class.models.list</column>
+          <column name="model">bc.class.models</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.class.models.m2mlist">
+          <column name="name">view.bc.class.models.m2mlist</column>
+          <column name="model">bc.class.models</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.class.models.search">
+          <column name="name">view.bc.class.models.search</column>
+          <column name="model">bc.class.models</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.class.models.find">
+          <column name="name">view.bc.class.models.find</column>
+          <column name="model">bc.class.models</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.class.categories.form">
+          <column name="name">view.bc.class.categories.form</column>
+          <column name="model">bc.class.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="descr"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.class.categories.list">
+          <column name="name">view.bc.class.categories.list</column>
+          <column name="model">bc.class.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.class.categories.m2mlist">
+          <column name="name">view.bc.class.categories.m2mlist</column>
+          <column name="model">bc.class.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.class.categories.search">
+          <column name="name">view.bc.class.categories.search</column>
+          <column name="model">bc.class.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.class.categories.find">
+          <column name="name">view.bc.class.categories.find</column>
+          <column name="model">bc.class.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.models.form">
+          <column name="name">view.bc.models.form</column>
+          <column name="model">bc.models</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="db_table"/>
+              <field name="description"/>
+              <field name="class_model"/>
+              <field name="class_category"/>
+              <field name="module_id"/>
+              <field name="columns"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.models.list">
+          <column name="name">view.bc.models.list</column>
+          <column name="model">bc.models</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="db_table"/>
+              <field name="description"/>
+              <field name="class_model"/>
+              <field name="class_category"/>
+              <field name="module_id"/>
+              <field name="columns"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.models.m2mlist">
+          <column name="name">view.bc.models.m2mlist</column>
+          <column name="model">bc.models</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="db_table"/>
+              <field name="description"/>
+              <field name="class_model"/>
+              <field name="class_category"/>
+              <field name="module_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.models.search">
+          <column name="name">view.bc.models.search</column>
+          <column name="model">bc.models</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="db_table"/>
+              <field name="description"/>
+              <field name="class_model"/>
+              <field name="class_category"/>
+              <field name="module_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.models.find">
+          <column name="name">view.bc.models.find</column>
+          <column name="model">bc.models</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="db_table"/>
+              <field name="description"/>
+              <field name="class_model"/>
+              <field name="class_category"/>
+              <field name="module_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.inherits.form">
+          <column name="name">view.bc.inherits.form</column>
+          <column name="model">bc.inherits</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="module_id"/>
+              <field name="columns"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.inherits.list">
+          <column name="name">view.bc.inherits.list</column>
+          <column name="model">bc.inherits</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="module_id"/>
+              <field name="columns"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.inherits.m2mlist">
+          <column name="name">view.bc.inherits.m2mlist</column>
+          <column name="model">bc.inherits</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="module_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.inherits.search">
+          <column name="name">view.bc.inherits.search</column>
+          <column name="model">bc.inherits</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="module_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.inherits.find">
+          <column name="name">view.bc.inherits.find</column>
+          <column name="model">bc.inherits</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="module_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.model.columns.form">
+          <column name="name">view.bc.model.columns.form</column>
+          <column name="model">bc.model.columns</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="model_id"/>
+              <field name="col_name"/>
+              <field name="col_type"/>
+              <field name="label"/>
+              <field name="readanly"/>
+              <field name="priority"/>
+              <field name="domain"/>
+              <field name="required"/>
+              <field name="size"/>
+              <field name="precision"/>
+              <field name="on_delete"/>
+              <field name="on_update"/>
+              <field name="change_default"/>
+              <field name="translate"/>
+              <field name="selections"/>
+              <field name="selectable"/>
+              <field name="relatedy"/>
+              <field name="manual"/>
+              <field name="help"/>
+              <field name="col_unique"/>
+              <field name="col_check"/>
+              <field name="col_default"/>
+              <field name="col_family"/>
+              <field name="timezone"/>
+              <field name="obj"/>
+              <field name="rel"/>
+              <field name="id1"/>
+              <field name="id2"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.model.columns.list">
+          <column name="name">view.bc.model.columns.list</column>
+          <column name="model">bc.model.columns</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="model_id"/>
+              <field name="col_name"/>
+              <field name="col_type"/>
+              <field name="label"/>
+              <field name="readanly"/>
+              <field name="priority"/>
+              <field name="required"/>
+              <field name="size"/>
+              <field name="precision"/>
+              <field name="on_delete"/>
+              <field name="on_update"/>
+              <field name="change_default"/>
+              <field name="translate"/>
+              <field name="selectable"/>
+              <field name="col_unique"/>
+              <field name="col_family"/>
+              <field name="timezone"/>
+              <field name="obj"/>
+              <field name="rel"/>
+              <field name="id1"/>
+              <field name="id2"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.model.columns.m2mlist">
+          <column name="name">view.bc.model.columns.m2mlist</column>
+          <column name="model">bc.model.columns</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="model_id"/>
+              <field name="col_name"/>
+              <field name="col_type"/>
+              <field name="label"/>
+              <field name="readanly"/>
+              <field name="priority"/>
+              <field name="required"/>
+              <field name="size"/>
+              <field name="precision"/>
+              <field name="on_delete"/>
+              <field name="on_update"/>
+              <field name="change_default"/>
+              <field name="translate"/>
+              <field name="selectable"/>
+              <field name="col_unique"/>
+              <field name="col_family"/>
+              <field name="timezone"/>
+              <field name="obj"/>
+              <field name="rel"/>
+              <field name="id1"/>
+              <field name="id2"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.inherit.columns.form">
+          <column name="name">view.bc.inherit.columns.form</column>
+          <column name="model">bc.inherit.columns</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="inherit_id"/>
+              <field name="col_name"/>
+              <field name="col_type"/>
+              <field name="label"/>
+              <field name="readanly"/>
+              <field name="priority"/>
+              <field name="domain"/>
+              <field name="required"/>
+              <field name="size"/>
+              <field name="precision"/>
+              <field name="on_delete"/>
+              <field name="on_update"/>
+              <field name="change_default"/>
+              <field name="translate"/>
+              <field name="selections"/>
+              <field name="selectable"/>
+              <field name="filtering"/>
+              <field name="manual"/>
+              <field name="help"/>
+              <field name="col_unique"/>
+              <field name="col_check"/>
+              <field name="col_default"/>
+              <field name="col_family"/>
+              <field name="timezone"/>
+              <field name="obj"/>
+              <field name="rel"/>
+              <field name="id1"/>
+              <field name="id2"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.inherit.columns.list">
+          <column name="name">view.bc.inherit.columns.list</column>
+          <column name="model">bc.inherit.columns</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="inherit_id"/>
+              <field name="col_name"/>
+              <field name="col_type"/>
+              <field name="label"/>
+              <field name="readanly"/>
+              <field name="priority"/>
+              <field name="required"/>
+              <field name="size"/>
+              <field name="precision"/>
+              <field name="on_delete"/>
+              <field name="on_update"/>
+              <field name="change_default"/>
+              <field name="translate"/>
+              <field name="selectable"/>
+              <field name="col_unique"/>
+              <field name="col_family"/>
+              <field name="timezone"/>
+              <field name="obj"/>
+              <field name="rel"/>
+              <field name="id1"/>
+              <field name="id2"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.inherit.columns.m2mlist">
+          <column name="name">view.bc.inherit.columns.m2mlist</column>
+          <column name="model">bc.inherit.columns</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="inherit_id"/>
+              <field name="col_name"/>
+              <field name="col_type"/>
+              <field name="label"/>
+              <field name="readanly"/>
+              <field name="priority"/>
+              <field name="required"/>
+              <field name="size"/>
+              <field name="precision"/>
+              <field name="on_delete"/>
+              <field name="on_update"/>
+              <field name="change_default"/>
+              <field name="translate"/>
+              <field name="selectable"/>
+              <field name="col_unique"/>
+              <field name="col_family"/>
+              <field name="timezone"/>
+              <field name="obj"/>
+              <field name="rel"/>
+              <field name="id1"/>
+              <field name="id2"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.translations.form">
+          <column name="name">view.bc.translations.form</column>
+          <column name="model">bc.translations</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="module_id"/>
+              <field name="lang_id"/>
+              <field name="model_id"/>
+              <field name="record_id"/>
+              <field name="column_id"/>
+              <field name="tr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.translations.list">
+          <column name="name">view.bc.translations.list</column>
+          <column name="model">bc.translations</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="module_id"/>
+              <field name="lang_id"/>
+              <field name="model_id"/>
+              <field name="record_id"/>
+              <field name="column_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.translations.m2mlist">
+          <column name="name">view.bc.translations.m2mlist</column>
+          <column name="model">bc.translations</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="module_id"/>
+              <field name="lang_id"/>
+              <field name="model_id"/>
+              <field name="record_id"/>
+              <field name="column_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.group.access.form">
+          <column name="name">view.bc.group.access.form</column>
+          <column name="model">bc.group.access</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="roles"/>
+              <field name="active"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.group.access.list">
+          <column name="name">view.bc.group.access.list</column>
+          <column name="model">bc.group.access</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="roles"/>
+              <field name="active"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.group.access.m2mlist">
+          <column name="name">view.bc.group.access.m2mlist</column>
+          <column name="model">bc.group.access</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="active"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.group.access.search">
+          <column name="name">view.bc.group.access.search</column>
+          <column name="model">bc.group.access</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="active"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.group.access.find">
+          <column name="name">view.bc.group.access.find</column>
+          <column name="model">bc.group.access</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="active"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.group.access.tree">
+          <column name="name">view.bc.group.access.tree</column>
+          <column name="model">bc.group.access</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="active"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.bc.access.form">
+          <column name="name">view.bc.access.form</column>
+          <column name="model">bc.access</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="group_id"/>
+              <field name="models"/>
+              <field name="inactive"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.access.list">
+          <column name="name">view.bc.access.list</column>
+          <column name="model">bc.access</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="group_id"/>
+              <field name="models"/>
+              <field name="inactive"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.access.m2mlist">
+          <column name="name">view.bc.access.m2mlist</column>
+          <column name="model">bc.access</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="group_id"/>
+              <field name="inactive"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.access.search">
+          <column name="name">view.bc.access.search</column>
+          <column name="model">bc.access</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="group_id"/>
+              <field name="inactive"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.access.find">
+          <column name="name">view.bc.access.find</column>
+          <column name="model">bc.access</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="group_id"/>
+              <field name="inactive"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.model.access.form">
+          <column name="name">view.bc.model.access.form</column>
+          <column name="model">bc.model.access</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="access_id"/>
+              <field name="model_id"/>
+              <field name="acreate"/>
+              <field name="awrite"/>
+              <field name="amodify"/>
+              <field name="aread"/>
+              <field name="aunlink"/>
+              <field name="aselect"/>
+              <field name="aupdate"/>
+              <field name="adelete"/>
+              <field name="ainsert"/>
+              <field name="aupsert"/>
+              <field name="abrowse"/>
+              <field name="aselectbrowse"/>
+              <field name="inactive"/>
+              <field name="auth"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.model.access.list">
+          <column name="name">view.bc.model.access.list</column>
+          <column name="model">bc.model.access</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="access_id"/>
+              <field name="model_id"/>
+              <field name="acreate"/>
+              <field name="awrite"/>
+              <field name="amodify"/>
+              <field name="aread"/>
+              <field name="aunlink"/>
+              <field name="aselect"/>
+              <field name="aupdate"/>
+              <field name="adelete"/>
+              <field name="ainsert"/>
+              <field name="aupsert"/>
+              <field name="abrowse"/>
+              <field name="aselectbrowse"/>
+              <field name="inactive"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.model.access.m2mlist">
+          <column name="name">view.bc.model.access.m2mlist</column>
+          <column name="model">bc.model.access</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="access_id"/>
+              <field name="model_id"/>
+              <field name="acreate"/>
+              <field name="awrite"/>
+              <field name="amodify"/>
+              <field name="aread"/>
+              <field name="aunlink"/>
+              <field name="aselect"/>
+              <field name="aupdate"/>
+              <field name="adelete"/>
+              <field name="ainsert"/>
+              <field name="aupsert"/>
+              <field name="abrowse"/>
+              <field name="aselectbrowse"/>
+              <field name="inactive"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.model.data.form">
+          <column name="name">view.bc.model.data.form</column>
+          <column name="model">bc.model.data</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="module"/>
+              <field name="model"/>
+              <field name="rec_id"/>
+              <field name="file_id"/>
+              <field name="date_init"/>
+              <field name="date_update"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.model.data.list">
+          <column name="name">view.bc.model.data.list</column>
+          <column name="model">bc.model.data</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="module"/>
+              <field name="model"/>
+              <field name="rec_id"/>
+              <field name="file_id"/>
+              <field name="date_init"/>
+              <field name="date_update"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.model.data.m2mlist">
+          <column name="name">view.bc.model.data.m2mlist</column>
+          <column name="model">bc.model.data</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="module"/>
+              <field name="model"/>
+              <field name="rec_id"/>
+              <field name="file_id"/>
+              <field name="date_init"/>
+              <field name="date_update"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.model.data.search">
+          <column name="name">view.bc.model.data.search</column>
+          <column name="model">bc.model.data</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="module"/>
+              <field name="model"/>
+              <field name="rec_id"/>
+              <field name="file_id"/>
+              <field name="date_init"/>
+              <field name="date_update"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.model.data.find">
+          <column name="name">view.bc.model.data.find</column>
+          <column name="model">bc.model.data</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="module"/>
+              <field name="model"/>
+              <field name="rec_id"/>
+              <field name="file_id"/>
+              <field name="date_init"/>
+              <field name="date_update"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.ui.views.form">
+          <column name="name">view.bc.ui.views.form</column>
+          <column name="model">bc.ui.views</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="model"/>
+              <field name="type"/>
+              <field name="arch"/>
+              <field name="inherit_views"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.ui.views.list">
+          <column name="name">view.bc.ui.views.list</column>
+          <column name="model">bc.ui.views</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="model"/>
+              <field name="type"/>
+              <field name="inherit_views"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.ui.views.m2mlist">
+          <column name="name">view.bc.ui.views.m2mlist</column>
+          <column name="model">bc.ui.views</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="model"/>
+              <field name="type"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.ui.views.search">
+          <column name="name">view.bc.ui.views.search</column>
+          <column name="model">bc.ui.views</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="model"/>
+              <field name="type"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.ui.views.find">
+          <column name="name">view.bc.ui.views.find</column>
+          <column name="model">bc.ui.views</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="model"/>
+              <field name="type"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.ui.views.inherit.form">
+          <column name="name">view.bc.ui.views.inherit.form</column>
+          <column name="model">bc.ui.views.inherit</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="view_id"/>
+              <field name="name"/>
+              <field name="type"/>
+              <field name="arch"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.ui.views.inherit.list">
+          <column name="name">view.bc.ui.views.inherit.list</column>
+          <column name="model">bc.ui.views.inherit</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="view_id"/>
+              <field name="name"/>
+              <field name="type"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.ui.views.inherit.m2mlist">
+          <column name="name">view.bc.ui.views.inherit.m2mlist</column>
+          <column name="model">bc.ui.views.inherit</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="view_id"/>
+              <field name="name"/>
+              <field name="type"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.ui.views.inherit.search">
+          <column name="name">view.bc.ui.views.inherit.search</column>
+          <column name="model">bc.ui.views.inherit</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="view_id"/>
+              <field name="name"/>
+              <field name="type"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.ui.views.inherit.find">
+          <column name="name">view.bc.ui.views.inherit.find</column>
+          <column name="model">bc.ui.views.inherit</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="view_id"/>
+              <field name="name"/>
+              <field name="type"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.tuning.ui.views.form">
+          <column name="name">view.bc.tuning.ui.views.form</column>
+          <column name="model">bc.tuning.ui.views</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="view_id"/>
+              <field name="user_id"/>
+              <field name="col_name"/>
+              <field name="sequence"/>
+              <field name="values"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.tuning.ui.views.list">
+          <column name="name">view.bc.tuning.ui.views.list</column>
+          <column name="model">bc.tuning.ui.views</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="view_id"/>
+              <field name="user_id"/>
+              <field name="col_name"/>
+              <field name="sequence"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.tuning.ui.views.m2mlist">
+          <column name="name">view.bc.tuning.ui.views.m2mlist</column>
+          <column name="model">bc.tuning.ui.views</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="view_id"/>
+              <field name="user_id"/>
+              <field name="col_name"/>
+              <field name="sequence"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.tuning.ui.views.search">
+          <column name="name">view.bc.tuning.ui.views.search</column>
+          <column name="model">bc.tuning.ui.views</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="view_id"/>
+              <field name="user_id"/>
+              <field name="col_name"/>
+              <field name="sequence"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.tuning.ui.views.find">
+          <column name="name">view.bc.tuning.ui.views.find</column>
+          <column name="model">bc.tuning.ui.views</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="view_id"/>
+              <field name="user_id"/>
+              <field name="col_name"/>
+              <field name="sequence"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.general.tuning.ui.views.form">
+          <column name="name">view.bc.general.tuning.ui.views.form</column>
+          <column name="model">bc.general.tuning.ui.views</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="view_id"/>
+              <field name="col_name"/>
+              <field name="sequence"/>
+              <field name="values"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.general.tuning.ui.views.list">
+          <column name="name">view.bc.general.tuning.ui.views.list</column>
+          <column name="model">bc.general.tuning.ui.views</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="view_id"/>
+              <field name="col_name"/>
+              <field name="sequence"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.general.tuning.ui.views.m2mlist">
+          <column name="name">view.bc.general.tuning.ui.views.m2mlist</column>
+          <column name="model">bc.general.tuning.ui.views</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="view_id"/>
+              <field name="col_name"/>
+              <field name="sequence"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.general.tuning.ui.views.search">
+          <column name="name">view.bc.general.tuning.ui.views.search</column>
+          <column name="model">bc.general.tuning.ui.views</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="view_id"/>
+              <field name="col_name"/>
+              <field name="sequence"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.general.tuning.ui.views.find">
+          <column name="name">view.bc.general.tuning.ui.views.find</column>
+          <column name="model">bc.general.tuning.ui.views</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="view_id"/>
+              <field name="col_name"/>
+              <field name="sequence"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.ui.reports.form">
+          <column name="name">view.bc.ui.reports.form</column>
+          <column name="model">bc.ui.reports</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="report"/>
+              <field name="infile"/>
+              <field name="outfile"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.ui.reports.list">
+          <column name="name">view.bc.ui.reports.list</column>
+          <column name="model">bc.ui.reports</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="report"/>
+              <field name="infile"/>
+              <field name="outfile"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.ui.reports.m2mlist">
+          <column name="name">view.bc.ui.reports.m2mlist</column>
+          <column name="model">bc.ui.reports</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="report"/>
+              <field name="infile"/>
+              <field name="outfile"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.ui.reports.search">
+          <column name="name">view.bc.ui.reports.search</column>
+          <column name="model">bc.ui.reports</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="report"/>
+              <field name="infile"/>
+              <field name="outfile"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.ui.reports.find">
+          <column name="name">view.bc.ui.reports.find</column>
+          <column name="model">bc.ui.reports</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="report"/>
+              <field name="infile"/>
+              <field name="outfile"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.actions.form">
+          <column name="name">view.bc.actions.form</column>
+          <column name="model">bc.actions</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="ta"/>
+              <field name="va"/>
+              <field name="ra"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.actions.list">
+          <column name="name">view.bc.actions.list</column>
+          <column name="model">bc.actions</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="ta"/>
+              <field name="va"/>
+              <field name="ra"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.actions.m2mlist">
+          <column name="name">view.bc.actions.m2mlist</column>
+          <column name="model">bc.actions</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="ta"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.actions.search">
+          <column name="name">view.bc.actions.search</column>
+          <column name="model">bc.actions</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="ta"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.actions.find">
+          <column name="name">view.bc.actions.find</column>
+          <column name="model">bc.actions</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="ta"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.view.actions.form">
+          <column name="name">view.bc.view.actions.form</column>
+          <column name="model">bc.view.actions</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="action_id"/>
+              <field name="view_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.view.actions.list">
+          <column name="name">view.bc.view.actions.list</column>
+          <column name="model">bc.view.actions</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="action_id"/>
+              <field name="view_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.view.actions.m2mlist">
+          <column name="name">view.bc.view.actions.m2mlist</column>
+          <column name="model">bc.view.actions</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="action_id"/>
+              <field name="view_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.report.actions.form">
+          <column name="name">view.bc.report.actions.form</column>
+          <column name="model">bc.report.actions</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="action_id"/>
+              <field name="report_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.report.actions.list">
+          <column name="name">view.bc.report.actions.list</column>
+          <column name="model">bc.report.actions</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="action_id"/>
+              <field name="report_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.report.actions.m2mlist">
+          <column name="name">view.bc.report.actions.m2mlist</column>
+          <column name="model">bc.report.actions</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="action_id"/>
+              <field name="report_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.ui.menus.form">
+          <column name="name">view.bc.ui.menus.form</column>
+          <column name="model">bc.ui.menus</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="sequence"/>
+              <field name="action_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.ui.menus.list">
+          <column name="name">view.bc.ui.menus.list</column>
+          <column name="model">bc.ui.menus</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="sequence"/>
+              <field name="action_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.ui.menus.m2mlist">
+          <column name="name">view.bc.ui.menus.m2mlist</column>
+          <column name="model">bc.ui.menus</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="parent_id"/>
+              <field name="sequence"/>
+              <field name="action_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.ui.menus.search">
+          <column name="name">view.bc.ui.menus.search</column>
+          <column name="model">bc.ui.menus</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="parent_id"/>
+              <field name="sequence"/>
+              <field name="action_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.ui.menus.find">
+          <column name="name">view.bc.ui.menus.find</column>
+          <column name="model">bc.ui.menus</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="parent_id"/>
+              <field name="sequence"/>
+              <field name="action_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.ui.menus.tree">
+          <column name="name">view.bc.ui.menus.tree</column>
+          <column name="model">bc.ui.menus</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="parent_id"/>
+              <field name="sequence"/>
+              <field name="action_id"/>
+            </tree>
+          </column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

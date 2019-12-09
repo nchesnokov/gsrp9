@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.trm">
+          <column name="name">ui.menu.trm</column>
+          <column name="label">Transporting Management</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.trm.inode.category.search">
+          <column name="name">action.trm.inode.category.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.trm.vehicle.category.search">
+          <column name="name">action.trm.vehicle.category.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.trm.inode.search">
+          <column name="name">action.trm.inode.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.trm.vehicle.search">
+          <column name="name">action.trm.vehicle.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.trm.unit.vehicle.search">
+          <column name="name">action.trm.unit.vehicle.search</column>
+          <column name="ta">View</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.trm.inode.category.report">
+          <column name="name">action.trm.inode.category.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.trm.vehicle.category.report">
+          <column name="name">action.trm.vehicle.category.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.trm.inode.report">
+          <column name="name">action.trm.inode.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.trm.vehicle.report">
+          <column name="name">action.trm.vehicle.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.trm.unit.vehicle.report">
+          <column name="name">action.trm.unit.vehicle.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.view.actions">
+        <record id="view.action.trm.inode.category.search">
+          <column name="action_id">action.trm.inode.category.search</column>
+          <column name="view_id">view.trm.inode.category.search</column>
+        </record>
+        <record id="view.action.trm.vehicle.category.search">
+          <column name="action_id">action.trm.vehicle.category.search</column>
+          <column name="view_id">view.trm.vehicle.category.search</column>
+        </record>
+        <record id="view.action.trm.inode.search">
+          <column name="action_id">action.trm.inode.search</column>
+          <column name="view_id">view.trm.inode.search</column>
+        </record>
+        <record id="view.action.trm.vehicle.search">
+          <column name="action_id">action.trm.vehicle.search</column>
+          <column name="view_id">view.trm.vehicle.search</column>
+        </record>
+        <record id="view.action.trm.unit.vehicle.search">
+          <column name="action_id">action.trm.unit.vehicle.search</column>
+          <column name="view_id">view.trm.unit.vehicle.search</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.trm.inode.category">
+          <column name="name">bc.ui.report.docx.trm.inode.category</column>
+          <column name="label">Node Category</column>
+          <column name="report">report_trm_inode_category</column>
+          <column name="infile">infile_trm_inode_category.docx</column>
+          <column name="outfile">outfile_trm_inode_category.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.trm.vehicle.category">
+          <column name="name">bc.ui.report.docx.trm.vehicle.category</column>
+          <column name="label">Vehicle Category</column>
+          <column name="report">report_trm_vehicle_category</column>
+          <column name="infile">infile_trm_vehicle_category.docx</column>
+          <column name="outfile">outfile_trm_vehicle_category.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.trm.inode">
+          <column name="name">bc.ui.report.docx.trm.inode</column>
+          <column name="label">Node</column>
+          <column name="report">report_trm_inode</column>
+          <column name="infile">infile_trm_inode.docx</column>
+          <column name="outfile">outfile_trm_inode.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.trm.vehicle">
+          <column name="name">bc.ui.report.docx.trm.vehicle</column>
+          <column name="label">Vehicle</column>
+          <column name="report">report_trm_vehicle</column>
+          <column name="infile">infile_trm_vehicle.docx</column>
+          <column name="outfile">outfile_trm_vehicle.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.trm.unit.vehicle">
+          <column name="name">bc.ui.report.docx.trm.unit.vehicle</column>
+          <column name="label">Unit Vehicle</column>
+          <column name="report">report_trm_unit_vehicle</column>
+          <column name="infile">infile_trm_unit_vehicle.docx</column>
+          <column name="outfile">outfile_trm_unit_vehicle.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.trm.inode.category.report">
+          <column name="action_id">action.trm.inode.category.report</column>
+          <column name="report_id">bc.ui.report.docx.trm.inode.category</column>
+        </record>
+        <record id="report.action.trm.vehicle.category.report">
+          <column name="action_id">action.trm.vehicle.category.report</column>
+          <column name="report_id">bc.ui.report.docx.trm.vehicle.category</column>
+        </record>
+        <record id="report.action.trm.inode.report">
+          <column name="action_id">action.trm.inode.report</column>
+          <column name="report_id">bc.ui.report.docx.trm.inode</column>
+        </record>
+        <record id="report.action.trm.vehicle.report">
+          <column name="action_id">action.trm.vehicle.report</column>
+          <column name="report_id">bc.ui.report.docx.trm.vehicle</column>
+        </record>
+        <record id="report.action.trm.unit.vehicle.report">
+          <column name="action_id">action.trm.unit.vehicle.report</column>
+          <column name="report_id">bc.ui.report.docx.trm.unit.vehicle</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.trm.inode.category.search">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.trm.inode.category.search</column>
+            <column name="label">Node Category</column>
+          <column name="parent_id">ui.menu.trm</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.trm.inode.category.search</column>
+          </record>
+          <record id="ui.menu.trm.vehicle.category.search">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.trm.vehicle.category.search</column>
+            <column name="label">Vehicle Category</column>
+          <column name="parent_id">ui.menu.trm</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.trm.vehicle.category.search</column>
+          </record>
+          <record id="ui.menu.trm.inode.search">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.trm.inode.search</column>
+            <column name="label">Node</column>
+          <column name="parent_id">ui.menu.trm</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.trm.inode.search</column>
+          </record>
+          <record id="ui.menu.trm.vehicle.search">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.trm.vehicle.search</column>
+            <column name="label">Vehicle</column>
+          <column name="parent_id">ui.menu.trm</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.trm.vehicle.search</column>
+          </record>
+          <record id="ui.menu.trm.unit.vehicle.search">
+          <column name="sequence">4</column>
+            <column name="name">ui.menu.trm.unit.vehicle.search</column>
+            <column name="label">Unit Vehicle</column>
+          <column name="parent_id">ui.menu.trm</column>
+          <column name="sequence">40</column>
+          <column name="action_id">action.trm.unit.vehicle.search</column>
+          </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.trm.report">
+          <column name="name">ui.menu.trm.report</column>
+          <column name="label">Reports</column>
+        <column name="parent_id">ui.menu.trm</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.trm.inode.category.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.trm.inode.category.report</column>
+            <column name="label">Node Category</column>
+          <column name="parent_id">ui.menu.trm.report</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.trm.inode.category.report</column>
+          </record>
+          <record id="ui.menu.trm.vehicle.category.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.trm.vehicle.category.report</column>
+            <column name="label">Vehicle Category</column>
+          <column name="parent_id">ui.menu.trm.report</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.trm.vehicle.category.report</column>
+          </record>
+          <record id="ui.menu.trm.inode.report">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.trm.inode.report</column>
+            <column name="label">Node</column>
+          <column name="parent_id">ui.menu.trm.report</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.trm.inode.report</column>
+          </record>
+          <record id="ui.menu.trm.vehicle.report">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.trm.vehicle.report</column>
+            <column name="label">Vehicle</column>
+          <column name="parent_id">ui.menu.trm.report</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.trm.vehicle.report</column>
+          </record>
+          <record id="ui.menu.trm.unit.vehicle.report">
+          <column name="sequence">4</column>
+            <column name="name">ui.menu.trm.unit.vehicle.report</column>
+            <column name="label">Unit Vehicle</column>
+          <column name="parent_id">ui.menu.trm.report</column>
+          <column name="sequence">40</column>
+          <column name="action_id">action.trm.unit.vehicle.report</column>
+          </record>
+      </records>
+    </data>
+  </gsrp>

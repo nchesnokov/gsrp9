@@ -1,0 +1,552 @@
+from orm import fields
+from orm.model import Model, ModelInherit
+
+from decimal import Decimal
+
+from datetime import datetime
+from datetime import timedelta
+
+#customize
+#Text
+class purchase_texts(Model):
+	_name = 'purchase.texts'
+	_description = 'General Model Purchase Texts'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+purchase_texts()
+
+class purchase_schema_texts(Model):
+	_name = 'purchase.schema.texts'
+	_description = 'General Model Schema Of Purchase Texts'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'usage': fields.selection(label='Usage',selections=[('h','Header'),('i','Item'),('b','Both')]),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	'texts': fields.one2many(label='Texts',obj='purchase.schema.text.items',rel='schema_id')
+	}
+
+purchase_schema_texts()
+
+class purchase_schema_text_items(Model):
+	_name = 'purchase.schema.text.items'
+	_description = 'General Model Items Of Schema Purchase Texts'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'schema_id': fields.many2one(label = 'Schema',obj='purchase.schema.texts'),
+	'seq': fields.integer(label='Sequence'),
+	'text_id': fields.many2one(label = 'Text',obj='purchase.texts'),
+	'descr': fields.referenced(ref='text_id.descr')
+	}
+
+purchase_schema_text_items()
+
+# Text end
+
+class purchase_order_types(Model):
+	_name = 'purchase.order.types'
+	_description = 'General Model Types Purchase Order'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'htschema': fields.many2one(label='Text Schema Of Head',obj='purchase.schema.texts',domain=[('usage','in',('h','b'))]),
+	'itschema': fields.many2one(label='Text Schema Of Item',obj='purchase.schema.texts',domain=[('usage','in',('i','b'))]),
+	'roles': fields.one2many(label='Roles',obj='purchase.order.type.roles',rel='type_id'),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_order_types()
+
+class purchase_order_type_roles(Model):
+	_name = 'purchase.order.type.roles'
+	_description = 'General Model Role Purchase Order Types'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'type_id': fields.many2one(label = 'Type',obj='purchase.order.types'),
+	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','a'))]),
+	'required': fields.boolean(label='Required'),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_order_type_roles()
+
+class purchase_invoice_types(Model):
+	_name = 'purchase.invoice.types'
+	_description = 'General Model Types Purchase Invoice'
+	_class_model = 'C'
+	_class_category = 'invoice'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'htschema': fields.many2one(label='Text Schema Of Head',obj='purchase.schema.texts',domain=[('usage','in',('h','b'))]),
+	'itschema': fields.many2one(label='Text Schema Of Item',obj='purchase.schema.texts',domain=[('usage','in',('i','b'))]),
+	'roles': fields.one2many(label='Roles',obj='purchase.invoice.type.roles',rel='type_id'),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_invoice_types()
+
+class purchase_invoice_type_roles(Model):
+	_name = 'purchase.invoice.type.roles'
+	_description = 'General Model Role Purchase Invoice Types'
+	_class_model = 'C'
+	_class_category = 'invoice'
+	_columns = {
+	'type_id': fields.many2one(label = 'Type',obj='purchase.invoice.types'),
+	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','a'))]),
+	'required': fields.boolean(label='Required'),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_invoice_type_roles()
+
+# end customize
+
+class purchase_order_categories(Model):
+	_name = 'purchase.order.categories'
+	_description = 'General Model Categories Purchase Order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='purchase.order.categories'),
+	'childs_id': fields.one2many(obj = 'purchase.order.categories',rel = 'parent_id',label = 'Childs'),
+	'orders': fields.one2many(label='Orders',obj='purchase.orders',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_order_categories()
+
+class purchase_invoce_categories(Model):
+	_name = 'purchase.invoce.categories'
+	_description = 'General Model Categories Purchase Invoce'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='purchase.invoce.categories'),
+	'childs_id': fields.one2many(obj = 'purchase.invoce.categories',rel = 'parent_id',label = 'Childs'),
+	'invoices': fields.one2many(label='Orders',obj='purchase.invoices',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_invoce_categories()
+
+class purchase_orders(Model):
+	_name = 'purchase.orders'
+	_description = 'General Model Purchase Order'
+	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
+	_date = 'doo'
+	_columns = {
+	'otype': fields.many2one(label='Type',obj='purchase.order.types',on_change='on_change_otype'),
+	'name': fields.varchar(label = 'Name'),
+	'company': fields.many2one(label='Company',obj='md.company'),
+	'category_id': fields.many2one(label='Category',obj='purchase.order.categories'),
+	'origin': fields.varchar(label = 'Origin'),
+	'doo': fields.date(label='Date Of Order',required=True),
+	'from_date': fields.date(label='Begin Date Of Order',required=True),
+	'to_date': fields.date(label='End Date Of Order',required=True),
+	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
+	'currency': fields.many2one(label='Currency',obj='md.currency',state={'approved':{'attrs':{'ro':True}}}),
+	'incoterms1': fields.many2one(label='Incoterms 1',obj='md.incoterms'),
+	'incoterms2': fields.varchar(label = 'Incoterms 2'),
+	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
+	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
+	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
+	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
+	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'items': fields.one2many(label='Items',obj='purchase.order.items',rel='order_id'),
+	'roles': fields.one2many(label='Roles',obj='purchase.order.roles',rel='order_id'),
+	'texts': fields.one2many(label='Texts',obj='purchase.order.texts',rel='order_id'),
+	'note': fields.text('Note')
+	}
+
+	def _on_change_otype(self,cr,pool,uid,item,context={}):		
+			roles = pool.get('purchase.order.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['otype'])],context)
+			if len(roles) > 0:
+				if 'roles' not in item:
+					item['roles'] = []
+				for role in roles:
+					item[roles].append[role['role_id']]
+
+	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
+		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
+			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+			for i in p:
+				r = {'delivery_schedules':[{'quantity':i['quantity'],'schedule':datetime.utcnow()+timedelta(3)}]}
+				for f in ('product','uom'):
+					r[f] = i[f]
+				r['price'] = 0.00
+				item['items'].append(r)
+				
+		return None
+
+	def _act_copy_to(self,cr,pool,uid,column,record,context={}):				
+		return 'Copy to'
+
+	def _act_copy_from(self,cr,pool,uid,column,record,context={}):				
+		return 'Copy from'
+
+
+	_actions = {'copy_to':{'label':'Copy To Model','tooltip':'Copy to other model','method':'_act_copy_to','icon':'add'},'copy_from':{'label':'Copy From Model','tooltip':'Copy from other model','method':'_act_copy_from','icon':'list'}}
+
+	_default = {
+		'state':'draft'
+	}
+
+purchase_orders()
+
+class purchase_order_texts(Model):
+	_name = 'purchase.order.texts'
+	_description = 'General Model Purchase Order Texts'
+	_class_model = 'C'
+	_class_category = 'order'
+	_order_by = "seq asc"
+	_sequence = 'seq'
+	_columns = {
+	'order_id': fields.many2one(label='Order',obj='purchase.orders'),
+	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
+	'text_id': fields.many2one(label='Text ID',obj='purchase.texts'),
+	'descr': fields.referenced(ref='text_id.descr'),
+	'content':fields.text(label = 'Content',translate=True)
+	}
+
+purchase_order_texts()
+
+
+class purchase_order_roles(Model):
+	_name = 'purchase.order.roles'
+	_description = 'General Model Purchase Order Roles'
+	_columns = {
+	'order_id': fields.many2one(label = 'Order',obj='purchase.orders'),
+	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
+	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
+	}
+
+purchase_order_roles()
+
+class purchase_order_items(Model):
+	_name = 'purchase.order.items'
+	_description = 'General Model Purchase Order Items'
+	_inherits = {'common.model':{'_methods':['_calculate_items']}}
+	_columns = {
+	'order_id': fields.many2one(obj = 'purchase.orders',label = 'Purchase Order'),
+	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
+	'quantity': fields.numeric(label='Quantity',compute='_calculate_items',size=(13,3)),
+	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'price': fields.numeric(label='Price',size=(13,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'unit': fields.integer(label='Unit'),
+	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
+	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_items'),
+	'vat_code': fields.many2one(label='Vat code',obj='md.vat.code',domain=[('type_vat','in',('p','n'))]),
+	'vat_amount': fields.numeric(label='VAT Amount',compute='_calculate_items',size=(15,2)),
+	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
+	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='purchase.order.item.delivery.schedules',rel='item_id'),
+	'roles': fields.one2many(label='Roles',obj='purchase.order.item.roles',rel='item_id'),
+	'texts': fields.one2many(label='Texts',obj='purchase.order.item.texts',rel='item_id'),
+	'note': fields.text(label = 'Note')}
+
+	def _on_change_product(self,cr,pool,uid,item,context={}):		
+		if item['product'] and 'name' in item['product'] and item['product']['name']:
+			p = pool.get('md.purchase.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			if len(p) > 0:
+				if 'vat_code' not in item or item['vat_code'] != p[0]['vat']:
+					item['vat_code'] = p[0]['vat']				
+				for f in ('uom','price','currency','unit','uop'):
+					if f not in item or item[f] != p[0][f]:
+						item[f] = p[0][f]
+			else:
+				for f in ('vat_code','uom','price','currency','unit','uop'):
+					if f in ('price','unit'):
+						if f in self._default:
+							item[f] = self._default[f]
+						else:
+							item[f] = None
+					else:
+						item[f] = {'id':None,'name':None}
+
+		return None
+
+	def _trgForEachRowBeforeInsertIB1(self,cr,pool,uid,record,context):
+		print('Triger For Each Row Before Insert')
+
+	def _trgForEachRowAfterInsertIA1(self,cr,pool,uid,record,context):
+		print('Triger For Each Row After Insert')
+
+	def _trgBeforeInsertIBA1(self,cr,pool,uid,records,context):
+		print('Triger Before Insert')
+
+	def _trgAfterInsertIAA1(self,cr,pool,uid,records,context):
+		print('Triger After Insert')
+
+#
+	def _trgForEachRowBeforeUpdateUB1(self,cr,pool,uid,record,context):
+		print('Triger For Each Row Before Update')
+
+	def _trgForEachRowAfterUpdateUA1(self,cr,pool,uid,record,context):
+		print('Triger For Each Row After Update')
+
+	def _trgBeforeUpdateUBA1(self,cr,pool,uid,records,context):
+		print('Triger Before Update')
+
+	def _trgAfterUpdateIUA1(self,cr,pool,uid,records,context):
+		print('Triger After Update')
+#
+	def _trgForEachRowBeforeDeleteDB1(self,cr,pool,uid,oid,context):
+		print('Triger For Each Row Before Delete')
+
+	def _trgForEachRowAfterDeleteDA1(self,cr,pool,uid,oid,context):
+		print('Triger For Each Row After Delete')
+
+	def _trgBeforeDeleteDBA1(self,cr,pool,uid,oids,context):
+		print('Triger Before Delete')
+
+	def _trgAfterDeleteDA1(self,cr,pool,uid,oids,context):
+		print('Triger After Delete')
+
+
+
+	_default = {
+		'unit': 1
+	}
+
+purchase_order_items()
+
+class purchase_order_item_texts(Model):
+	_name = 'purchase.order.item.texts'
+	_description = 'General Model Purchase Order Item Texts'
+	_class_model = 'C'
+	_class_category = 'order'
+	_order_by = "seq asc"
+	_sequence = 'seq'
+	_columns = {
+	'item_id': fields.many2one(label='Item',obj='purchase.order.items'),
+	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
+	'text_id': fields.many2one(label='Text ID',obj='purchase.texts'),
+	'descr': fields.referenced(ref='text_id.descr'),
+	'content':fields.text(label = 'Content',translate=True)
+	}
+
+purchase_order_item_texts()
+
+
+class purchase_order_item_roles(Model):
+	_name = 'purchase.order.item.roles'
+	_description = 'General Model Purchase Order Roles'
+	_columns = {
+	'item_id': fields.many2one(label = 'Item',obj='purchase.order.items'),
+	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
+	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
+	}
+
+purchase_order_item_roles()
+
+class purchase_order_item_delivery_schedules(Model):
+	_name = 'purchase.order.item.delivery.schedules'
+	_description = 'General Model Purchase Order Item Delivery Schedules'
+	_columns = {
+	'item_id': fields.many2one(obj = 'purchase.order.items',label = 'Order Item'),
+	'quantity': fields.numeric(label='Quantity',size=(11,3)),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+
+	_default = {
+		'quantity': 1.000
+	}
+
+purchase_order_item_delivery_schedules()
+
+# Invoice
+class purchase_invoices(Model):
+	_name = 'purchase.invoices'
+	_description = 'General Model Purchase Invoice'
+	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
+	_date = 'doi'
+	_columns = {
+	'itype': fields.many2one(label='Type',obj='purchase.invoice.types',on_change='on_change_itype'),
+	'name': fields.varchar(label = 'Name'),
+	'company': fields.many2one(label='Company',obj='md.company'),
+	'category_id': fields.many2one(label='Category',obj='purchase.invoce.categories'),
+	'origin': fields.varchar(label = 'Origin'),
+	'doi': fields.date(label='Date Of Invoice',required=True),
+	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('iscustomer',)]),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'incoterms1': fields.many2one(label='Incoterms 1',obj='md.incoterms'),
+	'incoterms2': fields.varchar(label = 'Incoterms 2'),
+	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
+	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
+	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
+	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
+	'items': fields.one2many(label='Items',obj='purchase.invoice.items',rel='invoice_id'),
+	'roles': fields.one2many(label='Roles',obj='purchase.invoice.roles',rel='invoice_id'),
+	'texts': fields.one2many(label='Texts',obj='purchase.invoice.texts',rel='invoice_id'),
+	'note': fields.text('Note')
+	}
+
+	def _on_change_itype(self,cr,pool,uid,item,context={}):		
+			roles = pool.get('purchase.invoice.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['otype'])],context)
+			if len(roles) > 0:
+				if 'roles' not in item:
+					item['roles'] = []
+				for role in roles:
+					item[roles].append[role['role_id']]
+
+
+	_default = {
+		'state':'draft'
+	}
+
+purchase_invoices()
+
+class purchase_invoice_texts(Model):
+	_name = 'purchase.invoice.texts'
+	_description = 'General Model Purchase Invoce Texts'
+	_class_model = 'C'
+	_class_category = 'invoice'
+	_order_by = "seq asc"
+	_sequence = 'seq'
+	_columns = {
+	'invoice_id': fields.many2one(label='Order',obj='purchase.invoices'),
+	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
+	'text_id': fields.many2one(label='Text ID',obj='purchase.texts'),
+	'descr': fields.referenced(ref='text_id.descr'),
+	'content':fields.text(label = 'Content',translate=True)
+	}
+
+purchase_invoice_texts()
+
+
+class purchase_invoice_roles(Model):
+	_name = 'purchase.invoice.roles'
+	_description = 'General Model Purchase Invoice Roles'
+	_columns = {
+	'invoice_id': fields.many2one(label = 'Invoice',obj='purchase.invoices'),
+	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
+	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
+	}
+
+purchase_invoice_roles()
+
+class purchase_invoice_items(Model):
+	_name = 'purchase.invoice.items'
+	_description = 'General Model Purchase Invoice Items'
+	_inherits = {'common.model':{'_methods':['_calculate_items']}}
+	_columns = {
+	'invoice_id': fields.many2one(obj = 'purchase.invoices',label = 'Invoice'),
+	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
+	'quantity': fields.numeric(label='Quantity',compute='_calculate_items',size=(13,3)),
+	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'price': fields.numeric(label='Price',size=(13,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'unit': fields.integer(label='Unit'),
+	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
+	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_items'),
+	'vat_code': fields.many2one(label='Vat code',obj='md.vat.code',domain=[('type_vat','in',('s','n'))]),
+	'vat_amount': fields.numeric(label='VAT Amount',compute='_calculate_items',size=(15,2)),
+	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
+	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='purchase.invoce.item.delivery.schedules',rel='item_id'),
+	'roles': fields.one2many(label='Roles',obj='purchase.invoice.item.roles',rel='item_id'),
+	'texts': fields.one2many(label='Texts',obj='purchase.invoice.item.texts',rel='item_id'),
+	'note': fields.text(label = 'Note')
+	}
+
+	def _on_change_product(self,cr,pool,uid,item,context={}):		
+		if item['product'] and 'name' in item['product'] and item['product']['name']:
+			p = pool.get('md.purchase.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			if len(p) > 0:
+				if item['vat_code'] != p[0]['vat']:
+					item['vat_code'] = p[0]['vat']				
+				for f in ('uom','price','currency','unit','uop'):
+					if item[f] != p[0][f]:
+						item[f] = p[0][f]
+
+		return None
+
+	_default = {
+		'quantity': 1,
+		'unit': 1
+	}
+
+purchase_invoice_items()
+
+class purchase_invoice_item_texts(Model):
+	_name = 'purchase.invoice.item.texts'
+	_description = 'General Model Purchase Invoce Item Texts'
+	_class_model = 'C'
+	_class_category = 'invoice'
+	_order_by = "seq asc"
+	_sequence = 'seq'
+	_columns = {
+	'item_id': fields.many2one(label='Item',obj='purchase.invoice.items'),
+	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
+	'text_id': fields.many2one(label='Text ID',obj='purchase.texts'),
+	'descr': fields.referenced(ref='text_id.descr'),
+	'content':fields.text(label = 'Content',translate=True)
+	}
+
+purchase_invoice_item_texts()
+
+
+class purchase_invoice_item_roles(Model):
+	_name = 'purchase.invoice.item.roles'
+	_description = 'General Model Purchase Invoice Item Roles'
+	_columns = {
+	'item_id': fields.many2one(label = 'Item',obj='purchase.invoice.items'),
+	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
+	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
+	}
+
+purchase_invoice_item_roles()
+
+class purchase_invoce_item_delivery_schedules(Model):
+	_name = 'purchase.invoce.item.delivery.schedules'
+	_description = 'General Model Purchase Invoice Item Delivery Schedules'
+	_columns = {
+	'item_id': fields.many2one(obj = 'purchase.invoice.items',label = 'Order Item'),
+	'quantity': fields.numeric(label='Quantity',size=(11,3)),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+
+	_default = {
+		'quantity': 1.000
+	}
+
+purchase_invoce_item_delivery_schedules()
+
+# inherit
+
+class md_purchase_product(Model):
+	_name = 'md.purchase.product'
+	_description = 'General Model Purchase Of Product'
+	_columns = {
+	'product_id': fields.many2one(label='Product',obj='md.product'),
+	'vat': fields.many2one(label='VAT Code',obj='md.vat.code',domain=[('type_vat','in',('p','n'))]),
+	'uom': fields.many2one(label="Unit Of Measure",obj='md.uom'),
+	'price': fields.numeric(label='Price',size=(13,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'unit': fields.integer(label='Unit'),
+	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
+	'note': fields.text(label = 'Note'),
+	}
+
+md_purchase_product()
+
+class md_purchase_product_inherit(ModelInherit):
+	_name = 'md.purchase.product.inherit'
+	_description = 'Genaral Model Inherit For Purchase Product'
+	_inherit = {'md.product':{'_columns':['purchase']},'md.recepture':{'_columns':['usage']}}
+	_columns = {
+		'purchase': fields.one2many(label='Purchase',obj='md.purchase.product',rel='product_id'),
+		'usage': fields.iSelection(selections=[('p','Purchase')])
+	}
+	
+md_purchase_product_inherit()

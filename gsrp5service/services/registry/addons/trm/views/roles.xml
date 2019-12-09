@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="trm.readonly">
+          <column name="name">trm.readonly</column>
+          <column name="note">Module trm grant readonly</column>
+        </record>
+        <record id="trm.nodrop">
+          <column name="name">trm.nodrop</column>
+          <column name="note">Module trm grant nodrop</column>
+        </record>
+        <record id="trm.full">
+          <column name="name">trm.full</column>
+          <column name="note">Module trm grant full</column>
+        </record>
+        <record id="trm.crw">
+          <column name="name">trm.crw</column>
+          <column name="note">Module trm grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="trm.inode.category.readonly">
+          <column name="name">trm.inode.category.readonly</column>
+          <column name="note">Model trm.inode.category grant readonly</column>
+          <column name="group_id">trm.readonly</column>
+        </record>
+        <record id="trm.inode.category.nodrop">
+          <column name="name">trm.inode.category.nodrop</column>
+          <column name="note">Model trm.inode.category grant nodrop</column>
+          <column name="group_id">trm.nodrop</column>
+        </record>
+        <record id="trm.inode.category.full">
+          <column name="name">trm.inode.category.full</column>
+          <column name="note">Model trm.inode.category grant full</column>
+          <column name="group_id">trm.full</column>
+        </record>
+        <record id="trm.inode.category.crw">
+          <column name="name">trm.inode.category.crw</column>
+          <column name="note">Model trm.inode.category grant crw</column>
+          <column name="group_id">trm.crw</column>
+        </record>
+        <record id="trm.vehicle.category.readonly">
+          <column name="name">trm.vehicle.category.readonly</column>
+          <column name="note">Model trm.vehicle.category grant readonly</column>
+          <column name="group_id">trm.readonly</column>
+        </record>
+        <record id="trm.vehicle.category.nodrop">
+          <column name="name">trm.vehicle.category.nodrop</column>
+          <column name="note">Model trm.vehicle.category grant nodrop</column>
+          <column name="group_id">trm.nodrop</column>
+        </record>
+        <record id="trm.vehicle.category.full">
+          <column name="name">trm.vehicle.category.full</column>
+          <column name="note">Model trm.vehicle.category grant full</column>
+          <column name="group_id">trm.full</column>
+        </record>
+        <record id="trm.vehicle.category.crw">
+          <column name="name">trm.vehicle.category.crw</column>
+          <column name="note">Model trm.vehicle.category grant crw</column>
+          <column name="group_id">trm.crw</column>
+        </record>
+        <record id="trm.inode.readonly">
+          <column name="name">trm.inode.readonly</column>
+          <column name="note">Model trm.inode grant readonly</column>
+          <column name="group_id">trm.readonly</column>
+        </record>
+        <record id="trm.inode.nodrop">
+          <column name="name">trm.inode.nodrop</column>
+          <column name="note">Model trm.inode grant nodrop</column>
+          <column name="group_id">trm.nodrop</column>
+        </record>
+        <record id="trm.inode.full">
+          <column name="name">trm.inode.full</column>
+          <column name="note">Model trm.inode grant full</column>
+          <column name="group_id">trm.full</column>
+        </record>
+        <record id="trm.inode.crw">
+          <column name="name">trm.inode.crw</column>
+          <column name="note">Model trm.inode grant crw</column>
+          <column name="group_id">trm.crw</column>
+        </record>
+        <record id="trm.vehicle.readonly">
+          <column name="name">trm.vehicle.readonly</column>
+          <column name="note">Model trm.vehicle grant readonly</column>
+          <column name="group_id">trm.readonly</column>
+        </record>
+        <record id="trm.vehicle.nodrop">
+          <column name="name">trm.vehicle.nodrop</column>
+          <column name="note">Model trm.vehicle grant nodrop</column>
+          <column name="group_id">trm.nodrop</column>
+        </record>
+        <record id="trm.vehicle.full">
+          <column name="name">trm.vehicle.full</column>
+          <column name="note">Model trm.vehicle grant full</column>
+          <column name="group_id">trm.full</column>
+        </record>
+        <record id="trm.vehicle.crw">
+          <column name="name">trm.vehicle.crw</column>
+          <column name="note">Model trm.vehicle grant crw</column>
+          <column name="group_id">trm.crw</column>
+        </record>
+        <record id="trm.unit.vehicle.readonly">
+          <column name="name">trm.unit.vehicle.readonly</column>
+          <column name="note">Model trm.unit.vehicle grant readonly</column>
+          <column name="group_id">trm.readonly</column>
+        </record>
+        <record id="trm.unit.vehicle.nodrop">
+          <column name="name">trm.unit.vehicle.nodrop</column>
+          <column name="note">Model trm.unit.vehicle grant nodrop</column>
+          <column name="group_id">trm.nodrop</column>
+        </record>
+        <record id="trm.unit.vehicle.full">
+          <column name="name">trm.unit.vehicle.full</column>
+          <column name="note">Model trm.unit.vehicle grant full</column>
+          <column name="group_id">trm.full</column>
+        </record>
+        <record id="trm.unit.vehicle.crw">
+          <column name="name">trm.unit.vehicle.crw</column>
+          <column name="note">Model trm.unit.vehicle grant crw</column>
+          <column name="group_id">trm.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="trm.trm.inode.category.readonly">
+          <column name="access_id">trm.inode.category.readonly</column>
+          <column name="model_id">trm.inode.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="trm.trm.inode.category.nodrop">
+          <column name="access_id">trm.inode.category.nodrop</column>
+          <column name="model_id">trm.inode.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.inode.category.full">
+          <column name="access_id">trm.inode.category.full</column>
+          <column name="model_id">trm.inode.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.inode.category.crw">
+          <column name="access_id">trm.inode.category.crw</column>
+          <column name="model_id">trm.inode.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.vehicle.category.readonly">
+          <column name="access_id">trm.vehicle.category.readonly</column>
+          <column name="model_id">trm.vehicle.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="trm.trm.vehicle.category.nodrop">
+          <column name="access_id">trm.vehicle.category.nodrop</column>
+          <column name="model_id">trm.vehicle.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.vehicle.category.full">
+          <column name="access_id">trm.vehicle.category.full</column>
+          <column name="model_id">trm.vehicle.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.vehicle.category.crw">
+          <column name="access_id">trm.vehicle.category.crw</column>
+          <column name="model_id">trm.vehicle.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.inode.readonly">
+          <column name="access_id">trm.inode.readonly</column>
+          <column name="model_id">trm.inode</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="trm.trm.inode.nodrop">
+          <column name="access_id">trm.inode.nodrop</column>
+          <column name="model_id">trm.inode</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.inode.full">
+          <column name="access_id">trm.inode.full</column>
+          <column name="model_id">trm.inode</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.inode.crw">
+          <column name="access_id">trm.inode.crw</column>
+          <column name="model_id">trm.inode</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.vehicle.readonly">
+          <column name="access_id">trm.vehicle.readonly</column>
+          <column name="model_id">trm.vehicle</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="trm.trm.vehicle.nodrop">
+          <column name="access_id">trm.vehicle.nodrop</column>
+          <column name="model_id">trm.vehicle</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.vehicle.full">
+          <column name="access_id">trm.vehicle.full</column>
+          <column name="model_id">trm.vehicle</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.vehicle.crw">
+          <column name="access_id">trm.vehicle.crw</column>
+          <column name="model_id">trm.vehicle</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.unit.vehicle.readonly">
+          <column name="access_id">trm.unit.vehicle.readonly</column>
+          <column name="model_id">trm.unit.vehicle</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="trm.trm.unit.vehicle.nodrop">
+          <column name="access_id">trm.unit.vehicle.nodrop</column>
+          <column name="model_id">trm.unit.vehicle</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.unit.vehicle.full">
+          <column name="access_id">trm.unit.vehicle.full</column>
+          <column name="model_id">trm.unit.vehicle</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="trm.trm.unit.vehicle.crw">
+          <column name="access_id">trm.unit.vehicle.crw</column>
+          <column name="model_id">trm.unit.vehicle</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

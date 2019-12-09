@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.cm">
+          <column name="name">ui.menu.cm</column>
+          <column name="label">Cost Management</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.cm.cost.center.category.search">
+          <column name="name">action.cm.cost.center.category.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.cm.cost.order.category.search">
+          <column name="name">action.cm.cost.order.category.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.cm.cost.collector.category.search">
+          <column name="name">action.cm.cost.collector.category.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.cm.cost.center.search">
+          <column name="name">action.cm.cost.center.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.cm.cost.order.search">
+          <column name="name">action.cm.cost.order.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.cm.cost.collector.search">
+          <column name="name">action.cm.cost.collector.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.cm.corporations.search">
+          <column name="name">action.cm.corporations.search</column>
+          <column name="ta">View</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.cm.cost.center.category.report">
+          <column name="name">action.cm.cost.center.category.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.cm.cost.order.category.report">
+          <column name="name">action.cm.cost.order.category.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.cm.cost.collector.category.report">
+          <column name="name">action.cm.cost.collector.category.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.cm.cost.center.report">
+          <column name="name">action.cm.cost.center.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.cm.cost.order.report">
+          <column name="name">action.cm.cost.order.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.cm.cost.collector.report">
+          <column name="name">action.cm.cost.collector.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.cm.corporations.report">
+          <column name="name">action.cm.corporations.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.view.actions">
+        <record id="view.action.cm.cost.center.category.search">
+          <column name="action_id">action.cm.cost.center.category.search</column>
+          <column name="view_id">view.cm.cost.center.category.search</column>
+        </record>
+        <record id="view.action.cm.cost.order.category.search">
+          <column name="action_id">action.cm.cost.order.category.search</column>
+          <column name="view_id">view.cm.cost.order.category.search</column>
+        </record>
+        <record id="view.action.cm.cost.collector.category.search">
+          <column name="action_id">action.cm.cost.collector.category.search</column>
+          <column name="view_id">view.cm.cost.collector.category.search</column>
+        </record>
+        <record id="view.action.cm.cost.center.search">
+          <column name="action_id">action.cm.cost.center.search</column>
+          <column name="view_id">view.cm.cost.center.search</column>
+        </record>
+        <record id="view.action.cm.cost.order.search">
+          <column name="action_id">action.cm.cost.order.search</column>
+          <column name="view_id">view.cm.cost.order.search</column>
+        </record>
+        <record id="view.action.cm.cost.collector.search">
+          <column name="action_id">action.cm.cost.collector.search</column>
+          <column name="view_id">view.cm.cost.collector.search</column>
+        </record>
+        <record id="view.action.cm.corporations.search">
+          <column name="action_id">action.cm.corporations.search</column>
+          <column name="view_id">view.cm.corporations.search</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.cm.cost.center.category">
+          <column name="name">bc.ui.report.docx.cm.cost.center.category</column>
+          <column name="label">Cost Center Category</column>
+          <column name="report">report_cm_cost_center_category</column>
+          <column name="infile">infile_cm_cost_center_category.docx</column>
+          <column name="outfile">outfile_cm_cost_center_category.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.cm.cost.order.category">
+          <column name="name">bc.ui.report.docx.cm.cost.order.category</column>
+          <column name="label">Cost Order Category</column>
+          <column name="report">report_cm_cost_order_category</column>
+          <column name="infile">infile_cm_cost_order_category.docx</column>
+          <column name="outfile">outfile_cm_cost_order_category.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.cm.cost.collector.category">
+          <column name="name">bc.ui.report.docx.cm.cost.collector.category</column>
+          <column name="label">Cost Collector Category</column>
+          <column name="report">report_cm_cost_collector_category</column>
+          <column name="infile">infile_cm_cost_collector_category.docx</column>
+          <column name="outfile">outfile_cm_cost_collector_category.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.cm.cost.center">
+          <column name="name">bc.ui.report.docx.cm.cost.center</column>
+          <column name="label">Cost Center</column>
+          <column name="report">report_cm_cost_center</column>
+          <column name="infile">infile_cm_cost_center.docx</column>
+          <column name="outfile">outfile_cm_cost_center.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.cm.cost.order">
+          <column name="name">bc.ui.report.docx.cm.cost.order</column>
+          <column name="label">Cost Order</column>
+          <column name="report">report_cm_cost_order</column>
+          <column name="infile">infile_cm_cost_order.docx</column>
+          <column name="outfile">outfile_cm_cost_order.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.cm.cost.collector">
+          <column name="name">bc.ui.report.docx.cm.cost.collector</column>
+          <column name="label">Cost Collector</column>
+          <column name="report">report_cm_cost_collector</column>
+          <column name="infile">infile_cm_cost_collector.docx</column>
+          <column name="outfile">outfile_cm_cost_collector.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.cm.corporations">
+          <column name="name">bc.ui.report.docx.cm.corporations</column>
+          <column name="label">Corporations</column>
+          <column name="report">report_cm_corporations</column>
+          <column name="infile">infile_cm_corporations.docx</column>
+          <column name="outfile">outfile_cm_corporations.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.cm.cost.center.category.report">
+          <column name="action_id">action.cm.cost.center.category.report</column>
+          <column name="report_id">bc.ui.report.docx.cm.cost.center.category</column>
+        </record>
+        <record id="report.action.cm.cost.order.category.report">
+          <column name="action_id">action.cm.cost.order.category.report</column>
+          <column name="report_id">bc.ui.report.docx.cm.cost.order.category</column>
+        </record>
+        <record id="report.action.cm.cost.collector.category.report">
+          <column name="action_id">action.cm.cost.collector.category.report</column>
+          <column name="report_id">bc.ui.report.docx.cm.cost.collector.category</column>
+        </record>
+        <record id="report.action.cm.cost.center.report">
+          <column name="action_id">action.cm.cost.center.report</column>
+          <column name="report_id">bc.ui.report.docx.cm.cost.center</column>
+        </record>
+        <record id="report.action.cm.cost.order.report">
+          <column name="action_id">action.cm.cost.order.report</column>
+          <column name="report_id">bc.ui.report.docx.cm.cost.order</column>
+        </record>
+        <record id="report.action.cm.cost.collector.report">
+          <column name="action_id">action.cm.cost.collector.report</column>
+          <column name="report_id">bc.ui.report.docx.cm.cost.collector</column>
+        </record>
+        <record id="report.action.cm.corporations.report">
+          <column name="action_id">action.cm.corporations.report</column>
+          <column name="report_id">bc.ui.report.docx.cm.corporations</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.cm.cost.center.category.search">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.cm.cost.center.category.search</column>
+            <column name="label">Cost Center Category</column>
+          <column name="parent_id">ui.menu.cm</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.cm.cost.center.category.search</column>
+          </record>
+          <record id="ui.menu.cm.cost.order.category.search">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.cm.cost.order.category.search</column>
+            <column name="label">Cost Order Category</column>
+          <column name="parent_id">ui.menu.cm</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.cm.cost.order.category.search</column>
+          </record>
+          <record id="ui.menu.cm.cost.collector.category.search">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.cm.cost.collector.category.search</column>
+            <column name="label">Cost Collector Category</column>
+          <column name="parent_id">ui.menu.cm</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.cm.cost.collector.category.search</column>
+          </record>
+          <record id="ui.menu.cm.cost.center.search">
+          <column name="sequence">4</column>
+            <column name="name">ui.menu.cm.cost.center.search</column>
+            <column name="label">Cost Center</column>
+          <column name="parent_id">ui.menu.cm</column>
+          <column name="sequence">40</column>
+          <column name="action_id">action.cm.cost.center.search</column>
+          </record>
+          <record id="ui.menu.cm.cost.order.search">
+          <column name="sequence">6</column>
+            <column name="name">ui.menu.cm.cost.order.search</column>
+            <column name="label">Cost Order</column>
+          <column name="parent_id">ui.menu.cm</column>
+          <column name="sequence">60</column>
+          <column name="action_id">action.cm.cost.order.search</column>
+          </record>
+          <record id="ui.menu.cm.cost.collector.search">
+          <column name="sequence">8</column>
+            <column name="name">ui.menu.cm.cost.collector.search</column>
+            <column name="label">Cost Collector</column>
+          <column name="parent_id">ui.menu.cm</column>
+          <column name="sequence">80</column>
+          <column name="action_id">action.cm.cost.collector.search</column>
+          </record>
+          <record id="ui.menu.cm.corporations.search">
+          <column name="sequence">10</column>
+            <column name="name">ui.menu.cm.corporations.search</column>
+            <column name="label">Corporations</column>
+          <column name="parent_id">ui.menu.cm</column>
+          <column name="sequence">100</column>
+          <column name="action_id">action.cm.corporations.search</column>
+          </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.cm.report">
+          <column name="name">ui.menu.cm.report</column>
+          <column name="label">Reports</column>
+        <column name="parent_id">ui.menu.cm</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.cm.cost.center.category.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.cm.cost.center.category.report</column>
+            <column name="label">Cost Center Category</column>
+          <column name="parent_id">ui.menu.cm.report</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.cm.cost.center.category.report</column>
+          </record>
+          <record id="ui.menu.cm.cost.order.category.report">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.cm.cost.order.category.report</column>
+            <column name="label">Cost Order Category</column>
+          <column name="parent_id">ui.menu.cm.report</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.cm.cost.order.category.report</column>
+          </record>
+          <record id="ui.menu.cm.cost.collector.category.report">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.cm.cost.collector.category.report</column>
+            <column name="label">Cost Collector Category</column>
+          <column name="parent_id">ui.menu.cm.report</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.cm.cost.collector.category.report</column>
+          </record>
+          <record id="ui.menu.cm.cost.center.report">
+          <column name="sequence">4</column>
+            <column name="name">ui.menu.cm.cost.center.report</column>
+            <column name="label">Cost Center</column>
+          <column name="parent_id">ui.menu.cm.report</column>
+          <column name="sequence">40</column>
+          <column name="action_id">action.cm.cost.center.report</column>
+          </record>
+          <record id="ui.menu.cm.cost.order.report">
+          <column name="sequence">6</column>
+            <column name="name">ui.menu.cm.cost.order.report</column>
+            <column name="label">Cost Order</column>
+          <column name="parent_id">ui.menu.cm.report</column>
+          <column name="sequence">60</column>
+          <column name="action_id">action.cm.cost.order.report</column>
+          </record>
+          <record id="ui.menu.cm.cost.collector.report">
+          <column name="sequence">8</column>
+            <column name="name">ui.menu.cm.cost.collector.report</column>
+            <column name="label">Cost Collector</column>
+          <column name="parent_id">ui.menu.cm.report</column>
+          <column name="sequence">80</column>
+          <column name="action_id">action.cm.cost.collector.report</column>
+          </record>
+          <record id="ui.menu.cm.corporations.report">
+          <column name="sequence">10</column>
+            <column name="name">ui.menu.cm.corporations.report</column>
+            <column name="label">Corporations</column>
+          <column name="parent_id">ui.menu.cm.report</column>
+          <column name="sequence">100</column>
+          <column name="action_id">action.cm.corporations.report</column>
+          </record>
+      </records>
+    </data>
+  </gsrp>

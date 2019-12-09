@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.views">
+        <record id="view.cf.groups.form">
+          <column name="name">view.cf.groups.form</column>
+          <column name="model">cf.groups</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="users_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.groups.list">
+          <column name="name">view.cf.groups.list</column>
+          <column name="model">cf.groups</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="code"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.groups.m2mlist">
+          <column name="name">view.cf.groups.m2mlist</column>
+          <column name="model">cf.groups</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="code"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.groups.search">
+          <column name="name">view.cf.groups.search</column>
+          <column name="model">cf.groups</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="code"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.cf.groups.find">
+          <column name="name">view.cf.groups.find</column>
+          <column name="model">cf.groups</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="code"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.cf.tags.form">
+          <column name="name">view.cf.tags.form</column>
+          <column name="model">cf.tags</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="tag"/>
+              <field name="folders"/>
+              <field name="files"/>
+              <field name="links"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.tags.list">
+          <column name="name">view.cf.tags.list</column>
+          <column name="model">cf.tags</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="tag"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.tags.m2mlist">
+          <column name="name">view.cf.tags.m2mlist</column>
+          <column name="model">cf.tags</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="tag"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.tags.search">
+          <column name="name">view.cf.tags.search</column>
+          <column name="model">cf.tags</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="tag"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.cf.tags.find">
+          <column name="name">view.cf.tags.find</column>
+          <column name="model">cf.tags</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="tag"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.cf.file.access.users.form">
+          <column name="name">view.cf.file.access.users.form</column>
+          <column name="model">cf.file.access.users</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="file_id"/>
+              <field name="user_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.file.access.users.list">
+          <column name="name">view.cf.file.access.users.list</column>
+          <column name="model">cf.file.access.users</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="file_id"/>
+              <field name="user_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.file.access.users.m2mlist">
+          <column name="name">view.cf.file.access.users.m2mlist</column>
+          <column name="model">cf.file.access.users</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="file_id"/>
+              <field name="user_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.file.access.groups.form">
+          <column name="name">view.cf.file.access.groups.form</column>
+          <column name="model">cf.file.access.groups</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="file_id"/>
+              <field name="group_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.file.access.groups.list">
+          <column name="name">view.cf.file.access.groups.list</column>
+          <column name="model">cf.file.access.groups</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="file_id"/>
+              <field name="group_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.file.access.groups.m2mlist">
+          <column name="name">view.cf.file.access.groups.m2mlist</column>
+          <column name="model">cf.file.access.groups</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="file_id"/>
+              <field name="group_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.file.access.others.form">
+          <column name="name">view.cf.file.access.others.form</column>
+          <column name="model">cf.file.access.others</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="file_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.file.access.others.list">
+          <column name="name">view.cf.file.access.others.list</column>
+          <column name="model">cf.file.access.others</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="file_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.file.access.others.m2mlist">
+          <column name="name">view.cf.file.access.others.m2mlist</column>
+          <column name="model">cf.file.access.others</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="file_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.files.form">
+          <column name="name">view.cf.files.form</column>
+          <column name="model">cf.files</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="size"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="url"/>
+              <field name="data"/>
+              <field name="folder_id"/>
+              <field name="users_access"/>
+              <field name="groups_access"/>
+              <field name="others_access"/>
+              <field name="tags_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.files.list">
+          <column name="name">view.cf.files.list</column>
+          <column name="model">cf.files</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="size"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="url"/>
+              <field name="folder_id"/>
+              <field name="users_access"/>
+              <field name="groups_access"/>
+              <field name="others_access"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.files.m2mlist">
+          <column name="name">view.cf.files.m2mlist</column>
+          <column name="model">cf.files</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="size"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="url"/>
+              <field name="folder_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.files.search">
+          <column name="name">view.cf.files.search</column>
+          <column name="model">cf.files</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="size"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="url"/>
+              <field name="folder_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.cf.files.find">
+          <column name="name">view.cf.files.find</column>
+          <column name="model">cf.files</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="size"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="url"/>
+              <field name="folder_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.cf.link.access.users.form">
+          <column name="name">view.cf.link.access.users.form</column>
+          <column name="model">cf.link.access.users</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="link_id"/>
+              <field name="user_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.link.access.users.list">
+          <column name="name">view.cf.link.access.users.list</column>
+          <column name="model">cf.link.access.users</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="link_id"/>
+              <field name="user_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.link.access.users.m2mlist">
+          <column name="name">view.cf.link.access.users.m2mlist</column>
+          <column name="model">cf.link.access.users</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="link_id"/>
+              <field name="user_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.link.access.groups.form">
+          <column name="name">view.cf.link.access.groups.form</column>
+          <column name="model">cf.link.access.groups</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="link_id"/>
+              <field name="group_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.link.access.groups.list">
+          <column name="name">view.cf.link.access.groups.list</column>
+          <column name="model">cf.link.access.groups</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="link_id"/>
+              <field name="group_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.link.access.groups.m2mlist">
+          <column name="name">view.cf.link.access.groups.m2mlist</column>
+          <column name="model">cf.link.access.groups</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="link_id"/>
+              <field name="group_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.link.access.others.form">
+          <column name="name">view.cf.link.access.others.form</column>
+          <column name="model">cf.link.access.others</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="link_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.link.access.others.list">
+          <column name="name">view.cf.link.access.others.list</column>
+          <column name="model">cf.link.access.others</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="link_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.link.access.others.m2mlist">
+          <column name="name">view.cf.link.access.others.m2mlist</column>
+          <column name="model">cf.link.access.others</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="link_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.links.form">
+          <column name="name">view.cf.links.form</column>
+          <column name="model">cf.links</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="file_id"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="folder_id"/>
+              <field name="users_access"/>
+              <field name="groups_access"/>
+              <field name="others_access"/>
+              <field name="tags_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.links.list">
+          <column name="name">view.cf.links.list</column>
+          <column name="model">cf.links</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="file_id"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="folder_id"/>
+              <field name="users_access"/>
+              <field name="groups_access"/>
+              <field name="others_access"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.links.m2mlist">
+          <column name="name">view.cf.links.m2mlist</column>
+          <column name="model">cf.links</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="file_id"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="folder_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.links.search">
+          <column name="name">view.cf.links.search</column>
+          <column name="model">cf.links</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="file_id"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="folder_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.cf.links.find">
+          <column name="name">view.cf.links.find</column>
+          <column name="model">cf.links</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="file_id"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="folder_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.cf.folder.access.users.form">
+          <column name="name">view.cf.folder.access.users.form</column>
+          <column name="model">cf.folder.access.users</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="folder_id"/>
+              <field name="user_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.folder.access.users.list">
+          <column name="name">view.cf.folder.access.users.list</column>
+          <column name="model">cf.folder.access.users</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="folder_id"/>
+              <field name="user_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.folder.access.users.m2mlist">
+          <column name="name">view.cf.folder.access.users.m2mlist</column>
+          <column name="model">cf.folder.access.users</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="folder_id"/>
+              <field name="user_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.folder.access.groups.form">
+          <column name="name">view.cf.folder.access.groups.form</column>
+          <column name="model">cf.folder.access.groups</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="folder_id"/>
+              <field name="group_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.folder.access.groups.list">
+          <column name="name">view.cf.folder.access.groups.list</column>
+          <column name="model">cf.folder.access.groups</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="folder_id"/>
+              <field name="group_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.folder.access.groups.m2mlist">
+          <column name="name">view.cf.folder.access.groups.m2mlist</column>
+          <column name="model">cf.folder.access.groups</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="folder_id"/>
+              <field name="group_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.folder.access.others.form">
+          <column name="name">view.cf.folder.access.others.form</column>
+          <column name="model">cf.folder.access.others</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="folder_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.folder.access.others.list">
+          <column name="name">view.cf.folder.access.others.list</column>
+          <column name="model">cf.folder.access.others</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="folder_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.folder.access.others.m2mlist">
+          <column name="name">view.cf.folder.access.others.m2mlist</column>
+          <column name="model">cf.folder.access.others</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="folder_id"/>
+              <field name="r"/>
+              <field name="w"/>
+              <field name="x"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.folders.form">
+          <column name="name">view.cf.folders.form</column>
+          <column name="model">cf.folders</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="files"/>
+              <field name="links"/>
+              <field name="users_access"/>
+              <field name="groups_access"/>
+              <field name="others_access"/>
+              <field name="tags_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.cf.folders.list">
+          <column name="name">view.cf.folders.list</column>
+          <column name="model">cf.folders</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="files"/>
+              <field name="links"/>
+              <field name="users_access"/>
+              <field name="groups_access"/>
+              <field name="others_access"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.cf.folders.m2mlist">
+          <column name="name">view.cf.folders.m2mlist</column>
+          <column name="model">cf.folders</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.folders.search">
+          <column name="name">view.cf.folders.search</column>
+          <column name="model">cf.folders</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.cf.folders.find">
+          <column name="name">view.cf.folders.find</column>
+          <column name="model">cf.folders</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.cf.folders.tree">
+          <column name="name">view.cf.folders.tree</column>
+          <column name="model">cf.folders</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="created_by"/>
+              <field name="created"/>
+              <field name="modified_by"/>
+              <field name="modified"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

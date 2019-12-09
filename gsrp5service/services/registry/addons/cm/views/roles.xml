@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="cm.readonly">
+          <column name="name">cm.readonly</column>
+          <column name="note">Module cm grant readonly</column>
+        </record>
+        <record id="cm.nodrop">
+          <column name="name">cm.nodrop</column>
+          <column name="note">Module cm grant nodrop</column>
+        </record>
+        <record id="cm.full">
+          <column name="name">cm.full</column>
+          <column name="note">Module cm grant full</column>
+        </record>
+        <record id="cm.crw">
+          <column name="name">cm.crw</column>
+          <column name="note">Module cm grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="md.cost.product.readonly">
+          <column name="name">md.cost.product.readonly</column>
+          <column name="note">Model md.cost.product grant readonly</column>
+          <column name="group_id">cm.readonly</column>
+        </record>
+        <record id="md.cost.product.nodrop">
+          <column name="name">md.cost.product.nodrop</column>
+          <column name="note">Model md.cost.product grant nodrop</column>
+          <column name="group_id">cm.nodrop</column>
+        </record>
+        <record id="md.cost.product.full">
+          <column name="name">md.cost.product.full</column>
+          <column name="note">Model md.cost.product grant full</column>
+          <column name="group_id">cm.full</column>
+        </record>
+        <record id="md.cost.product.crw">
+          <column name="name">md.cost.product.crw</column>
+          <column name="note">Model md.cost.product grant crw</column>
+          <column name="group_id">cm.crw</column>
+        </record>
+        <record id="cm.cost.center.category.readonly">
+          <column name="name">cm.cost.center.category.readonly</column>
+          <column name="note">Model cm.cost.center.category grant readonly</column>
+          <column name="group_id">cm.readonly</column>
+        </record>
+        <record id="cm.cost.center.category.nodrop">
+          <column name="name">cm.cost.center.category.nodrop</column>
+          <column name="note">Model cm.cost.center.category grant nodrop</column>
+          <column name="group_id">cm.nodrop</column>
+        </record>
+        <record id="cm.cost.center.category.full">
+          <column name="name">cm.cost.center.category.full</column>
+          <column name="note">Model cm.cost.center.category grant full</column>
+          <column name="group_id">cm.full</column>
+        </record>
+        <record id="cm.cost.center.category.crw">
+          <column name="name">cm.cost.center.category.crw</column>
+          <column name="note">Model cm.cost.center.category grant crw</column>
+          <column name="group_id">cm.crw</column>
+        </record>
+        <record id="cm.cost.order.category.readonly">
+          <column name="name">cm.cost.order.category.readonly</column>
+          <column name="note">Model cm.cost.order.category grant readonly</column>
+          <column name="group_id">cm.readonly</column>
+        </record>
+        <record id="cm.cost.order.category.nodrop">
+          <column name="name">cm.cost.order.category.nodrop</column>
+          <column name="note">Model cm.cost.order.category grant nodrop</column>
+          <column name="group_id">cm.nodrop</column>
+        </record>
+        <record id="cm.cost.order.category.full">
+          <column name="name">cm.cost.order.category.full</column>
+          <column name="note">Model cm.cost.order.category grant full</column>
+          <column name="group_id">cm.full</column>
+        </record>
+        <record id="cm.cost.order.category.crw">
+          <column name="name">cm.cost.order.category.crw</column>
+          <column name="note">Model cm.cost.order.category grant crw</column>
+          <column name="group_id">cm.crw</column>
+        </record>
+        <record id="cm.cost.collector.category.readonly">
+          <column name="name">cm.cost.collector.category.readonly</column>
+          <column name="note">Model cm.cost.collector.category grant readonly</column>
+          <column name="group_id">cm.readonly</column>
+        </record>
+        <record id="cm.cost.collector.category.nodrop">
+          <column name="name">cm.cost.collector.category.nodrop</column>
+          <column name="note">Model cm.cost.collector.category grant nodrop</column>
+          <column name="group_id">cm.nodrop</column>
+        </record>
+        <record id="cm.cost.collector.category.full">
+          <column name="name">cm.cost.collector.category.full</column>
+          <column name="note">Model cm.cost.collector.category grant full</column>
+          <column name="group_id">cm.full</column>
+        </record>
+        <record id="cm.cost.collector.category.crw">
+          <column name="name">cm.cost.collector.category.crw</column>
+          <column name="note">Model cm.cost.collector.category grant crw</column>
+          <column name="group_id">cm.crw</column>
+        </record>
+        <record id="cm.cost.center.readonly">
+          <column name="name">cm.cost.center.readonly</column>
+          <column name="note">Model cm.cost.center grant readonly</column>
+          <column name="group_id">cm.readonly</column>
+        </record>
+        <record id="cm.cost.center.nodrop">
+          <column name="name">cm.cost.center.nodrop</column>
+          <column name="note">Model cm.cost.center grant nodrop</column>
+          <column name="group_id">cm.nodrop</column>
+        </record>
+        <record id="cm.cost.center.full">
+          <column name="name">cm.cost.center.full</column>
+          <column name="note">Model cm.cost.center grant full</column>
+          <column name="group_id">cm.full</column>
+        </record>
+        <record id="cm.cost.center.crw">
+          <column name="name">cm.cost.center.crw</column>
+          <column name="note">Model cm.cost.center grant crw</column>
+          <column name="group_id">cm.crw</column>
+        </record>
+        <record id="cm.cost.center.dates.readonly">
+          <column name="name">cm.cost.center.dates.readonly</column>
+          <column name="note">Model cm.cost.center.dates grant readonly</column>
+          <column name="group_id">cm.readonly</column>
+        </record>
+        <record id="cm.cost.center.dates.nodrop">
+          <column name="name">cm.cost.center.dates.nodrop</column>
+          <column name="note">Model cm.cost.center.dates grant nodrop</column>
+          <column name="group_id">cm.nodrop</column>
+        </record>
+        <record id="cm.cost.center.dates.full">
+          <column name="name">cm.cost.center.dates.full</column>
+          <column name="note">Model cm.cost.center.dates grant full</column>
+          <column name="group_id">cm.full</column>
+        </record>
+        <record id="cm.cost.center.dates.crw">
+          <column name="name">cm.cost.center.dates.crw</column>
+          <column name="note">Model cm.cost.center.dates grant crw</column>
+          <column name="group_id">cm.crw</column>
+        </record>
+        <record id="cm.cost.order.readonly">
+          <column name="name">cm.cost.order.readonly</column>
+          <column name="note">Model cm.cost.order grant readonly</column>
+          <column name="group_id">cm.readonly</column>
+        </record>
+        <record id="cm.cost.order.nodrop">
+          <column name="name">cm.cost.order.nodrop</column>
+          <column name="note">Model cm.cost.order grant nodrop</column>
+          <column name="group_id">cm.nodrop</column>
+        </record>
+        <record id="cm.cost.order.full">
+          <column name="name">cm.cost.order.full</column>
+          <column name="note">Model cm.cost.order grant full</column>
+          <column name="group_id">cm.full</column>
+        </record>
+        <record id="cm.cost.order.crw">
+          <column name="name">cm.cost.order.crw</column>
+          <column name="note">Model cm.cost.order grant crw</column>
+          <column name="group_id">cm.crw</column>
+        </record>
+        <record id="cm.cost.order.dates.readonly">
+          <column name="name">cm.cost.order.dates.readonly</column>
+          <column name="note">Model cm.cost.order.dates grant readonly</column>
+          <column name="group_id">cm.readonly</column>
+        </record>
+        <record id="cm.cost.order.dates.nodrop">
+          <column name="name">cm.cost.order.dates.nodrop</column>
+          <column name="note">Model cm.cost.order.dates grant nodrop</column>
+          <column name="group_id">cm.nodrop</column>
+        </record>
+        <record id="cm.cost.order.dates.full">
+          <column name="name">cm.cost.order.dates.full</column>
+          <column name="note">Model cm.cost.order.dates grant full</column>
+          <column name="group_id">cm.full</column>
+        </record>
+        <record id="cm.cost.order.dates.crw">
+          <column name="name">cm.cost.order.dates.crw</column>
+          <column name="note">Model cm.cost.order.dates grant crw</column>
+          <column name="group_id">cm.crw</column>
+        </record>
+        <record id="cm.cost.collector.readonly">
+          <column name="name">cm.cost.collector.readonly</column>
+          <column name="note">Model cm.cost.collector grant readonly</column>
+          <column name="group_id">cm.readonly</column>
+        </record>
+        <record id="cm.cost.collector.nodrop">
+          <column name="name">cm.cost.collector.nodrop</column>
+          <column name="note">Model cm.cost.collector grant nodrop</column>
+          <column name="group_id">cm.nodrop</column>
+        </record>
+        <record id="cm.cost.collector.full">
+          <column name="name">cm.cost.collector.full</column>
+          <column name="note">Model cm.cost.collector grant full</column>
+          <column name="group_id">cm.full</column>
+        </record>
+        <record id="cm.cost.collector.crw">
+          <column name="name">cm.cost.collector.crw</column>
+          <column name="note">Model cm.cost.collector grant crw</column>
+          <column name="group_id">cm.crw</column>
+        </record>
+        <record id="cm.cost.collector.dates.readonly">
+          <column name="name">cm.cost.collector.dates.readonly</column>
+          <column name="note">Model cm.cost.collector.dates grant readonly</column>
+          <column name="group_id">cm.readonly</column>
+        </record>
+        <record id="cm.cost.collector.dates.nodrop">
+          <column name="name">cm.cost.collector.dates.nodrop</column>
+          <column name="note">Model cm.cost.collector.dates grant nodrop</column>
+          <column name="group_id">cm.nodrop</column>
+        </record>
+        <record id="cm.cost.collector.dates.full">
+          <column name="name">cm.cost.collector.dates.full</column>
+          <column name="note">Model cm.cost.collector.dates grant full</column>
+          <column name="group_id">cm.full</column>
+        </record>
+        <record id="cm.cost.collector.dates.crw">
+          <column name="name">cm.cost.collector.dates.crw</column>
+          <column name="note">Model cm.cost.collector.dates grant crw</column>
+          <column name="group_id">cm.crw</column>
+        </record>
+        <record id="cm.corporations.readonly">
+          <column name="name">cm.corporations.readonly</column>
+          <column name="note">Model cm.corporations grant readonly</column>
+          <column name="group_id">cm.readonly</column>
+        </record>
+        <record id="cm.corporations.nodrop">
+          <column name="name">cm.corporations.nodrop</column>
+          <column name="note">Model cm.corporations grant nodrop</column>
+          <column name="group_id">cm.nodrop</column>
+        </record>
+        <record id="cm.corporations.full">
+          <column name="name">cm.corporations.full</column>
+          <column name="note">Model cm.corporations grant full</column>
+          <column name="group_id">cm.full</column>
+        </record>
+        <record id="cm.corporations.crw">
+          <column name="name">cm.corporations.crw</column>
+          <column name="note">Model cm.corporations grant crw</column>
+          <column name="group_id">cm.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="cm.md.cost.product.readonly">
+          <column name="access_id">md.cost.product.readonly</column>
+          <column name="model_id">md.cost.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="cm.md.cost.product.nodrop">
+          <column name="access_id">md.cost.product.nodrop</column>
+          <column name="model_id">md.cost.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.md.cost.product.full">
+          <column name="access_id">md.cost.product.full</column>
+          <column name="model_id">md.cost.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.md.cost.product.crw">
+          <column name="access_id">md.cost.product.crw</column>
+          <column name="model_id">md.cost.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.center.category.readonly">
+          <column name="access_id">cm.cost.center.category.readonly</column>
+          <column name="model_id">cm.cost.center.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="cm.cm.cost.center.category.nodrop">
+          <column name="access_id">cm.cost.center.category.nodrop</column>
+          <column name="model_id">cm.cost.center.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.center.category.full">
+          <column name="access_id">cm.cost.center.category.full</column>
+          <column name="model_id">cm.cost.center.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.center.category.crw">
+          <column name="access_id">cm.cost.center.category.crw</column>
+          <column name="model_id">cm.cost.center.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.order.category.readonly">
+          <column name="access_id">cm.cost.order.category.readonly</column>
+          <column name="model_id">cm.cost.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="cm.cm.cost.order.category.nodrop">
+          <column name="access_id">cm.cost.order.category.nodrop</column>
+          <column name="model_id">cm.cost.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.order.category.full">
+          <column name="access_id">cm.cost.order.category.full</column>
+          <column name="model_id">cm.cost.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.order.category.crw">
+          <column name="access_id">cm.cost.order.category.crw</column>
+          <column name="model_id">cm.cost.order.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.collector.category.readonly">
+          <column name="access_id">cm.cost.collector.category.readonly</column>
+          <column name="model_id">cm.cost.collector.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="cm.cm.cost.collector.category.nodrop">
+          <column name="access_id">cm.cost.collector.category.nodrop</column>
+          <column name="model_id">cm.cost.collector.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.collector.category.full">
+          <column name="access_id">cm.cost.collector.category.full</column>
+          <column name="model_id">cm.cost.collector.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.collector.category.crw">
+          <column name="access_id">cm.cost.collector.category.crw</column>
+          <column name="model_id">cm.cost.collector.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.center.readonly">
+          <column name="access_id">cm.cost.center.readonly</column>
+          <column name="model_id">cm.cost.center</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="cm.cm.cost.center.nodrop">
+          <column name="access_id">cm.cost.center.nodrop</column>
+          <column name="model_id">cm.cost.center</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.center.full">
+          <column name="access_id">cm.cost.center.full</column>
+          <column name="model_id">cm.cost.center</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.center.crw">
+          <column name="access_id">cm.cost.center.crw</column>
+          <column name="model_id">cm.cost.center</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.center.dates.readonly">
+          <column name="access_id">cm.cost.center.dates.readonly</column>
+          <column name="model_id">cm.cost.center.dates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="cm.cm.cost.center.dates.nodrop">
+          <column name="access_id">cm.cost.center.dates.nodrop</column>
+          <column name="model_id">cm.cost.center.dates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.center.dates.full">
+          <column name="access_id">cm.cost.center.dates.full</column>
+          <column name="model_id">cm.cost.center.dates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.center.dates.crw">
+          <column name="access_id">cm.cost.center.dates.crw</column>
+          <column name="model_id">cm.cost.center.dates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.order.readonly">
+          <column name="access_id">cm.cost.order.readonly</column>
+          <column name="model_id">cm.cost.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="cm.cm.cost.order.nodrop">
+          <column name="access_id">cm.cost.order.nodrop</column>
+          <column name="model_id">cm.cost.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.order.full">
+          <column name="access_id">cm.cost.order.full</column>
+          <column name="model_id">cm.cost.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.order.crw">
+          <column name="access_id">cm.cost.order.crw</column>
+          <column name="model_id">cm.cost.order</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.order.dates.readonly">
+          <column name="access_id">cm.cost.order.dates.readonly</column>
+          <column name="model_id">cm.cost.order.dates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="cm.cm.cost.order.dates.nodrop">
+          <column name="access_id">cm.cost.order.dates.nodrop</column>
+          <column name="model_id">cm.cost.order.dates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.order.dates.full">
+          <column name="access_id">cm.cost.order.dates.full</column>
+          <column name="model_id">cm.cost.order.dates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.order.dates.crw">
+          <column name="access_id">cm.cost.order.dates.crw</column>
+          <column name="model_id">cm.cost.order.dates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.collector.readonly">
+          <column name="access_id">cm.cost.collector.readonly</column>
+          <column name="model_id">cm.cost.collector</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="cm.cm.cost.collector.nodrop">
+          <column name="access_id">cm.cost.collector.nodrop</column>
+          <column name="model_id">cm.cost.collector</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.collector.full">
+          <column name="access_id">cm.cost.collector.full</column>
+          <column name="model_id">cm.cost.collector</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.collector.crw">
+          <column name="access_id">cm.cost.collector.crw</column>
+          <column name="model_id">cm.cost.collector</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.collector.dates.readonly">
+          <column name="access_id">cm.cost.collector.dates.readonly</column>
+          <column name="model_id">cm.cost.collector.dates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="cm.cm.cost.collector.dates.nodrop">
+          <column name="access_id">cm.cost.collector.dates.nodrop</column>
+          <column name="model_id">cm.cost.collector.dates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.collector.dates.full">
+          <column name="access_id">cm.cost.collector.dates.full</column>
+          <column name="model_id">cm.cost.collector.dates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.cost.collector.dates.crw">
+          <column name="access_id">cm.cost.collector.dates.crw</column>
+          <column name="model_id">cm.cost.collector.dates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.corporations.readonly">
+          <column name="access_id">cm.corporations.readonly</column>
+          <column name="model_id">cm.corporations</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="cm.cm.corporations.nodrop">
+          <column name="access_id">cm.corporations.nodrop</column>
+          <column name="model_id">cm.corporations</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.corporations.full">
+          <column name="access_id">cm.corporations.full</column>
+          <column name="model_id">cm.corporations</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="cm.cm.corporations.crw">
+          <column name="access_id">cm.corporations.crw</column>
+          <column name="model_id">cm.corporations</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

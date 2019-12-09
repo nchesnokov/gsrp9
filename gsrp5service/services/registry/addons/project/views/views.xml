@@ -1,0 +1,1559 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.views">
+        <record id="view.md.project.product.form">
+          <column name="name">view.md.project.product.form</column>
+          <column name="model">md.project.product</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="product_id"/>
+              <field name="vat"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.project.product.list">
+          <column name="name">view.md.project.product.list</column>
+          <column name="model">md.project.product</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="product_id"/>
+              <field name="vat"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.project.product.m2mlist">
+          <column name="name">view.md.project.product.m2mlist</column>
+          <column name="model">md.project.product</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="product_id"/>
+              <field name="vat"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.resource.category.form">
+          <column name="name">view.project.resource.category.form</column>
+          <column name="model">project.resource.category</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="projects"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.resource.category.list">
+          <column name="name">view.project.resource.category.list</column>
+          <column name="model">project.resource.category</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="projects"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.resource.category.m2mlist">
+          <column name="name">view.project.resource.category.m2mlist</column>
+          <column name="model">project.resource.category</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.resource.category.search">
+          <column name="name">view.project.resource.category.search</column>
+          <column name="model">project.resource.category</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.resource.category.find">
+          <column name="name">view.project.resource.category.find</column>
+          <column name="model">project.resource.category</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.resource.category.tree">
+          <column name="name">view.project.resource.category.tree</column>
+          <column name="model">project.resource.category</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.bill.category.form">
+          <column name="name">view.project.bill.category.form</column>
+          <column name="model">project.bill.category</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="bills"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.bill.category.list">
+          <column name="name">view.project.bill.category.list</column>
+          <column name="model">project.bill.category</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="bills"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.bill.category.m2mlist">
+          <column name="name">view.project.bill.category.m2mlist</column>
+          <column name="model">project.bill.category</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.bill.category.search">
+          <column name="name">view.project.bill.category.search</column>
+          <column name="model">project.bill.category</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.bill.category.find">
+          <column name="name">view.project.bill.category.find</column>
+          <column name="model">project.bill.category</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.bill.category.tree">
+          <column name="name">view.project.bill.category.tree</column>
+          <column name="model">project.bill.category</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.portfolio.category.form">
+          <column name="name">view.project.portfolio.category.form</column>
+          <column name="model">project.portfolio.category</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="portfolios"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.portfolio.category.list">
+          <column name="name">view.project.portfolio.category.list</column>
+          <column name="model">project.portfolio.category</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="portfolios"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.portfolio.category.m2mlist">
+          <column name="name">view.project.portfolio.category.m2mlist</column>
+          <column name="model">project.portfolio.category</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.portfolio.category.search">
+          <column name="name">view.project.portfolio.category.search</column>
+          <column name="model">project.portfolio.category</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.portfolio.category.find">
+          <column name="name">view.project.portfolio.category.find</column>
+          <column name="model">project.portfolio.category</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.portfolio.category.tree">
+          <column name="name">view.project.portfolio.category.tree</column>
+          <column name="model">project.portfolio.category</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.project.category.form">
+          <column name="name">view.project.project.category.form</column>
+          <column name="model">project.project.category</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="projects"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.project.category.list">
+          <column name="name">view.project.project.category.list</column>
+          <column name="model">project.project.category</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="projects"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.project.category.m2mlist">
+          <column name="name">view.project.project.category.m2mlist</column>
+          <column name="model">project.project.category</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.project.category.search">
+          <column name="name">view.project.project.category.search</column>
+          <column name="model">project.project.category</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.project.category.find">
+          <column name="name">view.project.project.category.find</column>
+          <column name="model">project.project.category</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.project.category.tree">
+          <column name="name">view.project.project.category.tree</column>
+          <column name="model">project.project.category</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.stage.category.form">
+          <column name="name">view.project.stage.category.form</column>
+          <column name="model">project.stage.category</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="stages"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.stage.category.list">
+          <column name="name">view.project.stage.category.list</column>
+          <column name="model">project.stage.category</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="stages"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.stage.category.m2mlist">
+          <column name="name">view.project.stage.category.m2mlist</column>
+          <column name="model">project.stage.category</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.stage.category.search">
+          <column name="name">view.project.stage.category.search</column>
+          <column name="model">project.stage.category</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.stage.category.find">
+          <column name="name">view.project.stage.category.find</column>
+          <column name="model">project.stage.category</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.stage.category.tree">
+          <column name="name">view.project.stage.category.tree</column>
+          <column name="model">project.stage.category</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.task.category.form">
+          <column name="name">view.project.task.category.form</column>
+          <column name="model">project.task.category</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="tasks"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.task.category.list">
+          <column name="name">view.project.task.category.list</column>
+          <column name="model">project.task.category</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="tasks"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.task.category.m2mlist">
+          <column name="name">view.project.task.category.m2mlist</column>
+          <column name="model">project.task.category</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.task.category.search">
+          <column name="name">view.project.task.category.search</column>
+          <column name="model">project.task.category</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.task.category.find">
+          <column name="name">view.project.task.category.find</column>
+          <column name="model">project.task.category</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.task.category.tree">
+          <column name="name">view.project.task.category.tree</column>
+          <column name="model">project.task.category</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.element.category.form">
+          <column name="name">view.project.element.category.form</column>
+          <column name="model">project.element.category</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="elements"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.element.category.list">
+          <column name="name">view.project.element.category.list</column>
+          <column name="model">project.element.category</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="elements"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.element.category.m2mlist">
+          <column name="name">view.project.element.category.m2mlist</column>
+          <column name="model">project.element.category</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.element.category.search">
+          <column name="name">view.project.element.category.search</column>
+          <column name="model">project.element.category</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.element.category.find">
+          <column name="name">view.project.element.category.find</column>
+          <column name="model">project.element.category</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.element.category.tree">
+          <column name="name">view.project.element.category.tree</column>
+          <column name="model">project.element.category</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.resource.form">
+          <column name="name">view.project.resource.form</column>
+          <column name="model">project.resource</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="cost"/>
+              <field name="currency"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.resource.list">
+          <column name="name">view.project.resource.list</column>
+          <column name="model">project.resource</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="cost"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.resource.m2mlist">
+          <column name="name">view.project.resource.m2mlist</column>
+          <column name="model">project.resource</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="cost"/>
+              <field name="currency"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.resource.search">
+          <column name="name">view.project.resource.search</column>
+          <column name="model">project.resource</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="cost"/>
+              <field name="currency"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.resource.find">
+          <column name="name">view.project.resource.find</column>
+          <column name="model">project.resource</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="cost"/>
+              <field name="currency"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.bill.schedule">
+          <column name="name">view.project.bill.schedule</column>
+          <column name="model">project.bill</column>
+          <column name="arch" type="Xml">
+            <schedule from_date="None" to_date="None">
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </schedule>
+          </column>
+        </record>
+        <record id="view.project.bill.form">
+          <column name="name">view.project.bill.form</column>
+          <column name="model">project.bill</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="portfolios"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.bill.gantt">
+          <column name="name">view.project.bill.gantt</column>
+          <column name="model">project.bill</column>
+          <column name="arch" type="Xml">
+            <gantt>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </gantt>
+          </column>
+        </record>
+        <record id="view.project.bill.kanban">
+          <column name="name">view.project.bill.kanban</column>
+          <column name="model">project.bill</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="note"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.project.bill.list">
+          <column name="name">view.project.bill.list</column>
+          <column name="model">project.bill</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="portfolios"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.bill.m2mlist">
+          <column name="name">view.project.bill.m2mlist</column>
+          <column name="model">project.bill</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.bill.search">
+          <column name="name">view.project.bill.search</column>
+          <column name="model">project.bill</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.bill.find">
+          <column name="name">view.project.bill.find</column>
+          <column name="model">project.bill</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.bill.tree">
+          <column name="name">view.project.bill.tree</column>
+          <column name="model">project.bill</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.portfolio.schedule">
+          <column name="name">view.project.portfolio.schedule</column>
+          <column name="model">project.portfolio</column>
+          <column name="arch" type="Xml">
+            <schedule from_date="None" to_date="None">
+              <field name="bill_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </schedule>
+          </column>
+        </record>
+        <record id="view.project.portfolio.form">
+          <column name="name">view.project.portfolio.form</column>
+          <column name="model">project.portfolio</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="bill_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="projects"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.portfolio.gantt">
+          <column name="name">view.project.portfolio.gantt</column>
+          <column name="model">project.portfolio</column>
+          <column name="arch" type="Xml">
+            <gantt>
+              <field name="bill_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </gantt>
+          </column>
+        </record>
+        <record id="view.project.portfolio.kanban">
+          <column name="name">view.project.portfolio.kanban</column>
+          <column name="model">project.portfolio</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="bill_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="note"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.project.portfolio.list">
+          <column name="name">view.project.portfolio.list</column>
+          <column name="model">project.portfolio</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="bill_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="projects"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.portfolio.m2mlist">
+          <column name="name">view.project.portfolio.m2mlist</column>
+          <column name="model">project.portfolio</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="bill_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.portfolio.search">
+          <column name="name">view.project.portfolio.search</column>
+          <column name="model">project.portfolio</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="bill_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.portfolio.find">
+          <column name="name">view.project.portfolio.find</column>
+          <column name="model">project.portfolio</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="bill_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.portfolio.tree">
+          <column name="name">view.project.portfolio.tree</column>
+          <column name="model">project.portfolio</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="bill_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.project.schedule">
+          <column name="name">view.project.project.schedule</column>
+          <column name="model">project.project</column>
+          <column name="arch" type="Xml">
+            <schedule from_date="None" to_date="None">
+              <field name="portfolio_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </schedule>
+          </column>
+        </record>
+        <record id="view.project.project.form">
+          <column name="name">view.project.project.form</column>
+          <column name="model">project.project</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="portfolio_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="stages"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.project.gantt">
+          <column name="name">view.project.project.gantt</column>
+          <column name="model">project.project</column>
+          <column name="arch" type="Xml">
+            <gantt>
+              <field name="portfolio_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </gantt>
+          </column>
+        </record>
+        <record id="view.project.project.kanban">
+          <column name="name">view.project.project.kanban</column>
+          <column name="model">project.project</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="portfolio_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="note"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.project.project.list">
+          <column name="name">view.project.project.list</column>
+          <column name="model">project.project</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="portfolio_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="stages"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.project.m2mlist">
+          <column name="name">view.project.project.m2mlist</column>
+          <column name="model">project.project</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="portfolio_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.project.search">
+          <column name="name">view.project.project.search</column>
+          <column name="model">project.project</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="portfolio_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.project.find">
+          <column name="name">view.project.project.find</column>
+          <column name="model">project.project</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="portfolio_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.project.tree">
+          <column name="name">view.project.project.tree</column>
+          <column name="model">project.project</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="portfolio_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.stage.schedule">
+          <column name="name">view.project.stage.schedule</column>
+          <column name="model">project.stage</column>
+          <column name="arch" type="Xml">
+            <schedule from_date="None" to_date="None">
+              <field name="project_id"/>
+              <field name="name"/>
+              <field name="type"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </schedule>
+          </column>
+        </record>
+        <record id="view.project.stage.form">
+          <column name="name">view.project.stage.form</column>
+          <column name="model">project.stage</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="project_id"/>
+              <field name="name"/>
+              <field name="type"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="tasks"/>
+              <field name="elements"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.stage.gantt">
+          <column name="name">view.project.stage.gantt</column>
+          <column name="model">project.stage</column>
+          <column name="arch" type="Xml">
+            <gantt>
+              <field name="project_id"/>
+              <field name="name"/>
+              <field name="type"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </gantt>
+          </column>
+        </record>
+        <record id="view.project.stage.kanban">
+          <column name="name">view.project.stage.kanban</column>
+          <column name="model">project.stage</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="project_id"/>
+              <field name="name"/>
+              <field name="type"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="note"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.project.stage.list">
+          <column name="name">view.project.stage.list</column>
+          <column name="model">project.stage</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="project_id"/>
+              <field name="name"/>
+              <field name="type"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="tasks"/>
+              <field name="elements"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.stage.m2mlist">
+          <column name="name">view.project.stage.m2mlist</column>
+          <column name="model">project.stage</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="project_id"/>
+              <field name="name"/>
+              <field name="type"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.stage.search">
+          <column name="name">view.project.stage.search</column>
+          <column name="model">project.stage</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="project_id"/>
+              <field name="name"/>
+              <field name="type"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.stage.find">
+          <column name="name">view.project.stage.find</column>
+          <column name="model">project.stage</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="project_id"/>
+              <field name="name"/>
+              <field name="type"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.stage.tree">
+          <column name="name">view.project.stage.tree</column>
+          <column name="model">project.stage</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="project_id"/>
+              <field name="name"/>
+              <field name="type"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.task.schedule">
+          <column name="name">view.project.task.schedule</column>
+          <column name="model">project.task</column>
+          <column name="arch" type="Xml">
+            <schedule from_date="None" to_date="None">
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </schedule>
+          </column>
+        </record>
+        <record id="view.project.task.form">
+          <column name="name">view.project.task.form</column>
+          <column name="model">project.task</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="resources"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.task.gantt">
+          <column name="name">view.project.task.gantt</column>
+          <column name="model">project.task</column>
+          <column name="arch" type="Xml">
+            <gantt>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </gantt>
+          </column>
+        </record>
+        <record id="view.project.task.kanban">
+          <column name="name">view.project.task.kanban</column>
+          <column name="model">project.task</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="note"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.project.task.list">
+          <column name="name">view.project.task.list</column>
+          <column name="model">project.task</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+              <field name="resources"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.task.m2mlist">
+          <column name="name">view.project.task.m2mlist</column>
+          <column name="model">project.task</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.task.search">
+          <column name="name">view.project.task.search</column>
+          <column name="model">project.task</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.task.find">
+          <column name="name">view.project.task.find</column>
+          <column name="model">project.task</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.task.tree">
+          <column name="name">view.project.task.tree</column>
+          <column name="model">project.task</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="parent_id"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="progress"/>
+              <field name="project_type"/>
+              <field name="state"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.element.form">
+          <column name="name">view.project.element.form</column>
+          <column name="model">project.element</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="products"/>
+              <field name="resources"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.element.list">
+          <column name="name">view.project.element.list</column>
+          <column name="model">project.element</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="products"/>
+              <field name="resources"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.element.m2mlist">
+          <column name="name">view.project.element.m2mlist</column>
+          <column name="model">project.element</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.element.search">
+          <column name="name">view.project.element.search</column>
+          <column name="model">project.element</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.project.element.find">
+          <column name="name">view.project.element.find</column>
+          <column name="model">project.element</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.project.element.tree">
+          <column name="name">view.project.element.tree</column>
+          <column name="model">project.element</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="stage_id"/>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.project.element.products.form">
+          <column name="name">view.project.element.products.form</column>
+          <column name="model">project.element.products</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="element_id"/>
+              <field name="product_id"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.element.products.list">
+          <column name="name">view.project.element.products.list</column>
+          <column name="model">project.element.products</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="element_id"/>
+              <field name="product_id"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.element.products.m2mlist">
+          <column name="name">view.project.element.products.m2mlist</column>
+          <column name="model">project.element.products</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="element_id"/>
+              <field name="product_id"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.task.resources.form">
+          <column name="name">view.project.task.resources.form</column>
+          <column name="model">project.task.resources</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="task_id"/>
+              <field name="resource_id"/>
+              <field name="quantiny"/>
+              <field name="uom"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.task.resources.list">
+          <column name="name">view.project.task.resources.list</column>
+          <column name="model">project.task.resources</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="task_id"/>
+              <field name="resource_id"/>
+              <field name="quantiny"/>
+              <field name="uom"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.task.resources.m2mlist">
+          <column name="name">view.project.task.resources.m2mlist</column>
+          <column name="model">project.task.resources</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="task_id"/>
+              <field name="resource_id"/>
+              <field name="quantiny"/>
+              <field name="uom"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.project.element.resources.form">
+          <column name="name">view.project.element.resources.form</column>
+          <column name="model">project.element.resources</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="element_id"/>
+              <field name="resource_id"/>
+              <field name="quantiny"/>
+              <field name="uom"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.project.element.resources.list">
+          <column name="name">view.project.element.resources.list</column>
+          <column name="model">project.element.resources</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="element_id"/>
+              <field name="resource_id"/>
+              <field name="quantiny"/>
+              <field name="uom"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.project.element.resources.m2mlist">
+          <column name="name">view.project.element.resources.m2mlist</column>
+          <column name="model">project.element.resources</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="element_id"/>
+              <field name="resource_id"/>
+              <field name="quantiny"/>
+              <field name="uom"/>
+            </m2mlist>
+          </column>
+        </record>
+      </records>
+      <records model="bc.ui.views.inherit">
+        <record id="view.md.project.product.inherit.form.inherit.md.product">
+          <column name="view_id">view.md.product.form</column>
+          <column name="name">view.md.project.product.inherit.form.inherit.md.product</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="project"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.project.product.inherit.list.inherit.md.product">
+          <column name="view_id">view.md.product.list</column>
+          <column name="name">view.md.project.product.inherit.list.inherit.md.product</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="project"/>
+            </list>
+          </column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

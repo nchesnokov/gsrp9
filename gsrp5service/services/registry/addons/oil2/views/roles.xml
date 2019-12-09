@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="oil2.readonly">
+          <column name="name">oil2.readonly</column>
+          <column name="note">Module oil2 grant readonly</column>
+        </record>
+        <record id="oil2.nodrop">
+          <column name="name">oil2.nodrop</column>
+          <column name="note">Module oil2 grant nodrop</column>
+        </record>
+        <record id="oil2.full">
+          <column name="name">oil2.full</column>
+          <column name="note">Module oil2 grant full</column>
+        </record>
+        <record id="oil2.crw">
+          <column name="name">oil2.crw</column>
+          <column name="note">Module oil2 grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="oil.field.category.readonly">
+          <column name="name">oil.field.category.readonly</column>
+          <column name="note">Model oil.field.category grant readonly</column>
+          <column name="group_id">oil2.readonly</column>
+        </record>
+        <record id="oil.field.category.nodrop">
+          <column name="name">oil.field.category.nodrop</column>
+          <column name="note">Model oil.field.category grant nodrop</column>
+          <column name="group_id">oil2.nodrop</column>
+        </record>
+        <record id="oil.field.category.full">
+          <column name="name">oil.field.category.full</column>
+          <column name="note">Model oil.field.category grant full</column>
+          <column name="group_id">oil2.full</column>
+        </record>
+        <record id="oil.field.category.crw">
+          <column name="name">oil.field.category.crw</column>
+          <column name="note">Model oil.field.category grant crw</column>
+          <column name="group_id">oil2.crw</column>
+        </record>
+        <record id="oil.reservoir.category.readonly">
+          <column name="name">oil.reservoir.category.readonly</column>
+          <column name="note">Model oil.reservoir.category grant readonly</column>
+          <column name="group_id">oil2.readonly</column>
+        </record>
+        <record id="oil.reservoir.category.nodrop">
+          <column name="name">oil.reservoir.category.nodrop</column>
+          <column name="note">Model oil.reservoir.category grant nodrop</column>
+          <column name="group_id">oil2.nodrop</column>
+        </record>
+        <record id="oil.reservoir.category.full">
+          <column name="name">oil.reservoir.category.full</column>
+          <column name="note">Model oil.reservoir.category grant full</column>
+          <column name="group_id">oil2.full</column>
+        </record>
+        <record id="oil.reservoir.category.crw">
+          <column name="name">oil.reservoir.category.crw</column>
+          <column name="note">Model oil.reservoir.category grant crw</column>
+          <column name="group_id">oil2.crw</column>
+        </record>
+        <record id="oil.platform.category.readonly">
+          <column name="name">oil.platform.category.readonly</column>
+          <column name="note">Model oil.platform.category grant readonly</column>
+          <column name="group_id">oil2.readonly</column>
+        </record>
+        <record id="oil.platform.category.nodrop">
+          <column name="name">oil.platform.category.nodrop</column>
+          <column name="note">Model oil.platform.category grant nodrop</column>
+          <column name="group_id">oil2.nodrop</column>
+        </record>
+        <record id="oil.platform.category.full">
+          <column name="name">oil.platform.category.full</column>
+          <column name="note">Model oil.platform.category grant full</column>
+          <column name="group_id">oil2.full</column>
+        </record>
+        <record id="oil.platform.category.crw">
+          <column name="name">oil.platform.category.crw</column>
+          <column name="note">Model oil.platform.category grant crw</column>
+          <column name="group_id">oil2.crw</column>
+        </record>
+        <record id="oil.well.category.readonly">
+          <column name="name">oil.well.category.readonly</column>
+          <column name="note">Model oil.well.category grant readonly</column>
+          <column name="group_id">oil2.readonly</column>
+        </record>
+        <record id="oil.well.category.nodrop">
+          <column name="name">oil.well.category.nodrop</column>
+          <column name="note">Model oil.well.category grant nodrop</column>
+          <column name="group_id">oil2.nodrop</column>
+        </record>
+        <record id="oil.well.category.full">
+          <column name="name">oil.well.category.full</column>
+          <column name="note">Model oil.well.category grant full</column>
+          <column name="group_id">oil2.full</column>
+        </record>
+        <record id="oil.well.category.crw">
+          <column name="name">oil.well.category.crw</column>
+          <column name="note">Model oil.well.category grant crw</column>
+          <column name="group_id">oil2.crw</column>
+        </record>
+        <record id="oil.field.readonly">
+          <column name="name">oil.field.readonly</column>
+          <column name="note">Model oil.field grant readonly</column>
+          <column name="group_id">oil2.readonly</column>
+        </record>
+        <record id="oil.field.nodrop">
+          <column name="name">oil.field.nodrop</column>
+          <column name="note">Model oil.field grant nodrop</column>
+          <column name="group_id">oil2.nodrop</column>
+        </record>
+        <record id="oil.field.full">
+          <column name="name">oil.field.full</column>
+          <column name="note">Model oil.field grant full</column>
+          <column name="group_id">oil2.full</column>
+        </record>
+        <record id="oil.field.crw">
+          <column name="name">oil.field.crw</column>
+          <column name="note">Model oil.field grant crw</column>
+          <column name="group_id">oil2.crw</column>
+        </record>
+        <record id="oil.reservoir.readonly">
+          <column name="name">oil.reservoir.readonly</column>
+          <column name="note">Model oil.reservoir grant readonly</column>
+          <column name="group_id">oil2.readonly</column>
+        </record>
+        <record id="oil.reservoir.nodrop">
+          <column name="name">oil.reservoir.nodrop</column>
+          <column name="note">Model oil.reservoir grant nodrop</column>
+          <column name="group_id">oil2.nodrop</column>
+        </record>
+        <record id="oil.reservoir.full">
+          <column name="name">oil.reservoir.full</column>
+          <column name="note">Model oil.reservoir grant full</column>
+          <column name="group_id">oil2.full</column>
+        </record>
+        <record id="oil.reservoir.crw">
+          <column name="name">oil.reservoir.crw</column>
+          <column name="note">Model oil.reservoir grant crw</column>
+          <column name="group_id">oil2.crw</column>
+        </record>
+        <record id="oil.platform.readonly">
+          <column name="name">oil.platform.readonly</column>
+          <column name="note">Model oil.platform grant readonly</column>
+          <column name="group_id">oil2.readonly</column>
+        </record>
+        <record id="oil.platform.nodrop">
+          <column name="name">oil.platform.nodrop</column>
+          <column name="note">Model oil.platform grant nodrop</column>
+          <column name="group_id">oil2.nodrop</column>
+        </record>
+        <record id="oil.platform.full">
+          <column name="name">oil.platform.full</column>
+          <column name="note">Model oil.platform grant full</column>
+          <column name="group_id">oil2.full</column>
+        </record>
+        <record id="oil.platform.crw">
+          <column name="name">oil.platform.crw</column>
+          <column name="note">Model oil.platform grant crw</column>
+          <column name="group_id">oil2.crw</column>
+        </record>
+        <record id="oil.well.readonly">
+          <column name="name">oil.well.readonly</column>
+          <column name="note">Model oil.well grant readonly</column>
+          <column name="group_id">oil2.readonly</column>
+        </record>
+        <record id="oil.well.nodrop">
+          <column name="name">oil.well.nodrop</column>
+          <column name="note">Model oil.well grant nodrop</column>
+          <column name="group_id">oil2.nodrop</column>
+        </record>
+        <record id="oil.well.full">
+          <column name="name">oil.well.full</column>
+          <column name="note">Model oil.well grant full</column>
+          <column name="group_id">oil2.full</column>
+        </record>
+        <record id="oil.well.crw">
+          <column name="name">oil.well.crw</column>
+          <column name="note">Model oil.well grant crw</column>
+          <column name="group_id">oil2.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="oil2.oil.field.category.readonly">
+          <column name="access_id">oil.field.category.readonly</column>
+          <column name="model_id">oil.field.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="oil2.oil.field.category.nodrop">
+          <column name="access_id">oil.field.category.nodrop</column>
+          <column name="model_id">oil.field.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.field.category.full">
+          <column name="access_id">oil.field.category.full</column>
+          <column name="model_id">oil.field.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.field.category.crw">
+          <column name="access_id">oil.field.category.crw</column>
+          <column name="model_id">oil.field.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.reservoir.category.readonly">
+          <column name="access_id">oil.reservoir.category.readonly</column>
+          <column name="model_id">oil.reservoir.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="oil2.oil.reservoir.category.nodrop">
+          <column name="access_id">oil.reservoir.category.nodrop</column>
+          <column name="model_id">oil.reservoir.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.reservoir.category.full">
+          <column name="access_id">oil.reservoir.category.full</column>
+          <column name="model_id">oil.reservoir.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.reservoir.category.crw">
+          <column name="access_id">oil.reservoir.category.crw</column>
+          <column name="model_id">oil.reservoir.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.platform.category.readonly">
+          <column name="access_id">oil.platform.category.readonly</column>
+          <column name="model_id">oil.platform.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="oil2.oil.platform.category.nodrop">
+          <column name="access_id">oil.platform.category.nodrop</column>
+          <column name="model_id">oil.platform.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.platform.category.full">
+          <column name="access_id">oil.platform.category.full</column>
+          <column name="model_id">oil.platform.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.platform.category.crw">
+          <column name="access_id">oil.platform.category.crw</column>
+          <column name="model_id">oil.platform.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.well.category.readonly">
+          <column name="access_id">oil.well.category.readonly</column>
+          <column name="model_id">oil.well.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="oil2.oil.well.category.nodrop">
+          <column name="access_id">oil.well.category.nodrop</column>
+          <column name="model_id">oil.well.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.well.category.full">
+          <column name="access_id">oil.well.category.full</column>
+          <column name="model_id">oil.well.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.well.category.crw">
+          <column name="access_id">oil.well.category.crw</column>
+          <column name="model_id">oil.well.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.field.readonly">
+          <column name="access_id">oil.field.readonly</column>
+          <column name="model_id">oil.field</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="oil2.oil.field.nodrop">
+          <column name="access_id">oil.field.nodrop</column>
+          <column name="model_id">oil.field</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.field.full">
+          <column name="access_id">oil.field.full</column>
+          <column name="model_id">oil.field</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.field.crw">
+          <column name="access_id">oil.field.crw</column>
+          <column name="model_id">oil.field</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.reservoir.readonly">
+          <column name="access_id">oil.reservoir.readonly</column>
+          <column name="model_id">oil.reservoir</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="oil2.oil.reservoir.nodrop">
+          <column name="access_id">oil.reservoir.nodrop</column>
+          <column name="model_id">oil.reservoir</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.reservoir.full">
+          <column name="access_id">oil.reservoir.full</column>
+          <column name="model_id">oil.reservoir</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.reservoir.crw">
+          <column name="access_id">oil.reservoir.crw</column>
+          <column name="model_id">oil.reservoir</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.platform.readonly">
+          <column name="access_id">oil.platform.readonly</column>
+          <column name="model_id">oil.platform</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="oil2.oil.platform.nodrop">
+          <column name="access_id">oil.platform.nodrop</column>
+          <column name="model_id">oil.platform</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.platform.full">
+          <column name="access_id">oil.platform.full</column>
+          <column name="model_id">oil.platform</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.platform.crw">
+          <column name="access_id">oil.platform.crw</column>
+          <column name="model_id">oil.platform</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.well.readonly">
+          <column name="access_id">oil.well.readonly</column>
+          <column name="model_id">oil.well</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="oil2.oil.well.nodrop">
+          <column name="access_id">oil.well.nodrop</column>
+          <column name="model_id">oil.well</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.well.full">
+          <column name="access_id">oil.well.full</column>
+          <column name="model_id">oil.well</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="oil2.oil.well.crw">
+          <column name="access_id">oil.well.crw</column>
+          <column name="model_id">oil.well</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

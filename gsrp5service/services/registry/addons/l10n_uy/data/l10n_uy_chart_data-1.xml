@@ -1,0 +1,1247 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+		<records model="fa.chart.template">
+	        <record id="uy_chart_template">
+	            <column name="name">Plan de Cuentas Uruguay - Template</column>
+	            <column name="code_digits">6</column>
+	            <column name="bank_account_code_prefix">1111</column>
+	            <column name="cash_account_code_prefix">1112</column>
+	            <column name="currency_id" ref="base.UYU"/>
+	            <column name="transfer_account_id" ref="uy_code_11120"/>
+	            <column name="property_account_receivable_id" ref="uy_code_11300"/>
+	            <column name="property_account_payable_id" ref="uy_code_21100"/>
+	            <column name="property_account_income_categ_id" ref="uy_code_4100"/>
+	            <column name="property_account_expense_categ_id" ref="uy_code_5100"/>
+	            <column name="income_currency_exchange_account_id" ref="uy_code_4302"/>
+	            <column name="expense_currency_exchange_account_id" ref="uy_code_5302"/>
+	        </record>
+        </records>
+      <records model="fa.account.template-1">
+        <record id="uy_code_11120">
+            <column name="code">11120</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Movimientos Banco (def)</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+        </record>
+
+        <record id="uy_code_11120">
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+        
+        <record id="uy_code_11201">
+            <column name="code">11201</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Depósitos Bancarios</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11202">
+            <column name="code">11202</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Valores Públicos</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11211">
+            <column name="code">11211</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Previsión para desvalorizaciones</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11212">
+            <column name="code">11212</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Intereses percibidos por adelantado</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11300">
+            <column name="code">11300</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Deudores Varios (def)</column>
+            <column name="user_type_id" ref="account.data_account_type_receivable"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11301">
+            <column name="code">11301</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Deudores Simples Plaza</column>
+            <column name="user_type_id" ref="account.data_account_type_receivable"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11302">
+            <column name="code">11302</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Deudores por Exportaciones</column>
+            <column name="user_type_id" ref="account.data_account_type_receivable"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11303">
+            <column name="code">11303</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Documentos a Cobrar MN</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11304">
+            <column name="code">11304</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Documentos a Cobrar ME</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11305">
+            <column name="code">11305</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Cheques en Cartera MN</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11306">
+            <column name="code">11306</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Cheques en Cartera ME</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11311">
+            <column name="code">11311</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Prevision para Deudores Incobrables</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11312">
+            <column name="code">11312</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Prevision p/dtos y Bonificaciones</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11313">
+            <column name="code">11313</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Intereses percibidos por adelantado</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11314">
+            <column name="code">11314</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Ingresos diferidos</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11401">
+            <column name="code">11401</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Anticipos a Proveedores</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11402">
+            <column name="code">11402</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Casa Matriz, Empresas Controlantes</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11403">
+            <column name="code">11403</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Controladas / Vinculadas</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11404">
+            <column name="code">11404</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Depositos en Garantia</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11405">
+            <column name="code">11405</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Pagos adelantados</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11406">
+            <column name="code">11406</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Saldos Deudor de ctas de Directores</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+
+<!-- ******************************************* -->
+<!-- IVA DGI Compras                                    -->
+<!-- ******************************************* -->
+
+
+        <record id="uy_code_11501">
+            <column name="code">11501</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Iva Compras Mínima</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11502">
+            <column name="code">11502</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Iva Compras Básica</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+
+        <record id="uy_code_11505">
+            <column name="code">11505</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Iva Pagos</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11506">
+            <column name="code">11506</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Iva Retenciones</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11507">
+            <column name="code">11507</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Iva Importación</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11508">
+            <column name="code">11508</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Iva Anticipo Importación</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11601">
+            <column name="code">11601</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Irae Anticipo</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11602">
+            <column name="code">11602</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Patrimonio Anticipo</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11603">
+            <column name="code">11603</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Icosa Anticipo</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11621">
+            <column name="code">11621</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Diversos</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11631">
+            <column name="code">11631</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Prevision para Deudores Incobrables</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11632">
+            <column name="code">11632</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Ingresos percibidos por adelantado</column>
+            <column name="user_type_id" ref="account.data_account_type_revenue"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11633">
+            <column name="code">11633</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Ingresos diferidos</column>
+            <column name="user_type_id" ref="account.data_account_type_revenue"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11701">
+            <column name="code">11701</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Mercaderia de Reventa</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11702">
+            <column name="code">11702</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Productos Terminados</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11703">
+            <column name="code">11703</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Productos en Proceso</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11704">
+            <column name="code">11704</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Materias Primas</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11705">
+            <column name="code">11705</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Materiales y Suministros</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11706">
+            <column name="code">11706</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Importaciones en tramite</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_11711">
+            <column name="code">11711</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Prevision p/desvalorizaciones</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12101">
+            <column name="code">12101</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Créditos a Largo Plazo</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12201">
+            <column name="code">12201</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Bienes de cambio no corrientes</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12301">
+            <column name="code">12301</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Depositos Bancarios</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12302">
+            <column name="code">12302</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Inmuebles</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12303">
+            <column name="code">12303</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Valores orig. y revaluados s/anexo</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12304">
+            <column name="code">12304</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Menos: Amort. Acum.</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12305">
+            <column name="code">12305</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Titulos y Acciones</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12311">
+            <column name="code">12311</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Prevision para Desvalorizaciones</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12312">
+            <column name="code">12312</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Intereses percibidos por adelantado</column>
+            <column name="user_type_id" ref="account.data_account_type_revenue"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12401">
+            <column name="code">12401</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Muebles y Útiles</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12402">
+            <column name="code">12402</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Inmuebles</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12403">
+            <column name="code">12403</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Maquinas y Herramientas</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12404">
+            <column name="code">12404</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Vehículos</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12420">
+            <column name="code">12420</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Amort.Ac.Mueb.y Utiles</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12421">
+            <column name="code">12421</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Amort.Ac.Inmuebles</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12422">
+            <column name="code">12422</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Amort.Ac.Maq.y Herram.</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12423">
+            <column name="code">12423</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Amort.Ac.Vehiculos</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12501">
+            <column name="code">12501</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Patentes, marcas y licencias</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12502">
+            <column name="code">12502</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Gastos de investigacion</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_12520">
+            <column name="code">12520</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Amortizaciones Acumuladas</column>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21100">
+            <column name="code">21100</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Acreedores Varios (def)</column>
+            <column name="user_type_id" ref="account.data_account_type_payable"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21101">
+            <column name="code">21101</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Proveedores por Importaciones</column>
+            <column name="user_type_id" ref="account.data_account_type_payable"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21102">
+            <column name="code">21102</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Deuds. Contratos de Cambio Import.</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21103">
+            <column name="code">21103</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Proveedores de Plaza</column>
+            <column name="user_type_id" ref="account.data_account_type_payable"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21104">
+            <column name="code">21104</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Documentos a Pagar ds/Comerciales</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21120">
+            <column name="code">21120</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Intereses a vencer ds/Comerciales</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21201">
+            <column name="code">21201</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Prestamos Bancarios</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21202">
+            <column name="code">21202</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Obligaciones</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21203">
+            <column name="code">21203</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Documentos a pagar MN a pagar ds/Financieras</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21204">
+            <column name="code">21204</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Documentos a pagar ME a pagar ds/Financieras</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21220">
+            <column name="code">21220</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Ints. a vencer ds/Financieras</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21301">
+            <column name="code">21301</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Cobros Anticipados</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21302">
+            <column name="code">21302</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Dividendos a Pagar</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21303">
+            <column name="code">21303</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Casa Matriz, Empresas Controlantes,</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21304">
+            <column name="code">21304</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Controladas/Vinculadas</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21305">
+            <column name="code">21305</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Sueldos y Jornales a pagar</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21306">
+            <column name="code">21306</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Acreedores por Cargas Sociales</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21307">
+            <column name="code">21307</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Acreedores fiscales</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21308">
+            <column name="code">21308</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Saldos Acreedores Cuentas Directores</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21320">
+            <column name="code">21320</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Otras deudas</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21401">
+            <column name="code">21401</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Iva Ventas Mínima</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21402">
+            <column name="code">21402</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Iva Ventas Básica</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21403">
+            <column name="code">21403</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Iva a Pagar</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21404">
+            <column name="code">21404</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Iva Retenido</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21411">
+            <column name="code">21411</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Irpf Retenido</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21421">
+            <column name="code">21421</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Bps</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21501">
+            <column name="code">21501</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Irae del Ejercicio</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21502">
+            <column name="code">21502</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Irae a Pagar</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21503">
+            <column name="code">21503</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Irae Anticipo a Pagar</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21601">
+            <column name="code">21601</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Patrimonio del Ejercicio</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21602">
+            <column name="code">21602</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Patrimonio a Pagar</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21603">
+            <column name="code">21603</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Patrimonio Anticipo a Pagar</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21701">
+            <column name="code">21701</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Icosa del Ejercicio</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21702">
+            <column name="code">21702</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Icosa a Pagar</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21703">
+            <column name="code">21703</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Icosa Anticipo a Pagar</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_21801">
+            <column name="code">21801</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Responsabilidad frente a terceros</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_22101">
+            <column name="code">22101</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Deudas Comerciales</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_22201">
+            <column name="code">22201</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Deudas Financieras</column>
+            <column name="user_type_id" ref="account.data_account_type_payable"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_22301">
+            <column name="code">22301</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Deudas Diversas</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_22401">
+            <column name="code">22401</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Previsiones No Corrientes</column>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_3111">
+            <column name="code">3111</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Capital Integrado</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_3221">
+            <column name="code">3221</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Revaluaciones fiscales</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_3222">
+            <column name="code">3222</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Revaluaciones voluntarias</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_3311">
+            <column name="code">3311</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Reservas Legales</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_3312">
+            <column name="code">3312</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Reservas Voluntarias</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_3313">
+            <column name="code">3313</column>
+            <column name="reconcile" eval="False"/>
+            <column name="name">Pérdidas y Ganancias</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_33201">
+            <column name="code">33201</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Resultados ejercicios anteriores</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_33201">
+            <column name="code">33201</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Resultados del ejercicio</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_33220">
+            <column name="code">33220</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Dividendos provisorios</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_4100">
+            <column name="code">4100</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Ingresos Operativos (def)</column>
+            <column name="user_type_id" ref="account.data_account_type_revenue"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_4101">
+            <column name="code">4101</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Ventas Exentas</column>
+            <column name="user_type_id" ref="account.data_account_type_revenue"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_4102">
+            <column name="code">4102</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Ventas Tasa Básica</column>
+            <column name="user_type_id" ref="account.data_account_type_revenue"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_4103">
+            <column name="code">4103</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Ventas Tasa Mínima</column>
+            <column name="user_type_id" ref="account.data_account_type_revenue"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_4104">
+            <column name="code">4104</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Ventas por Exportaciones</column>
+            <column name="user_type_id" ref="account.data_account_type_revenue"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_4201">
+            <column name="code">4201</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Ventas extraordinarias</column>
+            <column name="user_type_id" ref="account.data_account_type_revenue"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_4301">
+            <column name="code">4301</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Intereses ganados</column>
+            <column name="user_type_id" ref="account.data_account_type_revenue"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_4302">
+            <column name="code">4302</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Diferencias de Cambio ganadas</column>
+            <column name="user_type_id" ref="account.data_account_type_revenue"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_4303">
+            <column name="code">4303</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Descuentos Obtenidos</column>
+            <column name="user_type_id" ref="account.data_account_type_revenue"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5100">
+            <column name="code">5100</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Gastos Varios (def)</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5101">
+            <column name="code">5101</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Sueldos y Jornales</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5102">
+            <column name="code">5102</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Cargas Sociales</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5103">
+            <column name="code">5103</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Seguros</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5104">
+            <column name="code">5104</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Papelería</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5105">
+            <column name="code">5105</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Combustible</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5106">
+            <column name="code">5106</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Fletes</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5107">
+            <column name="code">5107</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Mantenimiento Vehículos</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5108">
+            <column name="code">5108</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Honorarios Profesionales</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5109">
+            <column name="code">5109</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Servicios Contratados</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5110">
+            <column name="code">5110</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Energía Eléctrica y Aguas Corrientes</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5111">
+            <column name="code">5111</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Comunicaciones y Servicios Telefónicos</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5112">
+            <column name="code">5112</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Alquileres</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5114">
+            <column name="code">5114</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Publicidad</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5115">
+            <column name="code">5115</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Representación</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <!-- IVA VENTAS -->
+        <record id="uy_code_5201">
+            <column name="code">5201</column>
+            <column name="name">IVA ventas 10%</column>
+            <column name="reconcile" eval="False"/>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+        <record id="uy_code_5202">
+            <column name="code">5202</column>
+            <column name="name">IVA ventas 22%</column>
+            <column name="reconcile" eval="False"/>
+            <column name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5203">
+            <column name="name">Contribuciones</column>
+            <column name="code">5203</column>
+            <column name="reconcile" eval="False"/>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+        <record id="uy_code_5204">
+            <column name="name">Retenciones</column>
+            <column name="code">5204</column>
+            <column name="reconcile" eval="False"/>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+        <record id="uy_code_5205">
+            <column name="name">Otros</column>
+            <column name="code">5205</column>
+            <column name="reconcile" eval="False"/>
+            <column name="user_type_id" ref="account.data_account_type_current_assets"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5301">
+            <column name="code">5301</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Intereses y Gastos Bancarios</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5302">
+            <column name="code">5302</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Diferencias de Cambio perdidas</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5303">
+            <column name="code">5303</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Descuentos Concedidos</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5304">
+            <column name="code">5304</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Multas y Recargos Fiscales</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5400">
+            <column name="code">5400</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Costos de lo vendido</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5401">
+            <column name="code">5401</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Costo de Mercaderías</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5402">
+            <column name="code">5402</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Costo de Venta de Bienes de Uso</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_5500">
+            <column name="code">5500</column>
+            <column name="reconcile" eval="True"/>
+            <column name="name">Amortizaciones</column>
+            <column name="user_type_id" ref="account.data_account_type_expenses"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_61">
+            <column name="code">61</column>
+            <column name="reconcile" eval="False"/>
+            <column name="name">Acciones a Emitir</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_62">
+            <column name="code">62</column>
+            <column name="reconcile" eval="False"/>
+            <column name="name">Suscriptores de acciones</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_71">
+            <column name="code">71</column>
+            <column name="reconcile" eval="False"/>
+            <column name="name">Capital Autorizado a Suscribir</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+        <record id="uy_code_72">
+            <column name="code">72</column>
+            <column name="reconcile" eval="False"/>
+            <column name="name">Capital suscripto</column>
+            <column name="user_type_id" ref="account.data_account_type_equity"/>
+            <column name="chart_template_id" ref="uy_chart_template"/>
+        </record>
+
+      </records>
+    </data>
+  </gsrp>

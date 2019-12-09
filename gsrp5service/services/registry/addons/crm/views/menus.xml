@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.crm">
+          <column name="name">ui.menu.crm</column>
+          <column name="label">Customer Relationship Managament</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.crm.request.categories.search">
+          <column name="name">action.crm.request.categories.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.offer.categories.search">
+          <column name="name">action.crm.offer.categories.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.contract.categories.search">
+          <column name="name">action.crm.contract.categories.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.requests.search">
+          <column name="name">action.crm.requests.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.offers.search">
+          <column name="name">action.crm.offers.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.contracts.search">
+          <column name="name">action.crm.contracts.search</column>
+          <column name="ta">View</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.crm.request.categories.report">
+          <column name="name">action.crm.request.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.offer.categories.report">
+          <column name="name">action.crm.offer.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.contract.categories.report">
+          <column name="name">action.crm.contract.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.requests.report">
+          <column name="name">action.crm.requests.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.offers.report">
+          <column name="name">action.crm.offers.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.contracts.report">
+          <column name="name">action.crm.contracts.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.view.actions">
+        <record id="view.action.crm.request.categories.search">
+          <column name="action_id">action.crm.request.categories.search</column>
+          <column name="view_id">view.crm.request.categories.search</column>
+        </record>
+        <record id="view.action.crm.offer.categories.search">
+          <column name="action_id">action.crm.offer.categories.search</column>
+          <column name="view_id">view.crm.offer.categories.search</column>
+        </record>
+        <record id="view.action.crm.contract.categories.search">
+          <column name="action_id">action.crm.contract.categories.search</column>
+          <column name="view_id">view.crm.contract.categories.search</column>
+        </record>
+        <record id="view.action.crm.requests.search">
+          <column name="action_id">action.crm.requests.search</column>
+          <column name="view_id">view.crm.requests.search</column>
+        </record>
+        <record id="view.action.crm.offers.search">
+          <column name="action_id">action.crm.offers.search</column>
+          <column name="view_id">view.crm.offers.search</column>
+        </record>
+        <record id="view.action.crm.contracts.search">
+          <column name="action_id">action.crm.contracts.search</column>
+          <column name="view_id">view.crm.contracts.search</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.crm.request.categories">
+          <column name="name">bc.ui.report.docx.crm.request.categories</column>
+          <column name="label">Category CRM Request</column>
+          <column name="report">report_crm_request_categories</column>
+          <column name="infile">infile_crm_request_categories.docx</column>
+          <column name="outfile">outfile_crm_request_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.offer.categories">
+          <column name="name">bc.ui.report.docx.crm.offer.categories</column>
+          <column name="label">Category CRM Offer</column>
+          <column name="report">report_crm_offer_categories</column>
+          <column name="infile">infile_crm_offer_categories.docx</column>
+          <column name="outfile">outfile_crm_offer_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.contract.categories">
+          <column name="name">bc.ui.report.docx.crm.contract.categories</column>
+          <column name="label">Category CRM Contract</column>
+          <column name="report">report_crm_contract_categories</column>
+          <column name="infile">infile_crm_contract_categories.docx</column>
+          <column name="outfile">outfile_crm_contract_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.requests">
+          <column name="name">bc.ui.report.docx.crm.requests</column>
+          <column name="label">CRM Request</column>
+          <column name="report">report_crm_requests</column>
+          <column name="infile">infile_crm_requests.docx</column>
+          <column name="outfile">outfile_crm_requests.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.offers">
+          <column name="name">bc.ui.report.docx.crm.offers</column>
+          <column name="label">CRM Offer</column>
+          <column name="report">report_crm_offers</column>
+          <column name="infile">infile_crm_offers.docx</column>
+          <column name="outfile">outfile_crm_offers.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.contracts">
+          <column name="name">bc.ui.report.docx.crm.contracts</column>
+          <column name="label">CRM Contract</column>
+          <column name="report">report_crm_contracts</column>
+          <column name="infile">infile_crm_contracts.docx</column>
+          <column name="outfile">outfile_crm_contracts.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.crm.request.categories.report">
+          <column name="action_id">action.crm.request.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.request.categories</column>
+        </record>
+        <record id="report.action.crm.offer.categories.report">
+          <column name="action_id">action.crm.offer.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.offer.categories</column>
+        </record>
+        <record id="report.action.crm.contract.categories.report">
+          <column name="action_id">action.crm.contract.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.contract.categories</column>
+        </record>
+        <record id="report.action.crm.requests.report">
+          <column name="action_id">action.crm.requests.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.requests</column>
+        </record>
+        <record id="report.action.crm.offers.report">
+          <column name="action_id">action.crm.offers.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.offers</column>
+        </record>
+        <record id="report.action.crm.contracts.report">
+          <column name="action_id">action.crm.contracts.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.contracts</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.crm.request.categories.search">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.crm.request.categories.search</column>
+            <column name="label">Category CRM Request</column>
+          <column name="parent_id">ui.menu.crm</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.crm.request.categories.search</column>
+          </record>
+          <record id="ui.menu.crm.offer.categories.search">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.crm.offer.categories.search</column>
+            <column name="label">Category CRM Offer</column>
+          <column name="parent_id">ui.menu.crm</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.crm.offer.categories.search</column>
+          </record>
+          <record id="ui.menu.crm.contract.categories.search">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.crm.contract.categories.search</column>
+            <column name="label">Category CRM Contract</column>
+          <column name="parent_id">ui.menu.crm</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.crm.contract.categories.search</column>
+          </record>
+          <record id="ui.menu.crm.requests.search">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.crm.requests.search</column>
+            <column name="label">CRM Request</column>
+          <column name="parent_id">ui.menu.crm</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.crm.requests.search</column>
+          </record>
+          <record id="ui.menu.crm.offers.search">
+          <column name="sequence">8</column>
+            <column name="name">ui.menu.crm.offers.search</column>
+            <column name="label">CRM Offer</column>
+          <column name="parent_id">ui.menu.crm</column>
+          <column name="sequence">80</column>
+          <column name="action_id">action.crm.offers.search</column>
+          </record>
+          <record id="ui.menu.crm.contracts.search">
+          <column name="sequence">13</column>
+            <column name="name">ui.menu.crm.contracts.search</column>
+            <column name="label">CRM Contract</column>
+          <column name="parent_id">ui.menu.crm</column>
+          <column name="sequence">130</column>
+          <column name="action_id">action.crm.contracts.search</column>
+          </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.crm.report">
+          <column name="name">ui.menu.crm.report</column>
+          <column name="label">Reports</column>
+        <column name="parent_id">ui.menu.crm</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.crm.request.categories.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.crm.request.categories.report</column>
+            <column name="label">Category CRM Request</column>
+          <column name="parent_id">ui.menu.crm.report</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.crm.request.categories.report</column>
+          </record>
+          <record id="ui.menu.crm.offer.categories.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.crm.offer.categories.report</column>
+            <column name="label">Category CRM Offer</column>
+          <column name="parent_id">ui.menu.crm.report</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.crm.offer.categories.report</column>
+          </record>
+          <record id="ui.menu.crm.contract.categories.report">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.crm.contract.categories.report</column>
+            <column name="label">Category CRM Contract</column>
+          <column name="parent_id">ui.menu.crm.report</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.crm.contract.categories.report</column>
+          </record>
+          <record id="ui.menu.crm.requests.report">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.crm.requests.report</column>
+            <column name="label">CRM Request</column>
+          <column name="parent_id">ui.menu.crm.report</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.crm.requests.report</column>
+          </record>
+          <record id="ui.menu.crm.offers.report">
+          <column name="sequence">8</column>
+            <column name="name">ui.menu.crm.offers.report</column>
+            <column name="label">CRM Offer</column>
+          <column name="parent_id">ui.menu.crm.report</column>
+          <column name="sequence">80</column>
+          <column name="action_id">action.crm.offers.report</column>
+          </record>
+          <record id="ui.menu.crm.contracts.report">
+          <column name="sequence">13</column>
+            <column name="name">ui.menu.crm.contracts.report</column>
+            <column name="label">CRM Contract</column>
+          <column name="parent_id">ui.menu.crm.report</column>
+          <column name="sequence">130</column>
+          <column name="action_id">action.crm.contracts.report</column>
+          </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.crm.channels.custom">
+          <column name="name">action.crm.channels.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.sectors.custom">
+          <column name="name">action.crm.sectors.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.teams.custom">
+          <column name="name">action.crm.teams.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.groups.custom">
+          <column name="name">action.crm.groups.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.texts.custom">
+          <column name="name">action.crm.texts.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.schema.texts.custom">
+          <column name="name">action.crm.schema.texts.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.request.types.custom">
+          <column name="name">action.crm.request.types.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.offer.types.custom">
+          <column name="name">action.crm.offer.types.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.crm.contract.types.custom">
+          <column name="name">action.crm.contract.types.custom</column>
+          <column name="ta">View</column>
+        </record>
+      </records>
+      <records model="bc.view.actions">
+        <record id="view.action.crm.channels.custom">
+          <column name="action_id">action.crm.channels.custom</column>
+          <column name="view_id">view.crm.channels.search</column>
+        </record>
+        <record id="view.action.crm.sectors.custom">
+          <column name="action_id">action.crm.sectors.custom</column>
+          <column name="view_id">view.crm.sectors.search</column>
+        </record>
+        <record id="view.action.crm.teams.custom">
+          <column name="action_id">action.crm.teams.custom</column>
+          <column name="view_id">view.crm.teams.search</column>
+        </record>
+        <record id="view.action.crm.groups.custom">
+          <column name="action_id">action.crm.groups.custom</column>
+          <column name="view_id">view.crm.groups.search</column>
+        </record>
+        <record id="view.action.crm.texts.custom">
+          <column name="action_id">action.crm.texts.custom</column>
+          <column name="view_id">view.crm.texts.search</column>
+        </record>
+        <record id="view.action.crm.schema.texts.custom">
+          <column name="action_id">action.crm.schema.texts.custom</column>
+          <column name="view_id">view.crm.schema.texts.search</column>
+        </record>
+        <record id="view.action.crm.request.types.custom">
+          <column name="action_id">action.crm.request.types.custom</column>
+          <column name="view_id">view.crm.request.types.search</column>
+        </record>
+        <record id="view.action.crm.offer.types.custom">
+          <column name="action_id">action.crm.offer.types.custom</column>
+          <column name="view_id">view.crm.offer.types.search</column>
+        </record>
+        <record id="view.action.crm.contract.types.custom">
+          <column name="action_id">action.crm.contract.types.custom</column>
+          <column name="view_id">view.crm.contract.types.search</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.crm.custom">
+          <column name="name">ui.menu.crm.custom</column>
+          <column name="label">Customs</column>
+        <column name="parent_id">ui.menu.crm</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.crm.channels.custom">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.crm.channels.custom</column>
+            <column name="label">CRM Cannels</column>
+          <column name="parent_id">ui.menu.crm.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.crm.channels.custom</column>
+          </record>
+          <record id="ui.menu.crm.sectors.custom">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.crm.sectors.custom</column>
+            <column name="label">CRM Sectors</column>
+          <column name="parent_id">ui.menu.crm.custom</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.crm.sectors.custom</column>
+          </record>
+          <record id="ui.menu.crm.teams.custom">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.crm.teams.custom</column>
+            <column name="label">CRM Teams</column>
+          <column name="parent_id">ui.menu.crm.custom</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.crm.teams.custom</column>
+          </record>
+          <record id="ui.menu.crm.groups.custom">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.crm.groups.custom</column>
+            <column name="label">CRM Groups</column>
+          <column name="parent_id">ui.menu.crm.custom</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.crm.groups.custom</column>
+          </record>
+          <record id="ui.menu.crm.texts.custom">
+          <column name="sequence">4</column>
+            <column name="name">ui.menu.crm.texts.custom</column>
+            <column name="label">CRM Texts</column>
+          <column name="parent_id">ui.menu.crm.custom</column>
+          <column name="sequence">40</column>
+          <column name="action_id">action.crm.texts.custom</column>
+          </record>
+          <record id="ui.menu.crm.schema.texts.custom">
+          <column name="sequence">5</column>
+            <column name="name">ui.menu.crm.schema.texts.custom</column>
+            <column name="label">Schema Of CRM Texts</column>
+          <column name="parent_id">ui.menu.crm.custom</column>
+          <column name="sequence">50</column>
+          <column name="action_id">action.crm.schema.texts.custom</column>
+          </record>
+          <record id="ui.menu.crm.request.types.custom">
+          <column name="sequence">7</column>
+            <column name="name">ui.menu.crm.request.types.custom</column>
+            <column name="label">Types CRM Request</column>
+          <column name="parent_id">ui.menu.crm.custom</column>
+          <column name="sequence">70</column>
+          <column name="action_id">action.crm.request.types.custom</column>
+          </record>
+          <record id="ui.menu.crm.offer.types.custom">
+          <column name="sequence">9</column>
+            <column name="name">ui.menu.crm.offer.types.custom</column>
+            <column name="label">Types CRM Offer</column>
+          <column name="parent_id">ui.menu.crm.custom</column>
+          <column name="sequence">90</column>
+          <column name="action_id">action.crm.offer.types.custom</column>
+          </record>
+          <record id="ui.menu.crm.contract.types.custom">
+          <column name="sequence">11</column>
+            <column name="name">ui.menu.crm.contract.types.custom</column>
+            <column name="label">Types CRM Contract</column>
+          <column name="parent_id">ui.menu.crm.custom</column>
+          <column name="sequence">110</column>
+          <column name="action_id">action.crm.contract.types.custom</column>
+          </record>
+      </records>
+    </data>
+  </gsrp>

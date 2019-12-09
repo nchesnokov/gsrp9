@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.stock">
+          <column name="name">ui.menu.stock</column>
+          <column name="label">Stock</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.st.location.search">
+          <column name="name">action.st.location.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.st.stock.search">
+          <column name="name">action.st.stock.search</column>
+          <column name="ta">View</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.st.location.report">
+          <column name="name">action.st.location.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.st.stock.report">
+          <column name="name">action.st.stock.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.view.actions">
+        <record id="view.action.st.location.search">
+          <column name="action_id">action.st.location.search</column>
+          <column name="view_id">view.st.location.search</column>
+        </record>
+        <record id="view.action.st.stock.search">
+          <column name="action_id">action.st.stock.search</column>
+          <column name="view_id">view.st.stock.search</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.st.location">
+          <column name="name">bc.ui.report.docx.st.location</column>
+          <column name="label">Location</column>
+          <column name="report">report_st_location</column>
+          <column name="infile">infile_st_location.docx</column>
+          <column name="outfile">outfile_st_location.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.st.stock">
+          <column name="name">bc.ui.report.docx.st.stock</column>
+          <column name="label">General Stock</column>
+          <column name="report">report_st_stock</column>
+          <column name="infile">infile_st_stock.docx</column>
+          <column name="outfile">outfile_st_stock.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.st.location.report">
+          <column name="action_id">action.st.location.report</column>
+          <column name="report_id">bc.ui.report.docx.st.location</column>
+        </record>
+        <record id="report.action.st.stock.report">
+          <column name="action_id">action.st.stock.report</column>
+          <column name="report_id">bc.ui.report.docx.st.stock</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.st.location.search">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.st.location.search</column>
+            <column name="label">Location</column>
+          <column name="parent_id">ui.menu.stock</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.st.location.search</column>
+          </record>
+          <record id="ui.menu.st.stock.search">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.st.stock.search</column>
+            <column name="label">General Stock</column>
+          <column name="parent_id">ui.menu.stock</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.st.stock.search</column>
+          </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.stock.report">
+          <column name="name">ui.menu.stock.report</column>
+          <column name="label">Reports</column>
+        <column name="parent_id">ui.menu.stock</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.st.location.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.st.location.report</column>
+            <column name="label">Location</column>
+          <column name="parent_id">ui.menu.stock.report</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.st.location.report</column>
+          </record>
+          <record id="ui.menu.st.stock.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.st.stock.report</column>
+            <column name="label">General Stock</column>
+          <column name="parent_id">ui.menu.stock.report</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.st.stock.report</column>
+          </record>
+      </records>
+    </data>
+  </gsrp>

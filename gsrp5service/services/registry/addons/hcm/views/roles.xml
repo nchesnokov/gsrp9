@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="hcm.readonly">
+          <column name="name">hcm.readonly</column>
+          <column name="note">Module hcm grant readonly</column>
+        </record>
+        <record id="hcm.nodrop">
+          <column name="name">hcm.nodrop</column>
+          <column name="note">Module hcm grant nodrop</column>
+        </record>
+        <record id="hcm.full">
+          <column name="name">hcm.full</column>
+          <column name="note">Module hcm grant full</column>
+        </record>
+        <record id="hcm.crw">
+          <column name="name">hcm.crw</column>
+          <column name="note">Module hcm grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="hcm.employee.categories.readonly">
+          <column name="name">hcm.employee.categories.readonly</column>
+          <column name="note">Model hcm.employee.categories grant readonly</column>
+          <column name="group_id">hcm.readonly</column>
+        </record>
+        <record id="hcm.employee.categories.nodrop">
+          <column name="name">hcm.employee.categories.nodrop</column>
+          <column name="note">Model hcm.employee.categories grant nodrop</column>
+          <column name="group_id">hcm.nodrop</column>
+        </record>
+        <record id="hcm.employee.categories.full">
+          <column name="name">hcm.employee.categories.full</column>
+          <column name="note">Model hcm.employee.categories grant full</column>
+          <column name="group_id">hcm.full</column>
+        </record>
+        <record id="hcm.employee.categories.crw">
+          <column name="name">hcm.employee.categories.crw</column>
+          <column name="note">Model hcm.employee.categories grant crw</column>
+          <column name="group_id">hcm.crw</column>
+        </record>
+        <record id="hcm.department.readonly">
+          <column name="name">hcm.department.readonly</column>
+          <column name="note">Model hcm.department grant readonly</column>
+          <column name="group_id">hcm.readonly</column>
+        </record>
+        <record id="hcm.department.nodrop">
+          <column name="name">hcm.department.nodrop</column>
+          <column name="note">Model hcm.department grant nodrop</column>
+          <column name="group_id">hcm.nodrop</column>
+        </record>
+        <record id="hcm.department.full">
+          <column name="name">hcm.department.full</column>
+          <column name="note">Model hcm.department grant full</column>
+          <column name="group_id">hcm.full</column>
+        </record>
+        <record id="hcm.department.crw">
+          <column name="name">hcm.department.crw</column>
+          <column name="note">Model hcm.department grant crw</column>
+          <column name="group_id">hcm.crw</column>
+        </record>
+        <record id="hcm.job.readonly">
+          <column name="name">hcm.job.readonly</column>
+          <column name="note">Model hcm.job grant readonly</column>
+          <column name="group_id">hcm.readonly</column>
+        </record>
+        <record id="hcm.job.nodrop">
+          <column name="name">hcm.job.nodrop</column>
+          <column name="note">Model hcm.job grant nodrop</column>
+          <column name="group_id">hcm.nodrop</column>
+        </record>
+        <record id="hcm.job.full">
+          <column name="name">hcm.job.full</column>
+          <column name="note">Model hcm.job grant full</column>
+          <column name="group_id">hcm.full</column>
+        </record>
+        <record id="hcm.job.crw">
+          <column name="name">hcm.job.crw</column>
+          <column name="note">Model hcm.job grant crw</column>
+          <column name="group_id">hcm.crw</column>
+        </record>
+        <record id="hcm.employees.readonly">
+          <column name="name">hcm.employees.readonly</column>
+          <column name="note">Model hcm.employees grant readonly</column>
+          <column name="group_id">hcm.readonly</column>
+        </record>
+        <record id="hcm.employees.nodrop">
+          <column name="name">hcm.employees.nodrop</column>
+          <column name="note">Model hcm.employees grant nodrop</column>
+          <column name="group_id">hcm.nodrop</column>
+        </record>
+        <record id="hcm.employees.full">
+          <column name="name">hcm.employees.full</column>
+          <column name="note">Model hcm.employees grant full</column>
+          <column name="group_id">hcm.full</column>
+        </record>
+        <record id="hcm.employees.crw">
+          <column name="name">hcm.employees.crw</column>
+          <column name="note">Model hcm.employees grant crw</column>
+          <column name="group_id">hcm.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="hcm.hcm.employee.categories.readonly">
+          <column name="access_id">hcm.employee.categories.readonly</column>
+          <column name="model_id">hcm.employee.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="hcm.hcm.employee.categories.nodrop">
+          <column name="access_id">hcm.employee.categories.nodrop</column>
+          <column name="model_id">hcm.employee.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="hcm.hcm.employee.categories.full">
+          <column name="access_id">hcm.employee.categories.full</column>
+          <column name="model_id">hcm.employee.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="hcm.hcm.employee.categories.crw">
+          <column name="access_id">hcm.employee.categories.crw</column>
+          <column name="model_id">hcm.employee.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="hcm.hcm.department.readonly">
+          <column name="access_id">hcm.department.readonly</column>
+          <column name="model_id">hcm.department</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="hcm.hcm.department.nodrop">
+          <column name="access_id">hcm.department.nodrop</column>
+          <column name="model_id">hcm.department</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="hcm.hcm.department.full">
+          <column name="access_id">hcm.department.full</column>
+          <column name="model_id">hcm.department</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="hcm.hcm.department.crw">
+          <column name="access_id">hcm.department.crw</column>
+          <column name="model_id">hcm.department</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="hcm.hcm.job.readonly">
+          <column name="access_id">hcm.job.readonly</column>
+          <column name="model_id">hcm.job</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="hcm.hcm.job.nodrop">
+          <column name="access_id">hcm.job.nodrop</column>
+          <column name="model_id">hcm.job</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="hcm.hcm.job.full">
+          <column name="access_id">hcm.job.full</column>
+          <column name="model_id">hcm.job</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="hcm.hcm.job.crw">
+          <column name="access_id">hcm.job.crw</column>
+          <column name="model_id">hcm.job</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="hcm.hcm.employees.readonly">
+          <column name="access_id">hcm.employees.readonly</column>
+          <column name="model_id">hcm.employees</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="hcm.hcm.employees.nodrop">
+          <column name="access_id">hcm.employees.nodrop</column>
+          <column name="model_id">hcm.employees</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="hcm.hcm.employees.full">
+          <column name="access_id">hcm.employees.full</column>
+          <column name="model_id">hcm.employees</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="hcm.hcm.employees.crw">
+          <column name="access_id">hcm.employees.crw</column>
+          <column name="model_id">hcm.employees</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

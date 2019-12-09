@@ -1,0 +1,1287 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="project.readonly">
+          <column name="name">project.readonly</column>
+          <column name="note">Module project grant readonly</column>
+        </record>
+        <record id="project.nodrop">
+          <column name="name">project.nodrop</column>
+          <column name="note">Module project grant nodrop</column>
+        </record>
+        <record id="project.full">
+          <column name="name">project.full</column>
+          <column name="note">Module project grant full</column>
+        </record>
+        <record id="project.crw">
+          <column name="name">project.crw</column>
+          <column name="note">Module project grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="md.project.product.readonly">
+          <column name="name">md.project.product.readonly</column>
+          <column name="note">Model md.project.product grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="md.project.product.nodrop">
+          <column name="name">md.project.product.nodrop</column>
+          <column name="note">Model md.project.product grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="md.project.product.full">
+          <column name="name">md.project.product.full</column>
+          <column name="note">Model md.project.product grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="md.project.product.crw">
+          <column name="name">md.project.product.crw</column>
+          <column name="note">Model md.project.product grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.resource.category.readonly">
+          <column name="name">project.resource.category.readonly</column>
+          <column name="note">Model project.resource.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.resource.category.nodrop">
+          <column name="name">project.resource.category.nodrop</column>
+          <column name="note">Model project.resource.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.resource.category.full">
+          <column name="name">project.resource.category.full</column>
+          <column name="note">Model project.resource.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.resource.category.crw">
+          <column name="name">project.resource.category.crw</column>
+          <column name="note">Model project.resource.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.bill.category.readonly">
+          <column name="name">project.bill.category.readonly</column>
+          <column name="note">Model project.bill.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.bill.category.nodrop">
+          <column name="name">project.bill.category.nodrop</column>
+          <column name="note">Model project.bill.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.bill.category.full">
+          <column name="name">project.bill.category.full</column>
+          <column name="note">Model project.bill.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.bill.category.crw">
+          <column name="name">project.bill.category.crw</column>
+          <column name="note">Model project.bill.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.portfolio.category.readonly">
+          <column name="name">project.portfolio.category.readonly</column>
+          <column name="note">Model project.portfolio.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.portfolio.category.nodrop">
+          <column name="name">project.portfolio.category.nodrop</column>
+          <column name="note">Model project.portfolio.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.portfolio.category.full">
+          <column name="name">project.portfolio.category.full</column>
+          <column name="note">Model project.portfolio.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.portfolio.category.crw">
+          <column name="name">project.portfolio.category.crw</column>
+          <column name="note">Model project.portfolio.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.project.category.readonly">
+          <column name="name">project.project.category.readonly</column>
+          <column name="note">Model project.project.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.project.category.nodrop">
+          <column name="name">project.project.category.nodrop</column>
+          <column name="note">Model project.project.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.project.category.full">
+          <column name="name">project.project.category.full</column>
+          <column name="note">Model project.project.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.project.category.crw">
+          <column name="name">project.project.category.crw</column>
+          <column name="note">Model project.project.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.stage.category.readonly">
+          <column name="name">project.stage.category.readonly</column>
+          <column name="note">Model project.stage.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.stage.category.nodrop">
+          <column name="name">project.stage.category.nodrop</column>
+          <column name="note">Model project.stage.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.stage.category.full">
+          <column name="name">project.stage.category.full</column>
+          <column name="note">Model project.stage.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.stage.category.crw">
+          <column name="name">project.stage.category.crw</column>
+          <column name="note">Model project.stage.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.task.category.readonly">
+          <column name="name">project.task.category.readonly</column>
+          <column name="note">Model project.task.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.task.category.nodrop">
+          <column name="name">project.task.category.nodrop</column>
+          <column name="note">Model project.task.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.task.category.full">
+          <column name="name">project.task.category.full</column>
+          <column name="note">Model project.task.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.task.category.crw">
+          <column name="name">project.task.category.crw</column>
+          <column name="note">Model project.task.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.element.category.readonly">
+          <column name="name">project.element.category.readonly</column>
+          <column name="note">Model project.element.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.element.category.nodrop">
+          <column name="name">project.element.category.nodrop</column>
+          <column name="note">Model project.element.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.element.category.full">
+          <column name="name">project.element.category.full</column>
+          <column name="note">Model project.element.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.element.category.crw">
+          <column name="name">project.element.category.crw</column>
+          <column name="note">Model project.element.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.resource.readonly">
+          <column name="name">project.resource.readonly</column>
+          <column name="note">Model project.resource grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.resource.nodrop">
+          <column name="name">project.resource.nodrop</column>
+          <column name="note">Model project.resource grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.resource.full">
+          <column name="name">project.resource.full</column>
+          <column name="note">Model project.resource grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.resource.crw">
+          <column name="name">project.resource.crw</column>
+          <column name="note">Model project.resource grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.bill.readonly">
+          <column name="name">project.bill.readonly</column>
+          <column name="note">Model project.bill grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.bill.nodrop">
+          <column name="name">project.bill.nodrop</column>
+          <column name="note">Model project.bill grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.bill.full">
+          <column name="name">project.bill.full</column>
+          <column name="note">Model project.bill grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.bill.crw">
+          <column name="name">project.bill.crw</column>
+          <column name="note">Model project.bill grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.portfolio.readonly">
+          <column name="name">project.portfolio.readonly</column>
+          <column name="note">Model project.portfolio grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.portfolio.nodrop">
+          <column name="name">project.portfolio.nodrop</column>
+          <column name="note">Model project.portfolio grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.portfolio.full">
+          <column name="name">project.portfolio.full</column>
+          <column name="note">Model project.portfolio grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.portfolio.crw">
+          <column name="name">project.portfolio.crw</column>
+          <column name="note">Model project.portfolio grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.project.readonly">
+          <column name="name">project.project.readonly</column>
+          <column name="note">Model project.project grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.project.nodrop">
+          <column name="name">project.project.nodrop</column>
+          <column name="note">Model project.project grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.project.full">
+          <column name="name">project.project.full</column>
+          <column name="note">Model project.project grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.project.crw">
+          <column name="name">project.project.crw</column>
+          <column name="note">Model project.project grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.stage.readonly">
+          <column name="name">project.stage.readonly</column>
+          <column name="note">Model project.stage grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.stage.nodrop">
+          <column name="name">project.stage.nodrop</column>
+          <column name="note">Model project.stage grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.stage.full">
+          <column name="name">project.stage.full</column>
+          <column name="note">Model project.stage grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.stage.crw">
+          <column name="name">project.stage.crw</column>
+          <column name="note">Model project.stage grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.task.readonly">
+          <column name="name">project.task.readonly</column>
+          <column name="note">Model project.task grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.task.nodrop">
+          <column name="name">project.task.nodrop</column>
+          <column name="note">Model project.task grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.task.full">
+          <column name="name">project.task.full</column>
+          <column name="note">Model project.task grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.task.crw">
+          <column name="name">project.task.crw</column>
+          <column name="note">Model project.task grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.element.readonly">
+          <column name="name">project.element.readonly</column>
+          <column name="note">Model project.element grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.element.nodrop">
+          <column name="name">project.element.nodrop</column>
+          <column name="note">Model project.element grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.element.full">
+          <column name="name">project.element.full</column>
+          <column name="note">Model project.element grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.element.crw">
+          <column name="name">project.element.crw</column>
+          <column name="note">Model project.element grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.element.products.readonly">
+          <column name="name">project.element.products.readonly</column>
+          <column name="note">Model project.element.products grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.element.products.nodrop">
+          <column name="name">project.element.products.nodrop</column>
+          <column name="note">Model project.element.products grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.element.products.full">
+          <column name="name">project.element.products.full</column>
+          <column name="note">Model project.element.products grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.element.products.crw">
+          <column name="name">project.element.products.crw</column>
+          <column name="note">Model project.element.products grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.task.resources.readonly">
+          <column name="name">project.task.resources.readonly</column>
+          <column name="note">Model project.task.resources grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.task.resources.nodrop">
+          <column name="name">project.task.resources.nodrop</column>
+          <column name="note">Model project.task.resources grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.task.resources.full">
+          <column name="name">project.task.resources.full</column>
+          <column name="note">Model project.task.resources grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.task.resources.crw">
+          <column name="name">project.task.resources.crw</column>
+          <column name="note">Model project.task.resources grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="project.element.resources.readonly">
+          <column name="name">project.element.resources.readonly</column>
+          <column name="note">Model project.element.resources grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="project.element.resources.nodrop">
+          <column name="name">project.element.resources.nodrop</column>
+          <column name="note">Model project.element.resources grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="project.element.resources.full">
+          <column name="name">project.element.resources.full</column>
+          <column name="note">Model project.element.resources grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="project.element.resources.crw">
+          <column name="name">project.element.resources.crw</column>
+          <column name="note">Model project.element.resources grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="project.md.project.product.readonly">
+          <column name="access_id">md.project.product.readonly</column>
+          <column name="model_id">md.project.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.md.project.product.nodrop">
+          <column name="access_id">md.project.product.nodrop</column>
+          <column name="model_id">md.project.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.md.project.product.full">
+          <column name="access_id">md.project.product.full</column>
+          <column name="model_id">md.project.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.md.project.product.crw">
+          <column name="access_id">md.project.product.crw</column>
+          <column name="model_id">md.project.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.resource.category.readonly">
+          <column name="access_id">project.resource.category.readonly</column>
+          <column name="model_id">project.resource.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.resource.category.nodrop">
+          <column name="access_id">project.resource.category.nodrop</column>
+          <column name="model_id">project.resource.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.resource.category.full">
+          <column name="access_id">project.resource.category.full</column>
+          <column name="model_id">project.resource.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.resource.category.crw">
+          <column name="access_id">project.resource.category.crw</column>
+          <column name="model_id">project.resource.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.bill.category.readonly">
+          <column name="access_id">project.bill.category.readonly</column>
+          <column name="model_id">project.bill.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.bill.category.nodrop">
+          <column name="access_id">project.bill.category.nodrop</column>
+          <column name="model_id">project.bill.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.bill.category.full">
+          <column name="access_id">project.bill.category.full</column>
+          <column name="model_id">project.bill.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.bill.category.crw">
+          <column name="access_id">project.bill.category.crw</column>
+          <column name="model_id">project.bill.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.portfolio.category.readonly">
+          <column name="access_id">project.portfolio.category.readonly</column>
+          <column name="model_id">project.portfolio.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.portfolio.category.nodrop">
+          <column name="access_id">project.portfolio.category.nodrop</column>
+          <column name="model_id">project.portfolio.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.portfolio.category.full">
+          <column name="access_id">project.portfolio.category.full</column>
+          <column name="model_id">project.portfolio.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.portfolio.category.crw">
+          <column name="access_id">project.portfolio.category.crw</column>
+          <column name="model_id">project.portfolio.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.project.category.readonly">
+          <column name="access_id">project.project.category.readonly</column>
+          <column name="model_id">project.project.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.project.category.nodrop">
+          <column name="access_id">project.project.category.nodrop</column>
+          <column name="model_id">project.project.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.project.category.full">
+          <column name="access_id">project.project.category.full</column>
+          <column name="model_id">project.project.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.project.category.crw">
+          <column name="access_id">project.project.category.crw</column>
+          <column name="model_id">project.project.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.stage.category.readonly">
+          <column name="access_id">project.stage.category.readonly</column>
+          <column name="model_id">project.stage.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.stage.category.nodrop">
+          <column name="access_id">project.stage.category.nodrop</column>
+          <column name="model_id">project.stage.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.stage.category.full">
+          <column name="access_id">project.stage.category.full</column>
+          <column name="model_id">project.stage.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.stage.category.crw">
+          <column name="access_id">project.stage.category.crw</column>
+          <column name="model_id">project.stage.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.task.category.readonly">
+          <column name="access_id">project.task.category.readonly</column>
+          <column name="model_id">project.task.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.task.category.nodrop">
+          <column name="access_id">project.task.category.nodrop</column>
+          <column name="model_id">project.task.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.task.category.full">
+          <column name="access_id">project.task.category.full</column>
+          <column name="model_id">project.task.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.task.category.crw">
+          <column name="access_id">project.task.category.crw</column>
+          <column name="model_id">project.task.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.element.category.readonly">
+          <column name="access_id">project.element.category.readonly</column>
+          <column name="model_id">project.element.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.element.category.nodrop">
+          <column name="access_id">project.element.category.nodrop</column>
+          <column name="model_id">project.element.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.element.category.full">
+          <column name="access_id">project.element.category.full</column>
+          <column name="model_id">project.element.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.element.category.crw">
+          <column name="access_id">project.element.category.crw</column>
+          <column name="model_id">project.element.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.resource.readonly">
+          <column name="access_id">project.resource.readonly</column>
+          <column name="model_id">project.resource</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.resource.nodrop">
+          <column name="access_id">project.resource.nodrop</column>
+          <column name="model_id">project.resource</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.resource.full">
+          <column name="access_id">project.resource.full</column>
+          <column name="model_id">project.resource</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.resource.crw">
+          <column name="access_id">project.resource.crw</column>
+          <column name="model_id">project.resource</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.bill.readonly">
+          <column name="access_id">project.bill.readonly</column>
+          <column name="model_id">project.bill</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.bill.nodrop">
+          <column name="access_id">project.bill.nodrop</column>
+          <column name="model_id">project.bill</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.bill.full">
+          <column name="access_id">project.bill.full</column>
+          <column name="model_id">project.bill</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.bill.crw">
+          <column name="access_id">project.bill.crw</column>
+          <column name="model_id">project.bill</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.portfolio.readonly">
+          <column name="access_id">project.portfolio.readonly</column>
+          <column name="model_id">project.portfolio</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.portfolio.nodrop">
+          <column name="access_id">project.portfolio.nodrop</column>
+          <column name="model_id">project.portfolio</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.portfolio.full">
+          <column name="access_id">project.portfolio.full</column>
+          <column name="model_id">project.portfolio</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.portfolio.crw">
+          <column name="access_id">project.portfolio.crw</column>
+          <column name="model_id">project.portfolio</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.project.readonly">
+          <column name="access_id">project.project.readonly</column>
+          <column name="model_id">project.project</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.project.nodrop">
+          <column name="access_id">project.project.nodrop</column>
+          <column name="model_id">project.project</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.project.full">
+          <column name="access_id">project.project.full</column>
+          <column name="model_id">project.project</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.project.crw">
+          <column name="access_id">project.project.crw</column>
+          <column name="model_id">project.project</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.stage.readonly">
+          <column name="access_id">project.stage.readonly</column>
+          <column name="model_id">project.stage</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.stage.nodrop">
+          <column name="access_id">project.stage.nodrop</column>
+          <column name="model_id">project.stage</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.stage.full">
+          <column name="access_id">project.stage.full</column>
+          <column name="model_id">project.stage</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.stage.crw">
+          <column name="access_id">project.stage.crw</column>
+          <column name="model_id">project.stage</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.task.readonly">
+          <column name="access_id">project.task.readonly</column>
+          <column name="model_id">project.task</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.task.nodrop">
+          <column name="access_id">project.task.nodrop</column>
+          <column name="model_id">project.task</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.task.full">
+          <column name="access_id">project.task.full</column>
+          <column name="model_id">project.task</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.task.crw">
+          <column name="access_id">project.task.crw</column>
+          <column name="model_id">project.task</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.element.readonly">
+          <column name="access_id">project.element.readonly</column>
+          <column name="model_id">project.element</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.element.nodrop">
+          <column name="access_id">project.element.nodrop</column>
+          <column name="model_id">project.element</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.element.full">
+          <column name="access_id">project.element.full</column>
+          <column name="model_id">project.element</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.element.crw">
+          <column name="access_id">project.element.crw</column>
+          <column name="model_id">project.element</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.element.products.readonly">
+          <column name="access_id">project.element.products.readonly</column>
+          <column name="model_id">project.element.products</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.element.products.nodrop">
+          <column name="access_id">project.element.products.nodrop</column>
+          <column name="model_id">project.element.products</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.element.products.full">
+          <column name="access_id">project.element.products.full</column>
+          <column name="model_id">project.element.products</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.element.products.crw">
+          <column name="access_id">project.element.products.crw</column>
+          <column name="model_id">project.element.products</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.task.resources.readonly">
+          <column name="access_id">project.task.resources.readonly</column>
+          <column name="model_id">project.task.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.task.resources.nodrop">
+          <column name="access_id">project.task.resources.nodrop</column>
+          <column name="model_id">project.task.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.task.resources.full">
+          <column name="access_id">project.task.resources.full</column>
+          <column name="model_id">project.task.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.task.resources.crw">
+          <column name="access_id">project.task.resources.crw</column>
+          <column name="model_id">project.task.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.element.resources.readonly">
+          <column name="access_id">project.element.resources.readonly</column>
+          <column name="model_id">project.element.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.project.element.resources.nodrop">
+          <column name="access_id">project.element.resources.nodrop</column>
+          <column name="model_id">project.element.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.element.resources.full">
+          <column name="access_id">project.element.resources.full</column>
+          <column name="model_id">project.element.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.project.element.resources.crw">
+          <column name="access_id">project.element.resources.crw</column>
+          <column name="model_id">project.element.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

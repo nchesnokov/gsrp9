@@ -1,0 +1,1441 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.views">
+        <record id="view.fa.accounts.type.form">
+          <column name="name">view.fa.accounts.type.form</column>
+          <column name="model">fa.accounts.type</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="include_initial_balance"/>
+              <field name="type"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.accounts.type.list">
+          <column name="name">view.fa.accounts.type.list</column>
+          <column name="model">fa.accounts.type</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="include_initial_balance"/>
+              <field name="type"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.accounts.type.m2mlist">
+          <column name="name">view.fa.accounts.type.m2mlist</column>
+          <column name="model">fa.accounts.type</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="include_initial_balance"/>
+              <field name="type"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.accounts.type.search">
+          <column name="name">view.fa.accounts.type.search</column>
+          <column name="model">fa.accounts.type</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="include_initial_balance"/>
+              <field name="type"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.accounts.type.find">
+          <column name="name">view.fa.accounts.type.find</column>
+          <column name="model">fa.accounts.type</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="include_initial_balance"/>
+              <field name="type"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tag.form">
+          <column name="name">view.fa.accounts.tag.form</column>
+          <column name="model">fa.accounts.tag</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="applicability"/>
+              <field name="color"/>
+              <field name="inactive"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tag.list">
+          <column name="name">view.fa.accounts.tag.list</column>
+          <column name="model">fa.accounts.tag</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="applicability"/>
+              <field name="color"/>
+              <field name="inactive"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tag.m2mlist">
+          <column name="name">view.fa.accounts.tag.m2mlist</column>
+          <column name="model">fa.accounts.tag</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="applicability"/>
+              <field name="color"/>
+              <field name="inactive"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tag.search">
+          <column name="name">view.fa.accounts.tag.search</column>
+          <column name="model">fa.accounts.tag</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="applicability"/>
+              <field name="color"/>
+              <field name="inactive"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tag.find">
+          <column name="name">view.fa.accounts.tag.find</column>
+          <column name="model">fa.accounts.tag</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="applicability"/>
+              <field name="color"/>
+              <field name="inactive"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.accounts.form">
+          <column name="name">view.fa.accounts.form</column>
+          <column name="model">fa.accounts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="currency_id"/>
+              <field name="code"/>
+              <field name="deprecated"/>
+              <field name="user_type_id"/>
+              <field name="internal_type"/>
+              <field name="last_time_entries_checked"/>
+              <field name="reconcile"/>
+              <field name="tax_ids"/>
+              <field name="note"/>
+              <field name="company_id"/>
+              <field name="tag_ids"/>
+              <field name="group_id"/>
+              <field name="opening_debit"/>
+              <field name="opening_credit"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.accounts.list">
+          <column name="name">view.fa.accounts.list</column>
+          <column name="model">fa.accounts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="currency_id"/>
+              <field name="code"/>
+              <field name="deprecated"/>
+              <field name="user_type_id"/>
+              <field name="internal_type"/>
+              <field name="last_time_entries_checked"/>
+              <field name="reconcile"/>
+              <field name="company_id"/>
+              <field name="group_id"/>
+              <field name="opening_debit"/>
+              <field name="opening_credit"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.accounts.m2mlist">
+          <column name="name">view.fa.accounts.m2mlist</column>
+          <column name="model">fa.accounts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="currency_id"/>
+              <field name="code"/>
+              <field name="deprecated"/>
+              <field name="user_type_id"/>
+              <field name="internal_type"/>
+              <field name="last_time_entries_checked"/>
+              <field name="reconcile"/>
+              <field name="company_id"/>
+              <field name="group_id"/>
+              <field name="opening_debit"/>
+              <field name="opening_credit"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.accounts.search">
+          <column name="name">view.fa.accounts.search</column>
+          <column name="model">fa.accounts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="currency_id"/>
+              <field name="code"/>
+              <field name="deprecated"/>
+              <field name="user_type_id"/>
+              <field name="internal_type"/>
+              <field name="last_time_entries_checked"/>
+              <field name="reconcile"/>
+              <field name="company_id"/>
+              <field name="group_id"/>
+              <field name="opening_debit"/>
+              <field name="opening_credit"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.accounts.find">
+          <column name="name">view.fa.accounts.find</column>
+          <column name="model">fa.accounts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="currency_id"/>
+              <field name="code"/>
+              <field name="deprecated"/>
+              <field name="user_type_id"/>
+              <field name="internal_type"/>
+              <field name="last_time_entries_checked"/>
+              <field name="reconcile"/>
+              <field name="company_id"/>
+              <field name="group_id"/>
+              <field name="opening_debit"/>
+              <field name="opening_credit"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.accounts.group.form">
+          <column name="name">view.fa.accounts.group.form</column>
+          <column name="model">fa.accounts.group</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="code_prefix"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.accounts.group.list">
+          <column name="name">view.fa.accounts.group.list</column>
+          <column name="model">fa.accounts.group</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="code_prefix"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.accounts.group.m2mlist">
+          <column name="name">view.fa.accounts.group.m2mlist</column>
+          <column name="model">fa.accounts.group</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="code_prefix"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.accounts.group.search">
+          <column name="name">view.fa.accounts.group.search</column>
+          <column name="model">fa.accounts.group</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="code_prefix"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.accounts.group.find">
+          <column name="name">view.fa.accounts.group.find</column>
+          <column name="model">fa.accounts.group</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="code_prefix"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.accounts.group.tree">
+          <column name="name">view.fa.accounts.group.tree</column>
+          <column name="model">fa.accounts.group</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="code_prefix"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.fa.accounts.journal.form">
+          <column name="name">view.fa.accounts.journal.form</column>
+          <column name="model">fa.accounts.journal</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="inactive"/>
+              <field name="type"/>
+              <field name="type_control_ids"/>
+              <field name="account_control_ids"/>
+              <field name="default_credit_account_id"/>
+              <field name="default_debit_account_id"/>
+              <field name="update_posted"/>
+              <field name="group_invoice_lines"/>
+              <field name="sequence"/>
+              <field name="sequence_number_next"/>
+              <field name="refund_sequence_number_next"/>
+              <field name="currency_id"/>
+              <field name="company_id"/>
+              <field name="refund_sequence"/>
+              <field name="inbound_payment_method_ids"/>
+              <field name="outbound_payment_method_ids"/>
+              <field name="at_least_one_inbound"/>
+              <field name="at_least_one_outbound"/>
+              <field name="profit_account_id"/>
+              <field name="loss_account_id"/>
+              <field name="belongs_to_company"/>
+              <field name="bank_statements_source"/>
+              <field name="bank_acc_number"/>
+              <field name="bank_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.accounts.journal.list">
+          <column name="name">view.fa.accounts.journal.list</column>
+          <column name="model">fa.accounts.journal</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="inactive"/>
+              <field name="type"/>
+              <field name="default_credit_account_id"/>
+              <field name="default_debit_account_id"/>
+              <field name="update_posted"/>
+              <field name="group_invoice_lines"/>
+              <field name="sequence"/>
+              <field name="sequence_number_next"/>
+              <field name="refund_sequence_number_next"/>
+              <field name="currency_id"/>
+              <field name="company_id"/>
+              <field name="refund_sequence"/>
+              <field name="at_least_one_inbound"/>
+              <field name="at_least_one_outbound"/>
+              <field name="profit_account_id"/>
+              <field name="loss_account_id"/>
+              <field name="belongs_to_company"/>
+              <field name="bank_statements_source"/>
+              <field name="bank_acc_number"/>
+              <field name="bank_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.accounts.journal.m2mlist">
+          <column name="name">view.fa.accounts.journal.m2mlist</column>
+          <column name="model">fa.accounts.journal</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="inactive"/>
+              <field name="type"/>
+              <field name="default_credit_account_id"/>
+              <field name="default_debit_account_id"/>
+              <field name="update_posted"/>
+              <field name="group_invoice_lines"/>
+              <field name="sequence"/>
+              <field name="sequence_number_next"/>
+              <field name="refund_sequence_number_next"/>
+              <field name="currency_id"/>
+              <field name="company_id"/>
+              <field name="refund_sequence"/>
+              <field name="at_least_one_inbound"/>
+              <field name="at_least_one_outbound"/>
+              <field name="profit_account_id"/>
+              <field name="loss_account_id"/>
+              <field name="belongs_to_company"/>
+              <field name="bank_statements_source"/>
+              <field name="bank_acc_number"/>
+              <field name="bank_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.accounts.journal.search">
+          <column name="name">view.fa.accounts.journal.search</column>
+          <column name="model">fa.accounts.journal</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="inactive"/>
+              <field name="type"/>
+              <field name="default_credit_account_id"/>
+              <field name="default_debit_account_id"/>
+              <field name="update_posted"/>
+              <field name="group_invoice_lines"/>
+              <field name="sequence"/>
+              <field name="sequence_number_next"/>
+              <field name="refund_sequence_number_next"/>
+              <field name="currency_id"/>
+              <field name="company_id"/>
+              <field name="refund_sequence"/>
+              <field name="at_least_one_inbound"/>
+              <field name="at_least_one_outbound"/>
+              <field name="profit_account_id"/>
+              <field name="loss_account_id"/>
+              <field name="belongs_to_company"/>
+              <field name="bank_statements_source"/>
+              <field name="bank_acc_number"/>
+              <field name="bank_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.accounts.journal.find">
+          <column name="name">view.fa.accounts.journal.find</column>
+          <column name="model">fa.accounts.journal</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="inactive"/>
+              <field name="type"/>
+              <field name="default_credit_account_id"/>
+              <field name="default_debit_account_id"/>
+              <field name="update_posted"/>
+              <field name="group_invoice_lines"/>
+              <field name="sequence"/>
+              <field name="sequence_number_next"/>
+              <field name="refund_sequence_number_next"/>
+              <field name="currency_id"/>
+              <field name="company_id"/>
+              <field name="refund_sequence"/>
+              <field name="at_least_one_inbound"/>
+              <field name="at_least_one_outbound"/>
+              <field name="profit_account_id"/>
+              <field name="loss_account_id"/>
+              <field name="belongs_to_company"/>
+              <field name="bank_statements_source"/>
+              <field name="bank_acc_number"/>
+              <field name="bank_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tax.group.form">
+          <column name="name">view.fa.accounts.tax.group.form</column>
+          <column name="model">fa.accounts.tax.group</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="sequence"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tax.group.list">
+          <column name="name">view.fa.accounts.tax.group.list</column>
+          <column name="model">fa.accounts.tax.group</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="sequence"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tax.group.m2mlist">
+          <column name="name">view.fa.accounts.tax.group.m2mlist</column>
+          <column name="model">fa.accounts.tax.group</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="sequence"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tax.group.search">
+          <column name="name">view.fa.accounts.tax.group.search</column>
+          <column name="model">fa.accounts.tax.group</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="sequence"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tax.group.find">
+          <column name="name">view.fa.accounts.tax.group.find</column>
+          <column name="model">fa.accounts.tax.group</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="sequence"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tax.form">
+          <column name="name">view.fa.accounts.tax.form</column>
+          <column name="model">fa.accounts.tax</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="type_tax_use"/>
+              <field name="tax_adjustment"/>
+              <field name="amount_type"/>
+              <field name="inactive"/>
+              <field name="company_id"/>
+              <field name="children_tax_ids"/>
+              <field name="sequence"/>
+              <field name="amount"/>
+              <field name="account_id"/>
+              <field name="refund_account_id"/>
+              <field name="description"/>
+              <field name="price_include"/>
+              <field name="include_base_amount"/>
+              <field name="analytic"/>
+              <field name="tag_ids"/>
+              <field name="tax_group_id"/>
+              <field name="hide_tax_exigibility"/>
+              <field name="tax_exigibility"/>
+              <field name="cash_basis_account"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tax.list">
+          <column name="name">view.fa.accounts.tax.list</column>
+          <column name="model">fa.accounts.tax</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="type_tax_use"/>
+              <field name="tax_adjustment"/>
+              <field name="amount_type"/>
+              <field name="inactive"/>
+              <field name="company_id"/>
+              <field name="sequence"/>
+              <field name="amount"/>
+              <field name="account_id"/>
+              <field name="refund_account_id"/>
+              <field name="description"/>
+              <field name="price_include"/>
+              <field name="include_base_amount"/>
+              <field name="analytic"/>
+              <field name="tax_group_id"/>
+              <field name="hide_tax_exigibility"/>
+              <field name="tax_exigibility"/>
+              <field name="cash_basis_account"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tax.m2mlist">
+          <column name="name">view.fa.accounts.tax.m2mlist</column>
+          <column name="model">fa.accounts.tax</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="type_tax_use"/>
+              <field name="tax_adjustment"/>
+              <field name="amount_type"/>
+              <field name="inactive"/>
+              <field name="company_id"/>
+              <field name="sequence"/>
+              <field name="amount"/>
+              <field name="account_id"/>
+              <field name="refund_account_id"/>
+              <field name="description"/>
+              <field name="price_include"/>
+              <field name="include_base_amount"/>
+              <field name="analytic"/>
+              <field name="tax_group_id"/>
+              <field name="hide_tax_exigibility"/>
+              <field name="tax_exigibility"/>
+              <field name="cash_basis_account"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tax.search">
+          <column name="name">view.fa.accounts.tax.search</column>
+          <column name="model">fa.accounts.tax</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="type_tax_use"/>
+              <field name="tax_adjustment"/>
+              <field name="amount_type"/>
+              <field name="inactive"/>
+              <field name="company_id"/>
+              <field name="sequence"/>
+              <field name="amount"/>
+              <field name="account_id"/>
+              <field name="refund_account_id"/>
+              <field name="description"/>
+              <field name="price_include"/>
+              <field name="include_base_amount"/>
+              <field name="analytic"/>
+              <field name="tax_group_id"/>
+              <field name="hide_tax_exigibility"/>
+              <field name="tax_exigibility"/>
+              <field name="cash_basis_account"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.accounts.tax.find">
+          <column name="name">view.fa.accounts.tax.find</column>
+          <column name="model">fa.accounts.tax</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="type_tax_use"/>
+              <field name="tax_adjustment"/>
+              <field name="amount_type"/>
+              <field name="inactive"/>
+              <field name="company_id"/>
+              <field name="sequence"/>
+              <field name="amount"/>
+              <field name="account_id"/>
+              <field name="refund_account_id"/>
+              <field name="description"/>
+              <field name="price_include"/>
+              <field name="include_base_amount"/>
+              <field name="analytic"/>
+              <field name="tax_group_id"/>
+              <field name="hide_tax_exigibility"/>
+              <field name="tax_exigibility"/>
+              <field name="cash_basis_account"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.accounts.reconcile.model.form">
+          <column name="name">view.fa.accounts.reconcile.model.form</column>
+          <column name="model">fa.accounts.reconcile.model</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="has_second_line"/>
+              <field name="company_id"/>
+              <field name="account_id"/>
+              <field name="journal_id"/>
+              <field name="label"/>
+              <field name="amount_type"/>
+              <field name="amount"/>
+              <field name="tax_id"/>
+              <field name="second_account_id"/>
+              <field name="second_journal_id"/>
+              <field name="second_label"/>
+              <field name="second_amount_type"/>
+              <field name="second_amount"/>
+              <field name="second_tax_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.accounts.reconcile.model.list">
+          <column name="name">view.fa.accounts.reconcile.model.list</column>
+          <column name="model">fa.accounts.reconcile.model</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="has_second_line"/>
+              <field name="company_id"/>
+              <field name="account_id"/>
+              <field name="journal_id"/>
+              <field name="label"/>
+              <field name="amount_type"/>
+              <field name="amount"/>
+              <field name="tax_id"/>
+              <field name="second_account_id"/>
+              <field name="second_journal_id"/>
+              <field name="second_label"/>
+              <field name="second_amount_type"/>
+              <field name="second_amount"/>
+              <field name="second_tax_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.accounts.reconcile.model.m2mlist">
+          <column name="name">view.fa.accounts.reconcile.model.m2mlist</column>
+          <column name="model">fa.accounts.reconcile.model</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="has_second_line"/>
+              <field name="company_id"/>
+              <field name="account_id"/>
+              <field name="journal_id"/>
+              <field name="label"/>
+              <field name="amount_type"/>
+              <field name="amount"/>
+              <field name="tax_id"/>
+              <field name="second_account_id"/>
+              <field name="second_journal_id"/>
+              <field name="second_label"/>
+              <field name="second_amount_type"/>
+              <field name="second_amount"/>
+              <field name="second_tax_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.accounts.reconcile.model.search">
+          <column name="name">view.fa.accounts.reconcile.model.search</column>
+          <column name="model">fa.accounts.reconcile.model</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="has_second_line"/>
+              <field name="company_id"/>
+              <field name="account_id"/>
+              <field name="journal_id"/>
+              <field name="label"/>
+              <field name="amount_type"/>
+              <field name="amount"/>
+              <field name="tax_id"/>
+              <field name="second_account_id"/>
+              <field name="second_journal_id"/>
+              <field name="second_label"/>
+              <field name="second_amount_type"/>
+              <field name="second_amount"/>
+              <field name="second_tax_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.accounts.reconcile.model.find">
+          <column name="name">view.fa.accounts.reconcile.model.find</column>
+          <column name="model">fa.accounts.reconcile.model</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="has_second_line"/>
+              <field name="company_id"/>
+              <field name="account_id"/>
+              <field name="journal_id"/>
+              <field name="label"/>
+              <field name="amount_type"/>
+              <field name="amount"/>
+              <field name="tax_id"/>
+              <field name="second_account_id"/>
+              <field name="second_journal_id"/>
+              <field name="second_label"/>
+              <field name="second_amount_type"/>
+              <field name="second_amount"/>
+              <field name="second_tax_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.account.template.form">
+          <column name="name">view.fa.account.template.form</column>
+          <column name="model">fa.account.template</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="currency_id"/>
+              <field name="code"/>
+              <field name="user_type_id"/>
+              <field name="reconcile"/>
+              <field name="note"/>
+              <field name="tax_ids"/>
+              <field name="nocreate"/>
+              <field name="chart_template_id"/>
+              <field name="tag_ids"/>
+              <field name="group_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.account.template.list">
+          <column name="name">view.fa.account.template.list</column>
+          <column name="model">fa.account.template</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="currency_id"/>
+              <field name="code"/>
+              <field name="user_type_id"/>
+              <field name="reconcile"/>
+              <field name="nocreate"/>
+              <field name="chart_template_id"/>
+              <field name="group_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.account.template.m2mlist">
+          <column name="name">view.fa.account.template.m2mlist</column>
+          <column name="model">fa.account.template</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="currency_id"/>
+              <field name="code"/>
+              <field name="user_type_id"/>
+              <field name="reconcile"/>
+              <field name="nocreate"/>
+              <field name="chart_template_id"/>
+              <field name="group_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.account.template.search">
+          <column name="name">view.fa.account.template.search</column>
+          <column name="model">fa.account.template</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="currency_id"/>
+              <field name="code"/>
+              <field name="user_type_id"/>
+              <field name="reconcile"/>
+              <field name="nocreate"/>
+              <field name="chart_template_id"/>
+              <field name="group_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.account.template.find">
+          <column name="name">view.fa.account.template.find</column>
+          <column name="model">fa.account.template</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="currency_id"/>
+              <field name="code"/>
+              <field name="user_type_id"/>
+              <field name="reconcile"/>
+              <field name="nocreate"/>
+              <field name="chart_template_id"/>
+              <field name="group_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.chart.template.form">
+          <column name="name">view.fa.chart.template.form</column>
+          <column name="model">fa.chart.template</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="company_id"/>
+              <field name="parent_id"/>
+              <field name="code_digits"/>
+              <field name="visible"/>
+              <field name="currency_id"/>
+              <field name="use_anglo_saxon"/>
+              <field name="complete_tax_set"/>
+              <field name="account_ids"/>
+              <field name="tax_template_ids"/>
+              <field name="bank_account_code_prefix"/>
+              <field name="cash_account_code_prefix"/>
+              <field name="transfer_account_id"/>
+              <field name="income_currency_exchange_account_id"/>
+              <field name="expense_currency_exchange_account_id"/>
+              <field name="property_account_receivable_id"/>
+              <field name="property_account_payable_id"/>
+              <field name="property_account_expense_categ_id"/>
+              <field name="property_account_income_categ_id"/>
+              <field name="property_account_expense_id"/>
+              <field name="property_account_income_id"/>
+              <field name="property_stock_account_input_categ_id"/>
+              <field name="property_stock_account_output_categ_id"/>
+              <field name="property_stock_valuation_account_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.chart.template.list">
+          <column name="name">view.fa.chart.template.list</column>
+          <column name="model">fa.chart.template</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="company_id"/>
+              <field name="parent_id"/>
+              <field name="code_digits"/>
+              <field name="visible"/>
+              <field name="currency_id"/>
+              <field name="use_anglo_saxon"/>
+              <field name="complete_tax_set"/>
+              <field name="account_ids"/>
+              <field name="tax_template_ids"/>
+              <field name="bank_account_code_prefix"/>
+              <field name="cash_account_code_prefix"/>
+              <field name="transfer_account_id"/>
+              <field name="income_currency_exchange_account_id"/>
+              <field name="expense_currency_exchange_account_id"/>
+              <field name="property_account_receivable_id"/>
+              <field name="property_account_payable_id"/>
+              <field name="property_account_expense_categ_id"/>
+              <field name="property_account_income_categ_id"/>
+              <field name="property_account_expense_id"/>
+              <field name="property_account_income_id"/>
+              <field name="property_stock_account_input_categ_id"/>
+              <field name="property_stock_account_output_categ_id"/>
+              <field name="property_stock_valuation_account_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.chart.template.m2mlist">
+          <column name="name">view.fa.chart.template.m2mlist</column>
+          <column name="model">fa.chart.template</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="company_id"/>
+              <field name="parent_id"/>
+              <field name="code_digits"/>
+              <field name="visible"/>
+              <field name="currency_id"/>
+              <field name="use_anglo_saxon"/>
+              <field name="complete_tax_set"/>
+              <field name="bank_account_code_prefix"/>
+              <field name="cash_account_code_prefix"/>
+              <field name="transfer_account_id"/>
+              <field name="income_currency_exchange_account_id"/>
+              <field name="expense_currency_exchange_account_id"/>
+              <field name="property_account_receivable_id"/>
+              <field name="property_account_payable_id"/>
+              <field name="property_account_expense_categ_id"/>
+              <field name="property_account_income_categ_id"/>
+              <field name="property_account_expense_id"/>
+              <field name="property_account_income_id"/>
+              <field name="property_stock_account_input_categ_id"/>
+              <field name="property_stock_account_output_categ_id"/>
+              <field name="property_stock_valuation_account_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.chart.template.search">
+          <column name="name">view.fa.chart.template.search</column>
+          <column name="model">fa.chart.template</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="company_id"/>
+              <field name="parent_id"/>
+              <field name="code_digits"/>
+              <field name="visible"/>
+              <field name="currency_id"/>
+              <field name="use_anglo_saxon"/>
+              <field name="complete_tax_set"/>
+              <field name="bank_account_code_prefix"/>
+              <field name="cash_account_code_prefix"/>
+              <field name="transfer_account_id"/>
+              <field name="income_currency_exchange_account_id"/>
+              <field name="expense_currency_exchange_account_id"/>
+              <field name="property_account_receivable_id"/>
+              <field name="property_account_payable_id"/>
+              <field name="property_account_expense_categ_id"/>
+              <field name="property_account_income_categ_id"/>
+              <field name="property_account_expense_id"/>
+              <field name="property_account_income_id"/>
+              <field name="property_stock_account_input_categ_id"/>
+              <field name="property_stock_account_output_categ_id"/>
+              <field name="property_stock_valuation_account_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.chart.template.find">
+          <column name="name">view.fa.chart.template.find</column>
+          <column name="model">fa.chart.template</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="company_id"/>
+              <field name="parent_id"/>
+              <field name="code_digits"/>
+              <field name="visible"/>
+              <field name="currency_id"/>
+              <field name="use_anglo_saxon"/>
+              <field name="complete_tax_set"/>
+              <field name="bank_account_code_prefix"/>
+              <field name="cash_account_code_prefix"/>
+              <field name="transfer_account_id"/>
+              <field name="income_currency_exchange_account_id"/>
+              <field name="expense_currency_exchange_account_id"/>
+              <field name="property_account_receivable_id"/>
+              <field name="property_account_payable_id"/>
+              <field name="property_account_expense_categ_id"/>
+              <field name="property_account_income_categ_id"/>
+              <field name="property_account_expense_id"/>
+              <field name="property_account_income_id"/>
+              <field name="property_stock_account_input_categ_id"/>
+              <field name="property_stock_account_output_categ_id"/>
+              <field name="property_stock_valuation_account_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.tax.template.form">
+          <column name="name">view.fa.tax.template.form</column>
+          <column name="model">fa.tax.template</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="chart_template_id"/>
+              <field name="name"/>
+              <field name="type_tax_use"/>
+              <field name="tax_adjustment"/>
+              <field name="amount_type"/>
+              <field name="active"/>
+              <field name="company_id"/>
+              <field name="children_tax_ids"/>
+              <field name="sequence"/>
+              <field name="amount"/>
+              <field name="account_id"/>
+              <field name="refund_account_id"/>
+              <field name="description"/>
+              <field name="price_include"/>
+              <field name="include_base_amount"/>
+              <field name="analytic"/>
+              <field name="tag_ids"/>
+              <field name="tax_group_id"/>
+              <field name="tax_exigibility"/>
+              <field name="cash_basis_account"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.tax.template.list">
+          <column name="name">view.fa.tax.template.list</column>
+          <column name="model">fa.tax.template</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="chart_template_id"/>
+              <field name="name"/>
+              <field name="type_tax_use"/>
+              <field name="tax_adjustment"/>
+              <field name="amount_type"/>
+              <field name="active"/>
+              <field name="company_id"/>
+              <field name="sequence"/>
+              <field name="amount"/>
+              <field name="account_id"/>
+              <field name="refund_account_id"/>
+              <field name="description"/>
+              <field name="price_include"/>
+              <field name="include_base_amount"/>
+              <field name="analytic"/>
+              <field name="tax_group_id"/>
+              <field name="tax_exigibility"/>
+              <field name="cash_basis_account"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.tax.template.m2mlist">
+          <column name="name">view.fa.tax.template.m2mlist</column>
+          <column name="model">fa.tax.template</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="chart_template_id"/>
+              <field name="name"/>
+              <field name="type_tax_use"/>
+              <field name="tax_adjustment"/>
+              <field name="amount_type"/>
+              <field name="active"/>
+              <field name="company_id"/>
+              <field name="sequence"/>
+              <field name="amount"/>
+              <field name="account_id"/>
+              <field name="refund_account_id"/>
+              <field name="description"/>
+              <field name="price_include"/>
+              <field name="include_base_amount"/>
+              <field name="analytic"/>
+              <field name="tax_group_id"/>
+              <field name="tax_exigibility"/>
+              <field name="cash_basis_account"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.tax.template.search">
+          <column name="name">view.fa.tax.template.search</column>
+          <column name="model">fa.tax.template</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="chart_template_id"/>
+              <field name="name"/>
+              <field name="type_tax_use"/>
+              <field name="tax_adjustment"/>
+              <field name="amount_type"/>
+              <field name="active"/>
+              <field name="company_id"/>
+              <field name="sequence"/>
+              <field name="amount"/>
+              <field name="account_id"/>
+              <field name="refund_account_id"/>
+              <field name="description"/>
+              <field name="price_include"/>
+              <field name="include_base_amount"/>
+              <field name="analytic"/>
+              <field name="tax_group_id"/>
+              <field name="tax_exigibility"/>
+              <field name="cash_basis_account"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.tax.template.find">
+          <column name="name">view.fa.tax.template.find</column>
+          <column name="model">fa.tax.template</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="chart_template_id"/>
+              <field name="name"/>
+              <field name="type_tax_use"/>
+              <field name="tax_adjustment"/>
+              <field name="amount_type"/>
+              <field name="active"/>
+              <field name="company_id"/>
+              <field name="sequence"/>
+              <field name="amount"/>
+              <field name="account_id"/>
+              <field name="refund_account_id"/>
+              <field name="description"/>
+              <field name="price_include"/>
+              <field name="include_base_amount"/>
+              <field name="analytic"/>
+              <field name="tax_group_id"/>
+              <field name="tax_exigibility"/>
+              <field name="cash_basis_account"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.template.form">
+          <column name="name">view.fa.fiscal.position.template.form</column>
+          <column name="model">fa.fiscal.position.template</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="sequence"/>
+              <field name="name"/>
+              <field name="chart_template_id"/>
+              <field name="account_ids"/>
+              <field name="tax_ids"/>
+              <field name="note"/>
+              <field name="auto_apply"/>
+              <field name="vat_required"/>
+              <field name="country_id"/>
+              <field name="country_group_id"/>
+              <field name="state_ids"/>
+              <field name="zip_from"/>
+              <field name="zip_to"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.template.list">
+          <column name="name">view.fa.fiscal.position.template.list</column>
+          <column name="model">fa.fiscal.position.template</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="sequence"/>
+              <field name="name"/>
+              <field name="chart_template_id"/>
+              <field name="account_ids"/>
+              <field name="tax_ids"/>
+              <field name="auto_apply"/>
+              <field name="vat_required"/>
+              <field name="country_id"/>
+              <field name="country_group_id"/>
+              <field name="zip_from"/>
+              <field name="zip_to"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.template.m2mlist">
+          <column name="name">view.fa.fiscal.position.template.m2mlist</column>
+          <column name="model">fa.fiscal.position.template</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="sequence"/>
+              <field name="name"/>
+              <field name="chart_template_id"/>
+              <field name="auto_apply"/>
+              <field name="vat_required"/>
+              <field name="country_id"/>
+              <field name="country_group_id"/>
+              <field name="zip_from"/>
+              <field name="zip_to"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.template.search">
+          <column name="name">view.fa.fiscal.position.template.search</column>
+          <column name="model">fa.fiscal.position.template</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="sequence"/>
+              <field name="name"/>
+              <field name="chart_template_id"/>
+              <field name="auto_apply"/>
+              <field name="vat_required"/>
+              <field name="country_id"/>
+              <field name="country_group_id"/>
+              <field name="zip_from"/>
+              <field name="zip_to"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.template.find">
+          <column name="name">view.fa.fiscal.position.template.find</column>
+          <column name="model">fa.fiscal.position.template</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="sequence"/>
+              <field name="name"/>
+              <field name="chart_template_id"/>
+              <field name="auto_apply"/>
+              <field name="vat_required"/>
+              <field name="country_id"/>
+              <field name="country_group_id"/>
+              <field name="zip_from"/>
+              <field name="zip_to"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.tax.template.form">
+          <column name="name">view.fa.fiscal.position.tax.template.form</column>
+          <column name="model">fa.fiscal.position.tax.template</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="position_id"/>
+              <field name="tax_src_id"/>
+              <field name="tax_dest_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.tax.template.list">
+          <column name="name">view.fa.fiscal.position.tax.template.list</column>
+          <column name="model">fa.fiscal.position.tax.template</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="position_id"/>
+              <field name="tax_src_id"/>
+              <field name="tax_dest_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.tax.template.m2mlist">
+          <column name="name">view.fa.fiscal.position.tax.template.m2mlist</column>
+          <column name="model">fa.fiscal.position.tax.template</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="position_id"/>
+              <field name="tax_src_id"/>
+              <field name="tax_dest_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.account.template.form">
+          <column name="name">view.fa.fiscal.position.account.template.form</column>
+          <column name="model">fa.fiscal.position.account.template</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="position_id"/>
+              <field name="account_src_id"/>
+              <field name="account_dest_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.account.template.list">
+          <column name="name">view.fa.fiscal.position.account.template.list</column>
+          <column name="model">fa.fiscal.position.account.template</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="position_id"/>
+              <field name="account_src_id"/>
+              <field name="account_dest_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.account.template.m2mlist">
+          <column name="name">view.fa.fiscal.position.account.template.m2mlist</column>
+          <column name="model">fa.fiscal.position.account.template</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="position_id"/>
+              <field name="account_src_id"/>
+              <field name="account_dest_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.reconcile.model.template.form">
+          <column name="name">view.fa.reconcile.model.template.form</column>
+          <column name="model">fa.reconcile.model.template</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="chart_template_id"/>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="has_second_line"/>
+              <field name="account_id"/>
+              <field name="label"/>
+              <field name="amount_type"/>
+              <field name="amount"/>
+              <field name="tax_id"/>
+              <field name="second_account_id"/>
+              <field name="second_label"/>
+              <field name="second_amount_type"/>
+              <field name="second_amount"/>
+              <field name="second_tax_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.reconcile.model.template.list">
+          <column name="name">view.fa.reconcile.model.template.list</column>
+          <column name="model">fa.reconcile.model.template</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="chart_template_id"/>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="has_second_line"/>
+              <field name="account_id"/>
+              <field name="label"/>
+              <field name="amount_type"/>
+              <field name="amount"/>
+              <field name="tax_id"/>
+              <field name="second_account_id"/>
+              <field name="second_label"/>
+              <field name="second_amount_type"/>
+              <field name="second_amount"/>
+              <field name="second_tax_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.reconcile.model.template.m2mlist">
+          <column name="name">view.fa.reconcile.model.template.m2mlist</column>
+          <column name="model">fa.reconcile.model.template</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="chart_template_id"/>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="has_second_line"/>
+              <field name="account_id"/>
+              <field name="label"/>
+              <field name="amount_type"/>
+              <field name="amount"/>
+              <field name="tax_id"/>
+              <field name="second_account_id"/>
+              <field name="second_label"/>
+              <field name="second_amount_type"/>
+              <field name="second_amount"/>
+              <field name="second_tax_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.reconcile.model.template.search">
+          <column name="name">view.fa.reconcile.model.template.search</column>
+          <column name="model">fa.reconcile.model.template</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="chart_template_id"/>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="has_second_line"/>
+              <field name="account_id"/>
+              <field name="label"/>
+              <field name="amount_type"/>
+              <field name="amount"/>
+              <field name="tax_id"/>
+              <field name="second_account_id"/>
+              <field name="second_label"/>
+              <field name="second_amount_type"/>
+              <field name="second_amount"/>
+              <field name="second_tax_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.reconcile.model.template.find">
+          <column name="name">view.fa.reconcile.model.template.find</column>
+          <column name="model">fa.reconcile.model.template</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="chart_template_id"/>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="has_second_line"/>
+              <field name="account_id"/>
+              <field name="label"/>
+              <field name="amount_type"/>
+              <field name="amount"/>
+              <field name="tax_id"/>
+              <field name="second_account_id"/>
+              <field name="second_label"/>
+              <field name="second_amount_type"/>
+              <field name="second_amount"/>
+              <field name="second_tax_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.fa.accounts.payment.method.form">
+          <column name="name">view.fa.accounts.payment.method.form</column>
+          <column name="model">fa.accounts.payment.method</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="payment_type"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.fa.accounts.payment.method.list">
+          <column name="name">view.fa.accounts.payment.method.list</column>
+          <column name="model">fa.accounts.payment.method</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="payment_type"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.fa.accounts.payment.method.m2mlist">
+          <column name="name">view.fa.accounts.payment.method.m2mlist</column>
+          <column name="model">fa.accounts.payment.method</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="payment_type"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.accounts.payment.method.search">
+          <column name="name">view.fa.accounts.payment.method.search</column>
+          <column name="model">fa.accounts.payment.method</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="payment_type"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.accounts.payment.method.find">
+          <column name="name">view.fa.accounts.payment.method.find</column>
+          <column name="model">fa.accounts.payment.method</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="payment_type"/>
+            </find>
+          </column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

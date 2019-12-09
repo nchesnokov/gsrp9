@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="wm.readonly">
+          <column name="name">wm.readonly</column>
+          <column name="note">Module wm grant readonly</column>
+        </record>
+        <record id="wm.nodrop">
+          <column name="name">wm.nodrop</column>
+          <column name="note">Module wm grant nodrop</column>
+        </record>
+        <record id="wm.full">
+          <column name="name">wm.full</column>
+          <column name="note">Module wm grant full</column>
+        </record>
+        <record id="wm.crw">
+          <column name="name">wm.crw</column>
+          <column name="note">Module wm grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="md.warehouse.product.readonly">
+          <column name="name">md.warehouse.product.readonly</column>
+          <column name="note">Model md.warehouse.product grant readonly</column>
+          <column name="group_id">wm.readonly</column>
+        </record>
+        <record id="md.warehouse.product.nodrop">
+          <column name="name">md.warehouse.product.nodrop</column>
+          <column name="note">Model md.warehouse.product grant nodrop</column>
+          <column name="group_id">wm.nodrop</column>
+        </record>
+        <record id="md.warehouse.product.full">
+          <column name="name">md.warehouse.product.full</column>
+          <column name="note">Model md.warehouse.product grant full</column>
+          <column name="group_id">wm.full</column>
+        </record>
+        <record id="md.warehouse.product.crw">
+          <column name="name">md.warehouse.product.crw</column>
+          <column name="note">Model md.warehouse.product grant crw</column>
+          <column name="group_id">wm.crw</column>
+        </record>
+        <record id="wm.category.readonly">
+          <column name="name">wm.category.readonly</column>
+          <column name="note">Model wm.category grant readonly</column>
+          <column name="group_id">wm.readonly</column>
+        </record>
+        <record id="wm.category.nodrop">
+          <column name="name">wm.category.nodrop</column>
+          <column name="note">Model wm.category grant nodrop</column>
+          <column name="group_id">wm.nodrop</column>
+        </record>
+        <record id="wm.category.full">
+          <column name="name">wm.category.full</column>
+          <column name="note">Model wm.category grant full</column>
+          <column name="group_id">wm.full</column>
+        </record>
+        <record id="wm.category.crw">
+          <column name="name">wm.category.crw</column>
+          <column name="note">Model wm.category grant crw</column>
+          <column name="group_id">wm.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="wm.md.warehouse.product.readonly">
+          <column name="access_id">md.warehouse.product.readonly</column>
+          <column name="model_id">md.warehouse.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="wm.md.warehouse.product.nodrop">
+          <column name="access_id">md.warehouse.product.nodrop</column>
+          <column name="model_id">md.warehouse.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wm.md.warehouse.product.full">
+          <column name="access_id">md.warehouse.product.full</column>
+          <column name="model_id">md.warehouse.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wm.md.warehouse.product.crw">
+          <column name="access_id">md.warehouse.product.crw</column>
+          <column name="model_id">md.warehouse.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wm.wm.category.readonly">
+          <column name="access_id">wm.category.readonly</column>
+          <column name="model_id">wm.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="wm.wm.category.nodrop">
+          <column name="access_id">wm.category.nodrop</column>
+          <column name="model_id">wm.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wm.wm.category.full">
+          <column name="access_id">wm.category.full</column>
+          <column name="model_id">wm.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="wm.wm.category.crw">
+          <column name="access_id">wm.category.crw</column>
+          <column name="model_id">wm.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>
