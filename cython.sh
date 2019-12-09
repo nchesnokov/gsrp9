@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-FILES=`python3 build.py gsrp5server server.py client.py listener.py __init__.py`
+FILES=`python3 build.py gsrp5service gsrp5.py client.py __init__.py`
 
 for FILE in $FILES
   do
