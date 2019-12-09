@@ -1,3 +1,5 @@
 from serviceloader import Service
+from configparser import ConfigParser
+from serviceloader.tools.common import configManager
 
-class Gsrp5(Service): pass
+gsrp5 = default_service_loader('gsrp5','serviceloader.tools.common','Dummy',config_file='conf/gsrp5.conf')
