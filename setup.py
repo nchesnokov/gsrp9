@@ -15,7 +15,7 @@ package_data = {'gsrp5service':['conf/*/*']}
 data_files = [('/etc/gsrp5-service.d',[opj(__package_name__,'conf','gsrp5.conf')])]
 
 for lang in os.listdir(opj(__package_name__,'locale')):
-	data_files.append((os.path.join(sys.prefix,'share', 'locale', lang, 'LC_MESSAGES'),[opj(__package_name__,'locale', lang, 'LC_MESSAGES','gsrp5service.mo')]))
+	data_files.append((os.path.join(sys.prefix,'share', 'locale', lang, 'LC_MESSAGES'),[opj(__package_name__,'locale', lang, 'LC_MESSAGES','gsrp5-service.mo')]))
 
 for d in os.walk('gsrp5service'):
 	l = list(map(lambda x:x[:-2],list(filter(lambda x: x[0] != '.' and x[-2:]=='.c',d[2]))))
@@ -33,7 +33,7 @@ for sd in ('root','addons'):
 
 packages = ['gsrp5service']
 
-setup (name = __package_name__,package_data = package_data, data_files = data_files, scripts = [opj(__package_name__,'script/gsrp5-service')], packages = packages,package_dir = {__package_name__:'gsrp5service'},version = '1.0.1', description = 'Global System Resource Planing',long_description = 'Global System Resource Planing & Executing', author='Nikolay Chesnokov', author_email='nikolaychesnokov@gmail.com' , url='http://www.gsrp5.org', license='AGPL-3'
+setup (name = __package_name__,package_data = package_data, data_files = data_files, packages = packages,package_dir = {__package_name__:'gsrp5service'},version = '1.0.0.0', description = 'Global System Resource Planing',long_description = 'Global System Resource Planing & Executing', author='Nikolay Chesnokov', author_email='nikolaychesnokov@gmail.com' , url='http://www.gsrp5.org', license='AGPL-3'
 ,cmdclass = { 'build_ext': build_ext, "build" : build_extra.build_extra,'build_i18n':build_i18n.build_i18n}, ext_modules = modules)
 
 
