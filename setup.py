@@ -23,8 +23,8 @@ for d in os.walk('gsrp5service'):
 		a=list(map(lambda x:opj(d[0],x), l ))
 		for n in a:
 			modules.append(Extension('%s' % (n.replace(os.path.sep,'.'),), sources = ['%s' % (n + '.c')],language='clang'))
-for sd in ('root','addons'):			
-	for d in os.walk(opj('gsrp5service',sd)):
+for sd in ('addons',):			
+	for d in os.walk(opj('gsrp5service','services','registry',sd)):
 		l = list(map(lambda x:x,list(filter(lambda x: x[-4:] in ('.xml','.csv','.pot','.rml') or x[-5:] in ('.yaml','.docx','.xlsx') or x[-3:] == '.po' or x == '__manifest__.info',d[2]))))
 		if len(l) > 0:
 			a=list(map(lambda x:opj(d[0],x), l ))

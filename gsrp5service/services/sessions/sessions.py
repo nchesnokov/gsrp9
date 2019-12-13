@@ -7,7 +7,7 @@ from passlib.hash import pbkdf2_sha256
 from decimal import Decimal
 from gsrp5service.connection import Cursor
 from gsrp5service.services.models.orm.model import Access
-from .cache import MCache
+from gsrp5service.services.models.cache import MCache
 
 _logger = logging.getLogger('listener.' + __name__)
 
