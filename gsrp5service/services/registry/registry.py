@@ -7,9 +7,9 @@ from os.path import join as opj
 from .loading import *
 from .depmod import Graph,Node,DependsInstall,DependsRemove
 
-import services.models.orm.model
-from services.models.orm.model import Model,ModelInherit
-from services.models.orm.mm import _getRecNameName,_getChildsIdName
+import gsrp5service.services.models.orm.model
+from gsrp5service.services.models.orm.model import Model,ModelInherit
+from gsrp5service.services.models.orm.mm import _getRecNameName,_getChildsIdName
 
 class Exception_Registry(Exception): pass
 

@@ -3,10 +3,10 @@ import os
 import logging
 from copy import deepcopy
 from functools import reduce
-from orm.common import *
-from orm.common import DEFAULT_MODEL_NAMES as DMN
-from orm import gensql
-from services.modules.genddl import getName
+from .common import *
+from .common import DEFAULT_MODEL_NAMES as DMN
+from . import gensql
+from gsrp5service.services.modules.genddl import getName
 from io import StringIO
 from datetime import datetime,date,time
 import time as tm

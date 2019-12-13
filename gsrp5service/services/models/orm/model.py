@@ -6,9 +6,9 @@ import time
 import logging
 from functools import reduce
 from tools.translations import trlocal as _
-from orm import mm
-from orm.mm import orm_exception
-from orm.mm import Access
+from . import mm
+from .mm import orm_exception
+from .mm import Access
 
 _logger = logging.getLogger(__name__)
 

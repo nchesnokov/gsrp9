@@ -2,42 +2,11 @@ import logging
 import traceback
 import uuid
 import copy
-# from passlib.hash import pbkdf2_sha256
-# from .modules.registry import Registry
-# from .connection import Connection, Cursor
-# from .modules.modules import ServiceModules
-# from .sysmodules import ServiceSysModules
-# from .gens.gen import ServiceGen
-# from .slots.slots import ServiceSlots
-# from .ui.ui import ServiceUI
-# from .models.models import ServiceModels
-# from orm.model import Access
-# from .tree import Tree
-# from decimal import Decimal
-#from .cache import MCache
-
 import pdb
 
 _logger = logging.getLogger('listener.' + __name__)
 
 class interface_exception(Exception): pass
-
-class Service(dict):
-
-	def __init__(self,*args,**kwargs):
-		pass
-
-	def open(self,*args,**kwargs):
-		pass
-
-	def close(self):
-		pass
-
-	def ioctl(self,*args,**kwargs):
-		pass
-
-	def _call(self,*args,**kwargs):
-		pass
 
 class User(object):
 
@@ -53,6 +22,7 @@ class User(object):
 	_models = {}
 	_cache = {}
 	_cache_attrs = {}
+
 	def __init__(self,config_file):
 		pass
 	
@@ -237,6 +207,7 @@ class System(object):
 	
 	def __init__(self,config_file):
 		pass
+
 	# def __init__(self,tree,path,_uuid = None):
 			
 		# self._sid = tree._get('gsrp5.slots.'+path.split('.')[-1])
