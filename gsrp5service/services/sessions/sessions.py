@@ -125,7 +125,9 @@ class User(object):
 			pass
 		elif args0 == 'uis':
 			pass
-
+		else:
+			pass
+		
 		return [args0]
 
 # new cache
@@ -317,5 +319,6 @@ class System(object):
 			pass
 		elif args0 == 'slots':
 			pass
-
+		else:
+			pass
 		return [args0]
