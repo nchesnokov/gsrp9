@@ -1,6 +1,6 @@
 from lxml import etree
 from io import BytesIO
-from services.gens.views import isAllow,VIEWSGEN
+from gsrp5service.services.gens.views import isAllow,VIEWSGEN
 
 
 def get_viewname_by_window_action_id(cr,pool,uid,action_id):

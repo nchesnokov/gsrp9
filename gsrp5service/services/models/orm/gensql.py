@@ -1,6 +1,6 @@
 from functools import reduce
 from datetime import datetime
-from orm.common import MAGIC_COLUMNS
+from .common import MAGIC_COLUMNS
 
 BOOLEAN_OPERATOR = {'|':' OR ','&': ' AND ','!':' NOT '}
 IS_OPERATOR = {'?': ' IS NULL','!?':' IS NOT NULL'}

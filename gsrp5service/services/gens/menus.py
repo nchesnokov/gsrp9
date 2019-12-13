@@ -3,8 +3,8 @@ import logging
 from functools import reduce
 from os.path import join as opj
 from io import BytesIO
-from services.gens.views import isAllow,VIEWSGEN
-from orm.model import Model
+from .views import isAllow,VIEWSGEN
+from gsrp5service.services.models.orm.model import Model
 
 import html
 

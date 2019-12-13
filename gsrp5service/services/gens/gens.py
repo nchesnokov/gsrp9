@@ -1,15 +1,26 @@
 import logging
-from services.gens import roles,menus,views,examples,tests,i18n,tr
+from . import roles,menus,views,examples,tests,i18n,tr
+
+from serviceloader.tools.common import Service
+from configparser import ConfigParser
 
 class servicegens_exception(Exception): pass
 
 _logger = logging.getLogger('listener.' + __name__)
 
-class ServiceGen(object):
+class Gens(Service):
 
-	_name = 'gen'
+	def __init__(self,config_file=None):
+		if config_file:
+			self.configure(config_file)
 	
-	def __init__(self,cr,pool,uid,registry):
+	def configure(self,config_file):
+		cf = ConfigParser()
+		cf.read(config_file)
+		self._config = cf
+
+	
+	def _setup(self,cr,pool,uid,registry):
 		self._cr = cr
 		self._pool = pool
 		self._uid = uid

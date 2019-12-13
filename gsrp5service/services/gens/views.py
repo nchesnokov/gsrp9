@@ -2,12 +2,12 @@ import os
 import logging
 from os.path import join as opj
 from io import BytesIO
-from orm.model import Model,ModelInherit
+from gsrp5service.services.models.orm.model import Model,ModelInherit
 
 b = BytesIO()
 TAB = '  '
 
-from orm.common import DEFAULT_MODEL_NAMES as DMN
+from gsrp5service.services.models.orm.common import DEFAULT_MODEL_NAMES as DMN
 
 _logger = logging.getLogger('listener.' + __name__)
 

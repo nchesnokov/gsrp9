@@ -1,10 +1,20 @@
-from services.modules.module import *
+from .module import *
+from serviceloader.tools.common import Service
+from configparser import ConfigParser
 
-class ServiceModules(object):
 
-	_name = "modules"
+class Modules(Service):
 
-	def __init__(self,cr,pool,uid,registry):
+	def __init__(self,config_file=None):
+		if config_file:
+			self.configure(config_file)
+	
+	def configure(self,config_file):
+		cf = ConfigParser()
+		cf.read(config_file)
+		self._config = cf
+
+	def _setup(self,cr,pool,uid,registry):
 		self._cr = cr
 		self._pool = pool
 		self._uid = uid

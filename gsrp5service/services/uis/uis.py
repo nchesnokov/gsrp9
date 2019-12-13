@@ -1,12 +1,22 @@
 from .view import view,get_viewname_by_window_action_id,get_view_by_window_action_id,get_view_by_window_action_id_v2,get_meta_by_window_action_id_v2,get_view_by_name,get_view_by_name_v2,get_views_of_model_v2
 from .menu import menu
 from .action import run
+from serviceloader.tools.common import Component
+from configparser import ConfigParser
 
 class serviceui_exception(Exception): pass
 
-class ServiceUI(object):
+class Uis(Component):
 
-	_name = "ServiceUI"
+	def __init__(self,config_file=None):
+		if config_file:
+			self.configure(config_file)
+	
+	def configure(self,config_file):
+		cf = ConfigParser()
+		cf.read(config_file)
+		self._config = cf
+
 
 	def _execute(self, session,args):
 		#print('execute-modules:',args)

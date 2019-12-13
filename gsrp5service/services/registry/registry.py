@@ -11,6 +11,10 @@ import gsrp5service.services.models.orm.model
 from gsrp5service.services.models.orm.model import Model,ModelInherit
 from gsrp5service.services.models.orm.mm import _getRecNameName,_getChildsIdName
 
+from serviceloader.tools.common import Service, configManagerFixed
+
+from configparser import ConfigParser
+
 class Exception_Registry(Exception): pass
 
 def _list_to_dict(s,p):
@@ -109,7 +113,13 @@ class Registry(Service):
 	_dependsremove = None
 	_packages = []
 
-	def __init__(self, module_paths = None, able = None):
+	#def __init__(self, module_paths = None, able = None):
+	def __init__(self, config_file=None):
+		cf = ConfigParser()
+		cf.read(config_file)
+		self._config = configManagerFixed(cf,{'globals':{'module_paths':{'addons':None},'able':None}},dkey=['module_paths'])
+		module_paths = self._config['globals']['module_paths']
+		able = self._config['globals']['able']
 		self._pwd = os.getcwd()
 		if module_paths:
 			self._module_paths = module_paths
@@ -123,7 +133,7 @@ class Registry(Service):
 
 		
 		for key in self._module_paths.keys():
-			self._module_paths[key] = filter(lambda x: os.path.isdir(opj(x)), os.listdir(opj(os.getcwd(),key)))
+			self._module_paths[key] = filter(lambda x: os.path.isdir(opj(x)), os.listdir(opj(os.path.dirname(os.path.abspath(__file__)),key)))
 
 		self._graph = Graph()
 		self._load_modules_info()
@@ -152,7 +162,7 @@ class Registry(Service):
 		
 	def _load_modules_info(self):
 		for d in list(self._module_paths.keys()):
-			mdir = opj(self._pwd,d)
+			mdir = opj(os.path.dirname(os.path.abspath(__file__)),d)
 			self._module_paths[d] = list(filter(lambda x: os.path.isdir(opj(mdir,x)), os.listdir(mdir)))
 		for path in list(self._module_paths.keys()):
 			for name in self._module_paths[path]:

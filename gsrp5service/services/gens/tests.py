@@ -7,7 +7,7 @@ import yaml
 import datetime
 from datetime import date,time,datetime
 
-from orm.model import Model
+from gsrp5service.services.models.orm.model import Model
 
 _logger = logging.getLogger('listener.' + __name__)
 

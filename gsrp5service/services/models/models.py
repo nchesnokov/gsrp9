@@ -5,9 +5,20 @@ from copy import deepcopy
 
 _logger = logging.getLogger('listener.' + __name__)
 
-class ServiceModels(object):
+from serviceloader.tools.common import Component
+from configparser import ConfigParser
 
-	_name = 'ServiceModels'
+class Models(Component):
+
+	def __init__(self,config_file=None):
+		if config_file:
+			self.configure(config_file)
+	
+	def configure(self,config_file):
+		cf = ConfigParser()
+		cf.read(config_file)
+		self._config = cf
+
 	
 	def _execute(self, session, args):
 		rmsg = []

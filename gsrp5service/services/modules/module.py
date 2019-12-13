@@ -8,8 +8,8 @@ import csv
 import yaml
 from yaml import Loader
 from os.path import join as opj
-from services.modules import genddl
-from orm.model import Model,ModelInherit,Access
+from . import genddl
+from gsrp5service.services.models.orm.model import Model,ModelInherit,Access
 
 __all__ = ['install','uninstall','upgrade','sysinstall','sysupgrade','upgrademoduleslist']
 
