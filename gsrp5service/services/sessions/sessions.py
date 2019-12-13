@@ -5,6 +5,8 @@ import copy
 import pdb
 from passlib.hash import pbkdf2_sha256
 from decimal import Decimal
+from configparser import ConfigParser
+from serviceloader.tools.common import configManagerDynamic
 from gsrp5service.connection import Cursor
 from gsrp5service.services.models.orm.model import Access
 from gsrp5service.services.models.cache import MCache
@@ -29,11 +31,19 @@ class User(object):
 	_cache_attrs = {}
 
 	def __init__(self,config_file):
-		pass
+		#print('CONFIF-FILEL',config_file)
+		cf = ConfigParser()
+		cf.read(config_file)
+		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':None,'password':None,'sslmode':None,'sslrootcert':None,'sslcert':None,'sslkey':None},ikey=['port'])
+		#print('USER-CONF:',self._conf)
 
 	def open(self,profile):
+
+		if profile not in self._conf:
+			return [False,'Profile not found']
 		
-		conf = self._conf
+		self._profile = profile
+		conf = self._conf[profile]
 
 		if conf['sslmode']:
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'],sslmode=conf['sslmode'],sslrootcert=conf['sslrootcert'],sslcert=conf['sslcert'],sslkey=conf['sslkey'])
@@ -108,6 +118,16 @@ class User(object):
 		self._cache.clear()
 		return ['Shutdown']
 
+	def _call(self,args):
+		print('CALL:',args)
+		args0 = args[0]
+		if args0 == 'models':
+			pass
+		elif args0 == 'uis':
+			pass
+
+		return [args0]
+
 # new cache
 	def _mcache(self,args):
 		if args[0] == 'cache':
@@ -177,11 +197,19 @@ class System(object):
 	_models = {}
 	
 	def __init__(self,config_file):
-		pass
+		#print('CONFIF-FILEL',config_file)
+		cf = ConfigParser()
+		cf.read(config_file)
+		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':'system','password':None,'sslmode':None,'sslrootcert':None,'sslcert':None,'sslkey':None},ikey=['port'])
+		#print('SYSTEM-CONF:',self._conf)
 
 	def open(self,profile):
 
-		conf = self._conf
+		if profile not in self._conf:
+			return [False,'Profile not found']
+
+		self._profile = profile
+		conf = self._conf[profile]
 		
 		if conf['sslmode']:
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'],sslmode=conf['sslmode'],sslcert=conf['sslcert'],sslkey=conf['sslkey'])
@@ -280,3 +308,14 @@ class System(object):
 			self._cursor.rollback()
 		return [0 , 'Rollback Work']
 
+	def _call(self,args):
+		print('CALL:',args)
+		args0 = args[0]
+		if args0 == 'modules':
+			pass
+		elif args0 == 'gens':
+			pass
+		elif args0 == 'slots':
+			pass
+
+		return [args0]

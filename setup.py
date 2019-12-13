@@ -12,7 +12,12 @@ modules = []
 
 package_data = {'gsrp5service':['conf/*/*']}
 
-data_files = [('/etc/gsrp5-service.d',[opj(__package_name__,'conf','gsrp5.conf')])]
+conf = []
+
+for profile in os.listdir(opj(__package_name__,'profile')):
+	conf.append(opj(__package_name__,'profile',profile))
+
+data_files = [('/etc/gsrp5-service.d',[opj(__package_name__,'conf','gsrp5.conf')]),('/etc/gsrp5-service.d/profiles',conf)]
 
 for lang in os.listdir(opj(__package_name__,'locale')):
 	data_files.append((os.path.join(sys.prefix,'share', 'locale', lang, 'LC_MESSAGES'),[opj(__package_name__,'locale', lang, 'LC_MESSAGES','gsrp5-service.mo')]))
