@@ -5,8 +5,9 @@ from copy import deepcopy
 
 _logger = logging.getLogger('listener.' + __name__)
 
-from serviceloader.tools.common import Component
 from configparser import ConfigParser
+from serviceloader.tools.common import Component
+
 
 class Models(Component):
 
