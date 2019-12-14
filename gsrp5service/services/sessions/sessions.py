@@ -37,6 +37,23 @@ class User(object):
 		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':None,'password':None,'sslmode':None,'sslrootcert':None,'sslcert':None,'sslkey':None},ikey=['port'])
 		#print('USER-CONF:',self._conf)
 
+	def _call(self,args):
+		print('CALL:',args,args[0])
+		args0 = args[0]
+		if args0 == 'modules':
+			self._components['modules']._call(args[1:])
+		elif args0 == 'models':
+			self._components['models']._call(args[1:])
+		elif args0 == 'gens':
+			self._components['gens']._call(args[1:])
+		elif args0 == 'slots':
+			print('CALL-SLOTS:',args)
+			self._components['slots']._call(args[1:])
+		else:
+			pass
+		
+		return [args0]
+
 	def open(self,profile):
 
 		if profile not in self._conf:
@@ -118,18 +135,6 @@ class User(object):
 		self._cache.clear()
 		return ['Shutdown']
 
-	def _call(self,args):
-		print('CALL:',args)
-		args0 = args[0]
-		if args0 == 'models':
-			pass
-		elif args0 == 'uis':
-			pass
-		else:
-			pass
-		
-		return [args0]
-
 # new cache
 	def _mcache(self,args):
 		if args[0] == 'cache':
@@ -205,6 +210,23 @@ class System(object):
 		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':'system','password':None,'sslmode':None,'sslrootcert':None,'sslcert':None,'sslkey':None},ikey=['port'])
 		#print('SYSTEM-CONF:',self._conf)
 
+	def _call(self,args):
+		print('CALL:',args,args[0])
+		args0 = args[0]
+		if args0 == 'modules':
+			self._components['modules']._call(args[1:])
+		elif args0 == 'models':
+			self._components['models']._call(args[1:])
+		elif args0 == 'gens':
+			self._components['gens']._call(args[1:])
+		elif args0 == 'slots':
+			print('CALL-SLOTS:',args)
+			self._components['slots']._call(args[1:])
+		else:
+			pass
+		
+		return [args0]
+
 	def open(self,profile):
 
 		if profile not in self._conf:
@@ -219,14 +241,18 @@ class System(object):
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'])
 
 		if self._cursor.open():
+			self._models = self._components['registry']._createAllModels()
 			for key in self._models.keys():
 				self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+			
+			self._components['modules']._setup(cr=self._cursor,pool=self._models,uid=self._getUid(),registry=self._components['registry'])
+			#self._components['models']._setup(self)
+			#self._components['gens']._setup(self)
+			self._components['slots']._setup(self)		
 			return self
 
 		self._cursor = None
 
-	def _call(self, args):
-		return self._srvs[args[0]]._execute(args[1:])
 	
 	def login(self,user,password,slot=None):
 		return self._login(user,password,slot)
@@ -309,16 +335,3 @@ class System(object):
 		if self._cursor:
 			self._cursor.rollback()
 		return [0 , 'Rollback Work']
-
-	def _call(self,args):
-		print('CALL:',args)
-		args0 = args[0]
-		if args0 == 'modules':
-			pass
-		elif args0 == 'gens':
-			pass
-		elif args0 == 'slots':
-			pass
-		else:
-			pass
-		return [args0]

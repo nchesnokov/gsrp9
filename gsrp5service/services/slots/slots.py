@@ -21,17 +21,21 @@ class Slots(Component):
 		cf.read(config_file)
 		self._config = cf
 	
-	def _execute(self, session,args):
-		#print('ServiceSids-execute:',args)
+	def _setup(self,session):
+		self._session = session
+	
+	def _call(self, args):
+		print('ServiceSids-execute:',args)
 		if args[0][0] == '_':
 			raise serviceslots_exception("The method <%s> of service <%s> is private. You can not call it remotely." % (args[1],self._name))
 
 		rmsg = []
 		method = getattr(self,args[0],None)
 		if method and callable(method):
-			kwargs = {'session':session}
+			kwargs = {'session':self._session}
 			if len(args) > 1 and type(args[1]) == dict:
 				for key in args[1].keys():
+					print('args1-key:',args[1][key])
 					kwargs[key] = args[1][key]
 			rmsg.extend(method(**kwargs))
 		return rmsg 
@@ -43,7 +47,7 @@ class Slots(Component):
 			if session._cursor.cr.fetchone()[0] == 0:
 				session._cursor.execute("CREATE DATABASE IF NOT EXISTS %s ENCODING='UTF-8'; SET DATABASE=%s;GRANT ALL ON DATABASE %s TO %s" % (name,name,name,db_user))
 				_logger.info("Creating Slot: %s" % (name,))
-				rmsg.append(session._srvs['modules']._execute(session,['sysinstall']))
+				rmsg.append(session._components['modules']._call(['sysinstall']))
 				_logger.info("Created Slot: %s" % (name,))
 			else:
 				_logger.info("Slot: %s are created" % (name,))
@@ -61,7 +65,7 @@ class Slots(Component):
 			session._cursor.conn.autocommit=True
 			session._cursor.execute("DROP DATABASE IF EXISTS %s CASCADE" % (sid,))
 			res.append(session._cursor.cr.statusmessage)
-			session._sid._models.get('root.sids').delete(session._cursor,session._models,0,cond=[('name','=',sid)])
+			#session._models.get('root.sids').delete(session._cursor,session._models,0,cond=[('name','=',sid)])
 			session._cursor.conn.autocommit=False
 			_logger.info("Drop Slot: %s" % (sid,))
 			res.append(session._cursor.cr.statusmessage)
