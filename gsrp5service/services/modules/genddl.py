@@ -1,5 +1,5 @@
 from functools import reduce
-from gsrp5service.services.models.orm.common import *
+from gsrp5service.orm.common import *
 
 def getName(name):
 	if name.islower() and name.upper() not in SQL_RESERVED_KEYWORDS:

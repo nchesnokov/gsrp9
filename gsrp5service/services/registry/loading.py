@@ -20,7 +20,10 @@ def load_resource_from_file(path,name,mode = "rb"):
 		return None
 
 def load_module(name,fromlist = ()):
-	return __import__(name=name,globals=globals(),locals=locals(),fromlist=fromlist,level=1)
+	level = 0
+	if name[0] == '.':
+		level = 1
+	return __import__(name=name,globals=globals(),locals=locals(),fromlist=fromlist,level=level)
 
 def load_module_info(path):
 	i = load_resource_from_file(path,'__manifest__.info','rb')

@@ -1,6 +1,5 @@
-
-from orm import fields
-from orm.model import Model
+from gsrp5service.orm import fields
+from gsrp5service.orm.model import Model
 
 from passlib.hash import pbkdf2_sha256
 

@@ -1,5 +1,5 @@
-from orm import fields
-from orm.model import Model, ModelInherit
+from gsrp5service.orm import fields
+from gsrp5service.orm.model import Model, ModelInherit
 
 class i18n_ru_md_okpd2(Model):
 	_name = 'i18n.ru.md.okpd2'

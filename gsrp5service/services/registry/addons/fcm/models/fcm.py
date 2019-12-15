@@ -1,6 +1,6 @@
 
-from orm import fields
-from orm.model import Model,ModelInherit
+from gsrp5service.orm import fields
+from gsrp5service.orm.model import Model,ModelInherit
 
 class fcm_departament_categories(Model):
 	_name = 'fcm.departament.categories'

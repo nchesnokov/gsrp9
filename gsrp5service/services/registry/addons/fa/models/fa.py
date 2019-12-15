@@ -1,5 +1,5 @@
-from orm import fields
-from orm.model import Model
+from gsrp5service.orm import fields
+from gsrp5service.orm.model import Model
 
 class fa_accounts_type(Model):
 	_name = "fa.accounts.type"

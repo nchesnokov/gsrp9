@@ -7,7 +7,7 @@ import ssl
 import websockets
 import time
 
-from services.models.orm.model import Model,ModelInherit
+from orm.model import Model,ModelInherit
 
 secure = False
 

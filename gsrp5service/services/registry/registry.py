@@ -7,9 +7,9 @@ from os.path import join as opj
 from .loading import *
 from .depmod import Graph,Node,DependsInstall,DependsRemove
 
-import gsrp5service.services.models.orm.model
-from gsrp5service.services.models.orm.model import Model,ModelInherit
-from gsrp5service.services.models.orm.mm import _getRecNameName,_getChildsIdName
+import gsrp5service.orm.model
+from gsrp5service.orm.model import Model,ModelInherit
+from gsrp5service.orm.mm import _getRecNameName,_getChildsIdName
 
 from serviceloader.tools.common import Service, configManagerFixed
 
@@ -165,7 +165,7 @@ class Registry(Service):
 			self._module_paths[d] = list(filter(lambda x: os.path.isdir(opj(mdir,x)), os.listdir(mdir)))
 			if self._pwd not in sys.path:
 				sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
-				print('SYS.PATH:',self._pwd,sys.path)
+				#print('SYS.PATH:',self._pwd,sys.path)
 		for path in list(self._module_paths.keys()):
 			for name in self._module_paths[path]:
 				if os.path.isdir(opj(self._pwd, path, name)) and os.path.exists(opj(self._pwd, path, name, '__manifest__.info')) and os.path.isfile(opj(self._pwd, path, name, '__manifest__.info')):
@@ -181,11 +181,13 @@ class Registry(Service):
 
 	def _fromlist(self,module):
 		_fl = []
-		for d in os.walk(self._modules[module]['import'].replace('.',os.path.sep)):
+		for d in os.walk(opj(self._pwd,self._modules[module]['import'].replace('.',os.path.sep))):
+			#print('D2:',d)
 			for f in filter(lambda x: x[-3:] == '.so',d[2]):
-				m = d[0].split(os.path.sep)[2:]
+				m = d[0].split(os.path.sep)[-1:]
 				m.append(f.split('.')[0])
 				_fl.append(reduce(lambda x,y: x+'.'+y,m))
+		#print('FROMLIST:',module,self._modules[module]['import'].replace('.',os.path.sep),_fl)
 		return tuple(_fl)
 
 	def _load_modules(self):
@@ -197,10 +199,8 @@ class Registry(Service):
 
 	def _load_module(self,module):
 		if not 'loaded' in self._modules[module] or not self._modules[module]['loaded']:
-			#print('LOADING:',self._modules[module]['import'],__import__(self._modules[module]['import']))
 			load_module(self._modules[module]['import'],self._fromlist(module))
-			meta = gsrp5service.services.models.orm.model.MetaModel.__modules__
-			#print('MODULE:',module,meta)
+			meta = gsrp5service.orm.model.MetaModel.__modules__
 			self._modules[module]['class'] = []
 			self._modules[module]['lom'] = []
 

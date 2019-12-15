@@ -9,7 +9,7 @@ import yaml
 from yaml import Loader
 from os.path import join as opj
 from . import genddl
-from gsrp5service.services.models.orm.model import Model,ModelInherit,Access
+from gsrp5service.orm.model import Model,ModelInherit,Access
 
 __all__ = ['install','uninstall','upgrade','sysinstall','sysupgrade','upgrademoduleslist']
 
