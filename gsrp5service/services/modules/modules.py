@@ -21,7 +21,6 @@ class Modules(Service):
 		self._registry = registry
 
 	def _call(self,args):
-		print('ServiceModules-execute:',args)
 		if args[0][0] == '_':
 			raise serviceslots_exception("The method <%s> of service <%s> is private. You can not call it remotely." % (args[1],self._name))
 
@@ -31,11 +30,10 @@ class Modules(Service):
 			kwargs = {}
 			if len(args) > 1 and type(args[1]) == dict:
 				for key in args[1].keys():
-					print('modules-args1-key:',args[1][key])
 					kwargs[key] = args[1][key]
 			rmsg.extend(method(**kwargs))
-		return rmsg 
 
+		return rmsg 
 
 	def install(self,modules):
 		return install(self._cr,self._pool,self._uid,self._registry,modules)
@@ -47,6 +45,7 @@ class Modules(Service):
 		return upgrade(self._cr,self._pool,self._uid,self._registry,modules)
 	
 	def sysinstall(self):
+		self._registry._load_modules()
 		return sysinstall(self._cr,self._pool,self._uid,self._registry)
 
 	def sysupgrade(self):

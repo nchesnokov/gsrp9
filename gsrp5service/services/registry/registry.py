@@ -113,14 +113,13 @@ class Registry(Service):
 	_dependsremove = None
 	_packages = []
 
-	#def __init__(self, module_paths = None, able = None):
 	def __init__(self, config_file=None):
 		cf = ConfigParser()
 		cf.read(config_file)
 		self._config = configManagerFixed(cf,{'globals':{'module_paths':{'addons':None},'able':None}},dkey=['module_paths'])
 		module_paths = self._config['globals']['module_paths']
 		able = self._config['globals']['able']
-		self._pwd = os.getcwd()
+		self._pwd = os.path.dirname(os.path.abspath(__file__))
 		if module_paths:
 			self._module_paths = module_paths
 		else:
@@ -145,7 +144,7 @@ class Registry(Service):
 		self._models = {}
 		_self.mom = {}
 		self._graph = Graph()
-		self._pwd = os.getcwd()
+		self._pwd = os.path.dirname(os.path.abspath(__file__))
 		self._depends = None
 		self._dependsinstall = None
 		self._dependsremove = None
@@ -164,6 +163,9 @@ class Registry(Service):
 		for d in list(self._module_paths.keys()):
 			mdir = opj(os.path.dirname(os.path.abspath(__file__)),d)
 			self._module_paths[d] = list(filter(lambda x: os.path.isdir(opj(mdir,x)), os.listdir(mdir)))
+			if self._pwd not in sys.path:
+				sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+				print('SYS.PATH:',self._pwd,sys.path)
 		for path in list(self._module_paths.keys()):
 			for name in self._module_paths[path]:
 				if os.path.isdir(opj(self._pwd, path, name)) and os.path.exists(opj(self._pwd, path, name, '__manifest__.info')) and os.path.isfile(opj(self._pwd, path, name, '__manifest__.info')):
@@ -195,9 +197,10 @@ class Registry(Service):
 
 	def _load_module(self,module):
 		if not 'loaded' in self._modules[module] or not self._modules[module]['loaded']:
+			#print('LOADING:',self._modules[module]['import'],__import__(self._modules[module]['import']))
 			load_module(self._modules[module]['import'],self._fromlist(module))
-			meta = orm.model.MetaModel.__modules__
-			
+			meta = gsrp5service.services.models.orm.model.MetaModel.__modules__
+			#print('MODULE:',module,meta)
 			self._modules[module]['class'] = []
 			self._modules[module]['lom'] = []
 
@@ -240,8 +243,8 @@ class Registry(Service):
 				self._meta_with_inherit(model,module)
 	
 	def _create_model(self,model,module):
-		#print('module&model:',model,module)
 		meta = self._getMetaOfModulesModel(model,module)
+		print('module&model:',model,module,meta)
 		cls = type(meta['name'],meta['bases'],meta['attrs'])
 		type.__init__(cls, meta['name'],meta['bases'],meta['attrs'])
 		obj = cls()
@@ -374,7 +377,7 @@ class Registry(Service):
 			self._modules[module]['loaded'] = False
 
 	def _getMetaOfModulesModel(self,model,module):
-		#print('_getMetaOfModulesModel:',model,module)
+		print('_getMetaOfModulesModel:',model,module,self._momm)
 		if module in self._momm and model in self._momm[module]: 
 			return self._momm[module][model]
 

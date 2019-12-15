@@ -204,28 +204,30 @@ class System(object):
 	_models = {}
 	
 	def __init__(self,config_file):
-		#print('CONFIF-FILEL',config_file)
 		cf = ConfigParser()
 		cf.read(config_file)
 		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':'system','password':None,'sslmode':None,'sslrootcert':None,'sslcert':None,'sslkey':None},ikey=['port'])
-		#print('SYSTEM-CONF:',self._conf)
 
 	def _call(self,args):
-		print('CALL:',args,args[0])
+		res = []
 		args0 = args[0]
 		if args0 == 'modules':
-			self._components['modules']._call(args[1:])
+			rc = self._components['modules']._call(args[1:])
 		elif args0 == 'models':
-			self._components['models']._call(args[1:])
+			rc = self._components['models']._call(args[1:])
 		elif args0 == 'gens':
-			self._components['gens']._call(args[1:])
+			rc = self._components['gens']._call(args[1:])
 		elif args0 == 'slots':
-			print('CALL-SLOTS:',args)
-			self._components['slots']._call(args[1:])
+			rc = self._components['slots']._call(args[1:])
 		else:
-			pass
+			rc = ['NOT CALLED']
 		
-		return [args0]
+		if type(rc) in (list,tuple):
+			res.extend(rc)
+		else:
+			res.append(rc)
+		
+		return res
 
 	def open(self,profile):
 

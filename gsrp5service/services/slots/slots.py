@@ -25,7 +25,6 @@ class Slots(Component):
 		self._session = session
 	
 	def _call(self, args):
-		print('ServiceSids-execute:',args)
 		if args[0][0] == '_':
 			raise serviceslots_exception("The method <%s> of service <%s> is private. You can not call it remotely." % (args[1],self._name))
 
@@ -35,9 +34,9 @@ class Slots(Component):
 			kwargs = {'session':self._session}
 			if len(args) > 1 and type(args[1]) == dict:
 				for key in args[1].keys():
-					print('args1-key:',args[1][key])
 					kwargs[key] = args[1][key]
 			rmsg.extend(method(**kwargs))
+
 		return rmsg 
 
 	def create(self,session,name,db_user):
@@ -45,9 +44,10 @@ class Slots(Component):
 		if name !='system':
 			session._cursor.cr.execute("select count(*) from pg_catalog.pg_database where datname=%s" ,(name,))
 			if session._cursor.cr.fetchone()[0] == 0:
-				session._cursor.execute("CREATE DATABASE IF NOT EXISTS %s ENCODING='UTF-8'; SET DATABASE=%s;GRANT ALL ON DATABASE %s TO %s" % (name,name,name,db_user))
 				_logger.info("Creating Slot: %s" % (name,))
-				rmsg.append(session._components['modules']._call(['sysinstall']))
+				session._cursor.execute("CREATE DATABASE IF NOT EXISTS %s ENCODING='UTF-8'; SET DATABASE=%s;GRANT ALL ON DATABASE %s TO %s" % (name,name,name,db_user))
+				rmsg.append(session._cursor.cr.statusmessage)
+				#rmsg.extend(session._components['modules']._call(['sysinstall']))
 				_logger.info("Created Slot: %s" % (name,))
 			else:
 				_logger.info("Slot: %s are created" % (name,))
@@ -64,8 +64,6 @@ class Slots(Component):
 			session.commit()
 			session._cursor.conn.autocommit=True
 			session._cursor.execute("DROP DATABASE IF EXISTS %s CASCADE" % (sid,))
-			res.append(session._cursor.cr.statusmessage)
-			#session._models.get('root.sids').delete(session._cursor,session._models,0,cond=[('name','=',sid)])
 			session._cursor.conn.autocommit=False
 			_logger.info("Drop Slot: %s" % (sid,))
 			res.append(session._cursor.cr.statusmessage)

@@ -96,6 +96,7 @@ async def hello():
 				#msg = await _execute([ws, 'slots','drop',{'sid':'test003'}])
 				#msg = await _execute([ws, '_reload'])
 				msg = await _execute([ws, 'slots','create',{'name':'test001','db_user':'test'}])
+				msg = await _execute([ws, 'modules','sysinstall'])
 				#msg = await _execute([ws, 'slots','create',{'sid':'test002','host':'localhost','port':26257,'database':'test002','db_user':'test','db_password':'test','sslmode':'verify-full'}])
 				#msg = await _execute([ws, 'slots','create',{'sid':'test001','host':'localhost','port':26257,'database':'test001','db_user':'test','db_password':'test','sslmode':'verify-full'}])
 				msg = await _execute([ws, '_commit'])

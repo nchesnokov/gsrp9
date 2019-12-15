@@ -16,6 +16,7 @@ class MetaModel(type):
 	__modules__ = {}
 
 	def __new__(cls, name, bases, attrs):
+		print('__NEW__:',name,attrs['__module__'])
 		if '__module__' in attrs and not attrs['__module__'] in ('gsrp5service.services.models.orm.model','services.models.orm.model','models.orm.model''orm.model','model'):
 			_m = attrs['__module__'].split('.')
 

@@ -32,7 +32,8 @@ def _install(cr,pool,uid,registry,able=None, modules = None):
 	_modules = []
 	if able is None or not able:
 		able= ['install']
-	
+
+	print('_INSTALL:',cr,pool,uid,registry,able,modules,registry._depends)
 	if type(modules) == str:
 		if registry._modules[modules]['meta']['able'] in able:
 			_modules.append(modules)
