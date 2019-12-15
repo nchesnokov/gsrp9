@@ -2,7 +2,7 @@ import os
 import logging
 from os.path import join as opj
 from io import BytesIO
-from gsrp5service.services.models.orm.model import Model
+from gsrp5service.orm.model import Model
 
 b = BytesIO()
 TAB = '  '

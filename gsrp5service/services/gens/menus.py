@@ -4,7 +4,7 @@ from functools import reduce
 from os.path import join as opj
 from io import BytesIO
 from .views import isAllow,VIEWSGEN
-from gsrp5service.services.models.orm.model import Model
+from gsrp5service.orm.model import Model
 
 import html
 
