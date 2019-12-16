@@ -46,6 +46,7 @@ class Slots(Component):
 			if session._cursor.cr.fetchone()[0] == 0:
 				_logger.info("Creating Slot: %s" % (name,))
 				session._cursor.execute("CREATE DATABASE IF NOT EXISTS %s ENCODING='UTF-8'; SET DATABASE=%s;GRANT ALL ON DATABASE %s TO %s" % (name,name,name,db_user))
+				session._cursor.commit()
 				rmsg.append(session._cursor.cr.statusmessage)
 				rmsg.extend(session._components['modules']._call(['sysinstall']))
 				_logger.info("Created Slot: %s" % (name,))
