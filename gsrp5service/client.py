@@ -75,7 +75,7 @@ async def hello():
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','md','cm','crm','fa','hcm','ml','mm','md3','mrp','oil','project','purchase','sale','le','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ehs','scm']}])
 				
 				#msg = await _execute([ws, '_login',{'user':'admin','password':'admin','slot':'test001'}])
-				#msg = await _execute([ws, 'gens','ui',{'modules': ['fcm']}])
+				#msg = await _execute([ws, 'gens','ui',{'modules': ['purchase']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['cm','md','mrp']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['fcm']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','cm','crm','fa','hcm','ml','mm','mrp','purchase','sale','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm']}])
@@ -91,12 +91,12 @@ async def hello():
 				#msg = await _execute([ws, 'modules','install',{'modules':['wkf_srm']}])
 				
 				#return
-				#msg = await _execute([ws, 'slots','drop',{'sid':'test001'}])
+				msg = await _execute([ws, 'slots','drop',{'sid':'test001'}])
 				#msg = await _execute([ws, 'slots','drop',{'sid':'test002'}])
 				#msg = await _execute([ws, 'slots','drop',{'sid':'test003'}])
 				#msg = await _execute([ws, '_reload'])
-				#msg = await _execute([ws, 'slots','create',{'name':'test001','db_user':'test'}])
-				msg = await _execute([ws, 'modules','sysinstall'])
+				msg = await _execute([ws, 'slots','create',{'name':'test001','db_user':'test'}])
+				#msg = await _execute([ws, 'modules','sysinstall'])
 				#msg = await _execute([ws, 'slots','create',{'sid':'test002','host':'localhost','port':26257,'database':'test002','db_user':'test','db_password':'test','sslmode':'verify-full'}])
 				#msg = await _execute([ws, 'slots','create',{'sid':'test001','host':'localhost','port':26257,'database':'test001','db_user':'test','db_password':'test','sslmode':'verify-full'}])
 				msg = await _execute([ws, '_commit'])

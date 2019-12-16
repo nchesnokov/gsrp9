@@ -47,7 +47,7 @@ class Slots(Component):
 				_logger.info("Creating Slot: %s" % (name,))
 				session._cursor.execute("CREATE DATABASE IF NOT EXISTS %s ENCODING='UTF-8'; SET DATABASE=%s;GRANT ALL ON DATABASE %s TO %s" % (name,name,name,db_user))
 				rmsg.append(session._cursor.cr.statusmessage)
-				#rmsg.extend(session._components['modules']._call(['sysinstall']))
+				rmsg.extend(session._components['modules']._call(['sysinstall']))
 				_logger.info("Created Slot: %s" % (name,))
 			else:
 				_logger.info("Slot: %s are created" % (name,))

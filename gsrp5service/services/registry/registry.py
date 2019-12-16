@@ -439,6 +439,7 @@ class Registry(Service):
 				r[model] = self._create_model(model,module)
 				
 		r = self._load_schema(r)
+		self._models = r
 		
 		return r
 

@@ -26,6 +26,22 @@ class Gens(Service):
 		self._uid = uid
 		self._registry = registry
 
+	def _call(self,args):
+		if args[0][0] == '_':
+			raise serviceslots_exception("The method <%s> of service <%s> is private. You can not call it remotely." % (args[1],self._name))
+
+		rmsg = []
+		method = getattr(self,args[0],None)
+		if method and callable(method):
+			kwargs = {}
+			if len(args) > 1 and type(args[1]) == dict:
+				for key in args[1].keys():
+					kwargs[key] = args[1][key]
+			rmsg.extend(method(**kwargs))
+
+		return rmsg 
+
+
 	def role(self,modules=None, context={}):
 		return roles.Area(self._cr,self._pool,self._uid,self._registry,modules,context)
 
