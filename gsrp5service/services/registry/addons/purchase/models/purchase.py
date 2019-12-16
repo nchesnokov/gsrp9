@@ -164,6 +164,7 @@ class purchase_orders(Model):
 	'items': fields.one2many(label='Items',obj='purchase.order.items',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.roles',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='purchase.order.texts',rel='order_id'),
+	'payments': fields.one2many(label='Payments',obj='purchase.order.payment.schedules',rel='order_id'),
 	'note': fields.text('Note')
 	}
 
@@ -231,6 +232,20 @@ class purchase_order_roles(Model):
 
 purchase_order_roles()
 
+class purchase_order_payment_schedules(Model):
+	_name = 'purchase.order.payment.schedules'
+	_description = 'General Model Purchase Order Payment Schedules'
+	_columns = {
+	'order_id': fields.many2one(label = 'Order',obj='purchase.orders'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_order_payment_schedules()
+
+
 class purchase_order_items(Model):
 	_name = 'purchase.order.items'
 	_description = 'General Model Purchase Order Items'
@@ -251,6 +266,7 @@ class purchase_order_items(Model):
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='purchase.order.item.delivery.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='purchase.order.item.texts',rel='item_id'),
+	'payments': fields.one2many(label='Payments',obj='purchase.order.item.payment.schedules',rel='item_id'),
 	'note': fields.text(label = 'Note')}
 
 	def _on_change_product(self,cr,pool,uid,item,context={}):		
@@ -363,6 +379,20 @@ class purchase_order_item_delivery_schedules(Model):
 	}
 
 purchase_order_item_delivery_schedules()
+
+class purchase_order_item_payment_schedules(Model):
+	_name = 'purchase.order.item.payment.schedules'
+	_description = 'General Model Purchase Order Item Payment Schedules'
+	_columns = {
+	'item_id': fields.many2one(label = 'Item',obj='purchase.order.items'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_order_item_payment_schedules()
+
 
 # Invoice
 class purchase_invoices(Model):
