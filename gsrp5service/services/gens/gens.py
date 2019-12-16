@@ -28,7 +28,7 @@ class Gens(Service):
 
 	def _call(self,args):
 		if args[0][0] == '_':
-			raise serviceslots_exception("The method <%s> of service <%s> is private. You can not call it remotely." % (args[1],self._name))
+			raise servicegens_exception("The method <%s> of service <%s> is private. You can not call it remotely." % (args[1],self._name))
 
 		rmsg = []
 		method = getattr(self,args[0],None)
