@@ -31,28 +31,30 @@ class User(object):
 	_cache_attrs = {}
 
 	def __init__(self,config_file):
-		#print('CONFIF-FILEL',config_file)
 		cf = ConfigParser()
 		cf.read(config_file)
 		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':None,'password':None,'sslmode':None,'sslrootcert':None,'sslcert':None,'sslkey':None},ikey=['port'])
-		#print('USER-CONF:',self._conf)
 
 	def _call(self,args):
-		print('CALL:',args,args[0])
+		res = []
 		args0 = args[0]
 		if args0 == 'modules':
-			self._components['modules']._call(args[1:])
+			rc = self._components['modules']._call(args[1:])
 		elif args0 == 'models':
-			self._components['models']._call(args[1:])
+			rc = self._components['models']._call(args[1:])
 		elif args0 == 'gens':
-			self._components['gens']._call(args[1:])
+			rc = self._components['gens']._call(args[1:])
 		elif args0 == 'slots':
-			print('CALL-SLOTS:',args)
-			self._components['slots']._call(args[1:])
+			rc = self._components['slots']._call(args[1:])
 		else:
-			pass
+			rc = ['NOT CALLED']
 		
-		return [args0]
+		if type(rc) in (list,tuple):
+			res.extend(rc)
+		else:
+			res.append(rc)
+		
+		return res
 
 	def open(self,profile):
 
@@ -68,6 +70,10 @@ class User(object):
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'])
 
 		if self._cursor.open():
+			self._models = self._components['registry']._createAllModels()
+			self._uid = self._getUid()
+			self._components['models']._setup(self._cursor,self._models,self._uid,self)
+			self._components['uis']._setup(self._cursor,self._models,self._uid)
 			return self
 
 		self._cursor = None
@@ -156,7 +162,6 @@ class User(object):
 			kwargs = {'cr':self._cursor,'pool':self._models,'uid':self._uid}
 			for k in args[1].keys():
 				kwargs[k] = args[1][k]
-			#print('open:',oid)
 			self._cache[oid] = MCache(**kwargs)
 			return [oid]
 		elif args[0] == 'getmode':
@@ -164,7 +169,6 @@ class User(object):
 		elif args[0] == 'setmode':
 			return self._cache[args[1]]._setMode(**(args[2]))
 		elif args[0] == 'close':
-			#print('close:',args[1],self._cache)
 			del self._cache[args[1]]
 			return [True]
 		
@@ -247,13 +251,14 @@ class System(object):
 			for key in self._models.keys():
 				self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 			
-			self._components['modules']._setup(cr=self._cursor,pool=self._models,uid=self._getUid(),registry=self._components['registry'])
-			#self._components['models']._setup(self)
-			#self._components['gens']._setup(self)
+			self._uid = self._getUid()
+			self._components['modules']._setup(cr=self._cursor,pool=self._models,uid=self._uid,registry=self._components['registry'])
+			self._components['models']._setup(self._cursor,self._models,self._uid,self)
+			self._components['gens']._setup(self._cursor,self._models,self._uid,self._components['registry'])
 			self._components['slots']._setup(self)		
 			return self
 
-		self._cursor = None
+		#self._cursor = None
 
 	
 	def login(self,user,password,slot=None):

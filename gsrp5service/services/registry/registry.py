@@ -69,7 +69,6 @@ def _schema_to_levels(s,l=0):
 def _build_schema(pool,model):
 	res = [model]
 	m = pool.get(model)
-	#print('BUID SCHEMA:',model,m)
 	if isinstance(m,ModelInherit):
 		return res
 	o2mfields = m._o2mfields
@@ -137,7 +136,6 @@ class Registry(Service):
 		self._graph = Graph()
 		self._load_modules_info()
 		self._load_modules()
-		#print('MOMM:',self._momm['srm']['srm.demand.items']['attrs']['_columns'])
 
 	def _reload(self):
 		self._modules = {}
@@ -201,10 +199,7 @@ class Registry(Service):
 		if not 'loaded' in self._modules[module] or not self._modules[module]['loaded']:
 			load_module(self._modules[module]['import'],self._fromlist(module))
 			meta = gsrp5service.orm.model.MetaModel.__modules__
-			for k1 in meta.keys():
-				for k2 in meta[k1].keys():
-					pass
-					#print('META:',k1,k2,meta[k1][k2])
+
 			self._modules[module]['class'] = []
 			self._modules[module]['lom'] = []
 
@@ -219,9 +214,6 @@ class Registry(Service):
 				self._setMetaOfModulesModel(model,module,meta)
 				if '_inherits' in meta['attrs'] and meta['attrs']['_inherits'] and len(meta['attrs']['_inherits']) > 0:
 					self._meta_with_inherits(model,module)
-				
-				#if '_inherit' in meta['attrs'] and meta['attrs']['_inherit'] and len(meta['attrs']['_inherit']) > 0:
-					#self._meta_with_inherit(model,module)
 
 	def _load_inherits(self):
 		modules = [node.name for node in self._graph]
@@ -248,7 +240,6 @@ class Registry(Service):
 	
 	def _create_model(self,model,module):
 		meta = self._getMetaOfModulesModel(model,module)
-		print('module&model:',model,module,meta)
 		cls = type(meta['name'],meta['bases'],meta['attrs'])
 		type.__init__(cls, meta['name'],meta['bases'],meta['attrs'])
 		obj = cls()
@@ -311,9 +302,6 @@ class Registry(Service):
 			#if self._getFirstModule(key) != module:
 			inherit = imeta['attrs']['_inherit'][key]
 			meta=self._getMetaOfModulesModel(key,self._getLastModuleLoaded(key))
-			#meta = self._getMetaOfModulesModelLastModuleLoaded(key)
-			#if meta is None:
-				#print('META-NONE:',model,module,key,self._getLastModule(key),imeta,inherit)
 			imeta1 = self._copyMeta(meta)			
 			for c in inherit.keys():
 				if c == '_methods':
@@ -345,7 +333,6 @@ class Registry(Service):
 				elif c == '_sql_constraints':
 					imeta1['attrs'].setdefault('_sql_constraints',[]).extend(imeta['attrs'][c])
 
-			#print('META3:',list(meta['attrs']['_columns'].keys()))
 			self._setMetaOfModulesModel(key,module,imeta1)
 		
 	def _load_schema(self,models):
@@ -381,7 +368,6 @@ class Registry(Service):
 			self._modules[module]['loaded'] = False
 
 	def _getMetaOfModulesModel(self,model,module):
-		print('_getMetaOfModulesModel:',model,module,self._momm)
 		if module in self._momm and model in self._momm[module]: 
 			return self._momm[module][model]
 

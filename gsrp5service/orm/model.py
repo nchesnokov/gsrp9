@@ -20,9 +20,9 @@ class MetaModel(type):
 			_m = attrs['__module__'].split('.')
 
 			if _m[0] == 'gsrp5service':
-				_module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[-1:])	
+				_module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[1:3])	
 			else:	
-				_module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[:4])	
+				_module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[:2])	
 			#MetaModel.__modules__.setdefault(_module,{})[attrs['_name']] = {'cls':cls,'name':name,'bases':bases,'attrs':attrs}
 			MetaModel.__modules__.setdefault(_module,{})[attrs['_name']] = {'name':name,'bases':bases,'attrs':attrs}
 

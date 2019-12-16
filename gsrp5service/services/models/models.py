@@ -20,18 +20,22 @@ class Models(Component):
 		cf.read(config_file)
 		self._config = cf
 
+	def _setup(self,cr,pool,uid,session):
+		self._cr = cr
+		self._pool = pool
+		self._uid = uid
+		self._session = session
 	
-	def _execute(self, session, args):
+	def _call(self,args):
 		rmsg = []
-		model = session._models.get(args[0])
+		model = self._models.get(args[0])
 		method = getattr(model,args[1])
-		print('ARGS-MODELS:',method,callable(method),args)
 		if callable(method):
 			kwargs = {}
 			if args[1] in ('create','read','write','modify','unlink','insert','tree','select','update','upsert','delete','do_action','m2munlink','remote_call','do_compute','do_upload_csv'):
-				kwargs['cr'] = session._cursor
-				kwargs['pool'] = session._models
-				kwargs['uid'] = session._uid		
+				kwargs['cr'] = self._cr
+				kwargs['pool'] = self._pool
+				kwargs['uid'] = self._uid		
 	
 			if len(args) > 2 and type(args[2]) == dict:
 				for key in args[2].keys():
@@ -42,10 +46,9 @@ class Models(Component):
 			else:
 				rmsg.append(method(**kwargs))
 
-		print('ARGS-RMSG:',args[1],rmsg)
 		if 'context' in kwargs and 'cache' in kwargs['context'] and kwargs['context']['cache'] and args[1] == 'read':
 			if len(rmsg) > 0:
 				oid = kwargs['context']['cache']
-				rmsg[0] = session._cache[oid]._do_read(args[0],rmsg[0])
+				rmsg[0] = self._session._cache[oid]._do_read(args[0],rmsg[0])
 
 		return rmsg 

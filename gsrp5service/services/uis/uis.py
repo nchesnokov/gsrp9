@@ -17,9 +17,12 @@ class Uis(Component):
 		cf.read(config_file)
 		self._config = cf
 
+	def _setup(self,cr,pool,uid):
+		self._cr = cr
+		self._pool = pool
+		self._uid = uid
 
-	def _execute(self, session,args):
-		#print('execute-modules:',args)
+	def _call(self, args):
 		if args[0][0] == '_':
 			raise serviceui_exception("The method <%s> of service <%s> is private. You can not call it remotely." % (args[1],self._name))
 
@@ -27,12 +30,10 @@ class Uis(Component):
 		if hasattr(self,args[0]):
 			method = getattr(self,args[0],None)
 			if callable(method):
-				#kwargs = {'session':session}
 				kwargs = {}
-				kwargs['cr'] = session._cursor
-				kwargs['pool'] = session._sid._models
-				kwargs['uid'] = session._uid
-				#kwargs['registry'] = session._sid._registry
+				kwargs['cr'] = self._cr
+				kwargs['pool'] = self._pool
+				kwargs['uid'] = self._uid
 				
 				if len(args) > 1 and type(args[1]) == dict:
 					for key in args[1].keys():
