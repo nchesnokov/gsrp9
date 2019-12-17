@@ -23,7 +23,7 @@ class MetaModel(type):
 				_module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[1:3])	
 			else:	
 				_module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[:2])	
-			#MetaModel.__modules__.setdefault(_module,{})[attrs['_name']] = {'cls':cls,'name':name,'bases':bases,'attrs':attrs}
+
 			MetaModel.__modules__.setdefault(_module,{})[attrs['_name']] = {'name':name,'bases':bases,'attrs':attrs}
 
 		return super(MetaModel, cls).__new__(cls, name, bases, attrs)
