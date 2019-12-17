@@ -735,6 +735,7 @@ def _load_class_bc(cr,pool,uid,name):
 			envfields = bcm._extra['env-fields']
 			for envfield in envfields:
 				mt[envfield] = _load_env_column(cr,pool,uid,bcm._name,envfield)
+				print('ENVFIELD:',mt)
 
 			mod_record = {'id':model['id']}
 			for envfield in envfields:
