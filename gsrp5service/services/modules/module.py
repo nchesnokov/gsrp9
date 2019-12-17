@@ -257,7 +257,8 @@ def _installModule(cr,pool,uid,name,registry):
 		if len(sqls) == 1:
 			cr.execute(sqls[0])
 		else:
-			cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
+			#cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
+			cr.execute(sqls)
 		cr.commit()
 
 		registry._load_inherit(name)

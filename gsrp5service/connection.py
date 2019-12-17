@@ -182,13 +182,25 @@ class Cursor(object):
 		return self.conn
 
 	def mogrify(self, query, vars):
-		return self.cr.mogrify(query,vars)
+		if type(query) == str:
+			return self.cr.mogrify(query,vars)
+		elif  type(query) in (tuple,list):
+			res = []
+			for q1 in query:
+				res.append(self.cr.mogrify(q1,vars))
+
+			return res
 
 	def execute(self, query, vals = None):
 		try:
 			#print('sql query:',query,vals)
 			#print('mogrify:',self.mogrify(query,vals))
-			self.cr.execute(query = query, vars = vals)
+			if type(query) == str:
+				self.cr.execute(query = query, vars = vals)
+			elif type(query) in (tuple,list):
+				for q1 in query:
+					print('Q1:',q1)
+					self.cr.execute(query = q1, vars = vals)
 		except:
 			self._rollback()
 			#_logger.error('SQL Query: %s\n VALS: % s' % (query,vals))

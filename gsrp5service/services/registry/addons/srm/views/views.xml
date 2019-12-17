@@ -2,9 +2,9 @@
   <gsrp>
     <data>
       <records model="bc.ui.views">
-        <record id="view.srm.route.form">
-          <column name="name">view.srm.route.form</column>
-          <column name="model">srm.route</column>
+        <record id="view.srm.routes.form">
+          <column name="name">view.srm.routes.form</column>
+          <column name="model">srm.routes</column>
           <column name="arch" type="Xml">
             <form>
               <field name="name"/>
@@ -13,9 +13,9 @@
             </form>
           </column>
         </record>
-        <record id="view.srm.route.list">
-          <column name="name">view.srm.route.list</column>
-          <column name="model">srm.route</column>
+        <record id="view.srm.routes.list">
+          <column name="name">view.srm.routes.list</column>
+          <column name="model">srm.routes</column>
           <column name="arch" type="Xml">
             <list>
               <field name="name"/>
@@ -23,27 +23,27 @@
             </list>
           </column>
         </record>
-        <record id="view.srm.route.m2mlist">
-          <column name="name">view.srm.route.m2mlist</column>
-          <column name="model">srm.route</column>
+        <record id="view.srm.routes.m2mlist">
+          <column name="name">view.srm.routes.m2mlist</column>
+          <column name="model">srm.routes</column>
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="name"/>
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.route.search">
-          <column name="name">view.srm.route.search</column>
-          <column name="model">srm.route</column>
+        <record id="view.srm.routes.search">
+          <column name="name">view.srm.routes.search</column>
+          <column name="model">srm.routes</column>
           <column name="arch" type="Xml">
             <search>
               <field name="name"/>
             </search>
           </column>
         </record>
-        <record id="view.srm.route.find">
-          <column name="name">view.srm.route.find</column>
-          <column name="model">srm.route</column>
+        <record id="view.srm.routes.find">
+          <column name="name">view.srm.routes.find</column>
+          <column name="model">srm.routes</column>
           <column name="arch" type="Xml">
             <find>
               <field name="name"/>
@@ -6334,9 +6334,9 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.contract.calendar">
-          <column name="name">view.srm.contract.calendar</column>
-          <column name="model">srm.contract</column>
+        <record id="view.srm.contracts.calendar">
+          <column name="name">view.srm.contracts.calendar</column>
+          <column name="model">srm.contracts</column>
           <column name="arch" type="Xml">
             <calendar date="doc">
               <field name="ctype"/>
@@ -6357,9 +6357,9 @@
             </calendar>
           </column>
         </record>
-        <record id="view.srm.contract.schedule">
-          <column name="name">view.srm.contract.schedule</column>
-          <column name="model">srm.contract</column>
+        <record id="view.srm.contracts.schedule">
+          <column name="name">view.srm.contracts.schedule</column>
+          <column name="model">srm.contracts</column>
           <column name="arch" type="Xml">
             <schedule>
               <field name="ctype"/>
@@ -6380,9 +6380,9 @@
             </schedule>
           </column>
         </record>
-        <record id="view.srm.contract.form">
-          <column name="name">view.srm.contract.form</column>
-          <column name="model">srm.contract</column>
+        <record id="view.srm.contracts.form">
+          <column name="name">view.srm.contracts.form</column>
+          <column name="model">srm.contracts</column>
           <column name="arch" type="Xml">
             <form>
               <field name="ctype"/>
@@ -6403,14 +6403,15 @@
               <field name="items"/>
               <field name="roles"/>
               <field name="texts"/>
+              <field name="payments"/>
               <field name="deadlines"/>
               <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.srm.contract.graph">
-          <column name="name">view.srm.contract.graph</column>
-          <column name="model">srm.contract</column>
+        <record id="view.srm.contracts.graph">
+          <column name="name">view.srm.contracts.graph</column>
+          <column name="model">srm.contracts</column>
           <column name="arch" type="Xml">
             <graph date="doc">
               <field name="ctype"/>
@@ -6431,9 +6432,9 @@
             </graph>
           </column>
         </record>
-        <record id="view.srm.contract.list">
-          <column name="name">view.srm.contract.list</column>
-          <column name="model">srm.contract</column>
+        <record id="view.srm.contracts.list">
+          <column name="name">view.srm.contracts.list</column>
+          <column name="model">srm.contracts</column>
           <column name="arch" type="Xml">
             <list>
               <field name="ctype"/>
@@ -6454,13 +6455,14 @@
               <field name="items"/>
               <field name="roles"/>
               <field name="texts"/>
+              <field name="payments"/>
               <field name="deadlines"/>
             </list>
           </column>
         </record>
-        <record id="view.srm.contract.m2mlist">
-          <column name="name">view.srm.contract.m2mlist</column>
-          <column name="model">srm.contract</column>
+        <record id="view.srm.contracts.m2mlist">
+          <column name="name">view.srm.contracts.m2mlist</column>
+          <column name="model">srm.contracts</column>
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="ctype"/>
@@ -6481,9 +6483,9 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.contract.mdx">
-          <column name="name">view.srm.contract.mdx</column>
-          <column name="model">srm.contract</column>
+        <record id="view.srm.contracts.mdx">
+          <column name="name">view.srm.contracts.mdx</column>
+          <column name="model">srm.contracts</column>
           <column name="arch" type="Xml">
             <mdx date="doc">
               <field name="ctype"/>
@@ -6504,9 +6506,9 @@
             </mdx>
           </column>
         </record>
-        <record id="view.srm.contract.search">
-          <column name="name">view.srm.contract.search</column>
-          <column name="model">srm.contract</column>
+        <record id="view.srm.contracts.search">
+          <column name="name">view.srm.contracts.search</column>
+          <column name="model">srm.contracts</column>
           <column name="arch" type="Xml">
             <search>
               <field name="ctype"/>
@@ -6527,9 +6529,9 @@
             </search>
           </column>
         </record>
-        <record id="view.srm.contract.find">
-          <column name="name">view.srm.contract.find</column>
-          <column name="model">srm.contract</column>
+        <record id="view.srm.contracts.find">
+          <column name="name">view.srm.contracts.find</column>
+          <column name="model">srm.contracts</column>
           <column name="arch" type="Xml">
             <find>
               <field name="ctype"/>
@@ -6584,6 +6586,43 @@
               <field name="seq"/>
               <field name="text_id"/>
               <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.srm.contract.payment.schedules.form">
+          <column name="name">view.srm.contract.payment.schedules.form</column>
+          <column name="model">srm.contract.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="contract_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.srm.contract.payment.schedules.list">
+          <column name="name">view.srm.contract.payment.schedules.list</column>
+          <column name="model">srm.contract.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="contract_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.srm.contract.payment.schedules.m2mlist">
+          <column name="name">view.srm.contract.payment.schedules.m2mlist</column>
+          <column name="model">srm.contract.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="contract_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
             </m2mlist>
           </column>
         </record>
@@ -6733,6 +6772,7 @@
               <field name="vat_amount"/>
               <field name="total_amount"/>
               <field name="delivery_schedules"/>
+              <field name="payments"/>
               <field name="roles"/>
               <field name="texts"/>
               <field name="note"/>
@@ -6757,6 +6797,7 @@
               <field name="vat_amount"/>
               <field name="total_amount"/>
               <field name="delivery_schedules"/>
+              <field name="payments"/>
               <field name="roles"/>
               <field name="texts"/>
             </list>
@@ -6923,6 +6964,43 @@
               <field name="uom"/>
               <field name="schedule"/>
             </mdx>
+          </column>
+        </record>
+        <record id="view.srm.contract.item.payment.schedules.form">
+          <column name="name">view.srm.contract.item.payment.schedules.form</column>
+          <column name="model">srm.contract.item.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.srm.contract.item.payment.schedules.list">
+          <column name="name">view.srm.contract.item.payment.schedules.list</column>
+          <column name="model">srm.contract.item.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.srm.contract.item.payment.schedules.m2mlist">
+          <column name="name">view.srm.contract.item.payment.schedules.m2mlist</column>
+          <column name="model">srm.contract.item.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
+            </m2mlist>
           </column>
         </record>
         <record id="view.srm.blacklist.partner.form">

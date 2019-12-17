@@ -24,22 +24,22 @@ class srm_common(ModelInherit):
 
 srm_common()
 
-class srm_route(Model):
-	_name = 'srm.route'
+class srm_routes(Model):
+	_name = 'srm.routes'
 	_description = 'General SRM Route'
 	_columns = {
 	'name': fields.varchar(label = 'Route',selectable = True),
 	'items': fields.one2many(label='Items',obj='srm.route.items',rel='route_id'),
 	'note': fields.text('Note')}
 
-srm_route()
+srm_routes()
 
 class srm_route_items(Model):
 	_name = 'srm.route.items'
 	_description = 'General SRM Route Items'
 	_order_by="route_id asc,sequence asc"
 	_columns = {
-	'route_id': fields.many2one(label='Route',obj='srm.route',on_delete='c',on_update='c'),
+	'route_id': fields.many2one(label='Route',obj='srm.routes',on_delete='c',on_update='c'),
 	'sequence': fields.integer(label='Sequence'),
 	'srm_object_type': fields.selection(label='SRM object type',selections=[('demand','Demand'),('plan','Plan')]),
 	'note': fields.text('Note')}
@@ -170,7 +170,7 @@ class srm_contract_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.contract.category'),
 	'childs_id': fields.one2many(obj = 'srm.contract.category',rel = 'parent_id',label = 'Childs'),
-	'contracts': fields.one2many(label='Contracts',obj='srm.contract',rel='category_id',limit = 80,readonly=True),
+	'contracts': fields.one2many(label='Contracts',obj='srm.contracts',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -268,7 +268,7 @@ class srm_demand(Model):
 	'from_date': fields.date(label='From Date Of Demand',required=True),
 	'to_date': fields.date(label='To Date Of Demand',required=True),
 	'partner': fields.many2one(label='Partner',obj='md.partner',on_delete='n',on_update='n',domain=[('issuplier',)]),
-	'route_id': fields.many2one(label='Route',obj='srm.route',on_delete='n',on_update='n'),
+	'route_id': fields.many2one(label='Route',obj='srm.routes',on_delete='n',on_update='n'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
@@ -469,7 +469,7 @@ class srm_part(Model):
 	'from_date': fields.date(label='From Date Of Part',required=True),
 	'to_date': fields.date(label='To Date Of Part',required=True),
 	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
-	'route_id': fields.many2one(label='Route',obj='srm.route'),
+	'route_id': fields.many2one(label='Route',obj='srm.routes'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
@@ -673,7 +673,7 @@ class srm_plan(Model):
 	'from_date': fields.date(label='From Date Of Plan',required=True),
 	'to_date': fields.date(label='To Date Of Plan',required=True),
 	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
-	'route_id': fields.many2one(label='Route',obj='srm.route'),
+	'route_id': fields.many2one(label='Route',obj='srm.routes'),
 	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')]),
 	'items': fields.one2many(label='Items',obj='srm.plan.items',rel='plan_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.plan.roles',rel='plan_id'),
@@ -872,7 +872,7 @@ class srm_request(Model):
 	'from_date': fields.date(label='From Date Of Request',required=True),
 	'to_date': fields.date(label='To Date Of Request',required=True),
 	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
-	'route_id': fields.many2one(label='Route',obj='srm.route'),
+	'route_id': fields.many2one(label='Route',obj='srm.routes'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
@@ -1043,7 +1043,7 @@ class srm_rfx(Model):
 	'to_date': fields.date(label='To Date Of RFX',required=True),
 	'rfxtype': fields.selection(label='Type',selections=[('O','Opened'),('C','Closed')]),
 	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
-	'route_id': fields.many2one(label='Route',obj='srm.route'),
+	'route_id': fields.many2one(label='Route',obj='srm.routes'),
 	'items': fields.one2many(label='Items',obj='srm.rfx.items',rel='rfx_id'),
 	'deadlines': fields.one2many(label='Deadlines',obj='srm.rfx.deadlines',rel='rfx_id'),
 	'partners': fields.one2many(label='Partners',obj='srm.rfx.partner',rel='partner_id'),
@@ -1107,7 +1107,7 @@ class srm_auction(Model):
 	'from_date': fields.date(label='From Date Of Auction',required=True),
 	'to_date': fields.date(label='To Date Of Auction',required=True),
 	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
-	'route_id': fields.many2one(label='Route',obj='srm.route'),
+	'route_id': fields.many2one(label='Route',obj='srm.routes'),
 	'items': fields.one2many(label='Items',obj='srm.auction.items',rel='auction_id'),
 	'deadlines': fields.one2many(label='Deadlines',obj='srm.auction.deadlines',rel='auction_id'),
 	'partners': fields.one2many(label='Partners',obj='srm.auction.partner',rel='auction_id'),
@@ -1201,7 +1201,7 @@ class srm_offer(Model):
 	'from_date': fields.date(label='From Date Of Offer',required=True),
 	'to_date': fields.date(label='To Date Of Offer',required=True),
 	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
-	'route_id': fields.many2one(label='Route',obj='srm.route'),
+	'route_id': fields.many2one(label='Route',obj='srm.routes'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
@@ -1403,7 +1403,7 @@ class srm_evolution(Model):
 	'from_date': fields.date(label='From Date Of Evolution',required=True),
 	'to_date': fields.date(label='To Date Of Evolution',required=True),
 	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
-	'route_id': fields.many2one(label='Route',obj='srm.route'),
+	'route_id': fields.many2one(label='Route',obj='srm.routes'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
@@ -1606,7 +1606,7 @@ class srm_decision(Model):
 	'from_date': fields.date(label='From Date Of Decision',required=True),
 	'to_date': fields.date(label='To Date Of Decision',required=True),
 	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
-	'route_id': fields.many2one(label='Route',obj='srm.route'),
+	'route_id': fields.many2one(label='Route',obj='srm.routes'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
@@ -1797,8 +1797,8 @@ srm_contract_type_roles()
 
 # Types & Roles
 
-class srm_contract(Model):
-	_name = 'srm.contract'
+class srm_contracts(Model):
+	_name = 'srm.contracts'
 	_description = 'General SRM Contract'
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'doc'
@@ -1813,7 +1813,7 @@ class srm_contract(Model):
 	'to_date': fields.date(label='To Date Of Contract',required=True),
 	'currency': fields.many2one(label='Currency',obj='md.currency'),
 	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
-	'route_id': fields.many2one(label='Route',obj='srm.route'),
+	'route_id': fields.many2one(label='Route',obj='srm.routes'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
@@ -1821,6 +1821,7 @@ class srm_contract(Model):
 	'items': fields.one2many(label='Items',obj='srm.contract.items',rel='contract_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.contract.roles',rel='contract_id'),
 	'texts': fields.one2many(label='Texts',obj='srm.contract.texts',rel='contract_id'),
+	'payments': fields.one2many(label='Payments',obj='srm.contract.payment.schedules',rel='contarct_id'),
 	'deadlines': fields.one2many(label='Deadlines',obj='srm.contract.deadlines',rel='contract_id'),
 	'note': fields.text('Note')}
 
@@ -1833,7 +1834,7 @@ class srm_contract(Model):
 					item[roles].append[role['role_id']]
 
 
-srm_contract()
+srm_contracts()
 
 class srm_contract_texts(Model):
 	_name = 'srm.contract.texts'
@@ -1843,7 +1844,7 @@ class srm_contract_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'contract_id': fields.many2one(label='Contract',obj='srm.contract'),
+	'contract_id': fields.many2one(label='Contract',obj='srm.contracts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
 	'descr': fields.referenced(ref='text_id.descr'),
@@ -1852,12 +1853,24 @@ class srm_contract_texts(Model):
 
 srm_contract_texts()
 
+class srm_contract_payment_schedules(Model):
+	_name = 'srm.contract.payment.schedules'
+	_description = 'General Model SRM Contract Payment Schedules'
+	_columns = {
+	'contract_id': fields.many2one(label='Contract',obj='srm.contracts'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+
+srm_contract_payment_schedules()
 
 class srm_contract_roles(Model):
 	_name = 'srm.contract.roles'
 	_description = 'General Model SRM Contact Roles'
 	_columns = {
-	'contract_id': fields.many2one(label = 'Contract',obj='srm.contract'),
+	'contract_id': fields.many2one(label = 'Contract',obj='srm.contracts'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
 	'patner_id': fields.many2one(label = 'Parther',obj='md.partner',domain=[('ispeople',)])
 	}
@@ -1879,7 +1892,7 @@ class srm_contract_deadlines(Model):
 	_description = 'General SRM Contract Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
-	'contract_id': fields.many2one(label = 'Name',obj='srm.contract'),
+	'contract_id': fields.many2one(label = 'Name',obj='srm.contracts'),
 	'contract_type_deadline_id': fields.many2one(label = 'Type',obj='srm.contract.type.deadlines'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
@@ -1892,7 +1905,7 @@ class srm_contract_items(Model):
 	_description = 'General SRM Contract Items'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
-	'contract_id': fields.many2one(obj = 'srm.contract',label = 'Contract'),
+	'contract_id': fields.many2one(obj = 'srm.contracts',label = 'Contract'),
 	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
 	'quantity': fields.numeric(label='Quantity',compute='_calculate_items',size=(13,3)),
 	'uom': fields.many2one(label='UoM',obj='md.uom'),
@@ -1906,6 +1919,7 @@ class srm_contract_items(Model):
 	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
 	'currency': fields.referenced(label='Currency',ref='contract_id.currency'),
 	'delivery_schedules': fields.one2many(label='Delivery Schedules',obj='srm.contract.delivery.schedules',rel='contract_item_id'),
+	'payments': fields.one2many(label='Payments',obj='srm.contract.item.payment.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.contract.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='srm.contract.item.texts',rel='item_id'),
 	'note': fields.text('Note')}
@@ -1970,6 +1984,20 @@ class srm_contract_delivery_schedules(Model):
 	'note': fields.text(label = 'Note')}
 
 srm_contract_delivery_schedules()
+
+class srm_contarct_item_payment_schedules(Model):
+	_name = 'srm.contract.item.payment.schedules'
+	_description = 'General Model SRM Contract Item Payment Schedules'
+	_columns = {
+	'item_id': fields.many2one(label = 'Item',obj='srm.contract.items'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+
+srm_contarct_item_payment_schedules()
+
 
 class srm_blacklist_partner(Model):
 	_name = 'srm.blacklist.partner'

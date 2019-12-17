@@ -69,6 +69,7 @@ def _schema_to_levels(s,l=0):
 def _build_schema(pool,model):
 	res = [model]
 	m = pool.get(model)
+	#print('_build_schema:'.upper(),model,m)
 	if isinstance(m,ModelInherit):
 		return res
 	o2mfields = m._o2mfields

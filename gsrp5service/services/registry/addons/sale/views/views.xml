@@ -536,6 +536,7 @@
               <field name="items"/>
               <field name="roles"/>
               <field name="texts"/>
+              <field name="payments"/>
               <field name="note"/>
             </form>
           </column>
@@ -616,6 +617,7 @@
               <field name="items"/>
               <field name="roles"/>
               <field name="texts"/>
+              <field name="payments"/>
             </list>
           </column>
         </record>
@@ -789,6 +791,43 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.sale.order.payment.schedules.form">
+          <column name="name">view.sale.order.payment.schedules.form</column>
+          <column name="model">sale.order.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.sale.order.payment.schedules.list">
+          <column name="name">view.sale.order.payment.schedules.list</column>
+          <column name="model">sale.order.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.sale.order.payment.schedules.m2mlist">
+          <column name="name">view.sale.order.payment.schedules.m2mlist</column>
+          <column name="model">sale.order.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
+            </m2mlist>
+          </column>
+        </record>
         <record id="view.sale.order.items.form">
           <column name="name">view.sale.order.items.form</column>
           <column name="model">sale.order.items</column>
@@ -807,6 +846,7 @@
               <field name="vat_amount"/>
               <field name="total_amount"/>
               <field name="delivery_schedules"/>
+              <field name="payments"/>
               <field name="roles"/>
               <field name="texts"/>
               <field name="note"/>
@@ -831,6 +871,7 @@
               <field name="vat_amount"/>
               <field name="total_amount"/>
               <field name="delivery_schedules"/>
+              <field name="payments"/>
               <field name="roles"/>
               <field name="texts"/>
             </list>
@@ -956,6 +997,43 @@
             <m2mlist>
               <field name="item_id"/>
               <field name="quantity"/>
+              <field name="schedule"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.sale.order.item.payment.schedules.form">
+          <column name="name">view.sale.order.item.payment.schedules.form</column>
+          <column name="model">sale.order.item.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.sale.order.item.payment.schedules.list">
+          <column name="name">view.sale.order.item.payment.schedules.list</column>
+          <column name="model">sale.order.item.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.sale.order.item.payment.schedules.m2mlist">
+          <column name="name">view.sale.order.item.payment.schedules.m2mlist</column>
+          <column name="model">sale.order.item.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
               <field name="schedule"/>
             </m2mlist>
           </column>

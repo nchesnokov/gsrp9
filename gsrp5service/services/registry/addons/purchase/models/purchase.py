@@ -264,9 +264,9 @@ class purchase_order_items(Model):
 	'vat_amount': fields.numeric(label='VAT Amount',compute='_calculate_items',size=(15,2)),
 	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='purchase.order.item.delivery.schedules',rel='item_id'),
+	'payments': fields.one2many(label='Payments',obj='purchase.order.item.payment.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='purchase.order.item.texts',rel='item_id'),
-	'payments': fields.one2many(label='Payments',obj='purchase.order.item.payment.schedules',rel='item_id'),
 	'note': fields.text(label = 'Note')}
 
 	def _on_change_product(self,cr,pool,uid,item,context={}):		

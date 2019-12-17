@@ -164,6 +164,7 @@ class sale_orders(Model):
 	'items': fields.one2many(label='Items',obj='sale.order.items',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='sale.order.roles',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='sale.order.texts',rel='order_id'),
+	'payments': fields.one2many(label='Payments',obj='sale.order.payment.schedules',rel='order_id'),
 	'note': fields.text('Note')
 	}
 
@@ -221,6 +222,19 @@ class sale_order_roles(Model):
 
 sale_order_roles()
 
+class sale_order_payment_schedules(Model):
+	_name = 'sale.order.payment.schedules'
+	_description = 'General Model Sale Order Payment Schedules'
+	_columns = {
+	'order_id': fields.many2one(label = 'Order',obj='sale.orders'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+
+sale_order_payment_schedules()
+
 class sale_order_items(Model):
 	_name = 'sale.order.items'
 	_description = 'General Model Sale Order Items'
@@ -239,6 +253,7 @@ class sale_order_items(Model):
 	'vat_amount': fields.numeric(label='VAT Amount',compute='_calculate_items',size=(15,2)),
 	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='sale.order.item.delivery.schedules',rel='item_id'),
+	'payments': fields.one2many(label='Payments',obj='sale.order.item.payment.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='sale.order.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='sale.order.item.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')
@@ -308,6 +323,19 @@ class sale_order_item_delivery_schedules(Model):
 	}
 
 sale_order_item_delivery_schedules()
+
+class sale_order_item_payment_schedules(Model):
+	_name = 'sale.order.item.payment.schedules'
+	_description = 'General Model Sale Order Item Payment Schedules'
+	_columns = {
+	'item_id': fields.many2one(label = 'Item',obj='sale.order.items'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+
+sale_order_item_payment_schedules()
 
 # Invoice
 class sale_invoices(Model):

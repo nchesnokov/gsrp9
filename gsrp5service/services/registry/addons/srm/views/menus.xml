@@ -8,8 +8,8 @@
         </record>
       </records>
       <records model="bc.actions">
-        <record id="action.srm.route.search">
-          <column name="name">action.srm.route.search</column>
+        <record id="action.srm.routes.search">
+          <column name="name">action.srm.routes.search</column>
           <column name="ta">View</column>
         </record>
         <record id="action.srm.demand.category.search">
@@ -124,8 +124,8 @@
           <column name="name">action.srm.decision.type.deadlines.search</column>
           <column name="ta">View</column>
         </record>
-        <record id="action.srm.contract.search">
-          <column name="name">action.srm.contract.search</column>
+        <record id="action.srm.contracts.search">
+          <column name="name">action.srm.contracts.search</column>
           <column name="ta">View</column>
         </record>
         <record id="action.srm.contract.type.deadlines.search">
@@ -146,8 +146,8 @@
         </record>
       </records>
       <records model="bc.actions">
-        <record id="action.srm.route.report">
-          <column name="name">action.srm.route.report</column>
+        <record id="action.srm.routes.report">
+          <column name="name">action.srm.routes.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.srm.demand.category.report">
@@ -262,8 +262,8 @@
           <column name="name">action.srm.decision.type.deadlines.report</column>
           <column name="ta">Report</column>
         </record>
-        <record id="action.srm.contract.report">
-          <column name="name">action.srm.contract.report</column>
+        <record id="action.srm.contracts.report">
+          <column name="name">action.srm.contracts.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.srm.contract.type.deadlines.report">
@@ -284,9 +284,9 @@
         </record>
       </records>
       <records model="bc.view.actions">
-        <record id="view.action.srm.route.search">
-          <column name="action_id">action.srm.route.search</column>
-          <column name="view_id">view.srm.route.search</column>
+        <record id="view.action.srm.routes.search">
+          <column name="action_id">action.srm.routes.search</column>
+          <column name="view_id">view.srm.routes.search</column>
         </record>
         <record id="view.action.srm.demand.category.search">
           <column name="action_id">action.srm.demand.category.search</column>
@@ -400,9 +400,9 @@
           <column name="action_id">action.srm.decision.type.deadlines.search</column>
           <column name="view_id">view.srm.decision.type.deadlines.search</column>
         </record>
-        <record id="view.action.srm.contract.search">
-          <column name="action_id">action.srm.contract.search</column>
-          <column name="view_id">view.srm.contract.search</column>
+        <record id="view.action.srm.contracts.search">
+          <column name="action_id">action.srm.contracts.search</column>
+          <column name="view_id">view.srm.contracts.search</column>
         </record>
         <record id="view.action.srm.contract.type.deadlines.search">
           <column name="action_id">action.srm.contract.type.deadlines.search</column>
@@ -422,12 +422,12 @@
         </record>
       </records>
       <records model="bc.ui.reports">
-        <record id="bc.ui.report.docx.srm.route">
-          <column name="name">bc.ui.report.docx.srm.route</column>
+        <record id="bc.ui.report.docx.srm.routes">
+          <column name="name">bc.ui.report.docx.srm.routes</column>
           <column name="label">Route</column>
-          <column name="report">report_srm_route</column>
-          <column name="infile">infile_srm_route.docx</column>
-          <column name="outfile">outfile_srm_route.docx</column>
+          <column name="report">report_srm_routes</column>
+          <column name="infile">infile_srm_routes.docx</column>
+          <column name="outfile">outfile_srm_routes.docx</column>
         </record>
         <record id="bc.ui.report.docx.srm.demand.category">
           <column name="name">bc.ui.report.docx.srm.demand.category</column>
@@ -625,12 +625,12 @@
           <column name="infile">infile_srm_decision_type_deadlines.docx</column>
           <column name="outfile">outfile_srm_decision_type_deadlines.docx</column>
         </record>
-        <record id="bc.ui.report.docx.srm.contract">
-          <column name="name">bc.ui.report.docx.srm.contract</column>
+        <record id="bc.ui.report.docx.srm.contracts">
+          <column name="name">bc.ui.report.docx.srm.contracts</column>
           <column name="label">Contract</column>
-          <column name="report">report_srm_contract</column>
-          <column name="infile">infile_srm_contract.docx</column>
-          <column name="outfile">outfile_srm_contract.docx</column>
+          <column name="report">report_srm_contracts</column>
+          <column name="infile">infile_srm_contracts.docx</column>
+          <column name="outfile">outfile_srm_contracts.docx</column>
         </record>
         <record id="bc.ui.report.docx.srm.contract.type.deadlines">
           <column name="name">bc.ui.report.docx.srm.contract.type.deadlines</column>
@@ -662,9 +662,9 @@
         </record>
       </records>
       <records model="bc.report.actions">
-        <record id="report.action.srm.route.report">
-          <column name="action_id">action.srm.route.report</column>
-          <column name="report_id">bc.ui.report.docx.srm.route</column>
+        <record id="report.action.srm.routes.report">
+          <column name="action_id">action.srm.routes.report</column>
+          <column name="report_id">bc.ui.report.docx.srm.routes</column>
         </record>
         <record id="report.action.srm.demand.category.report">
           <column name="action_id">action.srm.demand.category.report</column>
@@ -778,9 +778,9 @@
           <column name="action_id">action.srm.decision.type.deadlines.report</column>
           <column name="report_id">bc.ui.report.docx.srm.decision.type.deadlines</column>
         </record>
-        <record id="report.action.srm.contract.report">
-          <column name="action_id">action.srm.contract.report</column>
-          <column name="report_id">bc.ui.report.docx.srm.contract</column>
+        <record id="report.action.srm.contracts.report">
+          <column name="action_id">action.srm.contracts.report</column>
+          <column name="report_id">bc.ui.report.docx.srm.contracts</column>
         </record>
         <record id="report.action.srm.contract.type.deadlines.report">
           <column name="action_id">action.srm.contract.type.deadlines.report</column>
@@ -800,13 +800,13 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.srm.route.search">
+          <record id="ui.menu.srm.routes.search">
           <column name="sequence">0</column>
-            <column name="name">ui.menu.srm.route.search</column>
+            <column name="name">ui.menu.srm.routes.search</column>
             <column name="label">Route</column>
           <column name="parent_id">ui.menu.srm</column>
           <column name="sequence">0</column>
-          <column name="action_id">action.srm.route.search</column>
+          <column name="action_id">action.srm.routes.search</column>
           </record>
           <record id="ui.menu.srm.demand.category.search">
           <column name="sequence">2</column>
@@ -1032,44 +1032,44 @@
           <column name="sequence">660</column>
           <column name="action_id">action.srm.decision.type.deadlines.search</column>
           </record>
-          <record id="ui.menu.srm.contract.search">
+          <record id="ui.menu.srm.contracts.search">
           <column name="sequence">71</column>
-            <column name="name">ui.menu.srm.contract.search</column>
+            <column name="name">ui.menu.srm.contracts.search</column>
             <column name="label">Contract</column>
           <column name="parent_id">ui.menu.srm</column>
           <column name="sequence">710</column>
-          <column name="action_id">action.srm.contract.search</column>
+          <column name="action_id">action.srm.contracts.search</column>
           </record>
           <record id="ui.menu.srm.contract.type.deadlines.search">
-          <column name="sequence">73</column>
+          <column name="sequence">74</column>
             <column name="name">ui.menu.srm.contract.type.deadlines.search</column>
             <column name="label">Contract Type Deadlines</column>
           <column name="parent_id">ui.menu.srm</column>
-          <column name="sequence">730</column>
+          <column name="sequence">740</column>
           <column name="action_id">action.srm.contract.type.deadlines.search</column>
           </record>
           <record id="ui.menu.srm.blacklist.partner.search">
-          <column name="sequence">78</column>
+          <column name="sequence">80</column>
             <column name="name">ui.menu.srm.blacklist.partner.search</column>
             <column name="label">Partner Blacklist</column>
           <column name="parent_id">ui.menu.srm</column>
-          <column name="sequence">780</column>
+          <column name="sequence">800</column>
           <column name="action_id">action.srm.blacklist.partner.search</column>
           </record>
           <record id="ui.menu.srm.partner.validation.search">
-          <column name="sequence">79</column>
+          <column name="sequence">81</column>
             <column name="name">ui.menu.srm.partner.validation.search</column>
             <column name="label">Partner Validation</column>
           <column name="parent_id">ui.menu.srm</column>
-          <column name="sequence">790</column>
+          <column name="sequence">810</column>
           <column name="action_id">action.srm.partner.validation.search</column>
           </record>
           <record id="ui.menu.srm.product.source.supply.search">
-          <column name="sequence">82</column>
+          <column name="sequence">84</column>
             <column name="name">ui.menu.srm.product.source.supply.search</column>
             <column name="label">Partner Source Of Supply</column>
           <column name="parent_id">ui.menu.srm</column>
-          <column name="sequence">820</column>
+          <column name="sequence">840</column>
           <column name="action_id">action.srm.product.source.supply.search</column>
           </record>
       </records>
@@ -1081,13 +1081,13 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.srm.route.report">
+          <record id="ui.menu.srm.routes.report">
           <column name="sequence">0</column>
-            <column name="name">ui.menu.srm.route.report</column>
+            <column name="name">ui.menu.srm.routes.report</column>
             <column name="label">Route</column>
           <column name="parent_id">ui.menu.srm.report</column>
           <column name="sequence">0</column>
-          <column name="action_id">action.srm.route.report</column>
+          <column name="action_id">action.srm.routes.report</column>
           </record>
           <record id="ui.menu.srm.demand.category.report">
           <column name="sequence">2</column>
@@ -1313,44 +1313,44 @@
           <column name="sequence">660</column>
           <column name="action_id">action.srm.decision.type.deadlines.report</column>
           </record>
-          <record id="ui.menu.srm.contract.report">
+          <record id="ui.menu.srm.contracts.report">
           <column name="sequence">71</column>
-            <column name="name">ui.menu.srm.contract.report</column>
+            <column name="name">ui.menu.srm.contracts.report</column>
             <column name="label">Contract</column>
           <column name="parent_id">ui.menu.srm.report</column>
           <column name="sequence">710</column>
-          <column name="action_id">action.srm.contract.report</column>
+          <column name="action_id">action.srm.contracts.report</column>
           </record>
           <record id="ui.menu.srm.contract.type.deadlines.report">
-          <column name="sequence">73</column>
+          <column name="sequence">74</column>
             <column name="name">ui.menu.srm.contract.type.deadlines.report</column>
             <column name="label">Contract Type Deadlines</column>
           <column name="parent_id">ui.menu.srm.report</column>
-          <column name="sequence">730</column>
+          <column name="sequence">740</column>
           <column name="action_id">action.srm.contract.type.deadlines.report</column>
           </record>
           <record id="ui.menu.srm.blacklist.partner.report">
-          <column name="sequence">78</column>
+          <column name="sequence">80</column>
             <column name="name">ui.menu.srm.blacklist.partner.report</column>
             <column name="label">Partner Blacklist</column>
           <column name="parent_id">ui.menu.srm.report</column>
-          <column name="sequence">780</column>
+          <column name="sequence">800</column>
           <column name="action_id">action.srm.blacklist.partner.report</column>
           </record>
           <record id="ui.menu.srm.partner.validation.report">
-          <column name="sequence">79</column>
+          <column name="sequence">81</column>
             <column name="name">ui.menu.srm.partner.validation.report</column>
             <column name="label">Partner Validation</column>
           <column name="parent_id">ui.menu.srm.report</column>
-          <column name="sequence">790</column>
+          <column name="sequence">810</column>
           <column name="action_id">action.srm.partner.validation.report</column>
           </record>
           <record id="ui.menu.srm.product.source.supply.report">
-          <column name="sequence">82</column>
+          <column name="sequence">84</column>
             <column name="name">ui.menu.srm.product.source.supply.report</column>
             <column name="label">Partner Source Of Supply</column>
           <column name="parent_id">ui.menu.srm.report</column>
-          <column name="sequence">820</column>
+          <column name="sequence">840</column>
           <column name="action_id">action.srm.product.source.supply.report</column>
           </record>
       </records>

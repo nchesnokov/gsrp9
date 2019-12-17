@@ -75,7 +75,7 @@ async def hello():
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','md','cm','crm','fa','hcm','ml','mm','md3','mrp','oil','project','purchase','sale','le','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ehs','scm']}])
 				
 				#msg = await _execute([ws, '_login',{'user':'admin','password':'admin','slot':'test001'}])
-				#msg = await _execute([ws, 'gens','ui',{'modules': ['purchase']}])
+				#msg = await _execute([ws, 'gens','ui',{'modules': ['sale','crm','srm']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['cm','md','mrp']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['fcm']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','cm','crm','fa','hcm','ml','mm','mrp','purchase','sale','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm']}])

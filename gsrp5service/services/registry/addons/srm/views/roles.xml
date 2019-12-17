@@ -20,24 +20,24 @@
         </record>
       </records>
       <records model="bc.access">
-        <record id="srm.route.readonly">
-          <column name="name">srm.route.readonly</column>
-          <column name="note">Model srm.route grant readonly</column>
+        <record id="srm.routes.readonly">
+          <column name="name">srm.routes.readonly</column>
+          <column name="note">Model srm.routes grant readonly</column>
           <column name="group_id">srm.readonly</column>
         </record>
-        <record id="srm.route.nodrop">
-          <column name="name">srm.route.nodrop</column>
-          <column name="note">Model srm.route grant nodrop</column>
+        <record id="srm.routes.nodrop">
+          <column name="name">srm.routes.nodrop</column>
+          <column name="note">Model srm.routes grant nodrop</column>
           <column name="group_id">srm.nodrop</column>
         </record>
-        <record id="srm.route.full">
-          <column name="name">srm.route.full</column>
-          <column name="note">Model srm.route grant full</column>
+        <record id="srm.routes.full">
+          <column name="name">srm.routes.full</column>
+          <column name="note">Model srm.routes grant full</column>
           <column name="group_id">srm.full</column>
         </record>
-        <record id="srm.route.crw">
-          <column name="name">srm.route.crw</column>
-          <column name="note">Model srm.route grant crw</column>
+        <record id="srm.routes.crw">
+          <column name="name">srm.routes.crw</column>
+          <column name="note">Model srm.routes grant crw</column>
           <column name="group_id">srm.crw</column>
         </record>
         <record id="srm.route.items.readonly">
@@ -2100,24 +2100,24 @@
           <column name="note">Model srm.contract.type.roles grant crw</column>
           <column name="group_id">srm.crw</column>
         </record>
-        <record id="srm.contract.readonly">
-          <column name="name">srm.contract.readonly</column>
-          <column name="note">Model srm.contract grant readonly</column>
+        <record id="srm.contracts.readonly">
+          <column name="name">srm.contracts.readonly</column>
+          <column name="note">Model srm.contracts grant readonly</column>
           <column name="group_id">srm.readonly</column>
         </record>
-        <record id="srm.contract.nodrop">
-          <column name="name">srm.contract.nodrop</column>
-          <column name="note">Model srm.contract grant nodrop</column>
+        <record id="srm.contracts.nodrop">
+          <column name="name">srm.contracts.nodrop</column>
+          <column name="note">Model srm.contracts grant nodrop</column>
           <column name="group_id">srm.nodrop</column>
         </record>
-        <record id="srm.contract.full">
-          <column name="name">srm.contract.full</column>
-          <column name="note">Model srm.contract grant full</column>
+        <record id="srm.contracts.full">
+          <column name="name">srm.contracts.full</column>
+          <column name="note">Model srm.contracts grant full</column>
           <column name="group_id">srm.full</column>
         </record>
-        <record id="srm.contract.crw">
-          <column name="name">srm.contract.crw</column>
-          <column name="note">Model srm.contract grant crw</column>
+        <record id="srm.contracts.crw">
+          <column name="name">srm.contracts.crw</column>
+          <column name="note">Model srm.contracts grant crw</column>
           <column name="group_id">srm.crw</column>
         </record>
         <record id="srm.contract.texts.readonly">
@@ -2138,6 +2138,26 @@
         <record id="srm.contract.texts.crw">
           <column name="name">srm.contract.texts.crw</column>
           <column name="note">Model srm.contract.texts grant crw</column>
+          <column name="group_id">srm.crw</column>
+        </record>
+        <record id="srm.contract.payment.schedules.readonly">
+          <column name="name">srm.contract.payment.schedules.readonly</column>
+          <column name="note">Model srm.contract.payment.schedules grant readonly</column>
+          <column name="group_id">srm.readonly</column>
+        </record>
+        <record id="srm.contract.payment.schedules.nodrop">
+          <column name="name">srm.contract.payment.schedules.nodrop</column>
+          <column name="note">Model srm.contract.payment.schedules grant nodrop</column>
+          <column name="group_id">srm.nodrop</column>
+        </record>
+        <record id="srm.contract.payment.schedules.full">
+          <column name="name">srm.contract.payment.schedules.full</column>
+          <column name="note">Model srm.contract.payment.schedules grant full</column>
+          <column name="group_id">srm.full</column>
+        </record>
+        <record id="srm.contract.payment.schedules.crw">
+          <column name="name">srm.contract.payment.schedules.crw</column>
+          <column name="note">Model srm.contract.payment.schedules grant crw</column>
           <column name="group_id">srm.crw</column>
         </record>
         <record id="srm.contract.roles.readonly">
@@ -2280,6 +2300,26 @@
           <column name="note">Model srm.contract.delivery.schedules grant crw</column>
           <column name="group_id">srm.crw</column>
         </record>
+        <record id="srm.contract.item.payment.schedules.readonly">
+          <column name="name">srm.contract.item.payment.schedules.readonly</column>
+          <column name="note">Model srm.contract.item.payment.schedules grant readonly</column>
+          <column name="group_id">srm.readonly</column>
+        </record>
+        <record id="srm.contract.item.payment.schedules.nodrop">
+          <column name="name">srm.contract.item.payment.schedules.nodrop</column>
+          <column name="note">Model srm.contract.item.payment.schedules grant nodrop</column>
+          <column name="group_id">srm.nodrop</column>
+        </record>
+        <record id="srm.contract.item.payment.schedules.full">
+          <column name="name">srm.contract.item.payment.schedules.full</column>
+          <column name="note">Model srm.contract.item.payment.schedules grant full</column>
+          <column name="group_id">srm.full</column>
+        </record>
+        <record id="srm.contract.item.payment.schedules.crw">
+          <column name="name">srm.contract.item.payment.schedules.crw</column>
+          <column name="note">Model srm.contract.item.payment.schedules grant crw</column>
+          <column name="group_id">srm.crw</column>
+        </record>
         <record id="srm.blacklist.partner.readonly">
           <column name="name">srm.blacklist.partner.readonly</column>
           <column name="note">Model srm.blacklist.partner grant readonly</column>
@@ -2382,15 +2422,15 @@
         </record>
       </records>
       <records model="bc.model.access">
-        <record id="srm.srm.route.readonly">
-          <column name="access_id">srm.route.readonly</column>
-          <column name="model_id">srm.route</column>
+        <record id="srm.srm.routes.readonly">
+          <column name="access_id">srm.routes.readonly</column>
+          <column name="model_id">srm.routes</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="srm.srm.route.nodrop">
-          <column name="access_id">srm.route.nodrop</column>
-          <column name="model_id">srm.route</column>
+        <record id="srm.srm.routes.nodrop">
+          <column name="access_id">srm.routes.nodrop</column>
+          <column name="model_id">srm.routes</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -2402,9 +2442,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="srm.srm.route.full">
-          <column name="access_id">srm.route.full</column>
-          <column name="model_id">srm.route</column>
+        <record id="srm.srm.routes.full">
+          <column name="access_id">srm.routes.full</column>
+          <column name="model_id">srm.routes</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -2418,9 +2458,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="srm.srm.route.crw">
-          <column name="access_id">srm.route.crw</column>
-          <column name="model_id">srm.route</column>
+        <record id="srm.srm.routes.crw">
+          <column name="access_id">srm.routes.crw</column>
+          <column name="model_id">srm.routes</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -7582,15 +7622,15 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="srm.srm.contract.readonly">
-          <column name="access_id">srm.contract.readonly</column>
-          <column name="model_id">srm.contract</column>
+        <record id="srm.srm.contracts.readonly">
+          <column name="access_id">srm.contracts.readonly</column>
+          <column name="model_id">srm.contracts</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="srm.srm.contract.nodrop">
-          <column name="access_id">srm.contract.nodrop</column>
-          <column name="model_id">srm.contract</column>
+        <record id="srm.srm.contracts.nodrop">
+          <column name="access_id">srm.contracts.nodrop</column>
+          <column name="model_id">srm.contracts</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -7602,9 +7642,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="srm.srm.contract.full">
-          <column name="access_id">srm.contract.full</column>
-          <column name="model_id">srm.contract</column>
+        <record id="srm.srm.contracts.full">
+          <column name="access_id">srm.contracts.full</column>
+          <column name="model_id">srm.contracts</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -7618,9 +7658,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="srm.srm.contract.crw">
-          <column name="access_id">srm.contract.crw</column>
-          <column name="model_id">srm.contract</column>
+        <record id="srm.srm.contracts.crw">
+          <column name="access_id">srm.contracts.crw</column>
+          <column name="model_id">srm.contracts</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -7671,6 +7711,56 @@
         <record id="srm.srm.contract.texts.crw">
           <column name="access_id">srm.contract.texts.crw</column>
           <column name="model_id">srm.contract.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="srm.srm.contract.payment.schedules.readonly">
+          <column name="access_id">srm.contract.payment.schedules.readonly</column>
+          <column name="model_id">srm.contract.payment.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="srm.srm.contract.payment.schedules.nodrop">
+          <column name="access_id">srm.contract.payment.schedules.nodrop</column>
+          <column name="model_id">srm.contract.payment.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="srm.srm.contract.payment.schedules.full">
+          <column name="access_id">srm.contract.payment.schedules.full</column>
+          <column name="model_id">srm.contract.payment.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="srm.srm.contract.payment.schedules.crw">
+          <column name="access_id">srm.contract.payment.schedules.crw</column>
+          <column name="model_id">srm.contract.payment.schedules</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -8021,6 +8111,56 @@
         <record id="srm.srm.contract.delivery.schedules.crw">
           <column name="access_id">srm.contract.delivery.schedules.crw</column>
           <column name="model_id">srm.contract.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="srm.srm.contract.item.payment.schedules.readonly">
+          <column name="access_id">srm.contract.item.payment.schedules.readonly</column>
+          <column name="model_id">srm.contract.item.payment.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="srm.srm.contract.item.payment.schedules.nodrop">
+          <column name="access_id">srm.contract.item.payment.schedules.nodrop</column>
+          <column name="model_id">srm.contract.item.payment.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="srm.srm.contract.item.payment.schedules.full">
+          <column name="access_id">srm.contract.item.payment.schedules.full</column>
+          <column name="model_id">srm.contract.item.payment.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="srm.srm.contract.item.payment.schedules.crw">
+          <column name="access_id">srm.contract.item.payment.schedules.crw</column>
+          <column name="model_id">srm.contract.item.payment.schedules</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

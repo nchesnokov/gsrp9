@@ -621,6 +621,7 @@ class crm_contracts(Model):
 	'items': fields.one2many(label='Items',obj='crm.contract.items',rel='contract_id'),
 	'roles': fields.one2many(label='Roles',obj='crm.contract.roles',rel='contract_id'),
 	'texts': fields.one2many(label='Texts',obj='crm.contract.texts',rel='contract_id'),
+	'payments': fields.one2many(label='Payments',obj='crm.contract.payment.schedules',rel='contarct_id'),
 	'note': fields.text('Note')
 	}
 
@@ -679,6 +680,20 @@ class crm_contract_roles(Model):
 
 crm_contract_roles()
 
+class crm_contract_payment_schedules(Model):
+	_name = 'crm.contract.payment.schedules'
+	_description = 'General Model CRM Contract Payment Schedules'
+	_columns = {
+	'contract_id': fields.many2one(label='Contract',obj='crm.contract'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+
+crm_contract_payment_schedules()
+
+
 class crm_contract_items(Model):
 	_name = 'crm.contract.items'
 	_description = 'General Model CRM Offer Items'
@@ -697,6 +712,7 @@ class crm_contract_items(Model):
 	'vat_amount': fields.numeric(label='VAT Amount',compute='_calculate_items',size=(15,2)),
 	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='crm.contract.item.delivery.schedules',rel='item_id'),
+	'payments': fields.one2many(label='Payments',obj='crm.contract.item.payment.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='crm.contract.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='crm.contract.item.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')
@@ -764,6 +780,18 @@ class crm_contract_item_delivery_schedules(Model):
 
 crm_contract_item_delivery_schedules()
 
+class crm_contract_item_payment_schedules(Model):
+	_name = 'crm.contract.item.payment.schedules'
+	_description = 'General Model CRM Contract Item Payment Schedules'
+	_columns = {
+	'item_id': fields.many2one(label = 'Item',obj='crm.contract.items'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+
+crm_contract_item_payment_schedules()
 
 
 
