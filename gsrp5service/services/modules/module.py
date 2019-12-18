@@ -583,7 +583,8 @@ def _loadMetaModule(cr,pool,uid,name,registry):
 
 def _loadModuleFile(path,name,ext=['py','xml','csv','yaml','yml','so']):
 	records = []
-	pwd = os.getcwd()
+	#pwd = os.getcwd()
+	pwd = opj(reduce(lambda x,y: x + os.path.sep + y ,os.path.dirname(os.path.abspath(__file__)).split(os.path.sep)[-1:]),'registry')
 	offset = len(opj(pwd,path,name))
 	for curdir,dirs,files in os.walk(opj(pwd,path,name)):
 		for f in files:
@@ -773,7 +774,8 @@ def _load_env(cr,pool,uid,name):
 	_load_class_bc(cr,pool,uid,name)
 
 def _loadFiles(cr,pool,uid,name,info):
-	pwd = os.getcwd()
+	#pwd = os.getcwd()
+	pwd = opj(reduce(lambda x,y: x + os.path.sep + y ,os.path.dirname(os.path.abspath(__file__)).split(os.path.sep)[-1:]),'registry')
 	objnames = {'bc.module.files':'filename','bc.modules':'code'}
 	metas={'env':info['meta']['env'],'view':info['meta']['view'],'data':info['meta']['data'],'demo':info['meta']['demo'],'test':info['meta']['test']}
 	path = info['path']
