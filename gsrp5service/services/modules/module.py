@@ -257,9 +257,9 @@ def _installModule(cr,pool,uid,name,registry):
 		if len(sqls) == 1:
 			cr.execute(sqls[0])
 		else:
-			#cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
-			cr.execute(sqls)
-		cr.commit()
+			cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
+			#cr.execute(sqls)
+		#cr.commit()
 
 		registry._load_inherit(name)
 		mm = registry._createModuleModels(name)
@@ -736,6 +736,7 @@ def _load_class_bc(cr,pool,uid,name):
 			envfields = bcm._extra['env-fields']
 			for envfield in envfields:
 				mt[envfield] = _load_env_column(cr,pool,uid,bcm._name,envfield)
+				print('ENVFIELD:',mt)
 
 			mod_record = {'id':model['id']}
 			for envfield in envfields:
@@ -884,7 +885,7 @@ def _loadCSVFile(cr,pool,uid,info,path,name,fl):
 def _loadXMLFile(cr,pool,uid,info,path,name,fl):
 	_buffer = KeyBuffer()
 	fk = {}
-	rng=etree.RelaxNG(etree=etree.parse('views.rng'))
+	rng=etree.RelaxNG(etree=etree.parse(opj(os.path.dirname(os.path.abspath(__file__)),'views.rng')))
 	obj = 'bc.module.files'
 	file_id = pool.get(obj).search(cr=cr,pool=pool,uid=uid,cond=[(pool.get(obj)._getRecNameName(),'=',opj(name,fl))],limit=1)[0]
 	for event,el in etree.iterparse(source=opj(path,name,fl),events=('end','start')):

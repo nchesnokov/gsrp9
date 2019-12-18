@@ -251,7 +251,8 @@ class System(object):
 			for key in self._models.keys():
 				self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 			
-			self._uid = self._getUid()
+			self._getUid()
+			print('self._uid:'.upper(),self._uid)
 			self._components['modules']._setup(cr=self._cursor,pool=self._models,uid=self._uid,registry=self._components['registry'])
 			self._components['models']._setup(self._cursor,self._models,self._uid,self)
 			self._components['gens']._setup(self._cursor,self._models,self._uid,self._components['registry'])

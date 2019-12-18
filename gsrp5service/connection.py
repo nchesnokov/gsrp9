@@ -167,7 +167,8 @@ class Cursor(object):
 				self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslcert= self.sslcert,sslkey=self.sslkey)
 			else:
 				self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection)
-			self.conn.autocommit=True
+			#self.conn.set_session(False)
+			#self.conn.autocommit = False
 
 		return self.conn.closed == 0
 
@@ -194,7 +195,6 @@ class Cursor(object):
 	def execute(self, query, vals = None):
 		try:
 			#print('sql query:',query,vals)
-<<<<<<< HEAD
 			#print('mogrify:',self.mogrify(query,vals))
 			if type(query) == str:
 				self.cr.execute(query = query, vars = vals)
@@ -202,12 +202,7 @@ class Cursor(object):
 				for q1 in query:
 					print('Q1:',q1)
 					self.cr.execute(query = q1, vars = vals)
-		except:
-=======
-			print('mogrify:',self.mogrify(query,vals))
-			self.cr.execute(query = query, vars = vals)
 		except psycopg2.Error as e:
->>>>>>> 07dca11b617ee15d0cc796245c699b8a1346a81e
 			self._rollback()
 			_logger.error('SQL Query: %s\n VALS: % s' % (query,vals))
 			_logger.error('SQL Query mogrify: %s' % (self.mogrify(query,vals),))

@@ -1,0 +1,324 @@
+<?xml version="1.0"?>
+   <grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<start>
+		<choice>
+     		 <ref name="search"/>
+     		 <ref name="find"/>
+     		 <ref name="form"/>
+     		 <ref name="list"/>
+     		 <ref name="o2mlist"/>
+     		 <ref name="o2rlist"/>
+     		 <ref name="m2mlist"/>
+     		 <ref name="graph"/>
+     		 <ref name="tree"/>
+     		 <ref name="gantt"/>
+     		 <ref name="calendar"/>
+     		 <ref name="schedule"/>
+     		 <ref name="kanban"/>
+     		 <ref name="mdx"/>
+      		 <ref name="geo"/>
+		</choice>
+	</start>
+
+     <define name="field">
+		<element name="field">
+		<text/>
+		<attribute name="name"/>
+			<interleave>
+				<optional>
+					<attribute name="widget"/>
+				</optional>
+				<optional>
+					<attribute name="label"/>
+				</optional>
+				<optional>
+					<attribute name="readonly"/>
+				</optional>
+				<optional>
+					<attribute name="required"/>
+				</optional>
+				<optional>
+					<attribute name="attributes"/>
+				</optional>
+			</interleave>
+		</element>
+     </define>
+
+     <define name="delimiter">
+		<element name="delimiter">
+			<empty/>
+		</element>
+     </define>
+
+     <define name="page">
+		<element name="page">
+		<text/>
+		<optional>
+			<attribute name="name"/>
+		</optional>
+			 <oneOrMore>
+				<ref name="field"/>
+			</oneOrMore>
+		</element>
+     </define>
+
+     <define name="search">
+		<element name="search">
+		<text/>
+		<oneOrMore>
+			<ref name="field"/>
+		</oneOrMore>
+		</element>
+     </define>
+
+     <define name="find">
+		<element name="find">
+		<text/>
+		<oneOrMore>
+			<ref name="field"/>
+		</oneOrMore>
+		</element>
+     </define>
+     <define name="tree">
+		<element name="tree">
+		<text/>
+		<interleave>
+			<optional>
+				<attribute name="parent_id"/>
+			</optional>
+			<optional>
+				<attribute name="childs_id"/>
+			</optional>
+		</interleave>
+		<oneOrMore>
+			<ref name="field"/>
+		</oneOrMore>
+		</element>
+     </define>
+
+	 <define name="geo_point">
+		<interleave>
+				<optional>
+					<attribute name="latitude"/>
+				</optional>
+				<optional>
+					<attribute name="longitude"/>
+				</optional>
+		</interleave>
+	 </define>
+
+	 <define name="geo_path">
+		<interleave>
+				<optional>
+					<attribute name="from_latitude"/>
+				</optional>
+				<optional>
+					<attribute name="from_longitude"/>
+				</optional>
+				<optional>
+					<attribute name="to_latitude"/>
+				</optional>
+				<optional>
+					<attribute name="to_longitude"/>
+				</optional>
+		</interleave>
+	 </define>
+
+
+     <define name="geo">
+		<element name="geo">
+		<text/>
+		<attribute name="name"/>
+		<attribute name="model"/>
+			<interleave>
+				<optional>
+					<attribute name="sortable"/>
+				</optional>
+				<choice>
+					<ref name="geo_point"/>
+					<ref name="geo_path"/>
+				</choice>
+			</interleave>
+		<oneOrMore>
+			<ref name="field"/>
+		</oneOrMore>
+		</element>
+     </define>
+     
+     <define name="form">
+		<element name="form">
+		<text/>
+		<interleave>
+			<zeroOrMore>
+				<ref name="field"/>
+			</zeroOrMore>
+			<zeroOrMore>
+				<ref name="delimiter"/>
+			</zeroOrMore>
+			<zeroOrMore>
+				<ref name="page"/>
+			</zeroOrMore>
+		</interleave>
+		</element>
+     </define>
+
+	<define name="graph">
+		<element name="graph">
+		<text/>
+		<interleave>
+			<optional>
+				<attribute name="date"/>
+			</optional>
+			<optional>
+			  <attribute name="chart"/>
+			</optional>
+		</interleave>
+		<oneOrMore>
+		  <ref name="field"/>
+		 </oneOrMore>
+		</element>
+     </define>
+
+     <define name="list">
+		<element name="list">
+		<text/>
+		<oneOrMore>
+		  <ref name="field"/>
+		 </oneOrMore>
+		</element>
+     </define>
+
+     <define name="o2mlist">
+		<element name="o2mlist">
+		<text/>
+		<oneOrMore>
+		  <ref name="field"/>
+		 </oneOrMore>
+		</element>
+     </define>
+
+     <define name="o2rlist">
+		<element name="o2rlist">
+		<text/>
+		<oneOrMore>
+		  <ref name="field"/>
+		 </oneOrMore>
+		</element>
+     </define>
+
+     <define name="m2mlist">
+		<element name="m2mlist">
+		<text/>
+		<oneOrMore>
+		  <ref name="field"/>
+		 </oneOrMore>
+		</element>
+     </define>
+
+     <define name="gantt">
+		<element name="gantt">
+		<text/>
+		<interleave>
+			<optional>
+				<attribute name="parent_id"/>
+			</optional>
+			<optional>
+				<attribute name="childs_id"/>
+			</optional>
+	
+			<optional>
+				<attribute name="start_date"/>
+			</optional>
+			<optional>
+				<attribute name="end_date"/>
+			</optional>
+		</interleave>
+		<oneOrMore>
+			<ref name="field"/>
+		</oneOrMore>
+		</element>
+     </define>
+
+     <define name="calendar">
+		<element name="calendar">
+		<text/>
+		<optional>
+			<attribute name="date"/>
+		</optional>
+		<oneOrMore>
+			<ref name="field"/>
+		</oneOrMore>
+		</element>
+     </define>
+
+	<define name="schedule_date">
+		<interleave>
+			<optional>
+				<attribute name="from_date"/>
+			</optional>
+			<optional>
+				<attribute name="to_date"/>
+			</optional>
+		</interleave>
+	</define>
+
+	<define name="schedule_time">
+		<interleave>
+			<optional>
+				<attribute name="from_time"/>
+			</optional>
+			<optional>
+				<attribute name="to_time"/>
+			</optional>
+		</interleave>
+	</define>
+
+	<define name="schedule_datetime">
+		<interleave>
+			<optional>
+				<attribute name="from_datetime"/>
+			</optional>
+			<optional>
+				<attribute name="to_datetime"/>
+			</optional>
+		</interleave>
+	</define>
+
+     <define name="schedule">
+		<element name="schedule">
+		<text/>
+		<choice>
+			<ref name="schedule_date"/>
+			<ref name="schedule_time"/>
+			<ref name="schedule_datetime"/>
+		</choice>
+		<oneOrMore>
+			<ref name="field"/>
+		</oneOrMore>
+		</element>
+     </define>
+
+     <define name="kanban">
+		<element name="kanban">
+		<text/>
+		<optional>
+			<attribute name="state"/>
+		</optional>
+		<oneOrMore>
+			<ref name="field"/>
+		</oneOrMore>
+		</element>
+     </define>
+
+     <define name="mdx">
+		<element name="mdx">
+		<text/>
+		<optional>
+			<attribute name="date"/>
+		</optional>
+		<oneOrMore>
+			<ref name="field"/>
+		</oneOrMore>
+		</element>
+     </define>
+</grammar>
