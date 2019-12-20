@@ -38,7 +38,9 @@ class User(object):
 	def _call(self,args):
 		res = []
 		args0 = args[0]
-		if args0 == 'models':
+		if args0 in ('_cache',):
+			rc = self._mcache(args[1:])
+		elif args0 == 'models':
 			rc = self._components['models']._call(args[1:])
 		elif args0 == 'uis':
 			rc = self._components['uis']._call(args[1:])
@@ -48,12 +50,11 @@ class User(object):
 				rc = self._components['modules']._call(args[1:])
 			else:
 				rc = [False,'Not logged']
-
 		elif args0 == 'gens':
 			rc = self._components['gens']._call(args[1:])
 		elif args0 == 'slots':
 			rc = self._components['slots']._call(args[1:])
-		elif args0 in ('_mcache','login','logout','commit','rollback'):
+		elif args0 in ('login','logout','commit','rollback'):
 			rc = getattr(self,args0)(**(args[1]))
 		else:
 			rc = [False,'NOT CALLED']
