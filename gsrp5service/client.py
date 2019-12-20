@@ -28,7 +28,7 @@ async def _execute(args):
 	omsg = await ws.recv()
 	rmsg =pickle.loads(omsg)
 	print('RMSG:',rmsg)
-	if hasattr(rmsg,'__class_') and issubclass(rmsg,Exception):
+	if hasattr(rmsg,'_class__') and issubclass(rmsg,Exception):
 		print('Exception: %s' % (rmsg,))
 		return None
 	return rmsg
@@ -64,7 +64,7 @@ async def hello():
 		#async with websockets.connect('ws://www.gsrp5labs.com:8170') as ws:
 		#async with websockets.connect('ws://localhost:8170/ws') as ws:
 		async with websockets.connect('ws://localhost:8170') as ws:
-			if True:
+			if not True:
 				msg = await _execute([ws, '_open','gsrp5.system',{'profile':'system'}])
 				#msg = await _execute([ws, 'modules','upgrademoduleslist',{'db':'test001'}])
 				#msg = await _execute([ws, 'slots','initialize'])
@@ -103,20 +103,20 @@ async def hello():
 				msg = await _execute([ws, '_reload'])
 				return
 			else:
-				msg = await _execute([ws, '_slots'])
+				#msg = await _execute([ws, '_slots'])
 				#return
-				msg = await _execute([ws, '_open',{'path':'gsrp5.sessions.test001'}])
-				msg = await _execute([ws, '_login',{'user':'admin','password':'admin'}])
+				msg = await _execute([ws, '_open','gsrp5.user',{'profile':'test001'}])
+				msg = await _execute([ws, 'login',{'user':'admin','password':'admin'}])
 				#msg=await _execute([ws,'models','md.category.product','tree',{'fields':['name','parent_id','childs_id']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['hcm','wkf_srm','project']}])
-				#msg = await _execute([ws, 'modules','install',{'modules':['project','cf','crm','hcm','le','purchase','sale','fa','stock','tm','srm','mm','mrp','srm_ru','wkf_srm']}])
+				msg = await _execute([ws, 'modules','install',{'modules':['cf','crm','hcm','le','purchase','sale','fa','stock','tm','mm','mrp']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['cf','ai','cm','hcm','ml','tm','trm','crm','srm','qm','trm','wkf_srm','srm_ru']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['project','crm','mm','mrp','purchase','sale','le','stock','wkf_srm','fa']}])
-				#msg = await _execute([ws, 'modules','install',{'modules':['crm','purchase','sale','le','cf','ai','cm','fa','hcm']}])
-				#msg = await _execute([ws, 'modules','install',{'modules':['ehs','scm','srm','hcm','srm_ru','wm']}])
-				msg = await _execute([ws, 'modules','install',{'modules':['fcm']}])
+				#msg = await _execute([ws, 'modules','install',{'modules':['crm','purchase','sale','le','cf','ai','fa','hcm']}])
+				#msg = await _execute([ws, 'modules','install',{'modules':['ehs','scm','hcm','wm']}])
+				#msg = await _execute([ws, 'modules','install',{'modules':['purchase','project']}])
 				#msg = await _execute([ws, 'modules','install',{'modules': ['ctrm','ai','cm','crm','fa','hcm','md','ml','mm','mrp','oil','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ehs','scm']}])
-				msg = await _execute([ws, '_commit'])
+				#msg = await _execute([ws, '_commit'])
 
 if __name__ == "__main__":
 	asyncio.get_event_loop().run_until_complete(hello())

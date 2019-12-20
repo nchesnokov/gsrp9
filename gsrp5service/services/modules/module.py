@@ -224,6 +224,7 @@ def _upgrade(cr,pool,uid,registry,able=None, modules = None):
 
 def _installModule(cr,pool,uid,name,registry):
 	_logger.info(" Module: %s Install" % (name,))
+
 	models = registry._modules[name]['lom']
 	meta = registry._modules[name]['meta']
 	sqls = []
@@ -259,7 +260,10 @@ def _installModule(cr,pool,uid,name,registry):
 		else:
 			cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
 			#cr.execute(sqls)
-		#cr.commit()
+		try:
+			cr.commit()
+		except:
+			pass
 
 		registry._load_inherit(name)
 		mm = registry._createModuleModels(name)
@@ -584,7 +588,7 @@ def _loadMetaModule(cr,pool,uid,name,registry):
 def _loadModuleFile(path,name,ext=['py','xml','csv','yaml','yml','so']):
 	records = []
 	#pwd = os.getcwd()
-	pwd = opj(reduce(lambda x,y: x + os.path.sep + y ,os.path.dirname(os.path.abspath(__file__)).split(os.path.sep)[-1:]),'registry')
+	pwd = opj(reduce(lambda x,y: x + os.path.sep + y ,os.path.dirname(os.path.abspath(__file__)).split(os.path.sep)[:-1]),'registry')
 	offset = len(opj(pwd,path,name))
 	for curdir,dirs,files in os.walk(opj(pwd,path,name)):
 		for f in files:
@@ -736,7 +740,6 @@ def _load_class_bc(cr,pool,uid,name):
 			envfields = bcm._extra['env-fields']
 			for envfield in envfields:
 				mt[envfield] = _load_env_column(cr,pool,uid,bcm._name,envfield)
-				print('ENVFIELD:',mt)
 
 			mod_record = {'id':model['id']}
 			for envfield in envfields:
@@ -776,7 +779,8 @@ def _load_env(cr,pool,uid,name):
 
 def _loadFiles(cr,pool,uid,name,info):
 	#pwd = os.getcwd()
-	pwd = opj(reduce(lambda x,y: x + os.path.sep + y ,os.path.dirname(os.path.abspath(__file__)).split(os.path.sep)[-1:]),'registry')
+	#pwd = opj(reduce(lambda x,y: x + os.path.sep + y ,os.path.dirname(os.path.abspath(__file__)).split(os.path.sep)[:-1]),'registry')
+	#print('PWD:',pwd)
 	objnames = {'bc.module.files':'filename','bc.modules':'code'}
 	metas={'env':info['meta']['env'],'view':info['meta']['view'],'data':info['meta']['data'],'demo':info['meta']['demo'],'test':info['meta']['test']}
 	path = info['path']
@@ -823,6 +827,9 @@ def _convertFromYAML(cr,pool,uid,model,records):
 				#print('oid:',oid)
 				if len(oid) > 0:
 					record[key] = oid[0]
+			elif columns_info[key]['type'] == 'datetime' and columns_info[key]['timezone']:
+				if record[key]:
+					record[key] = record[key].astimezone()
 			elif columns_info[key]['type'] == 'selection':
 				if record[key] and len(record[key]) > 0:
 					record[key] = mfs[key][record[key]]

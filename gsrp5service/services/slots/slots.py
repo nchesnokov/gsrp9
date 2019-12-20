@@ -45,8 +45,17 @@ class Slots(Component):
 			session._cursor.cr.execute("select count(*) from pg_catalog.pg_database where datname=%s" ,(name,))
 			if session._cursor.cr.fetchone()[0] == 0:
 				_logger.info("Creating Slot: %s" % (name,))
-				session._cursor.execute("CREATE DATABASE IF NOT EXISTS %s ENCODING='UTF-8'; COMMIT;SET DATABASE=%s;GRANT ALL ON DATABASE %s TO %s" % (name,name,name,db_user))
-				#session._cursor.commit()
+				session.commit()
+				if session._cursor.conn.autocommit:
+					autocommit = True
+				else:
+					autocommit = False
+				
+				session._cursor.conn.autocommit=True
+
+				session._cursor.execute("CREATE DATABASE IF NOT EXISTS %s ENCODING='UTF-8';SET DATABASE=%s;GRANT ALL ON DATABASE %s TO %s" % (name,name,name,db_user))
+				session._cursor.conn.autocommit = autocommit
+
 				rmsg.append(session._cursor.cr.statusmessage)
 				rmsg.extend(session._components['modules']._call(['sysinstall']))
 				_logger.info("Created Slot: %s" % (name,))
@@ -63,9 +72,14 @@ class Slots(Component):
 		res = []
 		if sid != 'system':
 			session.commit()
+			if session._cursor.conn.autocommit:
+				autocommit = True
+			else:
+				autocommit = False
+				
 			session._cursor.conn.autocommit=True
 			session._cursor.execute("DROP DATABASE IF EXISTS %s CASCADE" % (sid,))
-			session._cursor.conn.autocommit=False
+			session._cursor.conn.autocommit = autocommit
 			_logger.info("Drop Slot: %s" % (sid,))
 			res.append(session._cursor.cr.statusmessage)
 			return res
@@ -88,9 +102,15 @@ class Slots(Component):
 		sqls.append(sql)
 		
 		session._cursor.commit()
+
+		if session._cursor.conn.autocommit:
+			autocommit = True
+		else:
+			autocommit = False
+
 		session._cursor.conn.autocommit=True
 		session._cursor.execute(reduce(lambda x,y: x + ';' +y,sqls))
-		session._cursor.conn.autocommit=True
+		session._cursor.conn.autocommit = autocommit
 		
 		_logger.info("Slots initialize")		
 		return [session._cursor.cr.statusmessage]

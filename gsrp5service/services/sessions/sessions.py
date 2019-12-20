@@ -38,16 +38,25 @@ class User(object):
 	def _call(self,args):
 		res = []
 		args0 = args[0]
-		if args0 == 'modules':
-			rc = self._components['modules']._call(args[1:])
-		elif args0 == 'models':
+		if args0 == 'models':
 			rc = self._components['models']._call(args[1:])
+		elif args0 == 'uis':
+			rc = self._components['uis']._call(args[1:])
+		elif args0 == 'modules':
+			if self._connected:
+				self._components['modules']._setup(cr=self._cursor,pool=self._models,uid=self._uid,registry=self._components['registry'])
+				rc = self._components['modules']._call(args[1:])
+			else:
+				rc = [False,'Not logged']
+
 		elif args0 == 'gens':
 			rc = self._components['gens']._call(args[1:])
 		elif args0 == 'slots':
 			rc = self._components['slots']._call(args[1:])
+		elif args0 in ('_mcache','login','logout','commit','rollback'):
+			rc = getattr(self,args0)(**(args[1]))
 		else:
-			rc = ['NOT CALLED']
+			rc = [False,'NOT CALLED']
 		
 		if type(rc) in (list,tuple):
 			res.extend(rc)
@@ -71,7 +80,6 @@ class User(object):
 
 		if self._cursor.open():
 			self._models = self._components['registry']._createAllModels()
-			self._uid = self._getUid()
 			self._components['models']._setup(self._cursor,self._models,self._uid,self)
 			self._components['uis']._setup(self._cursor,self._models,self._uid)
 			return self
@@ -89,21 +97,19 @@ class User(object):
 				if pbkdf2_sha256.verify(password, res[1]):
 					self._connected =True
 					self._uid = res[0]
-					for key in self._sid._models.keys():
-						self._models[key] = self._sid._models[key]
+					for key in self._models.keys():
 						if res[2]:
 							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
 							
-					db_infos = self._srvs['models']._execute(self,['bc.modules','select',{'fields':['code','state'],'cond':[]}])
+					db_infos = self._components['models']._call(['bc.modules','select',{'fields':['code','state'],'cond':[]}])
 					for db_info in db_infos:
-						self._sid._registry._modules[db_info['code']]['db_id'] = db_info['id']
-						self._sid._registry._modules[db_info['code']]['state'] = db_info['state']
+						self._components['registry']._modules[db_info['code']]['db_id'] = db_info['id']
+						self._components['registry']._modules[db_info['code']]['state'] = db_info['state']
 	
-					models = self._sid._registry._load_inherits()
+					models = self._components['registry']._load_inherits()
 					for key in models:
-						self._sid._models[key] = models[key]
 						self._models[key] = models[key]  
 
 						if res[2]:
@@ -214,6 +220,7 @@ class System(object):
 
 	def _call(self,args):
 		res = []
+		print('CALL-ARGS:',args)
 		args0 = args[0]
 		if args0 == 'modules':
 			rc = self._components['modules']._call(args[1:])
@@ -223,8 +230,10 @@ class System(object):
 			rc = self._components['gens']._call(args[1:])
 		elif args0 == 'slots':
 			rc = self._components['slots']._call(args[1:])
+		elif args0 in ('login','logout','commit','rollback'):
+			rc = getattr(self,args0)(**(args[1]))
 		else:
-			rc = ['NOT CALLED']
+			rc = [False,'NOT CALLED']
 		
 		if type(rc) in (list,tuple):
 			res.extend(rc)
@@ -252,7 +261,6 @@ class System(object):
 				self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 			
 			self._getUid()
-			print('self._uid:'.upper(),self._uid)
 			self._components['modules']._setup(cr=self._cursor,pool=self._models,uid=self._uid,registry=self._components['registry'])
 			self._components['models']._setup(self._cursor,self._models,self._uid,self)
 			self._components['gens']._setup(self._cursor,self._models,self._uid,self._components['registry'])
@@ -323,16 +331,6 @@ class System(object):
 		self._sid = None
 		self._shutdown = True
 		return ['Shutdown']
-
-	def _service(self,args):
-		if args[0] in self._srvs:
-			return self._srvs[args[0]]._execute(args[1:])
-		elif len(args) == 2 and args[1] in ('close','shutdown'):
-			if args[1] == 'close':
-				return self.close()
-			elif args[1] == 'shutdown':
-				return self.shutdown()
-		raise interface_exception("In session: %s service: %s not found" % (self._uuid,args[1]))
 
 	def commit(self):
 		if self._cursor:

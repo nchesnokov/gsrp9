@@ -684,7 +684,7 @@ class crm_contract_payment_schedules(Model):
 	_name = 'crm.contract.payment.schedules'
 	_description = 'General Model CRM Contract Payment Schedules'
 	_columns = {
-	'contract_id': fields.many2one(label='Contract',obj='crm.contract'),
+	'contract_id': fields.many2one(label='Contract',obj='crm.contracts'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
 	'currency': fields.many2one(label='Currency',obj='md.currency'),
 	'schedule': fields.datetime(label='Schedule'),

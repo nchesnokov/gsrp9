@@ -168,7 +168,7 @@ class Cursor(object):
 			else:
 				self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection)
 			#self.conn.set_session(False)
-			#self.conn.autocommit = False
+			self.conn.autocommit = False
 
 		return self.conn.closed == 0
 
@@ -200,9 +200,8 @@ class Cursor(object):
 				self.cr.execute(query = query, vars = vals)
 			elif type(query) in (tuple,list):
 				for q1 in query:
-					print('Q1:',q1)
 					self.cr.execute(query = q1, vars = vals)
-		except psycopg2.Error as e:
+		except:
 			self._rollback()
 			_logger.error('SQL Query: %s\n VALS: % s' % (query,vals))
 			_logger.error('SQL Query mogrify: %s' % (self.mogrify(query,vals),))

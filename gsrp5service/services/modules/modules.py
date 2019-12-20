@@ -1,9 +1,9 @@
 from .module import *
-from serviceloader.tools.common import Service
+from serviceloader.tools.common import Component
 from configparser import ConfigParser
 
 
-class Modules(Service):
+class Modules(Component):
 
 	def __init__(self,config_file=None):
 		if config_file:

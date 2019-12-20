@@ -28,7 +28,7 @@ class Models(Component):
 	
 	def _call(self,args):
 		rmsg = []
-		model = self._models.get(args[0])
+		model = self._pool.get(args[0])
 		method = getattr(model,args[1])
 		if callable(method):
 			kwargs = {}
