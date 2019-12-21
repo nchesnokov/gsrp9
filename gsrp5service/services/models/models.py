@@ -26,6 +26,9 @@ class Models(Component):
 		self._uid = uid
 		self._session = session
 	
+	def _setupUID(self,uid):
+		self._uid = uid
+
 	def _call(self,args):
 		rmsg = []
 		model = self._pool.get(args[0])

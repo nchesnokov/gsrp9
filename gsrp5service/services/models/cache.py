@@ -32,14 +32,14 @@ class DCacheDict(object):
 				setattr(self,'_%s%s' % (a,v),{})
 
 		self._buildTree(data,model)
-		print('CDATA:',self._cdata)
+		#print('CDATA:',self._cdata)
 		self._copyBuild()
 		
 	@property
 	def _data(self):
 		return self._cdata[self._root]
 	
-	def _buildTree(self,data,model,parent=None,name=None):
+	def _buildTree(self,data,model,parent=None,name=None, mode = 'N'):
 		if model not in self._cmetas:
 			self._cmetas[model] = self._pool.get(model).columnsInfo(attributes=['type','obj'])
 		
@@ -52,57 +52,26 @@ class DCacheDict(object):
 		self._cdata[oid] = data
 		self._cmodels[oid] = model
 		if parent and name:
-			self._cdata[self._cnames[name + '.' + str(parent)]].append(data)
+			if mode == 'A':
+				self._cdata[self._cnames[name + '.' + str(parent)]].append(data)
+
 			self._cpaths[oid] = parent
 			self._cr2c[oid] = self._cnames[name + '.' + str(parent)]
 		else:
 			self._cpaths[oid] = None
 		
-		for key in filter(lambda x: x != 'id' and ci[x]['type'] == 'one2many',data.keys()):
-			cn = key + '.' + oid
-			coid = str(id(data[key]))
+		for o2mfield in self._pool.get(model)._o2mfields:
+			cn = o2mfield + '.' + oid
+			coid = str(id(data[o2mfield]))
 			self._ccontainers[coid] = cn
 			self._cnames[cn] = coid
-			self._cdata[coid] = data[key]
-			self._cmodels[coid] = model
-			for r in data[key]:
-				self._buildTree(r,ci[key]['obj'],oid,key)
+			self._cdata[coid] = data[o2mfield]
+			self._cmodels[coid] = ci[o2mfield]['obj']
+			if mode == 'A':
+				print('O2MFILED:',o2mfield,oid,cn,coid) 
 
-	def _buildTreeDict(self,data,model,parent=None,name=None):
-		d = {}
-		oid = str(id(d))
-		if not hasattr(self,'_root'):
-			self._root = oid
-
-		self._cdata[oid] = d
-		if model not in self._cmetas:
-			self._cmetas[model] = self._pool.get(model).columnsInfo(attributes=['type','obj'])
-		
-		ci = self._cmetas[model]
-		for key in filter(lambda x: x != 'id' and ci[x]['type'] == 'one2many',data.keys()):
-			d[key]= data[key]
-		
-		
-		self._cmodels[oid] = model
-		if parent and name:
-			self._cpaths[oid] = parent
-			self._cr2c[oid] = self._cnames[name + '.' + str(parent)]
-		else:
-			self._cpaths[oid] = None
-		
-		
-		for key in filter(lambda x: x != 'id' and ci[x]['type'] == 'one2many',data.keys()):
-			c = []
-			for r in data[key]:
-				c.append(self._buildTreeDict(r,ci[key]['obj']))
-			cn = key + '.' + oid
-			coid = str(id(c))
-			self._ccontainers[coid] = cn
-			self._cnames[cn] = coid
-			self._cdata[coid] = c
-			self._cmodels[coid] = model
-
-		return d
+			for r1 in data[o2mfield]:
+				self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
 
 	def _copyBuild(self):
 		self._odata.update(copy.deepcopy(self._cdata))
@@ -120,7 +89,6 @@ class DCacheDict(object):
 			self._pnames.update(copy.deepcopy(self._cnames))
 			self._pmetas.update(copy.deepcopy(self._cmetas))
 			self._pmodels.update(copy.deepcopy(self._cmodels))		
-
 
 	def _diffs(self,o,c,commit):
 		res = {}
@@ -152,6 +120,7 @@ class DCacheDict(object):
 				for r in res['__append__']:
 					container = r['__container__']
 					path = r['__path__']
+					model = r['__model__']
 					cdata = getattr(self,'_%sdata' % (c,))
 					odata = getattr(self,'_%sdata' % (o,))
 					cnames = getattr(self,'_%snames' % (c,))
@@ -170,7 +139,14 @@ class DCacheDict(object):
 
 					r1 = copy.deepcopy(r['__data__'])
 					odata.setdefault(cnames[container],[]).append(r1)
-					odata.setdefault(path,[]).append(r1)
+					odata[path] = r1
+					onames[container] = cnames[container]
+					ocontainers[cnames[container]] = ccontainers[cnames[container]]
+					ometas[model] = cmetas[model]
+					omodels[path] = cmodels[path] 
+					opaths[path] = cpaths[path]
+					or2c[path] = cr2c[path] 
+					
 					
 					for c in r['__containers__'].keys():
 						onames[c + '.' + path] = cnames[c + '.' + path]
@@ -184,7 +160,7 @@ class DCacheDict(object):
 
 		if ('__remove__' in res ):
 			res['__remove__'] = list(reversed(res['__remove__']))
-			print('__remove__:',res['__remove__'])
+			#print('__remove__:',res['__remove__'])
 			if commit:
 				for r in res['__remove__']:
 					container = r['__container__']
@@ -243,7 +219,27 @@ class DCacheDict(object):
 		#try:
 		ok = []
 		if path in getattr(self,'_%sdata' % (o,)):
-			ok = list(filter(lambda x: x != 'id' and ci[x]['type'] !='one2many',getattr(self,'_%sdata' % (o,))[path].keys()))
+			rr = getattr(self,'_%sdata' % (o,))[path]
+			#print('RR:',rr)
+			if type(rr) in (list,tuple):
+				coid = str(id(rr))
+				print('RR:',coid,self._ccontainers)
+				print('RR-DATA:',coid,rr)
+				container = self._ccontainers[coid]			
+				v = self._cmpList(o,c,container)
+				if '__append__' in v:			
+					res.setdefault('__append__',[]).extend(v['__append__'])
+				if '__remove__' in v:
+					res.setdefault('__remove__',[]).extend(v['__remove__'])
+				if '__update__' in v:
+					res.setdefault('__update__',{}).update(v['__update__'])
+				if '__insert__' in v:
+					res.setdefault('__insert__',{}).update(v['__insert__'])
+				if '__delete__' in v:
+					res.setdefault('__delete__',{}).update(v['__delete__'])
+
+			elif type(rr) == dict:
+				ok = list(filter(lambda x: x != 'id' and ci[x]['type'] !='one2many',rr.keys()))
 		#except:
 			#print('EXCEPT:',path,getattr(self,'_%sdata' % (o,))[path])
 		uk = list(set(ok).intersection(set(ck)))
@@ -253,7 +249,7 @@ class DCacheDict(object):
 		
 		for k in filter(lambda x: x != 'id',getattr(self,'_%sdata' % (c,))[path].keys()):
 			if ci[k]['type'] == 'one2many':
-				print('CMP-LIST:',self._cdata[path])
+				#print('CMP-LIST:',self._cdata[path])
 				v = self._cmpList(o,c,k + '.' + path)
 				#print('CDIFFS:', k + '.' + path,v)
 				if '__append__' in v:			
@@ -289,13 +285,13 @@ class DCacheDict(object):
 			uk = list(set(ok).intersection(set(ck)))
 			ik = list(set(ck)- set(ok))
 			dk = list(set(ok)- set(ck))
-			print('OK:',container,ok,ck,uk,ik,dk)
+			#print('OK:',container,ok,ck,uk,ik,dk)
 				
 			for path in uk:
 				if not path in getattr(self,'_%sdata' % (c,)):
 					dk.append(path)
 					continue
-				print('CMP-DICT:',self._cdata[path])
+				#print('CMP-DICT:',self._cdata[path])
 				v = self._cmpDict(o,c,path)
 				if '__update__' in v:
 					res.setdefault('__update__',{}).update(v['__update__'])
@@ -323,7 +319,7 @@ class DCacheDict(object):
 				res.setdefault('__append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__containers__':containers})
 		
 			for d in dk:
-				print('DD:',d,dk)
+				#print('DD:',d,dk)
 				model = getattr(self,'_%smodels' % (c,))[d]
 				ci = getattr(self,'_%smetas' % (c,))[model]
 
@@ -419,22 +415,27 @@ class MCache(object):
 		return m
 
 	def _do_read(self,model,row):
+		#print('DO-READ:',model,row)
 		self._clear()
 		self._model = model
 		self._data = DCacheDict(row,model,self._pool)
+		#print('DATA:',self._data)
 		self._getMeta()
-		print('M-GETDATA:')
+		#print('GET-META')
 		m = self._data._getData(self._data._data)
-		print('M-GETDATA-AFTER:',m)
+		#print('GET-DATA')
 		m['__meta__'] = self._do_meta(str(self._data._root))
+		#print('GET-DO-META')
 		m['__checks__'] = []
-		print('M:',m)
+		#print('M:',m)
 		return m
 
 
-	def _getMeta(self):
-		for model in list(self._data._cmodels.values()):
-			#print('GET-META:',model)
+	def _getMeta(self,models = None):
+		if models is None:
+			models = list(self._data._cmodels.values())
+		for model in models:
+			print('GET-META:',model)
 			if not model in self._meta:
 				self._meta[model] = self._pool.get(model).columnsInfo(attributes=['type','obj','rel','readonly','invisible','required','state','on_change','on_check'])
 
@@ -582,7 +583,7 @@ class MCache(object):
 	
 	def _do_calculate(self,path,context):
 		while True:
-			model = self._data._cmodels[path]
+			model = self._data._cmodels[path]		
 			_computes = self._pool.get(model)._compute(self._cr, self._pool, self._uid, self._cache_attrs[model]['computefields'], self._data._cdata[path], self._context)
 			#print('CALCULATE:',path,model,self._data._cdata[path],self._data._cpaths[path])
 			if len(_computes) > 0:
@@ -604,14 +605,14 @@ class MCache(object):
 					item[k] = _default[k]
 	
 	def _add(self,model,container,context,view='form'):
-		#print('ADD:',model,container)
+		print('ADD:',model,container)
 		row = self._buildItem(model,view)
 		self._setDefault(model,row)
 		
-		print('ADD-ROW:',row)
+		print('ADD-ROW:',str(id(row)),row)
 		#self._data._cdata[self._data._cnames[container]].append(row)
 		c = container.split('.')
-		self._data._buildTree(row,model,c[1],c[0])
+		self._data._buildTree(row,model,c[1],c[0],'A')
 		
 		self._do_calculate(str(id(row)),context)
 		

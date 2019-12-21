@@ -56,6 +56,10 @@ class User(object):
 			rc = self._components['slots']._call(args[1:])
 		elif args0 in ('login','logout','commit','rollback'):
 			rc = getattr(self,args0)(**(args[1]))
+		elif args0 == '_commit':
+			rc = self.commit()
+		elif args0 == '_rollback':
+			rc = self.rollback()
 		else:
 			rc = [False,'NOT CALLED']
 		
@@ -98,6 +102,7 @@ class User(object):
 				if pbkdf2_sha256.verify(password, res[1]):
 					self._connected =True
 					self._uid = res[0]
+					self._components['models']._setupUID(self._uid)
 					for key in self._models.keys():
 						if res[2]:
 							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
@@ -221,7 +226,6 @@ class System(object):
 
 	def _call(self,args):
 		res = []
-		print('CALL-ARGS:',args)
 		args0 = args[0]
 		if args0 == 'modules':
 			rc = self._components['modules']._call(args[1:])
@@ -233,6 +237,10 @@ class System(object):
 			rc = self._components['slots']._call(args[1:])
 		elif args0 in ('login','logout','commit','rollback'):
 			rc = getattr(self,args0)(**(args[1]))
+		elif args0 == '_commit':
+			rc = self.commit()
+		elif args0 == '_rollback':
+			rc = self.rollback()
 		else:
 			rc = [False,'NOT CALLED']
 		

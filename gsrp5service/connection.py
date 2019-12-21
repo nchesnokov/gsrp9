@@ -147,7 +147,7 @@ class Connection(object):
 class Cursor(object):
 	conn =None
 	cr = None
-	def __init__(self, dsn = None, database = 'system', user = 'root', password = None, host = 'localhost', port=26257, sslmode = None, sslcert = None,sslkey = None):
+	def __init__(self, dsn = None, database = 'system', user = 'root', password = None, host = 'localhost', port=26257, sslmode = None, sslrootcert = None, sslcert = None,sslkey = None):
 		self.dsn = dsn
 		self.database = database
 		self.user = user
@@ -155,6 +155,7 @@ class Cursor(object):
 		self.host = host
 		self.port = port
 		self.sslmode = sslmode
+		self.sslrootcert = sslrootcert
 		self.sslcert = sslcert
 		self.sslkey=sslkey
 
@@ -164,9 +165,15 @@ class Cursor(object):
 	def _connect(self):
 		if not self.conn or self.conn and self.conn.closed:
 			if self.sslmode:
-				self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslcert= self.sslcert,sslkey=self.sslkey)
+				if self.user == 'root':
+					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslcert= self.sslcert,sslkey=self.sslkey)
+				else:
+					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslcert= self.sslcert,sslkey=self.sslkey)
 			else:
-				self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection)
+				if self.user == 'root':
+					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection)
+				else:
+					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection)
 			#self.conn.set_session(False)
 			self.conn.autocommit = False
 
@@ -194,8 +201,7 @@ class Cursor(object):
 
 	def execute(self, query, vals = None):
 		try:
-			#print('sql query:',query,vals)
-			#print('mogrify:',self.mogrify(query,vals))
+			#print('QUERY:',query,vals)
 			if type(query) == str:
 				self.cr.execute(query = query, vars = vals)
 			elif type(query) in (tuple,list):
