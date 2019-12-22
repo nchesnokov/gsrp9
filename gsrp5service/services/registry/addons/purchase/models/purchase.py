@@ -180,11 +180,17 @@ class purchase_orders(Model):
 		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
 			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
 			for i in p:
-				r = {'delivery_schedules':[{'quantity':i['quantity'],'schedule':datetime.utcnow()+timedelta(3)}]}
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei['quantity'] = i['quantity']
+				ei['schedule'] = datetime.utcnow()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items['delivery_schedules'].append(ei)
+				#r = {'delivery_schedules':[{'quantity':i['quantity'],'schedule':datetime.utcnow()+timedelta(3)}]}
 				for f in ('product','uom'):
-					r[f] = i[f]
-				r['price'] = 0.00
-				item['items'].append(r)
+					item_items[f] = i[f]
+				item_items['price'] = 0.00
+				item['items'].append(item_items)
+				print('ITEMS:',item['items'])
 				
 		return None
 

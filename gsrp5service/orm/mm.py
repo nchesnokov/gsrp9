@@ -541,6 +541,16 @@ def _getNames(self,names):
 	return n
 
 # modelinfo
+def _buildEmptyItem(self):
+	r = dict.fromkeys(list(self._columns.keys()))
+	for o2mfiled in self._o2mfields:
+		r[o2mfiled] = []
+	
+	for m2ofiled in self._m2ofields:
+		r[m2ofiled] = {'id':None,'name':None}
+	
+	return r
+
 def _get__Doc__(self):
 	return self.__doc__
 

@@ -398,6 +398,10 @@ class BaseModel(object, metaclass = MetaModel):
 	def _getNames(self,names = None):
 		return mm._getNames(self,names)
 
+	def _buildEmptyItem(self):
+		return mm._buildEmptyItem(self)
+
+
 	# def _getAccess(self):
 		# return mm._getAccess(self)
 
