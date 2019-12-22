@@ -178,9 +178,14 @@ class purchase_orders(Model):
 		types = pool.get('purchase.order.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
 		texts1 = pool.get('purchase.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
+		seq = 0
 		for text in texts:
 			item_text = pool.get('purchase.order.texts')._buildEmptyItem()
-			item_text['seq'] = text['seq']
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
