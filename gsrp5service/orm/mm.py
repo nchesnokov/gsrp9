@@ -545,9 +545,12 @@ def _buildEmptyItem(self):
 	r = dict.fromkeys(list(self._columns.keys()))
 	for o2mfiled in self._o2mfields:
 		r[o2mfiled] = []
+
+	for m2mfiled in self._m2mfields:
+		r[m2mfiled] = []
 	
-	for m2ofiled in self._m2ofields:
-		r[m2ofiled] = {'id':None,'name':None}
+	for m2orelatedfield in self._m2orelatedfields:
+		r[m2orelatedfield] = {'id':None,'name':None}
 	
 	return r
 

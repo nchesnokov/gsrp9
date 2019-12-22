@@ -20,7 +20,6 @@ class DCacheDict(object):
 	"""
 	
 	def __init__(self,data,model,pool,primary=True):
-		#self._root = str(id(self._data))
 		self._model = model
 		self._pool =pool
 		self._primary = primary
@@ -32,7 +31,6 @@ class DCacheDict(object):
 				setattr(self,'_%s%s' % (a,v),{})
 
 		self._buildTree(data,model)
-		#print('CDATA:',self._cdata)
 		self._copyBuild()
 		
 	@property
@@ -70,52 +68,10 @@ class DCacheDict(object):
 			self._cnames[cn] = coid
 			self._cdata[coid] = data[o2mfield]
 			self._cmodels[coid] = ci[o2mfield]['obj']
-			if mode in ('A','I'):
-				print('O2MFILED:',o2mfield,oid,cn,coid) 
 
 			if mode != 'I':
 				for r1 in data[o2mfield]:
 					self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
-#
-
-	def _buildMetaDict(self,data,model,parent=None,name=None, mode = 'I'):
-		if type(data) != dict:
-			raise TypeError
-		
-		if model not in self._cmetas:
-			self._cmetas[model] = self._pool.get(model).columnsInfo(attributes=['type','obj'])
-		
-		ci = self._cmetas[model]
-		oid = str(id(data))
-
-		#if mode == 'N' and not hasattr(self,'_root'):
-			#self._root = oid
-
-		self._cdata[oid] = data
-		self._cmodels[oid] = model
-		if parent and name:
-			if mode == 'I':
-				self._cdata[self._cnames[name + '.' + str(parent)]].append(data)
-
-			self._cpaths[oid] = parent
-			self._cr2c[oid] = self._cnames[name + '.' + str(parent)]
-		else:
-			self._cpaths[oid] = None
-		
-		for o2mfield in self._pool.get(model)._o2mfields:
-			cn = o2mfield + '.' + oid
-			coid = str(id(data[o2mfield]))
-			self._ccontainers[coid] = cn
-			self._cnames[cn] = coid
-			self._cdata[coid] = data[o2mfield]
-			self._cmodels[coid] = ci[o2mfield]['obj']
-			
-			if mode == 'I':
-				print('O2MFILED:',o2mfield,oid,cn,coid) 
-
-			# for r1 in data[o2mfield]:
-				# self._buildMetaTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
-
 #
 
 	def _copyBuild(self):
@@ -325,7 +281,6 @@ class DCacheDict(object):
 				model = getattr(self,'_%smodels' % (c,))[coid]
 				d1 = ctypes.cast(int(i), ctypes.py_object).value
 				p=container.split('.')
-				#self._buildMetaDict(d1,model,p[1],p[0])
 				self._buildTree(d1,model,p[1],p[0],'I')
 				ci = getattr(self,'_%smetas' % (c,))[model]
 
@@ -352,8 +307,7 @@ class DCacheDict(object):
 					containers[k] = []
 	
 				res.setdefault('__remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__containers__':containers})
-		
-		#print('res-container:',container,res)
+
 		return res
 
 	def _odiffs(self,commit=True):
@@ -438,27 +392,19 @@ class MCache(object):
 		return m
 
 	def _do_read(self,model,row):
-		#print('DO-READ:',model,row)
 		self._clear()
 		self._model = model
 		self._data = DCacheDict(row,model,self._pool)
-		#print('DATA:',self._data)
 		self._getMeta()
-		#print('GET-META')
 		m = self._data._getData(self._data._data)
-		#print('GET-DATA')
 		m['__meta__'] = self._do_meta(str(self._data._root))
-		#print('GET-DO-META')
 		m['__checks__'] = []
-		#print('M:',m)
 		return m
-
 
 	def _getMeta(self,models = None):
 		if models is None:
 			models = list(self._data._cmodels.values())
 		for model in models:
-			print('GET-META:',model)
 			if not model in self._meta:
 				self._meta[model] = self._pool.get(model).columnsInfo(attributes=['type','obj','rel','readonly','invisible','required','state','on_change','on_check'])
 
@@ -467,7 +413,6 @@ class MCache(object):
 
 
 	def _clear(self):
-		#self._data._data.clear()
 		self._m.clear()
 		return True
 
@@ -628,11 +573,11 @@ class MCache(object):
 					item[k] = _default[k]
 	
 	def _add(self,model,container,context,view='form'):
-		print('ADD:',model,container)
+		#print('ADD:',model,container)
 		row = self._buildItem(model,view)
 		self._setDefault(model,row)
 		
-		print('ADD-ROW:',str(id(row)),row)
+		#print('ADD-ROW:',str(id(row)),row)
 		#self._data._cdata[self._data._cnames[container]].append(row)
 		p = container.split('.')
 		self._data._buildTree(row,model,p[1],p[0],'A')

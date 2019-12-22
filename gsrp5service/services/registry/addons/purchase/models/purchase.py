@@ -144,7 +144,7 @@ class purchase_orders(Model):
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'doo'
 	_columns = {
-	'otype': fields.many2one(label='Type',obj='purchase.order.types',on_change='on_change_otype'),
+	'otype': fields.many2one(label='Type',obj='purchase.order.types',on_change='_on_change_otype'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
 	'category_id': fields.many2one(label='Category',obj='purchase.order.categories'),
@@ -169,12 +169,20 @@ class purchase_orders(Model):
 	}
 
 	def _on_change_otype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('purchase.order.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['otype'])],context)
-			if len(roles) > 0:
-				if 'roles' not in item:
-					item['roles'] = []
-				for role in roles:
-					item[roles].append[role['role_id']]
+		roles = pool.get('purchase.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+		for role in roles:
+			item_role = pool.get('purchase.order.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = pool.get('purchase.order.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = pool.get('purchase.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		for text in texts:
+			item_text = pool.get('purchase.order.texts')._buildEmptyItem()
+			item_text['seq'] = text['seq']
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
 		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
@@ -185,12 +193,10 @@ class purchase_orders(Model):
 				ei['schedule'] = datetime.utcnow()+timedelta(3)
 				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
-				#r = {'delivery_schedules':[{'quantity':i['quantity'],'schedule':datetime.utcnow()+timedelta(3)}]}
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				print('ITEMS:',item['items'])
 				
 		return None
 
