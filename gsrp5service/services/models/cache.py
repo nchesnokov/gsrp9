@@ -160,11 +160,12 @@ class DCacheDict(object):
 
 		if ('__remove__' in res ):
 			res['__remove__'] = list(reversed(res['__remove__']))
-			#print('__remove__:',res['__remove__'])
+			print('__remove__:',res['__remove__'])
 			if commit:
 				for r in res['__remove__']:
 					container = r['__container__']
 					path = r['__path__']
+					model = r['__model__']
 					cdata = getattr(self,'_%sdata' % (c,))
 					odata = getattr(self,'_%sdata' % (o,))
 					cnames = getattr(self,'_%snames' % (c,))
@@ -181,32 +182,32 @@ class DCacheDict(object):
 					cr2c = getattr(self,'_%sr2c' % (c,))
 					or2c = getattr(self,'_%sr2c' % (o,))
 
-					i = -1
-					for idx,v in enumerate(odata[cnames[container]]):
-						if str(id(v)) == path:
-							i = idx
-					if i >= 0:
-						odata[cnames[container]].pop(i)
+					odata[onames[container]].remove(odata[path])
 					del odata[path]
-					
-					if len(odata[cnames[container]]) == 0:
-						del odata[cnames[container]]
 
-					for cr in r['__containers__'].keys():
+					if len(cdata[cnames[container]]) == 0:
+						del cdata[onames[container]]
+						del ccontainers[cnames[container]]
+						del cnames[container]
 						
-						del ocontainers[onames[cr + '.' + path]]
-						del onames[cr + '.' + path]
-						del ometas[omodels[path]]
-						del omodels[path]
-						del or2c[path]
-						del opaths[path]
 
-						del ccontainers[cnames[cr + '.' + path]]
-						del cnames[cr + '.' + path]
-						del cmetas[cmodels[path]]
-						del cmodels[path]
-						del cr2c[path]
-						del cpaths[path]
+					if len(odata[onames[container]]) == 0:
+						del odata[onames[container]]
+						del ocontainers[onames[container]]
+						del onames[container]
+
+					
+					#del cmetas[model]
+					#del ometas[model]
+					
+					del cmodels[path] 
+					del omodels[path] 
+					
+					del cpaths[path]
+					del opaths[path]
+					
+					del cr2c[path] 
+					del or2c[path]
 
 		return res
 
@@ -304,11 +305,32 @@ class DCacheDict(object):
 				container = self._ccontainers[getattr(self,'_%sr2c' % (o,))[d]]
 				containers = {}
 				for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'one2many',getattr(self,'_%sdata' % (o,))[d].keys()):
-					containers[k] = []
+					do = str(id(getattr(self,'_%sdata' % (o,))[d][k]))
+					obj = getattr(self,'_%smodels' % (c,))[do]
+					res.setdefault('__remove__',[]).extend(self._removeRecursive(o,c,obj,k + '.' + d))
 	
-				res.setdefault('__remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__containers__':containers})
+				res.setdefault('__remove__',[]).append({'__path__':d,'__container__':container,'__model__':model})
 
 		return res
+
+		def _removeRecursive(self,o,c,model,container):
+			res = []
+			cdata = getattr(self,'_%sdata' % (c,))
+			odata = getattr(self,'_%sdata' % (o,))
+			or2c = getattr(self,'_%sr2c' % (o,))
+			ometas = getattr(self,'_%smetas' % (o,))
+			for path in filter(lambda x: or2c[x] == container,or2c.keys()):
+				res.append({'__path__':path,'__container__':container,'__model__':model})
+				ci = ometas[model]
+
+				for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'one2many',odata[path].keys()):
+					for r in odata[path][key]:
+						d = str(id(r))
+						obj = getattr(self,'_%smodels' % (c,))[d]
+						res.extend(self._removeRecursive(o,c,obj,k + '.' + d))
+					
+			return res
+			
 
 	def _odiffs(self,commit=True):
 		return self._diffs('o','c',commit)
