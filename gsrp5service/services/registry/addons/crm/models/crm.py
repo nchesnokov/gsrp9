@@ -247,7 +247,7 @@ class crm_requests(Model):
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'dor'
 	_columns = {
-	'rtype': fields.many2one(label='Type',required = True,obj='crm.request.types',on_change='on_change_rtype'),
+	'rtype': fields.many2one(label='Type',required = True,obj='crm.request.types',on_change='_on_change_rtype'),
 	'name': fields.varchar(label = 'Name'),
 	'category_id': fields.many2one(label='Category',obj='crm.request.categories'),
 	'company_id': fields.many2one(label='Company',obj='md.company'),
@@ -274,27 +274,45 @@ class crm_requests(Model):
 	'texts': fields.one2many(label='Texts',obj='crm.request.texts',rel='request_id'),
 	'note': fields.text('Note')
 	}
-
+#
 	def _on_change_rtype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('crm.request.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['rtype'])],context)
-			if len(roles) > 0:
-				if 'roles' not in item:
-					item['roles'] = []
-				for role in roles:
-					item[roles].append[role['role_id']]
+		roles = pool.get('crm.request.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+		for role in roles:
+			item_role = pool.get('crm.request.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = pool.get('crm.request.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = pool.get('crm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = pool.get('crm.request.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
 		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
 			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
 			for i in p:
-				r = {'delivery_schedules':[{'quantity':i['quantity'],'schedule':datetime.utcnow()+timedelta(3)}]}
+				ei = pool.get('crm.request.item.delivery.schedules')._buildEmptyItem()
+				ei['quantity'] = i['quantity']
+				ei['schedule'] = datetime.utcnow()+timedelta(3)
+				item_items = pool.get('crm.request.items')._buildEmptyItem()
+				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
-					r[f] = i[f]
-				r['price'] = 0.00
-				item['items'].append(r)
+					item_items[f] = i[f]
+				item_items['price'] = 0.00
+				item['items'].append(item_items)
 				
 		return None
 
+#
 	_default = {
 		'state':'draft'
 	}
@@ -421,7 +439,7 @@ class crm_offers(Model):
 	_description = 'General Model CRM Offer'
 	_date = 'doo'
 	_columns = {
-	'otype': fields.many2one(label='Type',required = True,obj='crm.offer.types',on_change='on_change_otype'),
+	'otype': fields.many2one(label='Type',required = True,obj='crm.offer.types',on_change='_on_change_otype'),
 	'name': fields.varchar(label = 'Name'),
 	'category_id': fields.many2one(label='Category',obj='crm.offer.categories'),
 	'company_id': fields.many2one(label='Company',obj='md.company'),
@@ -448,26 +466,45 @@ class crm_offers(Model):
 	'texts': fields.one2many(label='Texts',obj='crm.offer.texts',rel='offer_id'),
 	'note': fields.text('Note')
 	}
-
+#
 	def _on_change_otype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('crm.offer.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['otype'])],context)
-			if len(roles) > 0:
-				if 'roles' not in item:
-					item['roles'] = []
-				for role in roles:
-					item[roles].append[role['role_id']]
+		roles = pool.get('crm.offer.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+		for role in roles:
+			item_role = pool.get('crm.offer.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = pool.get('crm.offer.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = pool.get('crm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = pool.get('crm.offer.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
 		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
 			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
 			for i in p:
-				r = {'delivery_schedules':[{'quantity':i['quantity'],'schedule':datetime.utcnow()+timedelta(3)}]}
+				ei = pool.get('crm.offer.item.delivery.schedules')._buildEmptyItem()
+				ei['quantity'] = i['quantity']
+				ei['schedule'] = datetime.utcnow()+timedelta(3)
+				item_items = pool.get('crm.offer.items')._buildEmptyItem()
+				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
-					r[f] = i[f]
-				r['price'] = 0.00
-				item['items'].append(r)
+					item_items[f] = i[f]
+				item_items['price'] = 0.00
+				item['items'].append(item_items)
 				
 		return None
+
+#
 
 	_default = {
 		'state':'draft'
@@ -596,7 +633,7 @@ class crm_contracts(Model):
 	_description = 'General Model CRM Contract'
 	_date = 'doc'
 	_columns = {
-	'ctype': fields.many2one(label='Type',obj='crm.contract.types',on_change='on_change_ctype'),
+	'ctype': fields.many2one(label='Type',obj='crm.contract.types',on_change='_on_change_ctype'),
 	'name': fields.varchar(label = 'Name'),
 	'category_id': fields.many2one(label='Category',obj='crm.contract.categories'),
 	'company_id': fields.many2one(label='Company',obj='md.company'),
@@ -624,26 +661,45 @@ class crm_contracts(Model):
 	'payments': fields.one2many(label='Payments',obj='crm.contract.payment.schedules',rel='contarct_id'),
 	'note': fields.text('Note')
 	}
-
+#
 	def _on_change_ctype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('crm.contract.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['ctype'])],context)
-			if len(roles) > 0:
-				if 'roles' not in item:
-					item['roles'] = []
-				for role in roles:
-					item[roles].append[role['role_id']]
+		roles = pool.get('crm.contract.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+		for role in roles:
+			item_role = pool.get('crm.contract.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = pool.get('crm.contract.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = pool.get('crm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = pool.get('crm.contract.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
 		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
 			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
 			for i in p:
-				r = {'delivery_schedules':[{'quantity':i['quantity'],'schedule':datetime.utcnow()+timedelta(3)}]}
+				ei = pool.get('crm.contract.item.delivery.schedules')._buildEmptyItem()
+				ei['quantity'] = i['quantity']
+				ei['schedule'] = datetime.utcnow()+timedelta(3)
+				item_items = pool.get('crm.contract.items')._buildEmptyItem()
+				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
-					r[f] = i[f]
-				r['price'] = 0.00
-				item['items'].append(r)
+					item_items[f] = i[f]
+				item_items['price'] = 0.00
+				item['items'].append(item_items)
 				
 		return None
+
+#
 
 	_default = {
 		'state':'draft'

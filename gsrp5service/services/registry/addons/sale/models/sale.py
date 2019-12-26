@@ -144,7 +144,7 @@ class sale_orders(Model):
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'doo'
 	_columns = {
-	'otype': fields.many2one(label='Type',obj='sale.order.types',on_change='on_change_otype'),
+	'otype': fields.many2one(label='Type',obj='sale.order.types',on_change='_on_change_otype'),
 	'category_id': fields.many2one(label='Category',obj='sale.order.categories'),
 	'company_id': fields.many2one(label='Company',obj='md.company'),
 	'name': fields.varchar(label = 'Name'),
@@ -168,25 +168,45 @@ class sale_orders(Model):
 	'note': fields.text('Note')
 	}
 
+#
 	def _on_change_otype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('sale.order.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['otype'])],context)
-			if len(roles) > 0:
-				if 'roles' not in item:
-					item['roles'] = []
-				for role in roles:
-					item[roles].append[role['role_id']]
+		roles = pool.get('sale.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+		for role in roles:
+			item_role = pool.get('sale.order.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = pool.get('sale.order.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = pool.get('sale.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = pool.get('sale.order.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
 		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
 			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
 			for i in p:
-				r = {'delivery_schedules':[{'quantity':i['quantity'],'schedule':datetime.utcnow()+timedelta(3)}]}
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei['quantity'] = i['quantity']
+				ei['schedule'] = datetime.utcnow()+timedelta(3)
+				item_items = pool.get('sale.order.items')._buildEmptyItem()
+				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
-					r[f] = i[f]
-				r['price'] = 0.00
-				item['items'].append(r)
+					item_items[f] = i[f]
+				item_items['price'] = 0.00
+				item['items'].append(item_items)
 				
 		return None
+
+#
 
 	_default = {
 		'state':'draft'

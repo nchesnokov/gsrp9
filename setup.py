@@ -10,7 +10,7 @@ __package_file__ = 'gsrp5-service'
 
 modules = []
 
-package_data = {'gsrp5service':['conf/*/*']}
+package_data = {'gsrp5service':['conf/*/*','conf/*']}
 
 conf = []
 
