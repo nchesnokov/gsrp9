@@ -160,7 +160,7 @@ class DCacheDict(object):
 
 		if ('__remove__' in res ):
 			res['__remove__'] = list(res['__remove__'])
-			print('__remove__:',res['__remove__'])
+			#print('__remove__:',res['__remove__'])
 			if commit:
 				for r in res['__remove__']:
 					container = r['__container__']
@@ -298,7 +298,6 @@ class DCacheDict(object):
 				res.setdefault('__append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__containers__':containers})
 		
 			for d in dk:
-				#print('DD:',d,dk)
 				model = getattr(self,'_%smodels' % (c,))[d]
 				ci = getattr(self,'_%smetas' % (c,))[model]
 
@@ -318,24 +317,18 @@ class DCacheDict(object):
 
 	def _removeRecursive(self,o,c,path):
 		res = []
-		cdata = getattr(self,'_%sdata' % (c,))
-		odata = getattr(self,'_%sdata' % (o,))
-		cr2c = getattr(self,'_%sr2c' % (c,))
-		or2c = getattr(self,'_%sr2c' % (o,))
-		cmetas = getattr(self,'_%smetas' % (c,))
-		ometas = getattr(self,'_%smetas' % (o,))
-		omodels = getattr(self,'_%smodels' % (o,))
-		model = omodels[path]
-		container = self._ccontainers[cr2c[path]]
-		print('MODEL:',path,model)
+		model = self._omodels[path]
+		container = self._ccontainers[self._cr2c[path]]
 
 		for o2mfield in self._pool.get(model)._o2mfields:
 			container1 = o2mfield + '.' + str(path)
-			obj = cmetas[model][o2mfield]['obj']
-			for path1 in filter(lambda x:cr2c[x] == self._cnames[container1],cr2c.keys()):
+			coid = self._cnames[container1]
+			obj = self._cmetas[model][o2mfield]['obj']
+			for r in self._cdata[coid]:
+				path1 = str(id(r))
 				res.extend(self._removeRecursive(o,c,path1))
-				cdata[path1][key].remove(cdata[path1])
-				del cdata[path1]
+				self._cdata[coid].remove(self._cdata[path1])
+				del self._cdata[path1]
 				res.append({'__path__':path1,'__container__':container1,'__model__':obj})
 			
 		res.append({'__path__':path,'__container__':container,'__model__':model})		
