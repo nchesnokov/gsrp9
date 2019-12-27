@@ -521,8 +521,9 @@ def _load_list_modules(cr,pool,uid,registry,db):
 	cr.execute('SET DATABASE = %s' % (db,))
 	_uid = pool.get('bc.users').select(cr,pool,uid,fields=[],cond=[('login','=','admin')])[0]['id'] 
 	db_modules = list(map(lambda x: x[1],pool.get('bc.modules').select(cr,pool,uid,fields=['code'],context={'FETCH':'LIST'})))
-	#print('db_modules:',db_modules)
+	print('db_modules:',db_modules)
 	modules = list(filter(lambda x: not x in db_modules,registry._modules.keys()))
+	print('modules:',)
 	for module in modules:
 		if module in db_modules:
 			continue

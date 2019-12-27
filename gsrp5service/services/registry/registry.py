@@ -220,7 +220,7 @@ class Registry(Service):
 		modules = [node.name for node in self._graph]
 		r = {}
 		for module in modules:
-			if self._modules[module]['state'] == 'I':
+			if 'state' in self._modules[module] and self._modules[module]['state'] == 'I':
 				self._load_inherit(module)
 
 		for module in self._momm.keys():

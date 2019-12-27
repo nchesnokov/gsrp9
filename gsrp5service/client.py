@@ -7,6 +7,8 @@ import ssl
 import websockets
 import time
 
+uid = None
+
 from orm.model import Model,ModelInherit
 
 secure = False
@@ -20,8 +22,13 @@ if secure:
 	ssl_ctx.load_cert_chain(opj(os.getcwd(),"server.crt"),opj(os.getcwd(),"server.key"))
 
 async def _execute(args):
+	global uid
 	ws = args[0]
-	msg = args[1:]
+	if uid:
+		msg = [uid]
+	else:
+		msg=['0' * 32]
+	msg.extend(args[1:])
 	print('MSG:',msg)
 	imsg = pickle.dumps(msg)
 	await ws.send(imsg)
@@ -31,6 +38,8 @@ async def _execute(args):
 	if hasattr(rmsg,'_class__') and issubclass(rmsg,Exception):
 		print('Exception: %s' % (rmsg,))
 		return None
+	if uid is None and args[1] == '_open':
+		uid = rmsg[0]
 	return rmsg
 
 #print('ssl_ctx:',ssl_ctx)
@@ -65,8 +74,8 @@ async def hello():
 		#async with websockets.connect('ws://localhost:8170/ws') as ws:
 		async with websockets.connect('ws://localhost:8170') as ws:
 			if not True:
-				msg = await _execute([ws, '_open','gsrp5.system',{'profile':'system'}])
-				#msg = await _execute([ws, 'modules','upgrademoduleslist',{'db':'test001'}])
+				uid = await _execute([ws, '_open','gsrp5.system',{'profile':'system'}])
+				msg = await _execute([ws, uid[0],'modules','upgrademoduleslist',{'db':'test001'}])
 				#msg = await _execute([ws, 'slots','initialize'])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['ai','bc','cm','crm','fa','hcm','md','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ctrm']}])
 				
@@ -75,7 +84,7 @@ async def hello():
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','md','cm','crm','fa','hcm','ml','mm','md3','mrp','oil','project','purchase','sale','le','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ehs','scm']}])
 				
 				#msg = await _execute([ws, '_login',{'user':'admin','password':'admin','slot':'test001'}])
-				#msg = await _execute([ws, 'gens','ui',{'modules': ['sale','crm','srm']}])
+				#msg = await _execute([ws, 'gens','tr',{'modules': ['l10n_uy']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['cm','md','mrp']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['fcm']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','cm','crm','fa','hcm','ml','mm','mrp','purchase','sale','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm']}])
@@ -114,8 +123,8 @@ async def hello():
 				#msg = await _execute([ws, 'modules','install',{'modules':['project','crm','mm','mrp','purchase','sale','le','stock','wkf_srm','fa']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['crm','purchase','sale','le','cf','ai','fa','hcm']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['ehs','scm','hcm','wm']}])
-				#msg = await _execute([ws, 'modules','install',{'modules':['srm']}])
-				msg = await _execute([ws, 'modules','install',{'modules': ['ctrm','ai','crm','fa','hcm','md','ml','mm','mrp','oil','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ehs','scm']}])
+				msg = await _execute([ws, 'modules','install',{'modules':['l10n_uy']}])
+				#msg = await _execute([ws, 'modules','install',{'modules': ['ctrm','ai','crm','fa','hcm','md','ml','mm','mrp','oil','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ehs','scm']}])
 				#msg = await _execute([ws, '_commit'])
 
 if __name__ == "__main__":
