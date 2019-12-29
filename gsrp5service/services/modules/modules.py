@@ -26,7 +26,6 @@ class Modules(Component):
 
 		rmsg = []
 		method = getattr(self,args[0],None)
-		print('MODULES:',args,method)
 		if method and callable(method):
 			kwargs = {}
 			if len(args) > 1 and type(args[1]) == dict:

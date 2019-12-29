@@ -200,7 +200,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 					models.setdefault(model,[]).extend(fields)
 
 		if len(models) > 0 or len(imodules) > 0:
-			#print('MODELS:',module,imodules,models)
+			print('MODELS:',module,imodules,models)
 			_download(cr,pool,uid,path,module,imodules,models,registry,ext=context['ext'])
 			logmodules.append(module)
 

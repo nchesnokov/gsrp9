@@ -96,7 +96,6 @@ class DCacheDict(object):
 
 		path = self._root
 		res.update(self._cmpDict(o,c,path))
-		#print('RES:',res)
 
 		if ('__update__' in res ):
 			if commit:
@@ -160,7 +159,6 @@ class DCacheDict(object):
 
 		if ('__remove__' in res ):
 			res['__remove__'] = list(res['__remove__'])
-			#print('__remove__:',res['__remove__'])
 			if commit:
 				for r in res['__remove__']:
 					container = r['__container__']
@@ -224,9 +222,7 @@ class DCacheDict(object):
 		
 		for k in filter(lambda x: x != 'id',getattr(self,'_%sdata' % (c,))[path].keys()):
 			if ci[k]['type'] == 'one2many':
-				#print('CMP-LIST:',self._cdata[path])
 				v = self._cmpList(o,c,k + '.' + path)
-				#print('CDIFFS:', k + '.' + path,v)
 				if '__append__' in v:			
 					res.setdefault('__append__',[]).extend(v['__append__'])
 				if '__remove__' in v:
@@ -240,13 +236,18 @@ class DCacheDict(object):
 
 			else:
 				if k in uk and getattr(self,'_%sdata' % (c,))[path][k] != getattr(self,'_%sdata' % (o,))[path][k]:
-					res.setdefault('__update__',{}).setdefault(path,{})[k] = getattr(self,'_%sdata' % (c,))[path][k]
+					if type(getattr(self,'_%sdata' % (c,))[path][k]) == memoryview:
+						res.setdefault('__update__',{}).setdefault(path,{})[k] = (getattr(self,'_%sdata' % (c,))[path][k]).tobytes()
+					else:
+						res.setdefault('__update__',{}).setdefault(path,{})[k] = getattr(self,'_%sdata' % (c,))[path][k]
 				elif k in ik:
-					res.setdefault('__insert__',{}).setdefault(path,{})[k] = getattr(self,'_%sdata' % (c,))[path][k]
+					if type(getattr(self,'_%sdata' % (c,))[path][k]) == memoryview:
+						res.setdefault('__insert__',{}).setdefault(path,{})[k] = getattr(self,'_%sdata' % (c,))[path][k].tobytes()
+					else:
+						res.setdefault('__insert__',{}).setdefault(path,{})[k] = getattr(self,'_%sdata' % (c,))[path][k]
 				elif k in dk:
 					res.setdefault('__delete__',{}).setdefault(path,[]).append(k)
-		
-		#print('res-dict:',path,res)	
+	
 		return res
 
 	def _cmpList(self,o,c,container):
@@ -260,13 +261,11 @@ class DCacheDict(object):
 			uk = list(set(ok).intersection(set(ck)))
 			ik = list(set(ck)- set(ok))
 			dk = list(set(ok)- set(ck))
-			#print('OK:',container,ok,ck,uk,ik,dk)
 				
 			for path in uk:
 				if not path in getattr(self,'_%sdata' % (c,)):
 					dk.append(path)
 					continue
-				#print('CMP-DICT:',self._cdata[path])
 				v = self._cmpDict(o,c,path)
 				if '__update__' in v:
 					res.setdefault('__update__',{}).update(v['__update__'])
@@ -342,11 +341,11 @@ class DCacheDict(object):
 	def _pdiffs(self,commit=True):
 		return self._diffs('p','c',commit)
 
-	def _oapply(self,commit=True):
-		self._diffs('o','c',commit)
+	def _oapply(self):
+		return self._diffs('o','c',True)
 
-	def _papply(self,commit=True):
-		self._diffs('p','c',commit)
+	def _papply(self):
+		return self._diffs('p','c',True)
 
 	def _getData(self,d):
 		path = str(id(d))
@@ -430,6 +429,8 @@ class MCache(object):
 	def _getMeta(self,models = None):
 		if models is None:
 			models = list(self._data._cmodels.values())
+		elif type(models) == str:
+			models = [models]
 		for model in models:
 			if not model in self._meta:
 				self._meta[model] = self._pool.get(model).columnsInfo(attributes=['type','obj','rel','readonly','invisible','required','state','on_change','on_check'])
@@ -476,12 +477,14 @@ class MCache(object):
 	
 	def _do_diff(self,path,key,value,context):
 		res = {}
-		
-		#print('OIDS:',list(self._oids.keys()),list(self._containers.keys()))
+
 		if key not in self._data._cdata[path] or self._data._cdata[path][key] != value:
-			#print('path,key,value:',path,key,value)
 			self._data._cdata.setdefault(path,{})[key] = value
 			model = self._data._cmodels[path]
+
+			if model not in self._meta:
+				self._getMeta(model)
+
 			if key in self._cache_attrs[model]['checkfields'] and self._cache_attrs[model]['checkfields'][key]:
 				self._on_check(path,model,key,context)
 
@@ -510,6 +513,9 @@ class MCache(object):
 					if rc and len(rc) > 0:
 						res.setdefault('m',{}).update(rc)
 
+			if model not in self._meta:
+				self._getMeta(model)
+
 			cols = self._meta[model]
 			for a in ('readonly','invisible','required'):
 				k = list(filter(lambda x:cols[x]['type'] != 'referenced' and type(cols[x][a]) == str,cols.keys()))
@@ -517,7 +523,7 @@ class MCache(object):
 				for v1 in v:
 					method = getattr(m,v1,None)
 					if method:
-						rc = method(self._cr,self._pool,self._uid,k,self._data[path],self._context)
+						rc = method(self._cr,self._pool,self._uid,k,self._data._cdata[path],self._context)
 						if rc and len(rc) > 0:
 							for k1 in rc.keys():
 								if a == 'readonly':
@@ -533,7 +539,7 @@ class MCache(object):
 					if len(m._col_attrs) > 0:
 						res['c'] = m._col_attrs
 				elif type(m._col_attrs) == str:
-					res['c'] = getattr(m,m._col_attrs,None)(self._cr,self._pool,self._uid,self._data[path],self._context)
+					res['c'] = getattr(m,m._col_attrs,None)(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
 					if len(res['c']) == 0:
 						del res['c']
 
@@ -579,7 +585,6 @@ class MCache(object):
 		while True:
 			model = self._data._cmodels[path]		
 			_computes = self._pool.get(model)._compute(self._cr, self._pool, self._uid, self._cache_attrs[model]['computefields'], self._data._cdata[path], self._context)
-			#print('CALCULATE:',path,model,self._data._cdata[path],self._data._cpaths[path])
 			if len(_computes) > 0:
 				self._data._cdata.setdefault(path,{}).update(_computes)
 
@@ -590,6 +595,8 @@ class MCache(object):
 
 	def _setDefault(self,model,item):
 		_default = self._pool.get(model)._default
+		if model not in self._meta:
+			self._getMeta([model])
 		m1 = self._meta[model]
 		for k in _default.keys():
 			if k not in item or item[k] is None:
@@ -599,12 +606,9 @@ class MCache(object):
 					item[k] = _default[k]
 	
 	def _add(self,model,container,context,view='form'):
-		#print('ADD:',model,container)
 		row = self._buildItem(model,view)
 		self._setDefault(model,row)
 		
-		#print('ADD-ROW:',str(id(row)),row)
-		#self._data._cdata[self._data._cnames[container]].append(row)
 		p = container.split('.')
 		self._data._buildTree(row,model,p[1],p[0],'A')
 		
@@ -614,12 +618,9 @@ class MCache(object):
 
 		data_diffs = self._data._odiffs(True)
 		
-		#self._data._oapply()
-
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
 
-		
 		meta = self._do_meta(str(id(row)))
 		if len(meta) > 0:
 			res['__meta__'] = meta
@@ -632,7 +633,6 @@ class MCache(object):
 			return [res]
 		
 		return []
-
 			
 	def _remove(self,path,container,context):
 		c = container.split('.')
@@ -647,7 +647,6 @@ class MCache(object):
 
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
-
 		
 		meta = self._do_meta(c[1])
 		if len(meta) > 0:
@@ -666,7 +665,6 @@ class MCache(object):
 		rec_name = self._pool.get(self._meta[model][key]['obj'])._getRecNameName()
 		fields = [rec_name]
 		cond = [(rec_name,'like',value['name'] if type(value) == dict else value)]
-		#print('R:',model,key,value,cond)
 		r = self._pool.get(self._meta[model][key]['obj']).select(self._cr,self._pool,self._uid,fields,cond=cond)
 		
 		if len(r) > 1:
@@ -685,7 +683,6 @@ class MCache(object):
 		for rel in relatedy:
 			cond.append((rel,'=',self._data[path][rel]))
 		r = self._pool.get(self._meta[model][key]['obj']).select(self._cr,self._pool,self._uid,fields,cond=cond)
-		#print('R:',r,key,value)
 		if len(r) > 1:
 			res = {'path':path,'key':key,'v':list(map(lambda x: x['id'],r))}
 		elif len(r) == 1:
@@ -736,7 +733,6 @@ class MCache(object):
 	def _mcache(self,path,key=None,value=None,context={}):
 		res = {}
 
-		#print('MCACHE:',path,key,value)
 		self._do_diff(path,key,value,context)
 		meta = self._do_meta(path)
 		

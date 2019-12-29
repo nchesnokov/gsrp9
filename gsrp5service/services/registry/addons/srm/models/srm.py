@@ -259,7 +259,7 @@ class srm_demand(Model):
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from'],'_columns':['note1','note2'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'dod'
 	_columns = {
-	'dtype': fields.many2one(label='Type',obj='srm.demand.types',on_change='on_change_dtype'),
+	'dtype': fields.many2one(label='Type',obj='srm.demand.types',on_change='_on_change_dtype'),
 	'name': fields.varchar(label = 'Demand',selectable = True),
 	'company': fields.many2one(label='Company',obj='md.company'),
 	'category_id': fields.many2one(label='Category',obj='srm.demand.category'),
@@ -272,7 +272,7 @@ class srm_demand(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
 	'items': fields.one2many(label='Items',obj='srm.demand.items',rel='demand_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.demand.roles',rel='demand_id'),
 	'texts': fields.one2many(label='Texts',obj='srm.demand.texts',rel='demand_id'),
@@ -280,12 +280,41 @@ class srm_demand(Model):
 	'note': fields.text('Note')}
 	
 	def _on_change_dtype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('srm.demand.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['dtype'])],context)
-			if len(roles) > 0:
-				if 'roles' not in item:
-					item['roles'] = []
-				for role in roles:
-					item[roles].append[role['role_id']]
+		roles = pool.get('srm.demand.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		for role in roles:
+			item_role = pool.get('srm.demand.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = pool.get('srm.demand.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = pool.get('srm.demand.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
+
+	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
+		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
+			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+			for i in p:
+				ei = pool.get('srm.demand.item.delivery.schedules')._buildEmptyItem()
+				ei['quantity'] = i['quantity']
+				ei['schedule'] = datetime.utcnow()+timedelta(3)
+				item_items = pool.get('srm.demand.items')._buildEmptyItem()
+				item_items['delivery_schedules'].append(ei)
+				for f in ('product','uom'):
+					item_items[f] = i[f]
+				item_items['price'] = 0.00
+				item['items'].append(item_items)
+				
+		return None
 
 srm_demand()
 
@@ -359,7 +388,7 @@ class srm_demand_items(Model):
 	'vat_amount': fields.numeric(label='VAT Amount',compute='_calculate_items',size=(15,2)),
 	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
 	'currency_id': fields.many2one(label='Currency',obj='md.currency',on_delete='n',on_update='n'),
-	'delivery_schedules': fields.one2many(label='Delivery Schedules',obj='srm.demand.delivery.schedules',rel='item_id'),
+	'delivery_schedules': fields.one2many(label='Delivery Schedules',obj='srm.demand.item.delivery.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.demand.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='srm.demand.item.texts',rel='item_id'),
 	'note': fields.text('Note')}
@@ -411,8 +440,8 @@ class srm_demand_item_roles(Model):
 
 srm_demand_item_roles()
 
-class srm_demand_delivery_schedules(Model):
-	_name = 'srm.demand.delivery.schedules'
+class srm_demand_item_delivery_schedules(Model):
+	_name = 'srm.demand.item.delivery.schedules'
 	_description = 'General SRM Demand Delivery Schedules'
 	_date = "schedule"
 	_columns = {
@@ -422,7 +451,7 @@ class srm_demand_delivery_schedules(Model):
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')}
 
-srm_demand_delivery_schedules()
+srm_demand_item_delivery_schedules()
 
 class srm_part_types(Model):
 	_name = 'srm.part.types'
@@ -460,7 +489,7 @@ class srm_part(Model):
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'dop'
 	_columns = {
-	'ptype': fields.many2one(label='Type',obj='srm.part.types',on_change='on_change_ptype'),
+	'ptype': fields.many2one(label='Type',obj='srm.part.types',on_change='_on_change_ptype'),
 	'name': fields.varchar(label = 'Part',selectable = True),
 	'company': fields.many2one(label='Company',obj='md.company'),
 	'category_id': fields.many2one(label='Category',obj='srm.part.category'),
@@ -479,6 +508,82 @@ class srm_part(Model):
 	'texts': fields.one2many(label='Texts',obj='srm.part.texts',rel='part_id'),
 	'deadlines': fields.one2many(label='Deadlines',obj='srm.part.deadlines',rel='part_id'),
 	'note': fields.text('Note')}
+
+	def _on_change_ptype(self,cr,pool,uid,item,context={}):		
+		roles = pool.get('srm.part.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['ptype']['name'])],context)
+		for role in roles:
+			item_role = pool.get('srm.part.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = pool.get('srm.part.types').select(cr,pool,uid,['htschema'],[('name','=',item['ptype']['name'])],context)	
+		texts1 = pool.get('srm.part.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = pool.get('srm.part.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
+
+	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
+		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
+			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+			for i in p:
+				ei = pool.get('srm.part.item.delivery.schedules')._buildEmptyItem()
+				ei['quantity'] = i['quantity']
+				ei['schedule'] = datetime.utcnow()+timedelta(3)
+				item_items = pool.get('srm.part.items')._buildEmptyItem()
+				item_items['delivery_schedules'].append(ei)
+				for f in ('product','uom'):
+					item_items[f] = i[f]
+				item_items['price'] = 0.00
+				item['items'].append(item_items)
+				
+		return None
+
+
+	def _on_change_dtype(self,cr,pool,uid,item,context={}):		
+		roles = pool.get('srm.demand.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		for role in roles:
+			item_role = pool.get('srm.demand.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = pool.get('srm.demand.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = pool.get('srm.demand.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
+
+	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
+		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
+			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+			for i in p:
+				ei = pool.get('srm.part.item.delivery.schedules')._buildEmptyItem()
+				ei['quantity'] = i['quantity']
+				ei['schedule'] = datetime.utcnow()+timedelta(3)
+				item_items = pool.get('srm.demand.items')._buildEmptyItem()
+				item_items['delivery_schedules'].append(ei)
+				for f in ('product','uom'):
+					item_items[f] = i[f]
+				item_items['price'] = 0.00
+				item['items'].append(item_items)
+				
+		return None
+
 
 	def _on_change_ptype(self,cr,pool,uid,item,context={}):		
 			roles = pool.get('srm.part.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['ptype'])],context)

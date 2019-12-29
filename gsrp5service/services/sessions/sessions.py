@@ -298,18 +298,17 @@ class System(object):
 				if pbkdf2_sha256.verify(password, res[1]):
 					self._connected =True
 					self._uid = res[0]
-					for key in self._sid._models.keys():
-						self._models[key] = self._sid._models[key]
+					for key in self._models.keys():
 						self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
-					db_infos = self._srvs['models']._execute(self,['bc.modules','select',{'fields':['code','state'],'cond':[]}])
+
+					db_infos = self._components['models']._call(['bc.modules','select',{'fields':['code','state'],'cond':[]}])
 					for db_info in db_infos:
-						self._sid._registry._modules[db_info['code']]['db_id'] = db_info['id']
-						self._sid._registry._modules[db_info['code']]['state'] = db_info['state']
+						self._components['registry']._modules[db_info['code']]['db_id'] = db_info['id']
+						self._components['registry']._modules[db_info['code']]['state'] = db_info['state']
 
-				self._sid._models = self._sid._registry._load_inherits()
+				self._models = self._components['registry']._load_inherits()
 
-				for key in self._sid._models.keys():
-					self._models[key] = self._sid._models[key]
+				for key in self._models.keys():
 					self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 		
 		return [self._connected,self._uid]
