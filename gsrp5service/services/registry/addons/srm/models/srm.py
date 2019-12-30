@@ -3,6 +3,9 @@ from gsrp5service.orm.model import Model, ModelInherit
 
 from decimal import Decimal
 
+from datetime import datetime
+from datetime import timedelta
+
 class srm_common(ModelInherit):
 	_name = 'srm.common'
 	_description = 'SRM Common'
