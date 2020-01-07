@@ -53,11 +53,6 @@ class DCacheDict(object):
 		self._cdata[oid] = data
 		self._cmodels[oid] = model
 		if parent and name:
-			# if mode in ('A','I'):
-				# print('MODE-0:',self._cdata[self._cnames[name + '.' + str(parent)]])
-				# self._cdata[self._cnames[name + '.' + str(parent)]].append(data)
-				# print('MODE-1:',self._cdata[self._cnames[name + '.' + str(parent)]])
-
 			self._cpaths[oid] = parent
 			self._cr2c[oid] = self._cnames[name + '.' + str(parent)]
 		else:
@@ -96,12 +91,8 @@ class DCacheDict(object):
 	def _diffs(self,o,c,commit):
 		res = {}
 		
-		#print('DIFFS-DATA-000:',self._data)
-		
 		path = self._root
 		res.update(self._cmpDict(o,c,path))
-
-		#print('DIFFS-DATA-0:',self._data)
 
 		if ('__update__' in res ):
 			if commit:
@@ -118,8 +109,6 @@ class DCacheDict(object):
 				for k in res['__delete__'].keys():
 					for d in res['__delete__'][k].keys():
 						del getattr(self,'_%sdata' % (c,))[k][d]
-
-		#print('DIFFS-DATA-1:',self._data)
 
 		if ('__append__' in res ):
 			if commit:
@@ -161,8 +150,6 @@ class DCacheDict(object):
 						ometas[omodels[path]] = cmetas[cmodels[path]]
 						or2c[path] = cr2c[path]
 						opaths[path] = cpaths[path]
-						
-		#print('DIFFS-DATA-2:',self._data)						
 
 		if ('__remove__' in res ):
 			res['__remove__'] = list(res['__remove__'])
@@ -626,10 +613,7 @@ class MCache(object):
 		
 		res = {}
 
-		#print('CDATA-00:',self._data._cdata[self._data._root])
 		data_diffs = self._data._odiffs(True)
-		
-		#print('CDATA-0:',self._data._cdata[self._data._root])
 		
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
@@ -764,7 +748,6 @@ class MCache(object):
 
 	def _post_diffs(self,context):
 		diffs1 = self._data._odiffs()
-		#print('CDATA-1:',self._data._cdata[self._data._root])
 		ch1 = DCacheDict(self._data._cdata[self._data._root],self._data._model,self._data._pool)
 		self._post_diff(diffs1,context)
 		diffs2 = ch1._pdiffs()
@@ -781,12 +764,9 @@ class MCache(object):
 		res = {}
 
 		self._do_diff(path,key,value,context)
-		#meta = self._do_meta(path)
-		
-		#self._diffs = eval(str(self._data._odiffs()))
 		self._diffs = self._post_diffs(context)
-		#print('DIFFS-M:',self._post_diffs(context))
 		meta = self._do_meta(path)
+
 		if len(self._diffs) > 0:
 			res['__data__'] = copy.deepcopy(self._diffs)
 			self._diffs.clear()
