@@ -13,7 +13,6 @@ class model_common(ModelInherit):
 				record[field] = None
 			for o2mfield in self._o2mfields:
 				if o2mfield in record:
-					print('record[o2mfield]:',o2mfield,record[o2mfield])
 					for rec in record[o2mfield]:
 						if field in rec and rec[field]:
 							if field not in record or record[field] is None:
@@ -26,7 +25,6 @@ class model_common(ModelInherit):
 	def _calculate_items(self,cr,pool,uid,item,context={}):		
 		if 'delivery_schedules' in item:
 			item['quantity'] = None
-			print("item['quantity']:",item['quantity'],item['delivery_schedules'])
 			for d in item['delivery_schedules']:
 				if item['quantity']:
 					item['quantity'] += d['quantity']
