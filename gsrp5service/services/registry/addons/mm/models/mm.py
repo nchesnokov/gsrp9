@@ -177,17 +177,19 @@ class mm_production_order_items(Model):
 		if item['recepture_id'] and 'name' in item['recepture_id'] and item['recepture_id']['name']:
 			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture_id']['name'])],context)
 			for i in p:
-				r = {'product':i['product'],'quantity':i['quantity'],'uom':i['uom']}
-				r['price'] = 0.00
-				r['amount'] = 0.00
-				item['boms'].append(r)
+				ei = pool.get('mm.production.order.item.bom')._buildEmptyItem()
+				ei['product'] = i['product']
+				ei['quantity'] = i['quantity']
+				ei['uom'] = i['uom']
+				ei['price'] = 0.00
+				ei['amount'] = 0.00
+				item['boms'].append(ei)
 				
 			b = pool.get('md.recepture.output').select(cr,pool,uid,['product'],[('recepture_id','=',item['recepture_id']['name'])],context)
 			if len(b) > 0:
 				item['product'] = b[0]['product']
 	
 		return None
-
 
 mm_production_order_items()
 
@@ -291,17 +293,23 @@ class mm_technologic_order_items(Model):
 		if item['recepture_id'] and 'name' in item['recepture_id'] and item['recepture_id']['name']:
 			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture_id']['name'])],context)
 			for i in p:
-				r = {'product':i['product'],'quantity':i['quantity'],'uom':i['uom']}
-				r['price'] = 0.00
-				r['amount'] = 0.00
-				item['ibobs'].append(r)
+				ei = pool.get('mm.technologic.order.item.ibob')._buildEmptyItem()
+				ei['product'] = i['product']
+				ei['quantity'] = i['quantity']
+				ei['uom'] = i['uom']
+				ei['price'] = 0.00
+				ei['amount'] = 0.00
+				item['ibobs'].append(ei)
 				
 			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture_id']['name'])],context)
 			for i in p:
-				r = {'product':i['product'],'quantity':i['quantity'],'uom':i['uom']}
-				r['price'] = 0.00
-				r['amount'] = 0.00
-				item['obobs'].append(r)
+				ei = pool.get('mm.technologic.order.item.obob')._buildEmptyItem()
+				ei['product'] = i['product']
+				ei['quantity'] = i['quantity']
+				ei['uom'] = i['uom']
+				ei['price'] = 0.00
+				ei['amount'] = 0.00
+				item['obobs'].append(ei)
 				
 		return None
 
@@ -395,13 +403,16 @@ class mm_disassembly_order_items(Model):
 	'note': fields.text(label = 'Note')}
 
 	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture_id'] and 'name' in item['recepture_id'] and item['recepture_id']['name']:
+		if item['recepture_id'] and 'name' in item['recepture_id'] and item['recepture_id']['name']:				
 			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture_id']['name'])],context)
 			for i in p:
-				r = {'product':i['product'],'quantity':i['quantity'],'uom':i['uom']}
-				r['price'] = 0.00
-				r['amount'] = 0.00
-				item['mobs'].append(r)
+				ei = pool.get('mm.disassembly.order.item.mob')._buildEmptyItem()
+				ei['product'] = i['product']
+				ei['quantity'] = i['quantity']
+				ei['uom'] = i['uom']
+				ei['price'] = 0.00
+				ei['amount'] = 0.00
+				item['mobs'].append(ei)
 				
 			b = pool.get('md.recepture.input').select(cr,pool,uid,['product'],[('recepture_id','=',item['recepture_id']['name'])],context)
 			if len(b) > 0:

@@ -114,8 +114,8 @@ def _convert_cond(self,cond):
 		for c in cond:
 			if type(c) == dict and '__tuple__' in c:
 				conv.append(tuple(c['__tuple__']))
-			elif type(c) == list:
-				conv.extend(_cond_convert(self,c))
+			#elif type(c) == list:
+				#conv.extend(_cond_convert(self,c))
 			elif type(c) == str:
 				conv.append(c)
 			else:
@@ -142,7 +142,7 @@ def _build_condfields(self,cond=None):
 					else:
 						condfields.append(c[2])
 			elif type(c) == list:
-				condfields.extend(_condfields_parse(c))
+				condfields.extend(_condfields_parse(self,c))
 			elif type(c) == str:
 				if c in BOOLEAN_OPERATOR: 
 					condfields.append(BOOLEAN_OPERATOR[c])
@@ -254,7 +254,7 @@ def parse_cond(self,pool,aliases,models,cond = None):
 				else:
 					raise gensql_exception('Is not logical operator: %s in model: %s. Condition: %s' % (c,self._name,cond))
 			elif type(c) == list:
-				conds.append(_cond_parse(pool,aliases,models,c))
+				conds.append(_cond_parse(self,pool,aliases,models,c))
 		
 		return conds
 	
@@ -773,15 +773,15 @@ class WhereParse(list):
 						else:
 							self.extend(['(',WhereParse(cond),')'])
 					elif type(self.Last()) == str:
-						if cond in ('|','&','!','?','!?'):
+						if cond in ('|','&','!','?','!?','(',')'):
 							self.append(cond)
 						else:
-							if self.Last() in ('|','&'):
+							if self.Last() in ('|','&','(',')'):
 								self.append(cond)
 							else:
 								raise Exception('Invalid logical operand: %s %s' % (self.Last(),cond))
 			elif type(cond) == list:
-				self.extend(['(',WhereParse(cond),')'])
+				self.extend(['&','(',WhereParse(cond),')'])
 		self._optimize()
 
 		self._cond = self._keys()
@@ -803,7 +803,7 @@ class WhereParse(list):
 		return len(self) == 0
 
 	def _optimize(self):
-		if self.First() == '(' and self.Last() == ')' and self.count('(') == 1:
+		while self.First() == '(' and self.Last() == ')' and self.count('(') == 1:
 			self.pop()
 			self.pop(0)
 
