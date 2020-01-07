@@ -53,8 +53,10 @@ class DCacheDict(object):
 		self._cdata[oid] = data
 		self._cmodels[oid] = model
 		if parent and name:
-			if mode in ('A','I'):
-				self._cdata[self._cnames[name + '.' + str(parent)]].append(data)
+			# if mode in ('A','I'):
+				# print('MODE-0:',self._cdata[self._cnames[name + '.' + str(parent)]])
+				# self._cdata[self._cnames[name + '.' + str(parent)]].append(data)
+				# print('MODE-1:',self._cdata[self._cnames[name + '.' + str(parent)]])
 
 			self._cpaths[oid] = parent
 			self._cr2c[oid] = self._cnames[name + '.' + str(parent)]
@@ -93,9 +95,13 @@ class DCacheDict(object):
 
 	def _diffs(self,o,c,commit):
 		res = {}
-
+		
+		#print('DIFFS-DATA-000:',self._data)
+		
 		path = self._root
 		res.update(self._cmpDict(o,c,path))
+
+		#print('DIFFS-DATA-0:',self._data)
 
 		if ('__update__' in res ):
 			if commit:
@@ -113,6 +119,7 @@ class DCacheDict(object):
 					for d in res['__delete__'][k].keys():
 						del getattr(self,'_%sdata' % (c,))[k][d]
 
+		#print('DIFFS-DATA-1:',self._data)
 
 		if ('__append__' in res ):
 			if commit:
@@ -155,7 +162,7 @@ class DCacheDict(object):
 						or2c[path] = cr2c[path]
 						opaths[path] = cpaths[path]
 						
-						
+		#print('DIFFS-DATA-2:',self._data)						
 
 		if ('__remove__' in res ):
 			res['__remove__'] = list(res['__remove__'])
@@ -263,9 +270,9 @@ class DCacheDict(object):
 			dk = list(set(ok)- set(ck))
 				
 			for path in uk:
-				if not path in getattr(self,'_%sdata' % (c,)):
-					dk.append(path)
-					continue
+				# if not path in getattr(self,'_%sdata' % (c,)):
+					# dk.append(path)
+					# continue
 				v = self._cmpDict(o,c,path)
 				if '__update__' in v:
 					res.setdefault('__update__',{}).update(v['__update__'])
@@ -612,13 +619,17 @@ class MCache(object):
 		self._setDefault(model,row)
 		
 		p = container.split('.')
+		self._data._cdata[self._data._cnames[container]].append(row)
 		self._data._buildTree(row,model,p[1],p[0],'A')
 		
 		self._do_calculate(str(id(row)),context)
 		
 		res = {}
 
+		#print('CDATA-00:',self._data._cdata[self._data._root])
 		data_diffs = self._data._odiffs(True)
+		
+		#print('CDATA-0:',self._data._cdata[self._data._root])
 		
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
@@ -752,8 +763,9 @@ class MCache(object):
 						self._post_diff(diffs2,context)
 
 	def _post_diffs(self,context):
-		ch1 = DCacheDict(self._data._cdata[self._data._root],self._data._model,self._data._pool)
 		diffs1 = self._data._odiffs()
+		#print('CDATA-1:',self._data._cdata[self._data._root])
+		ch1 = DCacheDict(self._data._cdata[self._data._root],self._data._model,self._data._pool)
 		self._post_diff(diffs1,context)
 		diffs2 = ch1._pdiffs()
 
@@ -773,6 +785,7 @@ class MCache(object):
 		
 		#self._diffs = eval(str(self._data._odiffs()))
 		self._diffs = self._post_diffs(context)
+		#print('DIFFS-M:',self._post_diffs(context))
 		meta = self._do_meta(path)
 		if len(self._diffs) > 0:
 			res['__data__'] = copy.deepcopy(self._diffs)
