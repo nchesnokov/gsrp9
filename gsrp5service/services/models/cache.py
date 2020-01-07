@@ -460,6 +460,8 @@ class MCache(object):
 		return item
 
 	def _on_change(self,path,model,key,context):
+		if model not in self._meta:
+			self._getMeta(model)
 		name = self._meta[model][key]['on_change']
 		if name:
 			method = getattr(self._pool.get(model),name,None)
@@ -730,13 +732,48 @@ class MCache(object):
 		if self._mode in ('new',):
 			self._clear()
 			
+	def _post_diff(self,diffs,context):
+		if '__append__' in diffs:
+			apnds1 = diffs['__append__']
+			for apnd1 in apnds1:
+				for ch_fld1 in filter(lambda x: x in self._pool.get(apnd1['__model__'])._on_change_fields and x is not None,apnd1['__data__'].keys()):
+					self._on_change(apnd1['__path__'],apnd1['__model__'],ch_fld1,context)
+					diffs2 = self._data._odiffs()
+					if len(diffs2) > 0:
+						self._post_diff(diffs2,context)
+
+		if '__insert__' in diffs:
+			insts1 = diffs['__insert__']
+			for inst1 in insts1:
+				for ch_fld1 in filter(lambda x: x in self._pool.get(inst1['__model__'])._on_change_fields and x is not None,inst1['__data__'].keys()):
+					self._on_change(inst1['__path__'],inst1['__model__'],ch_fld1,context)
+					diffs2 = self._data._odiffs()
+					if len(diffs2) > 0:
+						self._post_diff(diffs2,context)
+
+	def _post_diffs(self,context):
+		ch1 = DCacheDict(self._data._cdata[self._data._root],self._data._model,self._data._pool)
+		diffs1 = self._data._odiffs()
+		self._post_diff(diffs1,context)
+		diffs2 = ch1._pdiffs()
+
+		for k2 in diffs2.keys():
+			if k2 in ('__update__','__insert__','__delete__'):
+				diffs1[k2].update(diffs2[k2])
+			elif k2 in ('__append__','__remove__'):
+				diffs1[k2].extend(diffs2[k2])
+		
+		return eval(str(diffs1))
+
 	def _mcache(self,path,key=None,value=None,context={}):
 		res = {}
 
 		self._do_diff(path,key,value,context)
-		meta = self._do_meta(path)
+		#meta = self._do_meta(path)
 		
-		self._diffs = eval(str(self._data._odiffs()))
+		#self._diffs = eval(str(self._data._odiffs()))
+		self._diffs = self._post_diffs(context)
+		meta = self._do_meta(path)
 		if len(self._diffs) > 0:
 			res['__data__'] = copy.deepcopy(self._diffs)
 			self._diffs.clear()
