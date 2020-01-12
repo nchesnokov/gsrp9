@@ -65,6 +65,10 @@ class hcm_job(Model):
 
 	_sql_constraints = [('name_company_uniq', 'unique(name, company_id, department_id)', 'The name of the job position must be unique per department in company!'),]
 
+	_default = {
+		'state':'open'
+	}
+
 hcm_job()
 
 class hcm_employees(Model):
