@@ -5,6 +5,21 @@ import datetime
 import psycopg2
 import ctypes
 
+class DictComp(dict):
+	def __init__(self,data,primary=True):
+		self.__shadow__ = {}
+		if primary:
+			self.__primary
+		self.update(data)
+		for key in data.keys():
+			if type(data[key]) == dict:
+				self.__shadow__[key] = DictComp(copy.deepcopy(data[key]))
+			else:
+				self.__shadow__[key] = copy.deepcopy(data[key])
+	
+	def _diff(self,commit = True):
+		pass
+
 class DCacheDict(object):
 	
 	__doc__ ="""
@@ -399,11 +414,14 @@ class MCache(object):
 		self._mode = mode
 		return [self._mode == mode]
 
-	def _initialize(self,model,view='form'):
+	def _initialize(self,model,view='form',context={}):
 		self._clear()
 		self._model = model
-		row = self._buildItem(model,view)
+		#row = self._buildItem(model,view)
+		row = self._pool.get(model)._buildEmptyItem()
+		self._setDefault(model,row)
 		self._data = DCacheDict(row,model,self._pool)
+		self._do_calculate(path=self._data._root,context=context)
 		self._getMeta()	
 		m = self._data._getData(self._data._data)
 		m['__meta__'] = self._do_meta(str(self._data._root))
