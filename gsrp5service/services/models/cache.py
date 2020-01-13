@@ -399,7 +399,7 @@ class MCache(object):
 		self._context = context
 		self._mode = mode
 
-		#self._data = {}
+		self._mdata = {}
 		self._m = {}
 		self._checks = {}
 
@@ -519,13 +519,13 @@ class MCache(object):
 
 			if type(m._attrs) == dict:
 				if len(m._attrs) > 0:
-					res['m'] = m._attrs
+					res.setdefault(model,{})['m'] = m._attrs
 			elif type(m._attrs) == str:
 				method = getattr(m,m._attrs,None)
 				if method:
 					rc = method(self._cr,self._pool,self._uid,self._data[path],self._context)
 					if rc and len(rc) > 0:
-						res.setdefault('m',{}).update(rc)
+						res.setdefault(model,{}).setdefault('m',{}).update(rc)
 
 			if model not in self._meta:
 				self._getMeta(model)
@@ -541,19 +541,19 @@ class MCache(object):
 						if rc and len(rc) > 0:
 							for k1 in rc.keys():
 								if a == 'readonly':
-									res.setdefault('c',{}).setdefault(k1,{})['ro'] = rc[k1]
+									res.setdefault(model,{}).setdefault('c',{}).setdefault(k1,{})['ro'] = rc[k1]
 								elif a == 'required':
-									res.setdefault('c',{}).setdefault(k1,{})['rq'] = rc[k1]
+									res.setdefault(model,{}).setdefault('c',{}).setdefault(k1,{})['rq'] = rc[k1]
 								elif a == 'invisible':
-									res.setdefault('c',{}).setdefault(k1,{})['iv'] = rc[k1]
+									res.setdefault(model,{}).setdefault('c',{}).setdefault(k1,{})['iv'] = rc[k1]
 						
 			for key in self._meta[model].keys():
 				column = self._meta[model][key]
 				if type(m._col_attrs) == dict:
 					if len(m._col_attrs) > 0:
-						res['c'] = m._col_attrs
+						res.setdefault(model,{})['c'] = m._col_attrs
 				elif type(m._col_attrs) == str:
-					res['c'] = getattr(m,m._col_attrs,None)(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
+					res.setdefault(model,{})['c'] = getattr(m,m._col_attrs,None)(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
 					if len(res['c']) == 0:
 						del res['c']
 
@@ -570,29 +570,30 @@ class MCache(object):
 							attrs = state[k]['attrs']
 							for k1 in attrs.keys():
 								if k1 == 'ro' and type(cols[key]['readonly']) != bool or k1 == 're' and type(cols[key]['required']) != bool or k1 == 'iv' and type(cols[key]['invisible']) != bool:
-									res.setdefault('c',{}).setdefault(key,{})[k1] = attrs[k1]
+									res.setdefault(model,{}).setdefault('c',{}).setdefault(key,{})[k1] = attrs[k1]
 
 					if 'readonly' in column and type(column['readonly']) == bool:
-						res.setdefault('c',{}).setdefault('ro',{})[key] = column['readonly']
+						res.setdefault(model,{}).setdefault('c',{}).setdefault('ro',{})[key] = column['readonly']
 
 					if 'required' in column and type(column['required']) == bool:
-						res.setdefault('c',{}).setdefault('rq',{})[key] = column['required']
+						res.setdefault(model,{}).setdefault('c',{}).setdefault('rq',{})[key] = column['required']
 
 					if 'invisible' in column and type(column['invisible']) == bool:
-						res.setdefault('c',{}).setdefault('iv',{})[key] = column['invisible']
+						res.setdefault(model,{}).setdefault('c',{}).setdefault('iv',{})[key] = column['invisible']
 				
-					if 'c' in res and len(res['c']) == 0:
-						del res['c']
+					if model in res and 'c' in res[model] and len(res[model]['c']) == 0:
+						del res[model]['c']
 
-					if 'm' in res and len(res['m']) == 0:
-						del res['m']
+					if model in res and 'm' in res[model] and len(res[model]['m']) == 0:
+						del res[model]['m']
 
 			if self._data._cpaths[path]:
 				path = self._data._cpaths[path]
 			else:
 				break
 
-
+		self._mdata = res
+		
 		return res
 	
 	def _do_calculate(self,path,context):
