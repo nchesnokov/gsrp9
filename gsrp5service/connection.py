@@ -202,7 +202,7 @@ class Cursor(object):
 
 	def execute(self, query, vals = None):
 		try:
-			#print('QUERY:',query,vals)
+			#print('MOGRIFY:',self.mogrify(query,vals))
 			if type(query) == str:
 				self.cr.execute(query = query, vars = vals)
 			elif type(query) in (tuple,list):
