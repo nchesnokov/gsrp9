@@ -389,6 +389,19 @@ class DCacheDict(object):
 			res.append(self._getData(r))
 			
 		return res
+
+	def _get_levels(self,path):
+		levels = {}
+		while True:
+			model = self._cmodels[path]		
+			levels.setdefault(self._pool.get(model)._level,set()).add(path)
+
+			if self._cpaths[path]:
+				path = self._cpaths[path]
+			else:
+				break
+		
+		return levels
 			
 class MCache(object):
 	
@@ -421,7 +434,8 @@ class MCache(object):
 		row = self._pool.get(model)._buildEmptyItem()
 		self._setDefault(model,row)
 		self._data = DCacheDict(row,model,self._pool)
-		self._do_calculate(path=self._data._root,context=context)
+		
+		self._do_calculate(self._data._get_levels(self._data._root),context=context)
 		self._getMeta()	
 		m = self._data._getData(self._data._data)
 		m['__meta__'] = self._do_meta(str(self._data._root))
@@ -506,7 +520,7 @@ class MCache(object):
 				self._on_change(path,model,key,context)
 		
 			if key not in self._checks or key in self._checks and self._checks[key]:
-				self._do_calculate(path,context)
+				self._do_calculate(self._data._get_levels(path),context)
 
 		return res
 
@@ -596,17 +610,26 @@ class MCache(object):
 		
 		return res
 	
-	def _do_calculate(self,path,context):
-		while True:
-			model = self._data._cmodels[path]		
-			_computes = self._pool.get(model)._compute(self._cr, self._pool, self._uid, self._cache_attrs[model]['computefields'], self._data._cdata[path], self._context)
-			if len(_computes) > 0:
-				self._data._cdata.setdefault(path,{}).update(_computes)
+	def _do_calculate(self,levels,context):
+		keys = list(levels.keys())
+		keys.sort(reverse = True)
+		for key in keys:
+			for path in levels[key]:
+				model = self._data._cmodels[path]
+				_computes = self._pool.get(model)._compute(self._cr, self._pool, self._uid, self._cache_attrs[model]['computefields'], self._data._cdata[path], self._context)
+				if len(_computes) > 0:
+					self._data._cdata.setdefault(path,{}).update(_computes)
+				
+		# while True:
+			# model = self._data._cmodels[path]		
+			# _computes = self._pool.get(model)._compute(self._cr, self._pool, self._uid, self._cache_attrs[model]['computefields'], self._data._cdata[path], self._context)
+			# if len(_computes) > 0:
+				# self._data._cdata.setdefault(path,{}).update(_computes)
 
-			if self._data._cpaths[path]:
-				path = self._data._cpaths[path]
-			else:
-				break
+			# if self._data._cpaths[path]:
+				# path = self._data._cpaths[path]
+			# else:
+				# break
 
 	def _setDefault(self,model,item):
 		_default = self._pool.get(model)._default
@@ -628,7 +651,7 @@ class MCache(object):
 		self._data._cdata[self._data._cnames[container]].append(row)
 		self._data._buildTree(row,model,p[1],p[0],'A')
 		
-		self._do_calculate(str(id(row)),context)
+		self._do_calculate(self._data._get_levels(str(id(row))),context)
 		
 		res = {}
 
@@ -655,7 +678,7 @@ class MCache(object):
 		self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
 		del self._data._cdata[path]
 		
-		self._do_calculate(c[1],context)
+		self._do_calculate(self._data._get_levels(c[1]),context)
 		
 		res = {}
 
@@ -737,7 +760,6 @@ class MCache(object):
 		
 		return []
 
-	
 	def _commit(self):
 		if self._mode in ('new',):
 			self._clear()
@@ -766,17 +788,49 @@ class MCache(object):
 						self._post_diff(diffs2,context)
 
 	def _post_diffs(self,context):
+		levels = {}
 		diffs1 = self._data._odiffs()
 		ch1 = DCacheDict(self._data._cdata[self._data._root],self._data._model,self._data._pool)
+
+		for k1 in diffs1.keys():
+			if k1 in ('__append__','__remove__'):
+				for r in diffs1[k1]:
+					levels.setdefault(self._pool.get(r['__model__'])._level,set()).add(r['__path__'])
+
+
+		print('LEVELS-1:',levels)
+
+		if len(levels) > 0:
+			self._do_calculate(levels,context)
+
+
 		self._post_diff(diffs1,context)
 		diffs2 = ch1._pdiffs()
 
+		print('DIFFS2:',diffs2)
+		levels = {}
 		for k2 in diffs2.keys():
 			if k2 in ('__update__','__insert__','__delete__'):
 				diffs1[k2].update(diffs2[k2])
 			elif k2 in ('__append__','__remove__'):
 				diffs1[k2].extend(diffs2[k2])
+				for r in diffs2[k2]:
+					levels.setdefault(self._pool.get(r['__model__'])._level,set()).add(r['__path__'])
 		
+		
+		print('LEVELS-2:',levels)
+		if len(levels) > 0:
+			self._do_calculate(levels,context)
+			
+			diffs3 = self._data._odiffs()		
+			print('DIFFS3:',diffs3)
+
+			for k3 in diffs3.keys():
+				if k3 in ('__update__','__insert__','__delete__'):
+					diffs1[k3].update(diffs3[k3])
+				elif k3 in ('__append__','__remove__'):
+					diffs1[k3].extend(diffs3[k3])
+			
 		return eval(str(diffs1))
 
 	def _mcache(self,path,key=None,value=None,context={}):
