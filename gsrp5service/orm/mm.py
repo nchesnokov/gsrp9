@@ -1221,9 +1221,8 @@ def do_compute(self, cr, pool, uid, fields, record, context = {}):
 		method = getattr(self,calculate_field,None)
 		if method and callable(method):
 			r = method(cr,pool,uid,record,context)
-			if not r is None: 
-				for k in r.keys():
-					res[k] =r[k]
+			if r is not None: 
+				res.update(r)
 
 	return res
 

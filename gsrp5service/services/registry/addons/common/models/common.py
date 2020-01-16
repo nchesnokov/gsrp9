@@ -19,7 +19,7 @@ class model_common(ModelInherit):
 								record[field] = rec[field]
 							else:
 								record[field] += rec[field]
-				
+
 		return None
 
 	def _calculate_items(self,cr,pool,uid,item,context={}):		

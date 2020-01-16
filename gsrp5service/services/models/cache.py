@@ -5,6 +5,11 @@ import datetime
 import psycopg2
 import ctypes
 
+
+def _join_levels(l1,l2):
+	for k in l2.keys():
+		l1.setdefault(k,set()).update(l2[k])
+
 class DictComp(dict):
 	def __init__(self,data,primary=True):
 		self.__shadow__ = {}
@@ -611,12 +616,11 @@ class MCache(object):
 		return res
 	
 	def _do_calculate(self,levels,context):
-		keys = list(levels.keys())
-		keys.sort(reverse = True)
-		for key in keys:
+		for key in levels.keys():
 			for path in levels[key]:
 				model = self._data._cmodels[path]
 				_computes = self._pool.get(model)._compute(self._cr, self._pool, self._uid, self._cache_attrs[model]['computefields'], self._data._cdata[path], self._context)
+				#print('MODEL:',key,model,path,self._data._cdata[path])
 				if len(_computes) > 0:
 					self._data._cdata.setdefault(path,{}).update(_computes)
 				
@@ -795,8 +799,8 @@ class MCache(object):
 		for k1 in diffs1.keys():
 			if k1 in ('__append__','__remove__'):
 				for r in diffs1[k1]:
-					levels.setdefault(self._pool.get(r['__model__'])._level,set()).add(r['__path__'])
-
+					l2 = self._data._get_levels(r['__path__'])
+					_join_levels(levels,l2)
 
 		print('LEVELS-1:',levels)
 
@@ -815,22 +819,23 @@ class MCache(object):
 			elif k2 in ('__append__','__remove__'):
 				diffs1[k2].extend(diffs2[k2])
 				for r in diffs2[k2]:
-					levels.setdefault(self._pool.get(r['__model__'])._level,set()).add(r['__path__'])
-		
-		
-		print('LEVELS-2:',levels)
+					l2 = self._data._get_levels(r['__path__'])
+					_join_levels(levels,l2)
+
 		if len(levels) > 0:
 			self._do_calculate(levels,context)
-			
-			diffs3 = self._data._odiffs()		
-			print('DIFFS3:',diffs3)
 
-			for k3 in diffs3.keys():
-				if k3 in ('__update__','__insert__','__delete__'):
-					diffs1[k3].update(diffs3[k3])
-				elif k3 in ('__append__','__remove__'):
-					diffs1[k3].extend(diffs3[k3])
-			
+		levels = {}
+		diffs3 = ch1._pdiffs()
+		print('DIFFS3:',diffs3)
+		for k3 in diffs3.keys():
+			if k3 in ('__update__','__insert__','__delete__'):
+				diffs1[k3].update(diffs3[k3])
+			elif k3 in ('__append__','__remove__'):
+				diffs1[k3].extend(diffs3[k3])
+
+		
+		print('DIFFS1:',diffs1)
 		return eval(str(diffs1))
 
 	def _mcache(self,path,key=None,value=None,context={}):
