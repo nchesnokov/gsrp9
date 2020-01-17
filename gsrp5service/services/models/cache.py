@@ -5,10 +5,16 @@ import datetime
 import psycopg2
 import ctypes
 
-
 def _join_levels(l1,l2):
 	for k in l2.keys():
 		l1.setdefault(k,set()).update(l2[k])
+
+def _join_diffs(d1,d2):
+	for k2 in d2.keys():
+		if k2 in ('__update__','__insert__','__delete__'):
+			d1[k2].update(d2[k2])
+		elif k2 in ('__append__','__remove__'):
+			d1[k2].extend(d2[k2])
 
 class DictComp(dict):
 	def __init__(self,data,primary=True):
@@ -620,20 +626,8 @@ class MCache(object):
 			for path in levels[key]:
 				model = self._data._cmodels[path]
 				_computes = self._pool.get(model)._compute(self._cr, self._pool, self._uid, self._cache_attrs[model]['computefields'], self._data._cdata[path], self._context)
-				#print('MODEL:',key,model,path,self._data._cdata[path])
 				if len(_computes) > 0:
 					self._data._cdata.setdefault(path,{}).update(_computes)
-				
-		# while True:
-			# model = self._data._cmodels[path]		
-			# _computes = self._pool.get(model)._compute(self._cr, self._pool, self._uid, self._cache_attrs[model]['computefields'], self._data._cdata[path], self._context)
-			# if len(_computes) > 0:
-				# self._data._cdata.setdefault(path,{}).update(_computes)
-
-			# if self._data._cpaths[path]:
-				# path = self._data._cpaths[path]
-			# else:
-				# break
 
 	def _setDefault(self,model,item):
 		_default = self._pool.get(model)._default
@@ -778,6 +772,8 @@ class MCache(object):
 			for apnd1 in apnds1:
 				for ch_fld1 in filter(lambda x: x in self._pool.get(apnd1['__model__'])._on_change_fields and x is not None,apnd1['__data__'].keys()):
 					self._on_change(apnd1['__path__'],apnd1['__model__'],ch_fld1,context)
+					levels = self._data._get_levels(apnd1['__path__'])
+					self._do_calculate(levels,context)
 					diffs2 = self._data._odiffs()
 					if len(diffs2) > 0:
 						self._post_diff(diffs2,context)
@@ -787,6 +783,8 @@ class MCache(object):
 			for inst1 in insts1:
 				for ch_fld1 in filter(lambda x: x in self._pool.get(inst1['__model__'])._on_change_fields and x is not None,inst1['__data__'].keys()):
 					self._on_change(inst1['__path__'],inst1['__model__'],ch_fld1,context)
+					levels = self._data._get_levels(apnd1['__path__'])
+					self._do_calculate(levels,context)
 					diffs2 = self._data._odiffs()
 					if len(diffs2) > 0:
 						self._post_diff(diffs2,context)
@@ -796,46 +794,11 @@ class MCache(object):
 		diffs1 = self._data._odiffs()
 		ch1 = DCacheDict(self._data._cdata[self._data._root],self._data._model,self._data._pool)
 
-		for k1 in diffs1.keys():
-			if k1 in ('__append__','__remove__'):
-				for r in diffs1[k1]:
-					l2 = self._data._get_levels(r['__path__'])
-					_join_levels(levels,l2)
-
-		print('LEVELS-1:',levels)
-
-		if len(levels) > 0:
-			self._do_calculate(levels,context)
-
-
 		self._post_diff(diffs1,context)
 		diffs2 = ch1._pdiffs()
 
-		print('DIFFS2:',diffs2)
-		levels = {}
-		for k2 in diffs2.keys():
-			if k2 in ('__update__','__insert__','__delete__'):
-				diffs1[k2].update(diffs2[k2])
-			elif k2 in ('__append__','__remove__'):
-				diffs1[k2].extend(diffs2[k2])
-				for r in diffs2[k2]:
-					l2 = self._data._get_levels(r['__path__'])
-					_join_levels(levels,l2)
+		_join_diffs(diffs1,diffs2)
 
-		if len(levels) > 0:
-			self._do_calculate(levels,context)
-
-		levels = {}
-		diffs3 = ch1._pdiffs()
-		print('DIFFS3:',diffs3)
-		for k3 in diffs3.keys():
-			if k3 in ('__update__','__insert__','__delete__'):
-				diffs1[k3].update(diffs3[k3])
-			elif k3 in ('__append__','__remove__'):
-				diffs1[k3].extend(diffs3[k3])
-
-		
-		print('DIFFS1:',diffs1)
 		return eval(str(diffs1))
 
 	def _mcache(self,path,key=None,value=None,context={}):
