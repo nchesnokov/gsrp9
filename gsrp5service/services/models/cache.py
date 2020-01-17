@@ -770,24 +770,46 @@ class MCache(object):
 		if '__append__' in diffs:
 			apnds1 = diffs['__append__']
 			for apnd1 in apnds1:
-				for ch_fld1 in filter(lambda x: x in self._pool.get(apnd1['__model__'])._on_change_fields and x is not None,apnd1['__data__'].keys()):
-					self._on_change(apnd1['__path__'],apnd1['__model__'],ch_fld1,context)
-					levels = self._data._get_levels(apnd1['__path__'])
-					self._do_calculate(levels,context)
-					diffs2 = self._data._odiffs()
-					if len(diffs2) > 0:
-						self._post_diff(diffs2,context)
+				m = self._pool.get(apnd1['__model__'])
+				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,apnd1['__data__'].keys()))
+				ci = m.columnsInfo(columns=on_change_fields,attributes=['compute','priority'])
+				priority = {}
+				for on_change_field in on_change_fields:
+					priority.setdefault(ci[on_change_field]['compute'],set()).add(on_change_field)
+				
+				pkeys = list(priority.keys())
+				pkeys.sort()
+
+				for pkey in pkeys:
+					for on_change_field in priority[pkey]:
+						self._on_change(apnd1['__path__'],apnd1['__model__'],on_change_field,context)
+						levels = self._data._get_levels(apnd1['__path__'])
+						self._do_calculate(levels,context)
+						diffs2 = self._data._odiffs()
+						if len(diffs2) > 0:
+							self._post_diff(diffs2,context)
 
 		if '__insert__' in diffs:
 			insts1 = diffs['__insert__']
 			for inst1 in insts1:
-				for ch_fld1 in filter(lambda x: x in self._pool.get(inst1['__model__'])._on_change_fields and x is not None,inst1['__data__'].keys()):
-					self._on_change(inst1['__path__'],inst1['__model__'],ch_fld1,context)
-					levels = self._data._get_levels(apnd1['__path__'])
-					self._do_calculate(levels,context)
-					diffs2 = self._data._odiffs()
-					if len(diffs2) > 0:
-						self._post_diff(diffs2,context)
+				m = self._pool.get(inst1['__model__'])
+				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,inst1['__data__'].keys()))
+				ci = m.columnsInfo(columns=on_change_fields,attributes=['compute','priority'])
+				priority = {}
+				for on_change_field in on_change_fields:
+					priority.setdefault(ci[on_change_field]['compute'],set()).add(on_change_field)
+				
+				pkeys = list(priority.keys())
+				pkeys.sort()
+
+				for pkey in pkeys:
+					for on_change_field in priority[pkey]:
+						self._on_change(inst1['__path__'],apnd1['__model__'],on_change_field,context)
+						levels = self._data._get_levels(apnd1['__path__'])
+						self._do_calculate(levels,context)
+						diffs2 = self._data._odiffs()
+						if len(diffs2) > 0:
+							self._post_diff(diffs2,context)
 
 	def _post_diffs(self,context):
 		levels = {}

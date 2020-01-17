@@ -1215,14 +1215,20 @@ def do_action(self, cr, pool, uid, action, column, record, context = {}):
 
 def do_compute(self, cr, pool, uid, fields, record, context = {}):
 	res = {}
-	columnsinfo = self.columnsInfo(columns=fields,attributes=['compute'])
-	calculate_fields = set(list(map(lambda y: columnsinfo[y]['compute'],filter(lambda x: 'compute' in columnsinfo[x] and x in self._storefields and type(columnsinfo[x]['compute']) == str,fields))))
-	for calculate_field in calculate_fields:
-		method = getattr(self,calculate_field,None)
-		if method and callable(method):
-			r = method(cr,pool,uid,record,context)
-			if r is not None: 
-				res.update(r)
+	ci = self.columnsInfo(columns=fields,attributes=['compute','priority'])
+	priority = {}
+	for compute_field in self._computefields:
+		priority.setdefault(ci[compute_field]['compute'],set()).add(compute_field)
+	
+	pkeys = list(priority.keys())
+	pkeys.sort()
+	for pkey in pkeys:
+		for compute_field in priority[pkey]:
+			method = getattr(self,ci[compute_field]['compute'],None)
+			if method and callable(method):
+				r = method(cr,pool,uid,record,context)
+				if r is not None: 
+					res.update(r)
 
 	return res
 
