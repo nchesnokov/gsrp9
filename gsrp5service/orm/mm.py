@@ -1217,7 +1217,7 @@ def do_compute(self, cr, pool, uid, fields, record, context = {}):
 	res = {}
 	ci = self.columnsInfo(columns=fields,attributes=['compute','priority'])
 	priority = {}
-	for compute_field in self._computefields:
+	for compute_field in filter(lambda x: x in fields,self._computefields):
 		priority.setdefault(ci[compute_field]['compute'],set()).add(compute_field)
 	
 	pkeys = list(priority.keys())
