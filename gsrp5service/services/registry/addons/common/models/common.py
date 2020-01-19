@@ -23,7 +23,6 @@ class model_common(ModelInherit):
 		return None
 
 	def _calculate_items(self,cr,pool,uid,item,context={}):		
-		print('ITEM:',item)
 		if 'delivery_schedules' in item:
 			item['quantity'] = None
 			for d in item['delivery_schedules']:
