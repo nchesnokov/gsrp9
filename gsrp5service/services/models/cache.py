@@ -636,14 +636,14 @@ class MCache(object):
 		fields = list(record.keys())
 		ci = m.columnsInfo(columns=m._computefields,attributes=['compute','priority'])
 		priority = {}
-		for compute_field in filter(lambda x: x in fields,self._computefields):
+		for compute_field in filter(lambda x: x in fields,m._computefields):
 			priority.setdefault(ci[compute_field]['compute'],set()).add(compute_field)
 		
 		pkeys = list(priority.keys())
 		pkeys.sort()
 		for pkey in pkeys:
 			for compute_field in priority[pkey]:
-				method = getattr(self,ci[compute_field]['compute'],None)
+				method = getattr(m,ci[compute_field]['compute'],None)
 				if method and callable(method):
 					r = method(self._cr,self._pool,self._uid,record,self._context)
 					if r is not None: 
