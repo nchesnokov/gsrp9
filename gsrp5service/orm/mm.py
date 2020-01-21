@@ -2269,7 +2269,7 @@ def _modifyRecords(self, cr, pool, uid, records, context):
 
 def _modifyRecord(self, cr, pool, uid, record, context):
 	oid = None
-	#print('MODIFY-RECORD:',record)
+	print('MODIFY-RECORD:',record)
 	fields = list(record.keys())
 	modelfields = list(self._columns.keys())
 	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS, fields))
@@ -2312,7 +2312,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 
 	_computes = self._compute(cr,pool,uid,self._storecomputefields,record)
 
-	#print('RECORD-BERORE-MODIFY:',record)
+	print('RECORD-BERORE-MODIFY:',record)
 	if not _computes is None:
 		for key in _computes.keys():
 			record[key] = _computes[key]
@@ -2337,6 +2337,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
 			getattr(self,t,None)(**kwargs)
 		
+	print('RECORD-0:',record)
 	sql,vals = gensql.Modify(self,pool,uid,self.modelInfo(), record, context)
 	cr.execute(sql,vals)
 	if cr.cr.rowcount > 0:
