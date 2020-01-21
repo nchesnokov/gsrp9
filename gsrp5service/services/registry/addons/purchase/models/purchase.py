@@ -145,7 +145,7 @@ class purchase_orders(Model):
 	_description = 'General Model Purchase Order'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'doo'
-	_recname = 'fullname'
+	_rec_name = 'fullname'
 	_columns = {
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'otype': fields.many2one(label='Type',obj='purchase.order.types',on_change='_on_change_otype'),
@@ -233,7 +233,8 @@ class purchase_orders(Model):
 	_actions = {'copy_to':{'label':'Copy To Model','tooltip':'Copy to other model','method':'_act_copy_to','icon':'add'},'copy_from':{'label':'Copy From Model','tooltip':'Copy from other model','method':'_act_copy_from','icon':'list'}}
 
 	_default = {
-		'state':'draft'
+		'state':'draft',
+		'otype':'ord'
 	}
 
 purchase_orders()
@@ -435,7 +436,7 @@ class purchase_invoices(Model):
 	_description = 'General Model Purchase Invoice'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'doi'
-	_recname = 'fullname'
+	_rec_name = 'fullname'
 	_columns = {
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'itype': fields.many2one(label='Type',obj='purchase.invoice.types',on_change='on_change_itype'),
@@ -482,7 +483,8 @@ class purchase_invoices(Model):
 
 
 	_default = {
-		'state':'draft'
+		'state':'draft',
+		'itype':'in'
 	}
 
 purchase_invoices()
