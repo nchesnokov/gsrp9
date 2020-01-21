@@ -147,10 +147,10 @@ class purchase_orders(Model):
 	_date = 'doo'
 	_rec_name = 'fullname'
 	_columns = {
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'otype': fields.many2one(label='Type',obj='purchase.order.types',on_change='_on_change_otype'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'category_id': fields.many2one(label='Category',obj='purchase.order.categories'),
 	'origin': fields.varchar(label = 'Origin'),
 	'doo': fields.date(label='Date Of Order',required=True),
@@ -438,10 +438,10 @@ class purchase_invoices(Model):
 	_date = 'doi'
 	_rec_name = 'fullname'
 	_columns = {
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'itype': fields.many2one(label='Type',obj='purchase.invoice.types',on_change='on_change_itype'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'category_id': fields.many2one(label='Category',obj='purchase.invoce.categories'),
 	'origin': fields.varchar(label = 'Origin'),
 	'doi': fields.date(label='Date Of Invoice',required=True),
