@@ -155,6 +155,7 @@
               <field name="htschema"/>
               <field name="itschema"/>
               <field name="roles"/>
+              <field name="tis"/>
               <field name="note"/>
             </form>
           </column>
@@ -169,6 +170,7 @@
               <field name="htschema"/>
               <field name="itschema"/>
               <field name="roles"/>
+              <field name="tis"/>
             </list>
           </column>
         </record>
@@ -239,6 +241,40 @@
               <field name="type_id"/>
               <field name="role_id"/>
               <field name="required"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.order.type.items.form">
+          <column name="name">view.purchase.order.type.items.form</column>
+          <column name="model">purchase.order.type.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="type_id"/>
+              <field name="gti_id"/>
+              <field name="itype_id"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.order.type.items.list">
+          <column name="name">view.purchase.order.type.items.list</column>
+          <column name="model">purchase.order.type.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="type_id"/>
+              <field name="gti_id"/>
+              <field name="itype_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.order.type.items.m2mlist">
+          <column name="name">view.purchase.order.type.items.m2mlist</column>
+          <column name="model">purchase.order.type.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="type_id"/>
+              <field name="gti_id"/>
+              <field name="itype_id"/>
             </m2mlist>
           </column>
         </record>
@@ -474,10 +510,10 @@
           <column name="model">purchase.orders</column>
           <column name="arch" type="Xml">
             <calendar date="doo">
-              <field name="fullname"/>
               <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -500,10 +536,10 @@
           <column name="model">purchase.orders</column>
           <column name="arch" type="Xml">
             <schedule>
-              <field name="fullname"/>
               <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -526,10 +562,10 @@
           <column name="model">purchase.orders</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="fullname"/>
               <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -557,10 +593,10 @@
           <column name="model">purchase.orders</column>
           <column name="arch" type="Xml">
             <graph date="doo">
-              <field name="fullname"/>
               <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -583,10 +619,10 @@
           <column name="model">purchase.orders</column>
           <column name="arch" type="Xml">
             <kanban>
-              <field name="fullname"/>
               <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -610,10 +646,10 @@
           <column name="model">purchase.orders</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="fullname"/>
               <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -640,10 +676,10 @@
           <column name="model">purchase.orders</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="fullname"/>
               <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -666,10 +702,10 @@
           <column name="model">purchase.orders</column>
           <column name="arch" type="Xml">
             <mdx date="doo">
-              <field name="fullname"/>
               <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -692,10 +728,10 @@
           <column name="model">purchase.orders</column>
           <column name="arch" type="Xml">
             <search>
-              <field name="fullname"/>
               <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -718,10 +754,10 @@
           <column name="model">purchase.orders</column>
           <column name="arch" type="Xml">
             <find>
-              <field name="fullname"/>
               <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -852,6 +888,7 @@
           <column name="arch" type="Xml">
             <form>
               <field name="order_id"/>
+              <field name="itype_id"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
@@ -863,6 +900,10 @@
               <field name="vat_code"/>
               <field name="vat_amount"/>
               <field name="total_amount"/>
+              <field name="volume"/>
+              <field name="volume_uom"/>
+              <field name="weight"/>
+              <field name="weight_uom"/>
               <field name="delivery_schedules"/>
               <field name="payments"/>
               <field name="roles"/>
@@ -877,6 +918,7 @@
           <column name="arch" type="Xml">
             <list>
               <field name="order_id"/>
+              <field name="itype_id"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
@@ -888,6 +930,10 @@
               <field name="vat_code"/>
               <field name="vat_amount"/>
               <field name="total_amount"/>
+              <field name="volume"/>
+              <field name="volume_uom"/>
+              <field name="weight"/>
+              <field name="weight_uom"/>
               <field name="delivery_schedules"/>
               <field name="payments"/>
               <field name="roles"/>
@@ -901,6 +947,7 @@
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="order_id"/>
+              <field name="itype_id"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
@@ -912,6 +959,10 @@
               <field name="vat_code"/>
               <field name="vat_amount"/>
               <field name="total_amount"/>
+              <field name="volume"/>
+              <field name="volume_uom"/>
+              <field name="weight"/>
+              <field name="weight_uom"/>
             </m2mlist>
           </column>
         </record>
@@ -1061,10 +1112,10 @@
           <column name="model">purchase.invoices</column>
           <column name="arch" type="Xml">
             <calendar date="doi">
-              <field name="fullname"/>
               <field name="itype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -1084,10 +1135,10 @@
           <column name="model">purchase.invoices</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="fullname"/>
               <field name="itype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -1111,10 +1162,10 @@
           <column name="model">purchase.invoices</column>
           <column name="arch" type="Xml">
             <graph date="doi">
-              <field name="fullname"/>
               <field name="itype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -1134,10 +1185,10 @@
           <column name="model">purchase.invoices</column>
           <column name="arch" type="Xml">
             <kanban>
-              <field name="fullname"/>
               <field name="itype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -1158,10 +1209,10 @@
           <column name="model">purchase.invoices</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="fullname"/>
               <field name="itype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -1184,10 +1235,10 @@
           <column name="model">purchase.invoices</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="fullname"/>
               <field name="itype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -1207,10 +1258,10 @@
           <column name="model">purchase.invoices</column>
           <column name="arch" type="Xml">
             <mdx date="doi">
-              <field name="fullname"/>
               <field name="itype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -1230,10 +1281,10 @@
           <column name="model">purchase.invoices</column>
           <column name="arch" type="Xml">
             <search>
-              <field name="fullname"/>
               <field name="itype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -1253,10 +1304,10 @@
           <column name="model">purchase.invoices</column>
           <column name="arch" type="Xml">
             <find>
-              <field name="fullname"/>
               <field name="itype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>

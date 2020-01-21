@@ -260,6 +260,46 @@
           <column name="note">Model md.category.product grant crw</column>
           <column name="group_id">md.crw</column>
         </record>
+        <record id="md.gtis.readonly">
+          <column name="name">md.gtis.readonly</column>
+          <column name="note">Model md.gtis grant readonly</column>
+          <column name="group_id">md.readonly</column>
+        </record>
+        <record id="md.gtis.nodrop">
+          <column name="name">md.gtis.nodrop</column>
+          <column name="note">Model md.gtis grant nodrop</column>
+          <column name="group_id">md.nodrop</column>
+        </record>
+        <record id="md.gtis.full">
+          <column name="name">md.gtis.full</column>
+          <column name="note">Model md.gtis grant full</column>
+          <column name="group_id">md.full</column>
+        </record>
+        <record id="md.gtis.crw">
+          <column name="name">md.gtis.crw</column>
+          <column name="note">Model md.gtis grant crw</column>
+          <column name="group_id">md.crw</column>
+        </record>
+        <record id="md.type.items.readonly">
+          <column name="name">md.type.items.readonly</column>
+          <column name="note">Model md.type.items grant readonly</column>
+          <column name="group_id">md.readonly</column>
+        </record>
+        <record id="md.type.items.nodrop">
+          <column name="name">md.type.items.nodrop</column>
+          <column name="note">Model md.type.items grant nodrop</column>
+          <column name="group_id">md.nodrop</column>
+        </record>
+        <record id="md.type.items.full">
+          <column name="name">md.type.items.full</column>
+          <column name="note">Model md.type.items grant full</column>
+          <column name="group_id">md.full</column>
+        </record>
+        <record id="md.type.items.crw">
+          <column name="name">md.type.items.crw</column>
+          <column name="note">Model md.type.items grant crw</column>
+          <column name="group_id">md.crw</column>
+        </record>
         <record id="md.products.template.readonly">
           <column name="name">md.products.template.readonly</column>
           <column name="note">Model md.products.template grant readonly</column>
@@ -1251,6 +1291,106 @@
         <record id="md.md.category.product.crw">
           <column name="access_id">md.category.product.crw</column>
           <column name="model_id">md.category.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="md.md.gtis.readonly">
+          <column name="access_id">md.gtis.readonly</column>
+          <column name="model_id">md.gtis</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="md.md.gtis.nodrop">
+          <column name="access_id">md.gtis.nodrop</column>
+          <column name="model_id">md.gtis</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="md.md.gtis.full">
+          <column name="access_id">md.gtis.full</column>
+          <column name="model_id">md.gtis</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="md.md.gtis.crw">
+          <column name="access_id">md.gtis.crw</column>
+          <column name="model_id">md.gtis</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="md.md.type.items.readonly">
+          <column name="access_id">md.type.items.readonly</column>
+          <column name="model_id">md.type.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="md.md.type.items.nodrop">
+          <column name="access_id">md.type.items.nodrop</column>
+          <column name="model_id">md.type.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="md.md.type.items.full">
+          <column name="access_id">md.type.items.full</column>
+          <column name="model_id">md.type.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="md.md.type.items.crw">
+          <column name="access_id">md.type.items.crw</column>
+          <column name="model_id">md.type.items</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

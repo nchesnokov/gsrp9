@@ -801,6 +801,108 @@
             </tree>
           </column>
         </record>
+        <record id="view.md.gtis.form">
+          <column name="name">view.md.gtis.form</column>
+          <column name="model">md.gtis</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.gtis.list">
+          <column name="name">view.md.gtis.list</column>
+          <column name="model">md.gtis</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="code"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.gtis.m2mlist">
+          <column name="name">view.md.gtis.m2mlist</column>
+          <column name="model">md.gtis</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="code"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.gtis.search">
+          <column name="name">view.md.gtis.search</column>
+          <column name="model">md.gtis</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.gtis.find">
+          <column name="name">view.md.gtis.find</column>
+          <column name="model">md.gtis</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.type.items.form">
+          <column name="name">view.md.type.items.form</column>
+          <column name="model">md.type.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.type.items.list">
+          <column name="name">view.md.type.items.list</column>
+          <column name="model">md.type.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.type.items.m2mlist">
+          <column name="name">view.md.type.items.m2mlist</column>
+          <column name="model">md.type.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.type.items.search">
+          <column name="name">view.md.type.items.search</column>
+          <column name="model">md.type.items</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.type.items.find">
+          <column name="name">view.md.type.items.find</column>
+          <column name="model">md.type.items</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.md.products.template.form">
           <column name="name">view.md.products.template.form</column>
           <column name="model">md.products.template</column>
@@ -868,6 +970,7 @@
               <field name="template_id"/>
               <field name="code"/>
               <field name="uom"/>
+              <field name="gti"/>
               <field name="volume"/>
               <field name="volume_uom"/>
               <field name="weight"/>
@@ -891,6 +994,7 @@
               <field name="template_id"/>
               <field name="code"/>
               <field name="uom"/>
+              <field name="gti"/>
               <field name="volume"/>
               <field name="volume_uom"/>
               <field name="weight"/>
@@ -914,6 +1018,7 @@
               <field name="template_id"/>
               <field name="code"/>
               <field name="uom"/>
+              <field name="gti"/>
               <field name="volume"/>
               <field name="volume_uom"/>
               <field name="weight"/>
@@ -932,6 +1037,7 @@
               <field name="template_id"/>
               <field name="code"/>
               <field name="uom"/>
+              <field name="gti"/>
               <field name="volume"/>
               <field name="volume_uom"/>
               <field name="weight"/>
@@ -950,6 +1056,7 @@
               <field name="template_id"/>
               <field name="code"/>
               <field name="uom"/>
+              <field name="gti"/>
               <field name="volume"/>
               <field name="volume_uom"/>
               <field name="weight"/>
@@ -968,6 +1075,7 @@
               <field name="template_id"/>
               <field name="code"/>
               <field name="uom"/>
+              <field name="gti"/>
               <field name="volume"/>
               <field name="volume_uom"/>
               <field name="weight"/>

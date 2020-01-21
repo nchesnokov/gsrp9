@@ -641,8 +641,7 @@ class MCache(object):
 		self._mdata = res
 		
 		return res
-	
-	#def _do_compute(self, cr, pool, uid, fields, record, context = {}):
+
 	def _do_compute(self, path, model):
 		res = {}
 		m = self._pool.get(model)

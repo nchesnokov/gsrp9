@@ -198,6 +198,31 @@ class md_category_product(Model):
 
 md_category_product()
 
+class md_gtis(Model):
+	_name = 'md.gtis'
+	_description = 'General Model Group Of Type Items'
+	_rec_name = 'code'
+	_columns = {
+	'code': fields.varchar(label = 'Code',size=64,translate=True),
+	'descr': fields.text(label = 'Description')
+	}
+
+md_gtis()
+
+class md_type_items(Model):
+	_name = 'md.type.items'
+	_description = 'General Model Type Of Items'
+	_rec_name = 'code'
+	_columns = {
+	'usage': fields.selection(label='Usage',selections=[('a','All')]),
+	'code': fields.varchar(label='Code',size=32,translate=True),
+	'descr': fields.varchar(label='Description',size=128,translate=True),
+	'note': fields.text(label = 'Note')
+}
+
+md_type_items()
+
+
 class md_products_template(Model):
 	_name = 'md.products.template'
 	_description = 'General Model Product Template'
@@ -219,6 +244,7 @@ class md_product(Model):
 	'template_id': fields.many2one(label='Template',obj='md.products.template'),
 	'code': fields.varchar(label = 'Code',size=16),
 	'uom': fields.many2one(label="Unit Of Measure",obj='md.uom'),
+	'gti': fields.many2one(label='Group Of Type Items',obj='md.gtis'),
 	'volume': fields.float(label='Volume',invisible='_service_invisible'),
 	'volume_uom': fields.many2one(label="Volume UoM",obj='md.uom',invisible='_service_invisible',domain=[('quantity_id','=','Volume')]),
 	'weight': fields.float(label='Weight',invisible='_service_invisible'),

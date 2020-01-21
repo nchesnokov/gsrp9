@@ -63,6 +63,7 @@ class purchase_order_types(Model):
 	'htschema': fields.many2one(label='Text Schema Of Head',obj='purchase.schema.texts',domain=[('usage','in',('h','b'))]),
 	'itschema': fields.many2one(label='Text Schema Of Item',obj='purchase.schema.texts',domain=[('usage','in',('i','b'))]),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.type.roles',rel='type_id'),
+	'tis': fields.one2many(label='TIs',obj='purchase.order.type.items',rel='type_id'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -81,6 +82,20 @@ class purchase_order_type_roles(Model):
 	}
 
 purchase_order_type_roles()
+
+class purchase_order_type_items(Model):
+	_name = 'purchase.order.type.items'
+	_description = 'General Model Role Purchase Order Items'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'type_id': fields.many2one(label = 'Type',obj='purchase.order.types'),
+	'gti_id': fields.many2one(label = 'GTI',obj='md.gtis'),
+	'itype_id': fields.many2one(label = 'Type Of Items',obj='md.type.items',domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_order_type_items()
 
 class purchase_invoice_types(Model):
 	_name = 'purchase.invoice.types'
@@ -288,6 +303,7 @@ class purchase_order_items(Model):
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'order_id': fields.many2one(obj = 'purchase.orders',label = 'Purchase Order'),
+	'itype_id': fields.many2one(label='Group Of Type Items', obj='md.type.items',domain=[('usage','in',('p','a'))]),
 	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
 	'quantity': fields.numeric(label='Quantity',compute='_calculate_items',size=(13,3)),
 	'uom': fields.many2one(label='UoM',obj='md.uom'),
@@ -299,6 +315,10 @@ class purchase_order_items(Model):
 	'vat_code': fields.many2one(label='Vat code',obj='md.vat.code',domain=[('type_vat','in',('p','n'))]),
 	'vat_amount': fields.numeric(label='VAT Amount',compute='_calculate_items',size=(15,2)),
 	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
+	'volume': fields.float(label='Volume', readonly=True),
+	'volume_uom': fields.many2one(label="Volume UoM",obj='md.uom', readonly=True,domain=[('quantity_id','=','Volume')]),
+	'weight': fields.float(label='Weight', readonly=True),
+	'weight_uom': fields.many2one(label="Weight UoM",obj='md.uom', readonly=True,domain=[('quantity_id','=','Weight')]),
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='purchase.order.item.delivery.schedules',rel='item_id'),
 	'payments': fields.one2many(label='Payments',obj='purchase.order.item.payment.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.item.roles',rel='item_id'),
@@ -307,13 +327,35 @@ class purchase_order_items(Model):
 
 	def _on_change_product(self,cr,pool,uid,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.purchase.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			i = pool.get('purchase.order.types').select(cr,pool,uid,['type','name',{'tis':['gti_id','itype_id']}],[('name','=',item['order_id']['name'])],context)
+			gti = {}
+			if len(i) > 0:
+				tis = i[0]['tis']
+				for r in tis:
+					gti[r['gti_id']['name']] = r['itype_id']
+			p = pool.get('md.product').select(cr,pool,uid,['gti','volume','volume_uom','weight','weight_uom',{'purchase':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
+			print('I:',i[0])
+			print('P:',p[0])
+			#p = pool.get('md.purchase.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
-				if 'vat_code' not in item or item['vat_code'] != p[0]['vat']:
-					item['vat_code'] = p[0]['vat']				
-				for f in ('uom','price','currency','unit','uop'):
-					if f not in item or item[f] != p[0][f]:
-						item[f] = p[0][f]
+				for f in ('gti','volume','volume_uom','weight','weight_uom','purchase'):
+					if f == 'purchase':
+						if len(p[0][f]) > 0:
+							d = p[0][f][0]
+							for m in ('uom','price','currency','unit','uop','vat'):
+								if m not in item or item[m] != d[m]:
+									if m == 'vat':
+										item['vat_code'] = d['vat']				
+									else:
+										item[m] = d[m]
+					else:
+						if f == 'gti':
+							if p[0]['gti']['name'] in gti:
+								item['itype_id'] = gti[p[0][f]['name']]
+						else:
+							if f not in item or item[f] != p[0][f]:
+								item[f] = p[0][f]
+
 			else:
 				for f in ('vat_code','uom','price','currency','unit','uop'):
 					if f in ('price','unit'):
@@ -626,7 +668,7 @@ md_purchase_product()
 class md_purchase_product_inherit(ModelInherit):
 	_name = 'md.purchase.product.inherit'
 	_description = 'Genaral Model Inherit For Purchase Product'
-	_inherit = {'md.product':{'_columns':['purchase']},'md.recepture':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['purchase']},'md.recepture':{'_columns':['usage']},'md.type.items':{'_columns':['usage']}}
 	_columns = {
 		'purchase': fields.one2many(label='Purchase',obj='md.purchase.product',rel='product_id'),
 		'usage': fields.iSelection(selections=[('p','Purchase')])
