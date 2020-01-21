@@ -180,7 +180,7 @@ class User(object):
 		elif args[0] == 'rollback':
 			return self._cache[args[1]]._rollback(**(args[2]))
 		elif args[0] == 'open':
-			oid = uuid.uuid4().hex
+			oid = str(uuid.uuid4())
 			kwargs = {'cr':self._cursor,'pool':self._models,'uid':self._uid}
 			for k in args[1].keys():
 				kwargs[k] = args[1][k]

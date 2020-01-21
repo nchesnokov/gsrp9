@@ -460,7 +460,7 @@ class MCache(object):
 		m['__checks__'] = []
 		return m
 
-	def _do_create(self,model):
+	def _do_create(self,model,context={}):
 		self._clear()
 		self._model = model
 		row = self._pool.get(model)._buildEmptyItem()

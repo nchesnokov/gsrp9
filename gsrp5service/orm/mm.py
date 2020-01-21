@@ -2269,7 +2269,7 @@ def _modifyRecords(self, cr, pool, uid, records, context):
 
 def _modifyRecord(self, cr, pool, uid, record, context):
 	oid = None
-	print('MODIFY-RECORD:',record)
+	#print('MODIFY-RECORD:',record)
 	fields = list(record.keys())
 	modelfields = list(self._columns.keys())
 	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS, fields))
@@ -2312,7 +2312,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 
 	_computes = self._compute(cr,pool,uid,self._storecomputefields,record)
 
-	print('RECORD-BERORE-MODIFY:',record)
+	#print('RECORD-BERORE-MODIFY:',record)
 	if not _computes is None:
 		for key in _computes.keys():
 			record[key] = _computes[key]
@@ -2337,7 +2337,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
 			getattr(self,t,None)(**kwargs)
 		
-	print('RECORD-0:',record)
+	#print('RECORD-0:',record)
 	sql,vals = gensql.Modify(self,pool,uid,self.modelInfo(), record, context)
 	cr.execute(sql,vals)
 	if cr.cr.rowcount > 0:
@@ -2414,61 +2414,61 @@ def modify(self, cr, pool, uid, records, context = {}):
 		return [self._modifyRecord(cr=cr, pool=pool, uid=uid, record=records, context = context)]
 
 
-def _mcache(self,cr,pool,uid,key,value,idx = -1,context={}):
-	res = {}
+# def _mcache(self,cr,pool,uid,key,value,idx = -1,context={}):
+	# res = {}
 
-	if idx == -1:
-		#print('deepcopy(self._cache[0]):',self._cache,self._cache_old)
-		record = deepcopy(self._cache[0])
-		record_old = self._cache_old[0]
-	else:
-		record = deepcopy(self._cache[idx])
-		record_old = self._cache_old[idx]
+	# if idx == -1:
+		# #print('deepcopy(self._cache[0]):',self._cache,self._cache_old)
+		# record = deepcopy(self._cache[0])
+		# record_old = self._cache_old[0]
+	# else:
+		# record = deepcopy(self._cache[idx])
+		# record_old = self._cache_old[idx]
 
-	if key and key in record:
-		if  record[key] != value:
-			record[key] = value
-			c = do_compute(self, cr, pool, uid, self._computefields, record, context)
-			if c:
-				for k in c.keys():
-					if not k in record or record[k] != c[k]:
-						res[k] = c[k]
-						record[k] = c[k]
-						record_old[k] = c[k]
-			else:
-				for k in record.keys():
-					if k in record_old:
-						if record[k] != record_old[k]:
-							record_old[k] = record[k]
-							res[k] = record[k]
-					else:
-						record_old[k] = record[k]
-						res[k] = record[k]
-	else:
-		if key:
-			if value:
-				record[key] = value
-			else:
-				del record[key]
+	# if key and key in record:
+		# if  record[key] != value:
+			# record[key] = value
+			# c = do_compute(self, cr, pool, uid, self._computefields, record, context)
+			# if c:
+				# for k in c.keys():
+					# if not k in record or record[k] != c[k]:
+						# res[k] = c[k]
+						# record[k] = c[k]
+						# record_old[k] = c[k]
+			# else:
+				# for k in record.keys():
+					# if k in record_old:
+						# if record[k] != record_old[k]:
+							# record_old[k] = record[k]
+							# res[k] = record[k]
+					# else:
+						# record_old[k] = record[k]
+						# res[k] = record[k]
+	# else:
+		# if key:
+			# if value:
+				# record[key] = value
+			# else:
+				# del record[key]
 
-		c = do_compute(self, cr, pool, uid, self._computefields, record, context)
-		if c:
-			for k in c.keys():
-				if not k in record or record[k] != c[k]:
-					record[k] = c[k]
-					record_old[k] = c[k]
-					res[k] = c[k]
-		else:
-			for k in record.keys():
-				if k in record_old:
-					if record_old[k] != record[k]:
-						record_old[k] = record[k]
-						res[k] = record[k]
-				else:
-					record_old[k] = record[k]
-					res[k] = record[k]
+		# c = do_compute(self, cr, pool, uid, self._computefields, record, context)
+		# if c:
+			# for k in c.keys():
+				# if not k in record or record[k] != c[k]:
+					# record[k] = c[k]
+					# record_old[k] = c[k]
+					# res[k] = c[k]
+		# else:
+			# for k in record.keys():
+				# if k in record_old:
+					# if record_old[k] != record[k]:
+						# record_old[k] = record[k]
+						# res[k] = record[k]
+				# else:
+					# record_old[k] = record[k]
+					# res[k] = record[k]
 
-	#print('self-cache:',res)
-	return [res]
+	# #print('self-cache:',res)
+	# return [res]
 
 __locals__= locals()
