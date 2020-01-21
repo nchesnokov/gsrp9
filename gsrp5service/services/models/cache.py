@@ -674,7 +674,8 @@ class MCache(object):
 					item[k] = _default[k]
 	
 	def _add(self,model,container,context,view='form'):
-		row = self._buildItem(model,view)
+		#row = self._buildItem(model,view)
+		row = self._pool.get(model)._buildEmptyItem()
 		self._setDefault(model,row)
 		
 		p = container.split('.')
