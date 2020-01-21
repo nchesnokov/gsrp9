@@ -438,6 +438,13 @@ class MCache(object):
 		self._mode = mode
 		return [self._mode == mode]
 
+	def _getContext(self):
+		return [self._context]
+
+	def _setContext(self,context):
+		self._context = context
+		return [self._context == context]
+
 	def _initialize(self,model,view='form',context={}):
 		self._clear()
 		self._model = model
@@ -480,21 +487,21 @@ class MCache(object):
 		self._m.clear()
 		return True
 
-	def _buildItem(self,model,view='form'):
-		ci = self._pool.get(model).columnsInfo(attributes = ['type'])
+	# def _buildItem(self,model,view='form'):
+		# ci = self._pool.get(model).columnsInfo(attributes = ['type'])
 		
-		if view == 'form':
-			item = dict.fromkeys(list(self._pool.get(model)._columns.keys()))
-		elif view == 'list':
-			item = dict.fromkeys(list(filter(lambda x: ci[x]['type'] not in ('one2mamy','many2many','xml','text','binary','json'),self._pool.get(model)._columns.keys())))
+		# if view == 'form':
+			# item = dict.fromkeys(list(self._pool.get(model)._columns.keys()))
+		# elif view == 'list':
+			# item = dict.fromkeys(list(filter(lambda x: ci[x]['type'] not in ('one2mamy','many2many','xml','text','binary','json'),self._pool.get(model)._columns.keys())))
 		
-		for key in item.keys():
-			if ci[key]['type'] in ('many2one','related'):
-				item[key] = {'id':None,'name':None}
-			elif ci[key]['type'] in ('one2many','many2many'):
-				item[key] = []
+		# for key in item.keys():
+			# if ci[key]['type'] in ('many2one','related'):
+				# item[key] = {'id':None,'name':None}
+			# elif ci[key]['type'] in ('one2many','many2many'):
+				# item[key] = []
 
-		return item
+		# return item
 
 	def _on_change(self,path,model,key,context):
 		if model not in self._meta:
@@ -621,11 +628,36 @@ class MCache(object):
 		
 		return res
 	
+	#def _do_compute(self, cr, pool, uid, fields, record, context = {}):
+	def _do_compute(self, path, model):
+		res = {}
+		m = self._pool.get(model)
+		record = self._data._cdata[path]
+		fields = list(record.keys())
+		ci = m.columnsInfo(columns=m._computefields,attributes=['compute','priority'])
+		priority = {}
+		for compute_field in filter(lambda x: x in fields,self._computefields):
+			priority.setdefault(ci[compute_field]['compute'],set()).add(compute_field)
+		
+		pkeys = list(priority.keys())
+		pkeys.sort()
+		for pkey in pkeys:
+			for compute_field in priority[pkey]:
+				method = getattr(self,ci[compute_field]['compute'],None)
+				if method and callable(method):
+					r = method(self._cr,self._pool,self._uid,record,self._context)
+					if r is not None: 
+						res.update(r)
+	
+		return res
+
+
 	def _do_calculate(self,levels,context):
 		for key in levels.keys():
 			for path in levels[key]:
 				model = self._data._cmodels[path]
-				_computes = self._pool.get(model)._compute(self._cr, self._pool, self._uid, self._cache_attrs[model]['computefields'], self._data._cdata[path], self._context)
+				#_computes = self._pool.get(model)._compute(self._cr, self._pool, self._uid, self._cache_attrs[model]['computefields'], self._data._cdata[path], self._context)
+				_computes = self._do_compute(path,model)
 				if len(_computes) > 0:
 					self._data._cdata.setdefault(path,{}).update(_computes)
 
