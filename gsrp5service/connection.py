@@ -25,7 +25,7 @@ class Cursor(object):
 		self.sslrootcert = sslrootcert
 		self.sslcert = sslcert
 		self.sslkey=sslkey
-		print('cursor',self.sslmode,self.sslcert,self.sslkey)
+		#print('cursor',self.sslmode,self.sslcert,self.sslkey)
 
 	def __reduce__(self):
 		return(self.dsn,self.database,self.user,self.passowrd,self.host,self.port,self.sslmode,self.sslcert,self.sslkey)
@@ -71,6 +71,7 @@ class Cursor(object):
 	def execute(self, query, vals = None):
 		try:
 			#print('MOGRIFY:',self.mogrify(query,vals))
+			print('QUERY:',query,vals)
 			if type(query) == str:
 				self.cr.execute(query = query, vars = vals)
 			elif type(query) in (tuple,list):

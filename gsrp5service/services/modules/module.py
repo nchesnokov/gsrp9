@@ -353,6 +353,7 @@ def _uninstallModule(cr,pool,uid,name,registry):
 					sqls.append("DROP TABLE IF EXISTS "+table)
 	
 	if len(sqls) > 0:
+		cr.commit()
 		cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
 	
 	module_id = registry._modules[name]['db_id']
