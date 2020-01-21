@@ -460,6 +460,20 @@ class MCache(object):
 		m['__checks__'] = []
 		return m
 
+	def _do_create(self,model):
+		self._clear()
+		self._model = model
+		row = self._pool.get(model)._buildEmptyItem()
+		self._setDefault(model,row)
+		self._data = DCacheDict({},model,self._pool)
+		self._data._buildTree(row,model,mode='A')
+		self._do_calculate(self._data._get_levels(self._data._root),context=self._context)
+		self._getMeta()	
+		m = self._data._getData(self._data._data)
+		m['__meta__'] = self._do_meta(str(self._data._root))
+		m['__checks__'] = []
+		return m
+
 	def _do_read(self,model,row):
 		self._clear()
 		self._model = model
@@ -791,13 +805,28 @@ class MCache(object):
 		
 		return []
 
+	def _save(self):
+		diffs = self._data._pdiffs()
+		
+		self._commit()
+
+	def _reset(self):
+		diffs = self._data._pdiffs()
+		
+		self._roolback()
+
+
 	def _commit(self):
 		if self._mode in ('new',):
 			self._clear()
+		
+		self._cr.commit()
 
 	def _rollback(self):
 		if self._mode in ('new',):
 			self._clear()
+		
+		self._cr.rollback()
 			
 	def _post_diff(self,diffs,context):
 		if '__append__' in diffs:

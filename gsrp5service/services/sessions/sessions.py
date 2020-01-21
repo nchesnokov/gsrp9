@@ -169,6 +169,16 @@ class User(object):
 			return self._cache[args[1]]._remove(**(args[2]))
 		elif args[0] == 'initialize':
 			return self._cache[args[1]]._initialize(**(args[2]))
+		elif args[0] == 'create':
+			return self._cache[args[1]]._do_create(**(args[2]))
+		elif args[0] == 'save':
+			return self._cache[args[1]]._save(**(args[2]))
+		elif args[0] == 'reset':
+			return self._cache[args[1]]._reset(**(args[2]))
+		elif args[0] == 'commit':
+			return self._cache[args[1]]._commit(**(args[2]))
+		elif args[0] == 'rollback':
+			return self._cache[args[1]]._rollback(**(args[2]))
 		elif args[0] == 'open':
 			oid = uuid.uuid4().hex
 			kwargs = {'cr':self._cursor,'pool':self._models,'uid':self._uid}
@@ -180,11 +190,15 @@ class User(object):
 			return self._cache[args[1]]._getMode()
 		elif args[0] == 'setmode':
 			return self._cache[args[1]]._setMode(**(args[2]))
+		elif args[0] == 'getcontext':
+			return self._cache[args[1]]._getContext()
+		elif args[0] == 'setcontext':
+			return self._cache[args[1]]._setContext(**(args[2]))
 		elif args[0] == 'close':
 			del self._cache[args[1]]
 			return [True]
 		
-		return
+		return Execption('No defined method of mcache: <%s>' % (args[0],))
 
 # new cache
 		
