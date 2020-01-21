@@ -292,7 +292,7 @@ class System(object):
 		if not self._connected:
 			if slot:
 				self._cursor.execute('SET DATABASE=%s' % (slot,))
-			self._cursor.execute('select id,password from bc_users where login = %s limit 1', (user,))
+			self._cursor.execute('select id,password from bc_users where login = %s and issuperuser = %slimit 1', (user,True))
 			if self._cursor.rowcount > 0:
 				res = self._cursor.fetchone(['id','password'],{'id':'UUID','password':'varchar'})
 				if pbkdf2_sha256.verify(password, res[1]):
