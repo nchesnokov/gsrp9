@@ -49,14 +49,10 @@ class Models(Component):
 			else:
 				rmsg.append(method(**kwargs))
 
-		if 'context' in kwargs and 'cache' in kwargs['context'] and kwargs['context']['cache'] and args[1] == 'read':
-			if len(rmsg) > 0:
-				oid = kwargs['context']['cache']
-				rmsg[0] = self._session._cache[oid]._do_read(args[0],rmsg[0],kwargs[context])
-		#elif args[1] == 'create':
-			#oid = str(uuid.uuid4())
-			#rmsg[0] = self._session._cache[oid]._do_create(args[0],rmsg[0],kwargs[context])
-		#elif args[1] in ('create','read','write','modify','unlink','insert','tree','select','update','upsert','delete','do_action','m2munlink','remote_call','do_compute'):
-			#pass
+		if 'context' in kwargs and 'cache' in kwargs['context'] and kwargs['context']['cache']:
+			oid = kwargs['context']['cache']
+			if args[1] == 'read':
+				if len(rmsg) > 0:
+					rmsg[0] = self._session._cache[oid]._do_read(args[0],rmsg[0])
 		
 		return rmsg 
