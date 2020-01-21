@@ -58,6 +58,7 @@ class purchase_order_types(Model):
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
+	'otype': fields.selection(label='Type',selections=[('ord','Order'),('ap','Advance Payment'),('ps','Pseduo'),('dm','Debit Request'),('cr','Credit Request'),('rо','Return')]),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'htschema': fields.many2one(label='Text Schema Of Head',obj='purchase.schema.texts',domain=[('usage','in',('h','b'))]),
 	'itschema': fields.many2one(label='Text Schema Of Item',obj='purchase.schema.texts',domain=[('usage','in',('i','b'))]),
@@ -87,6 +88,7 @@ class purchase_invoice_types(Model):
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_columns = {
+	'itype': fields.selection(label='Type',selections=[('in','Invoice'),('ap','Advance Payment'),('ps','Pseduo'),('dm','Debit Memo'),('cr','Credit Memo'),('rin','Reversal Invoice'),('rap','Reversal Advance Payment'),('rps','Reversal Pseduo'),('rdm','Reversal Debit Memo'),('rcr','Reversal Credit Memo') ]),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'htschema': fields.many2one(label='Text Schema Of Head',obj='purchase.schema.texts',domain=[('usage','in',('h','b'))]),
 	'itschema': fields.many2one(label='Text Schema Of Item',obj='purchase.schema.texts',domain=[('usage','in',('i','b'))]),
@@ -143,7 +145,9 @@ class purchase_orders(Model):
 	_description = 'General Model Purchase Order'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'doo'
+	_recname = 'fullname'
 	_columns = {
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'otype': fields.many2one(label='Type',obj='purchase.order.types',on_change='_on_change_otype'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
@@ -167,6 +171,20 @@ class purchase_orders(Model):
 	'payments': fields.one2many(label='Payments',obj='purchase.order.payment.schedules',rel='order_id'),
 	'note': fields.text('Note')
 	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'company' in item and 'name' in item['company'] and item['company']['name']:
+			v += item['company']['name']
+
+		if 'otype' in item and 'name' in item['otype'] and item['otype']['name']:
+			v += '/' + item['otype']['name']
+
+		if item['name']:
+			v += '/' + item['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
 
 	def _on_change_otype(self,cr,pool,uid,item,context={}):		
 		roles = pool.get('purchase.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
@@ -417,7 +435,9 @@ class purchase_invoices(Model):
 	_description = 'General Model Purchase Invoice'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'doi'
+	_recname = 'fullname'
 	_columns = {
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'itype': fields.many2one(label='Type',obj='purchase.invoice.types',on_change='on_change_itype'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
@@ -437,6 +457,20 @@ class purchase_invoices(Model):
 	'texts': fields.one2many(label='Texts',obj='purchase.invoice.texts',rel='invoice_id'),
 	'note': fields.text('Note')
 	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'company' in item and 'name' in item['company'] and item['company']['name']:
+			v += item['company']['name']
+
+		if 'itype' in item and 'name' in item['itype'] and item['itype']['name']:
+			v += '/' + item['itype']['name']
+
+		if item['name']:
+			v += '/' + item['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
 
 	def _on_change_itype(self,cr,pool,uid,item,context={}):		
 			roles = pool.get('purchase.invoice.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['otype'])],context)
