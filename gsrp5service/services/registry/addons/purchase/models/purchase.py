@@ -587,14 +587,13 @@ class purchase_order_items(Model):
 
 	def _on_change_product(self,cr,pool,uid,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			i = pool.get('purchase.order.types').select(cr,pool,uid,['type','name',{'tis':['gti_id','itype_id']}],[('name','=',item['order_id']['name'])],context)
+			i = pool.get('purchase.order.type.items').select(cr,pool,uid,['gti_id','itype_id'],[],context)
 			gti = {}
 			if len(i) > 0:
-				tis = i[0]['tis']
+				tis = i[0]
 				for r in tis:
 					gti[r['gti_id']['name']] = r['itype_id']
 			p = pool.get('md.product').select(cr,pool,uid,['gti','volume','volume_uom','weight','weight_uom',{'purchase':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
-			print('I:',i[0])
 			print('P:',p[0])
 			#p = pool.get('md.purchase.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
