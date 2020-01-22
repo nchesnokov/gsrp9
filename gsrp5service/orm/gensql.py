@@ -299,6 +299,9 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 						else:
 							f.append(aliases[models[field]][field] + '.' + recname + ' as "' + field + '-name"')
 		elif type(field) == dict:
+			recname = pool.get(models[vf])._getRecNameName()
+			if recname and type(recname) == str and recname not in field:
+				field.append(recname)
 			for vf in field.keys():
 				if vf in columnsmeta and columnsmeta[vf] in ('one2many','many2many'):
 					f.append('NULL AS ' + vf)
