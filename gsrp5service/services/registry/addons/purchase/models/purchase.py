@@ -190,6 +190,20 @@ class purchase_unit_segment_assigments(Model):
 
 purchase_unit_segment_assigments()
 
+class purchase_division_subdivision_assigments(Model):
+	_name = 'purchase.division.subdivision.assigments'
+	_description = 'General Model Purchase Division Of Subdivision Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'division_id': fields.many2one(label='Division',obj='purchase.divisions'),
+	'subdivision_id': fields.many2one(label='Subdivision',obj='purchase.subdivisions'),
+	'descr': fields.referenced(ref='subdivision_id.descr'),
+	}
+
+purchase_division_subdivision_assigments()
+
 
 class purchase_markets(Model):
 	_name = 'purchase.markets'
