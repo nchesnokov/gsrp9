@@ -32,7 +32,7 @@ class purchase_units(Model):
 	_class_category = 'order'
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='purchase.unit.categories'),
-	'company_id': fields.mamy2many(label='Companies',obj='md.company', rel='md_company_purchase_unit_rel', id2='unit_id', id1='company_id'),
+	'company_id': fields.many2many(label='Companies',obj='md.company', rel='md_company_purchase_unit_rel', id2='unit_id', id1='company_id'),
 	'code': fields.varchar(label = 'Code',size=8,translate=True),
 	'descr':fields.varchar(label = 'Description',size=128,translate=True),
 	'channels': fields.one2many(label='Channels',obj='purchase.unit.channel.assigments',rel='unit_id'),
