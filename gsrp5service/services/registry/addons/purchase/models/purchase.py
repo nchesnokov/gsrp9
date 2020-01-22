@@ -229,7 +229,7 @@ class purchase_markets(Model):
 			v += '/' + item['channel_id']['name']
 
 		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
-			v += item['segment_id']['name']
+			v += '/' + item['segment_id']['name']
 		
 		if len(v) > 0:
 			item['fullname'] = v
