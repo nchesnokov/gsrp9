@@ -401,6 +401,8 @@ class BaseModel(object, metaclass = MetaModel):
 	def _buildEmptyItem(self):
 		return mm._buildEmptyItem(self)
 
+	def _buildSchemaColumns(self,pool):
+		return mm._buildSchemaColumns(self,pool)
 
 	# def _getAccess(self):
 		# return mm._getAccess(self)

@@ -81,6 +81,8 @@ def _build_schema(pool,model):
 		if len(r) > 0:
 			res.append(r)
 	
+	if model in ('purchase.orders','purchase.order.categories'):
+		print('RESULT:',model,res)
 	return res
 
 def _to_list(keys):
@@ -339,7 +341,7 @@ class Registry(Service):
 	def _load_schema(self,models):
 		m = set()
 		for key in models.keys():
-			if key in m or isinstance(models[key],Model) and _getRecNameName(models[key]) is None:
+			if key in m or isinstance(models[key],Model) and _getRecNameName(models[key]) is None or isinstance(models[key],ModelInherit):
 				continue
 			name = models[key]._name
 			schema = _build_schema(models,name)
@@ -348,8 +350,10 @@ class Registry(Service):
 			dl = _schema_to_levels(schema)
 			for s in sc:
 				model = models.get(s)
-				model._schema = dc
-				model._levels = dl
+				#model._schema = dc
+				model._schema.update(dc)
+				#model._levels = dl
+				model._levels.update(dl)
 				model._level = _get_level(model._name,model._levels)
 			
 			m.union(sc)

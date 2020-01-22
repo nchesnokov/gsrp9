@@ -460,6 +460,37 @@ class MCache(object):
 		m['__checks__'] = []
 		return m
 
+	def _readSchema(self,model,row):
+		schema = self._pool.get(model)._schema
+		print('SCHEMA:',model,schema)
+		if schema[model]:
+			model = schema[model]
+			m = self._pool.get(model)
+			ci = m.columnsInfo(m._m2ofields,['obj','rel'])
+			o2mfield = list(filter(lambda x:ci[x]['obj'] == model, m._m2ofields))[0]
+			rel = ci[o2mfield]['rel']
+			ids = row[rel]['id']
+			d = m.read(self._cr,self._pool,self._uid,ids,[],self._context)
+			if len(d) > 0:
+				while schema[model] is not None:
+					model = schema[model]
+					m = self._pool.get(model)
+					ci = m.columnsInfo(m._m2ofields,['obj','rel'])
+					o2mfield = list(filter(lambda x:ci[x]['obj'] == model, m._m2ofields))[0]
+					rel = ci[o2mfield]['rel']
+					ids = row[rel]['id']
+					d = m.read(self._cr,self._pool,self._uid,ids,[],self._context)
+					if len(d) == 0:
+						break
+		else:
+			ids = row['id']
+		
+		m = self._pool.get(model)
+		cols = m._buildSchemaColumns(self._pool)
+		d = m.read(self._cr,self._pool,self._uid,ids,cols,self._context)
+		
+		return d
+
 	def _do_create(self,model,context={}):
 		self._clear()
 		self._model = model
@@ -475,6 +506,8 @@ class MCache(object):
 		return m
 
 	def _do_read(self,model,row):
+		v = self._readSchema(model,row)
+		print('READ-SCHEMA:',v)
 		self._clear()
 		self._model = model
 		self._data = DCacheDict(row,model,self._pool)
@@ -663,7 +696,6 @@ class MCache(object):
 						res.update(r)
 	
 		return res
-
 
 	def _do_calculate(self,levels,context):
 		for key in levels.keys():

@@ -31,7 +31,14 @@ class model_common(ModelInherit):
 				else:
 					item['quantity'] = d['quantity']
 			if 'quantity' in item and item['quantity'] and 'price' in item and item['price'] and 'unit' in item and item['unit']:
-				item['amount'] = item['quantity'] * item['price'] / item['unit'] 
+				item['amount'] = item['quantity'] * item['price'] / item['unit']
+
+				if 'volume-1' in item and item['volume']:
+					item['volume_total'] =  item['quantity'] * item['volume']
+
+				if 'weight-1' in item and item['weight']:
+					item['weight_total'] =  item['quantity'] * item['weight']
+
 			elif item['quantity'] is None:
 				item['amount'] = None
 				item['vat_amount'] = None

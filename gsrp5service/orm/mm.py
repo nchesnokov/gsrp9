@@ -157,6 +157,9 @@ class browse_record(object):
 
 
 def model__init__(self,access = None):
+	
+	self._schema = {}
+	self._levels = {}
 		
 	if not self._name and not hasattr(self, '_inherit'):
 		name = type(self).__name__.split('.')[0]
@@ -553,6 +556,21 @@ def _buildEmptyItem(self):
 		r[m2orelatedfield] = {'id':None,'name':None}
 	
 	return r
+
+def _buildSchemaColumns(self,pool):
+	r = []
+	o2mfields = self._o2mfields
+	for k in self._columns.keys():
+		if k in o2mfields:
+			ci = self.columnsInfo([k],['obj'])
+			obj = ci[k]['obj']
+			m = pool.get(obj)
+			r.append({k:_buildSchemaColumns(m,pool)})
+		else:
+			r.append(k)
+	
+	return r
+
 
 def _get__Doc__(self):
 	return self.__doc__
