@@ -17,7 +17,7 @@ class purchase_unit_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='purchase.unit.categories'),
 	'childs_id': fields.one2many(obj = 'purchase.unit.categories',rel = 'parent_id',label = 'Childs'),
-	'orders': fields.one2many(label='Orders',obj='purchase.units',rel='category_id',limit = 80,readonly=True),
+	'units': fields.one2many(label='Units',obj='purchase.units',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -80,7 +80,7 @@ class purchase_segment_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='purchase.segment.categories'),
 	'childs_id': fields.one2many(obj = 'purchase.segment.categories',rel = 'parent_id',label = 'Childs'),
-	'orders': fields.one2many(label='Orders',obj='purchase.segments',rel='category_id',limit = 80,readonly=True),
+	'segments': fields.one2many(label='Segments',obj='purchase.segments',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -110,7 +110,7 @@ class purchase_division_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='purchase.division.categories'),
 	'childs_id': fields.one2many(obj = 'purchase.division.categories',rel = 'parent_id',label = 'Childs'),
-	'orders': fields.one2many(label='Orders',obj='purchase.divisions',rel='category_id',limit = 80,readonly=True),
+	'divisions': fields.one2many(label='Divisions',obj='purchase.divisions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -171,7 +171,7 @@ class purchase_unit_channel_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='purchase.units'),
 	'channel_id': fields.many2one(label='Channel',obj='purchase.channels'),
-	'descr': fields.referenced(ref='chanhel_id.descr'),
+	'descr': fields.referenced(ref='channel_id.descr'),
 	}
 
 purchase_unit_channel_assigments()
