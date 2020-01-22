@@ -211,6 +211,7 @@ class purchase_markets(Model):
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
+	_rec_name = 'fullname'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='purchase.units', required = True),
 	'channel_id': fields.many2one(label='Unit',obj='purchase.channels', required = True),
@@ -243,6 +244,7 @@ class purchase_teams(Model):
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
+	_rec_name = 'fullname'
 	_columns = {
 	'division_id': fields.many2one(label='Unit',obj='purchase.divisions', required = True),
 	'subdivision_id': fields.many2one(label='Unit',obj='purchase.subdivisions', required = True),
