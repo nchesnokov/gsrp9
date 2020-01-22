@@ -50,7 +50,7 @@ class purchase_channel_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='purchase.channel.categories'),
 	'childs_id': fields.one2many(obj = 'purchase.channel.categories',rel = 'parent_id',label = 'Childs'),
-	'orders': fields.one2many(label='Orders',obj='purchase.channels',rel='category_id',limit = 80,readonly=True),
+	'channels': fields.one2many(label='Channels',obj='purchase.channels',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -590,8 +590,7 @@ class purchase_order_items(Model):
 			i = pool.get('purchase.order.type.items').select(cr,pool,uid,['gti_id','itype_id'],[],context)
 			gti = {}
 			if len(i) > 0:
-				tis = i[0]
-				for r in tis:
+				for r in i:
 					gti[r['gti_id']['name']] = r['itype_id']
 			p = pool.get('md.product').select(cr,pool,uid,['gti','volume','volume_uom','weight','weight_uom',{'purchase':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
 			print('P:',p[0])
