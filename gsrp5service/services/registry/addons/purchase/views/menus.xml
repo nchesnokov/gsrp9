@@ -185,6 +185,54 @@
           </record>
       </records>
       <records model="bc.actions">
+        <record id="action.purchase.unit.categories.custom">
+          <column name="name">action.purchase.unit.categories.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.units.custom">
+          <column name="name">action.purchase.units.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.channel.categories.custom">
+          <column name="name">action.purchase.channel.categories.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.channels.custom">
+          <column name="name">action.purchase.channels.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.segment.categories.custom">
+          <column name="name">action.purchase.segment.categories.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.segments.custom">
+          <column name="name">action.purchase.segments.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.division.categories.custom">
+          <column name="name">action.purchase.division.categories.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.divisions.custom">
+          <column name="name">action.purchase.divisions.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.subdivision.categories.custom">
+          <column name="name">action.purchase.subdivision.categories.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.subdivisions.custom">
+          <column name="name">action.purchase.subdivisions.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.markets.custom">
+          <column name="name">action.purchase.markets.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.teams.custom">
+          <column name="name">action.purchase.teams.custom</column>
+          <column name="ta">View</column>
+        </record>
         <record id="action.purchase.texts.custom">
           <column name="name">action.purchase.texts.custom</column>
           <column name="ta">View</column>
@@ -203,6 +251,54 @@
         </record>
       </records>
       <records model="bc.view.actions">
+        <record id="view.action.purchase.unit.categories.custom">
+          <column name="action_id">action.purchase.unit.categories.custom</column>
+          <column name="view_id">view.purchase.unit.categories.search</column>
+        </record>
+        <record id="view.action.purchase.units.custom">
+          <column name="action_id">action.purchase.units.custom</column>
+          <column name="view_id">view.purchase.units.search</column>
+        </record>
+        <record id="view.action.purchase.channel.categories.custom">
+          <column name="action_id">action.purchase.channel.categories.custom</column>
+          <column name="view_id">view.purchase.channel.categories.search</column>
+        </record>
+        <record id="view.action.purchase.channels.custom">
+          <column name="action_id">action.purchase.channels.custom</column>
+          <column name="view_id">view.purchase.channels.search</column>
+        </record>
+        <record id="view.action.purchase.segment.categories.custom">
+          <column name="action_id">action.purchase.segment.categories.custom</column>
+          <column name="view_id">view.purchase.segment.categories.search</column>
+        </record>
+        <record id="view.action.purchase.segments.custom">
+          <column name="action_id">action.purchase.segments.custom</column>
+          <column name="view_id">view.purchase.segments.search</column>
+        </record>
+        <record id="view.action.purchase.division.categories.custom">
+          <column name="action_id">action.purchase.division.categories.custom</column>
+          <column name="view_id">view.purchase.division.categories.search</column>
+        </record>
+        <record id="view.action.purchase.divisions.custom">
+          <column name="action_id">action.purchase.divisions.custom</column>
+          <column name="view_id">view.purchase.divisions.search</column>
+        </record>
+        <record id="view.action.purchase.subdivision.categories.custom">
+          <column name="action_id">action.purchase.subdivision.categories.custom</column>
+          <column name="view_id">view.purchase.subdivision.categories.search</column>
+        </record>
+        <record id="view.action.purchase.subdivisions.custom">
+          <column name="action_id">action.purchase.subdivisions.custom</column>
+          <column name="view_id">view.purchase.subdivisions.search</column>
+        </record>
+        <record id="view.action.purchase.markets.custom">
+          <column name="action_id">action.purchase.markets.custom</column>
+          <column name="view_id">view.purchase.markets.search</column>
+        </record>
+        <record id="view.action.purchase.teams.custom">
+          <column name="action_id">action.purchase.teams.custom</column>
+          <column name="view_id">view.purchase.teams.search</column>
+        </record>
         <record id="view.action.purchase.texts.custom">
           <column name="action_id">action.purchase.texts.custom</column>
           <column name="view_id">view.purchase.texts.search</column>
@@ -228,36 +324,132 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.purchase.texts.custom">
+          <record id="ui.menu.purchase.unit.categories.custom">
           <column name="sequence">0</column>
+            <column name="name">ui.menu.purchase.unit.categories.custom</column>
+            <column name="label">Categories Purchase Unit</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.purchase.unit.categories.custom</column>
+          </record>
+          <record id="ui.menu.purchase.units.custom">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.purchase.units.custom</column>
+            <column name="label">Purchase Units</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.purchase.units.custom</column>
+          </record>
+          <record id="ui.menu.purchase.channel.categories.custom">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.purchase.channel.categories.custom</column>
+            <column name="label">Categories Purchase Chanel</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.purchase.channel.categories.custom</column>
+          </record>
+          <record id="ui.menu.purchase.channels.custom">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.purchase.channels.custom</column>
+            <column name="label">Purchase Channels</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.purchase.channels.custom</column>
+          </record>
+          <record id="ui.menu.purchase.segment.categories.custom">
+          <column name="sequence">4</column>
+            <column name="name">ui.menu.purchase.segment.categories.custom</column>
+            <column name="label">Categories Purchase Segment</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">40</column>
+          <column name="action_id">action.purchase.segment.categories.custom</column>
+          </record>
+          <record id="ui.menu.purchase.segments.custom">
+          <column name="sequence">5</column>
+            <column name="name">ui.menu.purchase.segments.custom</column>
+            <column name="label">Purchase Segments</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">50</column>
+          <column name="action_id">action.purchase.segments.custom</column>
+          </record>
+          <record id="ui.menu.purchase.division.categories.custom">
+          <column name="sequence">6</column>
+            <column name="name">ui.menu.purchase.division.categories.custom</column>
+            <column name="label">Categories Purchase Division</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">60</column>
+          <column name="action_id">action.purchase.division.categories.custom</column>
+          </record>
+          <record id="ui.menu.purchase.divisions.custom">
+          <column name="sequence">7</column>
+            <column name="name">ui.menu.purchase.divisions.custom</column>
+            <column name="label">Purchase Divisions</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">70</column>
+          <column name="action_id">action.purchase.divisions.custom</column>
+          </record>
+          <record id="ui.menu.purchase.subdivision.categories.custom">
+          <column name="sequence">8</column>
+            <column name="name">ui.menu.purchase.subdivision.categories.custom</column>
+            <column name="label">Categories Purchase Subdivision</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">80</column>
+          <column name="action_id">action.purchase.subdivision.categories.custom</column>
+          </record>
+          <record id="ui.menu.purchase.subdivisions.custom">
+          <column name="sequence">9</column>
+            <column name="name">ui.menu.purchase.subdivisions.custom</column>
+            <column name="label">Purchase Subdivisions</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">90</column>
+          <column name="action_id">action.purchase.subdivisions.custom</column>
+          </record>
+          <record id="ui.menu.purchase.markets.custom">
+          <column name="sequence">13</column>
+            <column name="name">ui.menu.purchase.markets.custom</column>
+            <column name="label">Purchase Market</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">130</column>
+          <column name="action_id">action.purchase.markets.custom</column>
+          </record>
+          <record id="ui.menu.purchase.teams.custom">
+          <column name="sequence">14</column>
+            <column name="name">ui.menu.purchase.teams.custom</column>
+            <column name="label">Purchase Teams</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">140</column>
+          <column name="action_id">action.purchase.teams.custom</column>
+          </record>
+          <record id="ui.menu.purchase.texts.custom">
+          <column name="sequence">15</column>
             <column name="name">ui.menu.purchase.texts.custom</column>
             <column name="label">Purchase Texts</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">0</column>
+          <column name="sequence">150</column>
           <column name="action_id">action.purchase.texts.custom</column>
           </record>
           <record id="ui.menu.purchase.schema.texts.custom">
-          <column name="sequence">1</column>
+          <column name="sequence">16</column>
             <column name="name">ui.menu.purchase.schema.texts.custom</column>
             <column name="label">Schema Of Purchase Texts</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">10</column>
+          <column name="sequence">160</column>
           <column name="action_id">action.purchase.schema.texts.custom</column>
           </record>
           <record id="ui.menu.purchase.order.types.custom">
-          <column name="sequence">3</column>
+          <column name="sequence">18</column>
             <column name="name">ui.menu.purchase.order.types.custom</column>
             <column name="label">Types Purchase Order</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">30</column>
+          <column name="sequence">180</column>
           <column name="action_id">action.purchase.order.types.custom</column>
           </record>
           <record id="ui.menu.purchase.invoice.types.custom">
-          <column name="sequence">6</column>
+          <column name="sequence">21</column>
             <column name="name">ui.menu.purchase.invoice.types.custom</column>
             <column name="label">Types Purchase Invoice</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">60</column>
+          <column name="sequence">210</column>
           <column name="action_id">action.purchase.invoice.types.custom</column>
           </record>
       </records>

@@ -2,6 +2,829 @@
   <gsrp>
     <data>
       <records model="bc.ui.views">
+        <record id="view.purchase.unit.categories.form">
+          <column name="name">view.purchase.unit.categories.form</column>
+          <column name="model">purchase.unit.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="orders"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.unit.categories.list">
+          <column name="name">view.purchase.unit.categories.list</column>
+          <column name="model">purchase.unit.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="orders"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.unit.categories.m2mlist">
+          <column name="name">view.purchase.unit.categories.m2mlist</column>
+          <column name="model">purchase.unit.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.unit.categories.search">
+          <column name="name">view.purchase.unit.categories.search</column>
+          <column name="model">purchase.unit.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.unit.categories.find">
+          <column name="name">view.purchase.unit.categories.find</column>
+          <column name="model">purchase.unit.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.purchase.unit.categories.tree">
+          <column name="name">view.purchase.unit.categories.tree</column>
+          <column name="model">purchase.unit.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.purchase.units.form">
+          <column name="name">view.purchase.units.form</column>
+          <column name="model">purchase.units</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="channels"/>
+              <field name="segments"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.units.list">
+          <column name="name">view.purchase.units.list</column>
+          <column name="model">purchase.units</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="channels"/>
+              <field name="segments"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.units.m2mlist">
+          <column name="name">view.purchase.units.m2mlist</column>
+          <column name="model">purchase.units</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.units.search">
+          <column name="name">view.purchase.units.search</column>
+          <column name="model">purchase.units</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.units.find">
+          <column name="name">view.purchase.units.find</column>
+          <column name="model">purchase.units</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.purchase.channel.categories.form">
+          <column name="name">view.purchase.channel.categories.form</column>
+          <column name="model">purchase.channel.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="channels"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.channel.categories.list">
+          <column name="name">view.purchase.channel.categories.list</column>
+          <column name="model">purchase.channel.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="channels"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.channel.categories.m2mlist">
+          <column name="name">view.purchase.channel.categories.m2mlist</column>
+          <column name="model">purchase.channel.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.channel.categories.search">
+          <column name="name">view.purchase.channel.categories.search</column>
+          <column name="model">purchase.channel.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.channel.categories.find">
+          <column name="name">view.purchase.channel.categories.find</column>
+          <column name="model">purchase.channel.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.purchase.channel.categories.tree">
+          <column name="name">view.purchase.channel.categories.tree</column>
+          <column name="model">purchase.channel.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.purchase.channels.form">
+          <column name="name">view.purchase.channels.form</column>
+          <column name="model">purchase.channels</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.channels.list">
+          <column name="name">view.purchase.channels.list</column>
+          <column name="model">purchase.channels</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.channels.m2mlist">
+          <column name="name">view.purchase.channels.m2mlist</column>
+          <column name="model">purchase.channels</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.channels.search">
+          <column name="name">view.purchase.channels.search</column>
+          <column name="model">purchase.channels</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.channels.find">
+          <column name="name">view.purchase.channels.find</column>
+          <column name="model">purchase.channels</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.purchase.segment.categories.form">
+          <column name="name">view.purchase.segment.categories.form</column>
+          <column name="model">purchase.segment.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="orders"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.segment.categories.list">
+          <column name="name">view.purchase.segment.categories.list</column>
+          <column name="model">purchase.segment.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="orders"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.segment.categories.m2mlist">
+          <column name="name">view.purchase.segment.categories.m2mlist</column>
+          <column name="model">purchase.segment.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.segment.categories.search">
+          <column name="name">view.purchase.segment.categories.search</column>
+          <column name="model">purchase.segment.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.segment.categories.find">
+          <column name="name">view.purchase.segment.categories.find</column>
+          <column name="model">purchase.segment.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.purchase.segment.categories.tree">
+          <column name="name">view.purchase.segment.categories.tree</column>
+          <column name="model">purchase.segment.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.purchase.segments.form">
+          <column name="name">view.purchase.segments.form</column>
+          <column name="model">purchase.segments</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.segments.list">
+          <column name="name">view.purchase.segments.list</column>
+          <column name="model">purchase.segments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.segments.m2mlist">
+          <column name="name">view.purchase.segments.m2mlist</column>
+          <column name="model">purchase.segments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.segments.search">
+          <column name="name">view.purchase.segments.search</column>
+          <column name="model">purchase.segments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.segments.find">
+          <column name="name">view.purchase.segments.find</column>
+          <column name="model">purchase.segments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.purchase.division.categories.form">
+          <column name="name">view.purchase.division.categories.form</column>
+          <column name="model">purchase.division.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="orders"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.division.categories.list">
+          <column name="name">view.purchase.division.categories.list</column>
+          <column name="model">purchase.division.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="orders"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.division.categories.m2mlist">
+          <column name="name">view.purchase.division.categories.m2mlist</column>
+          <column name="model">purchase.division.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.division.categories.search">
+          <column name="name">view.purchase.division.categories.search</column>
+          <column name="model">purchase.division.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.division.categories.find">
+          <column name="name">view.purchase.division.categories.find</column>
+          <column name="model">purchase.division.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.purchase.division.categories.tree">
+          <column name="name">view.purchase.division.categories.tree</column>
+          <column name="model">purchase.division.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.purchase.divisions.form">
+          <column name="name">view.purchase.divisions.form</column>
+          <column name="model">purchase.divisions</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="subdivisions"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.divisions.list">
+          <column name="name">view.purchase.divisions.list</column>
+          <column name="model">purchase.divisions</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="subdivisions"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.divisions.m2mlist">
+          <column name="name">view.purchase.divisions.m2mlist</column>
+          <column name="model">purchase.divisions</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.divisions.search">
+          <column name="name">view.purchase.divisions.search</column>
+          <column name="model">purchase.divisions</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.divisions.find">
+          <column name="name">view.purchase.divisions.find</column>
+          <column name="model">purchase.divisions</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.purchase.subdivision.categories.form">
+          <column name="name">view.purchase.subdivision.categories.form</column>
+          <column name="model">purchase.subdivision.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="subdivisions"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.subdivision.categories.list">
+          <column name="name">view.purchase.subdivision.categories.list</column>
+          <column name="model">purchase.subdivision.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="subdivisions"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.subdivision.categories.m2mlist">
+          <column name="name">view.purchase.subdivision.categories.m2mlist</column>
+          <column name="model">purchase.subdivision.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.subdivision.categories.search">
+          <column name="name">view.purchase.subdivision.categories.search</column>
+          <column name="model">purchase.subdivision.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.subdivision.categories.find">
+          <column name="name">view.purchase.subdivision.categories.find</column>
+          <column name="model">purchase.subdivision.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.purchase.subdivision.categories.tree">
+          <column name="name">view.purchase.subdivision.categories.tree</column>
+          <column name="model">purchase.subdivision.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.purchase.subdivisions.form">
+          <column name="name">view.purchase.subdivisions.form</column>
+          <column name="model">purchase.subdivisions</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.subdivisions.list">
+          <column name="name">view.purchase.subdivisions.list</column>
+          <column name="model">purchase.subdivisions</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.subdivisions.m2mlist">
+          <column name="name">view.purchase.subdivisions.m2mlist</column>
+          <column name="model">purchase.subdivisions</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.subdivisions.search">
+          <column name="name">view.purchase.subdivisions.search</column>
+          <column name="model">purchase.subdivisions</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.subdivisions.find">
+          <column name="name">view.purchase.subdivisions.find</column>
+          <column name="model">purchase.subdivisions</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.purchase.unit.channel.assigments.form">
+          <column name="name">view.purchase.unit.channel.assigments.form</column>
+          <column name="model">purchase.unit.channel.assigments</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.unit.channel.assigments.list">
+          <column name="name">view.purchase.unit.channel.assigments.list</column>
+          <column name="model">purchase.unit.channel.assigments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.unit.channel.assigments.m2mlist">
+          <column name="name">view.purchase.unit.channel.assigments.m2mlist</column>
+          <column name="model">purchase.unit.channel.assigments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.unit.segment.assigments.form">
+          <column name="name">view.purchase.unit.segment.assigments.form</column>
+          <column name="model">purchase.unit.segment.assigments</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="unit_id"/>
+              <field name="segment_id"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.unit.segment.assigments.list">
+          <column name="name">view.purchase.unit.segment.assigments.list</column>
+          <column name="model">purchase.unit.segment.assigments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="unit_id"/>
+              <field name="segment_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.unit.segment.assigments.m2mlist">
+          <column name="name">view.purchase.unit.segment.assigments.m2mlist</column>
+          <column name="model">purchase.unit.segment.assigments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="unit_id"/>
+              <field name="segment_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.division.subdivision.assigments.form">
+          <column name="name">view.purchase.division.subdivision.assigments.form</column>
+          <column name="model">purchase.division.subdivision.assigments</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.division.subdivision.assigments.list">
+          <column name="name">view.purchase.division.subdivision.assigments.list</column>
+          <column name="model">purchase.division.subdivision.assigments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.division.subdivision.assigments.m2mlist">
+          <column name="name">view.purchase.division.subdivision.assigments.m2mlist</column>
+          <column name="model">purchase.division.subdivision.assigments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.markets.form">
+          <column name="name">view.purchase.markets.form</column>
+          <column name="model">purchase.markets</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="segment_id"/>
+              <field name="fullname"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.markets.list">
+          <column name="name">view.purchase.markets.list</column>
+          <column name="model">purchase.markets</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="segment_id"/>
+              <field name="fullname"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.markets.m2mlist">
+          <column name="name">view.purchase.markets.m2mlist</column>
+          <column name="model">purchase.markets</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="segment_id"/>
+              <field name="fullname"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.markets.search">
+          <column name="name">view.purchase.markets.search</column>
+          <column name="model">purchase.markets</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="segment_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.markets.find">
+          <column name="name">view.purchase.markets.find</column>
+          <column name="model">purchase.markets</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="segment_id"/>
+              <field name="fullname"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.purchase.teams.form">
+          <column name="name">view.purchase.teams.form</column>
+          <column name="model">purchase.teams</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.teams.list">
+          <column name="name">view.purchase.teams.list</column>
+          <column name="model">purchase.teams</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.teams.m2mlist">
+          <column name="name">view.purchase.teams.m2mlist</column>
+          <column name="model">purchase.teams</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.teams.search">
+          <column name="name">view.purchase.teams.search</column>
+          <column name="model">purchase.teams</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.teams.find">
+          <column name="name">view.purchase.teams.find</column>
+          <column name="model">purchase.teams</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+            </find>
+          </column>
+        </record>
         <record id="view.purchase.texts.form">
           <column name="name">view.purchase.texts.form</column>
           <column name="model">purchase.texts</column>
@@ -514,6 +1337,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -540,6 +1365,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -566,6 +1393,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -597,6 +1426,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -623,6 +1454,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -650,6 +1483,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -680,6 +1515,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -706,6 +1543,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -732,6 +1571,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
@@ -758,6 +1599,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doo"/>
