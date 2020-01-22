@@ -595,7 +595,6 @@ class purchase_order_items(Model):
 				for r in i:
 					gti[r['gti_id']['name']] = r['itype_id']
 			p = pool.get('md.product').select(cr,pool,uid,['name','gti','volume','volume_uom','weight','weight_uom',{'purchase':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
-			print('P:',p[0])
 			if len(p) > 0:
 				for f in ('gti','volume','volume_uom','weight','weight_uom','purchase'):
 					if f == 'purchase':
