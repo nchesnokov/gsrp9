@@ -237,6 +237,33 @@ class purchase_markets(Model):
 purchase_markets()
 
 
+class purchase_teams(Model):
+	_name = 'purchase.teams'
+	_description = 'General Model Purchase Teams'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'division_id': fields.many2one(label='Unit',obj='purchase.divisions', required = True),
+	'subdivision_id': fields.many2one(label='Unit',obj='purchase.subdivisions', required = True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'note': fields.text(label='Note'),
+	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'division_id' in item and 'name' in item['division_id'] and item['division_id']['name']:
+			v += item['division_id']['name']
+
+		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:
+			v += '/' + item['subdivison_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
+purchase_teams()
+
+
 #Organization structure
 #Text
 class purchase_texts(Model):
@@ -398,6 +425,7 @@ class purchase_orders(Model):
 	'company': fields.many2one(label='Company',obj='md.company', required = True),
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'market_id': fields.many2one(label='Market',obj='purchase.markets'),
+	'team_id': fields.many2one(label='Team',obj='purchase.teams'),
 	'category_id': fields.many2one(label='Category',obj='purchase.order.categories'),
 	'origin': fields.varchar(label = 'Origin'),
 	'doo': fields.date(label='Date Of Order',required=True),
