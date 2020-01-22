@@ -281,8 +281,8 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 
 	if len(list(filter(lambda x: type(x) == dict,fields))) > 0:
 		recname = self._getRecNameName()
-		if recname and type(recname) == str and recname not in field:
-			field.append(recname)
+		if recname and type(recname) == str and recname not in fields:
+			fields.append(recname)
 
 	for field in fields:
 		if type(field) == str:
