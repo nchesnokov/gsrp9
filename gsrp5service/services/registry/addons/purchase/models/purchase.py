@@ -214,7 +214,7 @@ class purchase_markets(Model):
 	_rec_name = 'fullname'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='purchase.units', required = True),
-	'channel_id': fields.many2one(label='Unit',obj='purchase.channels', required = True),
+	'channel_id': fields.many2one(label='Channel',obj='purchase.channels', required = True),
 	'segment_id': fields.many2one(label='Segment',obj='purchase.segments', required = True),
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'note': fields.text(label='Note'),
@@ -226,7 +226,7 @@ class purchase_markets(Model):
 			v += item['unit_id']['name']
 
 		if 'channel_id' in item and 'name' in item['channel_id'] and item['channel_id']['name']:
-			v += '/' + item['chanel_id']['name']
+			v += '/' + item['channel_id']['name']
 
 		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
 			v += item['segment_id']['name']
@@ -246,8 +246,8 @@ class purchase_teams(Model):
 	_class_category = 'order'
 	_rec_name = 'fullname'
 	_columns = {
-	'division_id': fields.many2one(label='Unit',obj='purchase.divisions', required = True),
-	'subdivision_id': fields.many2one(label='Unit',obj='purchase.subdivisions', required = True),
+	'division_id': fields.many2one(label='Division',obj='purchase.divisions', required = True),
+	'subdivision_id': fields.many2one(label='Subdivision',obj='purchase.subdivisions', required = True),
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'note': fields.text(label='Note'),
 	}
