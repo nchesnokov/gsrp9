@@ -7,6 +7,223 @@ from datetime import datetime
 from datetime import timedelta
 
 #customize
+# Organization structure
+class purchase_unit_categories(Model):
+	_name = 'purchase.unit.categories'
+	_description = 'General Model Categories Purchase Unit'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='purchase.unit.categories'),
+	'childs_id': fields.one2many(obj = 'purchase.unit.categories',rel = 'parent_id',label = 'Childs'),
+	'orders': fields.one2many(label='Orders',obj='purchase.units',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_unit_categories()
+
+
+class purchase_units(Model):
+	_name = 'purchase.units'
+	_description = 'General Model Purchase Units'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='purchase.unit.categories'),
+	'company_id': fields.mamy2many(label='Companies',obj='md.company', rel='md_company_purchase_unit_rel', id2='unit_id', id1='company_id'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	'channels': fields.one2many(label='Channels',obj='purchase.unit.channel.assigments',rel='unit_id'),
+	'segments': fields.one2many(label='Segments',obj='purchase.unit.segment.assigments',rel='unit_id')
+	}
+
+purchase_units()
+
+class purchase_channel_categories(Model):
+	_name = 'purchase.channel.categories'
+	_description = 'General Model Categories Purchase Chanel'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='purchase.channel.categories'),
+	'childs_id': fields.one2many(obj = 'purchase.channel.categories',rel = 'parent_id',label = 'Childs'),
+	'orders': fields.one2many(label='Orders',obj='purchase.channels',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_channel_categories()
+
+
+class purchase_channels(Model):
+	_name = 'purchase.channels'
+	_description = 'General Model Purchase Channels'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='purchase.channel.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+purchase_channels()
+
+class purchase_segment_categories(Model):
+	_name = 'purchase.segment.categories'
+	_description = 'General Model Categories Purchase Segment'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='purchase.segment.categories'),
+	'childs_id': fields.one2many(obj = 'purchase.segment.categories',rel = 'parent_id',label = 'Childs'),
+	'orders': fields.one2many(label='Orders',obj='purchase.segments',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_segment_categories()
+
+
+class purchase_segments(Model):
+	_name = 'purchase.segments'
+	_description = 'General Model Purchase Segments'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='purchase.segment.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+purchase_segments()
+
+class purchase_division_categories(Model):
+	_name = 'purchase.division.categories'
+	_description = 'General Model Categories Purchase Division'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='purchase.division.categories'),
+	'childs_id': fields.one2many(obj = 'purchase.division.categories',rel = 'parent_id',label = 'Childs'),
+	'orders': fields.one2many(label='Orders',obj='purchase.divisions',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_division_categories()
+
+
+class purchase_divisions(Model):
+	_name = 'purchase.divisions'
+	_description = 'General Model Purchase Divisions'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='purchase.division.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	'subdivisions': fields.one2many(label='SubDivisions',obj='purchase.division.subdivision.assigments',rel='division_id')
+	}
+
+purchase_divisions()
+
+class purchase_subdivision_categories(Model):
+	_name = 'purchase.subdivision.categories'
+	_description = 'General Model Categories Purchase Subdivision'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='purchase.subdivision.categories'),
+	'childs_id': fields.one2many(obj = 'purchase.subdivision.categories',rel = 'parent_id',label = 'Childs'),
+	'subdivisions': fields.one2many(label='Orders',obj='purchase.subdivisions',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_subdivision_categories()
+
+
+class purchase_subdivisions(Model):
+	_name = 'purchase.subdivisions'
+	_description = 'General Model Purchase Subdivisions'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='purchase.subdivision.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+purchase_subdivisions()
+
+class purchase_unit_channel_assigments(Model):
+	_name = 'purchase.unit.channel.assigments'
+	_description = 'General Model Purchase Unit Of Channel Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='purchase.units'),
+	'channel_id': fields.many2one(label='Channel',obj='purchase.channels'),
+	'descr': fields.referenced(ref='chanhel_id.descr'),
+	}
+
+purchase_unit_channel_assigments()
+
+class purchase_unit_segment_assigments(Model):
+	_name = 'purchase.unit.segment.assigments'
+	_description = 'General Model Purchase Unit Of Segment Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='purchase.units'),
+	'segment_id': fields.many2one(label='Segment',obj='purchase.segments'),
+	'descr': fields.referenced(ref='segment_id.descr'),
+	}
+
+purchase_unit_segment_assigments()
+
+
+class purchase_markets(Model):
+	_name = 'purchase.markets'
+	_description = 'General Model Purchase Market'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='purchase.units', required = True),
+	'channel_id': fields.many2one(label='Unit',obj='purchase.channels', required = True),
+	'segment_id': fields.many2one(label='Segment',obj='purchase.segments', required = True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'note': fields.text(label='Note'),
+	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'unit_id' in item and 'name' in item['unit_id'] and item['unit_id']['name']:
+			v += item['unit_id']['name']
+
+		if 'channel_id' in item and 'name' in item['channel_id'] and item['channel_id']['name']:
+			v += '/' + item['chanel_id']['name']
+
+		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
+			v += item['segment_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
+
+purchase_markets()
+
+
+#Organization structure
 #Text
 class purchase_texts(Model):
 	_name = 'purchase.texts'
@@ -162,10 +379,11 @@ class purchase_orders(Model):
 	_date = 'doo'
 	_rec_name = 'fullname'
 	_columns = {
-	'otype': fields.many2one(label='Type',obj='purchase.order.types',on_change='_on_change_otype'),
-	'name': fields.varchar(label = 'Name'),
-	'company': fields.many2one(label='Company',obj='md.company'),
+	'otype': fields.many2one(label='Type',obj='purchase.order.types',on_change='_on_change_otype', required = True),
+	'name': fields.varchar(label = 'Name', required = True),
+	'company': fields.many2one(label='Company',obj='md.company', required = True),
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'market_id': fields.many2one(label='Market',obj='purchase.markets'),
 	'category_id': fields.many2one(label='Category',obj='purchase.order.categories'),
 	'origin': fields.varchar(label = 'Origin'),
 	'doo': fields.date(label='Date Of Order',required=True),
