@@ -376,7 +376,8 @@ class Registry(Service):
 			for m2ofield in m2ofields:
 				obj = ci[m2ofield]['obj']
 				rel = m2ofield
-				cim = models[obj].columnsInfo([m2ofield],['obj','rel'])
+				mobj = models[obj]
+				cim = mobj.columnsInfo([mobj._o2mfields],['obj','rel'])
 				if len(list(filter(lambda x: cim[x]['obj'] == obj and cim[x]['rel'] == rel,cim.keys()))) == 0:
 					m2oremove.append(m2ofields)
 
