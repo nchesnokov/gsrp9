@@ -366,6 +366,7 @@ class Registry(Service):
 		for key in models.keys():
 			if isinstance(models[key],ModelInherit):
 				continue
+			model = models[key]
 			m2ofields = model._m2ofields
 			o2mfields = model._o2mfields
 			m2oremove = []
