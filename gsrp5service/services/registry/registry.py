@@ -370,7 +370,7 @@ class Registry(Service):
 			m2ofields = model._m2ofields
 			o2mfields = model._o2mfields
 			childs_name = model._getChildsIdName()
-			parent_name = model.__getParentIdName()
+			parent_name = model._getParentIdName()
 			
 			if childs_name and childs_name in o2mfields:
 				o2mfields.remove(childs_name)
