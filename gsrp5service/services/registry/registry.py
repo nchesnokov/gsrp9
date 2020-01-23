@@ -369,6 +369,15 @@ class Registry(Service):
 			model = models[key]
 			m2ofields = model._m2ofields
 			o2mfields = model._o2mfields
+			childs_name = model._getChildsIdName()
+			parent_name = model.__getParentIdName()
+			
+			if childs_name and childs_name in o2mfields:
+				o2mfields.remove(childs_name)
+			
+			if parent_name and parent_name in m2ofields:
+				m2ofields.remove(parent_name)
+			
 			m2oremove = []
 			o2mremove = [] 
 			ci = model.columnsInfo(m2ofields + o2mfields,['obj','rel'])
@@ -377,9 +386,10 @@ class Registry(Service):
 				obj = ci[m2ofield]['obj']
 				rel = m2ofield
 				mobj = models[obj]
-				cim = mobj.columnsInfo(mobj._o2mfields,['obj','rel'])
-				if len(list(filter(lambda x: cim[x]['obj'] == obj and cim[x]['rel'] == rel,cim.keys()))) == 0:
-					m2oremove.append(m2ofield)
+				if len(mobj._o2mfields) > 0:
+					cim = mobj.columnsInfo(mobj._o2mfields,['obj','rel'])
+					if len(list(filter(lambda x: cim[x]['obj'] == obj and cim[x]['rel'] == rel,cim.keys()))) == 0:
+						m2oremove.append(m2ofield)
 
 			for o2mfield in o2mfields:
 				obj = ci[o2mfield]['obj']
