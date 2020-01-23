@@ -466,20 +466,24 @@ class MCache(object):
 		print('SCHEMA:',model,schema)
 		for k in schema[0].keys():
 			parent = schema[0][k]
+			print('PARENT:',parent)
 			m = self._pool.get(parent)
 			oid = row[k]['id']
-			d = m.select(self._cr,self._pool,self._uid,[m._m2ofields],['id','=',oid],self._context,limit=1)
-			if len(d) > 0:
-				q.append(self._readSchema(parent,d[0]))
+			if oid:
+				d = m.select(self._cr,self._pool,self._uid,[m._m2ofields],[('id','=',oid)],self._context,limit=1)
+				if len(d) > 0:
+					q.extend(self._readNodes(parent,d[0]))
 			else:
-				q.append((oid,model))
+				q.append((row['id'],model))
 		
 		return q
 
 	def _readSchema(self,model,row):
 		res = {}
-		nodes = self._readNodes(model,row['id'])
+		nodes = self._readNodes(model,row)
+		print('NODES:',nodes)
 		for oid,model in nodes:
+			print('OID:',oid,model)
 			m = self._pool.get(model)
 			cols = m._buildSchemaColumns(self._pool)
 			d = m.read(self._cr,self._pool,self._uid,oid,cols,self._context)

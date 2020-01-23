@@ -81,8 +81,8 @@ def _build_schema(pool,model):
 		if len(r) > 0:
 			res.append(r)
 	
-	if model in ('purchase.orders','purchase.order.categories'):
-		print('RESULT:',model,res)
+	#if model in ('purchase.orders','purchase.order.categories'):
+		#print('RESULT:',model,res)
 	return res
 
 def _to_list(keys):
@@ -230,6 +230,7 @@ class Registry(Service):
 				r[model] = self._create_model(model,module)
 
 		self._load_schema(r)
+		self._load_schema1(r)
 		
 		return r
 
@@ -367,34 +368,29 @@ class Registry(Service):
 			if isinstance(models[key],ModelInherit):
 				continue
 			model = models[key]
-			m2ofields = model._m2ofields
+			m2ofields = model._m2orelatedfields
 			o2mfields = model._o2mfields
+
+			ci = model.columnsInfo(m2ofields + o2mfields,['obj','rel'])
 			childs_name = model._getChildsIdName()
 			parent_name = model._getParentIdName()
-			if key[:9] == 'purchase.':
-				print('SCHEMA-0:',model._name,parent_name,childs_name,m2ofields,o2mfields)
 
-			
-			if childs_name and childs_name in o2mfields:
-				o2mfields.remove(childs_name)
-			
-			if parent_name and parent_name in m2ofields:
-				m2ofields.remove(parent_name)
-
-			if key[:9] == 'purchase.':
-				print('SCHEMA-2:',model._name,parent_name,childs_name,m2ofields,o2mfields)
-			
 			m2oremove = []
 			o2mremove = [] 
-			ci = model.columnsInfo(m2ofields + o2mfields,['obj','rel'])
-
+			
+			if childs_name and childs_name in o2mfields and ci[childs_name]['obj'] == model._name:
+				o2mfields.remove(childs_name)
+			
+			if parent_name and parent_name in m2ofields and ci[parent_name]['obj'] == model._name:
+				m2ofields.remove(parent_name)
+			
 			for m2ofield in m2ofields:
 				obj = ci[m2ofield]['obj']
 				rel = m2ofield
 				mobj = models[obj]
 				if len(mobj._o2mfields) > 0:
 					cim = mobj.columnsInfo(mobj._o2mfields,['obj','rel'])
-					if len(list(filter(lambda x: cim[x]['obj'] == obj and cim[x]['rel'] == rel,cim.keys()))) == 0:
+					if len(list(filter(lambda x: cim[x]['obj'] == model._name and cim[x]['rel'] == rel,cim.keys()))) == 0:
 						m2oremove.append(m2ofield)
 
 			for o2mfield in o2mfields:
@@ -403,11 +399,7 @@ class Registry(Service):
 				mobj = models[obj]
 				if rel in mobj._columns:
 					cim = mobj.columnsInfo([rel],['obj'])
-				
-					if rel not in cim or cim[rel]['obj'] != obj:
-						if key[:9] == 'purchase.':
-							print('SCHEMA-R:',obj,rel,cim)
-
+					if rel not in cim or cim[rel]['obj'] != model._name:
 						o2mremove.append(o2mfield)
 				else:
 					print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
@@ -428,6 +420,8 @@ class Registry(Service):
 				childs[o2mfield] = ci[o2mfield]['obj']
 		
 			model._schema1 = (parents,childs)
+			#if key[:9] == 'purchase.':
+				#print('MODEL:',model._name,model._schema1)
 
 	def _reload_modules(self,modules):
 		for module in filter(lambda x: x in modules,[node.name for node in self._graph]):
@@ -514,9 +508,9 @@ class Registry(Service):
 				
 		r = self._load_schema(r)
 		self._load_schema1(r)
-		for k in r.keys():
-			if k[:9] == 'purchase.':
-				print('SCHEMA-1:',k, r[k]._schema1)
+		#for k in r.keys():
+			#if k[:9] == 'purchase.':
+				#print('SCHEMA-1:',k, r[k]._schema1)
 		self._models = r
 		
 		return r

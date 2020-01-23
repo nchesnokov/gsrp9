@@ -214,8 +214,8 @@ class purchase_markets(Model):
 	_rec_name = 'fullname'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='purchase.units', required = True),
-	'channel_id': fields.many2one(label='Channel',obj='purchase.channels', required = True),
-	'segment_id': fields.many2one(label='Segment',obj='purchase.segments', required = True),
+	'channel_id': fields.related(label='Channel',obj='purchase.channels', relatedy=['unit_id'], required = True),
+	'segment_id': fields.related(label='Segment',obj='purchase.segments', relatedy=['unit_id'], required = True),
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'note': fields.text(label='Note'),
 	}
@@ -247,7 +247,7 @@ class purchase_teams(Model):
 	_rec_name = 'fullname'
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='purchase.divisions', required = True),
-	'subdivision_id': fields.many2one(label='Subdivision',obj='purchase.subdivisions', required = True),
+	'subdivision_id': fields.related(label='Subdivision',obj='purchase.subdivisions', relatedy=['division_id'], required = True),
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'note': fields.text(label='Note'),
 	}
