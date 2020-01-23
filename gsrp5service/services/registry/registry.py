@@ -394,10 +394,14 @@ class Registry(Service):
 			for o2mfield in o2mfields:
 				obj = ci[o2mfield]['obj']
 				rel = ci[o2mfield]['rel']
-				cim = models[obj].columnsInfo([rel],['obj'])
+				mobj = models[obj]
+				if rel in mobj._columns:
+					cim = mobj.columnsInfo([rel],['obj'])
 				
-				if rel not in cim or cim[rel]['obj'] != obj:
-					o2mremove.append(o2mfield)
+					if rel not in cim or cim[rel]['obj'] != obj:
+						o2mremove.append(o2mfield)
+				else:
+					print('NOT MAPPED O2MFIELD:',model,o2mfield,obj,rel)
 
 
 			for f in m2oremove:
