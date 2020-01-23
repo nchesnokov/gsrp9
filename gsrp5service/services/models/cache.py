@@ -460,36 +460,32 @@ class MCache(object):
 		m['__checks__'] = []
 		return m
 
-	def _readSchema(self,model,row):
-		schema = self._pool.get(model)._schema
+	def _readNodes(self,model,row):
+		schema = self._pool.get(model)._schema1
+		q = []
 		print('SCHEMA:',model,schema)
-		if schema[model]:
-			model = schema[model]
-			m = self._pool.get(model)
-			ci = m.columnsInfo(m._m2ofields,['obj','rel'])
-			o2mfield = list(filter(lambda x:ci[x]['obj'] == model, m._m2ofields))[0]
-			rel = ci[o2mfield]['rel']
-			ids = row[rel]['id']
-			d = m.read(self._cr,self._pool,self._uid,ids,[],self._context)
+		for k in schema[0].keys():
+			parent = schema[0][k]
+			m = self._pool.get(parent)
+			oid = row[k]['id']
+			d = m.select(self._cr,self._pool,self._uid,[m._m2ofields],['id','=',oid],self._context,limit=1)
 			if len(d) > 0:
-				while schema[model] is not None:
-					model = schema[model]
-					m = self._pool.get(model)
-					ci = m.columnsInfo(m._m2ofields,['obj','rel'])
-					o2mfield = list(filter(lambda x:ci[x]['obj'] == model, m._m2ofields))[0]
-					rel = ci[o2mfield]['rel']
-					ids = row[rel]['id']
-					d = m.read(self._cr,self._pool,self._uid,ids,[],self._context)
-					if len(d) == 0:
-						break
-		else:
-			ids = row['id']
+				q.append(self._readSchema(parent,d[0]))
+			else:
+				q.append((oid,model))
 		
-		m = self._pool.get(model)
-		cols = m._buildSchemaColumns(self._pool)
-		d = m.read(self._cr,self._pool,self._uid,ids,cols,self._context)
+		return q
+
+	def _readSchema(self,model,row):
+		res = {}
+		nodes = self._readNodes(model,row['id'])
+		for oid,model in nodes:
+			m = self._pool.get(model)
+			cols = m._buildSchemaColumns(self._pool)
+			d = m.read(self._cr,self._pool,self._uid,oid,cols,self._context)
+			res[model] = d
 		
-		return d
+		return res
 
 	def _do_create(self,model,context={}):
 		self._clear()

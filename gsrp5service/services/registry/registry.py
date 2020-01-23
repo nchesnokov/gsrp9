@@ -332,9 +332,11 @@ class Registry(Service):
 					for dkey in inherit[c]:
 						imeta1['attrs'].setdefault(c,{})[dkey] = imeta['attrs'][c][dkey]
 				elif c == '_constraints':
-					imeta1['attrs'].setdefault('_constraints',[]).extend(imeta['attrs'][c])
+					imeta1['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
 				elif c == '_sql_constraints':
-					imeta1['attrs'].setdefault('_sql_constraints',[]).extend(imeta['attrs'][c])
+					imeta1['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
+				elif c == '_auth':
+					imeta1['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
 
 			self._setMetaOfModulesModel(key,module,imeta1)
 		
@@ -359,6 +361,48 @@ class Registry(Service):
 			m.union(sc)
 		
 		return models
+
+	def _load_schema1(self,models):
+		for key in models.keys():
+			if isinstance(models[key],ModelInherit):
+				continue
+			m2ofields = model._m2ofields
+			o2mfields = model._o2mfields
+			m2oremove = []
+			o2mremove = [] 
+			ci = model.columnsInfo(m2ofields + o2mfields,['obj','rel'])
+
+			for m2ofield in m2ofields:
+				obj = ci[m2ofield]['obj']
+				rel = m2ofield
+				cim = models[obj].columnsInfo([m2ofield],['obj','rel'])
+				if len(list(filter(lambda x: cim[x]['obj'] == obj and cim[x]['rel'] == rel,cim.keys()))) == 0:
+					m2oremove.append(m2ofields)
+
+			for o2mfield in o2mfields:
+				obj = ci[o2mfield]['obj']
+				rel = ci[o2mfield]['rel']
+				cim = models[obj].columnsInfo([rel],['obj'])
+				
+				if rel not in cim or cim[rel]['obj'] != obj:
+					m2oremove.append(m2ofields)
+
+
+			for f in m2oremove:
+				m2ofields.remove(f)
+
+			for f in o2mremove:
+				o2mfields.remove(f)
+			parents = {}
+			childs = {}
+
+			for m2ofield in m2ofields:
+				parents[m2ofield] = ci[m2ofield]['obj']
+
+			for o2mfield in o2mfields:
+				childs[o2mfield] = ci[o2mfield]['obj']
+		
+			model._schema1 = (parents,childs)
 
 	def _reload_modules(self,modules):
 		for module in filter(lambda x: x in modules,[node.name for node in self._graph]):
@@ -444,6 +488,10 @@ class Registry(Service):
 				r[model] = self._create_model(model,module)
 				
 		r = self._load_schema(r)
+		self._load_schema1(r)
+		for k in r.keys():
+			if k[:9] == 'purchase.':
+				print('SCHEMA-1:',k, r[k]._schema1)
 		self._models = r
 		
 		return r
