@@ -371,6 +371,9 @@ class Registry(Service):
 			o2mfields = model._o2mfields
 			childs_name = model._getChildsIdName()
 			parent_name = model._getParentIdName()
+			if key[:9] == 'purchase.':
+				print('SCHEMA-1:',model._name,parent_name,childs_name,m2ofields,o2mfields)
+
 			
 			if childs_name and childs_name in o2mfields:
 				o2mfields.remove(childs_name)
@@ -401,7 +404,7 @@ class Registry(Service):
 					if rel not in cim or cim[rel]['obj'] != obj:
 						o2mremove.append(o2mfield)
 				else:
-					print('NOT MAPPED O2MFIELD:',model,o2mfield,obj,rel)
+					print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
 
 
 			for f in m2oremove:
