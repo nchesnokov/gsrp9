@@ -379,7 +379,7 @@ class Registry(Service):
 				mobj = models[obj]
 				cim = mobj.columnsInfo(mobj._o2mfields,['obj','rel'])
 				if len(list(filter(lambda x: cim[x]['obj'] == obj and cim[x]['rel'] == rel,cim.keys()))) == 0:
-					m2oremove.append(m2ofields)
+					m2oremove.append(m2ofield)
 
 			for o2mfield in o2mfields:
 				obj = ci[o2mfield]['obj']
@@ -387,7 +387,7 @@ class Registry(Service):
 				cim = models[obj].columnsInfo([rel],['obj'])
 				
 				if rel not in cim or cim[rel]['obj'] != obj:
-					m2oremove.append(m2ofields)
+					o2mremove.append(o2mfield)
 
 
 			for f in m2oremove:
