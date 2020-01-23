@@ -36,7 +36,9 @@ class purchase_units(Model):
 	'code': fields.varchar(label = 'Code',size=8,translate=True),
 	'descr':fields.varchar(label = 'Description',size=128,translate=True),
 	'channels': fields.one2many(label='Channels',obj='purchase.unit.channel.assigments',rel='unit_id'),
-	'segments': fields.one2many(label='Segments',obj='purchase.unit.segment.assigments',rel='unit_id')
+	'segments': fields.one2many(label='Segments',obj='purchase.unit.segment.assigments',rel='unit_id'),
+	'areas': fields.one2many(label='Areas',obj='purchase.unit.area.assigments',rel='unit_id'),
+	'regions': fields.one2many(label='Regions',obj='purchase.unit.region.assigments',rel='unit_id')
 	}
 
 purchase_units()
@@ -100,6 +102,67 @@ class purchase_segments(Model):
 	}
 
 purchase_segments()
+
+class purchase_area_categories(Model):
+	_name = 'purchase.area.categories'
+	_description = 'General Model Categories Purchase Area'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='purchase.area.categories'),
+	'childs_id': fields.one2many(obj = 'purchase.area.categories',rel = 'parent_id',label = 'Childs'),
+	'areas': fields.one2many(label='Areas',obj='purchase.areas',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_area_categories()
+
+
+class purchase_areas(Model):
+	_name = 'purchase.areas'
+	_description = 'General Model Purchase Areas'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='purchase.area.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+purchase_areas()
+
+class purchase_region_categories(Model):
+	_name = 'purchase.region.categories'
+	_description = 'General Model Categories Purchase Region'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='purchase.region.categories'),
+	'childs_id': fields.one2many(obj = 'purchase.region.categories',rel = 'parent_id',label = 'Childs'),
+	'segments': fields.one2many(label='REgions',obj='purchase.regions',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_region_categories()
+
+
+class purchase_regions(Model):
+	_name = 'purchase.regions'
+	_description = 'General Model Purchase Regions'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='purchase.region.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+purchase_regions()
+
 
 class purchase_division_categories(Model):
 	_name = 'purchase.division.categories'
@@ -190,6 +253,36 @@ class purchase_unit_segment_assigments(Model):
 
 purchase_unit_segment_assigments()
 
+class purchase_unit_area_assigments(Model):
+	_name = 'purchase.unit.area.assigments'
+	_description = 'General Model Purchase Unit Of Area Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='purchase.units'),
+	'area_id': fields.many2one(label='Area',obj='purchase.areas'),
+	'descr': fields.referenced(ref='area_id.descr'),
+	}
+
+purchase_unit_area_assigments()
+
+class purchase_unit_region_assigments(Model):
+	_name = 'purchase.unit.region.assigments'
+	_description = 'General Model Purchase Unit Of Region Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='purchase.units'),
+	'region_id': fields.many2one(label='Region',obj='purchase.regions'),
+	'descr': fields.referenced(ref='region_id.descr'),
+	}
+
+purchase_unit_segment_assigments()
+
+
+
 class purchase_division_subdivision_assigments(Model):
 	_name = 'purchase.division.subdivision.assigments'
 	_description = 'General Model Purchase Division Of Subdivision Assigment'
@@ -214,8 +307,10 @@ class purchase_markets(Model):
 	_rec_name = 'fullname'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='purchase.units', required = True),
-	'channel_id': fields.related(label='Channel',obj='purchase.channels', relatedy=['unit_id'], required = True),
-	'segment_id': fields.related(label='Segment',obj='purchase.segments', relatedy=['unit_id'], required = True),
+	'channel_id': fields.related(label='Channel',obj='purchase.unit.channel.assigments', relatedy=['unit_id'], required = True),
+	'segment_id': fields.related(label='Segment',obj='purchase.unit.segment.assigments', relatedy=['unit_id'], required = True),
+	'area_id': fields.related(label='Area',obj='purchase.unit.area.assigments', relatedy=['unit_id'], required = True),
+	'region_id': fields.related(label='Region',obj='purchase.unit.region.assigments', relatedy=['unit_id'], required = True),
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'note': fields.text(label='Note'),
 	}
@@ -230,6 +325,13 @@ class purchase_markets(Model):
 
 		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
 			v += '/' + item['segment_id']['name']
+
+		if 'area_id' in item and 'name' in item['area_id'] and item['area_id']['name']:
+			v += '/' + item['are_id']['name']
+
+		if 'region_id' in item and 'name' in item['region_id'] and item['region_id']['name']:
+			v += '/' + item['region_id']['name']
+
 		
 		if len(v) > 0:
 			item['fullname'] = v
