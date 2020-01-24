@@ -240,7 +240,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 				RecordMenu(3,'ui.menu.'+module+'.custom','Customs','ui.menu.'+module)
 				RecordMenuItems(3,pool,cust_models,'custom','ui.menu.'+module+'.custom')		
 
-				ViewActions(3, pool,module,models,'report.custom','Report')
+				ViewActions(3, pool,module,models,'report','Report')
 				RecordsReport(3,pool,module,cust_models)
 				Reports(3,pool,module,cust_models)
 				RecordMenu(3,'ui.menu.'+module+'.report.custom','Customs','ui.menu.'+module+'.report')
