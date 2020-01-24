@@ -271,7 +271,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 
 				ViewActions(3, pool,module,cust_models,'report.custom','View')
 				ReportCustoms(3,pool,module,cust_models,'report.custom')
-				RecordMenu(3,'ui.menu.'+module+'.report.custom','ReportCustoms','ui.menu.'+module)
+				RecordMenu(3,'ui.menu.'+module+'.report.custom','ReportCustoms','ui.menu.'+module+'.report')
 				RecordMenuItems(3,pool,cust_models,'report.custom','ui.menu.'+module+'.report.custom')		
 
 			b.write((TAB * 2 + '</data>\n').encode('utf-8'))
