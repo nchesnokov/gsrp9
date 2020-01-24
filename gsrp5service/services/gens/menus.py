@@ -157,35 +157,6 @@ def Reports(level,pool,module,models):
 			Report(level + 1,idx,module,model._name,description)
 	b.write((indent + '</records>\n').encode('utf-8'))
 
-def ReportCustom(level,idx,module,model,label,key):
-
-	indent = TAB * level
-
-	#key = 'search'
-	b.write((indent + '<record id="%s">\n' % ('view.action.' + model + '.' + key,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="action_id">%s</column>\n' % ('action.' + model + '.' + key,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="view_id">%s</column>\n' % ('view.' + model + '.' + 'search',)).encode('utf-8'))
-	b.write((indent + '</record>\n').encode('utf-8'))
-
-def ReportCustoms(level,pool,module,models,key):
-
-	indent = TAB * level
-
-	b.write((indent + '<records model="%s">\n' % ('bc.report.actions',)).encode('utf-8'))
-	for idx,model in enumerate(models):
-		d = model._description.split(' ')
-		if len(d) == 1:
-			description = d[0]
-		elif len(d) == 2:
-			description = d[0] + ' ' + d[1]
-		else:
-			description = reduce(lambda x,y:x + ' ' + y,d[2:])
-
-		if isAllow(key,model.modelInfo()):
-			ReportCustom(level + 1,idx,module,model._name,description,key)
-	b.write((indent + '</records>\n').encode('utf-8'))
-
-
 #
 def Custom(level,idx,module,model,label,key):
 
@@ -269,10 +240,11 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 				RecordMenu(3,'ui.menu.'+module+'.custom','Customs','ui.menu.'+module)
 				RecordMenuItems(3,pool,cust_models,'custom','ui.menu.'+module+'.custom')		
 
-				ViewActions(3, pool,module,cust_models,'report.custom','View')
-				ReportCustoms(3,pool,module,cust_models,'report.custom')
-				RecordMenu(3,'ui.menu.'+module+'.report.custom','ReportCustoms','ui.menu.'+module+'.report')
-				RecordMenuItems(3,pool,cust_models,'report.custom','ui.menu.'+module+'.report.custom')		
+				ViewActions(3, pool,module,models,'report.custom','Report')
+				RecordsReport(3,pool,module,cust_models)
+				Reports(3,pool,module,cust_models)
+				RecordMenu(3,'ui.menu.'+module+'.report.custom','Customs','ui.menu.'+module+'.report')
+				RecordMenuItems(3,pool,models,'report.custom','ui.menu.'+module+'.report.custom')
 
 			b.write((TAB * 2 + '</data>\n').encode('utf-8'))
 			b.write((TAB + '</gsrp>\n').encode('utf-8'))
