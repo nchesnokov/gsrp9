@@ -7,6 +7,369 @@ from datetime import datetime
 from datetime import timedelta
 
 #customize
+# Organization structure
+class sale_unit_categories(Model):
+	_name = 'sale.unit.categories'
+	_description = 'General Model Categories Sale Unit'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='sale.unit.categories'),
+	'childs_id': fields.one2many(obj = 'sale.unit.categories',rel = 'parent_id',label = 'Childs'),
+	'units': fields.one2many(label='Units',obj='sale.units',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+sale_unit_categories()
+
+
+class sale_units(Model):
+	_name = 'sale.units'
+	_description = 'General Model Sale Units'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='sale.unit.categories'),
+	'company_id': fields.many2many(label='Companies',obj='md.company', rel='md_company_sale_unit_rel', id2='unit_id', id1='company_id'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	'channels': fields.one2many(label='Channels',obj='sale.unit.channel.assigments',rel='unit_id'),
+	'segments': fields.one2many(label='Segments',obj='sale.unit.segment.assigments',rel='unit_id'),
+	'areas': fields.one2many(label='Areas',obj='sale.unit.area.assigments',rel='unit_id'),
+	'regions': fields.one2many(label='Regions',obj='sale.unit.region.assigments',rel='unit_id')
+	}
+
+sale_units()
+
+class sale_channel_categories(Model):
+	_name = 'sale.channel.categories'
+	_description = 'General Model Categories Sale Chanel'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='sale.channel.categories'),
+	'childs_id': fields.one2many(obj = 'sale.channel.categories',rel = 'parent_id',label = 'Childs'),
+	'channels': fields.one2many(label='Channels',obj='sale.channels',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+sale_channel_categories()
+
+
+class sale_channels(Model):
+	_name = 'sale.channels'
+	_description = 'General Model Sale Channels'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='sale.channel.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+sale_channels()
+
+class sale_segment_categories(Model):
+	_name = 'sale.segment.categories'
+	_description = 'General Model Categories Sale Segment'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='sale.segment.categories'),
+	'childs_id': fields.one2many(obj = 'sale.segment.categories',rel = 'parent_id',label = 'Childs'),
+	'segments': fields.one2many(label='Segments',obj='sale.segments',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+sale_segment_categories()
+
+
+class sale_segments(Model):
+	_name = 'sale.segments'
+	_description = 'General Model Sale Segments'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='sale.segment.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+sale_segments()
+
+class sale_area_categories(Model):
+	_name = 'sale.area.categories'
+	_description = 'General Model Categories Sale Area'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='sale.area.categories'),
+	'childs_id': fields.one2many(obj = 'sale.area.categories',rel = 'parent_id',label = 'Childs'),
+	'areas': fields.one2many(label='Areas',obj='sale.areas',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+sale_area_categories()
+
+
+class sale_areas(Model):
+	_name = 'sale.areas'
+	_description = 'General Model Sale Areas'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='sale.area.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+sale_areas()
+
+class sale_region_categories(Model):
+	_name = 'sale.region.categories'
+	_description = 'General Model Categories Sale Region'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='sale.region.categories'),
+	'childs_id': fields.one2many(obj = 'sale.region.categories',rel = 'parent_id',label = 'Childs'),
+	'segments': fields.one2many(label='REgions',obj='sale.regions',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+sale_region_categories()
+
+
+class sale_regions(Model):
+	_name = 'sale.regions'
+	_description = 'General Model Sale Regions'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='sale.region.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+sale_regions()
+
+
+class sale_division_categories(Model):
+	_name = 'sale.division.categories'
+	_description = 'General Model Categories Sale Division'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='sale.division.categories'),
+	'childs_id': fields.one2many(obj = 'sale.division.categories',rel = 'parent_id',label = 'Childs'),
+	'divisions': fields.one2many(label='Divisions',obj='sale.divisions',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+sale_division_categories()
+
+
+class sale_divisions(Model):
+	_name = 'sale.divisions'
+	_description = 'General Model Sale Divisions'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='sale.division.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	'subdivisions': fields.one2many(label='SubDivisions',obj='sale.division.subdivision.assigments',rel='division_id')
+	}
+
+sale_divisions()
+
+class sale_subdivision_categories(Model):
+	_name = 'sale.subdivision.categories'
+	_description = 'General Model Categories Sale Subdivision'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='sale.subdivision.categories'),
+	'childs_id': fields.one2many(obj = 'sale.subdivision.categories',rel = 'parent_id',label = 'Childs'),
+	'subdivisions': fields.one2many(label='Orders',obj='sale.subdivisions',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+sale_subdivision_categories()
+
+
+class sale_subdivisions(Model):
+	_name = 'sale.subdivisions'
+	_description = 'General Model Sale Subdivisions'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='sale.subdivision.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+sale_subdivisions()
+
+class sale_unit_channel_assigments(Model):
+	_name = 'sale.unit.channel.assigments'
+	_description = 'General Model Sale Unit Of Channel Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='sale.units'),
+	'channel_id': fields.many2one(label='Channel',obj='sale.channels'),
+	'descr': fields.referenced(ref='channel_id.descr'),
+	}
+
+sale_unit_channel_assigments()
+
+class sale_unit_segment_assigments(Model):
+	_name = 'sale.unit.segment.assigments'
+	_description = 'General Model Sale Unit Of Segment Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='sale.units'),
+	'segment_id': fields.many2one(label='Segment',obj='sale.segments'),
+	'descr': fields.referenced(ref='segment_id.descr'),
+	}
+
+sale_unit_segment_assigments()
+
+class sale_unit_area_assigments(Model):
+	_name = 'sale.unit.area.assigments'
+	_description = 'General Model Sale Unit Of Area Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='sale.units'),
+	'area_id': fields.many2one(label='Area',obj='sale.areas'),
+	'descr': fields.referenced(ref='area_id.descr'),
+	}
+
+sale_unit_area_assigments()
+
+class sale_unit_region_assigments(Model):
+	_name = 'sale.unit.region.assigments'
+	_description = 'General Model Sale Unit Of Region Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='sale.units'),
+	'region_id': fields.many2one(label='Region',obj='sale.regions'),
+	'descr': fields.referenced(ref='region_id.descr'),
+	}
+
+sale_unit_segment_assigments()
+
+
+
+class sale_division_subdivision_assigments(Model):
+	_name = 'sale.division.subdivision.assigments'
+	_description = 'General Model Sale Division Of Subdivision Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'division_id': fields.many2one(label='Division',obj='sale.divisions'),
+	'subdivision_id': fields.many2one(label='Subdivision',obj='sale.subdivisions'),
+	'descr': fields.referenced(ref='subdivision_id.descr'),
+	}
+
+sale_division_subdivision_assigments()
+
+
+class sale_markets(Model):
+	_name = 'sale.markets'
+	_description = 'General Model Sale Market'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_rec_name = 'fullname'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='sale.units', required = True),
+	'channel_id': fields.related(label='Channel',obj='sale.unit.channel.assigments', relatedy=['unit_id'], required = True),
+	'segment_id': fields.related(label='Segment',obj='sale.unit.segment.assigments', relatedy=['unit_id'], required = True),
+	'area_id': fields.related(label='Area',obj='sale.unit.area.assigments', relatedy=['unit_id'], required = True),
+	'region_id': fields.related(label='Region',obj='sale.unit.region.assigments', relatedy=['unit_id'], required = True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'note': fields.text(label='Note'),
+	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'unit_id' in item and 'name' in item['unit_id'] and item['unit_id']['name']:
+			v += item['unit_id']['name']
+
+		if 'channel_id' in item and 'name' in item['channel_id'] and item['channel_id']['name']:
+			v += '/' + item['channel_id']['name']
+
+		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
+			v += '/' + item['segment_id']['name']
+
+		if 'area_id' in item and 'name' in item['area_id'] and item['area_id']['name']:
+			v += '/' + item['are_id']['name']
+
+		if 'region_id' in item and 'name' in item['region_id'] and item['region_id']['name']:
+			v += '/' + item['region_id']['name']
+
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
+
+sale_markets()
+
+
+class sale_teams(Model):
+	_name = 'sale.teams'
+	_description = 'General Model Sale Teams'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_rec_name = 'fullname'
+	_columns = {
+	'division_id': fields.many2one(label='Division',obj='sale.divisions', required = True),
+	'subdivision_id': fields.related(label='Subdivision',obj='sale.subdivisions', relatedy=['division_id'], required = True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'note': fields.text(label='Note'),
+	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'division_id' in item and 'name' in item['division_id'] and item['division_id']['name']:
+			v += item['division_id']['name']
+
+		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:
+			v += '/' + item['subdivison_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
+sale_teams()
+
+
+#Organization structure
+
 #Text
 class sale_texts(Model):
 	_name = 'sale.texts'
@@ -58,10 +421,12 @@ class sale_order_types(Model):
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
+	'otype': fields.selection(label='Type',selections=[('ord','Order'),('ap','Advance Payment'),('ps','Pseduo'),('dm','Debit Request'),('cr','Credit Request'),('rо','Return')]),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'htschema': fields.many2one(label='Text Schema Of Head',obj='sale.schema.texts',domain=[('usage','in',('h','b'))]),
 	'itschema': fields.many2one(label='Text Schema Of Item',obj='sale.schema.texts',domain=[('usage','in',('i','b'))]),
 	'roles': fields.one2many(label='Roles',obj='sale.order.type.roles',rel='type_id'),
+	'tis': fields.one2many(label='TIs',obj='sale.order.type.items',rel='type_id'),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -80,6 +445,21 @@ class sale_order_type_roles(Model):
 	}
 
 sale_order_type_roles()
+
+class sale_order_type_items(Model):
+	_name = 'sale.order.type.items'
+	_description = 'General Model Role Sale Order Items'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'type_id': fields.many2one(label = 'Type',obj='sale.order.types'),
+	'gti_id': fields.many2one(label = 'GTI',obj='md.gtis'),
+	'itype_id': fields.many2one(label = 'Type Of Items',obj='md.type.items',domain=[('usage','=','s'),'|',('usage','=','a')]),
+	'note': fields.text(label = 'Note')
+	}
+
+sale_order_type_items()
+
 
 class sale_invoice_types(Model):
 	_name = 'sale.invoice.types'
@@ -145,9 +525,12 @@ class sale_orders(Model):
 	_date = 'doo'
 	_columns = {
 	'otype': fields.many2one(label='Type',obj='sale.order.types',on_change='_on_change_otype'),
-	'category_id': fields.many2one(label='Category',obj='sale.order.categories'),
 	'company_id': fields.many2one(label='Company',obj='md.company'),
 	'name': fields.varchar(label = 'Name'),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'market_id': fields.many2one(label='Market',obj='sale.markets'),
+	'team_id': fields.many2one(label='Team',obj='sale.teams'),
+	'category_id': fields.many2one(label='Category',obj='sale.order.categories'),
 	'origin': fields.varchar(label = 'Origin'),
 	'doo': fields.date(label='Date Of Order',required=True),
 	'from_date': fields.date(label='Begin Date Of Order',required=True),
@@ -169,6 +552,20 @@ class sale_orders(Model):
 	}
 
 #
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'company_id' in item and 'name' in item['company_id'] and item['company_id']['name']:
+			v += item['company_id']['name']
+
+		if 'otype' in item and 'name' in item['otype'] and item['otype']['name']:
+			v += '/' + item['otype']['name']
+
+		if item['name']:
+			v += '/' + item['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
 	def _on_change_otype(self,cr,pool,uid,item,context={}):		
 		roles = pool.get('sale.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
@@ -261,6 +658,7 @@ class sale_order_items(Model):
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'order_id': fields.many2one(obj = 'sale.orders',label = 'Sales Order'),
+	'itype_id': fields.many2one(label='Group Of Type Items', obj='md.type.items',domain=[('usage','in',('s','a'))]),
 	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
 	'quantity': fields.numeric(label='Quantity',compute='_calculate_items',size=(13,3)),
 	'uom': fields.many2one(label='UoM',obj='md.uom'),
@@ -272,6 +670,12 @@ class sale_order_items(Model):
 	'vat_code': fields.many2one(label='Vat code',obj='md.vat.code',domain=[('type_vat','in',('s','n'))]),
 	'vat_amount': fields.numeric(label='VAT Amount',compute='_calculate_items',size=(15,2)),
 	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
+	'volume': fields.float(label='Volume', readonly=True),
+	'volume_total': fields.float(label='Volume Total', readonly=True),
+	'volume_uom': fields.many2one(label="Volume UoM",obj='md.uom', readonly=True,domain=[('quantity_id','=','Volume')]),
+	'weight': fields.float(label='Weight', readonly=True),
+	'weight_total': fields.float(label='Weight Total', readonly=True),
+	'weight_uom': fields.many2one(label="Weight UoM",obj='md.uom', readonly=True,domain=[('quantity_id','=','Weight')]),
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='sale.order.item.delivery.schedules',rel='item_id'),
 	'payments': fields.one2many(label='Payments',obj='sale.order.item.payment.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='sale.order.item.roles',rel='item_id'),
@@ -281,13 +685,40 @@ class sale_order_items(Model):
 
 	def _on_change_product(self,cr,pool,uid,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.sale.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			i = pool.get('sale.order.type.items').select(cr,pool,uid,['gti_id','itype_id'],[],context)
+			gti = {}
+			if len(i) > 0:
+				for r in i:
+					gti[r['gti_id']['name']] = r['itype_id']
+			p = pool.get('md.product').select(cr,pool,uid,['name','gti','volume','volume_uom','weight','weight_uom',{'sale':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
 			if len(p) > 0:
-				if item['vat_code'] != p[0]['vat']:
-					item['vat_code'] = p[0]['vat']				
-				for f in ('uom','price','currency','unit','uop'):
-					if item[f] != p[0][f]:
-						item[f] = p[0][f]
+				for f in ('gti','volume','volume_uom','weight','weight_uom','sale'):
+					if f == 'sale':
+						if len(p[0][f]) > 0:
+							d = p[0][f][0]
+							for m in ('uom','price','currency','unit','uop','vat'):
+								if m not in item or item[m] != d[m]:
+									if m == 'vat':
+										item['vat_code'] = d['vat']				
+									else:
+										item[m] = d[m]
+					else:
+						if f == 'gti':
+							if p[0]['gti']['name'] in gti:
+								item['itype_id'] = gti[p[0][f]['name']]
+						else:
+							if f not in item or item[f] != p[0][f]:
+								item[f] = p[0][f]
+
+			else:
+				for f in ('vat_code','uom','price','currency','unit','uop'):
+					if f in ('price','unit'):
+						if f in self._default:
+							item[f] = self._default[f]
+						else:
+							item[f] = None
+					else:
+						item[f] = {'id':None,'name':None}
 
 		return None
 
@@ -534,7 +965,7 @@ md_sale_product()
 class md_sale_product_inherit(ModelInherit):
 	_name = 'md.sale.product.inherit'
 	_description = 'Genaral Model Inherit For Sale Product'
-	_inherit = {'md.product':{'_columns':['sale']},'md.recepture':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['sale']},'md.recepture':{'_columns':['usage']},'md.type.items':{'_columns':['usage']}}
 	_columns = {
 		'sale': fields.one2many(label='Sales',obj='md.sale.product',rel='product_id'),
 		'usage': fields.iSelection(selections=[('s','Sale')])

@@ -415,7 +415,7 @@
           <record id="ui.menu.purchase.areas.custom">
           <column name="sequence">7</column>
             <column name="name">ui.menu.purchase.areas.custom</column>
-            <column name="label">Purchase Ares</column>
+            <column name="label">Purchase Areas</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">70</column>
           <column name="action_id">action.purchase.areas.custom</column>
@@ -515,6 +515,481 @@
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">270</column>
           <column name="action_id">action.purchase.invoice.types.custom</column>
+          </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.purchase.unit.categories.report">
+          <column name="name">action.purchase.unit.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.units.report">
+          <column name="name">action.purchase.units.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.channel.categories.report">
+          <column name="name">action.purchase.channel.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.channels.report">
+          <column name="name">action.purchase.channels.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.segment.categories.report">
+          <column name="name">action.purchase.segment.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.segments.report">
+          <column name="name">action.purchase.segments.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.area.categories.report">
+          <column name="name">action.purchase.area.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.areas.report">
+          <column name="name">action.purchase.areas.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.region.categories.report">
+          <column name="name">action.purchase.region.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.regions.report">
+          <column name="name">action.purchase.regions.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.division.categories.report">
+          <column name="name">action.purchase.division.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.divisions.report">
+          <column name="name">action.purchase.divisions.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.subdivision.categories.report">
+          <column name="name">action.purchase.subdivision.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.subdivisions.report">
+          <column name="name">action.purchase.subdivisions.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.markets.report">
+          <column name="name">action.purchase.markets.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.teams.report">
+          <column name="name">action.purchase.teams.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.texts.report">
+          <column name="name">action.purchase.texts.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.schema.texts.report">
+          <column name="name">action.purchase.schema.texts.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.order.types.report">
+          <column name="name">action.purchase.order.types.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.invoice.types.report">
+          <column name="name">action.purchase.invoice.types.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.purchase.unit.categories">
+          <column name="name">bc.ui.report.docx.purchase.unit.categories</column>
+          <column name="label">Categories Purchase Unit</column>
+          <column name="report">report_purchase_unit_categories</column>
+          <column name="infile">infile_purchase_unit_categories.docx</column>
+          <column name="outfile">outfile_purchase_unit_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.units">
+          <column name="name">bc.ui.report.docx.purchase.units</column>
+          <column name="label">Purchase Units</column>
+          <column name="report">report_purchase_units</column>
+          <column name="infile">infile_purchase_units.docx</column>
+          <column name="outfile">outfile_purchase_units.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.channel.categories">
+          <column name="name">bc.ui.report.docx.purchase.channel.categories</column>
+          <column name="label">Categories Purchase Chanel</column>
+          <column name="report">report_purchase_channel_categories</column>
+          <column name="infile">infile_purchase_channel_categories.docx</column>
+          <column name="outfile">outfile_purchase_channel_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.channels">
+          <column name="name">bc.ui.report.docx.purchase.channels</column>
+          <column name="label">Purchase Channels</column>
+          <column name="report">report_purchase_channels</column>
+          <column name="infile">infile_purchase_channels.docx</column>
+          <column name="outfile">outfile_purchase_channels.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.segment.categories">
+          <column name="name">bc.ui.report.docx.purchase.segment.categories</column>
+          <column name="label">Categories Purchase Segment</column>
+          <column name="report">report_purchase_segment_categories</column>
+          <column name="infile">infile_purchase_segment_categories.docx</column>
+          <column name="outfile">outfile_purchase_segment_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.segments">
+          <column name="name">bc.ui.report.docx.purchase.segments</column>
+          <column name="label">Purchase Segments</column>
+          <column name="report">report_purchase_segments</column>
+          <column name="infile">infile_purchase_segments.docx</column>
+          <column name="outfile">outfile_purchase_segments.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.area.categories">
+          <column name="name">bc.ui.report.docx.purchase.area.categories</column>
+          <column name="label">Categories Purchase Area</column>
+          <column name="report">report_purchase_area_categories</column>
+          <column name="infile">infile_purchase_area_categories.docx</column>
+          <column name="outfile">outfile_purchase_area_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.areas">
+          <column name="name">bc.ui.report.docx.purchase.areas</column>
+          <column name="label">Purchase Areas</column>
+          <column name="report">report_purchase_areas</column>
+          <column name="infile">infile_purchase_areas.docx</column>
+          <column name="outfile">outfile_purchase_areas.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.region.categories">
+          <column name="name">bc.ui.report.docx.purchase.region.categories</column>
+          <column name="label">Categories Purchase Region</column>
+          <column name="report">report_purchase_region_categories</column>
+          <column name="infile">infile_purchase_region_categories.docx</column>
+          <column name="outfile">outfile_purchase_region_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.regions">
+          <column name="name">bc.ui.report.docx.purchase.regions</column>
+          <column name="label">Purchase Regions</column>
+          <column name="report">report_purchase_regions</column>
+          <column name="infile">infile_purchase_regions.docx</column>
+          <column name="outfile">outfile_purchase_regions.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.division.categories">
+          <column name="name">bc.ui.report.docx.purchase.division.categories</column>
+          <column name="label">Categories Purchase Division</column>
+          <column name="report">report_purchase_division_categories</column>
+          <column name="infile">infile_purchase_division_categories.docx</column>
+          <column name="outfile">outfile_purchase_division_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.divisions">
+          <column name="name">bc.ui.report.docx.purchase.divisions</column>
+          <column name="label">Purchase Divisions</column>
+          <column name="report">report_purchase_divisions</column>
+          <column name="infile">infile_purchase_divisions.docx</column>
+          <column name="outfile">outfile_purchase_divisions.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.subdivision.categories">
+          <column name="name">bc.ui.report.docx.purchase.subdivision.categories</column>
+          <column name="label">Categories Purchase Subdivision</column>
+          <column name="report">report_purchase_subdivision_categories</column>
+          <column name="infile">infile_purchase_subdivision_categories.docx</column>
+          <column name="outfile">outfile_purchase_subdivision_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.subdivisions">
+          <column name="name">bc.ui.report.docx.purchase.subdivisions</column>
+          <column name="label">Purchase Subdivisions</column>
+          <column name="report">report_purchase_subdivisions</column>
+          <column name="infile">infile_purchase_subdivisions.docx</column>
+          <column name="outfile">outfile_purchase_subdivisions.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.markets">
+          <column name="name">bc.ui.report.docx.purchase.markets</column>
+          <column name="label">Purchase Market</column>
+          <column name="report">report_purchase_markets</column>
+          <column name="infile">infile_purchase_markets.docx</column>
+          <column name="outfile">outfile_purchase_markets.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.teams">
+          <column name="name">bc.ui.report.docx.purchase.teams</column>
+          <column name="label">Purchase Teams</column>
+          <column name="report">report_purchase_teams</column>
+          <column name="infile">infile_purchase_teams.docx</column>
+          <column name="outfile">outfile_purchase_teams.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.texts">
+          <column name="name">bc.ui.report.docx.purchase.texts</column>
+          <column name="label">Purchase Texts</column>
+          <column name="report">report_purchase_texts</column>
+          <column name="infile">infile_purchase_texts.docx</column>
+          <column name="outfile">outfile_purchase_texts.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.schema.texts">
+          <column name="name">bc.ui.report.docx.purchase.schema.texts</column>
+          <column name="label">Schema Of Purchase Texts</column>
+          <column name="report">report_purchase_schema_texts</column>
+          <column name="infile">infile_purchase_schema_texts.docx</column>
+          <column name="outfile">outfile_purchase_schema_texts.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.order.types">
+          <column name="name">bc.ui.report.docx.purchase.order.types</column>
+          <column name="label">Types Purchase Order</column>
+          <column name="report">report_purchase_order_types</column>
+          <column name="infile">infile_purchase_order_types.docx</column>
+          <column name="outfile">outfile_purchase_order_types.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.invoice.types">
+          <column name="name">bc.ui.report.docx.purchase.invoice.types</column>
+          <column name="label">Types Purchase Invoice</column>
+          <column name="report">report_purchase_invoice_types</column>
+          <column name="infile">infile_purchase_invoice_types.docx</column>
+          <column name="outfile">outfile_purchase_invoice_types.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.purchase.unit.categories.report">
+          <column name="action_id">action.purchase.unit.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.unit.categories</column>
+        </record>
+        <record id="report.action.purchase.units.report">
+          <column name="action_id">action.purchase.units.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.units</column>
+        </record>
+        <record id="report.action.purchase.channel.categories.report">
+          <column name="action_id">action.purchase.channel.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.channel.categories</column>
+        </record>
+        <record id="report.action.purchase.channels.report">
+          <column name="action_id">action.purchase.channels.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.channels</column>
+        </record>
+        <record id="report.action.purchase.segment.categories.report">
+          <column name="action_id">action.purchase.segment.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.segment.categories</column>
+        </record>
+        <record id="report.action.purchase.segments.report">
+          <column name="action_id">action.purchase.segments.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.segments</column>
+        </record>
+        <record id="report.action.purchase.area.categories.report">
+          <column name="action_id">action.purchase.area.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.area.categories</column>
+        </record>
+        <record id="report.action.purchase.areas.report">
+          <column name="action_id">action.purchase.areas.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.areas</column>
+        </record>
+        <record id="report.action.purchase.region.categories.report">
+          <column name="action_id">action.purchase.region.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.region.categories</column>
+        </record>
+        <record id="report.action.purchase.regions.report">
+          <column name="action_id">action.purchase.regions.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.regions</column>
+        </record>
+        <record id="report.action.purchase.division.categories.report">
+          <column name="action_id">action.purchase.division.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.division.categories</column>
+        </record>
+        <record id="report.action.purchase.divisions.report">
+          <column name="action_id">action.purchase.divisions.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.divisions</column>
+        </record>
+        <record id="report.action.purchase.subdivision.categories.report">
+          <column name="action_id">action.purchase.subdivision.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.subdivision.categories</column>
+        </record>
+        <record id="report.action.purchase.subdivisions.report">
+          <column name="action_id">action.purchase.subdivisions.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.subdivisions</column>
+        </record>
+        <record id="report.action.purchase.markets.report">
+          <column name="action_id">action.purchase.markets.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.markets</column>
+        </record>
+        <record id="report.action.purchase.teams.report">
+          <column name="action_id">action.purchase.teams.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.teams</column>
+        </record>
+        <record id="report.action.purchase.texts.report">
+          <column name="action_id">action.purchase.texts.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.texts</column>
+        </record>
+        <record id="report.action.purchase.schema.texts.report">
+          <column name="action_id">action.purchase.schema.texts.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.schema.texts</column>
+        </record>
+        <record id="report.action.purchase.order.types.report">
+          <column name="action_id">action.purchase.order.types.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.order.types</column>
+        </record>
+        <record id="report.action.purchase.invoice.types.report">
+          <column name="action_id">action.purchase.invoice.types.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.invoice.types</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.purchase.report.custom">
+          <column name="name">ui.menu.purchase.report.custom</column>
+          <column name="label">Customs</column>
+        <column name="parent_id">ui.menu.purchase.report</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.purchase.unit.categories.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.purchase.unit.categories.report</column>
+            <column name="label">Categories Purchase Unit</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.purchase.unit.categories.report</column>
+          </record>
+          <record id="ui.menu.purchase.units.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.purchase.units.report</column>
+            <column name="label">Purchase Units</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.purchase.units.report</column>
+          </record>
+          <record id="ui.menu.purchase.channel.categories.report">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.purchase.channel.categories.report</column>
+            <column name="label">Categories Purchase Chanel</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.purchase.channel.categories.report</column>
+          </record>
+          <record id="ui.menu.purchase.channels.report">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.purchase.channels.report</column>
+            <column name="label">Purchase Channels</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.purchase.channels.report</column>
+          </record>
+          <record id="ui.menu.purchase.segment.categories.report">
+          <column name="sequence">4</column>
+            <column name="name">ui.menu.purchase.segment.categories.report</column>
+            <column name="label">Categories Purchase Segment</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">40</column>
+          <column name="action_id">action.purchase.segment.categories.report</column>
+          </record>
+          <record id="ui.menu.purchase.segments.report">
+          <column name="sequence">5</column>
+            <column name="name">ui.menu.purchase.segments.report</column>
+            <column name="label">Purchase Segments</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">50</column>
+          <column name="action_id">action.purchase.segments.report</column>
+          </record>
+          <record id="ui.menu.purchase.area.categories.report">
+          <column name="sequence">6</column>
+            <column name="name">ui.menu.purchase.area.categories.report</column>
+            <column name="label">Categories Purchase Area</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">60</column>
+          <column name="action_id">action.purchase.area.categories.report</column>
+          </record>
+          <record id="ui.menu.purchase.areas.report">
+          <column name="sequence">7</column>
+            <column name="name">ui.menu.purchase.areas.report</column>
+            <column name="label">Purchase Areas</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">70</column>
+          <column name="action_id">action.purchase.areas.report</column>
+          </record>
+          <record id="ui.menu.purchase.region.categories.report">
+          <column name="sequence">8</column>
+            <column name="name">ui.menu.purchase.region.categories.report</column>
+            <column name="label">Categories Purchase Region</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">80</column>
+          <column name="action_id">action.purchase.region.categories.report</column>
+          </record>
+          <record id="ui.menu.purchase.regions.report">
+          <column name="sequence">9</column>
+            <column name="name">ui.menu.purchase.regions.report</column>
+            <column name="label">Purchase Regions</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">90</column>
+          <column name="action_id">action.purchase.regions.report</column>
+          </record>
+          <record id="ui.menu.purchase.division.categories.report">
+          <column name="sequence">10</column>
+            <column name="name">ui.menu.purchase.division.categories.report</column>
+            <column name="label">Categories Purchase Division</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">100</column>
+          <column name="action_id">action.purchase.division.categories.report</column>
+          </record>
+          <record id="ui.menu.purchase.divisions.report">
+          <column name="sequence">11</column>
+            <column name="name">ui.menu.purchase.divisions.report</column>
+            <column name="label">Purchase Divisions</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">110</column>
+          <column name="action_id">action.purchase.divisions.report</column>
+          </record>
+          <record id="ui.menu.purchase.subdivision.categories.report">
+          <column name="sequence">12</column>
+            <column name="name">ui.menu.purchase.subdivision.categories.report</column>
+            <column name="label">Categories Purchase Subdivision</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">120</column>
+          <column name="action_id">action.purchase.subdivision.categories.report</column>
+          </record>
+          <record id="ui.menu.purchase.subdivisions.report">
+          <column name="sequence">13</column>
+            <column name="name">ui.menu.purchase.subdivisions.report</column>
+            <column name="label">Purchase Subdivisions</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">130</column>
+          <column name="action_id">action.purchase.subdivisions.report</column>
+          </record>
+          <record id="ui.menu.purchase.markets.report">
+          <column name="sequence">19</column>
+            <column name="name">ui.menu.purchase.markets.report</column>
+            <column name="label">Purchase Market</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">190</column>
+          <column name="action_id">action.purchase.markets.report</column>
+          </record>
+          <record id="ui.menu.purchase.teams.report">
+          <column name="sequence">20</column>
+            <column name="name">ui.menu.purchase.teams.report</column>
+            <column name="label">Purchase Teams</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">200</column>
+          <column name="action_id">action.purchase.teams.report</column>
+          </record>
+          <record id="ui.menu.purchase.texts.report">
+          <column name="sequence">21</column>
+            <column name="name">ui.menu.purchase.texts.report</column>
+            <column name="label">Purchase Texts</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">210</column>
+          <column name="action_id">action.purchase.texts.report</column>
+          </record>
+          <record id="ui.menu.purchase.schema.texts.report">
+          <column name="sequence">22</column>
+            <column name="name">ui.menu.purchase.schema.texts.report</column>
+            <column name="label">Schema Of Purchase Texts</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">220</column>
+          <column name="action_id">action.purchase.schema.texts.report</column>
+          </record>
+          <record id="ui.menu.purchase.order.types.report">
+          <column name="sequence">24</column>
+            <column name="name">ui.menu.purchase.order.types.report</column>
+            <column name="label">Types Purchase Order</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">240</column>
+          <column name="action_id">action.purchase.order.types.report</column>
+          </record>
+          <record id="ui.menu.purchase.invoice.types.report">
+          <column name="sequence">27</column>
+            <column name="name">ui.menu.purchase.invoice.types.report</column>
+            <column name="label">Types Purchase Invoice</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">270</column>
+          <column name="action_id">action.purchase.invoice.types.report</column>
           </record>
       </records>
     </data>
