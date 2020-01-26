@@ -229,8 +229,8 @@ class Registry(Service):
 			for model in self._momm[module].keys():
 				r[model] = self._create_model(model,module)
 
+		#self._load_schema2(r)
 		self._load_schema(r)
-		self._load_schema1(r)
 		
 		return r
 
@@ -341,7 +341,7 @@ class Registry(Service):
 
 			self._setMetaOfModulesModel(key,module,imeta1)
 		
-	def _load_schema(self,models):
+	def _load_schema2(self,models):
 		m = set()
 		for key in models.keys():
 			if key in m or isinstance(models[key],Model) and _getRecNameName(models[key]) is None or isinstance(models[key],ModelInherit):
@@ -363,7 +363,7 @@ class Registry(Service):
 		
 		return models
 
-	def _load_schema1(self,models):
+	def _load_schema(self,models):
 		for key in models.keys():
 			if isinstance(models[key],ModelInherit):
 				continue
@@ -419,7 +419,7 @@ class Registry(Service):
 			for o2mfield in o2mfields:
 				childs[o2mfield] = ci[o2mfield]['obj']
 		
-			model._schema1 = (parents,childs)
+			model._schema = (parents,childs)
 			#if key[:9] == 'purchase.':
 				#print('MODEL:',model._name,model._schema1)
 
@@ -506,8 +506,8 @@ class Registry(Service):
 			for model in self._momm[module].keys():
 				r[model] = self._create_model(model,module)
 				
+		#r = self._load_schema2(r)
 		r = self._load_schema(r)
-		self._load_schema1(r)
 		#for k in r.keys():
 			#if k[:9] == 'purchase.':
 				#print('SCHEMA-1:',k, r[k]._schema1)

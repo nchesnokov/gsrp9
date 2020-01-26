@@ -506,8 +506,8 @@ class MCache(object):
 		return m
 
 	def _do_read(self,model,row):
-		v = self._readSchema(model,row)
-		print('READ-SCHEMA:',v)
+		#v = self._readSchema(model,row)
+		#print('READ-SCHEMA:',v)
 		self._clear()
 		self._model = model
 		self._data = DCacheDict(row,model,self._pool)
