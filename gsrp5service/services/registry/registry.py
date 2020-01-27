@@ -47,24 +47,16 @@ def _schema_to_dict(s,prev=None):
 			
 	return res
 
-def _schema_to_levels(s,l=0):
-	res = {}
-
-	if type(s) == str:
-		res.setdefault(l,[]).append(s)
-	elif type(s) in (list,tuple):
-		for k in s:
-			if type(k) == str:
-				res.setdefault(l,[]).append(k)
-			elif type(k) in (list,tuple):
-				r = _schema_to_levels(k,l+1)
-				for key in r.keys():
-					if key == l+1:
-						res.setdefault(l+1,[]).extend(r[key])
-					else:
-						res[key] = r[key]
-
-	return res
+def _schema_to_levels(key,models,level=0):
+	for key in keys:
+		model = models[key]
+		childs = list(model._schema[1])
+		for key1 in childs.keys:
+			model._levels[key1] = level
+			ci = model.columnsInfo([key1],['obj','rel'])
+			obj = ci[key1]['obj']
+			rel = ci[key1]['rel']
+			_child_levels(obj,models,level+1)
 
 def _build_schema(pool,model):
 	res = [model]
@@ -364,6 +356,7 @@ class Registry(Service):
 		return models
 
 	def _load_schema(self,models):
+		root_models = []
 		for key in models.keys():
 			if isinstance(models[key],ModelInherit):
 				continue
@@ -420,8 +413,13 @@ class Registry(Service):
 				childs[o2mfield] = ci[o2mfield]['obj']
 		
 			model._schema = (parents,childs)
+			
+			if len(model._schema[0]) == 0 and len(model._schema[1]) > 0:
+				root_models.append(key)
 			#if key[:9] == 'purchase.':
 				#print('MODEL:',model._name,model._schema1)
+
+		
 
 	def _reload_modules(self,modules):
 		for module in filter(lambda x: x in modules,[node.name for node in self._graph]):
