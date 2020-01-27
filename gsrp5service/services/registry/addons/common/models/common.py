@@ -33,11 +33,11 @@ class model_common(ModelInherit):
 			if 'quantity' in item and item['quantity'] and 'price' in item and item['price'] and 'unit' in item and item['unit']:
 				item['amount'] = item['quantity'] * item['price'] / item['unit']
 
-				if 'volume-1' in item and item['volume']:
-					item['volume_total'] =  item['quantity'] * item['volume']
+				if 'volume' in item and item['volume']:
+					item['volume_total'] =  item['quantity'] * Decimal(item['volume'])
 
-				if 'weight-1' in item and item['weight']:
-					item['weight_total'] =  item['quantity'] * item['weight']
+				if 'weight' in item and item['weight']:
+					item['weight_total'] =  item['quantity'] * Decimal(item['weight'])
 
 			elif item['quantity'] is None:
 				item['amount'] = None

@@ -79,7 +79,7 @@ class DCacheDict(object):
 		self._cdata[oid] = data
 		self._cmodels[oid] = model
 		if parent and name:
-			self._cpaths[oid] = parent
+			self._cpaths.setdefault(oid,{})[name] = parent
 			self._cr2c[oid] = self._cnames[name + '.' + str(parent)]
 		else:
 			self._cpaths[oid] = None
@@ -400,19 +400,6 @@ class DCacheDict(object):
 			res.append(self._getData(r))
 			
 		return res
-
-	def _get_levels(self,path):
-		levels = {}
-		while True:
-			model = self._cmodels[path]		
-			levels.setdefault(self._pool.get(model)._level,set()).add(path)
-
-			if self._cpaths[path]:
-				path = self._cpaths[path]
-			else:
-				break
-		
-		return levels
 			
 class MCache(object):
 	
@@ -453,7 +440,7 @@ class MCache(object):
 		self._setDefault(model,row)
 		self._data = DCacheDict(row,model,self._pool)
 		
-		self._do_calculate(self._data._get_levels(self._data._root),context=context)
+		self._do_calculate(self._data._root,context=context)
 		self._getMeta()	
 		m = self._data._getData(self._data._data)
 		m['__meta__'] = self._do_meta(str(self._data._root))
@@ -498,7 +485,7 @@ class MCache(object):
 		self._setDefault(model,row)
 		self._data = DCacheDict({},model,self._pool)
 		self._data._buildTree(row,model,mode='A')
-		self._do_calculate(self._data._get_levels(self._data._root),context=self._context)
+		self._do_calculate(self._data._root,context=self._context)
 		self._getMeta()	
 		m = self._data._getData(self._data._data)
 		m['__meta__'] = self._do_meta(str(self._data._root))
@@ -533,22 +520,6 @@ class MCache(object):
 	def _clear(self):
 		self._m.clear()
 		return True
-
-	# def _buildItem(self,model,view='form'):
-		# ci = self._pool.get(model).columnsInfo(attributes = ['type'])
-		
-		# if view == 'form':
-			# item = dict.fromkeys(list(self._pool.get(model)._columns.keys()))
-		# elif view == 'list':
-			# item = dict.fromkeys(list(filter(lambda x: ci[x]['type'] not in ('one2mamy','many2many','xml','text','binary','json'),self._pool.get(model)._columns.keys())))
-		
-		# for key in item.keys():
-			# if ci[key]['type'] in ('many2one','related'):
-				# item[key] = {'id':None,'name':None}
-			# elif ci[key]['type'] in ('one2many','many2many'):
-				# item[key] = []
-
-		# return item
 
 	def _on_change(self,path,model,key,context):
 		if model not in self._meta:
@@ -585,7 +556,7 @@ class MCache(object):
 				self._on_change(path,model,key,context)
 		
 			if key not in self._checks or key in self._checks and self._checks[key]:
-				self._do_calculate(self._data._get_levels(path),context)
+				self._do_calculate(path,context)
 
 		return res
 
@@ -667,7 +638,9 @@ class MCache(object):
 						del res[model]['m']
 
 			if self._data._cpaths[path]:
-				path = self._data._cpaths[path]
+				parents = self._data._cpaths[path]
+				for key in parents.keys():
+					path = parents[key]
 			else:
 				break
 
@@ -697,14 +670,18 @@ class MCache(object):
 	
 		return res
 
-	def _do_calculate(self,levels,context):
-		for key in levels.keys():
-			for path in levels[key]:
-				model = self._data._cmodels[path]
-				#_computes = self._pool.get(model)._compute(self._cr, self._pool, self._uid, self._cache_attrs[model]['computefields'], self._data._cdata[path], self._context)
-				_computes = self._do_compute(path,model)
-				if len(_computes) > 0:
-					self._data._cdata.setdefault(path,{}).update(_computes)
+	def _do_calculate(self,path,context):
+		model = self._data._cmodels[path]
+		_computes = self._do_compute(path,model)
+		
+		if len(_computes) > 0:
+			self._data._cdata.setdefault(path,{}).update(_computes)
+		
+		parents = self._data._cpaths[path]
+		if parents:
+			for key in parents.keys():
+				parent = parents[key]
+				self._do_calculate(parent,context)
 
 	def _setDefault(self,model,item):
 		_default = self._pool.get(model)._default
@@ -727,7 +704,7 @@ class MCache(object):
 		self._data._cdata[self._data._cnames[container]].append(row)
 		self._data._buildTree(row,model,p[1],p[0],'A')
 		
-		self._do_calculate(self._data._get_levels(str(id(row))),context)
+		self._do_calculate(str(id(row)),context)
 		
 		res = {}
 
@@ -754,7 +731,7 @@ class MCache(object):
 		self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
 		del self._data._cdata[path]
 		
-		self._do_calculate(self._data._get_levels(c[1]),context)
+		self._do_calculate(c[1],context)
 		
 		res = {}
 
@@ -876,8 +853,7 @@ class MCache(object):
 				for pkey in pkeys:
 					for on_change_field in priority[pkey]:
 						self._on_change(apnd1['__path__'],apnd1['__model__'],on_change_field,context)
-						levels = self._data._get_levels(apnd1['__path__'])
-						self._do_calculate(levels,context)
+						self._do_calculate(apnd1['__path__'],context)
 						diffs2 = self._data._odiffs()
 						if len(diffs2) > 0:
 							self._post_diff(diffs2,context)
@@ -898,8 +874,7 @@ class MCache(object):
 				for pkey in pkeys:
 					for on_change_field in priority[pkey]:
 						self._on_change(inst1['__path__'],apnd1['__model__'],on_change_field,context)
-						levels = self._data._get_levels(apnd1['__path__'])
-						self._do_calculate(levels,context)
+						self._do_calculate(apnd1['__path__'],context)
 						diffs2 = self._data._odiffs()
 						if len(diffs2) > 0:
 							self._post_diff(diffs2,context)

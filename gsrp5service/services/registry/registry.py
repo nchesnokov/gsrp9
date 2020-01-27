@@ -17,85 +17,6 @@ from configparser import ConfigParser
 
 class Exception_Registry(Exception): pass
 
-def _list_to_dict(s,p):
-	res = {}
-	prev = None
-	for k in s:
-		if type(k) == str:
-			res[k] = p
-			prev = k
-		elif type(k) in (list,tuple):
-			l = _list_to_dict(k,prev)
-			for k in l.keys():
-				res[k] = l[k]
-	
-	return res
-
-def _schema_to_dict(s,prev=None):
-	res = {}
-	if type(s) == str:
-		res[s] = prev
-	elif type(s) in (list,tuple):
-		for k in s:
-			if type(k) == str:
-				res[k] = prev
-				prev = k
-			elif type(k) in (list,tuple):
-				l = _list_to_dict(k,prev)
-				for k in l.keys():
-					res[k] = l[k]
-			
-	return res
-
-def _schema_to_levels(model,models,orel=None,level=0):
-	m = models[key]
-	parents = m._schema[0]
-	if rel and rel in parents:
-		model._levels[orel] = level
-	childs = m._schema[1]
-	for key in childs.keys():
-		ci = model.columnsInfo([key],['obj','rel'])
-		obj = ci[key1]['obj']
-		rel = ci[key1]['rel']
-		model._levels[key] = level
-		_schema_to_levels(obj,models,rel,level+1)
-
-def _build_schema(pool,model):
-	res = [model]
-	m = pool.get(model)
-	#print('_build_schema:'.upper(),model,m)
-	if isinstance(m,ModelInherit):
-		return res
-	o2mfields = m._o2mfields
-	for o2mfield in o2mfields:
-		if o2mfield ==  _getChildsIdName(m):
-			continue
-		obj = pool.get(model).columnsInfo([o2mfield],['obj'])[o2mfield]['obj']
-		r = _build_schema(pool,obj)
-		if len(r) > 0:
-			res.append(r)
-	
-	#if model in ('purchase.orders','purchase.order.categories'):
-		#print('RESULT:',model,res)
-	return res
-
-def _to_list(keys):
-	res = []
-	for key in keys:
-		if type(key) == str:
-			res.append(key)
-		elif type(key) in (list,tuple):
-			res.extend(_to_list(key))
-	
-	return res
-
-def _get_level(name,levels):
-	for i,k in enumerate(levels.keys()):
-		if name in levels[k]:
-			return i
-	
-	return None
-
 class Registry(Service):
 
 	_module_paths = {}
@@ -334,28 +255,6 @@ class Registry(Service):
 					imeta1['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
 
 			self._setMetaOfModulesModel(key,module,imeta1)
-		
-	def _load_schema2(self,models):
-		m = set()
-		for key in models.keys():
-			if key in m or isinstance(models[key],Model) and _getRecNameName(models[key]) is None or isinstance(models[key],ModelInherit):
-				continue
-			name = models[key]._name
-			schema = _build_schema(models,name)
-			sc = set(_to_list(schema))
-			dc = _schema_to_dict(schema)
-			dl = _schema_to_levels(schema)
-			for s in sc:
-				model = models.get(s)
-				#model._schema = dc
-				model._schema.update(dc)
-				#model._levels = dl
-				model._levels.update(dl)
-				model._level = _get_level(model._name,model._levels)
-			
-			m.union(sc)
-		
-		return models
 
 	def _load_schema(self,models):
 		root_models = []
@@ -397,7 +296,8 @@ class Registry(Service):
 					if rel not in cim or cim[rel]['obj'] != model._name:
 						o2mremove.append(o2mfield)
 				else:
-					print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
+					pass
+					#print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
 
 
 			for f in m2oremove:
@@ -419,10 +319,9 @@ class Registry(Service):
 			if len(model._schema[0]) == 0 and len(model._schema[1]) > 0:
 				root_models.append(key)
 			#if key[:9] == 'purchase.':
-				#print('MODEL:',model._name,model._schema1)
-
-		for key in root_models.keys():
-			_schema_to_levels(key,models)
+				#print('MODEL:',model._name,model._schema)
+		
+		return models
 
 	def _reload_modules(self,modules):
 		for module in filter(lambda x: x in modules,[node.name for node in self._graph]):
