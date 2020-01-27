@@ -47,16 +47,18 @@ def _schema_to_dict(s,prev=None):
 			
 	return res
 
-def _schema_to_levels(key,models,level=0):
-	for key in keys:
-		model = models[key]
-		childs = list(model._schema[1])
-		for key1 in childs.keys:
-			model._levels[key1] = level
-			ci = model.columnsInfo([key1],['obj','rel'])
-			obj = ci[key1]['obj']
-			rel = ci[key1]['rel']
-			_child_levels(obj,models,level+1)
+def _schema_to_levels(model,models,orel=None,level=0):
+	m = models[key]
+	parents = m._schema[0]
+	if rel and rel in parents:
+		model._levels[orel] = level
+	childs = m._schema[1]
+	for key in childs.keys():
+		ci = model.columnsInfo([key],['obj','rel'])
+		obj = ci[key1]['obj']
+		rel = ci[key1]['rel']
+		model._levels[rel] = level
+		_child_levels(obj,models,rel,level+1)
 
 def _build_schema(pool,model):
 	res = [model]
