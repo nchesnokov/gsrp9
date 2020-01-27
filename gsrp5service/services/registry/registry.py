@@ -57,8 +57,8 @@ def _schema_to_levels(model,models,orel=None,level=0):
 		ci = model.columnsInfo([key],['obj','rel'])
 		obj = ci[key1]['obj']
 		rel = ci[key1]['rel']
-		model._levels[rel] = level
-		_child_levels(obj,models,rel,level+1)
+		model._levels[key] = level
+		_schema_to_levels(obj,models,rel,level+1)
 
 def _build_schema(pool,model):
 	res = [model]
@@ -421,7 +421,8 @@ class Registry(Service):
 			#if key[:9] == 'purchase.':
 				#print('MODEL:',model._name,model._schema1)
 
-		
+		for key in root_models.keys():
+			_schema_to_levels(key,models)
 
 	def _reload_modules(self,modules):
 		for module in filter(lambda x: x in modules,[node.name for node in self._graph]):
