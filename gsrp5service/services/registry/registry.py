@@ -314,7 +314,7 @@ class Registry(Service):
 			for o2mfield in o2mfields:
 				childs[o2mfield] = ci[o2mfield]['obj']
 		
-			model._schema = (parents,childs)
+			model._schema = [parents,childs]
 			
 			if len(model._schema[0]) == 0 and len(model._schema[1]) > 0:
 				root_models.append(key)

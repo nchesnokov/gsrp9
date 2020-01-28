@@ -268,7 +268,7 @@ def model__init__(self,access = None):
 					if not sf in self._trigers['u']['a']['f']:
 						self._trigers.setdefault('u',{}).setdefault('a',{}).setdefault('f',[]).append(sf)
 				else:
-					self._trigers.setdefault('u',{}).setdefault('a',{}).setdefault('f',[]).append(sf)getFullName
+					self._trigers.setdefault('u',{}).setdefault('a',{}).setdefault('f',[]).append(sf)
 		elif sf[:25] == '_trgForEachRowAfterDelete' or sf[:9] == '_trgFERAD':
 			if callable(getattr(self,sf,None)):
 				if 'd' in self._trigers and 'a' in self._trigers['d'] and 'f' in self._trigers['d']['a']:
@@ -300,7 +300,7 @@ def model__init__(self,access = None):
 					self._trigers.setdefault('d',{}).setdefault('b',{}).setdefault('a',[]).append(sf)
 
 		elif sf[:15] == '_trgAfterInsert' or sf[:6] == '_trgAI':
-			if callable(getattr(self,sf,None)):getFullName
+			if callable(getattr(self,sf,None)):
 				if 'i' in self._trigers and 'a' in self._trigers['i'] and 'a' in self._trigers['i']['a']:
 					if not sf in self._trigers['i']['a']['a']:
 						self._trigers.setdefault('i',{}).setdefault('a',{}).setdefault('a',[]).append(sf)
