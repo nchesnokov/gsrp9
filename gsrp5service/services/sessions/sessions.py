@@ -169,8 +169,28 @@ class User(object):
 			return self._cache[args[1]]._remove(**(args[2]))
 		elif args[0] == 'initialize':
 			return self._cache[args[1]]._initialize(**(args[2]))
+		elif args[0] == 'read':
+			return self._cache[args[1]]._do_read(**(args[2]))
 		elif args[0] == 'create':
 			return self._cache[args[1]]._do_create(**(args[2]))
+		elif args[0] == 'write':
+			return self._cache[args[1]]._do_write(**(args[2]))
+		elif args[0] == 'modify':
+			return self._cache[args[1]]._do_mofify(**(args[2]))
+		elif args[0] == 'unlink':
+			return self._cache[args[1]]._do_unlink(**(args[2]))
+		elif args[0] == 'select':
+			return self._cache[args[1]]._do_select(**(args[2]))
+		elif args[0] == 'insert':
+			return self._cache[args[1]]._do_insert(**(args[2]))
+		elif args[0] == 'update':
+			return self._cache[args[1]]._do_update(**(args[2]))
+		elif args[0] == 'upsert':
+			return self._cache[args[1]]._do_upsert(**(args[2]))
+		elif args[0] == 'delete':
+			return self._cache[args[1]]._do_delete(**(args[2]))
+		elif args[0] == 'call':
+			return self._cache[args[1]]._do_call(**(args[2]))
 		elif args[0] == 'save':
 			return self._cache[args[1]]._save(**(args[2]))
 		elif args[0] == 'reset':
@@ -306,7 +326,7 @@ class System(object):
 		if not self._connected:
 			if slot:
 				self._cursor.execute('SET DATABASE=%s' % (slot,))
-			self._cursor.execute('select id,password from bc_users where login = %s and issuperuser = %slimit 1', (user,True))
+			self._cursor.execute('select id,password from bc_users where login = %s and issuperuser = %s limit 1', (user,True))
 			if self._cursor.rowcount > 0:
 				res = self._cursor.fetchone(['id','password'],{'id':'UUID','password':'varchar'})
 				if pbkdf2_sha256.verify(password, res[1]):

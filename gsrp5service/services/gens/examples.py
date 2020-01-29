@@ -162,6 +162,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 	else:
 		modules = list(filter(lambda x: x in modules,registry._depends))
 	logmodules = []
+	print('MODULES:',modules)
 	if 'ext' not in context:
 		context['ext'] = 'yaml'
 	for module in filter(lambda x: not x in ('bc','system') and 'state' in registry._modules[x] and registry._modules[x]['state'] == 'I',modules):
@@ -171,7 +172,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 		for model in registry._momm[module].keys():
 			#print('MODULES:',model,registry._getModulesOfModel(model),registry._momm[module][model])
 			meta = registry._getMetaOfModulesModel(model,registry._getFirstModule(model))
-			print('META:',meta)
+			#print('META:',meta)
 			if issubclass(type(meta['name'],meta['bases'],meta['attrs']),ModelInherit):
 				if '_inherit' in meta['attrs'] and meta['attrs']['_inherit']:
 					inherit = meta['attrs']['_inherit']
