@@ -689,7 +689,7 @@ class purchase_order_output_plates(Model):
 	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
 	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
 	'language': fields.many2one(label = 'language',obj='md.language',required=True),
-	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job','tj'),('Timing Job'),('ss','Self Send','im','Immediately')],required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
 	}
