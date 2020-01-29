@@ -222,6 +222,19 @@ class md_type_items(Model):
 
 md_type_items()
 
+class md_type_plates(Model):
+	_name = 'md.type.plates'
+	_description = 'General Model Type Of Plates'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'usage': fields.selection(label='Usage',selections=[('a','All')]),
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'note': fields.text(label = 'Note')
+	}
+
+md_type_plates()
+
 
 class md_products_template(Model):
 	_name = 'md.products.template'

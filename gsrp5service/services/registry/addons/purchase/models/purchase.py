@@ -414,18 +414,6 @@ purchase_schema_text_items()
 
 # Text end
 
-class purchase_type_plates(Model):
-	_name = 'purchase.type.plates'
-	_description = 'General Model Type Plates For Purchase'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'note': fields.text(label = 'Note')
-	}
-
-purchase_type_plates()
-
 class purchase_order_types(Model):
 	_name = 'purchase.order.types'
 	_description = 'General Model Types Purchase Order'
@@ -467,7 +455,7 @@ class purchase_order_type_plates(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='purchase.order.types'),
 	'seq': fields.integer(label='Sequence',required=True),
-	'plate': fields.many2one(label = 'Plate',obj='purchase.type.plates',required=True),
+	'plate': fields.many2one(label = 'Plate',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -1083,7 +1071,7 @@ md_purchase_product()
 class md_purchase_product_inherit(ModelInherit):
 	_name = 'md.purchase.product.inherit'
 	_description = 'Genaral Model Inherit For Purchase Product'
-	_inherit = {'md.product':{'_columns':['purchase']},'md.recepture':{'_columns':['usage']},'md.type.items':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['purchase']},'md.recepture':{'_columns':['usage']},'md.type.items':{'_columns':['usage'],'md.type.plates':{'_columns':['usage']}}}
 	_columns = {
 		'purchase': fields.one2many(label='Purchase',obj='md.purchase.product',rel='product_id'),
 		'usage': fields.iSelection(selections=[('p','Purchase')])
