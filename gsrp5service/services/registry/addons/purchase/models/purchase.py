@@ -414,6 +414,18 @@ purchase_schema_text_items()
 
 # Text end
 
+class purchase_type_plates(Model):
+	_name = 'purchase.type.plates'
+	_description = 'General Model Type Plates For Purchase'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_type_plates()
+
 class purchase_order_types(Model):
 	_name = 'purchase.order.types'
 	_description = 'General Model Types Purchase Order'
@@ -425,6 +437,7 @@ class purchase_order_types(Model):
 	'htschema': fields.many2one(label='Text Schema Of Head',obj='purchase.schema.texts',domain=[('usage','in',('h','b'))]),
 	'itschema': fields.many2one(label='Text Schema Of Item',obj='purchase.schema.texts',domain=[('usage','in',('i','b'))]),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.type.roles',rel='type_id'),
+	'plates': fields.one2many(label='Plates',obj='purchase.type.plates',rel='type_id'),
 	'tis': fields.one2many(label='TIs',obj='purchase.order.type.items',rel='type_id'),
 	'note': fields.text(label = 'Note')
 	}
@@ -444,6 +457,23 @@ class purchase_order_type_roles(Model):
 	}
 
 purchase_order_type_roles()
+
+
+class purchase_order_type_plates(Model):
+	_name = 'purchase.order.type.plates'
+	_description = 'General Model Role Purchase Order Plates'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'type_id': fields.many2one(label = 'Type',obj='purchase.order.types'),
+	'seq': fields.integer(label='Sequence',required=True),
+	'plate': fields.many2one(label = 'Plate',obj='purchase.type.plates',required=True),
+	'required': fields.boolean(label='Required'),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_order_type_plates()
+
 
 class purchase_order_type_items(Model):
 	_name = 'purchase.order.type.items'
@@ -547,6 +577,7 @@ class purchase_orders(Model):
 	'items': fields.one2many(label='Items',obj='purchase.order.items',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.roles',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='purchase.order.texts',rel='order_id'),
+	'plates': fields.one2many(label='Texts',obj='purchase.order.output.plates',rel='order_id'),
 	'payments': fields.one2many(label='Payments',obj='purchase.order.payment.schedules',rel='order_id'),
 	'note': fields.text('Note')
 	}
@@ -660,6 +691,26 @@ class purchase_order_payment_schedules(Model):
 
 purchase_order_payment_schedules()
 
+class purchase_order_output_plates(Model):
+	_name = 'purchase.order.output.plates'
+	_description = 'General Model Purchase Order Output Plates'
+	_columns = {
+	'order_id': fields.many2one(label = 'Order',obj='purchase.orders'),
+	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
+	'otype': fields.many2one(label='Type',obj='purchase.output.plates',required=True),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
+	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job','tj'),('Timing Job'),('ss','Self Send','im','Immediately')],required=True),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+purchase_order_output_plates()
 
 class purchase_order_items(Model):
 	_name = 'purchase.order.items'
@@ -846,6 +897,8 @@ class purchase_invoices(Model):
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'market_id': fields.many2one(label='Market',obj='purchase.markets'),
+	'team_id': fields.many2one(label='Team',obj='purchase.teams'),
 	'category_id': fields.many2one(label='Category',obj='purchase.invoce.categories'),
 	'origin': fields.varchar(label = 'Origin'),
 	'doi': fields.date(label='Date Of Invoice',required=True),
