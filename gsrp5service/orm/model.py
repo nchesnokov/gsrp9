@@ -274,6 +274,11 @@ class BaseModel(object, metaclass = MetaModel):
 		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str,c.keys())) 
 
 	@property
+	def _domaincomputefields(self):
+		c = self.columnsInfo(attributes=['domain'])
+		return list(filter(lambda x: 'domain' in c[x] and c[x]['domain'] and type(c[x]['domain']) == str,c.keys())) 
+
+	@property
 	def _storecomputefields(self):
 		c = self.columnsInfo(attributes=['compute','store'])
 		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str and 'store' in c[x] and c[x]['store'],c.keys())) 
@@ -287,7 +292,6 @@ class BaseModel(object, metaclass = MetaModel):
 	def _nosavedfields(self):
 		c = self.columnsInfo(attributes=['type','compute','store'])
 		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str and 'store' in c[x] and not c[x]['store'] or 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) in (list,tuple) or c[x]['type'] == 'referenced',c.keys())) 
-
 
 	@property
 	def _requiredfields(self):

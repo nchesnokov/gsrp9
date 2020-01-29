@@ -107,7 +107,7 @@ inherit_common()
 
 class common_application(Model):
 	_name = 'common.application'
-	_description = 'Genaral Model Sequence Access'
+	_description = 'Genaral Model Application'
 	_class_model = 'C'
 	_rec_name = 'app'
 	_columns = {
@@ -126,11 +126,12 @@ common_application()
 class common_access_sequences(Model):
 	_name = 'common.access.sequences'
 	_description = 'Genaral Model Sequence Access'
+	_rec_name = 'fullname'
 	_class_model = 'C'
 	_columns = {
 	'app_id': fields.many2one(label='Application',obj='common.application'),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'name': fields.varchar(label='Name',translate = True,required = True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'models': fields.one2many(label='Models',obj = 'common.access.sequence.models',rel = 'access_sequence_id')
 	}
 
@@ -154,12 +155,14 @@ common_access_sequences()
 class common_access_sequence_models(Model):
 	_name = 'common.access.sequence.models'
 	_description = 'Genaral Model Models Sequence Access'
+	_rec_name = 'fullname'
 	_class_model = 'C'
 	_columns = {
 	'access_sequence_id': fields.many2one(label='Access Sequence',obj='common.access.sequences'),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'name': fields.varchar(label='Name',translate = True,required = True),
-	'model': fields.many2one(label='Model', obj = 'bc.models', domain = '_compute_domain_model')
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	#'model': fields.many2one(label='Model', obj = 'bc.models', domain = '_compute_domain_model')
+	'model': fields.many2one(label='Model', obj = 'bc.models', domain = [('name','between',('common.price.a0001','common.price.a9999'))])
 	}
 
 	def _compute_domain_model(self,cr,pool,uid,item,context):
@@ -184,9 +187,11 @@ class common_conditions(Model):
 	_class_model = 'C'
 	_columns = {
 	'app_id': fields.many2one(label='Application',obj='common.application'),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
-	'ctype': fields.selection(label='Type',selections=[('pr','Price'),('md','Margins & Discounts'),('tax','Tax')]),
 	'name': fields.varchar(label='Name',translate = True,required = True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'ctype': fields.selection(label='Class Of Type',selections=[('pr','Price'),('ma','Margins'),('di','Discounts'),('tax','Tax')]),
+	#'ttype': fields.selection(label='Type Of Type',selections=[('pr','Price'),('ma','Margins'),('di','Discounts'),('tax','Tax')]),
+	#'crule': fields.selection(label='Rule',selections=[('q','Quantity'),('%','Persent'),('a','Amount'),('w','Weigth')]),
 	'access_sequense': fields.related(label='Sequence Access',obj = 'common.access.sequences',relatedy = ['app'])
 	}
 
