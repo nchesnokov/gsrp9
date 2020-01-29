@@ -54,7 +54,7 @@
           <record id="ui.menu.common.application.custom">
           <column name="sequence">0</column>
             <column name="name">ui.menu.common.application.custom</column>
-            <column name="label">Sequence Access</column>
+            <column name="label">Application</column>
           <column name="parent_id">ui.menu.common.custom</column>
           <column name="sequence">0</column>
           <column name="action_id">action.common.application.custom</column>
@@ -82,6 +82,113 @@
           <column name="parent_id">ui.menu.common.custom</column>
           <column name="sequence">30</column>
           <column name="action_id">action.common.conditions.custom</column>
+          </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.common.application.report">
+          <column name="name">action.common.application.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.common.access.sequences.report">
+          <column name="name">action.common.access.sequences.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.common.access.sequence.models.report">
+          <column name="name">action.common.access.sequence.models.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.common.conditions.report">
+          <column name="name">action.common.conditions.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.common.application">
+          <column name="name">bc.ui.report.docx.common.application</column>
+          <column name="label">Application</column>
+          <column name="report">report_common_application</column>
+          <column name="infile">infile_common_application.docx</column>
+          <column name="outfile">outfile_common_application.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.common.access.sequences">
+          <column name="name">bc.ui.report.docx.common.access.sequences</column>
+          <column name="label">Sequence Access</column>
+          <column name="report">report_common_access_sequences</column>
+          <column name="infile">infile_common_access_sequences.docx</column>
+          <column name="outfile">outfile_common_access_sequences.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.common.access.sequence.models">
+          <column name="name">bc.ui.report.docx.common.access.sequence.models</column>
+          <column name="label">Models Sequence Access</column>
+          <column name="report">report_common_access_sequence_models</column>
+          <column name="infile">infile_common_access_sequence_models.docx</column>
+          <column name="outfile">outfile_common_access_sequence_models.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.common.conditions">
+          <column name="name">bc.ui.report.docx.common.conditions</column>
+          <column name="label">Conditions</column>
+          <column name="report">report_common_conditions</column>
+          <column name="infile">infile_common_conditions.docx</column>
+          <column name="outfile">outfile_common_conditions.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.common.application.report">
+          <column name="action_id">action.common.application.report</column>
+          <column name="report_id">bc.ui.report.docx.common.application</column>
+        </record>
+        <record id="report.action.common.access.sequences.report">
+          <column name="action_id">action.common.access.sequences.report</column>
+          <column name="report_id">bc.ui.report.docx.common.access.sequences</column>
+        </record>
+        <record id="report.action.common.access.sequence.models.report">
+          <column name="action_id">action.common.access.sequence.models.report</column>
+          <column name="report_id">bc.ui.report.docx.common.access.sequence.models</column>
+        </record>
+        <record id="report.action.common.conditions.report">
+          <column name="action_id">action.common.conditions.report</column>
+          <column name="report_id">bc.ui.report.docx.common.conditions</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.common.report.custom">
+          <column name="name">ui.menu.common.report.custom</column>
+          <column name="label">Customs</column>
+        <column name="parent_id">ui.menu.common.report</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.common.application.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.common.application.report</column>
+            <column name="label">Application</column>
+          <column name="parent_id">ui.menu.common.report.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.common.application.report</column>
+          </record>
+          <record id="ui.menu.common.access.sequences.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.common.access.sequences.report</column>
+            <column name="label">Sequence Access</column>
+          <column name="parent_id">ui.menu.common.report.custom</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.common.access.sequences.report</column>
+          </record>
+          <record id="ui.menu.common.access.sequence.models.report">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.common.access.sequence.models.report</column>
+            <column name="label">Models Sequence Access</column>
+          <column name="parent_id">ui.menu.common.report.custom</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.common.access.sequence.models.report</column>
+          </record>
+          <record id="ui.menu.common.conditions.report">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.common.conditions.report</column>
+            <column name="label">Conditions</column>
+          <column name="parent_id">ui.menu.common.report.custom</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.common.conditions.report</column>
           </record>
       </records>
     </data>

@@ -1298,6 +1298,7 @@
               <field name="htschema"/>
               <field name="itschema"/>
               <field name="roles"/>
+              <field name="plates"/>
               <field name="tis"/>
               <field name="note"/>
             </form>
@@ -1313,6 +1314,7 @@
               <field name="htschema"/>
               <field name="itschema"/>
               <field name="roles"/>
+              <field name="plates"/>
               <field name="tis"/>
             </list>
           </column>
@@ -1383,6 +1385,43 @@
             <m2mlist>
               <field name="type_id"/>
               <field name="role_id"/>
+              <field name="required"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.order.type.plates.form">
+          <column name="name">view.purchase.order.type.plates.form</column>
+          <column name="model">purchase.order.type.plates</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="type_id"/>
+              <field name="seq"/>
+              <field name="plate"/>
+              <field name="required"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.order.type.plates.list">
+          <column name="name">view.purchase.order.type.plates.list</column>
+          <column name="model">purchase.order.type.plates</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="type_id"/>
+              <field name="seq"/>
+              <field name="plate"/>
+              <field name="required"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.order.type.plates.m2mlist">
+          <column name="name">view.purchase.order.type.plates.m2mlist</column>
+          <column name="model">purchase.order.type.plates</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="type_id"/>
+              <field name="seq"/>
+              <field name="plate"/>
               <field name="required"/>
             </m2mlist>
           </column>
@@ -1732,6 +1771,7 @@
               <field name="items"/>
               <field name="roles"/>
               <field name="texts"/>
+              <field name="plates"/>
               <field name="payments"/>
               <field name="note"/>
             </form>
@@ -1822,6 +1862,7 @@
               <field name="items"/>
               <field name="roles"/>
               <field name="texts"/>
+              <field name="plates"/>
               <field name="payments"/>
             </list>
           </column>
@@ -2041,6 +2082,72 @@
               <field name="order_id"/>
               <field name="amount"/>
               <field name="currency"/>
+              <field name="schedule"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.order.output.plates.form">
+          <column name="name">view.purchase.order.output.plates.form</column>
+          <column name="model">purchase.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.order.output.plates.kanban">
+          <column name="name">view.purchase.order.output.plates.kanban</column>
+          <column name="model">purchase.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.purchase.order.output.plates.list">
+          <column name="name">view.purchase.order.output.plates.list</column>
+          <column name="model">purchase.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.order.output.plates.m2mlist">
+          <column name="name">view.purchase.order.output.plates.m2mlist</column>
+          <column name="model">purchase.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
               <field name="schedule"/>
             </m2mlist>
           </column>
@@ -2285,6 +2392,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -2308,6 +2417,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -2335,6 +2446,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -2358,6 +2471,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -2382,6 +2497,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -2408,6 +2525,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -2431,6 +2550,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -2454,6 +2575,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>
@@ -2477,6 +2600,8 @@
               <field name="name"/>
               <field name="company"/>
               <field name="fullname"/>
+              <field name="market_id"/>
+              <field name="team_id"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doi"/>

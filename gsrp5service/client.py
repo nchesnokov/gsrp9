@@ -73,7 +73,7 @@ async def hello():
 		#async with websockets.connect('ws://www.gsrp5labs.com:8170') as ws:
 		#async with websockets.connect('ws://localhost:8170/ws') as ws:
 		async with websockets.connect('ws://localhost:8170') as ws:
-			if not True:
+			if True:
 				uid = await _execute([ws, '_open','gsrp5.system',{'profile':'system'}])
 				#msg = await _execute([ws, uid[0],'modules','upgrademoduleslist',{'db':'test001'}])
 				#msg = await _execute([ws, 'slots','initialize'])
@@ -85,7 +85,7 @@ async def hello():
 				
 				#msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
 				#msg = await _execute([ws, 'gens','tr',{'modules': ['l10n_uy']}])
-				#msg = await _execute([ws, 'gens','ui',{'modules': ['purchase','sale']}])
+				msg = await _execute([ws, 'gens','ui',{'modules': ['md','common','purchase','sale']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['md','purchase']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','cm','crm','fa','hcm','ml','mm','mrp','purchase','sale','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm']}])
 				#msg = await _execute([ws, 'gens','tests',{'modules': ['crm','purchase','sale','le','cf','ai','cm','fa','hcm']}])
