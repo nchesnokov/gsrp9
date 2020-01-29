@@ -685,7 +685,7 @@ class purchase_order_output_plates(Model):
 	_columns = {
 	'order_id': fields.many2one(label = 'Order',obj='purchase.orders'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
-	'otype': fields.many2one(label='Type',obj='purchase.output.plates',required=True),
+	'otype': fields.many2one(label='Type',obj='md.output.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
 	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
 	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
 	'language': fields.many2one(label = 'language',obj='md.language',required=True),
