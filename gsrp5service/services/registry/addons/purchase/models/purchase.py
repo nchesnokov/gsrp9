@@ -565,7 +565,7 @@ class purchase_orders(Model):
 	'items': fields.one2many(label='Items',obj='purchase.order.items',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.roles',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='purchase.order.texts',rel='order_id'),
-	'plates': fields.one2many(label='Texts',obj='purchase.order.output.plates',rel='order_id'),
+	'plates': fields.one2many(label='Plates',obj='purchase.order.output.plates',rel='order_id'),
 	'payments': fields.one2many(label='Payments',obj='purchase.order.payment.schedules',rel='order_id'),
 	'note': fields.text('Note')
 	}
