@@ -425,7 +425,7 @@ class purchase_order_types(Model):
 	'htschema': fields.many2one(label='Text Schema Of Head',obj='purchase.schema.texts',domain=[('usage','in',('h','b'))]),
 	'itschema': fields.many2one(label='Text Schema Of Item',obj='purchase.schema.texts',domain=[('usage','in',('i','b'))]),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.type.roles',rel='type_id'),
-	'plates': fields.one2many(label='Plates',obj='purchase.type.plates',rel='type_id'),
+	'plates': fields.one2many(label='Plates',obj='purchase.order.type.plates',rel='type_id'),
 	'tis': fields.one2many(label='TIs',obj='purchase.order.type.items',rel='type_id'),
 	'note': fields.text(label = 'Note')
 	}
