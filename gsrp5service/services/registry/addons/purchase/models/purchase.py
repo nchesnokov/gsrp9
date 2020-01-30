@@ -725,9 +725,10 @@ class purchase_order_items(Model):
 	'weight_total': fields.float(label='Weight Total', readonly=True),
 	'weight_uom': fields.many2one(label="Weight UoM",obj='md.uom', readonly=True,domain=[('quantity_id','=','Weight')]),
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='purchase.order.item.delivery.schedules',rel='item_id'),
-	'payments': fields.one2many(label='Payments',obj='purchase.order.item.payment.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='purchase.order.item.texts',rel='item_id'),
+	'plates': fields.one2many(label='Plates',obj='purchase.order.item.output.plates',rel='item_id'),
+	'payments': fields.one2many(label='Payments',obj='purchase.order.item.payment.schedules',rel='item_id'),
 	'note': fields.text(label = 'Note')}
 
 	def _on_change_product(self,cr,pool,uid,item,context={}):		
@@ -859,6 +860,27 @@ class purchase_order_item_delivery_schedules(Model):
 
 purchase_order_item_delivery_schedules()
 
+class purchase_order_item_output_plates(Model):
+	_name = 'purchase.order.item.output.plates'
+	_description = 'General Model Purchase Order Item Output Plates'
+	_columns = {
+	'item_id': fields.many2one(label = 'Order',obj='purchase.order.items'),
+	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
+	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
+	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+purchase_order_item_output_plates()
+
 class purchase_order_item_payment_schedules(Model):
 	_name = 'purchase.order.item.payment.schedules'
 	_description = 'General Model Purchase Order Item Payment Schedules'
@@ -871,7 +893,6 @@ class purchase_order_item_payment_schedules(Model):
 	}
 
 purchase_order_item_payment_schedules()
-
 
 # Invoice
 class purchase_invoices(Model):

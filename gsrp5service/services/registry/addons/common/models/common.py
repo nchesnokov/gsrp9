@@ -121,9 +121,9 @@ seq_areas()
 
 class seq_segments(Model):
 	_name = 'seq.segments'
-	_description = 'Genaral Model Sequense Area'
+	_description = 'Genaral Model Sequense Segment'
 	_class_model = 'C'
-	_rec_name = 'area'
+	_rec_name = 'segment'
 	_columns = {
 	'segment': fields.varchar(label='Segment',size=8),
 	'descr':fields.text(label='Description')
@@ -188,7 +188,7 @@ class seq_model_columns(Model):
 	_columns = {
 	'model_id': fields.many2one(label='Model',obj='seq.models'),
 	'sequence': fields.integer(label='Sequence'),
-	'column': fields.related(label='Column', obj = 'bc.model.columns',relatedy=['model_id'])
+	'col': fields.related(label='Column', obj = 'bc.model.columns',relatedy=['model_id'])
 	}
 
 seq_model_columns()
@@ -200,7 +200,7 @@ class seq_model_column_values(Model):
 	_columns = {
 	'model_id': fields.many2one(label='Model',obj='seq.models'),
 	'sequence': fields.integer(label='Sequence'),
-	'column': fields.related(label='Column', obj = 'bc.model.columns',relatedy=['model_id'])
+	'col': fields.related(label='Column', obj = 'bc.model.columns',relatedy=['model_id'])
 	}
 
 seq_model_column_values()
@@ -210,6 +210,7 @@ class seq_conditions(Model):
 	_name = 'seq.conditions'
 	_description = 'Genaral Model Sequence Condition'
 	_class_model = 'C'
+	_rec_name = 'fullname'
 	_columns = {
 	'area': fields.many2one(label='Area',obj='seq.areas',required = True),
 	'segment': fields.many2one(label='Segment',obj='seq.segments',required = True),
@@ -221,11 +222,11 @@ class seq_conditions(Model):
 
 	def _compute_fullname(self,cr,pool,uid,item,context):
 		v=''
-		if 'usage' in item and 'name' in item['usage'] and item['usage']['name']:
-			v += item['usage']['name']
-
 		if 'area' in item and 'name' in item['area'] and item['area']['name']:
-			v += '/' + item['area']['name']
+			v += item['area']['name']
+
+		if 'segment' in item and 'name' in item['segment'] and item['segment']['name']:
+			v += '/' + item['segment']['name']
 
 
 		if item['name']:
@@ -236,7 +237,7 @@ class seq_conditions(Model):
 
 	
 	_default = {
-		'usage':'b'
+		'usage':'a'
 	}
 
 
@@ -245,117 +246,35 @@ seq_conditions()
 
 # sequence access end
 
-
-
-class common_application(Model):
-	_name = 'common.application'
-	_description = 'Genaral Model Application'
-	_class_model = 'C'
-	_rec_name = 'app'
-	_columns = {
-	'app': fields.selection(label='Application',selections=[('a','Price'),('b','Output Formular')]),
-	'sequences': fields.one2many(label='Sequences',obj='common.access.sequences',rel='app_id'),
-	'conditions': fields.one2many(label='Conditions',obj='common.conditions',rel='app_id'),
-	}
-
-	_default = {
-		'app':'a'
-	}
-
-common_application()
-
-
-class common_access_sequences(Model):
-	_name = 'common.access.sequences'
-	_description = 'Genaral Model Sequence Access'
+class seq_access_schemas(Model):
+	_name = 'seq.access.schemas'
+	_description = 'Genaral Model Sequence Access Schema'
 	_rec_name = 'fullname'
-	_class_model = 'C'
 	_columns = {
-	'app_id': fields.many2one(label='Application',obj='common.application'),
+	'area': fields.many2one(label='Area',obj='seq.areas',required = True),
+	'segment': fields.many2one(label='Segment',obj='seq.segments',required = True),
 	'name': fields.varchar(label='Name',translate = True,required = True),
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
-	'models': fields.one2many(label='Models',obj = 'common.access.sequence.models',rel = 'access_sequence_id')
+	'usage': fields.selection(label='Usage',selections=[('a','All')]),
 	}
 
 	def _compute_fullname(self,cr,pool,uid,item,context):
 		v=''
-		if 'app_id' in item and 'name' in item['app_id'] and item['app_id']['name']:
-			v += item['app_id']['name']
+		if 'area' in item and 'name' in item['area'] and item['area']['name']:
+			v += item['area']['name']
+
+		if 'segment' in item and 'name' in item['segment'] and item['segment']['name']:
+			v += '/' + item['segment']['name']
 
 		if item['name']:
 			v += '/' + item['name']
 		
 		if len(v) > 0:
 			item['fullname'] = v
-
-	_default = {
-		'app':'a'
-	}
-
-common_access_sequences()
-
-class common_access_sequence_models(Model):
-	_name = 'common.access.sequence.models'
-	_description = 'Genaral Model Models Sequence Access'
-	_rec_name = 'fullname'
-	_class_model = 'C'
-	_columns = {
-	'access_sequence_id': fields.many2one(label='Access Sequence',obj='common.access.sequences'),
-	'name': fields.varchar(label='Name',translate = True,required = True),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
-	#'model': fields.many2one(label='Model', obj = 'bc.models', domain = '_compute_domain_model')
-	'model': fields.many2one(label='Model', obj = 'bc.models', domain = [('name','between',('common.price.a0001','common.price.a9999'))])
-	}
-
-	def _compute_domain_model(self,cr,pool,uid,item,context):
-		return [('name','between',('common.price.a0001','common.price.a9999'))]
-
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'access_sequence_id' in item and 'name' in item['access_sequence_id'] and item['access_sequence_id']['name']:
-			v += item['access_sequence_id']['name']
-
-		if item['name']:
-			v += '/' + item['name']
-		
-		if len(v) > 0:
-			item['fullname'] = v
-
-common_access_sequence_models()
-
-class common_conditions(Model):
-	_name = 'common.conditions'
-	_description = 'Genaral Model Conditions'
-	_class_model = 'C'
-	_columns = {
-	'app_id': fields.many2one(label='Application',obj='common.application'),
-	'name': fields.varchar(label='Name',translate = True,required = True),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
-	'ctype': fields.selection(label='Class Of Type',selections=[('pr','Price'),('ma','Margins'),('di','Discounts'),('tax','Tax')]),
-	#'ttype': fields.selection(label='Type Of Type',selections=[('pr','Price'),('ma','Margins'),('di','Discounts'),('tax','Tax')]),
-	#'crule': fields.selection(label='Rule',selections=[('q','Quantity'),('%','Persent'),('a','Amount'),('w','Weigth')]),
-	'access_sequense': fields.related(label='Sequence Access',obj = 'common.access.sequences',relatedy = ['app'])
-	}
-
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'app_id' in item and 'name' in item['app_id'] and item['app_id']['name']:
-			v += item['app_id']['name']
-
-		if item['ctype']:
-			v += '/' + item['ctype']
-
-
-		if item['name']:
-			v += '/' + item['name']
-		
-		if len(v) > 0:
-			item['fullname'] = v
-
 	
 	_default = {
-		'ctype':'pr'
+		'usage':'a'
 	}
 
 
-common_conditions()
+seq_access_schemas()

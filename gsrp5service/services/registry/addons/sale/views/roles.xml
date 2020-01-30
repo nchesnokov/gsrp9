@@ -720,6 +720,26 @@
           <column name="note">Model sale.order.payment.schedules grant crw</column>
           <column name="group_id">sale.crw</column>
         </record>
+        <record id="sale.order.output.plates.readonly">
+          <column name="name">sale.order.output.plates.readonly</column>
+          <column name="note">Model sale.order.output.plates grant readonly</column>
+          <column name="group_id">sale.readonly</column>
+        </record>
+        <record id="sale.order.output.plates.nodrop">
+          <column name="name">sale.order.output.plates.nodrop</column>
+          <column name="note">Model sale.order.output.plates grant nodrop</column>
+          <column name="group_id">sale.nodrop</column>
+        </record>
+        <record id="sale.order.output.plates.full">
+          <column name="name">sale.order.output.plates.full</column>
+          <column name="note">Model sale.order.output.plates grant full</column>
+          <column name="group_id">sale.full</column>
+        </record>
+        <record id="sale.order.output.plates.crw">
+          <column name="name">sale.order.output.plates.crw</column>
+          <column name="note">Model sale.order.output.plates grant crw</column>
+          <column name="group_id">sale.crw</column>
+        </record>
         <record id="sale.order.items.readonly">
           <column name="name">sale.order.items.readonly</column>
           <column name="note">Model sale.order.items grant readonly</column>
@@ -798,6 +818,26 @@
         <record id="sale.order.item.delivery.schedules.crw">
           <column name="name">sale.order.item.delivery.schedules.crw</column>
           <column name="note">Model sale.order.item.delivery.schedules grant crw</column>
+          <column name="group_id">sale.crw</column>
+        </record>
+        <record id="sale.order.item.output.plates.readonly">
+          <column name="name">sale.order.item.output.plates.readonly</column>
+          <column name="note">Model sale.order.item.output.plates grant readonly</column>
+          <column name="group_id">sale.readonly</column>
+        </record>
+        <record id="sale.order.item.output.plates.nodrop">
+          <column name="name">sale.order.item.output.plates.nodrop</column>
+          <column name="note">Model sale.order.item.output.plates grant nodrop</column>
+          <column name="group_id">sale.nodrop</column>
+        </record>
+        <record id="sale.order.item.output.plates.full">
+          <column name="name">sale.order.item.output.plates.full</column>
+          <column name="note">Model sale.order.item.output.plates grant full</column>
+          <column name="group_id">sale.full</column>
+        </record>
+        <record id="sale.order.item.output.plates.crw">
+          <column name="name">sale.order.item.output.plates.crw</column>
+          <column name="note">Model sale.order.item.output.plates grant crw</column>
           <column name="group_id">sale.crw</column>
         </record>
         <record id="sale.order.item.payment.schedules.readonly">
@@ -2732,6 +2772,56 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
+        <record id="sale.sale.order.output.plates.readonly">
+          <column name="access_id">sale.order.output.plates.readonly</column>
+          <column name="model_id">sale.order.output.plates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="sale.sale.order.output.plates.nodrop">
+          <column name="access_id">sale.order.output.plates.nodrop</column>
+          <column name="model_id">sale.order.output.plates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="sale.sale.order.output.plates.full">
+          <column name="access_id">sale.order.output.plates.full</column>
+          <column name="model_id">sale.order.output.plates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="sale.sale.order.output.plates.crw">
+          <column name="access_id">sale.order.output.plates.crw</column>
+          <column name="model_id">sale.order.output.plates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
         <record id="sale.sale.order.items.readonly">
           <column name="access_id">sale.order.items.readonly</column>
           <column name="model_id">sale.order.items</column>
@@ -2921,6 +3011,56 @@
         <record id="sale.sale.order.item.delivery.schedules.crw">
           <column name="access_id">sale.order.item.delivery.schedules.crw</column>
           <column name="model_id">sale.order.item.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="sale.sale.order.item.output.plates.readonly">
+          <column name="access_id">sale.order.item.output.plates.readonly</column>
+          <column name="model_id">sale.order.item.output.plates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="sale.sale.order.item.output.plates.nodrop">
+          <column name="access_id">sale.order.item.output.plates.nodrop</column>
+          <column name="model_id">sale.order.item.output.plates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="sale.sale.order.item.output.plates.full">
+          <column name="access_id">sale.order.item.output.plates.full</column>
+          <column name="model_id">sale.order.item.output.plates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="sale.sale.order.item.output.plates.crw">
+          <column name="access_id">sale.order.item.output.plates.crw</column>
+          <column name="model_id">sale.order.item.output.plates</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

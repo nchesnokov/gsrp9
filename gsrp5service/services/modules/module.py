@@ -933,11 +933,11 @@ def _loadXMLFile(cr,pool,uid,info,path,name,fl):
 								if 'ref' in el.attrib:
 									oid = pool.get('bc.model.data').select(cr=cr,pool=pool,uid=uid,fields=['rec_id'],cond=[('name','=',el.attrib['ref'])],context= {'FETCH':'LIST'},limit=1)[0]
 								else:
-									oid = pool.get(obj).search(cr=cr,pool=pool,uid=uid,cond=[(recname,'=',record[key])],context= {'FETCH':'LIST'},limit=1)[0]
-									# try:
-										# oid = pool.get(obj).search(cr=cr,pool=pool,uid=uid,cond=[(recname,'=',record[key])],context= {'FETCH':'LIST'},limit=1)[0]
-									# except:
-										# print('RECORD-KEY:',obj,record[key])
+									#oid = pool.get(obj).search(cr=cr,pool=pool,uid=uid,cond=[(recname,'=',record[key])],context= {'FETCH':'LIST'},limit=1)[0]
+									try:
+										oid = pool.get(obj).search(cr=cr,pool=pool,uid=uid,cond=[(recname,'=',record[key])],context= {'FETCH':'LIST'},limit=1)[0]
+									except:
+										print('RECORD-KEY:',obj,record[key])
 									
 								
 								_buffer.add(key,obj,record[key],oid)

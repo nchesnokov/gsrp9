@@ -233,7 +233,7 @@ class sale_unit_channel_assigments(Model):
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='sale.units'),
-	'channel_id': fields.many2one(label='Channel',obj='sale.channels'),
+	'channel_id': fields.many2one(label='Channel',obj='sale.channels',selectable=True),
 	'descr': fields.referenced(ref='channel_id.descr'),
 	}
 
@@ -247,7 +247,7 @@ class sale_unit_segment_assigments(Model):
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='sale.units'),
-	'segment_id': fields.many2one(label='Segment',obj='sale.segments'),
+	'segment_id': fields.many2one(label='Segment',obj='sale.segments',selectable=True),
 	'descr': fields.referenced(ref='segment_id.descr'),
 	}
 
@@ -261,7 +261,7 @@ class sale_unit_area_assigments(Model):
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='sale.units'),
-	'area_id': fields.many2one(label='Area',obj='sale.areas'),
+	'area_id': fields.many2one(label='Area',obj='sale.areas',selectable=True),
 	'descr': fields.referenced(ref='area_id.descr'),
 	}
 
@@ -275,7 +275,7 @@ class sale_unit_region_assigments(Model):
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='sale.units'),
-	'region_id': fields.many2one(label='Region',obj='sale.regions'),
+	'region_id': fields.many2one(label='Region',obj='sale.regions',selectable=True),
 	'descr': fields.referenced(ref='region_id.descr'),
 	}
 
@@ -291,7 +291,7 @@ class sale_division_subdivision_assigments(Model):
 	_class_category = 'order'
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='sale.divisions'),
-	'subdivision_id': fields.many2one(label='Subdivision',obj='sale.subdivisions'),
+	'subdivision_id': fields.many2one(label='Subdivision',obj='sale.subdivisions',selectable=True),
 	'descr': fields.referenced(ref='subdivision_id.descr'),
 	}
 
@@ -547,6 +547,7 @@ class sale_orders(Model):
 	'items': fields.one2many(label='Items',obj='sale.order.items',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='sale.order.roles',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='sale.order.texts',rel='order_id'),
+	'plates': fields.one2many(label='Plates',obj='sale.order.output.plates',rel='order_id'),
 	'payments': fields.one2many(label='Payments',obj='sale.order.payment.schedules',rel='order_id'),
 	'note': fields.text('Note')
 	}
@@ -591,7 +592,7 @@ class sale_orders(Model):
 		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
 			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('sale.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.utcnow()+timedelta(3)
 				item_items = pool.get('sale.order.items')._buildEmptyItem()
@@ -630,7 +631,7 @@ sale_order_texts()
 
 class sale_order_roles(Model):
 	_name = 'sale.order.roles'
-	_description = 'General Model Purchase Order Roles'
+	_description = 'General Model Sale Order Roles'
 	_columns = {
 	'order_id': fields.many2one(label = 'Order',obj='sale.orders'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','i','p','a'))]),
@@ -651,6 +652,29 @@ class sale_order_payment_schedules(Model):
 	}
 
 sale_order_payment_schedules()
+
+class sale_order_output_plates(Model):
+	_name = 'sale.order.output.plates'
+	_description = 'General Model Sale Order Output Plates'
+	_columns = {
+	'order_id': fields.many2one(label = 'Order',obj='sale.orders'),
+	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
+	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
+	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+sale_order_output_plates()
+
+
 
 class sale_order_items(Model):
 	_name = 'sale.order.items'
@@ -677,9 +701,10 @@ class sale_order_items(Model):
 	'weight_total': fields.float(label='Weight Total', readonly=True),
 	'weight_uom': fields.many2one(label="Weight UoM",obj='md.uom', readonly=True,domain=[('quantity_id','=','Weight')]),
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='sale.order.item.delivery.schedules',rel='item_id'),
-	'payments': fields.one2many(label='Payments',obj='sale.order.item.payment.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='sale.order.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='sale.order.item.texts',rel='item_id'),
+	'plates': fields.one2many(label='Plates',obj='sale.order.item.output.plates',rel='item_id'),
+	'payments': fields.one2many(label='Payments',obj='sale.order.item.payment.schedules',rel='item_id'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -774,6 +799,27 @@ class sale_order_item_delivery_schedules(Model):
 	}
 
 sale_order_item_delivery_schedules()
+
+class sale_order_item_output_plates(Model):
+	_name = 'sale.order.item.output.plates'
+	_description = 'General Model Sale Order Item Output Plates'
+	_columns = {
+	'item_id': fields.many2one(label = 'Order',obj='sale.order.items'),
+	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
+	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
+	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+sale_order_item_output_plates()
 
 class sale_order_item_payment_schedules(Model):
 	_name = 'sale.order.item.payment.schedules'
@@ -919,7 +965,7 @@ sale_invoice_item_texts()
 
 class sale_invoice_item_roles(Model):
 	_name = 'sale.invoice.item.roles'
-	_description = 'General Model Purchase Invoice Item Roles'
+	_description = 'General Model Sale Invoice Item Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='sale.invoice.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','i','p','a'))]),

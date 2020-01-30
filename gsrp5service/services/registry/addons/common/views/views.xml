@@ -2,234 +2,433 @@
   <gsrp>
     <data>
       <records model="bc.ui.views">
-        <record id="view.common.application.form">
-          <column name="name">view.common.application.form</column>
-          <column name="model">common.application</column>
+        <record id="view.seq.areas.form">
+          <column name="name">view.seq.areas.form</column>
+          <column name="model">seq.areas</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="app"/>
-              <field name="sequences"/>
-              <field name="conditions"/>
+              <field name="area"/>
+              <field name="descr"/>
             </form>
           </column>
         </record>
-        <record id="view.common.application.list">
-          <column name="name">view.common.application.list</column>
-          <column name="model">common.application</column>
+        <record id="view.seq.areas.list">
+          <column name="name">view.seq.areas.list</column>
+          <column name="model">seq.areas</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="app"/>
-              <field name="sequences"/>
-              <field name="conditions"/>
+              <field name="area"/>
             </list>
           </column>
         </record>
-        <record id="view.common.application.m2mlist">
-          <column name="name">view.common.application.m2mlist</column>
-          <column name="model">common.application</column>
+        <record id="view.seq.areas.m2mlist">
+          <column name="name">view.seq.areas.m2mlist</column>
+          <column name="model">seq.areas</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="app"/>
+              <field name="area"/>
             </m2mlist>
           </column>
         </record>
-        <record id="view.common.application.search">
-          <column name="name">view.common.application.search</column>
-          <column name="model">common.application</column>
+        <record id="view.seq.areas.search">
+          <column name="name">view.seq.areas.search</column>
+          <column name="model">seq.areas</column>
           <column name="arch" type="Xml">
             <search>
-              <field name="app"/>
+              <field name="area"/>
             </search>
           </column>
         </record>
-        <record id="view.common.application.find">
-          <column name="name">view.common.application.find</column>
-          <column name="model">common.application</column>
+        <record id="view.seq.areas.find">
+          <column name="name">view.seq.areas.find</column>
+          <column name="model">seq.areas</column>
           <column name="arch" type="Xml">
             <find>
-              <field name="app"/>
+              <field name="area"/>
             </find>
           </column>
         </record>
-        <record id="view.common.access.sequences.form">
-          <column name="name">view.common.access.sequences.form</column>
-          <column name="model">common.access.sequences</column>
+        <record id="view.seq.segments.form">
+          <column name="name">view.seq.segments.form</column>
+          <column name="model">seq.segments</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="app_id"/>
+              <field name="segment"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.seq.segments.list">
+          <column name="name">view.seq.segments.list</column>
+          <column name="model">seq.segments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="segment"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.seq.segments.m2mlist">
+          <column name="name">view.seq.segments.m2mlist</column>
+          <column name="model">seq.segments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="segment"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.seq.segments.search">
+          <column name="name">view.seq.segments.search</column>
+          <column name="model">seq.segments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="segment"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.seq.segments.find">
+          <column name="name">view.seq.segments.find</column>
+          <column name="model">seq.segments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="segment"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.seq.access.form">
+          <column name="name">view.seq.access.form</column>
+          <column name="model">seq.access</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="area"/>
+              <field name="segment"/>
               <field name="name"/>
               <field name="fullname"/>
+              <field name="usage"/>
               <field name="models"/>
             </form>
           </column>
         </record>
-        <record id="view.common.access.sequences.list">
-          <column name="name">view.common.access.sequences.list</column>
-          <column name="model">common.access.sequences</column>
+        <record id="view.seq.access.list">
+          <column name="name">view.seq.access.list</column>
+          <column name="model">seq.access</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="app_id"/>
+              <field name="area"/>
+              <field name="segment"/>
               <field name="name"/>
               <field name="fullname"/>
+              <field name="usage"/>
               <field name="models"/>
             </list>
           </column>
         </record>
-        <record id="view.common.access.sequences.m2mlist">
-          <column name="name">view.common.access.sequences.m2mlist</column>
-          <column name="model">common.access.sequences</column>
+        <record id="view.seq.access.m2mlist">
+          <column name="name">view.seq.access.m2mlist</column>
+          <column name="model">seq.access</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="app_id"/>
+              <field name="area"/>
+              <field name="segment"/>
               <field name="name"/>
               <field name="fullname"/>
+              <field name="usage"/>
             </m2mlist>
           </column>
         </record>
-        <record id="view.common.access.sequences.search">
-          <column name="name">view.common.access.sequences.search</column>
-          <column name="model">common.access.sequences</column>
+        <record id="view.seq.access.search">
+          <column name="name">view.seq.access.search</column>
+          <column name="model">seq.access</column>
           <column name="arch" type="Xml">
             <search>
-              <field name="app_id"/>
+              <field name="area"/>
+              <field name="segment"/>
               <field name="name"/>
               <field name="fullname"/>
+              <field name="usage"/>
             </search>
           </column>
         </record>
-        <record id="view.common.access.sequences.find">
-          <column name="name">view.common.access.sequences.find</column>
-          <column name="model">common.access.sequences</column>
+        <record id="view.seq.access.find">
+          <column name="name">view.seq.access.find</column>
+          <column name="model">seq.access</column>
           <column name="arch" type="Xml">
             <find>
-              <field name="app_id"/>
+              <field name="area"/>
+              <field name="segment"/>
               <field name="name"/>
               <field name="fullname"/>
+              <field name="usage"/>
             </find>
           </column>
         </record>
-        <record id="view.common.access.sequence.models.form">
-          <column name="name">view.common.access.sequence.models.form</column>
-          <column name="model">common.access.sequence.models</column>
+        <record id="view.seq.models.form">
+          <column name="name">view.seq.models.form</column>
+          <column name="model">seq.models</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="access_sequence_id"/>
-              <field name="name"/>
-              <field name="fullname"/>
+              <field name="access_id"/>
+              <field name="sequence"/>
               <field name="model"/>
+              <field name="columns"/>
+              <field name="values"/>
             </form>
           </column>
         </record>
-        <record id="view.common.access.sequence.models.list">
-          <column name="name">view.common.access.sequence.models.list</column>
-          <column name="model">common.access.sequence.models</column>
+        <record id="view.seq.models.list">
+          <column name="name">view.seq.models.list</column>
+          <column name="model">seq.models</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="access_sequence_id"/>
-              <field name="name"/>
-              <field name="fullname"/>
+              <field name="access_id"/>
+              <field name="sequence"/>
               <field name="model"/>
+              <field name="columns"/>
+              <field name="values"/>
             </list>
           </column>
         </record>
-        <record id="view.common.access.sequence.models.m2mlist">
-          <column name="name">view.common.access.sequence.models.m2mlist</column>
-          <column name="model">common.access.sequence.models</column>
+        <record id="view.seq.models.m2mlist">
+          <column name="name">view.seq.models.m2mlist</column>
+          <column name="model">seq.models</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="access_sequence_id"/>
-              <field name="name"/>
-              <field name="fullname"/>
+              <field name="access_id"/>
+              <field name="sequence"/>
               <field name="model"/>
             </m2mlist>
           </column>
         </record>
-        <record id="view.common.access.sequence.models.search">
-          <column name="name">view.common.access.sequence.models.search</column>
-          <column name="model">common.access.sequence.models</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="access_sequence_id"/>
-              <field name="name"/>
-              <field name="fullname"/>
-              <field name="model"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.common.access.sequence.models.find">
-          <column name="name">view.common.access.sequence.models.find</column>
-          <column name="model">common.access.sequence.models</column>
+        <record id="view.seq.models.find">
+          <column name="name">view.seq.models.find</column>
+          <column name="model">seq.models</column>
           <column name="arch" type="Xml">
             <find>
-              <field name="access_sequence_id"/>
-              <field name="name"/>
-              <field name="fullname"/>
+              <field name="access_id"/>
+              <field name="sequence"/>
               <field name="model"/>
             </find>
           </column>
         </record>
-        <record id="view.common.conditions.form">
-          <column name="name">view.common.conditions.form</column>
-          <column name="model">common.conditions</column>
+        <record id="view.seq.model.columns.form">
+          <column name="name">view.seq.model.columns.form</column>
+          <column name="model">seq.model.columns</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="app_id"/>
-              <field name="name"/>
-              <field name="fullname"/>
-              <field name="ctype"/>
-              <field name="access_sequense"/>
+              <field name="model_id"/>
+              <field name="sequence"/>
+              <field name="col"/>
             </form>
           </column>
         </record>
-        <record id="view.common.conditions.list">
-          <column name="name">view.common.conditions.list</column>
-          <column name="model">common.conditions</column>
+        <record id="view.seq.model.columns.list">
+          <column name="name">view.seq.model.columns.list</column>
+          <column name="model">seq.model.columns</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="app_id"/>
-              <field name="name"/>
-              <field name="fullname"/>
-              <field name="ctype"/>
-              <field name="access_sequense"/>
+              <field name="model_id"/>
+              <field name="sequence"/>
+              <field name="col"/>
             </list>
           </column>
         </record>
-        <record id="view.common.conditions.m2mlist">
-          <column name="name">view.common.conditions.m2mlist</column>
-          <column name="model">common.conditions</column>
+        <record id="view.seq.model.columns.m2mlist">
+          <column name="name">view.seq.model.columns.m2mlist</column>
+          <column name="model">seq.model.columns</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="app_id"/>
-              <field name="name"/>
-              <field name="fullname"/>
-              <field name="ctype"/>
-              <field name="access_sequense"/>
+              <field name="model_id"/>
+              <field name="sequence"/>
+              <field name="col"/>
             </m2mlist>
           </column>
         </record>
-        <record id="view.common.conditions.search">
-          <column name="name">view.common.conditions.search</column>
-          <column name="model">common.conditions</column>
+        <record id="view.seq.model.columns.find">
+          <column name="name">view.seq.model.columns.find</column>
+          <column name="model">seq.model.columns</column>
           <column name="arch" type="Xml">
-            <search>
-              <field name="app_id"/>
+            <find>
+              <field name="model_id"/>
+              <field name="sequence"/>
+              <field name="col"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.seq.model.column.values.form">
+          <column name="name">view.seq.model.column.values.form</column>
+          <column name="model">seq.model.column.values</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="model_id"/>
+              <field name="sequence"/>
+              <field name="col"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.seq.model.column.values.list">
+          <column name="name">view.seq.model.column.values.list</column>
+          <column name="model">seq.model.column.values</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="model_id"/>
+              <field name="sequence"/>
+              <field name="col"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.seq.model.column.values.m2mlist">
+          <column name="name">view.seq.model.column.values.m2mlist</column>
+          <column name="model">seq.model.column.values</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="model_id"/>
+              <field name="sequence"/>
+              <field name="col"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.seq.model.column.values.find">
+          <column name="name">view.seq.model.column.values.find</column>
+          <column name="model">seq.model.column.values</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="model_id"/>
+              <field name="sequence"/>
+              <field name="col"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.seq.conditions.form">
+          <column name="name">view.seq.conditions.form</column>
+          <column name="model">seq.conditions</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="area"/>
+              <field name="segment"/>
               <field name="name"/>
               <field name="fullname"/>
-              <field name="ctype"/>
-              <field name="access_sequense"/>
+              <field name="usage"/>
+              <field name="seq_access"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.seq.conditions.list">
+          <column name="name">view.seq.conditions.list</column>
+          <column name="model">seq.conditions</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="area"/>
+              <field name="segment"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="usage"/>
+              <field name="seq_access"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.seq.conditions.m2mlist">
+          <column name="name">view.seq.conditions.m2mlist</column>
+          <column name="model">seq.conditions</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="area"/>
+              <field name="segment"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="usage"/>
+              <field name="seq_access"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.seq.conditions.search">
+          <column name="name">view.seq.conditions.search</column>
+          <column name="model">seq.conditions</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="area"/>
+              <field name="segment"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="usage"/>
+              <field name="seq_access"/>
             </search>
           </column>
         </record>
-        <record id="view.common.conditions.find">
-          <column name="name">view.common.conditions.find</column>
-          <column name="model">common.conditions</column>
+        <record id="view.seq.conditions.find">
+          <column name="name">view.seq.conditions.find</column>
+          <column name="model">seq.conditions</column>
           <column name="arch" type="Xml">
             <find>
-              <field name="app_id"/>
+              <field name="area"/>
+              <field name="segment"/>
               <field name="name"/>
               <field name="fullname"/>
-              <field name="ctype"/>
-              <field name="access_sequense"/>
+              <field name="usage"/>
+              <field name="seq_access"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.seq.access.schemas.form">
+          <column name="name">view.seq.access.schemas.form</column>
+          <column name="model">seq.access.schemas</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="area"/>
+              <field name="segment"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="usage"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.seq.access.schemas.list">
+          <column name="name">view.seq.access.schemas.list</column>
+          <column name="model">seq.access.schemas</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="area"/>
+              <field name="segment"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="usage"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.seq.access.schemas.m2mlist">
+          <column name="name">view.seq.access.schemas.m2mlist</column>
+          <column name="model">seq.access.schemas</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="area"/>
+              <field name="segment"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="usage"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.seq.access.schemas.search">
+          <column name="name">view.seq.access.schemas.search</column>
+          <column name="model">seq.access.schemas</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="area"/>
+              <field name="segment"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="usage"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.seq.access.schemas.find">
+          <column name="name">view.seq.access.schemas.find</column>
+          <column name="model">seq.access.schemas</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="area"/>
+              <field name="segment"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="usage"/>
             </find>
           </column>
         </record>
