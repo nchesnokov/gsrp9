@@ -188,7 +188,7 @@ class seq_model_columns(Model):
 	_columns = {
 	'model_id': fields.many2one(label='Model',obj='seq.models'),
 	'sequence': fields.integer(label='Sequence'),
-	'column': fields.related(label='Column', obj = 'bc.columns',relatedy=['model_id'])
+	'column': fields.related(label='Column', obj = 'bc.model.columns',relatedy=['model_id'])
 	}
 
 seq_model_columns()
@@ -200,7 +200,7 @@ class seq_model_column_values(Model):
 	_columns = {
 	'model_id': fields.many2one(label='Model',obj='seq.models'),
 	'sequence': fields.integer(label='Sequence'),
-	'column': fields.related(label='Column', obj = 'bc.columns',relatedy=['model_id'])
+	'column': fields.related(label='Column', obj = 'bc.model.columns',relatedy=['model_id'])
 	}
 
 seq_model_column_values()
