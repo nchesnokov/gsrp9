@@ -105,6 +105,148 @@ class inherit_common(ModelInherit):
 	
 inherit_common()
 
+# sequence access start
+
+class seq_areas(Model):
+	_name = 'seq.areas'
+	_description = 'Genaral Model Sequense Area'
+	_class_model = 'C'
+	_rec_name = 'area'
+	_columns = {
+	'area': fields.varchar(label='Area',size=8),
+	'descr':fields.text(label='Description')
+	}
+
+seq_areas()
+
+class seq_segmens(Model):
+	_name = 'seq.segments'
+	_description = 'Genaral Model Sequense Area'
+	_class_model = 'C'
+	_rec_name = 'area'
+	_columns = {
+	'segment': fields.varchar(label='Segment',size=8),
+	'descr':fields.text(label='Description')
+	}
+
+seq_segments()
+
+class seq_access(Model):
+	_name = 'seq.access'
+	_description = 'Genaral Model Sequence Access'
+	_class_model = 'C'
+	_rec_name = 'fullname'
+	_columns = {
+	'area': fields.many2one(label='Area',obj='seq.areas',required = True),
+	'segment': fields.many2one(label='Segment',obj='seq.segments',required = True),
+	'name': fields.varchar(label='Name',translate = True,required = True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'usage': fields.selection(label='Usage',selections=[('a','All')]),
+	'models': fields.one2many(label='Models',obj='seq.models',rel='access_id')
+	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'area' in item and 'name' in item['area'] and item['area']['name']:
+			v += item['area']['name']
+
+		if 'segment' in item and 'name' in item['segment'] and item['segment']['name']:
+			v += '/' + item['segment']['name']
+
+		if item['name']:
+			v += '/' + item['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
+	
+	_default = {
+		'usage':'a'
+	}
+
+
+seq_accesss()
+
+class seq_models(Model):
+	_name = 'seq.models'
+	_description = 'Genaral Model Sequence Models'
+	_class_model = 'C'
+	_columns = {
+	'access_id': fields.many2one(label='Access Sequence',obj='seq.access'),
+	'sequence': fields.integer(label='Sequence'),
+	'model': fields.many2one(label='Model', obj = 'bc.models'),
+	'columns': fields.one2many(label='Columns',obj='seq.model.columns',rel='model_id'),
+	'values': fields.one2many(label='Values',obj='seq.model.column.values',rel='model_id'),
+	
+	}
+
+seq_models()
+
+class seq_model_columns(Model):
+	_name = 'seq.model.columns'
+	_description = 'Genaral Model Sequence Model Columns'
+	_class_model = 'C'
+	_columns = {
+	'model_id': fields.many2one(label='Model',obj='seq.models'),
+	'sequence': fields.integer(label='Sequence'),
+	'column': fields.related(label='Column', obj = 'bc.columns',relatedy=['model_id'])
+	}
+
+seq_model_columns()
+
+class seq_model_column_values(Model):
+	_name = 'seq.model.column.values'
+	_description = 'Genaral Model Sequence Model Columns'
+	_class_model = 'C'
+	_columns = {
+	'model_id': fields.many2one(label='Model',obj='seq.models'),
+	'sequence': fields.integer(label='Sequence'),
+	'column': fields.related(label='Column', obj = 'bc.columns',relatedy=['model_id'])
+	}
+
+seq_model_column_values()
+
+
+class seq_conditions(Model):
+	_name = 'seq.conditions'
+	_description = 'Genaral Model Sequence Condition'
+	_class_model = 'C'
+	_columns = {
+	'area': fields.many2one(label='Area',obj='seq.areas',required = True),
+	'segment': fields.many2one(label='Segment',obj='seq.segments',required = True),
+	'name': fields.varchar(label='Name',translate = True,required = True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'usage': fields.selection(label='Usage',selections=[('a','All')]),
+	'seq_access': fields.related(label='Sequence Access',obj='seq.access',relatedy=['area','segment','usage']),
+	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'usage' in item and 'name' in item['usage'] and item['usage']['name']:
+			v += item['usage']['name']
+
+		if 'area' in item and 'name' in item['area'] and item['area']['name']:
+			v += '/' + item['area']['name']
+
+
+		if item['name']:
+			v += '/' + item['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
+	
+	_default = {
+		'usage':'b'
+	}
+
+
+seq_conditions()
+
+
+# sequence access end
+
+
+
 class common_application(Model):
 	_name = 'common.application'
 	_description = 'Genaral Model Application'

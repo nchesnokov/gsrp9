@@ -233,7 +233,7 @@ class purchase_unit_channel_assigments(Model):
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='purchase.units'),
-	'channel_id': fields.many2one(label='Channel',obj='purchase.channels'),
+	'channel_id': fields.many2one(label='Channel',obj='purchase.channels',selectable=True),
 	'descr': fields.referenced(ref='channel_id.descr'),
 	}
 
@@ -247,7 +247,7 @@ class purchase_unit_segment_assigments(Model):
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='purchase.units'),
-	'segment_id': fields.many2one(label='Segment',obj='purchase.segments'),
+	'segment_id': fields.many2one(label='Segment',obj='purchase.segments',selectable=True),
 	'descr': fields.referenced(ref='segment_id.descr'),
 	}
 
@@ -261,7 +261,7 @@ class purchase_unit_area_assigments(Model):
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='purchase.units'),
-	'area_id': fields.many2one(label='Area',obj='purchase.areas'),
+	'area_id': fields.many2one(label='Area',obj='purchase.areas',selectable=True),
 	'descr': fields.referenced(ref='area_id.descr'),
 	}
 
@@ -275,7 +275,7 @@ class purchase_unit_region_assigments(Model):
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='purchase.units'),
-	'region_id': fields.many2one(label='Region',obj='purchase.regions'),
+	'region_id': fields.many2one(label='Region',obj='purchase.regions',selectable=True),
 	'descr': fields.referenced(ref='region_id.descr'),
 	}
 
@@ -291,7 +291,7 @@ class purchase_division_subdivision_assigments(Model):
 	_class_category = 'order'
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='purchase.divisions'),
-	'subdivision_id': fields.many2one(label='Subdivision',obj='purchase.subdivisions'),
+	'subdivision_id': fields.many2one(label='Subdivision',obj='purchase.subdivisions',selectable=True),
 	'descr': fields.referenced(ref='subdivision_id.descr'),
 	}
 
