@@ -119,7 +119,7 @@ class seq_areas(Model):
 
 seq_areas()
 
-class seq_segmens(Model):
+class seq_segments(Model):
 	_name = 'seq.segments'
 	_description = 'Genaral Model Sequense Area'
 	_class_model = 'C'
