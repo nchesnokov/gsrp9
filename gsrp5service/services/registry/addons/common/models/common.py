@@ -164,7 +164,7 @@ class seq_access(Model):
 	}
 
 
-seq_accesss()
+seq_access()
 
 class seq_models(Model):
 	_name = 'seq.models'
