@@ -755,8 +755,16 @@ class MCache(object):
 	
 	def _m2o_find(self,path,model,key,value,context):
 		rec_name = self._pool.get(self._meta[model][key]['obj'])._getRecNameName()
-		fields = [rec_name]
-		cond = [(rec_name,'like',value['name'] if type(value) == dict else value)]
+		if rec_name:
+			fields = [rec_name]
+			cond = [(rec_name,'like',value['name'] if type(value) == dict else value)]
+		else:
+			fields = [key]
+			cond = []
+
+			if value['id']:
+				cond.append((key,'like',value['id']))
+
 		r = self._pool.get(self._meta[model][key]['obj']).select(self._cr,self._pool,self._uid,fields,cond=cond)
 		
 		if len(r) > 1:
@@ -770,10 +778,23 @@ class MCache(object):
 
 	def _related_find(self,path,model,key,value,relatedy,context):
 		rec_name = self._pool.get(self._meta[model][key]['obj'])._getRecNameName()
-		fields = [rec_name]
-		cond = [(rec_name,'like',value['name'] if type(value) == dict else value)]
+		if rec_name:
+			fields = [rec_name]
+			cond = [(rec_name,'like',value['name'] if type(value) == dict else value)]
+		else:
+			fields = [key]
+			cond = []
+			if value['id']:
+				cond.append((key,'like',value['id']))
+
 		for rel in relatedy:
-			cond.append((rel,'=',self._data[path][rel]))
+			d = self._data._cdata[path][rel]
+			if type(d) == dict:
+				r1 = d['name']
+			else:
+				r1 = d
+			cond.append((rel,'=',r1))
+
 		r = self._pool.get(self._meta[model][key]['obj']).select(self._cr,self._pool,self._uid,fields,cond=cond)
 		if len(r) > 1:
 			res = {'path':path,'key':key,'v':list(map(lambda x: x['id'],r))}
