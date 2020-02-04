@@ -255,15 +255,18 @@ def _installModule(cr,pool,uid,name,registry):
 		sqls.extend(genddl.getReferencedConstraints(pool,model))
 	
 	if len(sqls) > 0:
+		_logger.info("Create tables: %s :" % (sqls,))
 		if len(sqls) == 1:
 			cr.execute(sqls[0])
 		else:
-			cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
-			#cr.execute(sqls)
+			#cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
+			cr.execute(sqls)
 		try:
 			cr.commit()
 		except:
 			pass
+
+		_logger.info("Created tables")
 
 		registry._load_inherit(name)
 		mm = registry._createModuleModels(name)
