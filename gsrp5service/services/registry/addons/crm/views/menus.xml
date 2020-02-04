@@ -419,5 +419,227 @@
           <column name="action_id">action.crm.contract.types.custom</column>
           </record>
       </records>
+      <records model="bc.actions">
+        <record id="action.crm.channels.report">
+          <column name="name">action.crm.channels.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.sectors.report">
+          <column name="name">action.crm.sectors.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.teams.report">
+          <column name="name">action.crm.teams.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.groups.report">
+          <column name="name">action.crm.groups.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.texts.report">
+          <column name="name">action.crm.texts.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.schema.texts.report">
+          <column name="name">action.crm.schema.texts.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.request.types.report">
+          <column name="name">action.crm.request.types.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.offer.types.report">
+          <column name="name">action.crm.offer.types.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.crm.contract.types.report">
+          <column name="name">action.crm.contract.types.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.crm.channels">
+          <column name="name">bc.ui.report.docx.crm.channels</column>
+          <column name="label">CRM Cannels</column>
+          <column name="report">report_crm_channels</column>
+          <column name="infile">infile_crm_channels.docx</column>
+          <column name="outfile">outfile_crm_channels.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.sectors">
+          <column name="name">bc.ui.report.docx.crm.sectors</column>
+          <column name="label">CRM Sectors</column>
+          <column name="report">report_crm_sectors</column>
+          <column name="infile">infile_crm_sectors.docx</column>
+          <column name="outfile">outfile_crm_sectors.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.teams">
+          <column name="name">bc.ui.report.docx.crm.teams</column>
+          <column name="label">CRM Teams</column>
+          <column name="report">report_crm_teams</column>
+          <column name="infile">infile_crm_teams.docx</column>
+          <column name="outfile">outfile_crm_teams.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.groups">
+          <column name="name">bc.ui.report.docx.crm.groups</column>
+          <column name="label">CRM Groups</column>
+          <column name="report">report_crm_groups</column>
+          <column name="infile">infile_crm_groups.docx</column>
+          <column name="outfile">outfile_crm_groups.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.texts">
+          <column name="name">bc.ui.report.docx.crm.texts</column>
+          <column name="label">CRM Texts</column>
+          <column name="report">report_crm_texts</column>
+          <column name="infile">infile_crm_texts.docx</column>
+          <column name="outfile">outfile_crm_texts.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.schema.texts">
+          <column name="name">bc.ui.report.docx.crm.schema.texts</column>
+          <column name="label">Schema Of CRM Texts</column>
+          <column name="report">report_crm_schema_texts</column>
+          <column name="infile">infile_crm_schema_texts.docx</column>
+          <column name="outfile">outfile_crm_schema_texts.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.request.types">
+          <column name="name">bc.ui.report.docx.crm.request.types</column>
+          <column name="label">Types CRM Request</column>
+          <column name="report">report_crm_request_types</column>
+          <column name="infile">infile_crm_request_types.docx</column>
+          <column name="outfile">outfile_crm_request_types.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.offer.types">
+          <column name="name">bc.ui.report.docx.crm.offer.types</column>
+          <column name="label">Types CRM Offer</column>
+          <column name="report">report_crm_offer_types</column>
+          <column name="infile">infile_crm_offer_types.docx</column>
+          <column name="outfile">outfile_crm_offer_types.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.crm.contract.types">
+          <column name="name">bc.ui.report.docx.crm.contract.types</column>
+          <column name="label">Types CRM Contract</column>
+          <column name="report">report_crm_contract_types</column>
+          <column name="infile">infile_crm_contract_types.docx</column>
+          <column name="outfile">outfile_crm_contract_types.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.crm.channels.report">
+          <column name="action_id">action.crm.channels.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.channels</column>
+        </record>
+        <record id="report.action.crm.sectors.report">
+          <column name="action_id">action.crm.sectors.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.sectors</column>
+        </record>
+        <record id="report.action.crm.teams.report">
+          <column name="action_id">action.crm.teams.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.teams</column>
+        </record>
+        <record id="report.action.crm.groups.report">
+          <column name="action_id">action.crm.groups.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.groups</column>
+        </record>
+        <record id="report.action.crm.texts.report">
+          <column name="action_id">action.crm.texts.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.texts</column>
+        </record>
+        <record id="report.action.crm.schema.texts.report">
+          <column name="action_id">action.crm.schema.texts.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.schema.texts</column>
+        </record>
+        <record id="report.action.crm.request.types.report">
+          <column name="action_id">action.crm.request.types.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.request.types</column>
+        </record>
+        <record id="report.action.crm.offer.types.report">
+          <column name="action_id">action.crm.offer.types.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.offer.types</column>
+        </record>
+        <record id="report.action.crm.contract.types.report">
+          <column name="action_id">action.crm.contract.types.report</column>
+          <column name="report_id">bc.ui.report.docx.crm.contract.types</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.crm.report.custom">
+          <column name="name">ui.menu.crm.report.custom</column>
+          <column name="label">Customs</column>
+        <column name="parent_id">ui.menu.crm.report</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.crm.channels.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.crm.channels.report</column>
+            <column name="label">CRM Cannels</column>
+          <column name="parent_id">ui.menu.crm.report.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.crm.channels.report</column>
+          </record>
+          <record id="ui.menu.crm.sectors.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.crm.sectors.report</column>
+            <column name="label">CRM Sectors</column>
+          <column name="parent_id">ui.menu.crm.report.custom</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.crm.sectors.report</column>
+          </record>
+          <record id="ui.menu.crm.teams.report">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.crm.teams.report</column>
+            <column name="label">CRM Teams</column>
+          <column name="parent_id">ui.menu.crm.report.custom</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.crm.teams.report</column>
+          </record>
+          <record id="ui.menu.crm.groups.report">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.crm.groups.report</column>
+            <column name="label">CRM Groups</column>
+          <column name="parent_id">ui.menu.crm.report.custom</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.crm.groups.report</column>
+          </record>
+          <record id="ui.menu.crm.texts.report">
+          <column name="sequence">4</column>
+            <column name="name">ui.menu.crm.texts.report</column>
+            <column name="label">CRM Texts</column>
+          <column name="parent_id">ui.menu.crm.report.custom</column>
+          <column name="sequence">40</column>
+          <column name="action_id">action.crm.texts.report</column>
+          </record>
+          <record id="ui.menu.crm.schema.texts.report">
+          <column name="sequence">5</column>
+            <column name="name">ui.menu.crm.schema.texts.report</column>
+            <column name="label">Schema Of CRM Texts</column>
+          <column name="parent_id">ui.menu.crm.report.custom</column>
+          <column name="sequence">50</column>
+          <column name="action_id">action.crm.schema.texts.report</column>
+          </record>
+          <record id="ui.menu.crm.request.types.report">
+          <column name="sequence">7</column>
+            <column name="name">ui.menu.crm.request.types.report</column>
+            <column name="label">Types CRM Request</column>
+          <column name="parent_id">ui.menu.crm.report.custom</column>
+          <column name="sequence">70</column>
+          <column name="action_id">action.crm.request.types.report</column>
+          </record>
+          <record id="ui.menu.crm.offer.types.report">
+          <column name="sequence">9</column>
+            <column name="name">ui.menu.crm.offer.types.report</column>
+            <column name="label">Types CRM Offer</column>
+          <column name="parent_id">ui.menu.crm.report.custom</column>
+          <column name="sequence">90</column>
+          <column name="action_id">action.crm.offer.types.report</column>
+          </record>
+          <record id="ui.menu.crm.contract.types.report">
+          <column name="sequence">11</column>
+            <column name="name">ui.menu.crm.contract.types.report</column>
+            <column name="label">Types CRM Contract</column>
+          <column name="parent_id">ui.menu.crm.report.custom</column>
+          <column name="sequence">110</column>
+          <column name="action_id">action.crm.contract.types.report</column>
+          </record>
+      </records>
     </data>
   </gsrp>

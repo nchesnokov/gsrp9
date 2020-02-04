@@ -266,6 +266,9 @@
               <field name="name"/>
               <field name="wkf_element_category_id"/>
               <field name="etype"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="value"/>
               <field name="note"/>
             </form>
           </column>
@@ -278,6 +281,9 @@
               <field name="name"/>
               <field name="wkf_element_category_id"/>
               <field name="etype"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="value"/>
             </list>
           </column>
         </record>
@@ -289,6 +295,8 @@
               <field name="name"/>
               <field name="wkf_element_category_id"/>
               <field name="etype"/>
+              <field name="parent_id"/>
+              <field name="value"/>
             </m2mlist>
           </column>
         </record>
@@ -300,6 +308,8 @@
               <field name="name"/>
               <field name="wkf_element_category_id"/>
               <field name="etype"/>
+              <field name="parent_id"/>
+              <field name="value"/>
             </search>
           </column>
         </record>
@@ -311,7 +321,22 @@
               <field name="name"/>
               <field name="wkf_element_category_id"/>
               <field name="etype"/>
+              <field name="parent_id"/>
+              <field name="value"/>
             </find>
+          </column>
+        </record>
+        <record id="view.wkf.elements.tree">
+          <column name="name">view.wkf.elements.tree</column>
+          <column name="model">wkf.elements</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="wkf_element_category_id"/>
+              <field name="etype"/>
+              <field name="parent_id"/>
+              <field name="value"/>
+            </tree>
           </column>
         </record>
         <record id="view.wkf.routes.form">
@@ -563,6 +588,19 @@
               <field name="department_id"/>
               <field name="employee_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.wkf.job.history.find">
+          <column name="name">view.wkf.job.history.find</column>
+          <column name="model">wkf.job.history</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="job_id"/>
+              <field name="ts"/>
+              <field name="state"/>
+              <field name="department_id"/>
+              <field name="employee_id"/>
+            </find>
           </column>
         </record>
       </records>

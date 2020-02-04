@@ -171,6 +171,18 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.st.products.find">
+          <column name="name">view.st.products.find</column>
+          <column name="model">st.products</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="stock_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+            </find>
+          </column>
+        </record>
         <record id="view.md.stock.product.form">
           <column name="name">view.md.stock.product.form</column>
           <column name="model">md.stock.product</column>
@@ -200,6 +212,16 @@
               <field name="product_id"/>
               <field name="uom"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.stock.product.find">
+          <column name="name">view.md.stock.product.find</column>
+          <column name="model">md.stock.product</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="product_id"/>
+              <field name="uom"/>
+            </find>
           </column>
         </record>
       </records>

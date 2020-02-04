@@ -718,6 +718,35 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.bc.model.columns.find">
+          <column name="name">view.bc.model.columns.find</column>
+          <column name="model">bc.model.columns</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="model_id"/>
+              <field name="col_name"/>
+              <field name="col_type"/>
+              <field name="label"/>
+              <field name="readanly"/>
+              <field name="priority"/>
+              <field name="required"/>
+              <field name="size"/>
+              <field name="precision"/>
+              <field name="on_delete"/>
+              <field name="on_update"/>
+              <field name="change_default"/>
+              <field name="translate"/>
+              <field name="selectable"/>
+              <field name="col_unique"/>
+              <field name="col_family"/>
+              <field name="timezone"/>
+              <field name="obj"/>
+              <field name="rel"/>
+              <field name="id1"/>
+              <field name="id2"/>
+            </find>
+          </column>
+        </record>
         <record id="view.bc.inherit.columns.form">
           <column name="name">view.bc.inherit.columns.form</column>
           <column name="model">bc.inherit.columns</column>
@@ -812,6 +841,35 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.bc.inherit.columns.find">
+          <column name="name">view.bc.inherit.columns.find</column>
+          <column name="model">bc.inherit.columns</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="inherit_id"/>
+              <field name="col_name"/>
+              <field name="col_type"/>
+              <field name="label"/>
+              <field name="readanly"/>
+              <field name="priority"/>
+              <field name="required"/>
+              <field name="size"/>
+              <field name="precision"/>
+              <field name="on_delete"/>
+              <field name="on_update"/>
+              <field name="change_default"/>
+              <field name="translate"/>
+              <field name="selectable"/>
+              <field name="col_unique"/>
+              <field name="col_family"/>
+              <field name="timezone"/>
+              <field name="obj"/>
+              <field name="rel"/>
+              <field name="id1"/>
+              <field name="id2"/>
+            </find>
+          </column>
+        </record>
         <record id="view.bc.translations.form">
           <column name="name">view.bc.translations.form</column>
           <column name="model">bc.translations</column>
@@ -850,6 +908,19 @@
               <field name="record_id"/>
               <field name="column_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.translations.find">
+          <column name="name">view.bc.translations.find</column>
+          <column name="model">bc.translations</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="module_id"/>
+              <field name="lang_id"/>
+              <field name="model_id"/>
+              <field name="record_id"/>
+              <field name="column_id"/>
+            </find>
           </column>
         </record>
         <record id="view.bc.group.access.form">
@@ -1050,6 +1121,29 @@
               <field name="aselectbrowse"/>
               <field name="inactive"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.model.access.find">
+          <column name="name">view.bc.model.access.find</column>
+          <column name="model">bc.model.access</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="access_id"/>
+              <field name="model_id"/>
+              <field name="acreate"/>
+              <field name="awrite"/>
+              <field name="amodify"/>
+              <field name="aread"/>
+              <field name="aunlink"/>
+              <field name="aselect"/>
+              <field name="aupdate"/>
+              <field name="adelete"/>
+              <field name="ainsert"/>
+              <field name="aupsert"/>
+              <field name="abrowse"/>
+              <field name="aselectbrowse"/>
+              <field name="inactive"/>
+            </find>
           </column>
         </record>
         <record id="view.bc.model.data.form">
@@ -1517,6 +1611,16 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.bc.view.actions.find">
+          <column name="name">view.bc.view.actions.find</column>
+          <column name="model">bc.view.actions</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="action_id"/>
+              <field name="view_id"/>
+            </find>
+          </column>
+        </record>
         <record id="view.bc.report.actions.form">
           <column name="name">view.bc.report.actions.form</column>
           <column name="model">bc.report.actions</column>
@@ -1545,6 +1649,16 @@
               <field name="action_id"/>
               <field name="report_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.report.actions.find">
+          <column name="name">view.bc.report.actions.find</column>
+          <column name="model">bc.report.actions</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="action_id"/>
+              <field name="report_id"/>
+            </find>
           </column>
         </record>
         <record id="view.bc.ui.menus.form">

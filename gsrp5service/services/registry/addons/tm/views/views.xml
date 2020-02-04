@@ -48,6 +48,21 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.md.tm.product.find">
+          <column name="name">view.md.tm.product.find</column>
+          <column name="model">md.tm.product</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="product_id"/>
+              <field name="vat"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+            </find>
+          </column>
+        </record>
         <record id="view.tm.locations.form">
           <column name="name">view.tm.locations.form</column>
           <column name="model">tm.locations</column>
@@ -636,6 +651,16 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.tm.template.nodes.find">
+          <column name="name">view.tm.template.nodes.find</column>
+          <column name="model">tm.template.nodes</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="template_equipment_id"/>
+              <field name="node_id"/>
+            </find>
+          </column>
+        </record>
         <record id="view.tm.template.maps.form">
           <column name="name">view.tm.template.maps.form</column>
           <column name="model">tm.template.maps</column>
@@ -665,6 +690,16 @@
               <field name="template_equipment_id"/>
               <field name="map_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.tm.template.maps.find">
+          <column name="name">view.tm.template.maps.find</column>
+          <column name="model">tm.template.maps</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="template_equipment_id"/>
+              <field name="map_id"/>
+            </find>
           </column>
         </record>
         <record id="view.tm.template.handlings.form">
@@ -705,6 +740,19 @@
               <field name="period"/>
               <field name="unit"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.tm.template.handlings.find">
+          <column name="name">view.tm.template.handlings.find</column>
+          <column name="model">tm.template.handlings</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="template_equipment_id"/>
+              <field name="handling_id"/>
+              <field name="otype"/>
+              <field name="period"/>
+              <field name="unit"/>
+            </find>
           </column>
         </record>
         <record id="view.tm.unit.equipments.form">
@@ -1012,6 +1060,18 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.tm.order.items.find">
+          <column name="name">view.tm.order.items.find</column>
+          <column name="model">tm.order.items</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="order_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+            </find>
+          </column>
+        </record>
         <record id="view.tm.unit.equipment.orders.form">
           <column name="name">view.tm.unit.equipment.orders.form</column>
           <column name="model">tm.unit.equipment.orders</column>
@@ -1053,6 +1113,20 @@
               <field name="end_date"/>
               <field name="otype"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.tm.unit.equipment.orders.find">
+          <column name="name">view.tm.unit.equipment.orders.find</column>
+          <column name="model">tm.unit.equipment.orders</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="unit_equipment_id"/>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="start_date"/>
+              <field name="end_date"/>
+              <field name="otype"/>
+            </find>
           </column>
         </record>
       </records>

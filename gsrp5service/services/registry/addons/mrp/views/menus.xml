@@ -261,5 +261,112 @@
           <column name="action_id">action.mrp.request.types.custom</column>
           </record>
       </records>
+      <records model="bc.actions">
+        <record id="action.mrp.texts.report">
+          <column name="name">action.mrp.texts.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.mrp.schema.texts.report">
+          <column name="name">action.mrp.schema.texts.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.mrp.demand.types.report">
+          <column name="name">action.mrp.demand.types.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.mrp.request.types.report">
+          <column name="name">action.mrp.request.types.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.mrp.texts">
+          <column name="name">bc.ui.report.docx.mrp.texts</column>
+          <column name="label">MRP Texts</column>
+          <column name="report">report_mrp_texts</column>
+          <column name="infile">infile_mrp_texts.docx</column>
+          <column name="outfile">outfile_mrp_texts.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.mrp.schema.texts">
+          <column name="name">bc.ui.report.docx.mrp.schema.texts</column>
+          <column name="label">Schema Of MRP Texts</column>
+          <column name="report">report_mrp_schema_texts</column>
+          <column name="infile">infile_mrp_schema_texts.docx</column>
+          <column name="outfile">outfile_mrp_schema_texts.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.mrp.demand.types">
+          <column name="name">bc.ui.report.docx.mrp.demand.types</column>
+          <column name="label">Types MRP Demand</column>
+          <column name="report">report_mrp_demand_types</column>
+          <column name="infile">infile_mrp_demand_types.docx</column>
+          <column name="outfile">outfile_mrp_demand_types.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.mrp.request.types">
+          <column name="name">bc.ui.report.docx.mrp.request.types</column>
+          <column name="label">Types MRP Request</column>
+          <column name="report">report_mrp_request_types</column>
+          <column name="infile">infile_mrp_request_types.docx</column>
+          <column name="outfile">outfile_mrp_request_types.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.mrp.texts.report">
+          <column name="action_id">action.mrp.texts.report</column>
+          <column name="report_id">bc.ui.report.docx.mrp.texts</column>
+        </record>
+        <record id="report.action.mrp.schema.texts.report">
+          <column name="action_id">action.mrp.schema.texts.report</column>
+          <column name="report_id">bc.ui.report.docx.mrp.schema.texts</column>
+        </record>
+        <record id="report.action.mrp.demand.types.report">
+          <column name="action_id">action.mrp.demand.types.report</column>
+          <column name="report_id">bc.ui.report.docx.mrp.demand.types</column>
+        </record>
+        <record id="report.action.mrp.request.types.report">
+          <column name="action_id">action.mrp.request.types.report</column>
+          <column name="report_id">bc.ui.report.docx.mrp.request.types</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.mrp.report.custom">
+          <column name="name">ui.menu.mrp.report.custom</column>
+          <column name="label">Customs</column>
+        <column name="parent_id">ui.menu.mrp.report</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.mrp.texts.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.mrp.texts.report</column>
+            <column name="label">MRP Texts</column>
+          <column name="parent_id">ui.menu.mrp.report.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.mrp.texts.report</column>
+          </record>
+          <record id="ui.menu.mrp.schema.texts.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.mrp.schema.texts.report</column>
+            <column name="label">Schema Of MRP Texts</column>
+          <column name="parent_id">ui.menu.mrp.report.custom</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.mrp.schema.texts.report</column>
+          </record>
+          <record id="ui.menu.mrp.demand.types.report">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.mrp.demand.types.report</column>
+            <column name="label">Types MRP Demand</column>
+          <column name="parent_id">ui.menu.mrp.report.custom</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.mrp.demand.types.report</column>
+          </record>
+          <record id="ui.menu.mrp.request.types.report">
+          <column name="sequence">5</column>
+            <column name="name">ui.menu.mrp.request.types.report</column>
+            <column name="label">Types MRP Request</column>
+          <column name="parent_id">ui.menu.mrp.report.custom</column>
+          <column name="sequence">50</column>
+          <column name="action_id">action.mrp.request.types.report</column>
+          </record>
+      </records>
     </data>
   </gsrp>

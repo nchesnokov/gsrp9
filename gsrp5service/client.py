@@ -125,9 +125,9 @@ async def hello():
 				#msg = await _execute([ws, 'modules','install',{'modules':['project','crm','mm','mrp','purchase','sale','le','stock','wkf_srm','fa']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['crm','purchase','sale','le','cf','ai','fa','hcm']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['ehs','scm','hcm','wm']}])
-				msg = await _execute([ws, 'modules','install',{'modules':['sale']}])
+				msg = await _execute([ws, 'modules','install',{'modules':['srm']}])
 				#msg = await _execute([ws, 'modules','install',{'modules': ['ctrm','ai','fa','hcm','md','ml','mm','mrp','oil','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ehs','scm']}])
-				#msg = await _execute([ws, '_commit'])
+				msg = await _execute([ws, '_commit'])
 
 if __name__ == "__main__":
 	asyncio.get_event_loop().run_until_complete(hello())

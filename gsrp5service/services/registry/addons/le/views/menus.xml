@@ -403,5 +403,204 @@
           <column name="action_id">action.le.internal.delivery.types.custom</column>
           </record>
       </records>
+      <records model="bc.actions">
+        <record id="action.le.shipping.points.report">
+          <column name="name">action.le.shipping.points.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.le.loading.places.report">
+          <column name="name">action.le.loading.places.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.le.md.group.freight.cargo.report">
+          <column name="name">action.le.md.group.freight.cargo.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.le.delivery.texts.report">
+          <column name="name">action.le.delivery.texts.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.le.delivery.schema.texts.report">
+          <column name="name">action.le.delivery.schema.texts.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.le.inbound.delivery.types.report">
+          <column name="name">action.le.inbound.delivery.types.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.le.outbound.delivery.types.report">
+          <column name="name">action.le.outbound.delivery.types.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.le.internal.delivery.types.report">
+          <column name="name">action.le.internal.delivery.types.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.le.shipping.points">
+          <column name="name">bc.ui.report.docx.le.shipping.points</column>
+          <column name="label">Shipping Points</column>
+          <column name="report">report_le_shipping_points</column>
+          <column name="infile">infile_le_shipping_points.docx</column>
+          <column name="outfile">outfile_le_shipping_points.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.le.loading.places">
+          <column name="name">bc.ui.report.docx.le.loading.places</column>
+          <column name="label">Loading Places</column>
+          <column name="report">report_le_loading_places</column>
+          <column name="infile">infile_le_loading_places.docx</column>
+          <column name="outfile">outfile_le_loading_places.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.le.md.group.freight.cargo">
+          <column name="name">bc.ui.report.docx.le.md.group.freight.cargo</column>
+          <column name="label">Fleight Cargo Group</column>
+          <column name="report">report_le_md_group_freight_cargo</column>
+          <column name="infile">infile_le_md_group_freight_cargo.docx</column>
+          <column name="outfile">outfile_le_md_group_freight_cargo.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.le.delivery.texts">
+          <column name="name">bc.ui.report.docx.le.delivery.texts</column>
+          <column name="label">Delivery Texts</column>
+          <column name="report">report_le_delivery_texts</column>
+          <column name="infile">infile_le_delivery_texts.docx</column>
+          <column name="outfile">outfile_le_delivery_texts.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.le.delivery.schema.texts">
+          <column name="name">bc.ui.report.docx.le.delivery.schema.texts</column>
+          <column name="label">Schema Of Delivery Texts</column>
+          <column name="report">report_le_delivery_schema_texts</column>
+          <column name="infile">infile_le_delivery_schema_texts.docx</column>
+          <column name="outfile">outfile_le_delivery_schema_texts.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.le.inbound.delivery.types">
+          <column name="name">bc.ui.report.docx.le.inbound.delivery.types</column>
+          <column name="label">Types Inbound Delivery</column>
+          <column name="report">report_le_inbound_delivery_types</column>
+          <column name="infile">infile_le_inbound_delivery_types.docx</column>
+          <column name="outfile">outfile_le_inbound_delivery_types.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.le.outbound.delivery.types">
+          <column name="name">bc.ui.report.docx.le.outbound.delivery.types</column>
+          <column name="label">Types Outbound Delivery</column>
+          <column name="report">report_le_outbound_delivery_types</column>
+          <column name="infile">infile_le_outbound_delivery_types.docx</column>
+          <column name="outfile">outfile_le_outbound_delivery_types.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.le.internal.delivery.types">
+          <column name="name">bc.ui.report.docx.le.internal.delivery.types</column>
+          <column name="label">Types Internal Delivery</column>
+          <column name="report">report_le_internal_delivery_types</column>
+          <column name="infile">infile_le_internal_delivery_types.docx</column>
+          <column name="outfile">outfile_le_internal_delivery_types.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.le.shipping.points.report">
+          <column name="action_id">action.le.shipping.points.report</column>
+          <column name="report_id">bc.ui.report.docx.le.shipping.points</column>
+        </record>
+        <record id="report.action.le.loading.places.report">
+          <column name="action_id">action.le.loading.places.report</column>
+          <column name="report_id">bc.ui.report.docx.le.loading.places</column>
+        </record>
+        <record id="report.action.le.md.group.freight.cargo.report">
+          <column name="action_id">action.le.md.group.freight.cargo.report</column>
+          <column name="report_id">bc.ui.report.docx.le.md.group.freight.cargo</column>
+        </record>
+        <record id="report.action.le.delivery.texts.report">
+          <column name="action_id">action.le.delivery.texts.report</column>
+          <column name="report_id">bc.ui.report.docx.le.delivery.texts</column>
+        </record>
+        <record id="report.action.le.delivery.schema.texts.report">
+          <column name="action_id">action.le.delivery.schema.texts.report</column>
+          <column name="report_id">bc.ui.report.docx.le.delivery.schema.texts</column>
+        </record>
+        <record id="report.action.le.inbound.delivery.types.report">
+          <column name="action_id">action.le.inbound.delivery.types.report</column>
+          <column name="report_id">bc.ui.report.docx.le.inbound.delivery.types</column>
+        </record>
+        <record id="report.action.le.outbound.delivery.types.report">
+          <column name="action_id">action.le.outbound.delivery.types.report</column>
+          <column name="report_id">bc.ui.report.docx.le.outbound.delivery.types</column>
+        </record>
+        <record id="report.action.le.internal.delivery.types.report">
+          <column name="action_id">action.le.internal.delivery.types.report</column>
+          <column name="report_id">bc.ui.report.docx.le.internal.delivery.types</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.le.report.custom">
+          <column name="name">ui.menu.le.report.custom</column>
+          <column name="label">Customs</column>
+        <column name="parent_id">ui.menu.le.report</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.le.shipping.points.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.le.shipping.points.report</column>
+            <column name="label">Shipping Points</column>
+          <column name="parent_id">ui.menu.le.report.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.le.shipping.points.report</column>
+          </record>
+          <record id="ui.menu.le.loading.places.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.le.loading.places.report</column>
+            <column name="label">Loading Places</column>
+          <column name="parent_id">ui.menu.le.report.custom</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.le.loading.places.report</column>
+          </record>
+          <record id="ui.menu.le.md.group.freight.cargo.report">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.le.md.group.freight.cargo.report</column>
+            <column name="label">Fleight Cargo Group</column>
+          <column name="parent_id">ui.menu.le.report.custom</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.le.md.group.freight.cargo.report</column>
+          </record>
+          <record id="ui.menu.le.delivery.texts.report">
+          <column name="sequence">3</column>
+            <column name="name">ui.menu.le.delivery.texts.report</column>
+            <column name="label">Delivery Texts</column>
+          <column name="parent_id">ui.menu.le.report.custom</column>
+          <column name="sequence">30</column>
+          <column name="action_id">action.le.delivery.texts.report</column>
+          </record>
+          <record id="ui.menu.le.delivery.schema.texts.report">
+          <column name="sequence">4</column>
+            <column name="name">ui.menu.le.delivery.schema.texts.report</column>
+            <column name="label">Schema Of Delivery Texts</column>
+          <column name="parent_id">ui.menu.le.report.custom</column>
+          <column name="sequence">40</column>
+          <column name="action_id">action.le.delivery.schema.texts.report</column>
+          </record>
+          <record id="ui.menu.le.inbound.delivery.types.report">
+          <column name="sequence">6</column>
+            <column name="name">ui.menu.le.inbound.delivery.types.report</column>
+            <column name="label">Types Inbound Delivery</column>
+          <column name="parent_id">ui.menu.le.report.custom</column>
+          <column name="sequence">60</column>
+          <column name="action_id">action.le.inbound.delivery.types.report</column>
+          </record>
+          <record id="ui.menu.le.outbound.delivery.types.report">
+          <column name="sequence">8</column>
+            <column name="name">ui.menu.le.outbound.delivery.types.report</column>
+            <column name="label">Types Outbound Delivery</column>
+          <column name="parent_id">ui.menu.le.report.custom</column>
+          <column name="sequence">80</column>
+          <column name="action_id">action.le.outbound.delivery.types.report</column>
+          </record>
+          <record id="ui.menu.le.internal.delivery.types.report">
+          <column name="sequence">10</column>
+            <column name="name">ui.menu.le.internal.delivery.types.report</column>
+            <column name="label">Types Internal Delivery</column>
+          <column name="parent_id">ui.menu.le.report.custom</column>
+          <column name="sequence">100</column>
+          <column name="action_id">action.le.internal.delivery.types.report</column>
+          </record>
+      </records>
     </data>
   </gsrp>

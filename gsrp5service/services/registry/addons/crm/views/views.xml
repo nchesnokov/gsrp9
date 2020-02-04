@@ -356,6 +356,17 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.schema.text.items.find">
+          <column name="name">view.crm.schema.text.items.find</column>
+          <column name="model">crm.schema.text.items</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="schema_id"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.request.types.form">
           <column name="name">view.crm.request.types.form</column>
           <column name="model">crm.request.types</column>
@@ -448,6 +459,16 @@
               <field name="type_id"/>
               <field name="role_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.request.type.roles.find">
+          <column name="name">view.crm.request.type.roles.find</column>
+          <column name="model">crm.request.type.roles</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="type_id"/>
+              <field name="role_id"/>
+            </find>
           </column>
         </record>
         <record id="view.crm.offer.types.form">
@@ -544,6 +565,16 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.offer.type.roles.find">
+          <column name="name">view.crm.offer.type.roles.find</column>
+          <column name="model">crm.offer.type.roles</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="type_id"/>
+              <field name="role_id"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.contract.types.form">
           <column name="name">view.crm.contract.types.form</column>
           <column name="model">crm.contract.types</column>
@@ -636,6 +667,16 @@
               <field name="type_id"/>
               <field name="role_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.contract.type.roles.find">
+          <column name="name">view.crm.contract.type.roles.find</column>
+          <column name="model">crm.contract.type.roles</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="type_id"/>
+              <field name="role_id"/>
+            </find>
           </column>
         </record>
         <record id="view.crm.request.categories.form">
@@ -1178,6 +1219,18 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.request.texts.find">
+          <column name="name">view.crm.request.texts.find</column>
+          <column name="model">crm.request.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="request_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.request.roles.form">
           <column name="name">view.crm.request.roles.form</column>
           <column name="model">crm.request.roles</column>
@@ -1209,6 +1262,17 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.request.roles.find">
+          <column name="name">view.crm.request.roles.find</column>
+          <column name="model">crm.request.roles</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="request_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </find>
           </column>
         </record>
         <record id="view.crm.request.items.form">
@@ -1278,6 +1342,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.request.items.find">
+          <column name="name">view.crm.request.items.find</column>
+          <column name="model">crm.request.items</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="request_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="vat_code"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.request.item.texts.form">
           <column name="name">view.crm.request.item.texts.form</column>
           <column name="model">crm.request.item.texts</column>
@@ -1315,6 +1399,18 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.request.item.texts.find">
+          <column name="name">view.crm.request.item.texts.find</column>
+          <column name="model">crm.request.item.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.request.item.roles.form">
           <column name="name">view.crm.request.item.roles.form</column>
           <column name="model">crm.request.item.roles</column>
@@ -1346,6 +1442,17 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.request.item.roles.find">
+          <column name="name">view.crm.request.item.roles.find</column>
+          <column name="model">crm.request.item.roles</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="item_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </find>
           </column>
         </record>
         <record id="view.crm.request.item.delivery.schedules.form">
@@ -1380,6 +1487,17 @@
               <field name="quantity"/>
               <field name="schedule"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.request.item.delivery.schedules.find">
+          <column name="name">view.crm.request.item.delivery.schedules.find</column>
+          <column name="model">crm.request.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="schedule"/>
+            </find>
           </column>
         </record>
         <record id="view.crm.offers.calendar">
@@ -1727,6 +1845,18 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.offer.texts.find">
+          <column name="name">view.crm.offer.texts.find</column>
+          <column name="model">crm.offer.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="offer_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.offer.roles.form">
           <column name="name">view.crm.offer.roles.form</column>
           <column name="model">crm.offer.roles</column>
@@ -1758,6 +1888,17 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.offer.roles.find">
+          <column name="name">view.crm.offer.roles.find</column>
+          <column name="model">crm.offer.roles</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="offer_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </find>
           </column>
         </record>
         <record id="view.crm.offer.items.form">
@@ -1827,6 +1968,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.offer.items.find">
+          <column name="name">view.crm.offer.items.find</column>
+          <column name="model">crm.offer.items</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="offer_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="vat_code"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.offer.item.texts.form">
           <column name="name">view.crm.offer.item.texts.form</column>
           <column name="model">crm.offer.item.texts</column>
@@ -1864,6 +2025,18 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.offer.item.texts.find">
+          <column name="name">view.crm.offer.item.texts.find</column>
+          <column name="model">crm.offer.item.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.offer.item.roles.form">
           <column name="name">view.crm.offer.item.roles.form</column>
           <column name="model">crm.offer.item.roles</column>
@@ -1895,6 +2068,17 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.offer.item.roles.find">
+          <column name="name">view.crm.offer.item.roles.find</column>
+          <column name="model">crm.offer.item.roles</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="item_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </find>
           </column>
         </record>
         <record id="view.crm.offer.item.delivery.schedules.form">
@@ -1929,6 +2113,17 @@
               <field name="quantity"/>
               <field name="schedule"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.offer.item.delivery.schedules.find">
+          <column name="name">view.crm.offer.item.delivery.schedules.find</column>
+          <column name="model">crm.offer.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="schedule"/>
+            </find>
           </column>
         </record>
         <record id="view.crm.contracts.calendar">
@@ -2278,6 +2473,18 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.contract.texts.find">
+          <column name="name">view.crm.contract.texts.find</column>
+          <column name="model">crm.contract.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="contract_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.contract.roles.form">
           <column name="name">view.crm.contract.roles.form</column>
           <column name="model">crm.contract.roles</column>
@@ -2309,6 +2516,17 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.contract.roles.find">
+          <column name="name">view.crm.contract.roles.find</column>
+          <column name="model">crm.contract.roles</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="offer_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </find>
           </column>
         </record>
         <record id="view.crm.contract.payment.schedules.form">
@@ -2346,6 +2564,18 @@
               <field name="currency"/>
               <field name="schedule"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.contract.payment.schedules.find">
+          <column name="name">view.crm.contract.payment.schedules.find</column>
+          <column name="model">crm.contract.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="contract_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
+            </find>
           </column>
         </record>
         <record id="view.crm.contract.items.form">
@@ -2417,6 +2647,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.contract.items.find">
+          <column name="name">view.crm.contract.items.find</column>
+          <column name="model">crm.contract.items</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="contract_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="vat_code"/>
+              <field name="vat_amount"/>
+              <field name="total_amount"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.contract.item.texts.form">
           <column name="name">view.crm.contract.item.texts.form</column>
           <column name="model">crm.contract.item.texts</column>
@@ -2454,6 +2704,18 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.contract.item.texts.find">
+          <column name="name">view.crm.contract.item.texts.find</column>
+          <column name="model">crm.contract.item.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.contract.item.roles.form">
           <column name="name">view.crm.contract.item.roles.form</column>
           <column name="model">crm.contract.item.roles</column>
@@ -2485,6 +2747,17 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.contract.item.roles.find">
+          <column name="name">view.crm.contract.item.roles.find</column>
+          <column name="model">crm.contract.item.roles</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="item_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </find>
           </column>
         </record>
         <record id="view.crm.contract.item.delivery.schedules.form">
@@ -2524,6 +2797,18 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.contract.item.delivery.schedules.find">
+          <column name="name">view.crm.contract.item.delivery.schedules.find</column>
+          <column name="model">crm.contract.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="schedule"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.contract.item.payment.schedules.form">
           <column name="name">view.crm.contract.item.payment.schedules.form</column>
           <column name="model">crm.contract.item.payment.schedules</column>
@@ -2559,6 +2844,18 @@
               <field name="currency"/>
               <field name="schedule"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.contract.item.payment.schedules.find">
+          <column name="name">view.crm.contract.item.payment.schedules.find</column>
+          <column name="model">crm.contract.item.payment.schedules</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="item_id"/>
+              <field name="amount"/>
+              <field name="currency"/>
+              <field name="schedule"/>
+            </find>
           </column>
         </record>
       </records>
