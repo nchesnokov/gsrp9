@@ -23,6 +23,7 @@ class Cursor(object):
 		self.port = port
 		self.sslmode = sslmode
 		self.sslrootcert = sslrootcert
+		self.sslrootcert = sslrootkeys
 		self.sslcert = sslcert
 		self.sslkey=sslkey
 		#print('cursor',self.sslmode,self.sslcert,self.sslkey)
@@ -34,10 +35,10 @@ class Cursor(object):
 		if not self.conn or self.conn and self.conn.closed:
 			if self.sslmode:
 				if self.user == 'root':
-					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslcert=self.sslcert,sslkey=self.sslkey)
+					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslrootcert=self.sslrootcert,sslcert=self.sslcert,sslkey=self.sslkey)
 				else:
 					#self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslrootcert=self.sslrootsert,sslcert=self.sslcert,sslkey=self.sslkey)
-					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslcert=self.sslcert,sslkey=self.sslkey)
+					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslrootcert=self.sslrootcert,sslcert=self.sslcert,sslkey=self.sslkey)
 			else:
 				if self.user == 'root':
 					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection)

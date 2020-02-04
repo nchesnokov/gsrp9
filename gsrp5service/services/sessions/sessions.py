@@ -33,7 +33,7 @@ class User(object):
 	def __init__(self,config_file):
 		cf = ConfigParser()
 		cf.read(config_file)
-		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':None,'password':None,'sslmode':None,'sslrootcert':None,'sslcert':None,'sslkey':None},ikey=['port'])
+		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':None,'password':None,'sslmode':None,'sslrootcert':None,'sslrootkey':None,'sslcert':None,'sslkey':None},ikey=['port'])
 
 	def _call(self,args):
 		res = []
