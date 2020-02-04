@@ -255,7 +255,7 @@ def _installModule(cr,pool,uid,name,registry):
 		sqls.extend(genddl.getReferencedConstraints(pool,model))
 	
 	if len(sqls) > 0:
-		_logger.info("Create tables: %s :" % (sqls,))
+		_logger.info("Create tables: %s" % (sqls,))
 		if len(sqls) == 1:
 			cr.execute(sqls[0])
 		else:
