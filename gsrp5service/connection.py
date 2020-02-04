@@ -14,7 +14,7 @@ _logger = logging.getLogger(__name__)
 class Cursor(object):
 	conn =None
 	cr = None
-	def __init__(self, dsn = None, database = 'system', user = 'root', password = None, host = 'localhost', port=26257, sslmode = None, sslrootcert = None, sslcert = None,sslkey = None):
+	def __init__(self, dsn = None, database = 'system', user = 'root', password = None, host = 'localhost', port=26257, sslmode = None, sslrootcert = None, sslrootkey = None, sslcert = None,sslkey = None):
 		self.dsn = dsn
 		self.database = database
 		self.user = user
@@ -23,7 +23,7 @@ class Cursor(object):
 		self.port = port
 		self.sslmode = sslmode
 		self.sslrootcert = sslrootcert
-		self.sslrootcert = sslrootkeys
+		self.sslrootkey = sslrootkey
 		self.sslcert = sslcert
 		self.sslkey=sslkey
 		#print('cursor',self.sslmode,self.sslcert,self.sslkey)
