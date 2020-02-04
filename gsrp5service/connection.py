@@ -35,15 +35,27 @@ class Cursor(object):
 		if not self.conn or self.conn and self.conn.closed:
 			if self.sslmode:
 				if self.user == 'root':
-					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslrootcert=self.sslrootcert,sslcert=self.sslcert,sslkey=self.sslkey)
+					if dsn:
+						self.conn = psycopg2.connect(dsn = self.dsn)
+					else:
+						self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslrootcert=self.sslrootcert,sslcert=self.sslcert,sslkey=self.sslkey)
 				else:
 					#self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslrootcert=self.sslrootsert,sslcert=self.sslcert,sslkey=self.sslkey)
-					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslrootcert=self.sslrootcert,sslcert=self.sslcert,sslkey=self.sslkey)
+					if dsn:
+						self.conn = psycopg2.connect(dsn = self.dsn)
+					else:
+						self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection,sslmode=self.sslmode,sslrootcert=self.sslrootcert,sslcert=self.sslcert,sslkey=self.sslkey)
 			else:
 				if self.user == 'root':
-					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection)
+					if dsn:
+						self.conn = psycopg2.connect(dsn = self.dsn)
+					else:
+						self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection)
 				else:
-					self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection)
+					if dsn:
+						self.conn = psycopg2.connect(dsn = self.dsn)
+					else:
+						self.conn = psycopg2.connect(dsn = self.dsn, database = self.database, user = self.user, password = self.password, host = self.host, port = self.port, connection_factory = psycopg2.extensions.connection)
 			#self.conn.set_session(False)
 			self.conn.autocommit = False
 
