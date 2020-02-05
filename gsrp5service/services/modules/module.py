@@ -258,7 +258,7 @@ def _installModule(cr,pool,uid,name,registry):
 			sqls.extend(at)
 	
 	if len(sqls) > 0:
-		_logger.info("Creating tables" % (sqls,))
+		_logger.info("Creating tables")
 		if len(sqls) == 1:
 			cr.execute(sqls[0])
 		else:
