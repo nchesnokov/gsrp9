@@ -251,11 +251,12 @@ def _installModule(cr,pool,uid,name,registry):
 		m = registry._create_model(model,name)
 		if isinstance(m,ModelInherit):	
 			continue
-
-		sqls.extend(genddl.getReferencedConstraints(pool,model))
+		at = genddl.getReferencedConstraints(pool,model)
+		if len(at) > 0:
+			sqls.extend(at)
 	
 	if len(sqls) > 0:
-		_logger.info("Create tables: %s" % (sqls,))
+		_logger.info("Creating tables" % (sqls,))
 		if len(sqls) == 1:
 			cr.execute(sqls[0])
 		else:
@@ -266,7 +267,7 @@ def _installModule(cr,pool,uid,name,registry):
 		except:
 			pass
 
-		_logger.info("Created tables")
+		_logger.info("Tables created")
 
 		registry._load_inherit(name)
 		mm = registry._createModuleModels(name)
