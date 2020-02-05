@@ -89,7 +89,7 @@ class Cursor(object):
 				self.cr.execute(query = query, vars = vals)
 			elif type(query) in (tuple,list):
 				for q1 in query:
-					print('QUERY:',q1,vals)
+					#print('QUERY:',q1,vals)
 					self.cr.execute(query = q1, vars = vals)
 		except:
 			self._rollback()
