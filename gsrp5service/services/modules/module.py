@@ -237,7 +237,8 @@ def _installModule(cr,pool,uid,name,registry):
 			#print('m:',m._name,list(m._columns.keys()))
 			if isinstance(m,Model):
 				sql=genddl.createTable(pool,m.modelInfo())
-				sqls.append(sql)
+				if len(sql) > 0:
+					sqls.append(sql)
 		elif ModelInherit in mm_class_meta['bases']:
 			mm_class = type(mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
 			type.__init__(mm_class,mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
@@ -245,7 +246,8 @@ def _installModule(cr,pool,uid,name,registry):
 			imodelinfo = mm_class().modelInfo()
 			if imodelinfo['inherit']:
 				sql=genddl.AlterTable(pool,imodelinfo)
-				sqls.append(sql)
+				if len(sql) > 0:
+					sqls.append(sql)
 
 	for model in models:
 		m = registry._create_model(model,name)
