@@ -525,13 +525,14 @@ class sale_orders(Model):
 	_date = 'doo'
 	_columns = {
 	'otype': fields.many2one(label='Type',obj='sale.order.types',on_change='_on_change_otype'),
-	'company_id': fields.many2one(label='Company',obj='md.company'),
+	'company': fields.many2one(label='Company',obj='md.company'),
 	'name': fields.varchar(label = 'Name'),
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
-	'market_id': fields.many2one(label='Market',obj='sale.markets'),
-	'team_id': fields.many2one(label='Team',obj='sale.teams'),
-	'category_id': fields.many2one(label='Category',obj='sale.order.categories'),
+	'market': fields.many2one(label='Market',obj='sale.markets'),
+	'team': fields.many2one(label='Team',obj='sale.teams'),
+	'category': fields.many2one(label='Category',obj='sale.order.categories'),
 	'origin': fields.varchar(label = 'Origin'),
+	'manager': fields.many2one(label='Manager',obj='bc.users'),
 	'doo': fields.date(label='Date Of Order',required=True),
 	'from_date': fields.date(label='Begin Date Of Order',required=True),
 	'to_date': fields.date(label='End Date Of Order',required=True),
@@ -555,8 +556,8 @@ class sale_orders(Model):
 #
 	def _compute_fullname(self,cr,pool,uid,item,context):
 		v=''
-		if 'company_id' in item and 'name' in item['company_id'] and item['company_id']['name']:
-			v += item['company_id']['name']
+		if 'company' in item and 'name' in item['company'] and item['company']['name']:
+			v += item['company']['name']
 
 		if 'otype' in item and 'name' in item['otype'] and item['otype']['name']:
 			v += '/' + item['otype']['name']

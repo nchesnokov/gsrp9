@@ -158,7 +158,7 @@ class browse_record(object):
 
 def model__init__(self,access = None):
 	
-	self._schema = {}
+	self._schema = []
 	self._levels = {}
 		
 	if not self._name and not hasattr(self, '_inherit'):
@@ -191,18 +191,23 @@ def model__init__(self,access = None):
 		## If _log_access is not specified, it is the same value as _auto.
 			self._log_access = getattr(self, "_auto", True)
 
-	recname = _getFullNameName(self) or _getRecNameName(self)
-	if recname and recname in self._nostorecomputefields:
-		raise orm_exception(_('Recname: <%s> in model: %s must be store in database') % (recname, self._name))
+	fullname = _getFullNameName(self)
+	recname = _getFullNameName(self)
+	rec_name = fullname or recname
+	if rec_name and rec_name in self._nostorecomputefields:
+		raise orm_exception(_('Recname: <%s> in model: %s must be store in database') % (rec_name, self._name))
 
-	if recname  and hasattr(self._columns[recname],'unique'):
-		self._columns[recname].unique = True
+	if rec_name  and hasattr(self._columns[rec_name],'unique'):
+		self._columns[rec_name].unique = True
 
-	if recname and hasattr(self._columns[recname],'selectable'):
+	if rec_name and hasattr(self._columns[rec_name],'required'):
+		self._columns[rec_name].required = True
+
+	if fullname and fullname != rec_name and hasattr(self._columns[fullname],'selectable'):
+		self._columns[fullname].selectable = True
+
+	if recname and recname != rec_name and hasattr(self._columns[recname],'selectable'):
 		self._columns[recname].selectable = True
-
-	if recname and hasattr(self._columns[recname],'required'):
-		self._columns[recname].required = True
 
 	state = _getStateName(self)
 	if state and hasattr(self._columns[state],'_selectable') and self._columns[state]._selectable:
@@ -223,6 +228,35 @@ def model__init__(self,access = None):
 
 	if self._trigers is None:
 		self._trigers = {}
+
+	if self._trigers is None:
+		self._trigers = {
+		'For Each Row Before Insert': None,
+		'For Each Row Before Update': None,
+		'For Each Row Before Delete': None,
+		'For Each Row After Insert': None,
+		'For Each Row After Update': None,
+		'For Each Row After Delete': None,
+		'Before Insert': None,
+		'Before Update': None,
+		'Before Delete': None,
+		'After Insert': None,
+		'After Update': None,
+		'After Delete': None,
+		}
+		
+	if self._on is None:
+		self._on = {
+		'on_before_load': None,
+		'on_after_load': None,
+		'on_append': None,
+		'on_remove': None,
+		'on_update': None,
+		'on_before_save': None,
+		'on_after_save': None,
+		'on_before_reset': None,
+		'on_after_reset': None,
+		}
 	
 	for sf in dir(self):
 		if sf[:7] == '_action':

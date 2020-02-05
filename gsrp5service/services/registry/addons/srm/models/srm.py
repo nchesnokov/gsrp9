@@ -6,6 +6,370 @@ from decimal import Decimal
 from datetime import datetime
 from datetime import timedelta
 
+# Organization structure
+class srm_unit_categories(Model):
+	_name = 'srm.unit.categories'
+	_description = 'General Model Categories SRM Unit'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='srm.unit.categories'),
+	'childs_id': fields.one2many(obj = 'srm.unit.categories',rel = 'parent_id',label = 'Childs'),
+	'units': fields.one2many(label='Units',obj='srm.units',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+srm_unit_categories()
+
+
+class srm_units(Model):
+	_name = 'srm.units'
+	_description = 'General Model SRM Units'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='srm.unit.categories'),
+	'company_id': fields.many2many(label='Companies',obj='md.company', rel='md_company_srm_unit_rel', id2='unit_id', id1='company_id'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	'channels': fields.one2many(label='Channels',obj='srm.unit.channel.assigments',rel='unit_id'),
+	'segments': fields.one2many(label='Segments',obj='srm.unit.segment.assigments',rel='unit_id'),
+	'areas': fields.one2many(label='Areas',obj='srm.unit.area.assigments',rel='unit_id'),
+	'regions': fields.one2many(label='Regions',obj='srm.unit.region.assigments',rel='unit_id')
+	}
+
+srm_units()
+
+class srm_channel_categories(Model):
+	_name = 'srm.channel.categories'
+	_description = 'General Model Categories SRM Chanel'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='srm.channel.categories'),
+	'childs_id': fields.one2many(obj = 'srm.channel.categories',rel = 'parent_id',label = 'Childs'),
+	'channels': fields.one2many(label='Channels',obj='srm.channels',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+srm_channel_categories()
+
+
+class srm_channels(Model):
+	_name = 'srm.channels'
+	_description = 'General Model SRM Channels'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='srm.channel.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+srm_channels()
+
+class srm_segment_categories(Model):
+	_name = 'srm.segment.categories'
+	_description = 'General Model Categories SRM Segment'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='srm.segment.categories'),
+	'childs_id': fields.one2many(obj = 'srm.segment.categories',rel = 'parent_id',label = 'Childs'),
+	'segments': fields.one2many(label='Segments',obj='srm.segments',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+srm_segment_categories()
+
+
+class srm_segments(Model):
+	_name = 'srm.segments'
+	_description = 'General Model SRM Segments'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='srm.segment.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+srm_segments()
+
+class srm_area_categories(Model):
+	_name = 'srm.area.categories'
+	_description = 'General Model Categories SRM Area'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='srm.area.categories'),
+	'childs_id': fields.one2many(obj = 'srm.area.categories',rel = 'parent_id',label = 'Childs'),
+	'areas': fields.one2many(label='Areas',obj='srm.areas',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+srm_area_categories()
+
+
+class srm_areas(Model):
+	_name = 'srm.areas'
+	_description = 'General Model SRM Areas'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='srm.area.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+srm_areas()
+
+class srm_region_categories(Model):
+	_name = 'srm.region.categories'
+	_description = 'General Model Categories SRM Region'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='srm.region.categories'),
+	'childs_id': fields.one2many(obj = 'srm.region.categories',rel = 'parent_id',label = 'Childs'),
+	'segments': fields.one2many(label='REgions',obj='srm.regions',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+srm_region_categories()
+
+
+class srm_regions(Model):
+	_name = 'srm.regions'
+	_description = 'General Model SRM Regions'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='srm.region.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+srm_regions()
+
+
+class srm_division_categories(Model):
+	_name = 'srm.division.categories'
+	_description = 'General Model Categories SRM Division'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='srm.division.categories'),
+	'childs_id': fields.one2many(obj = 'srm.division.categories',rel = 'parent_id',label = 'Childs'),
+	'divisions': fields.one2many(label='Divisions',obj='srm.divisions',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+srm_division_categories()
+
+
+class srm_divisions(Model):
+	_name = 'srm.divisions'
+	_description = 'General Model SRM Divisions'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='srm.division.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	'subdivisions': fields.one2many(label='SubDivisions',obj='srm.division.subdivision.assigments',rel='division_id')
+	}
+
+srm_divisions()
+
+class srm_subdivision_categories(Model):
+	_name = 'srm.subdivision.categories'
+	_description = 'General Model Categories SRM Subdivision'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='srm.subdivision.categories'),
+	'childs_id': fields.one2many(obj = 'srm.subdivision.categories',rel = 'parent_id',label = 'Childs'),
+	'subdivisions': fields.one2many(label='Orders',obj='srm.subdivisions',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+srm_subdivision_categories()
+
+
+class srm_subdivisions(Model):
+	_name = 'srm.subdivisions'
+	_description = 'General Model SRM Subdivisions'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='srm.subdivision.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+srm_subdivisions()
+
+class srm_unit_channel_assigments(Model):
+	_name = 'srm.unit.channel.assigments'
+	_description = 'General Model SRM Unit Of Channel Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
+	'channel_id': fields.many2one(label='Channel',obj='srm.channels'),
+	'descr': fields.referenced(ref='channel_id.descr'),
+	}
+
+srm_unit_channel_assigments()
+
+class srm_unit_segment_assigments(Model):
+	_name = 'srm.unit.segment.assigments'
+	_description = 'General Model SRM Unit Of Segment Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
+	'segment_id': fields.many2one(label='Segment',obj='srm.segments'),
+	'descr': fields.referenced(ref='segment_id.descr'),
+	}
+
+srm_unit_segment_assigments()
+
+class srm_unit_area_assigments(Model):
+	_name = 'srm.unit.area.assigments'
+	_description = 'General Model SRM Unit Of Area Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
+	'area_id': fields.many2one(label='Area',obj='srm.areas'),
+	'descr': fields.referenced(ref='area_id.descr'),
+	}
+
+srm_unit_area_assigments()
+
+class srm_unit_region_assigments(Model):
+	_name = 'srm.unit.region.assigments'
+	_description = 'General Model SRM Unit Of Region Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
+	'region_id': fields.many2one(label='Region',obj='srm.regions'),
+	'descr': fields.referenced(ref='region_id.descr'),
+	}
+
+srm_unit_segment_assigments()
+
+
+
+class srm_division_subdivision_assigments(Model):
+	_name = 'srm.division.subdivision.assigments'
+	_description = 'General Model SRM Division Of Subdivision Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'division_id': fields.many2one(label='Division',obj='srm.divisions'),
+	'subdivision_id': fields.many2one(label='Subdivision',obj='srm.subdivisions'),
+	'descr': fields.referenced(ref='subdivision_id.descr'),
+	}
+
+srm_division_subdivision_assigments()
+
+
+class srm_markets(Model):
+	_name = 'srm.markets'
+	_description = 'General Model SRM Market'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_rec_name = 'fullname'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='srm.units', required = True),
+	'channel_id': fields.related(label='Channel',obj='srm.unit.channel.assigments', relatedy=['unit_id'], required = True),
+	'segment_id': fields.related(label='Segment',obj='srm.unit.segment.assigments', relatedy=['unit_id'], required = True),
+	'area_id': fields.related(label='Area',obj='srm.unit.area.assigments', relatedy=['unit_id'], required = True),
+	'region_id': fields.related(label='Region',obj='srm.unit.region.assigments', relatedy=['unit_id'], required = True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'note': fields.text(label='Note'),
+	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'unit_id' in item and 'name' in item['unit_id'] and item['unit_id']['name']:
+			v += item['unit_id']['name']
+
+		if 'channel_id' in item and 'name' in item['channel_id'] and item['channel_id']['name']:
+			v += '/' + item['channel_id']['name']
+
+		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
+			v += '/' + item['segment_id']['name']
+
+		if 'area_id' in item and 'name' in item['area_id'] and item['area_id']['name']:
+			v += '/' + item['are_id']['name']
+
+		if 'region_id' in item and 'name' in item['region_id'] and item['region_id']['name']:
+			v += '/' + item['region_id']['name']
+
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
+
+srm_markets()
+
+
+class srm_teams(Model):
+	_name = 'srm.teams'
+	_description = 'General Model SRM Teams'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_rec_name = 'fullname'
+	_columns = {
+	'division_id': fields.many2one(label='Division',obj='srm.divisions', required = True),
+	'subdivision_id': fields.related(label='Subdivision',obj='srm.subdivisions', relatedy=['division_id'], required = True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'note': fields.text(label='Note'),
+	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'division_id' in item and 'name' in item['division_id'] and item['division_id']['name']:
+			v += item['division_id']['name']
+
+		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:
+			v += '/' + item['subdivison_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
+srm_teams()
+
+
+#Organization structure
+
+
 class srm_common(ModelInherit):
 	_name = 'srm.common'
 	_description = 'SRM Common'
@@ -20,6 +384,21 @@ class srm_common(ModelInherit):
 	'note2': fields.text(label='Note2')
 	}
 	
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'company' in item and 'name' in item['company'] and item['company']['name']:
+			v += item['company']['name']
+
+		if 'otype' in item and 'name' in item['otype'] and item['otype']['name']:
+			v += '/' + item['otype']['name']
+
+		if item['name']:
+			v += '/' + item['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
+
 	def _act_merge(self,cr,pool,uid,column,record,context={}):
 		return ['Merge']
 
@@ -56,7 +435,7 @@ class srm_demand_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.demand.category'),
 	'childs_id': fields.one2many(obj = 'srm.demand.category',rel = 'parent_id',label = 'Childs'),
-	'demands': fields.one2many(label='Demands',obj='srm.demand',rel='category_id',limit = 80,readonly=True),
+	'demands': fields.one2many(label='Demands',obj='srm.demands',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -256,16 +635,21 @@ srm_demand_type_roles()
 
 # Types & Roles
 #
-class srm_demand(Model):
-	_name = 'srm.demand'
+class srm_demands(Model):
+	_name = 'srm.demands'
 	_description = 'General SRM Demand'
-	_inherits = {'srm.common':{'_methods':['copy_into','copy_from'],'_columns':['note1','note2'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
+	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
+	_rec_name = 'fullname'
 	_date = 'dod'
 	_columns = {
 	'dtype': fields.many2one(label='Type',obj='srm.demand.types',on_change='_on_change_dtype'),
-	'name': fields.varchar(label = 'Demand',selectable = True),
 	'company': fields.many2one(label='Company',obj='md.company'),
-	'category_id': fields.many2one(label='Category',obj='srm.demand.category'),
+	'name': fields.varchar(label = 'Name'),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'market': fields.many2one(label='Market',obj='srm.markets'),
+	'team': fields.many2one(label='Team',obj='srm.teams'),
+	'category': fields.many2one(label='Category',obj='srm.demand.category'),
+	'manager': fields.many2one(label='Manager',obj='bc.users'),
 	'origin': fields.varchar(label = 'Origin'),
 	'dod': fields.date(label='Date Of Demand',required=True),
 	'from_date': fields.date(label='From Date Of Demand',required=True),
@@ -280,6 +664,7 @@ class srm_demand(Model):
 	'roles': fields.one2many(label='Roles',obj='srm.demand.roles',rel='demand_id'),
 	'texts': fields.one2many(label='Texts',obj='srm.demand.texts',rel='demand_id'),
 	'deadlines': fields.one2many(label='Deadlines',obj='srm.demand.deadlines',rel='demand_id'),
+	'plates': fields.one2many(label='Plates',obj='srm.demand.output.plates',rel='demand_id'),
 	'note': fields.text('Note')}
 	
 	def _on_change_dtype(self,cr,pool,uid,item,context={}):		
@@ -319,7 +704,7 @@ class srm_demand(Model):
 				
 		return None
 
-srm_demand()
+srm_demands()
 
 class srm_demand_texts(Model):
 	_name = 'srm.demand.texts'
@@ -329,7 +714,7 @@ class srm_demand_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'demand_id': fields.many2one(label='Demand',obj='srm.demand'),
+	'demand_id': fields.many2one(label='Demand',obj='srm.demands'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
 	'descr': fields.referenced(ref='text_id.descr'),
@@ -343,12 +728,31 @@ class srm_demand_roles(Model):
 	_name = 'srm.demand.roles'
 	_description = 'General Model SRM Demand Roles'
 	_columns = {
-	'demand_id': fields.many2one(label = 'Demand',obj='srm.demand'),
+	'demand_id': fields.many2one(label = 'Demand',obj='srm.demands'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
 	'patner_id': fields.many2one(label = 'Parther',obj='md.partner',domain=[('ispeople',)])
 	}
 
 srm_demand_roles()
+
+class srm_demand_output_plates(Model):
+	_name = 'srm.demand.output.plates'
+	_description = 'General Model SRM Demand Output Plates'
+	_columns = {
+	'demand_id': fields.many2one(label = 'Demand',obj='srm.demands'),
+	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
+	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
+	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+	
+	_default = {
+		'state':'c'
+	}
 
 
 class srm_demand_type_deadlines(Model):
@@ -365,7 +769,7 @@ class srm_demand_deadlines(Model):
 	_description = 'General SRM Demand Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
-	'demand_id': fields.many2one(label = 'Demand',obj='srm.demand',on_delete='c',on_update='c'),
+	'demand_id': fields.many2one(label = 'Demand',obj='srm.demands',on_delete='c',on_update='c'),
 	'demand_type_deadline_id': fields.many2one(label = 'Type',obj='srm.demand.type.deadlines',on_delete='n',on_update='n'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
@@ -378,7 +782,7 @@ class srm_demand_items(Model):
 	_description = 'General SRM Demant Item'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
-	'demand_id': fields.many2one(obj = 'srm.demand',label = 'Demand',on_delete='c',on_update='c'),
+	'demand_id': fields.many2one(obj = 'srm.demands',label = 'Demand',on_delete='c',on_update='c'),
 	'product': fields.many2one(label='Product',obj='md.product',on_delete='n',on_update='n',on_change='_on_change_product'),
 	'quantity': fields.numeric(label='Quantity',compute='_calculate_items',size=(13,3)),
 	'uom': fields.many2one(label='UoM',obj='md.uom'),
@@ -489,7 +893,7 @@ srm_part_type_roles()
 class srm_part(Model):
 	_name = 'srm.part'
 	_description = 'General SRM Part'
-	_inherits = {'srm.common':{'_methods':['copy_into','copy_from']},'common.model':{'_methods':['_calculate_amount_costs']}}
+	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'dop'
 	_columns = {
 	'ptype': fields.many2one(label='Type',obj='srm.part.types',on_change='_on_change_ptype'),

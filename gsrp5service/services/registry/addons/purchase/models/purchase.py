@@ -549,6 +549,7 @@ class purchase_orders(Model):
 	'market_id': fields.many2one(label='Market',obj='purchase.markets'),
 	'team_id': fields.many2one(label='Team',obj='purchase.teams'),
 	'category_id': fields.many2one(label='Category',obj='purchase.order.categories'),
+	'manager': fields.many2one(label='Manager',obj='bc.users'),
 	'origin': fields.varchar(label = 'Origin'),
 	'doo': fields.date(label='Date Of Order',required=True),
 	'from_date': fields.date(label='Begin Date Of Order',required=True),

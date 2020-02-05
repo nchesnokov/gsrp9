@@ -7,6 +7,369 @@ from datetime import datetime
 from datetime import timedelta
 
 # Customize
+# Organization structure
+class crm_unit_categories(Model):
+	_name = 'crm_unit.categories'
+	_description = 'General Model Categories CRM Unit'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='crm_unit.categories'),
+	'childs_id': fields.one2many(obj = 'crm_unit.categories',rel = 'parent_id',label = 'Childs'),
+	'units': fields.one2many(label='Units',obj='crm_units',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+crm_unit_categories()
+
+
+class crm_units(Model):
+	_name = 'crm_units'
+	_description = 'General Model CRM Units'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='crm_unit.categories'),
+	'company_id': fields.many2many(label='Companies',obj='md.company', rel='md_company_crm_unit_rel', id2='unit_id', id1='company_id'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	'channels': fields.one2many(label='Channels',obj='crm_unit.channel.assigments',rel='unit_id'),
+	'segments': fields.one2many(label='Segments',obj='crm_unit.segment.assigments',rel='unit_id'),
+	'areas': fields.one2many(label='Areas',obj='crm_unit.area.assigments',rel='unit_id'),
+	'regions': fields.one2many(label='Regions',obj='crm_unit.region.assigments',rel='unit_id')
+	}
+
+crm_units()
+
+class crm_channel_categories(Model):
+	_name = 'crm_channel.categories'
+	_description = 'General Model Categories CRM Chanel'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='crm_channel.categories'),
+	'childs_id': fields.one2many(obj = 'crm_channel.categories',rel = 'parent_id',label = 'Childs'),
+	'channels': fields.one2many(label='Channels',obj='crm_channels',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+crm_channel_categories()
+
+
+class crm_channels(Model):
+	_name = 'crm_channels'
+	_description = 'General Model CRM Channels'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='crm_channel.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+crm_channels()
+
+class crm_segment_categories(Model):
+	_name = 'crm_segment.categories'
+	_description = 'General Model Categories CRM Segment'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='crm_segment.categories'),
+	'childs_id': fields.one2many(obj = 'crm_segment.categories',rel = 'parent_id',label = 'Childs'),
+	'segments': fields.one2many(label='Segments',obj='crm_segments',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+crm_segment_categories()
+
+
+class crm_segments(Model):
+	_name = 'crm_segments'
+	_description = 'General Model CRM Segments'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='crm_segment.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+crm_segments()
+
+class crm_area_categories(Model):
+	_name = 'crm_area.categories'
+	_description = 'General Model Categories CRM Area'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='crm_area.categories'),
+	'childs_id': fields.one2many(obj = 'crm_area.categories',rel = 'parent_id',label = 'Childs'),
+	'areas': fields.one2many(label='Areas',obj='crm_areas',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+crm_area_categories()
+
+
+class crm_areas(Model):
+	_name = 'crm_areas'
+	_description = 'General Model CRM Areas'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='crm_area.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+crm_areas()
+
+class crm_region_categories(Model):
+	_name = 'crm_region.categories'
+	_description = 'General Model Categories CRM Region'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='crm_region.categories'),
+	'childs_id': fields.one2many(obj = 'crm_region.categories',rel = 'parent_id',label = 'Childs'),
+	'segments': fields.one2many(label='REgions',obj='crm_regions',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+crm_region_categories()
+
+
+class crm_regions(Model):
+	_name = 'crm_regions'
+	_description = 'General Model CRM Regions'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='crm_region.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+crm_regions()
+
+
+class crm_division_categories(Model):
+	_name = 'crm_division.categories'
+	_description = 'General Model Categories CRM Division'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='crm_division.categories'),
+	'childs_id': fields.one2many(obj = 'crm_division.categories',rel = 'parent_id',label = 'Childs'),
+	'divisions': fields.one2many(label='Divisions',obj='crm_divisions',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+crm_division_categories()
+
+
+class crm_divisions(Model):
+	_name = 'crm_divisions'
+	_description = 'General Model CRM Divisions'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='crm_division.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	'subdivisions': fields.one2many(label='SubDivisions',obj='crm_division.subdivision.assigments',rel='division_id')
+	}
+
+crm_divisions()
+
+class crm_subdivision_categories(Model):
+	_name = 'crm_subdivision.categories'
+	_description = 'General Model Categories CRM Subdivision'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='crm_subdivision.categories'),
+	'childs_id': fields.one2many(obj = 'crm_subdivision.categories',rel = 'parent_id',label = 'Childs'),
+	'subdivisions': fields.one2many(label='Orders',obj='crm_subdivisions',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+crm_subdivision_categories()
+
+
+class crm_subdivisions(Model):
+	_name = 'crm_subdivisions'
+	_description = 'General Model CRM Subdivisions'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='crm_subdivision.categories'),
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+crm_subdivisions()
+
+class crm_unit_channel_assigments(Model):
+	_name = 'crm_unit.channel.assigments'
+	_description = 'General Model CRM Unit Of Channel Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='crm_units'),
+	'channel_id': fields.many2one(label='Channel',obj='crm_channels'),
+	'descr': fields.referenced(ref='channel_id.descr'),
+	}
+
+crm_unit_channel_assigments()
+
+class crm_unit_segment_assigments(Model):
+	_name = 'crm_unit.segment.assigments'
+	_description = 'General Model CRM Unit Of Segment Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='crm_units'),
+	'segment_id': fields.many2one(label='Segment',obj='crm_segments'),
+	'descr': fields.referenced(ref='segment_id.descr'),
+	}
+
+crm_unit_segment_assigments()
+
+class crm_unit_area_assigments(Model):
+	_name = 'crm_unit.area.assigments'
+	_description = 'General Model CRM Unit Of Area Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='crm_units'),
+	'area_id': fields.many2one(label='Area',obj='crm_areas'),
+	'descr': fields.referenced(ref='area_id.descr'),
+	}
+
+crm_unit_area_assigments()
+
+class crm_unit_region_assigments(Model):
+	_name = 'crm_unit.region.assigments'
+	_description = 'General Model CRM Unit Of Region Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='crm_units'),
+	'region_id': fields.many2one(label='Region',obj='crm_regions'),
+	'descr': fields.referenced(ref='region_id.descr'),
+	}
+
+crm_unit_segment_assigments()
+
+
+
+class crm_division_subdivision_assigments(Model):
+	_name = 'crm_division.subdivision.assigments'
+	_description = 'General Model CRM Division Of Subdivision Assigment'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'division_id': fields.many2one(label='Division',obj='crm_divisions'),
+	'subdivision_id': fields.many2one(label='Subdivision',obj='crm_subdivisions'),
+	'descr': fields.referenced(ref='subdivision_id.descr'),
+	}
+
+crm_division_subdivision_assigments()
+
+
+class crm_markets(Model):
+	_name = 'crm_markets'
+	_description = 'General Model CRM Market'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_rec_name = 'fullname'
+	_columns = {
+	'unit_id': fields.many2one(label='Unit',obj='crm_units', required = True),
+	'channel_id': fields.related(label='Channel',obj='crm_unit.channel.assigments', relatedy=['unit_id'], required = True),
+	'segment_id': fields.related(label='Segment',obj='crm_unit.segment.assigments', relatedy=['unit_id'], required = True),
+	'area_id': fields.related(label='Area',obj='crm_unit.area.assigments', relatedy=['unit_id'], required = True),
+	'region_id': fields.related(label='Region',obj='crm_unit.region.assigments', relatedy=['unit_id'], required = True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'note': fields.text(label='Note'),
+	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'unit_id' in item and 'name' in item['unit_id'] and item['unit_id']['name']:
+			v += item['unit_id']['name']
+
+		if 'channel_id' in item and 'name' in item['channel_id'] and item['channel_id']['name']:
+			v += '/' + item['channel_id']['name']
+
+		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
+			v += '/' + item['segment_id']['name']
+
+		if 'area_id' in item and 'name' in item['area_id'] and item['area_id']['name']:
+			v += '/' + item['are_id']['name']
+
+		if 'region_id' in item and 'name' in item['region_id'] and item['region_id']['name']:
+			v += '/' + item['region_id']['name']
+
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
+
+crm_markets()
+
+
+class crm_teams(Model):
+	_name = 'crm_teams'
+	_description = 'General Model CRM Teams'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_rec_name = 'fullname'
+	_columns = {
+	'division_id': fields.many2one(label='Division',obj='crm_divisions', required = True),
+	'subdivision_id': fields.related(label='Subdivision',obj='crm_subdivisions', relatedy=['division_id'], required = True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'note': fields.text(label='Note'),
+	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'division_id' in item and 'name' in item['division_id'] and item['division_id']['name']:
+			v += item['division_id']['name']
+
+		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:
+			v += '/' + item['subdivison_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
+crm_teams()
+
+
+#Organization structure
+
 # Organization
 class crm_channels(Model):
 	_name = 'crm.channels'
@@ -119,6 +482,7 @@ class crm_request_types(Model):
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
+	'rtype': fields.selection(label='Type',selections=[('ord','Order'),('ap','Advance Payment'),('ps','Pseduo'),('dm','Debit Request'),('cr','Credit Request'),('rо','Return')]),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'htschema': fields.many2one(label='Text Schema Of Head',obj='crm.schema.texts',domain=[('usage','in',('h','b'))]),
 	'itschema': fields.many2one(label='Text Schema Of Item',obj='crm.schema.texts',domain=[('usage','in',('i','b'))]),
@@ -148,6 +512,7 @@ class crm_offer_types(Model):
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
+	'otype': fields.selection(label='Type',selections=[('ord','Order'),('ap','Advance Payment'),('ps','Pseduo'),('dm','Debit Request'),('cr','Credit Request'),('rо','Return')]),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'htschema': fields.many2one(label='Text Schema Of Head',obj='crm.schema.texts',domain=[('usage','in',('h','b'))]),
 	'itschema': fields.many2one(label='Text Schema Of Item',obj='crm.schema.texts',domain=[('usage','in',('i','b'))]),
@@ -248,13 +613,12 @@ class crm_requests(Model):
 	_date = 'dor'
 	_columns = {
 	'rtype': fields.many2one(label='Type',required = True,obj='crm.request.types',on_change='_on_change_rtype'),
+	'company': fields.many2one(label='Company',obj='md.company'),
 	'name': fields.varchar(label = 'Name'),
-	'category_id': fields.many2one(label='Category',obj='crm.request.categories'),
-	'company_id': fields.many2one(label='Company',obj='md.company'),
-	'channel_id': fields.many2one(label='Cannel',obj='crm.channels'),
-	'sector_id': fields.related(label='Sector',obj='crm.sectors',relatedy=['channel_id']),
-	'team_id': fields.many2one(label='Team',obj='crm.teams'),
-	'group_id': fields.related(label='Group',obj='crm.groups',relatedy=['team_id']),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'market': fields.many2one(label='Market',obj='crm.markets'),
+	'team': fields.many2one(label='Team',obj='crm.teams'),
+	'category': fields.many2one(label='Category',obj='crm.request.categories'),
 	'manager': fields.many2one(label='Manager',obj='bc.users'),
 	'origin': fields.varchar(label = 'Origin'),
 	'from_date': fields.date(label='Begin Date Of Request',required=True),
@@ -275,6 +639,20 @@ class crm_requests(Model):
 	'note': fields.text('Note')
 	}
 #
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+		if 'company' in item and 'name' in item['company'] and item['company']['name']:
+			v += item['company']['name']
+
+		if 'otype' in item and 'name' in item['otype'] and item['otype']['name']:
+			v += '/' + item['otype']['name']
+
+		if item['name']:
+			v += '/' + item['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
 	def _on_change_rtype(self,cr,pool,uid,item,context={}):		
 		roles = pool.get('crm.request.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:

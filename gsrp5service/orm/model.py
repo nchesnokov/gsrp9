@@ -177,6 +177,7 @@ class BaseModel(object, metaclass = MetaModel):
 	_description = None
 	_checks = None
 	_trigers = None
+	_on = None
 	_columns_attrs = {}
 	_columns = {}
 	_default = {}
