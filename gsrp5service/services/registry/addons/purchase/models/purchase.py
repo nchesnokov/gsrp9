@@ -771,6 +771,22 @@ class purchase_order_items(Model):
 
 		return None
 
+
+		self._trigers = {
+		'ForEachRowBeforeInsert': '_trgForEachRowBeforeInsertIB1',
+		'ForEachRowBeforeUpdate': '_trgForEachRowBeforeUpdateUB1',
+		'ForEachRowBeforeDelete': '_trgForEachRowBeforeDeleteDB1',
+		'ForEachRowAfterInsert': '_trgForEachRowAfterInsertIA1',
+		'ForEachRowAfterUpdate': '_trgForEachRowAfterUpdateUA1',
+		'ForEachRowAfterDelete': '_trgForEachRowAfterDeleteDA1',
+		'BeforeInsert': '_trgBeforeInsertIBA1',
+		'BeforeUpdate': '_trgBeforeUpdateUBA1',
+		'BeforeDelete': '_trgBeforeDeleteDBA1',
+		'AfterInsert': '_trgBeforeInsertIBA1',
+		'AfterUpdate': '_trgAfterUpdateIUA1',
+		'AfterDelete': '_trgAfterDeleteDA1',
+		}
+
 	def _trgForEachRowBeforeInsertIB1(self,cr,pool,uid,record,context):
 		print('Triger For Each Row Before Insert')
 
