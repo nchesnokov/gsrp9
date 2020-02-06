@@ -580,13 +580,13 @@ def _getNames(self,names):
 
 	return n
 
-	def _getTriger(self,name):
-		if name in self._trigers and self._trigers[name]:
-			return getattr(self,self._trigers[name],None)
+def _getTriger(self,name):
+	if name in self._trigers and self._trigers[name]:
+		return getattr(self,self._trigers[name],None)
 
-	def _getHook(self,name):
-		if name in self._hooks and self._hooks[name]:
-			return getattr(self,self._hooks[name],None)
+def _getHook(self,name):
+	if name in self._hooks and self._hooks[name]:
+		return getattr(self,self._hooks[name],None)
 
 # modelinfo
 def _buildEmptyItem(self):

@@ -299,7 +299,7 @@ crm_division_subdivision_assigments()
 
 
 class crm_markets(Model):
-	_name = 'crm_markets'
+	_name = 'crm.markets'
 	_description = 'General Model CRM Market'
 	_rec_name = 'code'
 	_class_model = 'C'

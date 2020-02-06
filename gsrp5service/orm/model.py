@@ -177,7 +177,7 @@ class BaseModel(object, metaclass = MetaModel):
 	_description = None
 	_checks = None
 	_trigers = None
-	_on = None
+	_hooks = None
 	_columns_attrs = {}
 	_columns = {}
 	_default = {}
@@ -403,11 +403,18 @@ class BaseModel(object, metaclass = MetaModel):
 	def _getNames(self,names = None):
 		return mm._getNames(self,names)
 
+	def _getTriger(self,name):
+		return mm._getTriger(self,name)
+
+	def _getHook(self,name):
+		return mm._getHook(self,name)
+
 	def _buildEmptyItem(self):
 		return mm._buildEmptyItem(self)
 
 	def _buildSchemaColumns(self,pool):
 		return mm._buildSchemaColumns(self,pool)
+
 
 	# def _getAccess(self):
 		# return mm._getAccess(self)
