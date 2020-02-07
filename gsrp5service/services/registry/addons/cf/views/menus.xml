@@ -8,14 +8,6 @@
         </record>
       </records>
       <records model="bc.actions">
-        <record id="action.cf.groups.search">
-          <column name="name">action.cf.groups.search</column>
-          <column name="ta">View</column>
-        </record>
-        <record id="action.cf.tags.search">
-          <column name="name">action.cf.tags.search</column>
-          <column name="ta">View</column>
-        </record>
         <record id="action.cf.files.search">
           <column name="name">action.cf.files.search</column>
           <column name="ta">View</column>
@@ -30,14 +22,6 @@
         </record>
       </records>
       <records model="bc.actions">
-        <record id="action.cf.groups.report">
-          <column name="name">action.cf.groups.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.cf.tags.report">
-          <column name="name">action.cf.tags.report</column>
-          <column name="ta">Report</column>
-        </record>
         <record id="action.cf.files.report">
           <column name="name">action.cf.files.report</column>
           <column name="ta">Report</column>
@@ -52,14 +36,6 @@
         </record>
       </records>
       <records model="bc.view.actions">
-        <record id="view.action.cf.groups.search">
-          <column name="action_id">action.cf.groups.search</column>
-          <column name="view_id">view.cf.groups.search</column>
-        </record>
-        <record id="view.action.cf.tags.search">
-          <column name="action_id">action.cf.tags.search</column>
-          <column name="view_id">view.cf.tags.search</column>
-        </record>
         <record id="view.action.cf.files.search">
           <column name="action_id">action.cf.files.search</column>
           <column name="view_id">view.cf.files.search</column>
@@ -74,20 +50,6 @@
         </record>
       </records>
       <records model="bc.ui.reports">
-        <record id="bc.ui.report.docx.cf.groups">
-          <column name="name">bc.ui.report.docx.cf.groups</column>
-          <column name="label">Colobrative Groups</column>
-          <column name="report">report_cf_groups</column>
-          <column name="infile">infile_cf_groups.docx</column>
-          <column name="outfile">outfile_cf_groups.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.cf.tags">
-          <column name="name">bc.ui.report.docx.cf.tags</column>
-          <column name="label">Colobrative Folders File Tags</column>
-          <column name="report">report_cf_tags</column>
-          <column name="infile">infile_cf_tags.docx</column>
-          <column name="outfile">outfile_cf_tags.docx</column>
-        </record>
         <record id="bc.ui.report.docx.cf.files">
           <column name="name">bc.ui.report.docx.cf.files</column>
           <column name="label">Colobrative Files</column>
@@ -111,14 +73,6 @@
         </record>
       </records>
       <records model="bc.report.actions">
-        <record id="report.action.cf.groups.report">
-          <column name="action_id">action.cf.groups.report</column>
-          <column name="report_id">bc.ui.report.docx.cf.groups</column>
-        </record>
-        <record id="report.action.cf.tags.report">
-          <column name="action_id">action.cf.tags.report</column>
-          <column name="report_id">bc.ui.report.docx.cf.tags</column>
-        </record>
         <record id="report.action.cf.files.report">
           <column name="action_id">action.cf.files.report</column>
           <column name="report_id">bc.ui.report.docx.cf.files</column>
@@ -133,44 +87,28 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.cf.groups.search">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.cf.groups.search</column>
-            <column name="label">Colobrative Groups</column>
-          <column name="parent_id">ui.menu.cf</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.cf.groups.search</column>
-          </record>
-          <record id="ui.menu.cf.tags.search">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.cf.tags.search</column>
-            <column name="label">Colobrative Folders File Tags</column>
-          <column name="parent_id">ui.menu.cf</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.cf.tags.search</column>
-          </record>
           <record id="ui.menu.cf.files.search">
-          <column name="sequence">5</column>
+          <column name="sequence">3</column>
             <column name="name">ui.menu.cf.files.search</column>
             <column name="label">Colobrative Files</column>
           <column name="parent_id">ui.menu.cf</column>
-          <column name="sequence">50</column>
+          <column name="sequence">30</column>
           <column name="action_id">action.cf.files.search</column>
           </record>
           <record id="ui.menu.cf.links.search">
-          <column name="sequence">9</column>
+          <column name="sequence">7</column>
             <column name="name">ui.menu.cf.links.search</column>
             <column name="label">Colobrative Links</column>
           <column name="parent_id">ui.menu.cf</column>
-          <column name="sequence">90</column>
+          <column name="sequence">70</column>
           <column name="action_id">action.cf.links.search</column>
           </record>
           <record id="ui.menu.cf.folders.search">
-          <column name="sequence">13</column>
+          <column name="sequence">11</column>
             <column name="name">ui.menu.cf.folders.search</column>
             <column name="label">Colobrative Folders</column>
           <column name="parent_id">ui.menu.cf</column>
-          <column name="sequence">130</column>
+          <column name="sequence">110</column>
           <column name="action_id">action.cf.folders.search</column>
           </record>
       </records>
@@ -182,44 +120,28 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.cf.groups.report">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.cf.groups.report</column>
-            <column name="label">Colobrative Groups</column>
-          <column name="parent_id">ui.menu.cf.report</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.cf.groups.report</column>
-          </record>
-          <record id="ui.menu.cf.tags.report">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.cf.tags.report</column>
-            <column name="label">Colobrative Folders File Tags</column>
-          <column name="parent_id">ui.menu.cf.report</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.cf.tags.report</column>
-          </record>
           <record id="ui.menu.cf.files.report">
-          <column name="sequence">5</column>
+          <column name="sequence">3</column>
             <column name="name">ui.menu.cf.files.report</column>
             <column name="label">Colobrative Files</column>
           <column name="parent_id">ui.menu.cf.report</column>
-          <column name="sequence">50</column>
+          <column name="sequence">30</column>
           <column name="action_id">action.cf.files.report</column>
           </record>
           <record id="ui.menu.cf.links.report">
-          <column name="sequence">9</column>
+          <column name="sequence">7</column>
             <column name="name">ui.menu.cf.links.report</column>
             <column name="label">Colobrative Links</column>
           <column name="parent_id">ui.menu.cf.report</column>
-          <column name="sequence">90</column>
+          <column name="sequence">70</column>
           <column name="action_id">action.cf.links.report</column>
           </record>
           <record id="ui.menu.cf.folders.report">
-          <column name="sequence">13</column>
+          <column name="sequence">11</column>
             <column name="name">ui.menu.cf.folders.report</column>
             <column name="label">Colobrative Folders</column>
           <column name="parent_id">ui.menu.cf.report</column>
-          <column name="sequence">130</column>
+          <column name="sequence">110</column>
           <column name="action_id">action.cf.folders.report</column>
           </record>
       </records>

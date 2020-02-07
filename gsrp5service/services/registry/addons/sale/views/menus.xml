@@ -249,14 +249,6 @@
           <column name="name">action.sale.teams.custom</column>
           <column name="ta">View</column>
         </record>
-        <record id="action.sale.texts.custom">
-          <column name="name">action.sale.texts.custom</column>
-          <column name="ta">View</column>
-        </record>
-        <record id="action.sale.schema.texts.custom">
-          <column name="name">action.sale.schema.texts.custom</column>
-          <column name="ta">View</column>
-        </record>
         <record id="action.sale.order.types.custom">
           <column name="name">action.sale.order.types.custom</column>
           <column name="ta">View</column>
@@ -330,14 +322,6 @@
         <record id="view.action.sale.teams.custom">
           <column name="action_id">action.sale.teams.custom</column>
           <column name="view_id">view.sale.teams.search</column>
-        </record>
-        <record id="view.action.sale.texts.custom">
-          <column name="action_id">action.sale.texts.custom</column>
-          <column name="view_id">view.sale.texts.search</column>
-        </record>
-        <record id="view.action.sale.schema.texts.custom">
-          <column name="action_id">action.sale.schema.texts.custom</column>
-          <column name="view_id">view.sale.schema.texts.search</column>
         </record>
         <record id="view.action.sale.order.types.custom">
           <column name="action_id">action.sale.order.types.custom</column>
@@ -484,36 +468,20 @@
           <column name="sequence">200</column>
           <column name="action_id">action.sale.teams.custom</column>
           </record>
-          <record id="ui.menu.sale.texts.custom">
-          <column name="sequence">21</column>
-            <column name="name">ui.menu.sale.texts.custom</column>
-            <column name="label">Sale Texts</column>
-          <column name="parent_id">ui.menu.sale.custom</column>
-          <column name="sequence">210</column>
-          <column name="action_id">action.sale.texts.custom</column>
-          </record>
-          <record id="ui.menu.sale.schema.texts.custom">
-          <column name="sequence">22</column>
-            <column name="name">ui.menu.sale.schema.texts.custom</column>
-            <column name="label">Schema Of Sale Texts</column>
-          <column name="parent_id">ui.menu.sale.custom</column>
-          <column name="sequence">220</column>
-          <column name="action_id">action.sale.schema.texts.custom</column>
-          </record>
           <record id="ui.menu.sale.order.types.custom">
-          <column name="sequence">24</column>
+          <column name="sequence">22</column>
             <column name="name">ui.menu.sale.order.types.custom</column>
             <column name="label">Types Sale Order</column>
           <column name="parent_id">ui.menu.sale.custom</column>
-          <column name="sequence">240</column>
+          <column name="sequence">220</column>
           <column name="action_id">action.sale.order.types.custom</column>
           </record>
           <record id="ui.menu.sale.invoice.types.custom">
-          <column name="sequence">27</column>
+          <column name="sequence">25</column>
             <column name="name">ui.menu.sale.invoice.types.custom</column>
             <column name="label">Types Sale Invoice</column>
           <column name="parent_id">ui.menu.sale.custom</column>
-          <column name="sequence">270</column>
+          <column name="sequence">250</column>
           <column name="action_id">action.sale.invoice.types.custom</column>
           </record>
       </records>
@@ -580,14 +548,6 @@
         </record>
         <record id="action.sale.teams.report">
           <column name="name">action.sale.teams.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.sale.texts.report">
-          <column name="name">action.sale.texts.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.sale.schema.texts.report">
-          <column name="name">action.sale.schema.texts.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.sale.order.types.report">
@@ -712,20 +672,6 @@
           <column name="infile">infile_sale_teams.docx</column>
           <column name="outfile">outfile_sale_teams.docx</column>
         </record>
-        <record id="bc.ui.report.docx.sale.texts">
-          <column name="name">bc.ui.report.docx.sale.texts</column>
-          <column name="label">Sale Texts</column>
-          <column name="report">report_sale_texts</column>
-          <column name="infile">infile_sale_texts.docx</column>
-          <column name="outfile">outfile_sale_texts.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.sale.schema.texts">
-          <column name="name">bc.ui.report.docx.sale.schema.texts</column>
-          <column name="label">Schema Of Sale Texts</column>
-          <column name="report">report_sale_schema_texts</column>
-          <column name="infile">infile_sale_schema_texts.docx</column>
-          <column name="outfile">outfile_sale_schema_texts.docx</column>
-        </record>
         <record id="bc.ui.report.docx.sale.order.types">
           <column name="name">bc.ui.report.docx.sale.order.types</column>
           <column name="label">Types Sale Order</column>
@@ -805,14 +751,6 @@
         <record id="report.action.sale.teams.report">
           <column name="action_id">action.sale.teams.report</column>
           <column name="report_id">bc.ui.report.docx.sale.teams</column>
-        </record>
-        <record id="report.action.sale.texts.report">
-          <column name="action_id">action.sale.texts.report</column>
-          <column name="report_id">bc.ui.report.docx.sale.texts</column>
-        </record>
-        <record id="report.action.sale.schema.texts.report">
-          <column name="action_id">action.sale.schema.texts.report</column>
-          <column name="report_id">bc.ui.report.docx.sale.schema.texts</column>
         </record>
         <record id="report.action.sale.order.types.report">
           <column name="action_id">action.sale.order.types.report</column>
@@ -959,36 +897,20 @@
           <column name="sequence">200</column>
           <column name="action_id">action.sale.teams.report</column>
           </record>
-          <record id="ui.menu.sale.texts.report">
-          <column name="sequence">21</column>
-            <column name="name">ui.menu.sale.texts.report</column>
-            <column name="label">Sale Texts</column>
-          <column name="parent_id">ui.menu.sale.report.custom</column>
-          <column name="sequence">210</column>
-          <column name="action_id">action.sale.texts.report</column>
-          </record>
-          <record id="ui.menu.sale.schema.texts.report">
-          <column name="sequence">22</column>
-            <column name="name">ui.menu.sale.schema.texts.report</column>
-            <column name="label">Schema Of Sale Texts</column>
-          <column name="parent_id">ui.menu.sale.report.custom</column>
-          <column name="sequence">220</column>
-          <column name="action_id">action.sale.schema.texts.report</column>
-          </record>
           <record id="ui.menu.sale.order.types.report">
-          <column name="sequence">24</column>
+          <column name="sequence">22</column>
             <column name="name">ui.menu.sale.order.types.report</column>
             <column name="label">Types Sale Order</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
-          <column name="sequence">240</column>
+          <column name="sequence">220</column>
           <column name="action_id">action.sale.order.types.report</column>
           </record>
           <record id="ui.menu.sale.invoice.types.report">
-          <column name="sequence">27</column>
+          <column name="sequence">25</column>
             <column name="name">ui.menu.sale.invoice.types.report</column>
             <column name="label">Types Sale Invoice</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
-          <column name="sequence">270</column>
+          <column name="sequence">250</column>
           <column name="action_id">action.sale.invoice.types.report</column>
           </record>
       </records>

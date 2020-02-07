@@ -36,28 +36,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.fa.accounts.type.search">
-          <column name="name">view.fa.accounts.type.search</column>
-          <column name="model">fa.accounts.type</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="include_initial_balance"/>
-              <field name="type"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.fa.accounts.type.find">
-          <column name="name">view.fa.accounts.type.find</column>
-          <column name="model">fa.accounts.type</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="include_initial_balance"/>
-              <field name="type"/>
-            </find>
-          </column>
-        </record>
         <record id="view.fa.accounts.tag.form">
           <column name="name">view.fa.accounts.tag.form</column>
           <column name="model">fa.accounts.tag</column>
@@ -92,30 +70,6 @@
               <field name="color"/>
               <field name="inactive"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.fa.accounts.tag.search">
-          <column name="name">view.fa.accounts.tag.search</column>
-          <column name="model">fa.accounts.tag</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="applicability"/>
-              <field name="color"/>
-              <field name="inactive"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.fa.accounts.tag.find">
-          <column name="name">view.fa.accounts.tag.find</column>
-          <column name="model">fa.accounts.tag</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="applicability"/>
-              <field name="color"/>
-              <field name="inactive"/>
-            </find>
           </column>
         </record>
         <record id="view.fa.accounts.form">
@@ -471,26 +425,6 @@
               <field name="name"/>
               <field name="sequence"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.fa.accounts.tax.group.search">
-          <column name="name">view.fa.accounts.tax.group.search</column>
-          <column name="model">fa.accounts.tax.group</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="sequence"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.fa.accounts.tax.group.find">
-          <column name="name">view.fa.accounts.tax.group.find</column>
-          <column name="model">fa.accounts.tax.group</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="sequence"/>
-            </find>
           </column>
         </record>
         <record id="view.fa.accounts.tax.form">
@@ -1434,28 +1368,6 @@
               <field name="code"/>
               <field name="payment_type"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.fa.accounts.payment.method.search">
-          <column name="name">view.fa.accounts.payment.method.search</column>
-          <column name="model">fa.accounts.payment.method</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="code"/>
-              <field name="payment_type"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.fa.accounts.payment.method.find">
-          <column name="name">view.fa.accounts.payment.method.find</column>
-          <column name="model">fa.accounts.payment.method</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="code"/>
-              <field name="payment_type"/>
-            </find>
           </column>
         </record>
       </records>

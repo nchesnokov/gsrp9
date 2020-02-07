@@ -271,18 +271,6 @@
           <column name="name">action.le.loading.places.custom</column>
           <column name="ta">View</column>
         </record>
-        <record id="action.le.md.group.freight.cargo.custom">
-          <column name="name">action.le.md.group.freight.cargo.custom</column>
-          <column name="ta">View</column>
-        </record>
-        <record id="action.le.delivery.texts.custom">
-          <column name="name">action.le.delivery.texts.custom</column>
-          <column name="ta">View</column>
-        </record>
-        <record id="action.le.delivery.schema.texts.custom">
-          <column name="name">action.le.delivery.schema.texts.custom</column>
-          <column name="ta">View</column>
-        </record>
         <record id="action.le.inbound.delivery.types.custom">
           <column name="name">action.le.inbound.delivery.types.custom</column>
           <column name="ta">View</column>
@@ -304,18 +292,6 @@
         <record id="view.action.le.loading.places.custom">
           <column name="action_id">action.le.loading.places.custom</column>
           <column name="view_id">view.le.loading.places.search</column>
-        </record>
-        <record id="view.action.le.md.group.freight.cargo.custom">
-          <column name="action_id">action.le.md.group.freight.cargo.custom</column>
-          <column name="view_id">view.le.md.group.freight.cargo.search</column>
-        </record>
-        <record id="view.action.le.delivery.texts.custom">
-          <column name="action_id">action.le.delivery.texts.custom</column>
-          <column name="view_id">view.le.delivery.texts.search</column>
-        </record>
-        <record id="view.action.le.delivery.schema.texts.custom">
-          <column name="action_id">action.le.delivery.schema.texts.custom</column>
-          <column name="view_id">view.le.delivery.schema.texts.search</column>
         </record>
         <record id="view.action.le.inbound.delivery.types.custom">
           <column name="action_id">action.le.inbound.delivery.types.custom</column>
@@ -354,52 +330,28 @@
           <column name="sequence">10</column>
           <column name="action_id">action.le.loading.places.custom</column>
           </record>
-          <record id="ui.menu.le.md.group.freight.cargo.custom">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.le.md.group.freight.cargo.custom</column>
-            <column name="label">Fleight Cargo Group</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.le.md.group.freight.cargo.custom</column>
-          </record>
-          <record id="ui.menu.le.delivery.texts.custom">
-          <column name="sequence">3</column>
-            <column name="name">ui.menu.le.delivery.texts.custom</column>
-            <column name="label">Delivery Texts</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">30</column>
-          <column name="action_id">action.le.delivery.texts.custom</column>
-          </record>
-          <record id="ui.menu.le.delivery.schema.texts.custom">
-          <column name="sequence">4</column>
-            <column name="name">ui.menu.le.delivery.schema.texts.custom</column>
-            <column name="label">Schema Of Delivery Texts</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">40</column>
-          <column name="action_id">action.le.delivery.schema.texts.custom</column>
-          </record>
           <record id="ui.menu.le.inbound.delivery.types.custom">
-          <column name="sequence">6</column>
+          <column name="sequence">3</column>
             <column name="name">ui.menu.le.inbound.delivery.types.custom</column>
             <column name="label">Types Inbound Delivery</column>
           <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">60</column>
+          <column name="sequence">30</column>
           <column name="action_id">action.le.inbound.delivery.types.custom</column>
           </record>
           <record id="ui.menu.le.outbound.delivery.types.custom">
-          <column name="sequence">8</column>
+          <column name="sequence">5</column>
             <column name="name">ui.menu.le.outbound.delivery.types.custom</column>
             <column name="label">Types Outbound Delivery</column>
           <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">80</column>
+          <column name="sequence">50</column>
           <column name="action_id">action.le.outbound.delivery.types.custom</column>
           </record>
           <record id="ui.menu.le.internal.delivery.types.custom">
-          <column name="sequence">10</column>
+          <column name="sequence">7</column>
             <column name="name">ui.menu.le.internal.delivery.types.custom</column>
             <column name="label">Types Internal Delivery</column>
           <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">100</column>
+          <column name="sequence">70</column>
           <column name="action_id">action.le.internal.delivery.types.custom</column>
           </record>
       </records>
@@ -410,18 +362,6 @@
         </record>
         <record id="action.le.loading.places.report">
           <column name="name">action.le.loading.places.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.md.group.freight.cargo.report">
-          <column name="name">action.le.md.group.freight.cargo.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.delivery.texts.report">
-          <column name="name">action.le.delivery.texts.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.delivery.schema.texts.report">
-          <column name="name">action.le.delivery.schema.texts.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.le.inbound.delivery.types.report">
@@ -451,27 +391,6 @@
           <column name="report">report_le_loading_places</column>
           <column name="infile">infile_le_loading_places.docx</column>
           <column name="outfile">outfile_le_loading_places.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.md.group.freight.cargo">
-          <column name="name">bc.ui.report.docx.le.md.group.freight.cargo</column>
-          <column name="label">Fleight Cargo Group</column>
-          <column name="report">report_le_md_group_freight_cargo</column>
-          <column name="infile">infile_le_md_group_freight_cargo.docx</column>
-          <column name="outfile">outfile_le_md_group_freight_cargo.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.delivery.texts">
-          <column name="name">bc.ui.report.docx.le.delivery.texts</column>
-          <column name="label">Delivery Texts</column>
-          <column name="report">report_le_delivery_texts</column>
-          <column name="infile">infile_le_delivery_texts.docx</column>
-          <column name="outfile">outfile_le_delivery_texts.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.delivery.schema.texts">
-          <column name="name">bc.ui.report.docx.le.delivery.schema.texts</column>
-          <column name="label">Schema Of Delivery Texts</column>
-          <column name="report">report_le_delivery_schema_texts</column>
-          <column name="infile">infile_le_delivery_schema_texts.docx</column>
-          <column name="outfile">outfile_le_delivery_schema_texts.docx</column>
         </record>
         <record id="bc.ui.report.docx.le.inbound.delivery.types">
           <column name="name">bc.ui.report.docx.le.inbound.delivery.types</column>
@@ -503,18 +422,6 @@
         <record id="report.action.le.loading.places.report">
           <column name="action_id">action.le.loading.places.report</column>
           <column name="report_id">bc.ui.report.docx.le.loading.places</column>
-        </record>
-        <record id="report.action.le.md.group.freight.cargo.report">
-          <column name="action_id">action.le.md.group.freight.cargo.report</column>
-          <column name="report_id">bc.ui.report.docx.le.md.group.freight.cargo</column>
-        </record>
-        <record id="report.action.le.delivery.texts.report">
-          <column name="action_id">action.le.delivery.texts.report</column>
-          <column name="report_id">bc.ui.report.docx.le.delivery.texts</column>
-        </record>
-        <record id="report.action.le.delivery.schema.texts.report">
-          <column name="action_id">action.le.delivery.schema.texts.report</column>
-          <column name="report_id">bc.ui.report.docx.le.delivery.schema.texts</column>
         </record>
         <record id="report.action.le.inbound.delivery.types.report">
           <column name="action_id">action.le.inbound.delivery.types.report</column>
@@ -553,52 +460,28 @@
           <column name="sequence">10</column>
           <column name="action_id">action.le.loading.places.report</column>
           </record>
-          <record id="ui.menu.le.md.group.freight.cargo.report">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.le.md.group.freight.cargo.report</column>
-            <column name="label">Fleight Cargo Group</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.le.md.group.freight.cargo.report</column>
-          </record>
-          <record id="ui.menu.le.delivery.texts.report">
-          <column name="sequence">3</column>
-            <column name="name">ui.menu.le.delivery.texts.report</column>
-            <column name="label">Delivery Texts</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">30</column>
-          <column name="action_id">action.le.delivery.texts.report</column>
-          </record>
-          <record id="ui.menu.le.delivery.schema.texts.report">
-          <column name="sequence">4</column>
-            <column name="name">ui.menu.le.delivery.schema.texts.report</column>
-            <column name="label">Schema Of Delivery Texts</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">40</column>
-          <column name="action_id">action.le.delivery.schema.texts.report</column>
-          </record>
           <record id="ui.menu.le.inbound.delivery.types.report">
-          <column name="sequence">6</column>
+          <column name="sequence">3</column>
             <column name="name">ui.menu.le.inbound.delivery.types.report</column>
             <column name="label">Types Inbound Delivery</column>
           <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">60</column>
+          <column name="sequence">30</column>
           <column name="action_id">action.le.inbound.delivery.types.report</column>
           </record>
           <record id="ui.menu.le.outbound.delivery.types.report">
-          <column name="sequence">8</column>
+          <column name="sequence">5</column>
             <column name="name">ui.menu.le.outbound.delivery.types.report</column>
             <column name="label">Types Outbound Delivery</column>
           <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">80</column>
+          <column name="sequence">50</column>
           <column name="action_id">action.le.outbound.delivery.types.report</column>
           </record>
           <record id="ui.menu.le.internal.delivery.types.report">
-          <column name="sequence">10</column>
+          <column name="sequence">7</column>
             <column name="name">ui.menu.le.internal.delivery.types.report</column>
             <column name="label">Types Internal Delivery</column>
           <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">100</column>
+          <column name="sequence">70</column>
           <column name="action_id">action.le.internal.delivery.types.report</column>
           </record>
       </records>

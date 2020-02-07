@@ -68,14 +68,6 @@
           </record>
       </records>
       <records model="bc.actions">
-        <record id="action.seq.areas.custom">
-          <column name="name">action.seq.areas.custom</column>
-          <column name="ta">View</column>
-        </record>
-        <record id="action.seq.segments.custom">
-          <column name="name">action.seq.segments.custom</column>
-          <column name="ta">View</column>
-        </record>
         <record id="action.seq.access.custom">
           <column name="name">action.seq.access.custom</column>
           <column name="ta">View</column>
@@ -86,14 +78,6 @@
         </record>
       </records>
       <records model="bc.view.actions">
-        <record id="view.action.seq.areas.custom">
-          <column name="action_id">action.seq.areas.custom</column>
-          <column name="view_id">view.seq.areas.search</column>
-        </record>
-        <record id="view.action.seq.segments.custom">
-          <column name="action_id">action.seq.segments.custom</column>
-          <column name="view_id">view.seq.segments.search</column>
-        </record>
         <record id="view.action.seq.access.custom">
           <column name="action_id">action.seq.access.custom</column>
           <column name="view_id">view.seq.access.search</column>
@@ -111,48 +95,24 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.seq.areas.custom">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.seq.areas.custom</column>
-            <column name="label">Sequense Area</column>
-          <column name="parent_id">ui.menu.common.custom</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.seq.areas.custom</column>
-          </record>
-          <record id="ui.menu.seq.segments.custom">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.seq.segments.custom</column>
-            <column name="label">Sequense Segment</column>
-          <column name="parent_id">ui.menu.common.custom</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.seq.segments.custom</column>
-          </record>
           <record id="ui.menu.seq.access.custom">
-          <column name="sequence">2</column>
+          <column name="sequence">0</column>
             <column name="name">ui.menu.seq.access.custom</column>
             <column name="label">Sequence Access</column>
           <column name="parent_id">ui.menu.common.custom</column>
-          <column name="sequence">20</column>
+          <column name="sequence">0</column>
           <column name="action_id">action.seq.access.custom</column>
           </record>
           <record id="ui.menu.seq.conditions.custom">
-          <column name="sequence">6</column>
+          <column name="sequence">4</column>
             <column name="name">ui.menu.seq.conditions.custom</column>
             <column name="label">Sequence Condition</column>
           <column name="parent_id">ui.menu.common.custom</column>
-          <column name="sequence">60</column>
+          <column name="sequence">40</column>
           <column name="action_id">action.seq.conditions.custom</column>
           </record>
       </records>
       <records model="bc.actions">
-        <record id="action.seq.areas.report">
-          <column name="name">action.seq.areas.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.seq.segments.report">
-          <column name="name">action.seq.segments.report</column>
-          <column name="ta">Report</column>
-        </record>
         <record id="action.seq.access.report">
           <column name="name">action.seq.access.report</column>
           <column name="ta">Report</column>
@@ -163,20 +123,6 @@
         </record>
       </records>
       <records model="bc.ui.reports">
-        <record id="bc.ui.report.docx.seq.areas">
-          <column name="name">bc.ui.report.docx.seq.areas</column>
-          <column name="label">Sequense Area</column>
-          <column name="report">report_seq_areas</column>
-          <column name="infile">infile_seq_areas.docx</column>
-          <column name="outfile">outfile_seq_areas.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.seq.segments">
-          <column name="name">bc.ui.report.docx.seq.segments</column>
-          <column name="label">Sequense Segment</column>
-          <column name="report">report_seq_segments</column>
-          <column name="infile">infile_seq_segments.docx</column>
-          <column name="outfile">outfile_seq_segments.docx</column>
-        </record>
         <record id="bc.ui.report.docx.seq.access">
           <column name="name">bc.ui.report.docx.seq.access</column>
           <column name="label">Sequence Access</column>
@@ -193,14 +139,6 @@
         </record>
       </records>
       <records model="bc.report.actions">
-        <record id="report.action.seq.areas.report">
-          <column name="action_id">action.seq.areas.report</column>
-          <column name="report_id">bc.ui.report.docx.seq.areas</column>
-        </record>
-        <record id="report.action.seq.segments.report">
-          <column name="action_id">action.seq.segments.report</column>
-          <column name="report_id">bc.ui.report.docx.seq.segments</column>
-        </record>
         <record id="report.action.seq.access.report">
           <column name="action_id">action.seq.access.report</column>
           <column name="report_id">bc.ui.report.docx.seq.access</column>
@@ -218,36 +156,20 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.seq.areas.report">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.seq.areas.report</column>
-            <column name="label">Sequense Area</column>
-          <column name="parent_id">ui.menu.common.report.custom</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.seq.areas.report</column>
-          </record>
-          <record id="ui.menu.seq.segments.report">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.seq.segments.report</column>
-            <column name="label">Sequense Segment</column>
-          <column name="parent_id">ui.menu.common.report.custom</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.seq.segments.report</column>
-          </record>
           <record id="ui.menu.seq.access.report">
-          <column name="sequence">2</column>
+          <column name="sequence">0</column>
             <column name="name">ui.menu.seq.access.report</column>
             <column name="label">Sequence Access</column>
           <column name="parent_id">ui.menu.common.report.custom</column>
-          <column name="sequence">20</column>
+          <column name="sequence">0</column>
           <column name="action_id">action.seq.access.report</column>
           </record>
           <record id="ui.menu.seq.conditions.report">
-          <column name="sequence">6</column>
+          <column name="sequence">4</column>
             <column name="name">ui.menu.seq.conditions.report</column>
             <column name="label">Sequence Condition</column>
           <column name="parent_id">ui.menu.common.report.custom</column>
-          <column name="sequence">60</column>
+          <column name="sequence">40</column>
           <column name="action_id">action.seq.conditions.report</column>
           </record>
       </records>

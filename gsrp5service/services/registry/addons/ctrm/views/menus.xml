@@ -263,28 +263,12 @@
           </record>
       </records>
       <records model="bc.actions">
-        <record id="action.ctrm.channels.custom">
-          <column name="name">action.ctrm.channels.custom</column>
-          <column name="ta">View</column>
-        </record>
         <record id="action.ctrm.sectors.custom">
           <column name="name">action.ctrm.sectors.custom</column>
           <column name="ta">View</column>
         </record>
-        <record id="action.ctrm.teams.custom">
-          <column name="name">action.ctrm.teams.custom</column>
-          <column name="ta">View</column>
-        </record>
         <record id="action.ctrm.groups.custom">
           <column name="name">action.ctrm.groups.custom</column>
-          <column name="ta">View</column>
-        </record>
-        <record id="action.ctrm.texts.custom">
-          <column name="name">action.ctrm.texts.custom</column>
-          <column name="ta">View</column>
-        </record>
-        <record id="action.ctrm.schema.texts.custom">
-          <column name="name">action.ctrm.schema.texts.custom</column>
           <column name="ta">View</column>
         </record>
         <record id="action.ctrm.request.types.custom">
@@ -301,29 +285,13 @@
         </record>
       </records>
       <records model="bc.view.actions">
-        <record id="view.action.ctrm.channels.custom">
-          <column name="action_id">action.ctrm.channels.custom</column>
-          <column name="view_id">view.ctrm.channels.search</column>
-        </record>
         <record id="view.action.ctrm.sectors.custom">
           <column name="action_id">action.ctrm.sectors.custom</column>
           <column name="view_id">view.ctrm.sectors.search</column>
         </record>
-        <record id="view.action.ctrm.teams.custom">
-          <column name="action_id">action.ctrm.teams.custom</column>
-          <column name="view_id">view.ctrm.teams.search</column>
-        </record>
         <record id="view.action.ctrm.groups.custom">
           <column name="action_id">action.ctrm.groups.custom</column>
           <column name="view_id">view.ctrm.groups.search</column>
-        </record>
-        <record id="view.action.ctrm.texts.custom">
-          <column name="action_id">action.ctrm.texts.custom</column>
-          <column name="view_id">view.ctrm.texts.search</column>
-        </record>
-        <record id="view.action.ctrm.schema.texts.custom">
-          <column name="action_id">action.ctrm.schema.texts.custom</column>
-          <column name="view_id">view.ctrm.schema.texts.search</column>
         </record>
         <record id="view.action.ctrm.request.types.custom">
           <column name="action_id">action.ctrm.request.types.custom</column>
@@ -346,102 +314,54 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.ctrm.channels.custom">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.ctrm.channels.custom</column>
-            <column name="label">CTRM Cannels</column>
-          <column name="parent_id">ui.menu.ctrm.custom</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.ctrm.channels.custom</column>
-          </record>
           <record id="ui.menu.ctrm.sectors.custom">
-          <column name="sequence">1</column>
+          <column name="sequence">0</column>
             <column name="name">ui.menu.ctrm.sectors.custom</column>
             <column name="label">CTRM Sectors</column>
           <column name="parent_id">ui.menu.ctrm.custom</column>
-          <column name="sequence">10</column>
+          <column name="sequence">0</column>
           <column name="action_id">action.ctrm.sectors.custom</column>
           </record>
-          <record id="ui.menu.ctrm.teams.custom">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.ctrm.teams.custom</column>
-            <column name="label">CTRM Teams</column>
-          <column name="parent_id">ui.menu.ctrm.custom</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.ctrm.teams.custom</column>
-          </record>
           <record id="ui.menu.ctrm.groups.custom">
-          <column name="sequence">3</column>
+          <column name="sequence">1</column>
             <column name="name">ui.menu.ctrm.groups.custom</column>
             <column name="label">CTRM Groups</column>
           <column name="parent_id">ui.menu.ctrm.custom</column>
-          <column name="sequence">30</column>
+          <column name="sequence">10</column>
           <column name="action_id">action.ctrm.groups.custom</column>
           </record>
-          <record id="ui.menu.ctrm.texts.custom">
-          <column name="sequence">4</column>
-            <column name="name">ui.menu.ctrm.texts.custom</column>
-            <column name="label">CTRM Texts</column>
-          <column name="parent_id">ui.menu.ctrm.custom</column>
-          <column name="sequence">40</column>
-          <column name="action_id">action.ctrm.texts.custom</column>
-          </record>
-          <record id="ui.menu.ctrm.schema.texts.custom">
-          <column name="sequence">5</column>
-            <column name="name">ui.menu.ctrm.schema.texts.custom</column>
-            <column name="label">Schema Of CTRM Texts</column>
-          <column name="parent_id">ui.menu.ctrm.custom</column>
-          <column name="sequence">50</column>
-          <column name="action_id">action.ctrm.schema.texts.custom</column>
-          </record>
           <record id="ui.menu.ctrm.request.types.custom">
-          <column name="sequence">8</column>
+          <column name="sequence">4</column>
             <column name="name">ui.menu.ctrm.request.types.custom</column>
             <column name="label">Types CTRM Request</column>
           <column name="parent_id">ui.menu.ctrm.custom</column>
-          <column name="sequence">80</column>
+          <column name="sequence">40</column>
           <column name="action_id">action.ctrm.request.types.custom</column>
           </record>
           <record id="ui.menu.ctrm.offer.types.custom">
-          <column name="sequence">10</column>
+          <column name="sequence">6</column>
             <column name="name">ui.menu.ctrm.offer.types.custom</column>
             <column name="label">Types CTRM Offer</column>
           <column name="parent_id">ui.menu.ctrm.custom</column>
-          <column name="sequence">100</column>
+          <column name="sequence">60</column>
           <column name="action_id">action.ctrm.offer.types.custom</column>
           </record>
           <record id="ui.menu.ctrm.contract.types.custom">
-          <column name="sequence">12</column>
+          <column name="sequence">8</column>
             <column name="name">ui.menu.ctrm.contract.types.custom</column>
             <column name="label">Types CTRM Contract</column>
           <column name="parent_id">ui.menu.ctrm.custom</column>
-          <column name="sequence">120</column>
+          <column name="sequence">80</column>
           <column name="action_id">action.ctrm.contract.types.custom</column>
           </record>
       </records>
       <records model="bc.actions">
-        <record id="action.ctrm.channels.report">
-          <column name="name">action.ctrm.channels.report</column>
-          <column name="ta">Report</column>
-        </record>
         <record id="action.ctrm.sectors.report">
           <column name="name">action.ctrm.sectors.report</column>
           <column name="ta">Report</column>
         </record>
-        <record id="action.ctrm.teams.report">
-          <column name="name">action.ctrm.teams.report</column>
-          <column name="ta">Report</column>
-        </record>
         <record id="action.ctrm.groups.report">
           <column name="name">action.ctrm.groups.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.ctrm.texts.report">
-          <column name="name">action.ctrm.texts.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.ctrm.schema.texts.report">
-          <column name="name">action.ctrm.schema.texts.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.ctrm.request.types.report">
@@ -458,13 +378,6 @@
         </record>
       </records>
       <records model="bc.ui.reports">
-        <record id="bc.ui.report.docx.ctrm.channels">
-          <column name="name">bc.ui.report.docx.ctrm.channels</column>
-          <column name="label">CTRM Cannels</column>
-          <column name="report">report_ctrm_channels</column>
-          <column name="infile">infile_ctrm_channels.docx</column>
-          <column name="outfile">outfile_ctrm_channels.docx</column>
-        </record>
         <record id="bc.ui.report.docx.ctrm.sectors">
           <column name="name">bc.ui.report.docx.ctrm.sectors</column>
           <column name="label">CTRM Sectors</column>
@@ -472,33 +385,12 @@
           <column name="infile">infile_ctrm_sectors.docx</column>
           <column name="outfile">outfile_ctrm_sectors.docx</column>
         </record>
-        <record id="bc.ui.report.docx.ctrm.teams">
-          <column name="name">bc.ui.report.docx.ctrm.teams</column>
-          <column name="label">CTRM Teams</column>
-          <column name="report">report_ctrm_teams</column>
-          <column name="infile">infile_ctrm_teams.docx</column>
-          <column name="outfile">outfile_ctrm_teams.docx</column>
-        </record>
         <record id="bc.ui.report.docx.ctrm.groups">
           <column name="name">bc.ui.report.docx.ctrm.groups</column>
           <column name="label">CTRM Groups</column>
           <column name="report">report_ctrm_groups</column>
           <column name="infile">infile_ctrm_groups.docx</column>
           <column name="outfile">outfile_ctrm_groups.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.ctrm.texts">
-          <column name="name">bc.ui.report.docx.ctrm.texts</column>
-          <column name="label">CTRM Texts</column>
-          <column name="report">report_ctrm_texts</column>
-          <column name="infile">infile_ctrm_texts.docx</column>
-          <column name="outfile">outfile_ctrm_texts.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.ctrm.schema.texts">
-          <column name="name">bc.ui.report.docx.ctrm.schema.texts</column>
-          <column name="label">Schema Of CTRM Texts</column>
-          <column name="report">report_ctrm_schema_texts</column>
-          <column name="infile">infile_ctrm_schema_texts.docx</column>
-          <column name="outfile">outfile_ctrm_schema_texts.docx</column>
         </record>
         <record id="bc.ui.report.docx.ctrm.request.types">
           <column name="name">bc.ui.report.docx.ctrm.request.types</column>
@@ -523,29 +415,13 @@
         </record>
       </records>
       <records model="bc.report.actions">
-        <record id="report.action.ctrm.channels.report">
-          <column name="action_id">action.ctrm.channels.report</column>
-          <column name="report_id">bc.ui.report.docx.ctrm.channels</column>
-        </record>
         <record id="report.action.ctrm.sectors.report">
           <column name="action_id">action.ctrm.sectors.report</column>
           <column name="report_id">bc.ui.report.docx.ctrm.sectors</column>
         </record>
-        <record id="report.action.ctrm.teams.report">
-          <column name="action_id">action.ctrm.teams.report</column>
-          <column name="report_id">bc.ui.report.docx.ctrm.teams</column>
-        </record>
         <record id="report.action.ctrm.groups.report">
           <column name="action_id">action.ctrm.groups.report</column>
           <column name="report_id">bc.ui.report.docx.ctrm.groups</column>
-        </record>
-        <record id="report.action.ctrm.texts.report">
-          <column name="action_id">action.ctrm.texts.report</column>
-          <column name="report_id">bc.ui.report.docx.ctrm.texts</column>
-        </record>
-        <record id="report.action.ctrm.schema.texts.report">
-          <column name="action_id">action.ctrm.schema.texts.report</column>
-          <column name="report_id">bc.ui.report.docx.ctrm.schema.texts</column>
         </record>
         <record id="report.action.ctrm.request.types.report">
           <column name="action_id">action.ctrm.request.types.report</column>
@@ -568,76 +444,44 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.ctrm.channels.report">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.ctrm.channels.report</column>
-            <column name="label">CTRM Cannels</column>
-          <column name="parent_id">ui.menu.ctrm.report.custom</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.ctrm.channels.report</column>
-          </record>
           <record id="ui.menu.ctrm.sectors.report">
-          <column name="sequence">1</column>
+          <column name="sequence">0</column>
             <column name="name">ui.menu.ctrm.sectors.report</column>
             <column name="label">CTRM Sectors</column>
           <column name="parent_id">ui.menu.ctrm.report.custom</column>
-          <column name="sequence">10</column>
+          <column name="sequence">0</column>
           <column name="action_id">action.ctrm.sectors.report</column>
           </record>
-          <record id="ui.menu.ctrm.teams.report">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.ctrm.teams.report</column>
-            <column name="label">CTRM Teams</column>
-          <column name="parent_id">ui.menu.ctrm.report.custom</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.ctrm.teams.report</column>
-          </record>
           <record id="ui.menu.ctrm.groups.report">
-          <column name="sequence">3</column>
+          <column name="sequence">1</column>
             <column name="name">ui.menu.ctrm.groups.report</column>
             <column name="label">CTRM Groups</column>
           <column name="parent_id">ui.menu.ctrm.report.custom</column>
-          <column name="sequence">30</column>
+          <column name="sequence">10</column>
           <column name="action_id">action.ctrm.groups.report</column>
           </record>
-          <record id="ui.menu.ctrm.texts.report">
-          <column name="sequence">4</column>
-            <column name="name">ui.menu.ctrm.texts.report</column>
-            <column name="label">CTRM Texts</column>
-          <column name="parent_id">ui.menu.ctrm.report.custom</column>
-          <column name="sequence">40</column>
-          <column name="action_id">action.ctrm.texts.report</column>
-          </record>
-          <record id="ui.menu.ctrm.schema.texts.report">
-          <column name="sequence">5</column>
-            <column name="name">ui.menu.ctrm.schema.texts.report</column>
-            <column name="label">Schema Of CTRM Texts</column>
-          <column name="parent_id">ui.menu.ctrm.report.custom</column>
-          <column name="sequence">50</column>
-          <column name="action_id">action.ctrm.schema.texts.report</column>
-          </record>
           <record id="ui.menu.ctrm.request.types.report">
-          <column name="sequence">8</column>
+          <column name="sequence">4</column>
             <column name="name">ui.menu.ctrm.request.types.report</column>
             <column name="label">Types CTRM Request</column>
           <column name="parent_id">ui.menu.ctrm.report.custom</column>
-          <column name="sequence">80</column>
+          <column name="sequence">40</column>
           <column name="action_id">action.ctrm.request.types.report</column>
           </record>
           <record id="ui.menu.ctrm.offer.types.report">
-          <column name="sequence">10</column>
+          <column name="sequence">6</column>
             <column name="name">ui.menu.ctrm.offer.types.report</column>
             <column name="label">Types CTRM Offer</column>
           <column name="parent_id">ui.menu.ctrm.report.custom</column>
-          <column name="sequence">100</column>
+          <column name="sequence">60</column>
           <column name="action_id">action.ctrm.offer.types.report</column>
           </record>
           <record id="ui.menu.ctrm.contract.types.report">
-          <column name="sequence">12</column>
+          <column name="sequence">8</column>
             <column name="name">ui.menu.ctrm.contract.types.report</column>
             <column name="label">Types CTRM Contract</column>
           <column name="parent_id">ui.menu.ctrm.report.custom</column>
-          <column name="sequence">120</column>
+          <column name="sequence">80</column>
           <column name="action_id">action.ctrm.contract.types.report</column>
           </record>
       </records>

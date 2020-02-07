@@ -773,18 +773,18 @@ class purchase_order_items(Model):
 
 
 		self._trigers = {
-		'ForEachRowBeforeInsert': '_trgForEachRowBeforeInsertIB1',
-		'ForEachRowBeforeUpdate': '_trgForEachRowBeforeUpdateUB1',
-		'ForEachRowBeforeDelete': '_trgForEachRowBeforeDeleteDB1',
-		'ForEachRowAfterInsert': '_trgForEachRowAfterInsertIA1',
-		'ForEachRowAfterUpdate': '_trgForEachRowAfterUpdateUA1',
-		'ForEachRowAfterDelete': '_trgForEachRowAfterDeleteDA1',
-		'BeforeInsert': '_trgBeforeInsertIBA1',
-		'BeforeUpdate': '_trgBeforeUpdateUBA1',
-		'BeforeDelete': '_trgBeforeDeleteDBA1',
-		'AfterInsert': '_trgBeforeInsertIBA1',
-		'AfterUpdate': '_trgAfterUpdateIUA1',
-		'AfterDelete': '_trgAfterDeleteDA1',
+		'bir': '_trgForEachRowBeforeInsertIB1',
+		'bur': '_trgForEachRowBeforeUpdateUB1',
+		'bdr': '_trgForEachRowBeforeDeleteDB1',
+		'air': '_trgForEachRowAfterInsertIA1',
+		'aur': '_trgForEachRowAfterUpdateUA1',
+		'adr': '_trgForEachRowAfterDeleteDA1',
+		'bi': '_trgBeforeInsertIBA1',
+		'bu': '_trgBeforeUpdateUBA1',
+		'bd': '_trgBeforeDeleteDBA1',
+		'ai': '_trgBeforeInsertIBA1',
+		'au': '_trgAfterUpdateIUA1',
+		'ad': '_trgAfterDeleteDA1',
 		}
 
 	def _trgForEachRowBeforeInsertIB1(self,cr,pool,uid,record,context):

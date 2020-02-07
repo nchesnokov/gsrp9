@@ -93,24 +93,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.country.group.search">
-          <column name="name">view.md.country.group.search</column>
-          <column name="model">md.country.group</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.country.group.find">
-          <column name="name">view.md.country.group.find</column>
-          <column name="model">md.country.group</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.country.form">
           <column name="name">view.md.country.form</column>
           <column name="model">md.country</column>
@@ -151,32 +133,6 @@
               <field name="alpha2"/>
               <field name="alpha3"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.country.search">
-          <column name="name">view.md.country.search</column>
-          <column name="model">md.country</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="alpha2"/>
-              <field name="alpha3"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.country.find">
-          <column name="name">view.md.country.find</column>
-          <column name="model">md.country</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="alpha2"/>
-              <field name="alpha3"/>
-            </find>
           </column>
         </record>
         <record id="view.md.country.states.form">
@@ -649,30 +605,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.currency.search">
-          <column name="name">view.md.currency.search</column>
-          <column name="model">md.currency</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="isocode"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.currency.find">
-          <column name="name">view.md.currency.find</column>
-          <column name="model">md.currency</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="isocode"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.vat.code.form">
           <column name="name">view.md.vat.code.form</column>
           <column name="model">md.vat.code</column>
@@ -710,32 +642,6 @@
               <field name="value"/>
               <field name="type_vat"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.vat.code.search">
-          <column name="name">view.md.vat.code.search</column>
-          <column name="model">md.vat.code</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="subtype_vat"/>
-              <field name="code"/>
-              <field name="value"/>
-              <field name="type_vat"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.vat.code.find">
-          <column name="name">view.md.vat.code.find</column>
-          <column name="model">md.vat.code</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="subtype_vat"/>
-              <field name="code"/>
-              <field name="value"/>
-              <field name="type_vat"/>
-            </find>
           </column>
         </record>
         <record id="view.md.category.product.form">
@@ -829,24 +735,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.gtis.search">
-          <column name="name">view.md.gtis.search</column>
-          <column name="model">md.gtis</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="code"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.gtis.find">
-          <column name="name">view.md.gtis.find</column>
-          <column name="model">md.gtis</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="code"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.type.items.form">
           <column name="name">view.md.type.items.form</column>
           <column name="model">md.type.items</column>
@@ -881,28 +769,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.type.items.search">
-          <column name="name">view.md.type.items.search</column>
-          <column name="model">md.type.items</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="usage"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.type.items.find">
-          <column name="name">view.md.type.items.find</column>
-          <column name="model">md.type.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="usage"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.type.plates.form">
           <column name="name">view.md.type.plates.form</column>
           <column name="model">md.type.plates</column>
@@ -932,26 +798,6 @@
               <field name="usage"/>
               <field name="name"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.type.plates.search">
-          <column name="name">view.md.type.plates.search</column>
-          <column name="model">md.type.plates</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="usage"/>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.type.plates.find">
-          <column name="name">view.md.type.plates.find</column>
-          <column name="model">md.type.plates</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="usage"/>
-              <field name="name"/>
-            </find>
           </column>
         </record>
         <record id="view.md.products.template.form">
@@ -1174,32 +1020,6 @@
               <field name="grp"/>
               <field name="mot"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.incoterms.search">
-          <column name="name">view.md.incoterms.search</column>
-          <column name="model">md.incoterms</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="descr"/>
-              <field name="mode"/>
-              <field name="grp"/>
-              <field name="mot"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.incoterms.find">
-          <column name="name">view.md.incoterms.find</column>
-          <column name="model">md.incoterms</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="descr"/>
-              <field name="mode"/>
-              <field name="grp"/>
-              <field name="mot"/>
-            </find>
           </column>
         </record>
         <record id="view.md.category.partner.form">
@@ -1808,28 +1628,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.role.partners.search">
-          <column name="name">view.md.role.partners.search</column>
-          <column name="model">md.role.partners</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="trole"/>
-              <field name="name"/>
-              <field name="descr"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.role.partners.find">
-          <column name="name">view.md.role.partners.find</column>
-          <column name="model">md.role.partners</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="trole"/>
-              <field name="name"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.partner.roles.form">
           <column name="name">view.md.partner.roles.form</column>
           <column name="model">md.partner.roles</column>
@@ -2306,32 +2104,6 @@
               <field name="usage"/>
               <field name="partition"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.recepture.search">
-          <column name="name">view.md.recepture.search</column>
-          <column name="model">md.recepture</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="type"/>
-              <field name="subtype"/>
-              <field name="usage"/>
-              <field name="partition"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.recepture.find">
-          <column name="name">view.md.recepture.find</column>
-          <column name="model">md.recepture</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="type"/>
-              <field name="subtype"/>
-              <field name="usage"/>
-              <field name="partition"/>
-            </find>
           </column>
         </record>
         <record id="view.md.recepture.input.form">

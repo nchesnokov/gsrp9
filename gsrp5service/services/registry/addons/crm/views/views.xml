@@ -2,6 +2,1204 @@
   <gsrp>
     <data>
       <records model="bc.ui.views">
+        <record id="view.crm_unit.categories.form">
+          <column name="name">view.crm_unit.categories.form</column>
+          <column name="model">crm_unit.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="units"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_unit.categories.list">
+          <column name="name">view.crm_unit.categories.list</column>
+          <column name="model">crm_unit.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="units"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_unit.categories.m2mlist">
+          <column name="name">view.crm_unit.categories.m2mlist</column>
+          <column name="model">crm_unit.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_unit.categories.search">
+          <column name="name">view.crm_unit.categories.search</column>
+          <column name="model">crm_unit.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_unit.categories.find">
+          <column name="name">view.crm_unit.categories.find</column>
+          <column name="model">crm_unit.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_unit.categories.tree">
+          <column name="name">view.crm_unit.categories.tree</column>
+          <column name="model">crm_unit.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.crm_units.form">
+          <column name="name">view.crm_units.form</column>
+          <column name="model">crm_units</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="company_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="channels"/>
+              <field name="segments"/>
+              <field name="areas"/>
+              <field name="regions"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_units.list">
+          <column name="name">view.crm_units.list</column>
+          <column name="model">crm_units</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="channels"/>
+              <field name="segments"/>
+              <field name="areas"/>
+              <field name="regions"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_units.m2mlist">
+          <column name="name">view.crm_units.m2mlist</column>
+          <column name="model">crm_units</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_units.search">
+          <column name="name">view.crm_units.search</column>
+          <column name="model">crm_units</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_units.find">
+          <column name="name">view.crm_units.find</column>
+          <column name="model">crm_units</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_channel.categories.form">
+          <column name="name">view.crm_channel.categories.form</column>
+          <column name="model">crm_channel.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="channels"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_channel.categories.list">
+          <column name="name">view.crm_channel.categories.list</column>
+          <column name="model">crm_channel.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="channels"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_channel.categories.m2mlist">
+          <column name="name">view.crm_channel.categories.m2mlist</column>
+          <column name="model">crm_channel.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_channel.categories.search">
+          <column name="name">view.crm_channel.categories.search</column>
+          <column name="model">crm_channel.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_channel.categories.find">
+          <column name="name">view.crm_channel.categories.find</column>
+          <column name="model">crm_channel.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_channel.categories.tree">
+          <column name="name">view.crm_channel.categories.tree</column>
+          <column name="model">crm_channel.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.crm_channels.form">
+          <column name="name">view.crm_channels.form</column>
+          <column name="model">crm_channels</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_channels.list">
+          <column name="name">view.crm_channels.list</column>
+          <column name="model">crm_channels</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_channels.m2mlist">
+          <column name="name">view.crm_channels.m2mlist</column>
+          <column name="model">crm_channels</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_channels.search">
+          <column name="name">view.crm_channels.search</column>
+          <column name="model">crm_channels</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_channels.find">
+          <column name="name">view.crm_channels.find</column>
+          <column name="model">crm_channels</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_segment.categories.form">
+          <column name="name">view.crm_segment.categories.form</column>
+          <column name="model">crm_segment.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="segments"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_segment.categories.list">
+          <column name="name">view.crm_segment.categories.list</column>
+          <column name="model">crm_segment.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="segments"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_segment.categories.m2mlist">
+          <column name="name">view.crm_segment.categories.m2mlist</column>
+          <column name="model">crm_segment.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_segment.categories.search">
+          <column name="name">view.crm_segment.categories.search</column>
+          <column name="model">crm_segment.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_segment.categories.find">
+          <column name="name">view.crm_segment.categories.find</column>
+          <column name="model">crm_segment.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_segment.categories.tree">
+          <column name="name">view.crm_segment.categories.tree</column>
+          <column name="model">crm_segment.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.crm_segments.form">
+          <column name="name">view.crm_segments.form</column>
+          <column name="model">crm_segments</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_segments.list">
+          <column name="name">view.crm_segments.list</column>
+          <column name="model">crm_segments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_segments.m2mlist">
+          <column name="name">view.crm_segments.m2mlist</column>
+          <column name="model">crm_segments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_segments.search">
+          <column name="name">view.crm_segments.search</column>
+          <column name="model">crm_segments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_segments.find">
+          <column name="name">view.crm_segments.find</column>
+          <column name="model">crm_segments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_area.categories.form">
+          <column name="name">view.crm_area.categories.form</column>
+          <column name="model">crm_area.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="areas"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_area.categories.list">
+          <column name="name">view.crm_area.categories.list</column>
+          <column name="model">crm_area.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="areas"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_area.categories.m2mlist">
+          <column name="name">view.crm_area.categories.m2mlist</column>
+          <column name="model">crm_area.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_area.categories.search">
+          <column name="name">view.crm_area.categories.search</column>
+          <column name="model">crm_area.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_area.categories.find">
+          <column name="name">view.crm_area.categories.find</column>
+          <column name="model">crm_area.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_area.categories.tree">
+          <column name="name">view.crm_area.categories.tree</column>
+          <column name="model">crm_area.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.crm_areas.form">
+          <column name="name">view.crm_areas.form</column>
+          <column name="model">crm_areas</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_areas.list">
+          <column name="name">view.crm_areas.list</column>
+          <column name="model">crm_areas</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_areas.m2mlist">
+          <column name="name">view.crm_areas.m2mlist</column>
+          <column name="model">crm_areas</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_areas.search">
+          <column name="name">view.crm_areas.search</column>
+          <column name="model">crm_areas</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_areas.find">
+          <column name="name">view.crm_areas.find</column>
+          <column name="model">crm_areas</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_region.categories.form">
+          <column name="name">view.crm_region.categories.form</column>
+          <column name="model">crm_region.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="segments"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_region.categories.list">
+          <column name="name">view.crm_region.categories.list</column>
+          <column name="model">crm_region.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="segments"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_region.categories.m2mlist">
+          <column name="name">view.crm_region.categories.m2mlist</column>
+          <column name="model">crm_region.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_region.categories.search">
+          <column name="name">view.crm_region.categories.search</column>
+          <column name="model">crm_region.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_region.categories.find">
+          <column name="name">view.crm_region.categories.find</column>
+          <column name="model">crm_region.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_region.categories.tree">
+          <column name="name">view.crm_region.categories.tree</column>
+          <column name="model">crm_region.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.crm_regions.form">
+          <column name="name">view.crm_regions.form</column>
+          <column name="model">crm_regions</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_regions.list">
+          <column name="name">view.crm_regions.list</column>
+          <column name="model">crm_regions</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_regions.m2mlist">
+          <column name="name">view.crm_regions.m2mlist</column>
+          <column name="model">crm_regions</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_regions.search">
+          <column name="name">view.crm_regions.search</column>
+          <column name="model">crm_regions</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_regions.find">
+          <column name="name">view.crm_regions.find</column>
+          <column name="model">crm_regions</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_division.categories.form">
+          <column name="name">view.crm_division.categories.form</column>
+          <column name="model">crm_division.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="divisions"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_division.categories.list">
+          <column name="name">view.crm_division.categories.list</column>
+          <column name="model">crm_division.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="divisions"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_division.categories.m2mlist">
+          <column name="name">view.crm_division.categories.m2mlist</column>
+          <column name="model">crm_division.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_division.categories.search">
+          <column name="name">view.crm_division.categories.search</column>
+          <column name="model">crm_division.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_division.categories.find">
+          <column name="name">view.crm_division.categories.find</column>
+          <column name="model">crm_division.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_division.categories.tree">
+          <column name="name">view.crm_division.categories.tree</column>
+          <column name="model">crm_division.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.crm_divisions.form">
+          <column name="name">view.crm_divisions.form</column>
+          <column name="model">crm_divisions</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="subdivisions"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_divisions.list">
+          <column name="name">view.crm_divisions.list</column>
+          <column name="model">crm_divisions</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="subdivisions"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_divisions.m2mlist">
+          <column name="name">view.crm_divisions.m2mlist</column>
+          <column name="model">crm_divisions</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_divisions.search">
+          <column name="name">view.crm_divisions.search</column>
+          <column name="model">crm_divisions</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_divisions.find">
+          <column name="name">view.crm_divisions.find</column>
+          <column name="model">crm_divisions</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_subdivision.categories.form">
+          <column name="name">view.crm_subdivision.categories.form</column>
+          <column name="model">crm_subdivision.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="subdivisions"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_subdivision.categories.list">
+          <column name="name">view.crm_subdivision.categories.list</column>
+          <column name="model">crm_subdivision.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="subdivisions"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_subdivision.categories.m2mlist">
+          <column name="name">view.crm_subdivision.categories.m2mlist</column>
+          <column name="model">crm_subdivision.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_subdivision.categories.search">
+          <column name="name">view.crm_subdivision.categories.search</column>
+          <column name="model">crm_subdivision.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_subdivision.categories.find">
+          <column name="name">view.crm_subdivision.categories.find</column>
+          <column name="model">crm_subdivision.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_subdivision.categories.tree">
+          <column name="name">view.crm_subdivision.categories.tree</column>
+          <column name="model">crm_subdivision.categories</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.crm_subdivisions.form">
+          <column name="name">view.crm_subdivisions.form</column>
+          <column name="model">crm_subdivisions</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_subdivisions.list">
+          <column name="name">view.crm_subdivisions.list</column>
+          <column name="model">crm_subdivisions</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_subdivisions.m2mlist">
+          <column name="name">view.crm_subdivisions.m2mlist</column>
+          <column name="model">crm_subdivisions</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_subdivisions.search">
+          <column name="name">view.crm_subdivisions.search</column>
+          <column name="model">crm_subdivisions</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_subdivisions.find">
+          <column name="name">view.crm_subdivisions.find</column>
+          <column name="model">crm_subdivisions</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_unit.channel.assigments.form">
+          <column name="name">view.crm_unit.channel.assigments.form</column>
+          <column name="model">crm_unit.channel.assigments</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_unit.channel.assigments.list">
+          <column name="name">view.crm_unit.channel.assigments.list</column>
+          <column name="model">crm_unit.channel.assigments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_unit.channel.assigments.m2mlist">
+          <column name="name">view.crm_unit.channel.assigments.m2mlist</column>
+          <column name="model">crm_unit.channel.assigments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_unit.channel.assigments.find">
+          <column name="name">view.crm_unit.channel.assigments.find</column>
+          <column name="model">crm_unit.channel.assigments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_unit.segment.assigments.form">
+          <column name="name">view.crm_unit.segment.assigments.form</column>
+          <column name="model">crm_unit.segment.assigments</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="unit_id"/>
+              <field name="segment_id"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_unit.segment.assigments.list">
+          <column name="name">view.crm_unit.segment.assigments.list</column>
+          <column name="model">crm_unit.segment.assigments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="unit_id"/>
+              <field name="segment_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_unit.segment.assigments.m2mlist">
+          <column name="name">view.crm_unit.segment.assigments.m2mlist</column>
+          <column name="model">crm_unit.segment.assigments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="unit_id"/>
+              <field name="segment_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_unit.segment.assigments.find">
+          <column name="name">view.crm_unit.segment.assigments.find</column>
+          <column name="model">crm_unit.segment.assigments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="unit_id"/>
+              <field name="segment_id"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_unit.area.assigments.form">
+          <column name="name">view.crm_unit.area.assigments.form</column>
+          <column name="model">crm_unit.area.assigments</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="unit_id"/>
+              <field name="area_id"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_unit.area.assigments.list">
+          <column name="name">view.crm_unit.area.assigments.list</column>
+          <column name="model">crm_unit.area.assigments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="unit_id"/>
+              <field name="area_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_unit.area.assigments.m2mlist">
+          <column name="name">view.crm_unit.area.assigments.m2mlist</column>
+          <column name="model">crm_unit.area.assigments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="unit_id"/>
+              <field name="area_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_unit.area.assigments.find">
+          <column name="name">view.crm_unit.area.assigments.find</column>
+          <column name="model">crm_unit.area.assigments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="unit_id"/>
+              <field name="area_id"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_unit.region.assigments.form">
+          <column name="name">view.crm_unit.region.assigments.form</column>
+          <column name="model">crm_unit.region.assigments</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="unit_id"/>
+              <field name="region_id"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_unit.region.assigments.list">
+          <column name="name">view.crm_unit.region.assigments.list</column>
+          <column name="model">crm_unit.region.assigments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="unit_id"/>
+              <field name="region_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_unit.region.assigments.m2mlist">
+          <column name="name">view.crm_unit.region.assigments.m2mlist</column>
+          <column name="model">crm_unit.region.assigments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="unit_id"/>
+              <field name="region_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_unit.region.assigments.find">
+          <column name="name">view.crm_unit.region.assigments.find</column>
+          <column name="model">crm_unit.region.assigments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="unit_id"/>
+              <field name="region_id"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_division.subdivision.assigments.form">
+          <column name="name">view.crm_division.subdivision.assigments.form</column>
+          <column name="model">crm_division.subdivision.assigments</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_division.subdivision.assigments.list">
+          <column name="name">view.crm_division.subdivision.assigments.list</column>
+          <column name="model">crm_division.subdivision.assigments</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_division.subdivision.assigments.m2mlist">
+          <column name="name">view.crm_division.subdivision.assigments.m2mlist</column>
+          <column name="model">crm_division.subdivision.assigments</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_division.subdivision.assigments.find">
+          <column name="name">view.crm_division.subdivision.assigments.find</column>
+          <column name="model">crm_division.subdivision.assigments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm.markets.form">
+          <column name="name">view.crm.markets.form</column>
+          <column name="model">crm.markets</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="segment_id"/>
+              <field name="area_id"/>
+              <field name="region_id"/>
+              <field name="fullname"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm.markets.list">
+          <column name="name">view.crm.markets.list</column>
+          <column name="model">crm.markets</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="segment_id"/>
+              <field name="area_id"/>
+              <field name="region_id"/>
+              <field name="fullname"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm.markets.m2mlist">
+          <column name="name">view.crm.markets.m2mlist</column>
+          <column name="model">crm.markets</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="segment_id"/>
+              <field name="area_id"/>
+              <field name="region_id"/>
+              <field name="fullname"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.markets.search">
+          <column name="name">view.crm.markets.search</column>
+          <column name="model">crm.markets</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="segment_id"/>
+              <field name="area_id"/>
+              <field name="region_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm.markets.find">
+          <column name="name">view.crm.markets.find</column>
+          <column name="model">crm.markets</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="segment_id"/>
+              <field name="area_id"/>
+              <field name="region_id"/>
+              <field name="fullname"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.crm_teams.form">
+          <column name="name">view.crm_teams.form</column>
+          <column name="model">crm_teams</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.crm_teams.list">
+          <column name="name">view.crm_teams.list</column>
+          <column name="model">crm_teams</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.crm_teams.m2mlist">
+          <column name="name">view.crm_teams.m2mlist</column>
+          <column name="model">crm_teams</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm_teams.search">
+          <column name="name">view.crm_teams.search</column>
+          <column name="model">crm_teams</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm_teams.find">
+          <column name="name">view.crm_teams.find</column>
+          <column name="model">crm_teams</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.channels.form">
           <column name="name">view.crm.channels.form</column>
           <column name="model">crm.channels</column>
@@ -32,26 +1230,6 @@
               <field name="code"/>
               <field name="descr"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.crm.channels.search">
-          <column name="name">view.crm.channels.search</column>
-          <column name="model">crm.channels</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="code"/>
-              <field name="descr"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.crm.channels.find">
-          <column name="name">view.crm.channels.find</column>
-          <column name="model">crm.channels</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="code"/>
-              <field name="descr"/>
-            </find>
           </column>
         </record>
         <record id="view.crm.sectors.form">
@@ -141,26 +1319,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.crm.teams.search">
-          <column name="name">view.crm.teams.search</column>
-          <column name="model">crm.teams</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="code"/>
-              <field name="descr"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.crm.teams.find">
-          <column name="name">view.crm.teams.find</column>
-          <column name="model">crm.teams</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="code"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.crm.groups.form">
           <column name="name">view.crm.groups.form</column>
           <column name="model">crm.groups</column>
@@ -246,26 +1404,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.crm.texts.search">
-          <column name="name">view.crm.texts.search</column>
-          <column name="model">crm.texts</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="code"/>
-              <field name="descr"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.crm.texts.find">
-          <column name="name">view.crm.texts.find</column>
-          <column name="model">crm.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="code"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.crm.schema.texts.form">
           <column name="name">view.crm.schema.texts.form</column>
           <column name="model">crm.schema.texts</column>
@@ -299,28 +1437,6 @@
               <field name="code"/>
               <field name="descr"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.crm.schema.texts.search">
-          <column name="name">view.crm.schema.texts.search</column>
-          <column name="model">crm.schema.texts</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="usage"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.crm.schema.texts.find">
-          <column name="name">view.crm.schema.texts.find</column>
-          <column name="model">crm.schema.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="usage"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </find>
           </column>
         </record>
         <record id="view.crm.schema.text.items.form">
@@ -372,6 +1488,7 @@
           <column name="model">crm.request.types</column>
           <column name="arch" type="Xml">
             <form>
+              <field name="rtype"/>
               <field name="name"/>
               <field name="htschema"/>
               <field name="itschema"/>
@@ -386,6 +1503,7 @@
           <column name="model">crm.request.types</column>
           <column name="arch" type="Xml">
             <list>
+              <field name="rtype"/>
               <field name="name"/>
               <field name="htschema"/>
               <field name="itschema"/>
@@ -399,6 +1517,7 @@
           <column name="model">crm.request.types</column>
           <column name="arch" type="Xml">
             <m2mlist>
+              <field name="rtype"/>
               <field name="name"/>
               <field name="htschema"/>
               <field name="itschema"/>
@@ -411,6 +1530,7 @@
           <column name="model">crm.request.types</column>
           <column name="arch" type="Xml">
             <search>
+              <field name="rtype"/>
               <field name="name"/>
               <field name="htschema"/>
               <field name="itschema"/>
@@ -423,6 +1543,7 @@
           <column name="model">crm.request.types</column>
           <column name="arch" type="Xml">
             <find>
+              <field name="rtype"/>
               <field name="name"/>
               <field name="htschema"/>
               <field name="itschema"/>
@@ -476,6 +1597,7 @@
           <column name="model">crm.offer.types</column>
           <column name="arch" type="Xml">
             <form>
+              <field name="otype"/>
               <field name="name"/>
               <field name="htschema"/>
               <field name="itschema"/>
@@ -490,6 +1612,7 @@
           <column name="model">crm.offer.types</column>
           <column name="arch" type="Xml">
             <list>
+              <field name="otype"/>
               <field name="name"/>
               <field name="htschema"/>
               <field name="itschema"/>
@@ -503,6 +1626,7 @@
           <column name="model">crm.offer.types</column>
           <column name="arch" type="Xml">
             <m2mlist>
+              <field name="otype"/>
               <field name="name"/>
               <field name="htschema"/>
               <field name="itschema"/>
@@ -515,6 +1639,7 @@
           <column name="model">crm.offer.types</column>
           <column name="arch" type="Xml">
             <search>
+              <field name="otype"/>
               <field name="name"/>
               <field name="htschema"/>
               <field name="itschema"/>
@@ -527,6 +1652,7 @@
           <column name="model">crm.offer.types</column>
           <column name="arch" type="Xml">
             <find>
+              <field name="otype"/>
               <field name="name"/>
               <field name="htschema"/>
               <field name="itschema"/>
@@ -880,13 +2006,12 @@
           <column name="arch" type="Xml">
             <calendar date="dor">
               <field name="rtype"/>
+              <field name="company"/>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="company_id"/>
-              <field name="channel_id"/>
-              <field name="sector_id"/>
-              <field name="team_id"/>
-              <field name="group_id"/>
+              <field name="fullname"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="manager"/>
               <field name="origin"/>
               <field name="from_date"/>
@@ -910,13 +2035,12 @@
           <column name="arch" type="Xml">
             <schedule>
               <field name="rtype"/>
+              <field name="company"/>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="company_id"/>
-              <field name="channel_id"/>
-              <field name="sector_id"/>
-              <field name="team_id"/>
-              <field name="group_id"/>
+              <field name="fullname"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="manager"/>
               <field name="origin"/>
               <field name="from_date"/>
@@ -940,13 +2064,12 @@
           <column name="arch" type="Xml">
             <form>
               <field name="rtype"/>
+              <field name="company"/>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="company_id"/>
-              <field name="channel_id"/>
-              <field name="sector_id"/>
-              <field name="team_id"/>
-              <field name="group_id"/>
+              <field name="fullname"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="manager"/>
               <field name="origin"/>
               <field name="from_date"/>
@@ -974,13 +2097,12 @@
           <column name="arch" type="Xml">
             <graph date="dor">
               <field name="rtype"/>
+              <field name="company"/>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="company_id"/>
-              <field name="channel_id"/>
-              <field name="sector_id"/>
-              <field name="team_id"/>
-              <field name="group_id"/>
+              <field name="fullname"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="manager"/>
               <field name="origin"/>
               <field name="from_date"/>
@@ -1004,13 +2126,12 @@
           <column name="arch" type="Xml">
             <kanban>
               <field name="rtype"/>
+              <field name="company"/>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="company_id"/>
-              <field name="channel_id"/>
-              <field name="sector_id"/>
-              <field name="team_id"/>
-              <field name="group_id"/>
+              <field name="fullname"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="manager"/>
               <field name="origin"/>
               <field name="from_date"/>
@@ -1035,13 +2156,12 @@
           <column name="arch" type="Xml">
             <list>
               <field name="rtype"/>
+              <field name="company"/>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="company_id"/>
-              <field name="channel_id"/>
-              <field name="sector_id"/>
-              <field name="team_id"/>
-              <field name="group_id"/>
+              <field name="fullname"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="manager"/>
               <field name="origin"/>
               <field name="from_date"/>
@@ -1068,13 +2188,12 @@
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="rtype"/>
+              <field name="company"/>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="company_id"/>
-              <field name="channel_id"/>
-              <field name="sector_id"/>
-              <field name="team_id"/>
-              <field name="group_id"/>
+              <field name="fullname"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="manager"/>
               <field name="origin"/>
               <field name="from_date"/>
@@ -1098,13 +2217,12 @@
           <column name="arch" type="Xml">
             <mdx date="dor">
               <field name="rtype"/>
+              <field name="company"/>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="company_id"/>
-              <field name="channel_id"/>
-              <field name="sector_id"/>
-              <field name="team_id"/>
-              <field name="group_id"/>
+              <field name="fullname"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="manager"/>
               <field name="origin"/>
               <field name="from_date"/>
@@ -1128,13 +2246,12 @@
           <column name="arch" type="Xml">
             <search>
               <field name="rtype"/>
+              <field name="company"/>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="company_id"/>
-              <field name="channel_id"/>
-              <field name="sector_id"/>
-              <field name="team_id"/>
-              <field name="group_id"/>
+              <field name="fullname"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="manager"/>
               <field name="origin"/>
               <field name="from_date"/>
@@ -1158,13 +2275,12 @@
           <column name="arch" type="Xml">
             <find>
               <field name="rtype"/>
+              <field name="company"/>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="company_id"/>
-              <field name="channel_id"/>
-              <field name="sector_id"/>
-              <field name="team_id"/>
-              <field name="group_id"/>
+              <field name="fullname"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="manager"/>
               <field name="origin"/>
               <field name="from_date"/>

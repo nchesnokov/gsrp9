@@ -1230,26 +1230,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.sale.texts.search">
-          <column name="name">view.sale.texts.search</column>
-          <column name="model">sale.texts</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="code"/>
-              <field name="descr"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.sale.texts.find">
-          <column name="name">view.sale.texts.find</column>
-          <column name="model">sale.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="code"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.sale.schema.texts.form">
           <column name="name">view.sale.schema.texts.form</column>
           <column name="model">sale.schema.texts</column>
@@ -1283,28 +1263,6 @@
               <field name="code"/>
               <field name="descr"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.sale.schema.texts.search">
-          <column name="name">view.sale.schema.texts.search</column>
-          <column name="model">sale.schema.texts</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="usage"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.sale.schema.texts.find">
-          <column name="name">view.sale.schema.texts.find</column>
-          <column name="model">sale.schema.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="usage"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </find>
           </column>
         </record>
         <record id="view.sale.schema.text.items.form">
@@ -1750,13 +1708,14 @@
           <column name="arch" type="Xml">
             <calendar date="doo">
               <field name="otype"/>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
               <field name="fullname"/>
-              <field name="market_id"/>
-              <field name="team_id"/>
-              <field name="category_id"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="origin"/>
+              <field name="manager"/>
               <field name="doo"/>
               <field name="from_date"/>
               <field name="to_date"/>
@@ -1778,13 +1737,14 @@
           <column name="arch" type="Xml">
             <schedule>
               <field name="otype"/>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
               <field name="fullname"/>
-              <field name="market_id"/>
-              <field name="team_id"/>
-              <field name="category_id"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="origin"/>
+              <field name="manager"/>
               <field name="doo"/>
               <field name="from_date"/>
               <field name="to_date"/>
@@ -1806,13 +1766,14 @@
           <column name="arch" type="Xml">
             <form>
               <field name="otype"/>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
               <field name="fullname"/>
-              <field name="market_id"/>
-              <field name="team_id"/>
-              <field name="category_id"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="origin"/>
+              <field name="manager"/>
               <field name="doo"/>
               <field name="from_date"/>
               <field name="to_date"/>
@@ -1840,13 +1801,14 @@
           <column name="arch" type="Xml">
             <graph date="doo">
               <field name="otype"/>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
               <field name="fullname"/>
-              <field name="market_id"/>
-              <field name="team_id"/>
-              <field name="category_id"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="origin"/>
+              <field name="manager"/>
               <field name="doo"/>
               <field name="from_date"/>
               <field name="to_date"/>
@@ -1868,13 +1830,14 @@
           <column name="arch" type="Xml">
             <kanban>
               <field name="otype"/>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
               <field name="fullname"/>
-              <field name="market_id"/>
-              <field name="team_id"/>
-              <field name="category_id"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="origin"/>
+              <field name="manager"/>
               <field name="doo"/>
               <field name="from_date"/>
               <field name="to_date"/>
@@ -1897,13 +1860,14 @@
           <column name="arch" type="Xml">
             <list>
               <field name="otype"/>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
               <field name="fullname"/>
-              <field name="market_id"/>
-              <field name="team_id"/>
-              <field name="category_id"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="origin"/>
+              <field name="manager"/>
               <field name="doo"/>
               <field name="from_date"/>
               <field name="to_date"/>
@@ -1930,13 +1894,14 @@
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="otype"/>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
               <field name="fullname"/>
-              <field name="market_id"/>
-              <field name="team_id"/>
-              <field name="category_id"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="origin"/>
+              <field name="manager"/>
               <field name="doo"/>
               <field name="from_date"/>
               <field name="to_date"/>
@@ -1958,13 +1923,14 @@
           <column name="arch" type="Xml">
             <mdx date="doo">
               <field name="otype"/>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
               <field name="fullname"/>
-              <field name="market_id"/>
-              <field name="team_id"/>
-              <field name="category_id"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="origin"/>
+              <field name="manager"/>
               <field name="doo"/>
               <field name="from_date"/>
               <field name="to_date"/>
@@ -1986,13 +1952,14 @@
           <column name="arch" type="Xml">
             <search>
               <field name="otype"/>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
               <field name="fullname"/>
-              <field name="market_id"/>
-              <field name="team_id"/>
-              <field name="category_id"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="origin"/>
+              <field name="manager"/>
               <field name="doo"/>
               <field name="from_date"/>
               <field name="to_date"/>
@@ -2014,13 +1981,14 @@
           <column name="arch" type="Xml">
             <find>
               <field name="otype"/>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
               <field name="fullname"/>
-              <field name="market_id"/>
-              <field name="team_id"/>
-              <field name="category_id"/>
+              <field name="market"/>
+              <field name="team"/>
+              <field name="category"/>
               <field name="origin"/>
+              <field name="manager"/>
               <field name="doo"/>
               <field name="from_date"/>
               <field name="to_date"/>

@@ -17,6 +17,9 @@ MAX_CHUNK_DELETE = 5000
 
 _logger = logging.getLogger(__name__)
 
+_TRIGGERS_KEYS_ = ('bir',	'bur', 'bdr', 'air', 'aur', 'adr', 'bi', 'bu', 'bd', 'ai', 'au', 'ad')
+
+
 class orm_exception(Exception):
 	def __init__(self, *args, **kwargs):
 		self.args = args
@@ -228,38 +231,6 @@ def model__init__(self,access = None):
 
 	if self._trigers is None:
 		self._trigers = {}
-
-	if self._trigers is None:
-		self._trigers = {
-		'ForEachRowBeforeInsert': None,
-		'ForEachRowBeforeUpdate': None,
-		'ForEachRowBeforeDelete': None,
-		'ForEachRowAfterInsert': None,
-		'ForEachRowAfterUpdate': None,
-		'ForEachRowAfterDelete': None,
-		'BeforeInsert': None,
-		'BeforeUpdate': None,
-		'BeforeDelete': None,
-		'AfterInsert': None,
-		'AfterUpdate': None,
-		'AfterDelete': None,
-		}
-		
-	if self._hooks is None:
-		self._on = {
-		'BeforeLoad': None,
-		'Loaded': None,
-		'BeforeAppend': None,
-		'Appended': None,
-		'BeforeRemove': None,
-		'Removed': None,
-		'BedoreUpdate': None,
-		'Updated': None,
-		'BeforeSave': None,
-		'Saved': None,
-		'BeforeRollback': None,
-		'Rollbacked': None,
-		}
 	
 	for sf in dir(self):
 		if sf[:7] == '_action':
@@ -270,96 +241,6 @@ def model__init__(self,access = None):
 			if callable(getattr(self,sf,None)):
 				if not sf in self._checks:
 					self._checks.append(sf)
-		# elif sf[:26] == '_trgForEachRowBeforeInsert' or sf[:9] == '_trgFERBI':
-			# if callable(getattr(self,sf,None)):
-				# if 'i' in self._trigers and 'b' in self._trigers['i'] and 'f' in self._trigers['i']['b']:
-					# if not sf in self._trigers['i']['b']['f']:
-						# self._trigers.setdefault('i',{}).setdefault('b',{}).setdefault('f',[]).append(sf)
-				# else:
-					# self._trigers.setdefault('i',{}).setdefault('b',{}).setdefault('f',[]).append(sf)
-		# elif sf[:26] == '_trgForEachRowBeforeUpdate' or sf[:9] == '_trgFERBU':
-			# if callable(getattr(self,sf,None)):
-				# if 'u' in self._trigers and 'b' in self._trigers['u'] and 'f' in self._trigers['u']['b']:
-					# if not sf in self._trigers['u']['b']['f']:
-						# self._trigers.setdefault('u',{}).setdefault('b',{}).setdefault('f',[]).append(sf)
-				# else:
-					# self._trigers.setdefault('u',{}).setdefault('b',{}).setdefault('f',[]).append(sf)
-		# elif sf[:26] == '_trgForEachRowBeforeDelete' or sf[:9] == '_trgFERBD':
-			# if callable(getattr(self,sf,None)):
-				# if 'd' in self._trigers and 'b' in self._trigers['d'] and 'f' in self._trigers['d']['b']:
-					# if not sf in self._trigers['d']['b']['f']:
-						# self._trigers.setdefault('d',{}).setdefault('b',{}).setdefault('f',[]).append(sf)
-				# else:
-					# self._trigers.setdefault('d',{}).setdefault('b',{}).setdefault('f',[]).append(sf)
-
-		# elif sf[:25] == '_trgForEachRowAfterInsert' or sf[:9] == '_trgFERAI':
-			# if callable(getattr(self,sf,None)):
-				# if 'i' in self._trigers and 'a' in self._trigers['i'] and 'f' in self._trigers['i']['a']:
-					# if not sf in self._trigers['i']['a']['f']:
-						# self._trigers.setdefault('i',{}).setdefault('a',{}).setdefault('f',[]).append(sf)
-				# else:
-					# self._trigers.setdefault('i',{}).setdefault('a',{}).setdefault('f',[]).append(sf)
-		# elif sf[:25] == '_trgForEachRowAfterUpdate' or sf[:9] == '_trgFERAU':
-			# if callable(getattr(self,sf,None)):
-				# if 'u' in self._trigers and 'a' in self._trigers['u'] and 'f' in self._trigers['u']['a']:
-					# if not sf in self._trigers['u']['a']['f']:
-						# self._trigers.setdefault('u',{}).setdefault('a',{}).setdefault('f',[]).append(sf)
-				# else:
-					# self._trigers.setdefault('u',{}).setdefault('a',{}).setdefault('f',[]).append(sf)
-		# elif sf[:25] == '_trgForEachRowAfterDelete' or sf[:9] == '_trgFERAD':
-			# if callable(getattr(self,sf,None)):
-				# if 'd' in self._trigers and 'a' in self._trigers['d'] and 'f' in self._trigers['d']['a']:
-					# if not sf in self._trigers['d']['a']['f']:
-						# self._trigers.setdefault('d',{}).setdefault('a',{}).setdefault('f',[]).append(sf)
-				# else:
-					# self._trigers.setdefault('d',{}).setdefault('a',{}).setdefault('f',[]).append(sf)
-
-		# elif sf[:16] == '_trgBeforeInsert' or sf[:6] == '_trgBI':
-			# if callable(getattr(self,sf,None)):
-				# if 'i' in self._trigers and 'b' in self._trigers['i'] and 'a' in self._trigers['i']['b']:
-					# if not sf in self._trigers['i']['b']['a']:
-						# self._trigers.setdefault('i',{}).setdefault('b',{}).setdefault('a',[]).append(sf)
-				# else:
-					# self._trigers.setdefault('i',{}).setdefault('b',{}).setdefault('a',[]).append(sf)
-		# elif sf[:16] == '_trgBeforeUpdate' or sf[:6] == '_trgBU':
-			# if callable(getattr(self,sf,None)):
-				# if 'u' in self._trigers and 'b' in self._trigers['u'] and 'a' in self._trigers['u']['b']:
-					# if not sf in self._trigers['u']['b']['a']:
-						# self._trigers.setdefault('u',{}).setdefault('b',{}).setdefault('a',[]).append(sf)
-				# else:
-					# self._trigers.setdefault('u',{}).setdefault('b',{}).setdefault('a',[]).append(sf)
-		# elif sf[:16] == '_trgBeforeDelete' or sf[:6] == '_trgBD':
-			# if callable(getattr(self,sf,None)):
-				# if 'd' in self._trigers and 'b' in self._trigers['d'] and 'a' in self._trigers['d']['b']:
-					# if not sf in self._trigers['d']['b']['a']:
-						# self._trigers.setdefault('d',{}).setdefault('b',{}).setdefault('a',[]).append(sf)
-				# else:
-					# self._trigers.setdefault('d',{}).setdefault('b',{}).setdefault('a',[]).append(sf)
-
-		# elif sf[:15] == '_trgAfterInsert' or sf[:6] == '_trgAI':
-			# if callable(getattr(self,sf,None)):
-				# if 'i' in self._trigers and 'a' in self._trigers['i'] and 'a' in self._trigers['i']['a']:
-					# if not sf in self._trigers['i']['a']['a']:
-						# self._trigers.setdefault('i',{}).setdefault('a',{}).setdefault('a',[]).append(sf)
-				# else:
-					# self._trigers.setdefault('i',{}).setdefault('a',{}).setdefault('a',[]).append(sf)
-		# elif sf[:15] == '_trgAfterUpdate' or sf[:6] == '_trgAU':
-			# if callable(getattr(self,sf,None)):
-				# if 'u' in self._trigers and 'a' in self._trigers['u'] and 'a' in self._trigers['u']['b']:
-					# if not sf in self._trigers['u']['a']['a']:
-						# self._trigers.setdefault('u',{}).setdefault('a',{}).setdefault('a',[]).append(sf)
-				# else:
-					# self._trigers.setdefault('u',{}).setdefault('a',{}).setdefault('a',[]).append(sf)
-		# elif sf[:15] == '_trgAfterDelete' or sf[:6] == '_trgAD':
-			# if callable(getattr(self,sf,None)):
-				# if 'd' in self._trigers and 'a' in self._trigers['d'] and 'a' in self._trigers['d']['b']:
-					# if not sf in self._trigers['d']['a']['a']:
-						# self._trigers.setdefault('d',{}).setdefault('a',{}).setdefault('a',[]).append(sf)
-				# else:
-					# self._trigers.setdefault('d',{}).setdefault('a',{}).setdefault('a',[]).append(sf)
-
-	#if self._name == 'purchase.order.items':
-		#print('trigers:',self._trigers)	
 
 def checkAccess(self,mode = None):
 	if self._access and hasattr(self._access,'_' + mode):
@@ -581,12 +462,23 @@ def _getNames(self,names):
 	return n
 
 def _getTriger(self,name):
-	if name in self._trigers and self._trigers[name]:
-		return getattr(self,self._trigers[name],None)
+	if name not in _TRIGGERS_KEYS_:
+		raise orm_exception('Invalid triger key: <%s>' % (name,))
+
+	if self._trigers and name in self._trigers and self._trigers[name]:
+		trg = self._trigers[name]
+		if callable(trg):
+			return trg
+		
+		return getattr(self,trg,None)
 
 def _getHook(self,name):
-	if name in self._hooks and self._hooks[name]:
-		return getattr(self,self._hooks[name],None)
+	if self._hooks and name in self._hooks and self._hooks[name]:
+		hook = self._hooks[name]
+		if callable(hook):
+			return hook
+		
+		return getattr(self,hook,None)
 
 # modelinfo
 def _buildEmptyItem(self):
@@ -1670,26 +1562,15 @@ def unlink(self, cr, pool, uid, ids, context = {}):
 		#for oid in ids:
 			#_m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
-	trg1 = self._getTriger('ForEachRowBeforeDelete')
+	trg1 = self._getTriger('bdr')
 	if trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg1(**kwargs)
 
-	trg2 = self._getTriger('BeforeDelete')
+	trg2 = self._getTriger('bd')
 	if trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg2(**kwargs)
-
-
-	# if 'd' in self._trigers and 'b' in self._trigers['d'] and 'f' in self._trigers['d']['b']:
-		# for oid in ids:
-			# for t in  self._trigers['d']['b']['f']:
-				# kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-				# getattr(self,t,None)(**kwargs)
-
-		#for t in  self._trigers['d']['b']['a']:
-			#kwargs = {'cr':cr,'pool':pool,'uid':uid,'oids':ids,'context':context}
-			#getattr(self,t,None)(**kwargs)
 
 	length = len(ids)
 	count = int(length/MAX_CHUNK_DELETE)
@@ -1710,25 +1591,15 @@ def unlink(self, cr, pool, uid, ids, context = {}):
 			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
 
 
-	trg3 = self._getTriger('ForEachRowAfreDelete')
+	trg3 = self._getTriger('adr')
 	if trg3:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg3(**kwargs)
 
-	trg4 = self._getTriger('AfterDelete')
+	trg4 = self._getTriger('ad')
 	if trg4:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg4(**kwargs)
-
-	# if 'd' in self._trigers and 'a' in self._trigers['d'] and 'f' in self._trigers['d']['a']:
-		# for oid in ids:
-			# for t in  self._trigers['d']['a']['f']:
-				# kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-				# getattr(self,t,None)(**kwargs)
-
-		# for t in  self._trigers['d']['a']['a']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'oids':ids,'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	return res
 
@@ -1747,31 +1618,19 @@ def delete(self, cr, pool, uid, cond, context = {}):
 def _createRecords(self, cr, pool, uid, records, context):
 	res = []
 
-	trg1 = self._getTriger('BeforeInsert')
+	trg1 = self._getTriger('bi')
 	if trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg1(**kwargs)
-
-
-	# if 'i' in self._trigers and 'b' in self._trigers['i'] and 'f' in self._trigers['i']['b']:
-		# for t in  self._trigers['i']['b']['a']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':records,'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	for record in records:
 		oid = self._createRecord(cr=cr, pool=pool, uid=uid, record=record, context=context)		
 		res.append(oid)
 
-	trg2 = self._getTriger('AfterInsert')
+	trg2 = self._getTriger('ai')
 	if trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg2(**kwargs)
-
-
-	# if 'i' in self._trigers and 'a' in self._trigers['i'] and 'a' in self._trigers['i']['a']:
-		# for t in  self._trigers['i']['a']['a']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':records,'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	return res
 
@@ -1845,15 +1704,10 @@ def _createRecord(self, cr, pool, uid, record, context):
 			del record[m2mfield]
 
 
-	trg1 = self._getTriger('ForEachRowBeforeInsert')
+	trg1 = self._getTriger('bir')
 	if trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg1(**kwargs)
-
-	# if 'i' in self._trigers and 'b' in self._trigers['i'] and 'f' in self._trigers['i']['b']:
-		# for t in  self._trigers['i']['b']['f']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	sql,vals = gensql.Create(self,pool,uid,self.modelInfo(), record, context)
 	cr.execute(sql,vals)
@@ -1901,15 +1755,10 @@ def _createRecord(self, cr, pool, uid, record, context):
 	
 			_m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
-	trg2 = self._getTriger('ForEachRowAfterInsert')
+	trg2 = self._getTriger('air')
 	if trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg2(**kwargs)
-
-	# if 'i' in self._trigers and 'a' in self._trigers['i'] and 'f' in self._trigers['i']['a']:
-		# for t in  self._trigers['i']['a']['f']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	return oid
 
@@ -1945,31 +1794,18 @@ def create(self, cr, pool, uid, records, context = {}):
 def _writeRecords(self, cr, pool, uid, records, context):
 	res = []
 
-	trg1 = self._getTriger('BeforeUpdate')
+	trg1 = self._getTriger('bu')
 	if trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg1(**kwargs)
 
-
-
-	# if 'u' in self._trigers and 'b' in self._trigers['u'] and 'f' in self._trigers['u']['b']:
-		# for t in  self._trigers['u']['b']['a']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':records,'context':context}
-			# getattr(self,t,None)(**kwargs)
-
 	for record in records:
 		res.append(self._writeRecord(cr=cr, pool=pool, uid=uid, record=record, context=context))		
 
-	trg2 = self._getTriger('AfterUpdate')
+	trg2 = self._getTriger('au')
 	if trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg2(**kwargs)
-
-
-	# if 'u' in self._trigers and 'a' in self._trigers['b'] and 'a' in self._trigers['u']['a']:
-		# for t in  self._trigers['u']['a']['a']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':records,'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	return res
 
@@ -2038,16 +1874,10 @@ def _writeRecord(self, cr, pool, uid, record, context):
 			m2mfieldsrecords[m2mfield] = record[m2mfield]
 			del record[m2mfield]
 
-	trg1 = self._getTriger('ForEachRowBeforeUpdate')
+	trg1 = self._getTriger('bur')
 	if trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg1(**kwargs)
-
-
-	# if 'u' in self._trigers and 'b' in self._trigers['i'] and 'f' in self._trigers['u']['b']:
-		# for t in  self._trigers['u']['b']['f']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	sql,vals = gensql.Write(self,pool,uid,self.modelInfo(), record, context)
 	cr.execute(sql,vals)
@@ -2088,17 +1918,10 @@ def _writeRecord(self, cr, pool, uid, record, context):
 
 				_m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
-	trg2 = self._getTriger('ForEachRowAfterUpdate')
+	trg2 = self._getTriger('aur')
 	if trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg2(**kwargs)
-
-
-
-	# if 'u' in self._trigers and 'a' in self._trigers['u'] and 'f' in self._trigers['u']['a']:
-		# for t in  self._trigers['u']['a']['f']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	return oid
 
@@ -2215,21 +2038,10 @@ def insert(self, cr, pool, uid, fields, values,context = {}):
 				trg1(**kwargs)
 
 
-	trg2 = self._getTriger('BeforeInsert')
+	trg2 = self._getTriger('bi')
 	if trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg2(**kwargs)
-
-
-	# if 'i' in self._trigers and 'b' in self._trigers['i'] and 'f' in self._trigers['i']['b']:	
-		# for value in values:
-			# for t in  self._trigers['i']['b']['f']:
-				# kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
-				# getattr(self,t,None)(**kwargs)
-
-		# for t in  self._trigers['i']['b']['a']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':_gen_records(fields,values),'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	sql,vals = gensql.Insert(self,pool,uid, self.modelInfo(), _fields, values, context)
 	cr.execute(sql,vals)
@@ -2283,22 +2095,10 @@ def insert(self, cr, pool, uid, fields, values,context = {}):
 				trg3(**kwargs)
 
 
-	trg4 = self._getTriger('AfterInsert')
+	trg4 = self._getTriger('ai')
 	if trg4:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg4(**kwargs)
-
-
-
-	# if 'i' in self._trigers and 'a' in self._trigers['i'] and 'f' in self._trigers['i']['a']:
-		# for value in values:
-			# for t in  self._trigers['i']['a']['f']:
-				# kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
-				# getattr(self,t,None)(**kwargs)
-
-		# for t in  self._trigers['i']['a']['a']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':_gen_records(fields,values),'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	return res
 
@@ -2348,7 +2148,7 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 		context['TZ'] = tm.tzname[1]
 
 
-	trg1 = self._getTriger('ForEachRowBeforeInsert')
+	trg1 = self._getTriger('bir')
 	if trg1:
 		for value in values:
 			for t in  self._trigers['i']['b']['f']:
@@ -2356,22 +2156,10 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 				trg1(**kwargs)
 
 
-	trg2 = self._getTriger('BeforeInsert')
+	trg2 = self._getTriger('bi')
 	if trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg2(**kwargs)
-
-
-
-	# if 'i' in self._trigers and 'b' in self._trigers['i'] and 'f' in self._trigers['i']['b']:	
-		# for value in values:
-			# for t in  self._trigers['i']['b']['f']:
-				# kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
-				# getattr(self,t,None)(**kwargs)
-
-		# for t in  self._trigers['i']['b']['a']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':_gen_records(fields,values),'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	sql,vals = gensql.Upsert(self,pool,uid, self.modelInfo(), fields, values, context)
 	cr.execute(sql,vals)
@@ -2415,7 +2203,7 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 				oid = r[0]
 				_m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
-	trg3 = self._getTriger('ForEachRowAfterInsert')
+	trg3 = self._getTriger('air')
 	if trg3:
 		for value in values:
 			for t in  self._trigers['i']['b']['f']:
@@ -2423,23 +2211,10 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 				trg3(**kwargs)
 
 
-	trg4 = self._getTriger('AfterInsert')
+	trg4 = self._getTriger('ai')
 	if trg4:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg4(**kwargs)
-
-
-
-
-	# if 'i' in self._trigers and 'a' in self._trigers['i'] and 'f' in self._trigers['i']['a']:
-		# for value in values:
-			# for t in  self._trigers['i']['a']['f']:
-				# kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
-				# getattr(self,t,None)(**kwargs)
-
-		# for t in  self._trigers['i']['a']['a']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':_gen_records(fields,values),'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	return res
 
@@ -2447,31 +2222,19 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 def _modifyRecords(self, cr, pool, uid, records, context):
 	res = []
 
-	trg1 = self._getTriger('BeforeUpdate')
+	trg1 = self._getTriger('bu')
 	if trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg1(**kwargs)
-
-
-	# if 'u' in self._trigers and 'b' in self._trigers['u'] and 'a' in self._trigers['u']['b']:
-		# for t in  self._trigers['u']['b']['a']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':records,'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	for record in records:
 		oid = self._modifyRecord(cr=cr, pool=pool, uid=uid, record=record, context = context)
 		res.append(oid)
 
-	trg2 = self._getTriger('AfterUpdate')
+	trg2 = self._getTriger('au')
 	if trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg2(**kwargs)
-
-
-	# if 'u' in self._trigers and 'a' in self._trigers['u'] and 'a' in self._trigers['u']['a']:
-		# for t in  self._trigers['u']['a']['a']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':records,'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	return res
 
@@ -2540,17 +2303,10 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			m2mfieldsrecords[m2mfield] = record[m2mfield]
 			del record[m2mfield]
 
-	trg1 = self._getTriger('ForEachRowBeforeUpdate')
+	trg1 = self._getTriger('bur')
 	if trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg1(**kwargs)
-
-
-
-	# if 'u' in self._trigers and 'b' in self._trigers['i'] and 'f' in self._trigers['u']['b']:
-		# for t in  self._trigers['u']['b']['f']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
-			# getattr(self,t,None)(**kwargs)
 		
 	#print('RECORD-0:',record)
 	sql,vals = gensql.Modify(self,pool,uid,self.modelInfo(), record, context)
@@ -2592,17 +2348,10 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 
 			_m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
-	trg2 = self._getTriger('ForEachRowAfterUpdate')
+	trg2 = self._getTriger('aur')
 	if trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg2(**kwargs)
-
-
-
-	# if 'u' in self._trigers and 'a' in self._trigers['u'] and 'f' in self._trigers['u']['a']:
-		# for t in  self._trigers['u']['a']['f']:
-			# kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
-			# getattr(self,t,None)(**kwargs)
 
 	return oid
 
@@ -2634,63 +2383,5 @@ def modify(self, cr, pool, uid, records, context = {}):
 
 	elif type(records) == dict:
 		return [self._modifyRecord(cr=cr, pool=pool, uid=uid, record=records, context = context)]
-
-
-# def _mcache(self,cr,pool,uid,key,value,idx = -1,context={}):
-	# res = {}
-
-	# if idx == -1:
-		# #print('deepcopy(self._cache[0]):',self._cache,self._cache_old)
-		# record = deepcopy(self._cache[0])
-		# record_old = self._cache_old[0]
-	# else:
-		# record = deepcopy(self._cache[idx])
-		# record_old = self._cache_old[idx]
-
-	# if key and key in record:
-		# if  record[key] != value:
-			# record[key] = value
-			# c = do_compute(self, cr, pool, uid, self._computefields, record, context)
-			# if c:
-				# for k in c.keys():
-					# if not k in record or record[k] != c[k]:
-						# res[k] = c[k]
-						# record[k] = c[k]
-						# record_old[k] = c[k]
-			# else:
-				# for k in record.keys():
-					# if k in record_old:
-						# if record[k] != record_old[k]:
-							# record_old[k] = record[k]
-							# res[k] = record[k]
-					# else:
-						# record_old[k] = record[k]
-						# res[k] = record[k]
-	# else:
-		# if key:
-			# if value:
-				# record[key] = value
-			# else:
-				# del record[key]
-
-		# c = do_compute(self, cr, pool, uid, self._computefields, record, context)
-		# if c:
-			# for k in c.keys():
-				# if not k in record or record[k] != c[k]:
-					# record[k] = c[k]
-					# record_old[k] = c[k]
-					# res[k] = c[k]
-		# else:
-			# for k in record.keys():
-				# if k in record_old:
-					# if record_old[k] != record[k]:
-						# record_old[k] = record[k]
-						# res[k] = record[k]
-				# else:
-					# record_old[k] = record[k]
-					# res[k] = record[k]
-
-	# #print('self-cache:',res)
-	# return [res]
 
 __locals__= locals()
