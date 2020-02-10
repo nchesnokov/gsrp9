@@ -177,8 +177,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 			#print('MODULES:',model,registry._getModulesOfModel(model),registry._momm[module][model])
 			meta = registry._getMetaOfModulesModel(model,registry._getFirstModule(model))
 			#print('META:',meta)
-			#if issubclass(type(meta['name'],meta['bases'],meta['attrs']),ModelInherit):
-			if ModelInherit in meta['bases']:
+			if issubclass(type(meta['name'],meta['bases'],meta['attrs']),ModelInherit):
 				if '_inherit' in meta['attrs'] and meta['attrs']['_inherit']:
 					inherit = meta['attrs']['_inherit']
 					for k in inherit.keys():
