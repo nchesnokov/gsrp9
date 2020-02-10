@@ -370,7 +370,7 @@ class sale_teams(Model):
 			v += item['division_id']['name']
 
 		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:
-			v += '/' + item['subdivison_id']['name']
+			v += '/' + item['subdivision_id']['name']
 		
 		if len(v) > 0:
 			item['fullname'] = v
