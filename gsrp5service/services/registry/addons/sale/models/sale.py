@@ -234,8 +234,17 @@ class sale_unit_channel_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='sale.units'),
 	'channel_id': fields.many2one(label='Channel',obj='sale.channels',selectable=True),
-	'descr': fields.referenced(ref='channel_id.descr'),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
 	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+
+		if 'channel_id' in item and 'name' in item['channel_id'] and item['channel_id']['name']:
+			v += item['channel_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
 
 sale_unit_channel_assigments()
 
@@ -248,8 +257,17 @@ class sale_unit_segment_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='sale.units'),
 	'segment_id': fields.many2one(label='Segment',obj='sale.segments',selectable=True),
-	'descr': fields.referenced(ref='segment_id.descr'),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
 	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+
+		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
+			v += item['segment_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
 
 sale_unit_segment_assigments()
 
@@ -262,22 +280,40 @@ class sale_unit_area_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='sale.units'),
 	'area_id': fields.many2one(label='Area',obj='sale.areas',selectable=True),
-	'descr': fields.referenced(ref='area_id.descr'),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
 	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+
+		if 'area_id' in item and 'name' in item['area_id'] and item['area_id']['name']:
+			v += item['area_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
 
 sale_unit_area_assigments()
 
 class sale_unit_region_assigments(Model):
 	_name = 'sale.unit.region.assigments'
 	_description = 'General Model Sale Unit Of Region Assigment'
-	_rec_name = 'code'
+	_rec_name = 'fullname'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='sale.units'),
 	'region_id': fields.many2one(label='Region',obj='sale.regions',selectable=True),
-	'descr': fields.referenced(ref='region_id.descr'),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
 	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+
+		if 'region_id' in item and 'name' in item['region_id'] and item['region_id']['name']:
+			v += item['region_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
 
 sale_unit_segment_assigments()
 
