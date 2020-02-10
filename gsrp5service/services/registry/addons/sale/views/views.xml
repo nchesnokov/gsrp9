@@ -860,7 +860,7 @@
             <form>
               <field name="unit_id"/>
               <field name="channel_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </form>
           </column>
         </record>
@@ -871,7 +871,7 @@
             <list>
               <field name="unit_id"/>
               <field name="channel_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
@@ -882,8 +882,19 @@
             <m2mlist>
               <field name="unit_id"/>
               <field name="channel_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.sale.unit.channel.assigments.search">
+          <column name="name">view.sale.unit.channel.assigments.search</column>
+          <column name="model">sale.unit.channel.assigments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="fullname"/>
+            </search>
           </column>
         </record>
         <record id="view.sale.unit.channel.assigments.find">
@@ -893,7 +904,7 @@
             <find>
               <field name="unit_id"/>
               <field name="channel_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </find>
           </column>
         </record>
@@ -904,7 +915,7 @@
             <form>
               <field name="unit_id"/>
               <field name="segment_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </form>
           </column>
         </record>
@@ -915,7 +926,7 @@
             <list>
               <field name="unit_id"/>
               <field name="segment_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
@@ -926,8 +937,19 @@
             <m2mlist>
               <field name="unit_id"/>
               <field name="segment_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.sale.unit.segment.assigments.search">
+          <column name="name">view.sale.unit.segment.assigments.search</column>
+          <column name="model">sale.unit.segment.assigments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="unit_id"/>
+              <field name="segment_id"/>
+              <field name="fullname"/>
+            </search>
           </column>
         </record>
         <record id="view.sale.unit.segment.assigments.find">
@@ -937,7 +959,7 @@
             <find>
               <field name="unit_id"/>
               <field name="segment_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </find>
           </column>
         </record>
@@ -948,7 +970,7 @@
             <form>
               <field name="unit_id"/>
               <field name="area_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </form>
           </column>
         </record>
@@ -959,7 +981,7 @@
             <list>
               <field name="unit_id"/>
               <field name="area_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
@@ -970,8 +992,19 @@
             <m2mlist>
               <field name="unit_id"/>
               <field name="area_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.sale.unit.area.assigments.search">
+          <column name="name">view.sale.unit.area.assigments.search</column>
+          <column name="model">sale.unit.area.assigments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="unit_id"/>
+              <field name="area_id"/>
+              <field name="fullname"/>
+            </search>
           </column>
         </record>
         <record id="view.sale.unit.area.assigments.find">
@@ -981,7 +1014,7 @@
             <find>
               <field name="unit_id"/>
               <field name="area_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </find>
           </column>
         </record>
@@ -992,7 +1025,7 @@
             <form>
               <field name="unit_id"/>
               <field name="region_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </form>
           </column>
         </record>
@@ -1003,7 +1036,7 @@
             <list>
               <field name="unit_id"/>
               <field name="region_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
@@ -1014,8 +1047,19 @@
             <m2mlist>
               <field name="unit_id"/>
               <field name="region_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.sale.unit.region.assigments.search">
+          <column name="name">view.sale.unit.region.assigments.search</column>
+          <column name="model">sale.unit.region.assigments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="unit_id"/>
+              <field name="region_id"/>
+              <field name="fullname"/>
+            </search>
           </column>
         </record>
         <record id="view.sale.unit.region.assigments.find">
@@ -1025,7 +1069,7 @@
             <find>
               <field name="unit_id"/>
               <field name="region_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </find>
           </column>
         </record>
@@ -1036,7 +1080,7 @@
             <form>
               <field name="division_id"/>
               <field name="subdivision_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </form>
           </column>
         </record>
@@ -1047,7 +1091,7 @@
             <list>
               <field name="division_id"/>
               <field name="subdivision_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
@@ -1058,8 +1102,19 @@
             <m2mlist>
               <field name="division_id"/>
               <field name="subdivision_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.sale.division.subdivision.assigments.search">
+          <column name="name">view.sale.division.subdivision.assigments.search</column>
+          <column name="model">sale.division.subdivision.assigments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+            </search>
           </column>
         </record>
         <record id="view.sale.division.subdivision.assigments.find">
@@ -1069,7 +1124,7 @@
             <find>
               <field name="division_id"/>
               <field name="subdivision_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </find>
           </column>
         </record>
