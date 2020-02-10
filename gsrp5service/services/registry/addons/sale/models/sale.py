@@ -286,14 +286,24 @@ sale_unit_segment_assigments()
 class sale_division_subdivision_assigments(Model):
 	_name = 'sale.division.subdivision.assigments'
 	_description = 'General Model Sale Division Of Subdivision Assigment'
-	_rec_name = 'code'
+	_rec_name = 'fullname'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='sale.divisions'),
 	'subdivision_id': fields.many2one(label='Subdivision',obj='sale.subdivisions',selectable=True),
-	'descr': fields.referenced(ref='subdivision_id.descr'),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+
+		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:
+			v += item['subdivison_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
+
 
 sale_division_subdivision_assigments()
 
@@ -349,7 +359,7 @@ class sale_teams(Model):
 	_rec_name = 'fullname'
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='sale.divisions', required = True),
-	'subdivision_id': fields.related(label='Subdivision',obj='sale.subdivisions', relatedy=['division_id'], required = True),
+	'subdivision_id': fields.related(label='Subdivision',obj='sale.division.subdivision.assigments', relatedy=['division_id'], required = True),
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'note': fields.text(label='Note'),
 	}
@@ -522,6 +532,7 @@ class sale_orders(Model):
 	_name = 'sale.orders'
 	_description = 'General Model Sale Orders'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
+	_rec_name = 'fullname'
 	_date = 'doo'
 	_columns = {
 	'otype': fields.many2one(label='Type',obj='sale.order.types',on_change='_on_change_otype'),
@@ -577,17 +588,18 @@ class sale_orders(Model):
 		
 		types = pool.get('sale.order.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
 		texts1 = pool.get('sale.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
-		texts = texts1[0]['texts']
-		seq = 0
-		for text in texts:
-			item_text = pool.get('sale.order.texts')._buildEmptyItem()
-			if text['seq']:
-				item_text['seq'] = text['seq']
-			else:
-				item_text['seq'] = seq
-				seq += 10
-			item_text['text_id'] = text['text_id']
-			item['texts'].append(item_text)
+		if len(texts1) > 0:
+			texts = texts1[0]['texts']
+			seq = 0
+			for text in texts:
+				item_text = pool.get('sale.order.texts')._buildEmptyItem()
+				if text['seq']:
+					item_text['seq'] = text['seq']
+				else:
+					item_text['seq'] = seq
+					seq += 10
+				item_text['text_id'] = text['text_id']
+				item['texts'].append(item_text)
 
 	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
 		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
