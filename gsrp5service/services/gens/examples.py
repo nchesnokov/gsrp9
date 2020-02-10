@@ -31,7 +31,8 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 				cond.append((sf,'in',sls))
 			
 			for sf2 in sfs2:				
-				for k2,v2 in columns_info[sf2]['selections']:
+				for k2,v2 in tuple(map(lambda x: x[0],registry._getMetaOfModulesModel(model,module)['attrs']['_columns'][sf2].selections)):
+				#for k2,v2 in columns_info[sf2]['selections']:
 					mfs.setdefault(sf2,{})[k2] = v2 
 
 			records = m.select(cr,pool,uid,fields,cond)
