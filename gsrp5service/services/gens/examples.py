@@ -178,7 +178,8 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 					inherit = meta['attrs']['_inherit']
 					for k in inherit.keys():
 						if '_columns' in inherit[k]:
-							m = pool.get(k)
+							#m = pool.get(k)
+							m = pool.get(model)
 							ci = m.columnsInfo(inherit[k]['_columns'],['type'])
 							ici = meta['attrs']['_columns']
 							c = list(filter(lambda x:  x in m._storefields and ci[x]['type'] not in ('one2many','many2many','referenced') and ici[x]._type != 'iSelection',inherit[k]['_columns']))
