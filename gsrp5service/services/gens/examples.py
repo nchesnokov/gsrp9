@@ -35,6 +35,7 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 				#for k2,v2 in columns_info[sf2]['selections']:
 					mfs.setdefault(sf2,{})[k2] = v2 
 
+			print('COND:',cond)
 			records = m.select(cr,pool,uid,fields,cond)
 			if len(records) > 0:
 				if m._name[:3] == 'md.':
