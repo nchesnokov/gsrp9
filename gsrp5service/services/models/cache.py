@@ -693,7 +693,7 @@ class MCache(object):
 				if m1[k]['type'] in ('numeric','decimal'):
 					item[k] = Decimal(_default[k])
 				else:
-					item[k] = _default[k]
+					item[k] = _default[k]	
 	
 	def _add(self,model,container,context,view='form'):
 		#row = self._buildItem(model,view)
