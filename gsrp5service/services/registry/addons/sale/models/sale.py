@@ -228,7 +228,7 @@ sale_subdivisions()
 class sale_unit_channel_assigments(Model):
 	_name = 'sale.unit.channel.assigments'
 	_description = 'General Model Sale Unit Of Channel Assigment'
-	_rec_name = 'code'
+	_rec_name = 'fullname'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -251,7 +251,7 @@ sale_unit_channel_assigments()
 class sale_unit_segment_assigments(Model):
 	_name = 'sale.unit.segment.assigments'
 	_description = 'General Model Sale Unit Of Segment Assigment'
-	_rec_name = 'code'
+	_rec_name = 'fullname'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -274,7 +274,7 @@ sale_unit_segment_assigments()
 class sale_unit_area_assigments(Model):
 	_name = 'sale.unit.area.assigments'
 	_description = 'General Model Sale Unit Of Area Assigment'
-	_rec_name = 'code'
+	_rec_name = 'fullname'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -373,7 +373,7 @@ class sale_markets(Model):
 			v += '/' + item['segment_id']['name']
 
 		if 'area_id' in item and 'name' in item['area_id'] and item['area_id']['name']:
-			v += '/' + item['are_id']['name']
+			v += '/' + item['area_id']['name']
 
 		if 'region_id' in item and 'name' in item['region_id'] and item['region_id']['name']:
 			v += '/' + item['region_id']['name']
