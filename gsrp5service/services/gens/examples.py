@@ -43,6 +43,7 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 	
 				_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,m._table+'_'+k+'.' + ext),));
 				am = open(opj(path,module,'demo',c,m._table+'_'+k+'.' + ext),'w')
+				print('MFS:',mfs)
 				for row in records:
 					for key in row.keys():
 						if key == 'id':
