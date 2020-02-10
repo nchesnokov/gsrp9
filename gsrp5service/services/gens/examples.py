@@ -189,8 +189,8 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 								if len(c) > 0:
 									models.setdefault(k,[]).extend(c)
 								if len(c1) > 0:
-									#fm = registry._getFirstModule(k)
-									fm = registry._getLastModule(k)
+									fm = registry._getFirstModule(k)
+									#fm = registry._getLastModule(k)
 									imodules.setdefault(fm,{})[k] = {'sf':c1,'fields':list(registry._getMetaOfModulesModel(k,fm)['attrs']['_columns'].keys())}
 
 			else:
