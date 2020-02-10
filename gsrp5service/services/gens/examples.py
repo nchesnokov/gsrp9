@@ -17,6 +17,8 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 	for k in imodules.keys():
 		a = open(opj(path,module,'demo','annotation-1.csv'),'w')
 		aw = csv.DictWriter(a,['model','file'])
+		aw.writeheader()
+		aw = csv.DictWriter(a,['model','file'])
 		for model in imodules[k].keys():	
 			fields = imodules[k][model]['fields']
 			c2 = imodules[k][model]['sf']
@@ -93,7 +95,7 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 def _download(cr,pool,uid,path,module,imodules,models,registry,ext='csv'):
 	a = open(opj(path,module,'demo','annotation-1.csv'),'a')
 	aw = csv.DictWriter(a,['model','file'])
-	aw.writeheader()
+	#aw.writeheader()
 	for model in models.keys():
 		fields = models[model]
 		m = pool.get(model)
