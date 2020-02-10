@@ -166,7 +166,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 	else:
 		modules = list(filter(lambda x: x in modules,registry._depends))
 	logmodules = []
-	print('MODULES:',modules)
+	#print('MODULES:',modules)
 	if 'ext' not in context:
 		context['ext'] = 'yaml'
 	for module in filter(lambda x: not x in ('bc','system') and 'state' in registry._modules[x] and registry._modules[x]['state'] == 'I',modules):
@@ -177,7 +177,8 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 			#print('MODULES:',model,registry._getModulesOfModel(model),registry._momm[module][model])
 			meta = registry._getMetaOfModulesModel(model,registry._getFirstModule(model))
 			#print('META:',meta)
-			if issubclass(type(meta['name'],meta['bases'],meta['attrs']),ModelInherit):
+			#if issubclass(type(meta['name'],meta['bases'],meta['attrs']),ModelInherit):
+			if ModelInherit in meta['bases']:
 				if '_inherit' in meta['attrs'] and meta['attrs']['_inherit']:
 					inherit = meta['attrs']['_inherit']
 					for k in inherit.keys():
@@ -212,7 +213,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 					models.setdefault(model,[]).extend(fields)
 
 		if len(models) > 0 or len(imodules) > 0:
-			print('MODELS:',module,imodules,models)
+			#print('MODELS:',module,imodules,models)
 			_download_imodules(cr,pool,uid,path,module,imodules,registry,ext=context['ext'])
 			_download(cr,pool,uid,path,module,imodules,models,registry,ext=context['ext'])
 			logmodules.append(module)
