@@ -15,7 +15,7 @@ _logger = logging.getLogger('listener.' + __name__)
 
 def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 	for k in imodules.keys():
-		a = open(opj(path,module,'demo','annotation-1.csv'),'a')
+		a = open(opj(path,module,'demo','annotation-1.csv'),'w')
 		aw = csv.DictWriter(a,['model','file'])
 		for model in imodules[k].keys():	
 			fields = imodules[k][model]['fields']
