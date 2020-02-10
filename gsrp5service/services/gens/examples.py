@@ -20,6 +20,7 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 		for model in imodules[k].keys():	
 			fields = imodules[k][model]['fields']
 			c2 = imodules[k][model]['sf']
+			vcl = imodules[k][model]['vcl']
 			m = pool.get(model)
 			columns_info = m.columnsInfo(attributes=['type','selections','timezone'])
 			sfs = list(filter(lambda x: x in c2,m._selectionfields))
@@ -27,7 +28,7 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 			mfs = {}
 			cond = []
 			for sf in sfs:
-				sls = tuple(map(lambda x: x[0],registry._getMetaOfModulesModel(model,module)['attrs']['_columns'][sf].selections))
+				sls = tuple(filter(lambda y: y in vcl[sf],map(lambda x: x[0],registry._getMetaOfModulesModel(model,module)['attrs']['_columns'][sf].selections)))
 				cond.append((sf,'in',sls))
 			
 			for sf2 in sfs2:				
@@ -183,10 +184,13 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 						if '_columns' in inherit[k]:
 							mi = pool.get(k)
 							m = pool.get(model)
-							ci = m.columnsInfo(inherit[k]['_columns'],['type'])
+							ci = m.columnsInfo(inherit[k]['_columns'],['type','selections'])
 							ici = meta['attrs']['_columns']
 							c = list(filter(lambda x:  x in mi._storefields and ci[x]['type'] not in ('one2many','many2many','referenced') and ici[x]._type != 'iSelection',inherit[k]['_columns']))
 							c1 = list(filter(lambda x: ici[x]._type == 'iSelection',inherit[k]['_columns']))
+							vcl = {}
+							for c1 in cl:
+								vcl[c1] = list(map(lambda x: x[0],ci[cl]['selections']))
 							#print('SF:',c,c1)
 							if len(c) > 0 or len(c1) > 0:
 								if len(c) > 0:
@@ -195,7 +199,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 									#fm = registry._getFirstModule(k)
 									#lm = registry._getLastModule(k)
 									#imodules.setdefault(fm,{})[k] = {'sf':c1,'fields':list(registry._getMetaOfModulesModel(k,fm)['attrs']['_columns'].keys())}
-									imodules.setdefault(module,{})[k] = {'sf':c1,'fields':list(registry._getMetaOfModulesModel(k,module)['attrs']['_columns'].keys())}
+									imodules.setdefault(module,{})[k] = {'sf':c1,'vcl':vcl,'fields':list(registry._getMetaOfModulesModel(k,module)['attrs']['_columns'].keys())}
 
 			else:
 				if registry._getFirstModule(model) == module:
