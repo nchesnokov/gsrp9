@@ -91,7 +91,7 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 
 
 def _download(cr,pool,uid,path,module,imodules,models,registry,ext='csv'):
-	a = open(opj(path,module,'demo','annotation-1.csv'),'w')
+	a = open(opj(path,module,'demo','annotation-1.csv'),'a')
 	aw = csv.DictWriter(a,['model','file'])
 	aw.writeheader()
 	for model in models.keys():
@@ -156,7 +156,7 @@ def _download(cr,pool,uid,path,module,imodules,models,registry,ext='csv'):
 			
 			aw.writerow({'model':m._name,'file':opj('demo',c,m._table+'.' + ext)})
 	a.close()
-	_download_imodules(cr,pool,uid,path,module,imodules,registry,ext)
+	#_download_imodules(cr,pool,uid,path,module,imodules,registry,ext)
 # download
 
 def Area(cr, pool, uid, registry, modules = None, context={}):
@@ -213,7 +213,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 
 		if len(models) > 0 or len(imodules) > 0:
 			#print('MODELS:',module,imodules,models)
-			#_download_imodules(cr,pool,uid,path,module,imodules,registry,ext=context['ext'])
+			_download_imodules(cr,pool,uid,path,module,imodules,registry,ext=context['ext'])
 			_download(cr,pool,uid,path,module,imodules,models,registry,ext=context['ext'])
 			logmodules.append(module)
 
