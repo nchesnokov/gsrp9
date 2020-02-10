@@ -189,8 +189,8 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 							c = list(filter(lambda x:  x in mi._storefields and ci[x]['type'] not in ('one2many','many2many','referenced') and ici[x]._type != 'iSelection',inherit[k]['_columns']))
 							c1 = list(filter(lambda x: ici[x]._type == 'iSelection',inherit[k]['_columns']))
 							vcl = {}
-							for c1 in cl:
-								vcl[c1] = list(map(lambda x: x[0],ci[cl]['selections']))
+							for c2 in c1:
+								vcl[c2] = list(map(lambda x: x[0],ci[c2]['selections']))
 							#print('SF:',c,c1)
 							if len(c) > 0 or len(c1) > 0:
 								if len(c) > 0:
