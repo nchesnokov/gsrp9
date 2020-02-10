@@ -299,7 +299,7 @@ class sale_division_subdivision_assigments(Model):
 		v=''
 
 		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:
-			v += item['subdivison_id']['name']
+			v += item['subdivision_id']['name']
 		
 		if len(v) > 0:
 			item['fullname'] = v
