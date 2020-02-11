@@ -2318,8 +2318,10 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			del record[m2mfield]
 
 	trg1 = self._getTriger('bur')
+	record2 =None
+	upd_cols = set()
 	if trg1 and len(trg1) > 0:
-		record2 =None
+		
 		if 'id' in record and record['id']:
 			record2 = self.read(cr, pool, uid, record['id'], self._rowfields, context)[0]
 	
@@ -2329,7 +2331,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			uk = list(set(k1).intersection(set(k2)))
 			ik = list(set(k1)- set(k2))
 			dk = list(set(k2)- set(k1))
-			upd_cols = set()
+			
 			
 		for k in uk:
 			if record[k] != record2[k]:
