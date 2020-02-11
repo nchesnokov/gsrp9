@@ -1405,10 +1405,14 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 		length = len(ids)		
 	count = int(length/MAX_CHUNK_READ)
 	chunk = int(length % MAX_CHUNK_READ)
+	print('CONTEXT:',context)
+	if fields is None:
+		fields = self._selectablefields
 	for i in range(count):
 		j = i * MAX_CHUNK_READ
 		chunk_ids = ids[j:j + MAX_CHUNK_READ]
-		sql,vals = gensql.Read(self,pool,uid,self.modelInfo(),chunk_ids,self._selectablefields,context)
+		#sql,vals = gensql.Read(self,pool,uid,self.modelInfo(),chunk_ids,self._selectablefields,context)
+		sql,vals = gensql.Read(self,pool,uid,self.modelInfo(),chunk_ids,fields,context)
 		cr.execute(sql,vals)
 		if cr.cr.rowcount > 0:
 			if context['FETCH'] == 'DICT':
