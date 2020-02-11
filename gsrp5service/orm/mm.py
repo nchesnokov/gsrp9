@@ -473,7 +473,7 @@ def _getTriger(self,name):
 			t = getattr(self,trg,None)
 			if t is None:
 				raise orm_exception('Invalid triger method: <%s>' % (trg,))
-			res = [t]
+			res.append(t)
 		elif type(trg) in (tuple,list):
 			for t1 in trg:
 				if type(t1) == str:
@@ -1826,7 +1826,7 @@ def _writeRecords(self, cr, pool, uid, records, context):
 
 def _writeRecord(self, cr, pool, uid, record, context):
 	oid = None
-
+	print('WRITE RECORD:',record)
 	fields = list(record.keys())
 	modelfields = list(self._columns.keys())
 	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS,fields))
@@ -2255,7 +2255,7 @@ def _modifyRecords(self, cr, pool, uid, records, context):
 
 def _modifyRecord(self, cr, pool, uid, record, context):
 	oid = None
-	#print('MODIFY-RECORD:',record)
+	print('MODIFY-RECORD:',record)
 	fields = list(record.keys())
 	modelfields = list(self._columns.keys())
 	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS, fields))
