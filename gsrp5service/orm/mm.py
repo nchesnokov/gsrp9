@@ -1250,6 +1250,28 @@ def _conv_dict_to_list_records(self,fields,records,context):
 		
 	return rows
 
+def _conv_dict_to_raw_records(self,fields,records,context):
+	for record in records:
+		for field in filter(lambda x: x != 'id',fields):
+			#print('CONV-FIELDS:',field,fields,record)
+			if type(field) == str:
+				if type(record[field]) == dict and 'id' in record[field]:
+					record[field] = record[field]['id']
+			elif  type(field) == dict:
+				for key in field.keys():
+					if key in record:
+						#print('_conv_dict_to_list_records:',field,fields,key,record)
+						if type(record[key]) == dict:
+							record[key] = _conv_dict_to_raw_records(self,field[key],record[key])
+						elif type(record[key]) in (list,tuple):
+							record[key] = _conv_dict_to_raw_records(self,field[key],record[key])
+		
+		#print('CONV-RECORD:',row,record)
+		#if 'cache' in context:
+			#row.append({'path':uuid.uuid4().hex,'model':self._name})
+		
+	return records
+
 def _fetch_results(self,cr,pool,uid,fields,context):
 	
 	res = []
@@ -1397,8 +1419,8 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 
 	fetch = context['FETCH']
 
-	if not fetch in ('LIST','DICT'):
-		orm_exception('Invalid fetch mode: %s' % (fetch,))
+	if not fetch.upper() in ('LIST','DICT','RAW'):
+		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
 
 	length = 1
 	if type(ids) in (list,tuple):
@@ -1420,6 +1442,10 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 			elif context['FETCH'] == 'LIST':
 				records = cr.dictfetchall(fields,self._columnsmeta)
 				res.extend(_conv_dict_to_list_records(self,fields,records,context))
+			elif context['FETCH'] == 'RAW':
+				records = cr.dictfetchall(fields,self._columnsmeta)
+				res.extend((_conv_dict_to_raw_records(self,fields,records,context)))
+
 
 	if chunk > 0:
 		if length == 1:
@@ -2328,7 +2354,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 		
 		if 'id' in record and record['id']:
 			ctx = context.copy()
-			ctx['FETCH'] = 'DICT'
+			ctx['FETCH'] = 'RAW'
 			record2 = read(self, cr, pool, uid, record['id'], self._selectablefields, ctx)[0]
 	
 		if record2:
