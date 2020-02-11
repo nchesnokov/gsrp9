@@ -905,7 +905,7 @@ def _m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 	if len(iValues) > 0:
 		sql = "insert into %s (%s,%s) values " % (rel,id1,id2)
 		if len(iValues) > 1:
-			sql += reduce(lambda x,y: str(x)+','+str(y),iValues)
+			sql += '(' + reduce(lambda x,y: str(x)+','+str(y),iValues) + ')'
 		else:
 			sql += str(iValues[0])
 		
@@ -952,7 +952,7 @@ def _m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 	if len(iValues) > 0:
 		sql = "insert into %s (%s,%s) values " % (rel,id1,id2)
 		if len(iValues) > 1:
-			sql += reduce(lambda x,y: str(x)+','+str(y),iValues)
+			sql += '(' + reduce(lambda x,y: str(x)+','+str(y),iValues) + ')'
 		else:
 			sql += str(iValues[0])
 		
@@ -1427,7 +1427,7 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 		else:
 			j = count * MAX_CHUNK_READ			
 			chunk_ids = ids[j:]
-		sql,vals = gensql.Read(self,pool,uid,self.modelInfo(),chunk_ids,self._selectablefields,context)
+		sql,vals = gensql.Read(self,pool,uid,self.modelInfo(),chunk_ids,fields,context)
 		cr.execute(sql,vals)
 		if cr.cr.rowcount > 0:
 			if context['FETCH'] == 'DICT':
@@ -2329,7 +2329,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 		if 'id' in record and record['id']:
 			ctx = context.copy()
 			ctx['FETCH'] = 'DICT'
-			record2 = read(self, cr, pool, uid, record['id'], self._rowfields, ctx)[0]
+			record2 = read(self, cr, pool, uid, record['id'], self._selectablefields, ctx)[0]
 	
 		if record2:
 			k1 = set(list(record.keys()))
