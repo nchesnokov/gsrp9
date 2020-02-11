@@ -1266,9 +1266,7 @@ def _conv_dict_to_raw_records(self,fields,records,context):
 						elif type(record[key]) in (list,tuple):
 							record[key] = _conv_dict_to_raw_records(self,field[key],record[key])
 		
-		#print('CONV-RECORD:',row,record)
-		#if 'cache' in context:
-			#row.append({'path':uuid.uuid4().hex,'model':self._name})
+	print('RECORDS:',records)	
 		
 	return records
 
@@ -1444,6 +1442,7 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 				res.extend(_conv_dict_to_list_records(self,fields,records,context))
 			elif context['FETCH'] == 'RAW':
 				records = cr.dictfetchall(fields,self._columnsmeta)
+				print('RAW-RECORDS:',records)
 				res.extend(_conv_dict_to_raw_records(self,fields,records,context))
 
 
