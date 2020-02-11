@@ -2323,7 +2323,9 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 	if trg1 and len(trg1) > 0:
 		
 		if 'id' in record and record['id']:
-			record2 = self.read(cr, pool, uid, record['id'], self._rowfields, context)[0]
+			ctx = context.copy()
+			ctx['FETCH'] = 'DICT'
+			record2 = self.read(cr, pool, uid, record['id'], self._rowfields, ctx)[0]
 	
 		if record2:
 			k1 = set(list(record.keys()))
