@@ -1425,7 +1425,6 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 		length = len(ids)		
 	count = int(length/MAX_CHUNK_READ)
 	chunk = int(length % MAX_CHUNK_READ)
-	print('CONTEXT:',context)
 	if fields is None:
 		fields = self._selectablefields
 	for i in range(count):
@@ -1442,7 +1441,6 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 				res.extend(_conv_dict_to_list_records(self,fields,records,context))
 			elif context['FETCH'] == 'RAW':
 				records = cr.dictfetchall(fields,self._columnsmeta)
-				print('RAW-RECORDS:',records)
 				res.extend(_conv_dict_to_raw_records(self,fields,records,context))
 
 
@@ -1501,8 +1499,8 @@ def _tree(self, cr, pool, uid, fields = None ,parent = None, context = {}):
 
 	fetch = context['FETCH']
 
-	if not fetch in ('LIST','DICT'):
-		orm_exception('Invalid fetch mode: %s' % (fetch,))
+	if not fetch.upper() in ('LIST','DICT','RAW'):
+		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
 
 	if parent is None:
 		cond = [(self._getName('parent_id'),'?')]
@@ -1542,8 +1540,8 @@ def _select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit
 
 	fetch = context['FETCH']
 
-	if not fetch in ('LIST','DICT'):
-		orm_exception('Invalid fetch mode: %s' % (fetch,))
+	if not fetch.upper() in ('LIST','DICT','RAW'):
+		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
 
 	if cond is None:
 		cond = []
@@ -1557,6 +1555,9 @@ def _select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit
 		elif context['FETCH'] == 'LIST':
 			records = cr.dictfetchall(fields,self._columnsmeta)
 			res.extend(_conv_dict_to_list_records(self,fields,records,context))
+		elif context['FETCH'] == 'RAW':
+			records = cr.dictfetchall(fields,self._columnsmeta)
+			res.extend(_conv_dict_to_raw_records(self,fields,records,context))
 	
 	return res
 
@@ -2379,7 +2380,6 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
 				upd_cols.add(k)
 
-		print('TRG-UPDATE:',upd_cols,'\n',record2,'\n',record)
 		if record2 is None or len(upd_cols) > 0:
 			for trg11 in trg1:
 				kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record2,'context':context}
