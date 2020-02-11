@@ -467,6 +467,7 @@ def _getTriger(self,name):
 
 	res = []
 	
+	print('GET-TRIGERS:',name,self._trigers)
 	if self._trigers and name in self._trigers and self._trigers[name]:
 		trg = self._trigers[name]
 		if type(trg) == str:
