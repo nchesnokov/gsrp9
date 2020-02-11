@@ -1718,7 +1718,7 @@ def _createRecord(self, cr, pool, uid, record, context):
 
 
 	trg1 = self._getTriger('bir')
-	for trg11 trg1:
+	for trg11 in trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg11(**kwargs)
 
