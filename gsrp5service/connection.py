@@ -26,7 +26,7 @@ class Cursor(object):
 		self.sslrootkey = sslrootkey
 		self.sslcert = sslcert
 		self.sslkey=sslkey
-		print('cursor',self.sslmode,self.sslrootcert,self.sslcert,self.sslkey)
+		#print('cursor',self.sslmode,self.sslrootcert,self.sslcert,self.sslkey)
 
 	def __reduce__(self):
 		return(self.dsn,self.database,self.user,self.passowrd,self.host,self.port,self.sslmode,self.sslcert,self.sslkey)

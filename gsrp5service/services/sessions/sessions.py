@@ -257,7 +257,7 @@ class System(object):
 		cf = ConfigParser()
 		cf.read(config_file)
 		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':'system','password':None,'sslmode':None,'sslrootcert':None,'sslrootkey':None,'sslcert':None,'sslkey':None},ikey=['port'])
-		print('CONG:',self._conf)
+		#print('CONG:',self._conf)
 
 	def _call(self,args):
 		res = []

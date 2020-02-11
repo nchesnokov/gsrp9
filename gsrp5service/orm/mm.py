@@ -463,8 +463,7 @@ def _getTriger(self,name):
 		raise orm_exception('Invalid triger key: <%s>' % (name,))
 
 	res = []
-	
-	print('GET-TRIGERS:',name,self._trigers)
+
 	if self._trigers and name in self._trigers and self._trigers[name]:
 		trg = self._trigers[name]
 		if type(trg) == str:
@@ -2315,7 +2314,6 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			del record[m2mfield]
 
 	trg1 = self._getTriger('bur')
-	print('TRG1:',trg1)
 	for trg11 in trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
 		trg11(**kwargs)
@@ -2361,7 +2359,6 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			_m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
 	trg2 = self._getTriger('aur')
-	print('TRG2:',trg2)
 	for trg22 in trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
 		trg22(**kwargs)
