@@ -229,9 +229,6 @@ def model__init__(self,access = None):
 	if self._checks is None:
 		self._checks = []
 
-	if self._trigers is None:
-		self._trigers = {}
-	
 	for sf in dir(self):
 		if sf[:7] == '_action':
 			if callable(getattr(self,sf,None)):
@@ -2048,12 +2045,11 @@ def insert(self, cr, pool, uid, fields, values,context = {}):
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
 
-	trg1 = self._getTriger('ForEachRowBeforeInsert')
+	trg1 = self._getTriger('bir')
 	for trg11 in trg1:
 		for value in values:
-			for t in  self._trigers['i']['b']['f']:
-				kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
-				trg11(**kwargs)
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
+			trg11(**kwargs)
 
 
 	trg2 = self._getTriger('bi')
@@ -2105,12 +2101,11 @@ def insert(self, cr, pool, uid, fields, values,context = {}):
 					_m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
 
-	trg3 = self._getTriger('ForEachRowAfterInsert')
+	trg3 = self._getTriger('air')
 	for trg33 in trg3:
 		for value in values:
-			for t in  self._trigers['i']['b']['f']:
-				kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
-				trg33(**kwargs)
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
+			trg33(**kwargs)
 
 
 	trg4 = self._getTriger('ai')
@@ -2169,9 +2164,8 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 	trg1 = self._getTriger('bir')
 	for trg11 in trg1:
 		for value in values:
-			for t in  self._trigers['i']['b']['f']:
-				kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
-				trg11(**kwargs)
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
+			trg11(**kwargs)
 
 
 	trg2 = self._getTriger('bi')
@@ -2224,9 +2218,8 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 	trg3 = self._getTriger('air')
 	for trg33 in trg3:
 		for value in values:
-			for t in  self._trigers['i']['b']['f']:
-				kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
-				trg33(**kwargs)
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
+			trg33(**kwargs)
 
 
 	trg4 = self._getTriger('ai')
