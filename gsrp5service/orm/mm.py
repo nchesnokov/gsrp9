@@ -477,10 +477,11 @@ def _getTriger(self,name):
 					t2 = getattr(self,t1,None)
 					if t2 is None:
 						raise orm_exception('Triger method: <%s> not found' % (t2,))
+					res.append(t2)
 				else:
 					if not callable(t1):
 						raise orm_exception('Triger: <%s> not callable' % (t1,))
-			res = trg
+					res.append(t1)
 	
 	return res
 
@@ -563,8 +564,11 @@ def _getDescription(self):
 def _getChecks(self):
 	return self._checks
 
+def _getTrgupdcols(self):
+	return self._trg_upd_cols
+
 def _getTrigers(self):
-	return self._trigers
+	return str(self._trigers)
 
 def _getColumns_Attrs(self):
 	return self._columns_attrs
@@ -634,7 +638,7 @@ def _getExtra(self):
 def modelInfo(self, header = None, names = None, columns = None, attributes = None):
 	mi = {}
 	if header is None:
-		header = ['__doc__','access','auth','transient','name','names','table','schema','class_model','class_category','inherit','inherits','description','checks','trigers','columns_attrs','columns','family','default','register','constraints','sql_constraints','order_by','group_by','auto','actions','states','attrs','no_copy','groups','indicies','log_access','extra']
+		header = ['__doc__','access','auth','transient','name','names','table','schema','class_model','class_category','inherit','inherits','description','checks','trgupdcols','trigers','columns_attrs','columns','family','default','register','constraints','sql_constraints','order_by','group_by','auto','actions','states','attrs','no_copy','groups','indicies','log_access','extra']
 	for h in header:
 		if h == 'family':
 			continue
@@ -2234,7 +2238,7 @@ def _modifyRecords(self, cr, pool, uid, records, context):
 
 	trg1 = self._getTriger('bu')
 	for trg11 in trg1:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':records,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':records,'r2':records,'context':context}
 		trg11(**kwargs)
 
 	for record in records:
@@ -2243,7 +2247,7 @@ def _modifyRecords(self, cr, pool, uid, records, context):
 
 	trg2 = self._getTriger('au')
 	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':records,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':records,'r2':records,'context':context}
 		trg22(**kwargs)
 
 	return res
@@ -2314,9 +2318,35 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			del record[m2mfield]
 
 	trg1 = self._getTriger('bur')
-	for trg11 in trg1:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
-		trg11(**kwargs)
+	if trg1 and len(trg1) > 0:
+		record2 =None
+		if 'id' in record and record['id']:
+			record2 = self.read(cr, pool, uid, self._rowfields,record['id'], context)
+	
+		if record2:
+			k1 = set(list(record.keys()))
+			k2 = set(list(record2.keys()))
+			uk = list(set(k1).intersection(set(k2)))
+			ik = list(set(k1)- set(k2))
+			dk = list(set(k2)- set(k1))
+			upd_cols = set()
+			
+		for k in uk:
+			if record[k] != record2[k]:
+				if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
+					upd_cols.add(k)
+		for k in ik:
+			if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
+				upd_cols.add(k)
+
+		for k in dk:
+			if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
+				upd_cols.add(k)
+
+		if record2 is None or len(upd_cols) > 0:
+			for trg11 in trg1:
+				kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record2,'context':context}
+				trg11(**kwargs)
 		
 	#print('RECORD-0:',record)
 	sql,vals = gensql.Modify(self,pool,uid,self.modelInfo(), record, context)
@@ -2358,10 +2388,12 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 
 			_m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
-	trg2 = self._getTriger('aur')
-	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
-		trg22(**kwargs)
+	
+	if record2 is None or len(upd_cols) > 0:
+		trg2 = self._getTriger('aur')
+		for trg22 in trg2:
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record2,'context':context}
+			trg22(**kwargs)
 
 	return oid
 

@@ -42,6 +42,7 @@ class BaseModelInherit(object, metaclass = MetaModel):
 	_inherit = None
 	_inherits = None
 	_views = ['search','form','tree','kanban','mdx','graph','gantt','list','calendar','geo']
+	_trg_upd_cols = []
 	_trigers = {}
 	_columns = {}
 	_default = {}
@@ -176,6 +177,7 @@ class BaseModel(object, metaclass = MetaModel):
 	_inherits = None
 	_description = None
 	_checks = None
+	_trg_upd_cols = None
 	_trigers = None
 	_hooks = None
 	_columns_attrs = {}
@@ -208,6 +210,11 @@ class BaseModel(object, metaclass = MetaModel):
 		for k in c.keys():
 			r[k] = c[k]['type']
 		return r 
+
+	@property
+	def _rowfields(self):
+		c = self.columnsInfo(attributes=['type'])
+		return list(filter(lambda x: c[x]['type'] not in ('one2many','many2many'),c.keys())) 
 
 	@property
 	def _m2ofields(self):

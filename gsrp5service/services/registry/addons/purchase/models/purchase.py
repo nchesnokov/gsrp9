@@ -771,6 +771,7 @@ class purchase_order_items(Model):
 
 		return None
 
+	_trg_upd_cols = ['product','guantity','amount']
 
 	_trigers = {
 		'bir': '_trgForEachRowBeforeInsertIB1',

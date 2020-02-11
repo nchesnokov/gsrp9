@@ -241,9 +241,18 @@ class Registry(Service):
 				elif c == '_states':
 					for state in inherit[c]:
 						imeta1['attrs'].setdefault(c,{})[state] = imeta['attrs'][c][state]
+				elif c == '_trg_upd_cols':
+					imeta1['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
 				elif c == '_trigers':
 					for triger in inherit[c]:
-						imeta1['attrs'].setdefault(c,{})[triger] = imeta['attrs'][c][triger]
+						trg = imeta1['attrs'].setdefault(c,{})[triger]
+						if type(trg) == str:
+							trg = [trg]
+						trg1 = imeta['attrs'][c][triger]
+						if type(trg1) == str:
+							trg.append(trg1)
+						if type(trg1) in (tuple,list):
+							trg.extend(trg1)
 				elif c == '_default':
 					for dkey in inherit[c]:
 						imeta1['attrs'].setdefault(c,{})[dkey] = imeta['attrs'][c][dkey]
