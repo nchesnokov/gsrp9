@@ -86,7 +86,7 @@ async def hello():
 				msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
 				#msg = await _execute([ws, 'gens','tr',{'modules': ['l10n_uy']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','purchase','sale']}])
-				msg = await _execute([ws, 'gens','examples',{'modules': ['md']}])
+				msg = await _execute([ws, 'gens','examples',{'modules': ['sale']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['sale']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','common','purchase','sale']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['md','purchase']}])

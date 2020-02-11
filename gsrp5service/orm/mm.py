@@ -465,12 +465,25 @@ def _getTriger(self,name):
 	if name not in _TRIGGERS_KEYS_:
 		raise orm_exception('Invalid triger key: <%s>' % (name,))
 
+	res = []
 	if self._trigers and name in self._trigers and self._trigers[name]:
 		trg = self._trigers[name]
-		if callable(trg):
-			return trg
-		
-		return getattr(self,trg,None)
+		if type(trg) == str:
+			t = getattr(self,trg,None)
+			if t is None:
+				raise orm_exception('Invalid triger method: <%s>' % (trg,))
+			res = [t]
+		elif type(trg) in (tuple,list):
+			for t1 in trg:
+				if type(t1) == str:
+					t2 = getattr(self,t1,None)
+					if t2 is None:
+						raise orm_exception('Triger method: <%s> not found' % (t2,))
+				else:
+					if not callable(t1):
+						raise orm_exception('Triger: <%s> not callable' % (t1,))
+			res = trg
+		return res
 
 def _getHook(self,name):
 	if self._hooks and name in self._hooks and self._hooks[name]:
@@ -859,7 +872,7 @@ def _m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 	for r in rels:
 		values.append((oid,r))
 	sql = "insert into %s (%s,%s) values " % (rel,id1,id2)
-	sql += reduce(lambda x,y: str(x) + ',' + str(y),values)
+	sql += '(' + reduce(lambda x,y: str(x) + ',' + str(y),values) + ')'
 	sql += ' returning id'
 	cr.execute(sql)
 	if cr.cr.rowcount > 0:
@@ -1563,14 +1576,14 @@ def unlink(self, cr, pool, uid, ids, context = {}):
 			#_m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
 	trg1 = self._getTriger('bdr')
-	if trg1:
+	for trg11 in trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg1(**kwargs)
+		trg11(**kwargs)
 
 	trg2 = self._getTriger('bd')
-	if trg2:
+	for trg22 in trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg2(**kwargs)
+		trg22(**kwargs)
 
 	length = len(ids)
 	count = int(length/MAX_CHUNK_DELETE)
@@ -1592,14 +1605,14 @@ def unlink(self, cr, pool, uid, ids, context = {}):
 
 
 	trg3 = self._getTriger('adr')
-	if trg3:
+	for trg33 in trg3:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg3(**kwargs)
+		trg33(**kwargs)
 
 	trg4 = self._getTriger('ad')
-	if trg4:
+	for trg44 in trg4:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg4(**kwargs)
+		trg44(**kwargs)
 
 	return res
 
@@ -1619,18 +1632,18 @@ def _createRecords(self, cr, pool, uid, records, context):
 	res = []
 
 	trg1 = self._getTriger('bi')
-	if trg1:
+	for trg11 in trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg1(**kwargs)
+		trg11(**kwargs)
 
 	for record in records:
 		oid = self._createRecord(cr=cr, pool=pool, uid=uid, record=record, context=context)		
 		res.append(oid)
 
 	trg2 = self._getTriger('ai')
-	if trg2:
+	for trg22 in trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg2(**kwargs)
+		trg22(**kwargs)
 
 	return res
 
@@ -1705,9 +1718,9 @@ def _createRecord(self, cr, pool, uid, record, context):
 
 
 	trg1 = self._getTriger('bir')
-	if trg1:
+	for trg11 trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg1(**kwargs)
+		trg11(**kwargs)
 
 	sql,vals = gensql.Create(self,pool,uid,self.modelInfo(), record, context)
 	cr.execute(sql,vals)
@@ -1756,9 +1769,9 @@ def _createRecord(self, cr, pool, uid, record, context):
 			_m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
 	trg2 = self._getTriger('air')
-	if trg2:
+	for trg22 in trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg2(**kwargs)
+		trg22(**kwargs)
 
 	return oid
 
@@ -1795,17 +1808,17 @@ def _writeRecords(self, cr, pool, uid, records, context):
 	res = []
 
 	trg1 = self._getTriger('bu')
-	if trg1:
+	for trg11 in trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg1(**kwargs)
+		trg11(**kwargs)
 
 	for record in records:
 		res.append(self._writeRecord(cr=cr, pool=pool, uid=uid, record=record, context=context))		
 
 	trg2 = self._getTriger('au')
-	if trg2:
+	for trg22 in trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg2(**kwargs)
+		trg22(**kwargs)
 
 	return res
 
@@ -1875,9 +1888,9 @@ def _writeRecord(self, cr, pool, uid, record, context):
 			del record[m2mfield]
 
 	trg1 = self._getTriger('bur')
-	if trg1:
+	for trg11 in trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg1(**kwargs)
+		trg11(**kwargs)
 
 	sql,vals = gensql.Write(self,pool,uid,self.modelInfo(), record, context)
 	cr.execute(sql,vals)
@@ -1919,9 +1932,9 @@ def _writeRecord(self, cr, pool, uid, record, context):
 				_m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
 	trg2 = self._getTriger('aur')
-	if trg2:
+	for trg22 in trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg2(**kwargs)
+		trg22(**kwargs)
 
 	return oid
 
@@ -2031,17 +2044,17 @@ def insert(self, cr, pool, uid, fields, values,context = {}):
 		context['TZ'] = tm.tzname[1]
 
 	trg1 = self._getTriger('ForEachRowBeforeInsert')
-	if trg1:
+	for trg11 in trg1:
 		for value in values:
 			for t in  self._trigers['i']['b']['f']:
 				kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
-				trg1(**kwargs)
+				trg11(**kwargs)
 
 
 	trg2 = self._getTriger('bi')
-	if trg2:
+	for trg22 in trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg2(**kwargs)
+		trg22(**kwargs)
 
 	sql,vals = gensql.Insert(self,pool,uid, self.modelInfo(), _fields, values, context)
 	cr.execute(sql,vals)
@@ -2088,17 +2101,17 @@ def insert(self, cr, pool, uid, fields, values,context = {}):
 
 
 	trg3 = self._getTriger('ForEachRowAfterInsert')
-	if trg3:
+	for trg33 in trg3:
 		for value in values:
 			for t in  self._trigers['i']['b']['f']:
 				kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
-				trg3(**kwargs)
+				trg33(**kwargs)
 
 
 	trg4 = self._getTriger('ai')
-	if trg4:
+	for trg44 in trg4:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg4(**kwargs)
+		trg44(**kwargs)
 
 	return res
 
@@ -2149,17 +2162,17 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 
 
 	trg1 = self._getTriger('bir')
-	if trg1:
+	for trg11 in trg1:
 		for value in values:
 			for t in  self._trigers['i']['b']['f']:
 				kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
-				trg1(**kwargs)
+				trg11(**kwargs)
 
 
 	trg2 = self._getTriger('bi')
-	if trg2:
+	for trg22 in trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg2(**kwargs)
+		trg22(**kwargs)
 
 	sql,vals = gensql.Upsert(self,pool,uid, self.modelInfo(), fields, values, context)
 	cr.execute(sql,vals)
@@ -2204,17 +2217,17 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 				_m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
 	trg3 = self._getTriger('air')
-	if trg3:
+	for trg33 in trg3:
 		for value in values:
 			for t in  self._trigers['i']['b']['f']:
 				kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
-				trg3(**kwargs)
+				trg33(**kwargs)
 
 
 	trg4 = self._getTriger('ai')
-	if trg4:
+	for trg44 in trg4:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg4(**kwargs)
+		trg44(**kwargs)
 
 	return res
 
@@ -2223,18 +2236,18 @@ def _modifyRecords(self, cr, pool, uid, records, context):
 	res = []
 
 	trg1 = self._getTriger('bu')
-	if trg1:
+	for trg11 in trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg1(**kwargs)
+		trg11(**kwargs)
 
 	for record in records:
 		oid = self._modifyRecord(cr=cr, pool=pool, uid=uid, record=record, context = context)
 		res.append(oid)
 
 	trg2 = self._getTriger('au')
-	if trg2:
+	for trg22 in trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg2(**kwargs)
+		trg22(**kwargs)
 
 	return res
 
@@ -2304,9 +2317,9 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			del record[m2mfield]
 
 	trg1 = self._getTriger('bur')
-	if trg1:
+	for trg11 in trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg1(**kwargs)
+		trg11(**kwargs)
 		
 	#print('RECORD-0:',record)
 	sql,vals = gensql.Modify(self,pool,uid,self.modelInfo(), record, context)
@@ -2349,9 +2362,9 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			_m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
 	trg2 = self._getTriger('aur')
-	if trg2:
+	for trg22 in trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
-		trg2(**kwargs)
+		trg22(**kwargs)
 
 	return oid
 
