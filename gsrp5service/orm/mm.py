@@ -1444,7 +1444,7 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 				res.extend(_conv_dict_to_list_records(self,fields,records,context))
 			elif context['FETCH'] == 'RAW':
 				records = cr.dictfetchall(fields,self._columnsmeta)
-				res.extend((_conv_dict_to_raw_records(self,fields,records,context)))
+				res.extend(_conv_dict_to_raw_records(self,fields,records,context))
 
 
 	if chunk > 0:
