@@ -466,6 +466,7 @@ def _getTriger(self,name):
 		raise orm_exception('Invalid triger key: <%s>' % (name,))
 
 	res = []
+	
 	if self._trigers and name in self._trigers and self._trigers[name]:
 		trg = self._trigers[name]
 		if type(trg) == str:
@@ -483,7 +484,8 @@ def _getTriger(self,name):
 					if not callable(t1):
 						raise orm_exception('Triger: <%s> not callable' % (t1,))
 			res = trg
-		return res
+	
+	return res
 
 def _getHook(self,name):
 	if self._hooks and name in self._hooks and self._hooks[name]:
