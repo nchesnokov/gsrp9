@@ -2325,7 +2325,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 		if 'id' in record and record['id']:
 			ctx = context.copy()
 			ctx['FETCH'] = 'DICT'
-			record2 = self.read(cr, pool, uid, record['id'], self._rowfields, ctx)[0]
+			record2 = read(self, cr, pool, uid, record['id'], self._rowfields, ctx)[0]
 	
 		if record2:
 			k1 = set(list(record.keys()))
@@ -2347,7 +2347,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
 				upd_cols.add(k)
 
-		print('TRG-UPDATE:',upd_cols,record2,record)
+		print('TRG-UPDATE:',upd_cols,'\n',record2,'\n',record)
 		if record2 is None or len(upd_cols) > 0:
 			for trg11 in trg1:
 				kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record2,'context':context}
