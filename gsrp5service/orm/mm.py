@@ -2235,7 +2235,7 @@ def _modifyRecords(self, cr, pool, uid, records, context):
 
 	trg1 = self._getTriger('bu')
 	for trg11 in trg1:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':records,'context':context}
 		trg11(**kwargs)
 
 	for record in records:
@@ -2244,14 +2244,14 @@ def _modifyRecords(self, cr, pool, uid, records, context):
 
 	trg2 = self._getTriger('au')
 	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':records,'context':context}
 		trg22(**kwargs)
 
 	return res
 
 def _modifyRecord(self, cr, pool, uid, record, context):
 	oid = None
-	print('MODIFY-RECORD:',record)
+	#print('MODIFY-RECORD:',record)
 	fields = list(record.keys())
 	modelfields = list(self._columns.keys())
 	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS, fields))
@@ -2317,7 +2317,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 	trg1 = self._getTriger('bur')
 	print('TRG1:',trg1)
 	for trg11 in trg1:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
 		trg11(**kwargs)
 		
 	#print('RECORD-0:',record)
@@ -2363,7 +2363,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 	trg2 = self._getTriger('aur')
 	print('TRG2:',trg2)
 	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':record,'context':context}
 		trg22(**kwargs)
 
 	return oid
