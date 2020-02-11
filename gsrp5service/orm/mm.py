@@ -2235,7 +2235,7 @@ def _modifyRecords(self, cr, pool, uid, records, context):
 
 	trg1 = self._getTriger('bu')
 	for trg11 in trg1:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':records,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':records,'context':context}
 		trg11(**kwargs)
 
 	for record in records:
@@ -2244,7 +2244,7 @@ def _modifyRecords(self, cr, pool, uid, records, context):
 
 	trg2 = self._getTriger('au')
 	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':records,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'records':records,'context':context}
 		trg22(**kwargs)
 
 	return res
