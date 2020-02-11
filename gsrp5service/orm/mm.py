@@ -1459,6 +1459,9 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 				res.extend(_fetch_results(self,cr,pool,uid,fields,context))
 			elif context['FETCH'] == 'LIST':
 				res.extend(_conv_dict_to_list_records(self,fields,records,context))
+			elif context['FETCH'] == 'RAW':
+				records = cr.dictfetchall(fields,self._columnsmeta)
+				res.extend(_conv_dict_to_raw_records(self,fields,records,context))
 	
 	return res
 	
