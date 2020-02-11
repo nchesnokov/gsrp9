@@ -2321,7 +2321,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 	if trg1 and len(trg1) > 0:
 		record2 =None
 		if 'id' in record and record['id']:
-			record2 = self.read(cr, pool, uid, self._rowfields,record['id'], context)
+			record2 = self.read(cr, pool, uid, record['id'], self._rowfields, context)
 	
 		if record2:
 			k1 = set(list(record.keys()))
