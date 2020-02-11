@@ -797,7 +797,7 @@ class sale_order_items(Model):
 		return None
 
 
-	self._trigers = {
+	_trigers = {
 		'bir': '_trgForEachRowBeforeInsertIB1',
 		'bur': '_trgForEachRowBeforeUpdateUB1',
 		'bdr': '_trgForEachRowBeforeDeleteDB1',
