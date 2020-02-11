@@ -176,7 +176,7 @@ class User(object):
 		elif args[0] == 'write':
 			return self._cache[args[1]]._do_write(**(args[2]))
 		elif args[0] == 'modify':
-			return self._cache[args[1]]._do_mofify(**(args[2]))
+			return self._cache[args[1]]._do_mmfify(**(args[2]))
 		elif args[0] == 'unlink':
 			return self._cache[args[1]]._do_unlink(**(args[2]))
 		elif args[0] == 'select':
@@ -192,6 +192,7 @@ class User(object):
 		elif args[0] == 'call':
 			return self._cache[args[1]]._do_call(**(args[2]))
 		elif args[0] == 'save':
+			print('ARGS:',args)
 			return self._cache[args[1]]._save(**(args[2]))
 		elif args[0] == 'reset':
 			return self._cache[args[1]]._reset(**(args[2]))

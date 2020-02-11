@@ -359,7 +359,10 @@ class DCacheDict(object):
 		return self._diffs('o','c',commit)
 
 	def _pdiffs(self,commit=True):
-		return self._diffs('p','c',commit)
+		if self._primary:
+			return self._diffs('p','c',commit)
+		else:
+			return self._diffs('o','c',commit)
 
 	def _oapply(self):
 		return self._diffs('o','c',True)
@@ -837,7 +840,11 @@ class MCache(object):
 	def _save(self):
 		diffs = self._data._pdiffs()
 		
+		print('DIFFS:',diffs)
+		
 		self._commit()
+		
+		return [diffs]
 
 	def _reset(self):
 		diffs = self._data._pdiffs()
