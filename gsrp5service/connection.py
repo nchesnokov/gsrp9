@@ -138,16 +138,24 @@ class Cursor(object):
 				columnsmeta['id'] = 'uuid'
 		
 		dm = {}
-		for i in range(self.cr.description.__len__()):
-			dm[self.cr.description[i].name] = i
+		for idx,descr in enumerate(self.cr.description):
+			dm[descr.name] = idx
+		#for i in range(self.cr.description.__len__()):
+			#dm[self.cr.description[i].name] = i
 
 		fm = {}
-		for i in range(fields.__len__()):
-			if type(fields[i]) == str:
-				fm[fields[i]] = i
-			elif type(fields[i]) == dict:
-				for k in fields[i]:
+		for i, field in enumerate(fields):
+			if type(field) == str:
+				fm[field] = i
+			elif type(field) == dict:
+				for k in field.keys():
 					fm[k] = i
+		# for i in range(fields.__len__()):
+			# if type(fields[i]) == str:
+				# fm[fields[i]] = i
+			# elif type(fields[i]) == dict:
+				# for k in fields[i]:
+					# fm[k] = i
 
 		row = []
 		for field in fields:
