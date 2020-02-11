@@ -2345,7 +2345,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
 				upd_cols.add(k)
 
-		print('TRG-UPDATE:',upd_cols,record2)
+		print('TRG-UPDATE:',upd_cols,record2,record)
 		if record2 is None or len(upd_cols) > 0:
 			for trg11 in trg1:
 				kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record2,'context':context}
