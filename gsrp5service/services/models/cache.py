@@ -362,13 +362,21 @@ class DCacheDict(object):
 		if self._primary:
 			return self._diffs('p','c',commit)
 		else:
-			return self._diffs('o','c',commit)
+			
+			res = {'__create__':self._getData(self._data)}
+			if commit:
+				self._papply()
+			
+			return res
 
 	def _oapply(self):
 		return self._diffs('o','c',True)
 
 	def _papply(self):
-		return self._diffs('p','c',True)
+		if self._primary:
+			return self._diffs('p','c',True)
+		else:
+			return self._diffs('o','c',True)
 
 	def _getData(self,d):
 		path = str(id(d))
@@ -441,7 +449,7 @@ class MCache(object):
 		#row = self._buildItem(model,view)
 		row = self._pool.get(model)._buildEmptyItem()
 		self._setDefault(model,row)
-		self._data = DCacheDict(row,model,self._pool)
+		self._data = DCacheDict(row,model,self._pool,False)
 		
 		self._do_calculate(self._data._root,context=context)
 		self._getMeta()	
@@ -839,12 +847,33 @@ class MCache(object):
 
 	def _save(self):
 		diffs = self._data._pdiffs()
+		if len(diffs) == 0:
+			return ['no chache']
 		
-		print('DIFFS:',diffs)
+		for k in diffs.keys():
+			if k == '__create__':
+				self._createItem(diffs['__create__'])
+				if 'id' in diffs['__create__']['__data__'] and diffs['__create__']['__data__']['id']:
+					return ['commit',diffs['__create__']['__data__']['id'],'commit',diffs]
 		
-		self._commit()
+		#self._commit()
 		
-		return [diffs]
+		return ['diffs',diffs]
+
+	def _createItems(self,containers,rel=None,oid = None):
+		for container in containers:
+			self._createItem(container,rel,oid)
+
+
+	def _createItem(self,item,rel = None, oid = None):
+		if rel and oid:
+			item['__data__'][rel] = oid
+		data = item['__data__']
+		model = item ['__model__']
+		item['__data__']['id'] = self._pool.get(model).create(self._cr,self._pool,self._uid,data,self._context)
+		containers = item['__containers__']
+		for key in containers.keys():
+			self._createItems(containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
 
 	def _reset(self):
 		diffs = self._data._pdiffs()
