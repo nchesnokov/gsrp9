@@ -203,7 +203,7 @@ class DCacheDict(object):
 					odata[onames[container]].remove(odata[path])
 					del odata[path]
 
-					if len(cdata[cnames[container]]) == 0:
+					if container in cnames and cnames[container] in cdata and len(cdata[cnames[container]]) == 0:
 						del cdata[onames[container]]
 						del ccontainers[cnames[container]]
 						del cnames[container]
@@ -218,13 +218,16 @@ class DCacheDict(object):
 					#del cmetas[model]
 					#del ometas[model]
 					
-					del cmodels[path] 
+					if path in cmodels:
+						del cmodels[path] 
 					del omodels[path] 
 					
-					del cpaths[path]
+					if path in cpaths:
+						del cpaths[path]
 					del opaths[path]
 					
-					del cr2c[path] 
+					if path in cr2c:
+						del cr2c[path] 
 					del or2c[path]
 
 		return res
@@ -273,84 +276,109 @@ class DCacheDict(object):
 	def _cmpList(self,o,c,container):
 		res = {}
 
-		coid = getattr(self,'_%snames' % (c,))[container]
-		
-		if len(self._cdata[coid]) > 0:					
-			ok = list(map(lambda y:y[0],filter(lambda x: x[1] == coid,getattr(self,'_%sr2c' % (o,)).items())))
+		cdata = getattr(self,'_%snames' % (c,))
+		odata = getattr(self,'_%snames' % (o,))
+
+		coid = None
+		ooid = None
+
+		if container in cdata:
+			coid = cdata[container]
+
+		if container in odata:
+			ooid = odata[container]
+
+		#if len(self._cdata[coid]) >= 0:					
+		if ooid:
+			ok = list(map(lambda y:y[0],filter(lambda x: x[1] == ooid,getattr(self,'_%sr2c' % (o,)).items())))
+		else:
+			ok = []
+
+		if coid:
 			ck = list(map(lambda x: str(id(x)),getattr(self,'_%sdata' % (c,))[coid]))
-			uk = list(set(ok).intersection(set(ck)))
-			ik = list(set(ck)- set(ok))
-			dk = list(set(ok)- set(ck))
-				
-			for path in uk:
-				# if not path in getattr(self,'_%sdata' % (c,)):
-					# dk.append(path)
-					# continue
-				v = self._cmpDict(o,c,path)
-				if '__update__' in v:
-					res.setdefault('__update__',{}).update(v['__update__'])
-				if '__insert__' in v:
-					res.setdefault('__insert__',{}).update(v['__insert__'])
-				if '__delete__' in v:
-					res.setdefault('__delete__',{}).update(v['__delete__'])
-				if '__append__' in v:
-					res.setdefault('__append__',[]).extend(v['__append__'])
-				if '__remove__' in v:
-					res.setdefault('__remove__',[]).extend(v['__remove__'])
-			for i in ik:
-				model = getattr(self,'_%smodels' % (c,))[coid]
-				d1 = ctypes.cast(int(i), ctypes.py_object).value
-				p=container.split('.')
-				self._buildTree(d1,model,p[1],p[0],'I')
-				ci = getattr(self,'_%smetas' % (c,))[model]
+		else:
+			ck = []
 
-				data = {}
-				for v in filter(lambda x: x != 'id' and ci[x]['type'] != 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
-					data[v] = getattr(self,'_%sdata' % (c,))[i][v]
+		uk = list(set(ok).intersection(set(ck)))
+		ik = list(set(ck)- set(ok))
+		dk = list(set(ok)- set(ck))
+			
+		for path in uk:
+			# if not path in getattr(self,'_%sdata' % (c,)):
+				# dk.append(path)
+				# continue
+			v = self._cmpDict(o,c,path)
+			if '__update__' in v:
+				res.setdefault('__update__',{}).update(v['__update__'])
+			if '__insert__' in v:
+				res.setdefault('__insert__',{}).update(v['__insert__'])
+			if '__delete__' in v:
+				res.setdefault('__delete__',{}).update(v['__delete__'])
+			if '__append__' in v:
+				res.setdefault('__append__',[]).extend(v['__append__'])
+			if '__remove__' in v:
+				res.setdefault('__remove__',[]).extend(v['__remove__'])
+		for i in ik:
+			model = getattr(self,'_%smodels' % (c,))[coid]
+			d1 = ctypes.cast(int(i), ctypes.py_object).value
+			p=container.split('.')
+			self._buildTree(d1,model,p[1],p[0],'I')
+			ci = getattr(self,'_%smetas' % (c,))[model]
 
-				container = self._ccontainers[getattr(self,'_%sr2c' % (c,))[i]]
-				containers = {}
-				for k in filter(lambda x: x != 'id ' and ci[x]['type'] == 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
-					r1 = self._cmpList(o,c,k + '.' + i)
-					containers.setdefault(k,[]).extend(r1['__append__'] if '__append__' in r1 else [])
-					
-				res.setdefault('__append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__containers__':containers})
-		
-			for d in dk:
-				model = getattr(self,'_%smodels' % (c,))[d]
-				ci = getattr(self,'_%smetas' % (c,))[model]
+			data = {}
+			for v in filter(lambda x: x != 'id' and ci[x]['type'] != 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
+				data[v] = getattr(self,'_%sdata' % (c,))[i][v]
 
-				container = self._ccontainers[getattr(self,'_%sr2c' % (o,))[d]]
+			container = self._ccontainers[getattr(self,'_%sr2c' % (c,))[i]]
+			containers = {}
+			for k in filter(lambda x: x != 'id ' and ci[x]['type'] == 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
+				r1 = self._cmpList(o,c,k + '.' + i)
+				containers.setdefault(k,[]).extend(r1['__append__'] if '__append__' in r1 else [])
 				
-				cr2c = getattr(self,'_%sr2c' % (c,))
+			res.setdefault('__append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__containers__':containers})
+	
+		for d in dk:
+			model = getattr(self,'_%smodels' % (o,))[d]
+			ci = getattr(self,'_%smetas' % (o,))[model]
+
+			container = getattr(self,'_%scontainers' % (o,))[getattr(self,'_%sr2c' % (o,))[d]]
+			
+			cr2c = getattr(self,'_%sr2c' % (o,))
+			
+			data = getattr(self,'_%sdata' % (o,))[d]
+			
+			names = getattr(self,'_%snames' % (o,))
 				
-				for o2mfield in self._pool.get(model)._o2mfields:
-					container1 = o2mfield + '.' + str(d)
-					for path in filter(lambda x:cr2c[x] == self._cnames[container1],cr2c.keys()):
-						res.setdefault('__remove__',[]).extend(self._removeRecursive(o,c,path))
+			for o2mfield in self._pool.get(model)._o2mfields:
+				container1 = o2mfield + '.' + str(d)
 				
-				res.setdefault('__remove__',[]).append({'__path__':d,'__container__':container,'__model__':model})
+				for path in filter(lambda x:cr2c[x] == names[container1],cr2c.keys()):
+					res.setdefault('__remove__',[]).extend(self._removeRecursive(o,c,path))
+			
+			res.setdefault('__remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__data__':data})
 				
 
 		return res
 
 	def _removeRecursive(self,o,c,path):
 		res = []
-		model = self._omodels[path]
-		container = self._ccontainers[self._cr2c[path]]
+		model = getattr(self,'_%smodels' % (o,))[path]
+		container = getattr(self,'_%scontainers' % (o,))[getattr(self,'_%sr2c' % (o,))[path]]
 
 		for o2mfield in self._pool.get(model)._o2mfields:
 			container1 = o2mfield + '.' + str(path)
-			coid = self._cnames[container1]
-			obj = self._cmetas[model][o2mfield]['obj']
-			for r in self._cdata[coid]:
+			ooid = getattr(self,'_%snames' % (o,))[container1]
+			obj = getattr(self,'_%smetas' % (o,))[model][o2mfield]['obj']
+			odata = getattr(self,'_%sdata' % (o,))
+			for r in odata[ooid]:
 				path1 = str(id(r))
 				res.extend(self._removeRecursive(o,c,path1))
-				self._cdata[coid].remove(self._cdata[path1])
-				del self._cdata[path1]
-				res.append({'__path__':path1,'__container__':container1,'__model__':obj})
+				odata[ooid].remove(self._cdata[path1])
+				data = copy.deepcopy(odata[path1])
+				del odata[path1]
+				res.append({'__path__':path1,'__container__':container1,'__model__':obj,'__data__':data})
 			
-		res.append({'__path__':path,'__container__':container,'__model__':model})		
+		res.append({'__path__':path,'__container__':container,'__model__':model,'__data__':data})		
 		
 		return res
 			
@@ -362,7 +390,6 @@ class DCacheDict(object):
 		if self._primary:
 			return self._diffs('p','c',commit)
 		else:
-			
 			res = {'__create__':self._getData(self._data)}
 			if commit:
 				self._papply()
@@ -738,6 +765,7 @@ class MCache(object):
 		return []
 			
 	def _remove(self,path,container,context):
+		print('CACHE-REMOVE:',path,container)
 		c = container.split('.')
 		self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
 		del self._data._cdata[path]
@@ -926,7 +954,7 @@ class MCache(object):
 		container = item['__container__']
 		path = item['__path__']
 		model = item['__model__']
-		data = self._data._cdata[path]
+		data = item['__data__']
 		oid = data['id']
 		m = self._pool.get(model)
 		r = m.unlink(self._cr,self._pool,self._uid,oid,self._context)
