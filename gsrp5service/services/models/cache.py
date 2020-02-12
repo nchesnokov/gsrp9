@@ -872,7 +872,7 @@ class MCache(object):
 		model = item ['__model__']
 		m = self._pool.get(model)
 		for k in data.keys():
-			if m._columns[key].type in ('many2one','related'):
+			if m._columns[k].type in ('many2one','related'):
 				data[k] = data[k]['id']
 		print('DATA:',model,data)
 		item['__data__']['id'] = m.create(self._cr,self._pool,self._uid,data,self._context)
