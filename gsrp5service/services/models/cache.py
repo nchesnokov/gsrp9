@@ -853,7 +853,7 @@ class MCache(object):
 		if '__create__' in diffs:
 			self._createItem(diffs['__create__'])
 			if 'id' in diffs['__create__']['__data__'] and diffs['__create__']['__data__']['id']:
-				return ['commit',diffs['__create__']['__data__']['id'],'commit',diffs]
+				return ['commit',diffs['__create__']['__data__']['id']]
 
 		
 		for k in diffs.keys():
@@ -861,8 +861,6 @@ class MCache(object):
 				pass
 			elif k == '__append__':
 				self._appendItems(diffs['__append__'])
-				if 'id' in diffs['__create__']['__data__'] and diffs['__create__']['__data__']['id']:
-					return ['commit',diffs['__create__']['__data__']['id'],'commit',diffs]
 			elif k == '__remove__':
 				self._removeItems(diffs['__remove__'])
 		#self._commit()
