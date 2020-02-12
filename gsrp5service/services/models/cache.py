@@ -891,7 +891,7 @@ class MCache(object):
 		self._roolback()
 
 
-	def _commit(self):
+	def _commit(self,action='commit work'):
 		if self._mode in ('new',):
 			self._clear()
 		
