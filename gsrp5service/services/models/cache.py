@@ -855,16 +855,16 @@ class MCache(object):
 			if 'id' in diffs['__create__']['__data__'] and diffs['__create__']['__data__']['id']:
 				return ['commit',diffs['__create__']['__data__']['id']]
 
+		else:
+			for k in diffs.keys():
+				if k == '__update__':
+					pass
+				elif k == '__append__':
+					self._appendItems(diffs['__append__'])
+				elif k == '__remove__':
+					self._removeItems(diffs['__remove__'])
 		
-		for k in diffs.keys():
-			if k == '__update__':
-				pass
-			elif k == '__append__':
-				self._appendItems(diffs['__append__'])
-			elif k == '__remove__':
-				self._removeItems(diffs['__remove__'])
-		
-		return ['diffs',diffs]
+			return ['commit']
 
 	def _createItems(self,items,rel=None,oid = None):
 		print('ITEMS:',items)
