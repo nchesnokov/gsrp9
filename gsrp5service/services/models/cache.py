@@ -869,7 +869,7 @@ class MCache(object):
 
 	def _createItem(self,item,rel = None, oid = None):
 		if rel and oid:
-			item['__data__'][rel] = oid
+			item['__data__'][rel]['id'] = oid
 		data = item['__data__']
 		model = item ['__model__']
 		m = self._pool.get(model)
