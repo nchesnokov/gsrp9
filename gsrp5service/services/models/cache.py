@@ -870,8 +870,12 @@ class MCache(object):
 			item['__data__'][rel] = oid
 		data = item['__data__']
 		model = item ['__model__']
+		m = self._pool.get(model)
+		for k in data.keys():
+			if m._columns[key].type in ('many2one','related'):
+				data[k] = data[k]['id']
 		print('DATA:',model,data)
-		item['__data__']['id'] = self._pool.get(model).create(self._cr,self._pool,self._uid,data,self._context)
+		item['__data__']['id'] = m.create(self._cr,self._pool,self._uid,data,self._context)
 		containers = item['__containers__']
 		for key in containers.keys():
 			self._createItems(containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
