@@ -891,7 +891,7 @@ class MCache(object):
 			for key in containers.keys():
 				self._createItems(containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
 
-	def _appendItems(self,item):
+	def _appendItems(self,items):
 		print('APPEND-ITEMS:',items)
 		for item in items:
 			print('APPEND-ITEM:',item)
