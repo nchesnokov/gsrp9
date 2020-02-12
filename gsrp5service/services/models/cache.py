@@ -880,9 +880,10 @@ class MCache(object):
 		r = m.create(self._cr,self._pool,self._uid,data,self._context)
 		if len(r) > 0:
 			item['__data__']['id'] = r[0]
-		containers = item['__containers__']
-		for key in containers.keys():
-			self._createItems(containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
+		if '__containers__' in item:
+			containers = item['__containers__']
+			for key in containers.keys():
+				self._createItems(containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
 
 	def _reset(self):
 		diffs = self._data._pdiffs()
