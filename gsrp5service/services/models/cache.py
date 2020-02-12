@@ -850,12 +850,21 @@ class MCache(object):
 		if len(diffs) == 0:
 			return ['no chache']
 		
+		if '__create__' in diffs:
+			self._createItem(diffs['__create__'])
+			if 'id' in diffs['__create__']['__data__'] and diffs['__create__']['__data__']['id']:
+				return ['commit',diffs['__create__']['__data__']['id'],'commit',diffs]
+
+		
 		for k in diffs.keys():
-			if k == '__create__':
-				self._createItem(diffs['__create__'])
+			if k == '__update__':
+				pass
+			elif k == '__append__':
+				self._appendItems(diffs['__append__'])
 				if 'id' in diffs['__create__']['__data__'] and diffs['__create__']['__data__']['id']:
 					return ['commit',diffs['__create__']['__data__']['id'],'commit',diffs]
-		
+			elif k == '__remove__':
+				self._removeItems(diffs['__remove__'])
 		#self._commit()
 		
 		return ['diffs',diffs]
@@ -885,6 +894,21 @@ class MCache(object):
 			for key in containers.keys():
 				self._createItems(containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
 
+	def _removeItems(self,items):
+		print('ITEMS-REMOVE:',items)
+		for item in items:
+			print('ITEM-REMOVE:',item)
+			self._removeItem(item)
+
+	def _removeItem(self,item):
+		container = item['__container__']
+		path = item['__path__']
+		model = item['__model__']
+		data = self._data._cdata[path]
+		oid = data['id']
+		m = self._pool.get(model)
+		r = m.unlink(self._cr,self._pool,self._uid,oid,self._context)
+		print('DATA-REMOVE:',model,oid,r,data)
 	def _reset(self):
 		diffs = self._data._pdiffs()
 		
