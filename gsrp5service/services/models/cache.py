@@ -860,8 +860,10 @@ class MCache(object):
 		
 		return ['diffs',diffs]
 
-	def _createItems(self,containers,rel=None,oid = None):
-		for item in containers:
+	def _createItems(self,items,rel=None,oid = None):
+		print('ITEMS:',items)
+		for item in items:
+			print('ITEM:',item)
 			self._createItem(item,rel,oid)
 
 
