@@ -895,7 +895,7 @@ class MCache(object):
 		print('APPEND-ITEMS:',items)
 		for item in items:
 			print('APPEND-ITEM:',item)
-			self._createItem(item,rel,oid)
+			self._createItem(item)
 
 
 	def _appendItem(self,item):
@@ -912,7 +912,7 @@ class MCache(object):
 		if '__containers__' in item:
 			containers = item['__containers__']
 			for key in containers.keys():
-				self._appendItems(containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
+				self._appendItems(containers[key])
 
 	def _removeItems(self,items):
 		print('ITEMS-REMOVE:',items)
