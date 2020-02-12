@@ -877,7 +877,9 @@ class MCache(object):
 			if m._columns[k]._type in ('many2one','related'):
 				data[k] = data[k]['id']
 		print('DATA:',model,data)
-		item['__data__']['id'] = m.create(self._cr,self._pool,self._uid,data,self._context)
+		r = m.create(self._cr,self._pool,self._uid,data,self._context)
+		if len(r) > 0:
+			item['__data__']['id'] = r[0]
 		containers = item['__containers__']
 		for key in containers.keys():
 			self._createItems(containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
