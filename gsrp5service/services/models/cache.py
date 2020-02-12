@@ -939,7 +939,7 @@ class MCache(object):
 			model = self._data._cmodels[key]
 			m = self._pool.get(model)
 			r = m.write(self._cr,self._pool,self._uid,items[key],self._context)
-			print('DATA-UPDATE:',model,item)
+			print('DATA-UPDATE:',model,items[key])
 
 	def _reset(self):
 		diffs = self._data._pdiffs()
