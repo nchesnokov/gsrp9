@@ -863,7 +863,6 @@ class MCache(object):
 				self._appendItems(diffs['__append__'])
 			elif k == '__remove__':
 				self._removeItems(diffs['__remove__'])
-		#self._commit()
 		
 		return ['diffs',diffs]
 
