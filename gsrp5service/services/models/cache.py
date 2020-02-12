@@ -861,8 +861,8 @@ class MCache(object):
 		return ['diffs',diffs]
 
 	def _createItems(self,containers,rel=None,oid = None):
-		for container in containers:
-			self._createItem(container,rel,oid)
+		for item in containers:
+			self._createItem(item,rel,oid)
 
 
 	def _createItem(self,item,rel = None, oid = None):
@@ -870,6 +870,7 @@ class MCache(object):
 			item['__data__'][rel] = oid
 		data = item['__data__']
 		model = item ['__model__']
+		print('DATA:',model,data)
 		item['__data__']['id'] = self._pool.get(model).create(self._cr,self._pool,self._uid,data,self._context)
 		containers = item['__containers__']
 		for key in containers.keys():
