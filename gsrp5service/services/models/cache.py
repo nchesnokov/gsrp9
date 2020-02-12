@@ -858,7 +858,7 @@ class MCache(object):
 		else:
 			for k in diffs.keys():
 				if k == '__update__':
-					pass
+					self._updateItems(diffs['__update__'])
 				elif k == '__append__':
 					self._appendItems(diffs['__append__'])
 				elif k == '__remove__':
@@ -900,7 +900,9 @@ class MCache(object):
 
 	def _appendItem(self,item):
 		data = item['__data__']
-		model = item ['__model__']
+		model = item['__model__']
+		container = item['__container__']
+		oid = self._data._cdata[container.split('.')[1]]['id']
 		m = self._pool.get(model)
 		for k in data.keys():
 			if m._columns[k]._type in ('many2one','related'):
@@ -930,6 +932,14 @@ class MCache(object):
 		r = m.unlink(self._cr,self._pool,self._uid,oid,self._context)
 		print('DATA-REMOVE:',model,oid,r,data)
 
+
+	def _updateItems(self,items):
+		for key in items.keys():
+			items[key]['id'] = self._data._cdata[key]['id']
+			model = self._data._cmodels[key]
+			m = self._pool.get(model)
+			r = m.write(self._cr,self._pool,self._uid,items[key],self._context)
+			print('DATA-UPDATE:',model,item)
 
 	def _reset(self):
 		diffs = self._data._pdiffs()
