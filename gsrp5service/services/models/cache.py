@@ -928,11 +928,10 @@ class MCache(object):
 		data = item['__data__']
 		model = item['__model__']
 		container = item['__container__']
-		c = container.split('.')
-		oid = self._data._cdata[c[1]]['id']
-		cn = c[0]
-		rel = self._pool.get(self._data._cmodels[c1])._columns[cn].rel
-		recname = self._pool.get(self._data._cmodels[c1])._getRecNameName()
+		cn,parent = container.split('.')
+		oid = self._data._cdata[parent]['id']
+		rel = self._pool.get(self._data._cmodels[parent])._columns[cn].rel
+		recname = self._pool.get(self._data._cmodels[parent])._getRecNameName()
 		data[rel] = {'id':oid,'name':recname}
 		print('RELS:',self._data._cmodels[c1],rel,recname,data)
 		m = self._pool.get(model)
