@@ -933,6 +933,7 @@ class MCache(object):
 		rel = pool.get(self._data._cmodels[c1])._columns[cn].rel
 		recname = pool.get(self._data._cmodels[c1])._getRecNameName()
 		data[rel] = {'id':oid,'name':recname}
+		print('RELS:',self._data._cmodels[c1],rel,recname,data)
 		m = self._pool.get(model)
 		for k in data.keys():
 			if m._columns[k]._type in ('many2one','related'):
