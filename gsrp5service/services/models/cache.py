@@ -921,7 +921,7 @@ class MCache(object):
 
 	def _appendItems(self,items):
 		for item in items:
-			self._createItem(item)
+			self._appendItem(item)
 
 
 	def _appendItem(self,item):
