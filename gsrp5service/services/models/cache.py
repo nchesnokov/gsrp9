@@ -980,12 +980,16 @@ class MCache(object):
 			self._clear()
 		
 		self._cr.commit()
+		
+		return ['commited']
 
 	def _rollback(self):
 		if self._mode in ('new',):
 			self._clear()
 		
 		self._cr.rollback()
+		
+		return ['rollbacked']
 			
 	def _post_diff(self,diffs,context):
 		if '__append__' in diffs:
