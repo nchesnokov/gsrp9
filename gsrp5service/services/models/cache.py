@@ -931,7 +931,8 @@ class MCache(object):
 		oid = self._data._cdata[c[1]]['id']
 		cn = c[0]
 		rel = pool.get(self._data._cmodels[c1])._columns[cn].rel
-		data[rel] = oid
+		recname = pool.get(self._data._cmodels[c1])._getRecNameName()
+		data[rel] = {'id':oid,'name':recname}
 		m = self._pool.get(model)
 		for k in data.keys():
 			if m._columns[k]._type in ('many2one','related'):
