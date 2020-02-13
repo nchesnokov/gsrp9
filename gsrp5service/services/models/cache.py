@@ -963,10 +963,13 @@ class MCache(object):
 
 	def _updateItems(self,items):
 		for key in items.keys():
-			items[key]['id'] = self._data._cdata[key]['id']
 			model = self._data._cmodels[key]
 			m = self._pool.get(model)
-			r = m.write(self._cr,self._pool,self._uid,items[key],self._context)
+			if 'id' in self._data._cdata[key]:
+				items[key]['id'] = self._data._cdata[key]['id']
+				r = m.write(self._cr,self._pool,self._uid,items[key],self._context)
+			else:
+				r = m.create(self._cr,self._pool,self._uid,items[key],self._context)
 			print('DATA-UPDATE:',model,items[key])
 
 	def _reset(self):
