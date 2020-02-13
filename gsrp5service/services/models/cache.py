@@ -910,7 +910,6 @@ class MCache(object):
 		for k in data.keys():
 			if m._columns[k]._type in ('many2one','related'):
 				data[k] = data[k]['id']
-		print('DATA:',model,data)
 		r = m.create(self._cr,self._pool,self._uid,data,self._context)
 		if len(r) > 0:
 			item['__data__']['id'] = r[0]
@@ -920,9 +919,7 @@ class MCache(object):
 				self._createItems(containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
 
 	def _appendItems(self,items):
-		print('APPEND-ITEMS:',items)
 		for item in items:
-			print('APPEND-ITEM:',item)
 			self._createItem(item)
 
 
@@ -930,12 +927,15 @@ class MCache(object):
 		data = item['__data__']
 		model = item['__model__']
 		container = item['__container__']
-		oid = self._data._cdata[container.split('.')[1]]['id']
+		c = container.split('.')
+		oid = self._data._cdata[c[1]]['id']
+		cn = c[0]
+		rel = pool.get(self._data._cmodels[c1])._columns[cn].rel
+		data[rel] = oid
 		m = self._pool.get(model)
 		for k in data.keys():
 			if m._columns[k]._type in ('many2one','related'):
 				data[k] = data[k]['id']
-		print('APPEND-DATA:',model,data)
 		r = m.create(self._cr,self._pool,self._uid,data,self._context)
 		if len(r) > 0:
 			item['__data__']['id'] = r[0]
@@ -945,9 +945,7 @@ class MCache(object):
 				self._appendItems(containers[key])
 
 	def _removeItems(self,items):
-		print('ITEMS-REMOVE:',items)
 		for item in items:
-			print('ITEM-REMOVE:',item)
 			self._removeItem(item)
 
 	def _removeItem(self,item):
@@ -955,10 +953,10 @@ class MCache(object):
 		path = item['__path__']
 		model = item['__model__']
 		data = item['__data__']
-		oid = data['id']
-		m = self._pool.get(model)
-		r = m.unlink(self._cr,self._pool,self._uid,oid,self._context)
-		print('DATA-REMOVE:',model,oid,r,data)
+		if 'id' in data:
+			oid = data['id']
+			m = self._pool.get(model)
+			r = m.unlink(self._cr,self._pool,self._uid,oid,self._context)
 
 
 	def _updateItems(self,items):
@@ -970,7 +968,6 @@ class MCache(object):
 				r = m.write(self._cr,self._pool,self._uid,items[key],self._context)
 			else:
 				r = m.create(self._cr,self._pool,self._uid,items[key],self._context)
-			print('DATA-UPDATE:',model,items[key])
 
 	def _reset(self):
 		diffs = self._data._pdiffs()
