@@ -931,8 +931,8 @@ class MCache(object):
 		c = container.split('.')
 		oid = self._data._cdata[c[1]]['id']
 		cn = c[0]
-		rel = pool.get(self._data._cmodels[c1])._columns[cn].rel
-		recname = pool.get(self._data._cmodels[c1])._getRecNameName()
+		rel = self._pool.get(self._data._cmodels[c1])._columns[cn].rel
+		recname = self._pool.get(self._data._cmodels[c1])._getRecNameName()
 		data[rel] = {'id':oid,'name':recname}
 		print('RELS:',self._data._cmodels[c1],rel,recname,data)
 		m = self._pool.get(model)
