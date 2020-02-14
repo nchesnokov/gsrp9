@@ -50,7 +50,7 @@ class DCacheDict(object):
 		self._pool =pool
 		self._primary = primary
 
-		for v in ('data','paths','r2c','containers','names','metas','models'):
+		for v in ('data','paths','r2c','containers','names','metas','models','rels'):
 			for a in ('p','o','c'):
 				if not primary and a == 'p':
 					continue
@@ -68,7 +68,7 @@ class DCacheDict(object):
 			raise TypeError
 
 		if model not in self._cmetas:
-			self._cmetas[model] = self._pool.get(model).columnsInfo(attributes=['type','obj'])
+			self._cmetas[model] = self._pool.get(model).columnsInfo(attributes=['type','obj','rel'])
 		
 		ci = self._cmetas[model]
 		oid = str(id(data))
@@ -97,21 +97,39 @@ class DCacheDict(object):
 					self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
 
 		for m2mfield in self._pool.get(model)._m2mfields:
-			self._m2m_buildTree(data[m2mfield],model,oid,m2mfield)
+			self._m2m_buildTree(data[m2mfield],ci[m2mfield]['rel'],oid,m2mfield)
 
 	def _m2m_buildTree(self,data,rel,parent,name):
-		cn = name + '.' + parent
-		coid = str(id(data))
-		self._ccontainers[coid] = cn
-		self._cnames[cn] = coid
-		self._cdata[coid] = data
-		self._cmodels[coid] = rel
-		for r in self._cdata[coid]:
-			m2moid = str(id(r))
-			self._cdata[m2moid] = r
+		print('_m2m_buildTree:'.upper(),data,rel,parent,name)
+		if type(data) == dict:
+			cn = name + '.' + parent
+			coid = self._cnames[cn]
+			#self._ccontainers[coid] = cn
+			#self._cnames[cn] = coid
+			self._cdata[coid].append(data)
+			self._crels[coid] = rel
+
+			m2moid = str(id(data))
+			self._cdata[m2moid] = data
 			self._cmodels[m2moid] = rel
 			self._cpaths.setdefault(m2moid,{})[name] = parent
-			self._cr2c[m2moid] = self._cnames[name + '.' + str(parent)]
+			self._cr2c[m2moid] = self._cnames[cn]
+
+		elif type(data) in (list,tuple):
+
+			cn = name + '.' + parent
+			coid = str(id(data))
+			self._ccontainers[coid] = cn
+			self._cnames[cn] = coid
+			self._cdata[coid] = data
+			self._crels[coid] = rel
+
+			for r in data:
+				m2moid = str(id(r))
+				self._cdata[m2moid] = r
+				self._cmodels[m2moid] = rel
+				self._cpaths.setdefault(m2moid,{})[name] = parent
+				self._cr2c[m2moid] = self._cnames[cn]
 
 #
 
@@ -123,6 +141,7 @@ class DCacheDict(object):
 		self._onames.update(copy.deepcopy(self._cnames))
 		self._ometas.update(copy.deepcopy(self._cmetas))
 		self._omodels.update(copy.deepcopy(self._cmodels))
+		self._orels.update(copy.deepcopy(self._crels))
 		if self._primary:
 			self._pdata.update(copy.deepcopy(self._cdata))
 			self._ppaths.update(copy.deepcopy(self._cpaths))
@@ -131,6 +150,7 @@ class DCacheDict(object):
 			self._pnames.update(copy.deepcopy(self._cnames))
 			self._pmetas.update(copy.deepcopy(self._cmetas))
 			self._pmodels.update(copy.deepcopy(self._cmodels))		
+			self._prels.update(copy.deepcopy(self._crels))
 
 	def _diffs(self,o,c,commit):
 		res = {}
@@ -171,6 +191,10 @@ class DCacheDict(object):
 					ometas = getattr(self,'_%smetas' % (o,))
 					cmodels = getattr(self,'_%smodels' % (c,))
 					omodels = getattr(self,'_%smodels' % (o,))
+
+					crels = getattr(self,'_%srels' % (c,))
+					orels = getattr(self,'_%srels' % (o,))
+
 					cpaths = getattr(self,'_%spaths' % (c,))
 					opaths = getattr(self,'_%spaths' % (o,))
 					cr2c = getattr(self,'_%sr2c' % (c,))
@@ -183,6 +207,7 @@ class DCacheDict(object):
 					ocontainers[cnames[container]] = ccontainers[cnames[container]]
 					ometas[model] = cmetas[model]
 					omodels[path] = cmodels[path] 
+					orels[path] = crels[path]
 					opaths[path] = cpaths[path]
 					or2c[path] = cr2c[path] 
 					
@@ -254,8 +279,8 @@ class DCacheDict(object):
 		res = {}
 		ci = self._cmetas[self._cmodels[path]]
 		
-		ck = list(filter(lambda x: x != 'id' and ci[x]['type'] !='one2many',getattr(self,'_%sdata' % (c,))[path].keys()))
-		ok = list(filter(lambda x: x != 'id' and ci[x]['type'] !='one2many',getattr(self,'_%sdata' % (o,))[path].keys()))
+		ck = list(filter(lambda x: x != 'id' and ci[x]['type'] not in ('many2many','one2many'),getattr(self,'_%sdata' % (c,))[path].keys()))
+		ok = list(filter(lambda x: x != 'id' and ci[x]['type'] not in ('many2many','one2many'),getattr(self,'_%sdata' % (o,))[path].keys()))
 		uk = list(set(ok).intersection(set(ck)))
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
@@ -263,6 +288,19 @@ class DCacheDict(object):
 		
 		for k in filter(lambda x: x != 'id',getattr(self,'_%sdata' % (c,))[path].keys()):
 			if ci[k]['type'] == 'one2many':
+				v = self._cmpList(o,c,k + '.' + path)
+				if '__append__' in v:			
+					res.setdefault('__append__',[]).extend(v['__append__'])
+				if '__remove__' in v:
+					res.setdefault('__remove__',[]).extend(v['__remove__'])
+				if '__update__' in v:
+					res.setdefault('__update__',{}).update(v['__update__'])
+				if '__insert__' in v:
+					res.setdefault('__insert__',{}).update(v['__insert__'])
+				if '__delete__' in v:
+					res.setdefault('__delete__',{}).update(v['__delete__'])
+
+			elif ci[k]['type'] == 'many2many':
 				v = self._cmpList(o,c,k + '.' + path)
 				if '__append__' in v:			
 					res.setdefault('__append__',[]).extend(v['__append__'])
@@ -299,6 +337,11 @@ class DCacheDict(object):
 
 		coid = None
 		ooid = None
+		ok = None
+		ck = None
+		ik = None
+		uk = None
+		dk = None
 
 		if container in cdata:
 			coid = cdata[container]
@@ -320,6 +363,8 @@ class DCacheDict(object):
 		uk = list(set(ok).intersection(set(ck)))
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
+		
+		print('CMPLIST:',container,ooid,coid,ok,ck,ik,uk,dk)
 			
 		for path in uk:
 			# if not path in getattr(self,'_%sdata' % (c,)):
@@ -337,8 +382,13 @@ class DCacheDict(object):
 			if '__remove__' in v:
 				res.setdefault('__remove__',[]).extend(v['__remove__'])
 		for i in ik:
-			model = getattr(self,'_%smodels' % (c,))[coid]
+			model = None
+			if coid in getattr(self,'_%smodels' % (c,)):
+				model = getattr(self,'_%smodels' % (c,))[coid]
+			elif coid in getattr(self,'_%srels' % (c,)):
+				model = getattr(self,'_%srels' % (c,))[coid]
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
+			print('D1:',d1)
 			p=container.split('.')
 			self._buildTree(d1,model,p[1],p[0],'I')
 			ci = getattr(self,'_%smetas' % (c,))[model]
