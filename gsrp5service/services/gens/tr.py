@@ -69,7 +69,7 @@ def _download_i18n_tr(cr,pool,uid,path,module):
 			_logger.info('Module: %s TR write file: %s' % (module,opj(path,module,'i18n','%s.po' % (lang,))));
 			#print('Translated module:%s lang:%s' % (module,lang))
 
-def Area(cr, pool, uid, registry, modules = None):
+def Area(cr, pool, uid, registry, modules = None,context={}):
 	pwd = os.getcwd()
 	if not modules:
 		modules = registry._depends

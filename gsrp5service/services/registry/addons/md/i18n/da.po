@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2019-09-05 23:19:18+0300\n"
-"PO-Revision-Date: 2019-09-05 23:19:18+0300\n"
+"POT-Creation-Date: 2020-02-13 14:33:06+0000\n"
+"PO-Revision-Date: 2020-02-13 14:33:06+0000\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -14,32 +14,34 @@ msgstr ""
 #: md.category.country-name:1 md.country.group-name:1 md.country-name:1
 #: md.category.language-name:1 md.language-name:1 md.group.quantity-name:1
 #: md.quantity.uom-name:1 md.uom-name:1 md.currency-name:1 md.vat.code-name:1
-#: md.category.product-name:1 md.products.template-name:1 md.product-name:1
-#: md.incoterms-name:1 md.category.partner-name:1 md.partner-name:1
-#: md.company-name:1 md.banks-name:1 md.recepture-name:1
+#: md.category.product-name:1 md.type.plates-name:1
+#: md.products.template-name:1 md.product-name:1 md.incoterms-name:1
+#: md.category.partner-name:1 md.category.location-name:1 md.location-name:1
+#: md.partner-name:1 md.company-name:1 md.banks-name:1 md.recepture-name:1
 msgid "Name"
 msgstr "Navn"
 
 #: md.category.country-parent_id:1 md.category.language-parent_id:1
 #: md.group.quantity-parent_id:1 md.category.product-parent_id:1
-#: md.category.partner-parent_id:1
+#: md.category.partner-parent_id:1 md.category.location-parent_id:1
 msgid "Parent"
 msgstr "Forældre"
 
 #: md.category.country-childs_id:1 md.category.language-childs_id:1
 #: md.group.quantity-childs_id:1 md.category.product-childs_id:1
-#: md.category.partner-childs_id:1
+#: md.category.partner-childs_id:1 md.category.location-childs_id:1
 msgid "Childs"
 msgstr "Childs"
 
 #: md.category.country-note:1 md.category.language-note:1
 #: md.group.quantity-note:1 md.quantity.uom-note:1 md.currency-note:1
-#: md.category.product-note:1 md.products.template-note:1 md.product-note:1
-#: md.incoterms-note:1 md.category.partner-note:1 md.partner.contacts-note:1
-#: md.partner.products-note:1 md.role.partners-note:1
-#: md.pricelist.partner.products-note:1 md.company-note:1 md.banks-note:1
-#: md.partners.bank-note:1 md.recepture.input-note:1
-#: md.recepture.output-note:1
+#: md.category.product-note:1 md.type.items-note:1 md.type.plates-note:1
+#: md.products.template-note:1 md.product-note:1 md.incoterms-note:1
+#: md.category.partner-note:1 md.category.location-note:1 md.location-note:1
+#: md.partner.contacts-note:1 md.partner.products-note:1
+#: md.role.partners-note:1 md.pricelist.partner.products-note:1
+#: md.company-note:1 md.banks-note:1 md.partners.bank-note:1
+#: md.recepture.input-note:1 md.recepture.output-note:1
 msgid "Note"
 msgstr "Bemærk"
 
@@ -52,7 +54,7 @@ msgid "Short Name"
 msgstr "Kort Navn"
 
 #: md.country-code:1 md.uom-code:1 md.currency-code:1 md.vat.code-code:1
-#: md.product-code:1 md.partner-code:1
+#: md.gtis-code:1 md.type.items-code:1 md.product-code:1 md.partner-code:1
 msgid "Code"
 msgstr "Kode"
 
@@ -64,7 +66,7 @@ msgstr "Alpha2"
 msgid "Alpha3"
 msgstr "Alpha3"
 
-#: md.country-group_ids:1
+#: md.country-group_ids:1 md.incoterms-grp:1
 msgid "Group"
 msgstr "Gruppen"
 
@@ -181,7 +183,18 @@ msgstr "Procent"
 msgid "Type VAT"
 msgstr "Type MOMS"
 
-#: md.products.template-category_id:1 md.partner-category_id:1
+#: md.gtis-descr:1 md.type.items-descr:1 md.incoterms-descr:1
+#: md.role.partners-descr:1
+msgid "Description"
+msgstr "Beskrivelse"
+
+#: md.type.items-usage:1 md.type.plates-usage:1 md.location-usage:1
+#: md.partner.contacts-usage:1 md.recepture-usage:1
+msgid "Usage"
+msgstr "Brug"
+
+#: md.products.template-category_id:1 md.location-category_id:1
+#: md.partner-category_id:1
 msgid "Category"
 msgstr "Kategori"
 
@@ -200,6 +213,10 @@ msgstr "Skabelon"
 #: md.product-uom:1
 msgid "Unit Of Measure"
 msgstr "Måleenheden"
+
+#: md.product-gti:1
+msgid "Group Of Type Items"
+msgstr "Gruppen Af Type-Elementer"
 
 #: md.product-volume:1
 msgid "Volume"
@@ -239,13 +256,21 @@ msgstr "De små foto"
 msgid "Link"
 msgstr "Link"
 
-#: md.incoterms-descr:1 md.role.partners-descr:1
-msgid "Description"
-msgstr "Beskrivelse"
+#: md.incoterms-mode:1
+msgid "Mode Of Transport"
+msgstr "Transportform"
 
 #: md.incoterms-mot:1
 msgid "Momemt Of Transition"
 msgstr "Momemt Af Overgang"
+
+#: md.location-latitude:1 md.partner-latitude:1
+msgid "Latitude"
+msgstr "Bredde"
+
+#: md.location-longitude:1 md.partner-longitude:1
+msgid "Longitude"
+msgstr "Længde"
 
 #: md.partner-ispeople:1
 msgid "People"
@@ -266,14 +291,6 @@ msgstr "Cvr-Nummer"
 #: md.partner-vat_reason:1
 msgid "VAT Reason"
 msgstr "MOMS Grund"
-
-#: md.partner-latitude:1
-msgid "Latitude"
-msgstr "Bredde"
-
-#: md.partner-longitude:1
-msgid "Longitude"
-msgstr "Længde"
 
 #: md.partner-addresses:1
 msgid "Addresses"
@@ -319,10 +336,6 @@ msgstr "Hus"
 #: md.partner.addresses-room:1
 msgid "Room"
 msgstr "Værelser"
-
-#: md.partner.contacts-usage:1 md.recepture-usage:1
-msgid "Usage"
-msgstr "Brug"
 
 #: md.partner.contacts-sequence:1 md.partners.bank-sequence:1
 msgid "Sequence"

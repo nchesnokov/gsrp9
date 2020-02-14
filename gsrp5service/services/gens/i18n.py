@@ -51,7 +51,7 @@ def _download_i18n(cr,pool,uid,path,module,models):
 	
 	po.save(opj(path,module,'i18n','po.pot'))
 
-def Area(cr, pool, uid, registry, modules = None):
+def Area(cr, pool, uid, registry, modules = None,context={}):
 	pwd = os.getcwd()
 	if not modules:
 		modules = registry._depends

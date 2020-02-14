@@ -3,23 +3,179 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2019-09-05 23:30:30+0300\n"
-"PO-Revision-Date: 2019-09-05 23:30:30+0300\n"
+"POT-Creation-Date: 2020-02-13 14:35:23+0000\n"
+"PO-Revision-Date: 2020-02-13 14:35:23+0000\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: purchase.texts-code:1 purchase.schema.texts-code:1 md.product-code:1
+#: purchase.unit.categories-name:1 purchase.channel.categories-name:1
+#: purchase.segment.categories-name:1 purchase.area.categories-name:1
+#: purchase.region.categories-name:1 purchase.division.categories-name:1
+#: purchase.subdivision.categories-name:1 purchase.order.types-name:1
+#: purchase.invoice.types-name:1 purchase.order.categories-name:1
+#: purchase.invoce.categories-name:1 purchase.orders-name:1
+#: purchase.invoices-name:1
+msgid "Name"
+msgstr "Name"
+
+#: purchase.unit.categories-parent_id:1
+#: purchase.channel.categories-parent_id:1
+#: purchase.segment.categories-parent_id:1
+#: purchase.area.categories-parent_id:1 purchase.region.categories-parent_id:1
+#: purchase.division.categories-parent_id:1
+#: purchase.subdivision.categories-parent_id:1
+#: purchase.order.categories-parent_id:1
+#: purchase.invoce.categories-parent_id:1
+msgid "Parent"
+msgstr "Elternteil"
+
+#: purchase.unit.categories-childs_id:1
+#: purchase.channel.categories-childs_id:1
+#: purchase.segment.categories-childs_id:1
+#: purchase.area.categories-childs_id:1 purchase.region.categories-childs_id:1
+#: purchase.division.categories-childs_id:1
+#: purchase.subdivision.categories-childs_id:1
+#: purchase.order.categories-childs_id:1
+#: purchase.invoce.categories-childs_id:1
+msgid "Childs"
+msgstr "Kinder"
+
+#: purchase.unit.categories-units:1
+msgid "Units"
+msgstr "Einheiten"
+
+#: purchase.unit.categories-note:1 purchase.channel.categories-note:1
+#: purchase.segment.categories-note:1 purchase.area.categories-note:1
+#: purchase.region.categories-note:1 purchase.division.categories-note:1
+#: purchase.subdivision.categories-note:1 purchase.markets-note:1
+#: purchase.teams-note:1 purchase.order.types-note:1
+#: purchase.order.type.roles-note:1 purchase.order.type.plates-note:1
+#: purchase.order.type.items-note:1 purchase.invoice.types-note:1
+#: purchase.invoice.type.roles-note:1 purchase.order.categories-note:1
+#: purchase.invoce.categories-note:1 purchase.orders-note:1
+#: purchase.order.payment.schedules-note:1 purchase.order.output.plates-note:1
+#: purchase.order.items-note:1 purchase.order.item.delivery.schedules-note:1
+#: purchase.order.item.output.plates-note:1
+#: purchase.order.item.payment.schedules-note:1 purchase.invoices-note:1
+#: purchase.invoice.items-note:1
+#: purchase.invoce.item.delivery.schedules-note:1 md.purchase.product-note:1
+msgid "Note"
+msgstr "Hinweis"
+
+#: purchase.units-category_id:1 purchase.channels-category_id:1
+#: purchase.segments-category_id:1 purchase.areas-category_id:1
+#: purchase.regions-category_id:1 purchase.divisions-category_id:1
+#: purchase.subdivisions-category_id:1 purchase.orders-category_id:1
+#: purchase.invoices-category_id:1
+msgid "Category"
+msgstr "Kategorie"
+
+#: purchase.units-company_id:1
+msgid "Companies"
+msgstr "Unternehmen"
+
+#: purchase.units-code:1 purchase.channels-code:1 purchase.segments-code:1
+#: purchase.areas-code:1 purchase.regions-code:1 purchase.divisions-code:1
+#: purchase.subdivisions-code:1 purchase.texts-code:1
+#: purchase.schema.texts-code:1
 msgid "Code"
 msgstr "Code"
 
-#: purchase.texts-descr:1 purchase.schema.texts-descr:1
+#: purchase.units-descr:1 purchase.channels-descr:1 purchase.segments-descr:1
+#: purchase.areas-descr:1 purchase.regions-descr:1 purchase.divisions-descr:1
+#: purchase.subdivisions-descr:1 purchase.texts-descr:1
+#: purchase.schema.texts-descr:1
 msgid "Description"
 msgstr "Beschreibung"
 
-#: purchase.schema.texts-usage:1 md.recepture-usage:1
+#: purchase.units-channels:1 purchase.channel.categories-channels:1
+msgid "Channels"
+msgstr "Kanäle"
+
+#: purchase.units-segments:1 purchase.segment.categories-segments:1
+msgid "Segments"
+msgstr "Segmente"
+
+#: purchase.units-areas:1 purchase.area.categories-areas:1
+msgid "Areas"
+msgstr "Bereiche"
+
+#: purchase.units-regions:1
+msgid "Regions"
+msgstr "Regionen"
+
+#: purchase.region.categories-segments:1
+msgid "REgions"
+msgstr "Regionen"
+
+#: purchase.division.categories-divisions:1
+msgid "Divisions"
+msgstr "Divisionen"
+
+#: purchase.divisions-subdivisions:1
+msgid "SubDivisions"
+msgstr "Unterteilungen"
+
+#: purchase.subdivision.categories-subdivisions:1
+#: purchase.order.categories-orders:1 purchase.invoce.categories-invoices:1
+msgid "Orders"
+msgstr "Bestellungen"
+
+#: purchase.unit.channel.assigments-unit_id:1
+#: purchase.unit.segment.assigments-unit_id:1
+#: purchase.unit.area.assigments-unit_id:1
+#: purchase.unit.region.assigments-unit_id:1 purchase.markets-unit_id:1
+#: purchase.order.items-unit:1 purchase.invoice.items-unit:1
+#: md.purchase.product-unit:1
+msgid "Unit"
+msgstr "Einheit"
+
+#: purchase.unit.channel.assigments-channel_id:1 purchase.markets-channel_id:1
+msgid "Channel"
+msgstr "Kanal"
+
+#: purchase.unit.channel.assigments-descr:1
+#: purchase.unit.segment.assigments-descr:1
+#: purchase.unit.area.assigments-descr:1
+#: purchase.unit.region.assigments-descr:1
+#: purchase.division.subdivision.assigments-descr:1
+#: purchase.schema.text.items-descr:1 purchase.order.texts-descr:1
+#: purchase.order.item.texts-descr:1 purchase.invoice.texts-descr:1
+#: purchase.invoice.item.texts-descr:1
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: purchase.unit.segment.assigments-segment_id:1 purchase.markets-segment_id:1
+msgid "Segment"
+msgstr "Segment"
+
+#: purchase.unit.area.assigments-area_id:1 purchase.markets-area_id:1
+msgid "Area"
+msgstr "Bereich"
+
+#: purchase.unit.region.assigments-region_id:1 purchase.markets-region_id:1
+msgid "Region"
+msgstr "Region"
+
+#: purchase.division.subdivision.assigments-division_id:1
+#: purchase.teams-division_id:1
+msgid "Division"
+msgstr "Division"
+
+#: purchase.division.subdivision.assigments-subdivision_id:1
+#: purchase.teams-subdivision_id:1
+msgid "Subdivision"
+msgstr "Unterteilung"
+
+#: purchase.markets-fullname:1 purchase.teams-fullname:1
+#: purchase.orders-fullname:1 purchase.invoices-fullname:1
+msgid "Full Name"
+msgstr "Vollständiger Name"
+
+#: purchase.schema.texts-usage:1
 msgid "Usage"
 msgstr "Nutzung"
 
@@ -33,9 +189,9 @@ msgstr "Texte"
 msgid "Schema"
 msgstr "Schema"
 
-#: purchase.schema.text.items-seq:1 purchase.order.texts-seq:1
-#: purchase.order.item.texts-seq:1 purchase.invoice.texts-seq:1
-#: purchase.invoice.item.texts-seq:1
+#: purchase.schema.text.items-seq:1 purchase.order.type.plates-seq:1
+#: purchase.order.texts-seq:1 purchase.order.item.texts-seq:1
+#: purchase.invoice.texts-seq:1 purchase.invoice.item.texts-seq:1
 msgid "Sequence"
 msgstr "Sequenz"
 
@@ -43,18 +199,13 @@ msgstr "Sequenz"
 msgid "Text"
 msgstr "Text"
 
-#: purchase.schema.text.items-descr:1 purchase.order.texts-descr:1
-#: purchase.order.item.texts-descr:1 purchase.invoice.texts-descr:1
-#: purchase.invoice.item.texts-descr:1
-msgid "Unknown"
-msgstr "Unbekannt"
-
-#: purchase.order.types-name:1 purchase.invoice.types-name:1
-#: purchase.order.categories-name:1 purchase.invoce.categories-name:1
-#: purchase.orders-name:1 purchase.invoices-name:1 md.product-name:1
-#: md.recepture-name:1
-msgid "Name"
-msgstr "Name"
+#: purchase.order.types-otype:1 purchase.order.type.roles-type_id:1
+#: purchase.order.type.plates-type_id:1 purchase.order.type.items-type_id:1
+#: purchase.invoice.types-itype:1 purchase.invoice.type.roles-type_id:1
+#: purchase.orders-otype:1 purchase.order.output.plates-otype:1
+#: purchase.order.item.output.plates-otype:1 purchase.invoices-itype:1
+msgid "Type"
+msgstr "Geben"
 
 #: purchase.order.types-htschema:1 purchase.invoice.types-htschema:1
 msgid "Text Schema Of Head"
@@ -70,53 +221,55 @@ msgstr "Text-Schema-Element"
 msgid "Roles"
 msgstr "Rollen"
 
-#: purchase.order.types-note:1 purchase.order.type.roles-note:1
-#: purchase.invoice.types-note:1 purchase.invoice.type.roles-note:1
-#: purchase.order.categories-note:1 purchase.invoce.categories-note:1
-#: purchase.orders-note:1 purchase.order.items-note:1
-#: purchase.order.item.delivery.schedules-note:1 purchase.invoices-note:1
-#: purchase.invoice.items-note:1
-#: purchase.invoce.item.delivery.schedules-note:1 md.purchase.product-note:1
-#: md.product-note:1
-msgid "Note"
-msgstr "Hinweis"
+#: purchase.order.types-plates:1 purchase.orders-plates:1
+#: purchase.order.items-plates:1
+msgid "Plates"
+msgstr "Platten"
 
-#: purchase.order.type.roles-type_id:1 purchase.invoice.type.roles-type_id:1
-#: purchase.orders-otype:1 purchase.invoices-itype:1 md.recepture-type:1
-msgid "Type"
-msgstr "Geben"
+#: purchase.order.types-tis:1
+msgid "TIs"
+msgstr "TIs"
 
 #: purchase.order.type.roles-role_id:1 purchase.invoice.type.roles-role_id:1
-#: purchase.order.roles-role_id:1 purchase.order.item.roles-role_id:1
-#: purchase.invoice.roles-role_id:1 purchase.invoice.item.roles-role_id:1
+#: purchase.order.roles-role_id:1 purchase.order.output.plates-role:1
+#: purchase.order.item.roles-role_id:1
+#: purchase.order.item.output.plates-role:1 purchase.invoice.roles-role_id:1
+#: purchase.invoice.item.roles-role_id:1
 msgid "Role"
 msgstr "Rolle"
 
-#: purchase.order.type.roles-required:1 purchase.invoice.type.roles-required:1
+#: purchase.order.type.roles-required:1 purchase.order.type.plates-required:1
+#: purchase.invoice.type.roles-required:1
 msgid "Required"
 msgstr "Erforderlich"
 
-#: purchase.order.categories-parent_id:1
-#: purchase.invoce.categories-parent_id:1
-msgid "Parent"
-msgstr "Elternteil"
+#: purchase.order.type.plates-plate:1
+msgid "Plate"
+msgstr "Platte"
 
-#: purchase.order.categories-childs_id:1
-#: purchase.invoce.categories-childs_id:1
-msgid "Childs"
-msgstr "Kinder"
+#: purchase.order.type.items-gti_id:1
+msgid "GTI"
+msgstr "GTI"
 
-#: purchase.order.categories-orders:1 purchase.invoce.categories-invoices:1
-msgid "Orders"
-msgstr "Bestellungen"
+#: purchase.order.type.items-itype_id:1
+msgid "Type Of Items"
+msgstr "Typ Von Elementen"
 
 #: purchase.orders-company:1 purchase.invoices-company:1
 msgid "Company"
 msgstr "Unternehmen"
 
-#: purchase.orders-category_id:1 purchase.invoices-category_id:1
-msgid "Category"
-msgstr "Kategorie"
+#: purchase.orders-market_id:1 purchase.invoices-market_id:1
+msgid "Market"
+msgstr "Markt"
+
+#: purchase.orders-team_id:1 purchase.invoices-team_id:1
+msgid "Team"
+msgstr "Team"
+
+#: purchase.orders-manager:1
+msgid "Manager"
+msgstr "Manager"
 
 #: purchase.orders-origin:1 purchase.invoices-origin:1
 msgid "Origin"
@@ -134,11 +287,14 @@ msgstr "Beginnen Datum Der Bestellung"
 msgid "End Date Of Order"
 msgstr "End-Datum Der Bestellung"
 
-#: purchase.orders-partner:1 purchase.invoices-partner:1
+#: purchase.orders-partner:1 purchase.order.output.plates-partner:1
+#: purchase.order.item.output.plates-partner:1 purchase.invoices-partner:1
 msgid "Partner"
 msgstr "Partner"
 
-#: purchase.orders-currency:1 purchase.order.items-currency:1
+#: purchase.orders-currency:1 purchase.order.payment.schedules-currency:1
+#: purchase.order.items-currency:1
+#: purchase.order.item.payment.schedules-currency:1
 #: purchase.invoices-currency:1 purchase.invoice.items-currency:1
 #: md.purchase.product-currency:1
 msgid "Currency"
@@ -152,12 +308,15 @@ msgstr "Incoterms 1"
 msgid "Incoterms 2"
 msgstr "Incoterms 2"
 
-#: purchase.orders-state:1 purchase.invoices-state:1 md.product-state:1
+#: purchase.orders-state:1 purchase.order.output.plates-state:1
+#: purchase.order.item.output.plates-state:1 purchase.invoices-state:1
 msgid "State"
 msgstr "Staat"
 
-#: purchase.orders-amount:1 purchase.order.items-amount:1
-#: purchase.invoices-amount:1 purchase.invoice.items-amount:1
+#: purchase.orders-amount:1 purchase.order.payment.schedules-amount:1
+#: purchase.order.items-amount:1
+#: purchase.order.item.payment.schedules-amount:1 purchase.invoices-amount:1
+#: purchase.invoice.items-amount:1
 msgid "Amount"
 msgstr "Höhe"
 
@@ -179,7 +338,14 @@ msgstr "Recepture"
 msgid "Items"
 msgstr "Artikel"
 
+#: purchase.orders-payments:1 purchase.order.items-payments:1
+msgid "Payments"
+msgstr "Zahlungen"
+
 #: purchase.order.texts-order_id:1 purchase.order.roles-order_id:1
+#: purchase.order.payment.schedules-order_id:1
+#: purchase.order.output.plates-order_id:1
+#: purchase.order.item.output.plates-item_id:1
 #: purchase.invoice.texts-invoice_id:1
 msgid "Order"
 msgstr "Um"
@@ -199,9 +365,31 @@ msgstr "Inhalt"
 msgid "Parther"
 msgstr "Parther"
 
+#: purchase.order.payment.schedules-schedule:1
+#: purchase.order.output.plates-schedule:1
+#: purchase.order.item.delivery.schedules-schedule:1
+#: purchase.order.item.output.plates-schedule:1
+#: purchase.order.item.payment.schedules-schedule:1
+#: purchase.invoce.item.delivery.schedules-schedule:1
+msgid "Schedule"
+msgstr "Zeitplan"
+
+#: purchase.order.output.plates-language:1
+#: purchase.order.item.output.plates-language:1
+msgid "language"
+msgstr "Sprache"
+
+#: purchase.order.output.plates-msm:1 purchase.order.item.output.plates-msm:1
+msgid "Message Sending Method"
+msgstr "Nachricht Senden Methode"
+
 #: purchase.order.items-order_id:1
 msgid "Purchase Order"
 msgstr "Bestellung"
+
+#: purchase.order.items-itype_id:1
+msgid "Group Of Type Items"
+msgstr "Gruppe Von Elementen Vom Typ"
 
 #: purchase.order.items-product:1 purchase.invoice.items-product:1
 #: md.purchase.product-product_id:1
@@ -224,11 +412,6 @@ msgstr "Me"
 msgid "Price"
 msgstr "Preis"
 
-#: purchase.order.items-unit:1 purchase.invoice.items-unit:1
-#: md.purchase.product-unit:1
-msgid "Unit"
-msgstr "Einheit"
-
 #: purchase.order.items-uop:1 purchase.invoice.items-uop:1
 #: md.purchase.product-uop:1
 msgid "Unit Of Price"
@@ -238,12 +421,37 @@ msgstr "Einheit Preis"
 msgid "Vat code"
 msgstr "MwSt-code"
 
+#: purchase.order.items-volume:1
+msgid "Volume"
+msgstr "Volumen"
+
+#: purchase.order.items-volume_total:1
+msgid "Volume Total"
+msgstr "Volumen Gesamt"
+
+#: purchase.order.items-volume_uom:1
+msgid "Volume UoM"
+msgstr "Volumeneinheit"
+
+#: purchase.order.items-weight:1
+msgid "Weight"
+msgstr "Gewicht"
+
+#: purchase.order.items-weight_total:1
+msgid "Weight Total"
+msgstr "Gewicht Insgesamt"
+
+#: purchase.order.items-weight_uom:1
+msgid "Weight UoM"
+msgstr "Gewicht-Me"
+
 #: purchase.order.items-delivery_schedules:1
 #: purchase.invoice.items-delivery_schedules:1
 msgid "Delivery Schedule"
 msgstr "Lieferzeit"
 
 #: purchase.order.item.texts-item_id:1 purchase.order.item.roles-item_id:1
+#: purchase.order.item.payment.schedules-item_id:1
 #: purchase.invoice.item.texts-item_id:1 purchase.invoice.item.roles-item_id:1
 msgid "Item"
 msgstr "Artikel"
@@ -252,11 +460,6 @@ msgstr "Artikel"
 #: purchase.invoce.item.delivery.schedules-item_id:1
 msgid "Order Item"
 msgstr "Auftragsposition"
-
-#: purchase.order.item.delivery.schedules-schedule:1
-#: purchase.invoce.item.delivery.schedules-schedule:1
-msgid "Schedule"
-msgstr "Zeitplan"
 
 #: purchase.invoices-doi:1
 msgid "Date Of Invoice"
@@ -270,62 +473,6 @@ msgstr "Rechnung"
 msgid "VAT Code"
 msgstr "MwSt-Code"
 
-#: md.purchase.product-uom:1 md.product-uom:1
+#: md.purchase.product-uom:1
 msgid "Unit Of Measure"
 msgstr "Mengeneinheit"
-
-#: md.product-template_id:1
-msgid "Template"
-msgstr "Vorlage"
-
-#: md.product-volume:1
-msgid "Volume"
-msgstr "Volumen"
-
-#: md.product-volume_uom:1
-msgid "Volume UoM"
-msgstr "Volumeneinheit"
-
-#: md.product-weight:1
-msgid "Weight"
-msgstr "Gewicht"
-
-#: md.product-weight_uom:1
-msgid "Weight UoM"
-msgstr "Gewicht-Me"
-
-#: md.product-qrcode:1
-msgid "QRCode"
-msgstr "QRCode"
-
-#: md.product-image:1
-msgid "Photo"
-msgstr "Foto"
-
-#: md.product-image_medium:1
-msgid "Medium-sized photo"
-msgstr "Mittlere Foto"
-
-#: md.product-image_small:1
-msgid "Small-sized photo"
-msgstr "Kleine Foto"
-
-#: md.product-link:1
-msgid "Link"
-msgstr "Link"
-
-#: md.recepture-subtype:1
-msgid "Subtype"
-msgstr "Subtyp"
-
-#: md.recepture-partition:1
-msgid "Partition"
-msgstr "Partition"
-
-#: md.recepture-input_items:1
-msgid "Input"
-msgstr "Eingang"
-
-#: md.recepture-output_items:1
-msgid "Output"
-msgstr "Ausgabe"
