@@ -825,9 +825,8 @@ class MCache(object):
 
 	def _m2m_add(self,container,fields,obj,rel,id1,id2):
 		
-		print('M2M-ADD:',container,fields,obj,rel,id1,id2)
-		
 		row = self._pool.get(obj).read(self._cr,self._pool,self._uid,id2,fields,self._context)
+		print('M2M-ADD:',container,fields,obj,rel,id1,id2,row)
 		
 		p = container.split('.')
 		self._data._cdata[self._data._cnames[container]].append(row)
