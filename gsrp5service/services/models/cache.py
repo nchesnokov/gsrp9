@@ -1023,7 +1023,7 @@ class MCache(object):
 			m = self._pool.get(model)
 			if 'id' in self._data._cdata[key]:
 				items[key]['id'] = self._data._cdata[key]['id']
-				r = m.write(self._cr,self._pool,self._uid,models[key],self._context)
+				r = m.modify(self._cr,self._pool,self._uid,models[model],self._context)
 			else:
 				r = m.create(self._cr,self._pool,self._uid,models[key],self._context)
 
