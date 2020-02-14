@@ -99,7 +99,7 @@ class DCacheDict(object):
 		for m2mfield in self._pool.get(model)._m2mfields:
 			self._m2m_buildTree(data[m2mfield],model,oid,m2mfield)
 
-	def _m2m_buildTree(self,data,rel,paren,name):
+	def _m2m_buildTree(self,data,rel,parent,name):
 		cn = parent + '.' + oid
 		coid = str(id(data))
 		self._ccontainers[coid] = cn
