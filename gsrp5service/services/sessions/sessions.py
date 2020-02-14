@@ -165,6 +165,8 @@ class User(object):
 			return self._cache[args[1]]._action(**(args[2]))
 		elif args[0] == 'add':			
 			return self._cache[args[1]]._add(**(args[2]))
+		elif args[0] == 'm2madd':			
+			return self._cache[args[1]]._m2m_add(**(args[2]))
 		elif args[0] == 'remove':
 			return self._cache[args[1]]._remove(**(args[2]))
 		elif args[0] == 'initialize':

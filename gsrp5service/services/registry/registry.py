@@ -245,14 +245,13 @@ class Registry(Service):
 					imeta1['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
 				elif c == '_trigers':
 					for triger in inherit[c]:
-						trg = imeta1['attrs'].setdefault(c,{})[triger]
-						if type(trg) == str:
-							trg = [trg]
-						trg1 = imeta['attrs'][c][triger]
-						if type(trg1) == str:
-							trg.append(trg1)
-						if type(trg1) in (tuple,list):
-							trg.extend(trg1)
+						for tk in triger.keys():
+							if not imeta1['attrs'][c]:
+								imeta1['attrs'][c] = []
+							if type(triger[tk]) in ('list','tuple'):
+								imeta1['attrs'].setdefault(c,{}).setdefault(triger,[]).extend(triger[tk])
+							else:
+								imeta1['attrs'].setdefault(c,{}).setdefault(triger,[]).append(triger[tk])
 				elif c == '_default':
 					for dkey in inherit[c]:
 						imeta1['attrs'].setdefault(c,{})[dkey] = imeta['attrs'][c][dkey]

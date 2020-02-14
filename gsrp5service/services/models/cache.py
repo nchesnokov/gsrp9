@@ -95,6 +95,24 @@ class DCacheDict(object):
 			if mode != 'I':
 				for r1 in data[o2mfield]:
 					self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
+
+		for m2mfield in self._pool.get(model)._m2mfields:
+			self._m2m_buildTree(data[m2mfield],model,oid,m2mfield)
+
+	def _m2m_buildTree(self,data,rel,paren,name):
+		cn = parent + '.' + oid
+		coid = str(id(data))
+		self._ccontainers[coid] = cn
+		self._cnames[cn] = coid
+		self._cdata[coid] = data
+		self._cmodels[coid] = rel
+		for r in self._cdata[coid]:
+			m2moid = str(id(r))
+			self._cdata[m2moid] = r
+			self._cmodels[m2moid] = rel
+			self._cpaths.setdefault(m2moid,{})[name] = parent
+			self._cr2c[oid] = self._cnames[name + '.' + str(oid)]
+
 #
 
 	def _copyBuild(self):
@@ -411,11 +429,15 @@ class DCacheDict(object):
 		model = self._cmodels[path]
 		data = {}
 		container = None
+		m2m_container = None
 		containers = {}
+		m2m_containers = {}
 		ci = self._cmetas[model]
 		for k in self._cdata[path].keys():
 			if k != 'id' and ci[k]['type'] == 'one2many':
 				containers[k] = self._getDataContainers(k + '.' + path)
+			elif k != 'id' and ci[k]['type'] == 'many2many':
+				containers[k] = self._get_m2m_DataContainers(k + '.' + path)
 			else:
 				data[k] = self._cdata[path][k]
 
@@ -428,7 +450,7 @@ class DCacheDict(object):
 		
 		if len(containers) > 0:
 			res['__containers__'] = containers
-		
+
 		return res
 
 	def _getDataContainers(self,container):
@@ -438,6 +460,15 @@ class DCacheDict(object):
 			res.append(self._getData(r))
 			
 		return res
+
+	def _get_m2m_DataContainers(self,container):
+		res = []
+		
+		for r in self._cdata[self._cnames[container]]:
+			res.append({'__container__':container,'__path__':str(id(r)),'__parent__':container.split('.')[1],'__data__':r})
+			
+		return res
+
 			
 class MCache(object):
 	
@@ -791,6 +822,23 @@ class MCache(object):
 			return [res]
 		
 		return []
+
+	def _m2m_add(self,container,fields,obj,rel,id1,id2):
+		
+		row = self._pool.get(obj).read(self._cr,self._pool,self._uid,id2,fields,self._context)
+		
+		p = container.split('.')
+		self._data._cdata[self._data._cnames[container]].append(row)
+		self._data._m2m_buildTree(row,rel,p[1],p[0])
+				
+		res = {}
+
+		data_diffs = self._data._odiffs(True)
+		
+		if len(data_diffs) > 0:
+			res['__m2m_add__'] = data_diffs
+		
+		return []
 	
 	def _m2o_find(self,path,model,key,value,context):
 		rec_name = self._pool.get(self._meta[model][key]['obj'])._getRecNameName()
@@ -896,7 +944,7 @@ class MCache(object):
 			return ['commit']
 
 	def _createItems(self,items,rel=None,oid = None):
-		print('ITEMS:',items)
+		#print('ITEMS:',items)
 		for item in items:
 			print('ITEM:',item)
 			self._createItem(item,rel,oid)
@@ -933,7 +981,6 @@ class MCache(object):
 		rel = self._pool.get(self._data._cmodels[parent])._columns[cn].rel
 		recname = self._pool.get(self._data._cmodels[parent])._getRecNameName()
 		data[rel] = {'id':oid,'name':recname}
-		print('RELS:',self._data._cmodels[parent],rel,recname,data)
 		m = self._pool.get(model)
 		for k in data.keys():
 			if m._columns[k]._type in ('many2one','related'):
@@ -962,14 +1009,17 @@ class MCache(object):
 
 
 	def _updateItems(self,items):
+		models = {}
 		for key in items.keys():
 			model = self._data._cmodels[key]
+			models.setdefault(model,[]).append(items[key])
+		for model in models.keys(): 
 			m = self._pool.get(model)
 			if 'id' in self._data._cdata[key]:
 				items[key]['id'] = self._data._cdata[key]['id']
-				r = m.write(self._cr,self._pool,self._uid,items[key],self._context)
+				r = m.write(self._cr,self._pool,self._uid,models[key],self._context)
 			else:
-				r = m.create(self._cr,self._pool,self._uid,items[key],self._context)
+				r = m.create(self._cr,self._pool,self._uid,models[key],self._context)
 
 	def _reset(self):
 		diffs = self._data._pdiffs()
