@@ -221,7 +221,7 @@ class User(object):
 			del self._cache[args[1]]
 			return [True]
 		
-		return Execption('No defined method of mcache: <%s>' % (args[0],))
+		return Exception('No defined method of mcache: <%s>' % (args[0],))
 
 # new cache
 		

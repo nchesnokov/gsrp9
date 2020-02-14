@@ -111,7 +111,7 @@ class DCacheDict(object):
 			self._cdata[m2moid] = r
 			self._cmodels[m2moid] = rel
 			self._cpaths.setdefault(m2moid,{})[name] = parent
-			self._cr2c[oid] = self._cnames[name + '.' + str(oid)]
+			self._cr2c[m2moid] = self._cnames[name + '.' + str(parent)]
 
 #
 
