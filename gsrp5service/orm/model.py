@@ -540,7 +540,22 @@ class BaseModel(object, metaclass = MetaModel):
 		return mm._mcache(self,cr,pool,uid,key,value,idx,context)
 	
 	def compute_columns_values(self,cr,pool,uid,columns,item,context):
-		mm._compute_columns_values(self,cr,pool,uid,columns,item,context)
+		return mm._compute_columns_values(self,cr,pool,uid,columns,item,context)
+
+	def _m2mread(self, cr, pool, uid, oid, field, fields, context):
+		return mm._m2mread(self, cr, pool, uid, oid, field, fields, context)
+
+	def _m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+		return mm._m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+
+	def _m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+		return mm._m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+
+	def _m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+		mm._m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+
+	def _m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+		return mm._m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
 class Model(BaseModel):
 	_transient = None
