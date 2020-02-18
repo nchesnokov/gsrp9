@@ -1181,7 +1181,7 @@ class MCache(object):
 			for item in items:
 				print('ITEM:',item)
 				col = item['__container__'].split('.')[0]
-				self._m2m_appendRows(col,[item['__data__']],item['__oid__'])
+				self._m2m_appendRows(col,[item],item['__oid__'])
 
 	def _m2m_appendRows(self,column,rows,oid):
 		rels = []
@@ -1190,7 +1190,7 @@ class MCache(object):
 			rel = m._columns[column].rel
 			id1 = m._columns[column].id1
 			id2 = m._columns[column].id2
-			rels.append(row[id2]['id'])
+			rels.append(row['__data__'][id2]['id'])
 			
 		m._m2mcreate(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,context)
 
