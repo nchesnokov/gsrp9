@@ -129,7 +129,7 @@ class DCacheDict(object):
 				m2moid = str(id(r))
 				self._cdata[m2moid] = r
 				self._cmodels[m2moid] = model
-				self._cmodels[m2moid] = rel
+				self._crels[m2moid] = rel
 				self._cpaths.setdefault(m2moid,{})[name] = parent
 				self._cr2c[m2moid] = self._cnames[cn]
 
@@ -1179,11 +1179,8 @@ class MCache(object):
 ###########
 	def _m2m_appendItems(self,items):
 			for item in items:
-				print('ITEM:',item,items)
-				m2m_containers = item['__m2m_containers__']
-				for key in m2m_containers.keys():
-					oid = m2m_containers[key]['__oid__']
-					self._m2m_appendRows(key,m2m_containers[key],oid)
+				print('ITEM:',item)
+				self._m2m_appendRows(key,[item['__data__']],oid)
 
 	def _m2m_appendRows(self,column,rows,oid):
 			rels = []
