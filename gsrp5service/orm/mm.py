@@ -876,7 +876,11 @@ def _m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 		values.append((oid,r))
 	print('VALUES:',values)
 	sql = "insert into %s (%s,%s) values " % (rel,id1,id2)
-	sql += reduce(lambda x,y: str(x) + ',' + str(y),values)
+	if len(values) == 1:
+		sql += str(values[0])
+	else:
+		sql += reduce(lambda x,y: str(x) + ',' + str(y),values)
+		
 	sql += ' returning id'
 	cr.execute(sql)
 	if cr.cr.rowcount > 0:
