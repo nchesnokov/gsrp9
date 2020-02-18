@@ -1183,6 +1183,7 @@ class MCache(object):
 			id2 = m._columns[c[0]].id2
 			rels.append(row['__data__']['id'])
 			
+		print('RELS:', rels)
 		m._m2mcreate(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
 
 	def _m2m_removeItems(self,items):
