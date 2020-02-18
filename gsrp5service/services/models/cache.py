@@ -478,7 +478,7 @@ class DCacheDict(object):
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
 		
-		print('M2M-CMPLIST:',container,ooid,coid,ok,ck,ik,dk)
+		#print('M2M-CMPLIST:',container,ooid,coid,ok,ck,ik,dk)
 			
 		for i in ik:
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
@@ -977,7 +977,6 @@ class MCache(object):
 		return []
 
 	def _m2m_remove(self,path,container,context):
-		print('M2M-CACHE-REMOVE:',path,container)
 		c = container.split('.')
 		self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
 		del self._data._cdata[path]
@@ -986,6 +985,7 @@ class MCache(object):
 
 		data_diffs = self._data._odiffs(True)
 
+		print('M2M-CACHE-REMOVE:',path,container,data_diffs)
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
 		
