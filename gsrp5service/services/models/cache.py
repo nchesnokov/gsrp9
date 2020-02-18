@@ -1180,7 +1180,8 @@ class MCache(object):
 	def _m2m_appendItems(self,items):
 			for item in items:
 				print('ITEM:',item)
-				self._m2m_appendRows(key,[item['__data__']],oid)
+				col = item['__container__'].split('.')[0]
+				self._m2m_appendRows(col,[item['__data__']],oid)
 
 	def _m2m_appendRows(self,column,rows,oid):
 			rels = []
