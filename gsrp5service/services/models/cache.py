@@ -1188,7 +1188,7 @@ class MCache(object):
 			rel = m._columns[c[0]].rel
 			id1 = m._columns[c[0]].id1
 			id2 = m._columns[c[0]].id2
-			rels.append(row['__data__'][id2]['id'])
+			rels.append(row['__data__']['id'])
 			
 		m._m2mcreate(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,context)
 
