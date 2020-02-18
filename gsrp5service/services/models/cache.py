@@ -491,7 +491,7 @@ class DCacheDict(object):
 			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1})
 	
 		for d in dk:
-			d1 = ctypes.cast(int(d), ctypes.py_object).value
+			d1 = getattr(self,'_%sdata' % (o,))[d]
 			model = getattr(self,'_%smodels' % (o,))[d]
 			rel = getattr(self,'_%srels' % (o,))[d]			
 			res.setdefault('__m2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1})
