@@ -1106,7 +1106,6 @@ class MCache(object):
 		for item in items:
 			self._createItem(item,rel,oid)
 
-
 	def _createItem(self,item,rel = None, oid = None):
 		if rel and oid:
 			item['__data__'][rel]['id'] = oid
@@ -1192,6 +1191,7 @@ class MCache(object):
 			rel = m._columns[c[0]].rel
 			id1 = m._columns[c[0]].id1
 			id2 = m._columns[c[0]].id2
+			print('row:',row,oid)
 			rels.append(row['__data__']['id'])
 
 		m._m2munlink(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
