@@ -112,6 +112,7 @@ class DCacheDict(object):
 			m2moid = str(id(data))
 			self._cdata[m2moid] = data
 			self._cmodels[m2moid] = rel
+			self._crels[m2moid] = rel
 			self._cpaths.setdefault(m2moid,{})[name] = parent
 			self._cr2c[m2moid] = self._cnames[cn]
 
@@ -127,6 +128,7 @@ class DCacheDict(object):
 			for r in data:
 				m2moid = str(id(r))
 				self._cdata[m2moid] = r
+				self._cmodels[m2moid] = rel
 				self._cmodels[m2moid] = rel
 				self._cpaths.setdefault(m2moid,{})[name] = parent
 				self._cr2c[m2moid] = self._cnames[cn]
@@ -229,6 +231,7 @@ class DCacheDict(object):
 							for ck in r['__m2m_containers__'].keys():
 								onames[ck + '.' + path] = cnames[ck + '.' + path]
 								ocontainers[cnames[ck + '.' + path]] = cnames[ck + '.' + path]
+								omodels[path] = cmodels[path]
 								orels[path] = crels[path]
 								or2c[path] = cr2c[path]
 								opaths[path] = cpaths[path]
