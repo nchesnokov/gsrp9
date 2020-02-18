@@ -68,7 +68,7 @@ class DCacheDict(object):
 			raise TypeError
 
 		if model not in self._cmetas:
-			self._cmetas[model] = self._pool.get(model).columnsInfo(attributes=['type','obj','rel'])
+			self._cmetas[model] = self._pool.get(model).columnsInfo(attributes=['type','obj','rel','id1','id2'])
 		
 		ci = self._cmetas[model]
 		oid = str(id(data))
@@ -174,9 +174,9 @@ class DCacheDict(object):
 					for d in res['__delete__'][k].keys():
 						del getattr(self,'_%sdata' % (c,))[k][d]
 
-		if ('__append__' in res or '__m2m_append__' in res):
+		if ('__o2m_append__' in res or '__m2m_append__' in res):
 			if commit:
-				for k in ('__append__','__m2m_append__'):
+				for k in ('__o2m_append__','__m2m_append__'):
 					if k not in res:
 						continue
 					for r in res[k]:
@@ -214,18 +214,27 @@ class DCacheDict(object):
 						opaths[path] = cpaths[path]
 						or2c[path] = cr2c[path] 
 						
-						
-						for ck in r['__containers__'].keys():
-							onames[ck + '.' + path] = cnames[ck + '.' + path]
-							ocontainers[cnames[ck + '.' + path]] = cnames[ck + '.' + path]
-							omodels[path] = cmodels[path]
-							ometas[omodels[path]] = cmetas[cmodels[path]]
-							or2c[path] = cr2c[path]
-							opaths[path] = cpaths[path]
+						if '__o2m_containers__' in r:
+							for ck in r['__o2m_containers__'].keys():
+								onames[ck + '.' + path] = cnames[ck + '.' + path]
+								ocontainers[cnames[ck + '.' + path]] = cnames[ck + '.' + path]
+								omodels[path] = cmodels[path]
+								ometas[omodels[path]] = cmetas[cmodels[path]]
+								or2c[path] = cr2c[path]
+								opaths[path] = cpaths[path]
 
-		if ('__remove__' in res or '__m2m_remove__' in res ):
+						if '__m2m_containers__' in r:
+							for ck in r['__m2m_containers__'].keys():
+								onames[ck + '.' + path] = cnames[ck + '.' + path]
+								ocontainers[cnames[ck + '.' + path]] = cnames[ck + '.' + path]
+								orels[path] = crels[path]
+								or2c[path] = cr2c[path]
+								opaths[path] = cpaths[path]
+
+
+		if ('__o2m_remove__' in res or '__m2m_remove__' in res ):
 			if commit:
-				for k in ('__remove__','__m2m_remove__'):
+				for k in ('__o2m_remove__','__m2m_remove__'):
 					if k not in res:
 						continue
 
@@ -271,17 +280,21 @@ class DCacheDict(object):
 						#del cmetas[model]
 						#del ometas[model]
 						
+						
 						if path in cmodels:
 							del cmodels[path] 
-						del omodels[path] 
+						if path in omodels:
+							del omodels[path] 
 						
 						if path in cpaths:
 							del cpaths[path]
-						del opaths[path]
+						if path in opaths:
+							del opaths[path]
 						
 						if path in cr2c:
 							del cr2c[path] 
-						del or2c[path]
+						if path in cr2c:
+							del or2c[path]
 
 		return res
 
@@ -298,11 +311,11 @@ class DCacheDict(object):
 		
 		for k in filter(lambda x: x != 'id',getattr(self,'_%sdata' % (c,))[path].keys()):
 			if ci[k]['type'] == 'one2many':
-				v = self._cmpList(o,c,k + '.' + path)
+				v = self._o2m_cmpList(o,c,k + '.' + path)
 				if '__append__' in v:			
-					res.setdefault('__append__',[]).extend(v['__append__'])
+					res.setdefault('__o2m_append__',[]).extend(v['__append__'])
 				if '__remove__' in v:
-					res.setdefault('__remove__',[]).extend(v['__remove__'])
+					res.setdefault('__o2m_remove__',[]).extend(v['__remove__'])
 				if '__update__' in v:
 					res.setdefault('__update__',{}).update(v['__update__'])
 				if '__insert__' in v:
@@ -313,9 +326,9 @@ class DCacheDict(object):
 			elif ci[k]['type'] == 'many2many':
 				v = self._m2m_cmpList(o,c,k + '.' + path)
 				if '__append__' in v:			
-					res.setdefault('__append__',[]).extend(v['__append__'])
+					res.setdefault('__m2m_append__',[]).extend(v['__append__'])
 				if '__remove__' in v:
-					res.setdefault('__remove__',[]).extend(v['__remove__'])
+					res.setdefault('__m2m_remove__',[]).extend(v['__remove__'])
 				if '__update__' in v:
 					res.setdefault('__update__',{}).update(v['__update__'])
 				if '__insert__' in v:
@@ -339,7 +352,7 @@ class DCacheDict(object):
 	
 		return res
 
-	def _cmpList(self,o,c,container):
+	def _o2m_cmpList(self,o,c,container):
 		res = {}
 
 		cdata = getattr(self,'_%snames' % (c,))
@@ -382,10 +395,10 @@ class DCacheDict(object):
 				res.setdefault('__insert__',{}).update(v['__insert__'])
 			if '__delete__' in v:
 				res.setdefault('__delete__',{}).update(v['__delete__'])
-			if '__append__' in v:
-				res.setdefault('__append__',[]).extend(v['__append__'])
-			if '__remove__' in v:
-				res.setdefault('__remove__',[]).extend(v['__remove__'])
+			if '__o2m_append__' in v:
+				res.setdefault('__o2m_append__',[]).extend(v['__o2m_append__'])
+			if '__o2m_remove__' in v:
+				res.setdefault('__o2m_remove__',[]).extend(v['__o2m_remove__'])
 		for i in ik:
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
 			p=container.split('.')
@@ -401,9 +414,9 @@ class DCacheDict(object):
 			containers = {}
 			for k in filter(lambda x: x != 'id ' and ci[x]['type'] == 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				r1 = self._cmpList(o,c,k + '.' + i)
-				containers.setdefault(k,[]).extend(r1['__append__'] if '__append__' in r1 else [])
+				containers.setdefault(k,[]).extend(r1['__o2m_append__'] if '__o2m_append__' in r1 else [])
 				
-			res.setdefault('__append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__containers__':containers})
+			res.setdefault('__o2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__containers__':containers})
 	
 		for d in dk:
 			model = getattr(self,'_%smodels' % (o,))[d]
@@ -421,9 +434,9 @@ class DCacheDict(object):
 				container1 = o2mfield + '.' + str(d)
 				
 				for path in filter(lambda x:cr2c[x] == names[container1],cr2c.keys()):
-					res.setdefault('__remove__',[]).extend(self._removeRecursive(o,c,path))
+					res.setdefault('__o2m_remove__',[]).extend(self._removeRecursive(o,c,path))
 			
-			res.setdefault('__remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__data__':data})
+			res.setdefault('__o2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__data__':data})
 				
 
 		return res
@@ -540,9 +553,9 @@ class DCacheDict(object):
 		ci = self._cmetas[model]
 		for k in self._cdata[path].keys():
 			if k != 'id' and ci[k]['type'] == 'one2many':
-				containers[k] = self._getDataContainers(k + '.' + path)
+				containers[k] = self._get_o2mDataContainers(k + '.' + path)
 			elif k != 'id' and ci[k]['type'] == 'many2many':
-				containers[k] = self._get_m2m_DataContainers(k + '.' + path)
+				containers[k] = self._get_m2mDataContainers(k + '.' + path)
 			else:
 				data[k] = self._cdata[path][k]
 
@@ -554,11 +567,11 @@ class DCacheDict(object):
 			res['__container__'] = container
 		
 		if len(containers) > 0:
-			res['__containers__'] = containers
+			res['__o2m_containers__'] = containers
 
 		return res
 
-	def _getDataContainers(self,container):
+	def _get_o2mDataContainers(self,container):
 		res = []
 
 		for r in self._cdata[self._cnames[container]]:
@@ -566,7 +579,7 @@ class DCacheDict(object):
 			
 		return res
 
-	def _get_m2m_DataContainers(self,container):
+	def _get_m2mDataContainers(self,container):
 		res = []
 		
 		for r in self._cdata[self._cnames[container]]:
@@ -869,7 +882,7 @@ class MCache(object):
 				else:
 					item[k] = _default[k]	
 	
-	def _add(self,model,container,context,view='form'):
+	def _o2m_add(self,model,container,context,view='form'):
 		#row = self._buildItem(model,view)
 		row = self._pool.get(model)._buildEmptyItem()
 		self._setDefault(model,row)
@@ -900,8 +913,8 @@ class MCache(object):
 		
 		return []
 			
-	def _remove(self,path,container,context):
-		print('CACHE-REMOVE:',path,container)
+	def _o2m_remove(self,path,container,context):
+		print('O2M-CACHE-REMOVE:',path,container)
 		c = container.split('.')
 		self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
 		del self._data._cdata[path]
@@ -931,7 +944,7 @@ class MCache(object):
 	def _m2m_add(self,container,fields,obj,rel,id1,id2):
 		
 		rows = self._pool.get(obj).read(self._cr,self._pool,self._uid,id2,fields,self._context)
-		print('M2M-ADD:',container,fields,obj,rel,id1,id2,rows)
+		print('M2M-CACHE-ADD:',container,fields,obj,rel,id1,id2,rows)
 		
 		p = container.split('.')
 		if len(rows) > 0:
@@ -944,12 +957,32 @@ class MCache(object):
 		data_diffs = self._data._odiffs(True)
 		
 		if len(data_diffs) > 0:
-			res['__m2m_add__'] = data_diffs
+			res['__data__'] = data_diffs
 
 		if len(res) > 0:
 			return [res]
 		
 		return []
+
+	def _m2m_remove(self,path,container,context):
+		print('M2M-CACHE-REMOVE:',path,container)
+		c = container.split('.')
+		self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
+		del self._data._cdata[path]
+		
+		
+		res = {}
+
+		data_diffs = self._data._odiffs(True)
+
+		if len(data_diffs) > 0:
+			res['__data__'] = data_diffs
+		
+		if len(res) > 0:
+			return [res]
+		
+		return []
+
 	
 	def _m2o_find(self,path,model,key,value,context):
 		rec_name = self._pool.get(self._meta[model][key]['obj'])._getRecNameName()
