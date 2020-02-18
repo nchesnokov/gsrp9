@@ -489,7 +489,7 @@ class DCacheDict(object):
 			p=container.split('.')
 
 			model = getattr(self,'_%smodels' % (c,))[i]
-			rel = getattr(self,'_%srels' % (c,))[coid]
+			rel = getattr(self,'_%srels' % (c,))[i]
 			self._m2m_buildTree(d1,model,p[1],p[0],model)
 				
 			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1,'__oid__':oid})
