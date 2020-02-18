@@ -1181,18 +1181,18 @@ class MCache(object):
 			for item in items:
 				print('ITEM:',item)
 				col = item['__container__'].split('.')[0]
-				self._m2m_appendRows(col,[item['__data__']],oid)
+				self._m2m_appendRows(col,[item['__data__']],item['__oid__'])
 
 	def _m2m_appendRows(self,column,rows,oid):
-			rels = []
-			for row in rows:
-				m = self._pool.get(row['__model__'])
-				rel = m._columns[column].rel
-				id1 = m._columns[column].id1
-				id2 = m._columns[column].id2
-				rels.append(row[id2]['id'])
+		rels = []
+		for row in rows:
+			m = self._pool.get(row['__model__'])
+			rel = m._columns[column].rel
+			id1 = m._columns[column].id1
+			id2 = m._columns[column].id2
+			rels.append(row[id2]['id'])
 			
-			m._m2mcreate(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,context)
+		m._m2mcreate(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,context)
 
 	def _m2m_removeItems(self,items):
 		for item in items:
