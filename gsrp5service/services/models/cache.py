@@ -1097,7 +1097,7 @@ class MCache(object):
 				elif k == '__o2m_remove__':
 					self._o2m_removeItems(diffs['__o2m_remove__'])
 				elif k == '__m2m_append__':
-					self._m2m_appendItems(diffs['__m2m_append__'])
+					self._m2m_appendRows(diffs['__m2m_append__'])
 				elif k == '__m2m_remove__':
 					self._m2m_removeItems(diffs['__m2m_remove__'])
 		
@@ -1126,7 +1126,7 @@ class MCache(object):
 		if '__m2m_containers__' in item:
 			m2m_containers = item['__m2m_containers__']
 			for key in m2m_containers.keys():
-				self._m2m_appendRows(key,m2m_containers[key],item['__data__']['id'])
+				self._m2m_appendRows(m2m_containers[key])
 
 		if '__o2m_containers__' in item:
 			containers = item['__o2m_containers__']
@@ -1177,15 +1177,17 @@ class MCache(object):
 			for item in items:
 				print('ITEM:',item)
 				col = item['__container__'].split('.')[0]
-				self._m2m_appendRows(col,[item],item['__oid__'])
+				self._m2m_appendRows(item)
 
-	def _m2m_appendRows(self,column,rows,oid):
+	def _m2m_appendRows(self,rows):
 		rels = []
 		for row in rows:
 			m = self._pool.get(row['__model__'])
-			rel = m._columns[column].rel
-			id1 = m._columns[column].id1
-			id2 = m._columns[column].id2
+			c = row['__container__'].split('.')
+			oid = self._data._cdata[c[1]]['id']
+			rel = m._columns[c[0]].rel
+			id1 = m._columns[c[0]].id1
+			id2 = m._columns[c[0]].id2
 			rels.append(row['__data__'][id2]['id'])
 			
 		m._m2mcreate(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,context)
