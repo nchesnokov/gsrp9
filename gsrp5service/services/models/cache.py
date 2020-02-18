@@ -312,10 +312,10 @@ class DCacheDict(object):
 		for k in filter(lambda x: x != 'id',getattr(self,'_%sdata' % (c,))[path].keys()):
 			if ci[k]['type'] == 'one2many':
 				v = self._o2m_cmpList(o,c,k + '.' + path)
-				if '__append__' in v:			
-					res.setdefault('__o2m_append__',[]).extend(v['__append__'])
-				if '__remove__' in v:
-					res.setdefault('__o2m_remove__',[]).extend(v['__remove__'])
+				if '__o2m_append__' in v:			
+					res.setdefault('__o2m_append__',[]).extend(v['__o2m_append__'])
+				if '__o2m_remove__' in v:
+					res.setdefault('__o2m_remove__',[]).extend(v['__o2m_remove__'])
 				if '__update__' in v:
 					res.setdefault('__update__',{}).update(v['__update__'])
 				if '__insert__' in v:
@@ -325,10 +325,10 @@ class DCacheDict(object):
 
 			elif ci[k]['type'] == 'many2many':
 				v = self._m2m_cmpList(o,c,k + '.' + path)
-				if '__append__' in v:			
-					res.setdefault('__m2m_append__',[]).extend(v['__append__'])
-				if '__remove__' in v:
-					res.setdefault('__m2m_remove__',[]).extend(v['__remove__'])
+				if '__m2m_append__' in v:			
+					res.setdefault('__m2m_append__',[]).extend(v['__m2m_append__'])
+				if '__m2m_remove__' in v:
+					res.setdefault('__m2m_remove__',[]).extend(v['__m2m_remove__'])
 				if '__update__' in v:
 					res.setdefault('__update__',{}).update(v['__update__'])
 				if '__insert__' in v:
@@ -475,7 +475,7 @@ class DCacheDict(object):
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
 		
-		print('CMPLIST:',container,ooid,coid,ok,ck,ik,dk)
+		print('M2M-CMPLIST:',container,ooid,coid,ok,ck,ik,dk)
 			
 		for i in ik:
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
