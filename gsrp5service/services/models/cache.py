@@ -1179,6 +1179,7 @@ class MCache(object):
 ###########
 	def _m2m_appendItems(self,items):
 			for item in items:
+				print('ITEM:',item,items)
 				m2m_containers = item['__m2m_containers__']
 				for key in m2m_containers.keys():
 					oid = m2m_containers[key]['__oid__']
