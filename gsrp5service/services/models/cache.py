@@ -486,7 +486,7 @@ class DCacheDict(object):
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
 			p=container.split('.')
 
-			model = getattr(self,'_%smodels' % (c,))[path]
+			model = getattr(self,'_%smodels' % (c,))[i]
 			rel = getattr(self,'_%srels' % (c,))[coid]
 			self._m2m_buildTree(d1,model,p[1],p[0])
 				
@@ -494,7 +494,7 @@ class DCacheDict(object):
 	
 		for d in dk:
 			d1 = ctypes.cast(int(d), ctypes.py_object).value
-			model = getattr(self,'_%smodels' % (o,))[path]
+			model = getattr(self,'_%smodels' % (o,))[d]
 			rel = getattr(self,'_%rels' % (o,))[d]			
 			res.setdefault('__m2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1})
 				
