@@ -956,7 +956,7 @@ class MCache(object):
 	def _m2m_add(self,model,container,fields,obj,rel,id1,id2,context={}):
 		
 		rows = self._pool.get(obj).read(self._cr,self._pool,self._uid,id2,fields,self._context)
-		print('M2M-CACHE-ADD:',model,container,fields,obj,rel,id1,id2,rows)
+		#print('M2M-CACHE-ADD:',model,container,fields,obj,rel,id1,id2,rows)
 		
 		p = container.split('.')
 		if len(rows) > 0:
@@ -981,8 +981,7 @@ class MCache(object):
 		c = container.split('.')
 		self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
 		del self._data._cdata[path]
-		
-		
+
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
@@ -1099,14 +1098,12 @@ class MCache(object):
 				elif k == '__m2m_append__':
 					self._m2m_appendRows(diffs['__m2m_append__'])
 				elif k == '__m2m_remove__':
-					self._m2m_removeItems(diffs['__m2m_remove__'])
+					self._m2m_removeRows(diffs['__m2m_remove__'])
 		
 			return ['commit']
 
 	def _createItems(self,items,rel=None,oid = None):
-		#print('ITEMS:',items)
 		for item in items:
-			#print('ITEM:',item)
 			self._createItem(item,rel,oid)
 
 
@@ -1174,6 +1171,7 @@ class MCache(object):
 
 	def _m2m_appendRows(self,rows):
 		rels = []
+		cols = {}
 		for row in rows:
 			m = self._pool.get(row['__model__'])
 			c = row['__container__'].split('.')
@@ -1182,26 +1180,22 @@ class MCache(object):
 			id1 = m._columns[c[0]].id1
 			id2 = m._columns[c[0]].id2
 			rels.append(row['__data__']['id'])
-			
-		print('RELS:', rels)
+
 		m._m2mcreate(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
 
-	def _m2m_removeItems(self,items):
-		for item in items:
-			self._m2m_removeItem(item)
+	def _m2m_removeRows(self,rows):
+		rels = []
+		for row in rows:
+			m = self._pool.get(row['__model__'])
+			c = row['__container__'].split('.')
+			oid = self._data._cdata[c[1]]['id']
+			rel = m._columns[c[0]].rel
+			id1 = m._columns[c[0]].id1
+			id2 = m._columns[c[0]].id2
+			rels.append(row['__data__']['id'])
 
-	def _m2m_removeItem(self,item):
-		container = item['__container__']
-		path = item['__path__']
-		model = item['__model__']
-		data = item['__data__']
-		if 'id' in data:
-			oid = data['id']
-			m = self._pool.get(model)
-			r = m.unlink(self._cr,self._pool,self._uid,oid,self._context)
+		m._m2munlink(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
 
-
-############
 	def _updateItems(self,items):
 		models = {}
 		for key in items.keys():
