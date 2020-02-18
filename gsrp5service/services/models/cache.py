@@ -1096,7 +1096,7 @@ class MCache(object):
 				elif k == '__o2m_remove__':
 					self._o2m_removeItems(diffs['__o2m_remove__'])
 				elif k == '__m2m_append__':
-					self._m2m_appendItems(diffs['__m2m_append__'])
+					self._m2m_appendItem(diffs['__m2m_append__'])
 				elif k == '__m2m_remove__':
 					self._m2m_removeItems(diffs['__m2m_remove__'])
 		
@@ -1105,7 +1105,7 @@ class MCache(object):
 	def _createItems(self,items,rel=None,oid = None):
 		#print('ITEMS:',items)
 		for item in items:
-			print('ITEM:',item)
+			#print('ITEM:',item)
 			self._createItem(item,rel,oid)
 
 
@@ -1121,15 +1121,20 @@ class MCache(object):
 		r = m.create(self._cr,self._pool,self._uid,data,self._context)
 		if len(r) > 0:
 			item['__data__']['id'] = r[0]
-		if '__containers__' in item:
-			containers = item['__containers__']
+		
+		if '__m2m_containers__' in item:
+			m2m_containers = item['__m2m_containers__']
+			for key in m2m_containers.keys():
+				self._m2m_appendRows(key,m2m_containers[key],item['__data__']['id'])
+
+		if '__o2m_containers__' in item:
+			containers = item['__o2m_containers__']
 			for key in containers.keys():
 				self._createItems(containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
 
 	def _o2m_appendItems(self,items):
 		for item in items:
 			self._o2m_appendItem(item)
-
 
 	def _o2m_appendItem(self,item):
 		data = item['__data__']
@@ -1167,21 +1172,21 @@ class MCache(object):
 			r = m.unlink(self._cr,self._pool,self._uid,oid,self._context)
 
 ###########
-	def _m2m_appendItems(self,items):
-		if '__m2m_containers__' in item:
+	def _m2m_appendItem(self,item):
 			m2m_containers = item['__m2m_containers__']
 			for key in m2m_containers.keys():
-				self._m2m_appendItem(m2m_containers[key])
+				self._m2m_appendRows(key,m2m_containers[key])
 
-	def _m2m_appendItem(self,rows):
+	def _m2m_appendRows(self,column,rows,oid):
+			rels = []
 			for row in rows:
-				model = row['__model__']
-				rel = row['__rel__']
-				id1 = row['__data__']['id']
-				id2 = None
-				m = self._pool.get(model)
-				m._m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
-				self._m2m_appendItems(m2m_containers[key])
+				m = self._pool.get(row['__model__'])
+				rel = m._columns[column].rel
+				id1 = m._columns[column].id1
+				id2 = m._columns[column].id2
+				rels.append(row[id2]['id'])
+			
+			m._m2mcreate(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,context)
 
 	def _m2m_removeItems(self,items):
 		for item in items:
