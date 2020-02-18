@@ -270,13 +270,13 @@ class DCacheDict(object):
 						odata[onames[container]].remove(odata[path])
 						del odata[path]
 	
-						if container in cnames and cnames[container] in cdata and len(cdata[cnames[container]]) == 0:
+						if container in cnames and cnames[container] in cdata and len(cdata[cnames[container]]) == 0 and k == '__o2m_remove__':
 							del cdata[onames[container]]
 							del ccontainers[cnames[container]]
 							del cnames[container]
 							
 	
-						if len(odata[onames[container]]) == 0:
+						if len(odata[onames[container]]) == 0  and k == '__o2m_remove__':
 							del odata[onames[container]]
 							del ocontainers[onames[container]]
 							del onames[container]
