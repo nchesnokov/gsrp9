@@ -313,9 +313,6 @@ class DCacheDict(object):
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
 
-		oid = None
-		if 'id' in getattr(self,'_%sdata' % (c,))[path]:
-			oid = getattr(self,'_%sdata' % (c,))[path]['id']
 		for k in filter(lambda x: x != 'id',getattr(self,'_%sdata' % (c,))[path].keys()):
 			if ci[k]['type'] == 'one2many':
 				v = self._o2m_cmpList(o,c,k + '.' + path)
@@ -331,7 +328,7 @@ class DCacheDict(object):
 					res.setdefault('__delete__',{}).update(v['__delete__'])
 
 			elif ci[k]['type'] == 'many2many':
-				v = self._m2m_cmpList(o,c,k + '.' + path,oid)
+				v = self._m2m_cmpList(o,c,k + '.' + path)
 				if '__m2m_append__' in v:			
 					res.setdefault('__m2m_append__',[]).extend(v['__m2m_append__'])
 				if '__m2m_remove__' in v:
@@ -449,7 +446,7 @@ class DCacheDict(object):
 		return res
 
 # mamy2many
-	def _m2m_cmpList(self,o,c,container,oid):
+	def _m2m_cmpList(self,o,c,container):
 		res = {}
 
 		cdata = getattr(self,'_%snames' % (c,))
@@ -492,13 +489,13 @@ class DCacheDict(object):
 			rel = getattr(self,'_%srels' % (c,))[i]
 			self._m2m_buildTree(d1,model,p[1],p[0],model)
 				
-			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1,'__oid__':oid})
+			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1})
 	
 		for d in dk:
 			d1 = ctypes.cast(int(d), ctypes.py_object).value
 			model = getattr(self,'_%smodels' % (o,))[d]
 			rel = getattr(self,'_%rels' % (o,))[d]			
-			res.setdefault('__m2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1,'__oid__':oid})
+			res.setdefault('__m2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1})
 				
 
 		return res
@@ -960,7 +957,7 @@ class MCache(object):
 	def _m2m_add(self,model,container,fields,obj,rel,id1,id2,context={}):
 		
 		rows = self._pool.get(obj).read(self._cr,self._pool,self._uid,id2,fields,self._context)
-		print('M2M-CACHE-ADD:',container,fields,obj,rel,id1,id2,rows)
+		print('M2M-CACHE-ADD:',model,container,fields,obj,rel,id1,id2,rows)
 		
 		p = container.split('.')
 		if len(rows) > 0:
