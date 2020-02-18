@@ -100,7 +100,7 @@ class DCacheDict(object):
 			self._m2m_buildTree(data[m2mfield],ci[m2mfield]['rel'],oid,m2mfield,model)
 
 	def _m2m_buildTree(self,data,rel,parent,name,model):
-		print('_m2m_buildTree:'.upper(),data,rel,parent,name)
+		#print('_m2m_buildTree:'.upper(),data,rel,parent,name)
 		if type(data) == dict:
 			cn = name + '.' + parent
 			coid = self._cnames[cn]
@@ -313,7 +313,9 @@ class DCacheDict(object):
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
 
-		
+		oid = None
+		if 'id' in getattr(self,'_%sdata' % (c,))[path]:
+			oid = getattr(self,'_%sdata' % (c,))[path]['id']
 		for k in filter(lambda x: x != 'id',getattr(self,'_%sdata' % (c,))[path].keys()):
 			if ci[k]['type'] == 'one2many':
 				v = self._o2m_cmpList(o,c,k + '.' + path)
@@ -329,7 +331,7 @@ class DCacheDict(object):
 					res.setdefault('__delete__',{}).update(v['__delete__'])
 
 			elif ci[k]['type'] == 'many2many':
-				v = self._m2m_cmpList(o,c,k + '.' + path)
+				v = self._m2m_cmpList(o,c,k + '.' + path,oid)
 				if '__m2m_append__' in v:			
 					res.setdefault('__m2m_append__',[]).extend(v['__m2m_append__'])
 				if '__m2m_remove__' in v:
@@ -447,7 +449,7 @@ class DCacheDict(object):
 		return res
 
 # mamy2many
-	def _m2m_cmpList(self,o,c,container):
+	def _m2m_cmpList(self,o,c,container,oid):
 		res = {}
 
 		cdata = getattr(self,'_%snames' % (c,))
@@ -490,13 +492,13 @@ class DCacheDict(object):
 			rel = getattr(self,'_%srels' % (c,))[coid]
 			self._m2m_buildTree(d1,model,p[1],p[0],model)
 				
-			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1})
+			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1,'__oid__':oid})
 	
 		for d in dk:
 			d1 = ctypes.cast(int(d), ctypes.py_object).value
 			model = getattr(self,'_%smodels' % (o,))[d]
 			rel = getattr(self,'_%rels' % (o,))[d]			
-			res.setdefault('__m2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1})
+			res.setdefault('__m2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1,'__oid__':oid})
 				
 
 		return res
@@ -558,11 +560,14 @@ class DCacheDict(object):
 		o2m_containers = {}
 		m2m_containers = {}
 		ci = self._cmetas[model]
+		oid = None
+		if 'id' in self._cdata[path]:
+			oid = self._cdata[path]['id']
 		for k in self._cdata[path].keys():
 			if k != 'id' and ci[k]['type'] == 'one2many':
 				o2m_containers[k] = self._get_o2mDataContainers(k + '.' + path)
-			elif k != 'id' and ci[k]['type'] == 'many2many':
-				m2m_containers[k] = self._get_m2mDataContainers(k + '.' + path)
+			elif k != 'id' and ci[k]['type'] == 'many2many':	
+				m2m_containers[k] = self._get_m2mDataContainers(k + '.' + path,oid)
 			else:
 				data[k] = self._cdata[path][k]
 
@@ -590,11 +595,11 @@ class DCacheDict(object):
 			
 		return res
 
-	def _get_m2mDataContainers(self,container):
+	def _get_m2mDataContainers(self,container,oid):
 		res = []
 		
 		for r in self._cdata[self._cnames[container]]:
-			res.append({'__container__':container,'__path__':str(id(r)),'__parent__':container.split('.')[1],'__data__':r})
+			res.append({'__container__':container,'__path__':str(id(r)),'__parent__':container.split('.')[1],'__data__':r,'__oid__':oid})
 			
 		return res
 
@@ -1096,7 +1101,7 @@ class MCache(object):
 				elif k == '__o2m_remove__':
 					self._o2m_removeItems(diffs['__o2m_remove__'])
 				elif k == '__m2m_append__':
-					self._m2m_appendItem(diffs['__m2m_append__'])
+					self._m2m_appendItems(diffs['__m2m_append__'])
 				elif k == '__m2m_remove__':
 					self._m2m_removeItems(diffs['__m2m_remove__'])
 		
@@ -1172,10 +1177,12 @@ class MCache(object):
 			r = m.unlink(self._cr,self._pool,self._uid,oid,self._context)
 
 ###########
-	def _m2m_appendItem(self,item):
-			m2m_containers = item['__m2m_containers__']
-			for key in m2m_containers.keys():
-				self._m2m_appendRows(key,m2m_containers[key])
+	def _m2m_appendItems(self,items):
+			for item in items:
+				m2m_containers = item['__m2m_containers__']
+				for key in m2m_containers.keys():
+					oid = m2m_containers[key]['__oid__']
+					self._m2m_appendRows(key,m2m_containers[key],oid)
 
 	def _m2m_appendRows(self,column,rows,oid):
 			rels = []
