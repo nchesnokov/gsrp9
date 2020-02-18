@@ -208,9 +208,11 @@ class DCacheDict(object):
 						odata[path] = r1
 						onames[container] = cnames[container]
 						ocontainers[cnames[container]] = ccontainers[cnames[container]]
-						ometas[model] = cmetas[model]
-						omodels[path] = cmodels[path] 
-						orels[path] = crels[path]
+						if k == '__o2m_append__':
+							ometas[model] = cmetas[model]
+							omodels[path] = cmodels[path] 
+						elif k == '__m2m_append__':
+							orels[path] = crels[path]
 						opaths[path] = cpaths[path]
 						or2c[path] = cr2c[path] 
 						
