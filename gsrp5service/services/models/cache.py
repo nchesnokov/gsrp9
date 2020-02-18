@@ -548,14 +548,14 @@ class DCacheDict(object):
 		data = {}
 		container = None
 		m2m_container = None
-		containers = {}
+		o2m_containers = {}
 		m2m_containers = {}
 		ci = self._cmetas[model]
 		for k in self._cdata[path].keys():
 			if k != 'id' and ci[k]['type'] == 'one2many':
-				containers[k] = self._get_o2mDataContainers(k + '.' + path)
+				o2m_containers[k] = self._get_o2mDataContainers(k + '.' + path)
 			elif k != 'id' and ci[k]['type'] == 'many2many':
-				containers[k] = self._get_m2mDataContainers(k + '.' + path)
+				m2m_containers[k] = self._get_m2mDataContainers(k + '.' + path)
 			else:
 				data[k] = self._cdata[path][k]
 
@@ -566,8 +566,12 @@ class DCacheDict(object):
 		if container:
 			res['__container__'] = container
 		
-		if len(containers) > 0:
-			res['__o2m_containers__'] = containers
+		if len(o2m_containers) > 0:
+			res['__o2m_containers__'] = o2m_containers
+
+		if len(m2m_containers) > 0:
+			res['__m2m_containers__'] = m2m_containers
+
 
 		return res
 
