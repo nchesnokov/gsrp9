@@ -1172,13 +1172,6 @@ class MCache(object):
 			m = self._pool.get(model)
 			r = m.unlink(self._cr,self._pool,self._uid,oid,self._context)
 
-###########
-	def _m2m_appendItems(self,items):
-			for item in items:
-				print('ITEM:',item)
-				col = item['__container__'].split('.')[0]
-				self._m2m_appendRows(item)
-
 	def _m2m_appendRows(self,rows):
 		rels = []
 		for row in rows:
@@ -1190,7 +1183,7 @@ class MCache(object):
 			id2 = m._columns[c[0]].id2
 			rels.append(row['__data__']['id'])
 			
-		m._m2mcreate(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,context)
+		m._m2mcreate(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
 
 	def _m2m_removeItems(self,items):
 		for item in items:
