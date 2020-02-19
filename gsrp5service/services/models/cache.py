@@ -1222,8 +1222,12 @@ class MCache(object):
 		for key in items.keys():
 			model = self._data._cmodels[key]
 			models.setdefault(model,[]).append(items[key])
-		for model in models.keys(): 
+		for model in models.keys():
 			m = self._pool.get(model)
+			for k in models[model].keys():
+				if m._columns[k]._type in ('many2one','related'):
+					data[k] = data[k]['id']
+			
 			if 'id' in self._data._cdata[key]:
 				items[key]['id'] = self._data._cdata[key]['id']
 				r = m.write(self._cr,self._pool,self._uid,models[model],self._context)
