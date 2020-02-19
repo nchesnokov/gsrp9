@@ -1224,8 +1224,8 @@ class MCache(object):
 			models.setdefault(model,[]).append(items[key])
 		for model in models.keys():
 			m = self._pool.get(model)
-			for r in models[model]:
-				for k in r.keys():
+			for data in models[model]:
+				for k in data.keys():
 					if m._columns[k]._type in ('many2one','related'):
 						data[k] = data[k]['id']
 			
