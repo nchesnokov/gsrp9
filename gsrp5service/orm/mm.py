@@ -1868,7 +1868,7 @@ def _writeRecords(self, cr, pool, uid, records, context):
 
 def _writeRecord(self, cr, pool, uid, record, context):
 	oid = None
-	print('WRITE RECORD:',record)
+	#print('WRITE RECORD:',record)
 	fields = list(record.keys())
 	modelfields = list(self._columns.keys())
 	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS,fields))
@@ -1932,7 +1932,7 @@ def _writeRecord(self, cr, pool, uid, record, context):
 			del record[m2mfield]
 
 	trg1 = self._getTriger('bur')
-	print('TRG1:',trg1)
+	#print('TRG1:',trg1)
 	for trg11 in trg1:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg11(**kwargs)
@@ -1977,7 +1977,7 @@ def _writeRecord(self, cr, pool, uid, record, context):
 				_m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
 	trg2 = self._getTriger('aur')
-	print('TRG2:',trg2)
+	#print('TRG2:',trg2)
 	for trg22 in trg2:
 		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
 		trg22(**kwargs)
