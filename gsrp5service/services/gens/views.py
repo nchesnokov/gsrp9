@@ -394,8 +394,8 @@ def Area(cr, pool, uid, registry, modules = None,context={}):
 					imodels.append(mm)
 		
 		if len(models) + len(imodels) > 0:
-			print('models:',module,models)
-			print('imodels:',module,imodels)
+			print('models:',module,len(models),models)
+			print('imodels:',module,len(imodels),imodels)
 			#return
 			b.write('<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n'.encode('utf-8'))
 			b.write((TAB+'<gsrp>\n').encode('utf-8'))
