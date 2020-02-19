@@ -961,6 +961,13 @@ class MCache(object):
 		p = container.split('.')
 		if len(rows) > 0:
 			for row in rows:
+				if container not in self._data._cnames:
+					cc = []
+					coid = str(id(cc))
+					self._data._ccontainers[coid] = container
+					self._data._cnames[container] = coid
+					self._data._cdata[coid] = cc
+
 				self._data._cdata[self._data._cnames[container]].append(row)
 				self._data._m2m_buildTree(row,rel,p[1],p[0],model)
 				
