@@ -409,6 +409,7 @@ class DCacheDict(object):
 			model = getattr(self,'_%smodels' % (c,))[coid]
 			rel = getattr(self,'_%srels' % (c,))[i]
 			self._buildTree(d1,model,p[1],p[0],'I')
+			self._m2m_buildTree(d1,rel,p[1],p[0],model)
 			ci = getattr(self,'_%smetas' % (c,))[model]
 
 			data = {}
