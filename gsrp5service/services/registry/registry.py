@@ -305,7 +305,7 @@ class Registry(Service):
 						o2mremove.append(o2mfield)
 				else:
 					pass
-					#print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
+					print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
 
 
 			for f in m2oremove:
