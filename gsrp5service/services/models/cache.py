@@ -411,16 +411,30 @@ class DCacheDict(object):
 			ci = getattr(self,'_%smetas' % (c,))[model]
 
 			data = {}
+
+			for v in filter(lambda x: x != 'id' and ci[x]['type'] != 'many2many',getattr(self,'_%sdata' % (c,))[i].keys()):
+				data[v] = getattr(self,'_%sdata' % (c,))[i][v]
+
+			container = self._ccontainers[getattr(self,'_%sr2c' % (c,))[i]]
+			m2m_containers = {}
+			for k in filter(lambda x: x != 'id ' and ci[x]['type'] == 'many2many',getattr(self,'_%sdata' % (c,))[i].keys()):
+				r1 = self._m2m_cmpList(o,c,k + '.' + i)
+				m2m_containers.setdefault(k,[]).extend(r1['__m2m_append__'] if '__m2m_append__' in r1 else [])
+				
+			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__rel__':rel,'__data__':data,'__containers__':m2m_containers})
+
 			for v in filter(lambda x: x != 'id' and ci[x]['type'] != 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				data[v] = getattr(self,'_%sdata' % (c,))[i][v]
 
 			container = self._ccontainers[getattr(self,'_%sr2c' % (c,))[i]]
-			containers = {}
+			o2m_containers = {}
 			for k in filter(lambda x: x != 'id ' and ci[x]['type'] == 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				r1 = self._o2m_cmpList(o,c,k + '.' + i)
-				containers.setdefault(k,[]).extend(r1['__o2m_append__'] if '__o2m_append__' in r1 else [])
+				o2m_containers.setdefault(k,[]).extend(r1['__o2m_append__'] if '__o2m_append__' in r1 else [])
 				
-			res.setdefault('__o2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__containers__':containers})
+			res.setdefault('__o2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__containers__':o2m_containers})
+
+
 	
 		for d in dk:
 			model = getattr(self,'_%smodels' % (o,))[d]

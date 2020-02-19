@@ -292,7 +292,6 @@ class mm_technologic_order_items(Model):
 	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
 		if item['recepture_id'] and 'name' in item['recepture_id'] and item['recepture_id']['name']:
 			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture_id']['name'])],context)
-			print('_on_change_recepture-in:'.upper(),p)
 			for i in p:
 				ei = pool.get('mm.technologic.order.item.ibob')._buildEmptyItem()
 				ei['product'] = i['product']
@@ -303,7 +302,6 @@ class mm_technologic_order_items(Model):
 				item['ibobs'].append(ei)
 				
 			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture_id']['name'])],context)
-			print('_on_change_recepture-out:'.upper(),p)
 			for i in p:
 				ei = pool.get('mm.technologic.order.item.obob')._buildEmptyItem()
 				ei['product'] = i['product']
