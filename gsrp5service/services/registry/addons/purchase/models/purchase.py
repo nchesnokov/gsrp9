@@ -788,41 +788,41 @@ class purchase_order_items(Model):
 		'ad': '_trgAfterDeleteDA1',
 		}
 
-	def _trgForEachRowBeforeInsertIB1(self,cr,pool,uid,record,context):
+	def _trgForEachRowBeforeInsertIB1(self,cr,pool,uid,r1,context):
 		print('Triger For Each Row Before Insert')
 
-	def _trgForEachRowAfterInsertIA1(self,cr,pool,uid,record,context):
+	def _trgForEachRowAfterInsertIA1(self,cr,pool,uid,r1,context):
 		print('Triger For Each Row After Insert')
 
-	def _trgBeforeInsertIBA1(self,cr,pool,uid,records,context):
+	def _trgBeforeInsertIBA1(self,cr,pool,uid,r1,context):
 		print('Triger Before Insert')
 
-	def _trgAfterInsertIAA1(self,cr,pool,uid,records,context):
+	def _trgAfterInsertIAA1(self,cr,pool,uid,r1,context):
 		print('Triger After Insert')
 
 #
-	def _trgForEachRowBeforeUpdateUB1(self,cr,pool,uid,record,context):
+	def _trgForEachRowBeforeUpdateUB1(self,cr,pool,uid,r1,r2,context):
 		print('Triger For Each Row Before Update')
 
-	def _trgForEachRowAfterUpdateUA1(self,cr,pool,uid,record,context):
+	def _trgForEachRowAfterUpdateUA1(self,cr,pool,uid,r1,r2,context):
 		print('Triger For Each Row After Update')
 
-	def _trgBeforeUpdateUBA1(self,cr,pool,uid,records,context):
+	def _trgBeforeUpdateUBA1(self,cr,pool,uid,r1,r2,context):
 		print('Triger Before Update')
 
-	def _trgAfterUpdateIUA1(self,cr,pool,uid,records,context):
+	def _trgAfterUpdateIUA1(self,cr,pool,uid,r1,r2,context):
 		print('Triger After Update')
 #
-	def _trgForEachRowBeforeDeleteDB1(self,cr,pool,uid,oid,context):
+	def _trgForEachRowBeforeDeleteDB1(self,cr,pool,uid,r2,context):
 		print('Triger For Each Row Before Delete')
 
-	def _trgForEachRowAfterDeleteDA1(self,cr,pool,uid,oid,context):
+	def _trgForEachRowAfterDeleteDA1(self,cr,pool,uid,r2,context):
 		print('Triger For Each Row After Delete')
 
-	def _trgBeforeDeleteDBA1(self,cr,pool,uid,oids,context):
+	def _trgBeforeDeleteDBA1(self,cr,pool,uid,r2,context):
 		print('Triger Before Delete')
 
-	def _trgAfterDeleteDA1(self,cr,pool,uid,oids,context):
+	def _trgAfterDeleteDA1(self,cr,pool,uid,r2,context):
 		print('Triger After Delete')
 
 
