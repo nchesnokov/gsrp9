@@ -135,11 +135,11 @@
           <column name="action_id">action.purchase.orders.search</column>
           </record>
           <record id="ui.menu.purchase.invoices.search">
-          <column name="sequence">11</column>
+          <column name="sequence">3</column>
             <column name="name">ui.menu.purchase.invoices.search</column>
             <column name="label">Purchase Invoice</column>
           <column name="parent_id">ui.menu.purchase</column>
-          <column name="sequence">110</column>
+          <column name="sequence">30</column>
           <column name="action_id">action.purchase.invoices.search</column>
           </record>
       </records>
@@ -176,11 +176,11 @@
           <column name="action_id">action.purchase.orders.report</column>
           </record>
           <record id="ui.menu.purchase.invoices.report">
-          <column name="sequence">11</column>
+          <column name="sequence">3</column>
             <column name="name">ui.menu.purchase.invoices.report</column>
             <column name="label">Purchase Invoice</column>
           <column name="parent_id">ui.menu.purchase.report</column>
-          <column name="sequence">110</column>
+          <column name="sequence">30</column>
           <column name="action_id">action.purchase.invoices.report</column>
           </record>
       </records>
@@ -247,6 +247,14 @@
         </record>
         <record id="action.purchase.teams.custom">
           <column name="name">action.purchase.teams.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.texts.custom">
+          <column name="name">action.purchase.texts.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.schema.texts.custom">
+          <column name="name">action.purchase.schema.texts.custom</column>
           <column name="ta">View</column>
         </record>
         <record id="action.purchase.order.types.custom">
@@ -322,6 +330,14 @@
         <record id="view.action.purchase.teams.custom">
           <column name="action_id">action.purchase.teams.custom</column>
           <column name="view_id">view.purchase.teams.search</column>
+        </record>
+        <record id="view.action.purchase.texts.custom">
+          <column name="action_id">action.purchase.texts.custom</column>
+          <column name="view_id">view.purchase.texts.search</column>
+        </record>
+        <record id="view.action.purchase.schema.texts.custom">
+          <column name="action_id">action.purchase.schema.texts.custom</column>
+          <column name="view_id">view.purchase.schema.texts.search</column>
         </record>
         <record id="view.action.purchase.order.types.custom">
           <column name="action_id">action.purchase.order.types.custom</column>
@@ -453,35 +469,51 @@
           <column name="action_id">action.purchase.subdivisions.custom</column>
           </record>
           <record id="ui.menu.purchase.markets.custom">
-          <column name="sequence">19</column>
+          <column name="sequence">14</column>
             <column name="name">ui.menu.purchase.markets.custom</column>
             <column name="label">Purchase Market</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">190</column>
+          <column name="sequence">140</column>
           <column name="action_id">action.purchase.markets.custom</column>
           </record>
           <record id="ui.menu.purchase.teams.custom">
-          <column name="sequence">20</column>
+          <column name="sequence">15</column>
             <column name="name">ui.menu.purchase.teams.custom</column>
             <column name="label">Purchase Teams</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">200</column>
+          <column name="sequence">150</column>
           <column name="action_id">action.purchase.teams.custom</column>
           </record>
+          <record id="ui.menu.purchase.texts.custom">
+          <column name="sequence">16</column>
+            <column name="name">ui.menu.purchase.texts.custom</column>
+            <column name="label">Purchase Texts</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">160</column>
+          <column name="action_id">action.purchase.texts.custom</column>
+          </record>
+          <record id="ui.menu.purchase.schema.texts.custom">
+          <column name="sequence">17</column>
+            <column name="name">ui.menu.purchase.schema.texts.custom</column>
+            <column name="label">Schema Of Purchase Texts</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">170</column>
+          <column name="action_id">action.purchase.schema.texts.custom</column>
+          </record>
           <record id="ui.menu.purchase.order.types.custom">
-          <column name="sequence">22</column>
+          <column name="sequence">18</column>
             <column name="name">ui.menu.purchase.order.types.custom</column>
             <column name="label">Types Purchase Order</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">220</column>
+          <column name="sequence">180</column>
           <column name="action_id">action.purchase.order.types.custom</column>
           </record>
           <record id="ui.menu.purchase.invoice.types.custom">
-          <column name="sequence">26</column>
+          <column name="sequence">19</column>
             <column name="name">ui.menu.purchase.invoice.types.custom</column>
             <column name="label">Types Purchase Invoice</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">260</column>
+          <column name="sequence">190</column>
           <column name="action_id">action.purchase.invoice.types.custom</column>
           </record>
       </records>
@@ -548,6 +580,14 @@
         </record>
         <record id="action.purchase.teams.report">
           <column name="name">action.purchase.teams.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.texts.report">
+          <column name="name">action.purchase.texts.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.schema.texts.report">
+          <column name="name">action.purchase.schema.texts.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.purchase.order.types.report">
@@ -672,6 +712,20 @@
           <column name="infile">infile_purchase_teams.docx</column>
           <column name="outfile">outfile_purchase_teams.docx</column>
         </record>
+        <record id="bc.ui.report.docx.purchase.texts">
+          <column name="name">bc.ui.report.docx.purchase.texts</column>
+          <column name="label">Purchase Texts</column>
+          <column name="report">report_purchase_texts</column>
+          <column name="infile">infile_purchase_texts.docx</column>
+          <column name="outfile">outfile_purchase_texts.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.schema.texts">
+          <column name="name">bc.ui.report.docx.purchase.schema.texts</column>
+          <column name="label">Schema Of Purchase Texts</column>
+          <column name="report">report_purchase_schema_texts</column>
+          <column name="infile">infile_purchase_schema_texts.docx</column>
+          <column name="outfile">outfile_purchase_schema_texts.docx</column>
+        </record>
         <record id="bc.ui.report.docx.purchase.order.types">
           <column name="name">bc.ui.report.docx.purchase.order.types</column>
           <column name="label">Types Purchase Order</column>
@@ -751,6 +805,14 @@
         <record id="report.action.purchase.teams.report">
           <column name="action_id">action.purchase.teams.report</column>
           <column name="report_id">bc.ui.report.docx.purchase.teams</column>
+        </record>
+        <record id="report.action.purchase.texts.report">
+          <column name="action_id">action.purchase.texts.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.texts</column>
+        </record>
+        <record id="report.action.purchase.schema.texts.report">
+          <column name="action_id">action.purchase.schema.texts.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.schema.texts</column>
         </record>
         <record id="report.action.purchase.order.types.report">
           <column name="action_id">action.purchase.order.types.report</column>
@@ -882,35 +944,51 @@
           <column name="action_id">action.purchase.subdivisions.report</column>
           </record>
           <record id="ui.menu.purchase.markets.report">
-          <column name="sequence">19</column>
+          <column name="sequence">14</column>
             <column name="name">ui.menu.purchase.markets.report</column>
             <column name="label">Purchase Market</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">190</column>
+          <column name="sequence">140</column>
           <column name="action_id">action.purchase.markets.report</column>
           </record>
           <record id="ui.menu.purchase.teams.report">
-          <column name="sequence">20</column>
+          <column name="sequence">15</column>
             <column name="name">ui.menu.purchase.teams.report</column>
             <column name="label">Purchase Teams</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">200</column>
+          <column name="sequence">150</column>
           <column name="action_id">action.purchase.teams.report</column>
           </record>
+          <record id="ui.menu.purchase.texts.report">
+          <column name="sequence">16</column>
+            <column name="name">ui.menu.purchase.texts.report</column>
+            <column name="label">Purchase Texts</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">160</column>
+          <column name="action_id">action.purchase.texts.report</column>
+          </record>
+          <record id="ui.menu.purchase.schema.texts.report">
+          <column name="sequence">17</column>
+            <column name="name">ui.menu.purchase.schema.texts.report</column>
+            <column name="label">Schema Of Purchase Texts</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">170</column>
+          <column name="action_id">action.purchase.schema.texts.report</column>
+          </record>
           <record id="ui.menu.purchase.order.types.report">
-          <column name="sequence">22</column>
+          <column name="sequence">18</column>
             <column name="name">ui.menu.purchase.order.types.report</column>
             <column name="label">Types Purchase Order</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">220</column>
+          <column name="sequence">180</column>
           <column name="action_id">action.purchase.order.types.report</column>
           </record>
           <record id="ui.menu.purchase.invoice.types.report">
-          <column name="sequence">26</column>
+          <column name="sequence">19</column>
             <column name="name">ui.menu.purchase.invoice.types.report</column>
             <column name="label">Types Purchase Invoice</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">260</column>
+          <column name="sequence">190</column>
           <column name="action_id">action.purchase.invoice.types.report</column>
           </record>
       </records>

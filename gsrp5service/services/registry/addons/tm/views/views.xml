@@ -583,6 +583,28 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.tm.template.equipment.search">
+          <column name="name">view.tm.template.equipment.search</column>
+          <column name="model">tm.template.equipment</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="state"/>
+              <field name="inactive"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.tm.template.equipment.find">
+          <column name="name">view.tm.template.equipment.find</column>
+          <column name="model">tm.template.equipment</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="state"/>
+              <field name="inactive"/>
+            </find>
+          </column>
+        </record>
         <record id="view.tm.template.nodes.form">
           <column name="name">view.tm.template.nodes.form</column>
           <column name="model">tm.template.nodes</column>

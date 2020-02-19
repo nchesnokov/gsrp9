@@ -34,6 +34,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.ctrm.channels.search">
+          <column name="name">view.ctrm.channels.search</column>
+          <column name="model">ctrm.channels</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.channels.find">
+          <column name="name">view.ctrm.channels.find</column>
+          <column name="model">ctrm.channels</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.ctrm.sectors.form">
           <column name="name">view.ctrm.sectors.form</column>
           <column name="model">ctrm.sectors</column>
@@ -121,6 +141,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.ctrm.teams.search">
+          <column name="name">view.ctrm.teams.search</column>
+          <column name="model">ctrm.teams</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.teams.find">
+          <column name="name">view.ctrm.teams.find</column>
+          <column name="model">ctrm.teams</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.ctrm.groups.form">
           <column name="name">view.ctrm.groups.form</column>
           <column name="model">ctrm.groups</column>
@@ -206,6 +246,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.ctrm.texts.search">
+          <column name="name">view.ctrm.texts.search</column>
+          <column name="model">ctrm.texts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.texts.find">
+          <column name="name">view.ctrm.texts.find</column>
+          <column name="model">ctrm.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.ctrm.schema.texts.form">
           <column name="name">view.ctrm.schema.texts.form</column>
           <column name="model">ctrm.schema.texts</column>
@@ -239,6 +299,28 @@
               <field name="code"/>
               <field name="descr"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.ctrm.schema.texts.search">
+          <column name="name">view.ctrm.schema.texts.search</column>
+          <column name="model">ctrm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ctrm.schema.texts.find">
+          <column name="name">view.ctrm.schema.texts.find</column>
+          <column name="model">ctrm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
           </column>
         </record>
         <record id="view.ctrm.schema.text.items.form">

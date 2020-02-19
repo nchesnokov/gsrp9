@@ -60,6 +60,24 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.qm.category.search">
+          <column name="name">view.qm.category.search</column>
+          <column name="model">qm.category</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.qm.category.find">
+          <column name="name">view.qm.category.find</column>
+          <column name="model">qm.category</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+            </find>
+          </column>
+        </record>
       </records>
       <records model="bc.ui.views.inherit">
         <record id="view.md.quality.product.inherit.form.inherit.md.product">

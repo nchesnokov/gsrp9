@@ -1177,6 +1177,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.channels.search">
+          <column name="name">view.crm.channels.search</column>
+          <column name="model">crm.channels</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm.channels.find">
+          <column name="name">view.crm.channels.find</column>
+          <column name="model">crm.channels</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.sectors.form">
           <column name="name">view.crm.sectors.form</column>
           <column name="model">crm.sectors</column>
@@ -1264,6 +1284,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.teams.search">
+          <column name="name">view.crm.teams.search</column>
+          <column name="model">crm.teams</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm.teams.find">
+          <column name="name">view.crm.teams.find</column>
+          <column name="model">crm.teams</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.groups.form">
           <column name="name">view.crm.groups.form</column>
           <column name="model">crm.groups</column>
@@ -1349,6 +1389,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.crm.texts.search">
+          <column name="name">view.crm.texts.search</column>
+          <column name="model">crm.texts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm.texts.find">
+          <column name="name">view.crm.texts.find</column>
+          <column name="model">crm.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.crm.schema.texts.form">
           <column name="name">view.crm.schema.texts.form</column>
           <column name="model">crm.schema.texts</column>
@@ -1382,6 +1442,28 @@
               <field name="code"/>
               <field name="descr"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.crm.schema.texts.search">
+          <column name="name">view.crm.schema.texts.search</column>
+          <column name="model">crm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.crm.schema.texts.find">
+          <column name="name">view.crm.schema.texts.find</column>
+          <column name="model">crm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
           </column>
         </record>
         <record id="view.crm.schema.text.items.form">

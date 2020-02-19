@@ -97,6 +97,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.bc.langs.search">
+          <column name="name">view.bc.langs.search</column>
+          <column name="model">bc.langs</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="description"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.langs.find">
+          <column name="name">view.bc.langs.find</column>
+          <column name="model">bc.langs</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="description"/>
+            </find>
+          </column>
+        </record>
         <record id="view.bc.group.modules.form">
           <column name="name">view.bc.group.modules.form</column>
           <column name="model">bc.group.modules</column>
@@ -404,6 +424,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.bc.class.models.search">
+          <column name="name">view.bc.class.models.search</column>
+          <column name="model">bc.class.models</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.class.models.find">
+          <column name="name">view.bc.class.models.find</column>
+          <column name="model">bc.class.models</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.bc.class.categories.form">
           <column name="name">view.bc.class.categories.form</column>
           <column name="model">bc.class.categories</column>
@@ -433,6 +473,26 @@
               <field name="name"/>
               <field name="descr"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.class.categories.search">
+          <column name="name">view.bc.class.categories.search</column>
+          <column name="model">bc.class.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.class.categories.find">
+          <column name="name">view.bc.class.categories.find</column>
+          <column name="model">bc.class.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="descr"/>
+            </find>
           </column>
         </record>
         <record id="view.bc.models.form">
@@ -1347,6 +1407,32 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.bc.ui.reports.search">
+          <column name="name">view.bc.ui.reports.search</column>
+          <column name="model">bc.ui.reports</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="report"/>
+              <field name="infile"/>
+              <field name="outfile"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.ui.reports.find">
+          <column name="name">view.bc.ui.reports.find</column>
+          <column name="model">bc.ui.reports</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="label"/>
+              <field name="report"/>
+              <field name="infile"/>
+              <field name="outfile"/>
+            </find>
+          </column>
+        </record>
         <record id="view.bc.actions.form">
           <column name="name">view.bc.actions.form</column>
           <column name="model">bc.actions</column>
@@ -1379,6 +1465,26 @@
               <field name="name"/>
               <field name="ta"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.actions.search">
+          <column name="name">view.bc.actions.search</column>
+          <column name="model">bc.actions</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="ta"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.actions.find">
+          <column name="name">view.bc.actions.find</column>
+          <column name="model">bc.actions</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="ta"/>
+            </find>
           </column>
         </record>
         <record id="view.bc.view.actions.form">

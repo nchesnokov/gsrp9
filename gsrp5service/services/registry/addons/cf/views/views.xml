@@ -33,6 +33,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.cf.groups.search">
+          <column name="name">view.cf.groups.search</column>
+          <column name="model">cf.groups</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="code"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.cf.groups.find">
+          <column name="name">view.cf.groups.find</column>
+          <column name="model">cf.groups</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="code"/>
+            </find>
+          </column>
+        </record>
         <record id="view.cf.tags.form">
           <column name="name">view.cf.tags.form</column>
           <column name="model">cf.tags</column>
@@ -61,6 +81,24 @@
             <m2mlist>
               <field name="tag"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.cf.tags.search">
+          <column name="name">view.cf.tags.search</column>
+          <column name="model">cf.tags</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="tag"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.cf.tags.find">
+          <column name="name">view.cf.tags.find</column>
+          <column name="model">cf.tags</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="tag"/>
+            </find>
           </column>
         </record>
         <record id="view.cf.file.access.users.form">

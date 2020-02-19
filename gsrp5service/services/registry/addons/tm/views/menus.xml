@@ -36,6 +36,10 @@
           <column name="name">action.tm.category.equipment.search</column>
           <column name="ta">View</column>
         </record>
+        <record id="action.tm.template.equipment.search">
+          <column name="name">action.tm.template.equipment.search</column>
+          <column name="ta">View</column>
+        </record>
         <record id="action.tm.unit.equipments.search">
           <column name="name">action.tm.unit.equipments.search</column>
           <column name="ta">View</column>
@@ -72,6 +76,10 @@
         </record>
         <record id="action.tm.category.equipment.report">
           <column name="name">action.tm.category.equipment.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.tm.template.equipment.report">
+          <column name="name">action.tm.template.equipment.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.tm.unit.equipments.report">
@@ -111,6 +119,10 @@
         <record id="view.action.tm.category.equipment.search">
           <column name="action_id">action.tm.category.equipment.search</column>
           <column name="view_id">view.tm.category.equipment.search</column>
+        </record>
+        <record id="view.action.tm.template.equipment.search">
+          <column name="action_id">action.tm.template.equipment.search</column>
+          <column name="view_id">view.tm.template.equipment.search</column>
         </record>
         <record id="view.action.tm.unit.equipments.search">
           <column name="action_id">action.tm.unit.equipments.search</column>
@@ -171,6 +183,13 @@
           <column name="infile">infile_tm_category_equipment.docx</column>
           <column name="outfile">outfile_tm_category_equipment.docx</column>
         </record>
+        <record id="bc.ui.report.docx.tm.template.equipment">
+          <column name="name">bc.ui.report.docx.tm.template.equipment</column>
+          <column name="label">Template Equipment</column>
+          <column name="report">report_tm_template_equipment</column>
+          <column name="infile">infile_tm_template_equipment.docx</column>
+          <column name="outfile">outfile_tm_template_equipment.docx</column>
+        </record>
         <record id="bc.ui.report.docx.tm.unit.equipments">
           <column name="name">bc.ui.report.docx.tm.unit.equipments</column>
           <column name="label">Unit Equipments</column>
@@ -215,6 +234,10 @@
           <column name="action_id">action.tm.category.equipment.report</column>
           <column name="report_id">bc.ui.report.docx.tm.category.equipment</column>
         </record>
+        <record id="report.action.tm.template.equipment.report">
+          <column name="action_id">action.tm.template.equipment.report</column>
+          <column name="report_id">bc.ui.report.docx.tm.template.equipment</column>
+        </record>
         <record id="report.action.tm.unit.equipments.report">
           <column name="action_id">action.tm.unit.equipments.report</column>
           <column name="report_id">bc.ui.report.docx.tm.unit.equipments</column>
@@ -226,75 +249,83 @@
       </records>
       <records model="bc.ui.menus">
           <record id="ui.menu.tm.locations.search">
-          <column name="sequence">1</column>
+          <column name="sequence">0</column>
             <column name="name">ui.menu.tm.locations.search</column>
             <column name="label">Locations</column>
           <column name="parent_id">ui.menu.tm</column>
-          <column name="sequence">10</column>
+          <column name="sequence">0</column>
           <column name="action_id">action.tm.locations.search</column>
           </record>
           <record id="ui.menu.tm.maps.search">
-          <column name="sequence">2</column>
+          <column name="sequence">1</column>
             <column name="name">ui.menu.tm.maps.search</column>
             <column name="label">Maps</column>
           <column name="parent_id">ui.menu.tm</column>
-          <column name="sequence">20</column>
+          <column name="sequence">10</column>
           <column name="action_id">action.tm.maps.search</column>
           </record>
           <record id="ui.menu.tm.handlings.search">
-          <column name="sequence">3</column>
+          <column name="sequence">2</column>
             <column name="name">ui.menu.tm.handlings.search</column>
             <column name="label">Handlings</column>
           <column name="parent_id">ui.menu.tm</column>
-          <column name="sequence">30</column>
+          <column name="sequence">20</column>
           <column name="action_id">action.tm.handlings.search</column>
           </record>
           <record id="ui.menu.tm.category.node.search">
-          <column name="sequence">4</column>
+          <column name="sequence">3</column>
             <column name="name">ui.menu.tm.category.node.search</column>
             <column name="label">Category Node</column>
           <column name="parent_id">ui.menu.tm</column>
-          <column name="sequence">40</column>
+          <column name="sequence">30</column>
           <column name="action_id">action.tm.category.node.search</column>
           </record>
           <record id="ui.menu.tm.nodes.search">
-          <column name="sequence">5</column>
+          <column name="sequence">4</column>
             <column name="name">ui.menu.tm.nodes.search</column>
             <column name="label">Nodes</column>
           <column name="parent_id">ui.menu.tm</column>
-          <column name="sequence">50</column>
+          <column name="sequence">40</column>
           <column name="action_id">action.tm.nodes.search</column>
           </record>
           <record id="ui.menu.tm.node.items.search">
-          <column name="sequence">6</column>
+          <column name="sequence">5</column>
             <column name="name">ui.menu.tm.node.items.search</column>
             <column name="label">Node Items</column>
           <column name="parent_id">ui.menu.tm</column>
-          <column name="sequence">60</column>
+          <column name="sequence">50</column>
           <column name="action_id">action.tm.node.items.search</column>
           </record>
           <record id="ui.menu.tm.category.equipment.search">
-          <column name="sequence">7</column>
+          <column name="sequence">6</column>
             <column name="name">ui.menu.tm.category.equipment.search</column>
             <column name="label">Category Equipment</column>
           <column name="parent_id">ui.menu.tm</column>
-          <column name="sequence">70</column>
+          <column name="sequence">60</column>
           <column name="action_id">action.tm.category.equipment.search</column>
           </record>
+          <record id="ui.menu.tm.template.equipment.search">
+          <column name="sequence">7</column>
+            <column name="name">ui.menu.tm.template.equipment.search</column>
+            <column name="label">Template Equipment</column>
+          <column name="parent_id">ui.menu.tm</column>
+          <column name="sequence">70</column>
+          <column name="action_id">action.tm.template.equipment.search</column>
+          </record>
           <record id="ui.menu.tm.unit.equipments.search">
-          <column name="sequence">11</column>
+          <column name="sequence">8</column>
             <column name="name">ui.menu.tm.unit.equipments.search</column>
             <column name="label">Unit Equipments</column>
           <column name="parent_id">ui.menu.tm</column>
-          <column name="sequence">110</column>
+          <column name="sequence">80</column>
           <column name="action_id">action.tm.unit.equipments.search</column>
           </record>
           <record id="ui.menu.tm.orders.search">
-          <column name="sequence">12</column>
+          <column name="sequence">9</column>
             <column name="name">ui.menu.tm.orders.search</column>
             <column name="label">Order</column>
           <column name="parent_id">ui.menu.tm</column>
-          <column name="sequence">120</column>
+          <column name="sequence">90</column>
           <column name="action_id">action.tm.orders.search</column>
           </record>
       </records>
@@ -307,75 +338,83 @@
       </records>
       <records model="bc.ui.menus">
           <record id="ui.menu.tm.locations.report">
-          <column name="sequence">1</column>
+          <column name="sequence">0</column>
             <column name="name">ui.menu.tm.locations.report</column>
             <column name="label">Locations</column>
           <column name="parent_id">ui.menu.tm.report</column>
-          <column name="sequence">10</column>
+          <column name="sequence">0</column>
           <column name="action_id">action.tm.locations.report</column>
           </record>
           <record id="ui.menu.tm.maps.report">
-          <column name="sequence">2</column>
+          <column name="sequence">1</column>
             <column name="name">ui.menu.tm.maps.report</column>
             <column name="label">Maps</column>
           <column name="parent_id">ui.menu.tm.report</column>
-          <column name="sequence">20</column>
+          <column name="sequence">10</column>
           <column name="action_id">action.tm.maps.report</column>
           </record>
           <record id="ui.menu.tm.handlings.report">
-          <column name="sequence">3</column>
+          <column name="sequence">2</column>
             <column name="name">ui.menu.tm.handlings.report</column>
             <column name="label">Handlings</column>
           <column name="parent_id">ui.menu.tm.report</column>
-          <column name="sequence">30</column>
+          <column name="sequence">20</column>
           <column name="action_id">action.tm.handlings.report</column>
           </record>
           <record id="ui.menu.tm.category.node.report">
-          <column name="sequence">4</column>
+          <column name="sequence">3</column>
             <column name="name">ui.menu.tm.category.node.report</column>
             <column name="label">Category Node</column>
           <column name="parent_id">ui.menu.tm.report</column>
-          <column name="sequence">40</column>
+          <column name="sequence">30</column>
           <column name="action_id">action.tm.category.node.report</column>
           </record>
           <record id="ui.menu.tm.nodes.report">
-          <column name="sequence">5</column>
+          <column name="sequence">4</column>
             <column name="name">ui.menu.tm.nodes.report</column>
             <column name="label">Nodes</column>
           <column name="parent_id">ui.menu.tm.report</column>
-          <column name="sequence">50</column>
+          <column name="sequence">40</column>
           <column name="action_id">action.tm.nodes.report</column>
           </record>
           <record id="ui.menu.tm.node.items.report">
-          <column name="sequence">6</column>
+          <column name="sequence">5</column>
             <column name="name">ui.menu.tm.node.items.report</column>
             <column name="label">Node Items</column>
           <column name="parent_id">ui.menu.tm.report</column>
-          <column name="sequence">60</column>
+          <column name="sequence">50</column>
           <column name="action_id">action.tm.node.items.report</column>
           </record>
           <record id="ui.menu.tm.category.equipment.report">
-          <column name="sequence">7</column>
+          <column name="sequence">6</column>
             <column name="name">ui.menu.tm.category.equipment.report</column>
             <column name="label">Category Equipment</column>
           <column name="parent_id">ui.menu.tm.report</column>
-          <column name="sequence">70</column>
+          <column name="sequence">60</column>
           <column name="action_id">action.tm.category.equipment.report</column>
           </record>
+          <record id="ui.menu.tm.template.equipment.report">
+          <column name="sequence">7</column>
+            <column name="name">ui.menu.tm.template.equipment.report</column>
+            <column name="label">Template Equipment</column>
+          <column name="parent_id">ui.menu.tm.report</column>
+          <column name="sequence">70</column>
+          <column name="action_id">action.tm.template.equipment.report</column>
+          </record>
           <record id="ui.menu.tm.unit.equipments.report">
-          <column name="sequence">11</column>
+          <column name="sequence">8</column>
             <column name="name">ui.menu.tm.unit.equipments.report</column>
             <column name="label">Unit Equipments</column>
           <column name="parent_id">ui.menu.tm.report</column>
-          <column name="sequence">110</column>
+          <column name="sequence">80</column>
           <column name="action_id">action.tm.unit.equipments.report</column>
           </record>
           <record id="ui.menu.tm.orders.report">
-          <column name="sequence">12</column>
+          <column name="sequence">9</column>
             <column name="name">ui.menu.tm.orders.report</column>
             <column name="label">Order</column>
           <column name="parent_id">ui.menu.tm.report</column>
-          <column name="sequence">120</column>
+          <column name="sequence">90</column>
           <column name="action_id">action.tm.orders.report</column>
           </record>
       </records>

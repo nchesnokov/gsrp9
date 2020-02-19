@@ -1285,6 +1285,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.sale.texts.search">
+          <column name="name">view.sale.texts.search</column>
+          <column name="model">sale.texts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.sale.texts.find">
+          <column name="name">view.sale.texts.find</column>
+          <column name="model">sale.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.sale.schema.texts.form">
           <column name="name">view.sale.schema.texts.form</column>
           <column name="model">sale.schema.texts</column>
@@ -1318,6 +1338,28 @@
               <field name="code"/>
               <field name="descr"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.sale.schema.texts.search">
+          <column name="name">view.sale.schema.texts.search</column>
+          <column name="model">sale.schema.texts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.sale.schema.texts.find">
+          <column name="name">view.sale.schema.texts.find</column>
+          <column name="model">sale.schema.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
           </column>
         </record>
         <record id="view.sale.schema.text.items.form">

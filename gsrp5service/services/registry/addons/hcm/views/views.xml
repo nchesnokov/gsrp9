@@ -33,6 +33,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.hcm.employee.categories.search">
+          <column name="name">view.hcm.employee.categories.search</column>
+          <column name="model">hcm.employee.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="color"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.hcm.employee.categories.find">
+          <column name="name">view.hcm.employee.categories.find</column>
+          <column name="model">hcm.employee.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="color"/>
+            </find>
+          </column>
+        </record>
         <record id="view.hcm.department.form">
           <column name="name">view.hcm.department.form</column>
           <column name="model">hcm.department</column>

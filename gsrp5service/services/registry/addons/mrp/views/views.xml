@@ -32,6 +32,26 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.mrp.texts.search">
+          <column name="name">view.mrp.texts.search</column>
+          <column name="model">mrp.texts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.mrp.texts.find">
+          <column name="name">view.mrp.texts.find</column>
+          <column name="model">mrp.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.mrp.schema.texts.form">
           <column name="name">view.mrp.schema.texts.form</column>
           <column name="model">mrp.schema.texts</column>
@@ -65,6 +85,28 @@
               <field name="code"/>
               <field name="descr"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.mrp.schema.texts.search">
+          <column name="name">view.mrp.schema.texts.search</column>
+          <column name="model">mrp.schema.texts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.mrp.schema.texts.find">
+          <column name="name">view.mrp.schema.texts.find</column>
+          <column name="model">mrp.schema.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
           </column>
         </record>
         <record id="view.mrp.schema.text.items.form">

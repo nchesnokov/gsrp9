@@ -8,16 +8,47 @@
         </record>
       </records>
       <records model="bc.actions">
+        <record id="action.wkf1.workplace.search">
+          <column name="name">action.wkf1.workplace.search</column>
+          <column name="ta">View</column>
+        </record>
       </records>
       <records model="bc.actions">
+        <record id="action.wkf1.workplace.report">
+          <column name="name">action.wkf1.workplace.report</column>
+          <column name="ta">Report</column>
+        </record>
       </records>
       <records model="bc.view.actions">
+        <record id="view.action.wkf1.workplace.search">
+          <column name="action_id">action.wkf1.workplace.search</column>
+          <column name="view_id">view.wkf1.workplace.search</column>
+        </record>
       </records>
       <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.wkf1.workplace">
+          <column name="name">bc.ui.report.docx.wkf1.workplace</column>
+          <column name="label">Workplaces</column>
+          <column name="report">report_wkf1_workplace</column>
+          <column name="infile">infile_wkf1_workplace.docx</column>
+          <column name="outfile">outfile_wkf1_workplace.docx</column>
+        </record>
       </records>
       <records model="bc.report.actions">
+        <record id="report.action.wkf1.workplace.report">
+          <column name="action_id">action.wkf1.workplace.report</column>
+          <column name="report_id">bc.ui.report.docx.wkf1.workplace</column>
+        </record>
       </records>
       <records model="bc.ui.menus">
+          <record id="ui.menu.wkf1.workplace.search">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.wkf1.workplace.search</column>
+            <column name="label">Workplaces</column>
+          <column name="parent_id">ui.menu.wkf_srm</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.wkf1.workplace.search</column>
+          </record>
       </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.wkf_srm.report">
@@ -27,6 +58,14 @@
         </record>
       </records>
       <records model="bc.ui.menus">
+          <record id="ui.menu.wkf1.workplace.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.wkf1.workplace.report</column>
+            <column name="label">Workplaces</column>
+          <column name="parent_id">ui.menu.wkf_srm.report</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.wkf1.workplace.report</column>
+          </record>
       </records>
     </data>
   </gsrp>

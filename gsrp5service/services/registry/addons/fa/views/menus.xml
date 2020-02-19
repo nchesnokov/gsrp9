@@ -8,6 +8,14 @@
         </record>
       </records>
       <records model="bc.actions">
+        <record id="action.fa.accounts.type.search">
+          <column name="name">action.fa.accounts.type.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.fa.accounts.tag.search">
+          <column name="name">action.fa.accounts.tag.search</column>
+          <column name="ta">View</column>
+        </record>
         <record id="action.fa.accounts.search">
           <column name="name">action.fa.accounts.search</column>
           <column name="ta">View</column>
@@ -18,6 +26,10 @@
         </record>
         <record id="action.fa.accounts.journal.search">
           <column name="name">action.fa.accounts.journal.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.fa.accounts.tax.group.search">
+          <column name="name">action.fa.accounts.tax.group.search</column>
           <column name="ta">View</column>
         </record>
         <record id="action.fa.accounts.tax.search">
@@ -48,8 +60,20 @@
           <column name="name">action.fa.reconcile.model.template.search</column>
           <column name="ta">View</column>
         </record>
+        <record id="action.fa.accounts.payment.method.search">
+          <column name="name">action.fa.accounts.payment.method.search</column>
+          <column name="ta">View</column>
+        </record>
       </records>
       <records model="bc.actions">
+        <record id="action.fa.accounts.type.report">
+          <column name="name">action.fa.accounts.type.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.fa.accounts.tag.report">
+          <column name="name">action.fa.accounts.tag.report</column>
+          <column name="ta">Report</column>
+        </record>
         <record id="action.fa.accounts.report">
           <column name="name">action.fa.accounts.report</column>
           <column name="ta">Report</column>
@@ -60,6 +84,10 @@
         </record>
         <record id="action.fa.accounts.journal.report">
           <column name="name">action.fa.accounts.journal.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.fa.accounts.tax.group.report">
+          <column name="name">action.fa.accounts.tax.group.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.fa.accounts.tax.report">
@@ -90,8 +118,20 @@
           <column name="name">action.fa.reconcile.model.template.report</column>
           <column name="ta">Report</column>
         </record>
+        <record id="action.fa.accounts.payment.method.report">
+          <column name="name">action.fa.accounts.payment.method.report</column>
+          <column name="ta">Report</column>
+        </record>
       </records>
       <records model="bc.view.actions">
+        <record id="view.action.fa.accounts.type.search">
+          <column name="action_id">action.fa.accounts.type.search</column>
+          <column name="view_id">view.fa.accounts.type.search</column>
+        </record>
+        <record id="view.action.fa.accounts.tag.search">
+          <column name="action_id">action.fa.accounts.tag.search</column>
+          <column name="view_id">view.fa.accounts.tag.search</column>
+        </record>
         <record id="view.action.fa.accounts.search">
           <column name="action_id">action.fa.accounts.search</column>
           <column name="view_id">view.fa.accounts.search</column>
@@ -103,6 +143,10 @@
         <record id="view.action.fa.accounts.journal.search">
           <column name="action_id">action.fa.accounts.journal.search</column>
           <column name="view_id">view.fa.accounts.journal.search</column>
+        </record>
+        <record id="view.action.fa.accounts.tax.group.search">
+          <column name="action_id">action.fa.accounts.tax.group.search</column>
+          <column name="view_id">view.fa.accounts.tax.group.search</column>
         </record>
         <record id="view.action.fa.accounts.tax.search">
           <column name="action_id">action.fa.accounts.tax.search</column>
@@ -132,8 +176,26 @@
           <column name="action_id">action.fa.reconcile.model.template.search</column>
           <column name="view_id">view.fa.reconcile.model.template.search</column>
         </record>
+        <record id="view.action.fa.accounts.payment.method.search">
+          <column name="action_id">action.fa.accounts.payment.method.search</column>
+          <column name="view_id">view.fa.accounts.payment.method.search</column>
+        </record>
       </records>
       <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.fa.accounts.type">
+          <column name="name">bc.ui.report.docx.fa.accounts.type</column>
+          <column name="label">Account Type</column>
+          <column name="report">report_fa_accounts_type</column>
+          <column name="infile">infile_fa_accounts_type.docx</column>
+          <column name="outfile">outfile_fa_accounts_type.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.fa.accounts.tag">
+          <column name="name">bc.ui.report.docx.fa.accounts.tag</column>
+          <column name="label">Account Tag</column>
+          <column name="report">report_fa_accounts_tag</column>
+          <column name="infile">infile_fa_accounts_tag.docx</column>
+          <column name="outfile">outfile_fa_accounts_tag.docx</column>
+        </record>
         <record id="bc.ui.report.docx.fa.accounts">
           <column name="name">bc.ui.report.docx.fa.accounts</column>
           <column name="label">Account</column>
@@ -154,6 +216,13 @@
           <column name="report">report_fa_accounts_journal</column>
           <column name="infile">infile_fa_accounts_journal.docx</column>
           <column name="outfile">outfile_fa_accounts_journal.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.fa.accounts.tax.group">
+          <column name="name">bc.ui.report.docx.fa.accounts.tax.group</column>
+          <column name="label">Account Tax Group</column>
+          <column name="report">report_fa_accounts_tax_group</column>
+          <column name="infile">infile_fa_accounts_tax_group.docx</column>
+          <column name="outfile">outfile_fa_accounts_tax_group.docx</column>
         </record>
         <record id="bc.ui.report.docx.fa.accounts.tax">
           <column name="name">bc.ui.report.docx.fa.accounts.tax</column>
@@ -204,8 +273,23 @@
           <column name="infile">infile_fa_reconcile_model_template.docx</column>
           <column name="outfile">outfile_fa_reconcile_model_template.docx</column>
         </record>
+        <record id="bc.ui.report.docx.fa.accounts.payment.method">
+          <column name="name">bc.ui.report.docx.fa.accounts.payment.method</column>
+          <column name="label">ModelPayment Methods</column>
+          <column name="report">report_fa_accounts_payment_method</column>
+          <column name="infile">infile_fa_accounts_payment_method.docx</column>
+          <column name="outfile">outfile_fa_accounts_payment_method.docx</column>
+        </record>
       </records>
       <records model="bc.report.actions">
+        <record id="report.action.fa.accounts.type.report">
+          <column name="action_id">action.fa.accounts.type.report</column>
+          <column name="report_id">bc.ui.report.docx.fa.accounts.type</column>
+        </record>
+        <record id="report.action.fa.accounts.tag.report">
+          <column name="action_id">action.fa.accounts.tag.report</column>
+          <column name="report_id">bc.ui.report.docx.fa.accounts.tag</column>
+        </record>
         <record id="report.action.fa.accounts.report">
           <column name="action_id">action.fa.accounts.report</column>
           <column name="report_id">bc.ui.report.docx.fa.accounts</column>
@@ -217,6 +301,10 @@
         <record id="report.action.fa.accounts.journal.report">
           <column name="action_id">action.fa.accounts.journal.report</column>
           <column name="report_id">bc.ui.report.docx.fa.accounts.journal</column>
+        </record>
+        <record id="report.action.fa.accounts.tax.group.report">
+          <column name="action_id">action.fa.accounts.tax.group.report</column>
+          <column name="report_id">bc.ui.report.docx.fa.accounts.tax.group</column>
         </record>
         <record id="report.action.fa.accounts.tax.report">
           <column name="action_id">action.fa.accounts.tax.report</column>
@@ -246,87 +334,123 @@
           <column name="action_id">action.fa.reconcile.model.template.report</column>
           <column name="report_id">bc.ui.report.docx.fa.reconcile.model.template</column>
         </record>
+        <record id="report.action.fa.accounts.payment.method.report">
+          <column name="action_id">action.fa.accounts.payment.method.report</column>
+          <column name="report_id">bc.ui.report.docx.fa.accounts.payment.method</column>
+        </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.fa.accounts.search">
+          <record id="ui.menu.fa.accounts.type.search">
           <column name="sequence">0</column>
+            <column name="name">ui.menu.fa.accounts.type.search</column>
+            <column name="label">Account Type</column>
+          <column name="parent_id">ui.menu.fa</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.fa.accounts.type.search</column>
+          </record>
+          <record id="ui.menu.fa.accounts.tag.search">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.fa.accounts.tag.search</column>
+            <column name="label">Account Tag</column>
+          <column name="parent_id">ui.menu.fa</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.fa.accounts.tag.search</column>
+          </record>
+          <record id="ui.menu.fa.accounts.search">
+          <column name="sequence">2</column>
             <column name="name">ui.menu.fa.accounts.search</column>
             <column name="label">Account</column>
           <column name="parent_id">ui.menu.fa</column>
-          <column name="sequence">0</column>
+          <column name="sequence">20</column>
           <column name="action_id">action.fa.accounts.search</column>
           </record>
           <record id="ui.menu.fa.accounts.group.search">
-          <column name="sequence">1</column>
+          <column name="sequence">3</column>
             <column name="name">ui.menu.fa.accounts.group.search</column>
             <column name="label">Accounts Group</column>
           <column name="parent_id">ui.menu.fa</column>
-          <column name="sequence">10</column>
+          <column name="sequence">30</column>
           <column name="action_id">action.fa.accounts.group.search</column>
           </record>
           <record id="ui.menu.fa.accounts.journal.search">
-          <column name="sequence">2</column>
+          <column name="sequence">4</column>
             <column name="name">ui.menu.fa.accounts.journal.search</column>
             <column name="label">Accounts Journal</column>
           <column name="parent_id">ui.menu.fa</column>
-          <column name="sequence">20</column>
+          <column name="sequence">40</column>
           <column name="action_id">action.fa.accounts.journal.search</column>
           </record>
+          <record id="ui.menu.fa.accounts.tax.group.search">
+          <column name="sequence">5</column>
+            <column name="name">ui.menu.fa.accounts.tax.group.search</column>
+            <column name="label">Account Tax Group</column>
+          <column name="parent_id">ui.menu.fa</column>
+          <column name="sequence">50</column>
+          <column name="action_id">action.fa.accounts.tax.group.search</column>
+          </record>
           <record id="ui.menu.fa.accounts.tax.search">
-          <column name="sequence">3</column>
+          <column name="sequence">6</column>
             <column name="name">ui.menu.fa.accounts.tax.search</column>
             <column name="label">Accounts Tax</column>
           <column name="parent_id">ui.menu.fa</column>
-          <column name="sequence">30</column>
+          <column name="sequence">60</column>
           <column name="action_id">action.fa.accounts.tax.search</column>
           </record>
           <record id="ui.menu.fa.accounts.reconcile.model.search">
-          <column name="sequence">4</column>
+          <column name="sequence">7</column>
             <column name="name">ui.menu.fa.accounts.reconcile.model.search</column>
             <column name="label">Accounts Reconcile</column>
           <column name="parent_id">ui.menu.fa</column>
-          <column name="sequence">40</column>
+          <column name="sequence">70</column>
           <column name="action_id">action.fa.accounts.reconcile.model.search</column>
           </record>
           <record id="ui.menu.fa.account.template.search">
-          <column name="sequence">5</column>
+          <column name="sequence">8</column>
             <column name="name">ui.menu.fa.account.template.search</column>
             <column name="label">Templates for Accounts</column>
           <column name="parent_id">ui.menu.fa</column>
-          <column name="sequence">50</column>
+          <column name="sequence">80</column>
           <column name="action_id">action.fa.account.template.search</column>
           </record>
           <record id="ui.menu.fa.chart.template.search">
-          <column name="sequence">6</column>
+          <column name="sequence">9</column>
             <column name="name">ui.menu.fa.chart.template.search</column>
             <column name="label">Templates for Account Chart</column>
           <column name="parent_id">ui.menu.fa</column>
-          <column name="sequence">60</column>
+          <column name="sequence">90</column>
           <column name="action_id">action.fa.chart.template.search</column>
           </record>
           <record id="ui.menu.fa.tax.template.search">
-          <column name="sequence">7</column>
+          <column name="sequence">10</column>
             <column name="name">ui.menu.fa.tax.template.search</column>
             <column name="label">Templates for Taxes</column>
           <column name="parent_id">ui.menu.fa</column>
-          <column name="sequence">70</column>
+          <column name="sequence">100</column>
           <column name="action_id">action.fa.tax.template.search</column>
           </record>
           <record id="ui.menu.fa.fiscal.position.template.search">
-          <column name="sequence">8</column>
+          <column name="sequence">11</column>
             <column name="name">ui.menu.fa.fiscal.position.template.search</column>
             <column name="label">Template for Fiscal Position</column>
           <column name="parent_id">ui.menu.fa</column>
-          <column name="sequence">80</column>
+          <column name="sequence">110</column>
           <column name="action_id">action.fa.fiscal.position.template.search</column>
           </record>
           <record id="ui.menu.fa.reconcile.model.template.search">
-          <column name="sequence">11</column>
+          <column name="sequence">12</column>
             <column name="name">ui.menu.fa.reconcile.model.template.search</column>
             <column name="label">Reconcile Model Template</column>
           <column name="parent_id">ui.menu.fa</column>
-          <column name="sequence">110</column>
+          <column name="sequence">120</column>
           <column name="action_id">action.fa.reconcile.model.template.search</column>
+          </record>
+          <record id="ui.menu.fa.accounts.payment.method.search">
+          <column name="sequence">13</column>
+            <column name="name">ui.menu.fa.accounts.payment.method.search</column>
+            <column name="label">ModelPayment Methods</column>
+          <column name="parent_id">ui.menu.fa</column>
+          <column name="sequence">130</column>
+          <column name="action_id">action.fa.accounts.payment.method.search</column>
           </record>
       </records>
       <records model="bc.ui.menus">
@@ -337,85 +461,117 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.fa.accounts.report">
+          <record id="ui.menu.fa.accounts.type.report">
           <column name="sequence">0</column>
+            <column name="name">ui.menu.fa.accounts.type.report</column>
+            <column name="label">Account Type</column>
+          <column name="parent_id">ui.menu.fa.report</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.fa.accounts.type.report</column>
+          </record>
+          <record id="ui.menu.fa.accounts.tag.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.fa.accounts.tag.report</column>
+            <column name="label">Account Tag</column>
+          <column name="parent_id">ui.menu.fa.report</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.fa.accounts.tag.report</column>
+          </record>
+          <record id="ui.menu.fa.accounts.report">
+          <column name="sequence">2</column>
             <column name="name">ui.menu.fa.accounts.report</column>
             <column name="label">Account</column>
           <column name="parent_id">ui.menu.fa.report</column>
-          <column name="sequence">0</column>
+          <column name="sequence">20</column>
           <column name="action_id">action.fa.accounts.report</column>
           </record>
           <record id="ui.menu.fa.accounts.group.report">
-          <column name="sequence">1</column>
+          <column name="sequence">3</column>
             <column name="name">ui.menu.fa.accounts.group.report</column>
             <column name="label">Accounts Group</column>
           <column name="parent_id">ui.menu.fa.report</column>
-          <column name="sequence">10</column>
+          <column name="sequence">30</column>
           <column name="action_id">action.fa.accounts.group.report</column>
           </record>
           <record id="ui.menu.fa.accounts.journal.report">
-          <column name="sequence">2</column>
+          <column name="sequence">4</column>
             <column name="name">ui.menu.fa.accounts.journal.report</column>
             <column name="label">Accounts Journal</column>
           <column name="parent_id">ui.menu.fa.report</column>
-          <column name="sequence">20</column>
+          <column name="sequence">40</column>
           <column name="action_id">action.fa.accounts.journal.report</column>
           </record>
+          <record id="ui.menu.fa.accounts.tax.group.report">
+          <column name="sequence">5</column>
+            <column name="name">ui.menu.fa.accounts.tax.group.report</column>
+            <column name="label">Account Tax Group</column>
+          <column name="parent_id">ui.menu.fa.report</column>
+          <column name="sequence">50</column>
+          <column name="action_id">action.fa.accounts.tax.group.report</column>
+          </record>
           <record id="ui.menu.fa.accounts.tax.report">
-          <column name="sequence">3</column>
+          <column name="sequence">6</column>
             <column name="name">ui.menu.fa.accounts.tax.report</column>
             <column name="label">Accounts Tax</column>
           <column name="parent_id">ui.menu.fa.report</column>
-          <column name="sequence">30</column>
+          <column name="sequence">60</column>
           <column name="action_id">action.fa.accounts.tax.report</column>
           </record>
           <record id="ui.menu.fa.accounts.reconcile.model.report">
-          <column name="sequence">4</column>
+          <column name="sequence">7</column>
             <column name="name">ui.menu.fa.accounts.reconcile.model.report</column>
             <column name="label">Accounts Reconcile</column>
           <column name="parent_id">ui.menu.fa.report</column>
-          <column name="sequence">40</column>
+          <column name="sequence">70</column>
           <column name="action_id">action.fa.accounts.reconcile.model.report</column>
           </record>
           <record id="ui.menu.fa.account.template.report">
-          <column name="sequence">5</column>
+          <column name="sequence">8</column>
             <column name="name">ui.menu.fa.account.template.report</column>
             <column name="label">Templates for Accounts</column>
           <column name="parent_id">ui.menu.fa.report</column>
-          <column name="sequence">50</column>
+          <column name="sequence">80</column>
           <column name="action_id">action.fa.account.template.report</column>
           </record>
           <record id="ui.menu.fa.chart.template.report">
-          <column name="sequence">6</column>
+          <column name="sequence">9</column>
             <column name="name">ui.menu.fa.chart.template.report</column>
             <column name="label">Templates for Account Chart</column>
           <column name="parent_id">ui.menu.fa.report</column>
-          <column name="sequence">60</column>
+          <column name="sequence">90</column>
           <column name="action_id">action.fa.chart.template.report</column>
           </record>
           <record id="ui.menu.fa.tax.template.report">
-          <column name="sequence">7</column>
+          <column name="sequence">10</column>
             <column name="name">ui.menu.fa.tax.template.report</column>
             <column name="label">Templates for Taxes</column>
           <column name="parent_id">ui.menu.fa.report</column>
-          <column name="sequence">70</column>
+          <column name="sequence">100</column>
           <column name="action_id">action.fa.tax.template.report</column>
           </record>
           <record id="ui.menu.fa.fiscal.position.template.report">
-          <column name="sequence">8</column>
+          <column name="sequence">11</column>
             <column name="name">ui.menu.fa.fiscal.position.template.report</column>
             <column name="label">Template for Fiscal Position</column>
           <column name="parent_id">ui.menu.fa.report</column>
-          <column name="sequence">80</column>
+          <column name="sequence">110</column>
           <column name="action_id">action.fa.fiscal.position.template.report</column>
           </record>
           <record id="ui.menu.fa.reconcile.model.template.report">
-          <column name="sequence">11</column>
+          <column name="sequence">12</column>
             <column name="name">ui.menu.fa.reconcile.model.template.report</column>
             <column name="label">Reconcile Model Template</column>
           <column name="parent_id">ui.menu.fa.report</column>
-          <column name="sequence">110</column>
+          <column name="sequence">120</column>
           <column name="action_id">action.fa.reconcile.model.template.report</column>
+          </record>
+          <record id="ui.menu.fa.accounts.payment.method.report">
+          <column name="sequence">13</column>
+            <column name="name">ui.menu.fa.accounts.payment.method.report</column>
+            <column name="label">ModelPayment Methods</column>
+          <column name="parent_id">ui.menu.fa.report</column>
+          <column name="sequence">130</column>
+          <column name="action_id">action.fa.accounts.payment.method.report</column>
           </record>
       </records>
     </data>
