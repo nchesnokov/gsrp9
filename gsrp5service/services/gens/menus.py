@@ -216,6 +216,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 				info = mm.modelInfo()	
 				#if len(list(filter(lambda x: 'selectable' in info['columns'][x] and info['columns'][x]['selectable'] and hasattr(mm,'_inherit') and not getattr(mm,'_inherit',None),info['columns'].keys()))) > 0:
 				#if len(list(filter(lambda x: 'selectable' in info['columns'][x] and info['columns'][x]['selectable'] and 'rec_name' in info['names'] and info['names']['rec_name'],info['columns'].keys()))) > 0:
+				print('NAME:',module,model,mm._name, len(list(filter(lambda x: 'selectable' in info['columns'][x] and info['columns'][x]['selectable'],info['columns'].keys()))))
 				if len(list(filter(lambda x: 'selectable' in info['columns'][x] and info['columns'][x]['selectable'],info['columns'].keys()))) > 0:
 					if 'class_model' in info and info['class_model'] == 'A':
 						models.append(mm)
