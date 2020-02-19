@@ -1400,23 +1400,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.partner.addresses.find">
-          <column name="name">view.md.partner.addresses.find</column>
-          <column name="model">md.partner.addresses</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="partner_id"/>
-              <field name="taddr"/>
-              <field name="country"/>
-              <field name="state"/>
-              <field name="sity"/>
-              <field name="street"/>
-              <field name="street2"/>
-              <field name="house"/>
-              <field name="room"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.partner.contacts.form">
           <column name="name">view.md.partner.contacts.form</column>
           <column name="model">md.partner.contacts</column>
@@ -1581,19 +1564,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.partner.products.find">
-          <column name="name">view.md.partner.products.find</column>
-          <column name="model">md.partner.products</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="partner_id"/>
-              <field name="product_id"/>
-              <field name="uom"/>
-              <field name="minqty"/>
-              <field name="link"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.role.partners.form">
           <column name="name">view.md.role.partners.form</column>
           <column name="model">md.role.partners</column>
@@ -1661,17 +1631,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.partner.roles.find">
-          <column name="name">view.md.partner.roles.find</column>
-          <column name="model">md.partner.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="role_id"/>
-              <field name="name"/>
-              <field name="partner_id"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.pricelist.partner.products.form">
           <column name="name">view.md.pricelist.partner.products.form</column>
           <column name="model">md.pricelist.partner.products</column>
@@ -1713,20 +1672,6 @@
               <field name="qty"/>
               <field name="price"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.pricelist.partner.products.find">
-          <column name="name">view.md.pricelist.partner.products.find</column>
-          <column name="model">md.pricelist.partner.products</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="partner_product_id"/>
-              <field name="valid_from"/>
-              <field name="valid_to"/>
-              <field name="currency_id"/>
-              <field name="qty"/>
-              <field name="price"/>
-            </find>
           </column>
         </record>
         <record id="view.md.company.form">
@@ -1875,21 +1820,6 @@
               <field name="type"/>
               <field name="rate"/>
             </mdx>
-          </column>
-        </record>
-        <record id="view.md.currency.rate.find">
-          <column name="name">view.md.currency.rate.find</column>
-          <column name="model">md.currency.rate</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="currency_id"/>
-              <field name="currency_id1"/>
-              <field name="company_id"/>
-              <field name="date"/>
-              <field name="account"/>
-              <field name="type"/>
-              <field name="rate"/>
-            </find>
           </column>
         </record>
         <record id="view.md.banks.form">
@@ -2045,24 +1975,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.partners.bank.find">
-          <column name="name">view.md.partners.bank.find</column>
-          <column name="model">md.partners.bank</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="acc_type"/>
-              <field name="acc_number"/>
-              <field name="sanitized_acc_number"/>
-              <field name="partner_id"/>
-              <field name="bank_id"/>
-              <field name="bank_name"/>
-              <field name="bank_bic"/>
-              <field name="sequence"/>
-              <field name="currency_id"/>
-              <field name="company_id"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.recepture.form">
           <column name="name">view.md.recepture.form</column>
           <column name="model">md.recepture</column>
@@ -2143,18 +2055,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.recepture.input.find">
-          <column name="name">view.md.recepture.input.find</column>
-          <column name="model">md.recepture.input</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.recepture.output.form">
           <column name="name">view.md.recepture.output.form</column>
           <column name="model">md.recepture.output</column>
@@ -2190,18 +2090,6 @@
               <field name="quantity"/>
               <field name="uom"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.recepture.output.find">
-          <column name="name">view.md.recepture.output.find</column>
-          <column name="model">md.recepture.output</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-            </find>
           </column>
         </record>
       </records>

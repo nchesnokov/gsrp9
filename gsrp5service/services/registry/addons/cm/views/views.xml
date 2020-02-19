@@ -48,21 +48,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.cost.product.find">
-          <column name="name">view.md.cost.product.find</column>
-          <column name="model">md.cost.product</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="product_id"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-            </find>
-          </column>
-        </record>
         <record id="view.cm.cost.center.category.form">
           <column name="name">view.cm.cost.center.category.form</column>
           <column name="model">cm.cost.center.category</column>
@@ -382,17 +367,6 @@
             </mdx>
           </column>
         </record>
-        <record id="view.cm.cost.center.dates.find">
-          <column name="name">view.cm.cost.center.dates.find</column>
-          <column name="model">cm.cost.center.dates</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="cost_center_id"/>
-              <field name="cost_date"/>
-              <field name="cost"/>
-            </find>
-          </column>
-        </record>
         <record id="view.cm.cost.order.form">
           <column name="name">view.cm.cost.order.form</column>
           <column name="model">cm.cost.order</column>
@@ -523,17 +497,6 @@
             </mdx>
           </column>
         </record>
-        <record id="view.cm.cost.order.dates.find">
-          <column name="name">view.cm.cost.order.dates.find</column>
-          <column name="model">cm.cost.order.dates</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="cost_order_id"/>
-              <field name="cost_date"/>
-              <field name="cost"/>
-            </find>
-          </column>
-        </record>
         <record id="view.cm.cost.collector.form">
           <column name="name">view.cm.cost.collector.form</column>
           <column name="model">cm.cost.collector</column>
@@ -662,17 +625,6 @@
               <field name="cost_date"/>
               <field name="cost"/>
             </mdx>
-          </column>
-        </record>
-        <record id="view.cm.cost.collector.dates.find">
-          <column name="name">view.cm.cost.collector.dates.find</column>
-          <column name="model">cm.cost.collector.dates</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="cost_collector_id"/>
-              <field name="cost_date"/>
-              <field name="cost"/>
-            </find>
           </column>
         </record>
         <record id="view.cm.corporations.form">

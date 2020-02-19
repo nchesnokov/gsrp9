@@ -63,16 +63,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.wkf1.element.categories.find">
-          <column name="name">view.wkf1.element.categories.find</column>
-          <column name="model">wkf1.element.categories</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="parent_id"/>
-            </find>
-          </column>
-        </record>
         <record id="view.wkf1.element.categories.tree">
           <column name="name">view.wkf1.element.categories.tree</column>
           <column name="model">wkf1.element.categories</column>
@@ -115,17 +105,6 @@
               <field name="wkf_element_category_id"/>
               <field name="etype"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.wkf1.elements.find">
-          <column name="name">view.wkf1.elements.find</column>
-          <column name="model">wkf1.elements</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="wkf_element_category_id"/>
-              <field name="etype"/>
-            </find>
           </column>
         </record>
       </records>

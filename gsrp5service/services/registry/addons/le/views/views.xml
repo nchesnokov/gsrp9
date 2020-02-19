@@ -240,17 +240,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.le.delivery.schema.text.items.find">
-          <column name="name">view.le.delivery.schema.text.items.find</column>
-          <column name="model">le.delivery.schema.text.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="schema_id"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.le.inbound.delivery.types.form">
           <column name="name">view.le.inbound.delivery.types.form</column>
           <column name="model">le.inbound.delivery.types</column>
@@ -343,16 +332,6 @@
               <field name="type_id"/>
               <field name="role_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.le.inbound.delivery.type.roles.find">
-          <column name="name">view.le.inbound.delivery.type.roles.find</column>
-          <column name="model">le.inbound.delivery.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-            </find>
           </column>
         </record>
         <record id="view.le.outbound.delivery.types.form">
@@ -449,16 +428,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.le.outbound.delivery.type.roles.find">
-          <column name="name">view.le.outbound.delivery.type.roles.find</column>
-          <column name="model">le.outbound.delivery.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-            </find>
-          </column>
-        </record>
         <record id="view.le.internal.delivery.types.form">
           <column name="name">view.le.internal.delivery.types.form</column>
           <column name="model">le.internal.delivery.types</column>
@@ -553,16 +522,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.le.internal.delivery.type.roles.find">
-          <column name="name">view.le.internal.delivery.type.roles.find</column>
-          <column name="model">le.internal.delivery.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.pack.product.form">
           <column name="name">view.md.pack.product.form</column>
           <column name="model">md.pack.product</column>
@@ -607,21 +566,6 @@
               <field name="unit"/>
               <field name="uop"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.pack.product.find">
-          <column name="name">view.md.pack.product.find</column>
-          <column name="model">md.pack.product</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="product_id"/>
-              <field name="vat"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-            </find>
           </column>
         </record>
         <record id="view.le.inbound.delivery.category.form">
@@ -1080,18 +1024,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.le.inbound.delivery.texts.find">
-          <column name="name">view.le.inbound.delivery.texts.find</column>
-          <column name="model">le.inbound.delivery.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="delivery_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.le.inbound.delivery.roles.form">
           <column name="name">view.le.inbound.delivery.roles.form</column>
           <column name="model">le.inbound.delivery.roles</column>
@@ -1123,17 +1055,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.le.inbound.delivery.roles.find">
-          <column name="name">view.le.inbound.delivery.roles.find</column>
-          <column name="model">le.inbound.delivery.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="delivery_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.le.inbound.delivery.items.form">
@@ -1204,27 +1125,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.le.inbound.delivery.items.find">
-          <column name="name">view.le.inbound.delivery.items.find</column>
-          <column name="model">le.inbound.delivery.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="delivery_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="schedule"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.le.inbound.delivery.item.texts.form">
           <column name="name">view.le.inbound.delivery.item.texts.form</column>
           <column name="model">le.inbound.delivery.item.texts</column>
@@ -1260,18 +1160,6 @@
               <field name="text_id"/>
               <field name="descr"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.le.inbound.delivery.item.texts.find">
-          <column name="name">view.le.inbound.delivery.item.texts.find</column>
-          <column name="model">le.inbound.delivery.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
           </column>
         </record>
         <record id="view.le.inbound.delivery.packlist.form">
@@ -1333,26 +1221,6 @@
               <field name="vat_amount"/>
               <field name="total_amount"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.le.inbound.delivery.packlist.find">
-          <column name="name">view.le.inbound.delivery.packlist.find</column>
-          <column name="model">le.inbound.delivery.packlist</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
           </column>
         </record>
         <record id="view.le.outbound.delivery.calendar">
@@ -1616,18 +1484,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.le.outbound.delivery.texts.find">
-          <column name="name">view.le.outbound.delivery.texts.find</column>
-          <column name="model">le.outbound.delivery.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="delivery_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.le.outbound.delivery.roles.form">
           <column name="name">view.le.outbound.delivery.roles.form</column>
           <column name="model">le.outbound.delivery.roles</column>
@@ -1659,17 +1515,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.le.outbound.delivery.roles.find">
-          <column name="name">view.le.outbound.delivery.roles.find</column>
-          <column name="model">le.outbound.delivery.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="delivery_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.le.outbound.delivery.items.form">
@@ -1740,27 +1585,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.le.outbound.delivery.items.find">
-          <column name="name">view.le.outbound.delivery.items.find</column>
-          <column name="model">le.outbound.delivery.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="delivery_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="schedule"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.le.outbound.delivery.item.texts.form">
           <column name="name">view.le.outbound.delivery.item.texts.form</column>
           <column name="model">le.outbound.delivery.item.texts</column>
@@ -1796,18 +1620,6 @@
               <field name="text_id"/>
               <field name="descr"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.le.outbound.delivery.item.texts.find">
-          <column name="name">view.le.outbound.delivery.item.texts.find</column>
-          <column name="model">le.outbound.delivery.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
           </column>
         </record>
         <record id="view.le.outbound.delivery.packlist.form">
@@ -1869,26 +1681,6 @@
               <field name="vat_amount"/>
               <field name="total_amount"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.le.outbound.delivery.packlist.find">
-          <column name="name">view.le.outbound.delivery.packlist.find</column>
-          <column name="model">le.outbound.delivery.packlist</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
           </column>
         </record>
         <record id="view.le.internal.delivery.calendar">
@@ -2152,18 +1944,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.le.internal.delivery.texts.find">
-          <column name="name">view.le.internal.delivery.texts.find</column>
-          <column name="model">le.internal.delivery.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="delivery_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.le.internal.delivery.roles.form">
           <column name="name">view.le.internal.delivery.roles.form</column>
           <column name="model">le.internal.delivery.roles</column>
@@ -2195,17 +1975,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.le.internal.delivery.roles.find">
-          <column name="name">view.le.internal.delivery.roles.find</column>
-          <column name="model">le.internal.delivery.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="delivery_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.le.internal.delivery.items.form">
@@ -2276,27 +2045,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.le.internal.delivery.items.find">
-          <column name="name">view.le.internal.delivery.items.find</column>
-          <column name="model">le.internal.delivery.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="delivery_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="schedule"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.le.internal.delivery.item.texts.form">
           <column name="name">view.le.internal.delivery.item.texts.form</column>
           <column name="model">le.internal.delivery.item.texts</column>
@@ -2332,18 +2080,6 @@
               <field name="text_id"/>
               <field name="descr"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.le.internal.delivery.item.texts.find">
-          <column name="name">view.le.internal.delivery.item.texts.find</column>
-          <column name="model">le.internal.delivery.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
           </column>
         </record>
         <record id="view.le.internal.delivery.packlist.form">
@@ -2407,26 +2143,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.le.internal.delivery.packlist.find">
-          <column name="name">view.le.internal.delivery.packlist.find</column>
-          <column name="model">le.internal.delivery.packlist</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.le.md.group.freight.cargo.product.form">
           <column name="name">view.le.md.group.freight.cargo.product.form</column>
           <column name="model">le.md.group.freight.cargo.product</column>
@@ -2455,16 +2171,6 @@
               <field name="product_id"/>
               <field name="group_freight_cargo_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.le.md.group.freight.cargo.product.find">
-          <column name="name">view.le.md.group.freight.cargo.product.find</column>
-          <column name="model">le.md.group.freight.cargo.product</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="product_id"/>
-              <field name="group_freight_cargo_id"/>
-            </find>
           </column>
         </record>
       </records>

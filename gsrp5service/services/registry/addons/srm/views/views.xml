@@ -886,17 +886,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.unit.channel.assigments.find">
-          <column name="name">view.srm.unit.channel.assigments.find</column>
-          <column name="model">srm.unit.channel.assigments</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="unit_id"/>
-              <field name="channel_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.unit.segment.assigments.form">
           <column name="name">view.srm.unit.segment.assigments.form</column>
           <column name="model">srm.unit.segment.assigments</column>
@@ -928,17 +917,6 @@
               <field name="segment_id"/>
               <field name="descr"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.unit.segment.assigments.find">
-          <column name="name">view.srm.unit.segment.assigments.find</column>
-          <column name="model">srm.unit.segment.assigments</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="unit_id"/>
-              <field name="segment_id"/>
-              <field name="descr"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.unit.area.assigments.form">
@@ -974,17 +952,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.unit.area.assigments.find">
-          <column name="name">view.srm.unit.area.assigments.find</column>
-          <column name="model">srm.unit.area.assigments</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="unit_id"/>
-              <field name="area_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.unit.region.assigments.form">
           <column name="name">view.srm.unit.region.assigments.form</column>
           <column name="model">srm.unit.region.assigments</column>
@@ -1018,17 +985,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.unit.region.assigments.find">
-          <column name="name">view.srm.unit.region.assigments.find</column>
-          <column name="model">srm.unit.region.assigments</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="unit_id"/>
-              <field name="region_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.division.subdivision.assigments.form">
           <column name="name">view.srm.division.subdivision.assigments.form</column>
           <column name="model">srm.division.subdivision.assigments</column>
@@ -1060,17 +1016,6 @@
               <field name="subdivision_id"/>
               <field name="descr"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.division.subdivision.assigments.find">
-          <column name="name">view.srm.division.subdivision.assigments.find</column>
-          <column name="model">srm.division.subdivision.assigments</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="division_id"/>
-              <field name="subdivision_id"/>
-              <field name="descr"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.markets.form">
@@ -1280,17 +1225,6 @@
               <field name="sequence"/>
               <field name="srm_object_type"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.route.items.find">
-          <column name="name">view.srm.route.items.find</column>
-          <column name="model">srm.route.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="route_id"/>
-              <field name="sequence"/>
-              <field name="srm_object_type"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.demand.category.form">
@@ -2044,18 +1978,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.schema.text.items.find">
-          <column name="name">view.srm.schema.text.items.find</column>
-          <column name="model">srm.schema.text.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="schema_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.demand.types.form">
           <column name="name">view.srm.demand.types.form</column>
           <column name="model">srm.demand.types</column>
@@ -2146,17 +2068,6 @@
               <field name="role_id"/>
               <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.demand.type.roles.find">
-          <column name="name">view.srm.demand.type.roles.find</column>
-          <column name="model">srm.demand.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-              <field name="required"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.demands.calendar">
@@ -2441,18 +2352,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.demand.texts.find">
-          <column name="name">view.srm.demand.texts.find</column>
-          <column name="model">srm.demand.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="demand_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.demand.roles.form">
           <column name="name">view.srm.demand.roles.form</column>
           <column name="model">srm.demand.roles</column>
@@ -2484,17 +2383,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.demand.roles.find">
-          <column name="name">view.srm.demand.roles.find</column>
-          <column name="model">srm.demand.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="demand_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.demand.output.plates.form">
@@ -2561,22 +2449,6 @@
               <field name="msm"/>
               <field name="schedule"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.demand.output.plates.find">
-          <column name="name">view.srm.demand.output.plates.find</column>
-          <column name="model">srm.demand.output.plates</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="demand_id"/>
-              <field name="state"/>
-              <field name="otype"/>
-              <field name="partner"/>
-              <field name="role"/>
-              <field name="language"/>
-              <field name="msm"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.demand.type.deadlines.form">
@@ -2656,18 +2528,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.demand.deadlines.find">
-          <column name="name">view.srm.demand.deadlines.find</column>
-          <column name="model">srm.demand.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="demand_id"/>
-              <field name="demand_type_deadline_id"/>
-              <field name="start_date"/>
-              <field name="end_date"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.demand.items.form">
           <column name="name">view.srm.demand.items.form</column>
           <column name="model">srm.demand.items</column>
@@ -2738,27 +2598,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.demand.items.find">
-          <column name="name">view.srm.demand.items.find</column>
-          <column name="model">srm.demand.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="demand_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-              <field name="currency_id"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.demand.item.texts.form">
           <column name="name">view.srm.demand.item.texts.form</column>
           <column name="model">srm.demand.item.texts</column>
@@ -2796,18 +2635,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.demand.item.texts.find">
-          <column name="name">view.srm.demand.item.texts.find</column>
-          <column name="model">srm.demand.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.demand.item.roles.form">
           <column name="name">view.srm.demand.item.roles.form</column>
           <column name="model">srm.demand.item.roles</column>
@@ -2839,17 +2666,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.demand.item.roles.find">
-          <column name="name">view.srm.demand.item.roles.find</column>
-          <column name="model">srm.demand.item.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.demand.item.delivery.schedules.calendar">
@@ -2923,18 +2739,6 @@
               <field name="uom"/>
               <field name="schedule"/>
             </mdx>
-          </column>
-        </record>
-        <record id="view.srm.demand.item.delivery.schedules.find">
-          <column name="name">view.srm.demand.item.delivery.schedules.find</column>
-          <column name="model">srm.demand.item.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.part.types.form">
@@ -3027,17 +2831,6 @@
               <field name="role_id"/>
               <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.part.type.roles.find">
-          <column name="name">view.srm.part.type.roles.find</column>
-          <column name="model">srm.part.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-              <field name="required"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.part.calendar">
@@ -3284,18 +3077,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.part.texts.find">
-          <column name="name">view.srm.part.texts.find</column>
-          <column name="model">srm.part.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="part_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.part.roles.form">
           <column name="name">view.srm.part.roles.form</column>
           <column name="model">srm.part.roles</column>
@@ -3327,17 +3108,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.part.roles.find">
-          <column name="name">view.srm.part.roles.find</column>
-          <column name="model">srm.part.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="part_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.part.type.deadlines.form">
@@ -3417,18 +3187,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.part.deadlines.find">
-          <column name="name">view.srm.part.deadlines.find</column>
-          <column name="model">srm.part.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="part_id"/>
-              <field name="part_type_deadline_id"/>
-              <field name="start_date"/>
-              <field name="end_date"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.part.items.form">
           <column name="name">view.srm.part.items.form</column>
           <column name="model">srm.part.items</column>
@@ -3496,26 +3254,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.part.items.find">
-          <column name="name">view.srm.part.items.find</column>
-          <column name="model">srm.part.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="part_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.part.item.texts.form">
           <column name="name">view.srm.part.item.texts.form</column>
           <column name="model">srm.part.item.texts</column>
@@ -3553,18 +3291,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.part.item.texts.find">
-          <column name="name">view.srm.part.item.texts.find</column>
-          <column name="model">srm.part.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.part.item.roles.form">
           <column name="name">view.srm.part.item.roles.form</column>
           <column name="model">srm.part.item.roles</column>
@@ -3596,17 +3322,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.part.item.roles.find">
-          <column name="name">view.srm.part.item.roles.find</column>
-          <column name="model">srm.part.item.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.part.delivery.schedules.calendar">
@@ -3680,18 +3395,6 @@
               <field name="uom"/>
               <field name="schedule"/>
             </mdx>
-          </column>
-        </record>
-        <record id="view.srm.part.delivery.schedules.find">
-          <column name="name">view.srm.part.delivery.schedules.find</column>
-          <column name="model">srm.part.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.plan.types.form">
@@ -3784,17 +3487,6 @@
               <field name="role_id"/>
               <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.plan.type.roles.find">
-          <column name="name">view.srm.plan.type.roles.find</column>
-          <column name="model">srm.plan.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-              <field name="required"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.plan.calendar">
@@ -4014,18 +3706,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.plan.texts.find">
-          <column name="name">view.srm.plan.texts.find</column>
-          <column name="model">srm.plan.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="plan_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.plan.roles.form">
           <column name="name">view.srm.plan.roles.form</column>
           <column name="model">srm.plan.roles</column>
@@ -4057,17 +3737,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.plan.roles.find">
-          <column name="name">view.srm.plan.roles.find</column>
-          <column name="model">srm.plan.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="plan_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.plan.type.deadlines.form">
@@ -4147,18 +3816,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.plan.deadlines.find">
-          <column name="name">view.srm.plan.deadlines.find</column>
-          <column name="model">srm.plan.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="plan_id"/>
-              <field name="plan_type_deadline_id"/>
-              <field name="start_date"/>
-              <field name="end_date"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.plan.items.form">
           <column name="name">view.srm.plan.items.form</column>
           <column name="model">srm.plan.items</column>
@@ -4226,26 +3883,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.plan.items.find">
-          <column name="name">view.srm.plan.items.find</column>
-          <column name="model">srm.plan.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="plan_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.plan.item.texts.form">
           <column name="name">view.srm.plan.item.texts.form</column>
           <column name="model">srm.plan.item.texts</column>
@@ -4283,18 +3920,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.plan.item.texts.find">
-          <column name="name">view.srm.plan.item.texts.find</column>
-          <column name="model">srm.plan.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.plan.item.roles.form">
           <column name="name">view.srm.plan.item.roles.form</column>
           <column name="model">srm.plan.item.roles</column>
@@ -4326,17 +3951,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.plan.item.roles.find">
-          <column name="name">view.srm.plan.item.roles.find</column>
-          <column name="model">srm.plan.item.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.plan.delivery.schedules.calendar">
@@ -4410,18 +4024,6 @@
               <field name="uom"/>
               <field name="schedule"/>
             </mdx>
-          </column>
-        </record>
-        <record id="view.srm.plan.delivery.schedules.find">
-          <column name="name">view.srm.plan.delivery.schedules.find</column>
-          <column name="model">srm.plan.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.request.types.form">
@@ -4514,17 +4116,6 @@
               <field name="role_id"/>
               <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.request.type.roles.find">
-          <column name="name">view.srm.request.type.roles.find</column>
-          <column name="model">srm.request.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-              <field name="required"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.request.calendar">
@@ -4771,18 +4362,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.request.texts.find">
-          <column name="name">view.srm.request.texts.find</column>
-          <column name="model">srm.request.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="request_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.request.roles.form">
           <column name="name">view.srm.request.roles.form</column>
           <column name="model">srm.request.roles</column>
@@ -4814,17 +4393,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.request.roles.find">
-          <column name="name">view.srm.request.roles.find</column>
-          <column name="model">srm.request.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="request_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.request.type.deadlines.form">
@@ -4904,18 +4472,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.request.deadlines.find">
-          <column name="name">view.srm.request.deadlines.find</column>
-          <column name="model">srm.request.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="request_id"/>
-              <field name="request_type_deadline_id"/>
-              <field name="start_date"/>
-              <field name="end_date"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.request.items.form">
           <column name="name">view.srm.request.items.form</column>
           <column name="model">srm.request.items</column>
@@ -4983,26 +4539,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.request.items.find">
-          <column name="name">view.srm.request.items.find</column>
-          <column name="model">srm.request.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="request_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.request.item.texts.form">
           <column name="name">view.srm.request.item.texts.form</column>
           <column name="model">srm.request.item.texts</column>
@@ -5040,18 +4576,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.request.item.texts.find">
-          <column name="name">view.srm.request.item.texts.find</column>
-          <column name="model">srm.request.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.request.item.roles.form">
           <column name="name">view.srm.request.item.roles.form</column>
           <column name="model">srm.request.item.roles</column>
@@ -5083,17 +4607,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.request.item.roles.find">
-          <column name="name">view.srm.request.item.roles.find</column>
-          <column name="model">srm.request.item.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.request.delivery.schedules.calendar">
@@ -5167,18 +4680,6 @@
               <field name="uom"/>
               <field name="schedule"/>
             </mdx>
-          </column>
-        </record>
-        <record id="view.srm.request.delivery.schedules.find">
-          <column name="name">view.srm.request.delivery.schedules.find</column>
-          <column name="model">srm.request.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.rfx.calendar">
@@ -5392,16 +4893,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.rfx.partner.find">
-          <column name="name">view.srm.rfx.partner.find</column>
-          <column name="model">srm.rfx.partner</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="partner_id"/>
-              <field name="state"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.rfx.type.deadlines.form">
           <column name="name">view.srm.rfx.type.deadlines.form</column>
           <column name="model">srm.rfx.type.deadlines</column>
@@ -5479,18 +4970,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.rfx.deadlines.find">
-          <column name="name">view.srm.rfx.deadlines.find</column>
-          <column name="model">srm.rfx.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="rfx_id"/>
-              <field name="rfx_type_deadline_id"/>
-              <field name="start_date"/>
-              <field name="end_date"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.rfx.items.form">
           <column name="name">view.srm.rfx.items.form</column>
           <column name="model">srm.rfx.items</column>
@@ -5520,16 +4999,6 @@
               <field name="rfx_id"/>
               <field name="part_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.rfx.items.find">
-          <column name="name">view.srm.rfx.items.find</column>
-          <column name="model">srm.rfx.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="rfx_id"/>
-              <field name="part_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.auction.calendar">
@@ -5738,17 +5207,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.auction.partner.find">
-          <column name="name">view.srm.auction.partner.find</column>
-          <column name="model">srm.auction.partner</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="auction_id"/>
-              <field name="partner_id"/>
-              <field name="state"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.auction.type.deadlines.form">
           <column name="name">view.srm.auction.type.deadlines.form</column>
           <column name="model">srm.auction.type.deadlines</column>
@@ -5826,18 +5284,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.auction.deadlines.find">
-          <column name="name">view.srm.auction.deadlines.find</column>
-          <column name="model">srm.auction.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="auction_id"/>
-              <field name="auction_type_deadline_id"/>
-              <field name="start_date"/>
-              <field name="end_date"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.auction.items.form">
           <column name="name">view.srm.auction.items.form</column>
           <column name="model">srm.auction.items</column>
@@ -5867,16 +5313,6 @@
               <field name="auction_id"/>
               <field name="part_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.auction.items.find">
-          <column name="name">view.srm.auction.items.find</column>
-          <column name="model">srm.auction.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="auction_id"/>
-              <field name="part_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.offer.types.form">
@@ -5969,17 +5405,6 @@
               <field name="role_id"/>
               <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.offer.type.roles.find">
-          <column name="name">view.srm.offer.type.roles.find</column>
-          <column name="model">srm.offer.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-              <field name="required"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.offer.calendar">
@@ -6226,18 +5651,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.offer.texts.find">
-          <column name="name">view.srm.offer.texts.find</column>
-          <column name="model">srm.offer.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="offer_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.offer.roles.form">
           <column name="name">view.srm.offer.roles.form</column>
           <column name="model">srm.offer.roles</column>
@@ -6269,17 +5682,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.offer.roles.find">
-          <column name="name">view.srm.offer.roles.find</column>
-          <column name="model">srm.offer.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="offer_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.offer.type.deadlines.form">
@@ -6377,18 +5779,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.offer.deadlines.find">
-          <column name="name">view.srm.offer.deadlines.find</column>
-          <column name="model">srm.offer.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="offer_id"/>
-              <field name="offer_type_deadline_id"/>
-              <field name="start_date"/>
-              <field name="end_date"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.offer.items.form">
           <column name="name">view.srm.offer.items.form</column>
           <column name="model">srm.offer.items</column>
@@ -6456,26 +5846,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.offer.items.find">
-          <column name="name">view.srm.offer.items.find</column>
-          <column name="model">srm.offer.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="offer_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.offer.item.texts.form">
           <column name="name">view.srm.offer.item.texts.form</column>
           <column name="model">srm.offer.item.texts</column>
@@ -6513,18 +5883,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.offer.item.texts.find">
-          <column name="name">view.srm.offer.item.texts.find</column>
-          <column name="model">srm.offer.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.offer.item.roles.form">
           <column name="name">view.srm.offer.item.roles.form</column>
           <column name="model">srm.offer.item.roles</column>
@@ -6556,17 +5914,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.offer.item.roles.find">
-          <column name="name">view.srm.offer.item.roles.find</column>
-          <column name="model">srm.offer.item.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.offer.delivery.schedules.calendar">
@@ -6640,18 +5987,6 @@
               <field name="uom"/>
               <field name="schedule"/>
             </mdx>
-          </column>
-        </record>
-        <record id="view.srm.offer.delivery.schedules.find">
-          <column name="name">view.srm.offer.delivery.schedules.find</column>
-          <column name="model">srm.offer.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.evolution.types.form">
@@ -6744,17 +6079,6 @@
               <field name="role_id"/>
               <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.evolution.type.roles.find">
-          <column name="name">view.srm.evolution.type.roles.find</column>
-          <column name="model">srm.evolution.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-              <field name="required"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.evolution.calendar">
@@ -7001,18 +6325,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.evolution.texts.find">
-          <column name="name">view.srm.evolution.texts.find</column>
-          <column name="model">srm.evolution.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="evolution_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.evolution.roles.form">
           <column name="name">view.srm.evolution.roles.form</column>
           <column name="model">srm.evolution.roles</column>
@@ -7044,17 +6356,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.evolution.roles.find">
-          <column name="name">view.srm.evolution.roles.find</column>
-          <column name="model">srm.evolution.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="evolution_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.evolution.type.deadlines.form">
@@ -7134,18 +6435,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.evolution.deadlines.find">
-          <column name="name">view.srm.evolution.deadlines.find</column>
-          <column name="model">srm.evolution.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="evolution_id"/>
-              <field name="evolution_type_deadline_id"/>
-              <field name="start_date"/>
-              <field name="end_date"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.evolution.items.form">
           <column name="name">view.srm.evolution.items.form</column>
           <column name="model">srm.evolution.items</column>
@@ -7213,26 +6502,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.evolution.items.find">
-          <column name="name">view.srm.evolution.items.find</column>
-          <column name="model">srm.evolution.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="evolution_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.evolution.item.texts.form">
           <column name="name">view.srm.evolution.item.texts.form</column>
           <column name="model">srm.evolution.item.texts</column>
@@ -7270,18 +6539,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.evolution.item.texts.find">
-          <column name="name">view.srm.evolution.item.texts.find</column>
-          <column name="model">srm.evolution.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.evolution.item.roles.form">
           <column name="name">view.srm.evolution.item.roles.form</column>
           <column name="model">srm.evolution.item.roles</column>
@@ -7313,17 +6570,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.evolution.item.roles.find">
-          <column name="name">view.srm.evolution.item.roles.find</column>
-          <column name="model">srm.evolution.item.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.evolution.delivery.schedules.calendar">
@@ -7397,18 +6643,6 @@
               <field name="uom"/>
               <field name="schedule"/>
             </mdx>
-          </column>
-        </record>
-        <record id="view.srm.evolution.delivery.schedules.find">
-          <column name="name">view.srm.evolution.delivery.schedules.find</column>
-          <column name="model">srm.evolution.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.decision.types.form">
@@ -7501,17 +6735,6 @@
               <field name="role_id"/>
               <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.decision.type.roles.find">
-          <column name="name">view.srm.decision.type.roles.find</column>
-          <column name="model">srm.decision.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-              <field name="required"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.decision.calendar">
@@ -7758,18 +6981,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.decision.texts.find">
-          <column name="name">view.srm.decision.texts.find</column>
-          <column name="model">srm.decision.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="decision_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.decision.roles.form">
           <column name="name">view.srm.decision.roles.form</column>
           <column name="model">srm.decision.roles</column>
@@ -7801,17 +7012,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.decision.roles.find">
-          <column name="name">view.srm.decision.roles.find</column>
-          <column name="model">srm.decision.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="evolution_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.decision.type.deadlines.form">
@@ -7891,18 +7091,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.decision.deadlines.find">
-          <column name="name">view.srm.decision.deadlines.find</column>
-          <column name="model">srm.decision.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="decision_id"/>
-              <field name="decision_type_deadline_id"/>
-              <field name="start_date"/>
-              <field name="end_date"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.decision.items.form">
           <column name="name">view.srm.decision.items.form</column>
           <column name="model">srm.decision.items</column>
@@ -7970,26 +7158,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.decision.items.find">
-          <column name="name">view.srm.decision.items.find</column>
-          <column name="model">srm.decision.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="decision_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.decision.item.texts.form">
           <column name="name">view.srm.decision.item.texts.form</column>
           <column name="model">srm.decision.item.texts</column>
@@ -8027,18 +7195,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.decision.item.texts.find">
-          <column name="name">view.srm.decision.item.texts.find</column>
-          <column name="model">srm.decision.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.decision.item.roles.form">
           <column name="name">view.srm.decision.item.roles.form</column>
           <column name="model">srm.decision.item.roles</column>
@@ -8070,17 +7226,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.decision.item.roles.find">
-          <column name="name">view.srm.decision.item.roles.find</column>
-          <column name="model">srm.decision.item.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.decision.delivery.schedules.calendar">
@@ -8154,18 +7299,6 @@
               <field name="uom"/>
               <field name="schedule"/>
             </mdx>
-          </column>
-        </record>
-        <record id="view.srm.decision.delivery.schedules.find">
-          <column name="name">view.srm.decision.delivery.schedules.find</column>
-          <column name="model">srm.decision.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.contract.types.form">
@@ -8258,17 +7391,6 @@
               <field name="role_id"/>
               <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.contract.type.roles.find">
-          <column name="name">view.srm.contract.type.roles.find</column>
-          <column name="model">srm.contract.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-              <field name="required"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.contracts.calendar">
@@ -8526,18 +7648,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.contract.texts.find">
-          <column name="name">view.srm.contract.texts.find</column>
-          <column name="model">srm.contract.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="contract_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.contract.payment.schedules.form">
           <column name="name">view.srm.contract.payment.schedules.form</column>
           <column name="model">srm.contract.payment.schedules</column>
@@ -8575,18 +7685,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.contract.payment.schedules.find">
-          <column name="name">view.srm.contract.payment.schedules.find</column>
-          <column name="model">srm.contract.payment.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="contract_id"/>
-              <field name="amount"/>
-              <field name="currency"/>
-              <field name="schedule"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.contract.roles.form">
           <column name="name">view.srm.contract.roles.form</column>
           <column name="model">srm.contract.roles</column>
@@ -8618,17 +7716,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.contract.roles.find">
-          <column name="name">view.srm.contract.roles.find</column>
-          <column name="model">srm.contract.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="contract_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.contract.type.deadlines.form">
@@ -8708,18 +7795,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.contract.deadlines.find">
-          <column name="name">view.srm.contract.deadlines.find</column>
-          <column name="model">srm.contract.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="contract_id"/>
-              <field name="contract_type_deadline_id"/>
-              <field name="start_date"/>
-              <field name="end_date"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.contract.items.form">
           <column name="name">view.srm.contract.items.form</column>
           <column name="model">srm.contract.items</column>
@@ -8789,26 +7864,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.contract.items.find">
-          <column name="name">view.srm.contract.items.find</column>
-          <column name="model">srm.contract.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="contract_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.contract.item.texts.form">
           <column name="name">view.srm.contract.item.texts.form</column>
           <column name="model">srm.contract.item.texts</column>
@@ -8846,18 +7901,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.contract.item.texts.find">
-          <column name="name">view.srm.contract.item.texts.find</column>
-          <column name="model">srm.contract.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.contract.item.roles.form">
           <column name="name">view.srm.contract.item.roles.form</column>
           <column name="model">srm.contract.item.roles</column>
@@ -8889,17 +7932,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.contract.item.roles.find">
-          <column name="name">view.srm.contract.item.roles.find</column>
-          <column name="model">srm.contract.item.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.contract.delivery.schedules.calendar">
@@ -8975,18 +8007,6 @@
             </mdx>
           </column>
         </record>
-        <record id="view.srm.contract.delivery.schedules.find">
-          <column name="name">view.srm.contract.delivery.schedules.find</column>
-          <column name="model">srm.contract.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="contract_item_id"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="schedule"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.contract.item.payment.schedules.form">
           <column name="name">view.srm.contract.item.payment.schedules.form</column>
           <column name="model">srm.contract.item.payment.schedules</column>
@@ -9022,18 +8042,6 @@
               <field name="currency"/>
               <field name="schedule"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.contract.item.payment.schedules.find">
-          <column name="name">view.srm.contract.item.payment.schedules.find</column>
-          <column name="model">srm.contract.item.payment.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="amount"/>
-              <field name="currency"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.blacklist.partner.form">
@@ -9183,18 +8191,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.srm.partner.validation.category.find">
-          <column name="name">view.srm.partner.validation.category.find</column>
-          <column name="model">srm.partner.validation.category</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="partner_validation_id"/>
-              <field name="category_product_id"/>
-              <field name="validationof"/>
-              <field name="nextvalidationof"/>
-            </find>
-          </column>
-        </record>
         <record id="view.srm.partner.validation.product.form">
           <column name="name">view.srm.partner.validation.product.form</column>
           <column name="model">srm.partner.validation.product</column>
@@ -9230,18 +8226,6 @@
               <field name="validationof"/>
               <field name="nextvalidationof"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.partner.validation.product.find">
-          <column name="name">view.srm.partner.validation.product.find</column>
-          <column name="model">srm.partner.validation.product</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="partner_validation_id"/>
-              <field name="product_id"/>
-              <field name="validationof"/>
-              <field name="nextvalidationof"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.product.source.supply.form">

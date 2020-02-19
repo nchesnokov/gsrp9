@@ -423,16 +423,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.workcenter.products.find">
-          <column name="name">view.mm.workcenter.products.find</column>
-          <column name="model">mm.workcenter.products</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="workcenter_id"/>
-              <field name="product"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mm.workcenter.product.prices.schedule">
           <column name="name">view.mm.workcenter.product.prices.schedule</column>
           <column name="model">mm.workcenter.product.prices</column>
@@ -492,21 +482,6 @@
               <field name="unit"/>
               <field name="uop"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.workcenter.product.prices.find">
-          <column name="name">view.mm.workcenter.product.prices.find</column>
-          <column name="model">mm.workcenter.product.prices</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="product_id"/>
-              <field name="from_date"/>
-              <field name="to_date"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-            </find>
           </column>
         </record>
         <record id="view.mm.route.form">
@@ -601,17 +576,6 @@
               <field name="workcenter"/>
               <field name="parent_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.route.items.find">
-          <column name="name">view.mm.route.items.find</column>
-          <column name="model">mm.route.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="route_id"/>
-              <field name="workcenter"/>
-              <field name="parent_id"/>
-            </find>
           </column>
         </record>
         <record id="view.mm.route.items.tree">
@@ -842,18 +806,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.production.order.items.find">
-          <column name="name">view.mm.production.order.items.find</column>
-          <column name="model">mm.production.order.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="order_id"/>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="parent_id"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mm.production.order.items.tree">
           <column name="name">view.mm.production.order.items.tree</column>
           <column name="model">mm.production.order.items</column>
@@ -918,23 +870,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.production.order.item.bom.find">
-          <column name="name">view.mm.production.order.item.bom.find</column>
-          <column name="model">mm.production.order.item.bom</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mm.production.order.delivery.schedules.form">
           <column name="name">view.mm.production.order.delivery.schedules.form</column>
           <column name="model">mm.production.order.delivery.schedules</column>
@@ -967,17 +902,6 @@
               <field name="part"/>
               <field name="schedule"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.production.order.delivery.schedules.find">
-          <column name="name">view.mm.production.order.delivery.schedules.find</column>
-          <column name="model">mm.production.order.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="part"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.mm.technologic.order.calendar">
@@ -1196,17 +1120,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.technologic.order.items.find">
-          <column name="name">view.mm.technologic.order.items.find</column>
-          <column name="model">mm.technologic.order.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="order_id"/>
-              <field name="recepture_id"/>
-              <field name="parent_id"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mm.technologic.order.items.tree">
           <column name="name">view.mm.technologic.order.items.tree</column>
           <column name="model">mm.technologic.order.items</column>
@@ -1270,23 +1183,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.technologic.order.item.ibob.find">
-          <column name="name">view.mm.technologic.order.item.ibob.find</column>
-          <column name="model">mm.technologic.order.item.ibob</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mm.technologic.order.item.obob.form">
           <column name="name">view.mm.technologic.order.item.obob.form</column>
           <column name="model">mm.technologic.order.item.obob</column>
@@ -1339,23 +1235,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.technologic.order.item.obob.find">
-          <column name="name">view.mm.technologic.order.item.obob.find</column>
-          <column name="model">mm.technologic.order.item.obob</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mm.technologic.order.delivery.schedules.form">
           <column name="name">view.mm.technologic.order.delivery.schedules.form</column>
           <column name="model">mm.technologic.order.delivery.schedules</column>
@@ -1388,17 +1267,6 @@
               <field name="part"/>
               <field name="schedule"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.technologic.order.delivery.schedules.find">
-          <column name="name">view.mm.technologic.order.delivery.schedules.find</column>
-          <column name="model">mm.technologic.order.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="part"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.mm.disassembly.order.calendar">
@@ -1618,18 +1486,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.items.find">
-          <column name="name">view.mm.disassembly.order.items.find</column>
-          <column name="model">mm.disassembly.order.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="order_id"/>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="parent_id"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mm.disassembly.order.items.tree">
           <column name="name">view.mm.disassembly.order.items.tree</column>
           <column name="model">mm.disassembly.order.items</column>
@@ -1694,23 +1550,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.item.mob.find">
-          <column name="name">view.mm.disassembly.order.item.mob.find</column>
-          <column name="model">mm.disassembly.order.item.mob</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mm.disassembly.order.delivery.schedules.form">
           <column name="name">view.mm.disassembly.order.delivery.schedules.form</column>
           <column name="model">mm.disassembly.order.delivery.schedules</column>
@@ -1743,17 +1582,6 @@
               <field name="part"/>
               <field name="schedule"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.disassembly.order.delivery.schedules.find">
-          <column name="name">view.mm.disassembly.order.delivery.schedules.find</column>
-          <column name="model">mm.disassembly.order.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="part"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
       </records>

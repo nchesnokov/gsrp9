@@ -103,18 +103,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mrp.schema.text.items.find">
-          <column name="name">view.mrp.schema.text.items.find</column>
-          <column name="model">mrp.schema.text.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="schema_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mrp.demand.types.form">
           <column name="name">view.mrp.demand.types.form</column>
           <column name="model">mrp.demand.types</column>
@@ -205,17 +193,6 @@
               <field name="role_id"/>
               <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mrp.demand.type.roles.find">
-          <column name="name">view.mrp.demand.type.roles.find</column>
-          <column name="model">mrp.demand.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-              <field name="required"/>
-            </find>
           </column>
         </record>
         <record id="view.mrp.request.types.form">
@@ -310,17 +287,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mrp.request.type.roles.find">
-          <column name="name">view.mrp.request.type.roles.find</column>
-          <column name="model">mrp.request.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-              <field name="required"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.mrp.product.form">
           <column name="name">view.md.mrp.product.form</column>
           <column name="model">md.mrp.product</column>
@@ -365,21 +331,6 @@
               <field name="max_quantity"/>
               <field name="uom"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.mrp.product.find">
-          <column name="name">view.md.mrp.product.find</column>
-          <column name="model">md.mrp.product</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="product_id"/>
-              <field name="strategy"/>
-              <field name="quantity"/>
-              <field name="reserved_quantity"/>
-              <field name="min_quantity"/>
-              <field name="max_quantity"/>
-              <field name="uom"/>
-            </find>
           </column>
         </record>
         <record id="view.mrp.demand.category.form">
@@ -727,18 +678,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mrp.demand.texts.find">
-          <column name="name">view.mrp.demand.texts.find</column>
-          <column name="model">mrp.demand.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="demand_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mrp.demand.roles.form">
           <column name="name">view.mrp.demand.roles.form</column>
           <column name="model">mrp.demand.roles</column>
@@ -770,17 +709,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mrp.demand.roles.find">
-          <column name="name">view.mrp.demand.roles.find</column>
-          <column name="model">mrp.demand.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="demand_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.mrp.demand.items.form">
@@ -820,16 +748,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mrp.demand.items.find">
-          <column name="name">view.mrp.demand.items.find</column>
-          <column name="model">mrp.demand.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="demand_id"/>
-              <field name="product"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mrp.demand.item.texts.form">
           <column name="name">view.mrp.demand.item.texts.form</column>
           <column name="model">mrp.demand.item.texts</column>
@@ -867,18 +785,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mrp.demand.item.texts.find">
-          <column name="name">view.mrp.demand.item.texts.find</column>
-          <column name="model">mrp.demand.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mrp.demand.item.roles.form">
           <column name="name">view.mrp.demand.item.roles.form</column>
           <column name="model">mrp.demand.item.roles</column>
@@ -910,17 +816,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mrp.demand.item.roles.find">
-          <column name="name">view.mrp.demand.item.roles.find</column>
-          <column name="model">mrp.demand.item.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.mrp.demand.delivery.schedules.form">
@@ -958,18 +853,6 @@
               <field name="uom"/>
               <field name="schedule"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mrp.demand.delivery.schedules.find">
-          <column name="name">view.mrp.demand.delivery.schedules.find</column>
-          <column name="model">mrp.demand.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.mrp.request.calendar">
@@ -1187,18 +1070,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mrp.request.texts.find">
-          <column name="name">view.mrp.request.texts.find</column>
-          <column name="model">mrp.request.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="request_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mrp.request.roles.form">
           <column name="name">view.mrp.request.roles.form</column>
           <column name="model">mrp.request.roles</column>
@@ -1230,17 +1101,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mrp.request.roles.find">
-          <column name="name">view.mrp.request.roles.find</column>
-          <column name="model">mrp.request.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="invoice_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.mrp.request.items.form">
@@ -1280,16 +1140,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mrp.request.items.find">
-          <column name="name">view.mrp.request.items.find</column>
-          <column name="model">mrp.request.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="request_id"/>
-              <field name="product"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mrp.request.item.texts.form">
           <column name="name">view.mrp.request.item.texts.form</column>
           <column name="model">mrp.request.item.texts</column>
@@ -1327,18 +1177,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mrp.request.item.texts.find">
-          <column name="name">view.mrp.request.item.texts.find</column>
-          <column name="model">mrp.request.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.mrp.request.item.roles.form">
           <column name="name">view.mrp.request.item.roles.form</column>
           <column name="model">mrp.request.item.roles</column>
@@ -1370,17 +1208,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mrp.request.item.roles.find">
-          <column name="name">view.mrp.request.item.roles.find</column>
-          <column name="model">mrp.request.item.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.mrp.request.delivery.schedules.form">
@@ -1418,18 +1245,6 @@
               <field name="uom"/>
               <field name="schedule"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mrp.request.delivery.schedules.find">
-          <column name="name">view.mrp.request.delivery.schedules.find</column>
-          <column name="model">mrp.request.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
       </records>

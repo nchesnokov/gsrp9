@@ -1356,18 +1356,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.sale.schema.text.items.find">
-          <column name="name">view.sale.schema.text.items.find</column>
-          <column name="model">sale.schema.text.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="schema_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.sale.order.types.form">
           <column name="name">view.sale.order.types.form</column>
           <column name="model">sale.order.types</column>
@@ -1469,16 +1457,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.sale.order.type.roles.find">
-          <column name="name">view.sale.order.type.roles.find</column>
-          <column name="model">sale.order.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-            </find>
-          </column>
-        </record>
         <record id="view.sale.order.type.items.form">
           <column name="name">view.sale.order.type.items.form</column>
           <column name="model">sale.order.type.items</column>
@@ -1511,17 +1489,6 @@
               <field name="gti_id"/>
               <field name="itype_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.sale.order.type.items.find">
-          <column name="name">view.sale.order.type.items.find</column>
-          <column name="model">sale.order.type.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="gti_id"/>
-              <field name="itype_id"/>
-            </find>
           </column>
         </record>
         <record id="view.sale.invoice.types.form">
@@ -1614,17 +1581,6 @@
               <field name="role_id"/>
               <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.sale.invoice.type.roles.find">
-          <column name="name">view.sale.invoice.type.roles.find</column>
-          <column name="model">sale.invoice.type.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="type_id"/>
-              <field name="role_id"/>
-              <field name="required"/>
-            </find>
           </column>
         </record>
         <record id="view.sale.order.categories.form">
@@ -2096,18 +2052,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.sale.order.texts.find">
-          <column name="name">view.sale.order.texts.find</column>
-          <column name="model">sale.order.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="order_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.sale.order.roles.form">
           <column name="name">view.sale.order.roles.form</column>
           <column name="model">sale.order.roles</column>
@@ -2139,17 +2083,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.sale.order.roles.find">
-          <column name="name">view.sale.order.roles.find</column>
-          <column name="model">sale.order.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="order_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.sale.order.payment.schedules.form">
@@ -2187,18 +2120,6 @@
               <field name="currency"/>
               <field name="schedule"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.sale.order.payment.schedules.find">
-          <column name="name">view.sale.order.payment.schedules.find</column>
-          <column name="model">sale.order.payment.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="order_id"/>
-              <field name="amount"/>
-              <field name="currency"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.sale.order.output.plates.form">
@@ -2265,22 +2186,6 @@
               <field name="msm"/>
               <field name="schedule"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.sale.order.output.plates.find">
-          <column name="name">view.sale.order.output.plates.find</column>
-          <column name="model">sale.order.output.plates</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="order_id"/>
-              <field name="state"/>
-              <field name="otype"/>
-              <field name="partner"/>
-              <field name="role"/>
-              <field name="language"/>
-              <field name="msm"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.sale.order.items.form">
@@ -2375,33 +2280,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.sale.order.items.find">
-          <column name="name">view.sale.order.items.find</column>
-          <column name="model">sale.order.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="order_id"/>
-              <field name="itype_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-              <field name="volume"/>
-              <field name="volume_total"/>
-              <field name="volume_uom"/>
-              <field name="weight"/>
-              <field name="weight_total"/>
-              <field name="weight_uom"/>
-            </find>
-          </column>
-        </record>
         <record id="view.sale.order.item.texts.form">
           <column name="name">view.sale.order.item.texts.form</column>
           <column name="model">sale.order.item.texts</column>
@@ -2439,18 +2317,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.sale.order.item.texts.find">
-          <column name="name">view.sale.order.item.texts.find</column>
-          <column name="model">sale.order.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.sale.order.item.roles.form">
           <column name="name">view.sale.order.item.roles.form</column>
           <column name="model">sale.order.item.roles</column>
@@ -2482,17 +2348,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.sale.order.item.roles.find">
-          <column name="name">view.sale.order.item.roles.find</column>
-          <column name="model">sale.order.item.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.sale.order.item.delivery.schedules.form">
@@ -2527,17 +2382,6 @@
               <field name="quantity"/>
               <field name="schedule"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.sale.order.item.delivery.schedules.find">
-          <column name="name">view.sale.order.item.delivery.schedules.find</column>
-          <column name="model">sale.order.item.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="quantity"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.sale.order.item.output.plates.form">
@@ -2606,22 +2450,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.sale.order.item.output.plates.find">
-          <column name="name">view.sale.order.item.output.plates.find</column>
-          <column name="model">sale.order.item.output.plates</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="state"/>
-              <field name="otype"/>
-              <field name="partner"/>
-              <field name="role"/>
-              <field name="language"/>
-              <field name="msm"/>
-              <field name="schedule"/>
-            </find>
-          </column>
-        </record>
         <record id="view.sale.order.item.payment.schedules.form">
           <column name="name">view.sale.order.item.payment.schedules.form</column>
           <column name="model">sale.order.item.payment.schedules</column>
@@ -2657,18 +2485,6 @@
               <field name="currency"/>
               <field name="schedule"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.sale.order.item.payment.schedules.find">
-          <column name="name">view.sale.order.item.payment.schedules.find</column>
-          <column name="model">sale.order.item.payment.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="amount"/>
-              <field name="currency"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.sale.invoices.calendar">
@@ -2914,18 +2730,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.sale.invoice.texts.find">
-          <column name="name">view.sale.invoice.texts.find</column>
-          <column name="model">sale.invoice.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="invoice_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.sale.invoice.roles.form">
           <column name="name">view.sale.invoice.roles.form</column>
           <column name="model">sale.invoice.roles</column>
@@ -2957,17 +2761,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.sale.invoice.roles.find">
-          <column name="name">view.sale.invoice.roles.find</column>
-          <column name="model">sale.invoice.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="invoice_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.sale.invoice.items.form">
@@ -3037,26 +2830,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.sale.invoice.items.find">
-          <column name="name">view.sale.invoice.items.find</column>
-          <column name="model">sale.invoice.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="invoice_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="vat_code"/>
-              <field name="vat_amount"/>
-              <field name="total_amount"/>
-            </find>
-          </column>
-        </record>
         <record id="view.sale.invoice.item.texts.form">
           <column name="name">view.sale.invoice.item.texts.form</column>
           <column name="model">sale.invoice.item.texts</column>
@@ -3094,18 +2867,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.sale.invoice.item.texts.find">
-          <column name="name">view.sale.invoice.item.texts.find</column>
-          <column name="model">sale.invoice.item.texts</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="seq"/>
-              <field name="text_id"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.sale.invoice.item.roles.form">
           <column name="name">view.sale.invoice.item.roles.form</column>
           <column name="model">sale.invoice.item.roles</column>
@@ -3137,17 +2898,6 @@
               <field name="role_id"/>
               <field name="patner_id"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.sale.invoice.item.roles.find">
-          <column name="name">view.sale.invoice.item.roles.find</column>
-          <column name="model">sale.invoice.item.roles</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="role_id"/>
-              <field name="patner_id"/>
-            </find>
           </column>
         </record>
         <record id="view.sale.invoice.item.delivery.schedules.form">
@@ -3182,17 +2932,6 @@
               <field name="quantity"/>
               <field name="schedule"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.sale.invoice.item.delivery.schedules.find">
-          <column name="name">view.sale.invoice.item.delivery.schedules.find</column>
-          <column name="model">sale.invoice.item.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="item_id"/>
-              <field name="quantity"/>
-              <field name="schedule"/>
-            </find>
           </column>
         </record>
         <record id="view.md.sale.product.form">
@@ -3239,21 +2978,6 @@
               <field name="unit"/>
               <field name="uop"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.sale.product.find">
-          <column name="name">view.md.sale.product.find</column>
-          <column name="model">md.sale.product</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="product_id"/>
-              <field name="vat"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-            </find>
           </column>
         </record>
       </records>

@@ -83,22 +83,22 @@ async def hello():
 
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','md','cm','crm','fa','hcm','ml','mm','md3','mrp','oil','project','purchase','sale','le','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ehs','scm']}])
 				
-				msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
+				#msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
 				#msg = await _execute([ws, 'gens','tr',{'modules': ['l10n_uy']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','purchase','sale']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['sale']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['sale']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','common','purchase','sale']}])
-				#msg = await _execute([ws, 'gens','examples',{'modules': ['md','purchase']}])
+				#msg = await _execute([ws, 'gens','examples',{'modules': ['md','sale']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','cm','crm','fa','hcm','ml','mm','mrp','purchase','sale','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm']}])
 				#msg = await _execute([ws, 'gens','tests',{'modules': ['crm','purchase','sale','le','cf','ai','cm','fa','hcm']}])
 				
-				#msg = await _execute([ws, 'gens','ui',{'modules': ['common']}])
+				msg = await _execute([ws, 'gens','ui',{'modules': ['md']}])
 				#msg = await _execute([ws, 'gens','view',{'modules': ['trm','ehs','scm']}])
 				#msg = await _execute([ws, 'gens','menu',{'modules': ['trm','ehs','scm']}])
 				#msg = await _execute([ws, 'gens','role',{'modules': ['trm','ehs','scm']}])
 				#msg = await _execute([ws, 'gens','tr',{'modules': ['common']}])
-				msg = await _execute([ws, 'gens','tr',{'modules': ['ai','bc','cm','crm','fa','hcm','md','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm']}])
+				#msg = await _execute([ws, 'gens','tr',{'modules': ['ai','bc','cm','crm','fa','hcm','md','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm']}])
 				
 				#msg = await _execute([ws, 'modules','install',{'modules':['wkf_srm']}])
 				
@@ -112,8 +112,7 @@ async def hello():
 				#msg = await _execute([ws, 'slots','create',{'sid':'test002','host':'localhost','port':26257,'database':'test002','db_user':'test','db_password':'test','sslmode':'verify-full'}])
 				#msg = await _execute([ws, 'slots','create',{'sid':'test001','host':'localhost','port':26257,'database':'test001','db_user':'test','db_password':'test','sslmode':'verify-full'}])
 				msg = await _execute([ws, '_commit'])
-				msg = await _execute([ws, '_reload'])
-				return
+				#return
 			else:
 				#msg = await _execute([ws, '_slots'])
 				#return
@@ -126,7 +125,7 @@ async def hello():
 				#msg = await _execute([ws, 'modules','install',{'modules':['project','crm','mm','mrp','purchase','sale','le','stock','wkf_srm','fa']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['crm','purchase','sale','le','cf','ai','fa','hcm']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['ehs','scm','hcm','wm']}])
-				msg = await _execute([ws, 'modules','uninstall',{'modules':['srm']}])
+				msg = await _execute([ws, 'modules','uninstall',{'modules':['sale','purchase','srm']}])
 				#msg = await _execute([ws, 'modules','install',{'modules': ['ctrm','ai','fa','hcm','md','ml','mm','mrp','oil','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ehs','scm']}])
 				msg = await _execute([ws, '_commit'])
 

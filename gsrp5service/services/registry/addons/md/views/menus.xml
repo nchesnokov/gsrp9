@@ -64,10 +64,6 @@
           <column name="name">action.md.partner.search</column>
           <column name="ta">View</column>
         </record>
-        <record id="action.md.partner.contacts.search">
-          <column name="name">action.md.partner.contacts.search</column>
-          <column name="ta">View</column>
-        </record>
         <record id="action.md.company.search">
           <column name="name">action.md.company.search</column>
           <column name="ta">View</column>
@@ -132,10 +128,6 @@
         </record>
         <record id="action.md.partner.report">
           <column name="name">action.md.partner.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.md.partner.contacts.report">
-          <column name="name">action.md.partner.contacts.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.md.company.report">
@@ -203,10 +195,6 @@
         <record id="view.action.md.partner.search">
           <column name="action_id">action.md.partner.search</column>
           <column name="view_id">view.md.partner.search</column>
-        </record>
-        <record id="view.action.md.partner.contacts.search">
-          <column name="action_id">action.md.partner.contacts.search</column>
-          <column name="view_id">view.md.partner.contacts.search</column>
         </record>
         <record id="view.action.md.company.search">
           <column name="action_id">action.md.company.search</column>
@@ -316,13 +304,6 @@
           <column name="infile">infile_md_partner.docx</column>
           <column name="outfile">outfile_md_partner.docx</column>
         </record>
-        <record id="bc.ui.report.docx.md.partner.contacts">
-          <column name="name">bc.ui.report.docx.md.partner.contacts</column>
-          <column name="label">Partner Contacts</column>
-          <column name="report">report_md_partner_contacts</column>
-          <column name="infile">infile_md_partner_contacts.docx</column>
-          <column name="outfile">outfile_md_partner_contacts.docx</column>
-        </record>
         <record id="bc.ui.report.docx.md.company">
           <column name="name">bc.ui.report.docx.md.company</column>
           <column name="label">Company</column>
@@ -394,10 +375,6 @@
         <record id="report.action.md.partner.report">
           <column name="action_id">action.md.partner.report</column>
           <column name="report_id">bc.ui.report.docx.md.partner</column>
-        </record>
-        <record id="report.action.md.partner.contacts.report">
-          <column name="action_id">action.md.partner.contacts.report</column>
-          <column name="report_id">bc.ui.report.docx.md.partner.contacts</column>
         </record>
         <record id="report.action.md.company.report">
           <column name="action_id">action.md.company.report</column>
@@ -521,28 +498,20 @@
           <column name="sequence">130</column>
           <column name="action_id">action.md.partner.search</column>
           </record>
-          <record id="ui.menu.md.partner.contacts.search">
-          <column name="sequence">15</column>
-            <column name="name">ui.menu.md.partner.contacts.search</column>
-            <column name="label">Partner Contacts</column>
-          <column name="parent_id">ui.menu.md</column>
-          <column name="sequence">150</column>
-          <column name="action_id">action.md.partner.contacts.search</column>
-          </record>
           <record id="ui.menu.md.company.search">
-          <column name="sequence">19</column>
+          <column name="sequence">14</column>
             <column name="name">ui.menu.md.company.search</column>
             <column name="label">Company</column>
           <column name="parent_id">ui.menu.md</column>
-          <column name="sequence">190</column>
+          <column name="sequence">140</column>
           <column name="action_id">action.md.company.search</column>
           </record>
           <record id="ui.menu.md.banks.search">
-          <column name="sequence">21</column>
+          <column name="sequence">15</column>
             <column name="name">ui.menu.md.banks.search</column>
             <column name="label">Bank</column>
           <column name="parent_id">ui.menu.md</column>
-          <column name="sequence">210</column>
+          <column name="sequence">150</column>
           <column name="action_id">action.md.banks.search</column>
           </record>
       </records>
@@ -666,28 +635,20 @@
           <column name="sequence">130</column>
           <column name="action_id">action.md.partner.report</column>
           </record>
-          <record id="ui.menu.md.partner.contacts.report">
-          <column name="sequence">15</column>
-            <column name="name">ui.menu.md.partner.contacts.report</column>
-            <column name="label">Partner Contacts</column>
-          <column name="parent_id">ui.menu.md.report</column>
-          <column name="sequence">150</column>
-          <column name="action_id">action.md.partner.contacts.report</column>
-          </record>
           <record id="ui.menu.md.company.report">
-          <column name="sequence">19</column>
+          <column name="sequence">14</column>
             <column name="name">ui.menu.md.company.report</column>
             <column name="label">Company</column>
           <column name="parent_id">ui.menu.md.report</column>
-          <column name="sequence">190</column>
+          <column name="sequence">140</column>
           <column name="action_id">action.md.company.report</column>
           </record>
           <record id="ui.menu.md.banks.report">
-          <column name="sequence">21</column>
+          <column name="sequence">15</column>
             <column name="name">ui.menu.md.banks.report</column>
             <column name="label">Bank</column>
           <column name="parent_id">ui.menu.md.report</column>
-          <column name="sequence">210</column>
+          <column name="sequence">150</column>
           <column name="action_id">action.md.banks.report</column>
           </record>
       </records>

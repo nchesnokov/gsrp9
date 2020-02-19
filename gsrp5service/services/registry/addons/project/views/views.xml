@@ -48,21 +48,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.project.product.find">
-          <column name="name">view.md.project.product.find</column>
-          <column name="model">md.project.product</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="product_id"/>
-              <field name="vat"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-            </find>
-          </column>
-        </record>
         <record id="view.project.resource.category.form">
           <column name="name">view.project.resource.category.form</column>
           <column name="model">project.resource.category</column>
@@ -1477,18 +1462,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.project.element.products.find">
-          <column name="name">view.project.element.products.find</column>
-          <column name="model">project.element.products</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="element_id"/>
-              <field name="product_id"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-            </find>
-          </column>
-        </record>
         <record id="view.project.task.resources.form">
           <column name="name">view.project.task.resources.form</column>
           <column name="model">project.task.resources</column>
@@ -1525,18 +1498,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.project.task.resources.find">
-          <column name="name">view.project.task.resources.find</column>
-          <column name="model">project.task.resources</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="task_id"/>
-              <field name="resource_id"/>
-              <field name="quantiny"/>
-              <field name="uom"/>
-            </find>
-          </column>
-        </record>
         <record id="view.project.element.resources.form">
           <column name="name">view.project.element.resources.form</column>
           <column name="model">project.element.resources</column>
@@ -1571,18 +1532,6 @@
               <field name="quantiny"/>
               <field name="uom"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.project.element.resources.find">
-          <column name="name">view.project.element.resources.find</column>
-          <column name="model">project.element.resources</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="element_id"/>
-              <field name="resource_id"/>
-              <field name="quantiny"/>
-              <field name="uom"/>
-            </find>
           </column>
         </record>
       </records>
