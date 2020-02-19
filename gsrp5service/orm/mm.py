@@ -200,6 +200,9 @@ def model__init__(self,access = None):
 	if rec_name and rec_name in self._nostorecomputefields:
 		raise orm_exception(_('Recname: <%s> in model: %s must be store in database') % (rec_name, self._name))
 
+	if rec_name  and hasattr(self._columns[rec_name],'selectable'):
+		self._columns[rec_name].selectable = True
+
 	if rec_name  and hasattr(self._columns[rec_name],'unique'):
 		self._columns[rec_name].unique = True
 
@@ -213,11 +216,11 @@ def model__init__(self,access = None):
 		self._columns[recname].selectable = True
 
 	state = _getStateName(self)
-	if state and hasattr(self._columns[state],'_selectable') and self._columns[state]._selectable:
+	if state and hasattr(self._columns[state],'selectable') and self._columns[state].selectable:
 		self._columns[state]._selectable = True
 
 	inactive = _getInactiveName(self)
-	if inactive and hasattr(self._columns[inactive],'_selectable') and self._columns[inactive]._selectable:
+	if inactive and hasattr(self._columns[inactive],'selectable') and self._columns[inactive].selectable:
 		self._columns[inactive]._selectable = True
 	
 	if access:
