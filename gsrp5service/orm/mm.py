@@ -195,7 +195,7 @@ def model__init__(self,access = None):
 			self._log_access = getattr(self, "_auto", True)
 
 	fullname = _getFullNameName(self)
-	recname = _getFullNameName(self)
+	recname = _getRecNameName(self)
 	rec_name = fullname or recname
 	if rec_name and rec_name in self._nostorecomputefields:
 		raise orm_exception(_('Recname: <%s> in model: %s must be store in database') % (rec_name, self._name))
