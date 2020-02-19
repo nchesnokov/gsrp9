@@ -407,6 +407,7 @@ class DCacheDict(object):
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
 			p=container.split('.')
 			model = getattr(self,'_%smodels' % (c,))[coid]
+			rel = getattr(self,'_%srels' % (o,))[d]
 			self._buildTree(d1,model,p[1],p[0],'I')
 			ci = getattr(self,'_%smetas' % (c,))[model]
 
