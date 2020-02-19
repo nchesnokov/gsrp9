@@ -407,9 +407,7 @@ class DCacheDict(object):
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
 			p=container.split('.')
 			model = getattr(self,'_%smodels' % (c,))[coid]
-			rel = getattr(self,'_%srels' % (c,))[i]
 			self._buildTree(d1,model,p[1],p[0],'I')
-			self._m2m_buildTree(d1,rel,p[1],p[0],model)
 			ci = getattr(self,'_%smetas' % (c,))[model]
 
 			data = {}
@@ -423,7 +421,7 @@ class DCacheDict(object):
 				r1 = self._m2m_cmpList(o,c,k + '.' + i)
 				m2m_containers.setdefault(k,[]).extend(r1['__m2m_append__'] if '__m2m_append__' in r1 else [])
 				
-			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__rel__':rel,'__data__':data,'__containers__':m2m_containers})
+			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__containers__':m2m_containers})
 
 			for v in filter(lambda x: x != 'id' and ci[x]['type'] != 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				data[v] = getattr(self,'_%sdata' % (c,))[i][v]
