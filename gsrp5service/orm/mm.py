@@ -209,7 +209,7 @@ def model__init__(self,access = None):
 	if fullname and fullname != rec_name and hasattr(self._columns[fullname],'selectable'):
 		self._columns[fullname].selectable = True
 
-	if recname and recname != rec_name and hasattr(self._columns[recname],'selectable'):
+	if recname and recname != fullname and hasattr(self._columns[recname],'selectable'):
 		self._columns[recname].selectable = True
 
 	state = _getStateName(self)
