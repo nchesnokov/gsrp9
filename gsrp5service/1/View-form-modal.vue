@@ -145,7 +145,7 @@
 						</v-card>
 					</template>
 					<template v-else-if="meta.columns[field].type == 'many2many'">
-						<gsrp5-m2mlist-view :metas="metas" :meta="metas[meta.columns[field].obj].meta" :model="meta.columns[field].obj" :view="metas[meta.columns[field].obj].views.m2mlist" :items="item.__data__[field]" :field="field"></gsrp5-m2mlist-view>
+						<gsrp5-m2mlist-view :metas="metas" :meta="metas[meta.columns[field].obj].meta" :model="item.__model__" :view="metas[meta.columns[field].obj].views.m2mlist" :items="item.__m2m_containers__[field]" :field="field" :item_find="item.__data__[field]" :guid="guid" :parent="item.__path__" :container="field + '.' + item.__path__" :obj="meta.columns[field].obj" :rel="meta.columns[field].rel" :id1="item.__data__.id" :root="root"></gsrp5-m2mlist-view>
 					</template>
 					
 					

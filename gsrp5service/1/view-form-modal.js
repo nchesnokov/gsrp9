@@ -129,6 +129,11 @@ export default {
                 reader.readAsDataURL(input.files[0]);
             }
         },
+        clearImage: function(item,field){
+    	    item.__data__[field] = '';
+            let r = {'path':item.__path__,'key':field,'value':item.__data__[field],'context':{}};
+            this.send('.ws-dummy',['_cache','cache',this.guid,r]);
+        },
         _buildItem (){
  			let item = {__data__:{},__containers__:{}}
  			for(let i = 0,field = '',fields = Object.keys(this.view.columns); i < fields.length;i++ ){
@@ -344,7 +349,10 @@ export default {
 		},
 	dataRow(row){
 		if ('__data__' in row) this.$set(this.d,row['__path__'],row.__data__);
-		if ('__containers__' in row) this.dataRowContainer(row['__containers__'],row['__path__']);
+		if ('__meta__' in row) this.$set(this,'m',row.__meta__[row['__model__']])
+		//console.log('M:',this.m);
+		if ('__m2m_containers__' in row) this.dataRowContainer(row['__m2m_containers__'],row['__path__']);
+		if ('__o2m_containers__' in row) this.dataRowContainer(row['__o2m_containers__'],row['__path__']);
 		},
 	onRead: function(rows){
 		console.log('rows:',rows[0]);
