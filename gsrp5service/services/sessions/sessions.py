@@ -196,7 +196,6 @@ class User(object):
 		elif args[0] == 'call':
 			return self._cache[args[1]]._do_call(**(args[2]))
 		elif args[0] == 'save':
-			print('ARGS:',args)
 			return self._cache[args[1]]._save(**(args[2]))
 		elif args[0] == 'reset':
 			return self._cache[args[1]]._reset(**(args[2]))
