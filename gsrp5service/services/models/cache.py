@@ -1099,7 +1099,7 @@ class MCache(object):
 
 	def _save(self):
 		diffs = self._data._pdiffs()
-		print('DIFFS:',diffs)
+		#print('DIFFS:',diffs)
 		if len(diffs) == 0:
 			return ['no chache']
 		
