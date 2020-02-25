@@ -1677,7 +1677,7 @@ def _createRecords(self, cr, pool, uid, records, context):
 
 	trg1 = self._getTriger('bi')
 	for trg11 in trg1:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':records,'context':context}
 		trg11(**kwargs)
 
 	for record in records:
@@ -1686,7 +1686,7 @@ def _createRecords(self, cr, pool, uid, records, context):
 
 	trg2 = self._getTriger('ai')
 	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':records,'context':context}
 		trg22(**kwargs)
 
 	return res
@@ -1763,7 +1763,7 @@ def _createRecord(self, cr, pool, uid, record, context):
 
 	trg1 = self._getTriger('bir')
 	for trg11 in trg1:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'context':context}
 		trg11(**kwargs)
 
 	sql,vals = gensql.Create(self,pool,uid,self.modelInfo(), record, context)
@@ -1814,7 +1814,7 @@ def _createRecord(self, cr, pool, uid, record, context):
 
 	trg2 = self._getTriger('air')
 	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'context':context}
 		trg22(**kwargs)
 
 	return oid
@@ -1853,7 +1853,7 @@ def _writeRecords(self, cr, pool, uid, records, context):
 
 	trg1 = self._getTriger('bu')
 	for trg11 in trg1:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':records,'r2':records,'context':context}
 		trg11(**kwargs)
 
 	for record in records:
@@ -1861,7 +1861,7 @@ def _writeRecords(self, cr, pool, uid, records, context):
 
 	trg2 = self._getTriger('au')
 	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':records,'r2':records,'context':context}
 		trg22(**kwargs)
 
 	return res
@@ -1934,7 +1934,7 @@ def _writeRecord(self, cr, pool, uid, record, context):
 	trg1 = self._getTriger('bur')
 	#print('TRG1:',trg1)
 	for trg11 in trg1:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record,'context':context}
 		trg11(**kwargs)
 
 	sql,vals = gensql.Write(self,pool,uid,self.modelInfo(), record, context)
@@ -1979,7 +1979,7 @@ def _writeRecord(self, cr, pool, uid, record, context):
 	trg2 = self._getTriger('aur')
 	#print('TRG2:',trg2)
 	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record,'context':context}
 		trg22(**kwargs)
 
 	return oid
@@ -2092,13 +2092,13 @@ def insert(self, cr, pool, uid, fields, values,context = {}):
 	trg1 = self._getTriger('bir')
 	for trg11 in trg1:
 		for value in values:
-			kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':_gen_record(fields,value),'context':context}
 			trg11(**kwargs)
 
 
 	trg2 = self._getTriger('bi')
 	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':_gen_records(fields,values),'context':context}
 		trg22(**kwargs)
 
 	sql,vals = gensql.Insert(self,pool,uid, self.modelInfo(), _fields, values, context)
@@ -2148,13 +2148,13 @@ def insert(self, cr, pool, uid, fields, values,context = {}):
 	trg3 = self._getTriger('air')
 	for trg33 in trg3:
 		for value in values:
-			kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':_gen_records(fields,values),'context':context}
 			trg33(**kwargs)
 
 
 	trg4 = self._getTriger('ai')
 	for trg44 in trg4:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':_gen_records(fields,values),'context':context}
 		trg44(**kwargs)
 
 	return res
@@ -2208,13 +2208,13 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 	trg1 = self._getTriger('bir')
 	for trg11 in trg1:
 		for value in values:
-			kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':_gen_record(fields,value),'context':context}
 			trg11(**kwargs)
 
 
 	trg2 = self._getTriger('bi')
 	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':_gen_records(fields,values),'context':context}
 		trg22(**kwargs)
 
 	sql,vals = gensql.Upsert(self,pool,uid, self.modelInfo(), fields, values, context)
@@ -2262,13 +2262,13 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 	trg3 = self._getTriger('air')
 	for trg33 in trg3:
 		for value in values:
-			kwargs = {'cr':cr,'pool':pool,'uid':uid,'record':_gen_record(fields,value),'context':context}
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':_gen_record(fields,value),'context':context}
 			trg33(**kwargs)
 
 
 	trg4 = self._getTriger('ai')
 	for trg44 in trg4:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'oid':oid,'context':context}
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':_gen_records(fields,values),'context':context}
 		trg44(**kwargs)
 
 	return res
