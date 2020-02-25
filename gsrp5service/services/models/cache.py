@@ -1126,7 +1126,7 @@ class MCache(object):
 	def _createItems(self,items,rel=None,oid = None):
 		trg1 = self._getTriger('bi')
 		for trg11 in trg1:
-			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':items,'context':context}
+			kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':items,'context':context}
 			trg11(**kwargs)
 
 		for item in items:
@@ -1134,7 +1134,7 @@ class MCache(object):
 
 		trg2 = self._getTriger('ai')
 		for trg22 in trg2:
-			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':items,'context':context}
+			kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':items,'context':context}
 			trg22(**kwargs)
 
 
@@ -1150,7 +1150,7 @@ class MCache(object):
 
 		trg1 = self._getTriger('bir')
 		for trg11 in trg1:
-			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':data,'context':context}
+			kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':data,'context':context}
 			trg11(**kwargs)
 
 
@@ -1161,7 +1161,7 @@ class MCache(object):
 
 		trg2 = self._getTriger('air')
 		for trg22 in trg2:
-			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':data,'context':context}
+			kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':data,'context':context}
 			trg22(**kwargs)
 		
 		if '__m2m_containers__' in item:
