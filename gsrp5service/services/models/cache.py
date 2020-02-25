@@ -1124,8 +1124,19 @@ class MCache(object):
 			return ['commit']
 
 	def _createItems(self,items,rel=None,oid = None):
+		trg1 = self._getTriger('bi')
+		for trg11 in trg1:
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':items,'context':context}
+			trg11(**kwargs)
+
 		for item in items:
 			self._createItem(item,rel,oid)
+
+		trg2 = self._getTriger('ai')
+		for trg22 in trg2:
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':items,'context':context}
+			trg22(**kwargs)
+
 
 	def _createItem(self,item,rel = None, oid = None):
 		if rel and oid:
@@ -1136,9 +1147,22 @@ class MCache(object):
 		for k in data.keys():
 			if m._columns[k]._type in ('many2one','related'):
 				data[k] = data[k]['id']
+
+		trg1 = self._getTriger('bir')
+		for trg11 in trg1:
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':data,'context':context}
+			trg11(**kwargs)
+
+
 		r = m.create(self._cr,self._pool,self._uid,data,self._context)
+
 		if len(r) > 0:
 			item['__data__']['id'] = r[0]
+
+		trg2 = self._getTriger('air')
+		for trg22 in trg2:
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':data,'context':context}
+			trg22(**kwargs)
 		
 		if '__m2m_containers__' in item:
 			m2m_containers = item['__m2m_containers__']
@@ -1167,6 +1191,9 @@ class MCache(object):
 		for k in data.keys():
 			if m._columns[k]._type in ('many2one','related'):
 				data[k] = data[k]['id']
+
+
+		
 		r = m.create(self._cr,self._pool,self._uid,data,self._context)
 		if len(r) > 0:
 			item['__data__']['id'] = r[0]
