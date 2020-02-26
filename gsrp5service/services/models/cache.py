@@ -1124,18 +1124,20 @@ class MCache(object):
 			return ['commit']
 
 	def _createItems(self,items,rel=None,oid = None):
-		trg1 = self._getTriger('bi')
-		for trg11 in trg1:
-			kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':items,'context':self._context}
-			trg11(**kwargs)
-
-		for item in items:
-			self._createItem(item,rel,oid)
-
-		trg2 = self._getTriger('ai')
-		for trg22 in trg2:
-			kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':items,'context':self._context}
-			trg22(**kwargs)
+		if len(items) > 0:
+			m = self._pool.get(items[0]['__model__'])
+			trg1 = m._getTriger('bi')
+			for trg11 in trg1:
+				kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':items,'context':self._context}
+				trg11(**kwargs)
+	
+			for item in items:
+				self._createItem(item,rel,oid)
+	
+			trg2 = m._getTriger('ai')
+			for trg22 in trg2:
+				kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':items,'context':self._context}
+				trg22(**kwargs)
 
 
 	def _createItem(self,item,rel = None, oid = None):
@@ -1148,7 +1150,7 @@ class MCache(object):
 			if m._columns[k]._type in ('many2one','related'):
 				data[k] = data[k]['id']
 
-		trg1 = self._getTriger('bir')
+		trg1 = m._getTriger('bir')
 		for trg11 in trg1:
 			kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':data,'context':self._context}
 			trg11(**kwargs)
@@ -1159,7 +1161,7 @@ class MCache(object):
 		if len(r) > 0:
 			item['__data__']['id'] = r[0]
 
-		trg2 = self._getTriger('air')
+		trg2 = m._getTriger('air')
 		for trg22 in trg2:
 			kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':data,'context':self._context}
 			trg22(**kwargs)
