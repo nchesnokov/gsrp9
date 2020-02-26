@@ -12,25 +12,12 @@ modules = []
 
 package_data = {'gsrp5service':['conf/*/*','conf/*']}
 
-conf_p = []
-conf_c = []
-conf_r = []
-conf_s = []
+conf = []
 
 for p in os.listdir(opj(__package_name__,'profile')):
-	conf_p.append(opj(__package_name__,'profile',p))
+	conf.append(opj(__package_name__,'profile',p))
 
-for c in os.listdir(opj(__package_name__,'conf')):
-	conf_c.append(opj(__package_name__,'conf',c))
-
-for r in os.listdir(opj(__package_name__,'conf','registry')):
-	conf_r.append(opj(__package_name__,'conf','registry',r))
-
-for s in os.listdir(opj(__package_name__,'conf','sessions')):
-	conf_s.append(opj(__package_name__,'conf','sessions',s))
-
-
-data_files = [('/etc/gsrp5-service.d',[opj(__package_name__,'conf','gsrp5.conf')]),('/etc/gsrp5-service.d/profiles',conf_p),('/etc/gsrp5-service.d/conf',conf_c),('/etc/gsrp5-service.d/conf/registry',conf_r),('/etc/gsrp5-service.d/conf/sessions',conf_s)]
+data_files = [('/etc/gsrp5-service.d',[opj(__package_name__,'conf','gsrp5.conf')]),('/etc/gsrp5-service.d/profiles',conf)]
 
 for lang in os.listdir(opj(__package_name__,'locale')):
 	data_files.append((os.path.join(sys.prefix,'share', 'locale', lang, 'LC_MESSAGES'),[opj(__package_name__,'locale', lang, 'LC_MESSAGES','gsrp5-service.mo')]))

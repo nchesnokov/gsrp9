@@ -4,6 +4,7 @@ from decimal import Decimal
 import datetime
 import psycopg2
 import ctypes
+from gsrp5service.orm import gensql
 
 def _join_levels(l1,l2):
 	for k in l2.keys():
@@ -30,6 +31,46 @@ class DictComp(dict):
 	
 	def _diff(self,commit = True):
 		pass
+
+
+def _createRecord(self, cr, pool, uid, record, context):
+	oid = None
+
+	fields = list(record.keys())
+	modelfields = list(self._columns.keys())
+	nomodelfields = list(filter(lambda x: not x in modelfields,fields))
+	if len(nomodelfields) > 0:
+		raise orm_exception("Fields: %s not found in model: %s" % (nomodelfields, self._name))
+
+	for nosavedfield in self._nosavedfields:
+		if nosavedfield in record:
+			del record[nosavedfield]
+	columnsinfo = self.columnsInfo(columns = fields)
+
+	for nonefield in list(filter(lambda x: record[x] is None,fields)):
+		if nonefield in record:
+			del record[nonefield]
+	
+	emptyfields = list(filter(lambda x: not x in record and not x in MAGIC_COLUMNS,self._requiredfields))		
+	if len(emptyfields) > 0:
+		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo()['name'], record))
+
+	trg1 = self._getTriger('bir')
+	for trg11 in trg1:
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'context':context}
+		trg11(**kwargs)
+
+	sql,vals = gensql.Create(self,pool,uid,self.modelInfo(), record, context)
+	cr.execute(sql,vals)
+	if cr.cr.rowcount > 0:
+		oid = cr.fetchone()[0]
+
+	trg2 = self._getTriger('air')
+	for trg22 in trg2:
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'context':context}
+		trg22(**kwargs)
+
+	return oid
 
 class DCacheDict(object):
 	
@@ -83,7 +124,11 @@ class DCacheDict(object):
 			self._cr2c[oid] = self._cnames[name + '.' + str(parent)]
 		else:
 			self._cpaths[oid] = None
-		
+
+		for m2mfield in self._pool.get(model)._m2mfields:
+			if m2mfield in data: 
+				self._m2m_buildTree(data[m2mfield],ci[m2mfield]['rel'],oid,m2mfield,model)
+	
 		for o2mfield in self._pool.get(model)._o2mfields:
 			cn = o2mfield + '.' + oid
 			coid = str(id(data[o2mfield]))
@@ -95,9 +140,6 @@ class DCacheDict(object):
 			if mode != 'I':
 				for r1 in data[o2mfield]:
 					self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
-
-		for m2mfield in self._pool.get(model)._m2mfields:
-			self._m2m_buildTree(data[m2mfield],ci[m2mfield]['rel'],oid,m2mfield,model)
 
 	def _m2m_buildTree(self,data,rel,parent,name,model):
 		#print('_m2m_buildTree:'.upper(),data,rel,parent,name)
@@ -1150,21 +1192,10 @@ class MCache(object):
 			if m._columns[k]._type in ('many2one','related'):
 				data[k] = data[k]['id']
 
-		trg1 = m._getTriger('bir')
-		for trg11 in trg1:
-			kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':data,'context':self._context}
-			trg11(**kwargs)
-
-
-		r = m.create(self._cr,self._pool,self._uid,data,self._context)
+		r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 
 		if len(r) > 0:
 			item['__data__']['id'] = r[0]
-
-		trg2 = m._getTriger('air')
-		for trg22 in trg2:
-			kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':data,'context':self._context}
-			trg22(**kwargs)
 		
 		if '__m2m_containers__' in item:
 			m2m_containers = item['__m2m_containers__']
@@ -1196,7 +1227,7 @@ class MCache(object):
 
 
 		
-		r = m.create(self._cr,self._pool,self._uid,data,self._context)
+		r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 		if len(r) > 0:
 			item['__data__']['id'] = r[0]
 		if '__o2m_containers__' in item:
@@ -1230,7 +1261,7 @@ class MCache(object):
 			id2 = m._columns[c[0]].id2
 			rels.append(row['__data__']['id'])
 
-		m._m2mmodify(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
+			m._m2mmodify(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
 
 	def _m2m_removeRows(self,rows):
 		rels = []
@@ -1244,7 +1275,7 @@ class MCache(object):
 			print('row:',row,oid)
 			rels.append(row['__data__']['id'])
 
-		m._m2munlink(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
+			m._m2munlink(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
 
 	def _updateItems(self,items):
 		models = {}
