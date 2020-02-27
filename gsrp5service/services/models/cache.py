@@ -1334,12 +1334,15 @@ class MCache(object):
 	def _createItem(self,item,rel = None, oid = None):
 		if rel and oid:
 			item['__data__'][rel]['id'] = oid
-		data = item['__data__']
+		data = {}
 		model = item ['__model__']
 		m = self._pool.get(model)
-		for k in data.keys():
+		excl_fields = m._o2mfields + m._m2mfields
+		for k in filter(lambda x: x not in excl_fields,item['__data__'].keys()):
 			if m._columns[k]._type in ('many2one','related'):
-				data[k] = data[k]['id']
+				data[k] = item['__data__'][k]['id']
+			elif k == rel:
+				data[rel] = {'id':oid,'name':recname}
 
 		r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 
@@ -1362,7 +1365,7 @@ class MCache(object):
 
 	def _o2m_appendItem(self,item):
 		print('ITEM:',item)
-		data = item['__data__']
+		data = {}
 		model = item['__model__']
 		container = item['__container__']
 		cn,parent = container.split('.')
@@ -1371,9 +1374,12 @@ class MCache(object):
 		recname = self._pool.get(self._data._cmodels[parent])._getRecNameName()
 		data[rel] = {'id':oid,'name':recname}
 		m = self._pool.get(model)
-		for k in data.keys():
+		excl_fields = m._o2mfields + m._m2mfields
+		for k in filter(lambda x: x not in excl_fields,item['__data__'].keys()):
 			if m._columns[k]._type in ('many2one','related'):
-				data[k] = data[k]['id']
+				data[k] = item['__data__'][k]['id']
+			elif k == rel:
+				data[rel] = {'id':oid,'name':recname}
 
 
 		
