@@ -1372,16 +1372,12 @@ class MCache(object):
 		oid = self._data._cdata[parent]['id']
 		rel = self._pool.get(self._data._cmodels[parent])._columns[cn].rel
 		recname = self._pool.get(self._data._cmodels[parent])._getRecNameName()
-		data[rel] = {'id':oid,'name':recname}
+		data[rel] = oid
 		m = self._pool.get(model)
 		excl_fields = m._o2mfields + m._m2mfields
 		for k in filter(lambda x: x not in excl_fields,item['__data__'].keys()):
 			if m._columns[k]._type in ('many2one','related'):
 				data[k] = item['__data__'][k]['id']
-			elif k == rel:
-				data[rel] = {'id':oid,'name':recname}
-
-
 		
 		r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 		if len(r) > 0:
