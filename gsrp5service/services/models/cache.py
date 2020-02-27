@@ -1437,19 +1437,19 @@ class MCache(object):
 		models = {}
 		for key in items.keys():
 			model = self._data._cmodels[key]
-			models.setdefault(model,[]).append(items[key])
+			models.setdefault(model,{})[key]  = items[key]
 		for model in models.keys():
 			m = self._pool.get(model)
-			for data in models[model]:
-				for k in data.keys():
+			for mkey in models[model].keys():
+				for k in models[model][mkey].keys():
 					if m._columns[k]._type in ('many2one','related'):
-						data[k] = data[k]['id']
+						models[model][mkey][k] = data[k]['id']
 			
-			if 'id' in self._data._cdata[key]:
-				items[key]['id'] = self._data._cdata[key]['id']
-				r = m.write(self._cr,self._pool,self._uid,models[model],self._context)
-			else:
-				r = m.create(self._cr,self._pool,self._uid,models[model],self._context)
+				if 'id' in self._data._cdata[mkey]:
+					models[model][mkey]['id'] = self._data._cdata[mkey]['id']
+					r = m.write(self._cr,self._pool,self._uid,models[model][mkey],self._context)
+				else:
+					r = m.create(self._cr,self._pool,self._uid,models[model][mkey],self._context)
 
 	def _reset(self):
 		#diffs = self._data._pdiffs()
