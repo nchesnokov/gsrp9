@@ -1361,6 +1361,7 @@ class MCache(object):
 			self._o2m_appendItem(item)
 
 	def _o2m_appendItem(self,item):
+		print('ITEM:',item)
 		data = item['__data__']
 		model = item['__model__']
 		container = item['__container__']
