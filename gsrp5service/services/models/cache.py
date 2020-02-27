@@ -5,6 +5,7 @@ import datetime
 import psycopg2
 import ctypes
 from gsrp5service.orm import gensql
+from gsrp5service.orm.common import MAGIC_COLUMNS
 
 def _join_levels(l1,l2):
 	for k in l2.keys():
@@ -71,6 +72,80 @@ def _createRecord(self, cr, pool, uid, record, context):
 		trg22(**kwargs)
 
 	return oid
+
+def _writeRecord(self, cr, pool, uid, record, context):
+	oid = None
+	fields = list(record.keys())
+	modelfields = list(self._columns.keys())
+	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS,fields))
+	if len(nomodelfields) > 0:
+		raise orm_exception("Fields: %s not found in model: %s" % (nomodelfields, self._name))
+
+	for nosavedfield in self._nosavedfields:
+		if nosavedfield in record:
+			del record[nosavedfield]
+	columnsinfo = self.columnsInfo(columns = fields)
+	
+	emptyfields = list(filter(lambda x: x in fields and record[x] is None,self._requiredfields))		
+
+	if len(emptyfields) > 0:
+		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self._name, record))
+
+	trg1 = self._getTriger('bur')
+	for trg11 in trg1:
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record,'context':context}
+		trg11(**kwargs)
+
+	sql,vals = gensql.Write(self,pool,uid,self.modelInfo(), record, context)
+	cr.execute(sql,vals)
+	if cr.cr.rowcount > 0:
+		oid = cr.fetchone()[0]
+
+	trg2 = self._getTriger('aur')
+	for trg22 in trg2:
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record,'context':context}
+		trg22(**kwargs)
+
+	return oid
+
+def _unlinkRecord(self, cr, pool, uid, record, context = {}):
+	oid = None
+	if not self._access._checkUnlink():
+		orm_exception("Unlink:access dennied of model % s" % (self._name,))
+
+	model_info = self.modelInfo(attributes=['type','rel','obj','id1','id2'])
+	columns_info = model_info['columns']
+	m2mfields = list(filter(lambda x: columns_info[x]['type'] == 'many2many',self._columns.keys()))
+	for m2mfield in m2mfields:
+		rel = columns_info[m2mfield]['rel']
+		obj = columns_info[m2mfield]['obj']
+		id1 = columns_info[m2mfield]['id1']
+		id2 = columns_info[m2mfield]['id2']
+
+		if not id2:
+			id2 = _m2mfieldid2(pool,obj,rel)
+
+		rels = []
+		#for oid in ids:
+			#_m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+
+	trg1 = self._getTriger('bdr')
+	for trg11 in trg1:
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r2':record,'context':context}
+		trg11(**kwargs)
+
+	sql,vals = gensql.Unlink(self,pool,uid,self.modelInfo(),[record['id']],context)
+	cr.execute(sql,vals)
+	if cr.cr.rowcount > 0:
+		oid = cr.fetchone()[0]
+
+	trg2 = self._getTriger('adr')
+	for trg22 in trg2:
+		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r2':record,'context':context}
+		trg22(**kwargs)
+
+	return oid
+
 
 class DCacheDict(object):
 	
@@ -1284,7 +1359,7 @@ class MCache(object):
 
 	def _save(self,autocommit = False):
 		diffs = self._data._pdiffs(False)
-		#print('DIFFS:',diffs)
+		print('DIFFS:',diffs)
 		if len(diffs) == 0:
 			return ['no chache']
 		
@@ -1342,11 +1417,13 @@ class MCache(object):
 			if m._columns[k]._type in ('many2one','related'):
 				if rel and k != rel or not rel:
 					data[k] = item['__data__'][k]['id']
+			else:
+				data[k] = item['__data__'][k]
 
 		r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 
-		if len(r) > 0:
-			item['__data__']['id'] = r[0]
+		if r:
+			item['__data__']['id'] = r
 		
 		if '__m2m_containers__' in item:
 			m2m_containers = item['__m2m_containers__']
@@ -1354,16 +1431,34 @@ class MCache(object):
 				self._m2m_appendRows(m2m_containers[key])
 
 		if '__o2m_containers__' in item:
-			containers = item['__o2m_containers__']
-			for key in containers.keys():
-				self._createItems(containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
+			o2m_containers = item['__o2m_containers__']
+			for key in o2m_containers.keys():
+				self._createItems(o2m_containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
 
-	def _o2m_appendItems(self,items,rel = None, oid = None):
-		for item in items:
-			self._o2m_appendItem(item,rel,oid)
+	def _o2m_appendItems(self,items):
+		if len(items) > 0:
+			parents = {}
+			for item in items:
+				parents.setdefault(item['__container__'].split('.')[1],{}).setdefault(item['__model__'],[]).append(item)
+				
+			for pkey in parents.keys():
+				for mkey in parents[pkey].keys():
+					m = self._pool.get(mkey)
+					rows = list(map(lambda x:x['__data__'],parents[pkey][mkey]))
+					trg1 = m._getTriger('bi')
+					for trg11 in trg1:
+						kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':rows,'context':self._context}
+						trg11(**kwargs)
 
-	def _o2m_appendItem(self,item,rel = None, oid = None):
-		print('ITEM:',item)
+					for item in parents[pkey][mkey]:
+						self._o2m_appendItem(item)
+
+					trg2 = m._getTriger('ai')
+					for trg22 in trg2:
+						kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':rows,'context':self._context}
+						trg22(**kwargs)
+
+	def _o2m_appendItem(self,item):
 		data = {}
 		model = item['__model__']
 		container = item['__container__']
@@ -1378,29 +1473,46 @@ class MCache(object):
 			if m._columns[k]._type in ('many2one','related'):
 				if k != rel:
 					data[k] = item['__data__'][k]['id']
-		
-		print('DATA:',data)
+			else:
+				data[k] = item['__data__'][k]
+
 		r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
-		if len(r) > 0:
-			item['__data__']['id'] = r[0]
+		if r:
+			item['__data__']['id'] = r
+
 		if '__o2m_containers__' in item:
 			o2m_containers = item['__o2m_containers__']
 			for key in o2m_containers.keys():
-				self._o2m_appendItems(o2m_containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
+				self._o2m_appendItems(o2m_containers[key])
 
 	def _o2m_removeItems(self,items):
-		for item in items:
-			self._o2m_removeItem(item)
+		if len(items) > 0:
+			parents = {}
+			for item in items:
+				parents.setdefault(item['__container__'].split('.')[1],{}).setdefault(item['__model__'],[]).append(item)
+				
+			for pkey in parents.keys():
+				for mkey in parents[pkey].keys():
+					m = self._pool.get(mkey)
+					rows = list(map(lambda x:x['__data__'],parents[pkey][mkey]))
+					trg1 = m._getTriger('bd')
+					for trg11 in trg1:
+						kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r2':rows,'context':self._context}
+						trg11(**kwargs)
+
+					for item in parents[pkey][mkey]:
+						self._o2m_removeItem(item)
+
+					trg2 = m._getTriger('ad')
+					for trg22 in trg2:
+						kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r2':rows,'context':self._context}
+						trg22(**kwargs)
 
 	def _o2m_removeItem(self,item):
-		container = item['__container__']
-		path = item['__path__']
-		model = item['__model__']
-		data = item['__data__']
-		if 'id' in data:
-			oid = data['id']
-			m = self._pool.get(model)
-			r = m.unlink(self._cr,self._pool,self._uid,oid,self._context)
+		if 'id' in item['__data__']:
+			data = item['__data__']
+			m = self._pool.get(item['__model__'])
+			r = _unlinkRecord(m,self._cr,self._pool,self._uid,data,self._context)
 
 	def _m2m_appendRows(self,rows):
 		rels = []
@@ -1440,13 +1552,15 @@ class MCache(object):
 			for mkey in models[model].keys():
 				for k in models[model][mkey].keys():
 					if m._columns[k]._type in ('many2one','related'):
-						models[model][mkey][k] = data[k]['id']
+						models[model][mkey][k] = models[model][mkey][k]['id']
 			
 				if 'id' in self._data._cdata[mkey]:
 					models[model][mkey]['id'] = self._data._cdata[mkey]['id']
-					r = m.write(self._cr,self._pool,self._uid,models[model][mkey],self._context)
+					r = _writeRecord(m,self._cr,self._pool,self._uid,models[model][mkey],self._context)
 				else:
-					r = m.create(self._cr,self._pool,self._uid,models[model][mkey],self._context)
+					r = _createRecord(m,self._cr,self._pool,self._uid,models[model][mkey],self._context)
+					if r:
+						item['__data__']['id'] = r
 
 	def _reset(self):
 		#diffs = self._data._pdiffs()
