@@ -202,148 +202,290 @@ class DCacheDict(object):
 		path = self._root
 		res.update(self._cmpDict(o,c,path))
 
-		if ('__update__' in res ):
-			if commit:
-				for k in res['__update__'].keys():
-					getattr(self,'_%sdata' % (o,))[k].update(copy.deepcopy(res['__update__'][k]))
+		if commit:
+			self._apply_from_diffs(o,c,res):
+		# if ('__update__' in res ):
+			# if commit:
+				# for k in res['__update__'].keys():
+					# getattr(self,'_%sdata' % (o,))[k].update(copy.deepcopy(res['__update__'][k]))
 
-		if ('__insert__' in res ):
-			if commit:
-				for k in res['__insert__'].keys():
-					getattr(self,'_%sdata' % (c,))[k].update(copy.deepcopy(res['__insert__'][k]))
+		# if ('__insert__' in res ):
+			# if commit:
+				# for k in res['__insert__'].keys():
+					# getattr(self,'_%sdata' % (c,))[k].update(copy.deepcopy(res['__insert__'][k]))
 
-		if ('__delete__' in res ):
-			if commit:
-				for k in res['__delete__'].keys():
-					for d in res['__delete__'][k].keys():
-						del getattr(self,'_%sdata' % (c,))[k][d]
+		# if ('__delete__' in res ):
+			# if commit:
+				# for k in res['__delete__'].keys():
+					# for d in res['__delete__'][k].keys():
+						# del getattr(self,'_%sdata' % (c,))[k][d]
 
-		if ('__o2m_append__' in res or '__m2m_append__' in res):
-			if commit:
-				for k in ('__o2m_append__','__m2m_append__'):
-					if k not in res:
-						continue
-					for r in res[k]:
-						container = r['__container__']
-						path = r['__path__']
-						model = r['__model__']
-						cdata = getattr(self,'_%sdata' % (c,))
-						odata = getattr(self,'_%sdata' % (o,))
-						cnames = getattr(self,'_%snames' % (c,))
-						onames = getattr(self,'_%snames' % (o,))
-						ccontainers = getattr(self,'_%scontainers' % (c,))
-						ocontainers = getattr(self,'_%scontainers' % (o,))
+		# if ('__o2m_append__' in res or '__m2m_append__' in res):
+			# if commit:
+				# for k in ('__o2m_append__','__m2m_append__'):
+					# if k not in res:
+						# continue
+					# for r in res[k]:
+						# container = r['__container__']
+						# path = r['__path__']
+						# model = r['__model__']
+						# cdata = getattr(self,'_%sdata' % (c,))
+						# odata = getattr(self,'_%sdata' % (o,))
+						# cnames = getattr(self,'_%snames' % (c,))
+						# onames = getattr(self,'_%snames' % (o,))
+						# ccontainers = getattr(self,'_%scontainers' % (c,))
+						# ocontainers = getattr(self,'_%scontainers' % (o,))
 						
-						cmetas = getattr(self,'_%smetas' % (c,))
-						ometas = getattr(self,'_%smetas' % (o,))
-						cmodels = getattr(self,'_%smodels' % (c,))
-						omodels = getattr(self,'_%smodels' % (o,))
+						# cmetas = getattr(self,'_%smetas' % (c,))
+						# ometas = getattr(self,'_%smetas' % (o,))
+						# cmodels = getattr(self,'_%smodels' % (c,))
+						# omodels = getattr(self,'_%smodels' % (o,))
 	
-						crels = getattr(self,'_%srels' % (c,))
-						orels = getattr(self,'_%srels' % (o,))
+						# crels = getattr(self,'_%srels' % (c,))
+						# orels = getattr(self,'_%srels' % (o,))
 	
-						cpaths = getattr(self,'_%spaths' % (c,))
-						opaths = getattr(self,'_%spaths' % (o,))
-						cr2c = getattr(self,'_%sr2c' % (c,))
-						or2c = getattr(self,'_%sr2c' % (o,))
+						# cpaths = getattr(self,'_%spaths' % (c,))
+						# opaths = getattr(self,'_%spaths' % (o,))
+						# cr2c = getattr(self,'_%sr2c' % (c,))
+						# or2c = getattr(self,'_%sr2c' % (o,))
 	
-						r1 = copy.deepcopy(r['__data__'])
-						odata.setdefault(cnames[container],[]).append(r1)
-						odata[path] = r1
-						onames[container] = cnames[container]
-						ocontainers[cnames[container]] = ccontainers[cnames[container]]
-						if k == '__o2m_append__':
-							ometas[model] = cmetas[model]
-							omodels[path] = cmodels[path] 
-						elif k == '__m2m_append__':
-							orels[path] = crels[path]
-						opaths[path] = cpaths[path]
-						or2c[path] = cr2c[path] 
+						# r1 = copy.deepcopy(r['__data__'])
+						# odata.setdefault(cnames[container],[]).append(r1)
+						# odata[path] = r1
+						# onames[container] = cnames[container]
+						# ocontainers[cnames[container]] = ccontainers[cnames[container]]
+						# if k == '__o2m_append__':
+							# ometas[model] = cmetas[model]
+							# omodels[path] = cmodels[path] 
+						# elif k == '__m2m_append__':
+							# orels[path] = crels[path]
+						# opaths[path] = cpaths[path]
+						# or2c[path] = cr2c[path] 
 						
-						if '__o2m_containers__' in r:
-							for ck in r['__o2m_containers__'].keys():
-								onames[ck + '.' + path] = cnames[ck + '.' + path]
-								ocontainers[cnames[ck + '.' + path]] = cnames[ck + '.' + path]
-								omodels[path] = cmodels[path]
-								ometas[omodels[path]] = cmetas[cmodels[path]]
-								or2c[path] = cr2c[path]
-								opaths[path] = cpaths[path]
+						# if '__o2m_containers__' in r:
+							# for ck in r['__o2m_containers__'].keys():
+								# onames[ck + '.' + path] = cnames[ck + '.' + path]
+								# ocontainers[cnames[ck + '.' + path]] = cnames[ck + '.' + path]
+								# omodels[path] = cmodels[path]
+								# ometas[omodels[path]] = cmetas[cmodels[path]]
+								# or2c[path] = cr2c[path]
+								# opaths[path] = cpaths[path]
 
-						if '__m2m_containers__' in r:
-							for ck in r['__m2m_containers__'].keys():
-								onames[ck + '.' + path] = cnames[ck + '.' + path]
-								ocontainers[cnames[ck + '.' + path]] = cnames[ck + '.' + path]
-								omodels[path] = cmodels[path]
-								orels[path] = crels[path]
-								or2c[path] = cr2c[path]
-								opaths[path] = cpaths[path]
+						# if '__m2m_containers__' in r:
+							# for ck in r['__m2m_containers__'].keys():
+								# onames[ck + '.' + path] = cnames[ck + '.' + path]
+								# ocontainers[cnames[ck + '.' + path]] = cnames[ck + '.' + path]
+								# omodels[path] = cmodels[path]
+								# orels[path] = crels[path]
+								# or2c[path] = cr2c[path]
+								# opaths[path] = cpaths[path]
 
 
-		if ('__o2m_remove__' in res or '__m2m_remove__' in res ):
-			if commit:
-				for k in ('__o2m_remove__','__m2m_remove__'):
-					if k not in res:
-						continue
+		# if ('__o2m_remove__' in res or '__m2m_remove__' in res ):
+			# if commit:
+				# for k in ('__o2m_remove__','__m2m_remove__'):
+					# if k not in res:
+						# continue
 
-					for r in res[k]:
-						container = r['__container__']
-						path = r['__path__']
-						model = r['__model__']
-						cdata = getattr(self,'_%sdata' % (c,))
-						odata = getattr(self,'_%sdata' % (o,))
-						cnames = getattr(self,'_%snames' % (c,))
-						onames = getattr(self,'_%snames' % (o,))
-						ccontainers = getattr(self,'_%scontainers' % (c,))
-						ocontainers = getattr(self,'_%scontainers' % (o,))
+					# for r in res[k]:
+						# container = r['__container__']
+						# path = r['__path__']
+						# model = r['__model__']
+						# cdata = getattr(self,'_%sdata' % (c,))
+						# odata = getattr(self,'_%sdata' % (o,))
+						# cnames = getattr(self,'_%snames' % (c,))
+						# onames = getattr(self,'_%snames' % (o,))
+						# ccontainers = getattr(self,'_%scontainers' % (c,))
+						# ocontainers = getattr(self,'_%scontainers' % (o,))
 						
-						cmetas = getattr(self,'_%smetas' % (c,))
-						ometas = getattr(self,'_%smetas' % (o,))
-						cmodels = getattr(self,'_%smodels' % (c,))
-						omodels = getattr(self,'_%smodels' % (o,))
+						# cmetas = getattr(self,'_%smetas' % (c,))
+						# ometas = getattr(self,'_%smetas' % (o,))
+						# cmodels = getattr(self,'_%smodels' % (c,))
+						# omodels = getattr(self,'_%smodels' % (o,))
 
-						crels = getattr(self,'_%srels' % (c,))
-						orels = getattr(self,'_%srels' % (o,))
+						# crels = getattr(self,'_%srels' % (c,))
+						# orels = getattr(self,'_%srels' % (o,))
 
-						cpaths = getattr(self,'_%spaths' % (c,))
-						opaths = getattr(self,'_%spaths' % (o,))
-						cr2c = getattr(self,'_%sr2c' % (c,))
-						or2c = getattr(self,'_%sr2c' % (o,))
+						# cpaths = getattr(self,'_%spaths' % (c,))
+						# opaths = getattr(self,'_%spaths' % (o,))
+						# cr2c = getattr(self,'_%sr2c' % (c,))
+						# or2c = getattr(self,'_%sr2c' % (o,))
 	
-						odata[onames[container]].remove(odata[path])
-						del odata[path]
+						# odata[onames[container]].remove(odata[path])
+						# del odata[path]
 	
-						if container in cnames and cnames[container] in cdata and len(cdata[cnames[container]]) == 0:
-							del cdata[onames[container]]
-							del ccontainers[cnames[container]]
-							del cnames[container]
+						# if container in cnames and cnames[container] in cdata and len(cdata[cnames[container]]) == 0:
+							# del cdata[onames[container]]
+							# del ccontainers[cnames[container]]
+							# del cnames[container]
 							
 	
-						if len(odata[onames[container]]) == 0:
-							del odata[onames[container]]
-							del ocontainers[onames[container]]
-							del onames[container]
+						# if len(odata[onames[container]]) == 0:
+							# del odata[onames[container]]
+							# del ocontainers[onames[container]]
+							# del onames[container]
 	
 						
-						#del cmetas[model]
-						#del ometas[model]
+						# #del cmetas[model]
+						# #del ometas[model]
 						
 						
-						if path in cmodels:
-							del cmodels[path] 
-						if path in omodels:
-							del omodels[path] 
+						# if path in cmodels:
+							# del cmodels[path] 
+						# if path in omodels:
+							# del omodels[path] 
 						
-						if path in cpaths:
-							del cpaths[path]
-						if path in opaths:
-							del opaths[path]
+						# if path in cpaths:
+							# del cpaths[path]
+						# if path in opaths:
+							# del opaths[path]
 						
-						if path in cr2c:
-							del cr2c[path] 
-						if path in cr2c:
-							del or2c[path]
+						# if path in cr2c:
+							# del cr2c[path] 
+						# if path in cr2c:
+							# del or2c[path]
 
 		return res
+
+
+	def _apply_from_diffs(self,o,c,diffs):
+		if ('__update__' in diffs ):
+			for k in res['__update__'].keys():
+				getattr(self,'_%sdata' % (o,))[k].update(copy.deepcopy(res['__update__'][k]))
+
+		if ('__insert__' in diffs ):
+			for k in res['__insert__'].keys():
+				getattr(self,'_%sdata' % (c,))[k].update(copy.deepcopy(res['__insert__'][k]))
+
+		if ('__delete__' in diffs ):
+			for k in res['__delete__'].keys():
+				for d in res['__delete__'][k].keys():
+					del getattr(self,'_%sdata' % (c,))[k][d]
+
+		if ('__o2m_append__' in diffs or '__m2m_append__' in diffs):
+			for k in ('__o2m_append__','__m2m_append__'):
+				if k not in diffs:
+					continue
+				for r in diffs[k]:
+					container = r['__container__']
+					path = r['__path__']
+					model = r['__model__']
+					cdata = getattr(self,'_%sdata' % (c,))
+					odata = getattr(self,'_%sdata' % (o,))
+					cnames = getattr(self,'_%snames' % (c,))
+					onames = getattr(self,'_%snames' % (o,))
+					ccontainers = getattr(self,'_%scontainers' % (c,))
+					ocontainers = getattr(self,'_%scontainers' % (o,))
+					
+					cmetas = getattr(self,'_%smetas' % (c,))
+					ometas = getattr(self,'_%smetas' % (o,))
+					cmodels = getattr(self,'_%smodels' % (c,))
+					omodels = getattr(self,'_%smodels' % (o,))
+
+					crels = getattr(self,'_%srels' % (c,))
+					orels = getattr(self,'_%srels' % (o,))
+
+					cpaths = getattr(self,'_%spaths' % (c,))
+					opaths = getattr(self,'_%spaths' % (o,))
+					cr2c = getattr(self,'_%sr2c' % (c,))
+					or2c = getattr(self,'_%sr2c' % (o,))
+
+					r1 = copy.deepcopy(r['__data__'])
+					odata.setdefault(cnames[container],[]).append(r1)
+					odata[path] = r1
+					onames[container] = cnames[container]
+					ocontainers[cnames[container]] = ccontainers[cnames[container]]
+					if k == '__o2m_append__':
+						ometas[model] = cmetas[model]
+						omodels[path] = cmodels[path] 
+					elif k == '__m2m_append__':
+						orels[path] = crels[path]
+					opaths[path] = cpaths[path]
+					or2c[path] = cr2c[path] 
+					
+					if '__o2m_containers__' in r:
+						for ck in r['__o2m_containers__'].keys():
+							onames[ck + '.' + path] = cnames[ck + '.' + path]
+							ocontainers[cnames[ck + '.' + path]] = cnames[ck + '.' + path]
+							omodels[path] = cmodels[path]
+							ometas[omodels[path]] = cmetas[cmodels[path]]
+							or2c[path] = cr2c[path]
+							opaths[path] = cpaths[path]
+
+					if '__m2m_containers__' in r:
+						for ck in r['__m2m_containers__'].keys():
+							onames[ck + '.' + path] = cnames[ck + '.' + path]
+							ocontainers[cnames[ck + '.' + path]] = cnames[ck + '.' + path]
+							omodels[path] = cmodels[path]
+							orels[path] = crels[path]
+							or2c[path] = cr2c[path]
+							opaths[path] = cpaths[path]
+
+
+		if ('__o2m_remove__' in diffs or '__m2m_remove__' in diffs ):
+			for k in ('__o2m_remove__','__m2m_remove__'):
+				if k not in diffs:
+					continue
+
+				for r in diffs[k]:
+					container = r['__container__']
+					path = r['__path__']
+					model = r['__model__']
+					cdata = getattr(self,'_%sdata' % (c,))
+					odata = getattr(self,'_%sdata' % (o,))
+					cnames = getattr(self,'_%snames' % (c,))
+					onames = getattr(self,'_%snames' % (o,))
+					ccontainers = getattr(self,'_%scontainers' % (c,))
+					ocontainers = getattr(self,'_%scontainers' % (o,))
+					
+					cmetas = getattr(self,'_%smetas' % (c,))
+					ometas = getattr(self,'_%smetas' % (o,))
+					cmodels = getattr(self,'_%smodels' % (c,))
+					omodels = getattr(self,'_%smodels' % (o,))
+
+					crels = getattr(self,'_%srels' % (c,))
+					orels = getattr(self,'_%srels' % (o,))
+
+					cpaths = getattr(self,'_%spaths' % (c,))
+					opaths = getattr(self,'_%spaths' % (o,))
+					cr2c = getattr(self,'_%sr2c' % (c,))
+					or2c = getattr(self,'_%sr2c' % (o,))
+
+					odata[onames[container]].remove(odata[path])
+					del odata[path]
+
+					if container in cnames and cnames[container] in cdata and len(cdata[cnames[container]]) == 0:
+						del cdata[onames[container]]
+						del ccontainers[cnames[container]]
+						del cnames[container]
+						
+
+					if len(odata[onames[container]]) == 0:
+						del odata[onames[container]]
+						del ocontainers[onames[container]]
+						del onames[container]
+
+					
+					#del cmetas[model]
+					#del ometas[model]
+					
+					
+					if path in cmodels:
+						del cmodels[path] 
+					if path in omodels:
+						del omodels[path] 
+					
+					if path in cpaths:
+						del cpaths[path]
+					if path in opaths:
+						del opaths[path]
+					
+					if path in cr2c:
+						del cr2c[path] 
+					if path in cr2c:
+						del or2c[path]
+
+		return True
 
 	def _cmpDict(self,o,c,path):
 		res = {}
@@ -672,6 +814,7 @@ class MCache(object):
 		self._meta = {}
 		self._cache_attrs = {}
 		self._diffs = {}
+		self._commit_diffs = {}
 
 	def _getMode(self):
 		return [self._mode]
@@ -1139,8 +1282,8 @@ class MCache(object):
 		
 		return []
 
-	def _save(self):
-		diffs = self._data._pdiffs()
+	def _save(self,autocommit = False):
+		diffs = self._data._pdiffs(False)
 		#print('DIFFS:',diffs)
 		if len(diffs) == 0:
 			return ['no chache']
@@ -1163,6 +1306,12 @@ class MCache(object):
 				elif k == '__m2m_remove__':
 					self._m2m_removeRows(diffs['__m2m_remove__'])
 		
+			self._commit_diffs = diffs
+		
+			if autocommit:
+				if self._data._apply_from_diffs('p','c',diffs):
+					return self._commit()
+			
 			return ['commit']
 
 	def _createItems(self,items,rel=None,oid = None):
@@ -1296,7 +1445,7 @@ class MCache(object):
 				r = m.create(self._cr,self._pool,self._uid,models[model],self._context)
 
 	def _reset(self):
-		diffs = self._data._pdiffs()
+		#diffs = self._data._pdiffs()
 		
 		self._roolback()
 
@@ -1307,7 +1456,11 @@ class MCache(object):
 		
 		self._cr.commit()
 		
-		return ['commited']
+		if self._data._apply_from_diffs('p','c',self._commit_diffs)
+			return ['commited']
+		
+		return ['not commited']
+		
 
 	def _rollback(self):
 		if self._mode in ('new',):
