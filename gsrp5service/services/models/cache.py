@@ -203,7 +203,7 @@ class DCacheDict(object):
 		res.update(self._cmpDict(o,c,path))
 
 		if commit:
-			self._apply_from_diffs(o,c,res):
+			self._apply_from_diffs(o,c,res)
 		# if ('__update__' in res ):
 			# if commit:
 				# for k in res['__update__'].keys():
@@ -1456,7 +1456,7 @@ class MCache(object):
 		
 		self._cr.commit()
 		
-		if self._data._apply_from_diffs('p','c',self._commit_diffs)
+		if self._data._apply_from_diffs('p','c',self._commit_diffs):
 			return ['commited']
 		
 		return ['not commited']
