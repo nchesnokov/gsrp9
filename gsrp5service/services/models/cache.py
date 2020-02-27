@@ -1340,9 +1340,8 @@ class MCache(object):
 		excl_fields = m._o2mfields + m._m2mfields
 		for k in filter(lambda x: x not in excl_fields,item['__data__'].keys()):
 			if m._columns[k]._type in ('many2one','related'):
-				data[k] = item['__data__'][k]['id']
-			elif k == rel:
-				data[rel] = {'id':oid,'name':recname}
+				if rel and k != rel or not rel:
+					data[k] = item['__data__'][k]['id']
 
 		r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 
