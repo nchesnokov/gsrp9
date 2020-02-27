@@ -350,16 +350,16 @@ class DCacheDict(object):
 
 	def _apply_from_diffs(self,o,c,diffs):
 		if ('__update__' in diffs ):
-			for k in res['__update__'].keys():
-				getattr(self,'_%sdata' % (o,))[k].update(copy.deepcopy(res['__update__'][k]))
+			for k in diffs['__update__'].keys():
+				getattr(self,'_%sdata' % (o,))[k].update(copy.deepcopy(diffs['__update__'][k]))
 
 		if ('__insert__' in diffs ):
-			for k in res['__insert__'].keys():
-				getattr(self,'_%sdata' % (c,))[k].update(copy.deepcopy(res['__insert__'][k]))
+			for k in diffs['__insert__'].keys():
+				getattr(self,'_%sdata' % (c,))[k].update(copy.deepcopy(diffs['__insert__'][k]))
 
 		if ('__delete__' in diffs ):
-			for k in res['__delete__'].keys():
-				for d in res['__delete__'][k].keys():
+			for k in diffs['__delete__'].keys():
+				for d in diffs['__delete__'][k].keys():
 					del getattr(self,'_%sdata' % (c,))[k][d]
 
 		if ('__o2m_append__' in diffs or '__m2m_append__' in diffs):
