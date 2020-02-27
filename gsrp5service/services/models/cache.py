@@ -1358,11 +1358,11 @@ class MCache(object):
 			for key in containers.keys():
 				self._createItems(containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
 
-	def _o2m_appendItems(self,items):
+	def _o2m_appendItems(self,items,rel = None, oid = None):
 		for item in items:
-			self._o2m_appendItem(item)
+			self._o2m_appendItem(item,rel,oid)
 
-	def _o2m_appendItem(self,item):
+	def _o2m_appendItem(self,item,rel = None, oid = None):
 		print('ITEM:',item)
 		data = {}
 		model = item['__model__']
@@ -1386,7 +1386,7 @@ class MCache(object):
 		if '__o2m_containers__' in item:
 			o2m_containers = item['__o2m_containers__']
 			for key in o2m_containers.keys():
-				self._o2m_appendItems(o2m_containers[key])
+				self._o2m_appendItems(o2m_containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
 
 	def _o2m_removeItems(self,items):
 		for item in items:
