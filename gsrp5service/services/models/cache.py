@@ -605,7 +605,7 @@ class DCacheDict(object):
 				r1 = self._m2m_cmpList(o,c,k + '.' + i)
 				m2m_containers.setdefault(k,[]).extend(r1['__m2m_append__'] if '__m2m_append__' in r1 else [])
 				
-			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__containers__':m2m_containers})
+			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__m2m_containers__':m2m_containers})
 
 			for v in filter(lambda x: x != 'id' and ci[x]['type'] != 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				data[v] = getattr(self,'_%sdata' % (c,))[i][v]
@@ -616,7 +616,7 @@ class DCacheDict(object):
 				r1 = self._o2m_cmpList(o,c,k + '.' + i)
 				o2m_containers.setdefault(k,[]).extend(r1['__o2m_append__'] if '__o2m_append__' in r1 else [])
 				
-			res.setdefault('__o2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__containers__':o2m_containers})
+			res.setdefault('__o2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__o2m_containers__':o2m_containers})
 
 
 	
