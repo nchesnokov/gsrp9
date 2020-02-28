@@ -1550,17 +1550,20 @@ class MCache(object):
 		for model in models.keys():
 			m = self._pool.get(model)
 			for mkey in models[model].keys():
+				data = {}
 				for k in models[model][mkey].keys():
 					if m._columns[k]._type in ('many2one','related'):
-						models[model][mkey][k] = models[model][mkey][k]['id']
+						data[k] = models[model][mkey][k]['id']
+					else:
+						data[k] = models[model][mkey][k]
 			
 				if 'id' in self._data._cdata[mkey]:
 					models[model][mkey]['id'] = self._data._cdata[mkey]['id']
-					r = _writeRecord(m,self._cr,self._pool,self._uid,models[model][mkey],self._context)
+					r = _writeRecord(m,self._cr,self._pool,self._uid,data,self._context)
 				else:
-					r = _createRecord(m,self._cr,self._pool,self._uid,models[model][mkey],self._context)
+					r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 					if r:
-						item['__data__']['id'] = r
+						models[model][mkey]['id'] = r
 
 	def _reset(self):
 		#diffs = self._data._pdiffs()
