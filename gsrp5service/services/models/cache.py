@@ -1558,7 +1558,7 @@ class MCache(object):
 						data[k] = models[model][mkey][k]
 			
 				if 'id' in self._data._cdata[mkey]:
-					models[model][mkey]['id'] = self._data._cdata[mkey]['id']
+					data['id'] = self._data._cdata[mkey]['id']
 					r = _writeRecord(m,self._cr,self._pool,self._uid,data,self._context)
 				else:
 					r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
