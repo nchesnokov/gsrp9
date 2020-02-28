@@ -7,6 +7,14 @@ import ctypes
 from gsrp5service.orm import gensql
 from gsrp5service.orm.common import MAGIC_COLUMNS
 
+from gsrp5service.orm.mm import _m2mfieldid2
+
+class orm_exception(Exception):
+	def __init__(self, *args, **kwargs):
+		self.args = args
+		self.kwargs = kwargs
+
+
 def _join_levels(l1,l2):
 	for k in l2.keys():
 		l1.setdefault(k,set()).update(l2[k])
