@@ -316,6 +316,11 @@ class BaseModel(object, metaclass = MetaModel):
 		c = self.columnsInfo(attributes=['store','type'])
 		return list(filter(lambda x: 'store' in c[x] and c[x]['store'] or c[x]['type'] in ('one2many','many2many','text','xml','binary','referenced'),c.keys())) 
 
+	def _getUid(self,cr):
+		cr.execute('select uuid_v4()::UUID as id')
+		if cr.rowcount > 0:
+			return cr.fetchone(['id'],{'id':'UUID'})[0]
+
 	def _is(self,n,t):
 		return self.columnsInfo(columns=[n],attributes=['type'])[n]['type'] == t
 

@@ -116,6 +116,81 @@ def _writeRecord(self, cr, pool, uid, record, context):
 
 	return oid
 
+def _modifyRecord(self, cr, pool, uid, record, context):
+	oid = None
+	#print('MODIFY-RECORD:',record)
+	fields = list(record.keys())
+	modelfields = list(self._columns.keys())
+	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS, fields))
+	if len(nomodelfields) > 0:
+		raise orm_exception("Fields: %s not found in model: %s" % (nomodelfields, self.modelInfo()['name']))
+	
+	for nosavedfield in self._nosavedfields:
+		if nosavedfield in record:
+			del record[nosavedfield]
+	columnsinfo = self.columnsInfo(columns = fields)
+	o2mfields = list(filter(lambda x: x in fields, self._o2mfields))
+	o2rfields = list(filter(lambda x: x in fields, self._o2rfields)) # o2related
+	m2mfields = list(filter(lambda x: x in fields, self._m2mfields))
+
+	emptyfields = list(filter(lambda x: x in fields and record[x] is None,self._requiredfields))		
+	if len(emptyfields) > 0:
+		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo()['name'], record))
+
+	o2mfieldsrecords = {}
+	o2rfieldsrecords = {} # o2related
+	m2mfieldsrecords = {}
+
+	trg1 = self._getTriger('bur')
+	record2 =None
+	upd_cols = set()
+	if trg1 and len(trg1) > 0:
+		
+		if 'id' in record and record['id']:
+			ctx = context.copy()
+			ctx['FETCH'] = 'RAW'
+			record2 = read(self, cr, pool, uid, record['id'], self._selectablefields, ctx)[0]
+	
+		if record2:
+			k1 = set(list(record.keys()))
+			k2 = set(list(record2.keys()))
+			uk = list(set(k1).intersection(set(k2)))
+			ik = list(set(k1)- set(k2))
+			dk = list(set(k2)- set(k1))
+			
+			
+		for k in uk:
+			if record[k] != record2[k]:
+				if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
+					upd_cols.add(k)
+		for k in ik:
+			if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
+				upd_cols.add(k)
+
+		for k in dk:
+			if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
+				upd_cols.add(k)
+
+		if record2 is None or len(upd_cols) > 0:
+			for trg11 in trg1:
+				kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record2,'context':context}
+				trg11(**kwargs)
+		
+	#print('RECORD-0:',record)
+	sql,vals = gensql.Modify(self,pool,uid,self.modelInfo(), record, context)
+	cr.execute(sql,vals)
+	if cr.cr.rowcount > 0:
+		oid = cr.fetchone()[0]
+
+	if record2 is None or len(upd_cols) > 0:
+		trg2 = self._getTriger('aur')
+		for trg22 in trg2:
+			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record2,'context':context}
+			trg22(**kwargs)
+
+	return oid
+
+
 def _unlinkRecord(self, cr, pool, uid, record, context = {}):
 	oid = None
 	if not self._access._checkUnlink():
@@ -220,9 +295,9 @@ class DCacheDict(object):
 			self._cdata[coid] = data[o2mfield]
 			self._cmodels[coid] = ci[o2mfield]['obj']
 
-			if mode != 'I':
-				for r1 in data[o2mfield]:
-					self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
+			#if mode != 'I':
+			for r1 in data[o2mfield]:
+				self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
 
 	def _m2m_buildTree(self,data,rel,parent,name,model):
 		#print('_m2m_buildTree:'.upper(),data,rel,parent,name)
@@ -684,7 +759,7 @@ class DCacheDict(object):
 
 			container = self._ccontainers[getattr(self,'_%sr2c' % (c,))[i]]
 			m2m_containers = {}
-			for k in filter(lambda x: x != 'id ' and ci[x]['type'] == 'many2many',getattr(self,'_%sdata' % (c,))[i].keys()):
+			for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'many2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				r1 = self._m2m_cmpList(o,c,k + '.' + i)
 				m2m_containers.setdefault(k,[]).extend(r1['__m2m_append__'] if '__m2m_append__' in r1 else [])
 				
@@ -695,7 +770,7 @@ class DCacheDict(object):
 
 			container = self._ccontainers[getattr(self,'_%sr2c' % (c,))[i]]
 			o2m_containers = {}
-			for k in filter(lambda x: x != 'id ' and ci[x]['type'] == 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
+			for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				r1 = self._o2m_cmpList(o,c,k + '.' + i)
 				o2m_containers.setdefault(k,[]).extend(r1['__o2m_append__'] if '__o2m_append__' in r1 else [])
 				
@@ -959,31 +1034,144 @@ class MCache(object):
 		
 		return res
 
-	def _do_create(self,model,context={}):
-		self._clear()
-		self._model = model
-		row = self._pool.get(model)._buildEmptyItem()
-		self._setDefault(model,row)
-		self._data = DCacheDict({},model,self._pool)
-		self._data._buildTree(row,model,mode='A')
-		self._do_calculate(self._data._root,context=self._context)
-		self._getMeta()	
-		m = self._data._getData(self._data._data)
-		m['__meta__'] = self._do_meta(str(self._data._root))
-		m['__checks__'] = []
-		return m
+	def _do_create(self,model,kwargs):
+		# self._clear()
+		# self._model = model
+		row = self._pool.get(model).create(**kwargs)
+		return row
+		# self._data = DCacheDict(row,model,self._pool)
+		# self._getMeta()
+		# m = self._data._getData(self._data._data)
+		# m['__meta__'] = self._do_meta(str(self._data._root))
+		# m['__checks__'] = []
+		# return m
 
-	def _do_read(self,model,row):
+	def _do_read(self,model,kwargs):
 		#v = self._readSchema(model,row)
 		#print('READ-SCHEMA:',row)
 		self._clear()
 		self._model = model
+		row = self._pool.get(model).read(**kwargs)
+		if len(row) > 0:
+			self._data = DCacheDict(row[0],model,self._pool)
+			self._getMeta()
+			m = self._data._getData(self._data._data)
+			m['__meta__'] = self._do_meta(str(self._data._root))
+			m['__checks__'] = []
+			return m
+		else:
+			return []
+
+	def _do_write(self,model,kwargs):
+		#v = self._readSchema(model,row)
+		#print('READ-SCHEMA:',row)
+		# self._clear()
+		# self._model = model
+		row = self._pool.get(model).write(**kwargs)
+		return row
+		# self._data = DCacheDict(row,model,self._pool)
+		# self._getMeta()
+		# m = self._data._getData(self._data._data)
+		# m['__meta__'] = self._do_meta(str(self._data._root))
+		# m['__checks__'] = []
+		# return m
+
+	def _do_modify(self,model,kwargs):
+		#v = self._readSchema(model,row)
+		#print('READ-SCHEMA:',row)
+		# self._clear()
+		# self._model = model
+		row = self._pool.get(model).modify(**kwargs)
+		return row
+		# self._data = DCacheDict(row,model,self._pool)
+		# self._getMeta()
+		# m = self._data._getData(self._data._data)
+		# m['__meta__'] = self._do_meta(str(self._data._root))
+		# m['__checks__'] = []
+		# return m
+
+	def _do_unlink(self,model,kwargs):
+		#v = self._readSchema(model,row)
+		#print('READ-SCHEMA:',row)
+		# self._clear()
+		# self._model = model
+		row = self._pool.get(model).unlink(**kwargs)
+		return row
+		# self._data = DCacheDict(row,model,self._pool)
+		# self._getMeta()
+		# m = self._data._getData(self._data._data)
+		# m['__meta__'] = self._do_meta(str(self._data._root))
+		# m['__checks__'] = []
+		# return m
+
+	def _do_insert(self,model,kwargs):
+		#v = self._readSchema(model,row)
+		#print('READ-SCHEMA:',row)
+		# self._clear()
+		# self._model = model
+		row = self._pool.get(model).insert(**kwargs)
+		return row
+		# self._data = DCacheDict(row,model,self._pool)
+		# self._getMeta()
+		# m = self._data._getData(self._data._data)
+		# m['__meta__'] = self._do_meta(str(self._data._root))
+		# m['__checks__'] = []
+		# return m
+
+	def _do_select(self,model,kwargs):
+		#v = self._readSchema(model,row)
+		#print('READ-SCHEMA:',row)
+		#self._clear()
+		#self._model = model
+		row = self._pool.get(model).select(**kwargs)
+		#self._data = DCacheDict(row,model,self._pool)
+		#self._getMeta()
+		#m = self._data._getData(self._data._data)
+		#m['__meta__'] = self._do_meta(str(self._data._root))
+		#m['__checks__'] = []
+		return row
+		#return m
+
+
+	def _do_upsert(self,model,kwargs):
+		#v = self._readSchema(model,row)
+		#print('READ-SCHEMA:',row)
+		self._clear()
+		self._model = model
+		row = self._pool.get(model).upsert(**kwargs)
 		self._data = DCacheDict(row,model,self._pool)
 		self._getMeta()
 		m = self._data._getData(self._data._data)
 		m['__meta__'] = self._do_meta(str(self._data._root))
 		m['__checks__'] = []
 		return m
+
+	def _do_update(self,model,kwargs):
+		#v = self._readSchema(model,row)
+		#print('READ-SCHEMA:',row)
+		self._clear()
+		self._model = model
+		row = self._pool.get(model).update(**kwargs)
+		self._data = DCacheDict(row,model,self._pool)
+		self._getMeta()
+		m = self._data._getData(self._data._data)
+		m['__meta__'] = self._do_meta(str(self._data._root))
+		m['__checks__'] = []
+		return m
+
+	def _do_delete(self,model,kwargs):
+		#v = self._readSchema(model,row)
+		#print('READ-SCHEMA:',row)
+		self._clear()
+		self._model = model
+		row = self._pool.get(model).delete(**kwargs)
+		self._data = DCacheDict(row,model,self._pool)
+		self._getMeta()
+		m = self._data._getData(self._data._data)
+		m['__meta__'] = self._do_meta(str(self._data._root))
+		m['__checks__'] = []
+		return m
+
 
 	def _getMeta(self,models = None):
 		if models is None:
@@ -1179,6 +1367,7 @@ class MCache(object):
 	def _o2m_add(self,model,container,context,view='form'):
 		#row = self._buildItem(model,view)
 		row = self._pool.get(model)._buildEmptyItem()
+		row['id'] = self._pool.get(model)._getUid(self._cr)
 		self._setDefault(model,row)
 		
 		p = container.split('.')
@@ -1567,7 +1756,7 @@ class MCache(object):
 			
 				if 'id' in self._data._cdata[mkey]:
 					data['id'] = self._data._cdata[mkey]['id']
-					r = _writeRecord(m,self._cr,self._pool,self._uid,data,self._context)
+					r = _modifyRecord(m,self._cr,self._pool,self._uid,data,self._context)
 				else:
 					r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 					if r:
