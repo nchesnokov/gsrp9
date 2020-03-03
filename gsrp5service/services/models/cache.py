@@ -874,8 +874,8 @@ class DCacheDict(object):
 				data = copy.deepcopy(odata[path1])
 				del odata[path1]
 				res.append({'__path__':path1,'__container__':container1,'__model__':obj,'__data__':data})
-			
-		res.append({'__path__':path,'__container__':container,'__model__':model,'__data__':data})		
+
+		res.append({'__path__':path,'__container__':container,'__model__':model,'__data__':getattr(self,'_%sdata' % (o,))[path]})		
 		
 		return res
 			
@@ -1367,7 +1367,7 @@ class MCache(object):
 	def _o2m_add(self,model,container,context,view='form'):
 		#row = self._buildItem(model,view)
 		row = self._pool.get(model)._buildEmptyItem()
-		row['id'] = self._pool.get(model)._getUid(self._cr)
+		#row['id'] = self._pool.get(model)._getUid(self._cr)
 		self._setDefault(model,row)
 		
 		p = container.split('.')
@@ -1397,7 +1397,7 @@ class MCache(object):
 		return []
 			
 	def _o2m_remove(self,path,container,context):
-		print('O2M-CACHE-REMOVE:',path,container)
+		#print('O2M-CACHE-REMOVE:',path,container)
 		c = container.split('.')
 		self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
 		del self._data._cdata[path]
@@ -1657,6 +1657,7 @@ class MCache(object):
 
 	def _o2m_appendItem(self,item):
 		data = {}
+		path = item['__path__']
 		model = item['__model__']
 		container = item['__container__']
 		cn,parent = container.split('.')
@@ -1676,6 +1677,10 @@ class MCache(object):
 		r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 		if r:
 			item['__data__']['id'] = r
+			self._data._cdata[path]['id'] = r
+			self._data._odata[path]['id'] = copy.deepcopy(r)
+			if self._data._primary and path in self._data._pdata:
+				self._data._pdata[path]['id'] = copy.deepcopy(r)
 
 		if '__o2m_containers__' in item:
 			o2m_containers = item['__o2m_containers__']
@@ -1756,7 +1761,7 @@ class MCache(object):
 			
 				if 'id' in self._data._cdata[mkey]:
 					data['id'] = self._data._cdata[mkey]['id']
-					r = _modifyRecord(m,self._cr,self._pool,self._uid,data,self._context)
+					r = _writeRecord(m,self._cr,self._pool,self._uid,data,self._context)
 				else:
 					r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 					if r:
