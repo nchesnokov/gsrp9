@@ -367,6 +367,7 @@ class DCacheDict(object):
 
 
 	def _apply_from_diffs(self,o,c,diffs):
+		print('APPLY-DIFFS:',diffs)
 		if ('__update__' in diffs ):
 			for k in diffs['__update__'].keys():
 				getattr(self,'_%sdata' % (o,))[k].update(copy.deepcopy(diffs['__update__'][k]))
@@ -445,7 +446,7 @@ class DCacheDict(object):
 				if k not in diffs:
 					continue
 
-				for r in reversed(diffs[k]):
+				for r in diffs[k]:
 					container = r['__container__']
 					path = r['__path__']
 					model = r['__model__']
@@ -649,14 +650,16 @@ class DCacheDict(object):
 			data = getattr(self,'_%sdata' % (o,))[d]
 			
 			names = getattr(self,'_%snames' % (o,))
-				
-			# for o2mfield in self._pool.get(model)._o2mfields:
-				# container1 = o2mfield + '.' + str(d)
-				
-				# for path in filter(lambda x:cr2c[x] == names[container1],cr2c.keys()):
-					# res.setdefault('__o2m_remove__',[]).extend(self._removeRecursive(o,c,path))
 			
-			res.setdefault('__o2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__data__':data})
+			self._removeRecursive(o,c,d)
+			for o2mfield in filter(lambda x: x in data,self._pool.get(model)._o2mfields):
+				r1 = self._o2m_cmpList(o,c,o2mfield + '.' + d)
+				res.setdefault('__o2m_remove__',[]).extend(r1['__o2m_remove__'] if '__o2m_remove__' in r1 else [])
+				
+				#for path in filter(lambda x:cr2c[x] == names[container1],cr2c.keys()):
+			#res.setdefault('__o2m_remove__',[]).extend(self._removeRecursive(o,c,d))
+			
+			res.setdefault('__o2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__data__':copy.deepcopy(data)})
 				
 
 		return res
@@ -719,26 +722,36 @@ class DCacheDict(object):
 
 	def _removeRecursive(self,o,c,path):
 		res = []
-		model = getattr(self,'_%smodels' % (c,))[path]
-		container = getattr(self,'_%scontainers' % (c,))[getattr(self,'_%sr2c' % (c,))[path]]
+		model = getattr(self,'_%smodels' % (o,))[path]
+		container = getattr(self,'_%scontainers' % (o,))[getattr(self,'_%sr2c' % (o,))[path]]
+		odata = getattr(self,'_%sdata' % (o,))
+		cdata = getattr(self,'_%sdata' % (c,))
+		onames = getattr(self,'_%snames' % (o,))
+		ometas = getattr(self,'_%smetas' % (o,))
+		or2c = getattr(self,'_%sr2c' % (o,))
+
 
 		for o2mfield in self._pool.get(model)._o2mfields:
 			container1 = o2mfield + '.' + str(path)
-			coid = getattr(self,'_%snames' % (c,))[container1]
-			obj = getattr(self,'_%smetas' % (c,))[model][o2mfield]['obj']
-			cdata = getattr(self,'_%sdata' % (c,))
-			for r in cdata[coid]:
-				path1 = str(id(r))
+			coid = onames[container1]
+			#oids = list(filter(lambda x: or2c[x] == coid,or2c.keys()))
+			for path1 in filter(lambda x: or2c[x] == coid,or2c.keys()):
 				res.extend(self._removeRecursive(o,c,path1))
-				cdata[coid].remove(self._cdata[path1])
-				data = copy.deepcopy(cdata[path1])
-				del cdata[path1]
-				#res.append({'__path__':path1,'__container__':container1,'__model__':obj,'__data__':data})
-			
+				if path1 in cdata and coid in cdata:
+					cdata[coid].remove(cdata[path1])
+				res.append({'__path__':path1,'__container__':container1,'__model__':ometas[model][o2mfield]['obj'],'__data__':copy.deepcopy(odata[path1])})
+	
+				if path1 in cdata:
+					del cdata[path1]
+	
+				
 			if len(cdata[coid]) == 0:
 				del cdata[coid]
-			
-		#res.append({'__path__':path,'__container__':container,'__model__':model,'__data__':getattr(self,'_%sdata' % (c,))[path]})		
+
+		res.append({'__path__':path,'__container__':container,'__model__':model,'__data__':copy.deepcopy(odata[path])})
+
+		if path in cdata:
+			del cdata[path]
 		
 		return res
 			
@@ -1262,7 +1275,6 @@ class MCache(object):
 	def _o2m_remove(self,path,container,context):
 		#print('O2M-CACHE-REMOVE:',path,container)
 		c = container.split('.')
-		self._data._removeRecursive('o','c',path)
 		self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
 		del self._data._cdata[path]
 		
@@ -1271,7 +1283,7 @@ class MCache(object):
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
-
+		#print('REMOVE-DIFFS:',self._data._pdiffs(False))
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
 		
@@ -1575,6 +1587,7 @@ class MCache(object):
 						trg22(**kwargs)
 
 	def _o2m_removeItem(self,item):
+		print('REMOVE-ITEM:',item)
 		if 'id' in item['__data__']:
 			data = item['__data__']
 			m = self._pool.get(item['__model__'])
