@@ -516,6 +516,7 @@ class purchase_order_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='purchase.order.categories'),
 	'childs_id': fields.one2many(obj = 'purchase.order.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'orders': fields.one2many(label='Orders',obj='purchase.orders',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -529,6 +530,7 @@ class purchase_invoce_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='purchase.invoce.categories'),
 	'childs_id': fields.one2many(obj = 'purchase.invoce.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'invoices': fields.one2many(label='Orders',obj='purchase.invoices',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -545,7 +547,8 @@ class purchase_orders(Model):
 	'otype': fields.many2one(label='Type',obj='purchase.order.types',on_change='_on_change_otype', required = True),
 	'name': fields.varchar(label = 'Name', required = True),
 	'company': fields.many2one(label='Company',obj='md.company', required = True),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	#'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True, compute = '_compute_composite'),
 	'market_id': fields.many2one(label='Market',obj='purchase.markets'),
 	'team_id': fields.many2one(label='Team',obj='purchase.teams'),
 	'category_id': fields.many2one(label='Category',obj='purchase.order.categories'),

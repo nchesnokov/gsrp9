@@ -197,6 +197,8 @@ def model__init__(self,access = None):
 	fullname = _getFullNameName(self)
 	recname = _getRecNameName(self)
 	rec_name = fullname or recname
+	#self._rec_name = rec_name
+	#self._full_name = fullname
 	if rec_name and rec_name in self._nostorecomputefields:
 		raise orm_exception(_('Recname: <%s> in model: %s must be store in database') % (rec_name, self._name))
 
@@ -265,7 +267,7 @@ def _getChildsIdName(self):
 def _getRecNameName(self):
 	n = _getName(self,'rec_name')
 	if n:
-		if not self._columns[n]._type in ('char','varchar','selection'):
+		if not self._columns[n]._type in ('char','varchar','selection','composite'):
 			n = None
 
 	return n
@@ -273,7 +275,7 @@ def _getRecNameName(self):
 def _getFullNameName(self):
 	n = _getName(self,'full_name')
 	if n:
-		if not self._columns[n]._type in ('char','varchar'):
+		if not self._columns[n]._type in ('char','varchar','composite'):
 			n = None
 
 	return n
@@ -495,6 +497,50 @@ def _getHook(self,name):
 			return hook
 		
 		return getattr(self,hook,None)
+
+def _compute_composite(self,cr,pool,uid,item,context):
+	v=''
+	fullname = self._getFullNameName()
+	if fullname and self._columns[fullname]._type == 'composite':
+		cols = self._columns[fullname].cols
+		delimiter = self._columns[fullname].delimiter
+		for col in cols:
+			if self._columns[col]._type in ('many2one','related'):
+				if col in item and item[col] and item[col]['name']:
+					if len(v) == 0:
+						v += item[col]['name']
+					else:
+						v += delimiter + item[col]['name']
+			else:
+				if len(v) == 0:
+					v += item[col]
+				else:
+					v += delimiter + item[col]
+
+		if len(v) > 0:
+			item[fullname] = v
+
+def _compute_composite_tree(self,cr,pool,uid,item,context):
+	v=''
+	recname = self._getRecNameName()
+	fullname = self._getFullNameName()
+	parent_id = self._getParentIdName() 
+	delimiter = self._columns[fullname].delimiter
+
+	if fullname and self._columns[fullname]._type == 'composite' and parent_id and self._getChildsIdName():
+		if item[parent_id]['id']:
+			v += self.read(cr,pool,uid,item[parent_id]['id'],[fullname],context)[0][fullname]
+			if item[recname]:
+				v += delimiter + item[recname]
+
+		else:
+			if item[recname]:
+				v += item[recname]
+
+		if len(v) > 0:
+			item[fullname] = v
+
+		print('ITEM-1:',fullname,recname,v,item)
 
 # modelinfo
 def _buildEmptyItem(self):

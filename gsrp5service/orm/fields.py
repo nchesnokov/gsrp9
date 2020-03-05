@@ -16,7 +16,7 @@ def _set_symbol(self, symb):
 
 class _column(object):
 
-	__slots__ = ('__dict__','accept','actions','label', 'readonly','invisible', 'priority', 'domain', 'context', 'pattern','required', 'size', 'on_delete', 'on_update','on_change','on_check', 'translate', 'selections', 'selectable', 'manual', 'help', 'unique','check','family','timezone','relatedy','obj','rel','id1','id2','ref','offset','limit','compute','store','state')
+	__slots__ = ('__dict__','accept','actions','label', 'readonly','invisible', 'priority', 'domain', 'context', 'pattern','required', 'size', 'on_delete', 'on_update','on_change','on_check', 'translate', 'selections', 'selectable', 'manual', 'help', 'unique','check','family','timezone','relatedy','obj','rel','id1','id2','ref','offset','limit','compute','store','state','icon','cols','delimiter')
 
 	def __init__(self, **kwargs):
 
@@ -100,8 +100,8 @@ class char(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, pattern = None, priority = 0, context = {}, required = None, size = 32, on_change = None, on_check=None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = False, check = None,family = 'Primary',compute = None, store = True,state=None, actions=None):
-		super(char, self).__init__(label=label, readonly=readonly, invisible=invisible, pattern = pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, on_check = on_check, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, pattern = None, priority = 0, context = {}, required = None, size = 32, on_change = None, on_check=None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = False, check = None,family = 'Primary',compute = None, store = True,state=None, actions=None, icon = None):
+		super(char, self).__init__(label=label, readonly=readonly, invisible=invisible, pattern = pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, on_check = on_check, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = compute, store = store, state = state, actions = actions,icon = icon)
 
 class varchar(_column):
 	_type = 'varchar'
@@ -111,8 +111,19 @@ class varchar(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, on_check = None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = None, check = None,family = 'Primary',compute = None, store = True,state=None, actions=None):
-		super(varchar, self).__init__(label=label, readonly=readonly, invisible=invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, on_check = None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = None, check = None,family = 'Primary',compute = None, store = True,state=None, actions=None, icon = None):
+		super(varchar, self).__init__(label=label, readonly=readonly, invisible=invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = compute, store = store, state = state, actions = actions,icon = icon)
+
+class composite(_column):
+	_type = 'composite'
+	_db_type = 'STRING'
+	_symbol_c = "%s"
+	_symbol_f = _set_symbol
+	_symbol_set = (_symbol_c, _symbol_f)
+	_symbol_get = None
+
+	def __init__(self, label = 'unknown', cols = [], delimiter = '/',readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, on_check = None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = None, check = None,family = 'Primary',compute = None, store = True,state=None, actions=None, icon = None):
+		super(composite, self).__init__(label=label, cols = cols, delimiter = delimiter, readonly=readonly, invisible=invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 class text(_column):
 	_type = 'text'
@@ -122,8 +133,8 @@ class text(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, translate = False, manual = None, help = None,family = 'Secondary',compute = None, store = True,state=None, actions=None):
-		super(text,self).__init__(label = label, readonly = readonly, invisible=invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, translate = translate, manual = manual, help = help, family = family,compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, translate = False, manual = None, help = None,family = 'Secondary',compute = None, store = True,state=None, actions=None, icon = None):
+		super(text,self).__init__(label = label, readonly = readonly, invisible=invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, translate = translate, manual = manual, help = help, family = family,compute = compute, store = store, state = state, actions = actions,icon = icon)
 
 class xml(_column):
 	_type = 'xml'
@@ -133,8 +144,8 @@ class xml(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None,translate = False, manual = None, help = None,family = 'Secondary',compute = None, store = True,state=None, actions=None):
-		super(xml,self).__init__(label = label, readonly = readonly, invisible = invisible,priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, translate = translate, manual = manual, help= help,family = family,compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None,translate = False, manual = None, help = None,family = 'Secondary',compute = None, store = True,state=None, actions=None, icon = None):
+		super(xml,self).__init__(label = label, readonly = readonly, invisible = invisible,priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, translate = translate, manual = manual, help= help,family = family,compute = compute, store = store, state = state, actions = actions,icon = icon)
 
 class boolean(_column):
 	_type = 'boolean'
@@ -144,8 +155,8 @@ class boolean(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None, selectable = None,family = 'Primary',compute = None, store = True,state=None, actions=None):
-		super(boolean,self).__init__(label = label, readonly = readonly, invisible=invisible,priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help, selectable=selectable, family = family, compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None, selectable = None,family = 'Primary',compute = None, store = True,state=None, actions=None, icon = None):
+		super(boolean,self).__init__(label = label, readonly = readonly, invisible=invisible,priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help, selectable=selectable, family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 class uuid(_column):
 	_type = 'uuid'
@@ -155,8 +166,8 @@ class uuid(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, translate = False, manual = None, help = None, unique = None, check = None,family = 'Primary', compute = None, store = True,state=None, actions=None):
-		super(uuid, self).__init__(label=label, readonly=readonly, invisible = invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, manual = manual, help=help, unique = unique, check = check,family = family, compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, translate = False, manual = None, help = None, unique = None, check = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
+		super(uuid, self).__init__(label=label, readonly=readonly, invisible = invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, manual = manual, help=help, unique = unique, check = check,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 class integer(_column):
 	_type = 'integer'
@@ -166,8 +177,8 @@ class integer(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = lambda self, x: x or 0
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None, check = None,family = 'Primary', compute = None, store = True,state=None, actions=None):
-		super(integer,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help, check = check,family = family, compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None, check = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
+		super(integer,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help, check = check,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 class float(_column):
 	_type = 'float'
@@ -177,8 +188,8 @@ class float(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = lambda self, x: x or 0.0
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, size = (15), on_change = None, on_check = None, manual = None, help = None, check = None,family = 'Primary', compute = None, store = True,state=None, actions=None):
-		super(float,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, size = size, on_change = on_change, on_check = on_check, manual = manual, help = help, check = check,family = family, compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, size = (15), on_change = None, on_check = None, manual = None, help = None, check = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
+		super(float,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, size = size, on_change = on_change, on_check = on_check, manual = manual, help = help, check = check,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 class real(_column):
 	_type = 'real'
@@ -188,8 +199,8 @@ class real(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = lambda self, x: x or 0.0
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None, check = None,family = 'Primary', compute = None, store = True,state=None, actions=None):
-		super(real,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help, check = check,family = family, compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None, check = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
+		super(real,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help, check = check,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 
 class double(_column):
@@ -200,8 +211,8 @@ class double(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = lambda self, x: x or 0.0
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None, check = None,family = 'Primary', compute = None, store = True,state=None, actions=None):
-		super(double,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help, check = check,family = family, compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None, check = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
+		super(double,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help, check = check,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 class decimal(_column):
 	_type = 'decimal'
@@ -211,8 +222,8 @@ class decimal(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = lambda self, x: decimal.Decimal(x) or decimal.Decimal('0.0')
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, size = (15,3), on_change = None, on_check = None, manual = None, help = None, check = None,family = 'Primary', compute = None, store = True,state=None, actions=None):
-		super(decimal,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, size = size, on_change = on_change, on_check = on_check, manual = manual, help = help, check = check,family = family, compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, size = (15,3), on_change = None, on_check = None, manual = None, help = None, check = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
+		super(decimal,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, size = size, on_change = on_change, on_check = on_check, manual = manual, help = help, check = check,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 class numeric(_column):
 	_type = 'numeric'
@@ -222,8 +233,8 @@ class numeric(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = lambda self, x: decimal.Decimal(x) or decimal.Decimal('0.0')
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, size = (15,3), on_change = None, on_check = None, manual = None, help = None, check=None,family = 'Primary', compute = None, store = True,state=None, actions=None):
-		super(numeric,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, size =size, on_change = on_change, on_check = on_check, manual = manual, help = help,check = check,family = family, compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, size = (15,3), on_change = None, on_check = None, manual = None, help = None, check=None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
+		super(numeric,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, size =size, on_change = on_change, on_check = on_check, manual = manual, help = help,check = check,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 class selection(_column):
 	_type = 'selection'
@@ -233,8 +244,8 @@ class selection(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
 
-	def __init__(self, label = 'unknown', selections = [],readonly = None, invisible = None, priority = 0, context = {}, required = None, size = 32, on_change = None, on_check = None, translate = False, selectable = False, manual = None, help = None, unique = None,family = 'Primary', compute = None, store = True,state=None, actions=None):
-		super(selection,self).__init__(label = label, selections = selections,readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, size = size, on_change = on_change, on_check = on_check, translate = translate, selectable = selectable, manual = manual, help = help, unique = unique,family = family, compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', selections = [],readonly = None, invisible = None, priority = 0, context = {}, required = None, size = 32, on_change = None, on_check = None, translate = False, selectable = False, manual = None, help = None, unique = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
+		super(selection,self).__init__(label = label, selections = selections,readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, size = size, on_change = on_change, on_check = on_check, translate = translate, selectable = selectable, manual = manual, help = help, unique = unique,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 class iSelection(_column):
 	_type = 'iSelection'
@@ -258,6 +269,18 @@ class binary(_column):
 	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, accept = None,manual = None, help = None,family = 'Secondary', compute = None, store = True,state=None, actions=None):
 		super(binary,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, accept=accept, manual = manual, help = help,family = family, compute = compute, store = store, state = state, actions = actions)
 
+class icon(_column):
+	_type = 'icon'
+	_db_type = 'string'
+	_symbol_c = "%s"
+	_symbol_f = lambda symb: symb and Binary(str(symb)) or None
+	_symbol_set = (_symbol_c, _symbol_f)
+	_symbol_get = lambda self, x: x and str(x)
+
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, accept = None,manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, actions=None):
+		super(icon,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, accept=accept, manual = manual, help = help,family = family, compute = compute, store = store, state = state, actions = actions)
+
+
 class json(_column):
 	_type = 'json'
 	_db_type = 'JSONB'
@@ -266,8 +289,8 @@ class json(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = lambda self, x: x and str(x)
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None,family = 'Secondary', compute = None, store = True,state={'attrs':{'readonly':True}}, actions=None):
-		super(json,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,family = family, compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None,family = 'Secondary', compute = None, store = True,state={'attrs':{'readonly':True}}, actions=None, icon = None):
+		super(json,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 class date(_column):
 	_type = 'date'
@@ -277,8 +300,8 @@ class date(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = lambda self, x: x and str(x)
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None,check =  None,family = 'Primary', compute = None, store = True,state=None, actions=None):
-		super(date,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,check = check,family = family, compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None,check =  None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
+		super(date,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,check = check,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 	def today(self):
 		return DT.datetime.today().strftime("YYYY-MM-DD")
@@ -312,12 +335,12 @@ class datetime(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, timezone = True, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None,check = None,family = 'Primary', compute = None, store = True,state=None, actions=None):
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, timezone = True, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None,check = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
 		if timezone:
 			self._db_type = 'TIMESTAMP WITH TIME ZONE'
 		else:
 			self._db_type = 'TIMESTAMP WITHOUT TIME ZONE'
-		super(datetime,self).__init__(label = label, readonly = readonly, invisible = invisible, timezone = timezone, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,check = check,family = family, compute = compute, store = store, state = state, actions = actions)
+		super(datetime,self).__init__(label = label, readonly = readonly, invisible = invisible, timezone = timezone, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,check = check,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 	def now(self):
 		if self.tz:
@@ -349,12 +372,12 @@ class time(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = lambda self, x: x and str(x)
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, timezone = True, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, actions=None):
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, timezone = True, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
 		if timezone:
 			self._db_type = 'TIME WITH TIME ZONE'
 		else:
 			self._db_type = 'TIME WITHOUT TIME ZONE'
-		super(time,self).__init__(label = label, readonly = readonly, invisible = invisible, timezone = timezone, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,family = family, compute = compute, store = store, state = state, actions = actions)
+		super(time,self).__init__(label = label, readonly = readonly, invisible = invisible, timezone = timezone, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 	def time(self):
 		return DT.datetime.now().strftime("YYYY-MM-DD")
@@ -387,8 +410,8 @@ class timedelta(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = lambda self, x: x and str(x)
 
-	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, manual = None, on_check = None, help = None,family = 'Primary', compute = None, store = True,state=None, actions=None):
-		super(timedelta,self).__init__(label = label, readonly = readonly, invisible = invisible, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,family = family, compute = compute, store = store, state = state, actions = actions)
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, manual = None, on_check = None, help = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
+		super(timedelta,self).__init__(label = label, readonly = readonly, invisible = invisible, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
 	def timedelta(self):
 		return DT.datetime.timedelta().strftime("YYYY-MM-DD HH:MM:SS")
@@ -416,14 +439,14 @@ class timedelta(_column):
 class one2many(_column):
 	_type = 'one2many'
 	_db_type = None
-	def __init__(self, label='unknown', obj = None, rel = None, readonly = None, invisible = None, required = None, on_change = None, on_check = None, context = {}, offset = None, limit=None, manual = None, help = None,state=None):
-		super(one2many,self).__init__(label = label, obj = obj, rel = rel, readonly = readonly, invisible = invisible, required = required, on_change = on_change, on_check = on_check, context = context, offset = offset,limit = limit, manual = manual,help = help, state = state)
+	def __init__(self, label='unknown', obj = None, rel = None, readonly = None, invisible = None, required = None, on_change = None, on_check = None, context = {}, offset = None, limit=None, manual = None, help = None,state=None, icon = None):
+		super(one2many,self).__init__(label = label, obj = obj, rel = rel, readonly = readonly, invisible = invisible, required = required, on_change = on_change, on_check = on_check, context = context, offset = offset,limit = limit, manual = manual,help = help, state = state, icon = icon)
 
 class one2related(_column):
 	_type = 'one2related'
 	_db_type = None
-	def __init__(self, label='unknown', obj = None, relatedy=None, rel = None, readonly = None, invisible = None, required = None, on_change = None, on_check = None, context = {}, offset = None, limit=None, manual = None, help = None,state=None):
-		super(one2many,self).__init__(label = label, obj = obj, relatedy=relatedy, rel = rel, readonly = readonly, invisible = invisible, required = required, on_change = on_change, on_check = on_check, context = context, offset = offset,limit = limit, manual = manual,help = help, state = state)
+	def __init__(self, label='unknown', obj = None, relatedy=None, rel = None, readonly = None, invisible = None, required = None, on_change = None, on_check = None, context = {}, offset = None, limit=None, manual = None, help = None,state=None, icon = None):
+		super(one2many,self).__init__(label = label, obj = obj, relatedy=relatedy, rel = rel, readonly = readonly, invisible = invisible, required = required, on_change = on_change, on_check = on_check, context = context, offset = offset,limit = limit, manual = manual,help = help, state = state, icon = icon)
 
 
 class many2one(_column):
@@ -433,8 +456,8 @@ class many2one(_column):
 	_symbol_f = lambda x: x or None
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
-	def __init__(self,label='unknown', obj = None, readonly = None, invisible = None, required = None, ext_fields = None, domain = None, context = {}, on_change = None, on_check = None, selectable = True, on_delete = None, on_update = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None):
-		super(many2one,self).__init__(label = label, obj = obj, readonly = readonly, invisible = invisible, required = required, ext_fields = ext_fields, domain = domain, context = context, on_change = on_change, on_check = on_check, selectable = selectable, on_delete = on_delete, on_update = on_update, manual = manual, help = help,family = family, compute = compute, store = store, state = state)
+	def __init__(self,label='unknown', obj = None, readonly = None, invisible = None, required = None, ext_fields = None, domain = None, context = {}, on_change = None, on_check = None, selectable = True, on_delete = None, on_update = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, icon = None):
+		super(many2one,self).__init__(label = label, obj = obj, readonly = readonly, invisible = invisible, required = required, ext_fields = ext_fields, domain = domain, context = context, on_change = on_change, on_check = on_check, selectable = selectable, on_delete = on_delete, on_update = on_update, manual = manual, help = help,family = family, compute = compute, store = store, state = state, icon = icon)
 
 class many2many(_column):
 	_type = 'many2many'
@@ -449,8 +472,8 @@ class related(_column):
 	_symbol_f = lambda x: x or None
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
-	def __init__(self,label='unknown', obj = None, relatedy=None, readonly = None, invisible = None, required = None, domain = None, context = {}, on_change = None, on_check = None, selectable = True, on_delete = None, on_update = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None):
-		super(related,self).__init__(label = label, obj = obj, relatedy=relatedy, readonly = readonly, invisible = invisible, required = required, domain = domain, context = context,on_change = on_change, on_check = on_check,selectable = selectable, on_delete = on_delete, on_update = on_update, manual = manual, help = help,family = family, compute = compute, store = store, state = state)
+	def __init__(self,label='unknown', obj = None, relatedy=None, readonly = None, invisible = None, required = None, domain = None, context = {}, on_change = None, on_check = None, selectable = True, on_delete = None, on_update = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, icon = None):
+		super(related,self).__init__(label = label, obj = obj, relatedy=relatedy, readonly = readonly, invisible = invisible, required = required, domain = domain, context = context,on_change = on_change, on_check = on_check,selectable = selectable, on_delete = on_delete, on_update = on_update, manual = manual, help = help,family = family, compute = compute, store = store, state = state, icon = icon)
 
 
 class referenced(_column):

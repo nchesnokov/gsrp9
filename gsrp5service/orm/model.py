@@ -355,6 +355,9 @@ class BaseModel(object, metaclass = MetaModel):
 	def _getRecNameName(self):
 		return mm._getRecNameName(self)
 
+	def _getFullNameName(self):
+		return mm._getFullNameName(self)
+
 	def _getSequenceName(self):
 		return mm._getSequenceName(self)
 
@@ -427,6 +430,11 @@ class BaseModel(object, metaclass = MetaModel):
 	def _buildSchemaColumns(self,pool):
 		return mm._buildSchemaColumns(self,pool)
 
+	def _compute_composite(self,cr,pool,uid,item,context):
+		return mm._compute_composite(self,cr,pool,uid,item,context)
+
+	def _compute_composite_tree(self,cr,pool,uid,item,context):
+		return mm._compute_composite_tree(self,cr,pool,uid,item,context)
 
 	# def _getAccess(self):
 		# return mm._getAccess(self)
