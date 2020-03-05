@@ -1502,6 +1502,7 @@ class MCache(object):
 		
 			if autocommit:
 				if self._data._apply_from_diffs('p','c',diffs):
+					self._commit_diffs = {}
 					return self._commit()
 			
 			return ['commit']
@@ -1692,6 +1693,7 @@ class MCache(object):
 	def _reset(self):
 		#diffs = self._data._pdiffs()
 		
+		self._commit_diffs = {}
 		self._roolback()
 
 
@@ -1702,6 +1704,7 @@ class MCache(object):
 		self._cr.commit()
 		
 		if self._data._apply_from_diffs('p','c',self._commit_diffs):
+			self._commit_diffs = {}
 			return ['commited']
 		
 		return ['not commited']
