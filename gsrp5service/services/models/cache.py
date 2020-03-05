@@ -508,6 +508,11 @@ class DCacheDict(object):
 
 	def _cmpDict(self,o,c,path):
 		res = {}
+		odata = getattr(self,'_%sdata' % (o,))
+		cdata = getattr(self,'_%sdata' % (c,))
+		if path not in cdata:
+			return res
+		
 		ci = self._cmetas[self._cmodels[path]]
 		
 		ck = list(filter(lambda x: x != 'id' and ci[x]['type'] not in ('many2many','one2many'),getattr(self,'_%sdata' % (c,))[path].keys()))
@@ -722,14 +727,47 @@ class DCacheDict(object):
 
 	def _removeRecursive(self,o,c,path):
 		res = []
-		model = getattr(self,'_%smodels' % (o,))[path]
-		container = getattr(self,'_%scontainers' % (o,))[getattr(self,'_%sr2c' % (o,))[path]]
-		odata = getattr(self,'_%sdata' % (o,))
+
 		cdata = getattr(self,'_%sdata' % (c,))
+		odata = getattr(self,'_%sdata' % (o,))
+		cnames = getattr(self,'_%snames' % (c,))
 		onames = getattr(self,'_%snames' % (o,))
+		ccontainers = getattr(self,'_%scontainers' % (c,))
+		ocontainers = getattr(self,'_%scontainers' % (o,))
+		
+		cmetas = getattr(self,'_%smetas' % (c,))
 		ometas = getattr(self,'_%smetas' % (o,))
+		cmodels = getattr(self,'_%smodels' % (c,))
+		omodels = getattr(self,'_%smodels' % (o,))
+
+		crels = getattr(self,'_%srels' % (c,))
+		orels = getattr(self,'_%srels' % (o,))
+
+		cpaths = getattr(self,'_%spaths' % (c,))
+		opaths = getattr(self,'_%spaths' % (o,))
+		cr2c = getattr(self,'_%sr2c' % (c,))
 		or2c = getattr(self,'_%sr2c' % (o,))
 
+		container = ocontainers[or2c[path]]
+		model = omodels[path]
+
+		if path in cdata:
+			cdata[onames[container]].remove(cdata[path])
+			del cdata[path]
+
+			if container in cnames and cnames[container] in cdata and len(cdata[cnames[container]]) == 0:
+				del cdata[onames[container]]
+				del ccontainers[cnames[container]]
+				del cnames[container]
+						
+			if path in cmodels:
+				del cmodels[path] 
+			
+			if path in cpaths:
+				del cpaths[path]
+			
+			if path in cr2c:
+				del cr2c[path] 
 
 		for o2mfield in self._pool.get(model)._o2mfields:
 			container1 = o2mfield + '.' + str(path)
@@ -737,21 +775,27 @@ class DCacheDict(object):
 			#oids = list(filter(lambda x: or2c[x] == coid,or2c.keys()))
 			for path1 in filter(lambda x: or2c[x] == coid,or2c.keys()):
 				res.extend(self._removeRecursive(o,c,path1))
-				if path1 in cdata and coid in cdata:
-					cdata[coid].remove(cdata[path1])
-				res.append({'__path__':path1,'__container__':container1,'__model__':ometas[model][o2mfield]['obj'],'__data__':copy.deepcopy(odata[path1])})
+				#res.append({'__path__':path1,'__container__':container1,'__model__':ometas[model][o2mfield]['obj'],'__data__':copy.deepcopy(odata[path1])})
 	
-				if path1 in cdata:
-					del cdata[path1]
-	
-				
-			if len(cdata[coid]) == 0:
-				del cdata[coid]
+				if path in cdata and coid in cdata:
+					cdata[onames[container]].remove(cdata[path])
+					del cdata[path]
+		
+					if container in cnames and cnames[container] in cdata and len(cdata[cnames[container]]) == 0:
+						del cdata[onames[container]]
+						del ccontainers[cnames[container]]
+						del cnames[container]
+								
+					if path in cmodels:
+						del cmodels[path] 
+					
+					if path in cpaths:
+						del cpaths[path]
+					
+					if path in cr2c:
+						del cr2c[path] 
 
-		res.append({'__path__':path,'__container__':container,'__model__':model,'__data__':copy.deepcopy(odata[path])})
-
-		if path in cdata:
-			del cdata[path]
+		#res.append({'__path__':path,'__container__':container,'__model__':model,'__data__':copy.deepcopy(odata[path])})
 		
 		return res
 			
