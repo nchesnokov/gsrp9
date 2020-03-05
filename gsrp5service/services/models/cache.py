@@ -1636,6 +1636,7 @@ class MCache(object):
 			data = item['__data__']
 			m = self._pool.get(item['__model__'])
 			r = _unlinkRecord(m,self._cr,self._pool,self._uid,data,self._context)
+			print('UNLINK:',r)
 
 	def _m2m_appendRows(self,rows):
 		rels = []
