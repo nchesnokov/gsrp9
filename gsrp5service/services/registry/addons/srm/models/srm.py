@@ -227,7 +227,6 @@ srm_subdivisions()
 class srm_unit_channel_assigments(Model):
 	_name = 'srm.unit.channel.assigments'
 	_description = 'General Model SRM Unit Of Channel Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -241,7 +240,6 @@ srm_unit_channel_assigments()
 class srm_unit_segment_assigments(Model):
 	_name = 'srm.unit.segment.assigments'
 	_description = 'General Model SRM Unit Of Segment Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -255,7 +253,6 @@ srm_unit_segment_assigments()
 class srm_unit_area_assigments(Model):
 	_name = 'srm.unit.area.assigments'
 	_description = 'General Model SRM Unit Of Area Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -269,7 +266,6 @@ srm_unit_area_assigments()
 class srm_unit_region_assigments(Model):
 	_name = 'srm.unit.region.assigments'
 	_description = 'General Model SRM Unit Of Region Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -285,7 +281,6 @@ srm_unit_segment_assigments()
 class srm_division_subdivision_assigments(Model):
 	_name = 'srm.division.subdivision.assigments'
 	_description = 'General Model SRM Division Of Subdivision Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -300,7 +295,6 @@ srm_division_subdivision_assigments()
 class srm_markets(Model):
 	_name = 'srm.markets'
 	_description = 'General Model SRM Market'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -342,7 +336,6 @@ srm_markets()
 class srm_teams(Model):
 	_name = 'srm.teams'
 	_description = 'General Model SRM Teams'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'

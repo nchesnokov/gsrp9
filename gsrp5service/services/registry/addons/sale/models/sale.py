@@ -347,7 +347,6 @@ sale_division_subdivision_assigments()
 class sale_markets(Model):
 	_name = 'sale.markets'
 	_description = 'General Model Sale Market'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -389,7 +388,6 @@ sale_markets()
 class sale_teams(Model):
 	_name = 'sale.teams'
 	_description = 'General Model Sale Teams'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
