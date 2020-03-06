@@ -47,9 +47,14 @@ class Registry(Service):
 		else:
 			self._able = ('system','autoinstall','install','noinstall')
 
+		if self._pwd not in sys.path:
+			sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+
 		
 		for key in self._module_paths.keys():
 			self._module_paths[key] = filter(lambda x: os.path.isdir(opj(x)), os.listdir(opj(os.path.dirname(os.path.abspath(__file__)),key)))
+
+
 
 		self._graph = Graph()
 		self._load_modules_info()
@@ -76,12 +81,13 @@ class Registry(Service):
 		self._load_modules_info()
 		
 	def _load_modules_info(self):
+
 		for d in list(self._module_paths.keys()):
 			mdir = opj(os.path.dirname(os.path.abspath(__file__)),d)
 			self._module_paths[d] = list(filter(lambda x: os.path.isdir(opj(mdir,x)), os.listdir(mdir)))
 
-			if self._pwd not in sys.path:
-				sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+
+		print('MODULE-PATH:',self._module_paths)
 
 		for path in list(self._module_paths.keys()):
 			for name in self._module_paths[path]:
