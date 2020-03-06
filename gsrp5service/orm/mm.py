@@ -288,7 +288,7 @@ def _getRecNameName(self):
 	if hasattr(self._rec_name,'_rec_name'):
 		return self._rec_name
 	else:
-		return _getFullNameName() or _getRowNameName()
+		return _getFullNameName(self) or _getRowNameName(self)
 
 def _getSequenceName(self):
 	n = _getName(self,'sequence')
