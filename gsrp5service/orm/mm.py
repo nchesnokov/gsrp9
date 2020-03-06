@@ -285,7 +285,7 @@ def _getFullNameName(self):
 	return n
 
 def _getRecNameName(self):
-	if hasattr(self._rec_name):
+	if hasattr(self._rec_name,'_rec_name'):
 		return self._rec_name
 	else:
 		return _getFullNameName() or _getRowNameName()
