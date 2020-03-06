@@ -536,6 +536,7 @@ def _compute_composite(self,cr,pool,uid,item,context):
 def _compute_composite_tree(self,cr,pool,uid,item,context):
 	v=''
 	recname = self._getRecNameName()
+	rowname = self._getRowNameName()
 	fullname = self._getFullNameName()
 	parent_id = self._getParentIdName() 
 	delimiter = self._columns[fullname].delimiter
@@ -543,12 +544,12 @@ def _compute_composite_tree(self,cr,pool,uid,item,context):
 	if fullname and self._columns[fullname]._type == 'composite' and parent_id and self._getChildsIdName():
 		if item[parent_id]['id']:
 			v += self.read(cr,pool,uid,item[parent_id]['id'],[fullname],context)[0][fullname]
-			if item[recname]:
-				v += delimiter + item[recname]
+			if item[rowname]:
+				v += delimiter + item[rowname]
 
 		else:
-			if item[recname]:
-				v += item[recname]
+			if item[rowname]:
+				v += item[rowname]
 
 		if len(v) > 0:
 			item[fullname] = v
