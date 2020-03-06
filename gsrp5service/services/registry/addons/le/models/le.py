@@ -307,7 +307,6 @@ le_inbound_delivery()
 class le_inbound_delivery_texts(Model):
 	_name = 'le.inbound.delivery.texts'
 	_description = 'General Model Inbound Delivery Texts'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
@@ -403,7 +402,6 @@ le_inbound_delivery_items()
 class le_inbound_delivery_item_texts(Model):
 	_name = 'le.inbound.delivery.item.texts'
 	_description = 'General Model Inbound Delivery Texts'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
@@ -538,7 +536,6 @@ le_outbound_delivery()
 class le_outbound_delivery_texts(Model):
 	_name = 'le.outbound.delivery.texts'
 	_description = 'General Model Outbound Delivery Texts'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
@@ -634,7 +631,6 @@ le_outbound_delivery_items()
 class le_outbound_delivery_item_texts(Model):
 	_name = 'le.outbound.delivery.item.texts'
 	_description = 'General Model Outbound Delivery Texts'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
@@ -759,7 +755,6 @@ le_internal_delivery()
 class le_internal_delivery_texts(Model):
 	_name = 'le.internal.delivery.texts'
 	_description = 'General Model Inbound Delivery Texts'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
@@ -856,7 +851,6 @@ le_internal_delivery_items()
 class le_internal_delivery_item_texts(Model):
 	_name = 'le.internal.delivery.item.texts'
 	_description = 'General Model Inbound Delivery Texts'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
