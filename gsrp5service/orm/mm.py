@@ -195,10 +195,14 @@ def model__init__(self,access = None):
 			self._log_access = getattr(self, "_auto", True)
 
 	fullname = _getFullNameName(self)
-	recname = _getRecNameName(self)
-	rec_name = fullname or recname
-	#self._rec_name = rec_name
-	#self._full_name = fullname
+	rec_name = _getRecNameName(self)
+	if not hasattr(self,'_rec_name'):
+		self._rec_name = rec_name
+	if not hasattr(self,'_full_name'):
+		self._full_name = fullname
+	if not hasattr(self,'_row_name'):
+		self._row_name = _getRowNameName(self)
+
 	if rec_name and rec_name in self._nostorecomputefields:
 		raise orm_exception(_('Recname: <%s> in model: %s must be store in database') % (rec_name, self._name))
 
@@ -214,8 +218,8 @@ def model__init__(self,access = None):
 	if fullname and fullname != rec_name and hasattr(self._columns[fullname],'selectable'):
 		self._columns[fullname].selectable = True
 
-	if recname and recname != fullname and hasattr(self._columns[recname],'selectable'):
-		self._columns[recname].selectable = True
+	if rec_name and rec_name != fullname and hasattr(self._columns[rec_name],'selectable'):
+		self._columns[rec_name].selectable = True
 
 	state = _getStateName(self)
 	if state and hasattr(self._columns[state],'selectable') and self._columns[state].selectable:
@@ -264,8 +268,8 @@ def _getChildsIdName(self):
 
 	return n
 
-def _getRecNameName(self):
-	n = _getName(self,'rec_name')
+def _getRowNameName(self):
+	n = _getName(self,'row_name')
 	if n:
 		if not self._columns[n]._type in ('char','varchar','selection','composite'):
 			n = None
@@ -279,6 +283,12 @@ def _getFullNameName(self):
 			n = None
 
 	return n
+
+def _getRecNameName(self):
+	if hasattr(self._rec_name):
+		return self._rec_name
+	else:
+		return _getFullNameName() or _getRowNameName()
 
 def _getSequenceName(self):
 	n = _getName(self,'sequence')
@@ -445,7 +455,7 @@ def _getName(self,name):
 def _getNames(self,names):
 	n = {}
 	if not names:
-		names = ('parent_id','childs_id','rec_name','full_name','date','start_date','end_date','from_date','to_date','from_time','to_time','progress','project_type','sequence','state','inactive','latitude','longitude','from_latitude','from_longitude','to_latitude','to_longitude')
+		names = ('parent_id','childs_id','row_name','full_name','rec_name','date','start_date','end_date','from_date','to_date','from_time','to_time','progress','project_type','sequence','state','inactive','latitude','longitude','from_latitude','from_longitude','to_latitude','to_longitude')
 	for name in names:
 		ns = name.split('_')
 		if len(ns) == 1:
@@ -539,8 +549,6 @@ def _compute_composite_tree(self,cr,pool,uid,item,context):
 
 		if len(v) > 0:
 			item[fullname] = v
-
-		print('ITEM-1:',fullname,recname,v,item)
 
 # modelinfo
 def _buildEmptyItem(self):
