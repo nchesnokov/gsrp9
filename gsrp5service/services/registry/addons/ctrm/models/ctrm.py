@@ -11,7 +11,7 @@ from datetime import timedelta
 class ctrm_channels(Model):
 	_name = 'ctrm.channels'
 	_description = 'General Model CTRM Cannels'
-	_rec_name = 'code'
+	_row_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -321,7 +321,6 @@ ctrm_requests()
 class ctrm_request_texts(Model):
 	_name = 'ctrm.request.texts'
 	_description = 'General Model CTRM Request Texts'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -495,7 +494,6 @@ ctrm_offers()
 class ctrm_offer_texts(Model):
 	_name = 'ctrm.offer.texts'
 	_description = 'General Model CTRM Offer Texts'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -671,7 +669,6 @@ ctrm_contracts()
 class ctrm_contract_texts(Model):
 	_name = 'ctrm.contract.texts'
 	_description = 'General Model CTRM Contract Texts'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
