@@ -296,7 +296,6 @@ crm_division_subdivision_assigments()
 class crm_markets(Model):
 	_name = 'crm.markets'
 	_description = 'General Model CRM Market'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -338,7 +337,6 @@ crm_markets()
 class crm_teams(Model):
 	_name = 'crm_teams'
 	_description = 'General Model CRM Teams'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -695,7 +693,6 @@ crm_requests()
 class crm_request_texts(Model):
 	_name = 'crm.request.texts'
 	_description = 'General Model CRM Request Texts'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -888,7 +885,6 @@ crm_offers()
 class crm_offer_texts(Model):
 	_name = 'crm.offer.texts'
 	_description = 'General Model CRM Offer Texts'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -1083,7 +1079,6 @@ crm_contracts()
 class crm_contract_texts(Model):
 	_name = 'crm.contract.texts'
 	_description = 'General Model CRM Contract Texts'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
