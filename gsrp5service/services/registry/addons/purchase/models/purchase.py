@@ -228,7 +228,6 @@ purchase_subdivisions()
 class purchase_unit_channel_assigments(Model):
 	_name = 'purchase.unit.channel.assigments'
 	_description = 'General Model Purchase Unit Of Channel Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -242,7 +241,6 @@ purchase_unit_channel_assigments()
 class purchase_unit_segment_assigments(Model):
 	_name = 'purchase.unit.segment.assigments'
 	_description = 'General Model Purchase Unit Of Segment Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -256,7 +254,6 @@ purchase_unit_segment_assigments()
 class purchase_unit_area_assigments(Model):
 	_name = 'purchase.unit.area.assigments'
 	_description = 'General Model Purchase Unit Of Area Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -270,7 +267,6 @@ purchase_unit_area_assigments()
 class purchase_unit_region_assigments(Model):
 	_name = 'purchase.unit.region.assigments'
 	_description = 'General Model Purchase Unit Of Region Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -286,7 +282,6 @@ purchase_unit_segment_assigments()
 class purchase_division_subdivision_assigments(Model):
 	_name = 'purchase.division.subdivision.assigments'
 	_description = 'General Model Purchase Division Of Subdivision Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -301,7 +296,6 @@ purchase_division_subdivision_assigments()
 class purchase_markets(Model):
 	_name = 'purchase.markets'
 	_description = 'General Model Purchase Market'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -343,7 +337,6 @@ purchase_markets()
 class purchase_teams(Model):
 	_name = 'purchase.teams'
 	_description = 'General Model Purchase Teams'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
