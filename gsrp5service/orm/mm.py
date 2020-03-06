@@ -206,8 +206,11 @@ def model__init__(self,access = None):
 	if rec_name and rec_name in self._nostorecomputefields:
 		raise orm_exception(_('Recname: <%s> in model: %s must be store in database') % (rec_name, self._name))
 
-	if rec_name  and hasattr(self._columns[rec_name],'selectable'):
-		self._columns[rec_name].selectable = True
+	try:
+		if rec_name  and hasattr(self._columns[rec_name],'selectable'):
+			self._columns[rec_name].selectable = True
+	except:
+		print('EXCEPT:',self._name,self._row_name,self._full_name,self._columns)
 
 	if rec_name  and hasattr(self._columns[rec_name],'unique'):
 		self._columns[rec_name].unique = True
