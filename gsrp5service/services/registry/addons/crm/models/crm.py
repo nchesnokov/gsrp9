@@ -228,7 +228,6 @@ crm_subdivisions()
 class crm_unit_channel_assigments(Model):
 	_name = 'crm_unit.channel.assigments'
 	_description = 'General Model CRM Unit Of Channel Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -242,7 +241,6 @@ crm_unit_channel_assigments()
 class crm_unit_segment_assigments(Model):
 	_name = 'crm_unit.segment.assigments'
 	_description = 'General Model CRM Unit Of Segment Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -256,7 +254,6 @@ crm_unit_segment_assigments()
 class crm_unit_area_assigments(Model):
 	_name = 'crm_unit.area.assigments'
 	_description = 'General Model CRM Unit Of Area Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -270,7 +267,6 @@ crm_unit_area_assigments()
 class crm_unit_region_assigments(Model):
 	_name = 'crm_unit.region.assigments'
 	_description = 'General Model CRM Unit Of Region Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -286,7 +282,6 @@ crm_unit_segment_assigments()
 class crm_division_subdivision_assigments(Model):
 	_name = 'crm_division.subdivision.assigments'
 	_description = 'General Model CRM Division Of Subdivision Assigment'
-	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {

@@ -210,7 +210,7 @@ def model__init__(self,access = None):
 		if rec_name  and hasattr(self._columns[rec_name],'selectable'):
 			self._columns[rec_name].selectable = True
 	except:
-		print('EXCEPT:',self._name,self._row_name,self._full_name,self._columns)
+		print('EXCEPT:',self._name,self._row_name,self._rec_name,self._full_name,self._columns)
 
 	if rec_name  and hasattr(self._columns[rec_name],'unique'):
 		self._columns[rec_name].unique = True
