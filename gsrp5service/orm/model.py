@@ -355,6 +355,9 @@ class BaseModel(object, metaclass = MetaModel):
 	def _getRecNameName(self):
 		return mm._getRecNameName(self)
 
+	def _getRowNameName(self):
+		return mm._getRowNameName(self)
+
 	def _getFullNameName(self):
 		return mm._getFullNameName(self)
 
