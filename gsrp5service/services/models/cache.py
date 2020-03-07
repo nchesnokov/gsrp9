@@ -510,8 +510,6 @@ class DCacheDict(object):
 		res = {}
 		odata = getattr(self,'_%sdata' % (o,))
 		cdata = getattr(self,'_%sdata' % (c,))
-		if path not in cdata:
-			return res
 		
 		ci = self._cmetas[self._cmodels[path]]
 		
@@ -567,36 +565,33 @@ class DCacheDict(object):
 	def _o2m_cmpList(self,o,c,container):
 		res = {}
 
-		cdata = getattr(self,'_%snames' % (c,))
-		odata = getattr(self,'_%snames' % (o,))
+		cdata = getattr(self,'_%sdata' % (c,))
+		odata = getattr(self,'_%sdata' % (o,))
+		
+		cnames = getattr(self,'_%snames' % (c,))
+		onames = getattr(self,'_%snames' % (o,))
 
-		coid = None
-		ooid = None
-		ok = None
-		ck = None
-		ik = None
-		uk = None
-		dk = None
+		cr2c = getattr(self,'_%sr2c' % (c,))
+		or2c = getattr(self,'_%sr2c' % (o,))
 
-		if container in cdata:
-			coid = cdata[container]
-
-		if container in odata:
-			ooid = odata[container]
-					
-		if ooid:
-			ok = list(map(lambda y:y[0],filter(lambda x: x[1] == ooid,getattr(self,'_%sr2c' % (o,)).items())))
-		else:
-			ok = []
-
-		if coid:
-			ok = list(map(lambda y:y[0],filter(lambda x: x[1] == ooid,getattr(self,'_%sr2c' % (c,)).items())))
-		else:
-			ck = []
+		cmodels = getattr(self,'_%smodels' % (c,))
+		omodels = getattr(self,'_%smodels' % (o,))
+		
+		ck = []
+		ok = []
+		
+		if container in onames:
+			ooid = onames[container]
+			ok = list(filter(lambda x:or2c[x] == ooid,or2c.keys()))
+		
+		if container in cnames:
+			ck = list(map(lambda x:str(id(x)),cdata[cnames[container]]))	
 
 		uk = list(set(ok).intersection(set(ck)))
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
+		
+		print('CMP-LIST:',ok,ck,ik,uk,dk,container)
 					
 		for path in uk:
 			v = self._cmpDict(o,c,path)
@@ -613,8 +608,10 @@ class DCacheDict(object):
 		for i in ik:
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
 			p=container.split('.')
-			model = getattr(self,'_%smodels' % (c,))[coid]
+			model = cmodels[cnames[container]]
 			self._buildTree(d1,model,p[1],p[0],'I')
+			
+			coid = getattr(self,'_%sr2c' % (c,))[i]
 			ci = getattr(self,'_%smetas' % (c,))[model]
 
 			data = {}
@@ -622,7 +619,6 @@ class DCacheDict(object):
 			for v in filter(lambda x: x != 'id' and ci[x]['type'] != 'many2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				data[v] = getattr(self,'_%sdata' % (c,))[i][v]
 
-			container = self._ccontainers[getattr(self,'_%sr2c' % (c,))[i]]
 			m2m_containers = {}
 			for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'many2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				r1 = self._m2m_cmpList(o,c,k + '.' + i)
@@ -633,7 +629,6 @@ class DCacheDict(object):
 			for v in filter(lambda x: x != 'id' and ci[x]['type'] != 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				data[v] = getattr(self,'_%sdata' % (c,))[i][v]
 
-			container = self._ccontainers[getattr(self,'_%sr2c' % (c,))[i]]
 			o2m_containers = {}
 			for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				r1 = self._o2m_cmpList(o,c,k + '.' + i)
@@ -644,27 +639,14 @@ class DCacheDict(object):
 
 	
 		for d in dk:
-			model = getattr(self,'_%smodels' % (o,))[d]
-			ci = getattr(self,'_%smetas' % (o,))[model]
-
-			container = getattr(self,'_%scontainers' % (o,))[getattr(self,'_%sr2c' % (o,))[d]]
-			
-			cr2c = getattr(self,'_%sr2c' % (o,))
-			
-			data = getattr(self,'_%sdata' % (o,))[d]
-			
-			names = getattr(self,'_%snames' % (o,))
-			
+			model = omodels[onames[container]]			
 			self._removeRecursive(o,c,d)
-			for o2mfield in filter(lambda x: x in data,self._pool.get(model)._o2mfields):
+			
+			for o2mfield in filter(lambda x: x in odata,self._pool.get(model)._o2mfields):
 				r1 = self._o2m_cmpList(o,c,o2mfield + '.' + d)
 				res.setdefault('__o2m_remove__',[]).extend(r1['__o2m_remove__'] if '__o2m_remove__' in r1 else [])
-				
-				#for path in filter(lambda x:cr2c[x] == names[container1],cr2c.keys()):
-			#res.setdefault('__o2m_remove__',[]).extend(self._removeRecursive(o,c,d))
 			
-			res.setdefault('__o2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__data__':copy.deepcopy(data)})
-				
+			res.setdefault('__o2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__data__':copy.deepcopy(odata[d])})
 
 		return res
 
@@ -672,31 +654,30 @@ class DCacheDict(object):
 	def _m2m_cmpList(self,o,c,container):
 		res = {}
 
-		cdata = getattr(self,'_%snames' % (c,))
-		odata = getattr(self,'_%snames' % (o,))
+		cdata = getattr(self,'_%sdata' % (c,))
+		odata = getattr(self,'_%sdata' % (o,))
+		
+		cnames = getattr(self,'_%snames' % (c,))
+		onames = getattr(self,'_%snames' % (o,))
 
-		coid = None
-		ooid = None
-		ok = None
-		ck = None
-		ik = None
-		dk = None
+		cr2c = getattr(self,'_%sr2c' % (c,))
+		or2c = getattr(self,'_%sr2c' % (o,))
 
-		if container in cdata:
-			coid = cdata[container]
+		cmodels = getattr(self,'_%smodels' % (c,))
+		omodels = getattr(self,'_%smodels' % (o,))
+		
+		crels = getattr(self,'_%srels' % (c,))
+		orels = getattr(self,'_%srels' % (o,))
 
-		if container in odata:
-			ooid = odata[container]
-					
-		if ooid:
-			ok = list(map(lambda y:y[0],filter(lambda x: x[1] == ooid,getattr(self,'_%sr2c' % (o,)).items())))
-		else:
-			ok = []
-
-		if coid:
-			ok = list(map(lambda y:y[0],filter(lambda x: x[1] == ooid,getattr(self,'_%sr2c' % (o,)).items())))
-		else:
-			ck = []
+		ck = []
+		ok = []
+		
+		if container in onames:
+			ooid = onames[container]
+			ok = list(filter(lambda x:or2c[x] == ooid,or2c.keys()))
+		
+		if container in cnames:
+			ck = list(map(lambda x:str(id(x)),cdata[cnames[container]]))	
 
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
@@ -707,19 +688,18 @@ class DCacheDict(object):
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
 			p=container.split('.')
 
-			model = getattr(self,'_%smodels' % (c,))[i]
-			rel = getattr(self,'_%srels' % (c,))[i]
+			model = cmodels[i]
+			rel = crels[i]
 			self._m2m_buildTree(d1,rel,p[1],p[0],model)
 				
 			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1})
 	
 		for d in dk:
 			d1 = getattr(self,'_%sdata' % (o,))[d]
-			model = getattr(self,'_%smodels' % (o,))[d]
-			rel = getattr(self,'_%srels' % (o,))[d]			
+			model = omodels[d]
+			rel = orels[d]			
 			res.setdefault('__m2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1})
 				
-
 		return res
 
 # many 2 many
@@ -861,8 +841,9 @@ class DCacheDict(object):
 	def _get_o2mDataContainers(self,container):
 		res = []
 
-		for r in self._cdata[self._cnames[container]]:
-			res.append(self._getData(r))
+		if container in self._cnames:
+			for r in self._cdata[self._cnames[container]]:
+				res.append(self._getData(r))
 			
 		return res
 
@@ -1346,7 +1327,6 @@ class MCache(object):
 	def _m2m_add(self,model,container,fields,obj,rel,id1,id2,context={}):
 		
 		rows = self._pool.get(obj).read(self._cr,self._pool,self._uid,id2,fields,self._context)
-		#print('M2M-CACHE-ADD:',model,container,fields,obj,rel,id1,id2,rows)
 		
 		p = container.split('.')
 		if len(rows) > 0:

@@ -610,8 +610,10 @@ class purchase_orders(Model):
 			item['texts'].append(item_text)
 
 	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
+		print('ITEM-RECEPTURE:',item)
 		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
 			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+			print('ITEM-SELECT:',p)
 			for i in p:
 				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
@@ -623,6 +625,7 @@ class purchase_orders(Model):
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
 				
+			print('ITEM-ITEMS:',item)
 		return None
 
 	def _act_copy_to(self,cr,pool,uid,column,record,context={}):				
