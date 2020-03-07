@@ -583,15 +583,14 @@ class DCacheDict(object):
 
 		if container in odata:
 			ooid = odata[container]
-
-		#if len(self._cdata[coid]) >= 0:					
+					
 		if ooid:
 			ok = list(map(lambda y:y[0],filter(lambda x: x[1] == ooid,getattr(self,'_%sr2c' % (o,)).items())))
 		else:
 			ok = []
 
 		if coid:
-			ck = list(map(lambda x: str(id(x)),getattr(self,'_%sdata' % (c,))[coid]))
+			ok = list(map(lambda y:y[0],filter(lambda x: x[1] == ooid,getattr(self,'_%sr2c' % (c,)).items())))
 		else:
 			ck = []
 
@@ -695,7 +694,7 @@ class DCacheDict(object):
 			ok = []
 
 		if coid:
-			ck = list(map(lambda x: str(id(x)),getattr(self,'_%sdata' % (c,))[coid]))
+			ok = list(map(lambda y:y[0],filter(lambda x: x[1] == ooid,getattr(self,'_%sr2c' % (o,)).items())))
 		else:
 			ck = []
 

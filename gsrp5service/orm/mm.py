@@ -521,14 +521,18 @@ def _compute_composite(self,cr,pool,uid,item,context):
 			if self._columns[col]._type in ('many2one','related'):
 				if col in item and item[col] and item[col]['name']:
 					if len(v) == 0:
-						v += item[col]['name']
+						if item[col]['name']:
+							v += item[col]['name']
 					else:
-						v += delimiter + item[col]['name']
+						if item[col]['name']:
+							v += delimiter + item[col]['name']
 			else:
 				if len(v) == 0:
-					v += item[col]
+					if item[col]:
+						v += item[col]
 				else:
-					v += delimiter + item[col]
+					if item[col]:
+						v += delimiter + item[col]
 
 		if len(v) > 0:
 			item[fullname] = v
