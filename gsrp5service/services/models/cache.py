@@ -1698,8 +1698,8 @@ class MCache(object):
 		return ['rollbacked']
 			
 	def _post_diff(self,diffs,context):
-		if '__append__' in diffs:
-			apnds1 = diffs['__append__']
+		if '__o2m_append__' in diffs:
+			apnds1 = diffs['__o2m_append__']
 			for apnd1 in apnds1:
 				m = self._pool.get(apnd1['__model__'])
 				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,apnd1['__data__'].keys()))
