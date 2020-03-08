@@ -304,13 +304,10 @@ class DCacheDict(object):
 		if type(data) == dict:
 			cn = name + '.' + parent
 			coid = self._cnames[cn]
-			#self._ccontainers[coid] = cn
-			#self._cnames[cn] = coid
-			self._cdata[coid].append(data)
-			self._crels[coid] = rel
-
+			
 			m2moid = str(id(data))
 			self._cdata[m2moid] = data
+			self._cdata[coid].append(data)
 			self._cmodels[m2moid] = model
 			self._crels[m2moid] = rel
 			self._cpaths.setdefault(m2moid,{})[name] = parent
@@ -419,13 +416,14 @@ class DCacheDict(object):
 						omodels[path] = cmodels[path] 
 					elif k == '__m2m_append__':
 						orels[path] = crels[path]
+						omodels[path] = cmodels[path] 
 					opaths[path] = cpaths[path]
 					or2c[path] = cr2c[path] 
 					
 					if '__o2m_containers__' in r:
 						for ck in r['__o2m_containers__'].keys():
 							onames[ck + '.' + path] = cnames[ck + '.' + path]
-							ocontainers[cnames[ck + '.' + path]] = cnames[ck + '.' + path]
+							ocontainers[onames[ck + '.' + path]] = ccontainers[cnames[ck + '.' + path]]
 							omodels[path] = cmodels[path]
 							ometas[omodels[path]] = cmetas[cmodels[path]]
 							or2c[path] = cr2c[path]
@@ -434,7 +432,7 @@ class DCacheDict(object):
 					if '__m2m_containers__' in r:
 						for ck in r['__m2m_containers__'].keys():
 							onames[ck + '.' + path] = cnames[ck + '.' + path]
-							ocontainers[cnames[ck + '.' + path]] = cnames[ck + '.' + path]
+							ocontainers[cnames[ck + '.' + path]] = ccontainers[cnames[ck + '.' + path]]
 							omodels[path] = cmodels[path]
 							orels[path] = crels[path]
 							or2c[path] = cr2c[path]
@@ -591,7 +589,7 @@ class DCacheDict(object):
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
 		
-		print('CMP-LIST:',ok,ck,ik,uk,dk,container)
+		#print('CMP-LIST:',ok,ck,ik,uk,dk,container)
 					
 		for path in uk:
 			v = self._cmpDict(o,c,path)
@@ -635,8 +633,6 @@ class DCacheDict(object):
 				o2m_containers.setdefault(k,[]).extend(r1['__o2m_append__'] if '__o2m_append__' in r1 else [])
 				
 			res.setdefault('__o2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__o2m_containers__':o2m_containers})
-
-
 	
 		for d in dk:
 			model = omodels[onames[container]]			
@@ -682,7 +678,7 @@ class DCacheDict(object):
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
 		
-		#print('M2M-CMPLIST:',container,ooid,coid,ok,ck,ik,dk)
+		print('CMP-M2MLIST:',ok,ck,ik,dk,container)
 			
 		for i in ik:
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
@@ -690,7 +686,7 @@ class DCacheDict(object):
 
 			model = cmodels[i]
 			rel = crels[i]
-			self._m2m_buildTree(d1,rel,p[1],p[0],model)
+			#self._m2m_buildTree(d1,rel,p[1],p[0],model)
 				
 			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1})
 	
@@ -1331,14 +1327,14 @@ class MCache(object):
 		p = container.split('.')
 		if len(rows) > 0:
 			for row in rows:
-				if container not in self._data._cnames:
-					cc = []
-					coid = str(id(cc))
-					self._data._ccontainers[coid] = container
-					self._data._cnames[container] = coid
-					self._data._cdata[coid] = cc
+				# if container not in self._data._cnames:
+					# cc = []
+					# coid = str(id(cc))
+					# self._data._ccontainers[coid] = container
+					# self._data._cnames[container] = coid
+					# self._data._cdata[coid] = cc
 
-				self._data._cdata[self._data._cnames[container]].append(row)
+				#self._data._cdata[self._data._cnames[container]].append(row)
 				self._data._m2m_buildTree(row,rel,p[1],p[0],model)
 				
 		res = {}
