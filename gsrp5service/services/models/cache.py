@@ -364,7 +364,7 @@ class DCacheDict(object):
 
 
 	def _apply_from_diffs(self,o,c,diffs):
-		print('APPLY-DIFFS:',diffs)
+		#print('APPLY-DIFFS:',diffs)
 		if ('__update__' in diffs ):
 			for k in diffs['__update__'].keys():
 				getattr(self,'_%sdata' % (o,))[k].update(copy.deepcopy(diffs['__update__'][k]))
@@ -678,7 +678,7 @@ class DCacheDict(object):
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
 		
-		print('CMP-M2MLIST:',ok,ck,ik,dk,container)
+		#print('CMP-M2MLIST:',ok,ck,ik,dk,container)
 			
 		for i in ik:
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
@@ -902,10 +902,10 @@ class MCache(object):
 	def _readNodes(self,model,row):
 		schema = self._pool.get(model)._schema1
 		q = []
-		print('SCHEMA:',model,schema)
+		#print('SCHEMA:',model,schema)
 		for k in schema[0].keys():
 			parent = schema[0][k]
-			print('PARENT:',parent)
+			#print('PARENT:',parent)
 			m = self._pool.get(parent)
 			oid = row[k]['id']
 			if oid:
@@ -920,9 +920,9 @@ class MCache(object):
 	def _readSchema(self,model,row):
 		res = {}
 		nodes = self._readNodes(model,row)
-		print('NODES:',nodes)
+		#print('NODES:',nodes)
 		for oid,model in nodes:
-			print('OID:',oid,model)
+			#print('OID:',oid,model)
 			m = self._pool.get(model)
 			cols = m._buildSchemaColumns(self._pool)
 			d = m.read(self._cr,self._pool,self._uid,oid,cols,self._context)
@@ -1358,7 +1358,7 @@ class MCache(object):
 
 		data_diffs = self._data._odiffs(True)
 
-		print('M2M-CACHE-REMOVE:',path,container,data_diffs)
+		#print('M2M-CACHE-REMOVE:',path,container,data_diffs)
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
 		
@@ -1451,7 +1451,7 @@ class MCache(object):
 
 	def _save(self,autocommit = False):
 		diffs = self._data._pdiffs(False)
-		print('DIFFS:',diffs)
+		#print('DIFFS:',diffs)
 		if len(diffs) == 0:
 			return ['no chache']
 		
@@ -1607,12 +1607,12 @@ class MCache(object):
 						trg22(**kwargs)
 
 	def _o2m_removeItem(self,item):
-		print('REMOVE-ITEM:',item)
+		#print('REMOVE-ITEM:',item)
 		if 'id' in item['__data__']:
 			data = item['__data__']
 			m = self._pool.get(item['__model__'])
 			r = _unlinkRecord(m,self._cr,self._pool,self._uid,data,self._context)
-			print('UNLINK:',r)
+			#print('UNLINK:',r)
 
 	def _m2m_appendRows(self,rows):
 		rels = []
@@ -1637,7 +1637,7 @@ class MCache(object):
 			rel = m._columns[c[0]].rel
 			id1 = m._columns[c[0]].id1
 			id2 = m._columns[c[0]].id2
-			print('row:',row,oid)
+			#print('row:',row,oid)
 			rels.append(row['__data__']['id'])
 
 			m._m2munlink(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
