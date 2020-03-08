@@ -316,28 +316,6 @@ class purchase_markets(Model):
 	'note': fields.text(label='Note'),
 	}
 
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'unit_id' in item and 'name' in item['unit_id'] and item['unit_id']['name']:
-			v += item['unit_id']['name']
-
-		if 'channel_id' in item and 'name' in item['channel_id'] and item['channel_id']['name']:
-			v += '/' + item['channel_id']['name']
-
-		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
-			v += '/' + item['segment_id']['name']
-
-		if 'area_id' in item and 'name' in item['area_id'] and item['area_id']['name']:
-			v += '/' + item['are_id']['name']
-
-		if 'region_id' in item and 'name' in item['region_id'] and item['region_id']['name']:
-			v += '/' + item['region_id']['name']
-
-		
-		if len(v) > 0:
-			item['fullname'] = v
-
-
 purchase_markets()
 
 
@@ -353,17 +331,6 @@ class purchase_teams(Model):
 	'fullname': fields.composite(label='Full Name',cols=['division_id','subdivision_id'],translate = True,required = True, compute = '_compute_composite'),
 	'note': fields.text(label='Note'),
 	}
-
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'division_id' in item and 'name' in item['division_id'] and item['division_id']['name']:
-			v += item['division_id']['name']
-
-		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:
-			v += '/' + item['subdivison_id']['name']
-		
-		if len(v) > 0:
-			item['fullname'] = v
 
 purchase_teams()
 
@@ -547,7 +514,6 @@ class purchase_orders(Model):
 	'otype': fields.many2one(label='Type',obj='purchase.order.types',on_change='_on_change_otype', required = True),
 	'name': fields.varchar(label = 'Name', required = True),
 	'company': fields.many2one(label='Company',obj='md.company', required = True),
-	#'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True, compute = '_compute_composite'),
 	'market_id': fields.many2one(label='Market',obj='purchase.markets'),
 	'team_id': fields.many2one(label='Team',obj='purchase.teams'),
@@ -574,20 +540,6 @@ class purchase_orders(Model):
 	'note': fields.text('Note')
 	}
 
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'company' in item and 'name' in item['company'] and item['company']['name']:
-			v += item['company']['name']
-
-		if 'otype' in item and 'name' in item['otype'] and item['otype']['name']:
-			v += '/' + item['otype']['name']
-
-		if item['name']:
-			v += '/' + item['name']
-		
-		if len(v) > 0:
-			item['fullname'] = v
-
 	def _on_change_otype(self,cr,pool,uid,item,context={}):		
 		roles = pool.get('purchase.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
@@ -610,10 +562,8 @@ class purchase_orders(Model):
 			item['texts'].append(item_text)
 
 	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		print('ITEM-RECEPTURE:',item)
 		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
 			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
-			print('ITEM-SELECT:',p)
 			for i in p:
 				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
@@ -624,8 +574,7 @@ class purchase_orders(Model):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
-			print('ITEM-ITEMS:',item)
+
 		return None
 
 	def _act_copy_to(self,cr,pool,uid,column,record,context={}):				
@@ -929,7 +878,6 @@ class purchase_invoices(Model):
 	'itype': fields.many2one(label='Type',obj='purchase.invoice.types',on_change='on_change_itype'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
-	#'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'fullname': fields.composite(label='Full Name', cols = ['company','itype','name'], translate = True,required = True, compute = '_compute_composite'),
 	'market_id': fields.many2one(label='Market',obj='purchase.markets'),
 	'team_id': fields.many2one(label='Team',obj='purchase.teams'),
@@ -949,20 +897,6 @@ class purchase_invoices(Model):
 	'texts': fields.one2many(label='Texts',obj='purchase.invoice.texts',rel='invoice_id'),
 	'note': fields.text('Note')
 	}
-
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'company' in item and 'name' in item['company'] and item['company']['name']:
-			v += item['company']['name']
-
-		if 'itype' in item and 'name' in item['itype'] and item['itype']['name']:
-			v += '/' + item['itype']['name']
-
-		if item['name']:
-			v += '/' + item['name']
-		
-		if len(v) > 0:
-			item['fullname'] = v
 
 	def _on_change_itype(self,cr,pool,uid,item,context={}):		
 			roles = pool.get('purchase.invoice.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['otype'])],context)

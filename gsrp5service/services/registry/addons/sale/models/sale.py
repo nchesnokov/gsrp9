@@ -363,32 +363,9 @@ class sale_markets(Model):
 	'segment_id': fields.related(label='Segment',obj='sale.unit.segment.assigments', relatedy=['unit_id'], required = True),
 	'area_id': fields.related(label='Area',obj='sale.unit.area.assigments', relatedy=['unit_id'], required = True),
 	'region_id': fields.related(label='Region',obj='sale.unit.region.assigments', relatedy=['unit_id'], required = True),
-	#'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'fullname': fields.composite(label='Full Name',cols=['unit_id','channel_id','segment_id','area_id','region_id'],translate = True,required = True, compute = '_compute_composite'),
 	'note': fields.text(label='Note'),
 	}
-
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'unit_id' in item and 'name' in item['unit_id'] and item['unit_id']['name']:
-			v += item['unit_id']['name']
-
-		if 'channel_id' in item and 'name' in item['channel_id'] and item['channel_id']['name']:
-			v += '/' + item['channel_id']['name']
-
-		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
-			v += '/' + item['segment_id']['name']
-
-		if 'area_id' in item and 'name' in item['area_id'] and item['area_id']['name']:
-			v += '/' + item['area_id']['name']
-
-		if 'region_id' in item and 'name' in item['region_id'] and item['region_id']['name']:
-			v += '/' + item['region_id']['name']
-
-		
-		if len(v) > 0:
-			item['fullname'] = v
-
 
 sale_markets()
 
@@ -609,21 +586,6 @@ class sale_orders(Model):
 	'payments': fields.one2many(label='Payments',obj='sale.order.payment.schedules',rel='order_id'),
 	'note': fields.text('Note')
 	}
-
-#
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'company' in item and 'name' in item['company'] and item['company']['name']:
-			v += item['company']['name']
-
-		if 'otype' in item and 'name' in item['otype'] and item['otype']['name']:
-			v += '/' + item['otype']['name']
-
-		if item['name']:
-			v += '/' + item['name']
-		
-		if len(v) > 0:
-			item['fullname'] = v
 
 	def _on_change_otype(self,cr,pool,uid,item,context={}):		
 		roles = pool.get('sale.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)

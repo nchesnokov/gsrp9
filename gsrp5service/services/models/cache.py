@@ -149,7 +149,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 		if 'id' in record and record['id']:
 			ctx = context.copy()
 			ctx['FETCH'] = 'RAW'
-			record2 = read(self, cr, pool, uid, record['id'], self._selectablefields, ctx)[0]
+			record2 = self.read(self, cr, pool, uid, record['id'], self._selectablefields, ctx)[0]
 	
 		if record2:
 			k1 = set(list(record.keys()))
