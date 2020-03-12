@@ -689,6 +689,9 @@ def _getNo_Copy(self):
 def _getGroups(self):
 	return self._groups
 
+def _getPages(self):
+	return self._pages
+
 def _getIndicies(self):
 	return self._indicies
 
@@ -703,7 +706,7 @@ def _getExtra(self):
 def modelInfo(self, header = None, names = None, columns = None, attributes = None):
 	mi = {}
 	if header is None:
-		header = ['__doc__','access','auth','transient','name','names','table','schema','class_model','class_category','inherit','inherits','description','checks','trgupdcols','trigers','columns_attrs','columns','family','default','register','constraints','sql_constraints','order_by','group_by','auto','actions','states','attrs','no_copy','groups','indicies','log_access','extra']
+		header = ['__doc__','access','auth','transient','name','names','table','schema','class_model','class_category','inherit','inherits','description','checks','trgupdcols','trigers','columns_attrs','columns','family','default','register','constraints','sql_constraints','order_by','group_by','auto','actions','states','attrs','no_copy','groups','pages','indicies','log_access','extra']
 	for h in header:
 		if h == 'family':
 			continue
@@ -725,40 +728,6 @@ def modelInfo(self, header = None, names = None, columns = None, attributes = No
 			else:
 				mi[h] = None
 
-	# mi = dict(
-		# __doc__ = self.__doc__,
-		# access = self._getAccess(),
-		# auth = self._getAuth(),
-		# transient = self._transient,
-		# name = self._name,
-		# table = self._table,
-		# schema = self._schema,
-		# class_model = self._class_model,
-		# class_category = self._class_category,
-		# inherit = self._inherit,
-		# inherits = self._inherits,
-		# description = self._description,
-		# checks = self._checks,
-		# trigers = self._trigers,
-		# columns_attrs = self._columns_attrs,
-		# columns = self.columnsInfo(columns,attributes),
-		# family = {},
-		# default = self._getDefault(),
-		# register = self._register,
-		# constraints = self._constraints,
-		# sql_constraints = self._sql_constraints,
-		# names = self._getNames(),
-		# order_by = self._order_by,
-		# group_by = self._group_by,
-		# auto = self._auto,
-		# actions = self._actions,
-		# states = self._states,
-		# attrs = self._attrs,
-		# no_copy = self._no_copy,
-		# groups = self._groups,
-		# indicies = self._indicies,
-		# log_access = self._log_access
-	# )
 	if 'family' in header:
 		if 'columns' not in header:
 			mi['columns'] = _getColumns(self,columns,attributes)

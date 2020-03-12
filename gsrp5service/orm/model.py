@@ -197,6 +197,7 @@ class BaseModel(object, metaclass = MetaModel):
 	_col_attrs = {}
 	_no_copy = []
 	_groups = {}
+	_pages = {}
 	_indicies = {}
 	_extra = {}
 
