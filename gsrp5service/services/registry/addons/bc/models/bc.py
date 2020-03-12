@@ -315,7 +315,7 @@ class bc_group_access(Model):
 	'name': fields.varchar(label="Group Access",readonly=True),
 	'parent_id': fields.many2one(label='Parent',obj='bc.group.access',readonly=True),
 	'childs_id': fields.one2many(label='Childs',obj='bc.group.access',rel='parent_id',readonly=True),
-	'roles': fields.one2many(label='Roles',obj='bc.access',rel='access_id',readonly=True),
+	'roles': fields.one2many(label='Roles',obj='bc.access',rel='group_id',readonly=True),
 	'active': fields.boolean('Active',readonly=True),
 	'note': fields.text(label='Note',readonly=True)
 	}
