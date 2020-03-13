@@ -45,7 +45,7 @@ class DictComp(dict):
 def _createRecord(self, cr, pool, uid, record, context):
 	oid = None
 
-	fields = list(record.keys())
+	fields = list(filter x:,record.keys()))
 	modelfields = list(self._columns.keys())
 	nomodelfields = list(filter(lambda x: not x in modelfields,fields))
 	if len(nomodelfields) > 0:
@@ -56,7 +56,7 @@ def _createRecord(self, cr, pool, uid, record, context):
 			del record[nosavedfield]
 	columnsinfo = self.columnsInfo(columns = fields)
 
-	for nonefield in list(filter(lambda x: record[x] is None,fields)):
+	for nonefield in list(filter(lambda x: x in record and record[x] is None,fields)):
 		if nonefield in record:
 			del record[nonefield]
 	
