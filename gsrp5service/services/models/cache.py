@@ -1428,7 +1428,7 @@ class MCache(object):
 		else:
 			res['__do_action__'] = []
 
-		self._diff(path,context)
+		self._diffs = self._post_diffs(context)
 
 		meta = self._do_meta(path)
 		
