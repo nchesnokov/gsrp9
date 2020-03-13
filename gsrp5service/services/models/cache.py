@@ -1221,13 +1221,13 @@ class MCache(object):
 		ci = m.columnsInfo(columns=m._computefields,attributes=['compute','priority'])
 		priority = {}
 		for compute_field in filter(lambda x: x in fields,m._computefields):
-			priority.setdefault(ci[compute_field]['compute'],set()).add(compute_field)
+			priority.setdefault(ci[compute_field]['priority'],set()).add(ci[compute_field]['compute'])
 		
 		pkeys = list(priority.keys())
 		pkeys.sort()
 		for pkey in pkeys:
-			for compute_field in priority[pkey]:
-				method = getattr(m,ci[compute_field]['compute'],None)
+			for compute_method in priority[pkey]:			
+				method = getattr(m,compute_method,None)
 				if method and callable(method):
 					r = method(self._cr,self._pool,self._uid,record,self._context)
 					if r is not None: 
@@ -1738,13 +1738,15 @@ class MCache(object):
 
 	def _post_diffs(self,context):
 		levels = {}
-		diffs1 = self._data._odiffs()
+		diffs1 = self._data._odiffs(False)
 		ch1 = DCacheDict(self._data._cdata[self._data._root],self._data._model,self._data._pool)
 
 		self._post_diff(diffs1,context)
 		diffs2 = ch1._pdiffs()
-
+		
 		_join_diffs(diffs1,diffs2)
+		
+		self._data._apply_from_diffs('o','c',diffs1)
 
 		return eval(str(diffs1))
 
