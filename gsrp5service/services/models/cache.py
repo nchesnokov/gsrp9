@@ -1422,7 +1422,7 @@ class MCache(object):
 
 	def _action(self,path,name,column = None,context={}):
 		res = {}
-		act = self._pool.get(self._data[path]._model).do_action(self._cr,self._pool,self._uid,name,column,self._oids[path].__shadow__,context)
+		act = self._pool.get(self._data[path]._model).do_action(self._cr,self._pool,self._uid,name,column,self._data._cpath[path],context)
 		if act and len(act) > 0:
 			res['__do_action__'] = act
 		else:
