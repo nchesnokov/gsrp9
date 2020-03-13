@@ -610,7 +610,7 @@ class md_banks(Model):
 	'city': fields.varchar(label='City'),
 	'country_id': fields.many2one(label='Country',obj='md.country'),
 	'state_id': fields.related(label='Fed. State',obj='md.country.states',relatedy=['country_id']),
-	'email': fields.varchar(label='Email'),
+	'email': fields.varchar(label='Email',pattern='.+@.+\..+'),
 	'phone': fields.varchar(label='Phone'),
 	'bic': fields.varchar(label='Bank Identifier Code', help="Sometimes called BIC or Swift."),
 	'partners': fields.one2many(label='Partners',obj='md.partners.bank',rel='bank_id'),
