@@ -1517,6 +1517,7 @@ class MCache(object):
 
 		if r:
 			item['__data__']['id'] = r
+			path = item['__path__']
 			self._data._cdata[path]['id'] = r
 			self._data._odata[path]['id'] = copy.deepcopy(r)
 			if self._data._primary and path in self._data._pdata:
