@@ -1517,6 +1517,11 @@ class MCache(object):
 
 		if r:
 			item['__data__']['id'] = r
+			self._data._cdata[path]['id'] = r
+			self._data._odata[path]['id'] = copy.deepcopy(r)
+			if self._data._primary and path in self._data._pdata:
+				self._data._pdata[path]['id'] = copy.deepcopy(r)
+
 		
 		if '__m2m_containers__' in item:
 			m2m_containers = item['__m2m_containers__']
