@@ -115,7 +115,7 @@ class bc_messages(Model):
 	_description = 'General Model Messages'
 	_rec_name='code'
 	_columns = {
-	'area': fields.many2one(label='Area', obj='bc.area.messages', readonly=true, required=True),
+	'area': fields.many2one(label='Area', obj='bc.area.messages', readonly=True, required=True),
 	'code': fields.varchar(label='Message', size = 64,readonly=True),
 	'descr': fields.varchar(label='Description', readonly=True ,required=True),
 	'note': fields.text(label='Note',readonly=True)
