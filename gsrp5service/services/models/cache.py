@@ -364,7 +364,7 @@ class DCacheDict(object):
 
 
 	def _apply_from_diffs(self,o,c,diffs):
-		#print('APPLY-DIFFS:',diffs)
+		print('APPLY-DIFFS:',diffs)
 		if ('__update__' in diffs ):
 			for k in diffs['__update__'].keys():
 				getattr(self,'_%sdata' % (o,))[k].update(copy.deepcopy(diffs['__update__'][k]))

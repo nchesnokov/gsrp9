@@ -1629,6 +1629,36 @@ class srm_rfx_items(Model):
 
 srm_rfx_items()
 
+class srm_auction_types(Model):
+	_name = 'srm.auction.types'
+	_description = 'General Model Types SRM Auction'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'htschema': fields.many2one(label='Text Schema Of Head',obj='srm.schema.texts',domain=[('usage','in',('h','b'))]),
+	'itschema': fields.many2one(label='Text Schema Of Item',obj='srm.schema.texts',domain=[('usage','in',('i','b'))]),
+	'roles': fields.one2many(label='Roles',obj='srm.auction.type.roles',rel='type_id'),
+	'note': fields.text(label = 'Note')
+	}
+
+srm_auction_types()
+
+class srm_auction_type_roles(Model):
+	_name = 'srm.auction.type.roles'
+	_description = 'General Model Role SRM Auction Types'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'type_id': fields.many2one(label = 'Type',obj='srm.auction.types'),
+	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
+	'required': fields.boolean(label='Required'),
+	'note': fields.text(label = 'Note')
+	}
+
+srm_auction_type_roles()
+
+
 class srm_auction(Model):
 	_name = 'srm.auction'
 	_description = 'General SRM Auction'

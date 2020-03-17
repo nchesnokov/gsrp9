@@ -73,17 +73,17 @@ async def hello():
 		#async with websockets.connect('ws://www.gsrp5labs.com:8170') as ws:
 		#async with websockets.connect('ws://localhost:8170/ws') as ws:
 		async with websockets.connect('ws://localhost:8170') as ws:
-			if not True:
+			if True:
 				uid = await _execute([ws, '_open','gsrp5.system',{'profile':'system'}])
 				#msg = await _execute([ws, uid[0],'modules','upgrademoduleslist',{'db':'test001'}])
 				#msg = await _execute([ws, 'slots','initialize'])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['ai','bc','cm','crm','fa','hcm','md','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ctrm']}])
 				
-				msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
+				#msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
 
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['purchase']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['purchase','sale']}])
-				msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','cm','crm','fa','hcm','md','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ctrm']}])				
+				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','cm','crm','fa','hcm','md','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ctrm']}])				
 				#msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
 				#msg = await _execute([ws, 'gens','tr',{'modules': ['l10n_uy']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','purchase','sale']}])
@@ -103,7 +103,7 @@ async def hello():
 				
 				#msg = await _execute([ws, 'modules','install',{'modules':['wkf_srm']}])
 				
-				return
+				#return
 				msg = await _execute([ws, 'slots','drop',{'sid':'test001'}])
 				#msg = await _execute([ws, 'slots','drop',{'sid':'test002'}])
 				#msg = await _execute([ws, 'slots','drop',{'sid':'test003'}])
@@ -113,7 +113,7 @@ async def hello():
 				#msg = await _execute([ws, 'slots','create',{'sid':'test002','host':'localhost','port':26257,'database':'test002','db_user':'test','db_password':'test','sslmode':'verify-full'}])
 				#msg = await _execute([ws, 'slots','create',{'sid':'test001','host':'localhost','port':26257,'database':'test001','db_user':'test','db_password':'test','sslmode':'verify-full'}])
 				msg = await _execute([ws, '_commit'])
-				#return
+				return
 			else:
 				#msg = await _execute([ws, '_slots'])
 				#return
