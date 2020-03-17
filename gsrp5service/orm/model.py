@@ -317,6 +317,11 @@ class BaseModel(object, metaclass = MetaModel):
 		c = self.columnsInfo(attributes=['store','type'])
 		return list(filter(lambda x: 'store' in c[x] and c[x]['store'] or c[x]['type'] in ('one2many','many2many','text','xml','binary','referenced'),c.keys())) 
 
+	def _getMessage(self,cr,pool,uid,area,code,context={}):
+		r = pool.get('bc.messages').select(cr,pool,uid,['area','code','descr'],[('area','=',area),('code','=',code)],context,limit=1)
+		if len(r) > 0:
+			return r[0]
+	
 	def _getUid(self,cr):
 		cr.execute('select uuid_v4()::UUID as id')
 		if cr.rowcount > 0:

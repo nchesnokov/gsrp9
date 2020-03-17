@@ -100,6 +100,29 @@ class bc_users(Model):
 
 bc_users()
 
+class bc_area_messages(Model):
+	_name = 'bc.area.messages'
+	_description = 'General Model Area Messages'
+	_columns = {
+	'name': fields.varchar(label='Area', size = 64,readonly=True),
+	'note': fields.text(label='Note',readonly=True)
+	}
+
+bc_area_messages()
+
+class bc_messages(Model):
+	_name = 'bc.messages'
+	_description = 'General Model Messages'
+	_rec_name='code'
+	_columns = {
+	'area': fields.many2one(label='Area', obj='bc.area.messages', readonly=true, required=True),
+	'code': fields.varchar(label='Message', size = 64,readonly=True),
+	'descr': fields.varchar(label='Description', readonly=True ,required=True),
+	'note': fields.text(label='Note',readonly=True)
+	}
+
+bc_messages()
+
 class bc_langs(Model):
 	_name = 'bc.langs'
 	_description = 'General Model Langs'
@@ -119,7 +142,8 @@ class bc_group_modules(Model):
 	'parent_id': fields.many2one(label = 'Parent',obj='bc.group.modules',readonly=True),
 	'childs_id': fields.one2many(label = 'Childs',obj='bc.group.modules',rel='parent_id',readonly=True),
 	'bc_modules': fields.one2many(label = 'Modules',obj = 'bc.modules', rel = 'bc_group_module_id',readonly=True),
-	'note': fields.text(label='Note',readonly=True)}
+	'note': fields.text(label='Note',readonly=True)
+	}
 
 bc_group_modules()
 
