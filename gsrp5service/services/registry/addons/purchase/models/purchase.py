@@ -327,7 +327,7 @@ class purchase_teams(Model):
 	_rec_name = 'fullname'
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='purchase.divisions', required = True),
-	'subdivision_id': fields.related(label='Subdivision',obj='purchase.subdivisions', relatedy=['division_id'], required = True),
+	'subdivision_id': fields.related(label='Subdivision',obj='purchase.division.subdivision.assigments', relatedy=['division_id'], required = True),
 	'fullname': fields.composite(label='Full Name',cols=['division_id','subdivision_id'],translate = True,required = True, compute = '_compute_composite'),
 	'note': fields.text(label='Note'),
 	}

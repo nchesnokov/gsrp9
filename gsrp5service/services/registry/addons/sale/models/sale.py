@@ -379,7 +379,6 @@ class sale_teams(Model):
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='sale.divisions', required = True),
 	'subdivision_id': fields.related(label='Subdivision',obj='sale.division.subdivision.assigments', relatedy=['division_id'], required = True),
-	#'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'fullname': fields.composite(label='Full Name',cols=['division_id','subdivision_id'],translate = True,required = True, compute = '_compute_composite'),
 	'note': fields.text(label='Note'),
 	}
