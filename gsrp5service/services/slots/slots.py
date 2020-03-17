@@ -52,13 +52,13 @@ class Slots(Component):
 					autocommit = False
 				
 				session._cursor.conn.autocommit=True
-
+				_logger.info("Create Slot: %s" % (name,))
 				session._cursor.execute("CREATE DATABASE IF NOT EXISTS %s ENCODING='UTF-8';SET DATABASE=%s;GRANT ALL ON DATABASE %s TO %s" % (name,name,name,db_user))
 				session._cursor.conn.autocommit = autocommit
 
 				rmsg.append(session._cursor.cr.statusmessage)
 				rmsg.extend(session._components['modules']._call(['sysinstall']))
-				_logger.info("Created Slot: %s" % (name,))
+				_logger.info("Slot: %s Created" % (name,))
 			else:
 				_logger.info("Slot: %s are created" % (name,))
 				rmsg.append("Slot: %s are created" % (name,))
@@ -78,9 +78,10 @@ class Slots(Component):
 				autocommit = False
 				
 			session._cursor.conn.autocommit=True
+			_logger.info("Drop Slot: %s" % (sid,))
 			session._cursor.execute("DROP DATABASE IF EXISTS %s CASCADE" % (sid,))
 			session._cursor.conn.autocommit = autocommit
-			_logger.info("Drop Slot: %s" % (sid,))
+			_logger.info("Slot: %s Dropped" % (sid,))
 			res.append(session._cursor.cr.statusmessage)
 			return res
 		else:
