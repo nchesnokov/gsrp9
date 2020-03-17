@@ -1684,11 +1684,10 @@ class MCache(object):
 		
 		if self._data._apply_from_diffs('p','c',self._commit_diffs):
 			self._commit_diffs = {}
+			if self._mode in ('new',):
+				self._clear()
+
 			return ['commited']
-
-		if self._mode in ('new',):
-			self._clear()
-
 		
 		return ['not commited']
 		
