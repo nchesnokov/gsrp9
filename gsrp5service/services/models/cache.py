@@ -1679,14 +1679,16 @@ class MCache(object):
 
 
 	def _commit(self,action='commit work'):
-		if self._mode in ('new',):
-			self._clear()
 		
 		self._cr.commit()
 		
 		if self._data._apply_from_diffs('p','c',self._commit_diffs):
 			self._commit_diffs = {}
 			return ['commited']
+
+		if self._mode in ('new',):
+			self._clear()
+
 		
 		return ['not commited']
 		
