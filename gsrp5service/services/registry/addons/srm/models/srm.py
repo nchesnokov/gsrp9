@@ -9,13 +9,14 @@ from datetime import timedelta
 # Organization structure
 class srm_unit_categories(Model):
 	_name = 'srm.unit.categories'
-	_description = 'General Model Categories SRM Unit'
+	_description = 'General Model Categories Purchase Unit'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.unit.categories'),
 	'childs_id': fields.one2many(obj = 'srm.unit.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'units': fields.one2many(label='Units',obj='srm.units',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -25,7 +26,7 @@ srm_unit_categories()
 
 class srm_units(Model):
 	_name = 'srm.units'
-	_description = 'General Model SRM Units'
+	_description = 'General Model Purchase Units'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -44,13 +45,14 @@ srm_units()
 
 class srm_channel_categories(Model):
 	_name = 'srm.channel.categories'
-	_description = 'General Model Categories SRM Chanel'
+	_description = 'General Model Categories Purchase Chanel'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.channel.categories'),
 	'childs_id': fields.one2many(obj = 'srm.channel.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'channels': fields.one2many(label='Channels',obj='srm.channels',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -60,7 +62,7 @@ srm_channel_categories()
 
 class srm_channels(Model):
 	_name = 'srm.channels'
-	_description = 'General Model SRM Channels'
+	_description = 'General Model Purchase Channels'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -74,13 +76,14 @@ srm_channels()
 
 class srm_segment_categories(Model):
 	_name = 'srm.segment.categories'
-	_description = 'General Model Categories SRM Segment'
+	_description = 'General Model Categories Purchase Segment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.segment.categories'),
 	'childs_id': fields.one2many(obj = 'srm.segment.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'segments': fields.one2many(label='Segments',obj='srm.segments',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -90,7 +93,7 @@ srm_segment_categories()
 
 class srm_segments(Model):
 	_name = 'srm.segments'
-	_description = 'General Model SRM Segments'
+	_description = 'General Model Purchase Segments'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -104,7 +107,7 @@ srm_segments()
 
 class srm_area_categories(Model):
 	_name = 'srm.area.categories'
-	_description = 'General Model Categories SRM Area'
+	_description = 'General Model Categories Purchase Area'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -112,6 +115,7 @@ class srm_area_categories(Model):
 	'parent_id': fields.many2one(label='Parent',obj='srm.area.categories'),
 	'childs_id': fields.one2many(obj = 'srm.area.categories',rel = 'parent_id',label = 'Childs'),
 	'areas': fields.one2many(label='Areas',obj='srm.areas',rel='category_id',limit = 80,readonly=True),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -120,7 +124,7 @@ srm_area_categories()
 
 class srm_areas(Model):
 	_name = 'srm.areas'
-	_description = 'General Model SRM Areas'
+	_description = 'General Model Purchase Areas'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -134,13 +138,14 @@ srm_areas()
 
 class srm_region_categories(Model):
 	_name = 'srm.region.categories'
-	_description = 'General Model Categories SRM Region'
+	_description = 'General Model Categories Purchase Region'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.region.categories'),
 	'childs_id': fields.one2many(obj = 'srm.region.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'segments': fields.one2many(label='REgions',obj='srm.regions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -150,7 +155,7 @@ srm_region_categories()
 
 class srm_regions(Model):
 	_name = 'srm.regions'
-	_description = 'General Model SRM Regions'
+	_description = 'General Model Purchase Regions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -165,13 +170,14 @@ srm_regions()
 
 class srm_division_categories(Model):
 	_name = 'srm.division.categories'
-	_description = 'General Model Categories SRM Division'
+	_description = 'General Model Categories Purchase Division'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.division.categories'),
 	'childs_id': fields.one2many(obj = 'srm.division.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'divisions': fields.one2many(label='Divisions',obj='srm.divisions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -181,7 +187,7 @@ srm_division_categories()
 
 class srm_divisions(Model):
 	_name = 'srm.divisions'
-	_description = 'General Model SRM Divisions'
+	_description = 'General Model Purchase Divisions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -196,13 +202,14 @@ srm_divisions()
 
 class srm_subdivision_categories(Model):
 	_name = 'srm.subdivision.categories'
-	_description = 'General Model Categories SRM Subdivision'
+	_description = 'General Model Categories Purchase Subdivision'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.subdivision.categories'),
 	'childs_id': fields.one2many(obj = 'srm.subdivision.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'subdivisions': fields.one2many(label='Orders',obj='srm.subdivisions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -212,7 +219,7 @@ srm_subdivision_categories()
 
 class srm_subdivisions(Model):
 	_name = 'srm.subdivisions'
-	_description = 'General Model SRM Subdivisions'
+	_description = 'General Model Purchase Subdivisions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -226,53 +233,89 @@ srm_subdivisions()
 
 class srm_unit_channel_assigments(Model):
 	_name = 'srm.unit.channel.assigments'
-	_description = 'General Model SRM Unit Of Channel Assigment'
+	_description = 'General Model Purchase Unit Of Channel Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
-	'channel_id': fields.many2one(label='Channel',obj='srm.channels'),
-	'descr': fields.referenced(ref='channel_id.descr'),
+	'channel_id': fields.many2one(label='Channel',obj='srm.channels',selectable=True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
 	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+
+		if 'channel_id' in item and 'name' in item['channel_id'] and item['channel_id']['name']:
+			v += item['channel_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
 
 srm_unit_channel_assigments()
 
 class srm_unit_segment_assigments(Model):
 	_name = 'srm.unit.segment.assigments'
-	_description = 'General Model SRM Unit Of Segment Assigment'
+	_description = 'General Model Purchase Unit Of Segment Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
-	'segment_id': fields.many2one(label='Segment',obj='srm.segments'),
-	'descr': fields.referenced(ref='segment_id.descr'),
+	'segment_id': fields.many2one(label='Segment',obj='srm.segments',selectable=True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
 	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+
+		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
+			v += item['segment_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
 
 srm_unit_segment_assigments()
 
 class srm_unit_area_assigments(Model):
 	_name = 'srm.unit.area.assigments'
-	_description = 'General Model SRM Unit Of Area Assigment'
+	_description = 'General Model Purchase Unit Of Area Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
-	'area_id': fields.many2one(label='Area',obj='srm.areas'),
-	'descr': fields.referenced(ref='area_id.descr'),
+	'area_id': fields.many2one(label='Area',obj='srm.areas',selectable=True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
 	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+
+		if 'area_id' in item and 'name' in item['area_id'] and item['area_id']['name']:
+			v += item['area_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
 
 srm_unit_area_assigments()
 
 class srm_unit_region_assigments(Model):
 	_name = 'srm.unit.region.assigments'
-	_description = 'General Model SRM Unit Of Region Assigment'
+	_description = 'General Model Purchase Unit Of Region Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
-	'region_id': fields.many2one(label='Region',obj='srm.regions'),
-	'descr': fields.referenced(ref='region_id.descr'),
+	'region_id': fields.many2one(label='Region',obj='srm.regions',selectable=True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
 	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+
+		if 'region_id' in item and 'name' in item['region_id'] and item['region_id']['name']:
+			v += item['region_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
 
 srm_unit_segment_assigments()
 
@@ -280,21 +323,30 @@ srm_unit_segment_assigments()
 
 class srm_division_subdivision_assigments(Model):
 	_name = 'srm.division.subdivision.assigments'
-	_description = 'General Model SRM Division Of Subdivision Assigment'
+	_description = 'General Model Purchase Division Of Subdivision Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='srm.divisions'),
-	'subdivision_id': fields.many2one(label='Subdivision',obj='srm.subdivisions'),
-	'descr': fields.referenced(ref='subdivision_id.descr'),
+	'subdivision_id': fields.many2one(label='Subdivision',obj='srm.subdivisions',selectable=True),
+	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	}
+
+	def _compute_fullname(self,cr,pool,uid,item,context):
+		v=''
+
+		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:
+			v += item['subdivision_id']['name']
+		
+		if len(v) > 0:
+			item['fullname'] = v
 
 srm_division_subdivision_assigments()
 
 
 class srm_markets(Model):
 	_name = 'srm.markets'
-	_description = 'General Model SRM Market'
+	_description = 'General Model Purchase Market'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -304,58 +356,25 @@ class srm_markets(Model):
 	'segment_id': fields.related(label='Segment',obj='srm.unit.segment.assigments', relatedy=['unit_id'], required = True),
 	'area_id': fields.related(label='Area',obj='srm.unit.area.assigments', relatedy=['unit_id'], required = True),
 	'region_id': fields.related(label='Region',obj='srm.unit.region.assigments', relatedy=['unit_id'], required = True),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'fullname': fields.composite(label='Full Name',cols=['unit_id','channel_id','segment_id','area_id','region_id'],translate = True,required = True, compute = '_compute_composite'),
 	'note': fields.text(label='Note'),
 	}
-
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'unit_id' in item and 'name' in item['unit_id'] and item['unit_id']['name']:
-			v += item['unit_id']['name']
-
-		if 'channel_id' in item and 'name' in item['channel_id'] and item['channel_id']['name']:
-			v += '/' + item['channel_id']['name']
-
-		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
-			v += '/' + item['segment_id']['name']
-
-		if 'area_id' in item and 'name' in item['area_id'] and item['area_id']['name']:
-			v += '/' + item['are_id']['name']
-
-		if 'region_id' in item and 'name' in item['region_id'] and item['region_id']['name']:
-			v += '/' + item['region_id']['name']
-
-		
-		if len(v) > 0:
-			item['fullname'] = v
-
 
 srm_markets()
 
 
 class srm_teams(Model):
 	_name = 'srm.teams'
-	_description = 'General Model SRM Teams'
+	_description = 'General Model Purchase Teams'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='srm.divisions', required = True),
-	'subdivision_id': fields.related(label='Subdivision',obj='srm.subdivisions', relatedy=['division_id'], required = True),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'subdivision_id': fields.related(label='Subdivision',obj='srm.division.subdivision.assigments', relatedy=['division_id'], required = True),
+	'fullname': fields.composite(label='Full Name',cols=['division_id','subdivision_id'],translate = True,required = True, compute = '_compute_composite'),
 	'note': fields.text(label='Note'),
 	}
-
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'division_id' in item and 'name' in item['division_id'] and item['division_id']['name']:
-			v += item['division_id']['name']
-
-		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:
-			v += '/' + item['subdivison_id']['name']
-		
-		if len(v) > 0:
-			item['fullname'] = v
 
 srm_teams()
 

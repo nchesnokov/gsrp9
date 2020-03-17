@@ -383,17 +383,6 @@ class sale_teams(Model):
 	'note': fields.text(label='Note'),
 	}
 
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'division_id' in item and 'name' in item['division_id'] and item['division_id']['name']:
-			v += item['division_id']['name']
-
-		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:
-			v += '/' + item['subdivision_id']['name']
-		
-		if len(v) > 0:
-			item['fullname'] = v
-
 sale_teams()
 
 
