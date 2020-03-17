@@ -473,6 +473,7 @@ class srm_plan_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.plan.category'),
 	'childs_id': fields.one2many(obj = 'srm.plan.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'plans': fields.one2many(label='Plans',obj='srm.plan',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -486,6 +487,7 @@ class srm_request_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.request.category'),
 	'childs_id': fields.one2many(obj = 'srm.request.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'requests': fields.one2many(label='Requests',obj='srm.request',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -499,6 +501,7 @@ class srm_rfx_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.rfx.category'),
 	'childs_id': fields.one2many(obj = 'srm.rfx.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'rfxs': fields.one2many(label='RFXs',obj='srm.rfx',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -512,6 +515,7 @@ class srm_auction_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.auction.category'),
 	'childs_id': fields.one2many(obj = 'srm.auction.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'auctions': fields.one2many(label='Auctions',obj='srm.auction',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -525,6 +529,7 @@ class srm_offer_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.offer.category'),
 	'childs_id': fields.one2many(obj = 'srm.offer.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'offers': fields.one2many(label='Offers',obj='srm.offer',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -538,6 +543,7 @@ class srm_evolution_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.evolution.category'),
 	'childs_id': fields.one2many(obj = 'srm.evolution.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'evolutions': fields.one2many(label='Evolutions',obj='srm.evolution',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -551,6 +557,7 @@ class srm_decision_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.decision.category'),
 	'childs_id': fields.one2many(obj = 'srm.decision.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'decisions': fields.one2many(label='Decisions',obj='srm.decision',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -564,6 +571,7 @@ class srm_contract_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.contract.category'),
 	'childs_id': fields.one2many(obj = 'srm.contract.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
 	'contracts': fields.one2many(label='Contracts',obj='srm.contracts',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -657,11 +665,10 @@ class srm_demands(Model):
 	'dtype': fields.many2one(label='Type',obj='srm.demand.types',on_change='_on_change_dtype'),
 	'company': fields.many2one(label='Company',obj='md.company'),
 	'name': fields.varchar(label = 'Name'),
-	#'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'fullname': fields.composite(label='Full Name',cols=['dtype','company','name'],translate = True,required = True, compute = '_compute_composite'),
 	'market': fields.many2one(label='Market',obj='srm.markets'),
 	'team': fields.many2one(label='Team',obj='srm.teams'),
-	'category': fields.many2one(label='Category',obj='srm.demand.category'),
+	'category_id': fields.many2one(label='Category',obj='srm.demand.category'),
 	'manager': fields.many2one(label='Manager',obj='bc.users'),
 	'origin': fields.varchar(label = 'Origin'),
 	'dod': fields.date(label='Date Of Demand',required=True),
@@ -912,6 +919,7 @@ class srm_part(Model):
 	'ptype': fields.many2one(label='Type',obj='srm.part.types',on_change='_on_change_ptype'),
 	'name': fields.varchar(label = 'Part',selectable = True),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name',cols=['ptype','company','name'],translate = True,required = True, compute = '_compute_composite'),
 	'category_id': fields.many2one(label='Category',obj='srm.part.category'),
 	'origin': fields.varchar(label = 'Origin'),
 	'dop': fields.date(label='Date Of Part',required=True),
@@ -1192,6 +1200,7 @@ class srm_plan(Model):
 	'ptype': fields.many2one(label='Type',obj='srm.plan.types',on_change='on_change_ptype'),
 	'name': fields.varchar(label = 'Plan',selectable = True),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name',cols=['ptype','company','name'],translate = True,required = True, compute = '_compute_composite'),
 	'category_id': fields.many2one(label='Category',obj='srm.plan.category'),
 	'origin': fields.varchar(label = 'Origin'),
 	'dop': fields.date(label='Date Of Plan',required=True),
@@ -1391,6 +1400,7 @@ class srm_request(Model):
 	'rtype': fields.many2one(label='Type',obj='srm.request.types',on_change='on_change_rtype'),
 	'name': fields.varchar(label = 'Request',selectable = True),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name',cols=['rtype','company','name'],translate = True,required = True, compute = '_compute_composite'),
 	'category_id': fields.many2one(label='Category',obj='srm.request.category'),
 	'origin': fields.varchar(label = 'Origin'),
 	'dor': fields.date(label='Date Of Request',required=True),
@@ -1552,7 +1562,7 @@ class srm_request_delivery_schedules(Model):
 	'note': fields.text(label = 'Note')}
 
 srm_request_delivery_schedules()
-
+# rtype
 class srm_rfx(Model):
 	_name = 'srm.rfx'
 	_description = 'General SRM RFX'
@@ -1561,6 +1571,7 @@ class srm_rfx(Model):
 	_columns = {
 	'name': fields.varchar(label = 'Name',selectable = True),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name',cols=['rtype','company','name'],translate = True,required = True, compute = '_compute_composite'),
 	'category_id': fields.many2one(label='Category',obj='srm.rfx.category'),
 	'origin': fields.varchar(label = 'Origin'),
 	'dorfx': fields.date(label='Date Of RFX',required=True),
@@ -1624,8 +1635,10 @@ class srm_auction(Model):
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from']}}
 	_date = 'doa'
 	_columns = {
+	'atype': fields.many2one(label='Type',obj='srm.auction.types',on_change='on_change_atype'),
 	'name': fields.varchar(label = 'Name',selectable = True),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name',cols=['atype','company','name'],translate = True,required = True, compute = '_compute_composite'),
 	'category_id': fields.many2one(label='Category',obj='srm.auction.category'),
 	'origin': fields.varchar(label = 'Origin'),
 	'doa': fields.date(label='Date Of Auction',required=True),
@@ -1720,6 +1733,7 @@ class srm_offer(Model):
 	'otype': fields.many2one(label='Type',obj='srm.offer.types',on_change='on_change_otype'),
 	'name': fields.varchar(label = 'Offer',selectable = True),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name',cols=['otype','company','name'],translate = True,required = True, compute = '_compute_composite'),
 	'category_id': fields.many2one(label='Category',obj='srm.offer.category'),
 	'origin': fields.varchar(label = 'Origin'),
 	'doo': fields.date(label='Date Of Offer',required=True),
@@ -1922,6 +1936,7 @@ class srm_evolution(Model):
 	'etype': fields.many2one(label='Type',obj='srm.evolution.types',on_change='on_change_etype'),
 	'name': fields.varchar(label = 'Evolution',selectable = True),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name',cols=['etype','company','name'],translate = True,required = True, compute = '_compute_composite'),
 	'category_id': fields.many2one(label='Category',obj='srm.evolution.category'),
 	'origin': fields.varchar(label = 'Origin'),
 	'doe': fields.date(label='Date Of Evolution',required=True),
@@ -2125,6 +2140,7 @@ class srm_decision(Model):
 	'dtype': fields.many2one(label='Type',obj='srm.decision.types',on_change='on_change_dtype'),
 	'name': fields.varchar(label = 'Decision',selectable = True),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name',cols=['dtype','company','name'],translate = True,required = True, compute = '_compute_composite'),
 	'category_id': fields.many2one(label='Category',obj='srm.decision.category'),
 	'origin': fields.varchar(label = 'Origin'),
 	'don': fields.date(label='Date Of Decision',required=True),
@@ -2331,6 +2347,7 @@ class srm_contracts(Model):
 	'ctype': fields.many2one(label='Type',obj='srm.contract.types',on_change='on_change_ctype'),
 	'name': fields.varchar(label = 'Name',selectable = True),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name',cols=['ctype','company','name'],translate = True,required = True, compute = '_compute_composite'),
 	'category_id': fields.many2one(label='Category',obj='srm.contract.category'),
 	'origin': fields.varchar(label = 'Origin'),
 	'doc': fields.date(label='Date Of Contract',required=True),
