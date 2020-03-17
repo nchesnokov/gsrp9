@@ -1451,7 +1451,7 @@ class MCache(object):
 
 	def _save(self,autocommit = False):
 		diffs = self._data._pdiffs(False)
-		#print('DIFFS:',diffs)
+		print('SAVE-DIFFS:',diffs)
 		if len(diffs) == 0:
 			return ['no chache']
 		
