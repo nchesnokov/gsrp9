@@ -667,6 +667,21 @@ class purchase_order_roles(Model):
 
 purchase_order_roles()
 
+class purchase_order_pricing(Model):
+	_name = 'purchase.order.pricing'
+	_description = 'General Model Purchase Order Pricing'
+	_columns = {
+	'order_id': fields.many2one(label = 'Order',obj='purchase.orders'),
+	'level': fields.integer(label = 'Level'),
+	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','p'),('usage','=','p')],required=True,translate=True),
+	'from_level': fields.integer(label = 'From Level'),
+	'to_level': fields.integer(label = 'To Level'),
+	'value': fields.numeric(label='Value',size=(15,2)),
+	}
+
+purchase_order_pricing()
+
+
 class purchase_order_payment_schedules(Model):
 	_name = 'purchase.order.payment.schedules'
 	_description = 'General Model Purchase Order Payment Schedules'
