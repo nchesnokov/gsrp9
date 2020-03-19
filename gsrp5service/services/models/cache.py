@@ -885,7 +885,7 @@ class DCacheDict(object):
 						elif type(aa) == dict:
 							for s in aa.keys():
 								sn = m._getStateName()
-								if s == self._data._cdata[path][sn]:
+								if s == self._cdata[path][sn]:
 									if type(aa[s]) == dict:
 										for s1 in aa[s].keys():
 											if aa[s][s1]:
