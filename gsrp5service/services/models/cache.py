@@ -1159,7 +1159,7 @@ class MCache(object):
 							elif type(aa) == dict:
 								for s in aa.keys():
 									if type(aa[s]) == dict:
-										for s1 in s.keys():
+										for s1 in aa[s].keys():
 											if aa[s][s1]:
 												if type(aa[s][s1]) == bool:
 													res.setdefault(model,{}).setdefault(aa[s],{})[s1] = aa[s][s1]
