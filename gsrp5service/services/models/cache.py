@@ -1158,15 +1158,17 @@ class MCache(object):
 								cm.setdefault(a,set()).add(aa)
 							elif type(aa) == dict:
 								for s in aa.keys():
-									if type(aa[s]) == dict:
-										for s1 in aa[s].keys():
-											if aa[s][s1]:
-												if type(aa[s][s1]) == bool:
-													res.setdefault(model,{}).setdefault(aa[s],{})[s1] = aa[s][s1]
-												else:
-													cm.setdefault(aa[s],set()).add(aa[s][s1])
-									elif type(aa[s]) == str:
-										cm.setdefault(s,set()).add(aa[s])
+									sn = m._getStateName()
+									if s == self._data._cdata[path][cn]:
+										if type(aa[s]) == dict:
+											for s1 in aa[s].keys():
+												if aa[s][s1]:
+													if type(aa[s][s1]) == bool:
+														res.setdefault(model,{}).setdefault(aa[s],{})[s1] = aa[s][s1]
+													else:
+														cm.setdefault(s,set()).add(aa[s][s1])
+										elif type(aa[s]) == str:
+											cm.setdefault(s,set()).add(aa[s])
 					else:
 						if aa:
 							if type(aa) == bool:

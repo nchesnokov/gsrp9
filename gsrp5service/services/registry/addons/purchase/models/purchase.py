@@ -584,7 +584,7 @@ class purchase_orders(Model):
 	'from_date': fields.date(label='Begin Date Of Order',required=True),
 	'to_date': fields.date(label='End Date Of Order',required=True),
 	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
-	'currency': fields.many2one(label='Currency',obj='md.currency',state={'approved':{'attrs':{'ro':True}}}),
+	'currency': fields.many2one(label='Currency',obj='md.currency',state={'approved':{'ro':True}}),
 	'incoterms1': fields.many2one(label='Incoterms 1',obj='md.incoterms'),
 	'incoterms2': fields.varchar(label = 'Incoterms 2'),
 	#'pm': fields.selection(label='Price Method',selections=[('p','Plain'),('c','Complicated')]),
