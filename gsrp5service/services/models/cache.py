@@ -1173,7 +1173,7 @@ class MCache(object):
 						if aa:
 							if type(aa) == bool:
 								if aa:
-									res.setdefault(model,{}).setdefault(a,{})[c] = aa
+									res.setdefault(model,{}).setdefault(ca[a],{})[c] = aa
 							else:
 								cm.setdeault(a,set()).add(aa)
 				
