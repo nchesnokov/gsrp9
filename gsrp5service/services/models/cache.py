@@ -1791,7 +1791,7 @@ class MCache(object):
 	def _post_diffs(self,context):
 		levels = {}
 		diffs1 = self._data._odiffs(False)
-		ch1 = DCacheDict(self._data._cdata[self._data._root],self._data._model,self._data._pool)
+		ch1 = DCacheDict(self._data._cdata[self._data._root],self._data._model,self._cr,self._pool,self._uid,self._context)
 
 		self._post_diff(diffs1,context)
 		diffs2 = ch1._pdiffs()
