@@ -694,7 +694,7 @@ class purchase_order_pricing(Model):
 	_columns = {
 	'order_id': fields.many2one(label = 'Order',obj='purchase.orders'),
 	'level': fields.integer(label = 'Level'),
-	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','p'),('usage','=','p')],required=True,translate=True),
+	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','p'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
 	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
@@ -923,7 +923,7 @@ class purchase_order_pricing_item_delivery_schedules(Model):
 	_columns = {
 	'delivery_id': fields.many2one(label = 'Order',obj='purchase.orders'),
 	'level': fields.integer(label = 'Level'),
-	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','p'),('usage','=','p')],required=True,translate=True),
+	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','p'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
 	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
