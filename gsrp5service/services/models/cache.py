@@ -1162,7 +1162,7 @@ class MCache(object):
 										for s1 in s.keys():
 											if aa[s][s1]:
 												if type(aa[s][s1]) == bool:
-													res.setdefault(aa[s],{}).setdefault(model,{})[s1] = aa[s][s1]
+													res.setdefault(model,{}).setdefault(aa[s],{})[s1] = aa[s][s1]
 												else:
 													cm.setdefault(s,set()).add(aa[s][s1])
 									elif type(aa[s]) == str:
@@ -1171,7 +1171,7 @@ class MCache(object):
 						if aa:
 							if type(aa) == bool:
 								if aa:
-									res.setdefault(a,{}).setdefault(model,{})[c] = aa
+									res.setdefault(model,{}).setdefault(a,{})[c] = aa
 							else:
 								cm.setdeault(a,set()).add(aa)
 				
@@ -1181,7 +1181,7 @@ class MCache(object):
 					if method and callable(method):
 						rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
 						if len(rc)> 0:
-							res.setdefault(ca[k],{}).setdefault(model,{}).update(rc)
+							res.setdefault(model,{}).setdefault(cm[k],{}).update(rc)
 				
 			if self._data._cpaths[path]:
 				parents = self._data._cpaths[path]

@@ -282,7 +282,7 @@ class md_product(Model):
 				r = pool.get('md.products.template').select(cr,pool,uid,['mtype'],[('name','=',record['template_id']['name'])])
 				if len(r) > 0 and r[0]['mtype'] == 's':
 					for field in fields:
-						res.setdefault(self._name,{})[field] = True
+						res[field] = True
 		return res
 
 	def create(self,cr,pool,uid,records,context={}):

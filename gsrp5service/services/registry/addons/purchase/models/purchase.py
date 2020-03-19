@@ -604,7 +604,7 @@ class purchase_orders(Model):
 
 	def _attrs_model_invisible(self,cr,pool,uid,item,context={}):
 		if 'pm' in item and item['pm'] == 'c':
-			return {'iv':{'purchse.order.items':{'price':True,'unit':True,'uop':True}}}
+			return {'purchse.order.items':{'iv':{'price':True,'unit':True,'uop':True}}}
 
 	def _on_change_otype(self,cr,pool,uid,item,context={}):		
 		roles = pool.get('purchase.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
