@@ -1127,81 +1127,62 @@ class MCache(object):
 
 	def _do_meta(self,path):
 		res = {}
-
+		ca = {'readonly':'ro','invisible':'iv','required':'rq','state':'st'}
 		while True:
 			model = self._data._cmodels[path]
 			m = self._pool.get(model)
 
 			if type(m._attrs) == dict:
 				if len(m._attrs) > 0:
-					res.setdefault(model,{})['m'] = m._attrs
+					res.update(m._attrs)
 			elif type(m._attrs) == str:
 				method = getattr(m,m._attrs,None)
-				if method:
-					rc = method(self._cr,self._pool,self._uid,self._data[path],self._context)
+				if method and callable(method):
+					rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
 					if rc and len(rc) > 0:
-						res.setdefault(model,{}).setdefault('m',{}).update(rc)
+						res.update(rc)
 
 			if model not in self._meta:
 				self._getMeta(model)
 
 			cols = self._meta[model]
-			for a in ('readonly','invisible','required'):
-				k = list(filter(lambda x:cols[x]['type'] != 'referenced' and type(cols[x][a]) == str,cols.keys()))
-				v = list(map(lambda x: cols[x][a],k))
-				for v1 in v:
-					method = getattr(m,v1,None)
-					if method:
-						rc = method(self._cr,self._pool,self._uid,k,self._data._cdata[path],self._context)
-						if rc and len(rc) > 0:
-							for k1 in rc.keys():
-								if a == 'readonly':
-									res.setdefault(model,{}).setdefault('c',{}).setdefault(k1,{})['ro'] = rc[k1]
-								elif a == 'required':
-									res.setdefault(model,{}).setdefault('c',{}).setdefault(k1,{})['rq'] = rc[k1]
-								elif a == 'invisible':
-									res.setdefault(model,{}).setdefault('c',{}).setdefault(k1,{})['iv'] = rc[k1]
-						
-			for key in self._meta[model].keys():
-				column = self._meta[model][key]
-				if type(m._col_attrs) == dict:
-					if len(m._col_attrs) > 0:
-						res.setdefault(model,{})['c'] = m._col_attrs
-				elif type(m._col_attrs) == str:
-					res.setdefault(model,{})['c'] = getattr(m,m._col_attrs,None)(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
-					if len(res['c']) == 0:
-						del res['c']
-
-				if 'state' in column:
-					state = column['state']
-					state_name = m._getStateName()
-					if state and state_name:
-						for k in state.keys():
-							if path in self._data._cdata and state_name in self._data._cdata[path]:
-								if k != self._data._cdata[path][state_name]:
-									continue
+			cm = {}
+			for c in m._columns.keys():
+				if m._columns[c]._type =='referenced':
+					continue
+				for a in ('readonly','invisible','required','state'):
+					aa = getattr(m._columns[c],a,None)
+					if a == 'state':
+						if aa:
+							if type(aa) == str:
+								cm.setdefault(a,set()).add(aa)
+							elif type(aa) == dict:
+								for s in aa.keys():
+									if type(aa[s]) == dict:
+										for s1 in s.keys():
+											if aa[s][s1]:
+												if type(aa[s][s1]) == bool:
+													res.setdefault(aa[s],{}).setdefault(model,{})[s1] = aa[s][s1]
+												else:
+													cm.setdefault(s,set()).add(aa[s][s1])
+									elif type(aa[s]) == str:
+										cm.setdefault(s,set()).add(aa[s])
+					else:
+						if aa:
+							if type(aa) == bool:
+								if aa:
+									res.setdefault(a,{}).setdefault(model,{})[c] = aa
 							else:
-								continue
-							attrs = state[k]['attrs']
-							for k1 in attrs.keys():
-								if k1 == 'ro' and type(cols[key]['readonly']) != bool or k1 == 're' and type(cols[key]['required']) != bool or k1 == 'iv' and type(cols[key]['invisible']) != bool:
-									res.setdefault(model,{}).setdefault('c',{}).setdefault(key,{})[k1] = attrs[k1]
-
-					if 'readonly' in column and type(column['readonly']) == bool:
-						res.setdefault(model,{}).setdefault('c',{}).setdefault('ro',{})[key] = column['readonly']
-
-					if 'required' in column and type(column['required']) == bool:
-						res.setdefault(model,{}).setdefault('c',{}).setdefault('rq',{})[key] = column['required']
-
-					if 'invisible' in column and type(column['invisible']) == bool:
-						res.setdefault(model,{}).setdefault('c',{}).setdefault('iv',{})[key] = column['invisible']
+								cm.setdeault(a,set()).add(aa)
 				
-					if model in res and 'c' in res[model] and len(res[model]['c']) == 0:
-						del res[model]['c']
-
-					if model in res and 'm' in res[model] and len(res[model]['m']) == 0:
-						del res[model]['m']
-
+			for k in cm.keys():
+				for k1 in cm[k]:
+					method = getattr(m,k1,None)
+					if method and callable(method):
+						rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
+						if len(rc)> 0:
+							res.setdefault(ca[k],{}).setdefault(model,{}).update(rc)
+				
 			if self._data._cpaths[path]:
 				parents = self._data._cpaths[path]
 				for key in parents.keys():

@@ -381,6 +381,20 @@ purchase_teams()
 
 
 #Organization structure
+#Pricing
+class purchase_pricing_group_levels(Model):
+	_name = 'purchase..pricing.group.levels'
+	_description = 'General Model Purchase Pricing Group Levels'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+purchase_pricing_group_levels()
+
 #Text
 class purchase_texts(Model):
 	_name = 'purchase.texts'
@@ -553,6 +567,7 @@ class purchase_orders(Model):
 	_name = 'purchase.orders'
 	_description = 'General Model Purchase Order'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
+	_attrs = '_attrs_model_invisible'
 	_date = 'doo'
 	_rec_name = 'fullname'
 	_columns = {
@@ -572,18 +587,24 @@ class purchase_orders(Model):
 	'currency': fields.many2one(label='Currency',obj='md.currency',state={'approved':{'attrs':{'ro':True}}}),
 	'incoterms1': fields.many2one(label='Incoterms 1',obj='md.incoterms'),
 	'incoterms2': fields.varchar(label = 'Incoterms 2'),
+	'pm': fields.selection(label='Price Method',selections=[('p','Plain'),('c','Complicated')]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
 	'items': fields.one2many(label='Items',obj='purchase.order.items',rel='order_id'),
+	'pricing': fields.one2many(label='Items',obj='purchase.order.pricing',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.roles',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='purchase.order.texts',rel='order_id'),
 	'plates': fields.one2many(label='Plates',obj='purchase.order.output.plates',rel='order_id'),
 	'payments': fields.one2many(label='Payments',obj='purchase.order.payment.schedules',rel='order_id'),
 	'note': fields.text('Note')
 	}
+
+	def _attrs_model_invisible(self,cr,pool,uid,item,context={}):
+		if 'pm' in item and item['pm'] == 'c':
+			return {'iv':{'purchse.order.items':{'price':True,'unit':True,'uop':True}}}
 
 	def _on_change_otype(self,cr,pool,uid,item,context={}):		
 		roles = pool.get('purchase.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
@@ -676,7 +697,9 @@ class purchase_order_pricing(Model):
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','p'),('usage','=','p')],required=True,translate=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'value': fields.numeric(label='Value',size=(15,2)),
+	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'Amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
 	}
 
 purchase_order_pricing()
@@ -884,6 +907,7 @@ class purchase_order_item_delivery_schedules(Model):
 	'item_id': fields.many2one(obj = 'purchase.order.items',label = 'Order Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
 	'schedule': fields.datetime(label='Schedule'),
+	'pricing': fields.one2many(label='Pricing',obj='purchase.order.pricing.item.delivery.schedules',rel='delivery_id'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -892,6 +916,27 @@ class purchase_order_item_delivery_schedules(Model):
 	}
 
 purchase_order_item_delivery_schedules()
+
+class purchase_order_pricing_item_delivery_schedules(Model):
+	_name = 'purchase.order.pricing.item.delivery.schedules'
+	_description = 'General Model Purchase Order Pricing Item Delivery Schedules'
+	_columns = {
+	'delivery_id': fields.many2one(label = 'Order',obj='purchase.orders'),
+	'level': fields.integer(label = 'Level'),
+	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','p'),('usage','=','p')],required=True,translate=True),
+	'from_level': fields.integer(label = 'From Level'),
+	'to_level': fields.integer(label = 'To Level'),
+	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'price': fields.numeric(label='Price',size=(13,2)),
+	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
+	'unit': fields.integer(label='Unit'),
+	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
+	'Amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
+	}
+
+purchase_order_pricing_item_delivery_schedules()
+
 
 class purchase_order_item_output_plates(Model):
 	_name = 'purchase.order.item.output.plates'
