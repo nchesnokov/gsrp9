@@ -587,14 +587,14 @@ class purchase_orders(Model):
 	'currency': fields.many2one(label='Currency',obj='md.currency',state={'approved':{'attrs':{'ro':True}}}),
 	'incoterms1': fields.many2one(label='Incoterms 1',obj='md.incoterms'),
 	'incoterms2': fields.varchar(label = 'Incoterms 2'),
-	'pm': fields.selection(label='Price Method',selections=[('p','Plain'),('c','Complicated')]),
+	#'pm': fields.selection(label='Price Method',selections=[('p','Plain'),('c','Complicated')]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
 	'items': fields.one2many(label='Items',obj='purchase.order.items',rel='order_id'),
-	'pricing': fields.one2many(label='Items',obj='purchase.order.pricing',rel='order_id'),
+	#'pricing': fields.one2many(label='Items',obj='purchase.order.pricing',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.roles',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='purchase.order.texts',rel='order_id'),
 	'plates': fields.one2many(label='Plates',obj='purchase.order.output.plates',rel='order_id'),
@@ -907,7 +907,7 @@ class purchase_order_item_delivery_schedules(Model):
 	'item_id': fields.many2one(obj = 'purchase.order.items',label = 'Order Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
 	'schedule': fields.datetime(label='Schedule'),
-	'pricing': fields.one2many(label='Pricing',obj='purchase.order.pricing.item.delivery.schedules',rel='delivery_id'),
+	#'pricing': fields.one2many(label='Pricing',obj='purchase.order.pricing.item.delivery.schedules',rel='delivery_id'),
 	'note': fields.text(label = 'Note')
 	}
 
