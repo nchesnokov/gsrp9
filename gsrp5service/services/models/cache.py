@@ -244,11 +244,12 @@ class DCacheDict(object):
 	_Xmodels dict(str(id(row|<container name>)),<name model>)
 	"""
 	
-	def __init__(self,data,model,cr,pool,uid,primary=True):
+	def __init__(self,data,model,cr,pool,uid,context,primary=True):
 		self._model = model
 		self._cr = cr
 		self._pool = pool
 		self._uid = uid
+		self._context = context
 		self._primary = primary
 
 		for v in ('data','paths','r2c','containers','names','metas','models','rels'):
@@ -951,7 +952,7 @@ class MCache(object):
 		#row = self._buildItem(model,view)
 		row = self._pool.get(model)._buildEmptyItem()
 		self._setDefault(model,row)
-		self._data = DCacheDict(row,model,self._cr,self._pool,self._uid,False)
+		self._data = DCacheDict(row,model,self._cr,self._pool,self._uid,self._context,False)
 		
 		self._do_calculate(self._data._root,context=context)
 		self._getMeta()	
@@ -1010,7 +1011,7 @@ class MCache(object):
 		self._model = model
 		row = self._pool.get(model).read(**kwargs)
 		if len(row) > 0:
-			self._data = DCacheDict(row[0],model,self._cr,self._pool,self._uid)
+			self._data = DCacheDict(row[0],model,self._cr,self._pool,self._uid,self._context)
 			self._getMeta()
 			m = self._data._getData(self._data._data)
 			#m['__meta__'] = self._do_meta(str(self._data._root))
