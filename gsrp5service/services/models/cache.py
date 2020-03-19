@@ -1164,7 +1164,7 @@ class MCache(object):
 											for s1 in aa[s].keys():
 												if aa[s][s1]:
 													if type(aa[s][s1]) == bool:
-														res.setdefault(model,{}).setdefault(ca[a],{})[c] = aa[s][s1]
+														res.setdefault(model,{}).setdefault(ca[a],{}).setdefault(s1,{})[c] = aa[s][s1]
 													else:
 														cm.setdefault(s,set()).add(aa[s][s1])
 										elif type(aa[s]) == str:
