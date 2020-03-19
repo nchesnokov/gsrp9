@@ -1183,7 +1183,7 @@ class MCache(object):
 					if method and callable(method):
 						rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
 						if len(rc)> 0:
-							res.setdefault(model,{}).setdefault(cm[k],{}).update(rc)
+							res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
 				
 			if self._data._cpaths[path]:
 				parents = self._data._cpaths[path]
