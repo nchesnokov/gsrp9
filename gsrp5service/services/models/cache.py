@@ -822,7 +822,7 @@ class DCacheDict(object):
 		if path in self._cr2c:
 			container = self._ccontainers[self._cr2c[path]]
 		
-		res = {'__path__':path,'__data__':data,'__model__':model}
+		res = {'__path__':path,'__data__':data,'__model__':model,'__meta__':self._do_meta(path)}
 		if container:
 			res['__container__'] = container
 		
@@ -850,6 +850,68 @@ class DCacheDict(object):
 		for r in self._cdata[self._cnames[container]]:
 			res.append({'__container__':container,'__path__':str(id(r)),'__parent__':container.split('.')[1],'__data__':r})
 			
+		return res
+
+	def _do_meta(self,path):
+		res = {}
+		ca = {'readonly':'ro','invisible':'iv','required':'rq','state':'st'}
+
+		model = self._data._cmodels[path]
+		m = self._pool.get(model)
+
+		if type(m._attrs) == dict:
+			if len(m._attrs) > 0:
+				res.update(m._attrs)
+		elif type(m._attrs) == str:
+			method = getattr(m,m._attrs,None)
+			if method and callable(method):
+				rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
+				if rc and len(rc) > 0:
+					res.update(rc)
+
+		if model not in self._meta:
+			self._getMeta(model)
+
+		cols = self._meta[model]
+		cm = {}
+		for c in m._columns.keys():
+			if m._columns[c]._type =='referenced':
+				continue
+			for a in ('readonly','invisible','required','state'):
+				aa = getattr(m._columns[c],a,None)
+				if a == 'state':
+					if aa:
+						if type(aa) == str:
+							cm.setdefault(a,set()).add(aa)
+						elif type(aa) == dict:
+							for s in aa.keys():
+								sn = m._getStateName()
+								if s == self._data._cdata[path][sn]:
+									if type(aa[s]) == dict:
+										for s1 in aa[s].keys():
+											if aa[s][s1]:
+												if type(aa[s][s1]) == bool:
+													res.setdefault(model,{}).setdefault(ca[a],{}).setdefault(s1,{})[c] = aa[s][s1]
+												else:
+													cm.setdefault(s,set()).add(aa[s][s1])
+									elif type(aa[s]) == str:
+										cm.setdefault(s,set()).add(aa[s])
+				else:
+					if aa:
+						if type(aa) == bool:
+							if aa:
+								res.setdefault(model,{}).setdefault(ca[a],{})[c] = aa
+						else:
+							cm.setdeault(a,set()).add(aa)
+			
+		for k in cm.keys():
+			for k1 in cm[k]:
+				method = getattr(m,k1,None)
+				if method and callable(method):
+					rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
+					if len(rc)> 0:
+						res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
+						
 		return res
 
 			
@@ -896,7 +958,7 @@ class MCache(object):
 		self._do_calculate(self._data._root,context=context)
 		self._getMeta()	
 		m = self._data._getData(self._data._data)
-		m['__meta__'] = self._do_meta(str(self._data._root))
+		#m['__meta__'] = self._do_meta(str(self._data._root))
 		m['__checks__'] = []
 		return m
 
@@ -953,7 +1015,7 @@ class MCache(object):
 			self._data = DCacheDict(row[0],model,self._pool)
 			self._getMeta()
 			m = self._data._getData(self._data._data)
-			m['__meta__'] = self._do_meta(str(self._data._root))
+			#m['__meta__'] = self._do_meta(str(self._data._root))
 			m['__checks__'] = []
 			return m
 		else:
