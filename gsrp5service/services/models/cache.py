@@ -856,7 +856,7 @@ class DCacheDict(object):
 		res = {}
 		ca = {'readonly':'ro','invisible':'iv','required':'rq','state':'st'}
 
-		model = self._data._cmodels[path]
+		model = self._cmodels[path]
 		m = self._pool.get(model)
 
 		if type(m._attrs) == dict:
@@ -865,14 +865,10 @@ class DCacheDict(object):
 		elif type(m._attrs) == str:
 			method = getattr(m,m._attrs,None)
 			if method and callable(method):
-				rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
+				rc = method(self._cr,self._pool,self._uid,self._cdata[path],self._context)
 				if rc and len(rc) > 0:
 					res.update(rc)
 
-		if model not in self._meta:
-			self._getMeta(model)
-
-		cols = self._meta[model]
 		cm = {}
 		for c in m._columns.keys():
 			if m._columns[c]._type =='referenced':
@@ -908,7 +904,7 @@ class DCacheDict(object):
 			for k1 in cm[k]:
 				method = getattr(m,k1,None)
 				if method and callable(method):
-					rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
+					rc = method(self._cr,self._pool,self._uid,self._cdata[path],self._context)
 					if len(rc)> 0:
 						res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
 						
