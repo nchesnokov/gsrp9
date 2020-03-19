@@ -244,9 +244,11 @@ class DCacheDict(object):
 	_Xmodels dict(str(id(row|<container name>)),<name model>)
 	"""
 	
-	def __init__(self,data,model,pool,primary=True):
+	def __init__(self,data,model,cr,pool,uid,primary=True):
 		self._model = model
-		self._pool =pool
+		self._cr = cr
+		self._pool = pool
+		self._uid = uid
 		self._primary = primary
 
 		for v in ('data','paths','r2c','containers','names','metas','models','rels'):
