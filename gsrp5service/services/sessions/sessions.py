@@ -169,6 +169,8 @@ class User(object):
 			return self._cache[args[1]]._m2m_add(**(args[2]))
 		elif args[0] == 'remove':
 			return self._cache[args[1]]._o2m_remove(**(args[2]))
+		elif args[0] == 'removes':
+			return self._cache[args[1]]._o2m_removes(**(args[2]))
 		elif args[0] == 'm2mremove':
 			return self._cache[args[1]]._m2m_remove(**(args[2]))
 		elif args[0] == 'initialize':

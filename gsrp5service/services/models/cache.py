@@ -1365,6 +1365,38 @@ class MCache(object):
 		
 		return []
 
+	def _o2m_removes(self,rows,context):
+		#print('O2M-CACHE-REMOVES:',path,container)
+		for row in rows:
+			path = row['path']
+			container = row['container']
+			c = container.split('.')
+			self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
+			del self._data._cdata[path]
+		
+			self._do_calculate(c[1],context)
+		
+		res = {}
+
+		data_diffs = self._data._odiffs(True)
+		#print('REMOVE-DIFFS:',self._data._pdiffs(False))
+		if len(data_diffs) > 0:
+			res['__data__'] = data_diffs
+		
+		meta = self._do_meta(c[1])
+		if len(meta) > 0:
+			res['__meta__'] = meta
+		
+		if len(self._checks) > 0:
+			res['__checks__'] = copy.deepcopy(self._checks)
+			self._checks.clear()
+
+		if len(res) > 0:
+			return [res]
+		
+		return []
+
+
 	def _m2m_add(self,model,container,fields,obj,rel,id1,id2,context={}):
 		
 		rows = self._pool.get(obj).read(self._cr,self._pool,self._uid,id2,fields,self._context)
