@@ -729,6 +729,9 @@ class DCacheDict(object):
 		container = ocontainers[or2c[path]]
 		if path in omodels:
 			model = omodels[path]
+		else:
+			if path in cmodels:
+				model = cmodels[path]
 
 		if path in cdata:
 			cdata[onames[container]].remove(cdata[path])
