@@ -205,7 +205,7 @@ class mm_production_order_item_bom(Model):
 	'currency': fields.many2one(label='Currency',obj='md.currency'),
 	'unit': fields.integer(label='Unit'),
 	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
-	'amount': fields.numeric(label='Amount',size=(15,2),compute='calculate_item_bom'),
+	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_item_bom'),
 	'note': fields.text(label = 'Note')}
 
 	def _on_change_product(self,cr,pool,uid,item,context={}):		
@@ -228,7 +228,7 @@ class mm_production_order_item_bom(Model):
 		return None
 
 	def _calculate_item_bom(self,cr,pool,uid,item,context={}):		
-		if 'quantity' in item and 'oum' in item and 'price' in item and 'currency' in item and 'unit' in item and 'uop' in item:
+		if 'quantity' in item and 'uom' in item and 'price' in item and 'currency' in item and 'unit' in item and 'uop' in item:
 			item['amount'] = item['price'] / item['unit'] * item['quantity']
 
 		return None
@@ -265,7 +265,7 @@ class mm_technologic_order(Model):
 	'doto': fields.date(label='Date Of Technologic Order',required=True),
 	'from_date': fields.date(label='Start Date Of Technologic Order',required=True),
 	'to_date': fields.date(label='End Date Of Technologic Order',required=True),
-	'route': fields.many2one(label='Route',obj='mm.route',domain=[('rtype','in',('p','a'))]),
+	'route': fields.many2one(label='Route',obj='mm.route',domain=[('rtype','in',('t','a'))]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
 	'items': fields.one2many(label='Items',obj='mm.technologic.order.items',rel='order_id'),
 	'note': fields.text('Note')}
@@ -378,7 +378,7 @@ class mm_disassembly_order(Model):
 	'dodo': fields.date(label='Date Of Disassembly Order',required=True),
 	'from_date': fields.date(label='Start Date Of Disassembly Order',required=True),
 	'to_date': fields.date(label='End Date Of Disassembly Order',required=True),
-	'route': fields.many2one(label='Route',obj='mm.route',domain=[('rtype','in',('p','a'))]),
+	'route': fields.many2one(label='Route',obj='mm.route',domain=[('rtype','in',('d','a'))]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
 	'items': fields.one2many(label='Items',obj='mm.disassembly.order.items',rel='order_id'),
 	'note': fields.text('Note')}
