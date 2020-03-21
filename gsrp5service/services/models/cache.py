@@ -904,15 +904,23 @@ class DCacheDict(object):
 							if aa:
 								res.setdefault(model,{}).setdefault(ca[a],{})[c] = aa
 						else:
-							cm.setdeault(a,set()).add(aa)
+							cm.setdefault(a,{}).setdefault(aa,[]).append(c)
 			
 		for k in cm.keys():
-			for k1 in cm[k]:
-				method = getattr(m,k1,None)
-				if method and callable(method):
-					rc = method(self._cr,self._pool,self._uid,self._cdata[path],self._context)
-					if len(rc)> 0:
-						res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
+			if k == 'invisible':
+				for k1 in cm[k].keys():
+					method = getattr(m,k1,None)
+					if method and callable(method):
+						rc = method(self._cr,self._pool,self._uid,cm[k][k1],self._cdata[path],self._context)
+						if len(rc)> 0:
+							res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
+			else:			
+				for k1 in cm[k]:
+					method = getattr(m,k1,None)
+					if method and callable(method):
+						rc = method(self._cr,self._pool,self._uid,self._cdata[path],self._context)
+						if len(rc)> 0:
+							res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
 						
 		return res
 
@@ -1240,15 +1248,31 @@ class MCache(object):
 								if aa:
 									res.setdefault(model,{}).setdefault(ca[a],{})[c] = aa
 							else:
-								cm.setdeault(a,set()).add(aa)
+								cm.setdefault(a,{}).setdefault(aa,[]).append(c)
 				
 			for k in cm.keys():
-				for k1 in cm[k]:
-					method = getattr(m,k1,None)
-					if method and callable(method):
-						rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
-						if len(rc)> 0:
-							res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
+				if k == 'invisible':
+					for k1 in cm[k].keys():
+						method = getattr(m,k1,None)
+						if method and callable(method):
+							rc = method(self._cr,self._pool,self._uid,cm[k][k1],self._data._cdata[path],self._context)
+							if len(rc)> 0:
+								res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
+				else:			
+					for k1 in cm[k]:
+						method = getattr(m,k1,None)
+						if method and callable(method):
+							rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
+							if len(rc)> 0:
+								res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
+
+			# for k in cm.keys():
+				# for k1 in cm[k]:
+					# method = getattr(m,k1,None)
+					# if method and callable(method):
+						# rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
+						# if len(rc)> 0:
+							# res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
 				
 			if self._data._cpaths[path]:
 				parents = self._data._cpaths[path]
