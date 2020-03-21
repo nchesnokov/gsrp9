@@ -87,7 +87,7 @@ class Registry(Service):
 			self._module_paths[d] = list(filter(lambda x: os.path.isdir(opj(mdir,x)), os.listdir(mdir)))
 
 
-		print('MODULE-PATH:',self._module_paths)
+		#print('MODULE-PATH:',self._module_paths)
 
 		for path in list(self._module_paths.keys()):
 			for name in self._module_paths[path]:
@@ -311,7 +311,7 @@ class Registry(Service):
 						o2mremove.append(o2mfield)
 				else:
 					pass
-					print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
+					#print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
 
 
 			for f in m2oremove:
