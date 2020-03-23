@@ -54,6 +54,12 @@ class Models(Component):
 				if 'context' in kwargs and 'cache' in kwargs['context'] and kwargs['context']['cache']:
 					oid = kwargs['context']['cache']
 					rmsg.append(self._session._cache[oid]._do_read(args[0],kwargs))
+				else:
+					v = method(**kwargs)
+					if type(v) in (list,tuple):
+						rmsg.extend(v)
+					else:
+						rmsg.append(v)
 			elif args[1] == 'create-1':
 				oid = kwargs['context']['cache']
 				rmsg[0] = self._session._cache[oid]._do_create(args[0],kwargs)
