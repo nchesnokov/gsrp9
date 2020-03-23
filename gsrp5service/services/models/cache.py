@@ -1566,7 +1566,7 @@ class MCache(object):
 
 		else:
 			for k in diffs.keys():
-				if k == '__update__':
+				if k in ('__update__','__insert__','__delete__'):
 					self._updateItems(diffs['__update__'])
 				elif k == '__o2m_append__':
 					self._o2m_appendItems(diffs['__o2m_append__'])
@@ -1828,7 +1828,6 @@ class MCache(object):
 
 		if '__insert__' in diffs:
 			insts1 = diffs['__insert__']
-			print('INST1:',insts1)
 			for inst1 in insts1.keys():
 				model = self._data._cmodels[inst1]
 				m = self._pool.get(model)
@@ -1848,6 +1847,29 @@ class MCache(object):
 						diffs2 = self._data._odiffs()
 						if len(diffs2) > 0:
 							self._post_diff(diffs2,context)
+
+		if '__delete__' in diffs:
+			insts1 = diffs['__delete__']
+			for inst1 in insts1.keys():
+				model = self._data._cmodels[inst1]
+				m = self._pool.get(model)
+				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,insts1[inst1].keys()))
+				ci = m.columnsInfo(columns=on_change_fields,attributes=['compute','priority'])
+				priority = {}
+				for on_change_field in on_change_fields:
+					priority.setdefault(ci[on_change_field]['compute'],set()).add(on_change_field)
+				
+				pkeys = list(priority.keys())
+				pkeys.sort()
+
+				for pkey in pkeys:
+					for on_change_field in priority[pkey]:
+						self._on_change(inst1,model,on_change_field,context)
+						self._do_calculate(inst1,context)
+						diffs2 = self._data._odiffs()
+						if len(diffs2) > 0:
+							self._post_diff(diffs2,context)
+
 
 	def _post_diffs(self,context):
 		levels = {}
