@@ -1828,6 +1828,7 @@ class MCache(object):
 
 		if '__insert__' in diffs:
 			insts1 = diffs['__insert__']
+			print('INST1:',insts1)
 			for inst1 in insts1:
 				m = self._pool.get(inst1['__model__'])
 				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,inst1['__data__'].keys()))
