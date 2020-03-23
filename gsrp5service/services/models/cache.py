@@ -1771,11 +1771,13 @@ class MCache(object):
 					else:
 						data[k] = models[model][mkey][k]
 			
+				print('MKEY:',model,mkey,self._data._cdata[mkey])
 				if 'id' in self._data._cdata[mkey]:
 					data['id'] = self._data._cdata[mkey]['id']
 					print('SAVE-DATA:',data)
 					r = _writeRecord(m,self._cr,self._pool,self._uid,data,self._context)
 				else:
+					print('SAVE-DATA1:',data)
 					r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 					if r:
 						models[model][mkey]['id'] = r
