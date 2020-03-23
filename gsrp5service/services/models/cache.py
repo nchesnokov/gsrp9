@@ -375,7 +375,7 @@ class DCacheDict(object):
 		if ('__insert__' in diffs ):
 			for k in diffs['__insert__'].keys():
 				getattr(self,'_%sdata' % (o,))[k].update(copy.deepcopy(diffs['__insert__'][k]))
-				getattr(self,'_%sdata' % (c,))[k].update(diffs['__insert__'][k])
+				#getattr(self,'_%sdata' % (c,))[k].update(diffs['__insert__'][k])
 
 		if ('__delete__' in diffs ):
 			for k in diffs['__delete__'].keys():
