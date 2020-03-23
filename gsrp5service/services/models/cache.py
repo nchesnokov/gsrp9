@@ -1829,9 +1829,10 @@ class MCache(object):
 		if '__insert__' in diffs:
 			insts1 = diffs['__insert__']
 			print('INST1:',insts1)
-			for inst1 in insts1:
-				m = self._pool.get(inst1['__model__'])
-				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,inst1['__data__'].keys()))
+			for inst1 in insts1.keys():
+				model = self._data._cmodels[inst1]
+				m = self._pool.get(model)
+				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,insts1[inst1]['__data__'].keys()))
 				ci = m.columnsInfo(columns=on_change_fields,attributes=['compute','priority'])
 				priority = {}
 				for on_change_field in on_change_fields:
@@ -1842,8 +1843,8 @@ class MCache(object):
 
 				for pkey in pkeys:
 					for on_change_field in priority[pkey]:
-						self._on_change(inst1['__path__'],apnd1['__model__'],on_change_field,context)
-						self._do_calculate(apnd1['__path__'],context)
+						self._on_change(inst1,model,on_change_field,context)
+						self._do_calculate(inst1,context)
 						diffs2 = self._data._odiffs()
 						if len(diffs2) > 0:
 							self._post_diff(diffs2,context)
