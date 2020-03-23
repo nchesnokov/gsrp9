@@ -1832,7 +1832,7 @@ class MCache(object):
 			for inst1 in insts1.keys():
 				model = self._data._cmodels[inst1]
 				m = self._pool.get(model)
-				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,insts1[inst1]['__data__'].keys()))
+				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,insts1[inst1].keys()))
 				ci = m.columnsInfo(columns=on_change_fields,attributes=['compute','priority'])
 				priority = {}
 				for on_change_field in on_change_fields:
