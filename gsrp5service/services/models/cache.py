@@ -1566,8 +1566,12 @@ class MCache(object):
 
 		else:
 			for k in diffs.keys():
-				if k in ('__update__','__insert__','__delete__'):
+				if k == '__update__':
 					self._updateItems(diffs['__update__'])
+				elif k == '__insert__':
+					self._updateItems(diffs['__insert__'])
+				elif k == '__delete__':
+					self._updateItems(diffs['__delete__'])
 				elif k == '__o2m_append__':
 					self._o2m_appendItems(diffs['__o2m_append__'])
 				elif k == '__o2m_remove__':
