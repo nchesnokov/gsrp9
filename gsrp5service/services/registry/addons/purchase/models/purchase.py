@@ -688,21 +688,21 @@ class purchase_order_roles(Model):
 
 purchase_order_roles()
 
-class purchase_order_pricing(Model):
-	_name = 'purchase.order.pricing'
-	_description = 'General Model Purchase Order Pricing'
-	_columns = {
-	'order_id': fields.many2one(label = 'Order',obj='purchase.orders'),
-	'level': fields.integer(label = 'Level'),
-	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','p'),('usage','=','p')],required=True),
-	'from_level': fields.integer(label = 'From Level'),
-	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
-	'Amount': fields.numeric(label='Amount',size=(15,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
-	}
+# class purchase_order_pricing(Model):
+	# _name = 'purchase.order.pricing'
+	# _description = 'General Model Purchase Order Pricing'
+	# _columns = {
+	# 'order_id': fields.many2one(label = 'Order',obj='purchase.orders'),
+	# 'level': fields.integer(label = 'Level'),
+	# 'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','p'),('usage','=','p')],required=True),
+	# 'from_level': fields.integer(label = 'From Level'),
+	# 'to_level': fields.integer(label = 'To Level'),
+	# 'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	# 'Amount': fields.numeric(label='Amount',size=(15,2)),
+	# 'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
+	# }
 
-purchase_order_pricing()
+# purchase_order_pricing()
 
 
 class purchase_order_payment_schedules(Model):
@@ -872,25 +872,25 @@ class purchase_order_items(Model):
 
 purchase_order_items()
 
-class purchase_order_pricing_items(Model):
-	_name = 'purchase.order.pricing.items'
-	_description = 'General Model Purchase Order Pricing Item Delivery Schedules'
-	_columns = {
-	'item_id': fields.many2one(label = 'Order',obj='purchase.order.items'),
-	'level': fields.integer(label = 'Level'),
-	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','p'),('usage','=','p')],required=True),
-	'from_level': fields.integer(label = 'From Level'),
-	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
-	'price': fields.numeric(label='Price',size=(13,2)),
-	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
-	'unit': fields.integer(label='Unit'),
-	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
-	'Amount': fields.numeric(label='Amount',size=(15,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
-	}
+# class purchase_order_pricing_items(Model):
+	# _name = 'purchase.order.pricing.items'
+	# _description = 'General Model Purchase Order Pricing Item Delivery Schedules'
+	# _columns = {
+	# 'item_id': fields.many2one(label = 'Order',obj='purchase.order.items'),
+	# 'level': fields.integer(label = 'Level'),
+	# 'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','p'),('usage','=','p')],required=True),
+	# 'from_level': fields.integer(label = 'From Level'),
+	# 'to_level': fields.integer(label = 'To Level'),
+	# 'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	# 'price': fields.numeric(label='Price',size=(13,2)),
+	# 'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
+	# 'unit': fields.integer(label='Unit'),
+	# 'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
+	# 'Amount': fields.numeric(label='Amount',size=(15,2)),
+	# 'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
+	# }
 
-purchase_order_pricing_items()
+# purchase_order_pricing_items()
 
 class purchase_order_item_texts(Model):
 	_name = 'purchase.order.item.texts'
