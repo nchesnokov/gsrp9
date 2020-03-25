@@ -23,7 +23,7 @@ class md_project_product_inherit(ModelInherit):
 	_inherit = {'md.product':{'_columns':['project']},'md.recepture':{'_columns':['usage']}}
 	_columns = {
 		'project': fields.one2many(label='Project',obj='md.project.product',rel='product_id'),
-		'usage': fields.iSelection(selections=[('j','Project')])
+		'usage': fields.iProperty(selections=[('j','Project')])
 	}
 	
 md_project_product_inherit()

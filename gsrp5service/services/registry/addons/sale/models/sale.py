@@ -1080,7 +1080,7 @@ class md_sale_product_inherit(ModelInherit):
 	_inherit = {'md.product':{'_columns':['sale']},'md.recepture':{'_columns':['usage']},'md.type.items':{'_columns':['usage']}}
 	_columns = {
 		'sale': fields.one2many(label='Sales',obj='md.sale.product',rel='product_id'),
-		'usage': fields.iSelection(selections=[('s','Sale')])
+		'usage': fields.iProperty(selections=[('s','Sale')])
 	}
 	
 md_sale_product_inherit()

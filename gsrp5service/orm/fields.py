@@ -495,3 +495,15 @@ class referenced(_column):
 	_symbol_get = None
 	def __init__(self,label=None,ref = None, state = None, invisible = None):
 		super(referenced,self).__init__(label=label,ref = ref,readonly=True,state=state, invisible = invisible, store = False)
+
+class iProperty(_column):
+	_type = 'iProperty'
+	_db_type = None
+	_symbol_c = "%s"
+	_symbol_f = _set_symbol
+	_symbol_set = (_symbol_c, _symbol_f)
+	_symbol_get = None
+
+	def __init__(self, *args,**kwargs):
+		super(iProperty,self).__init__(*args,**kwargs)
+

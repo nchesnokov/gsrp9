@@ -24,7 +24,7 @@ class md_tm_product_inherit(ModelInherit):
 	_inherit = {'md.product':{'_columns':['tm']},'md.recepture':{'_columns':['usage']}}
 	_columns = {
 		'tm': fields.one2many(label='TM',obj='md.tm.product',rel='product_id'),
-		'usage': fields.iSelection(selections=[('t','Technical')])
+		'usage': fields.iProperty(selections=[('t','Technical')])
 	}
 	
 md_tm_product_inherit()

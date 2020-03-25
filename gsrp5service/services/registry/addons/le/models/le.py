@@ -218,7 +218,7 @@ class md_pack_product_inherit(ModelInherit):
 	_inherit = {'md.product':{'_columns':['pack']},'md.recepture':{'_columns':['usage']}}
 	_columns = {
 		'pack': fields.one2many(label='Pack',obj='md.pack.product',rel='product_id'),
-		'usage': fields.iSelection(selections=[('l','Pack')])
+		'usage': fields.iProperty(selections=[('l','Pack')])
 	}
 	
 md_pack_product_inherit()
