@@ -382,18 +382,18 @@ purchase_teams()
 
 #Organization structure
 #Pricing
-class purchase_pricing_group_levels(Model):
-	_name = 'purchase.pricing.group.levels'
-	_description = 'General Model Purchase Pricing Group Levels'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	}
+# class purchase_pricing_group_levels(Model):
+	# _name = 'purchase.pricing.group.levels'
+	# _description = 'General Model Purchase Pricing Group Levels'
+	# _rec_name = 'code'
+	# _class_model = 'C'
+	# _class_category = 'order'
+	# _columns = {
+	# 'code': fields.varchar(label = 'Code',size=8,translate=True),
+	# 'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	# }
 
-purchase_pricing_group_levels()
+# purchase_pricing_group_levels()
 
 #Text
 class purchase_texts(Model):
