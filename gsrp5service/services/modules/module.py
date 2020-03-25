@@ -831,10 +831,11 @@ def _convertFromYAML(cr,pool,uid,model,records):
 				recname = pool.get(columns_info[key]['obj'])._getRecNameName()
 				if recname is None:
 					recname = 'id'	
-				oid = pool.get(columns_info[key]['obj']).search(cr,pool,uid,[(recname,'=',record[key]),{},1])
-				print('oid:',model,recname,key,record[key],oid)
-				if len(oid) > 0:
-					record[key] = oid[0]
+				if record[key] is not None:
+					oid = pool.get(columns_info[key]['obj']).search(cr,pool,uid,[(recname,'=',record[key]),{},1])
+					print('oid:',model,recname,key,record[key],oid)
+					if len(oid) > 0:
+						record[key] = oid[0]
 			elif columns_info[key]['type'] == 'datetime' and columns_info[key]['timezone']:
 				if record[key]:
 					record[key] = record[key].astimezone()
