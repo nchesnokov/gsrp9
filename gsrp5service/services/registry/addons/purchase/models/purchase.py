@@ -633,7 +633,7 @@ class purchase_orders(Model):
 			for i in p:
 				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
+				ei['schedule'] = datetime.now()+timedelta(3)
 				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
