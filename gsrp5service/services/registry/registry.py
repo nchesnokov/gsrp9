@@ -237,7 +237,7 @@ class Registry(Service):
 						if c not in imeta1['attrs'] or column not in imeta1['attrs'][c]:
 							imeta1['attrs'].setdefault(c,{})[column] = imeta['attrs'][c][column]
 						else:
-							if imeta['attrs'][c][column]._type == 'iPropery':
+							if imeta['attrs'][c][column]._type == 'iProperty':
 								for attr in ('accept','actions','label', 'readonly','invisible', 'priority', 'domain', 'context', 'pattern','required', 'size', 'on_delete', 'on_update','on_change','on_check', 'translate', 'selections', 'selectable', 'manual', 'help', 'unique','check','family','timezone','relatedy','obj','rel','id1','id2','ref','offset','limit','compute','store','state','icon','cols','delimiter'):
 									if attr in ('selections','domain','cols'):
 										if hasattr(imeta['attrs'][c][column],attr):
