@@ -83,7 +83,7 @@ class Cursor(object):
 
 	def execute(self, query, vals = None):
 		try:
-			#print('MOGRIFY:',self.mogrify(query,vals))
+			print('MOGRIFY:',self.mogrify(query,vals))
 			#print('QUERY:',query,vals)
 			if type(query) == str:
 				self.cr.execute(query = query, vars = vals)
