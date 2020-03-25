@@ -902,7 +902,7 @@
             <form>
               <field name="unit_id"/>
               <field name="channel_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </form>
           </column>
         </record>
@@ -913,7 +913,7 @@
             <list>
               <field name="unit_id"/>
               <field name="channel_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
@@ -924,8 +924,30 @@
             <m2mlist>
               <field name="unit_id"/>
               <field name="channel_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.unit.channel.assigments.search">
+          <column name="name">view.purchase.unit.channel.assigments.search</column>
+          <column name="model">purchase.unit.channel.assigments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.unit.channel.assigments.find">
+          <column name="name">view.purchase.unit.channel.assigments.find</column>
+          <column name="model">purchase.unit.channel.assigments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="unit_id"/>
+              <field name="channel_id"/>
+              <field name="fullname"/>
+            </find>
           </column>
         </record>
         <record id="view.purchase.unit.segment.assigments.form">
@@ -935,7 +957,7 @@
             <form>
               <field name="unit_id"/>
               <field name="segment_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </form>
           </column>
         </record>
@@ -946,7 +968,7 @@
             <list>
               <field name="unit_id"/>
               <field name="segment_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
@@ -957,8 +979,30 @@
             <m2mlist>
               <field name="unit_id"/>
               <field name="segment_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.unit.segment.assigments.search">
+          <column name="name">view.purchase.unit.segment.assigments.search</column>
+          <column name="model">purchase.unit.segment.assigments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="unit_id"/>
+              <field name="segment_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.unit.segment.assigments.find">
+          <column name="name">view.purchase.unit.segment.assigments.find</column>
+          <column name="model">purchase.unit.segment.assigments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="unit_id"/>
+              <field name="segment_id"/>
+              <field name="fullname"/>
+            </find>
           </column>
         </record>
         <record id="view.purchase.unit.area.assigments.form">
@@ -968,7 +1012,7 @@
             <form>
               <field name="unit_id"/>
               <field name="area_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </form>
           </column>
         </record>
@@ -979,7 +1023,7 @@
             <list>
               <field name="unit_id"/>
               <field name="area_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
@@ -990,8 +1034,30 @@
             <m2mlist>
               <field name="unit_id"/>
               <field name="area_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.unit.area.assigments.search">
+          <column name="name">view.purchase.unit.area.assigments.search</column>
+          <column name="model">purchase.unit.area.assigments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="unit_id"/>
+              <field name="area_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.unit.area.assigments.find">
+          <column name="name">view.purchase.unit.area.assigments.find</column>
+          <column name="model">purchase.unit.area.assigments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="unit_id"/>
+              <field name="area_id"/>
+              <field name="fullname"/>
+            </find>
           </column>
         </record>
         <record id="view.purchase.unit.region.assigments.form">
@@ -1001,7 +1067,7 @@
             <form>
               <field name="unit_id"/>
               <field name="region_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </form>
           </column>
         </record>
@@ -1012,7 +1078,7 @@
             <list>
               <field name="unit_id"/>
               <field name="region_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
@@ -1023,8 +1089,30 @@
             <m2mlist>
               <field name="unit_id"/>
               <field name="region_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.unit.region.assigments.search">
+          <column name="name">view.purchase.unit.region.assigments.search</column>
+          <column name="model">purchase.unit.region.assigments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="unit_id"/>
+              <field name="region_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.unit.region.assigments.find">
+          <column name="name">view.purchase.unit.region.assigments.find</column>
+          <column name="model">purchase.unit.region.assigments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="unit_id"/>
+              <field name="region_id"/>
+              <field name="fullname"/>
+            </find>
           </column>
         </record>
         <record id="view.purchase.division.subdivision.assigments.form">
@@ -1034,7 +1122,7 @@
             <form>
               <field name="division_id"/>
               <field name="subdivision_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </form>
           </column>
         </record>
@@ -1045,7 +1133,7 @@
             <list>
               <field name="division_id"/>
               <field name="subdivision_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
@@ -1056,8 +1144,30 @@
             <m2mlist>
               <field name="division_id"/>
               <field name="subdivision_id"/>
-              <field name="descr"/>
+              <field name="fullname"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.division.subdivision.assigments.search">
+          <column name="name">view.purchase.division.subdivision.assigments.search</column>
+          <column name="model">purchase.division.subdivision.assigments</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.division.subdivision.assigments.find">
+          <column name="name">view.purchase.division.subdivision.assigments.find</column>
+          <column name="model">purchase.division.subdivision.assigments</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="division_id"/>
+              <field name="subdivision_id"/>
+              <field name="fullname"/>
+            </find>
           </column>
         </record>
         <record id="view.purchase.markets.form">
@@ -1184,6 +1294,56 @@
               <field name="division_id"/>
               <field name="subdivision_id"/>
               <field name="fullname"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.purchase.pricing.group.levels.form">
+          <column name="name">view.purchase.pricing.group.levels.form</column>
+          <column name="model">purchase.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.pricing.group.levels.list">
+          <column name="name">view.purchase.pricing.group.levels.list</column>
+          <column name="model">purchase.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.pricing.group.levels.m2mlist">
+          <column name="name">view.purchase.pricing.group.levels.m2mlist</column>
+          <column name="model">purchase.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.pricing.group.levels.search">
+          <column name="name">view.purchase.pricing.group.levels.search</column>
+          <column name="model">purchase.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.purchase.pricing.group.levels.find">
+          <column name="name">view.purchase.pricing.group.levels.find</column>
+          <column name="model">purchase.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
             </find>
           </column>
         </record>
@@ -1762,6 +1922,7 @@
               <field name="currency"/>
               <field name="incoterms1"/>
               <field name="incoterms2"/>
+              <field name="pm"/>
               <field name="state"/>
               <field name="amount"/>
               <field name="vat_amount"/>
@@ -1791,6 +1952,7 @@
               <field name="currency"/>
               <field name="incoterms1"/>
               <field name="incoterms2"/>
+              <field name="pm"/>
               <field name="state"/>
               <field name="amount"/>
               <field name="vat_amount"/>
@@ -1820,12 +1982,14 @@
               <field name="currency"/>
               <field name="incoterms1"/>
               <field name="incoterms2"/>
+              <field name="pm"/>
               <field name="state"/>
               <field name="amount"/>
               <field name="vat_amount"/>
               <field name="total_amount"/>
               <field name="recepture"/>
               <field name="items"/>
+              <field name="pricing"/>
               <field name="roles"/>
               <field name="texts"/>
               <field name="plates"/>
@@ -1855,6 +2019,7 @@
               <field name="currency"/>
               <field name="incoterms1"/>
               <field name="incoterms2"/>
+              <field name="pm"/>
               <field name="state"/>
               <field name="amount"/>
               <field name="vat_amount"/>
@@ -1884,6 +2049,7 @@
               <field name="currency"/>
               <field name="incoterms1"/>
               <field name="incoterms2"/>
+              <field name="pm"/>
               <field name="state"/>
               <field name="amount"/>
               <field name="vat_amount"/>
@@ -1914,12 +2080,14 @@
               <field name="currency"/>
               <field name="incoterms1"/>
               <field name="incoterms2"/>
+              <field name="pm"/>
               <field name="state"/>
               <field name="amount"/>
               <field name="vat_amount"/>
               <field name="total_amount"/>
               <field name="recepture"/>
               <field name="items"/>
+              <field name="pricing"/>
               <field name="roles"/>
               <field name="texts"/>
               <field name="plates"/>
@@ -1948,6 +2116,7 @@
               <field name="currency"/>
               <field name="incoterms1"/>
               <field name="incoterms2"/>
+              <field name="pm"/>
               <field name="state"/>
               <field name="amount"/>
               <field name="vat_amount"/>
@@ -1977,6 +2146,7 @@
               <field name="currency"/>
               <field name="incoterms1"/>
               <field name="incoterms2"/>
+              <field name="pm"/>
               <field name="state"/>
               <field name="amount"/>
               <field name="vat_amount"/>
@@ -2006,6 +2176,7 @@
               <field name="currency"/>
               <field name="incoterms1"/>
               <field name="incoterms2"/>
+              <field name="pm"/>
               <field name="state"/>
               <field name="amount"/>
               <field name="vat_amount"/>
@@ -2035,6 +2206,7 @@
               <field name="currency"/>
               <field name="incoterms1"/>
               <field name="incoterms2"/>
+              <field name="pm"/>
               <field name="state"/>
               <field name="amount"/>
               <field name="vat_amount"/>
@@ -2110,6 +2282,54 @@
               <field name="order_id"/>
               <field name="role_id"/>
               <field name="patner_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.order.pricing.form">
+          <column name="name">view.purchase.order.pricing.form</column>
+          <column name="model">purchase.order.pricing</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.order.pricing.list">
+          <column name="name">view.purchase.order.pricing.list</column>
+          <column name="model">purchase.order.pricing</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.order.pricing.m2mlist">
+          <column name="name">view.purchase.order.pricing.m2mlist</column>
+          <column name="model">purchase.order.pricing</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
             </m2mlist>
           </column>
         </record>
@@ -2240,6 +2460,7 @@
               <field name="weight"/>
               <field name="weight_total"/>
               <field name="weight_uom"/>
+              <field name="pricing"/>
               <field name="delivery_schedules"/>
               <field name="roles"/>
               <field name="texts"/>
@@ -2273,6 +2494,7 @@
               <field name="weight"/>
               <field name="weight_total"/>
               <field name="weight_uom"/>
+              <field name="pricing"/>
               <field name="delivery_schedules"/>
               <field name="roles"/>
               <field name="texts"/>
@@ -2305,6 +2527,66 @@
               <field name="weight"/>
               <field name="weight_total"/>
               <field name="weight_uom"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.purchase.order.pricing.items.form">
+          <column name="name">view.purchase.order.pricing.items.form</column>
+          <column name="model">purchase.order.pricing.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="price"/>
+              <field name="cop"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.order.pricing.items.list">
+          <column name="name">view.purchase.order.pricing.items.list</column>
+          <column name="model">purchase.order.pricing.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="price"/>
+              <field name="cop"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.order.pricing.items.m2mlist">
+          <column name="name">view.purchase.order.pricing.items.m2mlist</column>
+          <column name="model">purchase.order.pricing.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="price"/>
+              <field name="cop"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="currency"/>
             </m2mlist>
           </column>
         </record>
@@ -3046,6 +3328,33 @@
             </form>
           </column>
         </record>
+        <record id="view.md.purchase.product.inherit.form.inherit.md.recepture">
+          <column name="view_id">view.md.recepture.form</column>
+          <column name="name">view.md.purchase.product.inherit.form.inherit.md.recepture</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.purchase.product.inherit.form.inherit.md.type.items">
+          <column name="view_id">view.md.type.items.form</column>
+          <column name="name">view.md.purchase.product.inherit.form.inherit.md.type.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.purchase.product.inherit.form.inherit.md.type.plates">
+          <column name="view_id">view.md.type.plates.form</column>
+          <column name="name">view.md.purchase.product.inherit.form.inherit.md.type.plates</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+            </form>
+          </column>
+        </record>
         <record id="view.md.purchase.product.inherit.list.inherit.md.product">
           <column name="view_id">view.md.product.list</column>
           <column name="name">view.md.purchase.product.inherit.list.inherit.md.product</column>
@@ -3053,6 +3362,60 @@
             <list>
               <field name="purchase"/>
             </list>
+          </column>
+        </record>
+        <record id="view.md.purchase.product.inherit.list.inherit.md.recepture">
+          <column name="view_id">view.md.recepture.list</column>
+          <column name="name">view.md.purchase.product.inherit.list.inherit.md.recepture</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.purchase.product.inherit.list.inherit.md.type.items">
+          <column name="view_id">view.md.type.items.list</column>
+          <column name="name">view.md.purchase.product.inherit.list.inherit.md.type.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.purchase.product.inherit.list.inherit.md.type.plates">
+          <column name="view_id">view.md.type.plates.list</column>
+          <column name="name">view.md.purchase.product.inherit.list.inherit.md.type.plates</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.purchase.product.inherit.search.inherit.md.recepture">
+          <column name="view_id">view.md.recepture.search</column>
+          <column name="name">view.md.purchase.product.inherit.search.inherit.md.recepture</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.purchase.product.inherit.search.inherit.md.type.items">
+          <column name="view_id">view.md.type.items.search</column>
+          <column name="name">view.md.purchase.product.inherit.search.inherit.md.type.items</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.purchase.product.inherit.search.inherit.md.type.plates">
+          <column name="view_id">view.md.type.plates.search</column>
+          <column name="name">view.md.purchase.product.inherit.search.inherit.md.type.plates</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+            </search>
           </column>
         </record>
       </records>
