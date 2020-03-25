@@ -239,18 +239,18 @@ class Registry(Service):
 						else:
 							if imeta['attrs'][c][column]._type == 'iPropery':
 								for attr in ('accept','actions','label', 'readonly','invisible', 'priority', 'domain', 'context', 'pattern','required', 'size', 'on_delete', 'on_update','on_change','on_check', 'translate', 'selections', 'selectable', 'manual', 'help', 'unique','check','family','timezone','relatedy','obj','rel','id1','id2','ref','offset','limit','compute','store','state','icon','cols','delimiter'):
-									if attr in  attr in ('selections','domain','cols'):
+									if attr in ('selections','domain','cols'):
 										if hasattr(imeta['attrs'][c][column],attr):
 											if hasattr(imeta1['attrs'][c][column],attr):
 												getattr(imeta1['attrs'][c][column],attr).extend(getattr(imeta['attrs'][c][column],attr))
-									elif attr in ('accept','label','priority','pattern','compute','readonly','on_change','on_check','invisible','on_delete','on_update','translate','selectable','manual','help','offset','limit','icon','delimite'):
+									elif attr in ('accept','label','priority','pattern','compute','readonly','on_change','on_check','invisible','on_delete','on_update','translate','selectable','manual','help','offset','limit','icon','delimiter'):
 										if hasattr(imeta['attrs'][c][column],attr):
 											if hasattr(imeta1['attrs'][c][column],attr):
-												getattr(imeta1['attrs'][c][column],attr,None) = getattr(imeta['attrs'][c][column],attr)
+												setattr(getattr(imeta1['attrs'][c][column],attr),getattr(imeta['attrs'][c][column],attr))
 									elif attr in ('actions','context','cols','state'):
 										if hasattr(imeta['attrs'][c][column],attr):
 											if hasattr(imeta1['attrs'][c][column],attr):
-												getattr(imeta1['attrs'][c][column],attr).update(getattr(imeta['attrs'][c][column],attr)
+												getattr(imeta1['attrs'][c][column],attr).update(getattr(imeta['attrs'][c][column],attr))
 							else:
 								Exception_Registry("Column: %s of model: %s if exists\n" % (column,key))
 				elif c == '_actions':
