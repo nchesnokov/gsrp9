@@ -698,7 +698,7 @@ class purchase_order_pricing(Model):
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
 	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
-	'Amount': fields.numeric(label='Amount',size=(15,2)),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
 	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
 	}
 
@@ -886,7 +886,7 @@ class purchase_order_pricing_items(Model):
 	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
 	'unit': fields.integer(label='Unit'),
 	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
-	'Amount': fields.numeric(label='Amount',size=(15,2)),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
 	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
 	}
 
