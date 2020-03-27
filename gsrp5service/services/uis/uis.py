@@ -69,7 +69,7 @@ class Uis(Component):
 		return get_view_by_name_v2(cr,pool,uid,name)
 	
 	def get_meta_of_models_v2(self,cr,pool,uid,model):
-		return get_meta_of_models_v2(cr,pool,uid,model)
+		return [get_meta_of_models_v2(cr,pool,uid,model)]
 
 	# def get_views_of_model_v2(self,session,cr,pool,uid,registry,model):
 		# return get_views_of_model_v2(session,cr,pool,uid,registry,model)
