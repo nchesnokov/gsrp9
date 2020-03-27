@@ -1,4 +1,4 @@
-from .view import view,get_viewname_by_window_action_id,get_view_by_window_action_id,get_view_by_window_action_id_v2,get_meta_by_window_action_id_v2,get_view_by_name,get_view_by_name_v2,get_views_of_model_v2
+from .view import view,get_viewname_by_window_action_id,get_view_by_window_action_id,get_view_by_window_action_id_v2,get_meta_by_window_action_id_v2,get_view_by_name,get_view_by_name_v2,get_views_of_model_v2,get_meta_of_models_v2
 from .menu import menu
 from .action import run
 from serviceloader.tools.common import Component
@@ -7,7 +7,7 @@ from configparser import ConfigParser
 class serviceui_exception(Exception): pass
 
 class Uis(Component):
-
+	_name = 'uis'
 	def __init__(self,config_file=None):
 		if config_file:
 			self.configure(config_file)
@@ -67,6 +67,9 @@ class Uis(Component):
 
 	def get_view_by_name_v2(self,cr,pool,uid,name):
 		return get_view_by_name_v2(cr,pool,uid,name)
+	
+	def get_meta_of_models_v2(self,cr,pool,uid,model):
+		return get_meta_of_models_v2(cr,pool,uid,model)
 
 	# def get_views_of_model_v2(self,session,cr,pool,uid,registry,model):
 		# return get_views_of_model_v2(session,cr,pool,uid,registry,model)

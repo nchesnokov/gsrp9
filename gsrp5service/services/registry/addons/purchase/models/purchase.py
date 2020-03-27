@@ -763,8 +763,8 @@ class purchase_order_items(Model):
 	'weight': fields.float(label='Weight', readonly=True),
 	'weight_total': fields.float(label='Weight Total', readonly=True),
 	'weight_uom': fields.many2one(label="Weight UoM",obj='md.uom', readonly=True,domain=[('quantity_id','=','Weight')]),
-	'pricing': fields.one2many(label='Pricing',obj='purchase.order.pricing.items',rel='item_id'),
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='purchase.order.item.delivery.schedules',rel='item_id'),
+	'pricing': fields.one2many(label='Pricing',obj='purchase.order.pricing.items',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='purchase.order.item.texts',rel='item_id'),
 	'plates': fields.one2many(label='Plates',obj='purchase.order.item.output.plates',rel='item_id'),
@@ -874,7 +874,7 @@ purchase_order_items()
 
 class purchase_order_pricing_items(Model):
 	_name = 'purchase.order.pricing.items'
-	_description = 'General Model Purchase Order Pricing Item Delivery Schedules'
+	_description = 'General Model Purchase Order Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Order',obj='purchase.order.items'),
 	'level': fields.integer(label = 'Level'),
@@ -997,6 +997,7 @@ class purchase_invoices(Model):
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'items': fields.one2many(label='Items',obj='purchase.invoice.items',rel='invoice_id'),
+	'pricing': fields.one2many(label='Pricing',obj='purchase.invoice.pricing',rel='invoice_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.invoice.roles',rel='invoice_id'),
 	'texts': fields.one2many(label='Texts',obj='purchase.invoice.texts',rel='invoice_id'),
 	'note': fields.text('Note')
@@ -1017,6 +1018,22 @@ class purchase_invoices(Model):
 	}
 
 purchase_invoices()
+
+class purchase_invoice_pricing(Model):
+	_name = 'purchase.invoice.pricing'
+	_description = 'General Model Purchase Invoice Pricing'
+	_columns = {
+	'invoice_id': fields.many2one(label = 'Invoice',obj='purchase.invoices'),
+	'level': fields.integer(label = 'Level'),
+	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
+	'from_level': fields.integer(label = 'From Level'),
+	'to_level': fields.integer(label = 'To Level'),
+	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
+	}
+
+purchase_invoice_pricing()
 
 class purchase_invoice_texts(Model):
 	_name = 'purchase.invoice.texts'
@@ -1065,6 +1082,7 @@ class purchase_invoice_items(Model):
 	'vat_amount': fields.numeric(label='VAT Amount',compute='_calculate_items',size=(15,2)),
 	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='purchase.invoce.item.delivery.schedules',rel='item_id'),
+	'pricing': fields.one2many(label='Pricing',obj='purchase.invoice.pricing.items',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.invoice.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='purchase.invoice.item.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')
@@ -1117,6 +1135,27 @@ class purchase_invoice_item_roles(Model):
 	}
 
 purchase_invoice_item_roles()
+
+class purchase_invoice_pricing_items(Model):
+	_name = 'purchase.invoice.pricing.items'
+	_description = 'General Model Purchase Invoice Item Pricing'
+	_columns = {
+	'item_id': fields.many2one(label = 'Order',obj='purchase.invoice.items'),
+	'level': fields.integer(label = 'Level'),
+	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
+	'from_level': fields.integer(label = 'From Level'),
+	'to_level': fields.integer(label = 'To Level'),
+	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'price': fields.numeric(label='Price',size=(13,2)),
+	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
+	'unit': fields.integer(label='Unit'),
+	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
+	}
+
+purchase_invoice_pricing_items()
+
 
 class purchase_invoce_item_delivery_schedules(Model):
 	_name = 'purchase.invoce.item.delivery.schedules'

@@ -140,24 +140,10 @@ class seq_access(Model):
 	'area': fields.many2one(label='Area',obj='seq.areas',required = True),
 	'segment': fields.many2one(label='Segment',obj='seq.segments',required = True),
 	'name': fields.varchar(label='Name',translate = True,required = True),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'fullname': fields.composite(label='Full Name',cols=['area','segment','name'],translate = True,required = True, compute = '_compute_composite'),
 	'usage': fields.selection(label='Usage',selections=[('a','All')]),
 	'models': fields.one2many(label='Models',obj='seq.models',rel='access_id')
 	}
-
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'area' in item and 'name' in item['area'] and item['area']['name']:
-			v += item['area']['name']
-
-		if 'segment' in item and 'name' in item['segment'] and item['segment']['name']:
-			v += '/' + item['segment']['name']
-
-		if item['name']:
-			v += '/' + item['name']
-		
-		if len(v) > 0:
-			item['fullname'] = v
 	
 	_default = {
 		'usage':'a'
