@@ -387,6 +387,19 @@ sale_teams()
 
 
 #Organization structure
+#Pricing
+class sale_pricing_group_levels(Model):
+	_name = 'sale.pricing.group.levels'
+	_description = 'General Model Sale Pricing Group Levels'
+	_rec_name = 'code'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'code': fields.varchar(label = 'Code',size=8,translate=True),
+	'descr':fields.varchar(label = 'Description',size=128,translate=True),
+	}
+
+sale_pricing_group_levels()
 
 #Text
 class sale_texts(Model):
@@ -548,7 +561,6 @@ class sale_orders(Model):
 	'otype': fields.many2one(label='Type',obj='sale.order.types',on_change='_on_change_otype'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
-	#'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True, compute = '_compute_composite'),
 	'market': fields.many2one(label='Market',obj='sale.markets'),
 	'team': fields.many2one(label='Team',obj='sale.teams'),
@@ -568,6 +580,7 @@ class sale_orders(Model):
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','s'),'|',('usage','=','a')],on_change='_on_change_recepture'),
 	'items': fields.one2many(label='Items',obj='sale.order.items',rel='order_id'),
+	'pricing': fields.one2many(label='Pricing',obj='sale.order.pricing',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='sale.order.roles',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='sale.order.texts',rel='order_id'),
 	'plates': fields.one2many(label='Plates',obj='sale.order.output.plates',rel='order_id'),
@@ -649,6 +662,22 @@ class sale_order_roles(Model):
 
 sale_order_roles()
 
+class sale_order_pricing(Model):
+	_name = 'sale.order.pricing'
+	_description = 'General Model Sale Order Pricing'
+	_columns = {
+	'order_id': fields.many2one(label = 'Order',obj='sale.orders'),
+	'level': fields.integer(label = 'Level'),
+	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','s')],required=True),
+	'from_level': fields.integer(label = 'From Level'),
+	'to_level': fields.integer(label = 'To Level'),
+	'group_level': fields.many2one(label = 'Group Level',obj='sale.pricing.group.levels'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
+	}
+
+sale_order_pricing()
+
 class sale_order_payment_schedules(Model):
 	_name = 'sale.order.payment.schedules'
 	_description = 'General Model Sale Order Payment Schedules'
@@ -710,6 +739,7 @@ class sale_order_items(Model):
 	'weight_total': fields.float(label='Weight Total', readonly=True),
 	'weight_uom': fields.many2one(label="Weight UoM",obj='md.uom', readonly=True,domain=[('quantity_id','=','Weight')]),
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='sale.order.item.delivery.schedules',rel='item_id'),
+	'pricing': fields.one2many(label='Pricing',obj='sale.order.pricing.items',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='sale.order.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='sale.order.item.texts',rel='item_id'),
 	'plates': fields.one2many(label='Plates',obj='sale.order.item.output.plates',rel='item_id'),
@@ -816,6 +846,26 @@ class sale_order_items(Model):
 	}
 
 sale_order_items()
+
+class sale_order_pricing_items(Model):
+	_name = 'sale.order.pricing.items'
+	_description = 'General Model Sale Order Item Pricing'
+	_columns = {
+	'item_id': fields.many2one(label = 'Order',obj='sale.order.items'),
+	'level': fields.integer(label = 'Level'),
+	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','s')],required=True),
+	'from_level': fields.integer(label = 'From Level'),
+	'to_level': fields.integer(label = 'To Level'),
+	'group_level': fields.many2one(label = 'Group Level',obj='sale.pricing.group.levels'),
+	'price': fields.numeric(label='Price',size=(13,2)),
+	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
+	'unit': fields.integer(label='Unit'),
+	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
+	}
+
+sale_order_pricing_items()
 
 class sale_order_item_texts(Model):
 	_name = 'sale.order.item.texts'
@@ -1077,7 +1127,7 @@ md_sale_product()
 class md_sale_product_inherit(ModelInherit):
 	_name = 'md.sale.product.inherit'
 	_description = 'Genaral Model Inherit For Sale Product'
-	_inherit = {'md.product':{'_columns':['sale']},'md.recepture':{'_columns':['usage']},'md.type.items':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['sale']},'md.recepture':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}}
 	_columns = {
 		'sale': fields.one2many(label='Sales',obj='md.sale.product',rel='product_id'),
 		'usage': fields.iProperty(selections=[('s','Sale')])

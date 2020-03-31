@@ -11,7 +11,7 @@ from os.path import join as opj
 from . import genddl
 from gsrp5service.orm.model import Model,ModelInherit,Access
 
-__all__ = ['install','uninstall','upgrade','sysinstall','sysupgrade','upgrademoduleslist']
+__all__ = ['install','uninstall','upgrade','sysinstall','sysupgrade','upgrademoduleslist','examples']
 
 _logger = logging.getLogger('listener.' + __name__)
 
@@ -89,6 +89,50 @@ def _install(cr,pool,uid,registry,able=None, modules = None):
 				pool[mkey] = registry._create_model(mkey,registry._getLastModule(mkey))
 			
 			log.append([0,'module: <%s> successfull reloaded' % (all_module,)])
+	
+	return log
+
+def _examples(cr,pool,uid,registry,able=None, modules = None):
+	log = []
+	_modules = []
+	if able is None or not able:
+		able= ['install']
+
+	if type(modules) == str:
+		if registry._modules[modules]['meta']['able'] in able:
+			_modules.append(modules)
+	elif type(modules) in (tuple,list):
+		for module in registry._depends:
+			if module in modules and registry._modules[module]['meta']['able'] in able:
+				_modules.append(module)
+	elif modules is None:
+		for module in registry._depends:
+			if registry._modules[module]['meta']['able'] in able:
+				_modules.append(module)
+
+	if modules:
+		_logger.info('modules-examples-install: %s' % (modules,))
+	depends = []
+	for _module in _modules:
+		for dep in registry._dependsinstall.install(_module):
+			if not dep in depends and registry._modules[dep]['meta']['able'] in able and ('state' in registry._modules[dep] and registry._modules[dep]['state'] in ('I',)):
+				depends.append(dep)
+
+		if not 'state' in registry._modules[_module] or registry._modules[_module]['state'] in ('I',):
+			depends.append(_module)
+	
+	_logger.info('install-examples-with-depends: %s' % (depends,))
+
+	if len(depends) == 0:
+		log.append('Not modules for install')
+	else:
+		for depend in depends:
+			registry._load_module(depend)
+			info = registry._modules[depend]
+			metas={'data':info['meta']['data'],'demo':info['meta']['demo']}
+			_loadFiles(cr,pool,uid,depend,registry._modules[depend],metas)	
+
+			log.append([0,'module: <%s> examples successfull installed' % (depend,)])
 	
 	return log
 
@@ -287,7 +331,9 @@ def _installModule(cr,pool,uid,name,registry):
 
 	
 	_loadMetaData(cr,pool,uid,name,registry)
-	_loadFiles(cr,pool,uid,name,registry._modules[name])
+	info = registry._modules[depend]
+	metas = {'env':info['meta']['env'],'view':info['meta']['view'],'data':info['meta']['data'],'demo':info['meta']['demo'],'test':info['meta']['test']}
+	_loadFiles(cr,pool,uid,name,registry._modules[name],metas)
 	_load_env(cr,pool,uid,name)
 	
 	cr.commit()
@@ -368,11 +414,6 @@ def _uninstallModule(cr,pool,uid,name,registry):
 
 	cr.commit()
 	_logger.info(" Module: %s Uninstalled" % (name,))
-
-	# registry._download_module(name)
-	# for mkey in registry. _getModuleModels(name).keys():
-		# pool[mkey] = registry._create_model(mkey,registry._getLastModule(mkey))
-
 
 def _upgradeModule(cr,pool,uid,name,registry):
 	log = []
@@ -498,6 +539,10 @@ def upgrade(cr,pool,uid,registry,modules = None):
 
 def upgrademoduleslist(cr,pool,uid,registry,db):
 	return _upgrademoduleslist(cr,pool,uid,registry,db)
+
+def examples(cr,pool,uid,registry,modules = None):
+	return _examples(cr,pool,uid,registry,['install'],modules)
+
 
 # Load Meta
 
@@ -785,12 +830,7 @@ def _load_env(cr,pool,uid,name):
 
 	_load_class_bc(cr,pool,uid,name)
 
-def _loadFiles(cr,pool,uid,name,info):
-	#pwd = os.getcwd()
-	#pwd = opj(reduce(lambda x,y: x + os.path.sep + y ,os.path.dirname(os.path.abspath(__file__)).split(os.path.sep)[:-1]),'registry')
-	#print('PWD:',pwd)
-	objnames = {'bc.module.files':'filename','bc.modules':'code'}
-	metas={'env':info['meta']['env'],'view':info['meta']['view'],'data':info['meta']['data'],'demo':info['meta']['demo'],'test':info['meta']['test']}
+def _loadFiles(cr,pool,uid,name,info,metas):
 	path = info['path']
 	for key in metas.keys():
 		meta = metas[key]

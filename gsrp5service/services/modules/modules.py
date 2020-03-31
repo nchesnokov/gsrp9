@@ -53,3 +53,6 @@ class Modules(Component):
 
 	def upgrademoduleslist(self,db):
 		return upgrademoduleslist(self._cr,self._pool,self._uid,self._registry,db)
+
+	def examples(self,modules):
+		return examples(self._cr,self._pool,self._uid,self._registry,modules)

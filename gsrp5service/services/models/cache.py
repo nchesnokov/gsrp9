@@ -278,29 +278,30 @@ class DCacheDict(object):
 		if mode == 'N' and not hasattr(self,'_root'):
 			self._root = oid
 
-		self._cdata[oid] = data
-		self._cmodels[oid] = model
-		if parent and name:
-			self._cpaths.setdefault(oid,{})[name] = parent
-			self._cr2c[oid] = self._cnames[name + '.' + str(parent)]
-		else:
-			self._cpaths[oid] = None
-
-		for m2mfield in self._pool.get(model)._m2mfields:
-			if m2mfield in data: 
-				self._m2m_buildTree(data[m2mfield],ci[m2mfield]['rel'],oid,m2mfield,model)
+		if oid not in self._cdata:
+			self._cdata[oid] = data
+			self._cmodels[oid] = model
+			if parent and name:
+				self._cpaths.setdefault(oid,{})[name] = parent
+				self._cr2c[oid] = self._cnames[name + '.' + str(parent)]
+			else:
+				self._cpaths[oid] = None
 	
-		for o2mfield in self._pool.get(model)._o2mfields:
-			cn = o2mfield + '.' + oid
-			coid = str(id(data[o2mfield]))
-			self._ccontainers[coid] = cn
-			self._cnames[cn] = coid
-			self._cdata[coid] = data[o2mfield]
-			self._cmodels[coid] = ci[o2mfield]['obj']
-
-			#if mode != 'I':
-			for r1 in data[o2mfield]:
-				self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
+			for m2mfield in self._pool.get(model)._m2mfields:
+				if m2mfield in data: 
+					self._m2m_buildTree(data[m2mfield],ci[m2mfield]['rel'],oid,m2mfield,model)
+		
+			for o2mfield in self._pool.get(model)._o2mfields:
+				cn = o2mfield + '.' + oid
+				coid = str(id(data[o2mfield]))
+				self._ccontainers[coid] = cn
+				self._cnames[cn] = coid
+				self._cdata[coid] = data[o2mfield]
+				self._cmodels[coid] = ci[o2mfield]['obj']
+	
+				#if mode != 'I':
+				for r1 in data[o2mfield]:
+					self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
 
 	def _m2m_buildTree(self,data,rel,parent,name,model):
 		#print('_m2m_buildTree:'.upper(),data,rel,parent,name)
@@ -639,14 +640,15 @@ class DCacheDict(object):
 			res.setdefault('__o2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__o2m_containers__':o2m_containers})
 	
 		for d in dk:
-			model = omodels[onames[container]]			
+			model = omodels[onames[container]]
+			remove_data = copy.deepcopy(odata[d])			
 			self._removeRecursive(o,c,d)
 			
 			for o2mfield in filter(lambda x: x in odata,self._pool.get(model)._o2mfields):
 				r1 = self._o2m_cmpList(o,c,o2mfield + '.' + d)
 				res.setdefault('__o2m_remove__',[]).extend(r1['__o2m_remove__'] if '__o2m_remove__' in r1 else [])
 			
-			res.setdefault('__o2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__data__':copy.deepcopy(odata[d])})
+			res.setdefault('__o2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__data__':remove_data})
 
 		return res
 
@@ -728,6 +730,7 @@ class DCacheDict(object):
 		or2c = getattr(self,'_%sr2c' % (o,))
 
 		container = ocontainers[or2c[path]]
+		model = None
 		if path in omodels:
 			model = omodels[path]
 		else:
@@ -752,33 +755,30 @@ class DCacheDict(object):
 			if path in cr2c:
 				del cr2c[path] 
 
-		for o2mfield in self._pool.get(model)._o2mfields:
-			container1 = o2mfield + '.' + str(path)
-			coid = onames[container1]
-			#oids = list(filter(lambda x: or2c[x] == coid,or2c.keys()))
-			for path1 in filter(lambda x: or2c[x] == coid,or2c.keys()):
-				res.extend(self._removeRecursive(o,c,path1))
-				#res.append({'__path__':path1,'__container__':container1,'__model__':ometas[model][o2mfield]['obj'],'__data__':copy.deepcopy(odata[path1])})
-	
-				if path in cdata and coid in cdata:
-					cdata[onames[container]].remove(cdata[path])
-					del cdata[path]
+		if model:
+			for o2mfield in self._pool.get(model)._o2mfields:
+				container1 = o2mfield + '.' + str(path)
+				coid = onames[container1]
+				for path1 in filter(lambda x: or2c[x] == coid,or2c.keys()):
+					res.extend(self._removeRecursive(o,c,path1))
 		
-					if container in cnames and cnames[container] in cdata and len(cdata[cnames[container]]) == 0:
-						del cdata[onames[container]]
-						del ccontainers[cnames[container]]
-						del cnames[container]
-								
-					if path in cmodels:
-						del cmodels[path] 
-					
-					if path in cpaths:
-						del cpaths[path]
-					
-					if path in cr2c:
-						del cr2c[path] 
-
-		#res.append({'__path__':path,'__container__':container,'__model__':model,'__data__':copy.deepcopy(odata[path])})
+					if path in cdata and coid in cdata:
+						cdata[onames[container]].remove(cdata[path])
+						del cdata[path]
+			
+						if container in cnames and cnames[container] in cdata and len(cdata[cnames[container]]) == 0:
+							del cdata[onames[container]]
+							del ccontainers[cnames[container]]
+							del cnames[container]
+									
+						if path in cmodels:
+							del cmodels[path] 
+						
+						if path in cpaths:
+							del cpaths[path]
+						
+						if path in cr2c:
+							del cr2c[path] 
 		
 		return res
 			
@@ -1368,8 +1368,9 @@ class MCache(object):
 	def _o2m_remove(self,path,container,context):
 		#print('O2M-CACHE-REMOVE:',path,container)
 		c = container.split('.')
-		self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
-		del self._data._cdata[path]
+		#self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
+		self._data._removeRecursive('o','c',path)
+		#del self._data._cdata[path]
 		
 		self._do_calculate(c[1],context)
 		
@@ -1432,14 +1433,6 @@ class MCache(object):
 		p = container.split('.')
 		if len(rows) > 0:
 			for row in rows:
-				# if container not in self._data._cnames:
-					# cc = []
-					# coid = str(id(cc))
-					# self._data._ccontainers[coid] = container
-					# self._data._cnames[container] = coid
-					# self._data._cdata[coid] = cc
-
-				#self._data._cdata[self._data._cnames[container]].append(row)
 				self._data._m2m_buildTree(row,rel,p[1],p[0],model)
 				
 		res = {}

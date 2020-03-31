@@ -1090,7 +1090,7 @@ def do_upload_csv(self, cr, pool, uid, fields, values,context = {}):
 				else:
 					ct = columns_info[field]['type']
 
-				if len(v) == 0:
+				if v is None or len(v) == 0:
 					value[idx] = None
 					continue
 

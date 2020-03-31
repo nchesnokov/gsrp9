@@ -704,7 +704,6 @@ class purchase_order_pricing(Model):
 
 purchase_order_pricing()
 
-
 class purchase_order_payment_schedules(Model):
 	_name = 'purchase.order.payment.schedules'
 	_description = 'General Model Purchase Order Payment Schedules'

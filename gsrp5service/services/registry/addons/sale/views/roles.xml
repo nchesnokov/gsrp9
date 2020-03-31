@@ -440,6 +440,26 @@
           <column name="note">Model sale.teams grant crw</column>
           <column name="group_id">sale.crw</column>
         </record>
+        <record id="sale.pricing.group.levels.readonly">
+          <column name="name">sale.pricing.group.levels.readonly</column>
+          <column name="note">Model sale.pricing.group.levels grant readonly</column>
+          <column name="group_id">sale.readonly</column>
+        </record>
+        <record id="sale.pricing.group.levels.nodrop">
+          <column name="name">sale.pricing.group.levels.nodrop</column>
+          <column name="note">Model sale.pricing.group.levels grant nodrop</column>
+          <column name="group_id">sale.nodrop</column>
+        </record>
+        <record id="sale.pricing.group.levels.full">
+          <column name="name">sale.pricing.group.levels.full</column>
+          <column name="note">Model sale.pricing.group.levels grant full</column>
+          <column name="group_id">sale.full</column>
+        </record>
+        <record id="sale.pricing.group.levels.crw">
+          <column name="name">sale.pricing.group.levels.crw</column>
+          <column name="note">Model sale.pricing.group.levels grant crw</column>
+          <column name="group_id">sale.crw</column>
+        </record>
         <record id="sale.texts.readonly">
           <column name="name">sale.texts.readonly</column>
           <column name="note">Model sale.texts grant readonly</column>
@@ -700,6 +720,26 @@
           <column name="note">Model sale.order.roles grant crw</column>
           <column name="group_id">sale.crw</column>
         </record>
+        <record id="sale.order.pricing.readonly">
+          <column name="name">sale.order.pricing.readonly</column>
+          <column name="note">Model sale.order.pricing grant readonly</column>
+          <column name="group_id">sale.readonly</column>
+        </record>
+        <record id="sale.order.pricing.nodrop">
+          <column name="name">sale.order.pricing.nodrop</column>
+          <column name="note">Model sale.order.pricing grant nodrop</column>
+          <column name="group_id">sale.nodrop</column>
+        </record>
+        <record id="sale.order.pricing.full">
+          <column name="name">sale.order.pricing.full</column>
+          <column name="note">Model sale.order.pricing grant full</column>
+          <column name="group_id">sale.full</column>
+        </record>
+        <record id="sale.order.pricing.crw">
+          <column name="name">sale.order.pricing.crw</column>
+          <column name="note">Model sale.order.pricing grant crw</column>
+          <column name="group_id">sale.crw</column>
+        </record>
         <record id="sale.order.payment.schedules.readonly">
           <column name="name">sale.order.payment.schedules.readonly</column>
           <column name="note">Model sale.order.payment.schedules grant readonly</column>
@@ -758,6 +798,26 @@
         <record id="sale.order.items.crw">
           <column name="name">sale.order.items.crw</column>
           <column name="note">Model sale.order.items grant crw</column>
+          <column name="group_id">sale.crw</column>
+        </record>
+        <record id="sale.order.pricing.items.readonly">
+          <column name="name">sale.order.pricing.items.readonly</column>
+          <column name="note">Model sale.order.pricing.items grant readonly</column>
+          <column name="group_id">sale.readonly</column>
+        </record>
+        <record id="sale.order.pricing.items.nodrop">
+          <column name="name">sale.order.pricing.items.nodrop</column>
+          <column name="note">Model sale.order.pricing.items grant nodrop</column>
+          <column name="group_id">sale.nodrop</column>
+        </record>
+        <record id="sale.order.pricing.items.full">
+          <column name="name">sale.order.pricing.items.full</column>
+          <column name="note">Model sale.order.pricing.items grant full</column>
+          <column name="group_id">sale.full</column>
+        </record>
+        <record id="sale.order.pricing.items.crw">
+          <column name="name">sale.order.pricing.items.crw</column>
+          <column name="note">Model sale.order.pricing.items grant crw</column>
           <column name="group_id">sale.crw</column>
         </record>
         <record id="sale.order.item.texts.readonly">
@@ -2072,6 +2132,56 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
+        <record id="sale.sale.pricing.group.levels.readonly">
+          <column name="access_id">sale.pricing.group.levels.readonly</column>
+          <column name="model_id">sale.pricing.group.levels</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="sale.sale.pricing.group.levels.nodrop">
+          <column name="access_id">sale.pricing.group.levels.nodrop</column>
+          <column name="model_id">sale.pricing.group.levels</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="sale.sale.pricing.group.levels.full">
+          <column name="access_id">sale.pricing.group.levels.full</column>
+          <column name="model_id">sale.pricing.group.levels</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="sale.sale.pricing.group.levels.crw">
+          <column name="access_id">sale.pricing.group.levels.crw</column>
+          <column name="model_id">sale.pricing.group.levels</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
         <record id="sale.sale.texts.readonly">
           <column name="access_id">sale.texts.readonly</column>
           <column name="model_id">sale.texts</column>
@@ -2722,6 +2832,56 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
+        <record id="sale.sale.order.pricing.readonly">
+          <column name="access_id">sale.order.pricing.readonly</column>
+          <column name="model_id">sale.order.pricing</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="sale.sale.order.pricing.nodrop">
+          <column name="access_id">sale.order.pricing.nodrop</column>
+          <column name="model_id">sale.order.pricing</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="sale.sale.order.pricing.full">
+          <column name="access_id">sale.order.pricing.full</column>
+          <column name="model_id">sale.order.pricing</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="sale.sale.order.pricing.crw">
+          <column name="access_id">sale.order.pricing.crw</column>
+          <column name="model_id">sale.order.pricing</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
         <record id="sale.sale.order.payment.schedules.readonly">
           <column name="access_id">sale.order.payment.schedules.readonly</column>
           <column name="model_id">sale.order.payment.schedules</column>
@@ -2861,6 +3021,56 @@
         <record id="sale.sale.order.items.crw">
           <column name="access_id">sale.order.items.crw</column>
           <column name="model_id">sale.order.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="sale.sale.order.pricing.items.readonly">
+          <column name="access_id">sale.order.pricing.items.readonly</column>
+          <column name="model_id">sale.order.pricing.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="sale.sale.order.pricing.items.nodrop">
+          <column name="access_id">sale.order.pricing.items.nodrop</column>
+          <column name="model_id">sale.order.pricing.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="sale.sale.order.pricing.items.full">
+          <column name="access_id">sale.order.pricing.items.full</column>
+          <column name="model_id">sale.order.pricing.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="sale.sale.order.pricing.items.crw">
+          <column name="access_id">sale.order.pricing.items.crw</column>
+          <column name="model_id">sale.order.pricing.items</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

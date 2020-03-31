@@ -1297,6 +1297,56 @@
             </find>
           </column>
         </record>
+        <record id="view.sale.pricing.group.levels.form">
+          <column name="name">view.sale.pricing.group.levels.form</column>
+          <column name="model">sale.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.sale.pricing.group.levels.list">
+          <column name="name">view.sale.pricing.group.levels.list</column>
+          <column name="model">sale.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.sale.pricing.group.levels.m2mlist">
+          <column name="name">view.sale.pricing.group.levels.m2mlist</column>
+          <column name="model">sale.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.sale.pricing.group.levels.search">
+          <column name="name">view.sale.pricing.group.levels.search</column>
+          <column name="model">sale.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.sale.pricing.group.levels.find">
+          <column name="name">view.sale.pricing.group.levels.find</column>
+          <column name="model">sale.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.sale.texts.form">
           <column name="name">view.sale.texts.form</column>
           <column name="model">sale.texts</column>
@@ -1894,6 +1944,7 @@
               <field name="total_amount"/>
               <field name="recepture"/>
               <field name="items"/>
+              <field name="pricing"/>
               <field name="roles"/>
               <field name="texts"/>
               <field name="plates"/>
@@ -1988,6 +2039,7 @@
               <field name="total_amount"/>
               <field name="recepture"/>
               <field name="items"/>
+              <field name="pricing"/>
               <field name="roles"/>
               <field name="texts"/>
               <field name="plates"/>
@@ -2181,6 +2233,54 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.sale.order.pricing.form">
+          <column name="name">view.sale.order.pricing.form</column>
+          <column name="model">sale.order.pricing</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.sale.order.pricing.list">
+          <column name="name">view.sale.order.pricing.list</column>
+          <column name="model">sale.order.pricing</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.sale.order.pricing.m2mlist">
+          <column name="name">view.sale.order.pricing.m2mlist</column>
+          <column name="model">sale.order.pricing</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </m2mlist>
+          </column>
+        </record>
         <record id="view.sale.order.payment.schedules.form">
           <column name="name">view.sale.order.payment.schedules.form</column>
           <column name="model">sale.order.payment.schedules</column>
@@ -2309,6 +2409,7 @@
               <field name="weight_total"/>
               <field name="weight_uom"/>
               <field name="delivery_schedules"/>
+              <field name="pricing"/>
               <field name="roles"/>
               <field name="texts"/>
               <field name="plates"/>
@@ -2342,6 +2443,7 @@
               <field name="weight_total"/>
               <field name="weight_uom"/>
               <field name="delivery_schedules"/>
+              <field name="pricing"/>
               <field name="roles"/>
               <field name="texts"/>
               <field name="plates"/>
@@ -2373,6 +2475,66 @@
               <field name="weight"/>
               <field name="weight_total"/>
               <field name="weight_uom"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.sale.order.pricing.items.form">
+          <column name="name">view.sale.order.pricing.items.form</column>
+          <column name="model">sale.order.pricing.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="price"/>
+              <field name="cop"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.sale.order.pricing.items.list">
+          <column name="name">view.sale.order.pricing.items.list</column>
+          <column name="model">sale.order.pricing.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="price"/>
+              <field name="cop"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.sale.order.pricing.items.m2mlist">
+          <column name="name">view.sale.order.pricing.items.m2mlist</column>
+          <column name="model">sale.order.pricing.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="price"/>
+              <field name="cop"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="currency"/>
             </m2mlist>
           </column>
         </record>
@@ -3114,6 +3276,51 @@
             </form>
           </column>
         </record>
+        <record id="view.md.sale.product.inherit.form.inherit.md.recepture">
+          <column name="view_id">view.md.recepture.form</column>
+          <column name="name">view.md.sale.product.inherit.form.inherit.md.recepture</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.form.inherit.md.type.items">
+          <column name="view_id">view.md.type.items.form</column>
+          <column name="name">view.md.sale.product.inherit.form.inherit.md.type.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.form.inherit.seq.conditions">
+          <column name="view_id">view.seq.conditions.form</column>
+          <column name="name">view.md.sale.product.inherit.form.inherit.seq.conditions</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.form.inherit.seq.access.schemas">
+          <column name="view_id">view.seq.access.schemas.form</column>
+          <column name="name">view.md.sale.product.inherit.form.inherit.seq.access.schemas</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.form.inherit.seq.access">
+          <column name="view_id">view.seq.access.form</column>
+          <column name="name">view.md.sale.product.inherit.form.inherit.seq.access</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+            </form>
+          </column>
+        </record>
         <record id="view.md.sale.product.inherit.list.inherit.md.product">
           <column name="view_id">view.md.product.list</column>
           <column name="name">view.md.sale.product.inherit.list.inherit.md.product</column>
@@ -3121,6 +3328,96 @@
             <list>
               <field name="sale"/>
             </list>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.list.inherit.md.recepture">
+          <column name="view_id">view.md.recepture.list</column>
+          <column name="name">view.md.sale.product.inherit.list.inherit.md.recepture</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.list.inherit.md.type.items">
+          <column name="view_id">view.md.type.items.list</column>
+          <column name="name">view.md.sale.product.inherit.list.inherit.md.type.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.list.inherit.seq.conditions">
+          <column name="view_id">view.seq.conditions.list</column>
+          <column name="name">view.md.sale.product.inherit.list.inherit.seq.conditions</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.list.inherit.seq.access.schemas">
+          <column name="view_id">view.seq.access.schemas.list</column>
+          <column name="name">view.md.sale.product.inherit.list.inherit.seq.access.schemas</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.list.inherit.seq.access">
+          <column name="view_id">view.seq.access.list</column>
+          <column name="name">view.md.sale.product.inherit.list.inherit.seq.access</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.search.inherit.md.recepture">
+          <column name="view_id">view.md.recepture.search</column>
+          <column name="name">view.md.sale.product.inherit.search.inherit.md.recepture</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.search.inherit.md.type.items">
+          <column name="view_id">view.md.type.items.search</column>
+          <column name="name">view.md.sale.product.inherit.search.inherit.md.type.items</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.search.inherit.seq.conditions">
+          <column name="view_id">view.seq.conditions.search</column>
+          <column name="name">view.md.sale.product.inherit.search.inherit.seq.conditions</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.search.inherit.seq.access.schemas">
+          <column name="view_id">view.seq.access.schemas.search</column>
+          <column name="name">view.md.sale.product.inherit.search.inherit.seq.access.schemas</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.sale.product.inherit.search.inherit.seq.access">
+          <column name="view_id">view.seq.access.search</column>
+          <column name="name">view.md.sale.product.inherit.search.inherit.seq.access</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+            </search>
           </column>
         </record>
       </records>
