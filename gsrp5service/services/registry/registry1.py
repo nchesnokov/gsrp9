@@ -61,8 +61,7 @@ class Registry(Service):
 
 		self._graph = Graph()
 		self._load_modules_info()
-		#self._load_modules()
-		#self._load_inheritables()
+		self._load_modules()
 
 	def _reload(self):
 		self._modules = {}
@@ -77,7 +76,6 @@ class Registry(Service):
 		self._modules.clear()
 		self._reload_modules_info()
 		self._load_modules()
-		self._load_inheritables()
 	
 	def _load_module_info(self,path):
 		return load_module_info(path)
@@ -114,18 +112,25 @@ class Registry(Service):
 
 		return tuple(_fl)
 
-	def _load_installed_modules(self):
-		modules = filter(lambda x: self._modules[x]['state'] == 'I',[node.name for node in self._graph])
-		
-		for module in modules:
-			self._load_module(module)
-
 	def _load_modules(self):
 		modules = [node.name for node in self._graph]
 		
 		for module in modules:
 			self._load_module(module)
 		
+		self._load_inheritables()
+
+	def _load_inheritables(self):
+		modules = [node.name for node in self._graph]
+			
+		for module in modules:
+			self._load_inheritable(module)
+
+	def _load_inheritable(self,module):
+		if 'state' in self._modules[module] and self._modules[module]['state'] == 'I':
+			self._meta_with_inherits(module)
+			self._meta_with_inherit(module)
+
 	def _load_module(self,module):
 		if not 'loaded' in self._modules[module] or not self._modules[module]['loaded']:
 			load_module(self._modules[module]['import'],self._fromlist(module))
@@ -141,31 +146,20 @@ class Registry(Service):
 			self._modules[module]['loaded'] = True
 			
 			for model in self._modules[module]['lom']:
-				self._models[model] = self._copyMeta(self._modules[module]['class'][model])
-				meta = self._models[model]
+				meta = self._modules[module]['class'][model]
+				self._models[model] = copy.deepcopy(meta)
 				if '_inherits' in meta['attrs'] and meta['attrs']['_inherits'] and len(meta['attrs']['_inherits']) > 0:
 					inherits = meta['attrs']['_inherits']
 					for key in inherits.keys():
-						self._inherits.setdefault(module,{}).setdefault(model,{})[key] = inherits[key]
+						self._inherits.setdefault(module,{}).setdefult(model,{})[key] = inherits[key]
 					
 				if '_inherit' in meta['attrs'] and meta['attrs']['_inherit'] and len(meta['attrs']['_inherit']) > 0:
 					inherit = meta['attrs']['_inherit']
 					for key in inherit.keys():
-						self._inherit.setdefault(module,{}).setdefault(model,{})[key] = inherit[key]
-
-	def _load_inheritables(self):
-		modules = [node.name for node in self._graph]
-			
-		for module in modules:
-			self._load_inheritable(module)
-
-	def _load_inheritable(self,module):
-		if 'state' in self._modules[module] and self._modules[module]['state'] == 'I':
-			self._meta_with_inherits(module)
-			self._meta_with_inherit(module)
+						self._inherit.setdefault(module,{}).setdefult(model,{})[key] = inherit[key]
 
 	
-	def _create_model(self,model):
+	def _create_model(self,model,module):
 		meta = self._models[model]
 		cls = type(meta['name'],meta['bases'],meta['attrs'])
 		type.__init__(cls, meta['name'],meta['bases'],meta['attrs'])
@@ -176,11 +170,11 @@ class Registry(Service):
 	def _meta_with_inherits(self,module):
 		if module in self._inherits:
 			inherits = self._inherits[module]
-			for dst in inherits.keys():
-				meta = self._models[dst]
-				for src in inherits[dst].keys():
-					imeta = self._models[src]
-					inherit = inherits[dst][src]
+			for src in inherits.keys():
+				imeta = self._models[src]
+				for dst in inherits[src].keys():
+					meta = self._models[dst]
+					inherit = inherits[src][dst]				
 					for c in inherit.keys():
 						if c == '_methods':
 							for method in inherit[c]:
@@ -215,65 +209,65 @@ class Registry(Service):
 							meta['attrs'][c].extend(imeta['attrs'][c])
 			self._models[dst] = meta
 	
-	def _meta_with_inherit(self,module):
+	def _meta_with_inherit(self,model,module):
 		if module in self._inherit:
 			inherits = self._inherit[module]
 			for src in inherits.keys():
 				imeta = self._models[src]
 				for dst in inherits[src].keys():
 					meta = self._models[dst]
-					inherit = inherits[src][dst]
+					inherit = inherits[src][dst]				
 					for c in inherit.keys():
 						if c == '_methods':
 							for method in inherit[c]:
-								meta['attrs'][method] = imeta['attrs'][c][method]
+								imeta1['attrs'][method] = imeta['attrs'][c][method]
 						elif c == '_columns':
 							for column in inherit[c]:
-								if c not in meta['attrs'] or column not in meta['attrs'][c]:
-									meta['attrs'].setdefault(c,{})[column] = imeta['attrs'][c][column]
+								if c not in imeta1['attrs'] or column not in imeta1['attrs'][c]:
+									imeta1['attrs'].setdefault(c,{})[column] = imeta['attrs'][c][column]
 								else:
 									if imeta['attrs'][c][column]._type == 'iProperty':
 										for attr in ('accept','actions','label', 'readonly','invisible', 'priority', 'domain', 'context', 'pattern','required', 'size', 'on_delete', 'on_update','on_change','on_check', 'translate', 'selections', 'selectable', 'manual', 'help', 'unique','check','family','timezone','relatedy','obj','rel','id1','id2','ref','offset','limit','compute','store','state','icon','cols','delimiter'):
 											if attr in ('selections','domain','cols'):
 												if hasattr(imeta['attrs'][c][column],attr):
-													if hasattr(meta['attrs'][c][column],attr):
-														getattr(meta['attrs'][c][column],attr).extend(getattr(imeta['attrs'][c][column],attr))
+													if hasattr(imeta1['attrs'][c][column],attr):
+														getattr(imeta1['attrs'][c][column],attr).extend(getattr(imeta['attrs'][c][column],attr))
 											elif attr in ('accept','label','priority','pattern','compute','readonly','on_change','on_check','invisible','on_delete','on_update','translate','selectable','manual','help','offset','limit','icon','delimiter'):
 												if hasattr(imeta['attrs'][c][column],attr):
-													if hasattr(meta['attrs'][c][column],attr):
-														setattr(getattr(meta['attrs'][c][column],attr),getattr(imeta['attrs'][c][column],attr))
+													if hasattr(imeta1['attrs'][c][column],attr):
+														setattr(getattr(imeta1['attrs'][c][column],attr),getattr(imeta['attrs'][c][column],attr))
 											elif attr in ('actions','context','cols','state'):
 												if hasattr(imeta['attrs'][c][column],attr):
-													if hasattr(meta['attrs'][c][column],attr):
-														getattr(meta['attrs'][c][column],attr).update(getattr(imeta['attrs'][c][column],attr))
+													if hasattr(imeta1['attrs'][c][column],attr):
+														getattr(imeta1['attrs'][c][column],attr).update(getattr(imeta['attrs'][c][column],attr))
 									else:
 										Exception_Registry("Column: %s of model: %s if exists\n" % (column,key))
 						elif c == '_actions':
 							for action in inherit[c]:
-								meta['attrs'].setdefault(c,{})[action] = imeta['attrs']['_actions'][action]
+								imeta1['attrs'].setdefault(c,{})[action] = imeta['attrs']['_actions'][action]
 						elif c == '_states':
 							for state in inherit[c]:
-								meta['attrs'].setdefault(c,{})[state] = imeta['attrs'][c][state]
+								imeta1['attrs'].setdefault(c,{})[state] = imeta['attrs'][c][state]
 						elif c == '_trg_upd_cols':
-							meta['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
+							imeta1['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
 						elif c == '_trigers':
 							for triger in inherit[c]:
 								for tk in triger.keys():
-									if not meta['attrs'][c]:
-										meta['attrs'][c] = []
+									if not imeta1['attrs'][c]:
+										imeta1['attrs'][c] = []
 									if type(triger[tk]) in ('list','tuple'):
-										meta['attrs'].setdefault(c,{}).setdefault(triger,[]).extend(triger[tk])
+										imeta1['attrs'].setdefault(c,{}).setdefault(triger,[]).extend(triger[tk])
 									else:
-										meta['attrs'].setdefault(c,{}).setdefault(triger,[]).append(triger[tk])
+										imeta1['attrs'].setdefault(c,{}).setdefault(triger,[]).append(triger[tk])
 						elif c == '_default':
 							for dkey in inherit[c]:
-								meta['attrs'].setdefault(c,{})[dkey] = imeta['attrs'][c][dkey]
+								imeta1['attrs'].setdefault(c,{})[dkey] = imeta['attrs'][c][dkey]
 						elif c == '_constraints':
-							meta['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
+							imeta1['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
 						elif c == '_sql_constraints':
-							meta['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
+							imeta1['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
 						elif c == '_auth':
-							meta['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
+							imeta1['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
 			
 			self._models[dst] = meta
 		
@@ -431,28 +425,28 @@ class Registry(Service):
 			if module not in self._mom[model]:
 				self._mom[model].append(module)
 
-	def _create_all_models(self):
+	def _createAllModels(self):
 		r = {}
 		for model in self._models.keys():
-			if Model in self._models[model]['bases']:
-				r[model] = self._create_model(model)
+			r[model] = self._create_model(model)
 				
 		r = self._load_schema(r)
+		#self._models = r
 		
 		return r
 
-	def _create_loaded_models(self):
+	def _createInstalledModels(self):
 		r = {}
-		for model in self._models.keys():
-			if Model in self._models[model]['bases']:
-				r[model] = self._create_model(model)
-				
-		r = self._load_schema(r)
+		for module in self._momm.keys():
+			models = self._momm[module].keys()
+			for model in models:
+				m = self._create_model(model,module)
+				if m:
+					r[model] = m 
 		
 		return r
 
-	def _create_module_models(self,module):
-		
+	def _createModuleModels(self,module):
 		r = {}
 		for model in self._momm[module].keys():
 			r[model] = self._create_model(model,module)

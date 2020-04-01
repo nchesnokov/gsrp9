@@ -104,8 +104,11 @@ def _download(cr,pool,uid,path,module,imodules,models,registry,ext='csv'):
 		mfs = {}
 		cond = []
 		for sf in sfs:
-			sls = tuple(map(lambda x: x[0],registry._getMetaOfModulesModel(model,module)['attrs']['_columns'][sf].selections))
+			#sls = tuple(map(lambda x: x[0],registry._getMetaOfModulesModel(model,module)['attrs']['_columns'][sf].selections))
+			#sls = tuple(map(lambda x: x[0],registry._getMetaOfModulesModel(model,registry._getFirstModule(model))['attrs']['_columns'][sf].selections))
+			sls = tuple(map(lambda x: x[0],registry._getMetaOfOnlyModulesModel(model,module)['attrs']['_columns'][sf].selections))
 			cond.append((sf,'in',sls))
+			print('COND:',model,cond)
 			for k,v in columns_info[sf]['selections']:
 				mfs.setdefault(sf,{})[k] = v 
 		records = m.select(cr,pool,uid,fields,cond)
@@ -116,7 +119,7 @@ def _download(cr,pool,uid,path,module,imodules,models,registry,ext='csv'):
 				c = 'examples' 
 
 			_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,m._table+'.' + ext),));
-			am = open(opj(path,module,'demo',c,m._table+'.' + ext),'w')
+			#am = open(opj(path,module,'demo',c,m._table+'.' + ext),'w')
 			for row in records:
 				for key in row.keys():
 					if key == 'id':
@@ -148,13 +151,15 @@ def _download(cr,pool,uid,path,module,imodules,models,registry,ext='csv'):
 								row[key] = row[key].strpfime('%H:%M:%S')
 							
 			if ext == 'csv':
-				amw = csv.DictWriter(am,fields)
-				amw.writeheader()
-				amw.writerows(records)
-				am.close()
+				pass
+				#amw = csv.DictWriter(am,fields)
+				#amw.writeheader()
+				#amw.writerows(records)
+				#am.close()
 			elif ext == 'yaml':
-				with open(opj(path,module,'demo',c,m._table+'.yaml'),'w') as outfile:
-					yaml.dump(records, outfile, Dumper=Dumper, default_flow_style=False)
+				pass
+				#with open(opj(path,module,'demo',c,m._table+'.yaml'),'w') as outfile:
+					#yaml.dump(records, outfile, Dumper=Dumper, default_flow_style=False)
 			
 			aw.writerow({'model':m._name,'file':opj('demo',c,m._table+'.' + ext)})
 	a.close()

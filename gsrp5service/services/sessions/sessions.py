@@ -84,7 +84,8 @@ class User(object):
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'])
 
 		if self._cursor.open():
-			self._models = self._components['registry']._createAllModels()
+			self._components['registry']._load_module('bc')
+			self._models = self._components['registry']._create_loaded_models()
 			self._components['models']._setup(self._cursor,self._models,self._uid,self)
 			self._components['uis']._setup(self._cursor,self._models,self._uid)
 			return self
@@ -114,7 +115,9 @@ class User(object):
 						self._components['registry']._modules[db_info['code']]['db_id'] = db_info['id']
 						self._components['registry']._modules[db_info['code']]['state'] = db_info['state']
 	
-					models = self._components['registry']._load_inherits()
+					self._components['registry']._load_installed_modules()
+					self._components['registry']._load_inheritables()
+					models = self._components['registry']._create_loaded_models()
 					for key in models:
 						self._models[key] = models[key]  
 
@@ -299,7 +302,7 @@ class System(object):
 
 		self._profile = profile
 		conf = self._conf[profile]
-		print('CONF-1:',conf)
+		#print('CONF-1:',conf)
 		
 		if conf['sslmode']:
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'],sslmode=conf['sslmode'],sslrootcert=conf['sslrootcert'],sslrootkey=conf['sslrootkey'],sslcert=conf['sslcert'],sslkey=conf['sslkey'])
@@ -307,7 +310,9 @@ class System(object):
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'])
 
 		if self._cursor.open():
-			self._models = self._components['registry']._createAllModels()
+			self._components['registry']._load_modules
+			self._models = self._components['registry']._create_loaded_models()
+
 			for key in self._models.keys():
 				self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 			
@@ -348,7 +353,8 @@ class System(object):
 						self._components['registry']._modules[db_info['code']]['db_id'] = db_info['id']
 						self._components['registry']._modules[db_info['code']]['state'] = db_info['state']
 
-				self._models = self._components['registry']._load_inherits()
+				#self._components['registry']._load_inheritables()
+				#models = self._components['registry']._create_loaded_models()
 
 				for key in self._models.keys():
 					self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)

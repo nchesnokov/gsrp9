@@ -1051,8 +1051,17 @@ class MCache(object):
 		#print('READ-SCHEMA:',row)
 		# self._clear()
 		# self._model = model
-		row = self._pool.get(model).modify(**kwargs)
-		return row
+		records = kwargs['records']
+		if type(records) in (list,tuple):
+			for record in records:
+				self._data = DCacheDict(record,model,self._cr,self._pool,self._uid,self._context,False)
+				self._save(True)
+		elif type(records) == dict:
+			self._data = DCacheDict(records,model,self._cr,self._pool,self._uid,self._context,False)
+			self._save(True)
+			
+		#row = self._pool.get(model).modify(**kwargs)
+		#return row
 		# self._data = DCacheDict(row,model,self._pool)
 		# self._getMeta()
 		# m = self._data._getData(self._data._data)

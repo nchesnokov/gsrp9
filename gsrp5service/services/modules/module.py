@@ -11,7 +11,7 @@ from os.path import join as opj
 from . import genddl
 from gsrp5service.orm.model import Model,ModelInherit,Access
 
-__all__ = ['install','uninstall','upgrade','sysinstall','sysupgrade','upgrademoduleslist','examples']
+__all__ = ['install','uninstall','upgrade','sysinstall','sysupgrade','upgrademoduleslist']
 
 _logger = logging.getLogger('listener.' + __name__)
 
@@ -30,40 +30,51 @@ class KeyBuffer(dict):
 def _install(cr,pool,uid,registry,able=None, modules = None):
 	log = []
 	_modules = []
+	_chunks = {}
 	if able is None or not able:
 		able= ['install']
 
 	if type(modules) == str:
 		if registry._modules[modules]['meta']['able'] in able:
 			_modules.append(modules)
+			_chunk[modules] = ['module','depends','env','view','example','data','demo','test','i18n']
+	elif type(modules) == dict:
+		mkeys = list(modules.keys())
+		for module in registry._depends:
+			if module in mkeys and registry._modules[module]['meta']['able'] in able:
+				_modules.append(module)
+		_chunks = modules
 	elif type(modules) in (tuple,list):
 		for module in registry._depends:
 			if module in modules and registry._modules[module]['meta']['able'] in able:
 				_modules.append(module)
+				_chunks[module] = ['module','depends','env','view','example','data','demo','test','i18n']
 	elif modules is None:
 		for module in registry._depends:
 			if registry._modules[module]['meta']['able'] in able:
 				_modules.append(module)
+				_chunks[module] = ['module','depends','env','view','example','data','demo','test','i18n']
 
-	if modules:
+	if _modules:
 		_logger.info('modules-install: %s' % (modules,))
 	depends = []
 	for _module in _modules:
-		for dep in registry._dependsinstall.install(_module):
-			if not dep in depends and registry._modules[dep]['meta']['able'] in able and ('state' in registry._modules[dep] and registry._modules[dep]['state'] in ('i','N',None)):
-				depends.append(dep)
+		if 'module' in _chunks[_module] and 'depends' in _chunks[_module]:
+			for dep in registry._dependsinstall.install(_module):
+				if not dep in depends and registry._modules[dep]['meta']['able'] in able and ('state' in registry._modules[dep] and registry._modules[dep]['state'] in ('i','N',None)):
+					depends.append(dep)
 
-		if not 'state' in registry._modules[_module] or registry._modules[_module]['state'] in (None,'N','i'):
+		if 'module' in _chunks[_module] and not 'state' in registry._modules[_module] or 'module' in _chunks[_module] and registry._modules[_module]['state'] in (None,'N','i') or ('state' in registry._modules[_module] and registry._modules[_module]['state'] == 'I' and ('module' not in _chunks[_module] or 'nomodule' not in _chunks[_module]) and  ('env' in _chunks[_module] or 'view' in _chunks[_module] or 'example' in _chunks[_module] or 'data' in _chunks[_module] or 'demo' in _chunks[_module] or 'test' in _chunks[_module] or 'i18n' in _chunks[_module])):
 			depends.append(_module)
 	
-	_logger.info('install-with-depends: %s' % (depends,))
+	_logger.info('modules-install-with-depends: %s' % (depends,))
 
 	if len(depends) == 0:
 		log.append('Not modules for install')
 	else:
 		for depend in depends:
 			registry._load_module(depend)
-			_installModule(cr,pool,uid,depend,registry)
+			_installModule(cr,pool,uid,depend,registry,_chunks[depend])
 
 			log.append([0,'module: <%s> successfull installed' % (depend,)])
 
@@ -89,50 +100,6 @@ def _install(cr,pool,uid,registry,able=None, modules = None):
 				pool[mkey] = registry._create_model(mkey,registry._getLastModule(mkey))
 			
 			log.append([0,'module: <%s> successfull reloaded' % (all_module,)])
-	
-	return log
-
-def _examples(cr,pool,uid,registry,able=None, modules = None):
-	log = []
-	_modules = []
-	if able is None or not able:
-		able= ['install']
-
-	if type(modules) == str:
-		if registry._modules[modules]['meta']['able'] in able:
-			_modules.append(modules)
-	elif type(modules) in (tuple,list):
-		for module in registry._depends:
-			if module in modules and registry._modules[module]['meta']['able'] in able:
-				_modules.append(module)
-	elif modules is None:
-		for module in registry._depends:
-			if registry._modules[module]['meta']['able'] in able:
-				_modules.append(module)
-
-	if modules:
-		_logger.info('modules-examples-install: %s' % (modules,))
-	depends = []
-	for _module in _modules:
-		for dep in registry._dependsinstall.install(_module):
-			if not dep in depends and registry._modules[dep]['meta']['able'] in able and ('state' in registry._modules[dep] and registry._modules[dep]['state'] in ('I',)):
-				depends.append(dep)
-
-		if not 'state' in registry._modules[_module] or registry._modules[_module]['state'] in ('I',):
-			depends.append(_module)
-	
-	_logger.info('install-examples-with-depends: %s' % (depends,))
-
-	if len(depends) == 0:
-		log.append('Not modules for install')
-	else:
-		for depend in depends:
-			registry._load_module(depend)
-			info = registry._modules[depend]
-			metas={'data':info['meta']['data'],'demo':info['meta']['demo']}
-			_loadFiles(cr,pool,uid,depend,registry._modules[depend],metas)	
-
-			log.append([0,'module: <%s> examples successfull installed' % (depend,)])
 	
 	return log
 
@@ -266,75 +233,109 @@ def _upgrade(cr,pool,uid,registry,able=None, modules = None):
 	
 	return log
 
-def _installModule(cr,pool,uid,name,registry):
+def _installModule(cr,pool,uid,name,registry,chunk):
 	_logger.info(" Module: %s Install" % (name,))
 
 	models = registry._modules[name]['lom']
 	meta = registry._modules[name]['meta']
 	sqls = []
-	for model in models:
-		mm_class_meta = registry._getMetaOfModulesModel(model,name)
-		if Model in mm_class_meta['bases']:	
-			mm_class = type(mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
-			type.__init__(mm_class,mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
-			m = mm_class()
-			#print('m:',m._name,list(m._columns.keys()))
-			if isinstance(m,Model):
-				sql=genddl.createTable(pool,m.modelInfo())
-				if len(sql) > 0:
-					sqls.append(sql)
-		elif ModelInherit in mm_class_meta['bases']:
-			mm_class = type(mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
-			type.__init__(mm_class,mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
-			mm = mm_class()
-			imodelinfo = mm_class().modelInfo()
-			if imodelinfo['inherit']:
-				sql=genddl.AlterTable(pool,imodelinfo)
-				if len(sql) > 0:
-					sqls.append(sql)
-
-	for model in models:
-		m = registry._create_model(model,name)
-		if isinstance(m,ModelInherit):	
-			continue
-		at = genddl.getReferencedConstraints(pool,model)
-		if len(at) > 0:
-			sqls.extend(at)
+	if 'module' in chunk:
+		for model in models:
+			mm_class_meta = registry._getMetaOfModulesModel(model,name)
+			if Model in mm_class_meta['bases']:	
+				mm_class = type(mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
+				type.__init__(mm_class,mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
+				m = mm_class()
+				#print('m:',m._name,list(m._columns.keys()))
+				if isinstance(m,Model):
+					sql=genddl.createTable(pool,m.modelInfo())
+					if len(sql) > 0:
+						sqls.append(sql)
+			elif ModelInherit in mm_class_meta['bases']:
+				mm_class = type(mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
+				type.__init__(mm_class,mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
+				mm = mm_class()
+				imodelinfo = mm_class().modelInfo()
+				if imodelinfo['inherit']:
+					sql=genddl.AlterTable(pool,imodelinfo)
+					if len(sql) > 0:
+						sqls.append(sql)
 	
-	if len(sqls) > 0:
-		_logger.info("Creating tables")
-		if len(sqls) == 1:
-			cr.execute(sqls[0])
-		else:
-			#cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
-			cr.execute(sqls)
-		try:
-			cr.commit()
-		except:
-			pass
-
-		_logger.info("Tables created")
-
-		registry._load_inherit(name)
+		for model in models:
+			m = registry._create_model(model,name)
+			if isinstance(m,ModelInherit):	
+				continue
+			at = genddl.getReferencedConstraints(pool,model)
+			if len(at) > 0:
+				sqls.extend(at)
+		
+		if len(sqls) > 0:
+			_logger.info("Creating tables")
+			if len(sqls) == 1:
+				cr.execute(sqls[0])
+			else:
+				#cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
+				cr.execute(sqls)
+			try:
+				cr.commit()
+			except:
+				pass
+	
+			_logger.info("Tables created")
+	
+			registry._load_inherit(name)
+			mm = registry._createModuleModels(name)
+	
+			for k in mm.keys():
+				pool[k] = mm[k]
+				pool[k]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+				registry._models[k] = pool[k]
+				
+	
+			if name == 'bc':
+				cr.execute('insert into ' + pool.get('bc.users')._table + ' (id,login,password,firstname,lastname,issuperuser) values(%s,%s,%s,%s,%s,%s)',(uid,'admin',pbkdf2_sha256.hash('admin'),'Administartor','System Administarator',True))
+				_load_list_allmodules(cr,pool,uid,registry)
+				registry._load_module(name)
+	
+	
+		_loadMetaData(cr,pool,uid,name,registry)
+	else:
 		mm = registry._createModuleModels(name)
 
 		for k in mm.keys():
 			pool[k] = mm[k]
 			pool[k]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 			registry._models[k] = pool[k]
-			
 
-		if name == 'bc':
-			cr.execute('insert into ' + pool.get('bc.users')._table + ' (id,login,password,firstname,lastname,issuperuser) values(%s,%s,%s,%s,%s,%s)',(uid,'admin',pbkdf2_sha256.hash('admin'),'Administartor','System Administarator',True))
-			_load_list_allmodules(cr,pool,uid,registry)
-			registry._load_module(name)
+	info = registry._modules[name]
 
+	metas = {}
+
+	if 'env' in chunk and 'env' in info['meta']:
+		metas['env'] = info['meta']['env']
 	
-	_loadMetaData(cr,pool,uid,name,registry)
-	info = registry._modules[depend]
-	metas = {'env':info['meta']['env'],'view':info['meta']['view'],'data':info['meta']['data'],'demo':info['meta']['demo'],'test':info['meta']['test']}
+	if 'view' in chunk and 'view' in info['meta']:
+		metas['view'] = info['meta']['view']
+	
+	if 'example' in chunk:
+		if 'data' in info['meta']:
+			metas['data'] = info['meta']['data']
+		if 'demo' in info['meta']:
+			metas['demo'] = info['meta']['demo']
+	else:
+		if 'data' in chunk and 'data' in info['meta']:
+			metas['data'] = info['meta']['data']
+		if 'demo' in chunk and 'demo' in info['meta']:
+			metas['demo'] = info['meta']['demo']
+	
+	if 'test' in chunk and 'test' in info['meta']:
+		metas['test'] = info['meta']['test']
+	
+	if 'i18n' in chunk and 'i18n' in info['meta']:
+		metas['i18n'] = info['meta']['i18n']
+		
 	_loadFiles(cr,pool,uid,name,registry._modules[name],metas)
-	_load_env(cr,pool,uid,name)
+	#_load_env(cr,pool,uid,name)
 	
 	cr.commit()
 	_logger.info("Module: %s Installed:" % (name,))
@@ -539,10 +540,6 @@ def upgrade(cr,pool,uid,registry,modules = None):
 
 def upgrademoduleslist(cr,pool,uid,registry,db):
 	return _upgrademoduleslist(cr,pool,uid,registry,db)
-
-def examples(cr,pool,uid,registry,modules = None):
-	return _examples(cr,pool,uid,registry,['install'],modules)
-
 
 # Load Meta
 
@@ -839,7 +836,10 @@ def _loadFiles(cr,pool,uid,name,info,metas):
 			if ext == 'xml':
 				if os.path.exists(opj(path,name,f)):
 					_logger.info("loading file: %s" % (opj(path,name,f),))
-					_loadXMLFile(cr,pool,uid,info,path,name,f)
+					if key == 'env':
+						_load_env(cr,pool,uid,name)
+					else:
+						_loadXMLFile(cr,pool,uid,info,path,name,f)
 					_logger.info("Loaded  file: %s" % (opj(path,name,f),))
 				else:
 					_logger.critical("Loading  file: %s not found" % (opj(path,name,f),))
@@ -873,7 +873,7 @@ def _convertFromYAML(cr,pool,uid,model,records):
 					recname = 'id'	
 				if record[key] is not None:
 					oid = pool.get(columns_info[key]['obj']).search(cr,pool,uid,[(recname,'=',record[key]),{},1])
-					#print('oid:',model,recname,key,record[key],oid)
+					print('oid:',model,recname,key,record[key],oid)
 					if len(oid) > 0:
 						record[key] = oid[0]
 			elif columns_info[key]['type'] == 'datetime' and columns_info[key]['timezone']:
@@ -886,18 +886,21 @@ def _convertFromYAML(cr,pool,uid,model,records):
 				_convertFromYAML(cr,pool,uid,columns_info[key]['obj'],record[key])
 
 def _loadCSVFile(cr,pool,uid,info,path,name,fl):
-	_buffer = KeyBuffer()
 	with open(opj(path,name,fl)) as csvafile:
+		_buffer = KeyBuffer()
 		areader = csv.DictReader(csvafile)
 		if not (areader.fieldnames == ['file','model'] or areader.fieldnames == ['model','file']):
-			msg = "Invalid format anotation CSV file: %s\n Must be ['model','file'] or ['file','model']" % (areader.fieldnames,)
-			Exception(msg) 
+			msg = "Invalid format anotation CSV file: %s\n Must be ['model','file'] or ['file','model']" % (areader.fieldnames,) 
 			_logger.critical(msg)
-
+			Exception(msg)
+		
+		i = 1
 		for row in areader:
 			model = row['model']
 			f = row['file']
 			ext = f.split('.')[-1]
+			print('FILE:',i,model,f,ext,row)
+			i+=1
 			if ext == 'csv':
 				with open(opj(path,name,f)) as csvfile:
 					_logger.info("    loading annotation file: %s" % (opj(path,name,f),))
@@ -918,7 +921,7 @@ def _loadCSVFile(cr,pool,uid,info,path,name,fl):
 				with open(opj(path,name,f)) as yamlfile:
 					_logger.info("    loading annotation file: %s" % (opj(path,name,f),))
 					records = yaml.load(yamlfile,Loader=Loader)					
-					#print('records:',records)
+					#print('records:',model,records)
 					parents = []
 					rows = []
 					mi = pool.get(model).modelInfo()
@@ -929,13 +932,17 @@ def _loadCSVFile(cr,pool,uid,info,path,name,fl):
 						rows = list(filter(lambda x:x[parent_id] is None,records))
 						_convertFromYAML(cr,pool,uid,model,rows)
 						while len(rows) > 0:
+							#print('RECORDS-0:',model,records)
 							ir = pool.get(model).modify(cr,pool,uid,rows,{})
+							cr.commit()
 							parents = list(map(lambda x:x[rec_name],rows))
 							rows = list(filter(lambda x:parent_id in x and x[parent_id] in parents,records))
 							_convertFromYAML(cr,pool,uid,model,rows)
 					else:
 						_convertFromYAML(cr,pool,uid,model,records)
+						#print('RECORDS-1:',model,records)
 						ir = pool.get(model).modify(cr,pool,uid,records,{})
+						#cr.commit()
 					_logger.info("    Loaded annotation file: %s - records:%s" % (opj(path,name,f),len(ir)))
 
 def _loadXMLFile(cr,pool,uid,info,path,name,fl):
