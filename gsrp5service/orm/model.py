@@ -107,6 +107,12 @@ class BaseModelInherit(object, metaclass = MetaModel):
 		return list(filter(lambda x: c[x]['type'] == 'selection',c.keys())) 
 
 	@property
+	def _iPropertyfields(self):
+		c = self.columnsInfo(attributes=['type'])
+		return list(filter(lambda x: c[x]['type'] == 'iProperty',c.keys())) 
+
+
+	@property
 	def _readonlyfields(self):
 		c = self.columnsInfo(attributes=['compute','type'])
 		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] or c[x]['type'] == 'referenced',c.keys())) 

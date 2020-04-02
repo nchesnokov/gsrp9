@@ -11,6 +11,21 @@ from gsrp5service.orm.model import Model, ModelInherit
 
 _logger = logging.getLogger('listener.' + __name__)
 
+
+def _remove_dirs(folders):
+	import os, shutil
+	if type(folders) == str:
+		folders = [folders]
+	for folder in folders: 
+		for filename in os.listdir(folder):
+			file_path = os.path.join(folder, filename)
+			try:
+				if os.path.isfile(file_path) or os.path.islink(file_path):
+					os.unlink(file_path)
+				elif os.path.isdir(file_path):
+					shutil.rmtree(file_path)
+			except Exception as e:
+				print('Failed to delete %s. Reason: %s' % (file_path, e))
 # download
 
 def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
@@ -92,34 +107,33 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 		a.close()
 
 
-def _download(cr,pool,uid,path,module,imodules,models,registry,ext='csv'):
-	a = open(opj(path,module,'demo','annotation-1.csv'),'a')
+def _download(cr,pool,uid,path,module,imodules,models,imodels,registry,ext='csv'):
+	_remove_dirs([opj(path,module,'demo','data'),opj(path,module,'demo','examples')])
+	
+	a = open(opj(path,module,'demo','annotation-1.csv'),'w')
 	aw = csv.DictWriter(a,['model','file'])
-	#aw.writeheader()
-	for model in models.keys():
-		fields = models[model]
-		m = pool.get(model)
-		columns_info = m.columnsInfo(attributes=['type','selections','timezone'])
-		sfs = list(filter(lambda x: x in fields,m._selectionfields))
+	aw.writeheader()
+	for model in models:
+		fields = list(model._columns.keys())
+		columns_info = model.columnsInfo(attributes=['type','selections','timezone'])
+		sfs = list(filter(lambda x: x in fields,model._selectionfields))
 		mfs = {}
 		cond = []
 		for sf in sfs:
-			#sls = tuple(map(lambda x: x[0],registry._getMetaOfModulesModel(model,module)['attrs']['_columns'][sf].selections))
-			#sls = tuple(map(lambda x: x[0],registry._getMetaOfModulesModel(model,registry._getFirstModule(model))['attrs']['_columns'][sf].selections))
-			sls = tuple(map(lambda x: x[0],registry._getMetaOfOnlyModulesModel(model,module)['attrs']['_columns'][sf].selections))
+			sls = tuple(map(lambda x: x[0],registry._models[model._name]['attrs']['_columns'][sf].selections))
 			cond.append((sf,'in',sls))
-			print('COND:',model,cond)
+			print('COND:',model._name,cond)
 			for k,v in columns_info[sf]['selections']:
 				mfs.setdefault(sf,{})[k] = v 
-		records = m.select(cr,pool,uid,fields,cond)
+		records = model.select(cr,pool,uid,fields,cond)
 		if len(records) > 0:
-			if m._name[:3] == 'md.':
+			if model._name[:3] == 'md.':
 				c = 'data'
 			else:
 				c = 'examples' 
 
-			_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,m._table+'.' + ext),));
-			#am = open(opj(path,module,'demo',c,m._table+'.' + ext),'w')
+			_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,model._table+'.' + ext),));
+			am = open(opj(path,module,'demo',c,model._table+'.' + ext),'w')
 			for row in records:
 				for key in row.keys():
 					if key == 'id':
@@ -151,17 +165,15 @@ def _download(cr,pool,uid,path,module,imodules,models,registry,ext='csv'):
 								row[key] = row[key].strpfime('%H:%M:%S')
 							
 			if ext == 'csv':
-				pass
-				#amw = csv.DictWriter(am,fields)
-				#amw.writeheader()
-				#amw.writerows(records)
-				#am.close()
+				amw = csv.DictWriter(am,fields)
+				amw.writeheader()
+				amw.writerows(records)
+				am.close()
 			elif ext == 'yaml':
-				pass
-				#with open(opj(path,module,'demo',c,m._table+'.yaml'),'w') as outfile:
-					#yaml.dump(records, outfile, Dumper=Dumper, default_flow_style=False)
+				with open(opj(path,module,'demo',c,model._table+'.yaml'),'w') as outfile:
+					yaml.dump(records, outfile, Dumper=Dumper, default_flow_style=False)
 			
-			aw.writerow({'model':m._name,'file':opj('demo',c,m._table+'.' + ext)})
+			aw.writerow({'model':model._name,'file':opj('demo',c,model._table+'.' + ext)})
 	a.close()
 	#_download_imodules(cr,pool,uid,path,module,imodules,registry,ext)
 # download
@@ -179,49 +191,33 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 	for module in filter(lambda x: not x in ('bc','system') and 'state' in registry._modules[x] and registry._modules[x]['state'] == 'I',modules):
 		path = registry._modules[module]['path']
 		imodules = {}
-		models = {}
-		for model in registry._momm[module].keys():
-			#print('MODULES:',model,registry._getModulesOfModel(model),registry._momm[module][model])
-			meta = registry._getMetaOfModulesModel(model,registry._getFirstModule(model))
-			#print('META:',meta)
-			if issubclass(type(meta['name'],meta['bases'],meta['attrs']),ModelInherit):
-				if '_inherit' in meta['attrs'] and meta['attrs']['_inherit']:
-					inherit = meta['attrs']['_inherit']
-					for k in inherit.keys():
-						if '_columns' in inherit[k]:
-							mi = pool.get(k)
-							m = pool.get(model)
-							ci = m.columnsInfo(inherit[k]['_columns'],['type','selections'])
-							ici = meta['attrs']['_columns']
-							c = list(filter(lambda x:  x in mi._storefields and ci[x]['type'] not in ('one2many','many2many','referenced') and ici[x]._type != 'iSelection',inherit[k]['_columns']))
-							c1 = list(filter(lambda x: ici[x]._type == 'iSelection',inherit[k]['_columns']))
-							vcl = {}
-							for c2 in c1:
-								vcl[c2] = list(map(lambda x: x[0],ci[c2]['selections']))
-							#print('SF:',c,c1)
-							if len(c) > 0 or len(c1) > 0:
-								if len(c) > 0:
-									models.setdefault(k,[]).extend(c)
-								if len(c1) > 0:
-									#fm = registry._getFirstModule(k)
-									#lm = registry._getLastModule(k)
-									#imodules.setdefault(fm,{})[k] = {'sf':c1,'fields':list(registry._getMetaOfModulesModel(k,fm)['attrs']['_columns'].keys())}
-									imodules.setdefault(module,{})[k] = {'sf':c1,'vcl':vcl,'fields':list(registry._getMetaOfModulesModel(k,module)['attrs']['_columns'].keys())}
-
+		models = []
+		imodels = []
+		module_models = registry._modules[module]['lom']
+		print('MODULE-MODELS:',module_models)
+		for model in module_models:
+			if model in pool:
+				mm = pool[model]
 			else:
-				if registry._getFirstModule(model) == module:
-					m = pool.get(model)
-					columns_info = m.columnsInfo(attributes=['type','selections','timezone'])
-					#print('AREA:',module,model)
-					fmc = list(meta['attrs']['_columns'].keys())
-					fields = ['id']
-					fields.extend(list(filter(lambda x: x in fmc and columns_info[x]['type'] not in ('one2many','many2many','referenced','iSelection'),m._storefields)))
-					models.setdefault(model,[]).extend(fields)
+				mm = registry._create_model(model)
+			if isinstance(mm,Model):
+				models.append(mm)
+			elif isinstance(mm,ModelInherit):
+				if hasattr(mm,'_inherit') and getattr(mm,'_inherit',None):
+					imodels.append(mm)
+					if hasattr(mm,'_inherit'):
+						inherit = getattr(mm,'_inherit',None)
+						if inherit:
+							for k in inherit.keys():
+								if '_columns' in inherit[k]:
+									first_module = registry._getFirstModule(k)
+									imodules.setdefault(first_module,{})[k] = inherit[k]['_columns']
+
 
 		if len(models) > 0 or len(imodules) > 0:
-			#print('MODELS:',module,imodules,models)
-			_download_imodules(cr,pool,uid,path,module,imodules,registry,ext=context['ext'])
-			_download(cr,pool,uid,path,module,imodules,models,registry,ext=context['ext'])
+			print('MODELS:',module,imodules,models,imodels)
+			#_download_imodules(cr,pool,uid,path,module,imodules,registry,ext=context['ext'])
+			_download(cr,pool,uid,path,module,imodules,models,imodels,registry,ext=context['ext'])
 			logmodules.append(module)
 
 	_logger.info('Download examples of modules %s' % (logmodules,))

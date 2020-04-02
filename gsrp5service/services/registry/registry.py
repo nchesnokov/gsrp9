@@ -153,6 +153,8 @@ class Registry(Service):
 					inherit = meta['attrs']['_inherit']
 					for key in inherit.keys():
 						self._inherit.setdefault(module,{}).setdefault(model,{})[key] = inherit[key]
+			
+			self._meta_with_inherits(module)
 
 	def _load_inheritables(self):
 		modules = [node.name for node in self._graph]
@@ -162,7 +164,7 @@ class Registry(Service):
 
 	def _load_inheritable(self,module):
 		if 'state' in self._modules[module] and self._modules[module]['state'] == 'I':
-			self._meta_with_inherits(module)
+			#self._meta_with_inherits(module)
 			self._meta_with_inherit(module)
 
 	
@@ -173,6 +175,15 @@ class Registry(Service):
 		obj = cls()
 		obj.__init__()				
 		return obj
+
+	def _create_first_module_model(self,model):
+		meta = self._modules[self._getFirstModule(model)]['class'][model]
+		cls = type(meta['name'],meta['bases'],meta['attrs'])
+		type.__init__(cls, meta['name'],meta['bases'],meta['attrs'])
+		obj = cls()
+		obj.__init__()				
+		return obj
+
 	
 	def _create_model(self,model):
 		meta = self._models[model]
@@ -359,8 +370,8 @@ class Registry(Service):
 			self._load_module(module)
 
 	def _download_module(self,module):
-		if module in self._momm:
-			del self._momm[module]
+		for model in self._modules[module]['lom']:
+			del self._models[model]
 
 		if 'loaded' in self._modules[module] or self._modules[module]['loaded']:
 			self._modules[module]['loaded'] = False

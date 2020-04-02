@@ -81,10 +81,11 @@ def _install(cr,pool,uid,registry,able=None, modules = None):
 		dep_modules = set()
 		for depend in depends:
 	
-			keys = list(registry._momm[depend].keys())
+			#keys = list(registry._momm[depend].keys())
+			keys = list(registry._modules[depend]['lom'])
 			for key in keys:
-				if 'inherit' in registry._momm[depend][key]['attrs'] and ModelInherit in registry._momm[depend][key]['bases']:
-					inherit = registry._momm[depend][key]['attrs']['inherit']
+				if 'inherit' in registry._modules[depend]['class'][key]['attrs'] and ModelInherit in registry._modules[depend]['class'][key]['bases']:
+					inherit = registry._modules[depend]['class'][key]['attrs']['inherit']
 					for ikey in inherit.keys():
 						m1 = registry._getLastModule(key)
 						if m1:
@@ -93,11 +94,11 @@ def _install(cr,pool,uid,registry,able=None, modules = None):
 			#log.append([0,'module: <%s> successfull installed' % (depend,)])
 	
 		all_modules = list(filter(lambda x:x != 'bc',depends+list(dep_modules)))
-		registry._reload_modules(all_modules)
+		# registry._reload_modules(all_modules)
 	
 		for all_module in filter(lambda x: x in all_modules,[node.name for node in registry._graph]):
-			for mkey in registry. _getModuleModels(all_module).keys():
-				pool[mkey] = registry._create_model(mkey,registry._getLastModule(mkey))
+			# for mkey in registry. _getModuleModels(all_module).keys():
+				# pool[mkey] = registry._create_model(mkey,registry._getLastModule(mkey))
 			
 			log.append([0,'module: <%s> successfull reloaded' % (all_module,)])
 	
@@ -284,7 +285,7 @@ def _installModule(cr,pool,uid,name,registry,chunk):
 			_logger.info("Tables created")
 	
 			registry._load_inherit(name)
-			mm = registry._createModuleModels(name)
+			mm = registry._create_module_models(name)
 	
 			for k in mm.keys():
 				pool[k] = mm[k]
@@ -300,7 +301,7 @@ def _installModule(cr,pool,uid,name,registry,chunk):
 	
 		_loadMetaData(cr,pool,uid,name,registry)
 	else:
-		mm = registry._createModuleModels(name)
+		mm = registry._create_module_models(name)
 
 		for k in mm.keys():
 			pool[k] = mm[k]
@@ -873,7 +874,7 @@ def _convertFromYAML(cr,pool,uid,model,records):
 					recname = 'id'	
 				if record[key] is not None:
 					oid = pool.get(columns_info[key]['obj']).search(cr,pool,uid,[(recname,'=',record[key]),{},1])
-					print('oid:',model,recname,key,record[key],oid)
+					#print('oid:',model,recname,key,record[key],oid)
 					if len(oid) > 0:
 						record[key] = oid[0]
 			elif columns_info[key]['type'] == 'datetime' and columns_info[key]['timezone']:
@@ -894,13 +895,10 @@ def _loadCSVFile(cr,pool,uid,info,path,name,fl):
 			_logger.critical(msg)
 			Exception(msg)
 		
-		i = 1
 		for row in areader:
 			model = row['model']
 			f = row['file']
 			ext = f.split('.')[-1]
-			print('FILE:',i,model,f,ext,row)
-			i+=1
 			if ext == 'csv':
 				with open(opj(path,name,f)) as csvfile:
 					_logger.info("    loading annotation file: %s" % (opj(path,name,f),))

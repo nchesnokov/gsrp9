@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:36:04+0000\n"
-"PO-Revision-Date: 2020-02-13 14:36:04+0000\n"
+"POT-Creation-Date: 2020-04-02 15:13:26+0300\n"
+"PO-Revision-Date: 2020-04-02 15:13:26+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -43,6 +43,22 @@ msgstr "Foreldre"
 msgid "Childs"
 msgstr "Childs"
 
+#: purchase.unit.categories-fullname:1 purchase.channel.categories-fullname:1
+#: purchase.segment.categories-fullname:1 purchase.area.categories-fullname:1
+#: purchase.region.categories-fullname:1
+#: purchase.division.categories-fullname:1
+#: purchase.subdivision.categories-fullname:1
+#: purchase.unit.channel.assigments-fullname:1
+#: purchase.unit.segment.assigments-fullname:1
+#: purchase.unit.area.assigments-fullname:1
+#: purchase.unit.region.assigments-fullname:1
+#: purchase.division.subdivision.assigments-fullname:1
+#: purchase.markets-fullname:1 purchase.teams-fullname:1
+#: purchase.order.categories-fullname:1 purchase.invoce.categories-fullname:1
+#: purchase.orders-fullname:1 purchase.invoices-fullname:1
+msgid "Full Name"
+msgstr "Fullt Navn"
+
 #: purchase.unit.categories-units:1
 msgid "Units"
 msgstr "Enheter"
@@ -79,15 +95,15 @@ msgstr "Selskaper"
 
 #: purchase.units-code:1 purchase.channels-code:1 purchase.segments-code:1
 #: purchase.areas-code:1 purchase.regions-code:1 purchase.divisions-code:1
-#: purchase.subdivisions-code:1 purchase.texts-code:1
-#: purchase.schema.texts-code:1
+#: purchase.subdivisions-code:1 purchase.pricing.group.levels-code:1
+#: purchase.texts-code:1 purchase.schema.texts-code:1
 msgid "Code"
 msgstr "Kode"
 
 #: purchase.units-descr:1 purchase.channels-descr:1 purchase.segments-descr:1
 #: purchase.areas-descr:1 purchase.regions-descr:1 purchase.divisions-descr:1
-#: purchase.subdivisions-descr:1 purchase.texts-descr:1
-#: purchase.schema.texts-descr:1
+#: purchase.subdivisions-descr:1 purchase.pricing.group.levels-descr:1
+#: purchase.texts-descr:1 purchase.schema.texts-descr:1
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -128,7 +144,8 @@ msgstr "Bestillinger"
 #: purchase.unit.segment.assigments-unit_id:1
 #: purchase.unit.area.assigments-unit_id:1
 #: purchase.unit.region.assigments-unit_id:1 purchase.markets-unit_id:1
-#: purchase.order.items-unit:1 purchase.invoice.items-unit:1
+#: purchase.order.items-unit:1 purchase.order.pricing.items-unit:1
+#: purchase.invoice.items-unit:1 purchase.invoice.pricing.items-unit:1
 #: md.purchase.product-unit:1
 msgid "Unit"
 msgstr "Enhet"
@@ -136,17 +153,6 @@ msgstr "Enhet"
 #: purchase.unit.channel.assigments-channel_id:1 purchase.markets-channel_id:1
 msgid "Channel"
 msgstr "Kanal"
-
-#: purchase.unit.channel.assigments-descr:1
-#: purchase.unit.segment.assigments-descr:1
-#: purchase.unit.area.assigments-descr:1
-#: purchase.unit.region.assigments-descr:1
-#: purchase.division.subdivision.assigments-descr:1
-#: purchase.schema.text.items-descr:1 purchase.order.texts-descr:1
-#: purchase.order.item.texts-descr:1 purchase.invoice.texts-descr:1
-#: purchase.invoice.item.texts-descr:1
-msgid "Unknown"
-msgstr "Ukjent"
 
 #: purchase.unit.segment.assigments-segment_id:1 purchase.markets-segment_id:1
 msgid "Segment"
@@ -169,11 +175,6 @@ msgstr "Divisjon"
 #: purchase.teams-subdivision_id:1
 msgid "Subdivision"
 msgstr "Inndeling"
-
-#: purchase.markets-fullname:1 purchase.teams-fullname:1
-#: purchase.orders-fullname:1 purchase.invoices-fullname:1
-msgid "Full Name"
-msgstr "Fullt Navn"
 
 #: purchase.schema.texts-usage:1
 msgid "Usage"
@@ -198,6 +199,12 @@ msgstr "Rekkefølge"
 #: purchase.schema.text.items-text_id:1
 msgid "Text"
 msgstr "Tekst"
+
+#: purchase.schema.text.items-descr:1 purchase.order.texts-descr:1
+#: purchase.order.item.texts-descr:1 purchase.invoice.texts-descr:1
+#: purchase.invoice.item.texts-descr:1
+msgid "Unknown"
+msgstr "Ukjent"
 
 #: purchase.order.types-otype:1 purchase.order.type.roles-type_id:1
 #: purchase.order.type.plates-type_id:1 purchase.order.type.items-type_id:1
@@ -292,10 +299,12 @@ msgstr "Sluttdato For Bestilling"
 msgid "Partner"
 msgstr "Partner"
 
-#: purchase.orders-currency:1 purchase.order.payment.schedules-currency:1
-#: purchase.order.items-currency:1
+#: purchase.orders-currency:1 purchase.order.pricing-currency:1
+#: purchase.order.payment.schedules-currency:1 purchase.order.items-currency:1
+#: purchase.order.pricing.items-currency:1
 #: purchase.order.item.payment.schedules-currency:1
-#: purchase.invoices-currency:1 purchase.invoice.items-currency:1
+#: purchase.invoices-currency:1 purchase.invoice.pricing-currency:1
+#: purchase.invoice.items-currency:1 purchase.invoice.pricing.items-currency:1
 #: md.purchase.product-currency:1
 msgid "Currency"
 msgstr "Valuta"
@@ -308,15 +317,21 @@ msgstr "Incoterms 1"
 msgid "Incoterms 2"
 msgstr "Incoterms 2"
 
+#: purchase.orders-pm:1
+msgid "Price Method"
+msgstr "Pris Metode"
+
 #: purchase.orders-state:1 purchase.order.output.plates-state:1
 #: purchase.order.item.output.plates-state:1 purchase.invoices-state:1
 msgid "State"
 msgstr "Staten"
 
-#: purchase.orders-amount:1 purchase.order.payment.schedules-amount:1
-#: purchase.order.items-amount:1
+#: purchase.orders-amount:1 purchase.order.pricing-amount:1
+#: purchase.order.payment.schedules-amount:1 purchase.order.items-amount:1
+#: purchase.order.pricing.items-amount:1
 #: purchase.order.item.payment.schedules-amount:1 purchase.invoices-amount:1
-#: purchase.invoice.items-amount:1
+#: purchase.invoice.pricing-amount:1 purchase.invoice.items-amount:1
+#: purchase.invoice.pricing.items-amount:1
 msgid "Amount"
 msgstr "Beløp"
 
@@ -338,15 +353,23 @@ msgstr "Recepture"
 msgid "Items"
 msgstr "Elementer"
 
+#: purchase.orders-pricing:1 purchase.order.items-pricing:1
+#: purchase.invoices-pricing:1 purchase.invoice.items-pricing:1
+msgid "Pricing"
+msgstr "Priser"
+
 #: purchase.orders-payments:1 purchase.order.items-payments:1
 msgid "Payments"
 msgstr "Betaling"
 
 #: purchase.order.texts-order_id:1 purchase.order.roles-order_id:1
+#: purchase.order.pricing-order_id:1
 #: purchase.order.payment.schedules-order_id:1
 #: purchase.order.output.plates-order_id:1
+#: purchase.order.pricing.items-item_id:1
 #: purchase.order.item.output.plates-item_id:1
 #: purchase.invoice.texts-invoice_id:1
+#: purchase.invoice.pricing.items-item_id:1
 msgid "Order"
 msgstr "Rekkefølge"
 
@@ -364,6 +387,36 @@ msgstr "Innhold"
 #: purchase.invoice.roles-patner_id:1 purchase.invoice.item.roles-patner_id:1
 msgid "Parther"
 msgstr "Parther"
+
+#: purchase.order.pricing-level:1 purchase.order.pricing.items-level:1
+#: purchase.invoice.pricing-level:1 purchase.invoice.pricing.items-level:1
+msgid "Level"
+msgstr "Nivå"
+
+#: purchase.order.pricing-cond:1 purchase.order.pricing.items-cond:1
+#: purchase.invoice.pricing-cond:1 purchase.invoice.pricing.items-cond:1
+msgid "Condition"
+msgstr "Tilstand"
+
+#: purchase.order.pricing-from_level:1
+#: purchase.order.pricing.items-from_level:1
+#: purchase.invoice.pricing-from_level:1
+#: purchase.invoice.pricing.items-from_level:1
+msgid "From Level"
+msgstr "Fra Nivå"
+
+#: purchase.order.pricing-to_level:1 purchase.order.pricing.items-to_level:1
+#: purchase.invoice.pricing-to_level:1
+#: purchase.invoice.pricing.items-to_level:1
+msgid "To Level"
+msgstr "Til Nivå"
+
+#: purchase.order.pricing-group_level:1
+#: purchase.order.pricing.items-group_level:1
+#: purchase.invoice.pricing-group_level:1
+#: purchase.invoice.pricing.items-group_level:1
+msgid "Group Level"
+msgstr "Gruppe Nivå"
 
 #: purchase.order.payment.schedules-schedule:1
 #: purchase.order.output.plates-schedule:1
@@ -407,12 +460,14 @@ msgstr "Antall"
 msgid "UoM"
 msgstr "UoM"
 
-#: purchase.order.items-price:1 purchase.invoice.items-price:1
+#: purchase.order.items-price:1 purchase.order.pricing.items-price:1
+#: purchase.invoice.items-price:1 purchase.invoice.pricing.items-price:1
 #: md.purchase.product-price:1
 msgid "Price"
 msgstr "Pris"
 
-#: purchase.order.items-uop:1 purchase.invoice.items-uop:1
+#: purchase.order.items-uop:1 purchase.order.pricing.items-uop:1
+#: purchase.invoice.items-uop:1 purchase.invoice.pricing.items-uop:1
 #: md.purchase.product-uop:1
 msgid "Unit Of Price"
 msgstr "Enhet For Pris"
@@ -450,6 +505,10 @@ msgstr "Vekt UoM"
 msgid "Delivery Schedule"
 msgstr "Leveransen"
 
+#: purchase.order.pricing.items-cop:1 purchase.invoice.pricing.items-cop:1
+msgid "Currency Of Price"
+msgstr "Valuta Pris"
+
 #: purchase.order.item.texts-item_id:1 purchase.order.item.roles-item_id:1
 #: purchase.order.item.payment.schedules-item_id:1
 #: purchase.invoice.item.texts-item_id:1 purchase.invoice.item.roles-item_id:1
@@ -465,7 +524,8 @@ msgstr "For Element"
 msgid "Date Of Invoice"
 msgstr "Dato For Faktura"
 
-#: purchase.invoice.roles-invoice_id:1 purchase.invoice.items-invoice_id:1
+#: purchase.invoice.pricing-invoice_id:1 purchase.invoice.roles-invoice_id:1
+#: purchase.invoice.items-invoice_id:1
 msgid "Invoice"
 msgstr "Faktura"
 

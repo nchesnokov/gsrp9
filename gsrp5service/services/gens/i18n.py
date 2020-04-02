@@ -62,8 +62,9 @@ def Area(cr, pool, uid, registry, modules = None,context={}):
 		path = registry._modules[module]['path']
 		models = []
 		imodels = []
-		for model in registry._momm[module].keys():
-			mm = registry._create_model(model,registry._getFirstModule(model))
+		module_models = registry._create_module_models(module)
+		for model in module_models.keys():
+			mm = module_models[model]
 			if isinstance(mm,Model):
 				models.append(mm)
 			elif isinstance(mm,ModelInherit):

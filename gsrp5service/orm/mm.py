@@ -2397,7 +2397,10 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 		if 'id' in record and record['id']:
 			ctx = context.copy()
 			ctx['FETCH'] = 'RAW'
-			record2 = read(self, cr, pool, uid, record['id'], self._selectablefields, ctx)[0]
+			record2 = None
+			record21 = read(self, cr, pool, uid, record['id'], self._selectablefields, ctx)
+			if len(record21) > 0:
+				record2 = record21[0]
 	
 		if record2:
 			k1 = set(list(record.keys()))
@@ -2405,7 +2408,12 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			uk = list(set(k1).intersection(set(k2)))
 			ik = list(set(k1)- set(k2))
 			dk = list(set(k2)- set(k1))
-			
+		else:
+			k1 = set()
+			k2 = set()
+			uk = list()
+			ik = list()
+			dk = list()
 			
 		for k in uk:
 			if record[k] != record2[k]:
