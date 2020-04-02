@@ -310,7 +310,7 @@ class System(object):
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'])
 
 		if self._cursor.open():
-			self._components['registry']._load_modules
+			self._components['registry']._load_modules()
 			self._models = self._components['registry']._create_loaded_models()
 
 			for key in self._models.keys():

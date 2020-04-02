@@ -165,6 +165,14 @@ class Registry(Service):
 			self._meta_with_inherit(module)
 
 	
+	def _create_module_model(self,module,model):
+		meta = self._modules[module]['class'][model]
+		cls = type(meta['name'],meta['bases'],meta['attrs'])
+		type.__init__(cls, meta['name'],meta['bases'],meta['attrs'])
+		obj = cls()
+		obj.__init__()				
+		return obj
+	
 	def _create_model(self,model):
 		meta = self._models[model]
 		cls = type(meta['name'],meta['bases'],meta['attrs'])
@@ -454,7 +462,7 @@ class Registry(Service):
 	def _create_module_models(self,module):
 		
 		r = {}
-		for model in self._momm[module].keys():
-			r[model] = self._create_model(model,module)
+		for model in self._modules[module]['lom']:
+			r[model] = self._create_module_model(module,model)
 		
 		return r
