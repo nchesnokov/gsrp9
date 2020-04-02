@@ -143,6 +143,7 @@ class Registry(Service):
 			for model in self._modules[module]['lom']:
 				self._models[model] = self._copyMeta(self._modules[module]['class'][model])
 				meta = self._models[model]
+				self._setModuleOfModel(model,module)
 				if '_inherits' in meta['attrs'] and meta['attrs']['_inherits'] and len(meta['attrs']['_inherits']) > 0:
 					inherits = meta['attrs']['_inherits']
 					for key in inherits.keys():

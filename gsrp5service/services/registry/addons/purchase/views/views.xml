@@ -2460,8 +2460,8 @@
               <field name="weight"/>
               <field name="weight_total"/>
               <field name="weight_uom"/>
-              <field name="pricing"/>
               <field name="delivery_schedules"/>
+              <field name="pricing"/>
               <field name="roles"/>
               <field name="texts"/>
               <field name="plates"/>
@@ -2494,8 +2494,8 @@
               <field name="weight"/>
               <field name="weight_total"/>
               <field name="weight_uom"/>
-              <field name="pricing"/>
               <field name="delivery_schedules"/>
+              <field name="pricing"/>
               <field name="roles"/>
               <field name="texts"/>
               <field name="plates"/>
@@ -2845,6 +2845,7 @@
               <field name="vat_amount"/>
               <field name="total_amount"/>
               <field name="items"/>
+              <field name="pricing"/>
               <field name="roles"/>
               <field name="texts"/>
               <field name="note"/>
@@ -2925,6 +2926,7 @@
               <field name="vat_amount"/>
               <field name="total_amount"/>
               <field name="items"/>
+              <field name="pricing"/>
               <field name="roles"/>
               <field name="texts"/>
             </list>
@@ -3030,6 +3032,54 @@
             </find>
           </column>
         </record>
+        <record id="view.purchase.invoice.pricing.form">
+          <column name="name">view.purchase.invoice.pricing.form</column>
+          <column name="model">purchase.invoice.pricing</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="invoice_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.invoice.pricing.list">
+          <column name="name">view.purchase.invoice.pricing.list</column>
+          <column name="model">purchase.invoice.pricing</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="invoice_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.invoice.pricing.m2mlist">
+          <column name="name">view.purchase.invoice.pricing.m2mlist</column>
+          <column name="model">purchase.invoice.pricing</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="invoice_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </m2mlist>
+          </column>
+        </record>
         <record id="view.purchase.invoice.texts.form">
           <column name="name">view.purchase.invoice.texts.form</column>
           <column name="model">purchase.invoice.texts</column>
@@ -3118,6 +3168,7 @@
               <field name="vat_amount"/>
               <field name="total_amount"/>
               <field name="delivery_schedules"/>
+              <field name="pricing"/>
               <field name="roles"/>
               <field name="texts"/>
               <field name="note"/>
@@ -3142,6 +3193,7 @@
               <field name="vat_amount"/>
               <field name="total_amount"/>
               <field name="delivery_schedules"/>
+              <field name="pricing"/>
               <field name="roles"/>
               <field name="texts"/>
             </list>
@@ -3237,6 +3289,66 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.purchase.invoice.pricing.items.form">
+          <column name="name">view.purchase.invoice.pricing.items.form</column>
+          <column name="model">purchase.invoice.pricing.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="price"/>
+              <field name="cop"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.purchase.invoice.pricing.items.list">
+          <column name="name">view.purchase.invoice.pricing.items.list</column>
+          <column name="model">purchase.invoice.pricing.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="price"/>
+              <field name="cop"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.purchase.invoice.pricing.items.m2mlist">
+          <column name="name">view.purchase.invoice.pricing.items.m2mlist</column>
+          <column name="model">purchase.invoice.pricing.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="price"/>
+              <field name="cop"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </m2mlist>
+          </column>
+        </record>
         <record id="view.purchase.invoce.item.delivery.schedules.form">
           <column name="name">view.purchase.invoce.item.delivery.schedules.form</column>
           <column name="model">purchase.invoce.item.delivery.schedules</column>
@@ -3328,33 +3440,6 @@
             </form>
           </column>
         </record>
-        <record id="view.md.purchase.product.inherit.form.inherit.md.recepture">
-          <column name="view_id">view.md.recepture.form</column>
-          <column name="name">view.md.purchase.product.inherit.form.inherit.md.recepture</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="usage"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.purchase.product.inherit.form.inherit.md.type.items">
-          <column name="view_id">view.md.type.items.form</column>
-          <column name="name">view.md.purchase.product.inherit.form.inherit.md.type.items</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="usage"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.purchase.product.inherit.form.inherit.md.type.plates">
-          <column name="view_id">view.md.type.plates.form</column>
-          <column name="name">view.md.purchase.product.inherit.form.inherit.md.type.plates</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="usage"/>
-            </form>
-          </column>
-        </record>
         <record id="view.md.purchase.product.inherit.list.inherit.md.product">
           <column name="view_id">view.md.product.list</column>
           <column name="name">view.md.purchase.product.inherit.list.inherit.md.product</column>
@@ -3362,60 +3447,6 @@
             <list>
               <field name="purchase"/>
             </list>
-          </column>
-        </record>
-        <record id="view.md.purchase.product.inherit.list.inherit.md.recepture">
-          <column name="view_id">view.md.recepture.list</column>
-          <column name="name">view.md.purchase.product.inherit.list.inherit.md.recepture</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="usage"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.purchase.product.inherit.list.inherit.md.type.items">
-          <column name="view_id">view.md.type.items.list</column>
-          <column name="name">view.md.purchase.product.inherit.list.inherit.md.type.items</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="usage"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.purchase.product.inherit.list.inherit.md.type.plates">
-          <column name="view_id">view.md.type.plates.list</column>
-          <column name="name">view.md.purchase.product.inherit.list.inherit.md.type.plates</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="usage"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.purchase.product.inherit.search.inherit.md.recepture">
-          <column name="view_id">view.md.recepture.search</column>
-          <column name="name">view.md.purchase.product.inherit.search.inherit.md.recepture</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="usage"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.purchase.product.inherit.search.inherit.md.type.items">
-          <column name="view_id">view.md.type.items.search</column>
-          <column name="name">view.md.purchase.product.inherit.search.inherit.md.type.items</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="usage"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.purchase.product.inherit.search.inherit.md.type.plates">
-          <column name="view_id">view.md.type.plates.search</column>
-          <column name="name">view.md.purchase.product.inherit.search.inherit.md.type.plates</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="usage"/>
-            </search>
           </column>
         </record>
       </records>

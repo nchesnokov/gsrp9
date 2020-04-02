@@ -16,7 +16,7 @@ def ColumnsView(level, info, columns, view):
 	indent = TAB * level
 	exclude = EXCLUDE[view]
 	for column in columns:
-		if info[column]['type'] in exclude or info[column]['type'] == 'iSelection':
+		if info[column]['type'] in exclude or info[column]['type'] == 'iProperty':
 			continue
 		b.write((indent + '<field name="%s"/>\n' % (column, )).encode('utf-8'))
 
@@ -301,30 +301,30 @@ def iViewGeo(level,modelinfo,columns):
 	b.write((indent + '</geo>\n').encode('utf-8'))
 
 
-def RecordView(level,model,modelinfo,columns,view):
+def RecordView(level,module,model,modelinfo,columns,view):
 
 	indent = TAB * level
-	b.write((indent + '<record id="%s">\n' % ('view.' + model + '.' + view,)).encode('utf-8'))
+	b.write((indent + '<record id="%s">\n' % ('view.' + model._name + '.' + view,)).encode('utf-8'))
 
-	b.write((indent + TAB + '<column name="name">%s</column>\n' % ('view.' + model+'.' + view,)).encode('utf-8'))
+	b.write((indent + TAB + '<column name="name">%s</column>\n' % ('view.' + model._name+'.' + view,)).encode('utf-8'))
 
-	b.write((indent + TAB + '<column name="model">%s</column>\n' % (model,)).encode('utf-8'))
+	b.write((indent + TAB + '<column name="model">%s</column>\n' % (model._name,)).encode('utf-8'))
 	b.write((indent + TAB + '<column name="arch" type="Xml">\n').encode('utf-8'))
 	VIEWSGEN[view](level+2,modelinfo,columns)
 	b.write((indent + TAB + '</column>\n').encode('utf-8'))
 	b.write((indent + '</record>\n').encode('utf-8'))
 
-def iRecordView(level,model,modelinfo,columns,view,registry):
+def iRecordView(level,module,model,modelinfo,columns,view,registry):
 
 	indent = TAB * level
 	columnsinfo = modelinfo['columns']
 	for key in modelinfo['inherit'].keys():
-		ki = registry._create_model(key,registry._getLastModule(key)).modelInfo()
-		if not isAllow(view,ki) or len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE[view] and columnsinfo[x]['type'] != 'iSelection' ,modelinfo['inherit'][key]['_columns']))) == 0:
+		ki = registry._create_module_model(registry._getFirstModule(key),key).modelInfo()
+		if not isAllow(view,ki) or len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE[view] and columnsinfo[x]['type'] != 'iProperty' ,modelinfo['inherit'][key]['_columns']))) == 0:
 			continue
-		b.write((indent + '<record id="%s">\n' % ('view.' + model + '.' + view + '.inherit.' + key,)).encode('utf-8'))
+		b.write((indent + '<record id="%s">\n' % ('view.' + model._name + '.' + view + '.inherit.' + key,)).encode('utf-8'))
 		b.write((indent + TAB + '<column name="view_id">%s</column>\n' % ('view.' + key + '.' + view,)).encode('utf-8'))
-		b.write((indent + TAB + '<column name="name">%s</column>\n' % ('view.' + model + '.' + view + '.inherit.' + key ,)).encode('utf-8'))
+		b.write((indent + TAB + '<column name="name">%s</column>\n' % ('view.' + model._name + '.' + view + '.inherit.' + key ,)).encode('utf-8'))
 
 		b.write((indent + TAB + '<column name="arch" type="Xml">\n').encode('utf-8'))
 
@@ -332,16 +332,16 @@ def iRecordView(level,model,modelinfo,columns,view,registry):
 		b.write((indent + TAB + '</column>\n').encode('utf-8'))
 		b.write((indent + '</record>\n').encode('utf-8'))
 
-def Views(level,model,modelinfo,columns):
+def Views(level,module,model,modelinfo,columns):
 	columnsinfo = modelinfo['columns']
 	for view in VIEWSGEN.keys():
-		if isAllow(view,modelinfo) and len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE[view] and columnsinfo[x]['type'] != 'iSelection',columns))) > 0:
-			RecordView(level,model,modelinfo,columns,view)
+		if isAllow(view,modelinfo) and len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE[view] and columnsinfo[x]['type'] != 'iProperty',columns))) > 0:
+			RecordView(level,module,model,modelinfo,columns,view)
 
-def iViews(level,model,modelinfo,columns,registry):
+def iViews(level,module,model,modelinfo,columns,registry):
 	for view in IVIEWSGEN.keys():
 		if view in modelinfo['views']:
-			iRecordView(level,model,modelinfo,columns,view,registry)
+			iRecordView(level,module,model,modelinfo,columns,view,registry)
 
 
 def Records(level,pool,registry,module,models):
@@ -353,7 +353,7 @@ def Records(level,pool,registry,module,models):
 	for model in models:
 		modelinfo = model.modelInfo()
 		columns = modelinfo['columns']
-		Views(level+1,model._name,modelinfo,columns)
+		Views(level+1,module,model,modelinfo,columns)
 
 	b.write((indent + '</records>\n').encode('utf-8'))
 
@@ -367,7 +367,7 @@ def iRecords(level,pool,registry,module,models):
 		modelinfo = model.modelInfo()
 
 		columns = modelinfo['columns']
-		iViews(level+1,model._name,modelinfo,columns,registry)
+		iViews(level+1,module,model,modelinfo,columns,registry)
 	
 	b.write((indent + '</records>\n').encode('utf-8'))
 
