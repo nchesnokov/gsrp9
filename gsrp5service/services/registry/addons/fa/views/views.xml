@@ -1238,6 +1238,28 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.fa.fiscal.position.tax.template.search">
+          <column name="name">view.fa.fiscal.position.tax.template.search</column>
+          <column name="model">fa.fiscal.position.tax.template</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="position_id"/>
+              <field name="tax_src_id"/>
+              <field name="tax_dest_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.tax.template.find">
+          <column name="name">view.fa.fiscal.position.tax.template.find</column>
+          <column name="model">fa.fiscal.position.tax.template</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="position_id"/>
+              <field name="tax_src_id"/>
+              <field name="tax_dest_id"/>
+            </find>
+          </column>
+        </record>
         <record id="view.fa.fiscal.position.account.template.form">
           <column name="name">view.fa.fiscal.position.account.template.form</column>
           <column name="model">fa.fiscal.position.account.template</column>
@@ -1269,6 +1291,28 @@
               <field name="account_src_id"/>
               <field name="account_dest_id"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.account.template.search">
+          <column name="name">view.fa.fiscal.position.account.template.search</column>
+          <column name="model">fa.fiscal.position.account.template</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="position_id"/>
+              <field name="account_src_id"/>
+              <field name="account_dest_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.fa.fiscal.position.account.template.find">
+          <column name="name">view.fa.fiscal.position.account.template.find</column>
+          <column name="model">fa.fiscal.position.account.template</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="position_id"/>
+              <field name="account_src_id"/>
+              <field name="account_dest_id"/>
+            </find>
           </column>
         </record>
         <record id="view.fa.reconcile.model.template.form">

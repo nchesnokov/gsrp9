@@ -40,6 +40,46 @@
           <column name="note">Model bc.users grant crw</column>
           <column name="group_id">bc.crw</column>
         </record>
+        <record id="bc.area.messages.readonly">
+          <column name="name">bc.area.messages.readonly</column>
+          <column name="note">Model bc.area.messages grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.area.messages.nodrop">
+          <column name="name">bc.area.messages.nodrop</column>
+          <column name="note">Model bc.area.messages grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.area.messages.full">
+          <column name="name">bc.area.messages.full</column>
+          <column name="note">Model bc.area.messages grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.area.messages.crw">
+          <column name="name">bc.area.messages.crw</column>
+          <column name="note">Model bc.area.messages grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.messages.readonly">
+          <column name="name">bc.messages.readonly</column>
+          <column name="note">Model bc.messages grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.messages.nodrop">
+          <column name="name">bc.messages.nodrop</column>
+          <column name="note">Model bc.messages grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.messages.full">
+          <column name="name">bc.messages.full</column>
+          <column name="note">Model bc.messages grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.messages.crw">
+          <column name="name">bc.messages.crw</column>
+          <column name="note">Model bc.messages grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
         <record id="bc.langs.readonly">
           <column name="name">bc.langs.readonly</column>
           <column name="note">Model bc.langs grant readonly</column>
@@ -561,6 +601,106 @@
         <record id="bc.bc.users.crw">
           <column name="access_id">bc.users.crw</column>
           <column name="model_id">bc.users</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.area.messages.readonly">
+          <column name="access_id">bc.area.messages.readonly</column>
+          <column name="model_id">bc.area.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.area.messages.nodrop">
+          <column name="access_id">bc.area.messages.nodrop</column>
+          <column name="model_id">bc.area.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.area.messages.full">
+          <column name="access_id">bc.area.messages.full</column>
+          <column name="model_id">bc.area.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.area.messages.crw">
+          <column name="access_id">bc.area.messages.crw</column>
+          <column name="model_id">bc.area.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.messages.readonly">
+          <column name="access_id">bc.messages.readonly</column>
+          <column name="model_id">bc.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.messages.nodrop">
+          <column name="access_id">bc.messages.nodrop</column>
+          <column name="model_id">bc.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.messages.full">
+          <column name="access_id">bc.messages.full</column>
+          <column name="model_id">bc.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.messages.crw">
+          <column name="access_id">bc.messages.crw</column>
+          <column name="model_id">bc.messages</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

@@ -34,6 +34,10 @@ def _install(cr,pool,uid,registry,able=None, modules = None):
 	if able is None or not able:
 		able= ['install']
 
+
+	if modules is None:
+		modules = list(filter(lambda x:registry._modules[x]['meta']['able'] in able,registry._modules.keys()))
+
 	if type(modules) == str:
 		if registry._modules[modules]['meta']['able'] in able:
 			_modules.append(modules)
@@ -279,10 +283,8 @@ def _installModule(cr,pool,uid,name,registry,chunk):
 			else:
 				#cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
 				cr.execute(sqls)
-			try:
-				cr.commit()
-			except:
-				pass
+
+			cr.commit()
 	
 			_logger.info("Tables created")
 	
@@ -298,7 +300,7 @@ def _installModule(cr,pool,uid,name,registry,chunk):
 			if name == 'bc':
 				cr.execute('insert into ' + pool.get('bc.users')._table + ' (id,login,password,firstname,lastname,issuperuser) values(%s,%s,%s,%s,%s,%s)',(uid,'admin',pbkdf2_sha256.hash('admin'),'Administartor','System Administarator',True))
 				_load_list_allmodules(cr,pool,uid,registry)
-				registry._load_module(name)
+				#registry._load_module(name)
 	
 	
 		_loadMetaData(cr,pool,uid,name,registry)
@@ -338,7 +340,7 @@ def _installModule(cr,pool,uid,name,registry,chunk):
 		metas['i18n'] = info['meta']['i18n']
 		
 	_loadFiles(cr,pool,uid,name,registry._modules[name],metas)
-	#_load_env(cr,pool,uid,name)
+	_load_env(cr,pool,uid,name)
 	
 	cr.commit()
 	_logger.info("Module: %s Installed:" % (name,))
@@ -776,6 +778,7 @@ def _load_env_column(cr,pool,uid,model,column):
 	obj = pool.get(m.columnsInfo([column],['obj'])[column]['obj'])
 	recname = obj._getRecNameName()
 	r = obj.select(cr,pool,uid,[recname])
+	#print('R:',model,column,obj,r)
 	for k in r:
 		v[k[recname]] = k['id']
 	
@@ -842,7 +845,8 @@ def _loadFiles(cr,pool,uid,name,info,metas):
 				if os.path.exists(opj(path,name,f)):
 					_logger.info("loading file: %s" % (opj(path,name,f),))
 					if key == 'env':
-						_load_env(cr,pool,uid,name)
+						pass
+						#_load_env(cr,pool,uid,name)
 					else:
 						_loadXMLFile(cr,pool,uid,info,path,name,f)
 					_logger.info("Loaded  file: %s" % (opj(path,name,f),))

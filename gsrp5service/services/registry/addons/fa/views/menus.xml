@@ -56,6 +56,14 @@
           <column name="name">action.fa.fiscal.position.template.search</column>
           <column name="ta">View</column>
         </record>
+        <record id="action.fa.fiscal.position.tax.template.search">
+          <column name="name">action.fa.fiscal.position.tax.template.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.fa.fiscal.position.account.template.search">
+          <column name="name">action.fa.fiscal.position.account.template.search</column>
+          <column name="ta">View</column>
+        </record>
         <record id="action.fa.reconcile.model.template.search">
           <column name="name">action.fa.reconcile.model.template.search</column>
           <column name="ta">View</column>
@@ -112,6 +120,14 @@
         </record>
         <record id="action.fa.fiscal.position.template.report">
           <column name="name">action.fa.fiscal.position.template.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.fa.fiscal.position.tax.template.report">
+          <column name="name">action.fa.fiscal.position.tax.template.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.fa.fiscal.position.account.template.report">
+          <column name="name">action.fa.fiscal.position.account.template.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.fa.reconcile.model.template.report">
@@ -171,6 +187,14 @@
         <record id="view.action.fa.fiscal.position.template.search">
           <column name="action_id">action.fa.fiscal.position.template.search</column>
           <column name="view_id">view.fa.fiscal.position.template.search</column>
+        </record>
+        <record id="view.action.fa.fiscal.position.tax.template.search">
+          <column name="action_id">action.fa.fiscal.position.tax.template.search</column>
+          <column name="view_id">view.fa.fiscal.position.tax.template.search</column>
+        </record>
+        <record id="view.action.fa.fiscal.position.account.template.search">
+          <column name="action_id">action.fa.fiscal.position.account.template.search</column>
+          <column name="view_id">view.fa.fiscal.position.account.template.search</column>
         </record>
         <record id="view.action.fa.reconcile.model.template.search">
           <column name="action_id">action.fa.reconcile.model.template.search</column>
@@ -266,6 +290,20 @@
           <column name="infile">infile_fa_fiscal_position_template.docx</column>
           <column name="outfile">outfile_fa_fiscal_position_template.docx</column>
         </record>
+        <record id="bc.ui.report.docx.fa.fiscal.position.tax.template">
+          <column name="name">bc.ui.report.docx.fa.fiscal.position.tax.template</column>
+          <column name="label">Template Tax Fiscal Position</column>
+          <column name="report">report_fa_fiscal_position_tax_template</column>
+          <column name="infile">infile_fa_fiscal_position_tax_template.docx</column>
+          <column name="outfile">outfile_fa_fiscal_position_tax_template.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.fa.fiscal.position.account.template">
+          <column name="name">bc.ui.report.docx.fa.fiscal.position.account.template</column>
+          <column name="label">Template Account Fiscal Mapping</column>
+          <column name="report">report_fa_fiscal_position_account_template</column>
+          <column name="infile">infile_fa_fiscal_position_account_template.docx</column>
+          <column name="outfile">outfile_fa_fiscal_position_account_template.docx</column>
+        </record>
         <record id="bc.ui.report.docx.fa.reconcile.model.template">
           <column name="name">bc.ui.report.docx.fa.reconcile.model.template</column>
           <column name="label">Reconcile Model Template</column>
@@ -329,6 +367,14 @@
         <record id="report.action.fa.fiscal.position.template.report">
           <column name="action_id">action.fa.fiscal.position.template.report</column>
           <column name="report_id">bc.ui.report.docx.fa.fiscal.position.template</column>
+        </record>
+        <record id="report.action.fa.fiscal.position.tax.template.report">
+          <column name="action_id">action.fa.fiscal.position.tax.template.report</column>
+          <column name="report_id">bc.ui.report.docx.fa.fiscal.position.tax.template</column>
+        </record>
+        <record id="report.action.fa.fiscal.position.account.template.report">
+          <column name="action_id">action.fa.fiscal.position.account.template.report</column>
+          <column name="report_id">bc.ui.report.docx.fa.fiscal.position.account.template</column>
         </record>
         <record id="report.action.fa.reconcile.model.template.report">
           <column name="action_id">action.fa.reconcile.model.template.report</column>
@@ -436,20 +482,36 @@
           <column name="sequence">110</column>
           <column name="action_id">action.fa.fiscal.position.template.search</column>
           </record>
-          <record id="ui.menu.fa.reconcile.model.template.search">
+          <record id="ui.menu.fa.fiscal.position.tax.template.search">
           <column name="sequence">12</column>
+            <column name="name">ui.menu.fa.fiscal.position.tax.template.search</column>
+            <column name="label">Template Tax Fiscal Position</column>
+          <column name="parent_id">ui.menu.fa</column>
+          <column name="sequence">120</column>
+          <column name="action_id">action.fa.fiscal.position.tax.template.search</column>
+          </record>
+          <record id="ui.menu.fa.fiscal.position.account.template.search">
+          <column name="sequence">13</column>
+            <column name="name">ui.menu.fa.fiscal.position.account.template.search</column>
+            <column name="label">Template Account Fiscal Mapping</column>
+          <column name="parent_id">ui.menu.fa</column>
+          <column name="sequence">130</column>
+          <column name="action_id">action.fa.fiscal.position.account.template.search</column>
+          </record>
+          <record id="ui.menu.fa.reconcile.model.template.search">
+          <column name="sequence">14</column>
             <column name="name">ui.menu.fa.reconcile.model.template.search</column>
             <column name="label">Reconcile Model Template</column>
           <column name="parent_id">ui.menu.fa</column>
-          <column name="sequence">120</column>
+          <column name="sequence">140</column>
           <column name="action_id">action.fa.reconcile.model.template.search</column>
           </record>
           <record id="ui.menu.fa.accounts.payment.method.search">
-          <column name="sequence">13</column>
+          <column name="sequence">15</column>
             <column name="name">ui.menu.fa.accounts.payment.method.search</column>
             <column name="label">ModelPayment Methods</column>
           <column name="parent_id">ui.menu.fa</column>
-          <column name="sequence">130</column>
+          <column name="sequence">150</column>
           <column name="action_id">action.fa.accounts.payment.method.search</column>
           </record>
       </records>
@@ -557,20 +619,36 @@
           <column name="sequence">110</column>
           <column name="action_id">action.fa.fiscal.position.template.report</column>
           </record>
-          <record id="ui.menu.fa.reconcile.model.template.report">
+          <record id="ui.menu.fa.fiscal.position.tax.template.report">
           <column name="sequence">12</column>
+            <column name="name">ui.menu.fa.fiscal.position.tax.template.report</column>
+            <column name="label">Template Tax Fiscal Position</column>
+          <column name="parent_id">ui.menu.fa.report</column>
+          <column name="sequence">120</column>
+          <column name="action_id">action.fa.fiscal.position.tax.template.report</column>
+          </record>
+          <record id="ui.menu.fa.fiscal.position.account.template.report">
+          <column name="sequence">13</column>
+            <column name="name">ui.menu.fa.fiscal.position.account.template.report</column>
+            <column name="label">Template Account Fiscal Mapping</column>
+          <column name="parent_id">ui.menu.fa.report</column>
+          <column name="sequence">130</column>
+          <column name="action_id">action.fa.fiscal.position.account.template.report</column>
+          </record>
+          <record id="ui.menu.fa.reconcile.model.template.report">
+          <column name="sequence">14</column>
             <column name="name">ui.menu.fa.reconcile.model.template.report</column>
             <column name="label">Reconcile Model Template</column>
           <column name="parent_id">ui.menu.fa.report</column>
-          <column name="sequence">120</column>
+          <column name="sequence">140</column>
           <column name="action_id">action.fa.reconcile.model.template.report</column>
           </record>
           <record id="ui.menu.fa.accounts.payment.method.report">
-          <column name="sequence">13</column>
+          <column name="sequence">15</column>
             <column name="name">ui.menu.fa.accounts.payment.method.report</column>
             <column name="label">ModelPayment Methods</column>
           <column name="parent_id">ui.menu.fa.report</column>
-          <column name="sequence">130</column>
+          <column name="sequence">150</column>
           <column name="action_id">action.fa.accounts.payment.method.report</column>
           </record>
       </records>

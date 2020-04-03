@@ -92,6 +92,10 @@
           <column name="name">action.md.partner.search</column>
           <column name="ta">View</column>
         </record>
+        <record id="action.md.partner.contacts.search">
+          <column name="name">action.md.partner.contacts.search</column>
+          <column name="ta">View</column>
+        </record>
         <record id="action.md.role.partners.search">
           <column name="name">action.md.role.partners.search</column>
           <column name="ta">View</column>
@@ -192,6 +196,10 @@
         </record>
         <record id="action.md.partner.report">
           <column name="name">action.md.partner.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.md.partner.contacts.report">
+          <column name="name">action.md.partner.contacts.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.md.role.partners.report">
@@ -295,6 +303,10 @@
         <record id="view.action.md.partner.search">
           <column name="action_id">action.md.partner.search</column>
           <column name="view_id">view.md.partner.search</column>
+        </record>
+        <record id="view.action.md.partner.contacts.search">
+          <column name="action_id">action.md.partner.contacts.search</column>
+          <column name="view_id">view.md.partner.contacts.search</column>
         </record>
         <record id="view.action.md.role.partners.search">
           <column name="action_id">action.md.role.partners.search</column>
@@ -461,6 +473,13 @@
           <column name="infile">infile_md_partner.docx</column>
           <column name="outfile">outfile_md_partner.docx</column>
         </record>
+        <record id="bc.ui.report.docx.md.partner.contacts">
+          <column name="name">bc.ui.report.docx.md.partner.contacts</column>
+          <column name="label">Partner Contacts</column>
+          <column name="report">report_md_partner_contacts</column>
+          <column name="infile">infile_md_partner_contacts.docx</column>
+          <column name="outfile">outfile_md_partner_contacts.docx</column>
+        </record>
         <record id="bc.ui.report.docx.md.role.partners">
           <column name="name">bc.ui.report.docx.md.role.partners</column>
           <column name="label">Role Partners</column>
@@ -574,6 +593,10 @@
         <record id="report.action.md.partner.report">
           <column name="action_id">action.md.partner.report</column>
           <column name="report_id">bc.ui.report.docx.md.partner</column>
+        </record>
+        <record id="report.action.md.partner.contacts.report">
+          <column name="action_id">action.md.partner.contacts.report</column>
+          <column name="report_id">bc.ui.report.docx.md.partner.contacts</column>
         </record>
         <record id="report.action.md.role.partners.report">
           <column name="action_id">action.md.role.partners.report</column>
@@ -761,36 +784,44 @@
           <column name="sequence">200</column>
           <column name="action_id">action.md.partner.search</column>
           </record>
-          <record id="ui.menu.md.role.partners.search">
+          <record id="ui.menu.md.partner.contacts.search">
           <column name="sequence">21</column>
+            <column name="name">ui.menu.md.partner.contacts.search</column>
+            <column name="label">Partner Contacts</column>
+          <column name="parent_id">ui.menu.md</column>
+          <column name="sequence">210</column>
+          <column name="action_id">action.md.partner.contacts.search</column>
+          </record>
+          <record id="ui.menu.md.role.partners.search">
+          <column name="sequence">22</column>
             <column name="name">ui.menu.md.role.partners.search</column>
             <column name="label">Role Partners</column>
           <column name="parent_id">ui.menu.md</column>
-          <column name="sequence">210</column>
+          <column name="sequence">220</column>
           <column name="action_id">action.md.role.partners.search</column>
           </record>
           <record id="ui.menu.md.company.search">
-          <column name="sequence">22</column>
+          <column name="sequence">23</column>
             <column name="name">ui.menu.md.company.search</column>
             <column name="label">Company</column>
           <column name="parent_id">ui.menu.md</column>
-          <column name="sequence">220</column>
+          <column name="sequence">230</column>
           <column name="action_id">action.md.company.search</column>
           </record>
           <record id="ui.menu.md.banks.search">
-          <column name="sequence">23</column>
+          <column name="sequence">24</column>
             <column name="name">ui.menu.md.banks.search</column>
             <column name="label">Bank</column>
           <column name="parent_id">ui.menu.md</column>
-          <column name="sequence">230</column>
+          <column name="sequence">240</column>
           <column name="action_id">action.md.banks.search</column>
           </record>
           <record id="ui.menu.md.recepture.search">
-          <column name="sequence">24</column>
+          <column name="sequence">25</column>
             <column name="name">ui.menu.md.recepture.search</column>
             <column name="label">Recepture</column>
           <column name="parent_id">ui.menu.md</column>
-          <column name="sequence">240</column>
+          <column name="sequence">250</column>
           <column name="action_id">action.md.recepture.search</column>
           </record>
       </records>
@@ -970,36 +1001,44 @@
           <column name="sequence">200</column>
           <column name="action_id">action.md.partner.report</column>
           </record>
-          <record id="ui.menu.md.role.partners.report">
+          <record id="ui.menu.md.partner.contacts.report">
           <column name="sequence">21</column>
+            <column name="name">ui.menu.md.partner.contacts.report</column>
+            <column name="label">Partner Contacts</column>
+          <column name="parent_id">ui.menu.md.report</column>
+          <column name="sequence">210</column>
+          <column name="action_id">action.md.partner.contacts.report</column>
+          </record>
+          <record id="ui.menu.md.role.partners.report">
+          <column name="sequence">22</column>
             <column name="name">ui.menu.md.role.partners.report</column>
             <column name="label">Role Partners</column>
           <column name="parent_id">ui.menu.md.report</column>
-          <column name="sequence">210</column>
+          <column name="sequence">220</column>
           <column name="action_id">action.md.role.partners.report</column>
           </record>
           <record id="ui.menu.md.company.report">
-          <column name="sequence">22</column>
+          <column name="sequence">23</column>
             <column name="name">ui.menu.md.company.report</column>
             <column name="label">Company</column>
           <column name="parent_id">ui.menu.md.report</column>
-          <column name="sequence">220</column>
+          <column name="sequence">230</column>
           <column name="action_id">action.md.company.report</column>
           </record>
           <record id="ui.menu.md.banks.report">
-          <column name="sequence">23</column>
+          <column name="sequence">24</column>
             <column name="name">ui.menu.md.banks.report</column>
             <column name="label">Bank</column>
           <column name="parent_id">ui.menu.md.report</column>
-          <column name="sequence">230</column>
+          <column name="sequence">240</column>
           <column name="action_id">action.md.banks.report</column>
           </record>
           <record id="ui.menu.md.recepture.report">
-          <column name="sequence">24</column>
+          <column name="sequence">25</column>
             <column name="name">ui.menu.md.recepture.report</column>
             <column name="label">Recepture</column>
           <column name="parent_id">ui.menu.md.report</column>
-          <column name="sequence">240</column>
+          <column name="sequence">250</column>
           <column name="action_id">action.md.recepture.report</column>
           </record>
       </records>
