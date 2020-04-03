@@ -194,7 +194,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 		models = []
 		imodels = []
 		module_models = registry._modules[module]['lom']
-		print('MODULE-MODELS:',module_models)
+		#print('MODULE-MODELS:',module_models)
 		for model in module_models:
 			if model in pool:
 				mm = pool[model]
@@ -215,7 +215,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 
 
 		if len(models) > 0 or len(imodules) > 0:
-			print('MODELS:',module,imodules,models,imodels)
+			#print('MODELS:',module,imodules,models,imodels)
 			#_download_imodules(cr,pool,uid,path,module,imodules,registry,ext=context['ext'])
 			_download(cr,pool,uid,path,module,imodules,models,imodels,registry,ext=context['ext'])
 			logmodules.append(module)

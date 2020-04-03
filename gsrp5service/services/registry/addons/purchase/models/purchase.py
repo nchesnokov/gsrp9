@@ -475,7 +475,7 @@ purchase_order_type_roles()
 
 class purchase_order_type_plates(Model):
 	_name = 'purchase.order.type.plates'
-	_description = 'General Model Role Purchase Order Plates'
+	_description = 'General Model Purchase Order Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -491,7 +491,7 @@ purchase_order_type_plates()
 
 class purchase_order_type_items(Model):
 	_name = 'purchase.order.type.items'
-	_description = 'General Model Role Purchase Order Items'
+	_description = 'General Model Plates Of Purchase Order Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -875,7 +875,7 @@ class purchase_order_pricing_items(Model):
 	_name = 'purchase.order.pricing.items'
 	_description = 'General Model Purchase Order Item Pricing'
 	_columns = {
-	'item_id': fields.many2one(label = 'Order',obj='purchase.order.items'),
+	'item_id': fields.many2one(label = 'Item',obj='purchase.order.items'),
 	'level': fields.integer(label = 'Level'),
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
@@ -940,7 +940,7 @@ class purchase_order_item_output_plates(Model):
 	_name = 'purchase.order.item.output.plates'
 	_description = 'General Model Purchase Order Item Output Plates'
 	_columns = {
-	'item_id': fields.many2one(label = 'Order',obj='purchase.order.items'),
+	'item_id': fields.many2one(label = 'Item',obj='purchase.order.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
 	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
 	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),

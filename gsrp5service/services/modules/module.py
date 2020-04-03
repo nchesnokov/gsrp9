@@ -145,10 +145,10 @@ def _uninstall(cr,pool,uid,registry,able=None, modules = None):
 		dep_modules = set()
 		for depend in depends:
 	
-			keys = list(registry._momm[depend].keys())
+			keys = list(registry._modules[depend]['lom'])
 			for key in keys:
-				if 'inherit' in registry._momm[depend][key]['attrs'] and ModelInherit in registry._momm[depend][key]['bases']:
-					inherit = registry._momm[depend][key]['attrs']['inherit']
+				if 'inherit' in registry._modules[depend]['class'][key]['attrs'] and ModelInherit in registry._modules[depend]['class'][key]['bases']:
+					inherit = registry._modules[depend]['class'][key]['attrs']['inherit']
 					for ikey in inherit.keys():
 						m1 = registry._getLastModule(key)
 						if m1:
@@ -163,7 +163,7 @@ def _uninstall(cr,pool,uid,registry,able=None, modules = None):
 	
 		for all_module in filter(lambda x: x in all_modules,[node.name for node in registry._graph]):
 			for mkey in registry. _getModuleModels(all_module).keys():
-				pool[mkey] = registry._create_model(mkey,registry._getLastModule(mkey))
+				pool[mkey] = registry._create_module_model(mkey,registry._getLastModule(mkey))
 			
 			log.append([0,'module: <%s> successfull reloaded' % (all_module,)])
 	
@@ -228,7 +228,7 @@ def _upgrade(cr,pool,uid,registry,able=None, modules = None):
 	
 		for all_module in filter(lambda x: x in all_modules,[node.name for node in registry._graph]):
 			for mkey in registry. _getModuleModels(all_module).keys():
-				pool[mkey] = registry._create_model(mkey,registry._getLastModuleLoaded(mkey))
+				pool[mkey] = registry._create_module_model(mkey,registry._getLastModuleLoaded(mkey))
 			
 			log.append([0,'module: <%s> successfull reloaded' % (all_module,)])
 	
@@ -242,7 +242,7 @@ def _installModule(cr,pool,uid,name,registry,chunk):
 	sqls = []
 	if 'module' in chunk:
 		for model in models:
-			mm_class_meta = registry._getMetaOfModulesModel(model,name)
+			mm_class_meta = registry._modules[name]['class'][model]
 			if Model in mm_class_meta['bases']:	
 				mm_class = type(mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
 				type.__init__(mm_class,mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
@@ -263,7 +263,9 @@ def _installModule(cr,pool,uid,name,registry,chunk):
 						sqls.append(sql)
 	
 		for model in models:
-			m = registry._create_model(model,name)
+			m = registry._create_module_model(model,name)
+			if model not in pool:
+				pool[model] = m
 			if isinstance(m,ModelInherit):	
 				continue
 			at = genddl.getReferencedConstraints(pool,model)
@@ -284,7 +286,7 @@ def _installModule(cr,pool,uid,name,registry,chunk):
 	
 			_logger.info("Tables created")
 	
-			registry._load_inherit(name)
+			registry._load_inheritable(name)
 			mm = registry._create_module_models(name)
 	
 			for k in mm.keys():
@@ -345,7 +347,8 @@ def _uninstallModule(cr,pool,uid,name,registry):
 	_logger.info(" Module: %s Uninstall" % (name,))
 	module_models = registry._modules[name]['lom']
 	meta = registry._modules[name]['meta']
-	mom = registry._momm[name]
+	#mom = registry._momm[name]
+	mom = registry._modules[name]['class']
 
 	xmldatas = pool.get('bc.model.data').select(cr,pool,uid,['name','module','model','rec_id'],[('module','=',name)])
 	xmlmodels = {}
@@ -399,11 +402,12 @@ def _uninstallModule(cr,pool,uid,name,registry):
 						pool.get('bc.ui.views.inherit').unlink(cr,pool,uid,list(map(lambda x: x['id'],mmiv))) 				
 						
 				else:
-					columns = pool.get(model).modelInfo()['columns']
-					for key in filter(lambda x: columns[x]['type'] == 'many2many',columns.keys()):
-						rel = genddl.getName(columns[key]['rel'])
-						sqls.append("DROP TABLE IF EXISTS %s " % (genddl.getName(rel),))
-	
+					if model in pool:
+						columns = pool.get(model).modelInfo()['columns']
+						for key in filter(lambda x: columns[x]['type'] == 'many2many',columns.keys()):
+							rel = genddl.getName(columns[key]['rel'])
+							sqls.append("DROP TABLE IF EXISTS %s " % (genddl.getName(rel),))
+		
 					sqls.append("DROP TABLE IF EXISTS "+table)
 	
 	if len(sqls) > 0:
@@ -459,7 +463,7 @@ def _upgradeModule(cr,pool,uid,name,registry):
 				sqls.append(sql)
 
 	for model in models_to_create:
-		m = registry._create_model(model,name)
+		m = registry._create_module_model(model,name)
 		if isinstance(m,ModelInherit):	
 			continue
 
@@ -549,7 +553,7 @@ def _load_list_allmodules(cr,pool,uid,registry):
 	for module in registry._depends:
 		record = {}
 		meta = registry._modules[module]['meta']
-		columns = registry._create_model('bc.modules','bc').modelInfo()['columns']
+		columns = registry._create_module_model('bc.modules','bc').modelInfo()['columns']
 		record['code'] = module
 		record['state'] = 'N'
 		for key in  columns.keys():
@@ -571,15 +575,15 @@ def _load_list_modules(cr,pool,uid,registry,db):
 	cr.execute('SET DATABASE = %s' % (db,))
 	_uid = pool.get('bc.users').select(cr,pool,uid,fields=[],cond=[('login','=','admin')])[0]['id'] 
 	db_modules = list(map(lambda x: x[1],pool.get('bc.modules').select(cr,pool,uid,fields=['code'],context={'FETCH':'LIST'})))
-	print('db_modules:',db_modules)
+	#print('db_modules:',db_modules)
 	modules = list(filter(lambda x: not x in db_modules,registry._modules.keys()))
-	print('modules:',)
+	#print('modules:',)
 	for module in modules:
 		if module in db_modules:
 			continue
 		record = {}
 		meta = registry._modules[module]['meta']
-		columns = registry._create_model('bc.modules','bc').modelInfo()['columns']
+		columns = registry._create_module_model('bc.modules','bc').modelInfo()['columns']
 		record['code'] = module
 		record['state'] = 'N'
 		for key in  columns.keys():
@@ -605,7 +609,7 @@ def _load_list_modules(cr,pool,uid,registry,db):
 def _loadMetaModule(cr,pool,uid,name,registry):
 	models = registry._modules[name]['lom']
 	meta = registry._modules[name]['meta']
-	columns = registry._create_model('bc.modules','bc').modelInfo()['columns']
+	columns = registry._create_module_model('bc.modules','bc').modelInfo()['columns']
 	module_id = registry._modules[name]['db_id']
 	file_records = _loadModuleFile(registry._modules[name]['path'],name)
 	for file_record in file_records:
@@ -660,8 +664,8 @@ def _loadModuleFile(path,name,ext=['py','xml','csv','yaml','yml','so']):
 def _loadMetaModel(cr,pool,uid,registry,model,module):
 	record = {}
 	ref_fields = {'db_table':'table'}
-	columns = registry._create_model('bc.models','bc').modelInfo()['columns']
-	info_class = registry._create_model(model,module)
+	columns = registry._create_module_model('bc.models','bc').modelInfo()['columns']
+	info_class = registry._create_module_model(model,module)
 	if not info_class:
 		return record
 	info = info_class.modelInfo()
@@ -684,7 +688,7 @@ def _loadMetaModel(cr,pool,uid,registry,model,module):
 def _loadMetaInherit(cr,pool,uid,registry,model,module):
 	record = {}
 
-	columns = registry._create_model('bc.inherits','bc').modelInfo()['columns']
+	columns = registry._create_module_model('bc.inherits','bc').modelInfo()['columns']
 	
 	info_class_meta = registry._getMetaOfModules(model,module)
 	if info_class_meta:
