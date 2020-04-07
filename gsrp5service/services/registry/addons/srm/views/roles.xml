@@ -780,6 +780,26 @@
           <column name="note">Model srm.schema.text.items grant crw</column>
           <column name="group_id">srm.crw</column>
         </record>
+        <record id="srm.deadlines.readonly">
+          <column name="name">srm.deadlines.readonly</column>
+          <column name="note">Model srm.deadlines grant readonly</column>
+          <column name="group_id">srm.readonly</column>
+        </record>
+        <record id="srm.deadlines.nodrop">
+          <column name="name">srm.deadlines.nodrop</column>
+          <column name="note">Model srm.deadlines grant nodrop</column>
+          <column name="group_id">srm.nodrop</column>
+        </record>
+        <record id="srm.deadlines.full">
+          <column name="name">srm.deadlines.full</column>
+          <column name="note">Model srm.deadlines grant full</column>
+          <column name="group_id">srm.full</column>
+        </record>
+        <record id="srm.deadlines.crw">
+          <column name="name">srm.deadlines.crw</column>
+          <column name="note">Model srm.deadlines grant crw</column>
+          <column name="group_id">srm.crw</column>
+        </record>
         <record id="srm.demand.types.readonly">
           <column name="name">srm.demand.types.readonly</column>
           <column name="note">Model srm.demand.types grant readonly</column>
@@ -6971,6 +6991,56 @@
         <record id="srm.srm.schema.text.items.crw">
           <column name="access_id">srm.schema.text.items.crw</column>
           <column name="model_id">srm.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="srm.srm.deadlines.readonly">
+          <column name="access_id">srm.deadlines.readonly</column>
+          <column name="model_id">srm.deadlines</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="srm.srm.deadlines.nodrop">
+          <column name="access_id">srm.deadlines.nodrop</column>
+          <column name="model_id">srm.deadlines</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="srm.srm.deadlines.full">
+          <column name="access_id">srm.deadlines.full</column>
+          <column name="model_id">srm.deadlines</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="srm.srm.deadlines.crw">
+          <column name="access_id">srm.deadlines.crw</column>
+          <column name="model_id">srm.deadlines</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

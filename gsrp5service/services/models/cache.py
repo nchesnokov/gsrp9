@@ -269,16 +269,17 @@ class DCacheDict(object):
 		if type(data) != dict:
 			raise TypeError
 
-		if model not in self._cmetas:
-			self._cmetas[model] = self._pool.get(model).columnsInfo(attributes=['type','obj','rel','id1','id2'])
-		
-		ci = self._cmetas[model]
 		oid = str(id(data))
 
-		if mode == 'N' and not hasattr(self,'_root'):
-			self._root = oid
-
 		if oid not in self._cdata:
+			if model not in self._cmetas:
+				self._cmetas[model] = self._pool.get(model).columnsInfo(attributes=['type','obj','rel','id1','id2'])
+			
+			ci = self._cmetas[model]
+	
+			if mode == 'N' and not hasattr(self,'_root'):
+				self._root = oid
+
 			self._cdata[oid] = data
 			self._cmodels[oid] = model
 			if parent and name:

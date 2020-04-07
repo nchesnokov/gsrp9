@@ -67,6 +67,7 @@ def _install(cr,pool,uid,registry,able=None, modules = None):
 			for dep in registry._dependsinstall.install(_module):
 				if not dep in depends and registry._modules[dep]['meta']['able'] in able and ('state' in registry._modules[dep] and registry._modules[dep]['state'] in ('i','N',None)):
 					depends.append(dep)
+					_chunks[dep] = ['module','depends','env','view','example','data','demo','test','i18n']
 
 		if 'module' in _chunks[_module] and not 'state' in registry._modules[_module] or 'module' in _chunks[_module] and registry._modules[_module]['state'] in (None,'N','i') or ('state' in registry._modules[_module] and registry._modules[_module]['state'] == 'I' and ('module' not in _chunks[_module] or 'nomodule' not in _chunks[_module]) and  ('env' in _chunks[_module] or 'view' in _chunks[_module] or 'example' in _chunks[_module] or 'data' in _chunks[_module] or 'demo' in _chunks[_module] or 'test' in _chunks[_module] or 'i18n' in _chunks[_module])):
 			depends.append(_module)
@@ -303,7 +304,8 @@ def _installModule(cr,pool,uid,name,registry,chunk):
 				#registry._load_module(name)
 	
 	
-		_loadMetaData(cr,pool,uid,name,registry)
+			_loadMetaData(cr,pool,uid,name,registry)
+			cr.commit()
 	else:
 		mm = registry._create_module_models(name)
 
@@ -311,7 +313,7 @@ def _installModule(cr,pool,uid,name,registry,chunk):
 			pool[k] = mm[k]
 			pool[k]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 			registry._models[k] = pool[k]
-
+	
 	info = registry._modules[name]
 
 	metas = {}
@@ -340,6 +342,7 @@ def _installModule(cr,pool,uid,name,registry,chunk):
 		metas['i18n'] = info['meta']['i18n']
 		
 	_loadFiles(cr,pool,uid,name,registry._modules[name],metas)
+	cr.commit()
 	_load_env(cr,pool,uid,name)
 	
 	cr.commit()
@@ -844,11 +847,7 @@ def _loadFiles(cr,pool,uid,name,info,metas):
 			if ext == 'xml':
 				if os.path.exists(opj(path,name,f)):
 					_logger.info("loading file: %s" % (opj(path,name,f),))
-					if key == 'env':
-						pass
-						#_load_env(cr,pool,uid,name)
-					else:
-						_loadXMLFile(cr,pool,uid,info,path,name,f)
+					_loadXMLFile(cr,pool,uid,info,path,name,f)
 					_logger.info("Loaded  file: %s" % (opj(path,name,f),))
 				else:
 					_logger.critical("Loading  file: %s not found" % (opj(path,name,f),))

@@ -261,7 +261,7 @@ class srm_unit_segment_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
 	'segment_id': fields.many2one(label='Segment',obj='srm.segments',selectable=True),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
+	'fullname': fields.composite(label='Full Name',cols=['segment_id'],translate = True,required = True, compute = '_compute_composite'),
 	}
 
 	def _compute_fullname(self,cr,pool,uid,item,context):
@@ -283,7 +283,7 @@ class srm_unit_area_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
 	'area_id': fields.many2one(label='Area',obj='srm.areas',selectable=True),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
+	'fullname': fields.composite(label='Full Name',cols=['area_id'],translate = True,required = True, compute = '_compute_composite'),
 	}
 
 	def _compute_fullname(self,cr,pool,uid,item,context):
@@ -305,7 +305,7 @@ class srm_unit_region_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
 	'region_id': fields.many2one(label='Region',obj='srm.regions',selectable=True),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
+	'fullname': fields.composite(label='Full Name',cols=['region_id'],translate = True,required = True, compute = '_compute_composite'),
 	}
 
 	def _compute_fullname(self,cr,pool,uid,item,context):
@@ -329,7 +329,7 @@ class srm_division_subdivision_assigments(Model):
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='srm.divisions'),
 	'subdivision_id': fields.many2one(label='Subdivision',obj='srm.subdivisions',selectable=True),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
+	'fullname': fields.composite(label='Full Name',cols=['subdivision_id'],translate = True,required = True, compute = '_compute_composite'),
 	}
 
 	def _compute_fullname(self,cr,pool,uid,item,context):
@@ -649,6 +649,16 @@ class srm_schema_text_items(Model):
 srm_schema_text_items()
 
 # Text end
+# Deadlines
+class srm_deadlines(Model):
+	_name = 'srm.deadlines'
+	_description = 'General SRM Deadlines'
+	_columns = {
+	'name': fields.varchar(label = 'Name'),
+	'note': fields.text('Note')}
+
+srm_deadlines()
+
 # SRM Demand
 # Types & Roles
 class srm_demand_types(Model):
@@ -689,7 +699,7 @@ class srm_demand_type_deadlines(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='srm.demand.types'),
 	'sequence': fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.demand.deadlines'),
+	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.deadlines'),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -860,15 +870,6 @@ class srm_demand_output_plates(Model):
 	}
 
 
-class srm_demand_type_deadlines(Model):
-	_name = 'srm.demand.type.deadlines'
-	_description = 'General SRM Demand Type Deadlines'
-	_columns = {
-	'name': fields.varchar(label = 'Type'),
-	'note': fields.text('Note')}
-
-srm_demand_type_deadlines()
-
 class srm_demand_deadlines(Model):
 	_name = 'srm.demand.deadlines'
 	_description = 'General SRM Demand Deadlines'
@@ -876,7 +877,7 @@ class srm_demand_deadlines(Model):
 	_columns = {
 	'demand_id': fields.many2one(label = 'Demand',obj='srm.demands',on_delete='c',on_update='c'),
 	'sequence':fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Type',obj='srm.demand.type.deadlines',on_delete='n',on_update='n'),
+	'deadline_id': fields.many2one(label = 'Type',obj='srm.deadlines',on_delete='n',on_update='n'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
 	'required': fields.boolean(label='Required'),
@@ -967,7 +968,7 @@ class srm_demand_pricing_items(Model):
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'group_level': fields.many2one(label = 'Group Level',obj='srm.pricing.group.levels'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
 	'unit': fields.integer(label='Unit'),
@@ -1094,7 +1095,7 @@ class srm_part_type_deadlines(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='srm.part.types'),
 	'sequence': fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.part.deadlines'),
+	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.deadlines'),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -1264,16 +1265,6 @@ class srm_part_output_plates(Model):
 		'state':'c'
 	}
 
-
-class srm_part_type_deadlines(Model):
-	_name = 'srm.part.type.deadlines'
-	_description = 'General SRM Part Type Deadlines'
-	_columns = {
-	'name': fields.varchar(label = 'Type'),
-	'note': fields.text('Note')}
-
-srm_part_type_deadlines()
-
 class srm_part_deadlines(Model):
 	_name = 'srm.part.deadlines'
 	_description = 'General SRM Part Deadlines'
@@ -1281,7 +1272,7 @@ class srm_part_deadlines(Model):
 	_columns = {
 	'part_id': fields.many2one(label = 'Part',obj='srm.parts',on_delete='c',on_update='c'),
 	'sequence':fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Type',obj='srm.part.type.deadlines',on_delete='n',on_update='n'),
+	'deadline_id': fields.many2one(label = 'Type',obj='srm.deadlines',on_delete='n',on_update='n'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
 	'required': fields.boolean(label='Required'),
@@ -1372,7 +1363,7 @@ class srm_part_pricing_items(Model):
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'group_level': fields.many2one(label = 'Group Level',obj='srm.pricing.group.levels'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
 	'unit': fields.integer(label='Unit'),
@@ -1499,7 +1490,7 @@ class srm_plan_type_deadlines(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='srm.plan.types'),
 	'sequence': fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.plan.deadlines'),
+	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.deadlines'),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -1669,16 +1660,6 @@ class srm_plan_output_plates(Model):
 		'state':'c'
 	}
 
-
-class srm_plan_type_deadlines(Model):
-	_name = 'srm.plan.type.deadlines'
-	_description = 'General SRM Plan Type Deadlines'
-	_columns = {
-	'name': fields.varchar(label = 'Type'),
-	'note': fields.text('Note')}
-
-srm_plan_type_deadlines()
-
 class srm_plan_deadlines(Model):
 	_name = 'srm.plan.deadlines'
 	_description = 'General SRM Plan Deadlines'
@@ -1686,7 +1667,7 @@ class srm_plan_deadlines(Model):
 	_columns = {
 	'plan_id': fields.many2one(label = 'Plan',obj='srm.plans',on_delete='c',on_update='c'),
 	'sequence':fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Type',obj='srm.plan.type.deadlines',on_delete='n',on_update='n'),
+	'deadline_id': fields.many2one(label = 'Type',obj='srm.deadlines',on_delete='n',on_update='n'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
 	'required': fields.boolean(label='Required'),
@@ -1777,7 +1758,7 @@ class srm_plan_pricing_items(Model):
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'group_level': fields.many2one(label = 'Group Level',obj='srm.pricing.group.levels'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
 	'unit': fields.integer(label='Unit'),
@@ -1904,7 +1885,7 @@ class srm_request_type_deadlines(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='srm.request.types'),
 	'sequence': fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.request.deadlines'),
+	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.deadlines'),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -2074,16 +2055,6 @@ class srm_request_output_plates(Model):
 		'state':'c'
 	}
 
-
-class srm_request_type_deadlines(Model):
-	_name = 'srm.request.type.deadlines'
-	_description = 'General SRM Request Type Deadlines'
-	_columns = {
-	'name': fields.varchar(label = 'Type'),
-	'note': fields.text('Note')}
-
-srm_request_type_deadlines()
-
 class srm_request_deadlines(Model):
 	_name = 'srm.request.deadlines'
 	_description = 'General SRM Request Deadlines'
@@ -2091,7 +2062,7 @@ class srm_request_deadlines(Model):
 	_columns = {
 	'request_id': fields.many2one(label = 'Request',obj='srm.requests',on_delete='c',on_update='c'),
 	'sequence':fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Type',obj='srm.request.type.deadlines',on_delete='n',on_update='n'),
+	'deadline_id': fields.many2one(label = 'Type',obj='srm.deadlines',on_delete='n',on_update='n'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
 	'required': fields.boolean(label='Required'),
@@ -2182,7 +2153,7 @@ class srm_request_pricing_items(Model):
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'group_level': fields.many2one(label = 'Group Level',obj='srm.pricing.group.levels'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
 	'unit': fields.integer(label='Unit'),
@@ -2309,7 +2280,7 @@ class srm_response_type_deadlines(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='srm.response.types'),
 	'sequence': fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.response.deadlines'),
+	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.deadlines'),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -2479,16 +2450,6 @@ class srm_response_output_plates(Model):
 		'state':'c'
 	}
 
-
-class srm_response_type_deadlines(Model):
-	_name = 'srm.response.type.deadlines'
-	_description = 'General SRM Response Type Deadlines'
-	_columns = {
-	'name': fields.varchar(label = 'Type'),
-	'note': fields.text('Note')}
-
-srm_response_type_deadlines()
-
 class srm_response_deadlines(Model):
 	_name = 'srm.response.deadlines'
 	_description = 'General SRM Response Deadlines'
@@ -2496,7 +2457,7 @@ class srm_response_deadlines(Model):
 	_columns = {
 	'response_id': fields.many2one(label = 'Response',obj='srm.responses',on_delete='c',on_update='c'),
 	'sequence':fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Type',obj='srm.response.type.deadlines',on_delete='n',on_update='n'),
+	'deadline_id': fields.many2one(label = 'Type',obj='srm.deadlines',on_delete='n',on_update='n'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
 	'required': fields.boolean(label='Required'),
@@ -2587,7 +2548,7 @@ class srm_response_pricing_items(Model):
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'group_level': fields.many2one(label = 'Group Level',obj='srm.pricing.group.levels'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
 	'unit': fields.integer(label='Unit'),
@@ -2715,7 +2676,7 @@ class srm_rfx_type_deadlines(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='srm.rfx.types'),
 	'sequence': fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.rfx.deadlines'),
+	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.deadlines'),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -2885,16 +2846,6 @@ class srm_rfx_output_plates(Model):
 		'state':'c'
 	}
 
-
-class srm_rfx_type_deadlines(Model):
-	_name = 'srm.rfx.type.deadlines'
-	_description = 'General SRM RFX Type Deadlines'
-	_columns = {
-	'name': fields.varchar(label = 'Type'),
-	'note': fields.text('Note')}
-
-srm_rfx_type_deadlines()
-
 class srm_rfx_deadlines(Model):
 	_name = 'srm.rfx.deadlines'
 	_description = 'General SRM RFX Deadlines'
@@ -2902,7 +2853,7 @@ class srm_rfx_deadlines(Model):
 	_columns = {
 	'rfx_id': fields.many2one(label = 'RFX',obj='srm.rfxs',on_delete='c',on_update='c'),
 	'sequence':fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Type',obj='srm.rfx.type.deadlines',on_delete='n',on_update='n'),
+	'deadline_id': fields.many2one(label = 'Type',obj='srm.deadlines',on_delete='n',on_update='n'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
 	'required': fields.boolean(label='Required'),
@@ -2993,7 +2944,7 @@ class srm_rfx_pricing_items(Model):
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'group_level': fields.many2one(label = 'Group Level',obj='srm.pricing.group.levels'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
 	'unit': fields.integer(label='Unit'),
@@ -3120,7 +3071,7 @@ class srm_auction_type_deadlines(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='srm.auction.types'),
 	'sequence': fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.auction.deadlines'),
+	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.deadlines'),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -3290,16 +3241,6 @@ class srm_auction_output_plates(Model):
 		'state':'c'
 	}
 
-
-class srm_auction_type_deadlines(Model):
-	_name = 'srm.auction.type.deadlines'
-	_description = 'General SRM Auction Type Deadlines'
-	_columns = {
-	'name': fields.varchar(label = 'Type'),
-	'note': fields.text('Note')}
-
-srm_auction_type_deadlines()
-
 class srm_auction_deadlines(Model):
 	_name = 'srm.auction.deadlines'
 	_description = 'General SRM Auction Deadlines'
@@ -3307,7 +3248,7 @@ class srm_auction_deadlines(Model):
 	_columns = {
 	'auction_id': fields.many2one(label = 'Auction',obj='srm.auctions',on_delete='c',on_update='c'),
 	'sequence':fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Type',obj='srm.auction.type.deadlines',on_delete='n',on_update='n'),
+	'deadline_id': fields.many2one(label = 'Type',obj='srm.deadlines',on_delete='n',on_update='n'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
 	'required': fields.boolean(label='Required'),
@@ -3398,7 +3339,7 @@ class srm_auction_pricing_items(Model):
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'group_level': fields.many2one(label = 'Group Level',obj='srm.pricing.group.levels'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
 	'unit': fields.integer(label='Unit'),
@@ -3525,7 +3466,7 @@ class srm_offer_type_deadlines(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='srm.offer.types'),
 	'sequence': fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.offer.deadlines'),
+	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.deadlines'),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -3695,16 +3636,6 @@ class srm_offer_output_plates(Model):
 		'state':'c'
 	}
 
-
-class srm_offer_type_deadlines(Model):
-	_name = 'srm.offer.type.deadlines'
-	_description = 'General SRM Offer Type Deadlines'
-	_columns = {
-	'name': fields.varchar(label = 'Type'),
-	'note': fields.text('Note')}
-
-srm_offer_type_deadlines()
-
 class srm_offer_deadlines(Model):
 	_name = 'srm.offer.deadlines'
 	_description = 'General SRM Offer Deadlines'
@@ -3712,7 +3643,7 @@ class srm_offer_deadlines(Model):
 	_columns = {
 	'offer_id': fields.many2one(label = 'Offer',obj='srm.offers',on_delete='c',on_update='c'),
 	'sequence':fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Type',obj='srm.offer.type.deadlines',on_delete='n',on_update='n'),
+	'deadline_id': fields.many2one(label = 'Type',obj='srm.deadlines',on_delete='n',on_update='n'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
 	'required': fields.boolean(label='Required'),
@@ -3803,7 +3734,7 @@ class srm_offer_pricing_items(Model):
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'group_level': fields.many2one(label = 'Group Level',obj='srm.pricing.group.levels'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
 	'unit': fields.integer(label='Unit'),
@@ -3930,7 +3861,7 @@ class srm_evolution_type_deadlines(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='srm.evolution.types'),
 	'sequence': fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.evolution.deadlines'),
+	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.deadlines'),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -4100,16 +4031,6 @@ class srm_evolution_output_plates(Model):
 		'state':'c'
 	}
 
-
-class srm_evolution_type_deadlines(Model):
-	_name = 'srm.evolution.type.deadlines'
-	_description = 'General SRM Evolution Type Deadlines'
-	_columns = {
-	'name': fields.varchar(label = 'Type'),
-	'note': fields.text('Note')}
-
-srm_evolution_type_deadlines()
-
 class srm_evolution_deadlines(Model):
 	_name = 'srm.evolution.deadlines'
 	_description = 'General SRM Evolution Deadlines'
@@ -4117,7 +4038,7 @@ class srm_evolution_deadlines(Model):
 	_columns = {
 	'evolution_id': fields.many2one(label = 'Evolution',obj='srm.evolutions',on_delete='c',on_update='c'),
 	'sequence':fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Type',obj='srm.evolution.type.deadlines',on_delete='n',on_update='n'),
+	'deadline_id': fields.many2one(label = 'Type',obj='srm.deadlines',on_delete='n',on_update='n'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
 	'required': fields.boolean(label='Required'),
@@ -4208,7 +4129,7 @@ class srm_evolution_pricing_items(Model):
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'group_level': fields.many2one(label = 'Group Level',obj='srm.pricing.group.levels'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
 	'unit': fields.integer(label='Unit'),
@@ -4335,7 +4256,7 @@ class srm_decision_type_deadlines(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='srm.decision.types'),
 	'sequence': fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.decision.deadlines'),
+	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.deadlines'),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -4505,16 +4426,6 @@ class srm_decision_output_plates(Model):
 		'state':'c'
 	}
 
-
-class srm_decision_type_deadlines(Model):
-	_name = 'srm.decision.type.deadlines'
-	_description = 'General SRM Decision Type Deadlines'
-	_columns = {
-	'name': fields.varchar(label = 'Type'),
-	'note': fields.text('Note')}
-
-srm_decision_type_deadlines()
-
 class srm_decision_deadlines(Model):
 	_name = 'srm.decision.deadlines'
 	_description = 'General SRM Decision Deadlines'
@@ -4522,7 +4433,7 @@ class srm_decision_deadlines(Model):
 	_columns = {
 	'decision_id': fields.many2one(label = 'Decision',obj='srm.decisions',on_delete='c',on_update='c'),
 	'sequence':fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Type',obj='srm.decision.type.deadlines',on_delete='n',on_update='n'),
+	'deadline_id': fields.many2one(label = 'Type',obj='srm.deadlines',on_delete='n',on_update='n'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
 	'required': fields.boolean(label='Required'),
@@ -4613,7 +4524,7 @@ class srm_decision_pricing_items(Model):
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'group_level': fields.many2one(label = 'Group Level',obj='srm.pricing.group.levels'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
 	'unit': fields.integer(label='Unit'),
@@ -4740,7 +4651,7 @@ class srm_contract_type_deadlines(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='srm.contract.types'),
 	'sequence': fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.contract.deadlines'),
+	'deadline_id': fields.many2one(label = 'Deadline',obj='srm.deadlines'),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
@@ -4910,16 +4821,6 @@ class srm_contract_output_plates(Model):
 		'state':'c'
 	}
 
-
-class srm_contract_type_deadlines(Model):
-	_name = 'srm.contract.type.deadlines'
-	_description = 'General SRM Contract Type Deadlines'
-	_columns = {
-	'name': fields.varchar(label = 'Type'),
-	'note': fields.text('Note')}
-
-srm_contract_type_deadlines()
-
 class srm_contract_deadlines(Model):
 	_name = 'srm.contract.deadlines'
 	_description = 'General SRM Contract Deadlines'
@@ -4927,7 +4828,7 @@ class srm_contract_deadlines(Model):
 	_columns = {
 	'contract_id': fields.many2one(label = 'Contract',obj='srm.contracts',on_delete='c',on_update='c'),
 	'sequence':fields.integer(label='Sequence'),
-	'deadline_id': fields.many2one(label = 'Type',obj='srm.contract.type.deadlines',on_delete='n',on_update='n'),
+	'deadline_id': fields.many2one(label = 'Type',obj='srm.deadlines',on_delete='n',on_update='n'),
 	'start_date': fields.datetime(label='Start',required=True),
 	'end_date': fields.datetime(label='End',required=True),
 	'required': fields.boolean(label='Required'),
@@ -5018,7 +4919,7 @@ class srm_contract_pricing_items(Model):
 	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','p')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='purchase.pricing.group.levels'),
+	'group_level': fields.many2one(label = 'Group Level',obj='srm.pricing.group.levels'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'cop': fields.many2one(label='Currency Of Price',obj='md.currency',required=True),
 	'unit': fields.integer(label='Unit'),

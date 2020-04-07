@@ -2341,6 +2341,52 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.srm.deadlines.form">
+          <column name="name">view.srm.deadlines.form</column>
+          <column name="model">srm.deadlines</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.srm.deadlines.list">
+          <column name="name">view.srm.deadlines.list</column>
+          <column name="model">srm.deadlines</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.srm.deadlines.m2mlist">
+          <column name="name">view.srm.deadlines.m2mlist</column>
+          <column name="model">srm.deadlines</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.srm.deadlines.search">
+          <column name="name">view.srm.deadlines.search</column>
+          <column name="model">srm.deadlines</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.srm.deadlines.find">
+          <column name="name">view.srm.deadlines.find</column>
+          <column name="model">srm.deadlines</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+            </find>
+          </column>
+        </record>
         <record id="view.srm.demand.types.form">
           <column name="name">view.srm.demand.types.form</column>
           <column name="model">srm.demand.types</column>
@@ -2440,7 +2486,10 @@
           <column name="model">srm.demand.type.deadlines</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
               <field name="note"/>
             </form>
           </column>
@@ -2450,7 +2499,10 @@
           <column name="model">srm.demand.type.deadlines</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </list>
           </column>
         </record>
@@ -2459,26 +2511,11 @@
           <column name="model">srm.demand.type.deadlines</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.demand.type.deadlines.search">
-          <column name="name">view.srm.demand.type.deadlines.search</column>
-          <column name="model">srm.demand.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.srm.demand.type.deadlines.find">
-          <column name="name">view.srm.demand.type.deadlines.find</column>
-          <column name="model">srm.demand.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.demand.type.plates.form">
@@ -3560,7 +3597,10 @@
           <column name="model">srm.part.type.deadlines</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
               <field name="note"/>
             </form>
           </column>
@@ -3570,7 +3610,10 @@
           <column name="model">srm.part.type.deadlines</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </list>
           </column>
         </record>
@@ -3579,26 +3622,11 @@
           <column name="model">srm.part.type.deadlines</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.part.type.deadlines.search">
-          <column name="name">view.srm.part.type.deadlines.search</column>
-          <column name="model">srm.part.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.srm.part.type.deadlines.find">
-          <column name="name">view.srm.part.type.deadlines.find</column>
-          <column name="model">srm.part.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.part.type.plates.form">
@@ -4680,7 +4708,10 @@
           <column name="model">srm.plan.type.deadlines</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
               <field name="note"/>
             </form>
           </column>
@@ -4690,7 +4721,10 @@
           <column name="model">srm.plan.type.deadlines</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </list>
           </column>
         </record>
@@ -4699,26 +4733,11 @@
           <column name="model">srm.plan.type.deadlines</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.plan.type.deadlines.search">
-          <column name="name">view.srm.plan.type.deadlines.search</column>
-          <column name="model">srm.plan.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.srm.plan.type.deadlines.find">
-          <column name="name">view.srm.plan.type.deadlines.find</column>
-          <column name="model">srm.plan.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.plan.type.plates.form">
@@ -5800,7 +5819,10 @@
           <column name="model">srm.request.type.deadlines</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
               <field name="note"/>
             </form>
           </column>
@@ -5810,7 +5832,10 @@
           <column name="model">srm.request.type.deadlines</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </list>
           </column>
         </record>
@@ -5819,26 +5844,11 @@
           <column name="model">srm.request.type.deadlines</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.request.type.deadlines.search">
-          <column name="name">view.srm.request.type.deadlines.search</column>
-          <column name="model">srm.request.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.srm.request.type.deadlines.find">
-          <column name="name">view.srm.request.type.deadlines.find</column>
-          <column name="model">srm.request.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.request.type.plates.form">
@@ -6920,7 +6930,10 @@
           <column name="model">srm.response.type.deadlines</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
               <field name="note"/>
             </form>
           </column>
@@ -6930,7 +6943,10 @@
           <column name="model">srm.response.type.deadlines</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </list>
           </column>
         </record>
@@ -6939,26 +6955,11 @@
           <column name="model">srm.response.type.deadlines</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.response.type.deadlines.search">
-          <column name="name">view.srm.response.type.deadlines.search</column>
-          <column name="model">srm.response.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.srm.response.type.deadlines.find">
-          <column name="name">view.srm.response.type.deadlines.find</column>
-          <column name="model">srm.response.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.response.type.plates.form">
@@ -8040,7 +8041,10 @@
           <column name="model">srm.rfx.type.deadlines</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
               <field name="note"/>
             </form>
           </column>
@@ -8050,7 +8054,10 @@
           <column name="model">srm.rfx.type.deadlines</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </list>
           </column>
         </record>
@@ -8059,26 +8066,11 @@
           <column name="model">srm.rfx.type.deadlines</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.rfx.type.deadlines.search">
-          <column name="name">view.srm.rfx.type.deadlines.search</column>
-          <column name="model">srm.rfx.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.srm.rfx.type.deadlines.find">
-          <column name="name">view.srm.rfx.type.deadlines.find</column>
-          <column name="model">srm.rfx.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.rfx.type.plates.form">
@@ -9160,7 +9152,10 @@
           <column name="model">srm.auction.type.deadlines</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
               <field name="note"/>
             </form>
           </column>
@@ -9170,7 +9165,10 @@
           <column name="model">srm.auction.type.deadlines</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </list>
           </column>
         </record>
@@ -9179,26 +9177,11 @@
           <column name="model">srm.auction.type.deadlines</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.auction.type.deadlines.search">
-          <column name="name">view.srm.auction.type.deadlines.search</column>
-          <column name="model">srm.auction.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.srm.auction.type.deadlines.find">
-          <column name="name">view.srm.auction.type.deadlines.find</column>
-          <column name="model">srm.auction.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.auction.type.plates.form">
@@ -10280,7 +10263,10 @@
           <column name="model">srm.offer.type.deadlines</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
               <field name="note"/>
             </form>
           </column>
@@ -10290,7 +10276,10 @@
           <column name="model">srm.offer.type.deadlines</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </list>
           </column>
         </record>
@@ -10299,26 +10288,11 @@
           <column name="model">srm.offer.type.deadlines</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.offer.type.deadlines.search">
-          <column name="name">view.srm.offer.type.deadlines.search</column>
-          <column name="model">srm.offer.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.srm.offer.type.deadlines.find">
-          <column name="name">view.srm.offer.type.deadlines.find</column>
-          <column name="model">srm.offer.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.offer.type.plates.form">
@@ -11400,7 +11374,10 @@
           <column name="model">srm.evolution.type.deadlines</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
               <field name="note"/>
             </form>
           </column>
@@ -11410,7 +11387,10 @@
           <column name="model">srm.evolution.type.deadlines</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </list>
           </column>
         </record>
@@ -11419,26 +11399,11 @@
           <column name="model">srm.evolution.type.deadlines</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.evolution.type.deadlines.search">
-          <column name="name">view.srm.evolution.type.deadlines.search</column>
-          <column name="model">srm.evolution.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.srm.evolution.type.deadlines.find">
-          <column name="name">view.srm.evolution.type.deadlines.find</column>
-          <column name="model">srm.evolution.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.evolution.type.plates.form">
@@ -12520,7 +12485,10 @@
           <column name="model">srm.decision.type.deadlines</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
               <field name="note"/>
             </form>
           </column>
@@ -12530,7 +12498,10 @@
           <column name="model">srm.decision.type.deadlines</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </list>
           </column>
         </record>
@@ -12539,26 +12510,11 @@
           <column name="model">srm.decision.type.deadlines</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.decision.type.deadlines.search">
-          <column name="name">view.srm.decision.type.deadlines.search</column>
-          <column name="model">srm.decision.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.srm.decision.type.deadlines.find">
-          <column name="name">view.srm.decision.type.deadlines.find</column>
-          <column name="model">srm.decision.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.decision.type.plates.form">
@@ -13640,7 +13596,10 @@
           <column name="model">srm.contract.type.deadlines</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
               <field name="note"/>
             </form>
           </column>
@@ -13650,7 +13609,10 @@
           <column name="model">srm.contract.type.deadlines</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </list>
           </column>
         </record>
@@ -13659,26 +13621,11 @@
           <column name="model">srm.contract.type.deadlines</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="name"/>
+              <field name="type_id"/>
+              <field name="sequence"/>
+              <field name="deadline_id"/>
+              <field name="required"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.srm.contract.type.deadlines.search">
-          <column name="name">view.srm.contract.type.deadlines.search</column>
-          <column name="model">srm.contract.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.srm.contract.type.deadlines.find">
-          <column name="name">view.srm.contract.type.deadlines.find</column>
-          <column name="model">srm.contract.type.deadlines</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
           </column>
         </record>
         <record id="view.srm.contract.type.plates.form">
