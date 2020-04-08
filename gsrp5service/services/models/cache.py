@@ -100,19 +100,52 @@ def _writeRecord(self, cr, pool, uid, record, context):
 		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self._name, record))
 
 	trg1 = self._getTriger('bur')
-	for trg11 in trg1:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record,'context':context}
-		trg11(**kwargs)
+	record2 =None
+	upd_cols = set()
+	if trg1 and len(trg1) > 0:
+		ctx = context.copy()
+		ctx['FETCH'] = 'RAW'
+		record21 = self.read(cr, pool, uid, record['id'], self._selectablefields, ctx)
+
+		if len(record21) > 0:
+			record2 = record21[0]
+		
+		if record2:
+			k1 = set(list(record.keys()))
+			k2 = set(list(record2.keys()))
+			uk = list(set(k1).intersection(set(k2)))
+			ik = list(set(k1)- set(k2))
+			dk = list(set(k2)- set(k1))
+			
+			for k in uk:
+				if record[k] != record2[k]:
+					if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
+						upd_cols.add(k)
+			for k in ik:
+				if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
+					upd_cols.add(k)
+		
+			for k in dk:
+				if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
+					upd_cols.add(k)
+		
+			if len(upd_cols) > 0:
+		
+				for trg11 in trg1:
+					kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record,'context':context}
+					trg11(**kwargs)
 
 	sql,vals = gensql.Write(self,pool,uid,self.modelInfo(), record, context)
 	cr.execute(sql,vals)
 	if cr.cr.rowcount > 0:
 		oid = cr.fetchone()[0]
 
-	trg2 = self._getTriger('aur')
-	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record,'context':context}
-		trg22(**kwargs)
+	if len(upd_cols) > 0:
+		trg2 = self._getTriger('aur')
+		if trg2 and len(trg2) > 0:
+			for trg22 in trg2:
+				kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record,'context':context}
+				trg22(**kwargs)
 
 	return oid
 
@@ -145,12 +178,14 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 	record2 =None
 	upd_cols = set()
 	if trg1 and len(trg1) > 0:
-		
 		if 'id' in record and record['id']:
 			ctx = context.copy()
 			ctx['FETCH'] = 'RAW'
-			record2 = self.read(self, cr, pool, uid, record['id'], self._selectablefields, ctx)[0]
-	
+			record21 = self.read(cr, pool, uid, record['id'], self._selectablefields, ctx)
+
+			if len(record21) > 0:
+				record2 = record21[0]
+
 		if record2:
 			k1 = set(list(record.keys()))
 			k2 = set(list(record2.keys()))
@@ -159,18 +194,18 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			dk = list(set(k2)- set(k1))
 			
 			
-		for k in uk:
-			if record[k] != record2[k]:
+			for k in uk:
+				if record[k] != record2[k]:
+					if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
+						upd_cols.add(k)
+			for k in ik:
 				if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
 					upd_cols.add(k)
-		for k in ik:
-			if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
-				upd_cols.add(k)
-
-		for k in dk:
-			if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
-				upd_cols.add(k)
-
+	
+			for k in dk:
+				if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
+					upd_cols.add(k)
+	
 		if record2 is None or len(upd_cols) > 0:
 			for trg11 in trg1:
 				kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record2,'context':context}
@@ -1625,15 +1660,20 @@ class MCache(object):
 			else:
 				data[k] = item['__data__'][k]
 
-		r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
+		#import web_pdb
+		#web_pdb.set_trace()
+		if 'id' in data:
+			r = _modifyRecord(m,self._cr,self._pool,self._uid,data,self._context)
+		else:
+			r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 
-		if r:
-			item['__data__']['id'] = r
-			path = item['__path__']
-			self._data._cdata[path]['id'] = r
-			self._data._odata[path]['id'] = copy.deepcopy(r)
-			if self._data._primary and path in self._data._pdata:
-				self._data._pdata[path]['id'] = copy.deepcopy(r)
+			if r:
+				item['__data__']['id'] = r
+				path = item['__path__']
+				self._data._cdata[path]['id'] = r
+				self._data._odata[path]['id'] = copy.deepcopy(r)
+				if self._data._primary and path in self._data._pdata:
+					self._data._pdata[path]['id'] = copy.deepcopy(r)
 
 		
 		if '__m2m_containers__' in item:
