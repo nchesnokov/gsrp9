@@ -53,7 +53,7 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 				#for k2,v2 in columns_info[sf2]['selections']:
 					mfs.setdefault(sf2,{})[k2] = v2 
 
-			print('COND:',cond)
+			#print('COND:',cond)
 			records = m.select(cr,pool,uid,fields,cond)
 			if len(records) > 0:
 				if m._name[:3] == 'md.':
@@ -63,7 +63,7 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 	
 				_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,m._table+'_'+k+'.' + ext),));
 				am = open(opj(path,module,'demo',c,m._table+'_'+k+'.' + ext),'w')
-				print('MFS:',mfs)
+				#print('MFS:',mfs)
 				for row in records:
 					for key in row.keys():
 						if key == 'id':
@@ -126,7 +126,7 @@ def _download(cr,pool,uid,path,module,imodules,models,imodels,registry,ext='csv'
 			for k,v in columns_info[sf]['selections']:
 				mfs.setdefault(sf,{})[k] = v 
 		records = model.select(cr,pool,uid,fields,cond)
-		if len(records) > 0:
+		if len(records) >= 0:
 			if model._name[:3] == 'md.':
 				c = 'data'
 			else:
