@@ -1619,7 +1619,7 @@ class MCache(object):
 		m = self._pool.get(model)
 		excl_fields = m._o2mfields + m._m2mfields
 		for k in filter(lambda x: x not in excl_fields,item['__data__'].keys()):
-			if m._columns[k]._type in ('many2one','related'):
+			if k in m._columns and m._columns[k]._type in ('many2one','related'):
 				if rel and k != rel or not rel:
 					data[k] = item['__data__'][k]['id']
 			else:

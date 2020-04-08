@@ -775,6 +775,8 @@ class srm_demands(Model):
 	'note': fields.text('Note')}
 	
 	def _on_change_dtype(self,cr,pool,uid,item,context={}):		
+		#import web_pdb
+		#web_pdb.set_trace()
 		roles = pool.get('srm.demand.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['dtype']['name'])],context)
 		for role in roles:
 			item_role = pool.get('srm.demand.roles')._buildEmptyItem()
@@ -782,7 +784,7 @@ class srm_demands(Model):
 			item['roles'].append(item_role)
 
 		deadlines = pool.get('srm.demand.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['dtype']['name'])],context)
-		for role in roles:
+		for deadline in deadlines:
 			item_deadline = pool.get('srm.demand.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
@@ -1178,7 +1180,7 @@ class srm_parts(Model):
 			item['roles'].append(item_role)
 
 		deadlines = pool.get('srm.part.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['ptype']['name'])],context)
-		for role in roles:
+		for deadline in deadlines:
 			item_deadline = pool.get('srm.part.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
@@ -1573,7 +1575,7 @@ class srm_plans(Model):
 			item['roles'].append(item_role)
 
 		deadlines = pool.get('srm.plan.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['ptype']['name'])],context)
-		for role in roles:
+		for deadline in deadlines:
 			item_deadline = pool.get('srm.plan.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
@@ -1968,7 +1970,7 @@ class srm_requests(Model):
 			item['roles'].append(item_role)
 
 		deadlines = pool.get('srm.request.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
-		for role in roles:
+		for deadline in deadlines:
 			item_deadline = pool.get('srm.request.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
@@ -2363,7 +2365,7 @@ class srm_responses(Model):
 			item['roles'].append(item_role)
 
 		deadlines = pool.get('srm.response.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
-		for role in roles:
+		for deadline in deadlines:
 			item_deadline = pool.get('srm.response.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
@@ -2759,7 +2761,7 @@ class srm_rfxs(Model):
 			item['roles'].append(item_role)
 
 		deadlines = pool.get('srm.rfx.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
-		for role in roles:
+		for deadline in deadlines:
 			item_deadline = pool.get('srm.rfx.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
@@ -3154,7 +3156,7 @@ class srm_auctions(Model):
 			item['roles'].append(item_role)
 
 		deadlines = pool.get('srm.auction.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['atype']['name'])],context)
-		for role in roles:
+		for deadline in deadlines:
 			item_deadline = pool.get('srm.auction.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
@@ -3549,7 +3551,7 @@ class srm_offers(Model):
 			item['roles'].append(item_role)
 
 		deadlines = pool.get('srm.offer.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['otype']['name'])],context)
-		for role in roles:
+		for deadline in deadlines:
 			item_deadline = pool.get('srm.offer.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
@@ -3944,7 +3946,7 @@ class srm_evolutions(Model):
 			item['roles'].append(item_role)
 
 		deadlines = pool.get('srm.evolution.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['etype']['name'])],context)
-		for role in roles:
+		for deadline in deadlines:
 			item_deadline = pool.get('srm.evolution.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
@@ -4339,7 +4341,7 @@ class srm_decisions(Model):
 			item['roles'].append(item_role)
 
 		deadlines = pool.get('srm.decision.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['dtype']['name'])],context)
-		for role in roles:
+		for deadline in deadlines:
 			item_deadline = pool.get('srm.decision.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
@@ -4734,7 +4736,7 @@ class srm_contracts(Model):
 			item['roles'].append(item_role)
 
 		deadlines = pool.get('srm.contract.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['ctype']['name'])],context)
-		for role in roles:
+		for deadline in deadlines:
 			item_deadline = pool.get('srm.contract.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
