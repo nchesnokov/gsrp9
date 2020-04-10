@@ -602,10 +602,6 @@ class purchase_orders(Model):
 	'note': fields.text('Note')
 	}
 
-	def _attrs_model_invisible(self,cr,pool,uid,item,context={}):
-		if 'pm' in item and item['pm'] == 'c':
-			return {'purchse.order.items':{'iv':{'price':True,'unit':True,'uop':True}}}
-
 	def _on_change_otype(self,cr,pool,uid,item,context={}):		
 		roles = pool.get('purchase.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
@@ -769,6 +765,11 @@ class purchase_order_items(Model):
 	'plates': fields.one2many(label='Plates',obj='purchase.order.item.output.plates',rel='item_id'),
 	'payments': fields.one2many(label='Payments',obj='purchase.order.item.payment.schedules',rel='item_id'),
 	'note': fields.text(label = 'Note')}
+
+	def _attrs_model_invisible(self,cr,pool,uid,item,context={}):
+		if 'pm' in item and item['pm'] == 'c':
+			return {'iv':{'price':True,'unit':True,'uop':True}}
+
 
 	def _on_change_product(self,cr,pool,uid,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:

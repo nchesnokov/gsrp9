@@ -4,6 +4,7 @@ from decimal import Decimal
 import datetime
 import psycopg2
 import ctypes
+from deepdiff.diff import DeepDiff
 from gsrp5service.orm import gensql
 from gsrp5service.orm.common import MAGIC_COLUMNS
 
@@ -287,7 +288,7 @@ class DCacheDict(object):
 		self._context = context
 		self._primary = primary
 
-		for v in ('data','paths','r2c','containers','names','metas','models','rels'):
+		for v in ('data','paths','r2c','containers','names','metas','models','rels','attrs'):
 			for a in ('p','o','c'):
 				if not primary and a == 'p':
 					continue
@@ -317,6 +318,7 @@ class DCacheDict(object):
 
 			self._cdata[oid] = data
 			self._cmodels[oid] = model
+			self._set_meta(oid)
 			if parent and name:
 				self._cpaths.setdefault(oid,{})[name] = parent
 				self._cr2c[oid] = self._cnames[name + '.' + str(parent)]
@@ -381,6 +383,7 @@ class DCacheDict(object):
 		self._ometas.update(copy.deepcopy(self._cmetas))
 		self._omodels.update(copy.deepcopy(self._cmodels))
 		self._orels.update(copy.deepcopy(self._crels))
+		self._oattrs.update(copy.deepcopy(self._cattrs))
 		if self._primary:
 			self._pdata.update(copy.deepcopy(self._cdata))
 			self._ppaths.update(copy.deepcopy(self._cpaths))
@@ -390,6 +393,8 @@ class DCacheDict(object):
 			self._pmetas.update(copy.deepcopy(self._cmetas))
 			self._pmodels.update(copy.deepcopy(self._cmodels))		
 			self._prels.update(copy.deepcopy(self._crels))
+			self._pattrs.update(copy.deepcopy(self._cattrs))
+			
 
 	def _diffs(self,o,c,commit):
 		res = {}
@@ -459,7 +464,7 @@ class DCacheDict(object):
 						orels[path] = crels[path]
 						omodels[path] = cmodels[path] 
 					opaths[path] = cpaths[path]
-					or2c[path] = cr2c[path] 
+					or2c[path] = cr2c[path]
 					
 					if '__o2m_containers__' in r:
 						for ck in r['__o2m_containers__'].keys():
@@ -865,7 +870,7 @@ class DCacheDict(object):
 		if path in self._cr2c:
 			container = self._ccontainers[self._cr2c[path]]
 		
-		res = {'__path__':path,'__data__':data,'__model__':model,'__meta__':self._do_meta(path)}
+		res = {'__path__':path,'__data__':data,'__model__':model,'__meta__':self._get_meta(path)}
 		if container:
 			res['__container__'] = container
 		
@@ -894,6 +899,72 @@ class DCacheDict(object):
 			res.append({'__container__':container,'__path__':str(id(r)),'__parent__':container.split('.')[1],'__data__':r})
 			
 		return res
+
+	def _set_meta(self,path):
+		ca = {'readonly':'ro','invisible':'iv','required':'rq','state':'st'}
+
+		#model = self._cmodels[path]
+		m = self._pool.get(self._cmodels[path])
+
+		keys = list(m._columns.keys())
+		for a in ('ro','rq','iv'):
+			for k in keys:
+				self._cattrs.setdefault(path,{}).setdefault(a,{})[k] = False
+
+		if type(m._attrs) == dict:
+			if len(m._attrs) > 0:
+				self._cattrs.setdefault(path,{}).update(m._attrs)
+		elif type(m._attrs) == str:
+			method = getattr(m,m._attrs,None)
+			if method and callable(method):
+				rc = method(self._cr,self._pool,self._uid,self._cdata[path],self._context)
+				if rc and len(rc) > 0:
+					self._cattrs.setdefault(path,{}).update(rc)
+
+		cm = {}
+		for a in ('readonly','invisible','required','state'):
+			for c in m._columns.keys():
+				if m._columns[c]._type =='referenced':
+					continue
+				aa = getattr(m._columns[c],a,None)
+				if type(aa) == bool:
+					self._cattrs.setdefault(path,{}).setdefault(ca[a],{})[c] = aa
+				elif type(aa) == str:
+					cm.setdefault(a,{}).setdefault(aa,set()).add(c)
+				elif type(aa) == dict:
+					if a == 'state':
+						for s in aa.keys():
+							sn = m._getStateName()
+							if s == self._cdata[path][sn]:
+								if type(aa[s]) == dict:
+									for s1 in aa[s].keys():
+										if aa[s][s1]:
+											if type(aa[s][s1]) == bool:
+												self._cattrs.setdefault(path,{}).setdefault(ca[a],{}).setdefault(s1,{})[c] = aa[s][s1]
+											else:
+												self._cattrs.setdefault(s,set()).add(aa[s][s1])
+								elif type(aa[s]) == str:
+									cm.setdefault(a,{}).setdefault(aa,set()).add(c)
+
+		for k in cm.keys():
+			for k1 in cm[k].keys():
+				method = getattr(m,k1,None)
+				if method and callable(method):
+					rc = method(self._cr,self._pool,self._uid,cm[k][k1],self._cdata[path],self._context)
+					if len(rc)> 0:
+						self._cattrs.setdefault(path,{}).setdefault(ca[k],{}).setdefault(k,{}).update(rc)
+
+		if 'st' in self._cattrs[path]:
+			st = self._cattrs[path]['st']
+			for k1a in st.keys():
+				for k1c in st[k1a].keys():
+					self._cattrs.setdefault(path,{}).setdefault(k1a,{})[k1c] = st[k1a][k1c]
+			
+			del self._cattrs[path]['st']
+			
+
+	def _get_meta(self,path):
+		return self._cattrs[path]
 
 	def _do_meta(self,path):
 		res = {}
@@ -1242,9 +1313,40 @@ class MCache(object):
 			if key not in self._checks or key in self._checks and self._checks[key]:
 				self._do_calculate(path,context)
 
+			self._data._set_meta(path)
 		return res
 
 	def _do_meta(self,path):
+		res = {}
+		while True:
+			res[path] = self._data._get_meta(path)
+			if self._data._cpaths[path]:
+				parents = self._data._cpaths[path]
+				for key in parents.keys():
+					path = parents[key]
+			else:
+				break
+
+		self._mdata = res
+		
+		return res
+
+	def _do_meta_diff(self,path):
+		res = {}
+		while True:
+			diff = DeepDiff(self._data._cattrs[path],self._data._oattrs[path])
+			if len(diff) > 0:
+				res[path] = diff
+			if self._data._cpaths[path]:
+				parents = self._data._cpaths[path]
+				for key in parents.keys():
+					path = parents[key]
+			else:
+				break
+		
+		return res
+
+	def _do_meta_old(self,path):
 		res = {}
 		ca = {'readonly':'ro','invisible':'iv','required':'rq','state':'st'}
 		while True:
@@ -1942,6 +2044,7 @@ class MCache(object):
 		self._do_diff(path,key,value,context)
 		self._diffs = self._post_diffs(context)
 		meta = self._do_meta(path)
+		diff_meta = self._do_meta_diff(path)
 
 		if len(self._diffs) > 0:
 			res['__data__'] = copy.deepcopy(self._diffs)
@@ -1954,6 +2057,10 @@ class MCache(object):
 		
 		if len(meta) > 0:
 			res['__meta__'] = meta
+
+		if len(diff_meta) > 0:
+			res['__diff_meta__'] = diff_meta
+
 
 		if len(res) > 0:
 			return [res]

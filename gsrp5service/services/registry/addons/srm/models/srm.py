@@ -5102,7 +5102,7 @@ class md_srm_product_inherit(ModelInherit):
 	_description = 'Genaral Model Inherit For SRM Product'
 	_inherit = {'md.product':{'_columns':['srm']},'md.recepture':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'md.type.plates':{'_columns':['usage']}}
 	_columns = {
-		'srm': fields.one2many(label='Purchase',obj='md.srm.product',rel='product_id'),
+		'srm': fields.one2many(label='SRM',obj='md.srm.product',rel='product_id'),
 		'usage': fields.iProperty(selections=[('srm','SRM')])
 	}
 	
