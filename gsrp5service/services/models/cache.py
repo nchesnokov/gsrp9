@@ -7,6 +7,7 @@ import ctypes
 from deepdiff.diff import DeepDiff
 from gsrp5service.orm import gensql
 from gsrp5service.orm.common import MAGIC_COLUMNS
+import web_pdb
 
 from gsrp5service.orm.mm import _m2mfieldid2
 
@@ -15,10 +16,9 @@ class orm_exception(Exception):
 		self.args = args
 		self.kwargs = kwargs
 
-
-def _join_levels(l1,l2):
-	for k in l2.keys():
-		l1.setdefault(k,set()).update(l2[k])
+# def _join_levels(l1,l2):
+	# for k in l2.keys():
+		# l1.setdefault(k,set()).update(l2[k])
 
 def _join_diffs(d1,d2):
 	for k2 in d2.keys():
@@ -26,22 +26,6 @@ def _join_diffs(d1,d2):
 			d1[k2].update(d2[k2])
 		elif k2 in ('__append__','__remove__'):
 			d1[k2].extend(d2[k2])
-
-class DictComp(dict):
-	def __init__(self,data,primary=True):
-		self.__shadow__ = {}
-		if primary:
-			self.__primary
-		self.update(data)
-		for key in data.keys():
-			if type(data[key]) == dict:
-				self.__shadow__[key] = DictComp(copy.deepcopy(data[key]))
-			else:
-				self.__shadow__[key] = copy.deepcopy(data[key])
-	
-	def _diff(self,commit = True):
-		pass
-
 
 def _createRecord(self, cr, pool, uid, record, context):
 	oid = None
@@ -152,7 +136,6 @@ def _writeRecord(self, cr, pool, uid, record, context):
 
 def _modifyRecord(self, cr, pool, uid, record, context):
 	oid = None
-	#print('MODIFY-RECORD:',record)
 	fields = list(record.keys())
 	modelfields = list(self._columns.keys())
 	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS, fields))
@@ -194,7 +177,6 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			ik = list(set(k1)- set(k2))
 			dk = list(set(k2)- set(k1))
 			
-			
 			for k in uk:
 				if record[k] != record2[k]:
 					if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
@@ -212,7 +194,6 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 				kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record2,'context':context}
 				trg11(**kwargs)
 		
-	#print('RECORD-0:',record)
 	sql,vals = gensql.Modify(self,pool,uid,self.modelInfo(), record, context)
 	cr.execute(sql,vals)
 	if cr.cr.rowcount > 0:
@@ -245,8 +226,6 @@ def _unlinkRecord(self, cr, pool, uid, record, context = {}):
 			id2 = _m2mfieldid2(pool,obj,rel)
 
 		rels = []
-		#for oid in ids:
-			#_m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
 	trg1 = self._getTriger('bdr')
 	for trg11 in trg1:
@@ -337,12 +316,10 @@ class DCacheDict(object):
 				self._cdata[coid] = data[o2mfield]
 				self._cmodels[coid] = ci[o2mfield]['obj']
 	
-				#if mode != 'I':
 				for r1 in data[o2mfield]:
 					self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
 
 	def _m2m_buildTree(self,data,rel,parent,name,model):
-		#print('_m2m_buildTree:'.upper(),data,rel,parent,name)
 		if type(data) == dict:
 			cn = name + '.' + parent
 			coid = self._cnames[cn]
@@ -409,7 +386,6 @@ class DCacheDict(object):
 
 
 	def _apply_from_diffs(self,o,c,diffs):
-		print('APPLY-DIFFS:',diffs)
 		if ('__update__' in diffs ):
 			for k in diffs['__update__'].keys():
 				getattr(self,'_%sdata' % (o,))[k].update(copy.deepcopy(diffs['__update__'][k]))
@@ -527,11 +503,6 @@ class DCacheDict(object):
 						del odata[onames[container]]
 						del ocontainers[onames[container]]
 						del onames[container]
-
-					
-					#del cmetas[model]
-					#del ometas[model]
-					
 					
 					if path in cmodels:
 						del cmodels[path] 
@@ -634,8 +605,6 @@ class DCacheDict(object):
 		uk = list(set(ok).intersection(set(ck)))
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
-		
-		#print('CMP-LIST:',ok,ck,ik,uk,dk,container)
 					
 		for path in uk:
 			v = self._cmpDict(o,c,path)
@@ -724,8 +693,6 @@ class DCacheDict(object):
 
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
-		
-		#print('CMP-M2MLIST:',ok,ck,ik,dk,container)
 			
 		for i in ik:
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
@@ -733,7 +700,6 @@ class DCacheDict(object):
 
 			model = cmodels[i]
 			rel = crels[i]
-			#self._m2m_buildTree(d1,rel,p[1],p[0],model)
 				
 			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1})
 	
@@ -903,7 +869,6 @@ class DCacheDict(object):
 	def _set_meta(self,path):
 		ca = {'readonly':'ro','invisible':'iv','required':'rq','state':'st'}
 
-		#model = self._cmodels[path]
 		m = self._pool.get(self._cmodels[path])
 
 		keys = list(m._columns.keys())
@@ -1068,7 +1033,6 @@ class MCache(object):
 	def _initialize(self,model,view='form',context={}):
 		self._clear()
 		self._model = model
-		#row = self._buildItem(model,view)
 		row = self._pool.get(model)._buildEmptyItem()
 		self._setDefault(model,row)
 		self._data = DCacheDict(row,model,self._cr,self._pool,self._uid,self._context,False)
@@ -1076,17 +1040,14 @@ class MCache(object):
 		self._do_calculate(self._data._root,context=context)
 		self._getMeta()	
 		m = self._data._getData(self._data._data)
-		#m['__meta__'] = self._do_meta(str(self._data._root))
 		m['__checks__'] = []
 		return m
 
 	def _readNodes(self,model,row):
 		schema = self._pool.get(model)._schema1
 		q = []
-		#print('SCHEMA:',model,schema)
 		for k in schema[0].keys():
 			parent = schema[0][k]
-			#print('PARENT:',parent)
 			m = self._pool.get(parent)
 			oid = row[k]['id']
 			if oid:
@@ -1101,9 +1062,7 @@ class MCache(object):
 	def _readSchema(self,model,row):
 		res = {}
 		nodes = self._readNodes(model,row)
-		#print('NODES:',nodes)
 		for oid,model in nodes:
-			#print('OID:',oid,model)
 			m = self._pool.get(model)
 			cols = m._buildSchemaColumns(self._pool)
 			d = m.read(self._cr,self._pool,self._uid,oid,cols,self._context)
@@ -1112,20 +1071,10 @@ class MCache(object):
 		return res
 
 	def _do_create(self,model,kwargs):
-		# self._clear()
-		# self._model = model
 		row = self._pool.get(model).create(**kwargs)
 		return row
-		# self._data = DCacheDict(row,model,self._pool)
-		# self._getMeta()
-		# m = self._data._getData(self._data._data)
-		# m['__meta__'] = self._do_meta(str(self._data._root))
-		# m['__checks__'] = []
-		# return m
 
 	def _do_read(self,model,kwargs):
-		#v = self._readSchema(model,row)
-		#print('READ-SCHEMA:',row)
 		self._clear()
 		self._model = model
 		row = self._pool.get(model).read(**kwargs)
@@ -1133,31 +1082,16 @@ class MCache(object):
 			self._data = DCacheDict(row[0],model,self._cr,self._pool,self._uid,self._context)
 			self._getMeta()
 			m = self._data._getData(self._data._data)
-			#m['__meta__'] = self._do_meta(str(self._data._root))
 			m['__checks__'] = []
 			return m
 		else:
 			return []
 
 	def _do_write(self,model,kwargs):
-		#v = self._readSchema(model,row)
-		#print('READ-SCHEMA:',row)
-		# self._clear()
-		# self._model = model
 		row = self._pool.get(model).write(**kwargs)
 		return row
-		# self._data = DCacheDict(row,model,self._pool)
-		# self._getMeta()
-		# m = self._data._getData(self._data._data)
-		# m['__meta__'] = self._do_meta(str(self._data._root))
-		# m['__checks__'] = []
-		# return m
 
 	def _do_modify(self,model,kwargs):
-		#v = self._readSchema(model,row)
-		#print('READ-SCHEMA:',row)
-		# self._clear()
-		# self._model = model
 		records = kwargs['records']
 		if type(records) in (list,tuple):
 			for record in records:
@@ -1166,62 +1100,20 @@ class MCache(object):
 		elif type(records) == dict:
 			self._data = DCacheDict(records,model,self._cr,self._pool,self._uid,self._context,False)
 			self._save(True)
-			
-		#row = self._pool.get(model).modify(**kwargs)
-		#return row
-		# self._data = DCacheDict(row,model,self._pool)
-		# self._getMeta()
-		# m = self._data._getData(self._data._data)
-		# m['__meta__'] = self._do_meta(str(self._data._root))
-		# m['__checks__'] = []
-		# return m
 
 	def _do_unlink(self,model,kwargs):
-		#v = self._readSchema(model,row)
-		#print('READ-SCHEMA:',row)
-		# self._clear()
-		# self._model = model
 		row = self._pool.get(model).unlink(**kwargs)
 		return row
-		# self._data = DCacheDict(row,model,self._pool)
-		# self._getMeta()
-		# m = self._data._getData(self._data._data)
-		# m['__meta__'] = self._do_meta(str(self._data._root))
-		# m['__checks__'] = []
-		# return m
 
 	def _do_insert(self,model,kwargs):
-		#v = self._readSchema(model,row)
-		#print('READ-SCHEMA:',row)
-		# self._clear()
-		# self._model = model
 		row = self._pool.get(model).insert(**kwargs)
 		return row
-		# self._data = DCacheDict(row,model,self._pool)
-		# self._getMeta()
-		# m = self._data._getData(self._data._data)
-		# m['__meta__'] = self._do_meta(str(self._data._root))
-		# m['__checks__'] = []
-		# return m
 
 	def _do_select(self,model,kwargs):
-		#v = self._readSchema(model,row)
-		#print('READ-SCHEMA:',row)
-		#self._clear()
-		#self._model = model
 		row = self._pool.get(model).select(**kwargs)
-		#self._data = DCacheDict(row,model,self._pool)
-		#self._getMeta()
-		#m = self._data._getData(self._data._data)
-		#m['__meta__'] = self._do_meta(str(self._data._root))
-		#m['__checks__'] = []
 		return row
-		#return m
-
 
 	def _do_upsert(self,model,kwargs):
-		#v = self._readSchema(model,row)
-		#print('READ-SCHEMA:',row)
 		self._clear()
 		self._model = model
 		row = self._pool.get(model).upsert(**kwargs)
@@ -1233,8 +1125,6 @@ class MCache(object):
 		return m
 
 	def _do_update(self,model,kwargs):
-		#v = self._readSchema(model,row)
-		#print('READ-SCHEMA:',row)
 		self._clear()
 		self._model = model
 		row = self._pool.get(model).update(**kwargs)
@@ -1246,8 +1136,6 @@ class MCache(object):
 		return m
 
 	def _do_delete(self,model,kwargs):
-		#v = self._readSchema(model,row)
-		#print('READ-SCHEMA:',row)
 		self._clear()
 		self._model = model
 		row = self._pool.get(model).delete(**kwargs)
@@ -1346,93 +1234,6 @@ class MCache(object):
 		
 		return res
 
-	def _do_meta_old(self,path):
-		res = {}
-		ca = {'readonly':'ro','invisible':'iv','required':'rq','state':'st'}
-		while True:
-			model = self._data._cmodels[path]
-			m = self._pool.get(model)
-
-			if type(m._attrs) == dict:
-				if len(m._attrs) > 0:
-					res.update(m._attrs)
-			elif type(m._attrs) == str:
-				method = getattr(m,m._attrs,None)
-				if method and callable(method):
-					rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
-					if rc and len(rc) > 0:
-						res.update(rc)
-
-			if model not in self._meta:
-				self._getMeta(model)
-
-			cols = self._meta[model]
-			cm = {}
-			for c in m._columns.keys():
-				if m._columns[c]._type =='referenced':
-					continue
-				for a in ('readonly','invisible','required','state'):
-					aa = getattr(m._columns[c],a,None)
-					if a == 'state':
-						if aa:
-							if type(aa) == str:
-								cm.setdefault(a,set()).add(aa)
-							elif type(aa) == dict:
-								for s in aa.keys():
-									sn = m._getStateName()
-									if s == self._data._cdata[path][sn]:
-										if type(aa[s]) == dict:
-											for s1 in aa[s].keys():
-												if aa[s][s1]:
-													if type(aa[s][s1]) == bool:
-														res.setdefault(model,{}).setdefault(ca[a],{}).setdefault(s1,{})[c] = aa[s][s1]
-													else:
-														cm.setdefault(s,set()).add(aa[s][s1])
-										elif type(aa[s]) == str:
-											cm.setdefault(s,set()).add(aa[s])
-					else:
-						if aa:
-							if type(aa) == bool:
-								if aa:
-									res.setdefault(model,{}).setdefault(ca[a],{})[c] = aa
-							else:
-								cm.setdefault(a,{}).setdefault(aa,[]).append(c)
-				
-			for k in cm.keys():
-				if k == 'invisible':
-					for k1 in cm[k].keys():
-						method = getattr(m,k1,None)
-						if method and callable(method):
-							rc = method(self._cr,self._pool,self._uid,cm[k][k1],self._data._cdata[path],self._context)
-							if len(rc)> 0:
-								res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
-				else:			
-					for k1 in cm[k]:
-						method = getattr(m,k1,None)
-						if method and callable(method):
-							rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
-							if len(rc)> 0:
-								res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
-
-			# for k in cm.keys():
-				# for k1 in cm[k]:
-					# method = getattr(m,k1,None)
-					# if method and callable(method):
-						# rc = method(self._cr,self._pool,self._uid,self._data._cdata[path],self._context)
-						# if len(rc)> 0:
-							# res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
-				
-			if self._data._cpaths[path]:
-				parents = self._data._cpaths[path]
-				for key in parents.keys():
-					path = parents[key]
-			else:
-				break
-
-		self._mdata = res
-		
-		return res
-
 	def _do_compute(self, path, model):
 		res = {}
 		m = self._pool.get(model)
@@ -1481,9 +1282,7 @@ class MCache(object):
 					item[k] = _default[k]	
 	
 	def _o2m_add(self,model,container,context,view='form'):
-		#row = self._buildItem(model,view)
 		row = self._pool.get(model)._buildEmptyItem()
-		#row['id'] = self._pool.get(model)._getUid(self._cr)
 		self._setDefault(model,row)
 		
 		p = container.split('.')
@@ -1495,6 +1294,8 @@ class MCache(object):
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
+		diff_meta = self._do_meta_diff(path)
+
 		
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
@@ -1507,24 +1308,26 @@ class MCache(object):
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
 
+		if len(diff_meta) > 0:
+			res['__diff_meta__'] = diff_meta
+
+
 		if len(res) > 0:
 			return [res]
 		
 		return []
 			
 	def _o2m_remove(self,path,container,context):
-		#print('O2M-CACHE-REMOVE:',path,container)
 		c = container.split('.')
-		#self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
 		self._data._removeRecursive('o','c',path)
-		#del self._data._cdata[path]
 		
 		self._do_calculate(c[1],context)
 		
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
-		#print('REMOVE-DIFFS:',self._data._pdiffs(False))
+		diff_meta = self._do_meta_diff(path)
+
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
 		
@@ -1536,13 +1339,15 @@ class MCache(object):
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
 
+		if len(diff_meta) > 0:
+			res['__diff_meta__'] = diff_meta
+
 		if len(res) > 0:
 			return [res]
 		
 		return []
 
 	def _o2m_removes(self,rows,context):
-		#print('O2M-CACHE-REMOVES:',path,container)
 		for row in rows:
 			path = row['path']
 			container = row['container']
@@ -1555,7 +1360,8 @@ class MCache(object):
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
-		#print('REMOVE-DIFFS:',self._data._pdiffs(False))
+		diff_meta = self._do_meta_diff(path)
+
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
 		
@@ -1566,6 +1372,9 @@ class MCache(object):
 		if len(self._checks) > 0:
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
+
+		if len(diff_meta) > 0:
+			res['__diff_meta__'] = diff_meta
 
 		if len(res) > 0:
 			return [res]
@@ -1602,10 +1411,14 @@ class MCache(object):
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
+		diff_meta = self._do_meta_diff(path)
 
-		#print('M2M-CACHE-REMOVE:',path,container,data_diffs)
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
+
+		if len(diff_meta) > 0:
+			res['__diff_meta__'] = diff_meta
+
 		
 		if len(res) > 0:
 			return [res]
@@ -1674,8 +1487,8 @@ class MCache(object):
 			res['__do_action__'] = []
 
 		self._diffs = self._post_diffs(context)
-
 		meta = self._do_meta(path)
+		diff_meta = self._do_meta_diff(path)
 		
 		if len(self._diffs) > 0:
 			res['__data__'] = copy.deepcopy(self._diffs)
@@ -1684,10 +1497,12 @@ class MCache(object):
 		if len(self._checks) > 0:
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
-
 		
 		if len(meta) > 0:
 			res['__meta__'] = meta
+
+		if len(diff_meta) > 0:
+			res['__diff_meta__'] = diff_meta
 
 		if len(res) > 0:
 			return [res]
@@ -1696,7 +1511,7 @@ class MCache(object):
 
 	def _save(self,autocommit = False):
 		diffs = self._data._pdiffs(False)
-		print('SAVE-DIFFS:',diffs)
+		#print('SAVE-DIFFS:',diffs)
 		if len(diffs) == 0:
 			return ['no chache']
 		
@@ -1762,8 +1577,6 @@ class MCache(object):
 			else:
 				data[k] = item['__data__'][k]
 
-		#import web_pdb
-		#web_pdb.set_trace()
 		if 'id' in data:
 			r = _modifyRecord(m,self._cr,self._pool,self._uid,data,self._context)
 		else:
@@ -1776,7 +1589,6 @@ class MCache(object):
 				self._data._odata[path]['id'] = copy.deepcopy(r)
 				if self._data._primary and path in self._data._pdata:
 					self._data._pdata[path]['id'] = copy.deepcopy(r)
-
 		
 		if '__m2m_containers__' in item:
 			m2m_containers = item['__m2m_containers__']
@@ -1867,12 +1679,10 @@ class MCache(object):
 						trg22(**kwargs)
 
 	def _o2m_removeItem(self,item):
-		#print('REMOVE-ITEM:',item)
 		if 'id' in item['__data__']:
 			data = item['__data__']
 			m = self._pool.get(item['__model__'])
 			r = _unlinkRecord(m,self._cr,self._pool,self._uid,data,self._context)
-			#print('UNLINK:',r)
 
 	def _m2m_appendRows(self,rows):
 		rels = []
@@ -1897,7 +1707,6 @@ class MCache(object):
 			rel = m._columns[c[0]].rel
 			id1 = m._columns[c[0]].id1
 			id2 = m._columns[c[0]].id2
-			#print('row:',row,oid)
 			rels.append(row['__data__']['id'])
 
 			m._m2munlink(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
@@ -1917,23 +1726,19 @@ class MCache(object):
 					else:
 						data[k] = models[model][mkey][k]
 			
-				print('MKEY:',model,mkey,self._data._cdata[mkey])
 				if 'id' in self._data._cdata[mkey]:
 					data['id'] = self._data._cdata[mkey]['id']
-					print('SAVE-DATA:',data)
 					r = _writeRecord(m,self._cr,self._pool,self._uid,data,self._context)
 				else:
-					print('SAVE-DATA1:',data)
 					r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 					if r:
 						models[model][mkey]['id'] = r
 
-	def _reset(self):
-		#diffs = self._data._pdiffs()
-		
+	def _reset(self):	
 		self._commit_diffs = {}
 		self._roolback()
 
+		return ['reseted']
 
 	def _commit(self,action='commit work'):
 		
