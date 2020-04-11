@@ -16,10 +16,6 @@ class orm_exception(Exception):
 		self.args = args
 		self.kwargs = kwargs
 
-# def _join_levels(l1,l2):
-	# for k in l2.keys():
-		# l1.setdefault(k,set()).update(l2[k])
-
 def _join_diffs(d1,d2):
 	for k2 in d2.keys():
 		if k2 in ('__update__','__insert__','__delete__'):
@@ -207,7 +203,6 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 
 	return oid
 
-
 def _unlinkRecord(self, cr, pool, uid, record, context = {}):
 	oid = None
 	if not self._access._checkUnlink():
@@ -243,7 +238,6 @@ def _unlinkRecord(self, cr, pool, uid, record, context = {}):
 		trg22(**kwargs)
 
 	return oid
-
 
 class DCacheDict(object):
 	
@@ -349,8 +343,6 @@ class DCacheDict(object):
 				self._cpaths.setdefault(m2moid,{})[name] = parent
 				self._cr2c[m2moid] = self._cnames[cn]
 
-#
-
 	def _copyBuild(self):
 		self._odata.update(copy.deepcopy(self._cdata))
 		self._opaths.update(copy.deepcopy(self._cpaths))
@@ -372,7 +364,6 @@ class DCacheDict(object):
 			self._prels.update(copy.deepcopy(self._crels))
 			self._pattrs.update(copy.deepcopy(self._cattrs))
 			
-
 	def _diffs(self,o,c,commit):
 		res = {}
 		
@@ -384,7 +375,6 @@ class DCacheDict(object):
 
 		return res
 
-
 	def _apply_from_diffs(self,o,c,diffs):
 		if ('__update__' in diffs ):
 			for k in diffs['__update__'].keys():
@@ -393,7 +383,6 @@ class DCacheDict(object):
 		if ('__insert__' in diffs ):
 			for k in diffs['__insert__'].keys():
 				getattr(self,'_%sdata' % (o,))[k].update(copy.deepcopy(diffs['__insert__'][k]))
-				#getattr(self,'_%sdata' % (c,))[k].update(diffs['__insert__'][k])
 
 		if ('__delete__' in diffs ):
 			for k in diffs['__delete__'].keys():
@@ -459,7 +448,6 @@ class DCacheDict(object):
 							orels[path] = crels[path]
 							or2c[path] = cr2c[path]
 							opaths[path] = cpaths[path]
-
 
 		if ('__o2m_remove__' in diffs or '__m2m_remove__' in diffs ):
 			for k in ('__o2m_remove__','__m2m_remove__'):
@@ -662,7 +650,6 @@ class DCacheDict(object):
 
 		return res
 
-# mamy2many
 	def _m2m_cmpList(self,o,c,container):
 		res = {}
 
@@ -710,8 +697,6 @@ class DCacheDict(object):
 			res.setdefault('__m2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__rel__':rel,'__data__':d1})
 				
 		return res
-
-# many 2 many
 
 	def _removeRecursive(self,o,c,path):
 		res = []
@@ -789,7 +774,6 @@ class DCacheDict(object):
 		
 		return res
 			
-
 	def _odiffs(self,commit=True):
 		return self._diffs('o','c',commit)
 
@@ -927,7 +911,6 @@ class DCacheDict(object):
 			
 			del self._cattrs[path]['st']
 			
-
 	def _get_meta(self,path):
 		return self._cattrs[path]
 
@@ -996,8 +979,7 @@ class DCacheDict(object):
 							res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
 						
 		return res
-
-			
+	
 class MCache(object):
 	
 	def __init__(self,cr,pool,uid,mode,context):
@@ -1006,8 +988,6 @@ class MCache(object):
 		self._uid = uid
 		self._context = context
 		self._mode = mode
-
-		self._mdata = {}
 		self._m = {}
 		self._checks = {}
 
@@ -1146,7 +1126,6 @@ class MCache(object):
 		m['__checks__'] = []
 		return m
 
-
 	def _getMeta(self,models = None):
 		if models is None:
 			models = list(self._data._cmodels.values())
@@ -1158,7 +1137,6 @@ class MCache(object):
 
 			if not model in self._cache_attrs:
 				self._cache_attrs[model] = {'iscaching': len(self._pool.get(model)._computefields) > 0,'computefields': self._pool.get(model)._computefields,'changefields': self._pool.get(model)._on_change_fields,'checkfields': self._pool.get(model)._on_check_fields}
-
 
 	def _clear(self):
 		self._m.clear()
@@ -1206,29 +1184,32 @@ class MCache(object):
 
 	def _do_meta(self,path):
 		res = {}
+		res[path] = self._data._get_meta(path)
 		while True:
-			res[path] = self._data._get_meta(path)
 			if self._data._cpaths[path]:
 				parents = self._data._cpaths[path]
 				for key in parents.keys():
 					path = parents[key]
+					res[path] = self._data._get_meta(path)
 			else:
 				break
 
-		self._mdata = res
-		
 		return res
 
 	def _do_meta_diff(self,path):
 		res = {}
+		return res
+		diff = DeepDiff(self._data._cattrs[path],self._data._oattrs[path])
+		if len(diff) > 0:
+			res[path] = diff
 		while True:
-			diff = DeepDiff(self._data._cattrs[path],self._data._oattrs[path])
-			if len(diff) > 0:
-				res[path] = diff
 			if self._data._cpaths[path]:
 				parents = self._data._cpaths[path]
 				for key in parents.keys():
 					path = parents[key]
+					diff = DeepDiff(self._data._cattrs[path],self._data._oattrs[path])
+					if len(diff) > 0:
+						res[path] = diff
 			else:
 				break
 		
@@ -1286,6 +1267,7 @@ class MCache(object):
 		self._setDefault(model,row)
 		
 		p = container.split('.')
+		path = p[1]
 		self._data._cdata[self._data._cnames[container]].append(row)
 		self._data._buildTree(row,model,p[1],p[0],'A')
 		
@@ -1326,19 +1308,19 @@ class MCache(object):
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
+		meta = self._do_meta(c[1])
 		diff_meta = self._do_meta_diff(path)
 
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
-		
-		meta = self._do_meta(c[1])
-		if len(meta) > 0:
-			res['__meta__'] = meta
-		
+
 		if len(self._checks) > 0:
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
-
+		
+		if len(meta) > 0:
+			res['__meta__'] = meta
+		
 		if len(diff_meta) > 0:
 			res['__diff_meta__'] = diff_meta
 
@@ -1348,24 +1330,24 @@ class MCache(object):
 		return []
 
 	def _o2m_removes(self,rows,context):
+		meta = {}
+		diff_meta = {}
 		for row in rows:
 			path = row['path']
 			container = row['container']
 			c = container.split('.')
-			self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])
-			del self._data._cdata[path]
-		
+			self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])		
 			self._do_calculate(c[1],context)
-		
+			meta.uppdate(self._do_meta(c[1]))
+			diff_meta.update(self._do_meta_diff(c[1]))
+
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
-		diff_meta = self._do_meta_diff(path)
 
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
-		
-		meta = self._do_meta(c[1])
+
 		if len(meta) > 0:
 			res['__meta__'] = meta
 		
@@ -1380,7 +1362,6 @@ class MCache(object):
 			return [res]
 		
 		return []
-
 
 	def _m2m_add(self,model,container,fields,obj,rel,id1,id2,context={}):
 		
@@ -1394,9 +1375,21 @@ class MCache(object):
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
+		meta = self._do_meta(p[1])
+		diff_meta = self._do_meta_diff(p[1])
 		
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
+
+		if len(meta) > 0:
+			res['__meta__'] = meta
+		
+		if len(self._checks) > 0:
+			res['__checks__'] = copy.deepcopy(self._checks)
+			self._checks.clear()
+
+		if len(diff_meta) > 0:
+			res['__diff_meta__'] = diff_meta
 
 		if len(res) > 0:
 			return [res]
@@ -1411,6 +1404,7 @@ class MCache(object):
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
+		meta = self._do_meta(p[1])
 		diff_meta = self._do_meta_diff(path)
 
 		if len(data_diffs) > 0:
@@ -1424,7 +1418,6 @@ class MCache(object):
 			return [res]
 		
 		return []
-
 	
 	def _m2o_find(self,path,model,key,value,context):
 		rec_name = self._pool.get(self._meta[model][key]['obj'])._getRecNameName()
@@ -1561,7 +1554,6 @@ class MCache(object):
 			for trg22 in trg2:
 				kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':items,'context':self._context}
 				trg22(**kwargs)
-
 
 	def _createItem(self,item,rel = None, oid = None):
 		if rel and oid:
@@ -1713,6 +1705,7 @@ class MCache(object):
 
 	def _updateItems(self,items):
 		models = {}
+		web_pdb.set_trace()
 		for key in items.keys():
 			model = self._data._cmodels[key]
 			models.setdefault(model,{})[key]  = items[key]
@@ -1752,7 +1745,6 @@ class MCache(object):
 			return ['commited']
 		
 		return ['not commited']
-		
 
 	def _rollback(self):
 		if self._mode in ('new',):
@@ -1827,7 +1819,6 @@ class MCache(object):
 						diffs2 = self._data._odiffs()
 						if len(diffs2) > 0:
 							self._post_diff(diffs2,context)
-
 
 	def _post_diffs(self,context):
 		levels = {}
