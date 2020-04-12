@@ -389,6 +389,20 @@ class DCacheDict(object):
 				for d in diffs['__delete__'][k].keys():
 					del getattr(self,'_%sdata' % (c,))[k][d]
 
+		if ('__meta_update__' in diffs ):
+			#web_pdb.set_trace()
+			for k in diffs['__meta_update__'].keys():
+				for k1 in diffs['__meta_update__'][k]:
+					getattr(self,'_%sattrs' % (o,))[k][k1].update(copy.deepcopy(diffs['__meta_update__'][k][k1]))
+
+		if ('__meta_insert__' in diffs ):
+			for k in diffs['__meta_insert__'].keys():
+				getattr(self,'_%sattrs' % (o,))[k].update(copy.deepcopy(diffs['__meta_insert__'][k]))
+
+		if ('__meta_delete__' in diffs ):
+			for k in diffs['__meta_delete__'].keys():
+				del getattr(self,'_%sattrs' % (c,))[k][d]
+
 		if ('__o2m_append__' in diffs or '__m2m_append__' in diffs):
 			for k in ('__o2m_append__','__m2m_append__'):
 				if k not in diffs:
@@ -507,7 +521,35 @@ class DCacheDict(object):
 					if path in cr2c:
 						del or2c[path]
 
+		if '__o2m_meta_append__' in diffs:
+			cattrs = getattr(self,'_%sattrs' % (c,))
+			oattrs = getattr(self,'_%sattrs' % (o,))
+			for r in diffs['__o2m_meta_append__']:
+				path = r['__path__']
+				oattrs[path] = copy.deepcopy(cattrs[path])
+
+		if '__o2m_meta_remove__' in diffs:
+			cattrs = getattr(self,'_%sattrs' % (c,))
+			oattrs = getattr(self,'_%sattrs' % (o,))
+			for r in diffs['__o2m_meta_remove__']:
+				path = r['__path__']
+				del cattrs[path]
+
+			
 		return True
+
+	def _cmp_meta(self,o,c,path):
+		diff = {}
+		cattrs = getattr(self,'_%sattrs' % (c,))[path]
+		oattrs = getattr(self,'_%sattrs' % (o,))[path]
+		for a in ('ro','rq','iv'):
+			for k in cattrs[a].keys():
+				#if k not in oattrs[a]:
+					#web_pdb.set_trace()
+				if cattrs[a][k] != oattrs[a][k]:
+					diff.setdefault(a,{})[k] = cattrs[a][k]
+
+		return diff
 
 	def _cmpDict(self,o,c,path):
 		res = {}
@@ -562,6 +604,11 @@ class DCacheDict(object):
 						res.setdefault('__insert__',{}).setdefault(path,{})[k] = getattr(self,'_%sdata' % (c,))[path][k]
 				elif k in dk:
 					res.setdefault('__delete__',{}).setdefault(path,[]).append(k)
+
+		diff = self._cmp_meta(o,c,path)
+				 
+		if len(diff) > 0:
+			res.setdefault('__meta_update__',{}).setdefault(path,{}).update(diff)
 	
 		return res
 
@@ -606,6 +653,10 @@ class DCacheDict(object):
 				res.setdefault('__o2m_append__',[]).extend(v['__o2m_append__'])
 			if '__o2m_remove__' in v:
 				res.setdefault('__o2m_remove__',[]).extend(v['__o2m_remove__'])
+			if '__o2m_meta_append__' in v:
+				res.setdefault('__o2m_meta_append__',[]).extend(v['__o2m_meta_append__'])
+			if '__o2m_meta_remove__' in v:
+				res.setdefault('__o2m_meta_remove__',[]).extend(v['__o2m_meta_remove__'])
 		for i in ik:
 			d1 = ctypes.cast(int(i), ctypes.py_object).value
 			p=container.split('.')
@@ -614,6 +665,9 @@ class DCacheDict(object):
 			
 			coid = getattr(self,'_%sr2c' % (c,))[i]
 			ci = getattr(self,'_%smetas' % (c,))[model]
+			
+			cattrs = getattr(self,'_%sattrs' % (c,))[i]
+			
 
 			data = {}
 
@@ -634,8 +688,11 @@ class DCacheDict(object):
 			for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				r1 = self._o2m_cmpList(o,c,k + '.' + i)
 				o2m_containers.setdefault(k,[]).extend(r1['__o2m_append__'] if '__o2m_append__' in r1 else [])
+				o2m_containers.setdefault(k,[]).extend(r1['__o2m_meta_append__'] if '__o2m_meta_append__' in r1 else [])
 				
 			res.setdefault('__o2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__o2m_containers__':o2m_containers})
+			res.setdefault('__o2m_meta_append__',[]).append({'__path__':i,'__meta__':self._get_meta(i)})
+	
 	
 		for d in dk:
 			model = omodels[onames[container]]
@@ -645,8 +702,10 @@ class DCacheDict(object):
 			for o2mfield in filter(lambda x: x in odata,self._pool.get(model)._o2mfields):
 				r1 = self._o2m_cmpList(o,c,o2mfield + '.' + d)
 				res.setdefault('__o2m_remove__',[]).extend(r1['__o2m_remove__'] if '__o2m_remove__' in r1 else [])
+				res.setdefault('__o2m_meta_remove__',[]).extend(r1['__o2m_meta_remove__'] if '__o2m_meta_remove__' in r1 else [])
 			
 			res.setdefault('__o2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__data__':remove_data})
+			res.setdefault('__o2m_meta_remove__',[]).append({'__path__':d,'__meta__':self._get_meta(d)})
 
 		return res
 
@@ -914,7 +973,7 @@ class DCacheDict(object):
 	def _get_meta(self,path):
 		return self._cattrs[path]
 
-	def _do_meta(self,path):
+	def _do_meta1(self,path):
 		res = {}
 		ca = {'readonly':'ro','invisible':'iv','required':'rq','state':'st'}
 
@@ -1196,25 +1255,6 @@ class MCache(object):
 
 		return res
 
-	def _do_meta_diff(self,path):
-		res = {}
-		return res
-		diff = DeepDiff(self._data._cattrs[path],self._data._oattrs[path])
-		if len(diff) > 0:
-			res[path] = diff
-		while True:
-			if self._data._cpaths[path]:
-				parents = self._data._cpaths[path]
-				for key in parents.keys():
-					path = parents[key]
-					diff = DeepDiff(self._data._cattrs[path],self._data._oattrs[path])
-					if len(diff) > 0:
-						res[path] = diff
-			else:
-				break
-		
-		return res
-
 	def _do_compute(self, path, model):
 		res = {}
 		m = self._pool.get(model)
@@ -1276,8 +1316,6 @@ class MCache(object):
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
-		diff_meta = self._do_meta_diff(path)
-
 		
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
@@ -1289,10 +1327,6 @@ class MCache(object):
 		if len(self._checks) > 0:
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
-
-		if len(diff_meta) > 0:
-			res['__diff_meta__'] = diff_meta
-
 
 		if len(res) > 0:
 			return [res]
@@ -1309,7 +1343,6 @@ class MCache(object):
 
 		data_diffs = self._data._odiffs(True)
 		meta = self._do_meta(c[1])
-		diff_meta = self._do_meta_diff(path)
 
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
@@ -1320,9 +1353,6 @@ class MCache(object):
 		
 		if len(meta) > 0:
 			res['__meta__'] = meta
-		
-		if len(diff_meta) > 0:
-			res['__diff_meta__'] = diff_meta
 
 		if len(res) > 0:
 			return [res]
@@ -1330,16 +1360,12 @@ class MCache(object):
 		return []
 
 	def _o2m_removes(self,rows,context):
-		meta = {}
-		diff_meta = {}
 		for row in rows:
 			path = row['path']
 			container = row['container']
 			c = container.split('.')
 			self._data._cdata[self._data._cnames[container]].remove(self._data._cdata[path])		
 			self._do_calculate(c[1],context)
-			meta.uppdate(self._do_meta(c[1]))
-			diff_meta.update(self._do_meta_diff(c[1]))
 
 		res = {}
 
@@ -1354,9 +1380,6 @@ class MCache(object):
 		if len(self._checks) > 0:
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
-
-		if len(diff_meta) > 0:
-			res['__diff_meta__'] = diff_meta
 
 		if len(res) > 0:
 			return [res]
@@ -1376,7 +1399,6 @@ class MCache(object):
 
 		data_diffs = self._data._odiffs(True)
 		meta = self._do_meta(p[1])
-		diff_meta = self._do_meta_diff(p[1])
 		
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
@@ -1387,9 +1409,6 @@ class MCache(object):
 		if len(self._checks) > 0:
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
-
-		if len(diff_meta) > 0:
-			res['__diff_meta__'] = diff_meta
 
 		if len(res) > 0:
 			return [res]
@@ -1405,15 +1424,10 @@ class MCache(object):
 
 		data_diffs = self._data._odiffs(True)
 		meta = self._do_meta(p[1])
-		diff_meta = self._do_meta_diff(path)
 
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
 
-		if len(diff_meta) > 0:
-			res['__diff_meta__'] = diff_meta
-
-		
 		if len(res) > 0:
 			return [res]
 		
@@ -1481,7 +1495,6 @@ class MCache(object):
 
 		self._diffs = self._post_diffs(context)
 		meta = self._do_meta(path)
-		diff_meta = self._do_meta_diff(path)
 		
 		if len(self._diffs) > 0:
 			res['__data__'] = copy.deepcopy(self._diffs)
@@ -1493,9 +1506,6 @@ class MCache(object):
 		
 		if len(meta) > 0:
 			res['__meta__'] = meta
-
-		if len(diff_meta) > 0:
-			res['__diff_meta__'] = diff_meta
 
 		if len(res) > 0:
 			return [res]
@@ -1705,7 +1715,6 @@ class MCache(object):
 
 	def _updateItems(self,items):
 		models = {}
-		web_pdb.set_trace()
 		for key in items.keys():
 			model = self._data._cmodels[key]
 			models.setdefault(model,{})[key]  = items[key]
@@ -1837,10 +1846,12 @@ class MCache(object):
 	def _mcache(self,path,key=None,value=None,context={}):
 		res = {}
 
+		if 'debug' in context and context['debug']:
+			web_pdb.set_trace()
+
 		self._do_diff(path,key,value,context)
 		self._diffs = self._post_diffs(context)
-		meta = self._do_meta(path)
-		diff_meta = self._do_meta_diff(path)
+		#meta = self._do_meta(path)
 
 		if len(self._diffs) > 0:
 			res['__data__'] = copy.deepcopy(self._diffs)
@@ -1851,12 +1862,8 @@ class MCache(object):
 			self._checks.clear()
 
 		
-		if len(meta) > 0:
-			res['__meta__'] = meta
-
-		if len(diff_meta) > 0:
-			res['__diff_meta__'] = diff_meta
-
+		#if len(meta) > 0:
+			#res['__meta__'] = meta
 
 		if len(res) > 0:
 			return [res]
