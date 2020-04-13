@@ -571,6 +571,13 @@ class DCacheDict(object):
 					res.setdefault('__o2m_append__',[]).extend(v['__o2m_append__'])
 				if '__o2m_remove__' in v:
 					res.setdefault('__o2m_remove__',[]).extend(v['__o2m_remove__'])
+
+				if '__o2m_meta_append__' in v:			
+					res.setdefault('__o2m_meta_append__',[]).extend(v['__o2m_meta_append__'])
+				if '__o2m_meta_remove__' in v:
+					res.setdefault('__o2m_meta_remove__',[]).extend(v['__o2m_meta_remove__'])
+
+
 				if '__update__' in v:
 					res.setdefault('__update__',{}).update(v['__update__'])
 				if '__insert__' in v:
@@ -688,7 +695,7 @@ class DCacheDict(object):
 			for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				r1 = self._o2m_cmpList(o,c,k + '.' + i)
 				o2m_containers.setdefault(k,[]).extend(r1['__o2m_append__'] if '__o2m_append__' in r1 else [])
-				o2m_containers.setdefault(k,[]).extend(r1['__o2m_meta_append__'] if '__o2m_meta_append__' in r1 else [])
+				res.setdefault('__o2m_meta_append__',[]).extend(r1['__o2m_meta_append__'] if '__o2m_meta_append__' in r1 else [])
 				
 			res.setdefault('__o2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__o2m_containers__':o2m_containers})
 			res.setdefault('__o2m_meta_append__',[]).append({'__path__':i,'__meta__':self._get_meta(i)})
@@ -777,8 +784,12 @@ class DCacheDict(object):
 
 		cpaths = getattr(self,'_%spaths' % (c,))
 		opaths = getattr(self,'_%spaths' % (o,))
+		
 		cr2c = getattr(self,'_%sr2c' % (c,))
 		or2c = getattr(self,'_%sr2c' % (o,))
+
+		cattrs = getattr(self,'_%sattrs' % (c,))
+		oattrs = getattr(self,'_%sattrs' % (o,))
 
 		container = ocontainers[or2c[path]]
 		model = None
@@ -791,6 +802,7 @@ class DCacheDict(object):
 		if path in cdata:
 			cdata[onames[container]].remove(cdata[path])
 			del cdata[path]
+			del cattrs[path]
 
 			if container in cnames and cnames[container] in cdata and len(cdata[cnames[container]]) == 0:
 				del cdata[onames[container]]
@@ -816,6 +828,7 @@ class DCacheDict(object):
 					if path in cdata and coid in cdata:
 						cdata[onames[container]].remove(cdata[path])
 						del cdata[path]
+						
 			
 						if container in cnames and cnames[container] in cdata and len(cdata[cnames[container]]) == 0:
 							del cdata[onames[container]]
@@ -959,8 +972,11 @@ class DCacheDict(object):
 				method = getattr(m,k1,None)
 				if method and callable(method):
 					rc = method(self._cr,self._pool,self._uid,cm[k][k1],self._cdata[path],self._context)
-					if len(rc)> 0:
-						self._cattrs.setdefault(path,{}).setdefault(ca[k],{}).setdefault(k,{}).update(rc)
+					if type(rc) == dict and len(rc)> 0:
+						self._cattrs.setdefault(path,{}).setdefault(ca[k],{}).update(rc)
+					elif type(rc) == bool:
+						for f in cm[k][k1]:
+							self._cattrs.setdefault(path,{}).setdefault(ca[k],{})[f] = rc 
 
 		if 'st' in self._cattrs[path]:
 			st = self._cattrs[path]['st']
@@ -1319,10 +1335,6 @@ class MCache(object):
 		
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
-
-		meta = self._do_meta(str(id(row)))
-		if len(meta) > 0:
-			res['__meta__'] = meta
 		
 		if len(self._checks) > 0:
 			res['__checks__'] = copy.deepcopy(self._checks)
@@ -1512,6 +1524,9 @@ class MCache(object):
 		
 		return []
 
+	def _is_change(self,autocommit = False):
+		return len(self._data._pdiffs(False)) > 0
+
 	def _save(self,autocommit = False):
 		diffs = self._data._pdiffs(False)
 		#print('SAVE-DIFFS:',diffs)
@@ -1605,6 +1620,7 @@ class MCache(object):
 	def _o2m_appendItems(self,items):
 		if len(items) > 0:
 			parents = {}
+			web_pdb.set_trace()
 			for item in items:
 				parents.setdefault(item['__container__'].split('.')[1],{}).setdefault(item['__model__'],[]).append(item)
 				
@@ -1851,7 +1867,6 @@ class MCache(object):
 
 		self._do_diff(path,key,value,context)
 		self._diffs = self._post_diffs(context)
-		#meta = self._do_meta(path)
 
 		if len(self._diffs) > 0:
 			res['__data__'] = copy.deepcopy(self._diffs)
@@ -1860,10 +1875,6 @@ class MCache(object):
 		if len(self._checks) > 0:
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
-
-		
-		#if len(meta) > 0:
-			#res['__meta__'] = meta
 
 		if len(res) > 0:
 			return [res]

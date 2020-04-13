@@ -186,6 +186,25 @@ class md_vat_code(Model):
 
 md_vat_code()
 
+
+class md_excise_code(Model):
+	_name = 'md.excise.code'
+	_description = 'General Model Excise Code'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'subtype_excise': fields.selection(label='Subtype Excise',selections=[('i','Include'),('e','Exclude'),('n','None')]),
+	'code': fields.varchar(label = 'Code',size=16),
+	'value': fields.integer(label='Percent'),
+	'type_vat': fields.selection(label='Type Excise',selections=[('s','Sales'),('p','Purchses'),('n','None')])
+	}
+	
+	_default = {
+		'subtype_vat': 'i'
+	}
+
+md_excise_code()
+
+
 class md_category_product(Model):
 	_name = 'md.category.product'
 	_description = 'General Model Category Product'
@@ -257,6 +276,8 @@ class md_product(Model):
 	'template_id': fields.many2one(label='Template',obj='md.products.template'),
 	'code': fields.varchar(label = 'Code',size=16),
 	'uom': fields.many2one(label="Unit Of Measure",obj='md.uom'),
+	#'isexcise': fields.boolean(label='Is Excise')
+	#'excise': fields.many2one(label='Excise',obj='md.excise.code',invisible='_excise_invisible'),
 	'gti': fields.many2one(label='Group Of Type Items',obj='md.gtis'),
 	'volume': fields.float(label='Volume',invisible='_service_invisible'),
 	'volume_uom': fields.many2one(label="Volume UoM",obj='md.uom',invisible='_service_invisible',domain=[('quantity_id','=','Volume')]),
@@ -275,14 +296,23 @@ class md_product(Model):
 	'note': fields.text(label = 'Note')
 	}
 
+	def _excise_invisible(self,cr,pool,uid,fields,record,context):
+		res = {}
+		for field in fields:
+			res[field] = record['isexcise']
+
+		return res
+
 	def _service_invisible(self,cr,pool,uid,fields,record,context):
 		res = {}
 		if 'template_id' in record and record['template_id']:
 			if record['template_id']['name']:
 				r = pool.get('md.products.template').select(cr,pool,uid,['mtype'],[('name','=',record['template_id']['name'])])
 				if len(r) > 0 and r[0]['mtype'] == 's':
+					return True
 					for field in fields:
 						res[field] = True
+		
 		return res
 
 	def create(self,cr,pool,uid,records,context={}):

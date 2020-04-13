@@ -223,6 +223,8 @@ class User(object):
 			return self._cache[args[1]]._getContext()
 		elif args[0] == 'setcontext':
 			return self._cache[args[1]]._setContext(**(args[2]))
+		elif args[0] == 'ischange':
+			return self._cache[args[1]]._is_change(**(args[2]))
 		elif args[0] == 'close':
 			del self._cache[args[1]]
 			return [True]
