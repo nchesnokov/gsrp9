@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="fcm.readonly">
+          <column name="name">fcm.readonly</column>
+          <column name="note">Module fcm grant readonly</column>
+        </record>
+        <record id="fcm.nodrop">
+          <column name="name">fcm.nodrop</column>
+          <column name="note">Module fcm grant nodrop</column>
+        </record>
+        <record id="fcm.full">
+          <column name="name">fcm.full</column>
+          <column name="note">Module fcm grant full</column>
+        </record>
+        <record id="fcm.crw">
+          <column name="name">fcm.crw</column>
+          <column name="note">Module fcm grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="fcm.departament.categories.readonly">
+          <column name="name">fcm.departament.categories.readonly</column>
+          <column name="note">Model fcm.departament.categories grant readonly</column>
+          <column name="group_id">fcm.readonly</column>
+        </record>
+        <record id="fcm.departament.categories.nodrop">
+          <column name="name">fcm.departament.categories.nodrop</column>
+          <column name="note">Model fcm.departament.categories grant nodrop</column>
+          <column name="group_id">fcm.nodrop</column>
+        </record>
+        <record id="fcm.departament.categories.full">
+          <column name="name">fcm.departament.categories.full</column>
+          <column name="note">Model fcm.departament.categories grant full</column>
+          <column name="group_id">fcm.full</column>
+        </record>
+        <record id="fcm.departament.categories.crw">
+          <column name="name">fcm.departament.categories.crw</column>
+          <column name="note">Model fcm.departament.categories grant crw</column>
+          <column name="group_id">fcm.crw</column>
+        </record>
+        <record id="fcm.obj.categories.readonly">
+          <column name="name">fcm.obj.categories.readonly</column>
+          <column name="note">Model fcm.obj.categories grant readonly</column>
+          <column name="group_id">fcm.readonly</column>
+        </record>
+        <record id="fcm.obj.categories.nodrop">
+          <column name="name">fcm.obj.categories.nodrop</column>
+          <column name="note">Model fcm.obj.categories grant nodrop</column>
+          <column name="group_id">fcm.nodrop</column>
+        </record>
+        <record id="fcm.obj.categories.full">
+          <column name="name">fcm.obj.categories.full</column>
+          <column name="note">Model fcm.obj.categories grant full</column>
+          <column name="group_id">fcm.full</column>
+        </record>
+        <record id="fcm.obj.categories.crw">
+          <column name="name">fcm.obj.categories.crw</column>
+          <column name="note">Model fcm.obj.categories grant crw</column>
+          <column name="group_id">fcm.crw</column>
+        </record>
+        <record id="fcm.article.categories.readonly">
+          <column name="name">fcm.article.categories.readonly</column>
+          <column name="note">Model fcm.article.categories grant readonly</column>
+          <column name="group_id">fcm.readonly</column>
+        </record>
+        <record id="fcm.article.categories.nodrop">
+          <column name="name">fcm.article.categories.nodrop</column>
+          <column name="note">Model fcm.article.categories grant nodrop</column>
+          <column name="group_id">fcm.nodrop</column>
+        </record>
+        <record id="fcm.article.categories.full">
+          <column name="name">fcm.article.categories.full</column>
+          <column name="note">Model fcm.article.categories grant full</column>
+          <column name="group_id">fcm.full</column>
+        </record>
+        <record id="fcm.article.categories.crw">
+          <column name="name">fcm.article.categories.crw</column>
+          <column name="note">Model fcm.article.categories grant crw</column>
+          <column name="group_id">fcm.crw</column>
+        </record>
+        <record id="fcm.departaments.readonly">
+          <column name="name">fcm.departaments.readonly</column>
+          <column name="note">Model fcm.departaments grant readonly</column>
+          <column name="group_id">fcm.readonly</column>
+        </record>
+        <record id="fcm.departaments.nodrop">
+          <column name="name">fcm.departaments.nodrop</column>
+          <column name="note">Model fcm.departaments grant nodrop</column>
+          <column name="group_id">fcm.nodrop</column>
+        </record>
+        <record id="fcm.departaments.full">
+          <column name="name">fcm.departaments.full</column>
+          <column name="note">Model fcm.departaments grant full</column>
+          <column name="group_id">fcm.full</column>
+        </record>
+        <record id="fcm.departaments.crw">
+          <column name="name">fcm.departaments.crw</column>
+          <column name="note">Model fcm.departaments grant crw</column>
+          <column name="group_id">fcm.crw</column>
+        </record>
+        <record id="fcm.objs.readonly">
+          <column name="name">fcm.objs.readonly</column>
+          <column name="note">Model fcm.objs grant readonly</column>
+          <column name="group_id">fcm.readonly</column>
+        </record>
+        <record id="fcm.objs.nodrop">
+          <column name="name">fcm.objs.nodrop</column>
+          <column name="note">Model fcm.objs grant nodrop</column>
+          <column name="group_id">fcm.nodrop</column>
+        </record>
+        <record id="fcm.objs.full">
+          <column name="name">fcm.objs.full</column>
+          <column name="note">Model fcm.objs grant full</column>
+          <column name="group_id">fcm.full</column>
+        </record>
+        <record id="fcm.objs.crw">
+          <column name="name">fcm.objs.crw</column>
+          <column name="note">Model fcm.objs grant crw</column>
+          <column name="group_id">fcm.crw</column>
+        </record>
+        <record id="fcm.articles.readonly">
+          <column name="name">fcm.articles.readonly</column>
+          <column name="note">Model fcm.articles grant readonly</column>
+          <column name="group_id">fcm.readonly</column>
+        </record>
+        <record id="fcm.articles.nodrop">
+          <column name="name">fcm.articles.nodrop</column>
+          <column name="note">Model fcm.articles grant nodrop</column>
+          <column name="group_id">fcm.nodrop</column>
+        </record>
+        <record id="fcm.articles.full">
+          <column name="name">fcm.articles.full</column>
+          <column name="note">Model fcm.articles grant full</column>
+          <column name="group_id">fcm.full</column>
+        </record>
+        <record id="fcm.articles.crw">
+          <column name="name">fcm.articles.crw</column>
+          <column name="note">Model fcm.articles grant crw</column>
+          <column name="group_id">fcm.crw</column>
+        </record>
+        <record id="fcm.company.departaments.readonly">
+          <column name="name">fcm.company.departaments.readonly</column>
+          <column name="note">Model fcm.company.departaments grant readonly</column>
+          <column name="group_id">fcm.readonly</column>
+        </record>
+        <record id="fcm.company.departaments.nodrop">
+          <column name="name">fcm.company.departaments.nodrop</column>
+          <column name="note">Model fcm.company.departaments grant nodrop</column>
+          <column name="group_id">fcm.nodrop</column>
+        </record>
+        <record id="fcm.company.departaments.full">
+          <column name="name">fcm.company.departaments.full</column>
+          <column name="note">Model fcm.company.departaments grant full</column>
+          <column name="group_id">fcm.full</column>
+        </record>
+        <record id="fcm.company.departaments.crw">
+          <column name="name">fcm.company.departaments.crw</column>
+          <column name="note">Model fcm.company.departaments grant crw</column>
+          <column name="group_id">fcm.crw</column>
+        </record>
+        <record id="fcm.company.objs.readonly">
+          <column name="name">fcm.company.objs.readonly</column>
+          <column name="note">Model fcm.company.objs grant readonly</column>
+          <column name="group_id">fcm.readonly</column>
+        </record>
+        <record id="fcm.company.objs.nodrop">
+          <column name="name">fcm.company.objs.nodrop</column>
+          <column name="note">Model fcm.company.objs grant nodrop</column>
+          <column name="group_id">fcm.nodrop</column>
+        </record>
+        <record id="fcm.company.objs.full">
+          <column name="name">fcm.company.objs.full</column>
+          <column name="note">Model fcm.company.objs grant full</column>
+          <column name="group_id">fcm.full</column>
+        </record>
+        <record id="fcm.company.objs.crw">
+          <column name="name">fcm.company.objs.crw</column>
+          <column name="note">Model fcm.company.objs grant crw</column>
+          <column name="group_id">fcm.crw</column>
+        </record>
+        <record id="fcm.company.articles.readonly">
+          <column name="name">fcm.company.articles.readonly</column>
+          <column name="note">Model fcm.company.articles grant readonly</column>
+          <column name="group_id">fcm.readonly</column>
+        </record>
+        <record id="fcm.company.articles.nodrop">
+          <column name="name">fcm.company.articles.nodrop</column>
+          <column name="note">Model fcm.company.articles grant nodrop</column>
+          <column name="group_id">fcm.nodrop</column>
+        </record>
+        <record id="fcm.company.articles.full">
+          <column name="name">fcm.company.articles.full</column>
+          <column name="note">Model fcm.company.articles grant full</column>
+          <column name="group_id">fcm.full</column>
+        </record>
+        <record id="fcm.company.articles.crw">
+          <column name="name">fcm.company.articles.crw</column>
+          <column name="note">Model fcm.company.articles grant crw</column>
+          <column name="group_id">fcm.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="fcm.fcm.departament.categories.readonly">
+          <column name="access_id">fcm.departament.categories.readonly</column>
+          <column name="model_id">fcm.departament.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="fcm.fcm.departament.categories.nodrop">
+          <column name="access_id">fcm.departament.categories.nodrop</column>
+          <column name="model_id">fcm.departament.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.departament.categories.full">
+          <column name="access_id">fcm.departament.categories.full</column>
+          <column name="model_id">fcm.departament.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.departament.categories.crw">
+          <column name="access_id">fcm.departament.categories.crw</column>
+          <column name="model_id">fcm.departament.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.obj.categories.readonly">
+          <column name="access_id">fcm.obj.categories.readonly</column>
+          <column name="model_id">fcm.obj.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="fcm.fcm.obj.categories.nodrop">
+          <column name="access_id">fcm.obj.categories.nodrop</column>
+          <column name="model_id">fcm.obj.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.obj.categories.full">
+          <column name="access_id">fcm.obj.categories.full</column>
+          <column name="model_id">fcm.obj.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.obj.categories.crw">
+          <column name="access_id">fcm.obj.categories.crw</column>
+          <column name="model_id">fcm.obj.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.article.categories.readonly">
+          <column name="access_id">fcm.article.categories.readonly</column>
+          <column name="model_id">fcm.article.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="fcm.fcm.article.categories.nodrop">
+          <column name="access_id">fcm.article.categories.nodrop</column>
+          <column name="model_id">fcm.article.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.article.categories.full">
+          <column name="access_id">fcm.article.categories.full</column>
+          <column name="model_id">fcm.article.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.article.categories.crw">
+          <column name="access_id">fcm.article.categories.crw</column>
+          <column name="model_id">fcm.article.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.departaments.readonly">
+          <column name="access_id">fcm.departaments.readonly</column>
+          <column name="model_id">fcm.departaments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="fcm.fcm.departaments.nodrop">
+          <column name="access_id">fcm.departaments.nodrop</column>
+          <column name="model_id">fcm.departaments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.departaments.full">
+          <column name="access_id">fcm.departaments.full</column>
+          <column name="model_id">fcm.departaments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.departaments.crw">
+          <column name="access_id">fcm.departaments.crw</column>
+          <column name="model_id">fcm.departaments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.objs.readonly">
+          <column name="access_id">fcm.objs.readonly</column>
+          <column name="model_id">fcm.objs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="fcm.fcm.objs.nodrop">
+          <column name="access_id">fcm.objs.nodrop</column>
+          <column name="model_id">fcm.objs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.objs.full">
+          <column name="access_id">fcm.objs.full</column>
+          <column name="model_id">fcm.objs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.objs.crw">
+          <column name="access_id">fcm.objs.crw</column>
+          <column name="model_id">fcm.objs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.articles.readonly">
+          <column name="access_id">fcm.articles.readonly</column>
+          <column name="model_id">fcm.articles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="fcm.fcm.articles.nodrop">
+          <column name="access_id">fcm.articles.nodrop</column>
+          <column name="model_id">fcm.articles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.articles.full">
+          <column name="access_id">fcm.articles.full</column>
+          <column name="model_id">fcm.articles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.articles.crw">
+          <column name="access_id">fcm.articles.crw</column>
+          <column name="model_id">fcm.articles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.company.departaments.readonly">
+          <column name="access_id">fcm.company.departaments.readonly</column>
+          <column name="model_id">fcm.company.departaments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="fcm.fcm.company.departaments.nodrop">
+          <column name="access_id">fcm.company.departaments.nodrop</column>
+          <column name="model_id">fcm.company.departaments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.company.departaments.full">
+          <column name="access_id">fcm.company.departaments.full</column>
+          <column name="model_id">fcm.company.departaments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.company.departaments.crw">
+          <column name="access_id">fcm.company.departaments.crw</column>
+          <column name="model_id">fcm.company.departaments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.company.objs.readonly">
+          <column name="access_id">fcm.company.objs.readonly</column>
+          <column name="model_id">fcm.company.objs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="fcm.fcm.company.objs.nodrop">
+          <column name="access_id">fcm.company.objs.nodrop</column>
+          <column name="model_id">fcm.company.objs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.company.objs.full">
+          <column name="access_id">fcm.company.objs.full</column>
+          <column name="model_id">fcm.company.objs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.company.objs.crw">
+          <column name="access_id">fcm.company.objs.crw</column>
+          <column name="model_id">fcm.company.objs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.company.articles.readonly">
+          <column name="access_id">fcm.company.articles.readonly</column>
+          <column name="model_id">fcm.company.articles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="fcm.fcm.company.articles.nodrop">
+          <column name="access_id">fcm.company.articles.nodrop</column>
+          <column name="model_id">fcm.company.articles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.company.articles.full">
+          <column name="access_id">fcm.company.articles.full</column>
+          <column name="model_id">fcm.company.articles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fcm.fcm.company.articles.crw">
+          <column name="access_id">fcm.company.articles.crw</column>
+          <column name="model_id">fcm.company.articles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>
