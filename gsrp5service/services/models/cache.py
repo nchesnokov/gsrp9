@@ -279,6 +279,8 @@ class DCacheDict(object):
 			raise TypeError
 
 		oid = str(id(data))
+		if mode == 'A1':
+			web_pdb.set_trace()
 
 		if oid not in self._cdata:
 			if model not in self._cmetas:
@@ -533,7 +535,8 @@ class DCacheDict(object):
 			oattrs = getattr(self,'_%sattrs' % (o,))
 			for r in diffs['__o2m_meta_remove__']:
 				path = r['__path__']
-				del cattrs[path]
+				if path in cattrs:
+					del cattrs[path]
 
 			
 		return True
@@ -712,7 +715,7 @@ class DCacheDict(object):
 				res.setdefault('__o2m_meta_remove__',[]).extend(r1['__o2m_meta_remove__'] if '__o2m_meta_remove__' in r1 else [])
 			
 			res.setdefault('__o2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__data__':remove_data})
-			res.setdefault('__o2m_meta_remove__',[]).append({'__path__':d,'__meta__':self._get_meta(d)})
+			res.setdefault('__o2m_meta_remove__',[]).append({'__path__':d})
 
 		return res
 
@@ -1599,28 +1602,27 @@ class MCache(object):
 		else:
 			r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
 
-			if r:
-				item['__data__']['id'] = r
-				path = item['__path__']
-				self._data._cdata[path]['id'] = r
-				self._data._odata[path]['id'] = copy.deepcopy(r)
-				if self._data._primary and path in self._data._pdata:
-					self._data._pdata[path]['id'] = copy.deepcopy(r)
+		if r:
+			item['__data__']['id'] = r
+			path = item['__path__']
+			self._data._cdata[path]['id'] = r
+			self._data._odata[path]['id'] = copy.deepcopy(r)
+			if self._data._primary and path in self._data._pdata:
+				self._data._pdata[path]['id'] = copy.deepcopy(r)
 		
-		if '__m2m_containers__' in item:
-			m2m_containers = item['__m2m_containers__']
-			for key in m2m_containers.keys():
-				self._m2m_appendRows(m2m_containers[key])
-
-		if '__o2m_containers__' in item:
-			o2m_containers = item['__o2m_containers__']
-			for key in o2m_containers.keys():
-				self._createItems(o2m_containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
+			if '__m2m_containers__' in item:
+				m2m_containers = item['__m2m_containers__']
+				for key in m2m_containers.keys():
+					self._m2m_appendRows(m2m_containers[key],item['__data__']['id'])
+	
+			if '__o2m_containers__' in item:
+				o2m_containers = item['__o2m_containers__']
+				for key in o2m_containers.keys():
+					self._createItems(o2m_containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
 
 	def _o2m_appendItems(self,items):
 		if len(items) > 0:
 			parents = {}
-			web_pdb.set_trace()
 			for item in items:
 				parents.setdefault(item['__container__'].split('.')[1],{}).setdefault(item['__model__'],[]).append(item)
 				
@@ -1702,13 +1704,13 @@ class MCache(object):
 			m = self._pool.get(item['__model__'])
 			r = _unlinkRecord(m,self._cr,self._pool,self._uid,data,self._context)
 
-	def _m2m_appendRows(self,rows):
+	def _m2m_appendRows(self,rows,oid):
 		rels = []
 		cols = {}
 		for row in rows:
 			m = self._pool.get(row['__model__'])
 			c = row['__container__'].split('.')
-			oid = self._data._cdata[c[1]]['id']
+			#oid = self._data._cdata[c[1]]['id']
 			rel = m._columns[c[0]].rel
 			id1 = m._columns[c[0]].id1
 			id2 = m._columns[c[0]].id2

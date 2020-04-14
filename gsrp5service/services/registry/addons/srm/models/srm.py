@@ -5026,8 +5026,8 @@ class srm_partner_validation(Model):
 	_columns = {
 	'name': fields.varchar(label = 'Validation Partner'),
 	'partner_id': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
-	'categories': fields.one2many(label='Categories',obj='srm.partner.validation.category',rel='parner_validation_id'),
-	'products': fields.one2many(label='Products',obj='srm.partner.validation.product',rel='parner_validation_id')}
+	'categories': fields.one2many(label='Categories',obj='srm.partner.validation.category',rel='partner_validation_id'),
+	'products': fields.one2many(label='Products',obj='srm.partner.validation.product',rel='partner_validation_id')}
 
 srm_partner_validation()
 
