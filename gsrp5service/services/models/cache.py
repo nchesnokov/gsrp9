@@ -1509,7 +1509,6 @@ class MCache(object):
 			res['__do_action__'] = []
 
 		self._diffs = self._post_diffs(context)
-		meta = self._do_meta(path)
 		
 		if len(self._diffs) > 0:
 			res['__data__'] = copy.deepcopy(self._diffs)
@@ -1519,9 +1518,6 @@ class MCache(object):
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
 		
-		if len(meta) > 0:
-			res['__meta__'] = meta
-
 		if len(res) > 0:
 			return [res]
 		
