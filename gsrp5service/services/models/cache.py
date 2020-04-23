@@ -312,8 +312,9 @@ class DCacheDict(object):
 				self._cdata[coid] = data[o2mfield]
 				self._cmodels[coid] = ci[o2mfield]['obj']
 	
-				for r1 in data[o2mfield]:
-					self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
+				if mode != 'I':
+					for r1 in data[o2mfield]:
+						self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
 
 	def _m2m_buildTree(self,data,rel,parent,name,model):
 		if type(data) == dict:
@@ -992,71 +993,71 @@ class DCacheDict(object):
 	def _get_meta(self,path):
 		return self._cattrs[path]
 
-	def _do_meta1(self,path):
-		res = {}
-		ca = {'readonly':'ro','invisible':'iv','required':'rq','state':'st'}
+	# def _do_meta1(self,path):
+		# res = {}
+		# ca = {'readonly':'ro','invisible':'iv','required':'rq','state':'st'}
 
-		model = self._cmodels[path]
-		m = self._pool.get(model)
+		# model = self._cmodels[path]
+		# m = self._pool.get(model)
 
-		if type(m._attrs) == dict:
-			if len(m._attrs) > 0:
-				res.update(m._attrs)
-		elif type(m._attrs) == str:
-			method = getattr(m,m._attrs,None)
-			if method and callable(method):
-				rc = method(self._cr,self._pool,self._uid,self._cdata[path],self._context)
-				if rc and len(rc) > 0:
-					res.update(rc)
+		# if type(m._attrs) == dict:
+			# if len(m._attrs) > 0:
+				# res.update(m._attrs)
+		# elif type(m._attrs) == str:
+			# method = getattr(m,m._attrs,None)
+			# if method and callable(method):
+				# rc = method(self._cr,self._pool,self._uid,self._cdata[path],self._context)
+				# if rc and len(rc) > 0:
+					# res.update(rc)
 
-		cm = {}
-		for c in m._columns.keys():
-			if m._columns[c]._type =='referenced':
-				continue
-			for a in ('readonly','invisible','required','state'):
-				aa = getattr(m._columns[c],a,None)
-				if a == 'state':
-					if aa:
-						if type(aa) == str:
-							cm.setdefault(a,set()).add(aa)
-						elif type(aa) == dict:
-							for s in aa.keys():
-								sn = m._getStateName()
-								if s == self._cdata[path][sn]:
-									if type(aa[s]) == dict:
-										for s1 in aa[s].keys():
-											if aa[s][s1]:
-												if type(aa[s][s1]) == bool:
-													res.setdefault(model,{}).setdefault(ca[a],{}).setdefault(s1,{})[c] = aa[s][s1]
-												else:
-													cm.setdefault(s,set()).add(aa[s][s1])
-									elif type(aa[s]) == str:
-										cm.setdefault(s,set()).add(aa[s])
-				else:
-					if aa:
-						if type(aa) == bool:
-							if aa:
-								res.setdefault(model,{}).setdefault(ca[a],{})[c] = aa
-						else:
-							cm.setdefault(a,{}).setdefault(aa,[]).append(c)
+		# cm = {}
+		# for c in m._columns.keys():
+			# if m._columns[c]._type =='referenced':
+				# continue
+			# for a in ('readonly','invisible','required','state'):
+				# aa = getattr(m._columns[c],a,None)
+				# if a == 'state':
+					# if aa:
+						# if type(aa) == str:
+							# cm.setdefault(a,set()).add(aa)
+						# elif type(aa) == dict:
+							# for s in aa.keys():
+								# sn = m._getStateName()
+								# if s == self._cdata[path][sn]:
+									# if type(aa[s]) == dict:
+										# for s1 in aa[s].keys():
+											# if aa[s][s1]:
+												# if type(aa[s][s1]) == bool:
+													# res.setdefault(model,{}).setdefault(ca[a],{}).setdefault(s1,{})[c] = aa[s][s1]
+												# else:
+													# cm.setdefault(s,set()).add(aa[s][s1])
+									# elif type(aa[s]) == str:
+										# cm.setdefault(s,set()).add(aa[s])
+				# else:
+					# if aa:
+						# if type(aa) == bool:
+							# if aa:
+								# res.setdefault(model,{}).setdefault(ca[a],{})[c] = aa
+						# else:
+							# cm.setdefault(a,{}).setdefault(aa,[]).append(c)
 			
-		for k in cm.keys():
-			if k == 'invisible':
-				for k1 in cm[k].keys():
-					method = getattr(m,k1,None)
-					if method and callable(method):
-						rc = method(self._cr,self._pool,self._uid,cm[k][k1],self._cdata[path],self._context)
-						if len(rc)> 0:
-							res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
-			else:			
-				for k1 in cm[k]:
-					method = getattr(m,k1,None)
-					if method and callable(method):
-						rc = method(self._cr,self._pool,self._uid,self._cdata[path],self._context)
-						if len(rc)> 0:
-							res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
+		# for k in cm.keys():
+			# if k == 'invisible':
+				# for k1 in cm[k].keys():
+					# method = getattr(m,k1,None)
+					# if method and callable(method):
+						# rc = method(self._cr,self._pool,self._uid,cm[k][k1],self._cdata[path],self._context)
+						# if len(rc)> 0:
+							# res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
+			# else:			
+				# for k1 in cm[k]:
+					# method = getattr(m,k1,None)
+					# if method and callable(method):
+						# rc = method(self._cr,self._pool,self._uid,self._cdata[path],self._context)
+						# if len(rc)> 0:
+							# res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
 						
-		return res
+		# return res
 	
 class MCache(object):
 	
