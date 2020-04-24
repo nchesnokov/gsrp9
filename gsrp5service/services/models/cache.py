@@ -699,9 +699,11 @@ class DCacheDict(object):
 			for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'one2many',getattr(self,'_%sdata' % (c,))[i].keys()):
 				r1 = self._o2m_cmpList(o,c,k + '.' + i)
 				o2m_containers.setdefault(k,[]).extend(r1['__o2m_append__'] if '__o2m_append__' in r1 else [])
-				res.setdefault('__o2m_meta_append__',[]).extend(r1['__o2m_meta_append__'] if '__o2m_meta_append__' in r1 else [])
+				#res.setdefault('__o2m_append__',[]).extend(r1['__o2m_append__'] if '__o2m_append__' in r1 else [])
+				#res.setdefault('__o2m_meta_append__',[]).extend(r1['__o2m_meta_append__'] if '__o2m_meta_append__' in r1 else [])
 				
 			res.setdefault('__o2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__o2m_containers__':o2m_containers})
+			
 			res.setdefault('__o2m_meta_append__',[]).append({'__path__':i,'__meta__':self._get_meta(i)})
 	
 	
@@ -992,72 +994,6 @@ class DCacheDict(object):
 			
 	def _get_meta(self,path):
 		return self._cattrs[path]
-
-	# def _do_meta1(self,path):
-		# res = {}
-		# ca = {'readonly':'ro','invisible':'iv','required':'rq','state':'st'}
-
-		# model = self._cmodels[path]
-		# m = self._pool.get(model)
-
-		# if type(m._attrs) == dict:
-			# if len(m._attrs) > 0:
-				# res.update(m._attrs)
-		# elif type(m._attrs) == str:
-			# method = getattr(m,m._attrs,None)
-			# if method and callable(method):
-				# rc = method(self._cr,self._pool,self._uid,self._cdata[path],self._context)
-				# if rc and len(rc) > 0:
-					# res.update(rc)
-
-		# cm = {}
-		# for c in m._columns.keys():
-			# if m._columns[c]._type =='referenced':
-				# continue
-			# for a in ('readonly','invisible','required','state'):
-				# aa = getattr(m._columns[c],a,None)
-				# if a == 'state':
-					# if aa:
-						# if type(aa) == str:
-							# cm.setdefault(a,set()).add(aa)
-						# elif type(aa) == dict:
-							# for s in aa.keys():
-								# sn = m._getStateName()
-								# if s == self._cdata[path][sn]:
-									# if type(aa[s]) == dict:
-										# for s1 in aa[s].keys():
-											# if aa[s][s1]:
-												# if type(aa[s][s1]) == bool:
-													# res.setdefault(model,{}).setdefault(ca[a],{}).setdefault(s1,{})[c] = aa[s][s1]
-												# else:
-													# cm.setdefault(s,set()).add(aa[s][s1])
-									# elif type(aa[s]) == str:
-										# cm.setdefault(s,set()).add(aa[s])
-				# else:
-					# if aa:
-						# if type(aa) == bool:
-							# if aa:
-								# res.setdefault(model,{}).setdefault(ca[a],{})[c] = aa
-						# else:
-							# cm.setdefault(a,{}).setdefault(aa,[]).append(c)
-			
-		# for k in cm.keys():
-			# if k == 'invisible':
-				# for k1 in cm[k].keys():
-					# method = getattr(m,k1,None)
-					# if method and callable(method):
-						# rc = method(self._cr,self._pool,self._uid,cm[k][k1],self._cdata[path],self._context)
-						# if len(rc)> 0:
-							# res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
-			# else:			
-				# for k1 in cm[k]:
-					# method = getattr(m,k1,None)
-					# if method and callable(method):
-						# rc = method(self._cr,self._pool,self._uid,self._cdata[path],self._context)
-						# if len(rc)> 0:
-							# res.setdefault(model,{}).setdefault(ca[k],{}).update(rc)
-						
-		# return res
 	
 class MCache(object):
 	
@@ -1529,7 +1465,7 @@ class MCache(object):
 
 	def _save(self,autocommit = False):
 		diffs = self._data._pdiffs(False)
-		#print('SAVE-DIFFS:',diffs)
+		print('SAVE-DIFFS:',diffs)
 		if len(diffs) == 0:
 			return ['no chache']
 		
