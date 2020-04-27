@@ -9,7 +9,7 @@ from configparser import ConfigParser
 from serviceloader.tools.common import configManagerDynamic
 from gsrp5service.connection import Cursor
 from gsrp5service.orm.model import Access
-from gsrp5service.services.models.cache import MCache
+from gsrp5service.services.models.cache2 import MCache
 
 _logger = logging.getLogger('listener.' + __name__)
 
