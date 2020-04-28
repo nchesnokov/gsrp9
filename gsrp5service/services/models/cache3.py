@@ -779,7 +779,7 @@ class DCacheDict(object):
 		cr2c = getattr(self,'_%sr2c' % (c,))
 		cattrs = getattr(self,'_%sattrs' % (c,))
 
-		model = omodels[path]
+		model = cmodels[path]
 		for o2mfield in self._pool.get(model)._o2mfields:
 			container1 = o2mfield + '.' + str(path)
 			coid = cnames[container1]
@@ -1479,7 +1479,7 @@ class MCache(object):
 		if r:
 			item['__data__']['id'] = r
 			path = item['__path__']
-			self._data._cdata[path]['id'] = r
+			self._data._getCData(path)['id'] = r
 			self._data._odata[path]['id'] = copy.deepcopy(r)
 			if self._data._primary and path in self._data._pdata:
 				self._data._pdata[path]['id'] = copy.deepcopy(r)
