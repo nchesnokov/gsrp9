@@ -1288,10 +1288,11 @@ class MCache(object):
 		
 		rows = self._pool.get(obj).read(self._cr,self._pool,self._uid,id2,fields,self._context)
 		
-		p = container.split('.')
+		cn,parent = container.split('.')
 		if len(rows) > 0:
 			for row in rows:
-				self._data._m2m_buildTree(row,rel,p[1],p[0],model)
+				self._data._getAData(parent)[cn].append(row)
+				self._data._m2m_buildTree(row,rel,parent,cn,model)
 				
 		res = {}
 
@@ -1310,8 +1311,8 @@ class MCache(object):
 		return []
 
 	def _m2m_remove(self,path,container,context):
-		c = container.split('.')
-		self._data._getCData[self._data._cnames[container]].remove(self._data._getCData(self._data._cdata[path]))
+		cn,parent = container.split('.')
+		self._data._getAData(self._data._cnames[container])[cn].remove(self._data._getCData(path))
 
 		res = {}
 
@@ -1320,6 +1321,29 @@ class MCache(object):
 
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
+
+		if len(res) > 0:
+			return [res]
+		
+		return []
+
+	def _m2m_removes(self,rows,context):
+		for row in rows:
+			path = row['path']
+			container = row['container']
+			c = container.split('.')
+			self._data._getAData(self._data._cnames[container]).remove(self._data._getCData(path))		
+
+		res = {}
+
+		data_diffs = self._data._odiffs(True)
+
+		if len(data_diffs) > 0:
+			res['__data__'] = data_diffs
+		
+		if len(self._checks) > 0:
+			res['__checks__'] = copy.deepcopy(self._checks)
+			self._checks.clear()
 
 		if len(res) > 0:
 			return [res]
@@ -1584,7 +1608,7 @@ class MCache(object):
 		for row in rows:
 			m = self._pool.get(row['__model__'])
 			c = row['__container__'].split('.')
-			#oid = self._data._cdata[c[1]]['id']
+			oid = self._data._getCData(c[1])['id']
 			rel = m._columns[c[0]].rel
 			id1 = m._columns[c[0]].id1
 			id2 = m._columns[c[0]].id2
@@ -1597,7 +1621,7 @@ class MCache(object):
 		for row in rows:
 			m = self._pool.get(row['__model__'])
 			c = row['__container__'].split('.')
-			oid = self._data._cdata[c[1]]['id']
+			oid = self._data._getCData(c[1])['id']
 			rel = m._columns[c[0]].rel
 			id1 = m._columns[c[0]].id1
 			id2 = m._columns[c[0]].id2
