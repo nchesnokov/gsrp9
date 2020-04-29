@@ -315,6 +315,7 @@ class DCacheDict(object):
 			self._cpaths[oid] = None
 
 		for m2mfield in self._pool.get(model)._m2mfields:
+			#web_pdb.set_trace()
 			if m2mfield in data: 
 				self._m2m_buildTree(data[m2mfield],ci[m2mfield]['rel'],oid,m2mfield,model)
 	
@@ -337,8 +338,7 @@ class DCacheDict(object):
 			
 			m2moid = str(id(data))
 			self._cdata[m2moid] = m2moid
-			self._cdata[coid] = []
-			self._cdata[coid].append(m2moid)
+			self._cdata.setdefault(coid,[]).append(m2moid)
 			self._cmodels[m2moid] = model
 			self._crels[m2moid] = rel
 			self._cpaths.setdefault(m2moid,{})[name] = parent
@@ -350,14 +350,12 @@ class DCacheDict(object):
 			coid = str(id(data))
 			self._ccontainers[coid] = cn
 			self._cnames[cn] = coid
-			self._cdata[coid] = []
 			self._crels[coid] = rel
 
 			for r in data:
 				m2moid = str(id(r))
 				self._cdata[m2moid] = m2moid
-				self._cdata[coid] = []
-				self._cdata[coid].append(m2moid)
+				self._cdata.setdefault(coid,[]).append(m2moid)
 				self._cmodels[m2moid] = model
 				self._crels[m2moid] = rel
 				self._cpaths.setdefault(m2moid,{})[name] = parent
@@ -547,7 +545,8 @@ class DCacheDict(object):
 					del omodels[path] 				
 					del opaths[path]					
 					del or2c[path]
-					del oattrs[path]
+					if k == '__o2m_remove__':
+						del oattrs[path]
 			
 		return True
 
@@ -875,7 +874,7 @@ class DCacheDict(object):
 		res = []
 		
 		for r in self._cdata[self._cnames[container]]:
-			res.append({'__container__':container,'__path__':str(id(r)),'__parent__':container.split('.')[1],'__data__':self._getCData(r)})
+			res.append({'__container__':container,'__path__':r,'__parent__':container.split('.')[1],'__data__':self._getCData(r)})
 			
 		return res
 
@@ -1318,7 +1317,6 @@ class MCache(object):
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
-		meta = self._do_meta(p[1])
 
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
