@@ -436,7 +436,7 @@ class DCacheDict(object):
 		if ('__meta_delete__' in diffs ):
 			for k in diffs['__meta_delete__'].keys():
 				del getattr(self,'_%sattrs' % (c,))[k][d]
-
+	
 		if ('__o2m_append__' in diffs or '__m2m_append__' in diffs):
 			for k in ('__o2m_append__','__m2m_append__'):
 				if k not in diffs:
@@ -472,7 +472,8 @@ class DCacheDict(object):
 					r1 = copy.deepcopy(r['__data__'])
 					odata.setdefault(cnames[container],[]).append(r1)
 					odata[path] = r1
-					oattrs[path] = r['__meta__']
+					if '__meta__' in r:
+						oattrs[path] = r['__meta__']
 					onames[container] = cnames[container]
 					ocontainers[cnames[container]] = ccontainers[cnames[container]]
 					if k == '__o2m_append__':
@@ -656,7 +657,7 @@ class DCacheDict(object):
 			ok = list(filter(lambda x:or2c[x] == ooid,or2c.keys()))
 		
 		if container in cnames:
-			coid = onames[container]
+			coid = cnames[container]
 			ck = list(filter(lambda x:cr2c[x] == coid,cr2c.keys()))
 
 		uk = list(set(ok).intersection(set(ck)))
@@ -744,14 +745,14 @@ class DCacheDict(object):
 			ok = list(filter(lambda x:or2c[x] == ooid,or2c.keys()))
 		
 		if container in cnames:
-			ck = list(map(lambda x:str(id(x)),cdata[cnames[container]]))	
+			coid = cnames[container]
+			ck = list(filter(lambda x:cr2c[x] == coid,cr2c.keys()))
 
 		ik = list(set(ck)- set(ok))
 		dk = list(set(ok)- set(ck))
 			
 		for i in ik:
-			d1 = ctypes.cast(int(i), ctypes.py_object).value
-			p=container.split('.')
+			d1 = self._getCData(i)
 
 			model = cmodels[i]
 			rel = crels[i]
@@ -1114,16 +1115,16 @@ class MCache(object):
 		if name:
 			method = getattr(self._pool.get(model),name,None)
 			if method:
-				_on_change = method(self._cr,self._pool,self._uid,self._data._cdata[path],context)
+				_on_change = method(self._cr,self._pool,self._uid,self._data._getCData(path),context)
 				if _on_change:
-					self._data._cdata[path].update(_on_change)
+					self._data._getCData(path).update(_on_change)
 
 	def _on_check(self,path,model,key,context):
 		name = self._meta[model][key]['on_check']
 		if name:
 			method = getattr(self._pool.get(model),name,None)
 			if method:
-				self._checks.setdefault(path,{})[key] = method(self._cr,self._pool,self._uid,key,self._data._cdata[path],context)
+				self._checks.setdefault(path,{})[key] = method(self._cr,self._pool,self._uid,key,self._data._getCData(path),context)
 	
 	def _do_diff(self,path,key,value,context):
 		res = {}
@@ -1312,7 +1313,7 @@ class MCache(object):
 
 	def _m2m_remove(self,path,container,context):
 		cn,parent = container.split('.')
-		self._data._getAData(self._data._cnames[container])[cn].remove(self._data._getCData(path))
+		self._data._getAData(self._data._cnames[container]).remove(self._data._getCData(path))
 
 		res = {}
 
@@ -1385,7 +1386,7 @@ class MCache(object):
 				cond.append((key,'like',value['id']))
 
 		for rel in relatedy:
-			d = self._data._cdata[path][rel]
+			d = self._data._getCData(path)[rel]
 			if type(d) == dict:
 				r1 = d['name']
 			else:
@@ -1404,7 +1405,7 @@ class MCache(object):
 
 	def _action(self,path,name,column = None,context={}):
 		res = {}
-		act = self._pool.get(self._data._cmodels[path]).do_action(self._cr,self._pool,self._uid,name,column,self._data._cdata[path],context)
+		act = self._pool.get(self._data._cmodels[path]).do_action(self._cr,self._pool,self._uid,name,column,self._data._getCData(path),context)
 		if act and len(act) > 0:
 			res['__do_action__'] = act
 		else:
@@ -1602,7 +1603,7 @@ class MCache(object):
 			m = self._pool.get(item['__model__'])
 			r = _unlinkRecord(m,self._cr,self._pool,self._uid,data,self._context)
 
-	def _m2m_appendRows(self,rows,oid):
+	def _m2m_appendRows(self,rows):
 		rels = []
 		cols = {}
 		for row in rows:
