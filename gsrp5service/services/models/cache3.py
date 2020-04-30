@@ -348,6 +348,8 @@ class DCacheDict(object):
 
 			cn = name + '.' + parent
 			coid = str(id(data))
+			if coid not in self._cdata: 
+				self._cdata[coid] = []
 			self._ccontainers[coid] = cn
 			self._cnames[cn] = coid
 			self._crels[coid] = rel
@@ -355,7 +357,7 @@ class DCacheDict(object):
 			for r in data:
 				m2moid = str(id(r))
 				self._cdata[m2moid] = m2moid
-				self._cdata.setdefault(coid,[]).append(m2moid)
+				self._cdata[coid].append(m2moid)
 				self._cmodels[m2moid] = model
 				self._crels[m2moid] = rel
 				self._cpaths.setdefault(m2moid,{})[name] = parent
@@ -1284,7 +1286,7 @@ class MCache(object):
 		
 		return []
 
-	def _m2m_add(self,model,container,fields,obj,rel,id1,id2,context={}):
+	def _m2m_add(self,model,container,fields,obj,rel,id2,context={}):
 		
 		rows = self._pool.get(obj).read(self._cr,self._pool,self._uid,id2,fields,self._context)
 		
@@ -1506,7 +1508,7 @@ class MCache(object):
 			self._data._odata[path]['id'] = copy.deepcopy(r)
 			if self._data._primary and path in self._data._pdata:
 				self._data._pdata[path]['id'] = copy.deepcopy(r)
-		
+
 			if '__m2m_containers__' in item:
 				m2m_containers = item['__m2m_containers__']
 				for key in m2m_containers.keys():
@@ -1604,13 +1606,14 @@ class MCache(object):
 	def _m2m_appendRows(self,rows):
 		rels = []
 		cols = {}
+		#web_pdb.set_trace()
 		for row in rows:
 			m = self._pool.get(row['__model__'])
-			c = row['__container__'].split('.')
-			oid = self._data._getCData(c[1])['id']
-			rel = m._columns[c[0]].rel
-			id1 = m._columns[c[0]].id1
-			id2 = m._columns[c[0]].id2
+			cn,parent = row['__container__'].split('.')
+			oid = self._data._getCData(parent)['id']
+			rel = m._columns[cn].rel
+			id1 = m._columns[cn].id1
+			id2 = m._columns[cn].id2
 			rels.append(row['__data__']['id'])
 
 			m._m2mmodify(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
