@@ -1604,9 +1604,7 @@ class MCache(object):
 			r = _unlinkRecord(m,self._cr,self._pool,self._uid,data,self._context)
 
 	def _m2m_appendRows(self,rows):
-		rels = []
-		cols = {}
-		#web_pdb.set_trace()
+		rels = {}
 		for row in rows:
 			m = self._pool.get(row['__model__'])
 			cn,parent = row['__container__'].split('.')
@@ -1614,12 +1612,13 @@ class MCache(object):
 			rel = m._columns[cn].rel
 			id1 = m._columns[cn].id1
 			id2 = m._columns[cn].id2
-			rels.append(row['__data__']['id'])
+			rels.setdefault(oid,[]).append(row['__data__']['id'])
 
-			m._m2mmodify(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
+		for oid in rels.keys():
+			m._m2mcreate(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels[oid],self._context)
 
 	def _m2m_removeRows(self,rows):
-		rels = []
+		rels = {}
 		for row in rows:
 			m = self._pool.get(row['__model__'])
 			c = row['__container__'].split('.')
@@ -1627,9 +1626,10 @@ class MCache(object):
 			rel = m._columns[c[0]].rel
 			id1 = m._columns[c[0]].id1
 			id2 = m._columns[c[0]].id2
-			rels.append(row['__data__']['id'])
+			rels.setdefault(oid,[]).append(row['__data__']['id'])
 
-			m._m2munlink(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels,self._context)
+		for oid in rels.keys():
+			m._m2munlink(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels[oid],self._context)
 
 	def _updateItems(self,items):
 		models = {}
