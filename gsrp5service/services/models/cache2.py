@@ -1303,7 +1303,7 @@ class MCache(object):
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
-		meta = self._do_meta(p[1])
+
 
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs

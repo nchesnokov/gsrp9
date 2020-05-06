@@ -180,6 +180,8 @@ class User(object):
 			return self._cache[args[1]]._m2m_removes(**(args[2]))
 		elif args[0] == 'initialize':
 			return self._cache[args[1]]._initialize(**(args[2]))
+		elif args[0] == 'copy':
+			return self._cache[args[1]]._do_copy(**(args[2]))
 		elif args[0] == 'read':
 			return self._cache[args[1]]._do_read(**(args[2]))
 		elif args[0] == 'create':

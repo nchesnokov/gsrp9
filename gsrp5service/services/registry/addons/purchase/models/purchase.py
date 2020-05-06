@@ -645,12 +645,20 @@ class purchase_orders(Model):
 	def _act_copy_from(self,cr,pool,uid,column,record,context={}):				
 		return 'Copy from'
 
+	def _act_create_invoice(self,cr,pool,uid,column,record,context={}):				
+		return 'Create invoice'
 
-	_actions = {'copy_to':{'label':'Copy To Model','tooltip':'Copy to other model','method':'_act_copy_to','icon':'add'},'copy_from':{'label':'Copy From Model','tooltip':'Copy from other model','method':'_act_copy_from','icon':'list'}}
+
+	_actions = {
+	'copy_to':{'label':'Copy To Model','tooltip':'Copy to other model','method':'_act_copy_to','icon':'add'},
+	'copy_from':{'label':'Copy From Model','tooltip':'Copy from other model','method':'_act_copy_from','icon':'list'},
+	'create_invoice': {'label':'Creare Invice','tooltip':'Create Invoce From Order','method':'_act_create_invoice','icon':'shopping_cart'}
+	}
 
 	_default = {
 		'state':'draft',
-		'otype':'ord'
+		'otype':'TA',
+		'pm':'p'
 	}
 
 purchase_orders()

@@ -255,8 +255,8 @@ class Registry(Service):
 									elif attr in ('accept','label','priority','pattern','compute','readonly','on_change','on_check','invisible','on_delete','on_update','translate','selectable','manual','help','offset','limit','icon','delimiter'):
 										if hasattr(imeta['attrs'][c][column],attr):
 											if hasattr(imeta1['attrs'][c][column],attr):
-												setattr(getattr(imeta1['attrs'][c][column],attr),getattr(imeta['attrs'][c][column],attr))
-												setattr(getattr(fmeta1['attrs'][c][column],attr),getattr(imeta['attrs'][c][column],attr))
+												setattr(getattr(imeta1['attrs'][c][column],attr),attr,getattr(imeta['attrs'][c][column],attr))
+												setattr(getattr(fmeta1['attrs'][c][column],attr),attr,getattr(imeta['attrs'][c][column],attr))
 									elif attr in ('actions','context','cols','state'):
 										if hasattr(imeta['attrs'][c][column],attr):
 											if hasattr(imeta1['attrs'][c][column],attr):

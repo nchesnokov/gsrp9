@@ -1326,9 +1326,6 @@ class MCache(object):
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs
 
-		if len(meta) > 0:
-			res['__meta__'] = meta
-		
 		if len(self._checks) > 0:
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
@@ -1375,7 +1372,6 @@ class MCache(object):
 		res = {}
 
 		data_diffs = self._data._odiffs(True)
-		meta = self._do_meta(p[1])
 
 		if len(data_diffs) > 0:
 			res['__data__'] = data_diffs

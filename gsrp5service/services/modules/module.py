@@ -41,7 +41,7 @@ def _install(cr,pool,uid,registry,able=None, modules = None):
 	if type(modules) == str:
 		if registry._modules[modules]['meta']['able'] in able:
 			_modules.append(modules)
-			_chunk[modules] = ['module','depends','env','view','example','data','demo','test','i18n']
+			_chunks[modules] = ['module','depends','env','view','example','data','demo','test','i18n']
 	elif type(modules) == dict:
 		mkeys = list(modules.keys())
 		for module in registry._depends:
