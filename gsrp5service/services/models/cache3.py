@@ -445,7 +445,7 @@ class DCacheDict(object):
 
 		def _m2m_append(self,o,c,diffs):
 			if ('__m2m_append__' in diffs ):
-				for r in diffs['__m2m_append']:
+				for r in diffs['__m2m_append__']:
 					container = r['__container__']
 					path = r['__path__']
 					model = r['__model__']
@@ -548,7 +548,7 @@ class DCacheDict(object):
 
 		def _o2m_append(self,o,c,diffs):
 			if ('__o2m_append__' in diffs ):
-				for r in diffs['__o2m_append']:
+				for r in diffs['__o2m_append__']:
 					container = r['__container__']
 					path = r['__path__']
 					model = r['__model__']
@@ -587,31 +587,15 @@ class DCacheDict(object):
 					omodels[path] = cmodels[path] 
 					opaths[path] = cpaths[path]
 					or2c[path] = cr2c[path]
-					
-					if '__o2m_containers__' in r:
-						for ck in r['__o2m_containers__'].keys():
-							onames[ck + '.' + path] = cnames[ck + '.' + path]
-							ocontainers[onames[ck + '.' + path]] = ccontainers[cnames[ck + '.' + path]]
-							omodels[path] = cmodels[path]
-							ometas[omodels[path]] = cmetas[cmodels[path]]
-							or2c[path] = cr2c[path]
-							opaths[path] = cpaths[path]
-							for r2 in r['__o2m_containers__'][ck]:
-								_apply_diffs(self,o,c,r2)
-								
-	
+
 					if '__m2m_containers__' in r:
 						for ck in r['__m2m_containers__'].keys():
-							onames[ck + '.' + path] = cnames[ck + '.' + path]
-							ocontainers[cnames[ck + '.' + path]] = ccontainers[cnames[ck + '.' + path]]
-							omodels[path] = cmodels[path]
-							orels[path] = crels[path]
-							or2c[path] = cr2c[path]
-							opaths[path] = cpaths[path]
-							for r2 in r['__m2m_containers__'][ck]:
-								_apply_diffs(self,o,c,r2)
-
-
+							_apply_diffs(self,o,c,r['__m2m_containers__'][ck])
+					
+					if '__o2m_containers__' in r:
+						#web_pdb.set_trace()
+						for ck in r['__o2m_containers__'].keys():
+							_apply_diffs(self,o,c,r['__o2m_containers__'][ck])
 	
 		def _o2m_remove(self,o,c,diffs):
 			if ('__o2m_remove__' in diffs ):
@@ -642,6 +626,13 @@ class DCacheDict(object):
 					cattrs = getattr(self,'_%sattrs' % (c,))
 					oattrs = getattr(self,'_%sattrs' % (o,))
 				
+					if '__m2m_containers__' in r:
+						for ck in r['__m2m_containers__'].keys():
+							_apply_diffs(self,o,c,r['__m2m_containers__'][ck])
+					
+					if '__o2m_containers__' in r:
+						for ck in r['__o2m_containers__'].keys():
+							_apply_diffs(self,o,c,r['__o2m_containers__'][ck])
 	
 					odata[onames[container]].remove(odata[path])
 					del odata[path]
@@ -958,9 +949,7 @@ class DCacheDict(object):
 			d1 = self._getCData(i)
 			for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'many2many',d1.keys()):
 				r1 = self._m2m_cmpList(o,c,k + '.' + i)
-				m2m_containers.setdefault(k,[]).extend(r1['__m2m_append__'] if '__m2m_append__' in r1 else [])
-				
-			res.setdefault('__m2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__m2m_containers__':m2m_containers})
+				m2m_containers.setdefault(k,{}).setdefault('__m2m_append__',[]).extend(r1['__m2m_append__'] if '__m2m_append__' in r1 else [])
 
 			data = {}
 
@@ -970,11 +959,18 @@ class DCacheDict(object):
 			o2m_containers = {}
 			for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'one2many',d1.keys()):
 				r1 = self._o2m_cmpList(o,c,k + '.' + i)
-				o2m_containers.setdefault(k,[]).extend(r1['__o2m_append__'] if '__o2m_append__' in r1 else [])
+				o2m_containers.setdefault(k,{}).setdefault('__o2m_append__',[]).extend(r1['__o2m_append__'] if '__o2m_append__' in r1 else [])
 
 				
+			ir = {'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__meta__':self._get_meta(i)}
+
+			if len(m2m_containers) > 0:
+				ir['__m2m_containers__'] = m2m_containers
+
+			if len(o2m_containers) > 0:
+				ir['__o2m_containers__'] = o2m_containers
 			
-			res.setdefault('__o2m_append__',[]).append({'__path__':i,'__container__':container,'__model__':model,'__data__':data,'__meta__':self._get_meta(i),'__o2m_containers__':o2m_containers})
+			res.setdefault('__o2m_append__',[]).append(ir)
 	
 		for d in dk:
 			model = omodels[onames[container]]
@@ -985,16 +981,24 @@ class DCacheDict(object):
 			m2m_containers = {}
 			for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'many2many',remove_data.keys()):
 				r1 = self._m2m_cmpList(o,c,k + '.' + d)
-				m2m_containers.setdefault(k,[]).extend(r1['__m2m_remove__'] if '__m2m_remove__' in r1 else [])
+				m2m_containers.setdefault(k,{}).setdefault('__m2m_remove__',[]).extend(r1['__m2m_remove__'] if '__m2m_remove__' in r1 else [])
 				
-			res.setdefault('__m2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__m2m_containers__':m2m_containers})
-
 			o2m_containers = {}
 			for k in filter(lambda x: x != 'id' and ci[x]['type'] == 'one2many',remove_data.keys()):
 				r1 = self._o2m_cmpList(o,c,k + '.' + d)
-				o2m_containers.setdefault(k,[]).extend(r1['__o2m_remove__'] if '__o2m_remove__' in r1 else [])
+				o2m_containers.setdefault(k,{}).setdefault('__o2m_remove__',[]).extend(r1['__o2m_remove__'] if '__o2m_remove__' in r1 else [])
 			
-			res.setdefault('__o2m_remove__',[]).append({'__path__':d,'__container__':container,'__model__':model,'__data__':remove_data,'__o2m_containers__':o2m_containers})
+			dr = {'__path__':d,'__container__':container,'__model__':model,'__data__':remove_data}
+
+			if len(m2m_containers) > 0:
+				dr['__m2m_containers__'] = m2m_containers
+
+			if len(o2m_containers) > 0:
+				dr['__o2m_containers__'] = o2m_containers
+
+			res.setdefault('__o2m_remove__',[]).append(dr)
+
+		print('RES:',res)
 
 		return res
 
@@ -1924,7 +1928,12 @@ class MCache(object):
 		if '__o2m_containers__' in item:
 			o2m_containers = item['__o2m_containers__']
 			for key in o2m_containers.keys():
-				self._o2m_appendItems(o2m_containers[key])
+				if '__o2m_remove__' in o2m_containers[key]:
+					self._o2m_removeItems(o2m_containers[key]['__o2m_removr__'])
+
+				if '__o2m_append__' in o2m_containers[key]:
+					self._o2m_appendItems(o2m_containers[key]['__o2m_append__'])
+
 
 	def _o2m_removeItems(self,items):
 		if len(items) > 0:
@@ -2039,6 +2048,10 @@ class MCache(object):
 		if '__o2m_append__' in diffs:
 			apnds1 = diffs['__o2m_append__']
 			for apnd1 in apnds1:
+				if '__o2m_containers__' in apnd1:
+					for k1 in apnd1['__o2m_containers__'].keys():
+						self._post_diff(apnd1['__o2m_containers__'][k1],context)
+
 				m = self._pool.get(apnd1['__model__'])
 				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,apnd1['__data__'].keys()))
 				ci = m.columnsInfo(columns=on_change_fields,attributes=['compute','priority'])
