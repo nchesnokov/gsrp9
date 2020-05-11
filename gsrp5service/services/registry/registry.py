@@ -372,7 +372,8 @@ class Registry(Service):
 
 	def _download_module(self,module):
 		for model in self._modules[module]['lom']:
-			del self._models[model]
+			if model in self._models:
+				del self._models[model]
 
 		if 'loaded' in self._modules[module] or self._modules[module]['loaded']:
 			self._modules[module]['loaded'] = False

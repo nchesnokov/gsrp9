@@ -167,8 +167,10 @@ def _uninstall(cr,pool,uid,registry,able=None, modules = None):
 		registry._reload_modules(all_modules)
 	
 		for all_module in filter(lambda x: x in all_modules,[node.name for node in registry._graph]):
-			for mkey in registry. _getModuleModels(all_module).keys():
-				pool[mkey] = registry._create_module_model(mkey,registry._getLastModule(mkey))
+			mam = registry. _getModuleModels(all_module)
+			if mam:
+				for mkey in mam.keys():
+					pool[mkey] = registry._create_module_model(mkey,registry._getLastModule(mkey))
 			
 			log.append([0,'module: <%s> successfull reloaded' % (all_module,)])
 	

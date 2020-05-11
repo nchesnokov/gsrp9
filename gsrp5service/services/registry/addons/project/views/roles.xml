@@ -20,407 +20,937 @@
         </record>
       </records>
       <records model="bc.access">
-        <record id="md.project.product.readonly">
-          <column name="name">md.project.product.readonly</column>
-          <column name="note">Model md.project.product grant readonly</column>
+        <record id="prj.unit.categories.readonly">
+          <column name="name">prj.unit.categories.readonly</column>
+          <column name="note">Model prj.unit.categories grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="md.project.product.nodrop">
-          <column name="name">md.project.product.nodrop</column>
-          <column name="note">Model md.project.product grant nodrop</column>
+        <record id="prj.unit.categories.nodrop">
+          <column name="name">prj.unit.categories.nodrop</column>
+          <column name="note">Model prj.unit.categories grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="md.project.product.full">
-          <column name="name">md.project.product.full</column>
-          <column name="note">Model md.project.product grant full</column>
+        <record id="prj.unit.categories.full">
+          <column name="name">prj.unit.categories.full</column>
+          <column name="note">Model prj.unit.categories grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="md.project.product.crw">
-          <column name="name">md.project.product.crw</column>
-          <column name="note">Model md.project.product grant crw</column>
+        <record id="prj.unit.categories.crw">
+          <column name="name">prj.unit.categories.crw</column>
+          <column name="note">Model prj.unit.categories grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.resource.category.readonly">
-          <column name="name">project.resource.category.readonly</column>
-          <column name="note">Model project.resource.category grant readonly</column>
+        <record id="prj.units.readonly">
+          <column name="name">prj.units.readonly</column>
+          <column name="note">Model prj.units grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.resource.category.nodrop">
-          <column name="name">project.resource.category.nodrop</column>
-          <column name="note">Model project.resource.category grant nodrop</column>
+        <record id="prj.units.nodrop">
+          <column name="name">prj.units.nodrop</column>
+          <column name="note">Model prj.units grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.resource.category.full">
-          <column name="name">project.resource.category.full</column>
-          <column name="note">Model project.resource.category grant full</column>
+        <record id="prj.units.full">
+          <column name="name">prj.units.full</column>
+          <column name="note">Model prj.units grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.resource.category.crw">
-          <column name="name">project.resource.category.crw</column>
-          <column name="note">Model project.resource.category grant crw</column>
+        <record id="prj.units.crw">
+          <column name="name">prj.units.crw</column>
+          <column name="note">Model prj.units grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.bill.category.readonly">
-          <column name="name">project.bill.category.readonly</column>
-          <column name="note">Model project.bill.category grant readonly</column>
+        <record id="prj.channel.categories.readonly">
+          <column name="name">prj.channel.categories.readonly</column>
+          <column name="note">Model prj.channel.categories grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.bill.category.nodrop">
-          <column name="name">project.bill.category.nodrop</column>
-          <column name="note">Model project.bill.category grant nodrop</column>
+        <record id="prj.channel.categories.nodrop">
+          <column name="name">prj.channel.categories.nodrop</column>
+          <column name="note">Model prj.channel.categories grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.bill.category.full">
-          <column name="name">project.bill.category.full</column>
-          <column name="note">Model project.bill.category grant full</column>
+        <record id="prj.channel.categories.full">
+          <column name="name">prj.channel.categories.full</column>
+          <column name="note">Model prj.channel.categories grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.bill.category.crw">
-          <column name="name">project.bill.category.crw</column>
-          <column name="note">Model project.bill.category grant crw</column>
+        <record id="prj.channel.categories.crw">
+          <column name="name">prj.channel.categories.crw</column>
+          <column name="note">Model prj.channel.categories grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.portfolio.category.readonly">
-          <column name="name">project.portfolio.category.readonly</column>
-          <column name="note">Model project.portfolio.category grant readonly</column>
+        <record id="prj.channels.readonly">
+          <column name="name">prj.channels.readonly</column>
+          <column name="note">Model prj.channels grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.portfolio.category.nodrop">
-          <column name="name">project.portfolio.category.nodrop</column>
-          <column name="note">Model project.portfolio.category grant nodrop</column>
+        <record id="prj.channels.nodrop">
+          <column name="name">prj.channels.nodrop</column>
+          <column name="note">Model prj.channels grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.portfolio.category.full">
-          <column name="name">project.portfolio.category.full</column>
-          <column name="note">Model project.portfolio.category grant full</column>
+        <record id="prj.channels.full">
+          <column name="name">prj.channels.full</column>
+          <column name="note">Model prj.channels grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.portfolio.category.crw">
-          <column name="name">project.portfolio.category.crw</column>
-          <column name="note">Model project.portfolio.category grant crw</column>
+        <record id="prj.channels.crw">
+          <column name="name">prj.channels.crw</column>
+          <column name="note">Model prj.channels grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.project.category.readonly">
-          <column name="name">project.project.category.readonly</column>
-          <column name="note">Model project.project.category grant readonly</column>
+        <record id="prj.segment.categories.readonly">
+          <column name="name">prj.segment.categories.readonly</column>
+          <column name="note">Model prj.segment.categories grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.project.category.nodrop">
-          <column name="name">project.project.category.nodrop</column>
-          <column name="note">Model project.project.category grant nodrop</column>
+        <record id="prj.segment.categories.nodrop">
+          <column name="name">prj.segment.categories.nodrop</column>
+          <column name="note">Model prj.segment.categories grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.project.category.full">
-          <column name="name">project.project.category.full</column>
-          <column name="note">Model project.project.category grant full</column>
+        <record id="prj.segment.categories.full">
+          <column name="name">prj.segment.categories.full</column>
+          <column name="note">Model prj.segment.categories grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.project.category.crw">
-          <column name="name">project.project.category.crw</column>
-          <column name="note">Model project.project.category grant crw</column>
+        <record id="prj.segment.categories.crw">
+          <column name="name">prj.segment.categories.crw</column>
+          <column name="note">Model prj.segment.categories grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.stage.category.readonly">
-          <column name="name">project.stage.category.readonly</column>
-          <column name="note">Model project.stage.category grant readonly</column>
+        <record id="prj.segments.readonly">
+          <column name="name">prj.segments.readonly</column>
+          <column name="note">Model prj.segments grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.stage.category.nodrop">
-          <column name="name">project.stage.category.nodrop</column>
-          <column name="note">Model project.stage.category grant nodrop</column>
+        <record id="prj.segments.nodrop">
+          <column name="name">prj.segments.nodrop</column>
+          <column name="note">Model prj.segments grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.stage.category.full">
-          <column name="name">project.stage.category.full</column>
-          <column name="note">Model project.stage.category grant full</column>
+        <record id="prj.segments.full">
+          <column name="name">prj.segments.full</column>
+          <column name="note">Model prj.segments grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.stage.category.crw">
-          <column name="name">project.stage.category.crw</column>
-          <column name="note">Model project.stage.category grant crw</column>
+        <record id="prj.segments.crw">
+          <column name="name">prj.segments.crw</column>
+          <column name="note">Model prj.segments grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.task.category.readonly">
-          <column name="name">project.task.category.readonly</column>
-          <column name="note">Model project.task.category grant readonly</column>
+        <record id="prj.area.categories.readonly">
+          <column name="name">prj.area.categories.readonly</column>
+          <column name="note">Model prj.area.categories grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.task.category.nodrop">
-          <column name="name">project.task.category.nodrop</column>
-          <column name="note">Model project.task.category grant nodrop</column>
+        <record id="prj.area.categories.nodrop">
+          <column name="name">prj.area.categories.nodrop</column>
+          <column name="note">Model prj.area.categories grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.task.category.full">
-          <column name="name">project.task.category.full</column>
-          <column name="note">Model project.task.category grant full</column>
+        <record id="prj.area.categories.full">
+          <column name="name">prj.area.categories.full</column>
+          <column name="note">Model prj.area.categories grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.task.category.crw">
-          <column name="name">project.task.category.crw</column>
-          <column name="note">Model project.task.category grant crw</column>
+        <record id="prj.area.categories.crw">
+          <column name="name">prj.area.categories.crw</column>
+          <column name="note">Model prj.area.categories grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.element.category.readonly">
-          <column name="name">project.element.category.readonly</column>
-          <column name="note">Model project.element.category grant readonly</column>
+        <record id="prj.areas.readonly">
+          <column name="name">prj.areas.readonly</column>
+          <column name="note">Model prj.areas grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.element.category.nodrop">
-          <column name="name">project.element.category.nodrop</column>
-          <column name="note">Model project.element.category grant nodrop</column>
+        <record id="prj.areas.nodrop">
+          <column name="name">prj.areas.nodrop</column>
+          <column name="note">Model prj.areas grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.element.category.full">
-          <column name="name">project.element.category.full</column>
-          <column name="note">Model project.element.category grant full</column>
+        <record id="prj.areas.full">
+          <column name="name">prj.areas.full</column>
+          <column name="note">Model prj.areas grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.element.category.crw">
-          <column name="name">project.element.category.crw</column>
-          <column name="note">Model project.element.category grant crw</column>
+        <record id="prj.areas.crw">
+          <column name="name">prj.areas.crw</column>
+          <column name="note">Model prj.areas grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.resource.readonly">
-          <column name="name">project.resource.readonly</column>
-          <column name="note">Model project.resource grant readonly</column>
+        <record id="prj.region.categories.readonly">
+          <column name="name">prj.region.categories.readonly</column>
+          <column name="note">Model prj.region.categories grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.resource.nodrop">
-          <column name="name">project.resource.nodrop</column>
-          <column name="note">Model project.resource grant nodrop</column>
+        <record id="prj.region.categories.nodrop">
+          <column name="name">prj.region.categories.nodrop</column>
+          <column name="note">Model prj.region.categories grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.resource.full">
-          <column name="name">project.resource.full</column>
-          <column name="note">Model project.resource grant full</column>
+        <record id="prj.region.categories.full">
+          <column name="name">prj.region.categories.full</column>
+          <column name="note">Model prj.region.categories grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.resource.crw">
-          <column name="name">project.resource.crw</column>
-          <column name="note">Model project.resource grant crw</column>
+        <record id="prj.region.categories.crw">
+          <column name="name">prj.region.categories.crw</column>
+          <column name="note">Model prj.region.categories grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.bill.readonly">
-          <column name="name">project.bill.readonly</column>
-          <column name="note">Model project.bill grant readonly</column>
+        <record id="prj.regions.readonly">
+          <column name="name">prj.regions.readonly</column>
+          <column name="note">Model prj.regions grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.bill.nodrop">
-          <column name="name">project.bill.nodrop</column>
-          <column name="note">Model project.bill grant nodrop</column>
+        <record id="prj.regions.nodrop">
+          <column name="name">prj.regions.nodrop</column>
+          <column name="note">Model prj.regions grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.bill.full">
-          <column name="name">project.bill.full</column>
-          <column name="note">Model project.bill grant full</column>
+        <record id="prj.regions.full">
+          <column name="name">prj.regions.full</column>
+          <column name="note">Model prj.regions grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.bill.crw">
-          <column name="name">project.bill.crw</column>
-          <column name="note">Model project.bill grant crw</column>
+        <record id="prj.regions.crw">
+          <column name="name">prj.regions.crw</column>
+          <column name="note">Model prj.regions grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.portfolio.readonly">
-          <column name="name">project.portfolio.readonly</column>
-          <column name="note">Model project.portfolio grant readonly</column>
+        <record id="prj.division.categories.readonly">
+          <column name="name">prj.division.categories.readonly</column>
+          <column name="note">Model prj.division.categories grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.portfolio.nodrop">
-          <column name="name">project.portfolio.nodrop</column>
-          <column name="note">Model project.portfolio grant nodrop</column>
+        <record id="prj.division.categories.nodrop">
+          <column name="name">prj.division.categories.nodrop</column>
+          <column name="note">Model prj.division.categories grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.portfolio.full">
-          <column name="name">project.portfolio.full</column>
-          <column name="note">Model project.portfolio grant full</column>
+        <record id="prj.division.categories.full">
+          <column name="name">prj.division.categories.full</column>
+          <column name="note">Model prj.division.categories grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.portfolio.crw">
-          <column name="name">project.portfolio.crw</column>
-          <column name="note">Model project.portfolio grant crw</column>
+        <record id="prj.division.categories.crw">
+          <column name="name">prj.division.categories.crw</column>
+          <column name="note">Model prj.division.categories grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.project.readonly">
-          <column name="name">project.project.readonly</column>
-          <column name="note">Model project.project grant readonly</column>
+        <record id="prj.divisions.readonly">
+          <column name="name">prj.divisions.readonly</column>
+          <column name="note">Model prj.divisions grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.project.nodrop">
-          <column name="name">project.project.nodrop</column>
-          <column name="note">Model project.project grant nodrop</column>
+        <record id="prj.divisions.nodrop">
+          <column name="name">prj.divisions.nodrop</column>
+          <column name="note">Model prj.divisions grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.project.full">
-          <column name="name">project.project.full</column>
-          <column name="note">Model project.project grant full</column>
+        <record id="prj.divisions.full">
+          <column name="name">prj.divisions.full</column>
+          <column name="note">Model prj.divisions grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.project.crw">
-          <column name="name">project.project.crw</column>
-          <column name="note">Model project.project grant crw</column>
+        <record id="prj.divisions.crw">
+          <column name="name">prj.divisions.crw</column>
+          <column name="note">Model prj.divisions grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.stage.readonly">
-          <column name="name">project.stage.readonly</column>
-          <column name="note">Model project.stage grant readonly</column>
+        <record id="prj.subdivision.categories.readonly">
+          <column name="name">prj.subdivision.categories.readonly</column>
+          <column name="note">Model prj.subdivision.categories grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.stage.nodrop">
-          <column name="name">project.stage.nodrop</column>
-          <column name="note">Model project.stage grant nodrop</column>
+        <record id="prj.subdivision.categories.nodrop">
+          <column name="name">prj.subdivision.categories.nodrop</column>
+          <column name="note">Model prj.subdivision.categories grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.stage.full">
-          <column name="name">project.stage.full</column>
-          <column name="note">Model project.stage grant full</column>
+        <record id="prj.subdivision.categories.full">
+          <column name="name">prj.subdivision.categories.full</column>
+          <column name="note">Model prj.subdivision.categories grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.stage.crw">
-          <column name="name">project.stage.crw</column>
-          <column name="note">Model project.stage grant crw</column>
+        <record id="prj.subdivision.categories.crw">
+          <column name="name">prj.subdivision.categories.crw</column>
+          <column name="note">Model prj.subdivision.categories grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.task.readonly">
-          <column name="name">project.task.readonly</column>
-          <column name="note">Model project.task grant readonly</column>
+        <record id="prj.subdivisions.readonly">
+          <column name="name">prj.subdivisions.readonly</column>
+          <column name="note">Model prj.subdivisions grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.task.nodrop">
-          <column name="name">project.task.nodrop</column>
-          <column name="note">Model project.task grant nodrop</column>
+        <record id="prj.subdivisions.nodrop">
+          <column name="name">prj.subdivisions.nodrop</column>
+          <column name="note">Model prj.subdivisions grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.task.full">
-          <column name="name">project.task.full</column>
-          <column name="note">Model project.task grant full</column>
+        <record id="prj.subdivisions.full">
+          <column name="name">prj.subdivisions.full</column>
+          <column name="note">Model prj.subdivisions grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.task.crw">
-          <column name="name">project.task.crw</column>
-          <column name="note">Model project.task grant crw</column>
+        <record id="prj.subdivisions.crw">
+          <column name="name">prj.subdivisions.crw</column>
+          <column name="note">Model prj.subdivisions grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.element.readonly">
-          <column name="name">project.element.readonly</column>
-          <column name="note">Model project.element grant readonly</column>
+        <record id="prj.unit.channel.assigments.readonly">
+          <column name="name">prj.unit.channel.assigments.readonly</column>
+          <column name="note">Model prj.unit.channel.assigments grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.element.nodrop">
-          <column name="name">project.element.nodrop</column>
-          <column name="note">Model project.element grant nodrop</column>
+        <record id="prj.unit.channel.assigments.nodrop">
+          <column name="name">prj.unit.channel.assigments.nodrop</column>
+          <column name="note">Model prj.unit.channel.assigments grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.element.full">
-          <column name="name">project.element.full</column>
-          <column name="note">Model project.element grant full</column>
+        <record id="prj.unit.channel.assigments.full">
+          <column name="name">prj.unit.channel.assigments.full</column>
+          <column name="note">Model prj.unit.channel.assigments grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.element.crw">
-          <column name="name">project.element.crw</column>
-          <column name="note">Model project.element grant crw</column>
+        <record id="prj.unit.channel.assigments.crw">
+          <column name="name">prj.unit.channel.assigments.crw</column>
+          <column name="note">Model prj.unit.channel.assigments grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.element.products.readonly">
-          <column name="name">project.element.products.readonly</column>
-          <column name="note">Model project.element.products grant readonly</column>
+        <record id="prj.unit.segment.assigments.readonly">
+          <column name="name">prj.unit.segment.assigments.readonly</column>
+          <column name="note">Model prj.unit.segment.assigments grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.element.products.nodrop">
-          <column name="name">project.element.products.nodrop</column>
-          <column name="note">Model project.element.products grant nodrop</column>
+        <record id="prj.unit.segment.assigments.nodrop">
+          <column name="name">prj.unit.segment.assigments.nodrop</column>
+          <column name="note">Model prj.unit.segment.assigments grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.element.products.full">
-          <column name="name">project.element.products.full</column>
-          <column name="note">Model project.element.products grant full</column>
+        <record id="prj.unit.segment.assigments.full">
+          <column name="name">prj.unit.segment.assigments.full</column>
+          <column name="note">Model prj.unit.segment.assigments grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.element.products.crw">
-          <column name="name">project.element.products.crw</column>
-          <column name="note">Model project.element.products grant crw</column>
+        <record id="prj.unit.segment.assigments.crw">
+          <column name="name">prj.unit.segment.assigments.crw</column>
+          <column name="note">Model prj.unit.segment.assigments grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.task.resources.readonly">
-          <column name="name">project.task.resources.readonly</column>
-          <column name="note">Model project.task.resources grant readonly</column>
+        <record id="prj.unit.area.assigments.readonly">
+          <column name="name">prj.unit.area.assigments.readonly</column>
+          <column name="note">Model prj.unit.area.assigments grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.task.resources.nodrop">
-          <column name="name">project.task.resources.nodrop</column>
-          <column name="note">Model project.task.resources grant nodrop</column>
+        <record id="prj.unit.area.assigments.nodrop">
+          <column name="name">prj.unit.area.assigments.nodrop</column>
+          <column name="note">Model prj.unit.area.assigments grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.task.resources.full">
-          <column name="name">project.task.resources.full</column>
-          <column name="note">Model project.task.resources grant full</column>
+        <record id="prj.unit.area.assigments.full">
+          <column name="name">prj.unit.area.assigments.full</column>
+          <column name="note">Model prj.unit.area.assigments grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.task.resources.crw">
-          <column name="name">project.task.resources.crw</column>
-          <column name="note">Model project.task.resources grant crw</column>
+        <record id="prj.unit.area.assigments.crw">
+          <column name="name">prj.unit.area.assigments.crw</column>
+          <column name="note">Model prj.unit.area.assigments grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
-        <record id="project.element.resources.readonly">
-          <column name="name">project.element.resources.readonly</column>
-          <column name="note">Model project.element.resources grant readonly</column>
+        <record id="prj.unit.region.assigments.readonly">
+          <column name="name">prj.unit.region.assigments.readonly</column>
+          <column name="note">Model prj.unit.region.assigments grant readonly</column>
           <column name="group_id">project.readonly</column>
         </record>
-        <record id="project.element.resources.nodrop">
-          <column name="name">project.element.resources.nodrop</column>
-          <column name="note">Model project.element.resources grant nodrop</column>
+        <record id="prj.unit.region.assigments.nodrop">
+          <column name="name">prj.unit.region.assigments.nodrop</column>
+          <column name="note">Model prj.unit.region.assigments grant nodrop</column>
           <column name="group_id">project.nodrop</column>
         </record>
-        <record id="project.element.resources.full">
-          <column name="name">project.element.resources.full</column>
-          <column name="note">Model project.element.resources grant full</column>
+        <record id="prj.unit.region.assigments.full">
+          <column name="name">prj.unit.region.assigments.full</column>
+          <column name="note">Model prj.unit.region.assigments grant full</column>
           <column name="group_id">project.full</column>
         </record>
-        <record id="project.element.resources.crw">
-          <column name="name">project.element.resources.crw</column>
-          <column name="note">Model project.element.resources grant crw</column>
+        <record id="prj.unit.region.assigments.crw">
+          <column name="name">prj.unit.region.assigments.crw</column>
+          <column name="note">Model prj.unit.region.assigments grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.division.subdivision.assigments.readonly">
+          <column name="name">prj.division.subdivision.assigments.readonly</column>
+          <column name="note">Model prj.division.subdivision.assigments grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.division.subdivision.assigments.nodrop">
+          <column name="name">prj.division.subdivision.assigments.nodrop</column>
+          <column name="note">Model prj.division.subdivision.assigments grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.division.subdivision.assigments.full">
+          <column name="name">prj.division.subdivision.assigments.full</column>
+          <column name="note">Model prj.division.subdivision.assigments grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.division.subdivision.assigments.crw">
+          <column name="name">prj.division.subdivision.assigments.crw</column>
+          <column name="note">Model prj.division.subdivision.assigments grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.markets.readonly">
+          <column name="name">prj.markets.readonly</column>
+          <column name="note">Model prj.markets grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.markets.nodrop">
+          <column name="name">prj.markets.nodrop</column>
+          <column name="note">Model prj.markets grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.markets.full">
+          <column name="name">prj.markets.full</column>
+          <column name="note">Model prj.markets grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.markets.crw">
+          <column name="name">prj.markets.crw</column>
+          <column name="note">Model prj.markets grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.teams.readonly">
+          <column name="name">prj.teams.readonly</column>
+          <column name="note">Model prj.teams grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.teams.nodrop">
+          <column name="name">prj.teams.nodrop</column>
+          <column name="note">Model prj.teams grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.teams.full">
+          <column name="name">prj.teams.full</column>
+          <column name="note">Model prj.teams grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.teams.crw">
+          <column name="name">prj.teams.crw</column>
+          <column name="note">Model prj.teams grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.pricing.group.levels.readonly">
+          <column name="name">prj.pricing.group.levels.readonly</column>
+          <column name="note">Model prj.pricing.group.levels grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.pricing.group.levels.nodrop">
+          <column name="name">prj.pricing.group.levels.nodrop</column>
+          <column name="note">Model prj.pricing.group.levels grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.pricing.group.levels.full">
+          <column name="name">prj.pricing.group.levels.full</column>
+          <column name="note">Model prj.pricing.group.levels grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.pricing.group.levels.crw">
+          <column name="name">prj.pricing.group.levels.crw</column>
+          <column name="note">Model prj.pricing.group.levels grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.texts.readonly">
+          <column name="name">prj.texts.readonly</column>
+          <column name="note">Model prj.texts grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.texts.nodrop">
+          <column name="name">prj.texts.nodrop</column>
+          <column name="note">Model prj.texts grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.texts.full">
+          <column name="name">prj.texts.full</column>
+          <column name="note">Model prj.texts grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.texts.crw">
+          <column name="name">prj.texts.crw</column>
+          <column name="note">Model prj.texts grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.schema.texts.readonly">
+          <column name="name">prj.schema.texts.readonly</column>
+          <column name="note">Model prj.schema.texts grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.schema.texts.nodrop">
+          <column name="name">prj.schema.texts.nodrop</column>
+          <column name="note">Model prj.schema.texts grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.schema.texts.full">
+          <column name="name">prj.schema.texts.full</column>
+          <column name="note">Model prj.schema.texts grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.schema.texts.crw">
+          <column name="name">prj.schema.texts.crw</column>
+          <column name="note">Model prj.schema.texts grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.schema.text.items.readonly">
+          <column name="name">prj.schema.text.items.readonly</column>
+          <column name="note">Model prj.schema.text.items grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.schema.text.items.nodrop">
+          <column name="name">prj.schema.text.items.nodrop</column>
+          <column name="note">Model prj.schema.text.items grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.schema.text.items.full">
+          <column name="name">prj.schema.text.items.full</column>
+          <column name="note">Model prj.schema.text.items grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.schema.text.items.crw">
+          <column name="name">prj.schema.text.items.crw</column>
+          <column name="note">Model prj.schema.text.items grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.bill.types.readonly">
+          <column name="name">prj.bill.types.readonly</column>
+          <column name="note">Model prj.bill.types grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.bill.types.nodrop">
+          <column name="name">prj.bill.types.nodrop</column>
+          <column name="note">Model prj.bill.types grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.bill.types.full">
+          <column name="name">prj.bill.types.full</column>
+          <column name="note">Model prj.bill.types grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.bill.types.crw">
+          <column name="name">prj.bill.types.crw</column>
+          <column name="note">Model prj.bill.types grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.bill.type.roles.readonly">
+          <column name="name">prj.bill.type.roles.readonly</column>
+          <column name="note">Model prj.bill.type.roles grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.bill.type.roles.nodrop">
+          <column name="name">prj.bill.type.roles.nodrop</column>
+          <column name="note">Model prj.bill.type.roles grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.bill.type.roles.full">
+          <column name="name">prj.bill.type.roles.full</column>
+          <column name="note">Model prj.bill.type.roles grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.bill.type.roles.crw">
+          <column name="name">prj.bill.type.roles.crw</column>
+          <column name="note">Model prj.bill.type.roles grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.bill.type.plates.readonly">
+          <column name="name">prj.bill.type.plates.readonly</column>
+          <column name="note">Model prj.bill.type.plates grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.bill.type.plates.nodrop">
+          <column name="name">prj.bill.type.plates.nodrop</column>
+          <column name="note">Model prj.bill.type.plates grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.bill.type.plates.full">
+          <column name="name">prj.bill.type.plates.full</column>
+          <column name="note">Model prj.bill.type.plates grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.bill.type.plates.crw">
+          <column name="name">prj.bill.type.plates.crw</column>
+          <column name="note">Model prj.bill.type.plates grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.resource.category.readonly">
+          <column name="name">prj.resource.category.readonly</column>
+          <column name="note">Model prj.resource.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.resource.category.nodrop">
+          <column name="name">prj.resource.category.nodrop</column>
+          <column name="note">Model prj.resource.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.resource.category.full">
+          <column name="name">prj.resource.category.full</column>
+          <column name="note">Model prj.resource.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.resource.category.crw">
+          <column name="name">prj.resource.category.crw</column>
+          <column name="note">Model prj.resource.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.bill.category.readonly">
+          <column name="name">prj.bill.category.readonly</column>
+          <column name="note">Model prj.bill.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.bill.category.nodrop">
+          <column name="name">prj.bill.category.nodrop</column>
+          <column name="note">Model prj.bill.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.bill.category.full">
+          <column name="name">prj.bill.category.full</column>
+          <column name="note">Model prj.bill.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.bill.category.crw">
+          <column name="name">prj.bill.category.crw</column>
+          <column name="note">Model prj.bill.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.portfolio.category.readonly">
+          <column name="name">prj.portfolio.category.readonly</column>
+          <column name="note">Model prj.portfolio.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.portfolio.category.nodrop">
+          <column name="name">prj.portfolio.category.nodrop</column>
+          <column name="note">Model prj.portfolio.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.portfolio.category.full">
+          <column name="name">prj.portfolio.category.full</column>
+          <column name="note">Model prj.portfolio.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.portfolio.category.crw">
+          <column name="name">prj.portfolio.category.crw</column>
+          <column name="note">Model prj.portfolio.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.prj.category.readonly">
+          <column name="name">prj.prj.category.readonly</column>
+          <column name="note">Model prj.prj.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.prj.category.nodrop">
+          <column name="name">prj.prj.category.nodrop</column>
+          <column name="note">Model prj.prj.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.prj.category.full">
+          <column name="name">prj.prj.category.full</column>
+          <column name="note">Model prj.prj.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.prj.category.crw">
+          <column name="name">prj.prj.category.crw</column>
+          <column name="note">Model prj.prj.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.stage.category.readonly">
+          <column name="name">prj.stage.category.readonly</column>
+          <column name="note">Model prj.stage.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.stage.category.nodrop">
+          <column name="name">prj.stage.category.nodrop</column>
+          <column name="note">Model prj.stage.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.stage.category.full">
+          <column name="name">prj.stage.category.full</column>
+          <column name="note">Model prj.stage.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.stage.category.crw">
+          <column name="name">prj.stage.category.crw</column>
+          <column name="note">Model prj.stage.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.task.category.readonly">
+          <column name="name">prj.task.category.readonly</column>
+          <column name="note">Model prj.task.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.task.category.nodrop">
+          <column name="name">prj.task.category.nodrop</column>
+          <column name="note">Model prj.task.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.task.category.full">
+          <column name="name">prj.task.category.full</column>
+          <column name="note">Model prj.task.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.task.category.crw">
+          <column name="name">prj.task.category.crw</column>
+          <column name="note">Model prj.task.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.element.category.readonly">
+          <column name="name">prj.element.category.readonly</column>
+          <column name="note">Model prj.element.category grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.element.category.nodrop">
+          <column name="name">prj.element.category.nodrop</column>
+          <column name="note">Model prj.element.category grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.element.category.full">
+          <column name="name">prj.element.category.full</column>
+          <column name="note">Model prj.element.category grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.element.category.crw">
+          <column name="name">prj.element.category.crw</column>
+          <column name="note">Model prj.element.category grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.resource.readonly">
+          <column name="name">prj.resource.readonly</column>
+          <column name="note">Model prj.resource grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.resource.nodrop">
+          <column name="name">prj.resource.nodrop</column>
+          <column name="note">Model prj.resource grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.resource.full">
+          <column name="name">prj.resource.full</column>
+          <column name="note">Model prj.resource grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.resource.crw">
+          <column name="name">prj.resource.crw</column>
+          <column name="note">Model prj.resource grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.bill.readonly">
+          <column name="name">prj.bill.readonly</column>
+          <column name="note">Model prj.bill grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.bill.nodrop">
+          <column name="name">prj.bill.nodrop</column>
+          <column name="note">Model prj.bill grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.bill.full">
+          <column name="name">prj.bill.full</column>
+          <column name="note">Model prj.bill grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.bill.crw">
+          <column name="name">prj.bill.crw</column>
+          <column name="note">Model prj.bill grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.portfolio.readonly">
+          <column name="name">prj.portfolio.readonly</column>
+          <column name="note">Model prj.portfolio grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.portfolio.nodrop">
+          <column name="name">prj.portfolio.nodrop</column>
+          <column name="note">Model prj.portfolio grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.portfolio.full">
+          <column name="name">prj.portfolio.full</column>
+          <column name="note">Model prj.portfolio grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.portfolio.crw">
+          <column name="name">prj.portfolio.crw</column>
+          <column name="note">Model prj.portfolio grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.project.readonly">
+          <column name="name">prj.project.readonly</column>
+          <column name="note">Model prj.project grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.project.nodrop">
+          <column name="name">prj.project.nodrop</column>
+          <column name="note">Model prj.project grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.project.full">
+          <column name="name">prj.project.full</column>
+          <column name="note">Model prj.project grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.project.crw">
+          <column name="name">prj.project.crw</column>
+          <column name="note">Model prj.project grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.stage.readonly">
+          <column name="name">prj.stage.readonly</column>
+          <column name="note">Model prj.stage grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.stage.nodrop">
+          <column name="name">prj.stage.nodrop</column>
+          <column name="note">Model prj.stage grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.stage.full">
+          <column name="name">prj.stage.full</column>
+          <column name="note">Model prj.stage grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.stage.crw">
+          <column name="name">prj.stage.crw</column>
+          <column name="note">Model prj.stage grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.task.readonly">
+          <column name="name">prj.task.readonly</column>
+          <column name="note">Model prj.task grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.task.nodrop">
+          <column name="name">prj.task.nodrop</column>
+          <column name="note">Model prj.task grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.task.full">
+          <column name="name">prj.task.full</column>
+          <column name="note">Model prj.task grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.task.crw">
+          <column name="name">prj.task.crw</column>
+          <column name="note">Model prj.task grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.element.readonly">
+          <column name="name">prj.element.readonly</column>
+          <column name="note">Model prj.element grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.element.nodrop">
+          <column name="name">prj.element.nodrop</column>
+          <column name="note">Model prj.element grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.element.full">
+          <column name="name">prj.element.full</column>
+          <column name="note">Model prj.element grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.element.crw">
+          <column name="name">prj.element.crw</column>
+          <column name="note">Model prj.element grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.element.products.readonly">
+          <column name="name">prj.element.products.readonly</column>
+          <column name="note">Model prj.element.products grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.element.products.nodrop">
+          <column name="name">prj.element.products.nodrop</column>
+          <column name="note">Model prj.element.products grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.element.products.full">
+          <column name="name">prj.element.products.full</column>
+          <column name="note">Model prj.element.products grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.element.products.crw">
+          <column name="name">prj.element.products.crw</column>
+          <column name="note">Model prj.element.products grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.task.resources.readonly">
+          <column name="name">prj.task.resources.readonly</column>
+          <column name="note">Model prj.task.resources grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.task.resources.nodrop">
+          <column name="name">prj.task.resources.nodrop</column>
+          <column name="note">Model prj.task.resources grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.task.resources.full">
+          <column name="name">prj.task.resources.full</column>
+          <column name="note">Model prj.task.resources grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.task.resources.crw">
+          <column name="name">prj.task.resources.crw</column>
+          <column name="note">Model prj.task.resources grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="prj.element.resources.readonly">
+          <column name="name">prj.element.resources.readonly</column>
+          <column name="note">Model prj.element.resources grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="prj.element.resources.nodrop">
+          <column name="name">prj.element.resources.nodrop</column>
+          <column name="note">Model prj.element.resources grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="prj.element.resources.full">
+          <column name="name">prj.element.resources.full</column>
+          <column name="note">Model prj.element.resources grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="prj.element.resources.crw">
+          <column name="name">prj.element.resources.crw</column>
+          <column name="note">Model prj.element.resources grant crw</column>
+          <column name="group_id">project.crw</column>
+        </record>
+        <record id="md.prj.product.readonly">
+          <column name="name">md.prj.product.readonly</column>
+          <column name="note">Model md.prj.product grant readonly</column>
+          <column name="group_id">project.readonly</column>
+        </record>
+        <record id="md.prj.product.nodrop">
+          <column name="name">md.prj.product.nodrop</column>
+          <column name="note">Model md.prj.product grant nodrop</column>
+          <column name="group_id">project.nodrop</column>
+        </record>
+        <record id="md.prj.product.full">
+          <column name="name">md.prj.product.full</column>
+          <column name="note">Model md.prj.product grant full</column>
+          <column name="group_id">project.full</column>
+        </record>
+        <record id="md.prj.product.crw">
+          <column name="name">md.prj.product.crw</column>
+          <column name="note">Model md.prj.product grant crw</column>
           <column name="group_id">project.crw</column>
         </record>
       </records>
       <records model="bc.model.access">
-        <record id="project.md.project.product.readonly">
-          <column name="access_id">md.project.product.readonly</column>
-          <column name="model_id">md.project.product</column>
+        <record id="project.prj.unit.categories.readonly">
+          <column name="access_id">prj.unit.categories.readonly</column>
+          <column name="model_id">prj.unit.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="project.md.project.product.nodrop">
-          <column name="access_id">md.project.product.nodrop</column>
-          <column name="model_id">md.project.product</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.md.project.product.full">
-          <column name="access_id">md.project.product.full</column>
-          <column name="model_id">md.project.product</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.md.project.product.crw">
-          <column name="access_id">md.project.product.crw</column>
-          <column name="model_id">md.project.product</column>
+        <record id="project.prj.unit.categories.nodrop">
+          <column name="access_id">prj.unit.categories.nodrop</column>
+          <column name="model_id">prj.unit.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -432,29 +962,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.resource.category.readonly">
-          <column name="access_id">project.resource.category.readonly</column>
-          <column name="model_id">project.resource.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-        </record>
-        <record id="project.project.resource.category.nodrop">
-          <column name="access_id">project.resource.category.nodrop</column>
-          <column name="model_id">project.resource.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.resource.category.full">
-          <column name="access_id">project.resource.category.full</column>
-          <column name="model_id">project.resource.category</column>
+        <record id="project.prj.unit.categories.full">
+          <column name="access_id">prj.unit.categories.full</column>
+          <column name="model_id">prj.unit.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -468,9 +978,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.resource.category.crw">
-          <column name="access_id">project.resource.category.crw</column>
-          <column name="model_id">project.resource.category</column>
+        <record id="project.prj.unit.categories.crw">
+          <column name="access_id">prj.unit.categories.crw</column>
+          <column name="model_id">prj.unit.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -482,45 +992,15 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.bill.category.readonly">
-          <column name="access_id">project.bill.category.readonly</column>
-          <column name="model_id">project.bill.category</column>
+        <record id="project.prj.units.readonly">
+          <column name="access_id">prj.units.readonly</column>
+          <column name="model_id">prj.units</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="project.project.bill.category.nodrop">
-          <column name="access_id">project.bill.category.nodrop</column>
-          <column name="model_id">project.bill.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.bill.category.full">
-          <column name="access_id">project.bill.category.full</column>
-          <column name="model_id">project.bill.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.bill.category.crw">
-          <column name="access_id">project.bill.category.crw</column>
-          <column name="model_id">project.bill.category</column>
+        <record id="project.prj.units.nodrop">
+          <column name="access_id">prj.units.nodrop</column>
+          <column name="model_id">prj.units</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -532,29 +1012,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.portfolio.category.readonly">
-          <column name="access_id">project.portfolio.category.readonly</column>
-          <column name="model_id">project.portfolio.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-        </record>
-        <record id="project.project.portfolio.category.nodrop">
-          <column name="access_id">project.portfolio.category.nodrop</column>
-          <column name="model_id">project.portfolio.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.portfolio.category.full">
-          <column name="access_id">project.portfolio.category.full</column>
-          <column name="model_id">project.portfolio.category</column>
+        <record id="project.prj.units.full">
+          <column name="access_id">prj.units.full</column>
+          <column name="model_id">prj.units</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -568,9 +1028,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.portfolio.category.crw">
-          <column name="access_id">project.portfolio.category.crw</column>
-          <column name="model_id">project.portfolio.category</column>
+        <record id="project.prj.units.crw">
+          <column name="access_id">prj.units.crw</column>
+          <column name="model_id">prj.units</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -582,45 +1042,15 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.project.category.readonly">
-          <column name="access_id">project.project.category.readonly</column>
-          <column name="model_id">project.project.category</column>
+        <record id="project.prj.channel.categories.readonly">
+          <column name="access_id">prj.channel.categories.readonly</column>
+          <column name="model_id">prj.channel.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="project.project.project.category.nodrop">
-          <column name="access_id">project.project.category.nodrop</column>
-          <column name="model_id">project.project.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.project.category.full">
-          <column name="access_id">project.project.category.full</column>
-          <column name="model_id">project.project.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.project.category.crw">
-          <column name="access_id">project.project.category.crw</column>
-          <column name="model_id">project.project.category</column>
+        <record id="project.prj.channel.categories.nodrop">
+          <column name="access_id">prj.channel.categories.nodrop</column>
+          <column name="model_id">prj.channel.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -632,29 +1062,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.stage.category.readonly">
-          <column name="access_id">project.stage.category.readonly</column>
-          <column name="model_id">project.stage.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-        </record>
-        <record id="project.project.stage.category.nodrop">
-          <column name="access_id">project.stage.category.nodrop</column>
-          <column name="model_id">project.stage.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.stage.category.full">
-          <column name="access_id">project.stage.category.full</column>
-          <column name="model_id">project.stage.category</column>
+        <record id="project.prj.channel.categories.full">
+          <column name="access_id">prj.channel.categories.full</column>
+          <column name="model_id">prj.channel.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -668,9 +1078,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.stage.category.crw">
-          <column name="access_id">project.stage.category.crw</column>
-          <column name="model_id">project.stage.category</column>
+        <record id="project.prj.channel.categories.crw">
+          <column name="access_id">prj.channel.categories.crw</column>
+          <column name="model_id">prj.channel.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -682,45 +1092,15 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.task.category.readonly">
-          <column name="access_id">project.task.category.readonly</column>
-          <column name="model_id">project.task.category</column>
+        <record id="project.prj.channels.readonly">
+          <column name="access_id">prj.channels.readonly</column>
+          <column name="model_id">prj.channels</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="project.project.task.category.nodrop">
-          <column name="access_id">project.task.category.nodrop</column>
-          <column name="model_id">project.task.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.task.category.full">
-          <column name="access_id">project.task.category.full</column>
-          <column name="model_id">project.task.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.task.category.crw">
-          <column name="access_id">project.task.category.crw</column>
-          <column name="model_id">project.task.category</column>
+        <record id="project.prj.channels.nodrop">
+          <column name="access_id">prj.channels.nodrop</column>
+          <column name="model_id">prj.channels</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -732,29 +1112,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.element.category.readonly">
-          <column name="access_id">project.element.category.readonly</column>
-          <column name="model_id">project.element.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-        </record>
-        <record id="project.project.element.category.nodrop">
-          <column name="access_id">project.element.category.nodrop</column>
-          <column name="model_id">project.element.category</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.element.category.full">
-          <column name="access_id">project.element.category.full</column>
-          <column name="model_id">project.element.category</column>
+        <record id="project.prj.channels.full">
+          <column name="access_id">prj.channels.full</column>
+          <column name="model_id">prj.channels</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -768,9 +1128,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.element.category.crw">
-          <column name="access_id">project.element.category.crw</column>
-          <column name="model_id">project.element.category</column>
+        <record id="project.prj.channels.crw">
+          <column name="access_id">prj.channels.crw</column>
+          <column name="model_id">prj.channels</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -782,45 +1142,15 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.resource.readonly">
-          <column name="access_id">project.resource.readonly</column>
-          <column name="model_id">project.resource</column>
+        <record id="project.prj.segment.categories.readonly">
+          <column name="access_id">prj.segment.categories.readonly</column>
+          <column name="model_id">prj.segment.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="project.project.resource.nodrop">
-          <column name="access_id">project.resource.nodrop</column>
-          <column name="model_id">project.resource</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.resource.full">
-          <column name="access_id">project.resource.full</column>
-          <column name="model_id">project.resource</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.resource.crw">
-          <column name="access_id">project.resource.crw</column>
-          <column name="model_id">project.resource</column>
+        <record id="project.prj.segment.categories.nodrop">
+          <column name="access_id">prj.segment.categories.nodrop</column>
+          <column name="model_id">prj.segment.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -832,29 +1162,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.bill.readonly">
-          <column name="access_id">project.bill.readonly</column>
-          <column name="model_id">project.bill</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-        </record>
-        <record id="project.project.bill.nodrop">
-          <column name="access_id">project.bill.nodrop</column>
-          <column name="model_id">project.bill</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.bill.full">
-          <column name="access_id">project.bill.full</column>
-          <column name="model_id">project.bill</column>
+        <record id="project.prj.segment.categories.full">
+          <column name="access_id">prj.segment.categories.full</column>
+          <column name="model_id">prj.segment.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -868,9 +1178,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.bill.crw">
-          <column name="access_id">project.bill.crw</column>
-          <column name="model_id">project.bill</column>
+        <record id="project.prj.segment.categories.crw">
+          <column name="access_id">prj.segment.categories.crw</column>
+          <column name="model_id">prj.segment.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -882,45 +1192,15 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.portfolio.readonly">
-          <column name="access_id">project.portfolio.readonly</column>
-          <column name="model_id">project.portfolio</column>
+        <record id="project.prj.segments.readonly">
+          <column name="access_id">prj.segments.readonly</column>
+          <column name="model_id">prj.segments</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="project.project.portfolio.nodrop">
-          <column name="access_id">project.portfolio.nodrop</column>
-          <column name="model_id">project.portfolio</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.portfolio.full">
-          <column name="access_id">project.portfolio.full</column>
-          <column name="model_id">project.portfolio</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.portfolio.crw">
-          <column name="access_id">project.portfolio.crw</column>
-          <column name="model_id">project.portfolio</column>
+        <record id="project.prj.segments.nodrop">
+          <column name="access_id">prj.segments.nodrop</column>
+          <column name="model_id">prj.segments</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -932,29 +1212,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.project.readonly">
-          <column name="access_id">project.project.readonly</column>
-          <column name="model_id">project.project</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-        </record>
-        <record id="project.project.project.nodrop">
-          <column name="access_id">project.project.nodrop</column>
-          <column name="model_id">project.project</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.project.full">
-          <column name="access_id">project.project.full</column>
-          <column name="model_id">project.project</column>
+        <record id="project.prj.segments.full">
+          <column name="access_id">prj.segments.full</column>
+          <column name="model_id">prj.segments</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -968,9 +1228,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.project.crw">
-          <column name="access_id">project.project.crw</column>
-          <column name="model_id">project.project</column>
+        <record id="project.prj.segments.crw">
+          <column name="access_id">prj.segments.crw</column>
+          <column name="model_id">prj.segments</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -982,45 +1242,15 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.stage.readonly">
-          <column name="access_id">project.stage.readonly</column>
-          <column name="model_id">project.stage</column>
+        <record id="project.prj.area.categories.readonly">
+          <column name="access_id">prj.area.categories.readonly</column>
+          <column name="model_id">prj.area.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="project.project.stage.nodrop">
-          <column name="access_id">project.stage.nodrop</column>
-          <column name="model_id">project.stage</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.stage.full">
-          <column name="access_id">project.stage.full</column>
-          <column name="model_id">project.stage</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.stage.crw">
-          <column name="access_id">project.stage.crw</column>
-          <column name="model_id">project.stage</column>
+        <record id="project.prj.area.categories.nodrop">
+          <column name="access_id">prj.area.categories.nodrop</column>
+          <column name="model_id">prj.area.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -1032,29 +1262,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.task.readonly">
-          <column name="access_id">project.task.readonly</column>
-          <column name="model_id">project.task</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-        </record>
-        <record id="project.project.task.nodrop">
-          <column name="access_id">project.task.nodrop</column>
-          <column name="model_id">project.task</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.task.full">
-          <column name="access_id">project.task.full</column>
-          <column name="model_id">project.task</column>
+        <record id="project.prj.area.categories.full">
+          <column name="access_id">prj.area.categories.full</column>
+          <column name="model_id">prj.area.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -1068,9 +1278,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.task.crw">
-          <column name="access_id">project.task.crw</column>
-          <column name="model_id">project.task</column>
+        <record id="project.prj.area.categories.crw">
+          <column name="access_id">prj.area.categories.crw</column>
+          <column name="model_id">prj.area.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -1082,45 +1292,15 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.element.readonly">
-          <column name="access_id">project.element.readonly</column>
-          <column name="model_id">project.element</column>
+        <record id="project.prj.areas.readonly">
+          <column name="access_id">prj.areas.readonly</column>
+          <column name="model_id">prj.areas</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="project.project.element.nodrop">
-          <column name="access_id">project.element.nodrop</column>
-          <column name="model_id">project.element</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.element.full">
-          <column name="access_id">project.element.full</column>
-          <column name="model_id">project.element</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.element.crw">
-          <column name="access_id">project.element.crw</column>
-          <column name="model_id">project.element</column>
+        <record id="project.prj.areas.nodrop">
+          <column name="access_id">prj.areas.nodrop</column>
+          <column name="model_id">prj.areas</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -1132,29 +1312,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.element.products.readonly">
-          <column name="access_id">project.element.products.readonly</column>
-          <column name="model_id">project.element.products</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-        </record>
-        <record id="project.project.element.products.nodrop">
-          <column name="access_id">project.element.products.nodrop</column>
-          <column name="model_id">project.element.products</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.element.products.full">
-          <column name="access_id">project.element.products.full</column>
-          <column name="model_id">project.element.products</column>
+        <record id="project.prj.areas.full">
+          <column name="access_id">prj.areas.full</column>
+          <column name="model_id">prj.areas</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -1168,9 +1328,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.element.products.crw">
-          <column name="access_id">project.element.products.crw</column>
-          <column name="model_id">project.element.products</column>
+        <record id="project.prj.areas.crw">
+          <column name="access_id">prj.areas.crw</column>
+          <column name="model_id">prj.areas</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -1182,45 +1342,15 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.task.resources.readonly">
-          <column name="access_id">project.task.resources.readonly</column>
-          <column name="model_id">project.task.resources</column>
+        <record id="project.prj.region.categories.readonly">
+          <column name="access_id">prj.region.categories.readonly</column>
+          <column name="model_id">prj.region.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="project.project.task.resources.nodrop">
-          <column name="access_id">project.task.resources.nodrop</column>
-          <column name="model_id">project.task.resources</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.task.resources.full">
-          <column name="access_id">project.task.resources.full</column>
-          <column name="model_id">project.task.resources</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.task.resources.crw">
-          <column name="access_id">project.task.resources.crw</column>
-          <column name="model_id">project.task.resources</column>
+        <record id="project.prj.region.categories.nodrop">
+          <column name="access_id">prj.region.categories.nodrop</column>
+          <column name="model_id">prj.region.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -1232,29 +1362,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.element.resources.readonly">
-          <column name="access_id">project.element.resources.readonly</column>
-          <column name="model_id">project.element.resources</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-        </record>
-        <record id="project.project.element.resources.nodrop">
-          <column name="access_id">project.element.resources.nodrop</column>
-          <column name="model_id">project.element.resources</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="project.project.element.resources.full">
-          <column name="access_id">project.element.resources.full</column>
-          <column name="model_id">project.element.resources</column>
+        <record id="project.prj.region.categories.full">
+          <column name="access_id">prj.region.categories.full</column>
+          <column name="model_id">prj.region.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -1268,9 +1378,1859 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="project.project.element.resources.crw">
-          <column name="access_id">project.element.resources.crw</column>
-          <column name="model_id">project.element.resources</column>
+        <record id="project.prj.region.categories.crw">
+          <column name="access_id">prj.region.categories.crw</column>
+          <column name="model_id">prj.region.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.regions.readonly">
+          <column name="access_id">prj.regions.readonly</column>
+          <column name="model_id">prj.regions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.regions.nodrop">
+          <column name="access_id">prj.regions.nodrop</column>
+          <column name="model_id">prj.regions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.regions.full">
+          <column name="access_id">prj.regions.full</column>
+          <column name="model_id">prj.regions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.regions.crw">
+          <column name="access_id">prj.regions.crw</column>
+          <column name="model_id">prj.regions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.division.categories.readonly">
+          <column name="access_id">prj.division.categories.readonly</column>
+          <column name="model_id">prj.division.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.division.categories.nodrop">
+          <column name="access_id">prj.division.categories.nodrop</column>
+          <column name="model_id">prj.division.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.division.categories.full">
+          <column name="access_id">prj.division.categories.full</column>
+          <column name="model_id">prj.division.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.division.categories.crw">
+          <column name="access_id">prj.division.categories.crw</column>
+          <column name="model_id">prj.division.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.divisions.readonly">
+          <column name="access_id">prj.divisions.readonly</column>
+          <column name="model_id">prj.divisions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.divisions.nodrop">
+          <column name="access_id">prj.divisions.nodrop</column>
+          <column name="model_id">prj.divisions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.divisions.full">
+          <column name="access_id">prj.divisions.full</column>
+          <column name="model_id">prj.divisions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.divisions.crw">
+          <column name="access_id">prj.divisions.crw</column>
+          <column name="model_id">prj.divisions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.subdivision.categories.readonly">
+          <column name="access_id">prj.subdivision.categories.readonly</column>
+          <column name="model_id">prj.subdivision.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.subdivision.categories.nodrop">
+          <column name="access_id">prj.subdivision.categories.nodrop</column>
+          <column name="model_id">prj.subdivision.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.subdivision.categories.full">
+          <column name="access_id">prj.subdivision.categories.full</column>
+          <column name="model_id">prj.subdivision.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.subdivision.categories.crw">
+          <column name="access_id">prj.subdivision.categories.crw</column>
+          <column name="model_id">prj.subdivision.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.subdivisions.readonly">
+          <column name="access_id">prj.subdivisions.readonly</column>
+          <column name="model_id">prj.subdivisions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.subdivisions.nodrop">
+          <column name="access_id">prj.subdivisions.nodrop</column>
+          <column name="model_id">prj.subdivisions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.subdivisions.full">
+          <column name="access_id">prj.subdivisions.full</column>
+          <column name="model_id">prj.subdivisions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.subdivisions.crw">
+          <column name="access_id">prj.subdivisions.crw</column>
+          <column name="model_id">prj.subdivisions</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.unit.channel.assigments.readonly">
+          <column name="access_id">prj.unit.channel.assigments.readonly</column>
+          <column name="model_id">prj.unit.channel.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.unit.channel.assigments.nodrop">
+          <column name="access_id">prj.unit.channel.assigments.nodrop</column>
+          <column name="model_id">prj.unit.channel.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.unit.channel.assigments.full">
+          <column name="access_id">prj.unit.channel.assigments.full</column>
+          <column name="model_id">prj.unit.channel.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.unit.channel.assigments.crw">
+          <column name="access_id">prj.unit.channel.assigments.crw</column>
+          <column name="model_id">prj.unit.channel.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.unit.segment.assigments.readonly">
+          <column name="access_id">prj.unit.segment.assigments.readonly</column>
+          <column name="model_id">prj.unit.segment.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.unit.segment.assigments.nodrop">
+          <column name="access_id">prj.unit.segment.assigments.nodrop</column>
+          <column name="model_id">prj.unit.segment.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.unit.segment.assigments.full">
+          <column name="access_id">prj.unit.segment.assigments.full</column>
+          <column name="model_id">prj.unit.segment.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.unit.segment.assigments.crw">
+          <column name="access_id">prj.unit.segment.assigments.crw</column>
+          <column name="model_id">prj.unit.segment.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.unit.area.assigments.readonly">
+          <column name="access_id">prj.unit.area.assigments.readonly</column>
+          <column name="model_id">prj.unit.area.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.unit.area.assigments.nodrop">
+          <column name="access_id">prj.unit.area.assigments.nodrop</column>
+          <column name="model_id">prj.unit.area.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.unit.area.assigments.full">
+          <column name="access_id">prj.unit.area.assigments.full</column>
+          <column name="model_id">prj.unit.area.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.unit.area.assigments.crw">
+          <column name="access_id">prj.unit.area.assigments.crw</column>
+          <column name="model_id">prj.unit.area.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.unit.region.assigments.readonly">
+          <column name="access_id">prj.unit.region.assigments.readonly</column>
+          <column name="model_id">prj.unit.region.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.unit.region.assigments.nodrop">
+          <column name="access_id">prj.unit.region.assigments.nodrop</column>
+          <column name="model_id">prj.unit.region.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.unit.region.assigments.full">
+          <column name="access_id">prj.unit.region.assigments.full</column>
+          <column name="model_id">prj.unit.region.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.unit.region.assigments.crw">
+          <column name="access_id">prj.unit.region.assigments.crw</column>
+          <column name="model_id">prj.unit.region.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.division.subdivision.assigments.readonly">
+          <column name="access_id">prj.division.subdivision.assigments.readonly</column>
+          <column name="model_id">prj.division.subdivision.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.division.subdivision.assigments.nodrop">
+          <column name="access_id">prj.division.subdivision.assigments.nodrop</column>
+          <column name="model_id">prj.division.subdivision.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.division.subdivision.assigments.full">
+          <column name="access_id">prj.division.subdivision.assigments.full</column>
+          <column name="model_id">prj.division.subdivision.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.division.subdivision.assigments.crw">
+          <column name="access_id">prj.division.subdivision.assigments.crw</column>
+          <column name="model_id">prj.division.subdivision.assigments</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.markets.readonly">
+          <column name="access_id">prj.markets.readonly</column>
+          <column name="model_id">prj.markets</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.markets.nodrop">
+          <column name="access_id">prj.markets.nodrop</column>
+          <column name="model_id">prj.markets</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.markets.full">
+          <column name="access_id">prj.markets.full</column>
+          <column name="model_id">prj.markets</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.markets.crw">
+          <column name="access_id">prj.markets.crw</column>
+          <column name="model_id">prj.markets</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.teams.readonly">
+          <column name="access_id">prj.teams.readonly</column>
+          <column name="model_id">prj.teams</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.teams.nodrop">
+          <column name="access_id">prj.teams.nodrop</column>
+          <column name="model_id">prj.teams</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.teams.full">
+          <column name="access_id">prj.teams.full</column>
+          <column name="model_id">prj.teams</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.teams.crw">
+          <column name="access_id">prj.teams.crw</column>
+          <column name="model_id">prj.teams</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.pricing.group.levels.readonly">
+          <column name="access_id">prj.pricing.group.levels.readonly</column>
+          <column name="model_id">prj.pricing.group.levels</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.pricing.group.levels.nodrop">
+          <column name="access_id">prj.pricing.group.levels.nodrop</column>
+          <column name="model_id">prj.pricing.group.levels</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.pricing.group.levels.full">
+          <column name="access_id">prj.pricing.group.levels.full</column>
+          <column name="model_id">prj.pricing.group.levels</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.pricing.group.levels.crw">
+          <column name="access_id">prj.pricing.group.levels.crw</column>
+          <column name="model_id">prj.pricing.group.levels</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.texts.readonly">
+          <column name="access_id">prj.texts.readonly</column>
+          <column name="model_id">prj.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.texts.nodrop">
+          <column name="access_id">prj.texts.nodrop</column>
+          <column name="model_id">prj.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.texts.full">
+          <column name="access_id">prj.texts.full</column>
+          <column name="model_id">prj.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.texts.crw">
+          <column name="access_id">prj.texts.crw</column>
+          <column name="model_id">prj.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.schema.texts.readonly">
+          <column name="access_id">prj.schema.texts.readonly</column>
+          <column name="model_id">prj.schema.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.schema.texts.nodrop">
+          <column name="access_id">prj.schema.texts.nodrop</column>
+          <column name="model_id">prj.schema.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.schema.texts.full">
+          <column name="access_id">prj.schema.texts.full</column>
+          <column name="model_id">prj.schema.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.schema.texts.crw">
+          <column name="access_id">prj.schema.texts.crw</column>
+          <column name="model_id">prj.schema.texts</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.schema.text.items.readonly">
+          <column name="access_id">prj.schema.text.items.readonly</column>
+          <column name="model_id">prj.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.schema.text.items.nodrop">
+          <column name="access_id">prj.schema.text.items.nodrop</column>
+          <column name="model_id">prj.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.schema.text.items.full">
+          <column name="access_id">prj.schema.text.items.full</column>
+          <column name="model_id">prj.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.schema.text.items.crw">
+          <column name="access_id">prj.schema.text.items.crw</column>
+          <column name="model_id">prj.schema.text.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.types.readonly">
+          <column name="access_id">prj.bill.types.readonly</column>
+          <column name="model_id">prj.bill.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.bill.types.nodrop">
+          <column name="access_id">prj.bill.types.nodrop</column>
+          <column name="model_id">prj.bill.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.types.full">
+          <column name="access_id">prj.bill.types.full</column>
+          <column name="model_id">prj.bill.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.types.crw">
+          <column name="access_id">prj.bill.types.crw</column>
+          <column name="model_id">prj.bill.types</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.type.roles.readonly">
+          <column name="access_id">prj.bill.type.roles.readonly</column>
+          <column name="model_id">prj.bill.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.bill.type.roles.nodrop">
+          <column name="access_id">prj.bill.type.roles.nodrop</column>
+          <column name="model_id">prj.bill.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.type.roles.full">
+          <column name="access_id">prj.bill.type.roles.full</column>
+          <column name="model_id">prj.bill.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.type.roles.crw">
+          <column name="access_id">prj.bill.type.roles.crw</column>
+          <column name="model_id">prj.bill.type.roles</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.type.plates.readonly">
+          <column name="access_id">prj.bill.type.plates.readonly</column>
+          <column name="model_id">prj.bill.type.plates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.bill.type.plates.nodrop">
+          <column name="access_id">prj.bill.type.plates.nodrop</column>
+          <column name="model_id">prj.bill.type.plates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.type.plates.full">
+          <column name="access_id">prj.bill.type.plates.full</column>
+          <column name="model_id">prj.bill.type.plates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.type.plates.crw">
+          <column name="access_id">prj.bill.type.plates.crw</column>
+          <column name="model_id">prj.bill.type.plates</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.resource.category.readonly">
+          <column name="access_id">prj.resource.category.readonly</column>
+          <column name="model_id">prj.resource.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.resource.category.nodrop">
+          <column name="access_id">prj.resource.category.nodrop</column>
+          <column name="model_id">prj.resource.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.resource.category.full">
+          <column name="access_id">prj.resource.category.full</column>
+          <column name="model_id">prj.resource.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.resource.category.crw">
+          <column name="access_id">prj.resource.category.crw</column>
+          <column name="model_id">prj.resource.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.category.readonly">
+          <column name="access_id">prj.bill.category.readonly</column>
+          <column name="model_id">prj.bill.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.bill.category.nodrop">
+          <column name="access_id">prj.bill.category.nodrop</column>
+          <column name="model_id">prj.bill.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.category.full">
+          <column name="access_id">prj.bill.category.full</column>
+          <column name="model_id">prj.bill.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.category.crw">
+          <column name="access_id">prj.bill.category.crw</column>
+          <column name="model_id">prj.bill.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.portfolio.category.readonly">
+          <column name="access_id">prj.portfolio.category.readonly</column>
+          <column name="model_id">prj.portfolio.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.portfolio.category.nodrop">
+          <column name="access_id">prj.portfolio.category.nodrop</column>
+          <column name="model_id">prj.portfolio.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.portfolio.category.full">
+          <column name="access_id">prj.portfolio.category.full</column>
+          <column name="model_id">prj.portfolio.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.portfolio.category.crw">
+          <column name="access_id">prj.portfolio.category.crw</column>
+          <column name="model_id">prj.portfolio.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.prj.category.readonly">
+          <column name="access_id">prj.prj.category.readonly</column>
+          <column name="model_id">prj.prj.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.prj.category.nodrop">
+          <column name="access_id">prj.prj.category.nodrop</column>
+          <column name="model_id">prj.prj.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.prj.category.full">
+          <column name="access_id">prj.prj.category.full</column>
+          <column name="model_id">prj.prj.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.prj.category.crw">
+          <column name="access_id">prj.prj.category.crw</column>
+          <column name="model_id">prj.prj.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.stage.category.readonly">
+          <column name="access_id">prj.stage.category.readonly</column>
+          <column name="model_id">prj.stage.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.stage.category.nodrop">
+          <column name="access_id">prj.stage.category.nodrop</column>
+          <column name="model_id">prj.stage.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.stage.category.full">
+          <column name="access_id">prj.stage.category.full</column>
+          <column name="model_id">prj.stage.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.stage.category.crw">
+          <column name="access_id">prj.stage.category.crw</column>
+          <column name="model_id">prj.stage.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.task.category.readonly">
+          <column name="access_id">prj.task.category.readonly</column>
+          <column name="model_id">prj.task.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.task.category.nodrop">
+          <column name="access_id">prj.task.category.nodrop</column>
+          <column name="model_id">prj.task.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.task.category.full">
+          <column name="access_id">prj.task.category.full</column>
+          <column name="model_id">prj.task.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.task.category.crw">
+          <column name="access_id">prj.task.category.crw</column>
+          <column name="model_id">prj.task.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.element.category.readonly">
+          <column name="access_id">prj.element.category.readonly</column>
+          <column name="model_id">prj.element.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.element.category.nodrop">
+          <column name="access_id">prj.element.category.nodrop</column>
+          <column name="model_id">prj.element.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.element.category.full">
+          <column name="access_id">prj.element.category.full</column>
+          <column name="model_id">prj.element.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.element.category.crw">
+          <column name="access_id">prj.element.category.crw</column>
+          <column name="model_id">prj.element.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.resource.readonly">
+          <column name="access_id">prj.resource.readonly</column>
+          <column name="model_id">prj.resource</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.resource.nodrop">
+          <column name="access_id">prj.resource.nodrop</column>
+          <column name="model_id">prj.resource</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.resource.full">
+          <column name="access_id">prj.resource.full</column>
+          <column name="model_id">prj.resource</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.resource.crw">
+          <column name="access_id">prj.resource.crw</column>
+          <column name="model_id">prj.resource</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.readonly">
+          <column name="access_id">prj.bill.readonly</column>
+          <column name="model_id">prj.bill</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.bill.nodrop">
+          <column name="access_id">prj.bill.nodrop</column>
+          <column name="model_id">prj.bill</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.full">
+          <column name="access_id">prj.bill.full</column>
+          <column name="model_id">prj.bill</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.bill.crw">
+          <column name="access_id">prj.bill.crw</column>
+          <column name="model_id">prj.bill</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.portfolio.readonly">
+          <column name="access_id">prj.portfolio.readonly</column>
+          <column name="model_id">prj.portfolio</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.portfolio.nodrop">
+          <column name="access_id">prj.portfolio.nodrop</column>
+          <column name="model_id">prj.portfolio</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.portfolio.full">
+          <column name="access_id">prj.portfolio.full</column>
+          <column name="model_id">prj.portfolio</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.portfolio.crw">
+          <column name="access_id">prj.portfolio.crw</column>
+          <column name="model_id">prj.portfolio</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.project.readonly">
+          <column name="access_id">prj.project.readonly</column>
+          <column name="model_id">prj.project</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.project.nodrop">
+          <column name="access_id">prj.project.nodrop</column>
+          <column name="model_id">prj.project</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.project.full">
+          <column name="access_id">prj.project.full</column>
+          <column name="model_id">prj.project</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.project.crw">
+          <column name="access_id">prj.project.crw</column>
+          <column name="model_id">prj.project</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.stage.readonly">
+          <column name="access_id">prj.stage.readonly</column>
+          <column name="model_id">prj.stage</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.stage.nodrop">
+          <column name="access_id">prj.stage.nodrop</column>
+          <column name="model_id">prj.stage</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.stage.full">
+          <column name="access_id">prj.stage.full</column>
+          <column name="model_id">prj.stage</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.stage.crw">
+          <column name="access_id">prj.stage.crw</column>
+          <column name="model_id">prj.stage</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.task.readonly">
+          <column name="access_id">prj.task.readonly</column>
+          <column name="model_id">prj.task</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.task.nodrop">
+          <column name="access_id">prj.task.nodrop</column>
+          <column name="model_id">prj.task</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.task.full">
+          <column name="access_id">prj.task.full</column>
+          <column name="model_id">prj.task</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.task.crw">
+          <column name="access_id">prj.task.crw</column>
+          <column name="model_id">prj.task</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.element.readonly">
+          <column name="access_id">prj.element.readonly</column>
+          <column name="model_id">prj.element</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.element.nodrop">
+          <column name="access_id">prj.element.nodrop</column>
+          <column name="model_id">prj.element</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.element.full">
+          <column name="access_id">prj.element.full</column>
+          <column name="model_id">prj.element</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.element.crw">
+          <column name="access_id">prj.element.crw</column>
+          <column name="model_id">prj.element</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.element.products.readonly">
+          <column name="access_id">prj.element.products.readonly</column>
+          <column name="model_id">prj.element.products</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.element.products.nodrop">
+          <column name="access_id">prj.element.products.nodrop</column>
+          <column name="model_id">prj.element.products</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.element.products.full">
+          <column name="access_id">prj.element.products.full</column>
+          <column name="model_id">prj.element.products</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.element.products.crw">
+          <column name="access_id">prj.element.products.crw</column>
+          <column name="model_id">prj.element.products</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.task.resources.readonly">
+          <column name="access_id">prj.task.resources.readonly</column>
+          <column name="model_id">prj.task.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.task.resources.nodrop">
+          <column name="access_id">prj.task.resources.nodrop</column>
+          <column name="model_id">prj.task.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.task.resources.full">
+          <column name="access_id">prj.task.resources.full</column>
+          <column name="model_id">prj.task.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.task.resources.crw">
+          <column name="access_id">prj.task.resources.crw</column>
+          <column name="model_id">prj.task.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.element.resources.readonly">
+          <column name="access_id">prj.element.resources.readonly</column>
+          <column name="model_id">prj.element.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.prj.element.resources.nodrop">
+          <column name="access_id">prj.element.resources.nodrop</column>
+          <column name="model_id">prj.element.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.element.resources.full">
+          <column name="access_id">prj.element.resources.full</column>
+          <column name="model_id">prj.element.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.prj.element.resources.crw">
+          <column name="access_id">prj.element.resources.crw</column>
+          <column name="model_id">prj.element.resources</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.md.prj.product.readonly">
+          <column name="access_id">md.prj.product.readonly</column>
+          <column name="model_id">md.prj.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="project.md.prj.product.nodrop">
+          <column name="access_id">md.prj.product.nodrop</column>
+          <column name="model_id">md.prj.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.md.prj.product.full">
+          <column name="access_id">md.prj.product.full</column>
+          <column name="model_id">md.prj.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="project.md.prj.product.crw">
+          <column name="access_id">md.prj.product.crw</column>
+          <column name="model_id">md.prj.product</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

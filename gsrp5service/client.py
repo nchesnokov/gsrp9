@@ -80,11 +80,11 @@ async def hello():
 				#msg = await _execute([ws, 'slots','initialize'])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['ai','bc','cm','crm','fa','hcm','md','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ctrm']}])
 				
-				msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
+				#msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
 
-				#msg = await _execute([ws, 'gens','tr',{'modules': ['sale']}])
+				msg = await _execute([ws, 'gens','ui',{'modules': ['project']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['sale']}])
-				msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','cm','crm','fa','hcm','md','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ctrm']}])				
+				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','cm','crm','fa','hcm','md','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ctrm']}])				
 				#msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
 				#msg = await _execute([ws, 'gens','tr',{'modules': ['l10n_uy']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','purchase','sale']}])
@@ -127,7 +127,7 @@ async def hello():
 				#msg = await _execute([ws, 'modules','install',{'modules':['project','crm','mm','mrp','purchase','sale','le','stock','wkf_srm','fa']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['crm','purchase','sale','le','cf','ai','fa','hcm']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['ehs','scm','hcm','wm']}])
-				msg = await _execute([ws, 'modules','install',{'modules':['trm','cm','stock']}])
+				msg = await _execute([ws, 'modules','uninstall',{'modules':['project']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':{'srm':['env','view','example','data','demo','test','i18n']}}])
 				#msg = await _execute([ws, 'modules','install',{'modules':{'sale':['example']}}])
 				#msg = await _execute([ws, 'modules','install',{'modules': ['cm','ctrm','ai','fa','hcm','md','ml','mm','mrp','oil','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ehs','scm']}])
