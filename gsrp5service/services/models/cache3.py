@@ -1057,7 +1057,7 @@ class DCacheDict(object):
 					if a == 'state':
 						for s in aa.keys():
 							sn = m._getStateName()
-							if s == self._getCData(path)[sn]:
+							if sn and s == self._getCData(path)[sn]:
 								if type(aa[s]) == dict:
 									for s1 in aa[s].keys():
 										if aa[s][s1]:

@@ -66,7 +66,7 @@ class Models(Component):
 			elif args[1] == 'write-1':
 				oid = kwargs['context']['cache']
 				rmsg[0] = self._session._cache[oid]._do_write(args[0],kwargs)
-			elif args[1] == 'modify':
+			elif args[1] == 'modify-1':
 				print('modify:')
 				oid = kwargs['context']['cache']
 				rmsg[0] = self._session._cache[oid]._do_modify(args[0],kwargs)
