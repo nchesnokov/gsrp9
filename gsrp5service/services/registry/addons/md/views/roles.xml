@@ -240,6 +240,26 @@
           <column name="note">Model md.vat.code grant crw</column>
           <column name="group_id">md.crw</column>
         </record>
+        <record id="md.excise.code.readonly">
+          <column name="name">md.excise.code.readonly</column>
+          <column name="note">Model md.excise.code grant readonly</column>
+          <column name="group_id">md.readonly</column>
+        </record>
+        <record id="md.excise.code.nodrop">
+          <column name="name">md.excise.code.nodrop</column>
+          <column name="note">Model md.excise.code grant nodrop</column>
+          <column name="group_id">md.nodrop</column>
+        </record>
+        <record id="md.excise.code.full">
+          <column name="name">md.excise.code.full</column>
+          <column name="note">Model md.excise.code grant full</column>
+          <column name="group_id">md.full</column>
+        </record>
+        <record id="md.excise.code.crw">
+          <column name="name">md.excise.code.crw</column>
+          <column name="note">Model md.excise.code grant crw</column>
+          <column name="group_id">md.crw</column>
+        </record>
         <record id="md.category.product.readonly">
           <column name="name">md.category.product.readonly</column>
           <column name="note">Model md.category.product grant readonly</column>
@@ -1261,6 +1281,56 @@
         <record id="md.md.vat.code.crw">
           <column name="access_id">md.vat.code.crw</column>
           <column name="model_id">md.vat.code</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="md.md.excise.code.readonly">
+          <column name="access_id">md.excise.code.readonly</column>
+          <column name="model_id">md.excise.code</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="md.md.excise.code.nodrop">
+          <column name="access_id">md.excise.code.nodrop</column>
+          <column name="model_id">md.excise.code</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="md.md.excise.code.full">
+          <column name="access_id">md.excise.code.full</column>
+          <column name="model_id">md.excise.code</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="md.md.excise.code.crw">
+          <column name="access_id">md.excise.code.crw</column>
+          <column name="model_id">md.excise.code</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

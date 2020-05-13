@@ -323,5 +323,89 @@
           <column name="action_id">action.fcm.articles.custom</column>
           </record>
       </records>
+      <records model="bc.actions">
+        <record id="action.fcm.departaments.report">
+          <column name="name">action.fcm.departaments.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.fcm.objs.report">
+          <column name="name">action.fcm.objs.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.fcm.articles.report">
+          <column name="name">action.fcm.articles.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.fcm.departaments">
+          <column name="name">bc.ui.report.docx.fcm.departaments</column>
+          <column name="label">FCM Departament</column>
+          <column name="report">report_fcm_departaments</column>
+          <column name="infile">infile_fcm_departaments.docx</column>
+          <column name="outfile">outfile_fcm_departaments.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.fcm.objs">
+          <column name="name">bc.ui.report.docx.fcm.objs</column>
+          <column name="label">FCM Object</column>
+          <column name="report">report_fcm_objs</column>
+          <column name="infile">infile_fcm_objs.docx</column>
+          <column name="outfile">outfile_fcm_objs.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.fcm.articles">
+          <column name="name">bc.ui.report.docx.fcm.articles</column>
+          <column name="label">FCM Article</column>
+          <column name="report">report_fcm_articles</column>
+          <column name="infile">infile_fcm_articles.docx</column>
+          <column name="outfile">outfile_fcm_articles.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.fcm.departaments.report">
+          <column name="action_id">action.fcm.departaments.report</column>
+          <column name="report_id">bc.ui.report.docx.fcm.departaments</column>
+        </record>
+        <record id="report.action.fcm.objs.report">
+          <column name="action_id">action.fcm.objs.report</column>
+          <column name="report_id">bc.ui.report.docx.fcm.objs</column>
+        </record>
+        <record id="report.action.fcm.articles.report">
+          <column name="action_id">action.fcm.articles.report</column>
+          <column name="report_id">bc.ui.report.docx.fcm.articles</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.fcm.report.custom">
+          <column name="name">ui.menu.fcm.report.custom</column>
+          <column name="label">Customs</column>
+        <column name="parent_id">ui.menu.fcm.report</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.fcm.departaments.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.fcm.departaments.report</column>
+            <column name="label">FCM Departament</column>
+          <column name="parent_id">ui.menu.fcm.report.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.fcm.departaments.report</column>
+          </record>
+          <record id="ui.menu.fcm.objs.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.fcm.objs.report</column>
+            <column name="label">FCM Object</column>
+          <column name="parent_id">ui.menu.fcm.report.custom</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.fcm.objs.report</column>
+          </record>
+          <record id="ui.menu.fcm.articles.report">
+          <column name="sequence">2</column>
+            <column name="name">ui.menu.fcm.articles.report</column>
+            <column name="label">FCM Article</column>
+          <column name="parent_id">ui.menu.fcm.report.custom</column>
+          <column name="sequence">20</column>
+          <column name="action_id">action.fcm.articles.report</column>
+          </record>
+      </records>
     </data>
   </gsrp>

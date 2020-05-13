@@ -1,4 +1,5 @@
 import logging
+import web_pdb
 from passlib.hash import pbkdf2_sha256
 from functools import reduce
 from datetime import datetime
@@ -11,7 +12,7 @@ from os.path import join as opj
 from . import genddl
 from gsrp5service.orm.model import Model,ModelInherit,Access
 
-__all__ = ['install','uninstall','upgrade','sysinstall','sysupgrade','upgrademoduleslist']
+__all__ = ['install','uninstall','upgrade','sysinstall','sysupgrade','upgrademoduleslist','load']
 
 _logger = logging.getLogger('listener.' + __name__)
 
@@ -26,6 +27,99 @@ class KeyBuffer(dict):
 		if key in self  and obj in self[key] and recordkey in self[key][obj]:
 			return self[key][obj][recordkey]  
 		return None
+
+def load(cr,pool,uid,registry,modules = None):
+	return _load(cr,pool,uid,registry,['install','autoinstall'],modules)
+
+def _load(cr,pool,uid,registry,able=None, modules = None):
+	log = []
+	_modules = []
+	_chunks = {}
+	if able is None or not able:
+		able= ['install','autoinstall']
+
+
+	if modules is None:
+		modules = list(filter(lambda x:registry._modules[x]['meta']['able'] in able,registry._modules.keys()))
+
+	if type(modules) == str:
+		if registry._modules[modules]['meta']['able'] in able:
+			_modules.append(modules)
+			_chunks[modules] = ['module','depends','env','view','example','data','demo','test','i18n']
+	elif type(modules) == dict:
+		mkeys = list(modules.keys())
+		for module in registry._depends:
+			if module in mkeys and registry._modules[module]['meta']['able'] in able:
+				_modules.append(module)
+		_chunks = modules
+	elif type(modules) in (tuple,list):
+		for module in registry._depends:
+			if module in modules and registry._modules[module]['meta']['able'] in able:
+				_modules.append(module)
+				_chunks[module] = ['module','depends','env','view','example','data','demo','test','i18n']
+	elif modules is None:
+		for module in registry._depends:
+			if registry._modules[module]['meta']['able'] in able:
+				_modules.append(module)
+				_chunks[module] = ['module','depends','env','view','example','data','demo','test','i18n']
+
+	#web_pdb.set_trace()
+	if _modules:
+		_logger.info('modules-load: %s' % (modules,))
+	depends = []
+	for _module in _modules:
+		if 'module' in _chunks[_module] and 'depends' in _chunks[_module]:
+			for dep in registry._dependsinstall.install(_module):
+				if not dep in depends and registry._modules[dep]['meta']['able'] in able and ('state' in registry._modules[dep] and registry._modules[dep]['state'] in ('I',)):
+					depends.append(dep)
+
+		if registry._modules[_module]['state'] in ('I',):
+			depends.append(_module)
+
+	if len(depends) == 0:
+		log.append('Not modules for loading')
+	else:
+		for depend in depends:
+			registry._load_module(depend)
+			chunk = _chunks[depend]
+
+			metas = {}
+			info = registry._modules[depend]
+		
+			if 'env' in chunk and 'env' in info['meta']:
+				metas['env'] = info['meta']['env']
+			
+			if 'view' in chunk and 'view' in info['meta']:
+				metas['view'] = info['meta']['view']
+			
+			if 'example' in chunk:
+				if 'data' in info['meta']:
+					metas['data'] = info['meta']['data']
+				if 'demo' in info['meta']:
+					metas['demo'] = info['meta']['demo']
+			else:
+				if 'data' in chunk and 'data' in info['meta']:
+					metas['data'] = info['meta']['data']
+				if 'demo' in chunk and 'demo' in info['meta']:
+					metas['demo'] = info['meta']['demo']
+			
+			if 'test' in chunk and 'test' in info['meta']:
+				metas['test'] = info['meta']['test']
+			
+			if 'i18n' in chunk and 'i18n' in info['meta']:
+				metas['i18n'] = info['meta']['i18n']
+				
+			_loadFiles(cr,pool,uid,depend,registry._modules[depend],metas)
+			cr.commit()
+			_load_env(cr,pool,uid,depend)
+			
+			cr.commit()
+			_logger.info("Module: %s loaded:" % (depend,))
+			
+
+			log.append([0,'module: <%s> successfull loaded' % (depend,)])
+
+	return log
 
 def _install(cr,pool,uid,registry,able=None, modules = None):
 	log = []
@@ -819,7 +913,7 @@ def _load_env(cr,pool,uid,name):
 	mt = {}
 	for model in models:
 		m = pool.get(model['name'])
-		if isinstance(m,ModelInherit) or m._name == 'bc.models':
+		if not m or isinstance(m,ModelInherit) or m._name == 'bc.models':
 			continue
 		if 'env-fields' in m._extra:
 			envfields = m._extra['env-fields']
@@ -935,6 +1029,7 @@ def _loadCSVFile(cr,pool,uid,info,path,name,fl):
 					parent_id = mi['names']['parent_id']
 					childs_id = mi['names']['childs_id']
 					rec_name = mi['names']['rec_name']
+					ir = []
 					if parent_id and childs_id:
 						rows = list(filter(lambda x:x[parent_id] is None,records))
 						_convertFromYAML(cr,pool,uid,model,rows)

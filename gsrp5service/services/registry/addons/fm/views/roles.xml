@@ -2,213 +2,423 @@
   <gsrp>
     <data>
       <records model="bc.group.access">
-        <record id="fcm.readonly">
-          <column name="name">fcm.readonly</column>
-          <column name="note">Module fcm grant readonly</column>
+        <record id="fm.readonly">
+          <column name="name">fm.readonly</column>
+          <column name="note">Module fm grant readonly</column>
         </record>
-        <record id="fcm.nodrop">
-          <column name="name">fcm.nodrop</column>
-          <column name="note">Module fcm grant nodrop</column>
+        <record id="fm.nodrop">
+          <column name="name">fm.nodrop</column>
+          <column name="note">Module fm grant nodrop</column>
         </record>
-        <record id="fcm.full">
-          <column name="name">fcm.full</column>
-          <column name="note">Module fcm grant full</column>
+        <record id="fm.full">
+          <column name="name">fm.full</column>
+          <column name="note">Module fm grant full</column>
         </record>
-        <record id="fcm.crw">
-          <column name="name">fcm.crw</column>
-          <column name="note">Module fcm grant crw</column>
+        <record id="fm.crw">
+          <column name="name">fm.crw</column>
+          <column name="note">Module fm grant crw</column>
         </record>
       </records>
       <records model="bc.access">
+        <record id="fm.unit.categories.readonly">
+          <column name="name">fm.unit.categories.readonly</column>
+          <column name="note">Model fm.unit.categories grant readonly</column>
+          <column name="group_id">fm.readonly</column>
+        </record>
+        <record id="fm.unit.categories.nodrop">
+          <column name="name">fm.unit.categories.nodrop</column>
+          <column name="note">Model fm.unit.categories grant nodrop</column>
+          <column name="group_id">fm.nodrop</column>
+        </record>
+        <record id="fm.unit.categories.full">
+          <column name="name">fm.unit.categories.full</column>
+          <column name="note">Model fm.unit.categories grant full</column>
+          <column name="group_id">fm.full</column>
+        </record>
+        <record id="fm.unit.categories.crw">
+          <column name="name">fm.unit.categories.crw</column>
+          <column name="note">Model fm.unit.categories grant crw</column>
+          <column name="group_id">fm.crw</column>
+        </record>
+        <record id="fm.units.readonly">
+          <column name="name">fm.units.readonly</column>
+          <column name="note">Model fm.units grant readonly</column>
+          <column name="group_id">fm.readonly</column>
+        </record>
+        <record id="fm.units.nodrop">
+          <column name="name">fm.units.nodrop</column>
+          <column name="note">Model fm.units grant nodrop</column>
+          <column name="group_id">fm.nodrop</column>
+        </record>
+        <record id="fm.units.full">
+          <column name="name">fm.units.full</column>
+          <column name="note">Model fm.units grant full</column>
+          <column name="group_id">fm.full</column>
+        </record>
+        <record id="fm.units.crw">
+          <column name="name">fm.units.crw</column>
+          <column name="note">Model fm.units grant crw</column>
+          <column name="group_id">fm.crw</column>
+        </record>
+        <record id="fm.currency.exchanges.readonly">
+          <column name="name">fm.currency.exchanges.readonly</column>
+          <column name="note">Model fm.currency.exchanges grant readonly</column>
+          <column name="group_id">fm.readonly</column>
+        </record>
+        <record id="fm.currency.exchanges.nodrop">
+          <column name="name">fm.currency.exchanges.nodrop</column>
+          <column name="note">Model fm.currency.exchanges grant nodrop</column>
+          <column name="group_id">fm.nodrop</column>
+        </record>
+        <record id="fm.currency.exchanges.full">
+          <column name="name">fm.currency.exchanges.full</column>
+          <column name="note">Model fm.currency.exchanges grant full</column>
+          <column name="group_id">fm.full</column>
+        </record>
+        <record id="fm.currency.exchanges.crw">
+          <column name="name">fm.currency.exchanges.crw</column>
+          <column name="note">Model fm.currency.exchanges grant crw</column>
+          <column name="group_id">fm.crw</column>
+        </record>
         <record id="fcm.departament.categories.readonly">
           <column name="name">fcm.departament.categories.readonly</column>
           <column name="note">Model fcm.departament.categories grant readonly</column>
-          <column name="group_id">fcm.readonly</column>
+          <column name="group_id">fm.readonly</column>
         </record>
         <record id="fcm.departament.categories.nodrop">
           <column name="name">fcm.departament.categories.nodrop</column>
           <column name="note">Model fcm.departament.categories grant nodrop</column>
-          <column name="group_id">fcm.nodrop</column>
+          <column name="group_id">fm.nodrop</column>
         </record>
         <record id="fcm.departament.categories.full">
           <column name="name">fcm.departament.categories.full</column>
           <column name="note">Model fcm.departament.categories grant full</column>
-          <column name="group_id">fcm.full</column>
+          <column name="group_id">fm.full</column>
         </record>
         <record id="fcm.departament.categories.crw">
           <column name="name">fcm.departament.categories.crw</column>
           <column name="note">Model fcm.departament.categories grant crw</column>
-          <column name="group_id">fcm.crw</column>
+          <column name="group_id">fm.crw</column>
         </record>
         <record id="fcm.obj.categories.readonly">
           <column name="name">fcm.obj.categories.readonly</column>
           <column name="note">Model fcm.obj.categories grant readonly</column>
-          <column name="group_id">fcm.readonly</column>
+          <column name="group_id">fm.readonly</column>
         </record>
         <record id="fcm.obj.categories.nodrop">
           <column name="name">fcm.obj.categories.nodrop</column>
           <column name="note">Model fcm.obj.categories grant nodrop</column>
-          <column name="group_id">fcm.nodrop</column>
+          <column name="group_id">fm.nodrop</column>
         </record>
         <record id="fcm.obj.categories.full">
           <column name="name">fcm.obj.categories.full</column>
           <column name="note">Model fcm.obj.categories grant full</column>
-          <column name="group_id">fcm.full</column>
+          <column name="group_id">fm.full</column>
         </record>
         <record id="fcm.obj.categories.crw">
           <column name="name">fcm.obj.categories.crw</column>
           <column name="note">Model fcm.obj.categories grant crw</column>
-          <column name="group_id">fcm.crw</column>
+          <column name="group_id">fm.crw</column>
         </record>
         <record id="fcm.article.categories.readonly">
           <column name="name">fcm.article.categories.readonly</column>
           <column name="note">Model fcm.article.categories grant readonly</column>
-          <column name="group_id">fcm.readonly</column>
+          <column name="group_id">fm.readonly</column>
         </record>
         <record id="fcm.article.categories.nodrop">
           <column name="name">fcm.article.categories.nodrop</column>
           <column name="note">Model fcm.article.categories grant nodrop</column>
-          <column name="group_id">fcm.nodrop</column>
+          <column name="group_id">fm.nodrop</column>
         </record>
         <record id="fcm.article.categories.full">
           <column name="name">fcm.article.categories.full</column>
           <column name="note">Model fcm.article.categories grant full</column>
-          <column name="group_id">fcm.full</column>
+          <column name="group_id">fm.full</column>
         </record>
         <record id="fcm.article.categories.crw">
           <column name="name">fcm.article.categories.crw</column>
           <column name="note">Model fcm.article.categories grant crw</column>
-          <column name="group_id">fcm.crw</column>
+          <column name="group_id">fm.crw</column>
         </record>
         <record id="fcm.departaments.readonly">
           <column name="name">fcm.departaments.readonly</column>
           <column name="note">Model fcm.departaments grant readonly</column>
-          <column name="group_id">fcm.readonly</column>
+          <column name="group_id">fm.readonly</column>
         </record>
         <record id="fcm.departaments.nodrop">
           <column name="name">fcm.departaments.nodrop</column>
           <column name="note">Model fcm.departaments grant nodrop</column>
-          <column name="group_id">fcm.nodrop</column>
+          <column name="group_id">fm.nodrop</column>
         </record>
         <record id="fcm.departaments.full">
           <column name="name">fcm.departaments.full</column>
           <column name="note">Model fcm.departaments grant full</column>
-          <column name="group_id">fcm.full</column>
+          <column name="group_id">fm.full</column>
         </record>
         <record id="fcm.departaments.crw">
           <column name="name">fcm.departaments.crw</column>
           <column name="note">Model fcm.departaments grant crw</column>
-          <column name="group_id">fcm.crw</column>
+          <column name="group_id">fm.crw</column>
         </record>
         <record id="fcm.objs.readonly">
           <column name="name">fcm.objs.readonly</column>
           <column name="note">Model fcm.objs grant readonly</column>
-          <column name="group_id">fcm.readonly</column>
+          <column name="group_id">fm.readonly</column>
         </record>
         <record id="fcm.objs.nodrop">
           <column name="name">fcm.objs.nodrop</column>
           <column name="note">Model fcm.objs grant nodrop</column>
-          <column name="group_id">fcm.nodrop</column>
+          <column name="group_id">fm.nodrop</column>
         </record>
         <record id="fcm.objs.full">
           <column name="name">fcm.objs.full</column>
           <column name="note">Model fcm.objs grant full</column>
-          <column name="group_id">fcm.full</column>
+          <column name="group_id">fm.full</column>
         </record>
         <record id="fcm.objs.crw">
           <column name="name">fcm.objs.crw</column>
           <column name="note">Model fcm.objs grant crw</column>
-          <column name="group_id">fcm.crw</column>
+          <column name="group_id">fm.crw</column>
         </record>
         <record id="fcm.articles.readonly">
           <column name="name">fcm.articles.readonly</column>
           <column name="note">Model fcm.articles grant readonly</column>
-          <column name="group_id">fcm.readonly</column>
+          <column name="group_id">fm.readonly</column>
         </record>
         <record id="fcm.articles.nodrop">
           <column name="name">fcm.articles.nodrop</column>
           <column name="note">Model fcm.articles grant nodrop</column>
-          <column name="group_id">fcm.nodrop</column>
+          <column name="group_id">fm.nodrop</column>
         </record>
         <record id="fcm.articles.full">
           <column name="name">fcm.articles.full</column>
           <column name="note">Model fcm.articles grant full</column>
-          <column name="group_id">fcm.full</column>
+          <column name="group_id">fm.full</column>
         </record>
         <record id="fcm.articles.crw">
           <column name="name">fcm.articles.crw</column>
           <column name="note">Model fcm.articles grant crw</column>
-          <column name="group_id">fcm.crw</column>
+          <column name="group_id">fm.crw</column>
         </record>
         <record id="fcm.company.departaments.readonly">
           <column name="name">fcm.company.departaments.readonly</column>
           <column name="note">Model fcm.company.departaments grant readonly</column>
-          <column name="group_id">fcm.readonly</column>
+          <column name="group_id">fm.readonly</column>
         </record>
         <record id="fcm.company.departaments.nodrop">
           <column name="name">fcm.company.departaments.nodrop</column>
           <column name="note">Model fcm.company.departaments grant nodrop</column>
-          <column name="group_id">fcm.nodrop</column>
+          <column name="group_id">fm.nodrop</column>
         </record>
         <record id="fcm.company.departaments.full">
           <column name="name">fcm.company.departaments.full</column>
           <column name="note">Model fcm.company.departaments grant full</column>
-          <column name="group_id">fcm.full</column>
+          <column name="group_id">fm.full</column>
         </record>
         <record id="fcm.company.departaments.crw">
           <column name="name">fcm.company.departaments.crw</column>
           <column name="note">Model fcm.company.departaments grant crw</column>
-          <column name="group_id">fcm.crw</column>
+          <column name="group_id">fm.crw</column>
         </record>
         <record id="fcm.company.objs.readonly">
           <column name="name">fcm.company.objs.readonly</column>
           <column name="note">Model fcm.company.objs grant readonly</column>
-          <column name="group_id">fcm.readonly</column>
+          <column name="group_id">fm.readonly</column>
         </record>
         <record id="fcm.company.objs.nodrop">
           <column name="name">fcm.company.objs.nodrop</column>
           <column name="note">Model fcm.company.objs grant nodrop</column>
-          <column name="group_id">fcm.nodrop</column>
+          <column name="group_id">fm.nodrop</column>
         </record>
         <record id="fcm.company.objs.full">
           <column name="name">fcm.company.objs.full</column>
           <column name="note">Model fcm.company.objs grant full</column>
-          <column name="group_id">fcm.full</column>
+          <column name="group_id">fm.full</column>
         </record>
         <record id="fcm.company.objs.crw">
           <column name="name">fcm.company.objs.crw</column>
           <column name="note">Model fcm.company.objs grant crw</column>
-          <column name="group_id">fcm.crw</column>
+          <column name="group_id">fm.crw</column>
         </record>
         <record id="fcm.company.articles.readonly">
           <column name="name">fcm.company.articles.readonly</column>
           <column name="note">Model fcm.company.articles grant readonly</column>
-          <column name="group_id">fcm.readonly</column>
+          <column name="group_id">fm.readonly</column>
         </record>
         <record id="fcm.company.articles.nodrop">
           <column name="name">fcm.company.articles.nodrop</column>
           <column name="note">Model fcm.company.articles grant nodrop</column>
-          <column name="group_id">fcm.nodrop</column>
+          <column name="group_id">fm.nodrop</column>
         </record>
         <record id="fcm.company.articles.full">
           <column name="name">fcm.company.articles.full</column>
           <column name="note">Model fcm.company.articles grant full</column>
-          <column name="group_id">fcm.full</column>
+          <column name="group_id">fm.full</column>
         </record>
         <record id="fcm.company.articles.crw">
           <column name="name">fcm.company.articles.crw</column>
           <column name="note">Model fcm.company.articles grant crw</column>
-          <column name="group_id">fcm.crw</column>
+          <column name="group_id">fm.crw</column>
         </record>
       </records>
       <records model="bc.model.access">
-        <record id="fcm.fcm.departament.categories.readonly">
+        <record id="fm.fm.unit.categories.readonly">
+          <column name="access_id">fm.unit.categories.readonly</column>
+          <column name="model_id">fm.unit.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="fm.fm.unit.categories.nodrop">
+          <column name="access_id">fm.unit.categories.nodrop</column>
+          <column name="model_id">fm.unit.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fm.fm.unit.categories.full">
+          <column name="access_id">fm.unit.categories.full</column>
+          <column name="model_id">fm.unit.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fm.fm.unit.categories.crw">
+          <column name="access_id">fm.unit.categories.crw</column>
+          <column name="model_id">fm.unit.categories</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fm.fm.units.readonly">
+          <column name="access_id">fm.units.readonly</column>
+          <column name="model_id">fm.units</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="fm.fm.units.nodrop">
+          <column name="access_id">fm.units.nodrop</column>
+          <column name="model_id">fm.units</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fm.fm.units.full">
+          <column name="access_id">fm.units.full</column>
+          <column name="model_id">fm.units</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fm.fm.units.crw">
+          <column name="access_id">fm.units.crw</column>
+          <column name="model_id">fm.units</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fm.fm.currency.exchanges.readonly">
+          <column name="access_id">fm.currency.exchanges.readonly</column>
+          <column name="model_id">fm.currency.exchanges</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="fm.fm.currency.exchanges.nodrop">
+          <column name="access_id">fm.currency.exchanges.nodrop</column>
+          <column name="model_id">fm.currency.exchanges</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fm.fm.currency.exchanges.full">
+          <column name="access_id">fm.currency.exchanges.full</column>
+          <column name="model_id">fm.currency.exchanges</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fm.fm.currency.exchanges.crw">
+          <column name="access_id">fm.currency.exchanges.crw</column>
+          <column name="model_id">fm.currency.exchanges</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="fm.fcm.departament.categories.readonly">
           <column name="access_id">fcm.departament.categories.readonly</column>
           <column name="model_id">fcm.departament.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="fcm.fcm.departament.categories.nodrop">
+        <record id="fm.fcm.departament.categories.nodrop">
           <column name="access_id">fcm.departament.categories.nodrop</column>
           <column name="model_id">fcm.departament.categories</column>
           <column name="aread">True</column>
@@ -222,7 +432,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.departament.categories.full">
+        <record id="fm.fcm.departament.categories.full">
           <column name="access_id">fcm.departament.categories.full</column>
           <column name="model_id">fcm.departament.categories</column>
           <column name="aread">True</column>
@@ -238,7 +448,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.departament.categories.crw">
+        <record id="fm.fcm.departament.categories.crw">
           <column name="access_id">fcm.departament.categories.crw</column>
           <column name="model_id">fcm.departament.categories</column>
           <column name="aread">True</column>
@@ -252,13 +462,13 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.obj.categories.readonly">
+        <record id="fm.fcm.obj.categories.readonly">
           <column name="access_id">fcm.obj.categories.readonly</column>
           <column name="model_id">fcm.obj.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="fcm.fcm.obj.categories.nodrop">
+        <record id="fm.fcm.obj.categories.nodrop">
           <column name="access_id">fcm.obj.categories.nodrop</column>
           <column name="model_id">fcm.obj.categories</column>
           <column name="aread">True</column>
@@ -272,7 +482,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.obj.categories.full">
+        <record id="fm.fcm.obj.categories.full">
           <column name="access_id">fcm.obj.categories.full</column>
           <column name="model_id">fcm.obj.categories</column>
           <column name="aread">True</column>
@@ -288,7 +498,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.obj.categories.crw">
+        <record id="fm.fcm.obj.categories.crw">
           <column name="access_id">fcm.obj.categories.crw</column>
           <column name="model_id">fcm.obj.categories</column>
           <column name="aread">True</column>
@@ -302,13 +512,13 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.article.categories.readonly">
+        <record id="fm.fcm.article.categories.readonly">
           <column name="access_id">fcm.article.categories.readonly</column>
           <column name="model_id">fcm.article.categories</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="fcm.fcm.article.categories.nodrop">
+        <record id="fm.fcm.article.categories.nodrop">
           <column name="access_id">fcm.article.categories.nodrop</column>
           <column name="model_id">fcm.article.categories</column>
           <column name="aread">True</column>
@@ -322,7 +532,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.article.categories.full">
+        <record id="fm.fcm.article.categories.full">
           <column name="access_id">fcm.article.categories.full</column>
           <column name="model_id">fcm.article.categories</column>
           <column name="aread">True</column>
@@ -338,7 +548,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.article.categories.crw">
+        <record id="fm.fcm.article.categories.crw">
           <column name="access_id">fcm.article.categories.crw</column>
           <column name="model_id">fcm.article.categories</column>
           <column name="aread">True</column>
@@ -352,13 +562,13 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.departaments.readonly">
+        <record id="fm.fcm.departaments.readonly">
           <column name="access_id">fcm.departaments.readonly</column>
           <column name="model_id">fcm.departaments</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="fcm.fcm.departaments.nodrop">
+        <record id="fm.fcm.departaments.nodrop">
           <column name="access_id">fcm.departaments.nodrop</column>
           <column name="model_id">fcm.departaments</column>
           <column name="aread">True</column>
@@ -372,7 +582,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.departaments.full">
+        <record id="fm.fcm.departaments.full">
           <column name="access_id">fcm.departaments.full</column>
           <column name="model_id">fcm.departaments</column>
           <column name="aread">True</column>
@@ -388,7 +598,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.departaments.crw">
+        <record id="fm.fcm.departaments.crw">
           <column name="access_id">fcm.departaments.crw</column>
           <column name="model_id">fcm.departaments</column>
           <column name="aread">True</column>
@@ -402,13 +612,13 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.objs.readonly">
+        <record id="fm.fcm.objs.readonly">
           <column name="access_id">fcm.objs.readonly</column>
           <column name="model_id">fcm.objs</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="fcm.fcm.objs.nodrop">
+        <record id="fm.fcm.objs.nodrop">
           <column name="access_id">fcm.objs.nodrop</column>
           <column name="model_id">fcm.objs</column>
           <column name="aread">True</column>
@@ -422,7 +632,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.objs.full">
+        <record id="fm.fcm.objs.full">
           <column name="access_id">fcm.objs.full</column>
           <column name="model_id">fcm.objs</column>
           <column name="aread">True</column>
@@ -438,7 +648,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.objs.crw">
+        <record id="fm.fcm.objs.crw">
           <column name="access_id">fcm.objs.crw</column>
           <column name="model_id">fcm.objs</column>
           <column name="aread">True</column>
@@ -452,13 +662,13 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.articles.readonly">
+        <record id="fm.fcm.articles.readonly">
           <column name="access_id">fcm.articles.readonly</column>
           <column name="model_id">fcm.articles</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="fcm.fcm.articles.nodrop">
+        <record id="fm.fcm.articles.nodrop">
           <column name="access_id">fcm.articles.nodrop</column>
           <column name="model_id">fcm.articles</column>
           <column name="aread">True</column>
@@ -472,7 +682,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.articles.full">
+        <record id="fm.fcm.articles.full">
           <column name="access_id">fcm.articles.full</column>
           <column name="model_id">fcm.articles</column>
           <column name="aread">True</column>
@@ -488,7 +698,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.articles.crw">
+        <record id="fm.fcm.articles.crw">
           <column name="access_id">fcm.articles.crw</column>
           <column name="model_id">fcm.articles</column>
           <column name="aread">True</column>
@@ -502,13 +712,13 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.company.departaments.readonly">
+        <record id="fm.fcm.company.departaments.readonly">
           <column name="access_id">fcm.company.departaments.readonly</column>
           <column name="model_id">fcm.company.departaments</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="fcm.fcm.company.departaments.nodrop">
+        <record id="fm.fcm.company.departaments.nodrop">
           <column name="access_id">fcm.company.departaments.nodrop</column>
           <column name="model_id">fcm.company.departaments</column>
           <column name="aread">True</column>
@@ -522,7 +732,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.company.departaments.full">
+        <record id="fm.fcm.company.departaments.full">
           <column name="access_id">fcm.company.departaments.full</column>
           <column name="model_id">fcm.company.departaments</column>
           <column name="aread">True</column>
@@ -538,7 +748,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.company.departaments.crw">
+        <record id="fm.fcm.company.departaments.crw">
           <column name="access_id">fcm.company.departaments.crw</column>
           <column name="model_id">fcm.company.departaments</column>
           <column name="aread">True</column>
@@ -552,13 +762,13 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.company.objs.readonly">
+        <record id="fm.fcm.company.objs.readonly">
           <column name="access_id">fcm.company.objs.readonly</column>
           <column name="model_id">fcm.company.objs</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="fcm.fcm.company.objs.nodrop">
+        <record id="fm.fcm.company.objs.nodrop">
           <column name="access_id">fcm.company.objs.nodrop</column>
           <column name="model_id">fcm.company.objs</column>
           <column name="aread">True</column>
@@ -572,7 +782,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.company.objs.full">
+        <record id="fm.fcm.company.objs.full">
           <column name="access_id">fcm.company.objs.full</column>
           <column name="model_id">fcm.company.objs</column>
           <column name="aread">True</column>
@@ -588,7 +798,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.company.objs.crw">
+        <record id="fm.fcm.company.objs.crw">
           <column name="access_id">fcm.company.objs.crw</column>
           <column name="model_id">fcm.company.objs</column>
           <column name="aread">True</column>
@@ -602,13 +812,13 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.company.articles.readonly">
+        <record id="fm.fcm.company.articles.readonly">
           <column name="access_id">fcm.company.articles.readonly</column>
           <column name="model_id">fcm.company.articles</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="fcm.fcm.company.articles.nodrop">
+        <record id="fm.fcm.company.articles.nodrop">
           <column name="access_id">fcm.company.articles.nodrop</column>
           <column name="model_id">fcm.company.articles</column>
           <column name="aread">True</column>
@@ -622,7 +832,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.company.articles.full">
+        <record id="fm.fcm.company.articles.full">
           <column name="access_id">fcm.company.articles.full</column>
           <column name="model_id">fcm.company.articles</column>
           <column name="aread">True</column>
@@ -638,7 +848,7 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="fcm.fcm.company.articles.crw">
+        <record id="fm.fcm.company.articles.crw">
           <column name="access_id">fcm.company.articles.crw</column>
           <column name="model_id">fcm.company.articles</column>
           <column name="aread">True</column>

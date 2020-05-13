@@ -440,6 +440,26 @@
           <column name="note">Model bc.tuning.ui.views grant crw</column>
           <column name="group_id">bc.crw</column>
         </record>
+        <record id="bc.tuning.ui.view.items.readonly">
+          <column name="name">bc.tuning.ui.view.items.readonly</column>
+          <column name="note">Model bc.tuning.ui.view.items grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.tuning.ui.view.items.nodrop">
+          <column name="name">bc.tuning.ui.view.items.nodrop</column>
+          <column name="note">Model bc.tuning.ui.view.items grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.tuning.ui.view.items.full">
+          <column name="name">bc.tuning.ui.view.items.full</column>
+          <column name="note">Model bc.tuning.ui.view.items grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.tuning.ui.view.items.crw">
+          <column name="name">bc.tuning.ui.view.items.crw</column>
+          <column name="note">Model bc.tuning.ui.view.items grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
         <record id="bc.general.tuning.ui.views.readonly">
           <column name="name">bc.general.tuning.ui.views.readonly</column>
           <column name="note">Model bc.general.tuning.ui.views grant readonly</column>
@@ -458,6 +478,26 @@
         <record id="bc.general.tuning.ui.views.crw">
           <column name="name">bc.general.tuning.ui.views.crw</column>
           <column name="note">Model bc.general.tuning.ui.views grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.general.tuning.ui.view.items.readonly">
+          <column name="name">bc.general.tuning.ui.view.items.readonly</column>
+          <column name="note">Model bc.general.tuning.ui.view.items grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.general.tuning.ui.view.items.nodrop">
+          <column name="name">bc.general.tuning.ui.view.items.nodrop</column>
+          <column name="note">Model bc.general.tuning.ui.view.items grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.general.tuning.ui.view.items.full">
+          <column name="name">bc.general.tuning.ui.view.items.full</column>
+          <column name="note">Model bc.general.tuning.ui.view.items grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.general.tuning.ui.view.items.crw">
+          <column name="name">bc.general.tuning.ui.view.items.crw</column>
+          <column name="note">Model bc.general.tuning.ui.view.items grant crw</column>
           <column name="group_id">bc.crw</column>
         </record>
         <record id="bc.ui.reports.readonly">
@@ -1612,6 +1652,56 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
+        <record id="bc.bc.tuning.ui.view.items.readonly">
+          <column name="access_id">bc.tuning.ui.view.items.readonly</column>
+          <column name="model_id">bc.tuning.ui.view.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.tuning.ui.view.items.nodrop">
+          <column name="access_id">bc.tuning.ui.view.items.nodrop</column>
+          <column name="model_id">bc.tuning.ui.view.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.tuning.ui.view.items.full">
+          <column name="access_id">bc.tuning.ui.view.items.full</column>
+          <column name="model_id">bc.tuning.ui.view.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.tuning.ui.view.items.crw">
+          <column name="access_id">bc.tuning.ui.view.items.crw</column>
+          <column name="model_id">bc.tuning.ui.view.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
         <record id="bc.bc.general.tuning.ui.views.readonly">
           <column name="access_id">bc.general.tuning.ui.views.readonly</column>
           <column name="model_id">bc.general.tuning.ui.views</column>
@@ -1651,6 +1741,56 @@
         <record id="bc.bc.general.tuning.ui.views.crw">
           <column name="access_id">bc.general.tuning.ui.views.crw</column>
           <column name="model_id">bc.general.tuning.ui.views</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.general.tuning.ui.view.items.readonly">
+          <column name="access_id">bc.general.tuning.ui.view.items.readonly</column>
+          <column name="model_id">bc.general.tuning.ui.view.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.general.tuning.ui.view.items.nodrop">
+          <column name="access_id">bc.general.tuning.ui.view.items.nodrop</column>
+          <column name="model_id">bc.general.tuning.ui.view.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.general.tuning.ui.view.items.full">
+          <column name="access_id">bc.general.tuning.ui.view.items.full</column>
+          <column name="model_id">bc.general.tuning.ui.view.items</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.general.tuning.ui.view.items.crw">
+          <column name="access_id">bc.general.tuning.ui.view.items.crw</column>
+          <column name="model_id">bc.general.tuning.ui.view.items</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

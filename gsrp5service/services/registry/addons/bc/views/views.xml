@@ -1349,11 +1349,10 @@
           <column name="arch" type="Xml">
             <form>
               <field name="name"/>
-              <field name="view_id"/>
-              <field name="user_id"/>
-              <field name="col_name"/>
-              <field name="sequence"/>
-              <field name="values"/>
+              <field name="view"/>
+              <field name="tuser"/>
+              <field name="fullname"/>
+              <field name="cols"/>
             </form>
           </column>
         </record>
@@ -1363,10 +1362,10 @@
           <column name="arch" type="Xml">
             <list>
               <field name="name"/>
-              <field name="view_id"/>
-              <field name="user_id"/>
-              <field name="col_name"/>
-              <field name="sequence"/>
+              <field name="view"/>
+              <field name="tuser"/>
+              <field name="fullname"/>
+              <field name="cols"/>
             </list>
           </column>
         </record>
@@ -1376,10 +1375,9 @@
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="name"/>
-              <field name="view_id"/>
-              <field name="user_id"/>
-              <field name="col_name"/>
-              <field name="sequence"/>
+              <field name="view"/>
+              <field name="tuser"/>
+              <field name="fullname"/>
             </m2mlist>
           </column>
         </record>
@@ -1389,10 +1387,9 @@
           <column name="arch" type="Xml">
             <search>
               <field name="name"/>
-              <field name="view_id"/>
-              <field name="user_id"/>
-              <field name="col_name"/>
-              <field name="sequence"/>
+              <field name="view"/>
+              <field name="tuser"/>
+              <field name="fullname"/>
             </search>
           </column>
         </record>
@@ -1402,11 +1399,53 @@
           <column name="arch" type="Xml">
             <find>
               <field name="name"/>
-              <field name="view_id"/>
-              <field name="user_id"/>
-              <field name="col_name"/>
-              <field name="sequence"/>
+              <field name="view"/>
+              <field name="tuser"/>
+              <field name="fullname"/>
             </find>
+          </column>
+        </record>
+        <record id="view.bc.tuning.ui.view.items.form">
+          <column name="name">view.bc.tuning.ui.view.items.form</column>
+          <column name="model">bc.tuning.ui.view.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="tunning_id"/>
+              <field name="sequence"/>
+              <field name="col_name"/>
+              <field name="readonly"/>
+              <field name="required"/>
+              <field name="invisible"/>
+              <field name="values"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.tuning.ui.view.items.list">
+          <column name="name">view.bc.tuning.ui.view.items.list</column>
+          <column name="model">bc.tuning.ui.view.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="tunning_id"/>
+              <field name="sequence"/>
+              <field name="col_name"/>
+              <field name="readonly"/>
+              <field name="required"/>
+              <field name="invisible"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.tuning.ui.view.items.m2mlist">
+          <column name="name">view.bc.tuning.ui.view.items.m2mlist</column>
+          <column name="model">bc.tuning.ui.view.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="tunning_id"/>
+              <field name="sequence"/>
+              <field name="col_name"/>
+              <field name="readonly"/>
+              <field name="required"/>
+              <field name="invisible"/>
+            </m2mlist>
           </column>
         </record>
         <record id="view.bc.general.tuning.ui.views.form">
@@ -1415,10 +1454,9 @@
           <column name="arch" type="Xml">
             <form>
               <field name="name"/>
-              <field name="view_id"/>
-              <field name="col_name"/>
-              <field name="sequence"/>
-              <field name="values"/>
+              <field name="view"/>
+              <field name="fullname"/>
+              <field name="cols"/>
             </form>
           </column>
         </record>
@@ -1428,9 +1466,9 @@
           <column name="arch" type="Xml">
             <list>
               <field name="name"/>
-              <field name="view_id"/>
-              <field name="col_name"/>
-              <field name="sequence"/>
+              <field name="view"/>
+              <field name="fullname"/>
+              <field name="cols"/>
             </list>
           </column>
         </record>
@@ -1440,9 +1478,8 @@
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="name"/>
-              <field name="view_id"/>
-              <field name="col_name"/>
-              <field name="sequence"/>
+              <field name="view"/>
+              <field name="fullname"/>
             </m2mlist>
           </column>
         </record>
@@ -1452,9 +1489,8 @@
           <column name="arch" type="Xml">
             <search>
               <field name="name"/>
-              <field name="view_id"/>
-              <field name="col_name"/>
-              <field name="sequence"/>
+              <field name="view"/>
+              <field name="fullname"/>
             </search>
           </column>
         </record>
@@ -1464,10 +1500,52 @@
           <column name="arch" type="Xml">
             <find>
               <field name="name"/>
-              <field name="view_id"/>
-              <field name="col_name"/>
-              <field name="sequence"/>
+              <field name="view"/>
+              <field name="fullname"/>
             </find>
+          </column>
+        </record>
+        <record id="view.bc.general.tuning.ui.view.items.form">
+          <column name="name">view.bc.general.tuning.ui.view.items.form</column>
+          <column name="model">bc.general.tuning.ui.view.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="tunning_id"/>
+              <field name="sequence"/>
+              <field name="col_name"/>
+              <field name="readonly"/>
+              <field name="required"/>
+              <field name="invisible"/>
+              <field name="values"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.general.tuning.ui.view.items.list">
+          <column name="name">view.bc.general.tuning.ui.view.items.list</column>
+          <column name="model">bc.general.tuning.ui.view.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="tunning_id"/>
+              <field name="sequence"/>
+              <field name="col_name"/>
+              <field name="readonly"/>
+              <field name="required"/>
+              <field name="invisible"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.general.tuning.ui.view.items.m2mlist">
+          <column name="name">view.bc.general.tuning.ui.view.items.m2mlist</column>
+          <column name="model">bc.general.tuning.ui.view.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="tunning_id"/>
+              <field name="sequence"/>
+              <field name="col_name"/>
+              <field name="readonly"/>
+              <field name="required"/>
+              <field name="invisible"/>
+            </m2mlist>
           </column>
         </record>
         <record id="view.bc.ui.reports.form">

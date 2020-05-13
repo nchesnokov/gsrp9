@@ -38,6 +38,9 @@ class Modules(Component):
 
 		return rmsg 
 
+	def load(self,modules):
+		return load(self._cr,self._pool,self._uid,self._registry,modules)
+
 	def install(self,modules):
 		return install(self._cr,self._pool,self._uid,self._registry,modules)
 		
