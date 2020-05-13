@@ -4,6 +4,7 @@ from decimal import Decimal
 import datetime
 import psycopg2
 import ctypes
+import json
 from deepdiff.diff import DeepDiff
 from gsrp5service.orm import gensql
 from gsrp5service.orm.common import MAGIC_COLUMNS
@@ -1650,6 +1651,8 @@ class MCache(object):
 			if k in m._columns and m._columns[k]._type in ('many2one','related'):
 				#if rel and k != rel or not rel:
 				data[k] = item['__data__'][k]['id']
+			elif k in m._columns and m._columns[k]._type == 'json':
+				data[k] = json.dumps(item['__data__'][k])
 			else:
 				data[k] = item['__data__'][k]
 
@@ -1704,6 +1707,8 @@ class MCache(object):
 			if k in m._columns and m._columns[k]._type in ('many2one','related'):
 				#	if rel and k != rel or not rel:
 				data[k] = item['__data__'][k]['id']
+			elif k in m._columns and m._columns[k]._type == 'json':
+				data[k] = json.dumps(item['__data__'][k])
 			else:
 				data[k] = item['__data__'][k]
 
@@ -1769,6 +1774,8 @@ class MCache(object):
 			if m._columns[k]._type in ('many2one','related'):
 				if k != rel:
 					data[k] = item['__data__'][k]['id']
+			elif k in m._columns and m._columns[k]._type == 'json':
+				data[k] = json.dumps(item['__data__'][k])
 			else:
 				data[k] = item['__data__'][k]
 
@@ -1863,6 +1870,8 @@ class MCache(object):
 				for k in models[model][mkey].keys():
 					if m._columns[k]._type in ('many2one','related'):
 						data[k] = models[model][mkey][k]['id']
+					elif k in m._columns and m._columns[k]._type == 'json':
+						data[k] = json.dumps(models[model][mkey][k])
 					else:
 						data[k] = models[model][mkey][k]
 			

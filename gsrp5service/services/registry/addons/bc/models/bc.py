@@ -435,6 +435,10 @@ class bc_tuning_ui_views(Model):
 	'name':fields.varchar(label='Name',size=128,readonly=True),
 	'view_id':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
 	'user_id': fields.many2one(label = 'User', obj='bc.users',readonly=True, on_delete = 'c'),
+	#'view':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
+	#'user': fields.many2one(label = 'User', obj='bc.users',readonly=True, on_delete = 'c'),
+	#'fullname': fields.composite(label='Full Name', cols = ['user','view','name'], translate = True,required = True, compute = '_compute_composite'),
+	#'cols': fields.one2many(label='Columns',obj='bc.tuning.ui.view.items',rel='tunning_id',readonly = True),
 	'col_name': fields.varchar(label = 'Column', size=64,readonly=True),
 	'sequence': fields.integer(label = 'Sequence',readonly=True),
 	'values': fields.json(label='Values',readonly=True)
@@ -444,12 +448,32 @@ class bc_tuning_ui_views(Model):
 
 bc_tuning_ui_views()
 
+class bc_tuning_ui_view_items(Model):
+	_name = 'bc.tuning.ui.view.items'
+	_description = 'General Model Tunning Models View Items'
+	_columns = {
+	'tunning_id': fields.many2one(label = 'Tunning', obj='bc.tuning.ui.views',readonly=True, on_delete = 'c'),
+	'sequence': fields.integer(label = 'Sequence',readonly=True),
+	'col_name': fields.varchar(label = 'Column', size=64,readonly=True),
+	'readonly': fields.boolean(label='Readonly',readonly=True),
+	'required': fields.boolean(label='Required',readonly=True),
+	'invisible': fields.boolean(label='Invisible',readonly=True),
+	'values': fields.json(label='Values',readonly=True)
+	
+	}
+
+bc_tuning_ui_view_items()
+
+
 class bc_general_tuning_ui_views(Model):
 	_name = 'bc.general.tuning.ui.views'
 	_description = 'General Model General Tunning Models Views'
 	_columns = {
 	'name':fields.varchar(label='Name',size=128,readonly=True),
 	'view_id':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
+	#'view':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
+	#'fullname': fields.composite(label='Full Name', cols = ['view','name'], translate = True,required = True, compute = '_compute_composite'),
+	#'cols': fields.one2many(label='Columns',obj='bc.general.tuning.ui.view.items',rel='tunning_id',readonly = True),
 	'col_name': fields.varchar(label = 'Column', size=64,readonly=True),
 	'sequence': fields.integer(label = 'Sequence',readonly=True),
 	'values': fields.json(label='Values',readonly=True)
@@ -458,6 +482,23 @@ class bc_general_tuning_ui_views(Model):
 	_sql_constraints = [('view_id_seq_unique','unique (view_id, sequence)', 'Sequence unique of vies')]
 
 bc_general_tuning_ui_views()
+
+class bc_general_tuning_ui_view_items(Model):
+	_name = 'bc.genaral.tuning.ui.view.items'
+	_description = 'General Model Tunning Models View Items'
+	_columns = {
+	'tunning_id': fields.many2one(label = 'Tunning', obj='bc.general.tuning.ui.views',readonly=True, on_delete = 'c'),
+	'sequence': fields.integer(label = 'Sequence',readonly=True),
+	'col_name': fields.varchar(label = 'Column', size=64,readonly=True),
+	'readonly': fields.boolean(label='Readonly',readonly=True),
+	'required': fields.boolean(label='Required',readonly=True),
+	'invisible': fields.boolean(label='Invisible',readonly=True),
+	'values': fields.json(label='Values',readonly=True)
+	
+	}
+
+bc_general_tuning_ui_view_items()
+
 
 class bc_ui_reports(Model):
 	_name ='bc.ui.reports'

@@ -227,6 +227,7 @@ def get_views_of_model_v2(cr,pool,uid,model,info):
 	views = pool.get('bc.ui.views').select(cr,pool,uid,fields=['name','model','arch',{'inherit_views':['name','type','arch']}],cond=[('model','=',model)])
 	for view in views:
 		v = parse_view_v2(view,info)
+		v['id'] = view['id']
 		o[v['type']] = v
 
 	return {model:o}
