@@ -441,7 +441,7 @@ class DCacheDict(object):
 		def _meta_delete(self,o,c,diffs):
 			if ('__meta_delete__' in diffs ):
 				for k in diffs['__meta_delete__'].keys():
-					del getattr(self,'_%sattrs' % (c,))[k][d]
+					del getattr(self,'_%sattrs' % (c,))[k]
 
 		def _m2m_append(self,o,c,diffs):
 			if ('__m2m_append__' in diffs ):

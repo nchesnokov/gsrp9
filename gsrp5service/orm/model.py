@@ -16,11 +16,12 @@ class MetaModel(type):
 	__modules__ = {}
 
 	def __new__(cls, name, bases, attrs):
-		if '__module__' in attrs and not attrs['__module__'] in ('gsrp5service.orm.model','orm.model','model'):
+		if '__module__' in attrs and not attrs['__module__'] in ('gsrp5service.orm.model.MetaModel','orm.model.MetaModel','model.MetaModel','gsrp5service.orm.model','orm.model'):
 			_m = attrs['__module__'].split('.')
+			_module = attrs['__module__']
 
 			if _m[0] == 'gsrp5service':
-				_module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[1:3])	
+				_module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[3:5])	
 			else:	
 				_module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[:2])	
 

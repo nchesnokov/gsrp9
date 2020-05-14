@@ -435,7 +435,7 @@ class bc_tuning_ui_views(Model):
 	'name':fields.varchar(label='Name',size=128,readonly=True),
 	'view':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
 	'tuser': fields.many2one(label = 'User', obj='bc.users',readonly=True, on_delete = 'c'),
-	'fullname': fields.composite(label='Full Name', cols = ['user','view','name'], translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name', cols = ['tuser','view','name'], translate = True,required = True, compute = '_compute_composite'),
 	'cols': fields.one2many(label='Columns',obj='bc.tuning.ui.view.items',rel='tunning_id',readonly = True),
 	}
 

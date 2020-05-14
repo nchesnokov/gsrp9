@@ -107,34 +107,6 @@ mrp_request_type_roles()
 
 # end customize
 
-
-class md_mrp_product(Model):
-	_name = 'md.mrp.product'
-	_description = 'General Model Mrp Of Product'
-	_columns = {
-	'product_id': fields.many2one(label='Product',obj='md.product'),
-	'strategy': fields.selection(label='Strategy',selections=[('l','Lot'),('p','Point of order'),('n','Not planed')]),
-	'quantity': fields.numeric(label='Quantity',size=(11,3)),
-	'reserved_quantity': fields.numeric(label='Reserve Quantity',size=(11,3)),
-	'min_quantity': fields.numeric(label='Min Quantity',size=(11,3)),
-	'max_quantity': fields.numeric(label='Max Quantity',size=(11,3)),
-	'uom': fields.many2one(label="Unit Of Measure",obj='md.uom'),
-	'note': fields.text(label = 'Note'),
-	}
-
-md_mrp_product()
-
-class md_mrp_product_inherit(ModelInherit):
-	_name = 'md.mrp.product.inherit'
-	_description = 'Genaral Model Inherit For MRP Product'
-	_inherit = {'md.product':{'_columns':['mrp']},'md.recepture':{'_columns':['usage']}}
-	_columns = {
-		'mrp': fields.one2many(label='MRP',obj='md.mrp.product',rel='product_id'),
-		'usage': fields.iProperty(selections=[('m',"Manufactured")])
-	}
-	
-md_mrp_product_inherit()
-
 class mrp_demand_category(Model):
 	_name = 'mrp.demand.category'
 	_description = 'General Model Category MRP Demand'
@@ -413,3 +385,31 @@ class mrp_request_delivery_schedules(Model):
 	}
 
 mrp_request_delivery_schedules()
+
+class md_mrp_product(Model):
+	_name = 'md.mrp.product'
+	_description = 'General Model Mrp Of Product'
+	_columns = {
+	'product_id': fields.many2one(label='Product',obj='md.product'),
+	'strategy': fields.selection(label='Strategy',selections=[('l','Lot'),('p','Point of order'),('n','Not planed')]),
+	'quantity': fields.numeric(label='Quantity',size=(11,3)),
+	'reserved_quantity': fields.numeric(label='Reserve Quantity',size=(11,3)),
+	'min_quantity': fields.numeric(label='Min Quantity',size=(11,3)),
+	'max_quantity': fields.numeric(label='Max Quantity',size=(11,3)),
+	'uom': fields.many2one(label="Unit Of Measure",obj='md.uom'),
+	'note': fields.text(label = 'Note'),
+	}
+
+md_mrp_product()
+
+class md_mrp_product_inherit(ModelInherit):
+	_name = 'md.mrp.product.inherit'
+	_description = 'Genaral Model Inherit For MRP Product'
+	_inherit = {'md.product':{'_columns':['mrp']},'md.recepture':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}}
+	_columns = {
+		'mrp': fields.one2many(label='MRP',obj='md.mrp.product',rel='product_id'),
+		'usage': fields.iProperty(selections=[('mrp',"Material Planning")])
+	}
+	
+md_mrp_product_inherit()
+
