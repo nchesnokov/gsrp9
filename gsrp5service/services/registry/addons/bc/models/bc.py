@@ -126,8 +126,9 @@ bc_messages()
 class bc_langs(Model):
 	_name = 'bc.langs'
 	_description = 'General Model Langs'
+	_rec_name = 'code'
 	_columns = {
-	'name': fields.varchar(label='Language', size = 64,readonly=True),
+	'code': fields.varchar(label='Language',size = 2,readonly=True),
 	'description': fields.varchar(label='Description', size = 64,readonly=True)
 	}
 
@@ -316,20 +317,29 @@ class bc_inherit_columns(Model):
 
 bc_inherit_columns()
 
-
-class bc_translations(Model):
-	_name = 'bc.translations'
-	_description = 'General Model Translations'
+class bc_record_translations(Model):
+	_name = 'bc.record.translations'
+	_description = 'General Model Record Translations'
 	_columns = {
-	'module_id': fields.many2one(label='Module',obj='bc.modules',readonly=True, on_delete = 'c'),
-	'lang_id': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
-	'model_id': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
-	'record_id': fields.integer(label="Record ID",readonly=True),
-	'column_id': fields.uuid(label="Column ID",readonly=True),
+	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
+	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
+	'record': fields.integer(label="Record ID",readonly=True),
 	'tr': fields.json(label='Translations',readonly=True)
 	}
 
-bc_translations()
+bc_record_translations()
+
+
+class bc_model_translations(Model):
+	_name = 'bc.model.translations'
+	_description = 'General Model Model Translations'
+	_columns = {
+	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
+	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
+	'tr': fields.json(label='Translations',readonly=True)
+	}
+
+bc_model_translations()
 	
 
 class bc_group_access(Model):

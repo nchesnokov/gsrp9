@@ -688,7 +688,7 @@ md_partners_bank()
 
 class md_recepture(Model):
 	_name = 'md.recepture'
-	_description = 'General Model Recepture'
+	_description = 'General Model Recipe'
 	_columns = {
 	'name': fields.varchar(label="Name"),
 	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
@@ -703,7 +703,7 @@ md_recepture()
 
 class md_recepture_input(Model):
 	_name = 'md.recepture.input'
-	_description = 'General Model Input Recepture'
+	_description = 'General Model Input Recipe'
 	_columns = {
 	'recepture_id': fields.many2one(label="Recepture",obj='md.recepture'),
 	'product': fields.many2one(label='Product',obj='md.product'),
@@ -720,7 +720,7 @@ md_recepture_input()
 
 class md_recepture_output(Model):
 	_name = 'md.recepture.output'
-	_description = 'General Model Output Recepture'
+	_description = 'General Model Output Recipe'
 	_columns = {
 	'recepture_id': fields.many2one(label="Recepture",obj='md.recepture'),
 	'product': fields.many2one(label='Product',obj='md.product'),

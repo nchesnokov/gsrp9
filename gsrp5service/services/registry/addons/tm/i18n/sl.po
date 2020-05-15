@@ -3,186 +3,392 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:39:34+0000\n"
-"PO-Revision-Date: 2020-02-13 14:39:34+0000\n"
+"POT-Creation-Date: 2020-05-15 19:44:06+0300\n"
+"PO-Revision-Date: 2020-05-15 19:44:06+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: md.tm.product-product_id:1 tm.order.items-product:1
+#: model@md.tm.product|_description@:1
+msgid "General Model TM Of Product"
+msgstr "Splošni Model TM Izdelka"
+
+#: model@md.tm.product|_columns@product_id$label:1
+#: model@tm.order.items|_columns@product$label:1
 msgid "Product"
 msgstr "Izdelek"
 
-#: md.tm.product-vat:1
+#: model@md.tm.product|_columns@vat$label:1
 msgid "VAT Code"
 msgstr "DDV Kodo"
 
-#: md.tm.product-uom:1
+#: model@md.tm.product|_columns@uom$label:1
 msgid "Unit Of Measure"
 msgstr "Merska Enota"
 
-#: md.tm.product-price:1
+#: model@md.tm.product|_columns@price$label:1
 msgid "Price"
 msgstr "Cena"
 
-#: md.tm.product-currency:1
+#: model@md.tm.product|_columns@currency$label:1
 msgid "Currency"
 msgstr "Valuti"
 
-#: md.tm.product-unit:1
+#: model@md.tm.product|_columns@unit$label:1
 msgid "Unit"
 msgstr "Enota"
 
-#: md.tm.product-uop:1
+#: model@md.tm.product|_columns@uop$label:1
 msgid "Unit Of Price"
 msgstr "Enota Cena"
 
-#: md.tm.product-note:1 tm.locations-note:1 tm.maps-note:1 tm.handlings-note:1
-#: tm.category.node-note:1 tm.nodes-note:1 tm.node.items-note:1
-#: tm.category.equipment-note:1 tm.template.equipment-note:1
-#: tm.template.nodes-note:1 tm.template.maps-note:1
-#: tm.template.handlings-note:1 tm.unit.equipments-note:1 tm.orders-note:1
-#: tm.order.items-note:1 tm.unit.equipment.orders-note:1
+#: model@md.tm.product|_columns@note$label:1
+#: model@tm.locations|_columns@note$label:1
+#: model@tm.maps|_columns@note$label:1
+#: model@tm.handlings|_columns@note$label:1
+#: model@tm.category.node|_columns@note$label:1
+#: model@tm.nodes|_columns@note$label:1
+#: model@tm.node.items|_columns@note$label:1
+#: model@tm.category.equipment|_columns@note$label:1
+#: model@tm.template.equipment|_columns@note$label:1
+#: model@tm.template.nodes|_columns@note$label:1
+#: model@tm.template.maps|_columns@note$label:1
+#: model@tm.template.handlings|_columns@note$label:1
+#: model@tm.unit.equipments|_columns@note$label:1
+#: model@tm.orders|_columns@note$label:1
+#: model@tm.order.items|_columns@note$label:1
+#: model@tm.unit.equipment.orders|_columns@note$label:1
 msgid "Note"
 msgstr "Opomba"
 
-#: tm.locations-usage:1
+#: model@tm.locations|_description@:1
+msgid "General Model Locations"
+msgstr "Splošni Model Lokacije"
+
+#: model@tm.locations|_columns@usage$label:1
 msgid "Usage"
 msgstr "Uporaba"
 
-#: tm.locations-name:1 tm.maps-name:1 tm.handlings-name:1
-#: tm.category.node-name:1 tm.nodes-name:1 tm.node.items-name:1
-#: tm.category.equipment-name:1 tm.template.equipment-name:1
-#: tm.unit.equipments-name:1 tm.orders-name:1
+#: model@tm.locations|_columns@usage$selections#supplier:1
+msgid "Vendor Location"
+msgstr "Lokacija Prodajalca"
+
+#: model@tm.locations|_columns@usage$selections#view:1
+msgid "View"
+msgstr "Ogled"
+
+#: model@tm.locations|_columns@usage$selections#internal:1
+msgid "Internal Location"
+msgstr "Notranji Mesto"
+
+#: model@tm.locations|_columns@usage$selections#customer:1
+msgid "Customer Location"
+msgstr "Stranka Mesto"
+
+#: model@tm.locations|_columns@usage$selections#inventory:1
+msgid "Inventory Loss"
+msgstr "Popis Izgubo"
+
+#: model@tm.locations|_columns@usage$selections#procurement:1
+msgid "Procurement"
+msgstr "Naročila"
+
+#: model@tm.locations|_columns@usage$selections#production:1
+msgid "Production"
+msgstr "Proizvodnja"
+
+#: model@tm.locations|_columns@usage$selections#transit:1
+msgid "Transit Location"
+msgstr "Tranzitne Lokacije"
+
+#: model@tm.locations|_columns@name$label:1
+#: model@tm.maps|_columns@name$label:1
+#: model@tm.handlings|_columns@name$label:1
+#: model@tm.category.node|_columns@name$label:1
+#: model@tm.nodes|_columns@name$label:1
+#: model@tm.node.items|_columns@name$label:1
+#: model@tm.category.equipment|_columns@name$label:1
+#: model@tm.template.equipment|_columns@name$label:1
+#: model@tm.unit.equipments|_columns@name$label:1
+#: model@tm.orders|_columns@name$label:1
 msgid "Name"
 msgstr "Ime"
 
-#: tm.locations-parent_id:1 tm.category.node-parent_id:1 tm.nodes-parent_id:1
-#: tm.node.items-parent_id:1 tm.category.equipment-parent_id:1
+#: model@tm.locations|_columns@parent_id$label:1
+#: model@tm.category.node|_columns@parent_id$label:1
+#: model@tm.nodes|_columns@parent_id$label:1
+#: model@tm.node.items|_columns@parent_id$label:1
+#: model@tm.category.equipment|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Matična"
 
-#: tm.locations-childs_id:1 tm.category.node-childs_id:1 tm.nodes-childs_id:1
-#: tm.node.items-childs_id:1 tm.category.equipment-childs_id:1
+#: model@tm.locations|_columns@childs_id$label:1
+#: model@tm.category.node|_columns@childs_id$label:1
+#: model@tm.nodes|_columns@childs_id$label:1
+#: model@tm.node.items|_columns@childs_id$label:1
+#: model@tm.category.equipment|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: tm.maps-otype:1 tm.template.handlings-otype:1 tm.orders-otype:1
-#: tm.unit.equipment.orders-otype:1
+#: model@tm.maps|_description@:1
+msgid "General Model Maps"
+msgstr "Splošni Model Zemljevidi"
+
+#: model@tm.maps|_columns@otype$label:1
+#: model@tm.template.handlings|_columns@otype$label:1
+#: model@tm.orders|_columns@otype$label:1
+#: model@tm.unit.equipment.orders|_columns@otype$label:1
 msgid "Type"
 msgstr "Vrsta"
 
-#: tm.maps-state:1 tm.handlings-state:1 tm.template.equipment-state:1
-#: tm.unit.equipments-state:1 tm.orders-state:1
-#: tm.unit.equipment.orders-state:1
+#: model@tm.maps|_columns@otype$selections#r:1
+#: model@tm.orders|_columns@otype$selections#r:1
+msgid "Repair"
+msgstr "Popravila"
+
+#: model@tm.maps|_columns@otype$selections#s:1
+msgid "Service"
+msgstr "Storitev"
+
+#: model@tm.maps|_columns@otype$selections#d:1
+msgid "Disassemkble"
+msgstr "Disassemkble"
+
+#: model@tm.maps|_columns@state$label:1
+#: model@tm.handlings|_columns@state$label:1
+#: model@tm.template.equipment|_columns@state$label:1
+#: model@tm.unit.equipments|_columns@state$label:1
+#: model@tm.orders|_columns@state$label:1
+#: model@tm.unit.equipment.orders|_columns@state$label:1
 msgid "State"
 msgstr "Stanje"
 
-#: tm.maps-recepture_id:1 tm.orders-recepture:1
+#: model@tm.maps|_columns@state$selections#draft:1
+#: model@tm.handlings|_columns@state$selections#draft:1
+#: model@tm.template.equipment|_columns@state$selections#draft:1
+#: model@tm.unit.equipments|_columns@state$selections#draft:1
+#: model@tm.orders|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Osnutek"
+
+#: model@tm.maps|_columns@state$selections#approved:1
+#: model@tm.handlings|_columns@state$selections#approved:1
+#: model@tm.template.equipment|_columns@state$selections#approved:1
+#: model@tm.unit.equipments|_columns@state$selections#approved:1
+#: model@tm.orders|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Odobreno"
+
+#: model@tm.maps|_columns@state$selections#inprocess:1
+#: model@tm.handlings|_columns@state$selections#inprocess:1
+#: model@tm.template.equipment|_columns@state$selections#inprocess:1
+#: model@tm.unit.equipments|_columns@state$selections#inprocess:1
+#: model@tm.orders|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "V Procesu"
+
+#: model@tm.maps|_columns@state$selections#closed:1
+#: model@tm.handlings|_columns@state$selections#closed:1
+#: model@tm.template.equipment|_columns@state$selections#closed:1
+#: model@tm.unit.equipments|_columns@state$selections#closed:1
+#: model@tm.orders|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Zaprto"
+
+#: model@tm.maps|_columns@state$selections#canceled:1
+#: model@tm.handlings|_columns@state$selections#canceled:1
+#: model@tm.template.equipment|_columns@state$selections#canceled:1
+#: model@tm.unit.equipments|_columns@state$selections#canceled:1
+#: model@tm.orders|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Odpovedan"
+
+#: model@tm.maps|_columns@recepture_id$label:1
+#: model@tm.orders|_columns@recepture$label:1
 msgid "Recepture"
 msgstr "Recepture"
 
-#: tm.handlings-map_id:1 tm.template.maps-map_id:1
+#: model@tm.handlings|_description@:1
+msgid "General Model Handlings"
+msgstr "Splošni Model Handlings"
+
+#: model@tm.handlings|_columns@map_id$label:1
+#: model@tm.template.maps|_columns@map_id$label:1
 msgid "Map"
 msgstr "Zemljevid"
 
-#: tm.nodes-category_id:1 tm.unit.equipments-category_id:1
+#: model@tm.category.node|_description@:1
+msgid "General Model Category Node"
+msgstr "Splošni Model Kategorija Vozlišče"
+
+#: model@tm.nodes|_description@:1
+msgid "General Model Nodes"
+msgstr "Splošni Model Vozlišča"
+
+#: model@tm.nodes|_columns@category_id$label:1
+#: model@tm.unit.equipments|_columns@category_id$label:1
 msgid "Category"
 msgstr "Kategorija"
 
-#: tm.nodes-items:1 tm.orders-items:1
+#: model@tm.nodes|_columns@items$label:1
+#: model@tm.orders|_columns@items$label:1
 msgid "Items"
 msgstr "Predmeti"
 
-#: tm.nodes-inactive:1 tm.unit.equipments-inactive:1
+#: model@tm.nodes|_columns@inactive$label:1
+#: model@tm.unit.equipments|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Neaktivnih"
 
-#: tm.node.items-node_id:1 tm.template.nodes-node_id:1
+#: model@tm.node.items|_description@:1
+msgid "General Model Node Items"
+msgstr "Splošni Model Vozlišče Elementov"
+
+#: model@tm.node.items|_columns@node_id$label:1
+#: model@tm.template.nodes|_columns@node_id$label:1
 msgid "Node"
 msgstr "Vozlišče"
 
-#: tm.template.equipment-nodes:1
+#: model@tm.category.equipment|_description@:1
+msgid "General Model Category Equipment"
+msgstr "Splošni Model Kategorije Oprema"
+
+#: model@tm.template.equipment|_description@:1
+msgid "General Model Template Equipment"
+msgstr "Splošni Model Predlogo Oprema"
+
+#: model@tm.template.equipment|_columns@nodes$label:1
 msgid "Nodes"
 msgstr "Vozlišča"
 
-#: tm.template.equipment-maps:1
+#: model@tm.template.equipment|_columns@maps$label:1
 msgid "Maps"
 msgstr "Zemljevidi"
 
-#: tm.template.equipment-handlings:1
+#: model@tm.template.equipment|_columns@handlings$label:1
 msgid "Handlings"
 msgstr "Handlings"
 
-#: tm.template.equipment-inactive:1
+#: model@tm.template.equipment|_columns@inactive$label:1
 msgid "InActive"
 msgstr "Neaktivnih"
 
-#: tm.template.nodes-template_equipment_id:1
-#: tm.template.maps-template_equipment_id:1
-#: tm.template.handlings-template_equipment_id:1
-#: tm.unit.equipments-template_id:1
+#: model@tm.template.nodes|_description@:1
+msgid "General Model Template Nodes"
+msgstr "Splošni Model Predlogo Vozlišča"
+
+#: model@tm.template.nodes|_columns@template_equipment_id$label:1
+#: model@tm.template.maps|_columns@template_equipment_id$label:1
+#: model@tm.template.handlings|_columns@template_equipment_id$label:1
+#: model@tm.unit.equipments|_columns@template_id$label:1
 msgid "Template"
 msgstr "Predlogo"
 
-#: tm.template.handlings-handling_id:1
+#: model@tm.template.maps|_description@:1
+msgid "General Model Template Maps"
+msgstr "Splošni Model Predlogo Zemljevidi"
+
+#: model@tm.template.handlings|_description@:1
+msgid "General Model Template Handlings"
+msgstr "Splošni Model Predlogo Handlings"
+
+#: model@tm.template.handlings|_columns@handling_id$label:1
 msgid "Handling"
 msgstr "Ravnanje"
 
-#: tm.template.handlings-period:1
+#: model@tm.template.handlings|_columns@otype$selections#p:1
+msgid "Primary"
+msgstr "Primarni"
+
+#: model@tm.template.handlings|_columns@otype$selections#P:1
+msgid "Periodical"
+msgstr "Redni"
+
+#: model@tm.template.handlings|_columns@otype$selections#l:1
+msgid "Latest"
+msgstr "Najnovejše"
+
+#: model@tm.template.handlings|_columns@period$label:1
 msgid "Period"
 msgstr "Obdobje"
 
-#: tm.template.handlings-unit:1 tm.order.items-uom:1
+#: model@tm.template.handlings|_columns@unit$label:1
+#: model@tm.order.items|_columns@uom$label:1
 msgid "UoM"
 msgstr "UoM"
 
-#: tm.unit.equipments-location_id:1
+#: model@tm.unit.equipments|_description@:1
+msgid "General Model Unit Equipments"
+msgstr "Splošni Model Enota Oprema"
+
+#: model@tm.unit.equipments|_columns@location_id$label:1
 msgid "Location"
 msgstr "Lokacija"
 
-#: tm.unit.equipments-serial_no:1
+#: model@tm.unit.equipments|_columns@serial_no$label:1
 msgid "Serial No"
 msgstr "Serijska Št."
 
-#: tm.unit.equipments-orders:1
+#: model@tm.unit.equipments|_columns@orders$label:1
 msgid "Orders"
 msgstr "Naročila"
 
-#: tm.orders-origin:1
+#: model@tm.orders|_description@:1
+msgid "General Model Order"
+msgstr "Splošni Model, Ki Bi"
+
+#: model@tm.orders|_columns@origin$label:1
 msgid "Origin"
 msgstr "Poreklo"
 
-#: tm.orders-unit_equipment_id:1 tm.unit.equipment.orders-unit_equipment_id:1
+#: model@tm.orders|_columns@otype$selections#d:1
+msgid "Disassemble"
+msgstr "Razstaviti"
+
+#: model@tm.orders|_columns@otype$selections#s:1
+msgid "Services"
+msgstr "Storitve"
+
+#: model@tm.orders|_columns@unit_equipment_id$label:1
+#: model@tm.unit.equipment.orders|_columns@unit_equipment_id$label:1
 msgid "Unit Equipment"
 msgstr "Enota Opreme"
 
-#: tm.orders-doo:1
+#: model@tm.orders|_columns@doo$label:1
 msgid "Date Of Order"
 msgstr "Datum Naročila"
 
-#: tm.orders-from_date:1
+#: model@tm.orders|_columns@from_date$label:1
 msgid "Start date"
 msgstr "Začetni datum"
 
-#: tm.orders-to_date:1
+#: model@tm.orders|_columns@to_date$label:1
 msgid "End date"
 msgstr "Končni datum"
 
-#: tm.order.items-order_id:1 tm.unit.equipment.orders-order_id:1
+#: model@tm.order.items|_description@:1
+msgid "General Model Order Items"
+msgstr "Splošni Model, Ki Bi Elementov"
+
+#: model@tm.order.items|_columns@order_id$label:1
+#: model@tm.unit.equipment.orders|_columns@order_id$label:1
 msgid "Order"
 msgstr "Naročilo"
 
-#: tm.order.items-quantity:1
+#: model@tm.order.items|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Količina"
 
-#: tm.unit.equipment.orders-start_date:1
+#: model@tm.unit.equipment.orders|_description@:1
+msgid "General Model Unit Equipment Orders"
+msgstr "Splošni Model Enota Opreme Naročila"
+
+#: model@tm.unit.equipment.orders|_columns@start_date$label:1
 msgid "Start Date"
 msgstr "Začetni Datum"
 
-#: tm.unit.equipment.orders-end_date:1
+#: model@tm.unit.equipment.orders|_columns@end_date$label:1
 msgid "End Date"
 msgstr "Končni Datum"

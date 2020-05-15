@@ -3,456 +3,755 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:33:05+0000\n"
-"PO-Revision-Date: 2020-02-13 14:33:05+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:51+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:51+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: bc.users-login:1
+#: model@bc.users|_description@:1
+msgid "General Model Users"
+msgstr "Vispārējā Modeli Lietotāji"
+
+#: model@bc.users|_columns@login$label:1
 msgid "Login"
 msgstr "Pieteikšanās"
 
-#: bc.users-password:1
+#: model@bc.users|_columns@password$label:1
 msgid "Password"
 msgstr "Paroles"
 
-#: bc.users-firstname:1
+#: model@bc.users|_columns@firstname$label:1
 msgid "First Name"
 msgstr "Vārds"
 
-#: bc.users-lastname:1
+#: model@bc.users|_columns@lastname$label:1
 msgid "Last Name"
 msgstr "Uzvārds"
 
-#: bc.users-issuperuser:1
+#: model@bc.users|_columns@issuperuser$label:1
 msgid "Is Super User"
 msgstr "Ir Super User"
 
-#: bc.langs-name:1 bc.translations-lang_id:1
-msgid "Language"
-msgstr "Valodas"
+#: model@bc.area.messages|_description@:1
+msgid "General Model Area Messages"
+msgstr "Vispārējā Modeļa Jomā Ziņas"
 
-#: bc.langs-description:1 bc.class.models-descr:1 bc.class.categories-descr:1
-#: bc.models-description:1 bc.inherits-description:1
-msgid "Description"
-msgstr "Apraksts"
-
-#: bc.group.modules-name:1 bc.modules-name:1 bc.module.files-filename:1
-#: bc.models-name:1 bc.inherits-name:1 bc.model.columns-col_name:1
-#: bc.inherit.columns-col_name:1 bc.model.data-name:1
-#: bc.tuning.ui.views-name:1 bc.general.tuning.ui.views-name:1
-#: bc.ui.reports-name:1 bc.ui.menus-name:1
-msgid "Name"
-msgstr "Nosaukums"
-
-#: bc.group.modules-name2:1
-msgid "Name 2"
-msgstr "Nosaukums 2"
-
-#: bc.group.modules-parent_id:1 bc.group.access-parent_id:1
-#: bc.ui.menus-parent_id:1
-msgid "Parent"
-msgstr "Vecākiem"
-
-#: bc.group.modules-childs_id:1 bc.group.access-childs_id:1
-#: bc.ui.menus-childs_id:1
-msgid "Childs"
-msgstr "Childs"
-
-#: bc.group.modules-bc_modules:1
-msgid "Modules"
-msgstr "Moduļi"
-
-#: bc.group.modules-note:1 bc.class.models-note:1 bc.class.categories-note:1
-#: bc.group.access-note:1 bc.access-note:1 bc.model.access-note:1
-msgid "Note"
-msgstr "Piezīme"
-
-#: bc.modules-bc_group_module_id:1 bc.access-group_id:1
-msgid "Group"
-msgstr "Grupa"
-
-#: bc.modules-code:1 bc.class.models-name:1 bc.class.categories-name:1
-msgid "Code"
-msgstr "Kods"
-
-#: bc.modules-version:1
-msgid "Version"
-msgstr "Versija"
-
-#: bc.modules-category:1
-msgid "Category"
-msgstr "Kategorijas"
-
-#: bc.modules-shortdescription:1
-msgid "Short Description"
-msgstr "Īss Apraksts"
-
-#: bc.modules-author:1
-msgid "Author"
-msgstr "Autors"
-
-#: bc.modules-website:1
-msgid "Website"
-msgstr "Mājas lapa"
-
-#: bc.modules-maintainer:1
-msgid "Maintainer"
-msgstr "Uzturētājs"
-
-#: bc.modules-able:1
-msgid "Able"
-msgstr "Iespēja"
-
-#: bc.modules-area:1
+#: model@bc.area.messages|_columns@name$label:1
+#: model@bc.messages|_columns@area$label:1
+#: model@bc.modules|_columns@area$label:1
 msgid "Area"
 msgstr "Platība"
 
-#: bc.modules-icon:1
+#: model@bc.area.messages|_columns@note$label:1
+#: model@bc.messages|_columns@note$label:1
+#: model@bc.group.modules|_columns@note$label:1
+#: model@bc.class.models|_columns@note$label:1
+#: model@bc.class.categories|_columns@note$label:1
+#: model@bc.group.access|_columns@note$label:1
+#: model@bc.access|_columns@note$label:1
+#: model@bc.model.access|_columns@note$label:1
+msgid "Note"
+msgstr "Piezīme"
+
+#: model@bc.messages|_description@:1
+msgid "General Model Messages"
+msgstr "Vispārējā Modeļa Ziņas"
+
+#: model@bc.messages|_columns@code$label:1
+msgid "Message"
+msgstr "Ziņojums"
+
+#: model@bc.messages|_columns@descr$label:1
+#: model@bc.langs|_columns@description$label:1
+#: model@bc.class.models|_columns@descr$label:1
+#: model@bc.class.categories|_columns@descr$label:1
+#: model@bc.models|_columns@description$label:1
+#: model@bc.inherits|_columns@description$label:1
+msgid "Description"
+msgstr "Apraksts"
+
+#: model@bc.langs|_description@:1
+msgid "General Model Langs"
+msgstr "Vispārējā Modeļa Langs"
+
+#: model@bc.langs|_columns@code$label:1
+#: model@bc.record.translations|_columns@lang$label:1
+#: model@bc.model.translations|_columns@lang$label:1
+msgid "Language"
+msgstr "Valodas"
+
+#: model@bc.group.modules|_description@:1
+msgid "General Model Module Groups"
+msgstr "Vispārējā Modeļa Modulis Grupu"
+
+#: model@bc.group.modules|_columns@name$label:1
+#: model@bc.modules|_columns@name$label:1
+#: model@bc.module.files|_columns@filename$label:1
+#: model@bc.models|_columns@name$label:1
+#: model@bc.inherits|_columns@name$label:1
+#: model@bc.model.columns|_columns@col_name$label:1
+#: model@bc.inherit.columns|_columns@col_name$label:1
+#: model@bc.model.data|_columns@name$label:1
+#: model@bc.tuning.ui.views|_columns@name$label:1
+#: model@bc.general.tuning.ui.views|_columns@name$label:1
+#: model@bc.ui.reports|_columns@name$label:1
+#: model@bc.ui.menus|_columns@name$label:1
+msgid "Name"
+msgstr "Nosaukums"
+
+#: model@bc.group.modules|_columns@name2$label:1
+msgid "Name 2"
+msgstr "Nosaukums 2"
+
+#: model@bc.group.modules|_columns@parent_id$label:1
+#: model@bc.group.access|_columns@parent_id$label:1
+#: model@bc.ui.menus|_columns@parent_id$label:1
+msgid "Parent"
+msgstr "Vecākiem"
+
+#: model@bc.group.modules|_columns@childs_id$label:1
+#: model@bc.group.access|_columns@childs_id$label:1
+#: model@bc.ui.menus|_columns@childs_id$label:1
+msgid "Childs"
+msgstr "Childs"
+
+#: model@bc.group.modules|_columns@bc_modules$label:1
+msgid "Modules"
+msgstr "Moduļi"
+
+#: model@bc.modules|_description@:1
+msgid "General Model Modules"
+msgstr "Vispārējā Modeļa Moduļi"
+
+#: model@bc.modules|_columns@bc_group_module_id$label:1
+#: model@bc.access|_columns@group_id$label:1
+msgid "Group"
+msgstr "Grupa"
+
+#: model@bc.modules|_columns@code$label:1
+#: model@bc.class.models|_columns@name$label:1
+#: model@bc.class.categories|_columns@name$label:1
+msgid "Code"
+msgstr "Kods"
+
+#: model@bc.modules|_columns@version$label:1
+msgid "Version"
+msgstr "Versija"
+
+#: model@bc.modules|_columns@category$label:1
+msgid "Category"
+msgstr "Kategorijas"
+
+#: model@bc.modules|_columns@shortdescription$label:1
+msgid "Short Description"
+msgstr "Īss Apraksts"
+
+#: model@bc.modules|_columns@author$label:1
+msgid "Author"
+msgstr "Autors"
+
+#: model@bc.modules|_columns@website$label:1
+msgid "Website"
+msgstr "Mājas lapa"
+
+#: model@bc.modules|_columns@maintainer$label:1
+msgid "Maintainer"
+msgstr "Uzturētājs"
+
+#: model@bc.modules|_columns@able$label:1
+msgid "Able"
+msgstr "Iespēja"
+
+#: model@bc.modules|_columns@area$selections#S:1
+msgid "System"
+msgstr "Sistēma"
+
+#: model@bc.modules|_columns@area$selections#A:1
+msgid "Application"
+msgstr "Pieteikums"
+
+#: model@bc.modules|_columns@area$selections#E:1
+msgid "Extra"
+msgstr "Papildus"
+
+#: model@bc.modules|_columns@icon$label:1
 msgid "Icon"
 msgstr "Ikonas"
 
-#: bc.modules-image:1
+#: model@bc.modules|_columns@image$label:1
 msgid "Image "
 msgstr "Attēls "
 
-#: bc.modules-state:1
+#: model@bc.modules|_columns@state$label:1
 msgid "State"
 msgstr "Valsts"
 
-#: bc.modules-description:1
+#: model@bc.modules|_columns@state$selections#N:1
+msgid "Not installed"
+msgstr "Nav uzstādīta"
+
+#: model@bc.modules|_columns@state$selections#I:1
+msgid "Installed"
+msgstr "Uzstādīts"
+
+#: model@bc.modules|_columns@state$selections#i:1
+msgid "To be installed"
+msgstr "Uzstāda"
+
+#: model@bc.modules|_columns@state$selections#u:1
+msgid "To be upgrade"
+msgstr "Lai jauninātu"
+
+#: model@bc.modules|_columns@state$selections#r:1
+msgid "To be uninstalled"
+msgstr "Lai atinstalēta"
+
+#: model@bc.modules|_columns@description$label:1
 msgid "Long Description"
 msgstr "Garš Apraksts"
 
-#: bc.modules-models:1 bc.access-models:1
+#: model@bc.modules|_columns@models$label:1
+#: model@bc.access|_columns@models$label:1
 msgid "Models"
 msgstr "Modeļi"
 
-#: bc.modules-inherits:1 bc.inherit.columns-inherit_id:1
-#: bc.ui.views.inherit-name:1
+#: model@bc.modules|_columns@inherits$label:1
+#: model@bc.inherit.columns|_columns@inherit_id$label:1
+#: model@bc.ui.views.inherit|_columns@name$label:1
 msgid "Inherit"
 msgstr "Mantot"
 
-#: bc.modules-files:1
+#: model@bc.modules|_columns@files$label:1
 msgid "Files"
 msgstr "Failus"
 
-#: bc.module.files-module_id:1 bc.models-module_id:1 bc.inherits-module_id:1
-#: bc.translations-module_id:1 bc.model.data-module:1
+#: model@bc.module.files|_description@:1
+msgid "General Model Module File"
+msgstr "Vispārējā Modeļa Moduļa Failu"
+
+#: model@bc.module.files|_columns@module_id$label:1
+#: model@bc.models|_columns@module_id$label:1
+#: model@bc.inherits|_columns@module_id$label:1
+#: model@bc.model.data|_columns@module$label:1
 msgid "Module"
 msgstr "Modulis"
 
-#: bc.module.files-size:1 bc.model.columns-size:1 bc.inherit.columns-size:1
+#: model@bc.module.files|_columns@size$label:1
+#: model@bc.model.columns|_columns@size$label:1
+#: model@bc.inherit.columns|_columns@size$label:1
 msgid "Size"
 msgstr "Izmērs"
 
-#: bc.module.files-ctime:1
+#: model@bc.module.files|_columns@ctime$label:1
 msgid "Created"
 msgstr "Izveidots"
 
-#: bc.module.files-mtime:1
+#: model@bc.module.files|_columns@mtime$label:1
 msgid "Modified"
 msgstr "Mainītās"
 
-#: bc.models-db_table:1
+#: model@bc.class.models|_description@:1
+msgid "General Model Class Models"
+msgstr "Vispārējā Modeli Klases Modeļi"
+
+#: model@bc.class.categories|_description@:1
+msgid "General Model Class Categories"
+msgstr "Vispārējā Modeli Klases Kategorijas"
+
+#: model@bc.models|_description@:1
+msgid "General Model Models"
+msgstr "Vispārējā Modeļa Modeļi"
+
+#: model@bc.models|_columns@db_table$label:1
 msgid "Database table"
 msgstr "Datu bāzes tabula"
 
-#: bc.models-class_model:1
+#: model@bc.models|_columns@class_model$label:1
 msgid "Class Model"
 msgstr "Klases Modelis"
 
-#: bc.models-class_category:1
+#: model@bc.models|_columns@class_category$label:1
 msgid "Class Categoty"
 msgstr "Klases Categoty"
 
-#: bc.models-columns:1 bc.inherits-columns:1
+#: model@bc.models|_columns@columns$label:1
+#: model@bc.inherits|_columns@columns$label:1
+#: model@bc.tuning.ui.views|_columns@cols$label:1
+#: model@bc.general.tuning.ui.views|_columns@cols$label:1
 msgid "Columns"
 msgstr "Slejas"
 
-#: bc.model.columns-model_id:1 bc.translations-model_id:1
-#: bc.model.access-model_id:1 bc.model.data-model:1
+#: model@bc.inherits|_description@:1
+msgid "General Model Inherits"
+msgstr "Vispārējā Modeļa Pārmanto"
+
+#: model@bc.model.columns|_description@:1
+msgid "General Model Model Columns"
+msgstr "Vispārīgi Modelis Modelis Kolonnas"
+
+#: model@bc.model.columns|_columns@model_id$label:1
+#: model@bc.record.translations|_columns@model$label:1
+#: model@bc.model.translations|_columns@model$label:1
+#: model@bc.model.access|_columns@model_id$label:1
+#: model@bc.model.data|_columns@model$label:1
 msgid "Model"
 msgstr "Modelis"
 
-#: bc.model.columns-col_type:1 bc.inherit.columns-col_type:1
+#: model@bc.model.columns|_columns@col_type$label:1
+#: model@bc.inherit.columns|_columns@col_type$label:1
 msgid "Type"
 msgstr "Veids"
 
-#: bc.model.columns-label:1 bc.inherit.columns-label:1
+#: model@bc.model.columns|_columns@label$label:1
+#: model@bc.inherit.columns|_columns@label$label:1
 msgid "label"
 msgstr "etiķetes"
 
-#: bc.model.columns-readanly:1 bc.inherit.columns-readanly:1
+#: model@bc.model.columns|_columns@readanly$label:1
+#: model@bc.inherit.columns|_columns@readanly$label:1
+#: model@bc.tuning.ui.view.items|_columns@readonly$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@readonly$label:1
 msgid "Readonly"
 msgstr "Tikai lasāmos"
 
-#: bc.model.columns-priority:1 bc.inherit.columns-priority:1
+#: model@bc.model.columns|_columns@priority$label:1
+#: model@bc.inherit.columns|_columns@priority$label:1
 msgid "Prority"
 msgstr "Prority"
 
-#: bc.model.columns-domain:1 bc.inherit.columns-domain:1
+#: model@bc.model.columns|_columns@domain$label:1
+#: model@bc.inherit.columns|_columns@domain$label:1
 msgid "Domain"
 msgstr "Domēna"
 
-#: bc.model.columns-required:1 bc.inherit.columns-required:1
+#: model@bc.model.columns|_columns@required$label:1
+#: model@bc.inherit.columns|_columns@required$label:1
+#: model@bc.tuning.ui.view.items|_columns@required$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@required$label:1
 msgid "Required"
 msgstr "Nepieciešams"
 
-#: bc.model.columns-precision:1 bc.inherit.columns-precision:1
+#: model@bc.model.columns|_columns@precision$label:1
+#: model@bc.inherit.columns|_columns@precision$label:1
 msgid "Precesion"
 msgstr "Precesion"
 
-#: bc.model.columns-on_delete:1 bc.inherit.columns-on_delete:1
+#: model@bc.model.columns|_columns@on_delete$label:1
+#: model@bc.inherit.columns|_columns@on_delete$label:1
 msgid "On Delete"
 msgstr "Dzēst"
 
-#: bc.model.columns-on_update:1 bc.inherit.columns-on_update:1
+#: model@bc.model.columns|_columns@on_delete$selections#a:1
+#: model@bc.model.columns|_columns@on_update$selections#a:1
+#: model@bc.inherit.columns|_columns@on_delete$selections#a:1
+#: model@bc.inherit.columns|_columns@on_update$selections#a:1
+msgid "No action"
+msgstr "Nekāda darbība"
+
+#: model@bc.model.columns|_columns@on_delete$selections#r:1
+#: model@bc.model.columns|_columns@on_update$selections#r:1
+#: model@bc.inherit.columns|_columns@on_delete$selections#r:1
+#: model@bc.inherit.columns|_columns@on_update$selections#r:1
+msgid "Restrict"
+msgstr "Ierobežot"
+
+#: model@bc.model.columns|_columns@on_delete$selections#n:1
+#: model@bc.model.columns|_columns@on_update$selections#n:1
+#: model@bc.inherit.columns|_columns@on_delete$selections#n:1
+#: model@bc.inherit.columns|_columns@on_update$selections#n:1
+msgid "Set Null"
+msgstr "Set Null"
+
+#: model@bc.model.columns|_columns@on_delete$selections#c:1
+#: model@bc.model.columns|_columns@on_update$selections#c:1
+#: model@bc.inherit.columns|_columns@on_delete$selections#c:1
+#: model@bc.inherit.columns|_columns@on_update$selections#c:1
+msgid "Cascade"
+msgstr "Kaskādes"
+
+#: model@bc.model.columns|_columns@on_delete$selections#d:1
+#: model@bc.model.columns|_columns@on_update$selections#d:1
+#: model@bc.inherit.columns|_columns@on_delete$selections#d:1
+#: model@bc.inherit.columns|_columns@on_update$selections#d:1
+msgid "Set default"
+msgstr "Iestatīt noklusējuma"
+
+#: model@bc.model.columns|_columns@on_update$label:1
+#: model@bc.inherit.columns|_columns@on_update$label:1
 msgid "On Update"
 msgstr "Par Update"
 
-#: bc.model.columns-change_default:1 bc.inherit.columns-change_default:1
+#: model@bc.model.columns|_columns@change_default$label:1
+#: model@bc.inherit.columns|_columns@change_default$label:1
 msgid "Change default"
 msgstr "Mainīt noklusējuma"
 
-#: bc.model.columns-translate:1 bc.inherit.columns-translate:1
+#: model@bc.model.columns|_columns@translate$label:1
+#: model@bc.inherit.columns|_columns@translate$label:1
 msgid "Translate"
 msgstr "Tulkot"
 
-#: bc.model.columns-selections:1 bc.inherit.columns-selections:1
+#: model@bc.model.columns|_columns@selections$label:1
+#: model@bc.inherit.columns|_columns@selections$label:1
 msgid "Selections"
 msgstr "Izlasēs"
 
-#: bc.model.columns-selectable:1 bc.inherit.columns-selectable:1
+#: model@bc.model.columns|_columns@selectable$label:1
+#: model@bc.inherit.columns|_columns@selectable$label:1
 msgid "Selectable"
 msgstr "Izvēlēties"
 
-#: bc.model.columns-relatedy:1
+#: model@bc.model.columns|_columns@relatedy$label:1
 msgid "Relatedy"
 msgstr "Relatedy"
 
-#: bc.model.columns-manual:1 bc.inherit.columns-manual:1
+#: model@bc.model.columns|_columns@manual$label:1
+#: model@bc.inherit.columns|_columns@manual$label:1
 msgid "Manual"
 msgstr "Rokasgrāmata"
 
-#: bc.model.columns-help:1 bc.inherit.columns-help:1
+#: model@bc.model.columns|_columns@help$label:1
+#: model@bc.inherit.columns|_columns@help$label:1
 msgid "Help"
 msgstr "Palīdzēt"
 
-#: bc.model.columns-col_unique:1 bc.inherit.columns-col_unique:1
+#: model@bc.model.columns|_columns@col_unique$label:1
+#: model@bc.inherit.columns|_columns@col_unique$label:1
 msgid "Unique"
 msgstr "Unikālo"
 
-#: bc.model.columns-col_check:1 bc.inherit.columns-col_check:1
+#: model@bc.model.columns|_columns@col_check$label:1
+#: model@bc.inherit.columns|_columns@col_check$label:1
 msgid "Check"
 msgstr "Pārbaudīt"
 
-#: bc.model.columns-col_default:1 bc.inherit.columns-col_default:1
+#: model@bc.model.columns|_columns@col_default$label:1
+#: model@bc.inherit.columns|_columns@col_default$label:1
 msgid "Default"
 msgstr "Noklusējuma"
 
-#: bc.model.columns-col_family:1 bc.inherit.columns-col_family:1
+#: model@bc.model.columns|_columns@col_family$label:1
+#: model@bc.inherit.columns|_columns@col_family$label:1
 msgid "Family"
 msgstr "Ģimenes"
 
-#: bc.model.columns-timezone:1 bc.inherit.columns-timezone:1
+#: model@bc.model.columns|_columns@timezone$label:1
+#: model@bc.inherit.columns|_columns@timezone$label:1
 msgid "Timezone"
 msgstr "Laika josla"
 
-#: bc.model.columns-obj:1 bc.inherit.columns-obj:1
+#: model@bc.model.columns|_columns@obj$label:1
+#: model@bc.inherit.columns|_columns@obj$label:1
 msgid "Obj"
 msgstr "Mērķis:"
 
-#: bc.model.columns-rel:1 bc.inherit.columns-rel:1
+#: model@bc.model.columns|_columns@rel$label:1
+#: model@bc.inherit.columns|_columns@rel$label:1
 msgid "Relation"
 msgstr "Attiecībā"
 
-#: bc.model.columns-id1:1 bc.inherit.columns-id1:1
+#: model@bc.model.columns|_columns@id1$label:1
+#: model@bc.inherit.columns|_columns@id1$label:1
 msgid "Id1"
 msgstr "Id1"
 
-#: bc.model.columns-id2:1 bc.inherit.columns-id2:1
+#: model@bc.model.columns|_columns@id2$label:1
+#: model@bc.inherit.columns|_columns@id2$label:1
 msgid "Id2"
 msgstr "Id2"
 
-#: bc.inherit.columns-filtering:1
+#: model@bc.inherit.columns|_description@:1
+msgid "General Model Inherit Columns"
+msgstr "Vispārējā Modeļa Mantot Kolonnas"
+
+#: model@bc.inherit.columns|_columns@filtering$label:1
 msgid "Filtering"
 msgstr "Filtrēšanas"
 
-#: bc.translations-record_id:1
+#: model@bc.record.translations|_description@:1
+msgid "General Model Record Translations"
+msgstr "Vispārējā Modeļa Ieraksts Tulkojumi"
+
+#: model@bc.record.translations|_columns@record$label:1
 msgid "Record ID"
 msgstr "Ieraksta ID"
 
-#: bc.translations-column_id:1
-msgid "Column ID"
-msgstr "Kolonna ID"
-
-#: bc.translations-tr:1
+#: model@bc.record.translations|_columns@tr$label:1
+#: model@bc.model.translations|_columns@tr$label:1
 msgid "Translations"
 msgstr "Tulkojumi"
 
-#: bc.group.access-name:1
+#: model@bc.model.translations|_description@:1
+msgid "General Model Model Translations"
+msgstr "Vispārīgi Modelis Modelis Tulkojumi"
+
+#: model@bc.group.access|_description@:1
+msgid "General Model Group Access"
+msgstr "Vispārējā Modeļa Grupa Piekļuve"
+
+#: model@bc.group.access|_columns@name$label:1
 msgid "Group Access"
 msgstr "Grupa Piekļuve"
 
-#: bc.group.access-roles:1
+#: model@bc.group.access|_columns@roles$label:1
 msgid "Roles"
 msgstr "Lomās"
 
-#: bc.group.access-active:1
+#: model@bc.group.access|_columns@active$label:1
 msgid "Active"
 msgstr "Aktīvs"
 
-#: bc.access-name:1 bc.model.access-access_id:1
+#: model@bc.access|_description@:1
+msgid "General Model Access"
+msgstr "Vispārējā Modeļa Piekļuve"
+
+#: model@bc.access|_columns@name$label:1
+#: model@bc.model.access|_columns@access_id$label:1
 msgid "Access"
 msgstr "Pieejamība"
 
-#: bc.access-inactive:1 bc.model.access-inactive:1
+#: model@bc.access|_columns@inactive$label:1
+#: model@bc.model.access|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Neaktīvs"
 
-#: bc.model.access-acreate:1
+#: model@bc.model.access|_description@:1
+msgid "General Model Model Access"
+msgstr "Vispārīgi Modelis Modelis Piekļuve"
+
+#: model@bc.model.access|_columns@acreate$label:1
 msgid "Create"
 msgstr "Radīt"
 
-#: bc.model.access-awrite:1
+#: model@bc.model.access|_columns@awrite$label:1
 msgid "Write"
 msgstr "Rakstiet"
 
-#: bc.model.access-amodify:1
+#: model@bc.model.access|_columns@amodify$label:1
 msgid "Modify"
 msgstr "Mainīt"
 
-#: bc.model.access-aread:1
+#: model@bc.model.access|_columns@aread$label:1
 msgid "Read"
 msgstr "Lasīt"
 
-#: bc.model.access-aunlink:1
+#: model@bc.model.access|_columns@aunlink$label:1
 msgid "Unlink"
 msgstr "Atsaistīt"
 
-#: bc.model.access-aselect:1
+#: model@bc.model.access|_columns@aselect$label:1
 msgid "Select"
 msgstr "Izvēlieties"
 
-#: bc.model.access-aupdate:1
+#: model@bc.model.access|_columns@aupdate$label:1
 msgid "Update"
 msgstr "Update"
 
-#: bc.model.access-adelete:1
+#: model@bc.model.access|_columns@adelete$label:1
 msgid "Delete"
 msgstr "Dzēst"
 
-#: bc.model.access-ainsert:1
+#: model@bc.model.access|_columns@ainsert$label:1
 msgid "Insert"
 msgstr "Ielikt"
 
-#: bc.model.access-aupsert:1
+#: model@bc.model.access|_columns@aupsert$label:1
 msgid "Upsert"
 msgstr "Upsert"
 
-#: bc.model.access-abrowse:1
+#: model@bc.model.access|_columns@abrowse$label:1
 msgid "Browse"
 msgstr "Pārlūkojiet"
 
-#: bc.model.access-aselectbrowse:1
+#: model@bc.model.access|_columns@aselectbrowse$label:1
 msgid "Browse Select"
 msgstr "Izvēlieties Pārlūkojiet"
 
-#: bc.model.access-auth:1
+#: model@bc.model.access|_columns@auth$label:1
 msgid "Auth"
 msgstr "Auth"
 
-#: bc.model.data-rec_id:1
+#: model@bc.model.data|_description@:1
+msgid "General Model Loading Model XML Data"
+msgstr "Vispārējā Modeļa Kravas Modelis XML Datu"
+
+#: model@bc.model.data|_columns@rec_id$label:1
 msgid "ID record"
 msgstr "ID ierakstu"
 
-#: bc.model.data-file_id:1
+#: model@bc.model.data|_columns@file_id$label:1
 msgid "File"
 msgstr "Failu"
 
-#: bc.model.data-date_init:1
+#: model@bc.model.data|_columns@date_init$label:1
 msgid "Timestamp init"
 msgstr "Timestamp init"
 
-#: bc.model.data-date_update:1
+#: model@bc.model.data|_columns@date_update$label:1
 msgid "Timestamp update"
 msgstr "Timestamp atjauninājumu"
 
-#: bc.ui.views-name:1
+#: model@bc.ui.views|_description@:1
+msgid "General Model Models views"
+msgstr "Vispārējā Modeļa Modeļi viedokli"
+
+#: model@bc.ui.views|_columns@name$label:1
 msgid "View name"
 msgstr "Apskatīt nosaukums"
 
-#: bc.ui.views-model:1
+#: model@bc.ui.views|_columns@model$label:1
 msgid "Model Name"
 msgstr "Modeļa Nosaukums"
 
-#: bc.ui.views-type:1 bc.ui.views.inherit-type:1
+#: model@bc.ui.views|_columns@type$label:1
+#: model@bc.ui.views.inherit|_columns@type$label:1
 msgid "Arch Type"
 msgstr "Arku Tips"
 
-#: bc.ui.views-arch:1 bc.ui.views.inherit-arch:1
+#: model@bc.ui.views|_columns@type$selections#xml:1
+#: model@bc.ui.views.inherit|_columns@type$selections#xml:1
+msgid "Xml"
+msgstr "Xml"
+
+#: model@bc.ui.views|_columns@type$selections#html:1
+#: model@bc.ui.views.inherit|_columns@type$selections#html:1
+msgid "Html"
+msgstr "Html"
+
+#: model@bc.ui.views|_columns@arch$label:1
+#: model@bc.ui.views.inherit|_columns@arch$label:1
 msgid "Arch Blob"
 msgstr "Arku Lāse"
 
-#: bc.ui.views-inherit_views:1
+#: model@bc.ui.views|_columns@inherit_views$label:1
 msgid "Inherit Views"
 msgstr "Mantot Viedokli"
 
-#: bc.ui.views.inherit-view_id:1 bc.tuning.ui.views-view_id:1
-#: bc.general.tuning.ui.views-view_id:1 bc.view.actions-view_id:1
+#: model@bc.ui.views.inherit|_description@:1
+msgid "General Model Models Views Inherit"
+msgstr "Vispārējā Modeļa Modeļi Viedokli Mantot"
+
+#: model@bc.ui.views.inherit|_columns@view_id$label:1
+#: model@bc.tuning.ui.views|_columns@view$label:1
+#: model@bc.general.tuning.ui.views|_columns@view$label:1
+#: model@bc.actions|_columns@ta$selections#view:1
+#: model@bc.view.actions|_columns@view_id$label:1
 msgid "View"
 msgstr "Skats"
 
-#: bc.tuning.ui.views-user_id:1
+#: model@bc.tuning.ui.views|_description@:1
+msgid "General Model Tunning Models Views"
+msgstr "Vispārējā Modeļa Tunning Modeļi Viedokli"
+
+#: model@bc.tuning.ui.views|_columns@tuser$label:1
 msgid "User"
 msgstr "Lietotājs"
 
-#: bc.tuning.ui.views-col_name:1 bc.general.tuning.ui.views-col_name:1
-msgid "Column"
-msgstr "Kolonna"
+#: model@bc.tuning.ui.views|_columns@fullname$label:1
+#: model@bc.general.tuning.ui.views|_columns@fullname$label:1
+msgid "Full Name"
+msgstr "Pilns Nosaukums"
 
-#: bc.tuning.ui.views-sequence:1 bc.general.tuning.ui.views-sequence:1
-#: bc.ui.menus-sequence:1
+#: model@bc.tuning.ui.view.items|_description@:1
+#: model@bc.general.tuning.ui.view.items|_description@:1
+msgid "General Model Tunning Models View Items"
+msgstr "Vispārējā Modeļa Tunning Modeļus Lai Skatītu Objektus"
+
+#: model@bc.tuning.ui.view.items|_columns@tunning_id$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@tunning_id$label:1
+msgid "Tunning"
+msgstr "Tunning"
+
+#: model@bc.tuning.ui.view.items|_columns@sequence$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@sequence$label:1
+#: model@bc.ui.menus|_columns@sequence$label:1
 msgid "Sequence"
 msgstr "Secība"
 
-#: bc.tuning.ui.views-values:1 bc.general.tuning.ui.views-values:1
+#: model@bc.tuning.ui.view.items|_columns@col_name$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@col_name$label:1
+msgid "Column"
+msgstr "Kolonna"
+
+#: model@bc.tuning.ui.view.items|_columns@invisible$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@invisible$label:1
+msgid "Invisible"
+msgstr "Neredzams"
+
+#: model@bc.tuning.ui.view.items|_columns@values$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@values$label:1
 msgid "Values"
 msgstr "Vērtības"
 
-#: bc.ui.reports-label:1 bc.ui.menus-label:1
+#: model@bc.general.tuning.ui.views|_description@:1
+msgid "General Model General Tunning Models Views"
+msgstr "Vispārējā Modeļa Vispārējā Tunning Modeļi Viedokli"
+
+#: model@bc.ui.reports|_description@:1
+msgid "General Model Reports"
+msgstr "Vispārējā Modeļa Ziņojumi"
+
+#: model@bc.ui.reports|_columns@label$label:1
+#: model@bc.ui.menus|_columns@label$label:1
 msgid "Label"
 msgstr "Etiķetes"
 
-#: bc.ui.reports-report:1 bc.report.actions-report_id:1
+#: model@bc.ui.reports|_columns@report$label:1
+#: model@bc.actions|_columns@ta$selections#report:1
+#: model@bc.report.actions|_columns@report_id$label:1
 msgid "Report"
 msgstr "Ziņojums"
 
-#: bc.ui.reports-infile:1
+#: model@bc.ui.reports|_columns@infile$label:1
 msgid "Report Input File"
 msgstr "Ziņojumu Ievades Failu"
 
-#: bc.ui.reports-outfile:1
+#: model@bc.ui.reports|_columns@outfile$label:1
 msgid "Report Output File"
 msgstr "Ziņojums Izejas Failu"
 
-#: bc.actions-name:1 bc.view.actions-action_id:1 bc.report.actions-action_id:1
-#: bc.ui.menus-action_id:1
+#: model@bc.actions|_description@:1
+msgid "General Model Actions"
+msgstr "Vispārējā Modeļa Darbības"
+
+#: model@bc.actions|_columns@name$label:1
+#: model@bc.view.actions|_columns@action_id$label:1
+#: model@bc.report.actions|_columns@action_id$label:1
+#: model@bc.ui.menus|_columns@action_id$label:1
 msgid "Action"
 msgstr "Darbība"
 
-#: bc.actions-ta:1
+#: model@bc.actions|_columns@ta$label:1
 msgid "Type Action"
 msgstr "Darbības Veids"
 
-#: bc.actions-va:1
+#: model@bc.actions|_columns@ta$selections#wkf:1
+msgid "Worlflow"
+msgstr "Worlflow"
+
+#: model@bc.actions|_columns@ta$selections#server:1
+msgid "Server"
+msgstr "Serveris"
+
+#: model@bc.actions|_columns@va$label:1
 msgid "View action"
 msgstr "Apskatīt darbība"
 
-#: bc.actions-ra:1
+#: model@bc.actions|_columns@ra$label:1
 msgid "Report action"
 msgstr "Ziņojuma rīcības"
+
+#: model@bc.view.actions|_description@:1
+msgid "General Model View Actions"
+msgstr "Vispārējā Modeļa Darbības Skats"
+
+#: model@bc.report.actions|_description@:1
+msgid "General Model Report Actions"
+msgstr "Vispārējā Modeļa Ziņojumu Pasākumi"
+
+#: model@bc.ui.menus|_description@:1
+msgid "General Model Application Menus"
+msgstr "Vispārējā Modeli Programmu Izvēlnēs"

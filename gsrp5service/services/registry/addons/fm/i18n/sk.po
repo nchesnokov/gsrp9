@@ -3,77 +3,189 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2019-10-02 14:24:05+0000\n"
-"PO-Revision-Date: 2019-10-02 14:24:05+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:54+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: fcm.departament.categories-name:1 fcm.obj.categories-name:1
-#: fcm.article.categories-name:1 fcm.departaments-name:1 fcm.objs-name:1
-#: fcm.articles-name:1 fcm.company.departaments-name:1 fcm.company.objs-name:1
-#: fcm.company.articles-name:1
+#: model@fm.unit.categories|_description@:1
+msgid "General Model Categories Financial Management Unit"
+msgstr "Všeobecný Model Kategórie Finančného Riadenia Jednotky"
+
+#: model@fm.unit.categories|_columns@name$label:1
+#: model@fm.currency.exchanges|_columns@name$label:1
+#: model@fcm.departament.categories|_columns@name$label:1
+#: model@fcm.obj.categories|_columns@name$label:1
+#: model@fcm.article.categories|_columns@name$label:1
+#: model@fcm.departaments|_columns@name$label:1
+#: model@fcm.objs|_columns@name$label:1
+#: model@fcm.articles|_columns@name$label:1
 msgid "Name"
 msgstr "Názov"
 
-#: fcm.departament.categories-parent_id:1 fcm.obj.categories-parent_id:1
-#: fcm.article.categories-parent_id:1
+#: model@fm.unit.categories|_columns@parent_id$label:1
+#: model@fcm.departament.categories|_columns@parent_id$label:1
+#: model@fcm.obj.categories|_columns@parent_id$label:1
+#: model@fcm.article.categories|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Rodič"
 
-#: fcm.departament.categories-childs_id:1 fcm.obj.categories-childs_id:1
-#: fcm.article.categories-childs_id:1
+#: model@fm.unit.categories|_columns@childs_id$label:1
+#: model@fcm.departament.categories|_columns@childs_id$label:1
+#: model@fcm.obj.categories|_columns@childs_id$label:1
+#: model@fcm.article.categories|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: fcm.departament.categories-departaments:1
-msgid "Departaments"
-msgstr "Departaments"
+#: model@fm.unit.categories|_columns@fullname$label:1
+msgid "Full Name"
+msgstr "Meno A Priezvisko"
 
-#: fcm.departament.categories-note:1 fcm.obj.categories-note:1
-#: fcm.article.categories-note:1 fcm.departaments-note:1 fcm.objs-note:1
-#: fcm.articles-note:1 fcm.company.departaments-note:1 fcm.company.objs-note:1
-#: fcm.company.articles-note:1
+#: model@fm.unit.categories|_columns@units$label:1
+msgid "Units"
+msgstr "Jednotky"
+
+#: model@fm.unit.categories|_columns@note$label:1
+#: model@fm.currency.exchanges|_columns@note$label:1
+#: model@fcm.departament.categories|_columns@note$label:1
+#: model@fcm.obj.categories|_columns@note$label:1
+#: model@fcm.article.categories|_columns@note$label:1
+#: model@fcm.departaments|_columns@note$label:1
+#: model@fcm.objs|_columns@note$label:1
+#: model@fcm.articles|_columns@note$label:1
+#: model@fcm.company.departaments|_columns@note$label:1
+#: model@fcm.company.objs|_columns@note$label:1
+#: model@fcm.company.articles|_columns@note$label:1
 msgid "Note"
 msgstr "Poznámka"
 
-#: fcm.obj.categories-objs:1
-msgid "Objects"
-msgstr "Objekty"
+#: model@fm.units|_description@:1
+msgid "General Model Financial Management Units"
+msgstr "Všeobecný Model Finančného Riadenia Jednotky"
 
-#: fcm.article.categories-articles:1
-msgid "Articles"
-msgstr "Články"
-
-#: fcm.departaments-category_id:1 fcm.objs-category_id:1
-#: fcm.articles-category_id:1
+#: model@fm.units|_columns@category_id$label:1
+#: model@fcm.departaments|_columns@category_id$label:1
+#: model@fcm.objs|_columns@category_id$label:1
+#: model@fcm.articles|_columns@category_id$label:1
 msgid "Category"
 msgstr "Kategória"
 
-#: fcm.objs-usage:1
+#: model@fm.units|_columns@company_id$label:1
+msgid "Companies"
+msgstr "Firmy"
+
+#: model@fm.units|_columns@code$label:1
+#: model@fm.currency.exchanges|_columns@code$label:1
+msgid "Code"
+msgstr "Kód"
+
+#: model@fm.units|_columns@descr$label:1
+msgid "Description"
+msgstr "Popis"
+
+#: model@fm.currency.exchanges|_description@:1
+msgid "General Model Currency Exchange"
+msgstr "Všeobecný Model Zmenáreň"
+
+#: model@fm.currency.exchanges|_columns@short_name$label:1
+msgid "Short Name"
+msgstr "Krátky Názov"
+
+#: model@fm.currency.exchanges|_columns@country$label:1
+msgid "Country"
+msgstr "Krajina"
+
+#: model@fm.currency.exchanges|_columns@currency$label:1
+msgid "Currency"
+msgstr "Mena"
+
+#: model@fm.currency.exchanges|_columns@pob$label:1
+msgid "Place of Bidding"
+msgstr "Miesto Ponúkania cien"
+
+#: model@fcm.departament.categories|_description@:1
+msgid "General Model FCM Departament Category"
+msgstr "Všeobecný Model FCM Departament Category"
+
+#: model@fcm.departament.categories|_columns@departaments$label:1
+msgid "Departaments"
+msgstr "Departaments"
+
+#: model@fcm.obj.categories|_description@:1
+msgid "General Model FCM Object Category"
+msgstr "Všeobecný Model FCM Objektov Kategórie"
+
+#: model@fcm.obj.categories|_columns@objs$label:1
+msgid "Objects"
+msgstr "Objekty"
+
+#: model@fcm.article.categories|_description@:1
+msgid "General Model FCM Article Category"
+msgstr "Všeobecný Model FCM Článok Category"
+
+#: model@fcm.article.categories|_columns@articles$label:1
+msgid "Articles"
+msgstr "Články"
+
+#: model@fcm.departaments|_description@:1
+msgid "General Model FCM Departament"
+msgstr "Všeobecný Model FCM Departament"
+
+#: model@fcm.objs|_description@:1
+msgid "General Model FCM Object"
+msgstr "Všeobecný Model FCM Objektu"
+
+#: model@fcm.objs|_columns@usage$label:1
 msgid "Usage"
 msgstr "Použitie"
 
-#: fcm.company.departaments-company_id:1 fcm.company.objs-company_id:1
-#: fcm.company.articles-company_id:1
+#: model@fcm.objs|_columns@usage$selections#f:1
+msgid "Fund"
+msgstr "Fond"
+
+#: model@fcm.objs|_columns@usage$selections#g:1
+msgid "Grant"
+msgstr "Grant"
+
+#: model@fcm.articles|_description@:1
+msgid "General Model FCM Article"
+msgstr "Všeobecný Model FCM Článku"
+
+#: model@fcm.company.departaments|_description@:1
+msgid "General Model FCM Departament Of Company"
+msgstr "Všeobecný Model FCM Departament Spoločnosti"
+
+#: model@fcm.company.departaments|_columns@company_id$label:1
+#: model@fcm.company.objs|_columns@company_id$label:1
+#: model@fcm.company.articles|_columns@company_id$label:1
 msgid "Company"
 msgstr "Spoločnosť"
 
-#: fcm.company.departaments-departament:1
+#: model@fcm.company.departaments|_columns@departament_id$label:1
 msgid "Departamant"
 msgstr "Departamant"
 
-#: fcm.company.departaments-fullname:1 fcm.company.objs-fullname:1
-#: fcm.company.articles-fullname:1
+#: model@fcm.company.departaments|_columns@fullname$label:1
+#: model@fcm.company.objs|_columns@fullname$label:1
+#: model@fcm.company.articles|_columns@fullname$label:1
 msgid "Fullname"
 msgstr "Fullname"
 
-#: fcm.company.objs-obj:1
+#: model@fcm.company.objs|_description@:1
+msgid "General Model FCM Object Of Company"
+msgstr "Všeobecný Model FCM Objektu Spoločnosti"
+
+#: model@fcm.company.objs|_columns@obj_id$label:1
 msgid "Object"
 msgstr "Objekt"
 
-#: fcm.company.articles-article:1
+#: model@fcm.company.articles|_description@:1
+msgid "General Model FCM Article Of Company"
+msgstr "Všeobecný Model FCM Článok O Spoločnosti"
+
+#: model@fcm.company.articles|_columns@article_id$label:1
 msgid "Article"
 msgstr "Článok"

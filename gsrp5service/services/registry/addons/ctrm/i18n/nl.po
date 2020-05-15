@@ -3,361 +3,665 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2019-09-05 23:23:25+0300\n"
-"PO-Revision-Date: 2019-09-05 23:23:25+0300\n"
+"POT-Creation-Date: 2020-05-15 19:41:53+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:53+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: crm.channels-code:1 crm.sectors-code:1 crm.teams-code:1 crm.groups-code:1
-#: crm.texts-code:1 crm.schema.texts-code:1
+#: model@ctrm.channels|_description@:1
+msgid "General Model CTRM Cannels"
+msgstr "Algemene Model CTRM Opnamekanalen"
+
+#: model@ctrm.channels|_columns@code$label:1
+#: model@ctrm.sectors|_columns@code$label:1
+#: model@ctrm.teams|_columns@code$label:1
+#: model@ctrm.groups|_columns@code$label:1
+#: model@ctrm.texts|_columns@code$label:1
+#: model@ctrm.schema.texts|_columns@code$label:1
 msgid "Code"
 msgstr "Code"
 
-#: crm.channels-descr:1 crm.sectors-descr:1 crm.teams-descr:1
-#: crm.groups-descr:1 crm.texts-descr:1 crm.schema.texts-descr:1
+#: model@ctrm.channels|_columns@descr$label:1
+#: model@ctrm.sectors|_columns@descr$label:1
+#: model@ctrm.teams|_columns@descr$label:1
+#: model@ctrm.groups|_columns@descr$label:1
+#: model@ctrm.texts|_columns@descr$label:1
+#: model@ctrm.schema.texts|_columns@descr$label:1
 msgid "Description"
 msgstr "Beschrijving"
 
-#: crm.channels-sectors:1
+#: model@ctrm.channels|_columns@sectors$label:1
 msgid "Sectors"
 msgstr "Sectoren"
 
-#: crm.sectors-channel_id:1
+#: model@ctrm.sectors|_description@:1
+msgid "General Model CTRM Sectors"
+msgstr "Algemene Model CTRM Sectoren"
+
+#: model@ctrm.sectors|_columns@channel_id$label:1
 msgid "Channel"
 msgstr "Kanaal"
 
-#: crm.teams-groups:1
+#: model@ctrm.teams|_description@:1
+msgid "General Model CTRM Teams"
+msgstr "Algemene Model CTRM Teams"
+
+#: model@ctrm.teams|_columns@groups$label:1
 msgid "Groups"
 msgstr "Groepen"
 
-#: crm.groups-team_id:1 crm.requests-group_id:1 crm.offers-group_id:1
-#: crm.contracts-group_id:1
+#: model@ctrm.groups|_description@:1
+msgid "General Model CTRM Groups"
+msgstr "Algemene Model CTRM Groepen"
+
+#: model@ctrm.groups|_columns@team_id$label:1
+#: model@ctrm.requests|_columns@group_id$label:1
+#: model@ctrm.offers|_columns@group_id$label:1
+#: model@ctrm.contracts|_columns@group_id$label:1
 msgid "Group"
 msgstr "Groep"
 
-#: crm.schema.texts-usage:1
+#: model@ctrm.texts|_description@:1
+msgid "General Model CTRM Texts"
+msgstr "Algemene Model CTRM Teksten"
+
+#: model@ctrm.schema.texts|_description@:1
+msgid "General Model Schema Of CTRM Texts"
+msgstr "Algemene Model Schema Van CTRM Teksten"
+
+#: model@ctrm.schema.texts|_columns@usage$label:1
 msgid "Usage"
 msgstr "Gebruik"
 
-#: crm.schema.texts-texts:1 crm.requests-texts:1 crm.request.items-texts:1
-#: crm.offers-texts:1 crm.offer.items-texts:1 crm.contracts-texts:1
-#: crm.contract.items-texts:1
-msgid "Texts"
-msgstr "Teksten"
+#: model@ctrm.schema.texts|_columns@usage$selections#h:1
+msgid "Header"
+msgstr "Header"
 
-#: crm.schema.text.items-schema_id:1
-msgid "Schema"
-msgstr "Schema"
-
-#: crm.schema.text.items-text_id:1
-msgid "Text"
-msgstr "Tekst"
-
-#: crm.schema.text.items-descr:1 crm.request.texts-descr:1
-#: crm.request.item.texts-descr:1 crm.offer.texts-descr:1
-#: crm.offer.item.texts-descr:1 crm.contract.texts-descr:1
-#: crm.contract.item.texts-descr:1
-msgid "Unknown"
-msgstr "Onbekend"
-
-#: crm.request.types-name:1 crm.offer.types-name:1 crm.contract.types-name:1
-#: crm.request.categories-name:1 crm.offer.categories-name:1
-#: crm.contract.categories-name:1 crm.requests-name:1 crm.offers-name:1
-#: crm.contracts-name:1
-msgid "Name"
-msgstr "Naam"
-
-#: crm.request.types-htschema:1 crm.offer.types-htschema:1
-#: crm.contract.types-htschema:1
-msgid "Text Schema Of Head"
-msgstr "Tekst Schema Van Het Hoofd"
-
-#: crm.request.types-itschema:1 crm.offer.types-itschema:1
-#: crm.contract.types-itschema:1
-msgid "Text Schema Of Item"
-msgstr "Tekst Schema Van Item"
-
-#: crm.request.types-roles:1 crm.offer.types-roles:1
-#: crm.contract.types-roles:1 crm.requests-roles:1 crm.request.items-roles:1
-#: crm.offers-roles:1 crm.offer.items-roles:1 crm.contracts-roles:1
-#: crm.contract.items-roles:1
-msgid "Roles"
-msgstr "Rollen"
-
-#: crm.request.types-required:1 crm.offer.types-required:1
-#: crm.contract.types-required:1
-msgid "Required"
-msgstr "Vereist"
-
-#: crm.request.types-note:1 crm.request.type.roles-note:1
-#: crm.offer.types-note:1 crm.offer.type.roles-note:1
-#: crm.contract.types-note:1 crm.contract.type.roles-note:1
-#: crm.request.categories-note:1 crm.offer.categories-note:1
-#: crm.contract.categories-note:1 crm.requests-note:1 crm.request.items-note:1
-#: crm.request.item.delivery.schedules-note:1 crm.offers-note:1
-#: crm.offer.items-note:1 crm.offer.item.delivery.schedules-note:1
-#: crm.contracts-note:1 crm.contract.items-note:1
-#: crm.contract.item.delivery.schedules-note:1
-msgid "Note"
-msgstr "Opmerking"
-
-#: crm.request.type.roles-type_id:1 crm.offer.type.roles-type_id:1
-#: crm.contract.type.roles-type_id:1 crm.requests-rtype:1 crm.offers-otype:1
-#: crm.contracts-ctype:1
-msgid "Type"
-msgstr "Type"
-
-#: crm.request.type.roles-role_id:1 crm.offer.type.roles-role_id:1
-#: crm.contract.type.roles-role_id:1 crm.request.roles-role_id:1
-#: crm.request.item.roles-role_id:1 crm.offer.roles-role_id:1
-#: crm.offer.item.roles-role_id:1 crm.contract.roles-role_id:1
-#: crm.contract.item.roles-role_id:1
-msgid "Role"
-msgstr "Rol"
-
-#: crm.request.categories-parent_id:1 crm.offer.categories-parent_id:1
-#: crm.contract.categories-parent_id:1
-msgid "Parent"
-msgstr "Ouder"
-
-#: crm.request.categories-childs_id:1 crm.offer.categories-childs_id:1
-#: crm.contract.categories-childs_id:1
-msgid "Childs"
-msgstr "Childs"
-
-#: crm.request.categories-requests:1
-msgid "Requests"
-msgstr "Aanvragen"
-
-#: crm.offer.categories-offers:1
-msgid "Offers"
-msgstr "Aanbiedingen"
-
-#: crm.contract.categories-contracts:1
-msgid "Contracts"
-msgstr "Contracten"
-
-#: crm.requests-category_id:1 crm.offers-category_id:1
-#: crm.contracts-category_id:1
-msgid "Category"
-msgstr "Categorie"
-
-#: crm.requests-company_id:1 crm.offers-company_id:1
-#: crm.contracts-company_id:1
-msgid "Company"
-msgstr "Bedrijf"
-
-#: crm.requests-channel_id:1 crm.offers-channel_id:1
-#: crm.contracts-channel_id:1
-msgid "Cannel"
-msgstr "Cannel"
-
-#: crm.requests-sector_id:1 crm.offers-sector_id:1 crm.contracts-sector_id:1
-msgid "Sector"
-msgstr "Sector"
-
-#: crm.requests-team_id:1 crm.offers-team_id:1 crm.contracts-team_id:1
-msgid "Team"
-msgstr "Team"
-
-#: crm.requests-manager:1 crm.offers-manager:1 crm.contracts-manager:1
-msgid "Manager"
-msgstr "Manager"
-
-#: crm.requests-origin:1 crm.offers-origin:1 crm.contracts-origin:1
-msgid "Origin"
-msgstr "Oorsprong"
-
-#: crm.requests-from_date:1
-msgid "Begin Date Of Request"
-msgstr "Begin Datum Van Het Verzoek"
-
-#: crm.requests-to_date:1
-msgid "End Date Of Request"
-msgstr "Eind Datum Van Het Verzoek"
-
-#: crm.requests-dor:1
-msgid "Date Of Request"
-msgstr "Datum Van Het Verzoek"
-
-#: crm.requests-partner:1 crm.offers-partner:1 crm.contracts-partner:1
-msgid "Partner"
-msgstr "Partner"
-
-#: crm.requests-currency:1 crm.request.items-currency:1 crm.offers-currency:1
-#: crm.offer.items-currency:1 crm.contracts-currency:1
-#: crm.contract.items-currency:1
-msgid "Currency"
-msgstr "Munt"
-
-#: crm.requests-incoterms1:1 crm.offers-incoterms1:1
-#: crm.contracts-incoterms1:1
-msgid "Incoterms 1"
-msgstr "Incoterms 1"
-
-#: crm.requests-incoterms2:1 crm.offers-incoterms2:1
-#: crm.contracts-incoterms2:1
-msgid "Incoterms 2"
-msgstr "Incoterms 2"
-
-#: crm.requests-state:1 crm.offers-state:1 crm.contracts-state:1
-msgid "State"
-msgstr "Staat"
-
-#: crm.requests-amount:1 crm.request.items-amount:1 crm.offers-amount:1
-#: crm.offer.items-amount:1 crm.contracts-amount:1 crm.contract.items-amount:1
-msgid "Amount"
-msgstr "Bedrag"
-
-#: crm.requests-vat_amount:1 crm.request.items-vat_amount:1
-#: crm.offers-vat_amount:1 crm.offer.items-vat_amount:1
-#: crm.contracts-vat_amount:1 crm.contract.items-vat_amount:1
-msgid "VAT Amount"
-msgstr "BTW-Bedrag"
-
-#: crm.requests-total_amount:1 crm.request.items-total_amount:1
-#: crm.offers-total_amount:1 crm.offer.items-total_amount:1
-#: crm.contracts-total_amount:1 crm.contract.items-total_amount:1
-msgid "Total Amount"
-msgstr "Totaal Bedrag"
-
-#: crm.requests-recepture:1 crm.offers-recepture:1 crm.contracts-recepture:1
-msgid "Recepture"
-msgstr "Recepture"
-
-#: crm.requests-items:1 crm.offers-items:1 crm.contracts-items:1
-msgid "Items"
-msgstr "Items"
-
-#: crm.request.texts-request_id:1 crm.request.roles-delivery_id:1
-#: crm.offer.roles-offer_id:1 crm.contract.roles-offer_id:1
-msgid "Request"
-msgstr "Aanvraag"
-
-#: crm.request.texts-seq:1 crm.request.item.texts-seq:1 crm.offer.texts-seq:1
-#: crm.offer.item.texts-seq:1 crm.contract.texts-seq:1
-#: crm.contract.item.texts-seq:1
-msgid "Sequence"
-msgstr "Volgorde"
-
-#: crm.request.texts-text_id:1 crm.request.item.texts-text_id:1
-#: crm.offer.texts-text_id:1 crm.offer.item.texts-text_id:1
-#: crm.contract.texts-text_id:1 crm.contract.item.texts-text_id:1
-msgid "Text ID"
-msgstr "Tekst ID"
-
-#: crm.request.texts-content:1 crm.request.item.texts-content:1
-#: crm.offer.texts-content:1 crm.offer.item.texts-content:1
-#: crm.contract.texts-content:1 crm.contract.item.texts-content:1
-msgid "Content"
-msgstr "Inhoud"
-
-#: crm.request.roles-patner_id:1 crm.request.item.roles-patner_id:1
-#: crm.offer.roles-patner_id:1 crm.offer.item.roles-patner_id:1
-#: crm.contract.roles-patner_id:1 crm.contract.item.roles-patner_id:1
-msgid "Parther"
-msgstr "Parther"
-
-#: crm.request.items-request_id:1
-msgid "CRM Request"
-msgstr "CRM Aanvraag"
-
-#: crm.request.items-product:1 crm.offer.items-product:1
-#: crm.contract.items-product:1
-msgid "Product"
-msgstr "Product"
-
-#: crm.request.items-quantity:1 crm.request.item.delivery.schedules-quantity:1
-#: crm.offer.items-quantity:1 crm.offer.item.delivery.schedules-quantity:1
-#: crm.contract.items-quantity:1
-#: crm.contract.item.delivery.schedules-quantity:1
-msgid "Quantity"
-msgstr "Hoeveelheid"
-
-#: crm.request.items-uom:1 crm.offer.items-uom:1 crm.contract.items-uom:1
-#: crm.contract.item.delivery.schedules-uom:1
-msgid "UoM"
-msgstr "Eenheid"
-
-#: crm.request.items-price:1 crm.offer.items-price:1
-#: crm.contract.items-price:1
-msgid "Price"
-msgstr "Prijs"
-
-#: crm.request.items-unit:1 crm.offer.items-unit:1 crm.contract.items-unit:1
-msgid "Unit"
-msgstr "Eenheid"
-
-#: crm.request.items-uop:1 crm.offer.items-uop:1 crm.contract.items-uop:1
-msgid "Unit Of Price"
-msgstr "Toestel Prijs"
-
-#: crm.request.items-vat_code:1 crm.offer.items-vat_code:1
-#: crm.contract.items-vat_code:1
-msgid "Vat code"
-msgstr "Btw code"
-
-#: crm.request.items-delivery_schedules:1 crm.offer.items-delivery_schedules:1
-#: crm.contract.items-delivery_schedules:1
-msgid "Delivery Schedule"
-msgstr "Leveringsschema"
-
-#: crm.request.item.texts-item_id:1 crm.request.item.roles-item_id:1
-#: crm.offer.item.texts-item_id:1 crm.offer.item.roles-item_id:1
-#: crm.contract.item.texts-item_id:1 crm.contract.item.roles-item_id:1
-#: crm.contract.item.delivery.schedules-item_id:1
+#: model@ctrm.schema.texts|_columns@usage$selections#i:1
+#: model@ctrm.request.item.texts|_columns@item_id$label:1
+#: model@ctrm.request.item.roles|_columns@item_id$label:1
+#: model@ctrm.offer.item.texts|_columns@item_id$label:1
+#: model@ctrm.offer.item.roles|_columns@item_id$label:1
+#: model@ctrm.contract.item.texts|_columns@item_id$label:1
+#: model@ctrm.contract.item.roles|_columns@item_id$label:1
+#: model@ctrm.contract.item.delivery.schedules|_columns@item_id$label:1
 msgid "Item"
 msgstr "Item"
 
-#: crm.request.item.delivery.schedules-item_id:1
+#: model@ctrm.schema.texts|_columns@usage$selections#b:1
+msgid "Both"
+msgstr "Beide"
+
+#: model@ctrm.schema.texts|_columns@texts$label:1
+#: model@ctrm.requests|_columns@texts$label:1
+#: model@ctrm.request.items|_columns@texts$label:1
+#: model@ctrm.offers|_columns@texts$label:1
+#: model@ctrm.offer.items|_columns@texts$label:1
+#: model@ctrm.contracts|_columns@texts$label:1
+#: model@ctrm.contract.items|_columns@texts$label:1
+msgid "Texts"
+msgstr "Teksten"
+
+#: model@ctrm.schema.text.items|_description@:1
+msgid "General Model Items Of Schema CTRM Texts"
+msgstr "Algemene Model Items Van Schema CTRM Teksten"
+
+#: model@ctrm.schema.text.items|_columns@schema_id$label:1
+#: model@ctrm.origin.quotes|_columns@schema_id$label:1
+msgid "Schema"
+msgstr "Schema"
+
+#: model@ctrm.schema.text.items|_columns@text_id$label:1
+#: model@ctrm.origin.quotes|_columns@text_id$label:1
+msgid "Text"
+msgstr "Tekst"
+
+#: model@ctrm.schema.text.items|_columns@descr$label:1
+#: model@ctrm.origin.quotes|_columns@descr$label:1
+#: model@ctrm.request.texts|_columns@descr$label:1
+#: model@ctrm.request.item.texts|_columns@descr$label:1
+#: model@ctrm.offer.texts|_columns@descr$label:1
+#: model@ctrm.offer.item.texts|_columns@descr$label:1
+#: model@ctrm.contract.texts|_columns@descr$label:1
+#: model@ctrm.contract.item.texts|_columns@descr$label:1
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: model@ctrm.origin.quotes|_description@:1
+msgid "General Model Orgigin Quotes of CTRM"
+msgstr "Algemene Model Orgigin Offertes van CTRM"
+
+#: model@ctrm.request.types|_description@:1
+msgid "General Model Types CTRM Request"
+msgstr "Algemene Model Types CTRM Aanvraag"
+
+#: model@ctrm.request.types|_columns@name$label:1
+#: model@ctrm.offer.types|_columns@name$label:1
+#: model@ctrm.contract.types|_columns@name$label:1
+#: model@ctrm.request.categories|_columns@name$label:1
+#: model@ctrm.offer.categories|_columns@name$label:1
+#: model@ctrm.contract.categories|_columns@name$label:1
+#: model@ctrm.requests|_columns@name$label:1
+#: model@ctrm.offers|_columns@name$label:1
+#: model@ctrm.contracts|_columns@name$label:1
+msgid "Name"
+msgstr "Naam"
+
+#: model@ctrm.request.types|_columns@htschema$label:1
+#: model@ctrm.offer.types|_columns@htschema$label:1
+#: model@ctrm.contract.types|_columns@htschema$label:1
+msgid "Text Schema Of Head"
+msgstr "Tekst Schema Van Het Hoofd"
+
+#: model@ctrm.request.types|_columns@itschema$label:1
+#: model@ctrm.offer.types|_columns@itschema$label:1
+#: model@ctrm.contract.types|_columns@itschema$label:1
+msgid "Text Schema Of Item"
+msgstr "Tekst Schema Van Item"
+
+#: model@ctrm.request.types|_columns@roles$label:1
+#: model@ctrm.offer.types|_columns@roles$label:1
+#: model@ctrm.contract.types|_columns@roles$label:1
+#: model@ctrm.requests|_columns@roles$label:1
+#: model@ctrm.request.items|_columns@roles$label:1
+#: model@ctrm.offers|_columns@roles$label:1
+#: model@ctrm.offer.items|_columns@roles$label:1
+#: model@ctrm.contracts|_columns@roles$label:1
+#: model@ctrm.contract.items|_columns@roles$label:1
+msgid "Roles"
+msgstr "Rollen"
+
+#: model@ctrm.request.types|_columns@required$label:1
+#: model@ctrm.offer.types|_columns@required$label:1
+#: model@ctrm.contract.types|_columns@required$label:1
+msgid "Required"
+msgstr "Vereist"
+
+#: model@ctrm.request.types|_columns@note$label:1
+#: model@ctrm.request.type.roles|_columns@note$label:1
+#: model@ctrm.offer.types|_columns@note$label:1
+#: model@ctrm.offer.type.roles|_columns@note$label:1
+#: model@ctrm.contract.types|_columns@note$label:1
+#: model@ctrm.contract.type.roles|_columns@note$label:1
+#: model@ctrm.request.categories|_columns@note$label:1
+#: model@ctrm.offer.categories|_columns@note$label:1
+#: model@ctrm.contract.categories|_columns@note$label:1
+#: model@ctrm.requests|_columns@note$label:1
+#: model@ctrm.request.items|_columns@note$label:1
+#: model@ctrm.request.item.delivery.schedules|_columns@note$label:1
+#: model@ctrm.offers|_columns@note$label:1
+#: model@ctrm.offer.items|_columns@note$label:1
+#: model@ctrm.offer.item.delivery.schedules|_columns@note$label:1
+#: model@ctrm.contracts|_columns@note$label:1
+#: model@ctrm.contract.items|_columns@note$label:1
+#: model@ctrm.contract.item.delivery.schedules|_columns@note$label:1
+msgid "Note"
+msgstr "Opmerking"
+
+#: model@ctrm.request.type.roles|_description@:1
+msgid "General Model Role CTRM Request Types"
+msgstr "Algemene Model Rol CTRM Verzoek Soorten"
+
+#: model@ctrm.request.type.roles|_columns@type_id$label:1
+#: model@ctrm.offer.type.roles|_columns@type_id$label:1
+#: model@ctrm.contract.type.roles|_columns@type_id$label:1
+#: model@ctrm.requests|_columns@rtype$label:1
+#: model@ctrm.offers|_columns@otype$label:1
+#: model@ctrm.contracts|_columns@ctype$label:1
+msgid "Type"
+msgstr "Type"
+
+#: model@ctrm.request.type.roles|_columns@role_id$label:1
+#: model@ctrm.offer.type.roles|_columns@role_id$label:1
+#: model@ctrm.contract.type.roles|_columns@role_id$label:1
+#: model@ctrm.request.roles|_columns@role_id$label:1
+#: model@ctrm.request.item.roles|_columns@role_id$label:1
+#: model@ctrm.offer.roles|_columns@role_id$label:1
+#: model@ctrm.offer.item.roles|_columns@role_id$label:1
+#: model@ctrm.contract.roles|_columns@role_id$label:1
+#: model@ctrm.contract.item.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Rol"
+
+#: model@ctrm.offer.types|_description@:1
+msgid "General Model Types CTRM Offer"
+msgstr "Algemene Model Types CTRM Bieden"
+
+#: model@ctrm.offer.type.roles|_description@:1
+msgid "General Model Role CTRM Offer Types"
+msgstr "Algemene Model Rol CTRM Typen"
+
+#: model@ctrm.contract.types|_description@:1
+msgid "General Model Types CTRM Contract"
+msgstr "Algemene Model Types CTRM Contract"
+
+#: model@ctrm.contract.type.roles|_description@:1
+msgid "General Model Role CTRM Contract Types"
+msgstr "Algemene Model Rol CTRM Contract Types"
+
+#: model@ctrm.request.categories|_description@:1
+msgid "General Model Category CTRM Request"
+msgstr "Algemene Model Categorie CTRM Aanvraag"
+
+#: model@ctrm.request.categories|_columns@parent_id$label:1
+#: model@ctrm.offer.categories|_columns@parent_id$label:1
+#: model@ctrm.contract.categories|_columns@parent_id$label:1
+msgid "Parent"
+msgstr "Ouder"
+
+#: model@ctrm.request.categories|_columns@childs_id$label:1
+#: model@ctrm.offer.categories|_columns@childs_id$label:1
+#: model@ctrm.contract.categories|_columns@childs_id$label:1
+msgid "Childs"
+msgstr "Childs"
+
+#: model@ctrm.request.categories|_columns@requests$label:1
+msgid "Requests"
+msgstr "Aanvragen"
+
+#: model@ctrm.offer.categories|_description@:1
+msgid "General Model Category CTRM Offer"
+msgstr "Algemene Model Categorie CTRM Bieden"
+
+#: model@ctrm.offer.categories|_columns@offers$label:1
+msgid "Offers"
+msgstr "Aanbiedingen"
+
+#: model@ctrm.contract.categories|_description@:1
+msgid "General Model Category CTRM Contract"
+msgstr "Algemene Model Categorie CTRM Contract"
+
+#: model@ctrm.contract.categories|_columns@contracts$label:1
+msgid "Contracts"
+msgstr "Contracten"
+
+#: model@ctrm.requests|_description@:1
+msgid "General Model CTRM Request"
+msgstr "Algemene Model CTRM Aanvraag"
+
+#: model@ctrm.requests|_columns@category_id$label:1
+#: model@ctrm.offers|_columns@category_id$label:1
+#: model@ctrm.contracts|_columns@category_id$label:1
+msgid "Category"
+msgstr "Categorie"
+
+#: model@ctrm.requests|_columns@company_id$label:1
+#: model@ctrm.offers|_columns@company_id$label:1
+#: model@ctrm.contracts|_columns@company_id$label:1
+msgid "Company"
+msgstr "Bedrijf"
+
+#: model@ctrm.requests|_columns@channel_id$label:1
+#: model@ctrm.offers|_columns@channel_id$label:1
+#: model@ctrm.contracts|_columns@channel_id$label:1
+msgid "Cannel"
+msgstr "Cannel"
+
+#: model@ctrm.requests|_columns@sector_id$label:1
+#: model@ctrm.offers|_columns@sector_id$label:1
+#: model@ctrm.contracts|_columns@sector_id$label:1
+msgid "Sector"
+msgstr "Sector"
+
+#: model@ctrm.requests|_columns@team_id$label:1
+#: model@ctrm.offers|_columns@team_id$label:1
+#: model@ctrm.contracts|_columns@team_id$label:1
+msgid "Team"
+msgstr "Team"
+
+#: model@ctrm.requests|_columns@manager$label:1
+#: model@ctrm.offers|_columns@manager$label:1
+#: model@ctrm.contracts|_columns@manager$label:1
+msgid "Manager"
+msgstr "Manager"
+
+#: model@ctrm.requests|_columns@origin$label:1
+#: model@ctrm.offers|_columns@origin$label:1
+#: model@ctrm.contracts|_columns@origin$label:1
+msgid "Origin"
+msgstr "Oorsprong"
+
+#: model@ctrm.requests|_columns@from_date$label:1
+msgid "Begin Date Of Request"
+msgstr "Begin Datum Van Het Verzoek"
+
+#: model@ctrm.requests|_columns@to_date$label:1
+msgid "End Date Of Request"
+msgstr "Eind Datum Van Het Verzoek"
+
+#: model@ctrm.requests|_columns@dor$label:1
+msgid "Date Of Request"
+msgstr "Datum Van Het Verzoek"
+
+#: model@ctrm.requests|_columns@partner$label:1
+#: model@ctrm.offers|_columns@partner$label:1
+#: model@ctrm.contracts|_columns@partner$label:1
+msgid "Partner"
+msgstr "Partner"
+
+#: model@ctrm.requests|_columns@currency$label:1
+#: model@ctrm.request.items|_columns@currency$label:1
+#: model@ctrm.offers|_columns@currency$label:1
+#: model@ctrm.offer.items|_columns@currency$label:1
+#: model@ctrm.contracts|_columns@currency$label:1
+#: model@ctrm.contract.items|_columns@currency$label:1
+msgid "Currency"
+msgstr "Munt"
+
+#: model@ctrm.requests|_columns@incoterms1$label:1
+#: model@ctrm.offers|_columns@incoterms1$label:1
+#: model@ctrm.contracts|_columns@incoterms1$label:1
+msgid "Incoterms 1"
+msgstr "Incoterms 1"
+
+#: model@ctrm.requests|_columns@incoterms2$label:1
+#: model@ctrm.offers|_columns@incoterms2$label:1
+#: model@ctrm.contracts|_columns@incoterms2$label:1
+msgid "Incoterms 2"
+msgstr "Incoterms 2"
+
+#: model@ctrm.requests|_columns@state$label:1
+#: model@ctrm.offers|_columns@state$label:1
+#: model@ctrm.contracts|_columns@state$label:1
+msgid "State"
+msgstr "Staat"
+
+#: model@ctrm.requests|_columns@state$selections#draft:1
+#: model@ctrm.offers|_columns@state$selections#draft:1
+#: model@ctrm.contracts|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Ontwerp"
+
+#: model@ctrm.requests|_columns@state$selections#approved:1
+#: model@ctrm.offers|_columns@state$selections#approved:1
+#: model@ctrm.contracts|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Goedgekeurd"
+
+#: model@ctrm.requests|_columns@state$selections#inprocess:1
+#: model@ctrm.offers|_columns@state$selections#inprocess:1
+#: model@ctrm.contracts|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "In Het Proces"
+
+#: model@ctrm.requests|_columns@state$selections#closed:1
+#: model@ctrm.offers|_columns@state$selections#closed:1
+#: model@ctrm.contracts|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Gesloten"
+
+#: model@ctrm.requests|_columns@state$selections#canceled:1
+#: model@ctrm.offers|_columns@state$selections#canceled:1
+#: model@ctrm.contracts|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Geannuleerd"
+
+#: model@ctrm.requests|_columns@amount$label:1
+#: model@ctrm.request.items|_columns@amount$label:1
+#: model@ctrm.offers|_columns@amount$label:1
+#: model@ctrm.offer.items|_columns@amount$label:1
+#: model@ctrm.contracts|_columns@amount$label:1
+#: model@ctrm.contract.items|_columns@amount$label:1
+msgid "Amount"
+msgstr "Bedrag"
+
+#: model@ctrm.requests|_columns@vat_amount$label:1
+#: model@ctrm.request.items|_columns@vat_amount$label:1
+#: model@ctrm.offers|_columns@vat_amount$label:1
+#: model@ctrm.offer.items|_columns@vat_amount$label:1
+#: model@ctrm.contracts|_columns@vat_amount$label:1
+#: model@ctrm.contract.items|_columns@vat_amount$label:1
+msgid "VAT Amount"
+msgstr "BTW-Bedrag"
+
+#: model@ctrm.requests|_columns@total_amount$label:1
+#: model@ctrm.request.items|_columns@total_amount$label:1
+#: model@ctrm.offers|_columns@total_amount$label:1
+#: model@ctrm.offer.items|_columns@total_amount$label:1
+#: model@ctrm.contracts|_columns@total_amount$label:1
+#: model@ctrm.contract.items|_columns@total_amount$label:1
+msgid "Total Amount"
+msgstr "Totaal Bedrag"
+
+#: model@ctrm.requests|_columns@recepture$label:1
+#: model@ctrm.offers|_columns@recepture$label:1
+#: model@ctrm.contracts|_columns@recepture$label:1
+msgid "Recepture"
+msgstr "Recepture"
+
+#: model@ctrm.requests|_columns@items$label:1
+#: model@ctrm.offers|_columns@items$label:1
+#: model@ctrm.contracts|_columns@items$label:1
+msgid "Items"
+msgstr "Items"
+
+#: model@ctrm.request.texts|_description@:1
+msgid "General Model CTRM Request Texts"
+msgstr "Algemene Model CTRM Aanvraag Teksten"
+
+#: model@ctrm.request.texts|_columns@request_id$label:1
+#: model@ctrm.request.roles|_columns@request_id$label:1
+#: model@ctrm.offer.roles|_columns@offer_id$label:1
+#: model@ctrm.contract.roles|_columns@offer_id$label:1
+msgid "Request"
+msgstr "Aanvraag"
+
+#: model@ctrm.request.texts|_columns@seq$label:1
+#: model@ctrm.request.item.texts|_columns@seq$label:1
+#: model@ctrm.offer.texts|_columns@seq$label:1
+#: model@ctrm.offer.item.texts|_columns@seq$label:1
+#: model@ctrm.contract.texts|_columns@seq$label:1
+#: model@ctrm.contract.item.texts|_columns@seq$label:1
+msgid "Sequence"
+msgstr "Volgorde"
+
+#: model@ctrm.request.texts|_columns@text_id$label:1
+#: model@ctrm.request.item.texts|_columns@text_id$label:1
+#: model@ctrm.offer.texts|_columns@text_id$label:1
+#: model@ctrm.offer.item.texts|_columns@text_id$label:1
+#: model@ctrm.contract.texts|_columns@text_id$label:1
+#: model@ctrm.contract.item.texts|_columns@text_id$label:1
+msgid "Text ID"
+msgstr "Tekst ID"
+
+#: model@ctrm.request.texts|_columns@content$label:1
+#: model@ctrm.request.item.texts|_columns@content$label:1
+#: model@ctrm.offer.texts|_columns@content$label:1
+#: model@ctrm.offer.item.texts|_columns@content$label:1
+#: model@ctrm.contract.texts|_columns@content$label:1
+#: model@ctrm.contract.item.texts|_columns@content$label:1
+msgid "Content"
+msgstr "Inhoud"
+
+#: model@ctrm.request.roles|_description@:1
+msgid "General Model CTRM Request Roles"
+msgstr "Algemene Model CTRM Verzoek Rollen"
+
+#: model@ctrm.request.roles|_columns@patner_id$label:1
+#: model@ctrm.request.item.roles|_columns@patner_id$label:1
+#: model@ctrm.offer.roles|_columns@patner_id$label:1
+#: model@ctrm.offer.item.roles|_columns@patner_id$label:1
+#: model@ctrm.contract.roles|_columns@patner_id$label:1
+#: model@ctrm.contract.item.roles|_columns@patner_id$label:1
+msgid "Parther"
+msgstr "Parther"
+
+#: model@ctrm.request.items|_description@:1
+msgid "General Model CTRM Request Items"
+msgstr "Algemene Model CTRM Verzoek Items"
+
+#: model@ctrm.request.items|_columns@request_id$label:1
+msgid "CTRM Request"
+msgstr "CTRM Aanvraag"
+
+#: model@ctrm.request.items|_columns@product$label:1
+#: model@ctrm.offer.items|_columns@product$label:1
+#: model@ctrm.contract.items|_columns@product$label:1
+msgid "Product"
+msgstr "Product"
+
+#: model@ctrm.request.items|_columns@quantity$label:1
+#: model@ctrm.request.item.delivery.schedules|_columns@quantity$label:1
+#: model@ctrm.offer.items|_columns@quantity$label:1
+#: model@ctrm.offer.item.delivery.schedules|_columns@quantity$label:1
+#: model@ctrm.contract.items|_columns@quantity$label:1
+#: model@ctrm.contract.item.delivery.schedules|_columns@quantity$label:1
+msgid "Quantity"
+msgstr "Hoeveelheid"
+
+#: model@ctrm.request.items|_columns@uom$label:1
+#: model@ctrm.offer.items|_columns@uom$label:1
+#: model@ctrm.contract.items|_columns@uom$label:1
+#: model@ctrm.contract.item.delivery.schedules|_columns@uom$label:1
+msgid "UoM"
+msgstr "Eenheid"
+
+#: model@ctrm.request.items|_columns@price$label:1
+#: model@ctrm.offer.items|_columns@price$label:1
+#: model@ctrm.contract.items|_columns@price$label:1
+msgid "Price"
+msgstr "Prijs"
+
+#: model@ctrm.request.items|_columns@unit$label:1
+#: model@ctrm.offer.items|_columns@unit$label:1
+#: model@ctrm.contract.items|_columns@unit$label:1
+msgid "Unit"
+msgstr "Eenheid"
+
+#: model@ctrm.request.items|_columns@uop$label:1
+#: model@ctrm.offer.items|_columns@uop$label:1
+#: model@ctrm.contract.items|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Toestel Prijs"
+
+#: model@ctrm.request.items|_columns@vat_code$label:1
+#: model@ctrm.offer.items|_columns@vat_code$label:1
+#: model@ctrm.contract.items|_columns@vat_code$label:1
+msgid "Vat code"
+msgstr "Btw code"
+
+#: model@ctrm.request.items|_columns@delivery_schedules$label:1
+#: model@ctrm.offer.items|_columns@delivery_schedules$label:1
+#: model@ctrm.contract.items|_columns@delivery_schedules$label:1
+msgid "Delivery Schedule"
+msgstr "Leveringsschema"
+
+#: model@ctrm.request.item.texts|_description@:1
+msgid "General Model CTRM Request Item Texts"
+msgstr "Algemene Model CTRM Verzoek Item Teksten"
+
+#: model@ctrm.request.item.roles|_description@:1
+#: model@ctrm.offer.item.roles|_description@:1
+msgid "General Model CTRM Offer Item Roles"
+msgstr "Algemene Model CTRM Bieden Item Rollen"
+
+#: model@ctrm.request.item.delivery.schedules|_description@:1
+msgid "General Model CTRM REquest Item Delivery Schedules"
+msgstr "Algemene Model CTRM Verzoek Item levertijden"
+
+#: model@ctrm.request.item.delivery.schedules|_columns@item_id$label:1
 msgid "Request Item"
 msgstr "Verzoek Item"
 
-#: crm.request.item.delivery.schedules-schedule:1
-#: crm.offer.item.delivery.schedules-schedule:1
-#: crm.contract.item.delivery.schedules-schedule:1
+#: model@ctrm.request.item.delivery.schedules|_columns@schedule$label:1
+#: model@ctrm.offer.item.delivery.schedules|_columns@schedule$label:1
+#: model@ctrm.contract.item.delivery.schedules|_columns@schedule$label:1
 msgid "Schedule"
 msgstr "Plannen"
 
-#: crm.offers-doo:1
+#: model@ctrm.offers|_description@:1
+msgid "General Model CTRM Offer"
+msgstr "Algemene Model CTRM Bieden"
+
+#: model@ctrm.offers|_columns@doo$label:1
 msgid "Date Of Offer"
 msgstr "Datum Van Aanbieding"
 
-#: crm.offers-from_date:1
+#: model@ctrm.offers|_columns@from_date$label:1
 msgid "Begin Date Of Offer"
 msgstr "Begin Datum Van De Aanbieding"
 
-#: crm.offers-to_date:1
+#: model@ctrm.offers|_columns@to_date$label:1
 msgid "End Date Of Offer"
 msgstr "Einddatum Van De Aanbieding"
 
-#: crm.offer.texts-offer_id:1 crm.contract.texts-offer_id:1
+#: model@ctrm.offer.texts|_description@:1
+msgid "General Model CTRM Offer Texts"
+msgstr "Algemene Model CTRM Bieden Teksten"
+
+#: model@ctrm.offer.texts|_columns@offer_id$label:1
+#: model@ctrm.contract.texts|_columns@contract_id$label:1
 msgid "Offer"
 msgstr "Bieden"
 
-#: crm.offer.items-offer_id:1
-msgid "CRM Offer"
-msgstr "CRM Bieden"
+#: model@ctrm.offer.roles|_description@:1
+msgid "General Model CTRM Offer Roles"
+msgstr "Algemene Model CTRM Bieden Rollen"
 
-#: crm.offer.item.delivery.schedules-item_id:1
+#: model@ctrm.offer.items|_description@:1
+#: model@ctrm.contract.items|_description@:1
+msgid "General Model CTRM Offer Items"
+msgstr "Algemene Model CTRM Bieden Items"
+
+#: model@ctrm.offer.items|_columns@offer_id$label:1
+msgid "CTRM Offer"
+msgstr "CTRM Bieden"
+
+#: model@ctrm.offer.item.texts|_description@:1
+msgid "General Model CTRM Offer Item Texts"
+msgstr "Algemene Model CTRM Bieden Item Teksten"
+
+#: model@ctrm.offer.item.delivery.schedules|_description@:1
+msgid "General Model CTRM Offer Item Delivery Schedules"
+msgstr "Algemene Model CTRM Bieden Item levertijden"
+
+#: model@ctrm.offer.item.delivery.schedules|_columns@item_id$label:1
 msgid "Offer Item"
 msgstr "Bieden Item"
 
-#: crm.contracts-doc:1
+#: model@ctrm.contracts|_description@:1
+msgid "General Model CTRM Contract"
+msgstr "Algemene Model CTRM Contract"
+
+#: model@ctrm.contracts|_columns@doc$label:1
 msgid "Date Of Contract"
 msgstr "Datum Van Het Contract"
 
-#: crm.contracts-from_date:1
+#: model@ctrm.contracts|_columns@futures_date$label:1
+msgid "Futures Date Of Contract"
+msgstr "Futures Datum Van Het Contract"
+
+#: model@ctrm.contracts|_columns@from_date$label:1
 msgid "Begin Date Of Contract"
 msgstr "Begin Datum Van Het Contract"
 
-#: crm.contracts-to_date:1
+#: model@ctrm.contracts|_columns@to_date$label:1
 msgid "End Date Of Contract"
 msgstr "Einddatum Contract"
 
-#: crm.contract.items-contract_id:1
+#: model@ctrm.contract.texts|_description@:1
+msgid "General Model CTRM Contract Texts"
+msgstr "Algemene Model CTRM Contract Teksten"
+
+#: model@ctrm.contract.roles|_description@:1
+msgid "General Model CTRM Contracts Roles"
+msgstr "Algemene Model CTRM Contracten Rollen"
+
+#: model@ctrm.contract.items|_columns@contract_id$label:1
 msgid "Contract"
 msgstr "Contract"
+
+#: model@ctrm.contract.item.texts|_description@:1
+msgid "General Model CTRM Contract Item Texts"
+msgstr "Algemene Model CTRM Contract Item Teksten"
+
+#: model@ctrm.contract.item.roles|_description@:1
+msgid "General Model CTRM Contract Item Roles"
+msgstr "Algemene Model CTRM Contract Item Rollen"
+
+#: model@ctrm.contract.item.delivery.schedules|_description@:1
+msgid "General Model CTRM Contract Item Delivery Schedules"
+msgstr "Algemene Model CTRM Contract Item levertijden"

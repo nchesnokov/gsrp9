@@ -3,468 +3,927 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:05+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:05+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:52+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:52+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: crm_unit.categories-name:1 crm_channel.categories-name:1
-#: crm_segment.categories-name:1 crm_area.categories-name:1
-#: crm_region.categories-name:1 crm_division.categories-name:1
-#: crm_subdivision.categories-name:1 crm.request.types-name:1
-#: crm.offer.types-name:1 crm.contract.types-name:1
-#: crm.request.categories-name:1 crm.offer.categories-name:1
-#: crm.contract.categories-name:1 crm.requests-name:1 crm.offers-name:1
-#: crm.contracts-name:1
+#: model@crm_unit.categories|_description@:1
+msgid "General Model Categories CRM Unit"
+msgstr "Algemene Model Categorieën CRM-Eenheid"
+
+#: model@crm_unit.categories|_columns@name$label:1
+#: model@crm_channel.categories|_columns@name$label:1
+#: model@crm_segment.categories|_columns@name$label:1
+#: model@crm_area.categories|_columns@name$label:1
+#: model@crm_region.categories|_columns@name$label:1
+#: model@crm_division.categories|_columns@name$label:1
+#: model@crm_subdivision.categories|_columns@name$label:1
+#: model@crm.request.types|_columns@name$label:1
+#: model@crm.offer.types|_columns@name$label:1
+#: model@crm.contract.types|_columns@name$label:1
+#: model@crm.request.categories|_columns@name$label:1
+#: model@crm.offer.categories|_columns@name$label:1
+#: model@crm.contract.categories|_columns@name$label:1
+#: model@crm.requests|_columns@name$label:1
+#: model@crm.offers|_columns@name$label:1
+#: model@crm.contracts|_columns@name$label:1
 msgid "Name"
 msgstr "Naam"
 
-#: crm_unit.categories-parent_id:1 crm_channel.categories-parent_id:1
-#: crm_segment.categories-parent_id:1 crm_area.categories-parent_id:1
-#: crm_region.categories-parent_id:1 crm_division.categories-parent_id:1
-#: crm_subdivision.categories-parent_id:1 crm.request.categories-parent_id:1
-#: crm.offer.categories-parent_id:1 crm.contract.categories-parent_id:1
+#: model@crm_unit.categories|_columns@parent_id$label:1
+#: model@crm_channel.categories|_columns@parent_id$label:1
+#: model@crm_segment.categories|_columns@parent_id$label:1
+#: model@crm_area.categories|_columns@parent_id$label:1
+#: model@crm_region.categories|_columns@parent_id$label:1
+#: model@crm_division.categories|_columns@parent_id$label:1
+#: model@crm_subdivision.categories|_columns@parent_id$label:1
+#: model@crm.request.categories|_columns@parent_id$label:1
+#: model@crm.offer.categories|_columns@parent_id$label:1
+#: model@crm.contract.categories|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Ouder"
 
-#: crm_unit.categories-childs_id:1 crm_channel.categories-childs_id:1
-#: crm_segment.categories-childs_id:1 crm_area.categories-childs_id:1
-#: crm_region.categories-childs_id:1 crm_division.categories-childs_id:1
-#: crm_subdivision.categories-childs_id:1 crm.request.categories-childs_id:1
-#: crm.offer.categories-childs_id:1 crm.contract.categories-childs_id:1
+#: model@crm_unit.categories|_columns@childs_id$label:1
+#: model@crm_channel.categories|_columns@childs_id$label:1
+#: model@crm_segment.categories|_columns@childs_id$label:1
+#: model@crm_area.categories|_columns@childs_id$label:1
+#: model@crm_region.categories|_columns@childs_id$label:1
+#: model@crm_division.categories|_columns@childs_id$label:1
+#: model@crm_subdivision.categories|_columns@childs_id$label:1
+#: model@crm.request.categories|_columns@childs_id$label:1
+#: model@crm.offer.categories|_columns@childs_id$label:1
+#: model@crm.contract.categories|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: crm_unit.categories-units:1
+#: model@crm_unit.categories|_columns@units$label:1
 msgid "Units"
 msgstr "Eenheden"
 
-#: crm_unit.categories-note:1 crm_channel.categories-note:1
-#: crm_segment.categories-note:1 crm_area.categories-note:1
-#: crm_region.categories-note:1 crm_division.categories-note:1
-#: crm_subdivision.categories-note:1 crm.markets-note:1 crm_teams-note:1
-#: crm.request.types-note:1 crm.request.type.roles-note:1
-#: crm.offer.types-note:1 crm.offer.type.roles-note:1
-#: crm.contract.types-note:1 crm.contract.type.roles-note:1
-#: crm.request.categories-note:1 crm.offer.categories-note:1
-#: crm.contract.categories-note:1 crm.requests-note:1 crm.request.items-note:1
-#: crm.request.item.delivery.schedules-note:1 crm.offers-note:1
-#: crm.offer.items-note:1 crm.offer.item.delivery.schedules-note:1
-#: crm.contracts-note:1 crm.contract.payment.schedules-note:1
-#: crm.contract.items-note:1 crm.contract.item.delivery.schedules-note:1
-#: crm.contract.item.payment.schedules-note:1
+#: model@crm_unit.categories|_columns@note$label:1
+#: model@crm_channel.categories|_columns@note$label:1
+#: model@crm_segment.categories|_columns@note$label:1
+#: model@crm_area.categories|_columns@note$label:1
+#: model@crm_region.categories|_columns@note$label:1
+#: model@crm_division.categories|_columns@note$label:1
+#: model@crm_subdivision.categories|_columns@note$label:1
+#: model@crm.markets|_columns@note$label:1
+#: model@crm_teams|_columns@note$label:1
+#: model@crm.request.types|_columns@note$label:1
+#: model@crm.request.type.roles|_columns@note$label:1
+#: model@crm.offer.types|_columns@note$label:1
+#: model@crm.offer.type.roles|_columns@note$label:1
+#: model@crm.contract.types|_columns@note$label:1
+#: model@crm.contract.type.roles|_columns@note$label:1
+#: model@crm.request.categories|_columns@note$label:1
+#: model@crm.offer.categories|_columns@note$label:1
+#: model@crm.contract.categories|_columns@note$label:1
+#: model@crm.requests|_columns@note$label:1
+#: model@crm.request.items|_columns@note$label:1
+#: model@crm.request.item.delivery.schedules|_columns@note$label:1
+#: model@crm.offers|_columns@note$label:1
+#: model@crm.offer.items|_columns@note$label:1
+#: model@crm.offer.item.delivery.schedules|_columns@note$label:1
+#: model@crm.contracts|_columns@note$label:1
+#: model@crm.contract.payment.schedules|_columns@note$label:1
+#: model@crm.contract.items|_columns@note$label:1
+#: model@crm.contract.item.delivery.schedules|_columns@note$label:1
+#: model@crm.contract.item.payment.schedules|_columns@note$label:1
 msgid "Note"
 msgstr "Opmerking"
 
-#: crm_units-category_id:1 crm_channels-category_id:1
-#: crm_segments-category_id:1 crm_areas-category_id:1
-#: crm_regions-category_id:1 crm_divisions-category_id:1
-#: crm_subdivisions-category_id:1 crm.requests-category:1
-#: crm.offers-category_id:1 crm.contracts-category_id:1
+#: model@crm_units|_description@:1
+msgid "General Model CRM Units"
+msgstr "Algemene Model CRM-Units"
+
+#: model@crm_units|_columns@category_id$label:1
+#: model@crm_channels|_columns@category_id$label:1
+#: model@crm_segments|_columns@category_id$label:1
+#: model@crm_areas|_columns@category_id$label:1
+#: model@crm_regions|_columns@category_id$label:1
+#: model@crm_divisions|_columns@category_id$label:1
+#: model@crm_subdivisions|_columns@category_id$label:1
+#: model@crm.requests|_columns@category$label:1
+#: model@crm.offers|_columns@category_id$label:1
+#: model@crm.contracts|_columns@category_id$label:1
 msgid "Category"
 msgstr "Categorie"
 
-#: crm_units-company_id:1
+#: model@crm_units|_columns@company_id$label:1
 msgid "Companies"
 msgstr "Bedrijven"
 
-#: crm_units-code:1 crm_channels-code:1 crm_segments-code:1 crm_areas-code:1
-#: crm_regions-code:1 crm_divisions-code:1 crm_subdivisions-code:1
-#: crm.channels-code:1 crm.sectors-code:1 crm.teams-code:1 crm.groups-code:1
-#: crm.texts-code:1 crm.schema.texts-code:1
+#: model@crm_units|_columns@code$label:1
+#: model@crm_channels|_columns@code$label:1
+#: model@crm_segments|_columns@code$label:1
+#: model@crm_areas|_columns@code$label:1
+#: model@crm_regions|_columns@code$label:1
+#: model@crm_divisions|_columns@code$label:1
+#: model@crm_subdivisions|_columns@code$label:1
+#: model@crm.channels|_columns@code$label:1
+#: model@crm.sectors|_columns@code$label:1
+#: model@crm.teams|_columns@code$label:1
+#: model@crm.groups|_columns@code$label:1
+#: model@crm.texts|_columns@code$label:1
+#: model@crm.schema.texts|_columns@code$label:1
 msgid "Code"
 msgstr "Code"
 
-#: crm_units-descr:1 crm_channels-descr:1 crm_segments-descr:1
-#: crm_areas-descr:1 crm_regions-descr:1 crm_divisions-descr:1
-#: crm_subdivisions-descr:1 crm.channels-descr:1 crm.sectors-descr:1
-#: crm.teams-descr:1 crm.groups-descr:1 crm.texts-descr:1
-#: crm.schema.texts-descr:1
+#: model@crm_units|_columns@descr$label:1
+#: model@crm_channels|_columns@descr$label:1
+#: model@crm_segments|_columns@descr$label:1
+#: model@crm_areas|_columns@descr$label:1
+#: model@crm_regions|_columns@descr$label:1
+#: model@crm_divisions|_columns@descr$label:1
+#: model@crm_subdivisions|_columns@descr$label:1
+#: model@crm.channels|_columns@descr$label:1
+#: model@crm.sectors|_columns@descr$label:1
+#: model@crm.teams|_columns@descr$label:1
+#: model@crm.groups|_columns@descr$label:1
+#: model@crm.texts|_columns@descr$label:1
+#: model@crm.schema.texts|_columns@descr$label:1
 msgid "Description"
 msgstr "Beschrijving"
 
-#: crm_units-channels:1 crm_channel.categories-channels:1
+#: model@crm_units|_columns@channels$label:1
+#: model@crm_channel.categories|_columns@channels$label:1
 msgid "Channels"
 msgstr "Kanalen"
 
-#: crm_units-segments:1 crm_segment.categories-segments:1
+#: model@crm_units|_columns@segments$label:1
+#: model@crm_segment.categories|_columns@segments$label:1
 msgid "Segments"
 msgstr "Segmenten"
 
-#: crm_units-areas:1 crm_area.categories-areas:1
+#: model@crm_units|_columns@areas$label:1
+#: model@crm_area.categories|_columns@areas$label:1
 msgid "Areas"
 msgstr "Gebieden"
 
-#: crm_units-regions:1
+#: model@crm_units|_columns@regions$label:1
 msgid "Regions"
 msgstr "Regio ' s"
 
-#: crm_region.categories-segments:1
+#: model@crm_channel.categories|_description@:1
+msgid "General Model Categories CRM Chanel"
+msgstr "Algemene Model Categorieën CRM Chanel"
+
+#: model@crm_channels|_description@:1
+msgid "General Model CRM Channels"
+msgstr "Algemene Model CRM-Kanalen"
+
+#: model@crm_segment.categories|_description@:1
+msgid "General Model Categories CRM Segment"
+msgstr "Algemene Model Categorieën CRM-Segment"
+
+#: model@crm_segments|_description@:1
+msgid "General Model CRM Segments"
+msgstr "Algemene Model CRM Segmenten"
+
+#: model@crm_area.categories|_description@:1
+msgid "General Model Categories CRM Area"
+msgstr "Algemene Model Categorieën CRM-Omgeving"
+
+#: model@crm_areas|_description@:1
+msgid "General Model CRM Areas"
+msgstr "Algemene Model CRM Gebieden"
+
+#: model@crm_region.categories|_description@:1
+msgid "General Model Categories CRM Region"
+msgstr "Algemene Model Categorieën CRM Regio"
+
+#: model@crm_region.categories|_columns@segments$label:1
 msgid "REgions"
 msgstr "Regio ' s"
 
-#: crm_division.categories-divisions:1
+#: model@crm_regions|_description@:1
+msgid "General Model CRM Regions"
+msgstr "Algemene Model CRM Regio ' s"
+
+#: model@crm_division.categories|_description@:1
+msgid "General Model Categories CRM Division"
+msgstr "Algemene Model Categorieën CRM Divisie"
+
+#: model@crm_division.categories|_columns@divisions$label:1
 msgid "Divisions"
 msgstr "Divisies"
 
-#: crm_divisions-subdivisions:1
+#: model@crm_divisions|_description@:1
+msgid "General Model CRM Divisions"
+msgstr "Algemene Model CRM Divisies"
+
+#: model@crm_divisions|_columns@subdivisions$label:1
 msgid "SubDivisions"
 msgstr "Onderverdelingen"
 
-#: crm_subdivision.categories-subdivisions:1
+#: model@crm_subdivision.categories|_description@:1
+msgid "General Model Categories CRM Subdivision"
+msgstr "Algemene Model Categorieën CRM Onderverdeling"
+
+#: model@crm_subdivision.categories|_columns@subdivisions$label:1
 msgid "Orders"
 msgstr "Bestellingen"
 
-#: crm_unit.channel.assigments-unit_id:1 crm_unit.segment.assigments-unit_id:1
-#: crm_unit.area.assigments-unit_id:1 crm_unit.region.assigments-unit_id:1
-#: crm.markets-unit_id:1 crm.request.items-unit:1 crm.offer.items-unit:1
-#: crm.contract.items-unit:1
+#: model@crm_subdivisions|_description@:1
+msgid "General Model CRM Subdivisions"
+msgstr "Algemene Model CRM Onderverdelingen"
+
+#: model@crm_unit.channel.assigments|_description@:1
+msgid "General Model CRM Unit Of Channel Assigment"
+msgstr "Algemene Model CRM-Eenheid Van het Kanaal type Opdracht"
+
+#: model@crm_unit.channel.assigments|_columns@unit_id$label:1
+#: model@crm_unit.segment.assigments|_columns@unit_id$label:1
+#: model@crm_unit.area.assigments|_columns@unit_id$label:1
+#: model@crm_unit.region.assigments|_columns@unit_id$label:1
+#: model@crm.markets|_columns@unit_id$label:1
+#: model@crm.request.items|_columns@unit$label:1
+#: model@crm.offer.items|_columns@unit$label:1
+#: model@crm.contract.items|_columns@unit$label:1
 msgid "Unit"
 msgstr "Eenheid"
 
-#: crm_unit.channel.assigments-channel_id:1 crm.markets-channel_id:1
-#: crm.sectors-channel_id:1
+#: model@crm_unit.channel.assigments|_columns@channel_id$label:1
+#: model@crm.markets|_columns@channel_id$label:1
+#: model@crm.sectors|_columns@channel_id$label:1
 msgid "Channel"
 msgstr "Kanaal"
 
-#: crm_unit.channel.assigments-descr:1 crm_unit.segment.assigments-descr:1
-#: crm_unit.area.assigments-descr:1 crm_unit.region.assigments-descr:1
-#: crm_division.subdivision.assigments-descr:1 crm.schema.text.items-descr:1
-#: crm.request.texts-descr:1 crm.request.item.texts-descr:1
-#: crm.offer.texts-descr:1 crm.offer.item.texts-descr:1
-#: crm.contract.texts-descr:1 crm.contract.item.texts-descr:1
+#: model@crm_unit.channel.assigments|_columns@descr$label:1
+#: model@crm_unit.segment.assigments|_columns@descr$label:1
+#: model@crm_unit.area.assigments|_columns@descr$label:1
+#: model@crm_unit.region.assigments|_columns@descr$label:1
+#: model@crm_division.subdivision.assigments|_columns@descr$label:1
+#: model@crm.schema.text.items|_columns@descr$label:1
+#: model@crm.request.texts|_columns@descr$label:1
+#: model@crm.request.item.texts|_columns@descr$label:1
+#: model@crm.offer.texts|_columns@descr$label:1
+#: model@crm.offer.item.texts|_columns@descr$label:1
+#: model@crm.contract.texts|_columns@descr$label:1
+#: model@crm.contract.item.texts|_columns@descr$label:1
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: crm_unit.segment.assigments-segment_id:1 crm.markets-segment_id:1
+#: model@crm_unit.segment.assigments|_description@:1
+msgid "General Model CRM Unit Of Segment Assigment"
+msgstr "Algemene Model CRM-Eenheid Van het Segment type Opdracht"
+
+#: model@crm_unit.segment.assigments|_columns@segment_id$label:1
+#: model@crm.markets|_columns@segment_id$label:1
 msgid "Segment"
 msgstr "Segment"
 
-#: crm_unit.area.assigments-area_id:1 crm.markets-area_id:1
+#: model@crm_unit.area.assigments|_description@:1
+msgid "General Model CRM Unit Of Area Assigment"
+msgstr "Algemene Model CRM-Eenheid Van het Gebied Assigment"
+
+#: model@crm_unit.area.assigments|_columns@area_id$label:1
+#: model@crm.markets|_columns@area_id$label:1
 msgid "Area"
 msgstr "Gebied"
 
-#: crm_unit.region.assigments-region_id:1 crm.markets-region_id:1
+#: model@crm_unit.region.assigments|_description@:1
+msgid "General Model CRM Unit Of Region Assigment"
+msgstr "Algemene Model CRM-Eenheid Van de Regio Assigment"
+
+#: model@crm_unit.region.assigments|_columns@region_id$label:1
+#: model@crm.markets|_columns@region_id$label:1
 msgid "Region"
 msgstr "Regio"
 
-#: crm_division.subdivision.assigments-division_id:1 crm_teams-division_id:1
+#: model@crm_division.subdivision.assigments|_description@:1
+msgid "General Model CRM Division Of Subdivision Assigment"
+msgstr "Algemene Model CRM Afdeling Van Onderverdeling type Opdracht"
+
+#: model@crm_division.subdivision.assigments|_columns@division_id$label:1
+#: model@crm_teams|_columns@division_id$label:1
 msgid "Division"
 msgstr "Divisie"
 
-#: crm_division.subdivision.assigments-subdivision_id:1
-#: crm_teams-subdivision_id:1
+#: model@crm_division.subdivision.assigments|_columns@subdivision_id$label:1
+#: model@crm_teams|_columns@subdivision_id$label:1
 msgid "Subdivision"
 msgstr "Onderverdeling"
 
-#: crm.markets-fullname:1 crm_teams-fullname:1 crm.requests-fullname:1
+#: model@crm.markets|_description@:1
+msgid "General Model CRM Market"
+msgstr "Algemene Model CRM-Markt"
+
+#: model@crm.markets|_columns@fullname$label:1
+#: model@crm_teams|_columns@fullname$label:1
+#: model@crm.requests|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Volledige Naam"
 
-#: crm.channels-sectors:1
+#: model@crm_teams|_description@:1 model@crm.teams|_description@:1
+msgid "General Model CRM Teams"
+msgstr "Algemene Model CRM Teams"
+
+#: model@crm.channels|_description@:1
+msgid "General Model CRM Cannels"
+msgstr "Algemene Model CRM Opnamekanalen"
+
+#: model@crm.channels|_columns@sectors$label:1
 msgid "Sectors"
 msgstr "Sectoren"
 
-#: crm.teams-groups:1
+#: model@crm.sectors|_description@:1
+msgid "General Model CRM Sectors"
+msgstr "Algemene Model CRM Sectoren"
+
+#: model@crm.teams|_columns@groups$label:1
 msgid "Groups"
 msgstr "Groepen"
 
-#: crm.groups-team_id:1 crm.offers-group_id:1 crm.contracts-group_id:1
+#: model@crm.groups|_description@:1
+msgid "General Model CRM Groups"
+msgstr "Algemene Model CRM Groepen"
+
+#: model@crm.groups|_columns@team_id$label:1
+#: model@crm.offers|_columns@group_id$label:1
+#: model@crm.contracts|_columns@group_id$label:1
 msgid "Group"
 msgstr "Groep"
 
-#: crm.schema.texts-usage:1
+#: model@crm.texts|_description@:1
+msgid "General Model CRM Texts"
+msgstr "Algemene Model CRM Teksten"
+
+#: model@crm.schema.texts|_description@:1
+msgid "General Model Schema Of CRM Texts"
+msgstr "Algemene Model Schema Van CRM Teksten"
+
+#: model@crm.schema.texts|_columns@usage$label:1
 msgid "Usage"
 msgstr "Gebruik"
 
-#: crm.schema.texts-texts:1 crm.requests-texts:1 crm.request.items-texts:1
-#: crm.offers-texts:1 crm.offer.items-texts:1 crm.contracts-texts:1
-#: crm.contract.items-texts:1
-msgid "Texts"
-msgstr "Teksten"
+#: model@crm.schema.texts|_columns@usage$selections#h:1
+msgid "Header"
+msgstr "Header"
 
-#: crm.schema.text.items-schema_id:1
-msgid "Schema"
-msgstr "Schema"
-
-#: crm.schema.text.items-text_id:1
-msgid "Text"
-msgstr "Tekst"
-
-#: crm.request.types-rtype:1 crm.request.type.roles-type_id:1
-#: crm.offer.types-otype:1 crm.offer.type.roles-type_id:1
-#: crm.contract.type.roles-type_id:1 crm.requests-rtype:1 crm.offers-otype:1
-#: crm.contracts-ctype:1
-msgid "Type"
-msgstr "Type"
-
-#: crm.request.types-htschema:1 crm.offer.types-htschema:1
-#: crm.contract.types-htschema:1
-msgid "Text Schema Of Head"
-msgstr "Tekst Schema Van Het Hoofd"
-
-#: crm.request.types-itschema:1 crm.offer.types-itschema:1
-#: crm.contract.types-itschema:1
-msgid "Text Schema Of Item"
-msgstr "Tekst Schema Van Item"
-
-#: crm.request.types-roles:1 crm.offer.types-roles:1
-#: crm.contract.types-roles:1 crm.requests-roles:1 crm.request.items-roles:1
-#: crm.offers-roles:1 crm.offer.items-roles:1 crm.contracts-roles:1
-#: crm.contract.items-roles:1
-msgid "Roles"
-msgstr "Rollen"
-
-#: crm.request.types-required:1 crm.offer.types-required:1
-#: crm.contract.types-required:1
-msgid "Required"
-msgstr "Vereist"
-
-#: crm.request.type.roles-role_id:1 crm.offer.type.roles-role_id:1
-#: crm.contract.type.roles-role_id:1 crm.request.roles-role_id:1
-#: crm.request.item.roles-role_id:1 crm.offer.roles-role_id:1
-#: crm.offer.item.roles-role_id:1 crm.contract.roles-role_id:1
-#: crm.contract.item.roles-role_id:1
-msgid "Role"
-msgstr "Rol"
-
-#: crm.request.categories-requests:1
-msgid "Requests"
-msgstr "Aanvragen"
-
-#: crm.offer.categories-offers:1
-msgid "Offers"
-msgstr "Aanbiedingen"
-
-#: crm.contract.categories-contracts:1
-msgid "Contracts"
-msgstr "Contracten"
-
-#: crm.requests-company:1 crm.offers-company_id:1 crm.contracts-company_id:1
-msgid "Company"
-msgstr "Bedrijf"
-
-#: crm.requests-market:1
-msgid "Market"
-msgstr "Markt"
-
-#: crm.requests-team:1 crm.offers-team_id:1 crm.contracts-team_id:1
-msgid "Team"
-msgstr "Team"
-
-#: crm.requests-manager:1 crm.offers-manager:1 crm.contracts-manager:1
-msgid "Manager"
-msgstr "Manager"
-
-#: crm.requests-origin:1 crm.offers-origin:1 crm.contracts-origin:1
-msgid "Origin"
-msgstr "Oorsprong"
-
-#: crm.requests-from_date:1
-msgid "Begin Date Of Request"
-msgstr "Begin Datum Van Het Verzoek"
-
-#: crm.requests-to_date:1
-msgid "End Date Of Request"
-msgstr "Eind Datum Van Het Verzoek"
-
-#: crm.requests-dor:1
-msgid "Date Of Request"
-msgstr "Datum Van Het Verzoek"
-
-#: crm.requests-partner:1 crm.offers-partner:1 crm.contracts-partner:1
-msgid "Partner"
-msgstr "Partner"
-
-#: crm.requests-currency:1 crm.request.items-currency:1 crm.offers-currency:1
-#: crm.offer.items-currency:1 crm.contracts-currency:1
-#: crm.contract.payment.schedules-currency:1 crm.contract.items-currency:1
-#: crm.contract.item.payment.schedules-currency:1
-msgid "Currency"
-msgstr "Munt"
-
-#: crm.requests-incoterms1:1 crm.offers-incoterms1:1
-#: crm.contracts-incoterms1:1
-msgid "Incoterms 1"
-msgstr "Incoterms 1"
-
-#: crm.requests-incoterms2:1 crm.offers-incoterms2:1
-#: crm.contracts-incoterms2:1
-msgid "Incoterms 2"
-msgstr "Incoterms 2"
-
-#: crm.requests-state:1 crm.offers-state:1 crm.contracts-state:1
-msgid "State"
-msgstr "Staat"
-
-#: crm.requests-amount:1 crm.request.items-amount:1 crm.offers-amount:1
-#: crm.offer.items-amount:1 crm.contracts-amount:1
-#: crm.contract.payment.schedules-amount:1 crm.contract.items-amount:1
-#: crm.contract.item.payment.schedules-amount:1
-msgid "Amount"
-msgstr "Bedrag"
-
-#: crm.requests-vat_amount:1 crm.request.items-vat_amount:1
-#: crm.offers-vat_amount:1 crm.offer.items-vat_amount:1
-#: crm.contracts-vat_amount:1 crm.contract.items-vat_amount:1
-msgid "VAT Amount"
-msgstr "BTW-Bedrag"
-
-#: crm.requests-total_amount:1 crm.request.items-total_amount:1
-#: crm.offers-total_amount:1 crm.offer.items-total_amount:1
-#: crm.contracts-total_amount:1 crm.contract.items-total_amount:1
-msgid "Total Amount"
-msgstr "Totaal Bedrag"
-
-#: crm.requests-recepture:1 crm.offers-recepture:1 crm.contracts-recepture:1
-msgid "Recepture"
-msgstr "Recepture"
-
-#: crm.requests-items:1 crm.offers-items:1 crm.contracts-items:1
-msgid "Items"
-msgstr "Items"
-
-#: crm.request.texts-request_id:1 crm.request.roles-request_id:1
-#: crm.offer.roles-offer_id:1 crm.contract.roles-offer_id:1
-msgid "Request"
-msgstr "Aanvraag"
-
-#: crm.request.texts-seq:1 crm.request.item.texts-seq:1 crm.offer.texts-seq:1
-#: crm.offer.item.texts-seq:1 crm.contract.texts-seq:1
-#: crm.contract.item.texts-seq:1
-msgid "Sequence"
-msgstr "Volgorde"
-
-#: crm.request.texts-text_id:1 crm.request.item.texts-text_id:1
-#: crm.offer.texts-text_id:1 crm.offer.item.texts-text_id:1
-#: crm.contract.texts-text_id:1 crm.contract.item.texts-text_id:1
-msgid "Text ID"
-msgstr "Tekst ID"
-
-#: crm.request.texts-content:1 crm.request.item.texts-content:1
-#: crm.offer.texts-content:1 crm.offer.item.texts-content:1
-#: crm.contract.texts-content:1 crm.contract.item.texts-content:1
-msgid "Content"
-msgstr "Inhoud"
-
-#: crm.request.roles-patner_id:1 crm.request.item.roles-patner_id:1
-#: crm.offer.roles-patner_id:1 crm.offer.item.roles-patner_id:1
-#: crm.contract.roles-patner_id:1 crm.contract.item.roles-patner_id:1
-msgid "Parther"
-msgstr "Parther"
-
-#: crm.request.items-request_id:1
-msgid "CRM Request"
-msgstr "CRM Aanvraag"
-
-#: crm.request.items-product:1 crm.offer.items-product:1
-#: crm.contract.items-product:1
-msgid "Product"
-msgstr "Product"
-
-#: crm.request.items-quantity:1 crm.request.item.delivery.schedules-quantity:1
-#: crm.offer.items-quantity:1 crm.offer.item.delivery.schedules-quantity:1
-#: crm.contract.items-quantity:1
-#: crm.contract.item.delivery.schedules-quantity:1
-msgid "Quantity"
-msgstr "Hoeveelheid"
-
-#: crm.request.items-uom:1 crm.offer.items-uom:1 crm.contract.items-uom:1
-#: crm.contract.item.delivery.schedules-uom:1
-msgid "UoM"
-msgstr "Eenheid"
-
-#: crm.request.items-price:1 crm.offer.items-price:1
-#: crm.contract.items-price:1
-msgid "Price"
-msgstr "Prijs"
-
-#: crm.request.items-uop:1 crm.offer.items-uop:1 crm.contract.items-uop:1
-msgid "Unit Of Price"
-msgstr "Toestel Prijs"
-
-#: crm.request.items-vat_code:1 crm.offer.items-vat_code:1
-#: crm.contract.items-vat_code:1
-msgid "Vat code"
-msgstr "Btw code"
-
-#: crm.request.items-delivery_schedules:1 crm.offer.items-delivery_schedules:1
-#: crm.contract.items-delivery_schedules:1
-msgid "Delivery Schedule"
-msgstr "Leveringsschema"
-
-#: crm.request.item.texts-item_id:1 crm.request.item.roles-item_id:1
-#: crm.offer.item.texts-item_id:1 crm.offer.item.roles-item_id:1
-#: crm.contract.item.texts-item_id:1 crm.contract.item.roles-item_id:1
-#: crm.contract.item.delivery.schedules-item_id:1
-#: crm.contract.item.payment.schedules-item_id:1
+#: model@crm.schema.texts|_columns@usage$selections#i:1
+#: model@crm.request.item.texts|_columns@item_id$label:1
+#: model@crm.request.item.roles|_columns@item_id$label:1
+#: model@crm.offer.item.texts|_columns@item_id$label:1
+#: model@crm.offer.item.roles|_columns@item_id$label:1
+#: model@crm.contract.item.texts|_columns@item_id$label:1
+#: model@crm.contract.item.roles|_columns@item_id$label:1
+#: model@crm.contract.item.delivery.schedules|_columns@item_id$label:1
+#: model@crm.contract.item.payment.schedules|_columns@item_id$label:1
 msgid "Item"
 msgstr "Item"
 
-#: crm.request.item.delivery.schedules-item_id:1
+#: model@crm.schema.texts|_columns@usage$selections#b:1
+msgid "Both"
+msgstr "Beide"
+
+#: model@crm.schema.texts|_columns@texts$label:1
+#: model@crm.requests|_columns@texts$label:1
+#: model@crm.request.items|_columns@texts$label:1
+#: model@crm.offers|_columns@texts$label:1
+#: model@crm.offer.items|_columns@texts$label:1
+#: model@crm.contracts|_columns@texts$label:1
+#: model@crm.contract.items|_columns@texts$label:1
+msgid "Texts"
+msgstr "Teksten"
+
+#: model@crm.schema.text.items|_description@:1
+msgid "General Model Items Of Schema CRM Texts"
+msgstr "Algemene Model Items Van Schema CRM Teksten"
+
+#: model@crm.schema.text.items|_columns@schema_id$label:1
+msgid "Schema"
+msgstr "Schema"
+
+#: model@crm.schema.text.items|_columns@text_id$label:1
+msgid "Text"
+msgstr "Tekst"
+
+#: model@crm.request.types|_description@:1
+msgid "General Model Types CRM Request"
+msgstr "Algemene Model Types CRM Aanvraag"
+
+#: model@crm.request.types|_columns@rtype$label:1
+#: model@crm.request.type.roles|_columns@type_id$label:1
+#: model@crm.offer.types|_columns@otype$label:1
+#: model@crm.offer.type.roles|_columns@type_id$label:1
+#: model@crm.contract.type.roles|_columns@type_id$label:1
+#: model@crm.requests|_columns@rtype$label:1
+#: model@crm.offers|_columns@otype$label:1
+#: model@crm.contracts|_columns@ctype$label:1
+msgid "Type"
+msgstr "Type"
+
+#: model@crm.request.types|_columns@rtype$selections#ord:1
+#: model@crm.offer.types|_columns@otype$selections#ord:1
+msgid "Order"
+msgstr "Bestelling"
+
+#: model@crm.request.types|_columns@rtype$selections#ap:1
+#: model@crm.offer.types|_columns@otype$selections#ap:1
+msgid "Advance Payment"
+msgstr "Voorschot"
+
+#: model@crm.request.types|_columns@rtype$selections#ps:1
+#: model@crm.offer.types|_columns@otype$selections#ps:1
+msgid "Pseduo"
+msgstr "Pseduo"
+
+#: model@crm.request.types|_columns@rtype$selections#dm:1
+#: model@crm.offer.types|_columns@otype$selections#dm:1
+msgid "Debit Request"
+msgstr "Automatische Incasso Aanvraag"
+
+#: model@crm.request.types|_columns@rtype$selections#cr:1
+#: model@crm.offer.types|_columns@otype$selections#cr:1
+msgid "Credit Request"
+msgstr "Krediet Aanvraag"
+
+#: model@crm.request.types|_columns@rtype$selections#rо:1
+#: model@crm.offer.types|_columns@otype$selections#rо:1
+msgid "Return"
+msgstr "Terug"
+
+#: model@crm.request.types|_columns@htschema$label:1
+#: model@crm.offer.types|_columns@htschema$label:1
+#: model@crm.contract.types|_columns@htschema$label:1
+msgid "Text Schema Of Head"
+msgstr "Tekst Schema Van Het Hoofd"
+
+#: model@crm.request.types|_columns@itschema$label:1
+#: model@crm.offer.types|_columns@itschema$label:1
+#: model@crm.contract.types|_columns@itschema$label:1
+msgid "Text Schema Of Item"
+msgstr "Tekst Schema Van Item"
+
+#: model@crm.request.types|_columns@roles$label:1
+#: model@crm.offer.types|_columns@roles$label:1
+#: model@crm.contract.types|_columns@roles$label:1
+#: model@crm.requests|_columns@roles$label:1
+#: model@crm.request.items|_columns@roles$label:1
+#: model@crm.offers|_columns@roles$label:1
+#: model@crm.offer.items|_columns@roles$label:1
+#: model@crm.contracts|_columns@roles$label:1
+#: model@crm.contract.items|_columns@roles$label:1
+msgid "Roles"
+msgstr "Rollen"
+
+#: model@crm.request.types|_columns@required$label:1
+#: model@crm.offer.types|_columns@required$label:1
+#: model@crm.contract.types|_columns@required$label:1
+msgid "Required"
+msgstr "Vereist"
+
+#: model@crm.request.type.roles|_description@:1
+msgid "General Model Role CRM Request Types"
+msgstr "Algemene Model de Rol van CRM Verzoek Soorten"
+
+#: model@crm.request.type.roles|_columns@role_id$label:1
+#: model@crm.offer.type.roles|_columns@role_id$label:1
+#: model@crm.contract.type.roles|_columns@role_id$label:1
+#: model@crm.request.roles|_columns@role_id$label:1
+#: model@crm.request.item.roles|_columns@role_id$label:1
+#: model@crm.offer.roles|_columns@role_id$label:1
+#: model@crm.offer.item.roles|_columns@role_id$label:1
+#: model@crm.contract.roles|_columns@role_id$label:1
+#: model@crm.contract.item.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Rol"
+
+#: model@crm.offer.types|_description@:1
+msgid "General Model Types CRM Offer"
+msgstr "Algemene Model Types CRM Bieden"
+
+#: model@crm.offer.type.roles|_description@:1
+msgid "General Model Role CRM Offer Types"
+msgstr "Algemene Model de Rol van CRM Typen"
+
+#: model@crm.contract.types|_description@:1
+msgid "General Model Types CRM Contract"
+msgstr "Algemene Model Types CRM Contract"
+
+#: model@crm.contract.type.roles|_description@:1
+msgid "General Model Role CRM Contract Types"
+msgstr "Algemene Model de Rol van CRM Contract Types"
+
+#: model@crm.request.categories|_description@:1
+msgid "General Model Category CRM Request"
+msgstr "Algemene Model Categorie CRM Aanvraag"
+
+#: model@crm.request.categories|_columns@requests$label:1
+msgid "Requests"
+msgstr "Aanvragen"
+
+#: model@crm.offer.categories|_description@:1
+msgid "General Model Category CRM Offer"
+msgstr "Algemene Model Categorie CRM Bieden"
+
+#: model@crm.offer.categories|_columns@offers$label:1
+msgid "Offers"
+msgstr "Aanbiedingen"
+
+#: model@crm.contract.categories|_description@:1
+msgid "General Model Category CRM Contract"
+msgstr "Algemene Model Categorie CRM Contract"
+
+#: model@crm.contract.categories|_columns@contracts$label:1
+msgid "Contracts"
+msgstr "Contracten"
+
+#: model@crm.requests|_description@:1
+msgid "General Model CRM Request"
+msgstr "Algemene Model CRM Aanvraag"
+
+#: model@crm.requests|_columns@company$label:1
+#: model@crm.offers|_columns@company_id$label:1
+#: model@crm.contracts|_columns@company_id$label:1
+msgid "Company"
+msgstr "Bedrijf"
+
+#: model@crm.requests|_columns@market$label:1
+msgid "Market"
+msgstr "Markt"
+
+#: model@crm.requests|_columns@team$label:1
+#: model@crm.offers|_columns@team_id$label:1
+#: model@crm.contracts|_columns@team_id$label:1
+msgid "Team"
+msgstr "Team"
+
+#: model@crm.requests|_columns@manager$label:1
+#: model@crm.offers|_columns@manager$label:1
+#: model@crm.contracts|_columns@manager$label:1
+msgid "Manager"
+msgstr "Manager"
+
+#: model@crm.requests|_columns@origin$label:1
+#: model@crm.offers|_columns@origin$label:1
+#: model@crm.contracts|_columns@origin$label:1
+msgid "Origin"
+msgstr "Oorsprong"
+
+#: model@crm.requests|_columns@from_date$label:1
+msgid "Begin Date Of Request"
+msgstr "Begin Datum Van Het Verzoek"
+
+#: model@crm.requests|_columns@to_date$label:1
+msgid "End Date Of Request"
+msgstr "Eind Datum Van Het Verzoek"
+
+#: model@crm.requests|_columns@dor$label:1
+msgid "Date Of Request"
+msgstr "Datum Van Het Verzoek"
+
+#: model@crm.requests|_columns@partner$label:1
+#: model@crm.offers|_columns@partner$label:1
+#: model@crm.contracts|_columns@partner$label:1
+msgid "Partner"
+msgstr "Partner"
+
+#: model@crm.requests|_columns@currency$label:1
+#: model@crm.request.items|_columns@currency$label:1
+#: model@crm.offers|_columns@currency$label:1
+#: model@crm.offer.items|_columns@currency$label:1
+#: model@crm.contracts|_columns@currency$label:1
+#: model@crm.contract.payment.schedules|_columns@currency$label:1
+#: model@crm.contract.items|_columns@currency$label:1
+#: model@crm.contract.item.payment.schedules|_columns@currency$label:1
+msgid "Currency"
+msgstr "Munt"
+
+#: model@crm.requests|_columns@incoterms1$label:1
+#: model@crm.offers|_columns@incoterms1$label:1
+#: model@crm.contracts|_columns@incoterms1$label:1
+msgid "Incoterms 1"
+msgstr "Incoterms 1"
+
+#: model@crm.requests|_columns@incoterms2$label:1
+#: model@crm.offers|_columns@incoterms2$label:1
+#: model@crm.contracts|_columns@incoterms2$label:1
+msgid "Incoterms 2"
+msgstr "Incoterms 2"
+
+#: model@crm.requests|_columns@state$label:1
+#: model@crm.offers|_columns@state$label:1
+#: model@crm.contracts|_columns@state$label:1
+msgid "State"
+msgstr "Staat"
+
+#: model@crm.requests|_columns@state$selections#draft:1
+#: model@crm.offers|_columns@state$selections#draft:1
+#: model@crm.contracts|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Ontwerp"
+
+#: model@crm.requests|_columns@state$selections#approved:1
+#: model@crm.offers|_columns@state$selections#approved:1
+#: model@crm.contracts|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Goedgekeurd"
+
+#: model@crm.requests|_columns@state$selections#inprocess:1
+#: model@crm.offers|_columns@state$selections#inprocess:1
+#: model@crm.contracts|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "In Het Proces"
+
+#: model@crm.requests|_columns@state$selections#closed:1
+#: model@crm.offers|_columns@state$selections#closed:1
+#: model@crm.contracts|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Gesloten"
+
+#: model@crm.requests|_columns@state$selections#canceled:1
+#: model@crm.offers|_columns@state$selections#canceled:1
+#: model@crm.contracts|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Geannuleerd"
+
+#: model@crm.requests|_columns@amount$label:1
+#: model@crm.request.items|_columns@amount$label:1
+#: model@crm.offers|_columns@amount$label:1
+#: model@crm.offer.items|_columns@amount$label:1
+#: model@crm.contracts|_columns@amount$label:1
+#: model@crm.contract.payment.schedules|_columns@amount$label:1
+#: model@crm.contract.items|_columns@amount$label:1
+#: model@crm.contract.item.payment.schedules|_columns@amount$label:1
+msgid "Amount"
+msgstr "Bedrag"
+
+#: model@crm.requests|_columns@vat_amount$label:1
+#: model@crm.request.items|_columns@vat_amount$label:1
+#: model@crm.offers|_columns@vat_amount$label:1
+#: model@crm.offer.items|_columns@vat_amount$label:1
+#: model@crm.contracts|_columns@vat_amount$label:1
+#: model@crm.contract.items|_columns@vat_amount$label:1
+msgid "VAT Amount"
+msgstr "BTW-Bedrag"
+
+#: model@crm.requests|_columns@total_amount$label:1
+#: model@crm.request.items|_columns@total_amount$label:1
+#: model@crm.offers|_columns@total_amount$label:1
+#: model@crm.offer.items|_columns@total_amount$label:1
+#: model@crm.contracts|_columns@total_amount$label:1
+#: model@crm.contract.items|_columns@total_amount$label:1
+msgid "Total Amount"
+msgstr "Totaal Bedrag"
+
+#: model@crm.requests|_columns@recepture$label:1
+#: model@crm.offers|_columns@recepture$label:1
+#: model@crm.contracts|_columns@recepture$label:1
+msgid "Recepture"
+msgstr "Recepture"
+
+#: model@crm.requests|_columns@items$label:1
+#: model@crm.offers|_columns@items$label:1
+#: model@crm.contracts|_columns@items$label:1
+msgid "Items"
+msgstr "Items"
+
+#: model@crm.request.texts|_description@:1
+msgid "General Model CRM Request Texts"
+msgstr "Algemene Model CRM Aanvraag Teksten"
+
+#: model@crm.request.texts|_columns@request_id$label:1
+#: model@crm.request.roles|_columns@request_id$label:1
+#: model@crm.offer.roles|_columns@offer_id$label:1
+#: model@crm.contract.roles|_columns@offer_id$label:1
+msgid "Request"
+msgstr "Aanvraag"
+
+#: model@crm.request.texts|_columns@seq$label:1
+#: model@crm.request.item.texts|_columns@seq$label:1
+#: model@crm.offer.texts|_columns@seq$label:1
+#: model@crm.offer.item.texts|_columns@seq$label:1
+#: model@crm.contract.texts|_columns@seq$label:1
+#: model@crm.contract.item.texts|_columns@seq$label:1
+msgid "Sequence"
+msgstr "Volgorde"
+
+#: model@crm.request.texts|_columns@text_id$label:1
+#: model@crm.request.item.texts|_columns@text_id$label:1
+#: model@crm.offer.texts|_columns@text_id$label:1
+#: model@crm.offer.item.texts|_columns@text_id$label:1
+#: model@crm.contract.texts|_columns@text_id$label:1
+#: model@crm.contract.item.texts|_columns@text_id$label:1
+msgid "Text ID"
+msgstr "Tekst ID"
+
+#: model@crm.request.texts|_columns@content$label:1
+#: model@crm.request.item.texts|_columns@content$label:1
+#: model@crm.offer.texts|_columns@content$label:1
+#: model@crm.offer.item.texts|_columns@content$label:1
+#: model@crm.contract.texts|_columns@content$label:1
+#: model@crm.contract.item.texts|_columns@content$label:1
+msgid "Content"
+msgstr "Inhoud"
+
+#: model@crm.request.roles|_description@:1
+msgid "General Model CRM Request Roles"
+msgstr "Algemene Model CRM Verzoek Rollen"
+
+#: model@crm.request.roles|_columns@patner_id$label:1
+#: model@crm.request.item.roles|_columns@patner_id$label:1
+#: model@crm.offer.roles|_columns@patner_id$label:1
+#: model@crm.offer.item.roles|_columns@patner_id$label:1
+#: model@crm.contract.roles|_columns@patner_id$label:1
+#: model@crm.contract.item.roles|_columns@patner_id$label:1
+msgid "Parther"
+msgstr "Parther"
+
+#: model@crm.request.items|_description@:1
+msgid "General Model CRM Request Items"
+msgstr "Algemene Model CRM Verzoek Items"
+
+#: model@crm.request.items|_columns@request_id$label:1
+msgid "CRM Request"
+msgstr "CRM Aanvraag"
+
+#: model@crm.request.items|_columns@product$label:1
+#: model@crm.offer.items|_columns@product$label:1
+#: model@crm.contract.items|_columns@product$label:1
+msgid "Product"
+msgstr "Product"
+
+#: model@crm.request.items|_columns@quantity$label:1
+#: model@crm.request.item.delivery.schedules|_columns@quantity$label:1
+#: model@crm.offer.items|_columns@quantity$label:1
+#: model@crm.offer.item.delivery.schedules|_columns@quantity$label:1
+#: model@crm.contract.items|_columns@quantity$label:1
+#: model@crm.contract.item.delivery.schedules|_columns@quantity$label:1
+msgid "Quantity"
+msgstr "Hoeveelheid"
+
+#: model@crm.request.items|_columns@uom$label:1
+#: model@crm.offer.items|_columns@uom$label:1
+#: model@crm.contract.items|_columns@uom$label:1
+#: model@crm.contract.item.delivery.schedules|_columns@uom$label:1
+msgid "UoM"
+msgstr "Eenheid"
+
+#: model@crm.request.items|_columns@price$label:1
+#: model@crm.offer.items|_columns@price$label:1
+#: model@crm.contract.items|_columns@price$label:1
+msgid "Price"
+msgstr "Prijs"
+
+#: model@crm.request.items|_columns@uop$label:1
+#: model@crm.offer.items|_columns@uop$label:1
+#: model@crm.contract.items|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Toestel Prijs"
+
+#: model@crm.request.items|_columns@vat_code$label:1
+#: model@crm.offer.items|_columns@vat_code$label:1
+#: model@crm.contract.items|_columns@vat_code$label:1
+msgid "Vat code"
+msgstr "Btw code"
+
+#: model@crm.request.items|_columns@delivery_schedules$label:1
+#: model@crm.offer.items|_columns@delivery_schedules$label:1
+#: model@crm.contract.items|_columns@delivery_schedules$label:1
+msgid "Delivery Schedule"
+msgstr "Leveringsschema"
+
+#: model@crm.request.item.texts|_description@:1
+msgid "General Model CRM Request Item Texts"
+msgstr "Algemene Model CRM Verzoek Item Teksten"
+
+#: model@crm.request.item.roles|_description@:1
+#: model@crm.offer.item.roles|_description@:1
+msgid "General Model CRM Offer Item Roles"
+msgstr "Algemene Model CRM Bieden Item Rollen"
+
+#: model@crm.request.item.delivery.schedules|_description@:1
+msgid "General Model CRM REquest Item Delivery Schedules"
+msgstr "Algemene Model CRM Verzoek Item levertijden"
+
+#: model@crm.request.item.delivery.schedules|_columns@item_id$label:1
 msgid "Request Item"
 msgstr "Verzoek Item"
 
-#: crm.request.item.delivery.schedules-schedule:1
-#: crm.offer.item.delivery.schedules-schedule:1
-#: crm.contract.payment.schedules-schedule:1
-#: crm.contract.item.delivery.schedules-schedule:1
-#: crm.contract.item.payment.schedules-schedule:1
+#: model@crm.request.item.delivery.schedules|_columns@schedule$label:1
+#: model@crm.offer.item.delivery.schedules|_columns@schedule$label:1
+#: model@crm.contract.payment.schedules|_columns@schedule$label:1
+#: model@crm.contract.item.delivery.schedules|_columns@schedule$label:1
+#: model@crm.contract.item.payment.schedules|_columns@schedule$label:1
 msgid "Schedule"
 msgstr "Plannen"
 
-#: crm.offers-channel_id:1 crm.contracts-channel_id:1
+#: model@crm.offers|_description@:1
+msgid "General Model CRM Offer"
+msgstr "Algemene Model CRM Bieden"
+
+#: model@crm.offers|_columns@channel_id$label:1
+#: model@crm.contracts|_columns@channel_id$label:1
 msgid "Cannel"
 msgstr "Cannel"
 
-#: crm.offers-sector_id:1 crm.contracts-sector_id:1
+#: model@crm.offers|_columns@sector_id$label:1
+#: model@crm.contracts|_columns@sector_id$label:1
 msgid "Sector"
 msgstr "Sector"
 
-#: crm.offers-doo:1
+#: model@crm.offers|_columns@doo$label:1
 msgid "Date Of Offer"
 msgstr "Datum Van Aanbieding"
 
-#: crm.offers-from_date:1
+#: model@crm.offers|_columns@from_date$label:1
 msgid "Begin Date Of Offer"
 msgstr "Begin Datum Van De Aanbieding"
 
-#: crm.offers-to_date:1
+#: model@crm.offers|_columns@to_date$label:1
 msgid "End Date Of Offer"
 msgstr "Einddatum Van De Aanbieding"
 
-#: crm.offer.texts-offer_id:1 crm.contract.texts-contract_id:1
+#: model@crm.offer.texts|_description@:1
+msgid "General Model CRM Offer Texts"
+msgstr "Algemene Model CRM Bieden Teksten"
+
+#: model@crm.offer.texts|_columns@offer_id$label:1
+#: model@crm.contract.texts|_columns@contract_id$label:1
 msgid "Offer"
 msgstr "Bieden"
 
-#: crm.offer.items-offer_id:1
+#: model@crm.offer.roles|_description@:1
+msgid "General Model CRM Offer Roles"
+msgstr "Algemene Model CRM Bieden Rollen"
+
+#: model@crm.offer.items|_description@:1
+#: model@crm.contract.items|_description@:1
+msgid "General Model CRM Offer Items"
+msgstr "Algemene Model CRM te Bieden Items"
+
+#: model@crm.offer.items|_columns@offer_id$label:1
 msgid "CRM Offer"
 msgstr "CRM Bieden"
 
-#: crm.offer.item.delivery.schedules-item_id:1
+#: model@crm.offer.item.texts|_description@:1
+msgid "General Model CRM Offer Item Texts"
+msgstr "Algemene Model CRM Bieden Item Teksten"
+
+#: model@crm.offer.item.delivery.schedules|_description@:1
+msgid "General Model CRM Offer Item Delivery Schedules"
+msgstr "Algemene Model CRM Bieden Item levertijden"
+
+#: model@crm.offer.item.delivery.schedules|_columns@item_id$label:1
 msgid "Offer Item"
 msgstr "Bieden Item"
 
-#: crm.contracts-doc:1
+#: model@crm.contracts|_description@:1
+msgid "General Model CRM Contract"
+msgstr "Algemene Model CRM Contract"
+
+#: model@crm.contracts|_columns@doc$label:1
 msgid "Date Of Contract"
 msgstr "Datum Van Het Contract"
 
-#: crm.contracts-from_date:1
+#: model@crm.contracts|_columns@from_date$label:1
 msgid "Begin Date Of Contract"
 msgstr "Begin Datum Van Het Contract"
 
-#: crm.contracts-to_date:1
+#: model@crm.contracts|_columns@to_date$label:1
 msgid "End Date Of Contract"
 msgstr "Einddatum Contract"
 
-#: crm.contracts-payments:1 crm.contract.items-payments:1
+#: model@crm.contracts|_columns@payments$label:1
+#: model@crm.contract.items|_columns@payments$label:1
 msgid "Payments"
 msgstr "Betalingen"
 
-#: crm.contract.payment.schedules-contract_id:1
-#: crm.contract.items-contract_id:1
+#: model@crm.contract.texts|_description@:1
+msgid "General Model CRM Contract Texts"
+msgstr "Algemene Model CRM Contract Teksten"
+
+#: model@crm.contract.roles|_description@:1
+msgid "General Model CRM Contracts Roles"
+msgstr "Algemene Model CRM Contracten Rollen"
+
+#: model@crm.contract.payment.schedules|_description@:1
+msgid "General Model CRM Contract Payment Schedules"
+msgstr "Algemene Model CRM Contract betalingstermijnen"
+
+#: model@crm.contract.payment.schedules|_columns@contract_id$label:1
+#: model@crm.contract.items|_columns@contract_id$label:1
 msgid "Contract"
 msgstr "Contract"
+
+#: model@crm.contract.item.texts|_description@:1
+msgid "General Model CRM Contract Item Texts"
+msgstr "Algemene Model CRM Contract Item Teksten"
+
+#: model@crm.contract.item.roles|_description@:1
+msgid "General Model CRM Contract Item Roles"
+msgstr "Algemene Model CRM Contract Item Rollen"
+
+#: model@crm.contract.item.delivery.schedules|_description@:1
+msgid "General Model CRM Contract Item Delivery Schedules"
+msgstr "Algemene Model CRM Contract Item levertijden"
+
+#: model@crm.contract.item.payment.schedules|_description@:1
+msgid "General Model CRM Contract Item Payment Schedules"
+msgstr "Algemene Model CRM Contract Item betalingstermijnen"

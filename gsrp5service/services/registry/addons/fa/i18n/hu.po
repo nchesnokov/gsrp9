@@ -3,542 +3,1148 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:23+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:23+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:54+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: fa.accounts.type-name:1
+#: model@fa.accounts.type|_description@:1
+msgid "Genaral Model Account Type"
+msgstr "Genaral Modell Fiók Típusa"
+
+#: model@fa.accounts.type|_columns@name$label:1
 msgid "Account Type"
 msgstr "Számla Típus"
 
-#: fa.accounts.type-include_initial_balance:1
+#: model@fa.accounts.type|_columns@include_initial_balance$label:1
 msgid "Bring Accounts Balance Forward"
 msgstr "Hozd Számlák Egyenlege Előre"
 
-#: fa.accounts.type-type:1 fa.accounts-user_type_id:1
-#: fa.accounts.journal-type:1 fa.account.template-user_type_id:1
+#: model@fa.accounts.type|_columns@include_initial_balance$help:1
+msgid ""
+"Used in reports to know if we should consider journal items from the "
+"beginning of time instead of from the fiscal year only. Account types that "
+"should be reset to zero at each new fiscal year (like expenses, revenue..) "
+"should not have this option set."
+msgstr ""
+"Használt jelentések tudni érdemes napló tételek az idők kezdete óta, "
+"ahelyett, hogy a költségvetési évben csak. Számla típusok kell nullázása "
+"minden új költségvetési év (mint a kiadások, bevételek..) nem kellett volna "
+"ezt az opciót állítsa be."
+
+#: model@fa.accounts.type|_columns@type$label:1
+#: model@fa.accounts|_columns@user_type_id$label:1
+#: model@fa.accounts.journal|_columns@type$label:1
+#: model@fa.account.template|_columns@user_type_id$label:1
 msgid "Type"
 msgstr "Típus"
 
-#: fa.accounts.type-note:1 fa.account.template-note:1
-#: fa.fiscal.position.template-note:1
+#: model@fa.accounts.type|_columns@type$selections#other:1
+msgid "Regular"
+msgstr "Rendszeres"
+
+#: model@fa.accounts.type|_columns@type$selections#receivable:1
+msgid "Receivable"
+msgstr "Követelések"
+
+#: model@fa.accounts.type|_columns@type$selections#payable:1
+msgid "Payable"
+msgstr "Fizetendő"
+
+#: model@fa.accounts.type|_columns@type$selections#liquidity:1
+msgid "Liquidity"
+msgstr "Likviditási"
+
+#: model@fa.accounts.type|_columns@type$help:1
+msgid ""
+"The 'Internal Type' is used for features available on different types of "
+"accounts: liquidity type is for cash or bank accounts, payable/receivable is"
+" for vendor/customer accounts."
+msgstr ""
+"A Belső Type használt funkciók rendelkezésre álló különböző típusú számlák: "
+"likviditási típusa készpénz vagy banki számlák fizetendő/követelést az "
+"eladó/vevő számlák."
+
+#: model@fa.accounts.type|_columns@note$label:1
+#: model@fa.account.template|_columns@note$label:1
+#: model@fa.fiscal.position.template|_columns@note$label:1
 msgid "Note"
 msgstr "Megjegyzés"
 
-#: fa.accounts.tag-name:1 fa.accounts-name:1 fa.accounts.tax.group-name:1
-#: fa.accounts.payment.method-name:1
+#: model@fa.accounts.tag|_description@:1
+msgid "General Model Account Tag"
+msgstr "Általános Modell Figyelembe Tag"
+
+#: model@fa.accounts.tag|_columns@name$label:1
+#: model@fa.accounts|_columns@name$label:1
+#: model@fa.accounts.tax.group|_columns@name$label:1
+#: model@fa.accounts.payment.method|_columns@name$label:1
 msgid "Name"
 msgstr "Név"
 
-#: fa.accounts.tag-applicability:1
+#: model@fa.accounts.tag|_columns@applicability$label:1
 msgid "Applicability"
 msgstr "Alkalmazhatóság"
 
-#: fa.accounts.tag-color:1
+#: model@fa.accounts.tag|_columns@applicability$selections#accounts:1
+msgid "Accounts"
+msgstr "Beszámoló"
+
+#: model@fa.accounts.tag|_columns@applicability$selections#taxes:1
+msgid "Taxes"
+msgstr "Adók"
+
+#: model@fa.accounts.tag|_columns@color$label:1
 msgid "Color Index"
 msgstr "Szín Index"
 
-#: fa.accounts.tag-inactive:1 fa.accounts.journal-inactive:1
-#: fa.accounts.tax-inactive:1
+#: model@fa.accounts.tag|_columns@inactive$label:1
+#: model@fa.accounts.journal|_columns@inactive$label:1
+#: model@fa.accounts.tax|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Inaktív"
 
-#: fa.accounts-currency_id:1 fa.account.template-currency_id:1
+#: model@fa.accounts.tag|_columns@inactive$help:1
+msgid "Set active to false to hide the Account Tag without removing it."
+msgstr ""
+"Set active, hogy hamis, hogy elrejtse a Számla Címke nélküli eltávolítása."
+
+#: model@fa.accounts|_description@:1
+msgid "Genaral Model Account"
+msgstr "Genaral Modell Fiók"
+
+#: model@fa.accounts|_columns@currency_id$label:1
+#: model@fa.account.template|_columns@currency_id$label:1
 msgid "Account Currency"
 msgstr "Számla Pénzneme"
 
-#: fa.accounts-code:1 fa.account.template-code:1
-#: fa.accounts.payment.method-code:1
+#: model@fa.accounts|_columns@currency_id$help:1
+msgid "Forces all moves for this account to have this account currency."
+msgstr "Erők minden mozog, ezt figyelembe, hogy ez a számla pénzneme."
+
+#: model@fa.accounts|_columns@code$label:1
+#: model@fa.account.template|_columns@code$label:1
+#: model@fa.accounts.payment.method|_columns@code$label:1
 msgid "Code"
 msgstr "Kód"
 
-#: fa.accounts-deprecated:1
+#: model@fa.accounts|_columns@deprecated$label:1
 msgid "Deprecated"
 msgstr "Elavult"
 
-#: fa.accounts-internal_type:1
+#: model@fa.accounts|_columns@user_type_id$help:1
+msgid ""
+"Account Type is used for information purpose, to generate country-specific "
+"legal reports, and set the rules to close a fiscal year and generate opening"
+" entries."
+msgstr ""
+"Fiók Típusa használt információk célja, hogy létrehoz ország-specifikus jogi"
+" jelentéseket, majd állítsa be a szabályokat, hogy közel egy költségvetési "
+"évben termel, nyitó tételek."
+
+#: model@fa.accounts|_columns@internal_type$label:1
 msgid "Internal Type"
 msgstr "Belső Típusa"
 
-#: fa.accounts-last_time_entries_checked:1
+#: model@fa.accounts|_columns@internal_type$selections#user:1
+msgid "User"
+msgstr "Felhasználó"
+
+#: model@fa.accounts|_columns@last_time_entries_checked$label:1
 msgid "Latest Invoices & Payments Matching Date"
 msgstr "Legújabb Számlák & Kifizetések Megfelelő Dátuma"
 
-#: fa.accounts-reconcile:1
+#: model@fa.accounts|_columns@last_time_entries_checked$help:1
+msgid ""
+"Last time the invoices & payments matching was performed on this account. It"
+" is set either if there's not at least an unreconciled debit and an "
+"unreconciled credit Or if you click the \"Done\" button."
+msgstr ""
+"Legutóbb a számlák & kifizetések megfelelő volt elvégezni ezt a számlát. Úgy"
+" van beállítva, vagy ha nincs legalább egy unreconciled betéti, valamint egy"
+" unreconciled hitel-Vagy, ha úgy kattintson a \"Kész\" gombra."
+
+#: model@fa.accounts|_columns@reconcile$label:1
 msgid "Allow Reconciliation"
 msgstr "Lehetővé Megbékélés"
 
-#: fa.accounts-tax_ids:1 fa.account.template-tax_ids:1
+#: model@fa.accounts|_columns@reconcile$help:1
+msgid ""
+"Check this box if this account allows invoices & payments matching of "
+"journal items."
+msgstr ""
+"Jelölje be ezt a jelölőnégyzetet, ha ez a fiók lehetővé teszi a számlák & "
+"kifizetések megfelelő journal elemek."
+
+#: model@fa.accounts|_columns@tax_ids$label:1
+#: model@fa.account.template|_columns@tax_ids$label:1
 msgid "Default Taxes"
 msgstr "Alapértelmezett Adók"
 
-#: fa.accounts-note:1
+#: model@fa.accounts|_columns@note$label:1
 msgid "Internal Notes"
 msgstr "Belső Megjegyzések"
 
-#: fa.accounts-company_id:1 fa.accounts.journal-company_id:1
-#: fa.accounts.tax-company_id:1 fa.accounts.reconcile.model-company_id:1
-#: fa.chart.template-company_id:1 fa.tax.template-company_id:1
+#: model@fa.accounts|_columns@company_id$label:1
+#: model@fa.accounts.journal|_columns@company_id$label:1
+#: model@fa.accounts.tax|_columns@company_id$label:1
+#: model@fa.accounts.reconcile.model|_columns@company_id$label:1
+#: model@fa.chart.template|_columns@company_id$label:1
+#: model@fa.tax.template|_columns@company_id$label:1
 msgid "Company"
 msgstr "Cég"
 
-#: fa.accounts-tag_ids:1 fa.accounts.tax-tag_ids:1
+#: model@fa.accounts|_columns@tag_ids$label:1
+#: model@fa.accounts.tax|_columns@tag_ids$label:1
 msgid "Tags"
 msgstr "Kategória"
 
-#: fa.accounts-group_id:1 fa.account.template-group_id:1
+#: model@fa.accounts|_columns@group_id$label:1
+#: model@fa.account.template|_columns@group_id$label:1
 msgid "Group"
 msgstr "Csoport"
 
-#: fa.accounts-opening_debit:1
+#: model@fa.accounts|_columns@opening_debit$label:1
 msgid "Opening debit"
 msgstr "Nyitó betéti"
 
-#: fa.accounts-opening_credit:1
+#: model@fa.accounts|_columns@opening_debit$help:1
+msgid "Opening debit value for this account."
+msgstr "Nyitó terhelési érték ezen a számlán."
+
+#: model@fa.accounts|_columns@opening_credit$label:1
 msgid "Opening credit"
 msgstr "Nyitó hitel"
 
-#: fa.accounts.group-name:1 fa.account.template-name:1
-#: fa.chart.template-name:1
+#: model@fa.accounts|_columns@opening_credit$help:1
+msgid "Opening credit value for this account."
+msgstr "Nyitó hitel érték ezen a számlán."
+
+#: model@fa.accounts.group|_description@:1
+msgid "Genaral Model Accounts Group"
+msgstr "Genaral Modell-Fiókok Csoport"
+
+#: model@fa.accounts.group|_columns@name$label:1
+#: model@fa.account.template|_columns@name$label:1
+#: model@fa.chart.template|_columns@name$label:1
 msgid "name"
 msgstr "név"
 
-#: fa.accounts.group-code_prefix:1
+#: model@fa.accounts.group|_columns@code_prefix$label:1
 msgid "Code Prefix"
 msgstr "Prefix Kód"
 
-#: fa.accounts.group-parent_id:1
+#: model@fa.accounts.group|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Szülő"
 
-#: fa.accounts.group-childs_id:1
+#: model@fa.accounts.group|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: fa.accounts.journal-name:1
+#: model@fa.accounts.journal|_description@:1
+msgid "General Model Accounts Journal"
+msgstr "Általános Modell-Fiókok Lap"
+
+#: model@fa.accounts.journal|_columns@name$label:1
 msgid "Journal Name"
 msgstr "Folyóirat Neve"
 
-#: fa.accounts.journal-code:1
+#: model@fa.accounts.journal|_columns@code$label:1
 msgid "Short Code"
 msgstr "Rövid Kód"
 
-#: fa.accounts.journal-type_control_ids:1
-msgid "Account Types Allowed"
-msgstr "Számla Típusok Megengedett"
+#: model@fa.accounts.journal|_columns@code$help:1
+msgid "The journal entries of this journal will be named using this prefix."
+msgstr "A naplóbejegyzések ez a napló lesz nevű használja ezt az előtagot."
 
-#: fa.accounts.journal-account_control_ids:1
-msgid "Accounts Allowed"
-msgstr "Fiókok Engedélyezett"
+#: model@fa.accounts.journal|_columns@inactive$help:1
+msgid "Set active to false to hide the Journal without removing it."
+msgstr ""
+"Set active, hogy hamis, hogy elrejtse a Naplót, anélkül, hogy eltávolítaná "
+"azokat."
 
-#: fa.accounts.journal-default_credit_account_id:1
-msgid "Default Credit Account"
-msgstr "Alapértelmezett Hitel Számla"
+#: model@fa.accounts.journal|_columns@type$selections#sale:1
+msgid "Sale"
+msgstr "Eladó"
 
-#: fa.accounts.journal-default_debit_account_id:1
-msgid "Default Debit Account"
-msgstr "Alapértelmezett Betéti Számla"
+#: model@fa.accounts.journal|_columns@type$selections#purchase:1
+msgid "Purchase"
+msgstr "Vásárlás"
 
-#: fa.accounts.journal-update_posted:1
-msgid "Allow Cancelling Entries"
-msgstr "Lehetővé Bejegyzések Törlése"
+#: model@fa.accounts.journal|_columns@type$selections#cash:1
+msgid "Cash"
+msgstr "Készpénz"
 
-#: fa.accounts.journal-group_invoice_lines:1
-msgid "Group Invoice Lines"
-msgstr "Csoport Számla Vonalak"
-
-#: fa.accounts.journal-sequence:1 fa.accounts.tax.group-sequence:1
-#: fa.accounts.reconcile.model-sequence:1 fa.tax.template-sequence:1
-#: fa.fiscal.position.template-sequence:1
-#: fa.reconcile.model.template-sequence:1
-msgid "Sequence"
-msgstr "Sorrend"
-
-#: fa.accounts.journal-sequence_number_next:1
-msgid "Next Number"
-msgstr "Következő Szám"
-
-#: fa.accounts.journal-refund_sequence_number_next:1
-msgid "Credit Notes: Next Number"
-msgstr "Hitel Megjegyzés: A Következő Szám"
-
-#: fa.accounts.journal-currency_id:1 fa.chart.template-currency_id:1
-msgid "Currency"
-msgstr "Pénznem"
-
-#: fa.accounts.journal-refund_sequence:1
-msgid "Dedicated Credit Note Sequence"
-msgstr "Dedikált Hitel Megjegyzés Sorozat"
-
-#: fa.accounts.journal-inbound_payment_method_ids:1
-msgid "Debit Methods"
-msgstr "Betéti Módszerek"
-
-#: fa.accounts.journal-outbound_payment_method_ids:1
-msgid "Payment Methods"
-msgstr "Fizetési Módok"
-
-#: fa.accounts.journal-at_least_one_inbound:1
-msgid "At least one inbound"
-msgstr "Legalább egy bejövő"
-
-#: fa.accounts.journal-at_least_one_outbound:1
-msgid "At least one outbound"
-msgstr "Legalább egy kimenő"
-
-#: fa.accounts.journal-profit_account_id:1
-msgid "Profit Account"
-msgstr "Nyereség Számla"
-
-#: fa.accounts.journal-loss_account_id:1
-msgid "Loss Account"
-msgstr "Veszteség Számla"
-
-#: fa.accounts.journal-belongs_to_company:1
-msgid "Belong to the user's current company"
-msgstr "Tartozik a felhasználó aktuális cég"
-
-#: fa.accounts.journal-bank_statements_source:1
-msgid "Bank Feeds"
-msgstr "Bank Takarmányok"
-
-#: fa.accounts.journal-bank_acc_number:1
-msgid "Bank ACC number"
-msgstr "Bank ACC száma"
-
-#: fa.accounts.journal-bank_id:1
+#: model@fa.accounts.journal|_columns@type$selections#bank:1
+#: model@fa.accounts.journal|_columns@bank_id$label:1
 msgid "Bank"
 msgstr "Bank"
 
-#: fa.accounts.tax-name:1 fa.tax.template-name:1
+#: model@fa.accounts.journal|_columns@type$selections#general:1
+msgid "Miscellaneous"
+msgstr "Egyéb"
+
+#: model@fa.accounts.journal|_columns@type$help:1
+msgid ""
+"Select 'Sale' for customer invoices journals.\n"
+"Select 'Purchase' for vendor bills journals.\n"
+"Select 'Cash' or 'Bank' for journals that are used in customer or vendor payments.\n"
+"Select 'General' for miscellaneous operations journals."
+msgstr ""
+"Válassza az 'Eladó' az ügyfél számlák folyóiratok.\n"
+"Válassza a \"Vásárlás\" a szállító számlák folyóiratok.\n"
+"Válassza ki a \"Készpénz\" vagy \"Bank\" a folyóiratok, amelyek használják a vevői vagy szállítói kifizetések.\n"
+"Válassza az \"Általános\" a különféle műveletek, folyóiratok."
+
+#: model@fa.accounts.journal|_columns@type_control_ids$label:1
+msgid "Account Types Allowed"
+msgstr "Számla Típusok Megengedett"
+
+#: model@fa.accounts.journal|_columns@account_control_ids$label:1
+msgid "Accounts Allowed"
+msgstr "Fiókok Engedélyezett"
+
+#: model@fa.accounts.journal|_columns@default_credit_account_id$label:1
+msgid "Default Credit Account"
+msgstr "Alapértelmezett Hitel Számla"
+
+#: model@fa.accounts.journal|_columns@default_credit_account_id$help:1
+msgid "It acts as a default account for credit amount"
+msgstr "Úgy viselkedik, mint egy alapértelmezett számla, a hitel összeg"
+
+#: model@fa.accounts.journal|_columns@default_debit_account_id$label:1
+msgid "Default Debit Account"
+msgstr "Alapértelmezett Betéti Számla"
+
+#: model@fa.accounts.journal|_columns@default_debit_account_id$help:1
+msgid "It acts as a default account for debit amount"
+msgstr "Úgy viselkedik, mint egy alapértelmezett számla betéti összeg"
+
+#: model@fa.accounts.journal|_columns@update_posted$label:1
+msgid "Allow Cancelling Entries"
+msgstr "Lehetővé Bejegyzések Törlése"
+
+#: model@fa.accounts.journal|_columns@update_posted$help:1
+msgid ""
+"Check this box if you want to allow the cancellation the entries related to "
+"this journal or of the invoice related to this journal"
+msgstr ""
+"Jelölje be ezt a négyzetet, ha engedélyezni szeretné, hogy a törlés a "
+"bejegyzések kapcsolatos ezt a naplót, vagy a számlával kapcsolatos, hogy ez "
+"a napló"
+
+#: model@fa.accounts.journal|_columns@group_invoice_lines$label:1
+msgid "Group Invoice Lines"
+msgstr "Csoport Számla Vonalak"
+
+#: model@fa.accounts.journal|_columns@group_invoice_lines$help:1
+msgid ""
+"If this box is checked, the system will try to group the accounting lines "
+"when generating them from invoices."
+msgstr ""
+"Ha ez a jelölőnégyzet be van jelölve, akkor a rendszer megpróbálja a csoport"
+" a számviteli sorok generálása során azokat a számlákat."
+
+#: model@fa.accounts.journal|_columns@sequence$label:1
+#: model@fa.accounts.tax.group|_columns@sequence$label:1
+#: model@fa.accounts.reconcile.model|_columns@sequence$label:1
+#: model@fa.tax.template|_columns@sequence$label:1
+#: model@fa.fiscal.position.template|_columns@sequence$label:1
+#: model@fa.reconcile.model.template|_columns@sequence$label:1
+msgid "Sequence"
+msgstr "Sorrend"
+
+#: model@fa.accounts.journal|_columns@sequence$help:1
+msgid "Used to order Journals in the dashboard view"
+msgstr "Azért rendeltem, Folyóiratok a műszerfal megtekintése"
+
+#: model@fa.accounts.journal|_columns@sequence_number_next$label:1
+msgid "Next Number"
+msgstr "Következő Szám"
+
+#: model@fa.accounts.journal|_columns@sequence_number_next$help:1
+msgid "The next sequence number will be used for the next invoice."
+msgstr "A következő sorszám fogja használni a következő számla."
+
+#: model@fa.accounts.journal|_columns@refund_sequence_number_next$label:1
+msgid "Credit Notes: Next Number"
+msgstr "Hitel Megjegyzés: A Következő Szám"
+
+#: model@fa.accounts.journal|_columns@refund_sequence_number_next$help:1
+msgid "The next sequence number will be used for the next credit note."
+msgstr "A következő sorszám fogja használni a következő hitel megjegyzés."
+
+#: model@fa.accounts.journal|_columns@currency_id$label:1
+#: model@fa.chart.template|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Pénznem"
+
+#: model@fa.accounts.journal|_columns@currency_id$help:1
+msgid "The currency used to enter statement"
+msgstr "A hivatalos pénznem, hogy adja meg nyilatkozatot"
+
+#: model@fa.accounts.journal|_columns@company_id$help:1
+msgid "Company related to this journal"
+msgstr "A cég ezzel kapcsolatos lap"
+
+#: model@fa.accounts.journal|_columns@refund_sequence$label:1
+msgid "Dedicated Credit Note Sequence"
+msgstr "Dedikált Hitel Megjegyzés Sorozat"
+
+#: model@fa.accounts.journal|_columns@refund_sequence$help:1
+msgid ""
+"Check this box if you don't want to share the same sequence for invoices and"
+" credit notes made from this journal"
+msgstr ""
+"Jelölje be ezt a jelölőnégyzetet, ha nem szeretné, hogy ugyanaz a sorrend a "
+"számlák, illetve jóváírás készült ez a lap"
+
+#: model@fa.accounts.journal|_columns@inbound_payment_method_ids$label:1
+msgid "Debit Methods"
+msgstr "Betéti Módszerek"
+
+#: model@fa.accounts.journal|_columns@outbound_payment_method_ids$label:1
+msgid "Payment Methods"
+msgstr "Fizetési Módok"
+
+#: model@fa.accounts.journal|_columns@at_least_one_inbound$label:1
+msgid "At least one inbound"
+msgstr "Legalább egy bejövő"
+
+#: model@fa.accounts.journal|_columns@at_least_one_outbound$label:1
+msgid "At least one outbound"
+msgstr "Legalább egy kimenő"
+
+#: model@fa.accounts.journal|_columns@profit_account_id$label:1
+msgid "Profit Account"
+msgstr "Nyereség Számla"
+
+#: model@fa.accounts.journal|_columns@profit_account_id$help:1
+msgid ""
+"Used to register a profit when the ending balance of a cash register differs"
+" from what the system computes"
+msgstr ""
+"Használt regisztrálni a profit, ha a záró egyenleg a pénztárgép eltér attól,"
+" ami a rendszer kiszámítja"
+
+#: model@fa.accounts.journal|_columns@loss_account_id$label:1
+msgid "Loss Account"
+msgstr "Veszteség Számla"
+
+#: model@fa.accounts.journal|_columns@loss_account_id$help:1
+msgid ""
+"Used to register a loss when the ending balance of a cash register differs "
+"from what the system computes"
+msgstr ""
+"Használt regisztrálni veszteség, amikor a záró egyenleg a pénztárgép eltér "
+"attól, ami a rendszer kiszámítja"
+
+#: model@fa.accounts.journal|_columns@belongs_to_company$label:1
+msgid "Belong to the user's current company"
+msgstr "Tartozik a felhasználó aktuális cég"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$label:1
+msgid "Bank Feeds"
+msgstr "Bank Takarmányok"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$selections#undefined:1
+msgid "Undefined Yet"
+msgstr "Még Nem Definiált"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$selections#manual:1
+msgid "Record Manually"
+msgstr "Rekord Kézzel"
+
+#: model@fa.accounts.journal|_columns@bank_acc_number$label:1
+msgid "Bank ACC number"
+msgstr "Bank ACC száma"
+
+#: model@fa.accounts.tax.group|_description@:1
+msgid "General Model Account Tax Group"
+msgstr "Általános Modell Figyelembe Adó Csoport"
+
+#: model@fa.accounts.tax|_description@:1
+msgid "General Model Accounts Tax"
+msgstr "Általános Modell-Fiókok Adó"
+
+#: model@fa.accounts.tax|_columns@name$label:1
+#: model@fa.tax.template|_columns@name$label:1
 msgid "Tax Name"
 msgstr "Adó Megnevezése"
 
-#: fa.accounts.tax-type_tax_use:1 fa.tax.template-type_tax_use:1
+#: model@fa.accounts.tax|_columns@type_tax_use$label:1
+#: model@fa.tax.template|_columns@type_tax_use$label:1
 msgid "Tax Scope"
 msgstr "Adó Hatálya"
 
-#: fa.accounts.tax-tax_adjustment:1
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#sale:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#sale:1
+msgid "Sales"
+msgstr "Értékesítés"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#purchase:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#purchase:1
+msgid "Purchases"
+msgstr "Vásárlás"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#none:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#none:1
+msgid "None"
+msgstr "Egyik sem"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$help:1
+#: model@fa.tax.template|_columns@type_tax_use$help:1
+msgid ""
+"Determines where the tax is selectable. Note : 'None' means a tax can't be "
+"used by itself, however it can still be used in a group."
+msgstr ""
+"Határozza meg, ahol az adó választható. Megjegyzés: a \"Nincs\" azt jelenti,"
+" hogy az adó nem használható önmagában azonban még mindig lehet használni a "
+"csoport."
+
+#: model@fa.accounts.tax|_columns@tax_adjustment$label:1
 msgid "Tax adjustment"
 msgstr "Adó beállítása"
 
-#: fa.accounts.tax-amount_type:1 fa.tax.template-amount_type:1
+#: model@fa.accounts.tax|_columns@tax_adjustment$help:1
+msgid ""
+"Set this field to true if this tax can be used in the tax adjustment wizard,"
+" used to manually fill some data in the tax declaration"
+msgstr ""
+"Állítsa be ezt a mezőt, hogy igaz, ha ez az adó használható az adó "
+"beállítása varázsló, régen kézzel töltse ki néhány adatot adó nyilatkozat"
+
+#: model@fa.accounts.tax|_columns@amount_type$label:1
+#: model@fa.tax.template|_columns@amount_type$label:1
 msgid "Tax Computation"
 msgstr "Adó Számítás"
 
-#: fa.accounts.tax-children_tax_ids:1 fa.tax.template-children_tax_ids:1
+#: model@fa.accounts.tax|_columns@amount_type$selections#group:1
+#: model@fa.tax.template|_columns@amount_type$selections#group:1
+msgid "Group of Taxes"
+msgstr "Csoport Adók"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#fixed:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$selections#fixed:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$selections#fixed:1
+#: model@fa.tax.template|_columns@amount_type$selections#fixed:1
+#: model@fa.reconcile.model.template|_columns@amount_type$selections#fixed:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$selections#fixed:1
+msgid "Fixed"
+msgstr "Fix"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#percent:1
+#: model@fa.tax.template|_columns@amount_type$selections#percent:1
+msgid "Percentage of Price"
+msgstr "Aránya Ár"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#division:1
+#: model@fa.tax.template|_columns@amount_type$selections#division:1
+msgid "Percentage of Price Tax Included"
+msgstr "Aránya Ár Adóval együtt"
+
+#: model@fa.accounts.tax|_columns@inactive$help:1
+#: model@fa.tax.template|_columns@active$help:1
+msgid "Set active to false to hide the tax without removing it."
+msgstr ""
+"Set active, hogy hamis, hogy elrejtse az adó anélkül, hogy eltávolítaná "
+"azokat."
+
+#: model@fa.accounts.tax|_columns@children_tax_ids$label:1
+#: model@fa.tax.template|_columns@children_tax_ids$label:1
 msgid "Children Taxes"
 msgstr "A Gyermekek Adók"
 
-#: fa.accounts.tax-sequence:1 fa.reconcile.model.template-amount:1
+#: model@fa.accounts.tax|_columns@sequence$label:1
+#: model@fa.reconcile.model.template|_columns@amount$label:1
 msgid "unknown"
 msgstr "ismeretlen"
 
-#: fa.accounts.tax-amount:1
+#: model@fa.accounts.tax|_columns@sequence$help:1
+#: model@fa.tax.template|_columns@sequence$help:1
+msgid ""
+"The sequence field is used to define order in which the tax lines are "
+"applied."
+msgstr ""
+"A sorrend mező arra szolgál, hogy meghatározza a rendet, amely az adó "
+"vonalak alkalmazása."
+
+#: model@fa.accounts.tax|_columns@amount$label:1
 msgid "Amont"
 msgstr "Amont"
 
-#: fa.accounts.tax-account_id:1 fa.tax.template-account_id:1
+#: model@fa.accounts.tax|_columns@account_id$label:1
+#: model@fa.tax.template|_columns@account_id$label:1
 msgid "Tax Account"
 msgstr "Adó Számla"
 
-#: fa.accounts.tax-refund_account_id:1
+#: model@fa.accounts.tax|_columns@account_id$help:1
+#: model@fa.tax.template|_columns@account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for invoices. Leave empty to "
+"use the expense account."
+msgstr ""
+"Számla, amelyek akkor lesznek beállítva számlát adó vonalak a számlákat. "
+"Hagyja üresen, hogy használja a hitelkeretet."
+
+#: model@fa.accounts.tax|_columns@refund_account_id$label:1
 msgid "Tax Account on Credit Notes"
 msgstr "Adó Számlájára Jóváírás"
 
-#: fa.accounts.tax-description:1
+#: model@fa.accounts.tax|_columns@refund_account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for credit notes. Leave empty "
+"to use the expense account."
+msgstr ""
+"Számla, amelyek akkor lesznek beállítva számlát adó vonalak jóváírás. Hagyja"
+" üresen, hogy használja a hitelkeretet."
+
+#: model@fa.accounts.tax|_columns@description$label:1
 msgid "Label on Invoices"
 msgstr "Címke Számlák"
 
-#: fa.accounts.tax-price_include:1 fa.tax.template-price_include:1
+#: model@fa.accounts.tax|_columns@price_include$label:1
+#: model@fa.tax.template|_columns@price_include$label:1
 msgid "Included in Price"
 msgstr "Tartalmazza az Ár"
 
-#: fa.accounts.tax-include_base_amount:1
+#: model@fa.accounts.tax|_columns@price_include$help:1
+#: model@fa.tax.template|_columns@price_include$help:1
+msgid ""
+"Check this if the price you use on the product and invoices includes this "
+"tax."
+msgstr ""
+"Ellenőrizze ezt, ha az ár használja a terméket, illetve a számla tartalmazza"
+" ezt az adót."
+
+#: model@fa.accounts.tax|_columns@include_base_amount$label:1
 msgid "Affect Base of Subsequent Taxes"
 msgstr "Befolyásolja Alap a Későbbi Adók"
 
-#: fa.accounts.tax-analytic:1
+#: model@fa.accounts.tax|_columns@include_base_amount$help:1
+#: model@fa.tax.template|_columns@include_base_amount$help:1
+msgid ""
+"If set, taxes which are computed after this one will be computed based on "
+"the price tax included."
+msgstr ""
+"Ha be van állítva, adók, amelyek számított után ez lesz alapján kiszámított,"
+" az ár adóval együtt."
+
+#: model@fa.accounts.tax|_columns@analytic$label:1
 msgid "Include in Analytic Cost"
 msgstr "Tartalmazza az Analitikus Költség"
 
-#: fa.accounts.tax-tax_group_id:1 fa.tax.template-tax_group_id:1
+#: model@fa.accounts.tax|_columns@analytic$help:1
+#: model@fa.tax.template|_columns@analytic$help:1
+msgid ""
+"If set, the amount computed by this tax will be assigned to the same "
+"analytic account as the invoice line (if any)"
+msgstr ""
+"Ha be van állítva, a számított összeg, amelyet ez az adó kap, hogy ugyanazon"
+" analitikus számla, mint a számla vonal (ha van)"
+
+#: model@fa.accounts.tax|_columns@tax_group_id$label:1
+#: model@fa.tax.template|_columns@tax_group_id$label:1
 msgid "Tax Group"
 msgstr "Adó Csoport"
 
-#: fa.accounts.tax-hide_tax_exigibility:1
+#: model@fa.accounts.tax|_columns@hide_tax_exigibility$label:1
 msgid "Hide Use Cash Basis Option"
 msgstr "Elrejtéséhez Használja Készpénz Opció"
 
-#: fa.accounts.tax-tax_exigibility:1 fa.tax.template-tax_exigibility:1
+#: model@fa.accounts.tax|_columns@tax_exigibility$label:1
+#: model@fa.tax.template|_columns@tax_exigibility$label:1
 msgid "Tax Due"
 msgstr "Adó Miatt"
 
-#: fa.accounts.tax-cash_basis_account:1 fa.tax.template-cash_basis_account:1
+#: model@fa.accounts.tax|_columns@tax_exigibility$selections#on_invoice:1
+#: model@fa.tax.template|_columns@tax_exigibility$selections#on_invoice:1
+msgid "Based on Invoice"
+msgstr "Az alapján, Számla"
+
+#: model@fa.accounts.tax|_columns@tax_exigibility$selections#on_payment:1
+#: model@fa.tax.template|_columns@tax_exigibility$selections#on_payment:1
+msgid "Based on Payment"
+msgstr "Alapuló Fizetési"
+
+#: model@fa.accounts.tax|_columns@tax_exigibility$help:1
+#: model@fa.tax.template|_columns@tax_exigibility$help:1
+msgid ""
+"Based on Invoice: the tax is due as soon as the invoice is validated.\n"
+"Based on Payment: the tax is due as soon as the payment of the invoice is received."
+msgstr ""
+"Az alapján, Számla: az adó miatt, amint a számla hitelesített.\n"
+"Alapján Fizetés: az adó miatt, amint a fizetés a számla érkezett."
+
+#: model@fa.accounts.tax|_columns@cash_basis_account$label:1
+#: model@fa.tax.template|_columns@cash_basis_account$label:1
 msgid "Tax Received Account"
 msgstr "Adó Kapott Számla"
 
-#: fa.accounts.reconcile.model-name:1 fa.reconcile.model.template-name:1
+#: model@fa.accounts.tax|_columns@cash_basis_account$help:1
+msgid ""
+"Account used as counterpart for the journal entry, for taxes eligible based "
+"on payments."
+msgstr ""
+"Fiók használni, mint párja a napló bejegyzést, az adók jogosult alapuló "
+"kifizetéseket."
+
+#: model@fa.accounts.reconcile.model|_description@:1
+msgid "General Model Accounts Reconcile"
+msgstr "Általános Modell-Fiókok Reconcile"
+
+#: model@fa.accounts.reconcile.model|_columns@name$label:1
+#: model@fa.reconcile.model.template|_columns@name$label:1
 msgid "Button Label"
 msgstr "Gomb Címke"
 
-#: fa.accounts.reconcile.model-has_second_line:1
-#: fa.reconcile.model.template-has_second_line:1
+#: model@fa.accounts.reconcile.model|_columns@has_second_line$label:1
+#: model@fa.reconcile.model.template|_columns@has_second_line$label:1
 msgid "Add a second line"
 msgstr "Hozzáadása egy második vonal"
 
-#: fa.accounts.reconcile.model-account_id:1
-#: fa.reconcile.model.template-account_id:1
+#: model@fa.accounts.reconcile.model|_columns@account_id$label:1
+#: model@fa.reconcile.model.template|_columns@account_id$label:1
 msgid "Account"
 msgstr "Fiók"
 
-#: fa.accounts.reconcile.model-journal_id:1
+#: model@fa.accounts.reconcile.model|_columns@journal_id$label:1
 msgid "Journal"
 msgstr "Lap"
 
-#: fa.accounts.reconcile.model-label:1 fa.reconcile.model.template-label:1
+#: model@fa.accounts.reconcile.model|_columns@journal_id$help:1
+#: model@fa.accounts.reconcile.model|_columns@second_journal_id$help:1
+msgid "This field is ignored in a bank statement reconciliation."
+msgstr ""
+"Ez a mező a készülék figyelmen kívül hagyja a számlakivonat megbékélés."
+
+#: model@fa.accounts.reconcile.model|_columns@label$label:1
+#: model@fa.reconcile.model.template|_columns@label$label:1
 msgid "Journal Item Label"
 msgstr "Napló Elem Címke"
 
-#: fa.accounts.reconcile.model-amount_type:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$label:1
 msgid "Amount Type"
 msgstr "Összeg Típus"
 
-#: fa.accounts.reconcile.model-amount:1 fa.tax.template-amount:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$selections#percentage:1
+#: model@fa.reconcile.model.template|_columns@amount_type$selections#percentage:1
+msgid "Percentage of balance"
+msgstr "Százalékos egyensúly"
+
+#: model@fa.accounts.reconcile.model|_columns@amount$label:1
+#: model@fa.tax.template|_columns@amount$label:1
 msgid "Amount"
 msgstr "Összeg"
 
-#: fa.accounts.reconcile.model-tax_id:1 fa.reconcile.model.template-tax_id:1
+#: model@fa.accounts.reconcile.model|_columns@amount$help:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount$help:1
+#: model@fa.reconcile.model.template|_columns@amount$help:1
+#: model@fa.reconcile.model.template|_columns@second_amount$help:1
+msgid ""
+"Fixed amount will count as a debit if it is negative, as a credit if it is "
+"positive."
+msgstr ""
+"Fix összeg számít, mint betéti, ha negatív, mint a hitel, ha ez pozitív."
+
+#: model@fa.accounts.reconcile.model|_columns@tax_id$label:1
+#: model@fa.reconcile.model.template|_columns@tax_id$label:1
 msgid "Tax"
 msgstr "Adó"
 
-#: fa.accounts.reconcile.model-second_account_id:1
-#: fa.reconcile.model.template-second_account_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_account_id$label:1
+#: model@fa.reconcile.model.template|_columns@second_account_id$label:1
 msgid "Second Account"
 msgstr "A Második Fiókot"
 
-#: fa.accounts.reconcile.model-second_journal_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_journal_id$label:1
 msgid "Second Journal"
 msgstr "Második Lap"
 
-#: fa.accounts.reconcile.model-second_label:1
-#: fa.reconcile.model.template-second_label:1
+#: model@fa.accounts.reconcile.model|_columns@second_label$label:1
+#: model@fa.reconcile.model.template|_columns@second_label$label:1
 msgid "Second Journal Item Label"
 msgstr "Második Lap Elem Címke"
 
-#: fa.accounts.reconcile.model-second_amount_type:1
-#: fa.reconcile.model.template-second_amount_type:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$label:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$label:1
 msgid "Second Amount type"
 msgstr "Második Összeg típus"
 
-#: fa.accounts.reconcile.model-second_amount:1
-#: fa.reconcile.model.template-second_amount:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$selections#percentage:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$selections#percentage:1
+msgid "Percentage of amount"
+msgstr "Százalékos összeg"
+
+#: model@fa.accounts.reconcile.model|_columns@second_amount$label:1
+#: model@fa.reconcile.model.template|_columns@second_amount$label:1
 msgid "Second Amount"
 msgstr "Második Összeg"
 
-#: fa.accounts.reconcile.model-second_tax_id:1
-#: fa.reconcile.model.template-second_tax_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_tax_id$label:1
+#: model@fa.reconcile.model.template|_columns@second_tax_id$label:1
 msgid "Second Tax"
 msgstr "Második Adó"
 
-#: fa.account.template-reconcile:1
+#: model@fa.account.template|_description@:1
+msgid "Genaral Model Templates for Accounts"
+msgstr "Genaral Modell Sablonok Számlák"
+
+#: model@fa.account.template|_columns@currency_id$help:1
+msgid "Forces all moves for this account to have this secondary currency."
+msgstr "Erők minden mozog, ezt figyelembe, hogy ez másodlagos valuta."
+
+#: model@fa.account.template|_columns@user_type_id$help:1
+msgid ""
+"These types are defined according to your country. The type contains more "
+"information about the account and its specificities."
+msgstr ""
+"Ezek a típusok meghatározása szerint az ország. A típus további "
+"információkat tartalmaz a számla, illetve annak sajátosságait."
+
+#: model@fa.account.template|_columns@reconcile$label:1
 msgid "Allow Invoices & payments Matching"
 msgstr "Lehetővé Számlák & kifizetések Megfelelő"
 
-#: fa.account.template-nocreate:1
+#: model@fa.account.template|_columns@reconcile$help:1
+msgid ""
+"Check this option if you want the user to reconcile entries in this account."
+msgstr ""
+"Jelölje meg ezt a lehetőséget, ha azt szeretné, hogy a felhasználó "
+"összeegyeztetni bejegyzések ezen a számlán."
+
+#: model@fa.account.template|_columns@nocreate$label:1
 msgid "Optional Create"
 msgstr "Választható Létre"
 
-#: fa.account.template-chart_template_id:1 fa.tax.template-chart_template_id:1
-#: fa.fiscal.position.template-chart_template_id:1
-#: fa.reconcile.model.template-chart_template_id:1
+#: model@fa.account.template|_columns@nocreate$help:1
+msgid ""
+"If checked, the new chart of accounts will not contain this by default."
+msgstr ""
+"Ha be van jelölve, az új számlatükör nem tartalmazza ez az alapértelmezés."
+
+#: model@fa.account.template|_columns@chart_template_id$label:1
+#: model@fa.tax.template|_columns@chart_template_id$label:1
+#: model@fa.fiscal.position.template|_columns@chart_template_id$label:1
+#: model@fa.reconcile.model.template|_columns@chart_template_id$label:1
 msgid "Chart Template"
 msgstr "Diagram Sablon"
 
-#: fa.account.template-tag_ids:1 fa.tax.template-tag_ids:1
+#: model@fa.account.template|_columns@chart_template_id$help:1
+msgid ""
+"This optional field allow you to link an account template to a specific "
+"chart template that may differ from the one its root parent belongs to. This"
+" allow you to define chart templates that extend another and complete it "
+"with few new accounts (You don't need to define the whole structure that is "
+"common to both several times)."
+msgstr ""
+"Ez nem kötelező mező lehetővé teszi, hogy a link egy számla sablon egy adott"
+" diagram sablon, amely eltérhet az a gyökér szülő tartozik. Ez lehetővé "
+"teszi, hogy meghatározza táblázat a sablonok, hogy meghosszabbítja egy "
+"teljes, csak néhány új számlák (nem kell, hogy meghatározza az egész "
+"szerkezet, ami közös, hogy mindkét többször is)."
+
+#: model@fa.account.template|_columns@tag_ids$label:1
+#: model@fa.tax.template|_columns@tag_ids$label:1
 msgid "Account tag"
 msgstr "Fiók tag"
 
-#: fa.chart.template-parent_id:1
+#: model@fa.account.template|_columns@tag_ids$help:1
+#: model@fa.tax.template|_columns@tag_ids$help:1
+msgid "Optional tags you may want to assign for custom reporting"
+msgstr ""
+"Választható kategória előfordulhat, hogy meg szeretné rendelni az egyéni "
+"beszámolás"
+
+#: model@fa.chart.template|_description@:1
+msgid "Genaral Model Templates for Account Chart"
+msgstr "Genaral Modell Sablonok Figyelembe Ábra"
+
+#: model@fa.chart.template|_columns@parent_id$label:1
 msgid "Parent Chart Template"
 msgstr "Szülő Diagram Sablon"
 
-#: fa.chart.template-code_digits:1
+#: model@fa.chart.template|_columns@code_digits$label:1
 msgid "# of Digits"
 msgstr "# Számjegy"
 
-#: fa.chart.template-visible:1
+#: model@fa.chart.template|_columns@code_digits$help:1
+msgid "No. of Digits to use for account code"
+msgstr "Nem. a Számjegy használni az azonosító kód"
+
+#: model@fa.chart.template|_columns@visible$label:1
 msgid "Can be Visible?"
 msgstr "Lehet Látható?"
 
-#: fa.chart.template-use_anglo_saxon:1
+#: model@fa.chart.template|_columns@visible$help:1
+msgid ""
+"Set this to False if you don't want this template to be used actively in the"
+" wizard that generate Chart of Accounts from templates, this is useful when "
+"you want to generate accounts of this template only when loading its child "
+"template."
+msgstr ""
+"A False, ha nem akarod ezt a sablont használják aktívan a varázsló létrehoz "
+"számlatükör a sablonok, hasznos, ha azt akarod, hogy létrehoz beszámolója ez"
+" a sablon csak betöltésekor a gyermek sablon."
+
+#: model@fa.chart.template|_columns@use_anglo_saxon$label:1
 msgid "Use Anglo-Saxon accounting"
 msgstr "Használja Angolszász számviteli"
 
-#: fa.chart.template-complete_tax_set:1
+#: model@fa.chart.template|_columns@complete_tax_set$label:1
 msgid "Complete Set of Taxes"
 msgstr "Teljes körű Adók"
 
-#: fa.chart.template-account_ids:1
+#: model@fa.chart.template|_columns@complete_tax_set$help:1
+msgid ""
+"This boolean helps you to choose if you want to propose to the user to "
+"encode the sale and purchase rates or choose from list of taxes. This last "
+"choice assumes that the set of tax defined on this template is complete"
+msgstr ""
+"Ez a logikai segít választani, ha azt szeretnénk javasolni, hogy a "
+"felhasználó számára, hogy kódolja az adásvételi árak, vagy válassza ki a "
+"listából az adók. Ez utóbbi választás azt feltételezi, hogy a megállapított "
+"adó meg, amikor ez a sablon teljes"
+
+#: model@fa.chart.template|_columns@account_ids$label:1
 msgid "Associated Account Templates"
 msgstr "Kapcsolódó Számla Sablonok"
 
-#: fa.chart.template-tax_template_ids:1
+#: model@fa.chart.template|_columns@tax_template_ids$label:1
 msgid "Tax Template List"
 msgstr "Adó Sablon Lista"
 
-#: fa.chart.template-bank_account_code_prefix:1
+#: model@fa.chart.template|_columns@tax_template_ids$help:1
+msgid "List of all the taxes that have to be installed by the wizard"
+msgstr "Listát az összes adót kell telepíteni a varázsló"
+
+#: model@fa.chart.template|_columns@bank_account_code_prefix$label:1
 msgid "Prefix of the bank accounts"
 msgstr "Az előtag a bankszámlák"
 
-#: fa.chart.template-cash_account_code_prefix:1
+#: model@fa.chart.template|_columns@cash_account_code_prefix$label:1
 msgid "Prefix of the main cash accounts"
 msgstr "Az előtag a főbb pénzforgalmi elszámolás"
 
-#: fa.chart.template-transfer_account_id:1
+#: model@fa.chart.template|_columns@transfer_account_id$label:1
 msgid "Transfer Account"
 msgstr "Átutalási Számla"
 
-#: fa.chart.template-income_currency_exchange_account_id:1
+#: model@fa.chart.template|_columns@transfer_account_id$help:1
+msgid ""
+"Intermediary account used when moving money from a liquidity account to "
+"another"
+msgstr ""
+"Közvetítő fiókot használni, ha mozgó pénz a likviditási figyelembe, hogy egy"
+" másik"
+
+#: model@fa.chart.template|_columns@income_currency_exchange_account_id$label:1
 msgid "Gain Exchange Rate Account"
 msgstr "Nyereség Árfolyam Számla"
 
-#: fa.chart.template-expense_currency_exchange_account_id:1
+#: model@fa.chart.template|_columns@expense_currency_exchange_account_id$label:1
 msgid "Loss Exchange Rate Account"
 msgstr "Veszteség Árfolyam Számla"
 
-#: fa.chart.template-property_account_receivable_id:1
+#: model@fa.chart.template|_columns@property_account_receivable_id$label:1
 msgid "Receivable Account"
 msgstr "Követelés Számla"
 
-#: fa.chart.template-property_account_payable_id:1
+#: model@fa.chart.template|_columns@property_account_payable_id$label:1
 msgid "Payable Account"
 msgstr "A Fizetendő Számla"
 
-#: fa.chart.template-property_account_expense_categ_id:1
+#: model@fa.chart.template|_columns@property_account_expense_categ_id$label:1
 msgid "Category of Expense Account"
 msgstr "Kategória Költségén"
 
-#: fa.chart.template-property_account_income_categ_id:1
+#: model@fa.chart.template|_columns@property_account_income_categ_id$label:1
 msgid "Category of Income Account"
 msgstr "Kategória Jövedelem Fiók"
 
-#: fa.chart.template-property_account_expense_id:1
+#: model@fa.chart.template|_columns@property_account_expense_id$label:1
 msgid "Expense Account on Product Template"
 msgstr "Költség Számla a Termék Sablon"
 
-#: fa.chart.template-property_account_income_id:1
+#: model@fa.chart.template|_columns@property_account_income_id$label:1
 msgid "Income Account on Product Template"
 msgstr "Jövedelem Figyelembe a Termék Sablon"
 
-#: fa.chart.template-property_stock_account_input_categ_id:1
+#: model@fa.chart.template|_columns@property_stock_account_input_categ_id$label:1
 msgid "Input Account for Stock Valuation"
 msgstr "Bemeneti Figyelembe Készletértékelési"
 
-#: fa.chart.template-property_stock_account_output_categ_id:1
+#: model@fa.chart.template|_columns@property_stock_account_output_categ_id$label:1
 msgid "Output Account for Stock Valuation"
 msgstr "Kimenő Számla Készletértékelési"
 
-#: fa.chart.template-property_stock_valuation_account_id:1
+#: model@fa.chart.template|_columns@property_stock_valuation_account_id$label:1
 msgid "Account Template for Stock Valuation"
 msgstr "Számla Sablon Készletértékelési"
 
-#: fa.tax.template-tax_adjustment:1
+#: model@fa.tax.template|_description@:1
+msgid "General Model Templates for Taxes"
+msgstr "Általános Modell Sablonok Adók"
+
+#: model@fa.tax.template|_columns@tax_adjustment$label:1
 msgid "Tax Adjustment"
 msgstr "Adó Beállítása"
 
-#: fa.tax.template-active:1
+#: model@fa.tax.template|_columns@active$label:1
 msgid "Active"
 msgstr "Aktív"
 
-#: fa.tax.template-refund_account_id:1
+#: model@fa.tax.template|_columns@refund_account_id$label:1
 msgid "Tax Account on Refunds"
 msgstr "Adó Számlára a Visszatérítés"
 
-#: fa.tax.template-description:1
+#: model@fa.tax.template|_columns@refund_account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for refunds. Leave empty to "
+"use the expense account."
+msgstr ""
+"Számla, amelyek akkor lesznek beállítva számlát adó sorok után. Hagyja "
+"üresen, hogy használja a hitelkeretet."
+
+#: model@fa.tax.template|_columns@description$label:1
 msgid "Display on Invoices"
 msgstr "Kijelző Számlák"
 
-#: fa.tax.template-include_base_amount:1
+#: model@fa.tax.template|_columns@include_base_amount$label:1
 msgid "Affect Subsequent Taxes"
 msgstr "Befolyásolja A Későbbi Adók"
 
-#: fa.tax.template-analytic:1
+#: model@fa.tax.template|_columns@analytic$label:1
 msgid "Analytic Cost"
 msgstr "Analitikus Költség"
 
-#: fa.fiscal.position.template-name:1
+#: model@fa.tax.template|_columns@cash_basis_account$help:1
+msgid ""
+"Account used as counterpart for the journal entry, for taxes exigible based "
+"on payments."
+msgstr ""
+"Fiók használni, mint párja a napló bejegyzést, az adók exigible alapuló "
+"kifizetéseket."
+
+#: model@fa.fiscal.position.template|_description@:1
+msgid "Genaral Model Template for Fiscal Position"
+msgstr "Genaral Modell Sablon Költségvetési Pozíció"
+
+#: model@fa.fiscal.position.template|_columns@name$label:1
 msgid "Fiscal Position Template"
 msgstr "A Fiskális Pozíció Sablon"
 
-#: fa.fiscal.position.template-account_ids:1
+#: model@fa.fiscal.position.template|_columns@account_ids$label:1
 msgid "Account Mapping"
 msgstr "Fiók Feltérképezése"
 
-#: fa.fiscal.position.template-tax_ids:1
+#: model@fa.fiscal.position.template|_columns@tax_ids$label:1
 msgid "Tax Mapping"
 msgstr "Adó Feltérképezése"
 
-#: fa.fiscal.position.template-auto_apply:1
+#: model@fa.fiscal.position.template|_columns@auto_apply$label:1
 msgid "Detect Automatically"
 msgstr "Automatikus Felismerés"
 
-#: fa.fiscal.position.template-vat_required:1
+#: model@fa.fiscal.position.template|_columns@auto_apply$help:1
+msgid "Apply automatically this fiscal position."
+msgstr "Alkalmazni automatikusan ebben a költségvetési helyzetben."
+
+#: model@fa.fiscal.position.template|_columns@vat_required$label:1
 msgid "VAT required"
 msgstr "ÁFA szükséges"
 
-#: fa.fiscal.position.template-country_id:1
+#: model@fa.fiscal.position.template|_columns@vat_required$help:1
+msgid "Apply only if partner has a VAT number."
+msgstr "Csak akkor érvényesek, ha a partner rendelkezik közösségi adószámmal."
+
+#: model@fa.fiscal.position.template|_columns@country_id$label:1
 msgid "Country"
 msgstr "Ország"
 
-#: fa.fiscal.position.template-country_group_id:1
+#: model@fa.fiscal.position.template|_columns@country_id$help:1
+msgid "Apply only if delivery or invoicing country match."
+msgstr ""
+"Csak akkor érvényesek, ha a szállítási vagy számlázási ország mérkőzés."
+
+#: model@fa.fiscal.position.template|_columns@country_group_id$label:1
 msgid "Country Group"
 msgstr "Ország-Csoport"
 
-#: fa.fiscal.position.template-state_ids:1
+#: model@fa.fiscal.position.template|_columns@country_group_id$help:1
+msgid "Apply only if delivery or invocing country match the group."
+msgstr ""
+"Csak akkor érvényesek, ha a szállítás vagy invocing ország egyezik meg a "
+"csoport."
+
+#: model@fa.fiscal.position.template|_columns@state_ids$label:1
 msgid "Federal States"
 msgstr "Szövetségi Államok"
 
-#: fa.fiscal.position.template-zip_from:1
+#: model@fa.fiscal.position.template|_columns@zip_from$label:1
 msgid "Zip Range From"
 msgstr "Zip-Tól"
 
-#: fa.fiscal.position.template-zip_to:1
+#: model@fa.fiscal.position.template|_columns@zip_to$label:1
 msgid "Zip Range To"
 msgstr "Zip-Tartomány"
 
-#: fa.fiscal.position.tax.template-position_id:1
+#: model@fa.fiscal.position.tax.template|_description@:1
+msgid "Genaral Model Template Tax Fiscal Position"
+msgstr "Genaral Modell Sablon Adó Költségvetési Pozíció"
+
+#: model@fa.fiscal.position.tax.template|_columns@position_id$label:1
 msgid "Fiscal Position"
 msgstr "A Fiskális Pozíció"
 
-#: fa.fiscal.position.tax.template-tax_src_id:1
+#: model@fa.fiscal.position.tax.template|_columns@tax_src_id$label:1
 msgid "Tax Source"
 msgstr "Adó Forrás"
 
-#: fa.fiscal.position.tax.template-tax_dest_id:1
+#: model@fa.fiscal.position.tax.template|_columns@tax_dest_id$label:1
 msgid "Replacement Tax"
 msgstr "Csere Adó"
 
-#: fa.fiscal.position.account.template-position_id:1
+#: model@fa.fiscal.position.account.template|_description@:1
+msgid "Genaral Model Template Account Fiscal Mapping"
+msgstr "Genaral Modell Sablon Számla Költségvetési Feltérképezése"
+
+#: model@fa.fiscal.position.account.template|_columns@position_id$label:1
 msgid "Fiscal Mapping"
 msgstr "Költségvetési Feltérképezése"
 
-#: fa.fiscal.position.account.template-account_src_id:1
+#: model@fa.fiscal.position.account.template|_columns@account_src_id$label:1
 msgid "Account Source"
 msgstr "Forrás Számla"
 
-#: fa.fiscal.position.account.template-account_dest_id:1
+#: model@fa.fiscal.position.account.template|_columns@account_dest_id$label:1
 msgid "Account Destination"
 msgstr "Fiók Cél"
 
-#: fa.reconcile.model.template-amount_type:1
+#: model@fa.reconcile.model.template|_description@:1
+msgid "Genaral Model Reconcile Model Template"
+msgstr "Genaral Modell Összeegyeztetni Modell Sablon"
+
+#: model@fa.reconcile.model.template|_columns@amount_type$label:1
 msgid "Amount type"
 msgstr "Összeg típus"
 
-#: fa.accounts.payment.method-payment_type:1
+#: model@fa.accounts.payment.method|_description@:1
+msgid "Genaral  ModelPayment Methods"
+msgstr "Genaral ModelPayment Módszerek"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$label:1
 msgid "Payment Type"
 msgstr "Fizetési Típus"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$selections#inbound:1
+msgid "Inbound"
+msgstr "Bejövő"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$selections#outbound:1
+msgid "Outbound"
+msgstr "Kimenő"

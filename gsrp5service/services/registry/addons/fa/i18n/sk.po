@@ -3,542 +3,1133 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:24+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:24+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:54+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: fa.accounts.type-name:1
+#: model@fa.accounts.type|_description@:1
+msgid "Genaral Model Account Type"
+msgstr "Genaral Model Typ Konta"
+
+#: model@fa.accounts.type|_columns@name$label:1
 msgid "Account Type"
 msgstr "Typ Účtu"
 
-#: fa.accounts.type-include_initial_balance:1
+#: model@fa.accounts.type|_columns@include_initial_balance$label:1
 msgid "Bring Accounts Balance Forward"
 msgstr "Priniesť Účty Rovnováhu"
 
-#: fa.accounts.type-type:1 fa.accounts-user_type_id:1
-#: fa.accounts.journal-type:1 fa.account.template-user_type_id:1
+#: model@fa.accounts.type|_columns@include_initial_balance$help:1
+msgid ""
+"Used in reports to know if we should consider journal items from the "
+"beginning of time instead of from the fiscal year only. Account types that "
+"should be reset to zero at each new fiscal year (like expenses, revenue..) "
+"should not have this option set."
+msgstr ""
+"Používa sa v prehľadoch vedieť, ak by sme mali zvážiť vestník položiek od "
+"začiatku času namiesto z fiškálneho roka. Typy účtov, ktoré by mali byť "
+"vynulované na každý nový fiškálny rok (ako náklady, výnosy,..), by nemali "
+"mať túto možnosť nastaviť."
+
+#: model@fa.accounts.type|_columns@type$label:1
+#: model@fa.accounts|_columns@user_type_id$label:1
+#: model@fa.accounts.journal|_columns@type$label:1
+#: model@fa.account.template|_columns@user_type_id$label:1
 msgid "Type"
 msgstr "Druh"
 
-#: fa.accounts.type-note:1 fa.account.template-note:1
-#: fa.fiscal.position.template-note:1
+#: model@fa.accounts.type|_columns@type$selections#other:1
+msgid "Regular"
+msgstr "Pravidelné"
+
+#: model@fa.accounts.type|_columns@type$selections#receivable:1
+msgid "Receivable"
+msgstr "Pohľadávky"
+
+#: model@fa.accounts.type|_columns@type$selections#payable:1
+msgid "Payable"
+msgstr "Splatné"
+
+#: model@fa.accounts.type|_columns@type$selections#liquidity:1
+msgid "Liquidity"
+msgstr "Likvidity"
+
+#: model@fa.accounts.type|_columns@type$help:1
+msgid ""
+"The 'Internal Type' is used for features available on different types of "
+"accounts: liquidity type is for cash or bank accounts, payable/receivable is"
+" for vendor/customer accounts."
+msgstr ""
+"'Internej Typ\" sa používa pre funkcie sú k dispozícii na rôznych typoch "
+"účtov: likvidity typ je pre hotovosti alebo bankovým účtov, "
+"splatných/pohľadávky je pre dodávateľa/klientom."
+
+#: model@fa.accounts.type|_columns@note$label:1
+#: model@fa.account.template|_columns@note$label:1
+#: model@fa.fiscal.position.template|_columns@note$label:1
 msgid "Note"
 msgstr "Poznámka"
 
-#: fa.accounts.tag-name:1 fa.accounts-name:1 fa.accounts.tax.group-name:1
-#: fa.accounts.payment.method-name:1
+#: model@fa.accounts.tag|_description@:1
+msgid "General Model Account Tag"
+msgstr "Všeobecný Model Účet Tag"
+
+#: model@fa.accounts.tag|_columns@name$label:1
+#: model@fa.accounts|_columns@name$label:1
+#: model@fa.accounts.tax.group|_columns@name$label:1
+#: model@fa.accounts.payment.method|_columns@name$label:1
 msgid "Name"
 msgstr "Názov"
 
-#: fa.accounts.tag-applicability:1
+#: model@fa.accounts.tag|_columns@applicability$label:1
 msgid "Applicability"
 msgstr "Uplatnenie"
 
-#: fa.accounts.tag-color:1
+#: model@fa.accounts.tag|_columns@applicability$selections#accounts:1
+msgid "Accounts"
+msgstr "Účty"
+
+#: model@fa.accounts.tag|_columns@applicability$selections#taxes:1
+msgid "Taxes"
+msgstr "Dane"
+
+#: model@fa.accounts.tag|_columns@color$label:1
 msgid "Color Index"
 msgstr "Index Farby"
 
-#: fa.accounts.tag-inactive:1 fa.accounts.journal-inactive:1
-#: fa.accounts.tax-inactive:1
+#: model@fa.accounts.tag|_columns@inactive$label:1
+#: model@fa.accounts.journal|_columns@inactive$label:1
+#: model@fa.accounts.tax|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Neaktívne"
 
-#: fa.accounts-currency_id:1 fa.account.template-currency_id:1
+#: model@fa.accounts.tag|_columns@inactive$help:1
+msgid "Set active to false to hide the Account Tag without removing it."
+msgstr "Aktivovať na false, ak chcete skryť Účet Značku bez jeho odstránenie."
+
+#: model@fa.accounts|_description@:1
+msgid "Genaral Model Account"
+msgstr "Genaral Model Účet"
+
+#: model@fa.accounts|_columns@currency_id$label:1
+#: model@fa.account.template|_columns@currency_id$label:1
 msgid "Account Currency"
 msgstr "Mena Účtu"
 
-#: fa.accounts-code:1 fa.account.template-code:1
-#: fa.accounts.payment.method-code:1
+#: model@fa.accounts|_columns@currency_id$help:1
+msgid "Forces all moves for this account to have this account currency."
+msgstr "Síl všetky pohyby pre tento účet, ak máte toto je účet vedený."
+
+#: model@fa.accounts|_columns@code$label:1
+#: model@fa.account.template|_columns@code$label:1
+#: model@fa.accounts.payment.method|_columns@code$label:1
 msgid "Code"
 msgstr "Kód"
 
-#: fa.accounts-deprecated:1
+#: model@fa.accounts|_columns@deprecated$label:1
 msgid "Deprecated"
 msgstr "Zavrhované"
 
-#: fa.accounts-internal_type:1
+#: model@fa.accounts|_columns@user_type_id$help:1
+msgid ""
+"Account Type is used for information purpose, to generate country-specific "
+"legal reports, and set the rules to close a fiscal year and generate opening"
+" entries."
+msgstr ""
+"Typ účtu sa používa na informačné účely, na generovanie krajiny osobitných "
+"právnych správy, a nastaviť pravidlá pre ukončenie účtovného roka a vytvárať"
+" otvorenie položky."
+
+#: model@fa.accounts|_columns@internal_type$label:1
 msgid "Internal Type"
 msgstr "Vnútorné Typ"
 
-#: fa.accounts-last_time_entries_checked:1
+#: model@fa.accounts|_columns@internal_type$selections#user:1
+msgid "User"
+msgstr "Používateľ"
+
+#: model@fa.accounts|_columns@last_time_entries_checked$label:1
 msgid "Latest Invoices & Payments Matching Date"
 msgstr "Najnovšie Faktúry A Platby Zodpovedajúce Dátum"
 
-#: fa.accounts-reconcile:1
+#: model@fa.accounts|_columns@last_time_entries_checked$help:1
+msgid ""
+"Last time the invoices & payments matching was performed on this account. It"
+" is set either if there's not at least an unreconciled debit and an "
+"unreconciled credit Or if you click the \"Done\" button."
+msgstr ""
+"Naposledy faktúry & platby zodpovedajúce bola vykonaná na tento účet. To je "
+"stanovená buď ak nie je aspoň unreconciled debetné a unreconciled kreditnej "
+"Alebo ak máte kliknite na \"Hotovo\" tlačidlo."
+
+#: model@fa.accounts|_columns@reconcile$label:1
 msgid "Allow Reconciliation"
 msgstr "Povoliť Zmierenia"
 
-#: fa.accounts-tax_ids:1 fa.account.template-tax_ids:1
+#: model@fa.accounts|_columns@reconcile$help:1
+msgid ""
+"Check this box if this account allows invoices & payments matching of "
+"journal items."
+msgstr ""
+"Začiarknite toto políčko, ak tento účet umožňuje faktúry & platby "
+"zodpovedajúce vestník položky."
+
+#: model@fa.accounts|_columns@tax_ids$label:1
+#: model@fa.account.template|_columns@tax_ids$label:1
 msgid "Default Taxes"
 msgstr "Predvolené Dane"
 
-#: fa.accounts-note:1
+#: model@fa.accounts|_columns@note$label:1
 msgid "Internal Notes"
 msgstr "Interné Poznámky"
 
-#: fa.accounts-company_id:1 fa.accounts.journal-company_id:1
-#: fa.accounts.tax-company_id:1 fa.accounts.reconcile.model-company_id:1
-#: fa.chart.template-company_id:1 fa.tax.template-company_id:1
+#: model@fa.accounts|_columns@company_id$label:1
+#: model@fa.accounts.journal|_columns@company_id$label:1
+#: model@fa.accounts.tax|_columns@company_id$label:1
+#: model@fa.accounts.reconcile.model|_columns@company_id$label:1
+#: model@fa.chart.template|_columns@company_id$label:1
+#: model@fa.tax.template|_columns@company_id$label:1
 msgid "Company"
 msgstr "Spoločnosť"
 
-#: fa.accounts-tag_ids:1 fa.accounts.tax-tag_ids:1
+#: model@fa.accounts|_columns@tag_ids$label:1
+#: model@fa.accounts.tax|_columns@tag_ids$label:1
 msgid "Tags"
 msgstr "Značky"
 
-#: fa.accounts-group_id:1 fa.account.template-group_id:1
+#: model@fa.accounts|_columns@group_id$label:1
+#: model@fa.account.template|_columns@group_id$label:1
 msgid "Group"
 msgstr "Skupina"
 
-#: fa.accounts-opening_debit:1
+#: model@fa.accounts|_columns@opening_debit$label:1
 msgid "Opening debit"
 msgstr "Otváracie debetnej"
 
-#: fa.accounts-opening_credit:1
+#: model@fa.accounts|_columns@opening_debit$help:1
+msgid "Opening debit value for this account."
+msgstr "Otváracie debetné hodnota pre toto konto."
+
+#: model@fa.accounts|_columns@opening_credit$label:1
 msgid "Opening credit"
 msgstr "Otváracie úver"
 
-#: fa.accounts.group-name:1 fa.account.template-name:1
-#: fa.chart.template-name:1
+#: model@fa.accounts|_columns@opening_credit$help:1
+msgid "Opening credit value for this account."
+msgstr "Otváracie úverové hodnota pre toto konto."
+
+#: model@fa.accounts.group|_description@:1
+msgid "Genaral Model Accounts Group"
+msgstr "Genaral Model Účty Skupiny"
+
+#: model@fa.accounts.group|_columns@name$label:1
+#: model@fa.account.template|_columns@name$label:1
+#: model@fa.chart.template|_columns@name$label:1
 msgid "name"
 msgstr "názov"
 
-#: fa.accounts.group-code_prefix:1
+#: model@fa.accounts.group|_columns@code_prefix$label:1
 msgid "Code Prefix"
 msgstr "Kód Prefix"
 
-#: fa.accounts.group-parent_id:1
+#: model@fa.accounts.group|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Rodič"
 
-#: fa.accounts.group-childs_id:1
+#: model@fa.accounts.group|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: fa.accounts.journal-name:1
+#: model@fa.accounts.journal|_description@:1
+msgid "General Model Accounts Journal"
+msgstr "Všeobecný Model Účty Vestník"
+
+#: model@fa.accounts.journal|_columns@name$label:1
 msgid "Journal Name"
 msgstr "Vestník Meno"
 
-#: fa.accounts.journal-code:1
+#: model@fa.accounts.journal|_columns@code$label:1
 msgid "Short Code"
 msgstr "Krátky Kód"
 
-#: fa.accounts.journal-type_control_ids:1
-msgid "Account Types Allowed"
-msgstr "Typy Účtov Povolené"
+#: model@fa.accounts.journal|_columns@code$help:1
+msgid "The journal entries of this journal will be named using this prefix."
+msgstr "Na zápisov tejto vestník budú pomenované používanie tejto predpony."
 
-#: fa.accounts.journal-account_control_ids:1
-msgid "Accounts Allowed"
-msgstr "Účty Povolené"
+#: model@fa.accounts.journal|_columns@inactive$help:1
+msgid "Set active to false to hide the Journal without removing it."
+msgstr "Aktivovať na false, ak chcete skryť Vestník bez jeho odstránenie."
 
-#: fa.accounts.journal-default_credit_account_id:1
-msgid "Default Credit Account"
-msgstr "Kreditný Účet"
+#: model@fa.accounts.journal|_columns@type$selections#sale:1
+msgid "Sale"
+msgstr "Predaj"
 
-#: fa.accounts.journal-default_debit_account_id:1
-msgid "Default Debit Account"
-msgstr "Predvolené Ťarchu Účtu"
+#: model@fa.accounts.journal|_columns@type$selections#purchase:1
+msgid "Purchase"
+msgstr "Kúpiť"
 
-#: fa.accounts.journal-update_posted:1
-msgid "Allow Cancelling Entries"
-msgstr "Povoliť Zrušenie Položky"
+#: model@fa.accounts.journal|_columns@type$selections#cash:1
+msgid "Cash"
+msgstr "Hotovosť"
 
-#: fa.accounts.journal-group_invoice_lines:1
-msgid "Group Invoice Lines"
-msgstr "Skupina Faktúry Linky"
-
-#: fa.accounts.journal-sequence:1 fa.accounts.tax.group-sequence:1
-#: fa.accounts.reconcile.model-sequence:1 fa.tax.template-sequence:1
-#: fa.fiscal.position.template-sequence:1
-#: fa.reconcile.model.template-sequence:1
-msgid "Sequence"
-msgstr "Postupnosť"
-
-#: fa.accounts.journal-sequence_number_next:1
-msgid "Next Number"
-msgstr "Ďalšie Číslo"
-
-#: fa.accounts.journal-refund_sequence_number_next:1
-msgid "Credit Notes: Next Number"
-msgstr "Úver Poznámky: Ďalšie Číslo"
-
-#: fa.accounts.journal-currency_id:1 fa.chart.template-currency_id:1
-msgid "Currency"
-msgstr "Mena"
-
-#: fa.accounts.journal-refund_sequence:1
-msgid "Dedicated Credit Note Sequence"
-msgstr "Špecializované Úverové Poznámka Postupnosť"
-
-#: fa.accounts.journal-inbound_payment_method_ids:1
-msgid "Debit Methods"
-msgstr "Debetné Platobné Metódy"
-
-#: fa.accounts.journal-outbound_payment_method_ids:1
-msgid "Payment Methods"
-msgstr "Platobné Metódy"
-
-#: fa.accounts.journal-at_least_one_inbound:1
-msgid "At least one inbound"
-msgstr "Aspoň jeden vstup"
-
-#: fa.accounts.journal-at_least_one_outbound:1
-msgid "At least one outbound"
-msgstr "Aspoň jeden výstupný"
-
-#: fa.accounts.journal-profit_account_id:1
-msgid "Profit Account"
-msgstr "Zisk Účet"
-
-#: fa.accounts.journal-loss_account_id:1
-msgid "Loss Account"
-msgstr "Strát"
-
-#: fa.accounts.journal-belongs_to_company:1
-msgid "Belong to the user's current company"
-msgstr "Patria k používateľa súčasnej spoločnosti"
-
-#: fa.accounts.journal-bank_statements_source:1
-msgid "Bank Feeds"
-msgstr "Banka Zdroje"
-
-#: fa.accounts.journal-bank_acc_number:1
-msgid "Bank ACC number"
-msgstr "Banka ACC číslo"
-
-#: fa.accounts.journal-bank_id:1
+#: model@fa.accounts.journal|_columns@type$selections#bank:1
+#: model@fa.accounts.journal|_columns@bank_id$label:1
 msgid "Bank"
 msgstr "Banka"
 
-#: fa.accounts.tax-name:1 fa.tax.template-name:1
+#: model@fa.accounts.journal|_columns@type$selections#general:1
+msgid "Miscellaneous"
+msgstr "Rôzne"
+
+#: model@fa.accounts.journal|_columns@type$help:1
+msgid ""
+"Select 'Sale' for customer invoices journals.\n"
+"Select 'Purchase' for vendor bills journals.\n"
+"Select 'Cash' or 'Bank' for journals that are used in customer or vendor payments.\n"
+"Select 'General' for miscellaneous operations journals."
+msgstr ""
+"Zvoľte \"Predaj\", ktorý je pre zákazníka faktúry časopisoch.\n"
+"Vyberte možnosť \"Nákup\" pre dodávateľa účty časopisoch.\n"
+"Vyberte \"pokladničnej Hotovosti\" alebo \"Banka\" pre časopisoch, ktoré sa používajú v zákazníka alebo dodávateľa platby.\n"
+"Vyberte \"Všeobecné\" pre rôzne operácie časopisoch."
+
+#: model@fa.accounts.journal|_columns@type_control_ids$label:1
+msgid "Account Types Allowed"
+msgstr "Typy Účtov Povolené"
+
+#: model@fa.accounts.journal|_columns@account_control_ids$label:1
+msgid "Accounts Allowed"
+msgstr "Účty Povolené"
+
+#: model@fa.accounts.journal|_columns@default_credit_account_id$label:1
+msgid "Default Credit Account"
+msgstr "Kreditný Účet"
+
+#: model@fa.accounts.journal|_columns@default_credit_account_id$help:1
+msgid "It acts as a default account for credit amount"
+msgstr "Pôsobí ako predvolený účet na kreditnej množstvo"
+
+#: model@fa.accounts.journal|_columns@default_debit_account_id$label:1
+msgid "Default Debit Account"
+msgstr "Predvolené Ťarchu Účtu"
+
+#: model@fa.accounts.journal|_columns@default_debit_account_id$help:1
+msgid "It acts as a default account for debit amount"
+msgstr "Pôsobí ako predvolený účet na debetnej množstvo"
+
+#: model@fa.accounts.journal|_columns@update_posted$label:1
+msgid "Allow Cancelling Entries"
+msgstr "Povoliť Zrušenie Položky"
+
+#: model@fa.accounts.journal|_columns@update_posted$help:1
+msgid ""
+"Check this box if you want to allow the cancellation the entries related to "
+"this journal or of the invoice related to this journal"
+msgstr ""
+"Začiarknite toto políčko, ak chcete povoliť zrušenie položky súvisiace s "
+"touto vestník alebo faktúry vzťahujúce sa k tejto vestník"
+
+#: model@fa.accounts.journal|_columns@group_invoice_lines$label:1
+msgid "Group Invoice Lines"
+msgstr "Skupina Faktúry Linky"
+
+#: model@fa.accounts.journal|_columns@group_invoice_lines$help:1
+msgid ""
+"If this box is checked, the system will try to group the accounting lines "
+"when generating them from invoices."
+msgstr ""
+"Ak je toto políčko začiarknuté, systém sa pokúsi skupina účtovníctve "
+"riadkoch pri generovaní ich z faktúry."
+
+#: model@fa.accounts.journal|_columns@sequence$label:1
+#: model@fa.accounts.tax.group|_columns@sequence$label:1
+#: model@fa.accounts.reconcile.model|_columns@sequence$label:1
+#: model@fa.tax.template|_columns@sequence$label:1
+#: model@fa.fiscal.position.template|_columns@sequence$label:1
+#: model@fa.reconcile.model.template|_columns@sequence$label:1
+msgid "Sequence"
+msgstr "Postupnosť"
+
+#: model@fa.accounts.journal|_columns@sequence$help:1
+msgid "Used to order Journals in the dashboard view"
+msgstr "Používa sa na objednávku Časopisoch v paneli view"
+
+#: model@fa.accounts.journal|_columns@sequence_number_next$label:1
+msgid "Next Number"
+msgstr "Ďalšie Číslo"
+
+#: model@fa.accounts.journal|_columns@sequence_number_next$help:1
+msgid "The next sequence number will be used for the next invoice."
+msgstr "Ďalšie poradové číslo bude použité pre ďalšiu faktúru."
+
+#: model@fa.accounts.journal|_columns@refund_sequence_number_next$label:1
+msgid "Credit Notes: Next Number"
+msgstr "Úver Poznámky: Ďalšie Číslo"
+
+#: model@fa.accounts.journal|_columns@refund_sequence_number_next$help:1
+msgid "The next sequence number will be used for the next credit note."
+msgstr "Ďalšie poradové číslo bude použité pre ďalšiu dobropisu."
+
+#: model@fa.accounts.journal|_columns@currency_id$label:1
+#: model@fa.chart.template|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Mena"
+
+#: model@fa.accounts.journal|_columns@currency_id$help:1
+msgid "The currency used to enter statement"
+msgstr "Meny používané na zadanie vyhlásenie"
+
+#: model@fa.accounts.journal|_columns@company_id$help:1
+msgid "Company related to this journal"
+msgstr "Spoločnosť súvisiace s touto vestník"
+
+#: model@fa.accounts.journal|_columns@refund_sequence$label:1
+msgid "Dedicated Credit Note Sequence"
+msgstr "Špecializované Úverové Poznámka Postupnosť"
+
+#: model@fa.accounts.journal|_columns@refund_sequence$help:1
+msgid ""
+"Check this box if you don't want to share the same sequence for invoices and"
+" credit notes made from this journal"
+msgstr ""
+"Začiarknite toto políčko, ak nechcete, aby sa zdieľajú rovnakú sekvenciu pre"
+" faktúr a dobropisov vyrobené z tejto vestník"
+
+#: model@fa.accounts.journal|_columns@inbound_payment_method_ids$label:1
+msgid "Debit Methods"
+msgstr "Debetné Platobné Metódy"
+
+#: model@fa.accounts.journal|_columns@outbound_payment_method_ids$label:1
+msgid "Payment Methods"
+msgstr "Platobné Metódy"
+
+#: model@fa.accounts.journal|_columns@at_least_one_inbound$label:1
+msgid "At least one inbound"
+msgstr "Aspoň jeden vstup"
+
+#: model@fa.accounts.journal|_columns@at_least_one_outbound$label:1
+msgid "At least one outbound"
+msgstr "Aspoň jeden výstupný"
+
+#: model@fa.accounts.journal|_columns@profit_account_id$label:1
+msgid "Profit Account"
+msgstr "Zisk Účet"
+
+#: model@fa.accounts.journal|_columns@profit_account_id$help:1
+msgid ""
+"Used to register a profit when the ending balance of a cash register differs"
+" from what the system computes"
+msgstr ""
+"Pri registrácii zisk, keď sa končí zostatok pokladne sa líši od toho, čo "
+"systém vypočíta"
+
+#: model@fa.accounts.journal|_columns@loss_account_id$label:1
+msgid "Loss Account"
+msgstr "Strát"
+
+#: model@fa.accounts.journal|_columns@loss_account_id$help:1
+msgid ""
+"Used to register a loss when the ending balance of a cash register differs "
+"from what the system computes"
+msgstr ""
+"Pri registrácii straty, ak koncové saldo pokladne sa líši od toho, čo systém"
+" vypočíta"
+
+#: model@fa.accounts.journal|_columns@belongs_to_company$label:1
+msgid "Belong to the user's current company"
+msgstr "Patria k používateľa súčasnej spoločnosti"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$label:1
+msgid "Bank Feeds"
+msgstr "Banka Zdroje"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$selections#undefined:1
+msgid "Undefined Yet"
+msgstr "Zatiaľ Neurčená"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$selections#manual:1
+msgid "Record Manually"
+msgstr "Záznam Manuálne"
+
+#: model@fa.accounts.journal|_columns@bank_acc_number$label:1
+msgid "Bank ACC number"
+msgstr "Banka ACC číslo"
+
+#: model@fa.accounts.tax.group|_description@:1
+msgid "General Model Account Tax Group"
+msgstr "Všeobecný Model Účet Daňového Skupiny"
+
+#: model@fa.accounts.tax|_description@:1
+msgid "General Model Accounts Tax"
+msgstr "Všeobecný Model Účty Dane"
+
+#: model@fa.accounts.tax|_columns@name$label:1
+#: model@fa.tax.template|_columns@name$label:1
 msgid "Tax Name"
 msgstr "Daňové Meno"
 
-#: fa.accounts.tax-type_tax_use:1 fa.tax.template-type_tax_use:1
+#: model@fa.accounts.tax|_columns@type_tax_use$label:1
+#: model@fa.tax.template|_columns@type_tax_use$label:1
 msgid "Tax Scope"
 msgstr "Daňové Rozsah"
 
-#: fa.accounts.tax-tax_adjustment:1
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#sale:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#sale:1
+msgid "Sales"
+msgstr "Predaj"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#purchase:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#purchase:1
+msgid "Purchases"
+msgstr "Nákupy"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#none:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#none:1
+msgid "None"
+msgstr "Žiadne"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$help:1
+#: model@fa.tax.template|_columns@type_tax_use$help:1
+msgid ""
+"Determines where the tax is selectable. Note : 'None' means a tax can't be "
+"used by itself, however it can still be used in a group."
+msgstr ""
+"Určuje, kde sa dane je voliteľná. Poznámka : \"None\" znamená daň, nie je "
+"možné používať sama, však to môže byť použitý v skupine."
+
+#: model@fa.accounts.tax|_columns@tax_adjustment$label:1
 msgid "Tax adjustment"
 msgstr "Úprava dane"
 
-#: fa.accounts.tax-amount_type:1 fa.tax.template-amount_type:1
+#: model@fa.accounts.tax|_columns@tax_adjustment$help:1
+msgid ""
+"Set this field to true if this tax can be used in the tax adjustment wizard,"
+" used to manually fill some data in the tax declaration"
+msgstr ""
+"Nastavenie tejto oblasti pravda, ak táto daň môže byť použitý v daňovom "
+"nastavenie sprievodcu použiť manuálne, vyplňte niektoré údaje v daňové "
+"priznanie"
+
+#: model@fa.accounts.tax|_columns@amount_type$label:1
+#: model@fa.tax.template|_columns@amount_type$label:1
 msgid "Tax Computation"
 msgstr "Výpočet Dane"
 
-#: fa.accounts.tax-children_tax_ids:1 fa.tax.template-children_tax_ids:1
+#: model@fa.accounts.tax|_columns@amount_type$selections#group:1
+#: model@fa.tax.template|_columns@amount_type$selections#group:1
+msgid "Group of Taxes"
+msgstr "Skupina Dane"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#fixed:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$selections#fixed:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$selections#fixed:1
+#: model@fa.tax.template|_columns@amount_type$selections#fixed:1
+#: model@fa.reconcile.model.template|_columns@amount_type$selections#fixed:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$selections#fixed:1
+msgid "Fixed"
+msgstr "Pevné"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#percent:1
+#: model@fa.tax.template|_columns@amount_type$selections#percent:1
+msgid "Percentage of Price"
+msgstr "Percento z Ceny"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#division:1
+#: model@fa.tax.template|_columns@amount_type$selections#division:1
+msgid "Percentage of Price Tax Included"
+msgstr "Percento Cena je Daň Zahrnutá"
+
+#: model@fa.accounts.tax|_columns@inactive$help:1
+#: model@fa.tax.template|_columns@active$help:1
+msgid "Set active to false to hide the tax without removing it."
+msgstr "Aktivovať na false, ak chcete skryť daň bez jeho odstránenie."
+
+#: model@fa.accounts.tax|_columns@children_tax_ids$label:1
+#: model@fa.tax.template|_columns@children_tax_ids$label:1
 msgid "Children Taxes"
 msgstr "Deti Dane"
 
-#: fa.accounts.tax-sequence:1 fa.reconcile.model.template-amount:1
+#: model@fa.accounts.tax|_columns@sequence$label:1
+#: model@fa.reconcile.model.template|_columns@amount$label:1
 msgid "unknown"
 msgstr "neznáma"
 
-#: fa.accounts.tax-amount:1
+#: model@fa.accounts.tax|_columns@sequence$help:1
+#: model@fa.tax.template|_columns@sequence$help:1
+msgid ""
+"The sequence field is used to define order in which the tax lines are "
+"applied."
+msgstr ""
+"Postupnosť pole sa používa, ak chcete definovať poradie, v ktorom daňový "
+"linky sú aplikované."
+
+#: model@fa.accounts.tax|_columns@amount$label:1
 msgid "Amont"
 msgstr "Amont"
 
-#: fa.accounts.tax-account_id:1 fa.tax.template-account_id:1
+#: model@fa.accounts.tax|_columns@account_id$label:1
+#: model@fa.tax.template|_columns@account_id$label:1
 msgid "Tax Account"
 msgstr "Daňové Účet"
 
-#: fa.accounts.tax-refund_account_id:1
+#: model@fa.accounts.tax|_columns@account_id$help:1
+#: model@fa.tax.template|_columns@account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for invoices. Leave empty to "
+"use the expense account."
+msgstr ""
+"Účet, ktorý bude nastavený na faktúre daň linky pre faktúry. Nechať prázdne,"
+" ak chcete použiť konto nákladov."
+
+#: model@fa.accounts.tax|_columns@refund_account_id$label:1
 msgid "Tax Account on Credit Notes"
 msgstr "Daňové Účet na dobropisov"
 
-#: fa.accounts.tax-description:1
+#: model@fa.accounts.tax|_columns@refund_account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for credit notes. Leave empty "
+"to use the expense account."
+msgstr ""
+"Účet, ktorý bude nastavený na faktúre daň linky pre dobropisov. Nechať "
+"prázdne, ak chcete použiť konto nákladov."
+
+#: model@fa.accounts.tax|_columns@description$label:1
 msgid "Label on Invoices"
 msgstr "Štítok na Faktúry"
 
-#: fa.accounts.tax-price_include:1 fa.tax.template-price_include:1
+#: model@fa.accounts.tax|_columns@price_include$label:1
+#: model@fa.tax.template|_columns@price_include$label:1
 msgid "Included in Price"
 msgstr "Zahrnuté v Cene"
 
-#: fa.accounts.tax-include_base_amount:1
+#: model@fa.accounts.tax|_columns@price_include$help:1
+#: model@fa.tax.template|_columns@price_include$help:1
+msgid ""
+"Check this if the price you use on the product and invoices includes this "
+"tax."
+msgstr ""
+"Toto políčko začiarknite, pokiaľ cena použiť na produkt a faktúr obsahuje "
+"tejto dane."
+
+#: model@fa.accounts.tax|_columns@include_base_amount$label:1
 msgid "Affect Base of Subsequent Taxes"
 msgstr "Vplyv Základu Následné Dane"
 
-#: fa.accounts.tax-analytic:1
+#: model@fa.accounts.tax|_columns@include_base_amount$help:1
+#: model@fa.tax.template|_columns@include_base_amount$help:1
+msgid ""
+"If set, taxes which are computed after this one will be computed based on "
+"the price tax included."
+msgstr ""
+"Ak chcete nastaviť, daní, ktoré sú vypočítané po uplynutí tejto jeden bude "
+"vypočítaný na základe ceny sú v cene ubytovania."
+
+#: model@fa.accounts.tax|_columns@analytic$label:1
 msgid "Include in Analytic Cost"
 msgstr "Zahrnúť do Analýzy Nákladov"
 
-#: fa.accounts.tax-tax_group_id:1 fa.tax.template-tax_group_id:1
+#: model@fa.accounts.tax|_columns@analytic$help:1
+#: model@fa.tax.template|_columns@analytic$help:1
+msgid ""
+"If set, the amount computed by this tax will be assigned to the same "
+"analytic account as the invoice line (if any)"
+msgstr ""
+"Ak chcete nastaviť, suma vypočítaná daň sa priradí isté, analytický účet "
+"faktúry riadku (ak existuje)"
+
+#: model@fa.accounts.tax|_columns@tax_group_id$label:1
+#: model@fa.tax.template|_columns@tax_group_id$label:1
 msgid "Tax Group"
 msgstr "Daňové Skupiny"
 
-#: fa.accounts.tax-hide_tax_exigibility:1
+#: model@fa.accounts.tax|_columns@hide_tax_exigibility$label:1
 msgid "Hide Use Cash Basis Option"
 msgstr "Skryť Použiť Peňažné Základe Možnosť"
 
-#: fa.accounts.tax-tax_exigibility:1 fa.tax.template-tax_exigibility:1
+#: model@fa.accounts.tax|_columns@tax_exigibility$label:1
+#: model@fa.tax.template|_columns@tax_exigibility$label:1
 msgid "Tax Due"
 msgstr "Daňový Nedoplatok"
 
-#: fa.accounts.tax-cash_basis_account:1 fa.tax.template-cash_basis_account:1
+#: model@fa.accounts.tax|_columns@tax_exigibility$selections#on_invoice:1
+#: model@fa.tax.template|_columns@tax_exigibility$selections#on_invoice:1
+msgid "Based on Invoice"
+msgstr "A to na základe Faktúry"
+
+#: model@fa.accounts.tax|_columns@tax_exigibility$selections#on_payment:1
+#: model@fa.tax.template|_columns@tax_exigibility$selections#on_payment:1
+msgid "Based on Payment"
+msgstr "Na základe Platby"
+
+#: model@fa.accounts.tax|_columns@tax_exigibility$help:1
+#: model@fa.tax.template|_columns@tax_exigibility$help:1
+msgid ""
+"Based on Invoice: the tax is due as soon as the invoice is validated.\n"
+"Based on Payment: the tax is due as soon as the payment of the invoice is received."
+msgstr ""
+"A to na základe Faktúry: daň je splatná ihneď, ako faktúra, je potvrdené.\n"
+"Na základe Platby: daň je splatná hneď po splatnosti faktúry prijaté."
+
+#: model@fa.accounts.tax|_columns@cash_basis_account$label:1
+#: model@fa.tax.template|_columns@cash_basis_account$label:1
 msgid "Tax Received Account"
 msgstr "Dane Prijaté Účet"
 
-#: fa.accounts.reconcile.model-name:1 fa.reconcile.model.template-name:1
+#: model@fa.accounts.tax|_columns@cash_basis_account$help:1
+msgid ""
+"Account used as counterpart for the journal entry, for taxes eligible based "
+"on payments."
+msgstr ""
+"Účet používaný ako náprotivok pre žurnálu, dane oprávnené na základe platby."
+
+#: model@fa.accounts.reconcile.model|_description@:1
+msgid "General Model Accounts Reconcile"
+msgstr "Všeobecný Model Odsúhlasenie Účtov"
+
+#: model@fa.accounts.reconcile.model|_columns@name$label:1
+#: model@fa.reconcile.model.template|_columns@name$label:1
 msgid "Button Label"
 msgstr "Tlačidlo Štítok"
 
-#: fa.accounts.reconcile.model-has_second_line:1
-#: fa.reconcile.model.template-has_second_line:1
+#: model@fa.accounts.reconcile.model|_columns@has_second_line$label:1
+#: model@fa.reconcile.model.template|_columns@has_second_line$label:1
 msgid "Add a second line"
 msgstr "Pridať druhý riadok"
 
-#: fa.accounts.reconcile.model-account_id:1
-#: fa.reconcile.model.template-account_id:1
+#: model@fa.accounts.reconcile.model|_columns@account_id$label:1
+#: model@fa.reconcile.model.template|_columns@account_id$label:1
 msgid "Account"
 msgstr "Účet"
 
-#: fa.accounts.reconcile.model-journal_id:1
+#: model@fa.accounts.reconcile.model|_columns@journal_id$label:1
 msgid "Journal"
 msgstr "Vestník"
 
-#: fa.accounts.reconcile.model-label:1 fa.reconcile.model.template-label:1
+#: model@fa.accounts.reconcile.model|_columns@journal_id$help:1
+#: model@fa.accounts.reconcile.model|_columns@second_journal_id$help:1
+msgid "This field is ignored in a bank statement reconciliation."
+msgstr "Toto pole je ignorovaný v výpisu z účtu zmierenia."
+
+#: model@fa.accounts.reconcile.model|_columns@label$label:1
+#: model@fa.reconcile.model.template|_columns@label$label:1
 msgid "Journal Item Label"
 msgstr "Vestník Položka Označenie"
 
-#: fa.accounts.reconcile.model-amount_type:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$label:1
 msgid "Amount Type"
 msgstr "Množstvo Druh"
 
-#: fa.accounts.reconcile.model-amount:1 fa.tax.template-amount:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$selections#percentage:1
+#: model@fa.reconcile.model.template|_columns@amount_type$selections#percentage:1
+msgid "Percentage of balance"
+msgstr "Percento rovnováhu"
+
+#: model@fa.accounts.reconcile.model|_columns@amount$label:1
+#: model@fa.tax.template|_columns@amount$label:1
 msgid "Amount"
 msgstr "Množstvo"
 
-#: fa.accounts.reconcile.model-tax_id:1 fa.reconcile.model.template-tax_id:1
+#: model@fa.accounts.reconcile.model|_columns@amount$help:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount$help:1
+#: model@fa.reconcile.model.template|_columns@amount$help:1
+#: model@fa.reconcile.model.template|_columns@second_amount$help:1
+msgid ""
+"Fixed amount will count as a debit if it is negative, as a credit if it is "
+"positive."
+msgstr ""
+"Pevne stanovená suma bude počítať ako ťarchu, ak je negatívny, ako úver, ak "
+"je pozitívny."
+
+#: model@fa.accounts.reconcile.model|_columns@tax_id$label:1
+#: model@fa.reconcile.model.template|_columns@tax_id$label:1
 msgid "Tax"
 msgstr "Daň"
 
-#: fa.accounts.reconcile.model-second_account_id:1
-#: fa.reconcile.model.template-second_account_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_account_id$label:1
+#: model@fa.reconcile.model.template|_columns@second_account_id$label:1
 msgid "Second Account"
 msgstr "Druhý Účet"
 
-#: fa.accounts.reconcile.model-second_journal_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_journal_id$label:1
 msgid "Second Journal"
 msgstr "Druhý Vestník"
 
-#: fa.accounts.reconcile.model-second_label:1
-#: fa.reconcile.model.template-second_label:1
+#: model@fa.accounts.reconcile.model|_columns@second_label$label:1
+#: model@fa.reconcile.model.template|_columns@second_label$label:1
 msgid "Second Journal Item Label"
 msgstr "Druhý Vestník Položka Označenie"
 
-#: fa.accounts.reconcile.model-second_amount_type:1
-#: fa.reconcile.model.template-second_amount_type:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$label:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$label:1
 msgid "Second Amount type"
 msgstr "Druhý typ Suma"
 
-#: fa.accounts.reconcile.model-second_amount:1
-#: fa.reconcile.model.template-second_amount:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$selections#percentage:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$selections#percentage:1
+msgid "Percentage of amount"
+msgstr "Percento výšky"
+
+#: model@fa.accounts.reconcile.model|_columns@second_amount$label:1
+#: model@fa.reconcile.model.template|_columns@second_amount$label:1
 msgid "Second Amount"
 msgstr "Druhý Množstvo"
 
-#: fa.accounts.reconcile.model-second_tax_id:1
-#: fa.reconcile.model.template-second_tax_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_tax_id$label:1
+#: model@fa.reconcile.model.template|_columns@second_tax_id$label:1
 msgid "Second Tax"
 msgstr "Druhý Dane"
 
-#: fa.account.template-reconcile:1
+#: model@fa.account.template|_description@:1
+msgid "Genaral Model Templates for Accounts"
+msgstr "Genaral Model Šablón pre Účty"
+
+#: model@fa.account.template|_columns@currency_id$help:1
+msgid "Forces all moves for this account to have this secondary currency."
+msgstr "Síl všetky pohyby na tento účet mať tento sekundárnej mene."
+
+#: model@fa.account.template|_columns@user_type_id$help:1
+msgid ""
+"These types are defined according to your country. The type contains more "
+"information about the account and its specificities."
+msgstr ""
+"Tieto typy sú definované podľa vašej krajiny. Typ obsahuje ďalšie informácie"
+" o účte a na jeho špecifiká."
+
+#: model@fa.account.template|_columns@reconcile$label:1
 msgid "Allow Invoices & payments Matching"
 msgstr "Povoliť Faktúry a platby Zodpovedajúce"
 
-#: fa.account.template-nocreate:1
+#: model@fa.account.template|_columns@reconcile$help:1
+msgid ""
+"Check this option if you want the user to reconcile entries in this account."
+msgstr ""
+"Túto možnosť začiarknite, ak chcete, aby užívateľ na zosúladenie zápisov v "
+"tomto účte."
+
+#: model@fa.account.template|_columns@nocreate$label:1
 msgid "Optional Create"
 msgstr "Voliteľné Vytvoriť"
 
-#: fa.account.template-chart_template_id:1 fa.tax.template-chart_template_id:1
-#: fa.fiscal.position.template-chart_template_id:1
-#: fa.reconcile.model.template-chart_template_id:1
+#: model@fa.account.template|_columns@nocreate$help:1
+msgid ""
+"If checked, the new chart of accounts will not contain this by default."
+msgstr "Ak je zaškrtnuté, nové účtovej nebude obsahovať toto je predvolené."
+
+#: model@fa.account.template|_columns@chart_template_id$label:1
+#: model@fa.tax.template|_columns@chart_template_id$label:1
+#: model@fa.fiscal.position.template|_columns@chart_template_id$label:1
+#: model@fa.reconcile.model.template|_columns@chart_template_id$label:1
 msgid "Chart Template"
 msgstr "Graf Šablóny"
 
-#: fa.account.template-tag_ids:1 fa.tax.template-tag_ids:1
+#: model@fa.account.template|_columns@chart_template_id$help:1
+msgid ""
+"This optional field allow you to link an account template to a specific "
+"chart template that may differ from the one its root parent belongs to. This"
+" allow you to define chart templates that extend another and complete it "
+"with few new accounts (You don't need to define the whole structure that is "
+"common to both several times)."
+msgstr ""
+"Tento nepovinné pole umožní prepojiť účet šablóny na konkrétny graf šablóny,"
+" ktoré sa môžu líšiť od jedného jeho koreň materskej patrí. To vám umožňuje "
+"definovať graf šablóny, ktoré rozširujú ďalší a dokončiť ju s pár nových "
+"účtov (nemusíte definovať celú štruktúru, ktorá je spoločná pre obidve "
+"niekoľkokrát)."
+
+#: model@fa.account.template|_columns@tag_ids$label:1
+#: model@fa.tax.template|_columns@tag_ids$label:1
 msgid "Account tag"
 msgstr "Účet tag"
 
-#: fa.chart.template-parent_id:1
+#: model@fa.account.template|_columns@tag_ids$help:1
+#: model@fa.tax.template|_columns@tag_ids$help:1
+msgid "Optional tags you may want to assign for custom reporting"
+msgstr "Voliteľné menovky môžete priradiť na vlastné prehľady"
+
+#: model@fa.chart.template|_description@:1
+msgid "Genaral Model Templates for Account Chart"
+msgstr "Genaral Model Šablón na Účet Graf"
+
+#: model@fa.chart.template|_columns@parent_id$label:1
 msgid "Parent Chart Template"
 msgstr "Materská Chart Template"
 
-#: fa.chart.template-code_digits:1
+#: model@fa.chart.template|_columns@code_digits$label:1
 msgid "# of Digits"
 msgstr "# Číslic"
 
-#: fa.chart.template-visible:1
+#: model@fa.chart.template|_columns@code_digits$help:1
+msgid "No. of Digits to use for account code"
+msgstr "Č. z Číslic používať pre účet kód"
+
+#: model@fa.chart.template|_columns@visible$label:1
 msgid "Can be Visible?"
 msgstr "Môže byť Viditeľné?"
 
-#: fa.chart.template-use_anglo_saxon:1
+#: model@fa.chart.template|_columns@visible$help:1
+msgid ""
+"Set this to False if you don't want this template to be used actively in the"
+" wizard that generate Chart of Accounts from templates, this is useful when "
+"you want to generate accounts of this template only when loading its child "
+"template."
+msgstr ""
+"Nastavte na False, ak nechcete, aby sa táto šablóna byť aktívne používať "
+"sprievodcu, ktoré generujú účtovej zo šablón, to je užitočné, keď chcete "
+"vytvárať účty tejto šablóne len pri nakládke jeho dieťa šablóny."
+
+#: model@fa.chart.template|_columns@use_anglo_saxon$label:1
 msgid "Use Anglo-Saxon accounting"
 msgstr "Použitie Anglo-Saskej účtovníctva"
 
-#: fa.chart.template-complete_tax_set:1
+#: model@fa.chart.template|_columns@complete_tax_set$label:1
 msgid "Complete Set of Taxes"
 msgstr "Kompletný Set Daní"
 
-#: fa.chart.template-account_ids:1
+#: model@fa.chart.template|_columns@complete_tax_set$help:1
+msgid ""
+"This boolean helps you to choose if you want to propose to the user to "
+"encode the sale and purchase rates or choose from list of taxes. This last "
+"choice assumes that the set of tax defined on this template is complete"
+msgstr ""
+"Tento boolean vám pomôže vybrať, či chcete navrhnúť, aby užívateľ na "
+"kódovanie predaj a nákup ceny alebo vyberte zo zoznamu daní. Táto posledná "
+"voľba, predpokladá sa, že súbor daňových definované na tejto šablóne je "
+"kompletný"
+
+#: model@fa.chart.template|_columns@account_ids$label:1
 msgid "Associated Account Templates"
 msgstr "Pridružené Konto Šablóny"
 
-#: fa.chart.template-tax_template_ids:1
+#: model@fa.chart.template|_columns@tax_template_ids$label:1
 msgid "Tax Template List"
 msgstr "Daňové Zoznamu Šablón"
 
-#: fa.chart.template-bank_account_code_prefix:1
+#: model@fa.chart.template|_columns@tax_template_ids$help:1
+msgid "List of all the taxes that have to be installed by the wizard"
+msgstr "Zoznam všetkých daní, ktoré majú byť nainštalovaný pomocou sprievodcu"
+
+#: model@fa.chart.template|_columns@bank_account_code_prefix$label:1
 msgid "Prefix of the bank accounts"
 msgstr "Predpona z bankových účtov"
 
-#: fa.chart.template-cash_account_code_prefix:1
+#: model@fa.chart.template|_columns@cash_account_code_prefix$label:1
 msgid "Prefix of the main cash accounts"
 msgstr "Predpona z hlavných účty peňažných prostriedkov,"
 
-#: fa.chart.template-transfer_account_id:1
+#: model@fa.chart.template|_columns@transfer_account_id$label:1
 msgid "Transfer Account"
 msgstr "Presun Účtu"
 
-#: fa.chart.template-income_currency_exchange_account_id:1
+#: model@fa.chart.template|_columns@transfer_account_id$help:1
+msgid ""
+"Intermediary account used when moving money from a liquidity account to "
+"another"
+msgstr ""
+"Sprostredkovateľ účtu používané pri pohybe peňazí z likvidity účtu na iný"
+
+#: model@fa.chart.template|_columns@income_currency_exchange_account_id$label:1
 msgid "Gain Exchange Rate Account"
 msgstr "Získať Výmenný Kurz Účet"
 
-#: fa.chart.template-expense_currency_exchange_account_id:1
+#: model@fa.chart.template|_columns@expense_currency_exchange_account_id$label:1
 msgid "Loss Exchange Rate Account"
 msgstr "Straty Kurzové Účet"
 
-#: fa.chart.template-property_account_receivable_id:1
+#: model@fa.chart.template|_columns@property_account_receivable_id$label:1
 msgid "Receivable Account"
 msgstr "Pohľadávka Z Účtu"
 
-#: fa.chart.template-property_account_payable_id:1
+#: model@fa.chart.template|_columns@property_account_payable_id$label:1
 msgid "Payable Account"
 msgstr "Splatné Na Účet"
 
-#: fa.chart.template-property_account_expense_categ_id:1
+#: model@fa.chart.template|_columns@property_account_expense_categ_id$label:1
 msgid "Category of Expense Account"
 msgstr "Kategórie Nákladov, Účtu"
 
-#: fa.chart.template-property_account_income_categ_id:1
+#: model@fa.chart.template|_columns@property_account_income_categ_id$label:1
 msgid "Category of Income Account"
 msgstr "Kategória Výnosy Účet"
 
-#: fa.chart.template-property_account_expense_id:1
+#: model@fa.chart.template|_columns@property_account_expense_id$label:1
 msgid "Expense Account on Product Template"
 msgstr "Náklady Účet na Produkt Šablóny"
 
-#: fa.chart.template-property_account_income_id:1
+#: model@fa.chart.template|_columns@property_account_income_id$label:1
 msgid "Income Account on Product Template"
 msgstr "Príjem Účet na Produkt Šablóny"
 
-#: fa.chart.template-property_stock_account_input_categ_id:1
+#: model@fa.chart.template|_columns@property_stock_account_input_categ_id$label:1
 msgid "Input Account for Stock Valuation"
 msgstr "Vstup Účet na Sklade Ocenenia"
 
-#: fa.chart.template-property_stock_account_output_categ_id:1
+#: model@fa.chart.template|_columns@property_stock_account_output_categ_id$label:1
 msgid "Output Account for Stock Valuation"
 msgstr "Výstup Účet na Sklade Ocenenia"
 
-#: fa.chart.template-property_stock_valuation_account_id:1
+#: model@fa.chart.template|_columns@property_stock_valuation_account_id$label:1
 msgid "Account Template for Stock Valuation"
 msgstr "Účet Šablóny pre Oceňovania Zásob"
 
-#: fa.tax.template-tax_adjustment:1
+#: model@fa.tax.template|_description@:1
+msgid "General Model Templates for Taxes"
+msgstr "Všeobecný Model Šablón pre Dane"
+
+#: model@fa.tax.template|_columns@tax_adjustment$label:1
 msgid "Tax Adjustment"
 msgstr "Úprava Dane"
 
-#: fa.tax.template-active:1
+#: model@fa.tax.template|_columns@active$label:1
 msgid "Active"
 msgstr "Aktívne"
 
-#: fa.tax.template-refund_account_id:1
+#: model@fa.tax.template|_columns@refund_account_id$label:1
 msgid "Tax Account on Refunds"
 msgstr "Daňové Účet na Náhrady"
 
-#: fa.tax.template-description:1
+#: model@fa.tax.template|_columns@refund_account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for refunds. Leave empty to "
+"use the expense account."
+msgstr ""
+"Účet, ktorý bude nastavený na faktúre daň linky pre vrátenie platieb. Nechať"
+" prázdne, ak chcete použiť konto nákladov."
+
+#: model@fa.tax.template|_columns@description$label:1
 msgid "Display on Invoices"
 msgstr "Zobrazenie na Faktúry"
 
-#: fa.tax.template-include_base_amount:1
+#: model@fa.tax.template|_columns@include_base_amount$label:1
 msgid "Affect Subsequent Taxes"
 msgstr "Vplyv Na Následné Dane"
 
-#: fa.tax.template-analytic:1
+#: model@fa.tax.template|_columns@analytic$label:1
 msgid "Analytic Cost"
 msgstr "Analytické Náklady"
 
-#: fa.fiscal.position.template-name:1
+#: model@fa.tax.template|_columns@cash_basis_account$help:1
+msgid ""
+"Account used as counterpart for the journal entry, for taxes exigible based "
+"on payments."
+msgstr ""
+"Účet používaný ako náprotivok pre žurnálu, dane exigible na základe platby."
+
+#: model@fa.fiscal.position.template|_description@:1
+msgid "Genaral Model Template for Fiscal Position"
+msgstr "Genaral Model Šablóny pre Fiškálnu Pozíciu"
+
+#: model@fa.fiscal.position.template|_columns@name$label:1
 msgid "Fiscal Position Template"
 msgstr "Fiškálnu Pozíciu Šablóny"
 
-#: fa.fiscal.position.template-account_ids:1
+#: model@fa.fiscal.position.template|_columns@account_ids$label:1
 msgid "Account Mapping"
 msgstr "Účet Mapovanie"
 
-#: fa.fiscal.position.template-tax_ids:1
+#: model@fa.fiscal.position.template|_columns@tax_ids$label:1
 msgid "Tax Mapping"
 msgstr "Daňové Mapovanie"
 
-#: fa.fiscal.position.template-auto_apply:1
+#: model@fa.fiscal.position.template|_columns@auto_apply$label:1
 msgid "Detect Automatically"
 msgstr "Zistiť Automaticky"
 
-#: fa.fiscal.position.template-vat_required:1
+#: model@fa.fiscal.position.template|_columns@auto_apply$help:1
+msgid "Apply automatically this fiscal position."
+msgstr "Uplatňujú automaticky tejto fiškálnu pozíciu."
+
+#: model@fa.fiscal.position.template|_columns@vat_required$label:1
 msgid "VAT required"
 msgstr "DPH vyžaduje"
 
-#: fa.fiscal.position.template-country_id:1
+#: model@fa.fiscal.position.template|_columns@vat_required$help:1
+msgid "Apply only if partner has a VAT number."
+msgstr "Platí len vtedy, ak partner má číslo DPH."
+
+#: model@fa.fiscal.position.template|_columns@country_id$label:1
 msgid "Country"
 msgstr "Krajina"
 
-#: fa.fiscal.position.template-country_group_id:1
+#: model@fa.fiscal.position.template|_columns@country_id$help:1
+msgid "Apply only if delivery or invoicing country match."
+msgstr "Platí len vtedy, ak dodanie alebo fakturácie krajiny zápas."
+
+#: model@fa.fiscal.position.template|_columns@country_group_id$label:1
 msgid "Country Group"
 msgstr "Krajina Skupiny"
 
-#: fa.fiscal.position.template-state_ids:1
+#: model@fa.fiscal.position.template|_columns@country_group_id$help:1
+msgid "Apply only if delivery or invocing country match the group."
+msgstr "Platí len vtedy, ak dodanie alebo invocing krajiny zápas skupiny."
+
+#: model@fa.fiscal.position.template|_columns@state_ids$label:1
 msgid "Federal States"
 msgstr "Federálne Štáty"
 
-#: fa.fiscal.position.template-zip_from:1
+#: model@fa.fiscal.position.template|_columns@zip_from$label:1
 msgid "Zip Range From"
 msgstr "Zip Rozsah Od"
 
-#: fa.fiscal.position.template-zip_to:1
+#: model@fa.fiscal.position.template|_columns@zip_to$label:1
 msgid "Zip Range To"
 msgstr "Zip Rozsah"
 
-#: fa.fiscal.position.tax.template-position_id:1
+#: model@fa.fiscal.position.tax.template|_description@:1
+msgid "Genaral Model Template Tax Fiscal Position"
+msgstr "Genaral Model Šablóny Dane Fiškálnu Pozíciu"
+
+#: model@fa.fiscal.position.tax.template|_columns@position_id$label:1
 msgid "Fiscal Position"
 msgstr "Fiškálna Pozícia"
 
-#: fa.fiscal.position.tax.template-tax_src_id:1
+#: model@fa.fiscal.position.tax.template|_columns@tax_src_id$label:1
 msgid "Tax Source"
 msgstr "Daňové Zdroj"
 
-#: fa.fiscal.position.tax.template-tax_dest_id:1
+#: model@fa.fiscal.position.tax.template|_columns@tax_dest_id$label:1
 msgid "Replacement Tax"
 msgstr "Náhradné Dane"
 
-#: fa.fiscal.position.account.template-position_id:1
+#: model@fa.fiscal.position.account.template|_description@:1
+msgid "Genaral Model Template Account Fiscal Mapping"
+msgstr "Genaral Model Šablóny Účtu Rozpočtovej Mapovanie"
+
+#: model@fa.fiscal.position.account.template|_columns@position_id$label:1
 msgid "Fiscal Mapping"
 msgstr "Fiškálna Mapovanie"
 
-#: fa.fiscal.position.account.template-account_src_id:1
+#: model@fa.fiscal.position.account.template|_columns@account_src_id$label:1
 msgid "Account Source"
 msgstr "Účet Zdroj"
 
-#: fa.fiscal.position.account.template-account_dest_id:1
+#: model@fa.fiscal.position.account.template|_columns@account_dest_id$label:1
 msgid "Account Destination"
 msgstr "Účet Určenia"
 
-#: fa.reconcile.model.template-amount_type:1
+#: model@fa.reconcile.model.template|_description@:1
+msgid "Genaral Model Reconcile Model Template"
+msgstr "Genaral Model Zmieriť Model Šablóny"
+
+#: model@fa.reconcile.model.template|_columns@amount_type$label:1
 msgid "Amount type"
 msgstr "Množstvo druh"
 
-#: fa.accounts.payment.method-payment_type:1
+#: model@fa.accounts.payment.method|_description@:1
+msgid "Genaral  ModelPayment Methods"
+msgstr "Genaral ModelPayment Metódy"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$label:1
 msgid "Payment Type"
 msgstr "Typ Platby"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$selections#inbound:1
+msgid "Inbound"
+msgstr "Prichádzajúce"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$selections#outbound:1
+msgid "Outbound"
+msgstr "Odchádzajúce"

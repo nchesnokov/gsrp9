@@ -3,219 +3,413 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:25+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:25+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:55+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:55+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mrp.texts-code:1 mrp.schema.texts-code:1
+#: model@mrp.texts|_description@:1
+msgid "General Model MRP Texts"
+msgstr "Генеральна модель ППМ текстів"
+
+#: model@mrp.texts|_columns@code$label:1
+#: model@mrp.schema.texts|_columns@code$label:1
 msgid "Code"
 msgstr "Код"
 
-#: mrp.texts-descr:1 mrp.schema.texts-descr:1
+#: model@mrp.texts|_columns@descr$label:1
+#: model@mrp.schema.texts|_columns@descr$label:1
 msgid "Description"
 msgstr "Опис"
 
-#: mrp.schema.texts-usage:1
+#: model@mrp.schema.texts|_description@:1
+msgid "General Model Schema Of MRP Texts"
+msgstr "Загальні моделі схеми ППМ текстів"
+
+#: model@mrp.schema.texts|_columns@usage$label:1
 msgid "Usage"
 msgstr "Використання"
 
-#: mrp.schema.texts-texts:1 mrp.demand-texts:1 mrp.demand.items-texts:1
-#: mrp.request-texts:1 mrp.request.items-texts:1
-msgid "Texts"
-msgstr "Тексти"
+#: model@mrp.schema.texts|_columns@usage$selections#h:1
+msgid "Header"
+msgstr "Заголовок"
 
-#: mrp.schema.text.items-schema_id:1
-msgid "Schema"
-msgstr "Схема"
-
-#: mrp.schema.text.items-seq:1 mrp.demand.texts-seq:1
-#: mrp.demand.item.texts-seq:1 mrp.request.texts-seq:1
-#: mrp.request.item.texts-seq:1
-msgid "Sequence"
-msgstr "Послідовність"
-
-#: mrp.schema.text.items-text_id:1
-msgid "Text"
-msgstr "Текст"
-
-#: mrp.schema.text.items-descr:1 mrp.demand.texts-descr:1
-#: mrp.demand.item.texts-descr:1 mrp.request.texts-descr:1
-#: mrp.request.item.texts-descr:1
-msgid "Unknown"
-msgstr "Невідомо"
-
-#: mrp.demand.types-name:1 mrp.request.types-name:1 mrp.demand.category-name:1
-#: mrp.request.category-name:1 mrp.demand-name:1 mrp.request-name:1
-msgid "Name"
-msgstr "Назва"
-
-#: mrp.demand.types-htschema:1 mrp.request.types-htschema:1
-msgid "Text Schema Of Head"
-msgstr "Текст Схеми Голови"
-
-#: mrp.demand.types-itschema:1 mrp.request.types-itschema:1
-msgid "Text Schema Of Item"
-msgstr "Текст Схеми Елемента"
-
-#: mrp.demand.types-roles:1 mrp.request.types-roles:1 mrp.demand-roles:1
-#: mrp.demand.items-roles:1 mrp.request-roles:1 mrp.request.items-roles:1
-msgid "Roles"
-msgstr "Ролі"
-
-#: mrp.demand.types-note:1 mrp.demand.type.roles-note:1
-#: mrp.request.types-note:1 mrp.request.type.roles-note:1
-#: md.mrp.product-note:1 mrp.demand.category-note:1
-#: mrp.request.category-note:1 mrp.demand-note:1 mrp.demand.items-note:1
-#: mrp.demand.delivery.schedules-note:1 mrp.request-note:1
-#: mrp.request.items-note:1 mrp.request.delivery.schedules-note:1
-msgid "Note"
-msgstr "Примітка"
-
-#: mrp.demand.type.roles-type_id:1 mrp.request.type.roles-type_id:1
-#: mrp.demand-dtype:1 mrp.request-rtype:1
-msgid "Type"
-msgstr "Тип"
-
-#: mrp.demand.type.roles-role_id:1 mrp.request.type.roles-role_id:1
-#: mrp.demand.roles-role_id:1 mrp.demand.item.roles-role_id:1
-#: mrp.request.roles-role_id:1 mrp.request.item.roles-role_id:1
-msgid "Role"
-msgstr "Роль"
-
-#: mrp.demand.type.roles-required:1 mrp.request.type.roles-required:1
-msgid "Required"
-msgstr "Потрібно"
-
-#: md.mrp.product-product_id:1 mrp.demand.items-product:1
-#: mrp.request.items-product:1
-msgid "Product"
-msgstr "Продукт"
-
-#: md.mrp.product-strategy:1
-msgid "Strategy"
-msgstr "Стратегії"
-
-#: md.mrp.product-quantity:1 mrp.demand.delivery.schedules-quantity:1
-#: mrp.request.delivery.schedules-quantity:1
-msgid "Quantity"
-msgstr "Кількість"
-
-#: md.mrp.product-reserved_quantity:1
-msgid "Reserve Quantity"
-msgstr "Кількість Резерву "
-
-#: md.mrp.product-min_quantity:1
-msgid "Min Quantity"
-msgstr "Кількість Хв "
-
-#: md.mrp.product-max_quantity:1
-msgid "Max Quantity"
-msgstr "Максимальна Кількість"
-
-#: md.mrp.product-uom:1
-msgid "Unit Of Measure"
-msgstr "Одиниця Виміру"
-
-#: mrp.demand.category-parent_id:1 mrp.request.category-parent_id:1
-msgid "Parent"
-msgstr "Батько"
-
-#: mrp.demand.category-childs_id:1 mrp.request.category-childs_id:1
-msgid "Childs"
-msgstr "Дитини"
-
-#: mrp.demand.category-demands:1
-msgid "Demands"
-msgstr "Вимоги"
-
-#: mrp.request.category-requests:1
-msgid "Requests"
-msgstr "Запити"
-
-#: mrp.demand-company:1 mrp.request-company:1
-msgid "Company"
-msgstr "Компанія"
-
-#: mrp.demand-category_id:1 mrp.request-category_id:1
-msgid "Category"
-msgstr "Категорія"
-
-#: mrp.demand-origin:1 mrp.request-origin:1
-msgid "Origin"
-msgstr "Походження"
-
-#: mrp.demand-dod:1
-msgid "Date Of Demand"
-msgstr "Дата Попит"
-
-#: mrp.demand-from_date:1
-msgid "Begin Date Of Demand"
-msgstr "Дата Початку Попиту"
-
-#: mrp.demand-to_date:1
-msgid "End Date Of Demand"
-msgstr "Дата Закінчення Попиту"
-
-#: mrp.demand-state:1 mrp.request-state:1
-msgid "State"
-msgstr "Держава"
-
-#: mrp.demand-items:1 mrp.request-items:1
-msgid "Items"
-msgstr "Елементи"
-
-#: mrp.demand.texts-demand_id:1 mrp.demand.roles-demand_id:1
-#: mrp.demand.items-demand_id:1
-msgid "Demand"
-msgstr "Попит"
-
-#: mrp.demand.texts-text_id:1 mrp.demand.item.texts-text_id:1
-#: mrp.request.texts-text_id:1 mrp.request.item.texts-text_id:1
-msgid "Text ID"
-msgstr "Ідентифікатор тексту "
-
-#: mrp.demand.texts-content:1 mrp.demand.item.texts-content:1
-#: mrp.request.texts-content:1 mrp.request.item.texts-content:1
-msgid "Content"
-msgstr "Зміст"
-
-#: mrp.demand.roles-patner_id:1 mrp.demand.item.roles-patner_id:1
-#: mrp.request.roles-patner_id:1 mrp.request.item.roles-patner_id:1
-msgid "Parther"
-msgstr "Партнер"
-
-#: mrp.demand.items-schedules:1 mrp.demand.delivery.schedules-schedule:1
-#: mrp.request.items-schedules:1 mrp.request.delivery.schedules-schedule:1
-msgid "Schedule"
-msgstr "Розклад"
-
-#: mrp.demand.item.texts-item_id:1 mrp.demand.item.roles-item_id:1
-#: mrp.demand.delivery.schedules-item_id:1 mrp.request.item.texts-item_id:1
-#: mrp.request.item.roles-item_id:1 mrp.request.delivery.schedules-item_id:1
+#: model@mrp.schema.texts|_columns@usage$selections#i:1
+#: model@mrp.demand.item.texts|_columns@item_id$label:1
+#: model@mrp.demand.item.roles|_columns@item_id$label:1
+#: model@mrp.demand.delivery.schedules|_columns@item_id$label:1
+#: model@mrp.request.item.texts|_columns@item_id$label:1
+#: model@mrp.request.item.roles|_columns@item_id$label:1
+#: model@mrp.request.delivery.schedules|_columns@item_id$label:1
 msgid "Item"
 msgstr "Пункт"
 
-#: mrp.demand.delivery.schedules-uom:1 mrp.request.delivery.schedules-uom:1
+#: model@mrp.schema.texts|_columns@usage$selections#b:1
+msgid "Both"
+msgstr "Обидва"
+
+#: model@mrp.schema.texts|_columns@texts$label:1
+#: model@mrp.demand|_columns@texts$label:1
+#: model@mrp.demand.items|_columns@texts$label:1
+#: model@mrp.request|_columns@texts$label:1
+#: model@mrp.request.items|_columns@texts$label:1
+msgid "Texts"
+msgstr "Тексти"
+
+#: model@mrp.schema.text.items|_description@:1
+msgid "General Model Items Of Schema MRP Texts"
+msgstr "Загальні елементи моделі, схеми ППМ текстів"
+
+#: model@mrp.schema.text.items|_columns@schema_id$label:1
+msgid "Schema"
+msgstr "Схема"
+
+#: model@mrp.schema.text.items|_columns@seq$label:1
+#: model@mrp.demand.texts|_columns@seq$label:1
+#: model@mrp.demand.item.texts|_columns@seq$label:1
+#: model@mrp.request.texts|_columns@seq$label:1
+#: model@mrp.request.item.texts|_columns@seq$label:1
+msgid "Sequence"
+msgstr "Послідовність"
+
+#: model@mrp.schema.text.items|_columns@text_id$label:1
+msgid "Text"
+msgstr "Текст"
+
+#: model@mrp.schema.text.items|_columns@descr$label:1
+#: model@mrp.demand.texts|_columns@descr$label:1
+#: model@mrp.demand.item.texts|_columns@descr$label:1
+#: model@mrp.request.texts|_columns@descr$label:1
+#: model@mrp.request.item.texts|_columns@descr$label:1
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: model@mrp.demand.types|_description@:1
+msgid "General Model Types MRP Demand"
+msgstr "Загальні типи моделей попиту ППМ "
+
+#: model@mrp.demand.types|_columns@name$label:1
+#: model@mrp.request.types|_columns@name$label:1
+#: model@mrp.demand.category|_columns@name$label:1
+#: model@mrp.request.category|_columns@name$label:1
+#: model@mrp.demand|_columns@name$label:1
+#: model@mrp.request|_columns@name$label:1
+msgid "Name"
+msgstr "Назва"
+
+#: model@mrp.demand.types|_columns@htschema$label:1
+#: model@mrp.request.types|_columns@htschema$label:1
+msgid "Text Schema Of Head"
+msgstr "Текст Схеми Голови"
+
+#: model@mrp.demand.types|_columns@itschema$label:1
+#: model@mrp.request.types|_columns@itschema$label:1
+msgid "Text Schema Of Item"
+msgstr "Текст Схеми Елемента"
+
+#: model@mrp.demand.types|_columns@roles$label:1
+#: model@mrp.request.types|_columns@roles$label:1
+#: model@mrp.demand|_columns@roles$label:1
+#: model@mrp.demand.items|_columns@roles$label:1
+#: model@mrp.request|_columns@roles$label:1
+#: model@mrp.request.items|_columns@roles$label:1
+msgid "Roles"
+msgstr "Ролі"
+
+#: model@mrp.demand.types|_columns@note$label:1
+#: model@mrp.demand.type.roles|_columns@note$label:1
+#: model@mrp.request.types|_columns@note$label:1
+#: model@mrp.request.type.roles|_columns@note$label:1
+#: model@mrp.demand.category|_columns@note$label:1
+#: model@mrp.request.category|_columns@note$label:1
+#: model@mrp.demand|_columns@note$label:1
+#: model@mrp.demand.items|_columns@note$label:1
+#: model@mrp.demand.delivery.schedules|_columns@note$label:1
+#: model@mrp.request|_columns@note$label:1
+#: model@mrp.request.items|_columns@note$label:1
+#: model@mrp.request.delivery.schedules|_columns@note$label:1
+#: model@md.mrp.product|_columns@note$label:1
+msgid "Note"
+msgstr "Примітка"
+
+#: model@mrp.demand.type.roles|_description@:1
+msgid "General Model Role MRP Demand Types"
+msgstr "Взагалі рольова модель ППМ види попиту "
+
+#: model@mrp.demand.type.roles|_columns@type_id$label:1
+#: model@mrp.request.type.roles|_columns@type_id$label:1
+#: model@mrp.demand|_columns@dtype$label:1
+#: model@mrp.request|_columns@rtype$label:1
+msgid "Type"
+msgstr "Тип"
+
+#: model@mrp.demand.type.roles|_columns@role_id$label:1
+#: model@mrp.request.type.roles|_columns@role_id$label:1
+#: model@mrp.demand.roles|_columns@role_id$label:1
+#: model@mrp.demand.item.roles|_columns@role_id$label:1
+#: model@mrp.request.roles|_columns@role_id$label:1
+#: model@mrp.request.item.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Роль"
+
+#: model@mrp.demand.type.roles|_columns@required$label:1
+#: model@mrp.request.type.roles|_columns@required$label:1
+msgid "Required"
+msgstr "Потрібно"
+
+#: model@mrp.request.types|_description@:1
+msgid "General Model Types MRP Request"
+msgstr "Загальні типи моделей ППМ запитом"
+
+#: model@mrp.request.type.roles|_description@:1
+msgid "General Model Role MRP Request Types"
+msgstr "Генеральна модель ролі ППМ типів запитів "
+
+#: model@mrp.demand.category|_description@:1
+msgid "General Model Category MRP Demand"
+msgstr "Генеральна модель категорії ППМ попит"
+
+#: model@mrp.demand.category|_columns@parent_id$label:1
+#: model@mrp.request.category|_columns@parent_id$label:1
+msgid "Parent"
+msgstr "Батько"
+
+#: model@mrp.demand.category|_columns@childs_id$label:1
+#: model@mrp.request.category|_columns@childs_id$label:1
+msgid "Childs"
+msgstr "Дитини"
+
+#: model@mrp.demand.category|_columns@demands$label:1
+msgid "Demands"
+msgstr "Вимоги"
+
+#: model@mrp.request.category|_description@:1
+msgid "General Model Category MRP Request"
+msgstr "Генеральна модель категорії ППМ запитом"
+
+#: model@mrp.request.category|_columns@requests$label:1
+msgid "Requests"
+msgstr "Запити"
+
+#: model@mrp.demand|_description@:1
+msgid "GeneralModel MRP Demand"
+msgstr "GeneralModel попит ППМ "
+
+#: model@mrp.demand|_columns@company$label:1
+#: model@mrp.request|_columns@company$label:1
+msgid "Company"
+msgstr "Компанія"
+
+#: model@mrp.demand|_columns@category_id$label:1
+#: model@mrp.request|_columns@category_id$label:1
+msgid "Category"
+msgstr "Категорія"
+
+#: model@mrp.demand|_columns@origin$label:1
+#: model@mrp.request|_columns@origin$label:1
+msgid "Origin"
+msgstr "Походження"
+
+#: model@mrp.demand|_columns@dod$label:1
+msgid "Date Of Demand"
+msgstr "Дата Попит"
+
+#: model@mrp.demand|_columns@from_date$label:1
+msgid "Begin Date Of Demand"
+msgstr "Дата Початку Попиту"
+
+#: model@mrp.demand|_columns@to_date$label:1
+msgid "End Date Of Demand"
+msgstr "Дата Закінчення Попиту"
+
+#: model@mrp.demand|_columns@state$label:1
+#: model@mrp.request|_columns@state$label:1
+msgid "State"
+msgstr "Держава"
+
+#: model@mrp.demand|_columns@state$selections#draft:1
+#: model@mrp.request|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Проект"
+
+#: model@mrp.demand|_columns@state$selections#approved:1
+#: model@mrp.request|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Затверджений"
+
+#: model@mrp.demand|_columns@state$selections#inprocess:1
+#: model@mrp.request|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "У Процесі"
+
+#: model@mrp.demand|_columns@state$selections#closed:1
+#: model@mrp.request|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Закриті"
+
+#: model@mrp.demand|_columns@state$selections#canceled:1
+#: model@mrp.request|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Скасували"
+
+#: model@mrp.demand|_columns@items$label:1
+#: model@mrp.request|_columns@items$label:1
+msgid "Items"
+msgstr "Елементи"
+
+#: model@mrp.demand.texts|_description@:1
+msgid "General Model MRP Demand Texts"
+msgstr "Генеральна модель ППМ попит текстів"
+
+#: model@mrp.demand.texts|_columns@demand_id$label:1
+#: model@mrp.demand.roles|_columns@demand_id$label:1
+#: model@mrp.demand.items|_columns@demand_id$label:1
+msgid "Demand"
+msgstr "Попит"
+
+#: model@mrp.demand.texts|_columns@text_id$label:1
+#: model@mrp.demand.item.texts|_columns@text_id$label:1
+#: model@mrp.request.texts|_columns@text_id$label:1
+#: model@mrp.request.item.texts|_columns@text_id$label:1
+msgid "Text ID"
+msgstr "Ідентифікатор тексту "
+
+#: model@mrp.demand.texts|_columns@content$label:1
+#: model@mrp.demand.item.texts|_columns@content$label:1
+#: model@mrp.request.texts|_columns@content$label:1
+#: model@mrp.request.item.texts|_columns@content$label:1
+msgid "Content"
+msgstr "Зміст"
+
+#: model@mrp.demand.roles|_description@:1
+#: model@mrp.demand.item.roles|_description@:1
+msgid "General Model MRP Demand Roles"
+msgstr "Генеральна модель ролей попит ППМ "
+
+#: model@mrp.demand.roles|_columns@patner_id$label:1
+#: model@mrp.demand.item.roles|_columns@patner_id$label:1
+#: model@mrp.request.roles|_columns@patner_id$label:1
+#: model@mrp.request.item.roles|_columns@patner_id$label:1
+msgid "Parther"
+msgstr "Партнер"
+
+#: model@mrp.demand.items|_description@:1
+msgid "General Model MRP Demand Item"
+msgstr "Генеральна модель ППМ товар попит "
+
+#: model@mrp.demand.items|_columns@product$label:1
+#: model@mrp.request.items|_columns@product$label:1
+#: model@md.mrp.product|_columns@product_id$label:1
+msgid "Product"
+msgstr "Продукт"
+
+#: model@mrp.demand.items|_columns@schedules$label:1
+#: model@mrp.demand.delivery.schedules|_columns@schedule$label:1
+#: model@mrp.request.items|_columns@schedules$label:1
+#: model@mrp.request.delivery.schedules|_columns@schedule$label:1
+msgid "Schedule"
+msgstr "Розклад"
+
+#: model@mrp.demand.item.texts|_description@:1
+msgid "General Model MRP Demand Item Texts"
+msgstr "Загальна модель попиту ППМ пункту текстів"
+
+#: model@mrp.demand.delivery.schedules|_description@:1
+msgid "General Model MRP Demand Delivery Schedule"
+msgstr "Генеральна модель графіка поставки попит ППМ "
+
+#: model@mrp.demand.delivery.schedules|_columns@quantity$label:1
+#: model@mrp.request.delivery.schedules|_columns@quantity$label:1
+#: model@md.mrp.product|_columns@quantity$label:1
+msgid "Quantity"
+msgstr "Кількість"
+
+#: model@mrp.demand.delivery.schedules|_columns@uom$label:1
+#: model@mrp.request.delivery.schedules|_columns@uom$label:1
 msgid "UoM"
 msgstr "Одиниця"
 
-#: mrp.request-dor:1
+#: model@mrp.request|_description@:1
+msgid "GeneralModel MRP Request"
+msgstr "GeneralModel ППМ запитом"
+
+#: model@mrp.request|_columns@dor$label:1
 msgid "Date Of Request"
 msgstr "Дата Запиту"
 
-#: mrp.request-from_date:1
+#: model@mrp.request|_columns@from_date$label:1
 msgid "Begin Date Of Request"
 msgstr "Дата Початку Запиту"
 
-#: mrp.request-to_date:1
+#: model@mrp.request|_columns@to_date$label:1
 msgid "End Date Of Request"
 msgstr "Дата Закінчення Запиту"
 
-#: mrp.request.texts-request_id:1 mrp.request.roles-invoice_id:1
-#: mrp.request.items-request_id:1
+#: model@mrp.request.texts|_description@:1
+msgid "General Model MRP Request Texts"
+msgstr "Генеральна модель ППМ запитом текстів"
+
+#: model@mrp.request.texts|_columns@request_id$label:1
+#: model@mrp.request.roles|_columns@invoice_id$label:1
+#: model@mrp.request.items|_columns@request_id$label:1
 msgid "Request"
 msgstr "Запит"
+
+#: model@mrp.request.roles|_description@:1
+msgid "General Model Purchase Invoice Roles"
+msgstr "Загальна Купівля Моделі Ролей Накладної "
+
+#: model@mrp.request.items|_description@:1
+msgid "General Model MRP Request Item"
+msgstr "Генеральна модель ППМ запитом пункт"
+
+#: model@mrp.request.item.texts|_description@:1
+msgid "General Model MRP Request Item Texts"
+msgstr "Генеральна модель ППМ запит пункту текстів"
+
+#: model@mrp.request.item.roles|_description@:1
+msgid "General Model MRP Request Item Roles"
+msgstr "Генеральна модель ППМ запитом ролей пункт "
+
+#: model@mrp.request.delivery.schedules|_description@:1
+msgid "General Model MRP Request Delivery Schedule"
+msgstr "Генеральна модель ППМ запитом терміни поставки "
+
+#: model@md.mrp.product|_description@:1
+msgid "General Model Mrp Of Product"
+msgstr "Генеральна Модель ППМ Продукту"
+
+#: model@md.mrp.product|_columns@strategy$label:1
+msgid "Strategy"
+msgstr "Стратегії"
+
+#: model@md.mrp.product|_columns@strategy$selections#l:1
+msgid "Lot"
+msgstr "Багато"
+
+#: model@md.mrp.product|_columns@strategy$selections#p:1
+msgid "Point of order"
+msgstr "Точка замовлення"
+
+#: model@md.mrp.product|_columns@strategy$selections#n:1
+msgid "Not planed"
+msgstr "Не стругана"
+
+#: model@md.mrp.product|_columns@reserved_quantity$label:1
+msgid "Reserve Quantity"
+msgstr "Кількість Резерву "
+
+#: model@md.mrp.product|_columns@min_quantity$label:1
+msgid "Min Quantity"
+msgstr "Кількість Хв "
+
+#: model@md.mrp.product|_columns@max_quantity$label:1
+msgid "Max Quantity"
+msgstr "Максимальна Кількість"
+
+#: model@md.mrp.product|_columns@uom$label:1
+msgid "Unit Of Measure"
+msgstr "Одиниця Виміру"

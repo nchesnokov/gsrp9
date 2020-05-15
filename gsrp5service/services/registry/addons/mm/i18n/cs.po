@@ -3,270 +3,758 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:24+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:24+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:55+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:55+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mm.workcenter.category-name:1 mm.route.category-name:1
-#: mm.production.order.category-name:1 mm.technologic.order.category-name:1
-#: mm.disassembly.order.category-name:1 mm.workcenter-name:1 mm.route-name:1
-#: mm.production.order-name:1 mm.technologic.order-name:1
-#: mm.disassembly.order-name:1
-msgid "Name"
-msgstr "Jméno"
+#: model@mm.pricing.group.levels|_description@:1
+msgid "General Model Production Pricing Group Levels"
+msgstr "Obecný Model Výroby Cenové Skupiny Úrovní"
 
-#: mm.workcenter.category-parent_id:1 mm.route.category-parent_id:1
-#: mm.production.order.category-parent_id:1
-#: mm.technologic.order.category-parent_id:1
-#: mm.disassembly.order.category-parent_id:1 mm.route.items-parent_id:1
-#: mm.production.order.items-parent_id:1
-#: mm.technologic.order.items-parent_id:1
-#: mm.disassembly.order.items-parent_id:1
-msgid "Parent"
-msgstr "Rodič"
+#: model@mm.pricing.group.levels|_columns@code$label:1
+#: model@mm.texts|_columns@code$label:1
+#: model@mm.schema.texts|_columns@code$label:1
+msgid "Code"
+msgstr "Kód"
 
-#: mm.workcenter.category-childs_id:1 mm.route.category-childs_id:1
-#: mm.production.order.category-childs_id:1
-#: mm.technologic.order.category-childs_id:1
-#: mm.disassembly.order.category-childs_id:1 mm.route.items-childs_id:1
-#: mm.production.order.items-childs_id:1
-#: mm.technologic.order.items-childs_id:1
-#: mm.disassembly.order.items-childs_id:1
-msgid "Childs"
-msgstr "Childs"
+#: model@mm.pricing.group.levels|_columns@descr$label:1
+#: model@mm.texts|_columns@descr$label:1
+#: model@mm.schema.texts|_columns@descr$label:1
+msgid "Description"
+msgstr "Popis"
 
-#: mm.workcenter.category-workcenters:1 mm.route.category-routes:1
-#: mm.production.order.category-orders:1
-#: mm.technologic.order.category-orders:1
-#: mm.disassembly.order.category-orders:1
-msgid "Orders"
-msgstr "Objednávky"
+#: model@mm.texts|_description@:1
+msgid "General Model Manufactured Texts"
+msgstr "Obecné Model Vyroben Texty"
 
-#: mm.workcenter.category-note:1 mm.route.category-note:1
-#: mm.production.order.category-note:1 mm.technologic.order.category-note:1
-#: mm.disassembly.order.category-note:1 mm.workcenter-note:1
-#: mm.workcenter.products-note:1 mm.workcenter.product.prices-note:1
-#: mm.route-note:1 mm.route.items-note:1 mm.production.order-note:1
-#: mm.production.order.items-note:1 mm.production.order.item.bom-note:1
-#: mm.production.order.delivery.schedules-note:1 mm.technologic.order-note:1
-#: mm.technologic.order.items-note:1 mm.technologic.order.item.ibob-note:1
-#: mm.technologic.order.item.obob-note:1
-#: mm.technologic.order.delivery.schedules-note:1 mm.disassembly.order-note:1
-#: mm.disassembly.order.items-note:1 mm.disassembly.order.item.mob-note:1
-#: mm.disassembly.order.delivery.schedules-note:1
-msgid "Note"
-msgstr "Poznámka"
+#: model@mm.schema.texts|_description@:1
+msgid "General Model Schema Of Manufactured Texts"
+msgstr "Obecné Model Schématu Vyráběných Texty"
 
-#: mm.workcenter-wctype:1 mm.route-rtype:1
-msgid "Type"
-msgstr "Typ"
+#: model@mm.schema.texts|_columns@usage$label:1
+msgid "Usage"
+msgstr "Použití"
 
-#: mm.workcenter-cost_peer_hour:1
-msgid "Cost Peer Hours"
-msgstr "Náklady Peer Hodin"
+#: model@mm.schema.texts|_columns@usage$selections#h:1
+msgid "Header"
+msgstr "Záhlaví"
 
-#: mm.workcenter-currency:1 mm.workcenter.product.prices-currency:1
-#: mm.production.order.item.bom-currency:1
-#: mm.technologic.order.item.ibob-currency:1
-#: mm.technologic.order.item.obob-currency:1
-#: mm.disassembly.order.item.mob-currency:1
-msgid "Currency"
-msgstr "Měny"
-
-#: mm.workcenter-products:1
-msgid "Products"
-msgstr "Produkty"
-
-#: mm.workcenter.products-workcenter_id:1 mm.route.items-workcenter:1
-msgid "Workcenter"
-msgstr "Pracovní centrum"
-
-#: mm.workcenter.products-product:1 mm.workcenter.product.prices-product_id:1
-#: mm.production.order.items-product:1 mm.production.order.item.bom-product:1
-#: mm.technologic.order.item.ibob-product:1
-#: mm.technologic.order.item.obob-product:1
-#: mm.disassembly.order.items-product:1
-#: mm.disassembly.order.item.mob-product:1
-msgid "Product"
-msgstr "Produkt"
-
-#: mm.workcenter.products-prices:1
-msgid "Prices"
-msgstr "Ceny"
-
-#: mm.workcenter.product.prices-from_date:1
-msgid "From"
-msgstr "Z"
-
-#: mm.workcenter.product.prices-to_date:1
-msgid "To"
-msgstr "K"
-
-#: mm.workcenter.product.prices-price:1
-msgid "Price Peer Hours"
-msgstr "Cena Peer Hodin"
-
-#: mm.workcenter.product.prices-unit:1 mm.production.order.item.bom-unit:1
-#: mm.technologic.order.item.ibob-unit:1 mm.technologic.order.item.obob-unit:1
-#: mm.disassembly.order.item.mob-unit:1
-msgid "Unit"
-msgstr "Jednotka"
-
-#: mm.workcenter.product.prices-uop:1
-msgid "Unit Of Price Peer Hours"
-msgstr "Jednotka Cena Peer Hodin"
-
-#: mm.route-category_id:1 mm.production.order-category_id:1
-#: mm.technologic.order-category_id:1 mm.disassembly.order-category_id:1
-msgid "Category"
-msgstr "Kategorie"
-
-#: mm.route-items:1 mm.production.order-items:1 mm.technologic.order-items:1
-#: mm.disassembly.order-items:1
-msgid "Items"
-msgstr "Položky"
-
-#: mm.route.items-route_id:1 mm.production.order-route:1
-#: mm.technologic.order-route:1 mm.disassembly.order-route:1
-msgid "Route"
-msgstr "Trasu"
-
-#: mm.production.order-company:1 mm.technologic.order-company:1
-#: mm.disassembly.order-company:1
-msgid "Company"
-msgstr "Společnost"
-
-#: mm.production.order-origin:1 mm.technologic.order-origin:1
-#: mm.disassembly.order-origin:1
-msgid "Origin"
-msgstr "Původ"
-
-#: mm.production.order-dopo:1
-msgid "Date Of Production Order"
-msgstr "Datum Výroby, Aby"
-
-#: mm.production.order-from_date:1
-msgid "Start Date Of Production Order"
-msgstr "Datum Zahájení Výrobní Zakázky"
-
-#: mm.production.order-to_date:1
-msgid "End Date Of Production Order"
-msgstr "Datum Ukončení Výrobní Zakázky"
-
-#: mm.production.order-state:1 mm.technologic.order-state:1
-#: mm.disassembly.order-state:1
-msgid "State"
-msgstr "Stát"
-
-#: mm.production.order.items-order_id:1
-msgid "Production Order"
-msgstr "Výrobní Zakázky"
-
-#: mm.production.order.items-recepture_id:1
-#: mm.technologic.order.items-recepture_id:1
-#: mm.disassembly.order.items-recepture_id:1
-msgid "Recepture"
-msgstr "Recepture"
-
-#: mm.production.order.items-boms:1
-msgid "BoM"
-msgstr "BoM"
-
-#: mm.production.order.items-schedules:1
-#: mm.production.order.delivery.schedules-schedule:1
-#: mm.technologic.order.items-schedules:1
-#: mm.technologic.order.delivery.schedules-schedule:1
-#: mm.disassembly.order.items-schedules:1
-#: mm.disassembly.order.delivery.schedules-schedule:1
-msgid "Schedule"
-msgstr "Plán"
-
-#: mm.production.order.item.bom-item_id:1
-#: mm.production.order.delivery.schedules-item_id:1
-#: mm.technologic.order.item.ibob-item_id:1
-#: mm.technologic.order.item.obob-item_id:1
-#: mm.technologic.order.delivery.schedules-item_id:1
-#: mm.disassembly.order.item.mob-item_id:1
-#: mm.disassembly.order.delivery.schedules-item_id:1
+#: model@mm.schema.texts|_columns@usage$selections#i:1
+#: model@mm.production.order.item.bom|_columns@item_id$label:1
+#: model@mm.production.order.delivery.schedules|_columns@item_id$label:1
+#: model@mm.technologic.order.item.ibob|_columns@item_id$label:1
+#: model@mm.technologic.order.item.obob|_columns@item_id$label:1
+#: model@mm.technologic.order.delivery.schedules|_columns@item_id$label:1
+#: model@mm.disassembly.order.item.mob|_columns@item_id$label:1
+#: model@mm.disassembly.order.delivery.schedules|_columns@item_id$label:1
 msgid "Item"
 msgstr "Položka"
 
-#: mm.production.order.item.bom-quantity:1
-#: mm.technologic.order.item.ibob-quantity:1
-#: mm.technologic.order.item.obob-quantity:1
-#: mm.disassembly.order.item.mob-quantity:1
-msgid "Quantity"
-msgstr "Množství"
+#: model@mm.schema.texts|_columns@usage$selections#b:1
+msgid "Both"
+msgstr "Oba"
 
-#: mm.production.order.item.bom-uom:1 mm.technologic.order.item.ibob-uom:1
-#: mm.technologic.order.item.obob-uom:1 mm.disassembly.order.item.mob-uom:1
-msgid "UoM"
-msgstr "Mj"
+#: model@mm.schema.texts|_columns@texts$label:1
+#: model@mm.production.orders|_columns@texts$label:1
+#: model@mm.technologic.orders|_columns@texts$label:1
+#: model@mm.disassembly.orders|_columns@texts$label:1
+msgid "Texts"
+msgstr "Texty"
 
-#: mm.production.order.item.bom-price:1 mm.technologic.order.item.ibob-price:1
-#: mm.technologic.order.item.obob-price:1
-#: mm.disassembly.order.item.mob-price:1
-msgid "Price"
-msgstr "Cena"
+#: model@mm.schema.text.items|_description@:1
+msgid "General Model Items Of Schema Manufactured Texts"
+msgstr "Obecné Model Položky Schématu Vyrobeny Texty"
 
-#: mm.production.order.item.bom-uop:1 mm.technologic.order.item.ibob-uop:1
-#: mm.technologic.order.item.obob-uop:1 mm.disassembly.order.item.mob-uop:1
-msgid "Unit Of Price"
-msgstr "Jednotka Cena"
+#: model@mm.schema.text.items|_columns@schema_id$label:1
+msgid "Schema"
+msgstr "Schéma"
 
-#: mm.production.order.item.bom-amount:1
-#: mm.technologic.order.item.ibob-amount:1
-#: mm.technologic.order.item.obob-amount:1
-#: mm.disassembly.order.item.mob-amount:1
+#: model@mm.schema.text.items|_columns@seq$label:1
+#: model@mm.production.order.texts|_columns@seq$label:1
+#: model@mm.technologic.order.texts|_columns@seq$label:1
+#: model@mm.disassembly.order.texts|_columns@seq$label:1
+msgid "Sequence"
+msgstr "Sekvence"
+
+#: model@mm.schema.text.items|_columns@text_id$label:1
+msgid "Text"
+msgstr "Text"
+
+#: model@mm.schema.text.items|_columns@descr$label:1
+#: model@mm.production.order.texts|_columns@descr$label:1
+#: model@mm.technologic.order.texts|_columns@descr$label:1
+#: model@mm.disassembly.order.texts|_columns@descr$label:1
+msgid "Unknown"
+msgstr "Neznámý"
+
+#: model@mm.production.order.types|_description@:1
+msgid "General Model Types Production Order"
+msgstr "Obecné Model, Typy Výroby, Aby"
+
+#: model@mm.production.order.types|_columns@otype$label:1
+#: model@mm.production.order.type.roles|_columns@type_id$label:1
+#: model@mm.technologic.order.types|_columns@otype$label:1
+#: model@mm.technologic.order.type.roles|_columns@type_id$label:1
+#: model@mm.disassembly.order.types|_columns@otype$label:1
+#: model@mm.disassembly.order.type.roles|_columns@type_id$label:1
+#: model@mm.workcenters|_columns@wctype$label:1
+#: model@mm.route|_columns@rtype$label:1
+#: model@mm.production.orders|_columns@otype$label:1
+#: model@mm.technologic.orders|_columns@otype$label:1
+#: model@mm.disassembly.orders|_columns@otype$label:1
+msgid "Type"
+msgstr "Typ"
+
+#: model@mm.production.order.types|_columns@otype$selections#ord:1
+#: model@mm.technologic.order.types|_columns@otype$selections#ord:1
+#: model@mm.disassembly.order.types|_columns@otype$selections#ord:1
+#: model@mm.production.order.texts|_columns@order_id$label:1
+#: model@mm.production.order.roles|_columns@order_id$label:1
+#: model@mm.production.order.pricing|_columns@order_id$label:1
+#: model@mm.technologic.order.texts|_columns@order_id$label:1
+#: model@mm.technologic.order.roles|_columns@order_id$label:1
+#: model@mm.technologic.order.pricing|_columns@order_id$label:1
+#: model@mm.disassembly.order.texts|_columns@order_id$label:1
+#: model@mm.disassembly.order.roles|_columns@order_id$label:1
+#: model@mm.disassembly.order.pricing|_columns@order_id$label:1
+msgid "Order"
+msgstr "Cílem"
+
+#: model@mm.production.order.types|_columns@otype$selections#ap:1
+#: model@mm.technologic.order.types|_columns@otype$selections#ap:1
+#: model@mm.disassembly.order.types|_columns@otype$selections#ap:1
+msgid "Advance Payment"
+msgstr "Platba Předem"
+
+#: model@mm.production.order.types|_columns@otype$selections#ps:1
+#: model@mm.technologic.order.types|_columns@otype$selections#ps:1
+#: model@mm.disassembly.order.types|_columns@otype$selections#ps:1
+msgid "Pseduo"
+msgstr "Pseduo"
+
+#: model@mm.production.order.types|_columns@otype$selections#dm:1
+#: model@mm.technologic.order.types|_columns@otype$selections#dm:1
+#: model@mm.disassembly.order.types|_columns@otype$selections#dm:1
+msgid "Debit Request"
+msgstr "Debetní Žádost"
+
+#: model@mm.production.order.types|_columns@otype$selections#cr:1
+#: model@mm.technologic.order.types|_columns@otype$selections#cr:1
+#: model@mm.disassembly.order.types|_columns@otype$selections#cr:1
+msgid "Credit Request"
+msgstr "Úvěrové Žádosti"
+
+#: model@mm.production.order.types|_columns@otype$selections#rо:1
+#: model@mm.technologic.order.types|_columns@otype$selections#rо:1
+#: model@mm.disassembly.order.types|_columns@otype$selections#rо:1
+msgid "Return"
+msgstr "Návrat"
+
+#: model@mm.production.order.types|_columns@name$label:1
+#: model@mm.technologic.order.types|_columns@name$label:1
+#: model@mm.disassembly.order.types|_columns@name$label:1
+#: model@mm.workcenter.category|_columns@name$label:1
+#: model@mm.route.category|_columns@name$label:1
+#: model@mm.production.order.category|_columns@name$label:1
+#: model@mm.technologic.order.category|_columns@name$label:1
+#: model@mm.disassembly.order.category|_columns@name$label:1
+#: model@mm.workcenters|_columns@name$label:1
+#: model@mm.route|_columns@name$label:1
+#: model@mm.production.orders|_columns@name$label:1
+#: model@mm.technologic.orders|_columns@name$label:1
+#: model@mm.disassembly.orders|_columns@name$label:1
+msgid "Name"
+msgstr "Jméno"
+
+#: model@mm.production.order.types|_columns@htschema$label:1
+#: model@mm.technologic.order.types|_columns@htschema$label:1
+#: model@mm.disassembly.order.types|_columns@htschema$label:1
+msgid "Text Schema Of Head"
+msgstr "Text Schématu Hlavy"
+
+#: model@mm.production.order.types|_columns@itschema$label:1
+#: model@mm.technologic.order.types|_columns@itschema$label:1
+#: model@mm.disassembly.order.types|_columns@itschema$label:1
+msgid "Text Schema Of Item"
+msgstr "Text Schématu Položky"
+
+#: model@mm.production.order.types|_columns@roles$label:1
+#: model@mm.technologic.order.types|_columns@roles$label:1
+#: model@mm.disassembly.order.types|_columns@roles$label:1
+msgid "Roles"
+msgstr "Role"
+
+#: model@mm.production.order.types|_columns@note$label:1
+#: model@mm.production.order.type.roles|_columns@note$label:1
+#: model@mm.technologic.order.types|_columns@note$label:1
+#: model@mm.technologic.order.type.roles|_columns@note$label:1
+#: model@mm.disassembly.order.types|_columns@note$label:1
+#: model@mm.disassembly.order.type.roles|_columns@note$label:1
+#: model@mm.workcenter.category|_columns@note$label:1
+#: model@mm.route.category|_columns@note$label:1
+#: model@mm.production.order.category|_columns@note$label:1
+#: model@mm.technologic.order.category|_columns@note$label:1
+#: model@mm.disassembly.order.category|_columns@note$label:1
+#: model@mm.workcenters|_columns@note$label:1
+#: model@mm.workcenter.products|_columns@note$label:1
+#: model@mm.workcenter.product.prices|_columns@note$label:1
+#: model@mm.route|_columns@note$label:1
+#: model@mm.route.items|_columns@note$label:1
+#: model@mm.production.orders|_columns@note$label:1
+#: model@mm.production.order.items|_columns@note$label:1
+#: model@mm.production.order.item.bom|_columns@note$label:1
+#: model@mm.production.order.delivery.schedules|_columns@note$label:1
+#: model@mm.technologic.orders|_columns@note$label:1
+#: model@mm.technologic.order.items|_columns@note$label:1
+#: model@mm.technologic.order.item.ibob|_columns@note$label:1
+#: model@mm.technologic.order.item.obob|_columns@note$label:1
+#: model@mm.technologic.order.delivery.schedules|_columns@note$label:1
+#: model@mm.disassembly.orders|_columns@note$label:1
+#: model@mm.disassembly.order.items|_columns@note$label:1
+#: model@mm.disassembly.order.item.mob|_columns@note$label:1
+#: model@mm.disassembly.order.delivery.schedules|_columns@note$label:1
+#: model@md.mm.product|_columns@note$label:1
+msgid "Note"
+msgstr "Poznámka"
+
+#: model@mm.production.order.type.roles|_description@:1
+msgid "General Model Role Production Order Types"
+msgstr "Obecný Model Role Výrobní Typy Objednávek"
+
+#: model@mm.production.order.type.roles|_columns@role_id$label:1
+#: model@mm.technologic.order.type.roles|_columns@role_id$label:1
+#: model@mm.disassembly.order.type.roles|_columns@role_id$label:1
+#: model@mm.production.order.roles|_columns@role_id$label:1
+#: model@mm.technologic.order.roles|_columns@role_id$label:1
+#: model@mm.disassembly.order.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Roli"
+
+#: model@mm.production.order.type.roles|_columns@required$label:1
+#: model@mm.technologic.order.type.roles|_columns@required$label:1
+#: model@mm.disassembly.order.type.roles|_columns@required$label:1
+msgid "Required"
+msgstr "Požadované"
+
+#: model@mm.technologic.order.types|_description@:1
+msgid "General Model Types Technologic Order"
+msgstr "Obecné Model Typy Technologické Pořadí"
+
+#: model@mm.technologic.order.type.roles|_description@:1
+#: model@mm.disassembly.order.type.roles|_description@:1
+msgid "General Model Role Technologic Order Types"
+msgstr "Obecný Model Role Technologické Typy Objednávek"
+
+#: model@mm.disassembly.order.types|_description@:1
+msgid "General Model Types Disassembly Order"
+msgstr "Obecné Model Typy Demontáž Aby"
+
+#: model@mm.workcenter.category|_description@:1
+msgid "General Model Category Workcenter"
+msgstr "Obecné Model Kategorie Pracovní Centrum"
+
+#: model@mm.workcenter.category|_columns@parent_id$label:1
+#: model@mm.route.category|_columns@parent_id$label:1
+#: model@mm.production.order.category|_columns@parent_id$label:1
+#: model@mm.technologic.order.category|_columns@parent_id$label:1
+#: model@mm.disassembly.order.category|_columns@parent_id$label:1
+#: model@mm.route.items|_columns@parent_id$label:1
+#: model@mm.production.order.items|_columns@parent_id$label:1
+#: model@mm.technologic.order.items|_columns@parent_id$label:1
+#: model@mm.disassembly.order.items|_columns@parent_id$label:1
+msgid "Parent"
+msgstr "Rodič"
+
+#: model@mm.workcenter.category|_columns@childs_id$label:1
+#: model@mm.route.category|_columns@childs_id$label:1
+#: model@mm.production.order.category|_columns@childs_id$label:1
+#: model@mm.technologic.order.category|_columns@childs_id$label:1
+#: model@mm.disassembly.order.category|_columns@childs_id$label:1
+#: model@mm.route.items|_columns@childs_id$label:1
+#: model@mm.production.order.items|_columns@childs_id$label:1
+#: model@mm.technologic.order.items|_columns@childs_id$label:1
+#: model@mm.disassembly.order.items|_columns@childs_id$label:1
+msgid "Childs"
+msgstr "Childs"
+
+#: model@mm.workcenter.category|_columns@workcenters$label:1
+#: model@mm.route.category|_columns@routes$label:1
+#: model@mm.production.order.category|_columns@orders$label:1
+#: model@mm.technologic.order.category|_columns@orders$label:1
+#: model@mm.disassembly.order.category|_columns@orders$label:1
+msgid "Orders"
+msgstr "Objednávky"
+
+#: model@mm.route.category|_description@:1
+msgid "General Model Category Route"
+msgstr "Obecné Model Kategorie Trasu"
+
+#: model@mm.production.order.category|_description@:1
+msgid "General Model Category Production Order"
+msgstr "Obecné Model Kategorie Výrobní Zakázky"
+
+#: model@mm.technologic.order.category|_description@:1
+msgid "General Model Category Technologic Order"
+msgstr "Obecné Model Kategorie Technologické Pořadí"
+
+#: model@mm.disassembly.order.category|_description@:1
+msgid "General Model Category Disassembly Order"
+msgstr "Obecné Model Kategorie Demontáž Aby"
+
+#: model@mm.workcenters|_description@:1
+msgid "General Model Workcenter"
+msgstr "Obecný Model Pracovní Centrum"
+
+#: model@mm.workcenters|_columns@wctype$selections#p:1
+#: model@mm.route|_columns@rtype$selections#p:1
+msgid "Production"
+msgstr "Výroba"
+
+#: model@mm.workcenters|_columns@wctype$selections#t:1
+#: model@mm.route|_columns@rtype$selections#t:1
+msgid "Technology"
+msgstr "Technologie"
+
+#: model@mm.workcenters|_columns@wctype$selections#d:1
+#: model@mm.route|_columns@rtype$selections#d:1
+msgid "Disassembly"
+msgstr "Demontáž"
+
+#: model@mm.workcenters|_columns@wctype$selections#a:1
+#: model@mm.route|_columns@rtype$selections#a:1
+msgid "All"
+msgstr "Všechny"
+
+#: model@mm.workcenters|_columns@cost_peer_hour$label:1
+msgid "Cost Peer Hours"
+msgstr "Náklady Peer Hodin"
+
+#: model@mm.workcenters|_columns@currency$label:1
+#: model@mm.workcenter.product.prices|_columns@currency$label:1
+#: model@mm.production.order.pricing|_columns@currency$label:1
+#: model@mm.production.order.item.bom|_columns@currency$label:1
+#: model@mm.technologic.order.pricing|_columns@currency$label:1
+#: model@mm.technologic.order.item.ibob|_columns@currency$label:1
+#: model@mm.technologic.order.item.obob|_columns@currency$label:1
+#: model@mm.disassembly.order.pricing|_columns@currency$label:1
+#: model@mm.disassembly.order.item.mob|_columns@currency$label:1
+#: model@md.mm.product|_columns@currency$label:1
+msgid "Currency"
+msgstr "Měny"
+
+#: model@mm.workcenters|_columns@products$label:1
+msgid "Products"
+msgstr "Produkty"
+
+#: model@mm.workcenter.products|_description@:1
+msgid "General Model Workcenter Products"
+msgstr "Obecný Model Pracovní Centrum Produktů"
+
+#: model@mm.workcenter.products|_columns@workcenter_id$label:1
+#: model@mm.route.items|_columns@workcenter$label:1
+msgid "Workcenter"
+msgstr "Pracovní centrum"
+
+#: model@mm.workcenter.products|_columns@product$label:1
+#: model@mm.workcenter.product.prices|_columns@product_id$label:1
+#: model@mm.production.order.items|_columns@product$label:1
+#: model@mm.production.order.item.bom|_columns@product$label:1
+#: model@mm.technologic.order.item.ibob|_columns@product$label:1
+#: model@mm.technologic.order.item.obob|_columns@product$label:1
+#: model@mm.disassembly.order.items|_columns@product$label:1
+#: model@mm.disassembly.order.item.mob|_columns@product$label:1
+#: model@md.mm.product|_columns@product_id$label:1
+msgid "Product"
+msgstr "Produkt"
+
+#: model@mm.workcenter.products|_columns@prices$label:1
+msgid "Prices"
+msgstr "Ceny"
+
+#: model@mm.workcenter.product.prices|_description@:1
+msgid "General Model Workcenter Product Prices"
+msgstr "Obecný Model Pracovní Centrum Ceny Produktu"
+
+#: model@mm.workcenter.product.prices|_columns@from_date$label:1
+msgid "From"
+msgstr "Z"
+
+#: model@mm.workcenter.product.prices|_columns@to_date$label:1
+msgid "To"
+msgstr "K"
+
+#: model@mm.workcenter.product.prices|_columns@price$label:1
+msgid "Price Peer Hours"
+msgstr "Cena Peer Hodin"
+
+#: model@mm.workcenter.product.prices|_columns@unit$label:1
+#: model@mm.production.order.item.bom|_columns@unit$label:1
+#: model@mm.technologic.order.item.ibob|_columns@unit$label:1
+#: model@mm.technologic.order.item.obob|_columns@unit$label:1
+#: model@mm.disassembly.order.item.mob|_columns@unit$label:1
+#: model@md.mm.product|_columns@unit$label:1
+msgid "Unit"
+msgstr "Jednotka"
+
+#: model@mm.workcenter.product.prices|_columns@uop$label:1
+msgid "Unit Of Price Peer Hours"
+msgstr "Jednotka Cena Peer Hodin"
+
+#: model@mm.route|_description@:1
+msgid "General Model Route"
+msgstr "Obecné Model Trasu"
+
+#: model@mm.route|_columns@category_id$label:1
+#: model@mm.production.orders|_columns@category_id$label:1
+#: model@mm.technologic.orders|_columns@category_id$label:1
+#: model@mm.disassembly.orders|_columns@category_id$label:1
+msgid "Category"
+msgstr "Kategorie"
+
+#: model@mm.route|_columns@items$label:1
+#: model@mm.production.orders|_columns@items$label:1
+#: model@mm.technologic.orders|_columns@items$label:1
+#: model@mm.disassembly.orders|_columns@items$label:1
+msgid "Items"
+msgstr "Položky"
+
+#: model@mm.route.items|_description@:1
+msgid "General Model Route Items"
+msgstr "Obecné Model Trasy Položek"
+
+#: model@mm.route.items|_columns@route_id$label:1
+#: model@mm.production.orders|_columns@route$label:1
+#: model@mm.technologic.orders|_columns@route$label:1
+#: model@mm.disassembly.orders|_columns@route$label:1
+msgid "Route"
+msgstr "Trasu"
+
+#: model@mm.production.orders|_description@:1
+msgid "General Model Production Order"
+msgstr "Obecné Model Výrobní Zakázky"
+
+#: model@mm.production.orders|_columns@company$label:1
+#: model@mm.technologic.orders|_columns@company$label:1
+#: model@mm.disassembly.orders|_columns@company$label:1
+msgid "Company"
+msgstr "Společnost"
+
+#: model@mm.production.orders|_columns@fullname$label:1
+#: model@mm.technologic.orders|_columns@fullname$label:1
+#: model@mm.disassembly.orders|_columns@fullname$label:1
+msgid "Full Name"
+msgstr "Celé Jméno"
+
+#: model@mm.production.orders|_columns@manager$label:1
+#: model@mm.technologic.orders|_columns@manager$label:1
+#: model@mm.disassembly.orders|_columns@manager$label:1
+msgid "Manager"
+msgstr "Manažer"
+
+#: model@mm.production.orders|_columns@origin$label:1
+#: model@mm.technologic.orders|_columns@origin$label:1
+#: model@mm.disassembly.orders|_columns@origin$label:1
+msgid "Origin"
+msgstr "Původ"
+
+#: model@mm.production.orders|_columns@dopo$label:1
+msgid "Date Of Production Order"
+msgstr "Datum Výroby, Aby"
+
+#: model@mm.production.orders|_columns@from_date$label:1
+msgid "Start Date Of Production Order"
+msgstr "Datum Zahájení Výrobní Zakázky"
+
+#: model@mm.production.orders|_columns@to_date$label:1
+msgid "End Date Of Production Order"
+msgstr "Datum Ukončení Výrobní Zakázky"
+
+#: model@mm.production.orders|_columns@state$label:1
+#: model@mm.technologic.orders|_columns@state$label:1
+#: model@mm.disassembly.orders|_columns@state$label:1
+msgid "State"
+msgstr "Stát"
+
+#: model@mm.production.orders|_columns@state$selections#draft:1
+#: model@mm.technologic.orders|_columns@state$selections#draft:1
+#: model@mm.disassembly.orders|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Návrh"
+
+#: model@mm.production.orders|_columns@state$selections#approved:1
+#: model@mm.technologic.orders|_columns@state$selections#approved:1
+#: model@mm.disassembly.orders|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Schválené"
+
+#: model@mm.production.orders|_columns@state$selections#inprocess:1
+#: model@mm.technologic.orders|_columns@state$selections#inprocess:1
+#: model@mm.disassembly.orders|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "V Procesu"
+
+#: model@mm.production.orders|_columns@state$selections#closed:1
+#: model@mm.technologic.orders|_columns@state$selections#closed:1
+#: model@mm.disassembly.orders|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Zavřeno"
+
+#: model@mm.production.orders|_columns@state$selections#canceled:1
+#: model@mm.technologic.orders|_columns@state$selections#canceled:1
+#: model@mm.disassembly.orders|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Zrušen"
+
+#: model@mm.production.order.texts|_description@:1
+msgid "General Model Production Order Texts"
+msgstr "Obecný Model Výroby, Aby Texty"
+
+#: model@mm.production.order.texts|_columns@text_id$label:1
+#: model@mm.technologic.order.texts|_columns@text_id$label:1
+#: model@mm.disassembly.order.texts|_columns@text_id$label:1
+msgid "Text ID"
+msgstr "Text ID"
+
+#: model@mm.production.order.texts|_columns@content$label:1
+#: model@mm.technologic.order.texts|_columns@content$label:1
+#: model@mm.disassembly.order.texts|_columns@content$label:1
+msgid "Content"
+msgstr "Obsah"
+
+#: model@mm.production.order.roles|_description@:1
+msgid "General Model Production Order Roles"
+msgstr "Obecný Model Výroby, Aby Role"
+
+#: model@mm.production.order.roles|_columns@patner_id$label:1
+#: model@mm.technologic.order.roles|_columns@patner_id$label:1
+#: model@mm.disassembly.order.roles|_columns@patner_id$label:1
+msgid "Parther"
+msgstr "Parther"
+
+#: model@mm.production.order.pricing|_description@:1
+msgid "General Model Production Order Pricing"
+msgstr "Obecný Model Výroby Pořadí Ceny"
+
+#: model@mm.production.order.pricing|_columns@level$label:1
+#: model@mm.technologic.order.pricing|_columns@level$label:1
+#: model@mm.disassembly.order.pricing|_columns@level$label:1
+msgid "Level"
+msgstr "Úroveň"
+
+#: model@mm.production.order.pricing|_columns@cond$label:1
+#: model@mm.technologic.order.pricing|_columns@cond$label:1
+#: model@mm.disassembly.order.pricing|_columns@cond$label:1
+msgid "Condition"
+msgstr "Stav"
+
+#: model@mm.production.order.pricing|_columns@from_level$label:1
+#: model@mm.technologic.order.pricing|_columns@from_level$label:1
+#: model@mm.disassembly.order.pricing|_columns@from_level$label:1
+msgid "From Level"
+msgstr "Z Úrovně"
+
+#: model@mm.production.order.pricing|_columns@to_level$label:1
+#: model@mm.technologic.order.pricing|_columns@to_level$label:1
+#: model@mm.disassembly.order.pricing|_columns@to_level$label:1
+msgid "To Level"
+msgstr "Na Úrovni"
+
+#: model@mm.production.order.pricing|_columns@group_level$label:1
+#: model@mm.technologic.order.pricing|_columns@group_level$label:1
+#: model@mm.disassembly.order.pricing|_columns@group_level$label:1
+msgid "Group Level"
+msgstr "Na Úrovni Skupiny"
+
+#: model@mm.production.order.pricing|_columns@amount$label:1
+#: model@mm.production.order.item.bom|_columns@amount$label:1
+#: model@mm.technologic.order.pricing|_columns@amount$label:1
+#: model@mm.technologic.order.item.ibob|_columns@amount$label:1
+#: model@mm.technologic.order.item.obob|_columns@amount$label:1
+#: model@mm.disassembly.order.pricing|_columns@amount$label:1
+#: model@mm.disassembly.order.item.mob|_columns@amount$label:1
 msgid "Amount"
 msgstr "Množství"
 
-#: mm.production.order.delivery.schedules-part:1
-#: mm.technologic.order.delivery.schedules-part:1
-#: mm.disassembly.order.delivery.schedules-part:1
+#: model@mm.production.order.items|_description@:1
+msgid "General Model Production Order Items"
+msgstr "Obecný Model Výroby, Aby Položky"
+
+#: model@mm.production.order.items|_columns@order_id$label:1
+msgid "Production Order"
+msgstr "Výrobní Zakázky"
+
+#: model@mm.production.order.items|_columns@recepture_id$label:1
+#: model@mm.technologic.order.items|_columns@recepture_id$label:1
+#: model@mm.disassembly.order.items|_columns@recepture_id$label:1
+msgid "Recepture"
+msgstr "Recepture"
+
+#: model@mm.production.order.items|_columns@boms$label:1
+msgid "BoM"
+msgstr "BoM"
+
+#: model@mm.production.order.items|_columns@schedules$label:1
+#: model@mm.production.order.delivery.schedules|_columns@schedule$label:1
+#: model@mm.technologic.order.items|_columns@schedules$label:1
+#: model@mm.technologic.order.delivery.schedules|_columns@schedule$label:1
+#: model@mm.disassembly.order.items|_columns@schedules$label:1
+#: model@mm.disassembly.order.delivery.schedules|_columns@schedule$label:1
+msgid "Schedule"
+msgstr "Plán"
+
+#: model@mm.production.order.item.bom|_description@:1
+msgid "General Model Production Order Items BoM"
+msgstr "Obecný Model Výroby, Aby Položky Kusovníku"
+
+#: model@mm.production.order.item.bom|_columns@quantity$label:1
+#: model@mm.technologic.order.item.ibob|_columns@quantity$label:1
+#: model@mm.technologic.order.item.obob|_columns@quantity$label:1
+#: model@mm.disassembly.order.item.mob|_columns@quantity$label:1
+msgid "Quantity"
+msgstr "Množství"
+
+#: model@mm.production.order.item.bom|_columns@uom$label:1
+#: model@mm.technologic.order.item.ibob|_columns@uom$label:1
+#: model@mm.technologic.order.item.obob|_columns@uom$label:1
+#: model@mm.disassembly.order.item.mob|_columns@uom$label:1
+msgid "UoM"
+msgstr "Mj"
+
+#: model@mm.production.order.item.bom|_columns@price$label:1
+#: model@mm.technologic.order.item.ibob|_columns@price$label:1
+#: model@mm.technologic.order.item.obob|_columns@price$label:1
+#: model@mm.disassembly.order.item.mob|_columns@price$label:1
+#: model@md.mm.product|_columns@price$label:1
+msgid "Price"
+msgstr "Cena"
+
+#: model@mm.production.order.item.bom|_columns@uop$label:1
+#: model@mm.technologic.order.item.ibob|_columns@uop$label:1
+#: model@mm.technologic.order.item.obob|_columns@uop$label:1
+#: model@mm.disassembly.order.item.mob|_columns@uop$label:1
+#: model@md.mm.product|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Jednotka Cena"
+
+#: model@mm.production.order.delivery.schedules|_description@:1
+msgid "General Model Production Order Delivery Schedule"
+msgstr "Obecný Model Výroby, Aby Harmonogram Dodávek"
+
+#: model@mm.production.order.delivery.schedules|_columns@part$label:1
+#: model@mm.technologic.order.delivery.schedules|_columns@part$label:1
+#: model@mm.disassembly.order.delivery.schedules|_columns@part$label:1
 msgid "Part"
 msgstr "Část"
 
-#: mm.technologic.order-doto:1
+#: model@mm.technologic.orders|_description@:1
+msgid "General Model Technologic Order"
+msgstr "Obecné Model Technologické Pořadí"
+
+#: model@mm.technologic.orders|_columns@doto$label:1
 msgid "Date Of Technologic Order"
 msgstr "Datum Technologické Pořadí"
 
-#: mm.technologic.order-from_date:1
+#: model@mm.technologic.orders|_columns@from_date$label:1
 msgid "Start Date Of Technologic Order"
 msgstr "Datum Zahájení Technologické Pořadí"
 
-#: mm.technologic.order-to_date:1
+#: model@mm.technologic.orders|_columns@to_date$label:1
 msgid "End Date Of Technologic Order"
 msgstr "Datum Ukončení Technologické Pořadí"
 
-#: mm.technologic.order.items-order_id:1 mm.disassembly.order.items-order_id:1
+#: model@mm.technologic.order.texts|_description@:1
+msgid "General Model Technologic Order Texts"
+msgstr "Obecné Model Technologické Aby Texty"
+
+#: model@mm.technologic.order.roles|_description@:1
+msgid "General Model Technologic Order Roles"
+msgstr "Obecné Model Technologické Pořádek"
+
+#: model@mm.technologic.order.pricing|_description@:1
+msgid "General Model Technologic Order Pricing"
+msgstr "Obecné Model Technologické Pořadí Ceny"
+
+#: model@mm.technologic.order.items|_description@:1
+msgid "General Model Technologic Order Items"
+msgstr "Obecné Model Technologické Pořadí Položek"
+
+#: model@mm.technologic.order.items|_columns@order_id$label:1
+#: model@mm.disassembly.order.items|_columns@order_id$label:1
 msgid "Technologic Order"
 msgstr "Technologické Pořadí"
 
-#: mm.technologic.order.items-ibobs:1
+#: model@mm.technologic.order.items|_columns@ibobs$label:1
 msgid "InBoB"
 msgstr "InBoB"
 
-#: mm.technologic.order.items-obobs:1
+#: model@mm.technologic.order.items|_columns@obobs$label:1
 msgid "OutBoB"
 msgstr "OutBoB"
 
-#: mm.disassembly.order-dodo:1
+#: model@mm.technologic.order.item.ibob|_description@:1
+msgid "General Model Technologic Order Items InBoB"
+msgstr "Obecné Model Technologické Pořadí Položek InBoB"
+
+#: model@mm.technologic.order.item.obob|_description@:1
+msgid "General Model Technologic Order Items OutBoB"
+msgstr "Obecné Model Technologické Pořadí Položek OutBoB"
+
+#: model@mm.technologic.order.delivery.schedules|_description@:1
+msgid "General Model Technologic Order Delivery Schedule"
+msgstr "Obecné Model Technologické Aby Harmonogram Dodávek"
+
+#: model@mm.disassembly.orders|_description@:1
+msgid "General Model Disassembly Order"
+msgstr "Obecné Model Demontáž Aby"
+
+#: model@mm.disassembly.orders|_columns@dodo$label:1
 msgid "Date Of Disassembly Order"
 msgstr "Datum Demontáž Aby"
 
-#: mm.disassembly.order-from_date:1
+#: model@mm.disassembly.orders|_columns@from_date$label:1
 msgid "Start Date Of Disassembly Order"
 msgstr "Datum Zahájení Demontáže Aby"
 
-#: mm.disassembly.order-to_date:1
+#: model@mm.disassembly.orders|_columns@to_date$label:1
 msgid "End Date Of Disassembly Order"
 msgstr "Datum Ukončení Demontáže Aby"
 
-#: mm.disassembly.order.items-mobs:1
+#: model@mm.disassembly.order.texts|_description@:1
+msgid "General Model Disassembly Order Texts"
+msgstr "Obecné Model Demontáž Aby Texty"
+
+#: model@mm.disassembly.order.roles|_description@:1
+msgid "General Model Disassembly Order Roles"
+msgstr "Obecné Model Demontáž Pořádek"
+
+#: model@mm.disassembly.order.pricing|_description@:1
+msgid "General Model Disassembly Order Pricing"
+msgstr "Obecné Model Demontáž Pořadí Ceny"
+
+#: model@mm.disassembly.order.items|_description@:1
+msgid "General Model Disassembly Order Items"
+msgstr "Obecné Model Demontáž Pořadí Položek"
+
+#: model@mm.disassembly.order.items|_columns@mobs$label:1
 msgid "MoB"
 msgstr "Dav"
+
+#: model@mm.disassembly.order.item.mob|_description@:1
+msgid "General Model Disassembly Order Items MoB"
+msgstr "Obecné Model Demontáž Pořadí Položek MoB"
+
+#: model@mm.disassembly.order.delivery.schedules|_description@:1
+msgid "General Model Disassembly Order Delivery Schedule"
+msgstr "Obecné Model Demontáž Aby Harmonogram Dodávek"
+
+#: model@md.mm.product|_description@:1
+msgid "General Model Production Of Product"
+msgstr "Obecný Model Výroby Produktu"
+
+#: model@md.mm.product|_columns@uom$label:1
+msgid "Unit Of Measure"
+msgstr "Měrná Jednotka"

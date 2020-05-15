@@ -3,219 +3,413 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:25+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:25+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:55+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:55+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mrp.texts-code:1 mrp.schema.texts-code:1
+#: model@mrp.texts|_description@:1
+msgid "General Model MRP Texts"
+msgstr "Üldine Mudel MRP Tekstid"
+
+#: model@mrp.texts|_columns@code$label:1
+#: model@mrp.schema.texts|_columns@code$label:1
 msgid "Code"
 msgstr "Kood"
 
-#: mrp.texts-descr:1 mrp.schema.texts-descr:1
+#: model@mrp.texts|_columns@descr$label:1
+#: model@mrp.schema.texts|_columns@descr$label:1
 msgid "Description"
 msgstr "Kirjeldus"
 
-#: mrp.schema.texts-usage:1
+#: model@mrp.schema.texts|_description@:1
+msgid "General Model Schema Of MRP Texts"
+msgstr "Üldine Mudeli Skeem MRP Tekstid"
+
+#: model@mrp.schema.texts|_columns@usage$label:1
 msgid "Usage"
 msgstr "Kasutamine"
 
-#: mrp.schema.texts-texts:1 mrp.demand-texts:1 mrp.demand.items-texts:1
-#: mrp.request-texts:1 mrp.request.items-texts:1
-msgid "Texts"
-msgstr "Tekstid"
+#: model@mrp.schema.texts|_columns@usage$selections#h:1
+msgid "Header"
+msgstr "Päis"
 
-#: mrp.schema.text.items-schema_id:1
-msgid "Schema"
-msgstr "Skeem"
-
-#: mrp.schema.text.items-seq:1 mrp.demand.texts-seq:1
-#: mrp.demand.item.texts-seq:1 mrp.request.texts-seq:1
-#: mrp.request.item.texts-seq:1
-msgid "Sequence"
-msgstr "Jada"
-
-#: mrp.schema.text.items-text_id:1
-msgid "Text"
-msgstr "Tekst"
-
-#: mrp.schema.text.items-descr:1 mrp.demand.texts-descr:1
-#: mrp.demand.item.texts-descr:1 mrp.request.texts-descr:1
-#: mrp.request.item.texts-descr:1
-msgid "Unknown"
-msgstr "Teadmata"
-
-#: mrp.demand.types-name:1 mrp.request.types-name:1 mrp.demand.category-name:1
-#: mrp.request.category-name:1 mrp.demand-name:1 mrp.request-name:1
-msgid "Name"
-msgstr "Nimi"
-
-#: mrp.demand.types-htschema:1 mrp.request.types-htschema:1
-msgid "Text Schema Of Head"
-msgstr "Tekst Skeem Pea"
-
-#: mrp.demand.types-itschema:1 mrp.request.types-itschema:1
-msgid "Text Schema Of Item"
-msgstr "Tekst Skeem Punkt"
-
-#: mrp.demand.types-roles:1 mrp.request.types-roles:1 mrp.demand-roles:1
-#: mrp.demand.items-roles:1 mrp.request-roles:1 mrp.request.items-roles:1
-msgid "Roles"
-msgstr "Rollid"
-
-#: mrp.demand.types-note:1 mrp.demand.type.roles-note:1
-#: mrp.request.types-note:1 mrp.request.type.roles-note:1
-#: md.mrp.product-note:1 mrp.demand.category-note:1
-#: mrp.request.category-note:1 mrp.demand-note:1 mrp.demand.items-note:1
-#: mrp.demand.delivery.schedules-note:1 mrp.request-note:1
-#: mrp.request.items-note:1 mrp.request.delivery.schedules-note:1
-msgid "Note"
-msgstr "Märkus"
-
-#: mrp.demand.type.roles-type_id:1 mrp.request.type.roles-type_id:1
-#: mrp.demand-dtype:1 mrp.request-rtype:1
-msgid "Type"
-msgstr "Tüüp"
-
-#: mrp.demand.type.roles-role_id:1 mrp.request.type.roles-role_id:1
-#: mrp.demand.roles-role_id:1 mrp.demand.item.roles-role_id:1
-#: mrp.request.roles-role_id:1 mrp.request.item.roles-role_id:1
-msgid "Role"
-msgstr "Roll"
-
-#: mrp.demand.type.roles-required:1 mrp.request.type.roles-required:1
-msgid "Required"
-msgstr "Nõutav"
-
-#: md.mrp.product-product_id:1 mrp.demand.items-product:1
-#: mrp.request.items-product:1
-msgid "Product"
-msgstr "Toode"
-
-#: md.mrp.product-strategy:1
-msgid "Strategy"
-msgstr "Strateegia"
-
-#: md.mrp.product-quantity:1 mrp.demand.delivery.schedules-quantity:1
-#: mrp.request.delivery.schedules-quantity:1
-msgid "Quantity"
-msgstr "Kogus"
-
-#: md.mrp.product-reserved_quantity:1
-msgid "Reserve Quantity"
-msgstr "Reservi Kogus"
-
-#: md.mrp.product-min_quantity:1
-msgid "Min Quantity"
-msgstr "Min Kogus"
-
-#: md.mrp.product-max_quantity:1
-msgid "Max Quantity"
-msgstr "Max Kogus"
-
-#: md.mrp.product-uom:1
-msgid "Unit Of Measure"
-msgstr "Mõõtühik"
-
-#: mrp.demand.category-parent_id:1 mrp.request.category-parent_id:1
-msgid "Parent"
-msgstr "Lapsevanem"
-
-#: mrp.demand.category-childs_id:1 mrp.request.category-childs_id:1
-msgid "Childs"
-msgstr "Childs"
-
-#: mrp.demand.category-demands:1
-msgid "Demands"
-msgstr "Nõudmised"
-
-#: mrp.request.category-requests:1
-msgid "Requests"
-msgstr "Taotlused"
-
-#: mrp.demand-company:1 mrp.request-company:1
-msgid "Company"
-msgstr "Ettevõte"
-
-#: mrp.demand-category_id:1 mrp.request-category_id:1
-msgid "Category"
-msgstr "Kategooria"
-
-#: mrp.demand-origin:1 mrp.request-origin:1
-msgid "Origin"
-msgstr "Päritolu"
-
-#: mrp.demand-dod:1
-msgid "Date Of Demand"
-msgstr "Kuupäev Nõudlus"
-
-#: mrp.demand-from_date:1
-msgid "Begin Date Of Demand"
-msgstr "Alustada Kuupäev Nõudlus"
-
-#: mrp.demand-to_date:1
-msgid "End Date Of Demand"
-msgstr "Lõpu Kuupäev Ning Nõudluse"
-
-#: mrp.demand-state:1 mrp.request-state:1
-msgid "State"
-msgstr "Riik"
-
-#: mrp.demand-items:1 mrp.request-items:1
-msgid "Items"
-msgstr "Kirjed"
-
-#: mrp.demand.texts-demand_id:1 mrp.demand.roles-demand_id:1
-#: mrp.demand.items-demand_id:1
-msgid "Demand"
-msgstr "Nõudluse"
-
-#: mrp.demand.texts-text_id:1 mrp.demand.item.texts-text_id:1
-#: mrp.request.texts-text_id:1 mrp.request.item.texts-text_id:1
-msgid "Text ID"
-msgstr "Tekst ID"
-
-#: mrp.demand.texts-content:1 mrp.demand.item.texts-content:1
-#: mrp.request.texts-content:1 mrp.request.item.texts-content:1
-msgid "Content"
-msgstr "Sisu"
-
-#: mrp.demand.roles-patner_id:1 mrp.demand.item.roles-patner_id:1
-#: mrp.request.roles-patner_id:1 mrp.request.item.roles-patner_id:1
-msgid "Parther"
-msgstr "Parther"
-
-#: mrp.demand.items-schedules:1 mrp.demand.delivery.schedules-schedule:1
-#: mrp.request.items-schedules:1 mrp.request.delivery.schedules-schedule:1
-msgid "Schedule"
-msgstr "Ajakava"
-
-#: mrp.demand.item.texts-item_id:1 mrp.demand.item.roles-item_id:1
-#: mrp.demand.delivery.schedules-item_id:1 mrp.request.item.texts-item_id:1
-#: mrp.request.item.roles-item_id:1 mrp.request.delivery.schedules-item_id:1
+#: model@mrp.schema.texts|_columns@usage$selections#i:1
+#: model@mrp.demand.item.texts|_columns@item_id$label:1
+#: model@mrp.demand.item.roles|_columns@item_id$label:1
+#: model@mrp.demand.delivery.schedules|_columns@item_id$label:1
+#: model@mrp.request.item.texts|_columns@item_id$label:1
+#: model@mrp.request.item.roles|_columns@item_id$label:1
+#: model@mrp.request.delivery.schedules|_columns@item_id$label:1
 msgid "Item"
 msgstr "Punkt"
 
-#: mrp.demand.delivery.schedules-uom:1 mrp.request.delivery.schedules-uom:1
+#: model@mrp.schema.texts|_columns@usage$selections#b:1
+msgid "Both"
+msgstr "Nii"
+
+#: model@mrp.schema.texts|_columns@texts$label:1
+#: model@mrp.demand|_columns@texts$label:1
+#: model@mrp.demand.items|_columns@texts$label:1
+#: model@mrp.request|_columns@texts$label:1
+#: model@mrp.request.items|_columns@texts$label:1
+msgid "Texts"
+msgstr "Tekstid"
+
+#: model@mrp.schema.text.items|_description@:1
+msgid "General Model Items Of Schema MRP Texts"
+msgstr "Üldine Mudel Objektide Skeem MRP Tekstid"
+
+#: model@mrp.schema.text.items|_columns@schema_id$label:1
+msgid "Schema"
+msgstr "Skeem"
+
+#: model@mrp.schema.text.items|_columns@seq$label:1
+#: model@mrp.demand.texts|_columns@seq$label:1
+#: model@mrp.demand.item.texts|_columns@seq$label:1
+#: model@mrp.request.texts|_columns@seq$label:1
+#: model@mrp.request.item.texts|_columns@seq$label:1
+msgid "Sequence"
+msgstr "Jada"
+
+#: model@mrp.schema.text.items|_columns@text_id$label:1
+msgid "Text"
+msgstr "Tekst"
+
+#: model@mrp.schema.text.items|_columns@descr$label:1
+#: model@mrp.demand.texts|_columns@descr$label:1
+#: model@mrp.demand.item.texts|_columns@descr$label:1
+#: model@mrp.request.texts|_columns@descr$label:1
+#: model@mrp.request.item.texts|_columns@descr$label:1
+msgid "Unknown"
+msgstr "Teadmata"
+
+#: model@mrp.demand.types|_description@:1
+msgid "General Model Types MRP Demand"
+msgstr "Üldine Mudel Tüüpi MRP Nõudlus"
+
+#: model@mrp.demand.types|_columns@name$label:1
+#: model@mrp.request.types|_columns@name$label:1
+#: model@mrp.demand.category|_columns@name$label:1
+#: model@mrp.request.category|_columns@name$label:1
+#: model@mrp.demand|_columns@name$label:1
+#: model@mrp.request|_columns@name$label:1
+msgid "Name"
+msgstr "Nimi"
+
+#: model@mrp.demand.types|_columns@htschema$label:1
+#: model@mrp.request.types|_columns@htschema$label:1
+msgid "Text Schema Of Head"
+msgstr "Tekst Skeem Pea"
+
+#: model@mrp.demand.types|_columns@itschema$label:1
+#: model@mrp.request.types|_columns@itschema$label:1
+msgid "Text Schema Of Item"
+msgstr "Tekst Skeem Punkt"
+
+#: model@mrp.demand.types|_columns@roles$label:1
+#: model@mrp.request.types|_columns@roles$label:1
+#: model@mrp.demand|_columns@roles$label:1
+#: model@mrp.demand.items|_columns@roles$label:1
+#: model@mrp.request|_columns@roles$label:1
+#: model@mrp.request.items|_columns@roles$label:1
+msgid "Roles"
+msgstr "Rollid"
+
+#: model@mrp.demand.types|_columns@note$label:1
+#: model@mrp.demand.type.roles|_columns@note$label:1
+#: model@mrp.request.types|_columns@note$label:1
+#: model@mrp.request.type.roles|_columns@note$label:1
+#: model@mrp.demand.category|_columns@note$label:1
+#: model@mrp.request.category|_columns@note$label:1
+#: model@mrp.demand|_columns@note$label:1
+#: model@mrp.demand.items|_columns@note$label:1
+#: model@mrp.demand.delivery.schedules|_columns@note$label:1
+#: model@mrp.request|_columns@note$label:1
+#: model@mrp.request.items|_columns@note$label:1
+#: model@mrp.request.delivery.schedules|_columns@note$label:1
+#: model@md.mrp.product|_columns@note$label:1
+msgid "Note"
+msgstr "Märkus"
+
+#: model@mrp.demand.type.roles|_description@:1
+msgid "General Model Role MRP Demand Types"
+msgstr "Üldine Mudel Rolli MRP Nõudluse Liigid"
+
+#: model@mrp.demand.type.roles|_columns@type_id$label:1
+#: model@mrp.request.type.roles|_columns@type_id$label:1
+#: model@mrp.demand|_columns@dtype$label:1
+#: model@mrp.request|_columns@rtype$label:1
+msgid "Type"
+msgstr "Tüüp"
+
+#: model@mrp.demand.type.roles|_columns@role_id$label:1
+#: model@mrp.request.type.roles|_columns@role_id$label:1
+#: model@mrp.demand.roles|_columns@role_id$label:1
+#: model@mrp.demand.item.roles|_columns@role_id$label:1
+#: model@mrp.request.roles|_columns@role_id$label:1
+#: model@mrp.request.item.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Roll"
+
+#: model@mrp.demand.type.roles|_columns@required$label:1
+#: model@mrp.request.type.roles|_columns@required$label:1
+msgid "Required"
+msgstr "Nõutav"
+
+#: model@mrp.request.types|_description@:1
+msgid "General Model Types MRP Request"
+msgstr "Üldine Mudel Tüüpi MRP Taotlus"
+
+#: model@mrp.request.type.roles|_description@:1
+msgid "General Model Role MRP Request Types"
+msgstr "Üldine Mudel Rolli MRP Taotluse Liigid"
+
+#: model@mrp.demand.category|_description@:1
+msgid "General Model Category MRP Demand"
+msgstr "Üldine Mudeli Kategooria MRP Nõudlus"
+
+#: model@mrp.demand.category|_columns@parent_id$label:1
+#: model@mrp.request.category|_columns@parent_id$label:1
+msgid "Parent"
+msgstr "Lapsevanem"
+
+#: model@mrp.demand.category|_columns@childs_id$label:1
+#: model@mrp.request.category|_columns@childs_id$label:1
+msgid "Childs"
+msgstr "Childs"
+
+#: model@mrp.demand.category|_columns@demands$label:1
+msgid "Demands"
+msgstr "Nõudmised"
+
+#: model@mrp.request.category|_description@:1
+msgid "General Model Category MRP Request"
+msgstr "Üldine Mudeli Kategooria MRP Taotlus"
+
+#: model@mrp.request.category|_columns@requests$label:1
+msgid "Requests"
+msgstr "Taotlused"
+
+#: model@mrp.demand|_description@:1
+msgid "GeneralModel MRP Demand"
+msgstr "GeneralModel MRP Nõudlus"
+
+#: model@mrp.demand|_columns@company$label:1
+#: model@mrp.request|_columns@company$label:1
+msgid "Company"
+msgstr "Ettevõte"
+
+#: model@mrp.demand|_columns@category_id$label:1
+#: model@mrp.request|_columns@category_id$label:1
+msgid "Category"
+msgstr "Kategooria"
+
+#: model@mrp.demand|_columns@origin$label:1
+#: model@mrp.request|_columns@origin$label:1
+msgid "Origin"
+msgstr "Päritolu"
+
+#: model@mrp.demand|_columns@dod$label:1
+msgid "Date Of Demand"
+msgstr "Kuupäev Nõudlus"
+
+#: model@mrp.demand|_columns@from_date$label:1
+msgid "Begin Date Of Demand"
+msgstr "Alustada Kuupäev Nõudlus"
+
+#: model@mrp.demand|_columns@to_date$label:1
+msgid "End Date Of Demand"
+msgstr "Lõpu Kuupäev Ning Nõudluse"
+
+#: model@mrp.demand|_columns@state$label:1
+#: model@mrp.request|_columns@state$label:1
+msgid "State"
+msgstr "Riik"
+
+#: model@mrp.demand|_columns@state$selections#draft:1
+#: model@mrp.request|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Eelnõu"
+
+#: model@mrp.demand|_columns@state$selections#approved:1
+#: model@mrp.request|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Kinnitatud"
+
+#: model@mrp.demand|_columns@state$selections#inprocess:1
+#: model@mrp.request|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "Protsess"
+
+#: model@mrp.demand|_columns@state$selections#closed:1
+#: model@mrp.request|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Suletud"
+
+#: model@mrp.demand|_columns@state$selections#canceled:1
+#: model@mrp.request|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Tühistatud"
+
+#: model@mrp.demand|_columns@items$label:1
+#: model@mrp.request|_columns@items$label:1
+msgid "Items"
+msgstr "Kirjed"
+
+#: model@mrp.demand.texts|_description@:1
+msgid "General Model MRP Demand Texts"
+msgstr "Üldine Mudel MRP Nõudluse Tekstid"
+
+#: model@mrp.demand.texts|_columns@demand_id$label:1
+#: model@mrp.demand.roles|_columns@demand_id$label:1
+#: model@mrp.demand.items|_columns@demand_id$label:1
+msgid "Demand"
+msgstr "Nõudluse"
+
+#: model@mrp.demand.texts|_columns@text_id$label:1
+#: model@mrp.demand.item.texts|_columns@text_id$label:1
+#: model@mrp.request.texts|_columns@text_id$label:1
+#: model@mrp.request.item.texts|_columns@text_id$label:1
+msgid "Text ID"
+msgstr "Tekst ID"
+
+#: model@mrp.demand.texts|_columns@content$label:1
+#: model@mrp.demand.item.texts|_columns@content$label:1
+#: model@mrp.request.texts|_columns@content$label:1
+#: model@mrp.request.item.texts|_columns@content$label:1
+msgid "Content"
+msgstr "Sisu"
+
+#: model@mrp.demand.roles|_description@:1
+#: model@mrp.demand.item.roles|_description@:1
+msgid "General Model MRP Demand Roles"
+msgstr "Üldine Mudel MRP Nõudluse Rollid"
+
+#: model@mrp.demand.roles|_columns@patner_id$label:1
+#: model@mrp.demand.item.roles|_columns@patner_id$label:1
+#: model@mrp.request.roles|_columns@patner_id$label:1
+#: model@mrp.request.item.roles|_columns@patner_id$label:1
+msgid "Parther"
+msgstr "Parther"
+
+#: model@mrp.demand.items|_description@:1
+msgid "General Model MRP Demand Item"
+msgstr "Üldine Mudel MRP Nõudluse Punkt"
+
+#: model@mrp.demand.items|_columns@product$label:1
+#: model@mrp.request.items|_columns@product$label:1
+#: model@md.mrp.product|_columns@product_id$label:1
+msgid "Product"
+msgstr "Toode"
+
+#: model@mrp.demand.items|_columns@schedules$label:1
+#: model@mrp.demand.delivery.schedules|_columns@schedule$label:1
+#: model@mrp.request.items|_columns@schedules$label:1
+#: model@mrp.request.delivery.schedules|_columns@schedule$label:1
+msgid "Schedule"
+msgstr "Ajakava"
+
+#: model@mrp.demand.item.texts|_description@:1
+msgid "General Model MRP Demand Item Texts"
+msgstr "Üldine Mudel MRP Nõudluse Punkt Tekstid"
+
+#: model@mrp.demand.delivery.schedules|_description@:1
+msgid "General Model MRP Demand Delivery Schedule"
+msgstr "Üldine Mudel MRP Nõudluse Tarne Ajakava"
+
+#: model@mrp.demand.delivery.schedules|_columns@quantity$label:1
+#: model@mrp.request.delivery.schedules|_columns@quantity$label:1
+#: model@md.mrp.product|_columns@quantity$label:1
+msgid "Quantity"
+msgstr "Kogus"
+
+#: model@mrp.demand.delivery.schedules|_columns@uom$label:1
+#: model@mrp.request.delivery.schedules|_columns@uom$label:1
 msgid "UoM"
 msgstr "UoM"
 
-#: mrp.request-dor:1
+#: model@mrp.request|_description@:1
+msgid "GeneralModel MRP Request"
+msgstr "GeneralModel MRP Taotlus"
+
+#: model@mrp.request|_columns@dor$label:1
 msgid "Date Of Request"
 msgstr "Taotluse Esitamise Kuupäev"
 
-#: mrp.request-from_date:1
+#: model@mrp.request|_columns@from_date$label:1
 msgid "Begin Date Of Request"
 msgstr "Alustada Taotluse Esitamise Kuupäev"
 
-#: mrp.request-to_date:1
+#: model@mrp.request|_columns@to_date$label:1
 msgid "End Date Of Request"
 msgstr "Lõpp Taotluse Esitamise Kuupäev"
 
-#: mrp.request.texts-request_id:1 mrp.request.roles-invoice_id:1
-#: mrp.request.items-request_id:1
+#: model@mrp.request.texts|_description@:1
+msgid "General Model MRP Request Texts"
+msgstr "Üldine Mudel MRP Taotlus Tekstid"
+
+#: model@mrp.request.texts|_columns@request_id$label:1
+#: model@mrp.request.roles|_columns@invoice_id$label:1
+#: model@mrp.request.items|_columns@request_id$label:1
 msgid "Request"
 msgstr "Taotlus"
+
+#: model@mrp.request.roles|_description@:1
+msgid "General Model Purchase Invoice Roles"
+msgstr "Üldine Mudel Ostuarve Rollid"
+
+#: model@mrp.request.items|_description@:1
+msgid "General Model MRP Request Item"
+msgstr "Üldine Mudel MRP Taotlus Punkt"
+
+#: model@mrp.request.item.texts|_description@:1
+msgid "General Model MRP Request Item Texts"
+msgstr "Üldine Mudel MRP Taotlus Punkt Tekstid"
+
+#: model@mrp.request.item.roles|_description@:1
+msgid "General Model MRP Request Item Roles"
+msgstr "Üldine Mudel MRP Taotlus Punkt Rollid"
+
+#: model@mrp.request.delivery.schedules|_description@:1
+msgid "General Model MRP Request Delivery Schedule"
+msgstr "Üldine Mudel MRP Taotlus Tarne Ajakava"
+
+#: model@md.mrp.product|_description@:1
+msgid "General Model Mrp Of Product"
+msgstr "Üldine Mudel Mrp Toote"
+
+#: model@md.mrp.product|_columns@strategy$label:1
+msgid "Strategy"
+msgstr "Strateegia"
+
+#: model@md.mrp.product|_columns@strategy$selections#l:1
+msgid "Lot"
+msgstr "Palju"
+
+#: model@md.mrp.product|_columns@strategy$selections#p:1
+msgid "Point of order"
+msgstr "Sõnavõtt"
+
+#: model@md.mrp.product|_columns@strategy$selections#n:1
+msgid "Not planed"
+msgstr "Höövel"
+
+#: model@md.mrp.product|_columns@reserved_quantity$label:1
+msgid "Reserve Quantity"
+msgstr "Reservi Kogus"
+
+#: model@md.mrp.product|_columns@min_quantity$label:1
+msgid "Min Quantity"
+msgstr "Min Kogus"
+
+#: model@md.mrp.product|_columns@max_quantity$label:1
+msgid "Max Quantity"
+msgstr "Max Kogus"
+
+#: model@md.mrp.product|_columns@uom$label:1
+msgid "Unit Of Measure"
+msgstr "Mõõtühik"

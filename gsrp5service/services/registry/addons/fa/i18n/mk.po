@@ -3,542 +3,1144 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:24+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:24+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:54+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: fa.accounts.type-name:1
+#: model@fa.accounts.type|_description@:1
+msgid "Genaral Model Account Type"
+msgstr "Genaral Модел Тип На Сметка"
+
+#: model@fa.accounts.type|_columns@name$label:1
 msgid "Account Type"
 msgstr "Тип На Сметка"
 
-#: fa.accounts.type-include_initial_balance:1
+#: model@fa.accounts.type|_columns@include_initial_balance$label:1
 msgid "Bring Accounts Balance Forward"
 msgstr "Донесе Сметки Рамнотежа Напред"
 
-#: fa.accounts.type-type:1 fa.accounts-user_type_id:1
-#: fa.accounts.journal-type:1 fa.account.template-user_type_id:1
+#: model@fa.accounts.type|_columns@include_initial_balance$help:1
+msgid ""
+"Used in reports to know if we should consider journal items from the "
+"beginning of time instead of from the fiscal year only. Account types that "
+"should be reset to zero at each new fiscal year (like expenses, revenue..) "
+"should not have this option set."
+msgstr ""
+"Се користат во извештаите да знам дали треба да се размисли весник предмети "
+"од почетокот на времето, наместо од фискалната година само. Сметка видови "
+"дека треба да биде ресетирана на нула во секоја нова фискална година (како "
+"трошоци, приходи..) не треба да ја имаат оваа опција сет."
+
+#: model@fa.accounts.type|_columns@type$label:1
+#: model@fa.accounts|_columns@user_type_id$label:1
+#: model@fa.accounts.journal|_columns@type$label:1
+#: model@fa.account.template|_columns@user_type_id$label:1
 msgid "Type"
 msgstr "Тип"
 
-#: fa.accounts.type-note:1 fa.account.template-note:1
-#: fa.fiscal.position.template-note:1
+#: model@fa.accounts.type|_columns@type$selections#other:1
+msgid "Regular"
+msgstr "Редовни"
+
+#: model@fa.accounts.type|_columns@type$selections#receivable:1
+msgid "Receivable"
+msgstr "Правно побарување"
+
+#: model@fa.accounts.type|_columns@type$selections#payable:1
+msgid "Payable"
+msgstr "Плаќа"
+
+#: model@fa.accounts.type|_columns@type$selections#liquidity:1
+msgid "Liquidity"
+msgstr "Ликвидност"
+
+#: model@fa.accounts.type|_columns@type$help:1
+msgid ""
+"The 'Internal Type' is used for features available on different types of "
+"accounts: liquidity type is for cash or bank accounts, payable/receivable is"
+" for vendor/customer accounts."
+msgstr ""
+"На 'Внатрешна Тип\" се користи за функции кои се достапни на различни вида "
+"на сметки: ликвидноста тип е за пари или банкарски сметки, по кредити/правно"
+" побарување е за добавувачот/клиент сметки."
+
+#: model@fa.accounts.type|_columns@note$label:1
+#: model@fa.account.template|_columns@note$label:1
+#: model@fa.fiscal.position.template|_columns@note$label:1
 msgid "Note"
 msgstr "Забелешка"
 
-#: fa.accounts.tag-name:1 fa.accounts-name:1 fa.accounts.tax.group-name:1
-#: fa.accounts.payment.method-name:1
+#: model@fa.accounts.tag|_description@:1
+msgid "General Model Account Tag"
+msgstr "Општ Модел Сметка Ознака"
+
+#: model@fa.accounts.tag|_columns@name$label:1
+#: model@fa.accounts|_columns@name$label:1
+#: model@fa.accounts.tax.group|_columns@name$label:1
+#: model@fa.accounts.payment.method|_columns@name$label:1
 msgid "Name"
 msgstr "Име"
 
-#: fa.accounts.tag-applicability:1
+#: model@fa.accounts.tag|_columns@applicability$label:1
 msgid "Applicability"
 msgstr "Применливоста"
 
-#: fa.accounts.tag-color:1
+#: model@fa.accounts.tag|_columns@applicability$selections#accounts:1
+msgid "Accounts"
+msgstr "Сметки"
+
+#: model@fa.accounts.tag|_columns@applicability$selections#taxes:1
+msgid "Taxes"
+msgstr "Даноци"
+
+#: model@fa.accounts.tag|_columns@color$label:1
 msgid "Color Index"
 msgstr "Боја На Индекс"
 
-#: fa.accounts.tag-inactive:1 fa.accounts.journal-inactive:1
-#: fa.accounts.tax-inactive:1
+#: model@fa.accounts.tag|_columns@inactive$label:1
+#: model@fa.accounts.journal|_columns@inactive$label:1
+#: model@fa.accounts.tax|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Неактивни"
 
-#: fa.accounts-currency_id:1 fa.account.template-currency_id:1
+#: model@fa.accounts.tag|_columns@inactive$help:1
+msgid "Set active to false to hide the Account Tag without removing it."
+msgstr ""
+"Поставете активно да се лажни да се скрие Сметка Ознака без отстранување на "
+"тоа."
+
+#: model@fa.accounts|_description@:1
+msgid "Genaral Model Account"
+msgstr "Genaral Модел Сметка"
+
+#: model@fa.accounts|_columns@currency_id$label:1
+#: model@fa.account.template|_columns@currency_id$label:1
 msgid "Account Currency"
 msgstr "Сметка Валута"
 
-#: fa.accounts-code:1 fa.account.template-code:1
-#: fa.accounts.payment.method-code:1
+#: model@fa.accounts|_columns@currency_id$help:1
+msgid "Forces all moves for this account to have this account currency."
+msgstr "Силите сите потези за оваа сметка за да ја имаат оваа сметка валута."
+
+#: model@fa.accounts|_columns@code$label:1
+#: model@fa.account.template|_columns@code$label:1
+#: model@fa.accounts.payment.method|_columns@code$label:1
 msgid "Code"
 msgstr "Кодот"
 
-#: fa.accounts-deprecated:1
+#: model@fa.accounts|_columns@deprecated$label:1
 msgid "Deprecated"
 msgstr "Заостанато"
 
-#: fa.accounts-internal_type:1
+#: model@fa.accounts|_columns@user_type_id$help:1
+msgid ""
+"Account Type is used for information purpose, to generate country-specific "
+"legal reports, and set the rules to close a fiscal year and generate opening"
+" entries."
+msgstr ""
+"Тип на опис се користи за информации цел, да се генерираат земја-специфични "
+"правни извештаи, и да поставите правила за да се затвори една фискална "
+"година и да генерираат отворање на календарот."
+
+#: model@fa.accounts|_columns@internal_type$label:1
 msgid "Internal Type"
 msgstr "Внатрешни Тип"
 
-#: fa.accounts-last_time_entries_checked:1
+#: model@fa.accounts|_columns@internal_type$selections#user:1
+msgid "User"
+msgstr "Корисникот"
+
+#: model@fa.accounts|_columns@last_time_entries_checked$label:1
 msgid "Latest Invoices & Payments Matching Date"
 msgstr "Најновите Фактури И Плаќања Појавување На Денот"
 
-#: fa.accounts-reconcile:1
+#: model@fa.accounts|_columns@last_time_entries_checked$help:1
+msgid ""
+"Last time the invoices & payments matching was performed on this account. It"
+" is set either if there's not at least an unreconciled debit and an "
+"unreconciled credit Or if you click the \"Done\" button."
+msgstr ""
+"Последен пат на фактури & плаќања појавување беше изведена на оваа сметка. "
+"Тоа е да поставите или ако нема барем една unreconciled дебитна и "
+"unreconciled кредитна Или ако кликнете на \"Готово\" копчето."
+
+#: model@fa.accounts|_columns@reconcile$label:1
 msgid "Allow Reconciliation"
 msgstr "Овозможи Помирување"
 
-#: fa.accounts-tax_ids:1 fa.account.template-tax_ids:1
+#: model@fa.accounts|_columns@reconcile$help:1
+msgid ""
+"Check this box if this account allows invoices & payments matching of "
+"journal items."
+msgstr ""
+"Проверете го ова поле ако оваа сметка им овозможува на фактури & плаќања "
+"појавување на списанието предмети."
+
+#: model@fa.accounts|_columns@tax_ids$label:1
+#: model@fa.account.template|_columns@tax_ids$label:1
 msgid "Default Taxes"
 msgstr "Стандардно Даноци"
 
-#: fa.accounts-note:1
+#: model@fa.accounts|_columns@note$label:1
 msgid "Internal Notes"
 msgstr "Внатрешни Белешки"
 
-#: fa.accounts-company_id:1 fa.accounts.journal-company_id:1
-#: fa.accounts.tax-company_id:1 fa.accounts.reconcile.model-company_id:1
-#: fa.chart.template-company_id:1 fa.tax.template-company_id:1
+#: model@fa.accounts|_columns@company_id$label:1
+#: model@fa.accounts.journal|_columns@company_id$label:1
+#: model@fa.accounts.tax|_columns@company_id$label:1
+#: model@fa.accounts.reconcile.model|_columns@company_id$label:1
+#: model@fa.chart.template|_columns@company_id$label:1
+#: model@fa.tax.template|_columns@company_id$label:1
 msgid "Company"
 msgstr "Компанија"
 
-#: fa.accounts-tag_ids:1 fa.accounts.tax-tag_ids:1
+#: model@fa.accounts|_columns@tag_ids$label:1
+#: model@fa.accounts.tax|_columns@tag_ids$label:1
 msgid "Tags"
 msgstr "Тагови"
 
-#: fa.accounts-group_id:1 fa.account.template-group_id:1
+#: model@fa.accounts|_columns@group_id$label:1
+#: model@fa.account.template|_columns@group_id$label:1
 msgid "Group"
 msgstr "Група"
 
-#: fa.accounts-opening_debit:1
+#: model@fa.accounts|_columns@opening_debit$label:1
 msgid "Opening debit"
 msgstr "Отворање дебитна"
 
-#: fa.accounts-opening_credit:1
+#: model@fa.accounts|_columns@opening_debit$help:1
+msgid "Opening debit value for this account."
+msgstr "Отворање дебитна вредност за оваа сметка."
+
+#: model@fa.accounts|_columns@opening_credit$label:1
 msgid "Opening credit"
 msgstr "Отварање на кредит"
 
-#: fa.accounts.group-name:1 fa.account.template-name:1
-#: fa.chart.template-name:1
+#: model@fa.accounts|_columns@opening_credit$help:1
+msgid "Opening credit value for this account."
+msgstr "Отворање кредитна вредност за оваа сметка."
+
+#: model@fa.accounts.group|_description@:1
+msgid "Genaral Model Accounts Group"
+msgstr "Genaral Модел Сметки Група"
+
+#: model@fa.accounts.group|_columns@name$label:1
+#: model@fa.account.template|_columns@name$label:1
+#: model@fa.chart.template|_columns@name$label:1
 msgid "name"
 msgstr "име"
 
-#: fa.accounts.group-code_prefix:1
+#: model@fa.accounts.group|_columns@code_prefix$label:1
 msgid "Code Prefix"
 msgstr "Код На Податоци"
 
-#: fa.accounts.group-parent_id:1
+#: model@fa.accounts.group|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Родител"
 
-#: fa.accounts.group-childs_id:1
+#: model@fa.accounts.group|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Детето"
 
-#: fa.accounts.journal-name:1
+#: model@fa.accounts.journal|_description@:1
+msgid "General Model Accounts Journal"
+msgstr "Општ Модел Сметки Весник"
+
+#: model@fa.accounts.journal|_columns@name$label:1
 msgid "Journal Name"
 msgstr "Весник Име"
 
-#: fa.accounts.journal-code:1
+#: model@fa.accounts.journal|_columns@code$label:1
 msgid "Short Code"
 msgstr "Краток Код"
 
-#: fa.accounts.journal-type_control_ids:1
-msgid "Account Types Allowed"
-msgstr "Сметка Видови Дозволено"
+#: model@fa.accounts.journal|_columns@code$help:1
+msgid "The journal entries of this journal will be named using this prefix."
+msgstr ""
+"На записи во дневникот на ова списание ќе биде именуван за користење на овој"
+" префикс."
 
-#: fa.accounts.journal-account_control_ids:1
-msgid "Accounts Allowed"
-msgstr "Сметки Дозволено"
+#: model@fa.accounts.journal|_columns@inactive$help:1
+msgid "Set active to false to hide the Journal without removing it."
+msgstr ""
+"Поставете активно да се лажни да се скрие Списанието без отстранување на "
+"тоа."
 
-#: fa.accounts.journal-default_credit_account_id:1
-msgid "Default Credit Account"
-msgstr "Стандардните Кредитни Сметка"
+#: model@fa.accounts.journal|_columns@type$selections#sale:1
+msgid "Sale"
+msgstr "Продажба"
 
-#: fa.accounts.journal-default_debit_account_id:1
-msgid "Default Debit Account"
-msgstr "Стандардно Дебитна Сметка"
+#: model@fa.accounts.journal|_columns@type$selections#purchase:1
+msgid "Purchase"
+msgstr "Купување"
 
-#: fa.accounts.journal-update_posted:1
-msgid "Allow Cancelling Entries"
-msgstr "Овозможи Поништување Записи"
+#: model@fa.accounts.journal|_columns@type$selections#cash:1
+msgid "Cash"
+msgstr "Пари"
 
-#: fa.accounts.journal-group_invoice_lines:1
-msgid "Group Invoice Lines"
-msgstr "Група Фактура Линии"
-
-#: fa.accounts.journal-sequence:1 fa.accounts.tax.group-sequence:1
-#: fa.accounts.reconcile.model-sequence:1 fa.tax.template-sequence:1
-#: fa.fiscal.position.template-sequence:1
-#: fa.reconcile.model.template-sequence:1
-msgid "Sequence"
-msgstr "Секвенца"
-
-#: fa.accounts.journal-sequence_number_next:1
-msgid "Next Number"
-msgstr "Следниот Број"
-
-#: fa.accounts.journal-refund_sequence_number_next:1
-msgid "Credit Notes: Next Number"
-msgstr "Кредитна Белешки: Следниот Број"
-
-#: fa.accounts.journal-currency_id:1 fa.chart.template-currency_id:1
-msgid "Currency"
-msgstr "Валута"
-
-#: fa.accounts.journal-refund_sequence:1
-msgid "Dedicated Credit Note Sequence"
-msgstr "Посветен Кредитна Белешка Секвенца"
-
-#: fa.accounts.journal-inbound_payment_method_ids:1
-msgid "Debit Methods"
-msgstr "Дебитна Методи"
-
-#: fa.accounts.journal-outbound_payment_method_ids:1
-msgid "Payment Methods"
-msgstr "Методи За Плаќање"
-
-#: fa.accounts.journal-at_least_one_inbound:1
-msgid "At least one inbound"
-msgstr "Барем еден влезни"
-
-#: fa.accounts.journal-at_least_one_outbound:1
-msgid "At least one outbound"
-msgstr "Најмалку еден надворешен"
-
-#: fa.accounts.journal-profit_account_id:1
-msgid "Profit Account"
-msgstr "Профит На Сметка"
-
-#: fa.accounts.journal-loss_account_id:1
-msgid "Loss Account"
-msgstr "Загуба Сметка"
-
-#: fa.accounts.journal-belongs_to_company:1
-msgid "Belong to the user's current company"
-msgstr "Припаѓаат на корисникот тековна компанија"
-
-#: fa.accounts.journal-bank_statements_source:1
-msgid "Bank Feeds"
-msgstr "Банката Гасови"
-
-#: fa.accounts.journal-bank_acc_number:1
-msgid "Bank ACC number"
-msgstr "Банката АКК број"
-
-#: fa.accounts.journal-bank_id:1
+#: model@fa.accounts.journal|_columns@type$selections#bank:1
+#: model@fa.accounts.journal|_columns@bank_id$label:1
 msgid "Bank"
 msgstr "Банката"
 
-#: fa.accounts.tax-name:1 fa.tax.template-name:1
+#: model@fa.accounts.journal|_columns@type$selections#general:1
+msgid "Miscellaneous"
+msgstr "Разно"
+
+#: model@fa.accounts.journal|_columns@type$help:1
+msgid ""
+"Select 'Sale' for customer invoices journals.\n"
+"Select 'Purchase' for vendor bills journals.\n"
+"Select 'Cash' or 'Bank' for journals that are used in customer or vendor payments.\n"
+"Select 'General' for miscellaneous operations journals."
+msgstr ""
+"Изберете \"за Продажба\" за клиентите фактури списанија.\n"
+"Изберете 'Купување' за добавувачот записи списанија.\n"
+"Изберете \"Пари\" или \"Банка\" за списанија кои се користат во клиент или добавувач на плаќања.\n"
+"Изберете \"Општи\" за разни операции списанија."
+
+#: model@fa.accounts.journal|_columns@type_control_ids$label:1
+msgid "Account Types Allowed"
+msgstr "Сметка Видови Дозволено"
+
+#: model@fa.accounts.journal|_columns@account_control_ids$label:1
+msgid "Accounts Allowed"
+msgstr "Сметки Дозволено"
+
+#: model@fa.accounts.journal|_columns@default_credit_account_id$label:1
+msgid "Default Credit Account"
+msgstr "Стандардните Кредитни Сметка"
+
+#: model@fa.accounts.journal|_columns@default_credit_account_id$help:1
+msgid "It acts as a default account for credit amount"
+msgstr "Тоа делува како стандардна сметка за износ на кредит"
+
+#: model@fa.accounts.journal|_columns@default_debit_account_id$label:1
+msgid "Default Debit Account"
+msgstr "Стандардно Дебитна Сметка"
+
+#: model@fa.accounts.journal|_columns@default_debit_account_id$help:1
+msgid "It acts as a default account for debit amount"
+msgstr "Тоа делува како стандардна сметка за дебитна износ"
+
+#: model@fa.accounts.journal|_columns@update_posted$label:1
+msgid "Allow Cancelling Entries"
+msgstr "Овозможи Поништување Записи"
+
+#: model@fa.accounts.journal|_columns@update_posted$help:1
+msgid ""
+"Check this box if you want to allow the cancellation the entries related to "
+"this journal or of the invoice related to this journal"
+msgstr ""
+"Проверете го ова поле ако сакате да го дозволите за откажување на внесовите "
+"поврзани со ова списание или на фактура во врска со ова списание"
+
+#: model@fa.accounts.journal|_columns@group_invoice_lines$label:1
+msgid "Group Invoice Lines"
+msgstr "Група Фактура Линии"
+
+#: model@fa.accounts.journal|_columns@group_invoice_lines$help:1
+msgid ""
+"If this box is checked, the system will try to group the accounting lines "
+"when generating them from invoices."
+msgstr ""
+"Ако ова поле е обележано, системот ќе се обиде да го група на "
+"сметководствени линии кога генерирање од нив фактури."
+
+#: model@fa.accounts.journal|_columns@sequence$label:1
+#: model@fa.accounts.tax.group|_columns@sequence$label:1
+#: model@fa.accounts.reconcile.model|_columns@sequence$label:1
+#: model@fa.tax.template|_columns@sequence$label:1
+#: model@fa.fiscal.position.template|_columns@sequence$label:1
+#: model@fa.reconcile.model.template|_columns@sequence$label:1
+msgid "Sequence"
+msgstr "Секвенца"
+
+#: model@fa.accounts.journal|_columns@sequence$help:1
+msgid "Used to order Journals in the dashboard view"
+msgstr "Се користи за цел Списанија во табла видите"
+
+#: model@fa.accounts.journal|_columns@sequence_number_next$label:1
+msgid "Next Number"
+msgstr "Следниот Број"
+
+#: model@fa.accounts.journal|_columns@sequence_number_next$help:1
+msgid "The next sequence number will be used for the next invoice."
+msgstr "Следниот реден број ќе се користи за следната сметка."
+
+#: model@fa.accounts.journal|_columns@refund_sequence_number_next$label:1
+msgid "Credit Notes: Next Number"
+msgstr "Кредитна Белешки: Следниот Број"
+
+#: model@fa.accounts.journal|_columns@refund_sequence_number_next$help:1
+msgid "The next sequence number will be used for the next credit note."
+msgstr "Следниот реден број ќе се користат за следните кредитна белешка."
+
+#: model@fa.accounts.journal|_columns@currency_id$label:1
+#: model@fa.chart.template|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Валута"
+
+#: model@fa.accounts.journal|_columns@currency_id$help:1
+msgid "The currency used to enter statement"
+msgstr "На валута која се користи за да внесете изјава"
+
+#: model@fa.accounts.journal|_columns@company_id$help:1
+msgid "Company related to this journal"
+msgstr "Компанијата во врска со ова списание"
+
+#: model@fa.accounts.journal|_columns@refund_sequence$label:1
+msgid "Dedicated Credit Note Sequence"
+msgstr "Посветен Кредитна Белешка Секвенца"
+
+#: model@fa.accounts.journal|_columns@refund_sequence$help:1
+msgid ""
+"Check this box if you don't want to share the same sequence for invoices and"
+" credit notes made from this journal"
+msgstr ""
+"Проверете го ова поле ако не сакате да споделување на истиот редослед за "
+"фактури и кредитна белешки направени од ова списание"
+
+#: model@fa.accounts.journal|_columns@inbound_payment_method_ids$label:1
+msgid "Debit Methods"
+msgstr "Дебитна Методи"
+
+#: model@fa.accounts.journal|_columns@outbound_payment_method_ids$label:1
+msgid "Payment Methods"
+msgstr "Методи За Плаќање"
+
+#: model@fa.accounts.journal|_columns@at_least_one_inbound$label:1
+msgid "At least one inbound"
+msgstr "Барем еден влезни"
+
+#: model@fa.accounts.journal|_columns@at_least_one_outbound$label:1
+msgid "At least one outbound"
+msgstr "Најмалку еден надворешен"
+
+#: model@fa.accounts.journal|_columns@profit_account_id$label:1
+msgid "Profit Account"
+msgstr "Профит На Сметка"
+
+#: model@fa.accounts.journal|_columns@profit_account_id$help:1
+msgid ""
+"Used to register a profit when the ending balance of a cash register differs"
+" from what the system computes"
+msgstr ""
+"Користи да се регистрирате профит, кога завршува биланс на каса се разликува"
+" од она што системот ја пресметува"
+
+#: model@fa.accounts.journal|_columns@loss_account_id$label:1
+msgid "Loss Account"
+msgstr "Загуба Сметка"
+
+#: model@fa.accounts.journal|_columns@loss_account_id$help:1
+msgid ""
+"Used to register a loss when the ending balance of a cash register differs "
+"from what the system computes"
+msgstr ""
+"Користи да се регистрирате загуба кога завршува биланс на каса се разликува "
+"од она што системот ја пресметува"
+
+#: model@fa.accounts.journal|_columns@belongs_to_company$label:1
+msgid "Belong to the user's current company"
+msgstr "Припаѓаат на корисникот тековна компанија"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$label:1
+msgid "Bank Feeds"
+msgstr "Банката Гасови"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$selections#undefined:1
+msgid "Undefined Yet"
+msgstr "Уште Недефинирани"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$selections#manual:1
+msgid "Record Manually"
+msgstr "Рекорд Рачно"
+
+#: model@fa.accounts.journal|_columns@bank_acc_number$label:1
+msgid "Bank ACC number"
+msgstr "Банката АКК број"
+
+#: model@fa.accounts.tax.group|_description@:1
+msgid "General Model Account Tax Group"
+msgstr "Општ Модел Сметка На Даночните Група"
+
+#: model@fa.accounts.tax|_description@:1
+msgid "General Model Accounts Tax"
+msgstr "Општ Модел Сметки Данок"
+
+#: model@fa.accounts.tax|_columns@name$label:1
+#: model@fa.tax.template|_columns@name$label:1
 msgid "Tax Name"
 msgstr "Данок Име"
 
-#: fa.accounts.tax-type_tax_use:1 fa.tax.template-type_tax_use:1
+#: model@fa.accounts.tax|_columns@type_tax_use$label:1
+#: model@fa.tax.template|_columns@type_tax_use$label:1
 msgid "Tax Scope"
 msgstr "Данок На Опсегот"
 
-#: fa.accounts.tax-tax_adjustment:1
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#sale:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#sale:1
+msgid "Sales"
+msgstr "Продажба"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#purchase:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#purchase:1
+msgid "Purchases"
+msgstr "Купува"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#none:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#none:1
+msgid "None"
+msgstr "Никој"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$help:1
+#: model@fa.tax.template|_columns@type_tax_use$help:1
+msgid ""
+"Determines where the tax is selectable. Note : 'None' means a tax can't be "
+"used by itself, however it can still be used in a group."
+msgstr ""
+"Одредува каде данокот е избор. Забелешка : 'Ниедно' значи данок не може да "
+"се користи само од себе, сепак тоа се уште може да се користи во група."
+
+#: model@fa.accounts.tax|_columns@tax_adjustment$label:1
 msgid "Tax adjustment"
 msgstr "Данок на вредноста"
 
-#: fa.accounts.tax-amount_type:1 fa.tax.template-amount_type:1
+#: model@fa.accounts.tax|_columns@tax_adjustment$help:1
+msgid ""
+"Set this field to true if this tax can be used in the tax adjustment wizard,"
+" used to manually fill some data in the tax declaration"
+msgstr ""
+"Постави ова поле да точно, ако овој данок може да се користи во даночната "
+"волшебникот за прилагодување, што се користи за рачно да ја пополните некои "
+"податоци во даночната декларација"
+
+#: model@fa.accounts.tax|_columns@amount_type$label:1
+#: model@fa.tax.template|_columns@amount_type$label:1
 msgid "Tax Computation"
 msgstr "Даночни Пресметки"
 
-#: fa.accounts.tax-children_tax_ids:1 fa.tax.template-children_tax_ids:1
+#: model@fa.accounts.tax|_columns@amount_type$selections#group:1
+#: model@fa.tax.template|_columns@amount_type$selections#group:1
+msgid "Group of Taxes"
+msgstr "Група на Даноци"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#fixed:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$selections#fixed:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$selections#fixed:1
+#: model@fa.tax.template|_columns@amount_type$selections#fixed:1
+#: model@fa.reconcile.model.template|_columns@amount_type$selections#fixed:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$selections#fixed:1
+msgid "Fixed"
+msgstr "Фиксен"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#percent:1
+#: model@fa.tax.template|_columns@amount_type$selections#percent:1
+msgid "Percentage of Price"
+msgstr "Процент на Цена"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#division:1
+#: model@fa.tax.template|_columns@amount_type$selections#division:1
+msgid "Percentage of Price Tax Included"
+msgstr "Процент на Цената Данок се Вклучени"
+
+#: model@fa.accounts.tax|_columns@inactive$help:1
+#: model@fa.tax.template|_columns@active$help:1
+msgid "Set active to false to hide the tax without removing it."
+msgstr ""
+"Поставете активно да се лажни да се скрие данок без отстранување на тоа."
+
+#: model@fa.accounts.tax|_columns@children_tax_ids$label:1
+#: model@fa.tax.template|_columns@children_tax_ids$label:1
 msgid "Children Taxes"
 msgstr "Децата Даноци"
 
-#: fa.accounts.tax-sequence:1 fa.reconcile.model.template-amount:1
+#: model@fa.accounts.tax|_columns@sequence$label:1
+#: model@fa.reconcile.model.template|_columns@amount$label:1
 msgid "unknown"
 msgstr "непознат"
 
-#: fa.accounts.tax-amount:1
+#: model@fa.accounts.tax|_columns@sequence$help:1
+#: model@fa.tax.template|_columns@sequence$help:1
+msgid ""
+"The sequence field is used to define order in which the tax lines are "
+"applied."
+msgstr ""
+"Редоследот поле се користи за да го дефинирате редоследот по кој ќе данок "
+"линии се применува."
+
+#: model@fa.accounts.tax|_columns@amount$label:1
 msgid "Amont"
 msgstr "Amont"
 
-#: fa.accounts.tax-account_id:1 fa.tax.template-account_id:1
+#: model@fa.accounts.tax|_columns@account_id$label:1
+#: model@fa.tax.template|_columns@account_id$label:1
 msgid "Tax Account"
 msgstr "Даночна Сметка"
 
-#: fa.accounts.tax-refund_account_id:1
+#: model@fa.accounts.tax|_columns@account_id$help:1
+#: model@fa.tax.template|_columns@account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for invoices. Leave empty to "
+"use the expense account."
+msgstr ""
+"Сметка која ќе биде поставена на фактура данок линии за фактури. Оставете "
+"празно за да го користите трошок сметка."
+
+#: model@fa.accounts.tax|_columns@refund_account_id$label:1
 msgid "Tax Account on Credit Notes"
 msgstr "Данок на Сметка на Кредит Белешки"
 
-#: fa.accounts.tax-description:1
+#: model@fa.accounts.tax|_columns@refund_account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for credit notes. Leave empty "
+"to use the expense account."
+msgstr ""
+"Сметка која ќе биде поставена на фактура данок кредитни линии за белешки. "
+"Оставете празно за да го користите трошок сметка."
+
+#: model@fa.accounts.tax|_columns@description$label:1
 msgid "Label on Invoices"
 msgstr "Етикета на Фактури"
 
-#: fa.accounts.tax-price_include:1 fa.tax.template-price_include:1
+#: model@fa.accounts.tax|_columns@price_include$label:1
+#: model@fa.tax.template|_columns@price_include$label:1
 msgid "Included in Price"
 msgstr "Вклучено во Цената"
 
-#: fa.accounts.tax-include_base_amount:1
+#: model@fa.accounts.tax|_columns@price_include$help:1
+#: model@fa.tax.template|_columns@price_include$help:1
+msgid ""
+"Check this if the price you use on the product and invoices includes this "
+"tax."
+msgstr ""
+"Провери ова, ако цената ви употреба на производот и фактури вклучува овој "
+"данок."
+
+#: model@fa.accounts.tax|_columns@include_base_amount$label:1
 msgid "Affect Base of Subsequent Taxes"
 msgstr "Влијае врз База на Следните Даноци"
 
-#: fa.accounts.tax-analytic:1
+#: model@fa.accounts.tax|_columns@include_base_amount$help:1
+#: model@fa.tax.template|_columns@include_base_amount$help:1
+msgid ""
+"If set, taxes which are computed after this one will be computed based on "
+"the price tax included."
+msgstr ""
+"Ако е поставен, се даноци кои се пресметува по ова ќе се пресметува врз "
+"основа на цената данок се вклучени."
+
+#: model@fa.accounts.tax|_columns@analytic$label:1
 msgid "Include in Analytic Cost"
 msgstr "Вклучуваат во Аналитичка Цена"
 
-#: fa.accounts.tax-tax_group_id:1 fa.tax.template-tax_group_id:1
+#: model@fa.accounts.tax|_columns@analytic$help:1
+#: model@fa.tax.template|_columns@analytic$help:1
+msgid ""
+"If set, the amount computed by this tax will be assigned to the same "
+"analytic account as the invoice line (if any)"
+msgstr ""
+"Ако е поставено, на износот се пресметува со овој данок ќе биде доделен на "
+"иста аналитичка сметка како фактура линија (ако има)"
+
+#: model@fa.accounts.tax|_columns@tax_group_id$label:1
+#: model@fa.tax.template|_columns@tax_group_id$label:1
 msgid "Tax Group"
 msgstr "Данок Група"
 
-#: fa.accounts.tax-hide_tax_exigibility:1
+#: model@fa.accounts.tax|_columns@hide_tax_exigibility$label:1
 msgid "Hide Use Cash Basis Option"
 msgstr "Скриј Го Користите Кеш Основа Опција"
 
-#: fa.accounts.tax-tax_exigibility:1 fa.tax.template-tax_exigibility:1
+#: model@fa.accounts.tax|_columns@tax_exigibility$label:1
+#: model@fa.tax.template|_columns@tax_exigibility$label:1
 msgid "Tax Due"
 msgstr "Данокот Се Должи"
 
-#: fa.accounts.tax-cash_basis_account:1 fa.tax.template-cash_basis_account:1
+#: model@fa.accounts.tax|_columns@tax_exigibility$selections#on_invoice:1
+#: model@fa.tax.template|_columns@tax_exigibility$selections#on_invoice:1
+msgid "Based on Invoice"
+msgstr "Врз основа на Фактура"
+
+#: model@fa.accounts.tax|_columns@tax_exigibility$selections#on_payment:1
+#: model@fa.tax.template|_columns@tax_exigibility$selections#on_payment:1
+msgid "Based on Payment"
+msgstr "Врз основа на Плаќање"
+
+#: model@fa.accounts.tax|_columns@tax_exigibility$help:1
+#: model@fa.tax.template|_columns@tax_exigibility$help:1
+msgid ""
+"Based on Invoice: the tax is due as soon as the invoice is validated.\n"
+"Based on Payment: the tax is due as soon as the payment of the invoice is received."
+msgstr ""
+"Врз основа на Фактура: на данокот се должи штом фактура е валидирана.\n"
+"Врз основа на Плаќање: на данокот се должи штом плаќање на фактурата е примена."
+
+#: model@fa.accounts.tax|_columns@cash_basis_account$label:1
+#: model@fa.tax.template|_columns@cash_basis_account$label:1
 msgid "Tax Received Account"
 msgstr "Данок Добиле Сметка"
 
-#: fa.accounts.reconcile.model-name:1 fa.reconcile.model.template-name:1
+#: model@fa.accounts.tax|_columns@cash_basis_account$help:1
+msgid ""
+"Account used as counterpart for the journal entry, for taxes eligible based "
+"on payments."
+msgstr ""
+"Сметка користи како колега, за списанието влез, за даноци се подобни врз "
+"основа на плаќања."
+
+#: model@fa.accounts.reconcile.model|_description@:1
+msgid "General Model Accounts Reconcile"
+msgstr "Општ Модел Сметки Се Помират"
+
+#: model@fa.accounts.reconcile.model|_columns@name$label:1
+#: model@fa.reconcile.model.template|_columns@name$label:1
 msgid "Button Label"
 msgstr "Копчето Етикета"
 
-#: fa.accounts.reconcile.model-has_second_line:1
-#: fa.reconcile.model.template-has_second_line:1
+#: model@fa.accounts.reconcile.model|_columns@has_second_line$label:1
+#: model@fa.reconcile.model.template|_columns@has_second_line$label:1
 msgid "Add a second line"
 msgstr "Додадете втора линија"
 
-#: fa.accounts.reconcile.model-account_id:1
-#: fa.reconcile.model.template-account_id:1
+#: model@fa.accounts.reconcile.model|_columns@account_id$label:1
+#: model@fa.reconcile.model.template|_columns@account_id$label:1
 msgid "Account"
 msgstr "Сметка"
 
-#: fa.accounts.reconcile.model-journal_id:1
+#: model@fa.accounts.reconcile.model|_columns@journal_id$label:1
 msgid "Journal"
 msgstr "Весник"
 
-#: fa.accounts.reconcile.model-label:1 fa.reconcile.model.template-label:1
+#: model@fa.accounts.reconcile.model|_columns@journal_id$help:1
+#: model@fa.accounts.reconcile.model|_columns@second_journal_id$help:1
+msgid "This field is ignored in a bank statement reconciliation."
+msgstr "Ова поле е земен во банка изјава помирување."
+
+#: model@fa.accounts.reconcile.model|_columns@label$label:1
+#: model@fa.reconcile.model.template|_columns@label$label:1
 msgid "Journal Item Label"
 msgstr "Весник Објект Етикетата"
 
-#: fa.accounts.reconcile.model-amount_type:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$label:1
 msgid "Amount Type"
 msgstr "Износот Тип"
 
-#: fa.accounts.reconcile.model-amount:1 fa.tax.template-amount:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$selections#percentage:1
+#: model@fa.reconcile.model.template|_columns@amount_type$selections#percentage:1
+msgid "Percentage of balance"
+msgstr "Процент на рамнотежа"
+
+#: model@fa.accounts.reconcile.model|_columns@amount$label:1
+#: model@fa.tax.template|_columns@amount$label:1
 msgid "Amount"
 msgstr "Количина"
 
-#: fa.accounts.reconcile.model-tax_id:1 fa.reconcile.model.template-tax_id:1
+#: model@fa.accounts.reconcile.model|_columns@amount$help:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount$help:1
+#: model@fa.reconcile.model.template|_columns@amount$help:1
+#: model@fa.reconcile.model.template|_columns@second_amount$help:1
+msgid ""
+"Fixed amount will count as a debit if it is negative, as a credit if it is "
+"positive."
+msgstr ""
+"Фиксен износ ќе се смета како дебитна ако е негативен, како кредит, ако тоа "
+"е позитивно."
+
+#: model@fa.accounts.reconcile.model|_columns@tax_id$label:1
+#: model@fa.reconcile.model.template|_columns@tax_id$label:1
 msgid "Tax"
 msgstr "Данок"
 
-#: fa.accounts.reconcile.model-second_account_id:1
-#: fa.reconcile.model.template-second_account_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_account_id$label:1
+#: model@fa.reconcile.model.template|_columns@second_account_id$label:1
 msgid "Second Account"
 msgstr "Втората Сметка"
 
-#: fa.accounts.reconcile.model-second_journal_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_journal_id$label:1
 msgid "Second Journal"
 msgstr "Вториот Весник"
 
-#: fa.accounts.reconcile.model-second_label:1
-#: fa.reconcile.model.template-second_label:1
+#: model@fa.accounts.reconcile.model|_columns@second_label$label:1
+#: model@fa.reconcile.model.template|_columns@second_label$label:1
 msgid "Second Journal Item Label"
 msgstr "Вториот Весник Објект Етикетата"
 
-#: fa.accounts.reconcile.model-second_amount_type:1
-#: fa.reconcile.model.template-second_amount_type:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$label:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$label:1
 msgid "Second Amount type"
 msgstr "Вториот тип Износ"
 
-#: fa.accounts.reconcile.model-second_amount:1
-#: fa.reconcile.model.template-second_amount:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$selections#percentage:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$selections#percentage:1
+msgid "Percentage of amount"
+msgstr "Процент од износот"
+
+#: model@fa.accounts.reconcile.model|_columns@second_amount$label:1
+#: model@fa.reconcile.model.template|_columns@second_amount$label:1
 msgid "Second Amount"
 msgstr "Втората Износ"
 
-#: fa.accounts.reconcile.model-second_tax_id:1
-#: fa.reconcile.model.template-second_tax_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_tax_id$label:1
+#: model@fa.reconcile.model.template|_columns@second_tax_id$label:1
 msgid "Second Tax"
 msgstr "Вториот Данок"
 
-#: fa.account.template-reconcile:1
+#: model@fa.account.template|_description@:1
+msgid "Genaral Model Templates for Accounts"
+msgstr "Genaral Модел Шаблони за Сметки"
+
+#: model@fa.account.template|_columns@currency_id$help:1
+msgid "Forces all moves for this account to have this secondary currency."
+msgstr "Силите сите потези за оваа сметка за да ја имаат оваа средно валута."
+
+#: model@fa.account.template|_columns@user_type_id$help:1
+msgid ""
+"These types are defined according to your country. The type contains more "
+"information about the account and its specificities."
+msgstr ""
+"Овие видови се дефинирани според вашата земја. Тип содржи повеќе информации "
+"за сметката и неговите специфичности."
+
+#: model@fa.account.template|_columns@reconcile$label:1
 msgid "Allow Invoices & payments Matching"
 msgstr "Им овозможи на Фактури и плаќања Појавување"
 
-#: fa.account.template-nocreate:1
+#: model@fa.account.template|_columns@reconcile$help:1
+msgid ""
+"Check this option if you want the user to reconcile entries in this account."
+msgstr ""
+"Изберете ја оваа опција ако сакате корисникот да се помират записи во овој "
+"профил."
+
+#: model@fa.account.template|_columns@nocreate$label:1
 msgid "Optional Create"
 msgstr "Факултативна Креирате"
 
-#: fa.account.template-chart_template_id:1 fa.tax.template-chart_template_id:1
-#: fa.fiscal.position.template-chart_template_id:1
-#: fa.reconcile.model.template-chart_template_id:1
+#: model@fa.account.template|_columns@nocreate$help:1
+msgid ""
+"If checked, the new chart of accounts will not contain this by default."
+msgstr "Ако е означено, новата шема на сметки не содржат оваа стандардно."
+
+#: model@fa.account.template|_columns@chart_template_id$label:1
+#: model@fa.tax.template|_columns@chart_template_id$label:1
+#: model@fa.fiscal.position.template|_columns@chart_template_id$label:1
+#: model@fa.reconcile.model.template|_columns@chart_template_id$label:1
 msgid "Chart Template"
 msgstr "Табела Дефиниција"
 
-#: fa.account.template-tag_ids:1 fa.tax.template-tag_ids:1
+#: model@fa.account.template|_columns@chart_template_id$help:1
+msgid ""
+"This optional field allow you to link an account template to a specific "
+"chart template that may differ from the one its root parent belongs to. This"
+" allow you to define chart templates that extend another and complete it "
+"with few new accounts (You don't need to define the whole structure that is "
+"common to both several times)."
+msgstr ""
+"Овој изборен поле ви овозможи да водат сметка образец за одредена шема "
+"дефиниција дека може да се разликуваат од еден свој корен родител припаѓа. "
+"Ова ќе ви овозможи да се дефинира шема шаблони кои се проширува на друг и го"
+" заврши со неколку нови сметки (не треба да се дефинираат на целата "
+"структура која е заеднички за двете неколку пати)."
+
+#: model@fa.account.template|_columns@tag_ids$label:1
+#: model@fa.tax.template|_columns@tag_ids$label:1
 msgid "Account tag"
 msgstr "Сметка ознака"
 
-#: fa.chart.template-parent_id:1
+#: model@fa.account.template|_columns@tag_ids$help:1
+#: model@fa.tax.template|_columns@tag_ids$help:1
+msgid "Optional tags you may want to assign for custom reporting"
+msgstr ""
+"Факултативна ознаки може да сакате да го доделите за прилагодено известување"
+
+#: model@fa.chart.template|_description@:1
+msgid "Genaral Model Templates for Account Chart"
+msgstr "Genaral Модел Шаблони за Сметка на Табелата"
+
+#: model@fa.chart.template|_columns@parent_id$label:1
 msgid "Parent Chart Template"
 msgstr "Родител На Табелата Дефиниција"
 
-#: fa.chart.template-code_digits:1
+#: model@fa.chart.template|_columns@code_digits$label:1
 msgid "# of Digits"
 msgstr " број на Цифри"
 
-#: fa.chart.template-visible:1
+#: model@fa.chart.template|_columns@code_digits$help:1
+msgid "No. of Digits to use for account code"
+msgstr "Нема. на Цифри се користи за сметка кодот"
+
+#: model@fa.chart.template|_columns@visible$label:1
 msgid "Can be Visible?"
 msgstr "Може да бидат Видливи?"
 
-#: fa.chart.template-use_anglo_saxon:1
+#: model@fa.chart.template|_columns@visible$help:1
+msgid ""
+"Set this to False if you don't want this template to be used actively in the"
+" wizard that generate Chart of Accounts from templates, this is useful when "
+"you want to generate accounts of this template only when loading its child "
+"template."
+msgstr ""
+"Во собата до Погрешни ако не сакате овој шаблон треба да се користи "
+"поактивно во волшебник, кој генерира Табела на Сметки од шаблони, ова е "
+"корисно кога сакате да создадете сметки на оваа дефиниција, само кога "
+"вчитување на нејзиното дете дефиниција."
+
+#: model@fa.chart.template|_columns@use_anglo_saxon$label:1
 msgid "Use Anglo-Saxon accounting"
 msgstr "Користете Англо-Саксонските сметководство"
 
-#: fa.chart.template-complete_tax_set:1
+#: model@fa.chart.template|_columns@complete_tax_set$label:1
 msgid "Complete Set of Taxes"
 msgstr "Комплетен Сет на Даноци"
 
-#: fa.chart.template-account_ids:1
+#: model@fa.chart.template|_columns@complete_tax_set$help:1
+msgid ""
+"This boolean helps you to choose if you want to propose to the user to "
+"encode the sale and purchase rates or choose from list of taxes. This last "
+"choice assumes that the set of tax defined on this template is complete"
+msgstr ""
+"Оваа логичка ви помага да изберете дали сакате да му предложи на корисникот "
+"за да го кодирај продажба и купување стапки или изберете од листата на "
+"даноците. Овој последен избор претпоставува дека сет на данок дефинирани на "
+"оваа дефиниција е завршена"
+
+#: model@fa.chart.template|_columns@account_ids$label:1
 msgid "Associated Account Templates"
 msgstr "Поврзани Шаблони Сметка"
 
-#: fa.chart.template-tax_template_ids:1
+#: model@fa.chart.template|_columns@tax_template_ids$label:1
 msgid "Tax Template List"
 msgstr "Данок На Шаблони"
 
-#: fa.chart.template-bank_account_code_prefix:1
+#: model@fa.chart.template|_columns@tax_template_ids$help:1
+msgid "List of all the taxes that have to be installed by the wizard"
+msgstr "Листа на сите даноци кои мора да бидат инсталирани од волшебник"
+
+#: model@fa.chart.template|_columns@bank_account_code_prefix$label:1
 msgid "Prefix of the bank accounts"
 msgstr "Префикс на банкарски сметки"
 
-#: fa.chart.template-cash_account_code_prefix:1
+#: model@fa.chart.template|_columns@cash_account_code_prefix$label:1
 msgid "Prefix of the main cash accounts"
 msgstr "Префикс на главната парични сметки"
 
-#: fa.chart.template-transfer_account_id:1
+#: model@fa.chart.template|_columns@transfer_account_id$label:1
 msgid "Transfer Account"
 msgstr "Трансфер На Сметка"
 
-#: fa.chart.template-income_currency_exchange_account_id:1
+#: model@fa.chart.template|_columns@transfer_account_id$help:1
+msgid ""
+"Intermediary account used when moving money from a liquidity account to "
+"another"
+msgstr ""
+"Посредник сметка користи кога се движат пари од ликвидност сметка на друга"
+
+#: model@fa.chart.template|_columns@income_currency_exchange_account_id$label:1
 msgid "Gain Exchange Rate Account"
 msgstr "Се Здобијат Со Девизниот Курс Сметка"
 
-#: fa.chart.template-expense_currency_exchange_account_id:1
+#: model@fa.chart.template|_columns@expense_currency_exchange_account_id$label:1
 msgid "Loss Exchange Rate Account"
 msgstr "Загуба На Девизниот Курс Сметка"
 
-#: fa.chart.template-property_account_receivable_id:1
+#: model@fa.chart.template|_columns@property_account_receivable_id$label:1
 msgid "Receivable Account"
 msgstr "Правно Побарување Сметка"
 
-#: fa.chart.template-property_account_payable_id:1
+#: model@fa.chart.template|_columns@property_account_payable_id$label:1
 msgid "Payable Account"
 msgstr "Плати Сметка"
 
-#: fa.chart.template-property_account_expense_categ_id:1
+#: model@fa.chart.template|_columns@property_account_expense_categ_id$label:1
 msgid "Category of Expense Account"
 msgstr "Категорија на Трошок Сметка"
 
-#: fa.chart.template-property_account_income_categ_id:1
+#: model@fa.chart.template|_columns@property_account_income_categ_id$label:1
 msgid "Category of Income Account"
 msgstr "Категорија на Приходи Сметка"
 
-#: fa.chart.template-property_account_expense_id:1
+#: model@fa.chart.template|_columns@property_account_expense_id$label:1
 msgid "Expense Account on Product Template"
 msgstr "Трошок Сметка на Производот Дефиниција"
 
-#: fa.chart.template-property_account_income_id:1
+#: model@fa.chart.template|_columns@property_account_income_id$label:1
 msgid "Income Account on Product Template"
 msgstr "Приходи-Сметка на Производот Дефиниција"
 
-#: fa.chart.template-property_stock_account_input_categ_id:1
+#: model@fa.chart.template|_columns@property_stock_account_input_categ_id$label:1
 msgid "Input Account for Stock Valuation"
 msgstr "Текст Сметка за Вреднување на Акции"
 
-#: fa.chart.template-property_stock_account_output_categ_id:1
+#: model@fa.chart.template|_columns@property_stock_account_output_categ_id$label:1
 msgid "Output Account for Stock Valuation"
 msgstr "Излез Сметка за Вреднување на Акции"
 
-#: fa.chart.template-property_stock_valuation_account_id:1
+#: model@fa.chart.template|_columns@property_stock_valuation_account_id$label:1
 msgid "Account Template for Stock Valuation"
 msgstr "Сметка Образец за Вреднување на Акции"
 
-#: fa.tax.template-tax_adjustment:1
+#: model@fa.tax.template|_description@:1
+msgid "General Model Templates for Taxes"
+msgstr "Општ Модел Шаблони за Даноци"
+
+#: model@fa.tax.template|_columns@tax_adjustment$label:1
 msgid "Tax Adjustment"
 msgstr "Данок На Вредноста"
 
-#: fa.tax.template-active:1
+#: model@fa.tax.template|_columns@active$label:1
 msgid "Active"
 msgstr "Активни"
 
-#: fa.tax.template-refund_account_id:1
+#: model@fa.tax.template|_columns@refund_account_id$label:1
 msgid "Tax Account on Refunds"
 msgstr "Данок на Сметка на Наплата"
 
-#: fa.tax.template-description:1
+#: model@fa.tax.template|_columns@refund_account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for refunds. Leave empty to "
+"use the expense account."
+msgstr ""
+"Сметка која ќе биде поставена на фактура данок линии за наплата. Оставете "
+"празно за да го користите трошок сметка."
+
+#: model@fa.tax.template|_columns@description$label:1
 msgid "Display on Invoices"
 msgstr "Прикажување на Фактури"
 
-#: fa.tax.template-include_base_amount:1
+#: model@fa.tax.template|_columns@include_base_amount$label:1
 msgid "Affect Subsequent Taxes"
 msgstr "Влијае На Следните Даноци"
 
-#: fa.tax.template-analytic:1
+#: model@fa.tax.template|_columns@analytic$label:1
 msgid "Analytic Cost"
 msgstr "Аналитичка Цена"
 
-#: fa.fiscal.position.template-name:1
+#: model@fa.tax.template|_columns@cash_basis_account$help:1
+msgid ""
+"Account used as counterpart for the journal entry, for taxes exigible based "
+"on payments."
+msgstr ""
+"Сметка користи како колега, за списанието влез, за даноци exigible врз "
+"основа на плаќања."
+
+#: model@fa.fiscal.position.template|_description@:1
+msgid "Genaral Model Template for Fiscal Position"
+msgstr "Genaral Модел Образец за Фискалната Позиција"
+
+#: model@fa.fiscal.position.template|_columns@name$label:1
 msgid "Fiscal Position Template"
 msgstr "Фискалната Позиција Дефиниција"
 
-#: fa.fiscal.position.template-account_ids:1
+#: model@fa.fiscal.position.template|_columns@account_ids$label:1
 msgid "Account Mapping"
 msgstr "Сметка За Мапирање"
 
-#: fa.fiscal.position.template-tax_ids:1
+#: model@fa.fiscal.position.template|_columns@tax_ids$label:1
 msgid "Tax Mapping"
 msgstr "Данок Мапирање"
 
-#: fa.fiscal.position.template-auto_apply:1
+#: model@fa.fiscal.position.template|_columns@auto_apply$label:1
 msgid "Detect Automatically"
 msgstr "Детектира Автоматски"
 
-#: fa.fiscal.position.template-vat_required:1
+#: model@fa.fiscal.position.template|_columns@auto_apply$help:1
+msgid "Apply automatically this fiscal position."
+msgstr "Автоматски важат оваа фискална позиција."
+
+#: model@fa.fiscal.position.template|_columns@vat_required$label:1
 msgid "VAT required"
 msgstr "ДДВ потребни"
 
-#: fa.fiscal.position.template-country_id:1
+#: model@fa.fiscal.position.template|_columns@vat_required$help:1
+msgid "Apply only if partner has a VAT number."
+msgstr "Се применува само ако партнерот има ДДВ број."
+
+#: model@fa.fiscal.position.template|_columns@country_id$label:1
 msgid "Country"
 msgstr "Земја"
 
-#: fa.fiscal.position.template-country_group_id:1
+#: model@fa.fiscal.position.template|_columns@country_id$help:1
+msgid "Apply only if delivery or invoicing country match."
+msgstr "Се применува само ако испорака или фактурирање земја натпревар."
+
+#: model@fa.fiscal.position.template|_columns@country_group_id$label:1
 msgid "Country Group"
 msgstr "Земјата Група"
 
-#: fa.fiscal.position.template-state_ids:1
+#: model@fa.fiscal.position.template|_columns@country_group_id$help:1
+msgid "Apply only if delivery or invocing country match the group."
+msgstr "Се применува само ако испорака или invocing земја натпревар групата."
+
+#: model@fa.fiscal.position.template|_columns@state_ids$label:1
 msgid "Federal States"
 msgstr "Федералните Држави"
 
-#: fa.fiscal.position.template-zip_from:1
+#: model@fa.fiscal.position.template|_columns@zip_from$label:1
 msgid "Zip Range From"
 msgstr "Zip Опсег Од"
 
-#: fa.fiscal.position.template-zip_to:1
+#: model@fa.fiscal.position.template|_columns@zip_to$label:1
 msgid "Zip Range To"
 msgstr "Zip Опсег За Да"
 
-#: fa.fiscal.position.tax.template-position_id:1
+#: model@fa.fiscal.position.tax.template|_description@:1
+msgid "Genaral Model Template Tax Fiscal Position"
+msgstr "Genaral Модел Образец Данок Фискална Позиција"
+
+#: model@fa.fiscal.position.tax.template|_columns@position_id$label:1
 msgid "Fiscal Position"
 msgstr "Фискалната Позиција"
 
-#: fa.fiscal.position.tax.template-tax_src_id:1
+#: model@fa.fiscal.position.tax.template|_columns@tax_src_id$label:1
 msgid "Tax Source"
 msgstr "Данок Извор"
 
-#: fa.fiscal.position.tax.template-tax_dest_id:1
+#: model@fa.fiscal.position.tax.template|_columns@tax_dest_id$label:1
 msgid "Replacement Tax"
 msgstr "Замена Данок"
 
-#: fa.fiscal.position.account.template-position_id:1
+#: model@fa.fiscal.position.account.template|_description@:1
+msgid "Genaral Model Template Account Fiscal Mapping"
+msgstr "Genaral Модел Образец Фискална Сметка За Мапирање"
+
+#: model@fa.fiscal.position.account.template|_columns@position_id$label:1
 msgid "Fiscal Mapping"
 msgstr "Фискална Мапирање"
 
-#: fa.fiscal.position.account.template-account_src_id:1
+#: model@fa.fiscal.position.account.template|_columns@account_src_id$label:1
 msgid "Account Source"
 msgstr "Сметка Извор"
 
-#: fa.fiscal.position.account.template-account_dest_id:1
+#: model@fa.fiscal.position.account.template|_columns@account_dest_id$label:1
 msgid "Account Destination"
 msgstr "Сметка Дестинација"
 
-#: fa.reconcile.model.template-amount_type:1
+#: model@fa.reconcile.model.template|_description@:1
+msgid "Genaral Model Reconcile Model Template"
+msgstr "Genaral Модел Се Помират Модел Дефиниција"
+
+#: model@fa.reconcile.model.template|_columns@amount_type$label:1
 msgid "Amount type"
 msgstr "Износот тип"
 
-#: fa.accounts.payment.method-payment_type:1
+#: model@fa.accounts.payment.method|_description@:1
+msgid "Genaral  ModelPayment Methods"
+msgstr "Genaral ModelPayment Методи"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$label:1
 msgid "Payment Type"
 msgstr "Плаќање Тип"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$selections#inbound:1
+msgid "Inbound"
+msgstr "Влезни"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$selections#outbound:1
+msgid "Outbound"
+msgstr "Датум на поаѓање"

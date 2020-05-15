@@ -28,14 +28,33 @@ def _download_i18n(cr,pool,uid,path,module,models):
 	mt = {}
 	oc = []
 	for model in models:
-		ci = model.columnsInfo(attributes=['label'])
+		msgid = model._description
+		mt.setdefault(msgid,[]).append(('model@'+model._name + '|_description@', 1))
+		if model.__doc__:
+			msgid = model.__doc__
+			mt.setdefault(msgid,[]).append(('model@'+model._name + '|__doc__@', 1))
+
+		ci = model.columnsInfo(attributes=['label','selections','manual','help'])
 		for k in ci.keys():
 			if ci[k]['label'] is None:
 				msgid = 'Unknown'
 			else:
 				msgid = ci[k]['label']
 			
-			mt.setdefault(msgid,[]).append((model._name+'-'+k, 1))
+			mt.setdefault(msgid,[]).append(('model@'+model._name+'|_columns@'+k+'$label', 1))
+			if 'selections' in ci [k] and ci[k]['selections']:
+				for ks1,ks2 in ci[k]['selections']:
+					msgid = ks2
+					mt.setdefault(msgid,[]).append(('model@'+model._name+'|_columns@'+k+'$selections#'+ks1, 1))
+
+			if 'manual' in ci[k] and ci[k]['manual']:
+				msgid = ci[k]['manual']
+				mt.setdefault(msgid,[]).append(('model@'+model._name+'|_columns@'+k+'$manual', 1))
+
+			if 'help' in ci[k] and ci[k]['help']:
+				msgid = ci[k]['help']
+				mt.setdefault(msgid,[]).append(('model@'+model._name+'|_columns@'+k+'$help', 1))
+
 
 	for k in mt.keys():
 			

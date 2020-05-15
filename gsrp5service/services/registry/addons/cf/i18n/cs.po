@@ -3,142 +3,231 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:33:36+0000\n"
-"PO-Revision-Date: 2020-02-13 14:33:36+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:52+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:52+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: cf.groups-name:1 cf.files-name:1 cf.links-name:1 cf.folders-name:1
+#: model@cf.groups|_description@:1
+msgid "General Model Colobrative Groups"
+msgstr "Obecné Model Colobrative Skupin"
+
+#: model@cf.groups|_columns@name$label:1 model@cf.files|_columns@name$label:1
+#: model@cf.links|_columns@name$label:1 model@cf.folders|_columns@name$label:1
 msgid "Name"
 msgstr "Jméno"
 
-#: cf.groups-code:1
+#: model@cf.groups|_columns@code$label:1
 msgid "Code"
 msgstr "Kód"
 
-#: cf.groups-users_id:1
+#: model@cf.groups|_columns@users_id$label:1
 msgid "Grpup"
 msgstr "Grpup"
 
-#: cf.tags-tag:1
+#: model@cf.tags|_description@:1
+msgid "General Model Colobrative Folders File Tags"
+msgstr "Obecné Model Colobrative Složky Souboru Tagy"
+
+#: model@cf.tags|_columns@tag$label:1
 msgid "Tag"
 msgstr "Tag"
 
-#: cf.tags-folders:1
+#: model@cf.tags|_columns@folders$label:1
 msgid "Folders"
 msgstr "Složky"
 
-#: cf.tags-files:1 cf.folders-files:1
+#: model@cf.tags|_columns@files$label:1
+#: model@cf.folders|_columns@files$label:1
 msgid "Files"
 msgstr "Soubory"
 
-#: cf.tags-links:1 cf.folders-links:1
+#: model@cf.tags|_columns@links$label:1
+#: model@cf.folders|_columns@links$label:1
 msgid "Links"
 msgstr "Odkazy"
 
-#: cf.file.access.users-file_id:1 cf.file.access.groups-file_id:1
-#: cf.file.access.others-file_id:1 cf.links-file_id:1
+#: model@cf.file.access.users|_description@:1
+#: model@cf.folder.access.users|_description@:1
+msgid "General Model File Access Users"
+msgstr "Obecný Model Přístupu K Souboru Uživatele"
+
+#: model@cf.file.access.users|_columns@file_id$label:1
+#: model@cf.file.access.groups|_columns@file_id$label:1
+#: model@cf.file.access.others|_columns@file_id$label:1
+#: model@cf.links|_columns@file_id$label:1
 msgid "File"
 msgstr "Soubor"
 
-#: cf.file.access.users-user_id:1 cf.link.access.users-user_id:1
-#: cf.folder.access.users-folder_id:1 cf.folder.access.users-user_id:1
-#: cf.folder.access.groups-folder_id:1
+#: model@cf.file.access.users|_columns@user_id$label:1
+#: model@cf.link.access.users|_columns@user_id$label:1
+#: model@cf.folder.access.users|_columns@folder_id$label:1
+#: model@cf.folder.access.users|_columns@user_id$label:1
+#: model@cf.folder.access.groups|_columns@folder_id$label:1
 msgid "User"
 msgstr "Uživatel"
 
-#: cf.file.access.users-r:1 cf.file.access.groups-r:1
-#: cf.file.access.others-r:1 cf.link.access.users-r:1
-#: cf.link.access.groups-r:1 cf.link.access.others-r:1
-#: cf.folder.access.users-r:1 cf.folder.access.groups-r:1
-#: cf.folder.access.others-r:1
+#: model@cf.file.access.users|_columns@r$label:1
+#: model@cf.file.access.groups|_columns@r$label:1
+#: model@cf.file.access.others|_columns@r$label:1
+#: model@cf.link.access.users|_columns@r$label:1
+#: model@cf.link.access.groups|_columns@r$label:1
+#: model@cf.link.access.others|_columns@r$label:1
+#: model@cf.folder.access.users|_columns@r$label:1
+#: model@cf.folder.access.groups|_columns@r$label:1
+#: model@cf.folder.access.others|_columns@r$label:1
 msgid "Read"
 msgstr "Číst"
 
-#: cf.file.access.users-w:1 cf.file.access.groups-w:1
-#: cf.file.access.others-w:1 cf.link.access.users-w:1
-#: cf.link.access.groups-w:1 cf.link.access.others-w:1
-#: cf.folder.access.users-w:1 cf.folder.access.groups-w:1
-#: cf.folder.access.others-w:1
+#: model@cf.file.access.users|_columns@w$label:1
+#: model@cf.file.access.groups|_columns@w$label:1
+#: model@cf.file.access.others|_columns@w$label:1
+#: model@cf.link.access.users|_columns@w$label:1
+#: model@cf.link.access.groups|_columns@w$label:1
+#: model@cf.link.access.others|_columns@w$label:1
+#: model@cf.folder.access.users|_columns@w$label:1
+#: model@cf.folder.access.groups|_columns@w$label:1
+#: model@cf.folder.access.others|_columns@w$label:1
 msgid "Write"
 msgstr "Napište"
 
-#: cf.file.access.users-x:1 cf.file.access.groups-x:1
-#: cf.file.access.others-x:1 cf.link.access.users-x:1
-#: cf.link.access.groups-x:1 cf.link.access.others-x:1
-#: cf.folder.access.users-x:1 cf.folder.access.groups-x:1
-#: cf.folder.access.others-x:1
+#: model@cf.file.access.users|_columns@x$label:1
+#: model@cf.file.access.groups|_columns@x$label:1
+#: model@cf.file.access.others|_columns@x$label:1
+#: model@cf.link.access.users|_columns@x$label:1
+#: model@cf.link.access.groups|_columns@x$label:1
+#: model@cf.link.access.others|_columns@x$label:1
+#: model@cf.folder.access.users|_columns@x$label:1
+#: model@cf.folder.access.groups|_columns@x$label:1
+#: model@cf.folder.access.others|_columns@x$label:1
 msgid "Exec"
 msgstr "Exec"
 
-#: cf.file.access.groups-group_id:1 cf.link.access.groups-group_id:1
-#: cf.folder.access.groups-group_id:1
+#: model@cf.file.access.groups|_description@:1
+msgid "General Model File Access Groups"
+msgstr "Obecný Model Přístupu K Souboru Skupin"
+
+#: model@cf.file.access.groups|_columns@group_id$label:1
+#: model@cf.link.access.groups|_columns@group_id$label:1
+#: model@cf.folder.access.groups|_columns@group_id$label:1
 msgid "Group"
 msgstr "Skupina"
 
-#: cf.files-size:1
+#: model@cf.file.access.others|_description@:1
+msgid "General Model File Access Others"
+msgstr "Obecný Model Přístupu K Souboru Ostatní"
+
+#: model@cf.files|_description@:1
+msgid "General Model Colobrative Files"
+msgstr "Obecné Model Colobrative Soubory"
+
+#: model@cf.files|_columns@size$label:1
 msgid "Size"
 msgstr "Velikost"
 
-#: cf.files-created_by:1 cf.links-created_by:1 cf.folders-created_by:1
+#: model@cf.files|_columns@created_by$label:1
+#: model@cf.links|_columns@created_by$label:1
+#: model@cf.folders|_columns@created_by$label:1
 msgid "Created By"
 msgstr "Vytvořil"
 
-#: cf.files-created:1 cf.links-created:1 cf.folders-created:1
+#: model@cf.files|_columns@created$label:1
+#: model@cf.links|_columns@created$label:1
+#: model@cf.folders|_columns@created$label:1
 msgid "Created"
 msgstr "Vytvořil"
 
-#: cf.files-modified_by:1 cf.links-modified_by:1 cf.folders-modified_by:1
+#: model@cf.files|_columns@modified_by$label:1
+#: model@cf.links|_columns@modified_by$label:1
+#: model@cf.folders|_columns@modified_by$label:1
 msgid "Modified By"
 msgstr "Modifikované"
 
-#: cf.files-modified:1 cf.links-modified:1 cf.folders-modified:1
+#: model@cf.files|_columns@modified$label:1
+#: model@cf.links|_columns@modified$label:1
+#: model@cf.folders|_columns@modified$label:1
 msgid "Modified"
 msgstr "Upraven"
 
-#: cf.files-url:1
+#: model@cf.files|_columns@url$label:1
 msgid "Url"
 msgstr "Url"
 
-#: cf.files-data:1
+#: model@cf.files|_columns@data$label:1
 msgid "Data"
 msgstr "Údaje"
 
-#: cf.files-folder_id:1 cf.links-folder_id:1
-#: cf.folder.access.others-folder_id:1
+#: model@cf.files|_columns@folder_id$label:1
+#: model@cf.links|_columns@folder_id$label:1
+#: model@cf.folder.access.others|_columns@folder_id$label:1
 msgid "Folder"
 msgstr "Složky"
 
-#: cf.files-users_access:1 cf.links-users_access:1 cf.folders-users_access:1
+#: model@cf.files|_columns@users_access$label:1
+#: model@cf.links|_columns@users_access$label:1
+#: model@cf.folders|_columns@users_access$label:1
 msgid "User Access"
 msgstr "Uživatelský Přístup"
 
-#: cf.files-groups_access:1 cf.links-groups_access:1
-#: cf.folders-groups_access:1
+#: model@cf.files|_columns@groups_access$label:1
+#: model@cf.links|_columns@groups_access$label:1
+#: model@cf.folders|_columns@groups_access$label:1
 msgid "Group Access"
 msgstr "Skupina Přístup"
 
-#: cf.files-others_access:1 cf.links-others_access:1
-#: cf.folders-others_access:1
+#: model@cf.files|_columns@others_access$label:1
+#: model@cf.links|_columns@others_access$label:1
+#: model@cf.folders|_columns@others_access$label:1
 msgid "Other Access"
 msgstr "Jiný Přístup"
 
-#: cf.files-tags_id:1 cf.links-tags_id:1 cf.folders-tags_id:1
+#: model@cf.files|_columns@tags_id$label:1
+#: model@cf.links|_columns@tags_id$label:1
+#: model@cf.folders|_columns@tags_id$label:1
 msgid "Tags"
 msgstr "Tagy"
 
-#: cf.link.access.users-link_id:1 cf.link.access.groups-link_id:1
-#: cf.link.access.others-link_id:1
+#: model@cf.link.access.users|_description@:1
+msgid "General Model Link Access Users"
+msgstr "Obecné Model Propojení Uživatelů"
+
+#: model@cf.link.access.users|_columns@link_id$label:1
+#: model@cf.link.access.groups|_columns@link_id$label:1
+#: model@cf.link.access.others|_columns@link_id$label:1
 msgid "Link"
 msgstr "Odkaz"
 
-#: cf.folders-parent_id:1
+#: model@cf.link.access.groups|_description@:1
+msgid "General Model Link Access Groups"
+msgstr "Obecné Model Propojení Skupin"
+
+#: model@cf.link.access.others|_description@:1
+msgid "General Model Link Access Others"
+msgstr "Obecné Model Propojení Ostatní"
+
+#: model@cf.links|_description@:1
+msgid "General Model Colobrative Links"
+msgstr "Obecné Model Colobrative Odkazy"
+
+#: model@cf.folder.access.groups|_description@:1
+msgid "General Model Folder Access Groups"
+msgstr "Obecné Model Složce Přístup Skupiny"
+
+#: model@cf.folder.access.others|_description@:1
+msgid "General Model Folder Access Others"
+msgstr "Obecné Model Přístup Do Složky Ostatní"
+
+#: model@cf.folders|_description@:1
+msgid "General Model Colobrative Folders"
+msgstr "Obecné Model Colobrative Složky"
+
+#: model@cf.folders|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Rodič"
 
-#: cf.folders-childs_id:1
+#: model@cf.folders|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"

@@ -3,534 +3,1084 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:33:10+0000\n"
-"PO-Revision-Date: 2020-02-13 14:33:10+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:51+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:51+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: md.category.country-name:1 md.country.group-name:1 md.country-name:1
-#: md.category.language-name:1 md.language-name:1 md.group.quantity-name:1
-#: md.quantity.uom-name:1 md.uom-name:1 md.currency-name:1 md.vat.code-name:1
-#: md.category.product-name:1 md.type.plates-name:1
-#: md.products.template-name:1 md.product-name:1 md.incoterms-name:1
-#: md.category.partner-name:1 md.category.location-name:1 md.location-name:1
-#: md.partner-name:1 md.company-name:1 md.banks-name:1 md.recepture-name:1
+#: model@md.category.country|_description@:1
+msgid "General Model Category Country"
+msgstr "Allmän Modell Kategori Landet"
+
+#: model@md.category.country|_columns@name$label:1
+#: model@md.country.group|_columns@name$label:1
+#: model@md.country|_columns@name$label:1
+#: model@md.category.language|_columns@name$label:1
+#: model@md.language|_columns@name$label:1
+#: model@md.group.quantity|_columns@name$label:1
+#: model@md.quantity.uom|_columns@name$label:1
+#: model@md.uom|_columns@name$label:1 model@md.currency|_columns@name$label:1
+#: model@md.vat.code|_columns@name$label:1
+#: model@md.excise.code|_columns@name$label:1
+#: model@md.category.product|_columns@name$label:1
+#: model@md.type.plates|_columns@name$label:1
+#: model@md.products.template|_columns@name$label:1
+#: model@md.product|_columns@name$label:1
+#: model@md.incoterms|_columns@name$label:1
+#: model@md.category.partner|_columns@name$label:1
+#: model@md.category.location|_columns@name$label:1
+#: model@md.location|_columns@name$label:1
+#: model@md.partner|_columns@name$label:1
+#: model@md.company|_columns@name$label:1 model@md.banks|_columns@name$label:1
+#: model@md.recepture|_columns@name$label:1
 msgid "Name"
 msgstr "Namn"
 
-#: md.category.country-parent_id:1 md.category.language-parent_id:1
-#: md.group.quantity-parent_id:1 md.category.product-parent_id:1
-#: md.category.partner-parent_id:1 md.category.location-parent_id:1
+#: model@md.category.country|_columns@parent_id$label:1
+#: model@md.category.language|_columns@parent_id$label:1
+#: model@md.group.quantity|_columns@parent_id$label:1
+#: model@md.category.product|_columns@parent_id$label:1
+#: model@md.category.partner|_columns@parent_id$label:1
+#: model@md.category.location|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Förälder"
 
-#: md.category.country-childs_id:1 md.category.language-childs_id:1
-#: md.group.quantity-childs_id:1 md.category.product-childs_id:1
-#: md.category.partner-childs_id:1 md.category.location-childs_id:1
+#: model@md.category.country|_columns@childs_id$label:1
+#: model@md.category.language|_columns@childs_id$label:1
+#: model@md.group.quantity|_columns@childs_id$label:1
+#: model@md.category.product|_columns@childs_id$label:1
+#: model@md.category.partner|_columns@childs_id$label:1
+#: model@md.category.location|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: md.category.country-note:1 md.category.language-note:1
-#: md.group.quantity-note:1 md.quantity.uom-note:1 md.currency-note:1
-#: md.category.product-note:1 md.type.items-note:1 md.type.plates-note:1
-#: md.products.template-note:1 md.product-note:1 md.incoterms-note:1
-#: md.category.partner-note:1 md.category.location-note:1 md.location-note:1
-#: md.partner.contacts-note:1 md.partner.products-note:1
-#: md.role.partners-note:1 md.pricelist.partner.products-note:1
-#: md.company-note:1 md.banks-note:1 md.partners.bank-note:1
-#: md.recepture.input-note:1 md.recepture.output-note:1
+#: model@md.category.country|_columns@note$label:1
+#: model@md.category.language|_columns@note$label:1
+#: model@md.group.quantity|_columns@note$label:1
+#: model@md.quantity.uom|_columns@note$label:1
+#: model@md.currency|_columns@note$label:1
+#: model@md.category.product|_columns@note$label:1
+#: model@md.type.items|_columns@note$label:1
+#: model@md.type.plates|_columns@note$label:1
+#: model@md.products.template|_columns@note$label:1
+#: model@md.product|_columns@note$label:1
+#: model@md.incoterms|_columns@note$label:1
+#: model@md.category.partner|_columns@note$label:1
+#: model@md.category.location|_columns@note$label:1
+#: model@md.location|_columns@note$label:1
+#: model@md.partner.contacts|_columns@note$label:1
+#: model@md.partner.products|_columns@note$label:1
+#: model@md.role.partners|_columns@note$label:1
+#: model@md.pricelist.partner.products|_columns@note$label:1
+#: model@md.company|_columns@note$label:1 model@md.banks|_columns@note$label:1
+#: model@md.partners.bank|_columns@note$label:1
+#: model@md.recepture.input|_columns@note$label:1
+#: model@md.recepture.output|_columns@note$label:1
 msgid "Note"
 msgstr "Observera"
 
-#: md.country.group-country_ids:1
+#: model@md.country.group|_description@:1
+msgid "General Model Country Group"
+msgstr "Allmän Modell Land Koncernen"
+
+#: model@md.country.group|_columns@country_ids$label:1
 msgid "Countries"
 msgstr "Länder"
 
-#: md.country-shortname:1 md.uom-shortname:1 md.currency-shortname:1
+#: model@md.country|_description@:1
+msgid "General Model Country"
+msgstr "Allmän Modell Land"
+
+#: model@md.country|__doc__@:1
+msgid ""
+"\n"
+"\tСтраны мира\n"
+"\t"
+msgstr ""
+"\n"
+" Страны мира\n"
+" "
+
+#: model@md.country|_columns@shortname$label:1
+#: model@md.uom|_columns@shortname$label:1
+#: model@md.currency|_columns@shortname$label:1
 msgid "Short Name"
 msgstr "Kort Namn"
 
-#: md.country-code:1 md.uom-code:1 md.currency-code:1 md.vat.code-code:1
-#: md.gtis-code:1 md.type.items-code:1 md.product-code:1 md.partner-code:1
+#: model@md.country|_columns@code$label:1 model@md.uom|_columns@code$label:1
+#: model@md.currency|_columns@code$label:1
+#: model@md.vat.code|_columns@code$label:1
+#: model@md.excise.code|_columns@code$label:1
+#: model@md.gtis|_columns@code$label:1
+#: model@md.type.items|_columns@code$label:1
+#: model@md.product|_columns@code$label:1
+#: model@md.partner|_columns@code$label:1
 msgid "Code"
 msgstr "Kod"
 
-#: md.country-alpha2:1
+#: model@md.country|_columns@alpha2$label:1
 msgid "Alpha2"
 msgstr "Alfa2"
 
-#: md.country-alpha3:1
+#: model@md.country|_columns@alpha3$label:1
 msgid "Alpha3"
 msgstr "Alpha3"
 
-#: md.country-group_ids:1 md.incoterms-grp:1
+#: model@md.country|_columns@group_ids$label:1
+#: model@md.incoterms|_columns@grp$label:1
 msgid "Group"
 msgstr "Grupp"
 
-#: md.country-states:1
+#: model@md.country|_columns@states$label:1
 msgid "States"
 msgstr "Stater"
 
-#: md.country.states-country_id:1 md.partner-country_id:1
-#: md.partner.addresses-country:1 md.company-country_id:1
-#: md.banks-country_id:1
+#: model@md.country.states|_description@:1
+msgid "General Model Country States"
+msgstr "Allmän Modell Land Stater"
+
+#: model@md.country.states|_columns@country_id$label:1
+#: model@md.partner|_columns@country_id$label:1
+#: model@md.partner.addresses|_columns@country$label:1
+#: model@md.company|_columns@country_id$label:1
+#: model@md.banks|_columns@country_id$label:1
 msgid "Country"
 msgstr "Landet"
 
-#: md.country.states-name:1
+#: model@md.country.states|_columns@name$label:1
 msgid "State Name"
 msgstr "Ange Namn"
 
-#: md.country.states-code:1
+#: model@md.country.states|_columns@name$help:1
+msgid ""
+"Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
+msgstr ""
+"Administrativa indelningar av landet. E. g. Fed. Staten, Departement, Canton"
+
+#: model@md.country.states|_columns@code$label:1
 msgid "State Code"
 msgstr "Statligt Kod"
 
-#: md.language-iso631_1:1
+#: model@md.country.states|_columns@code$help:1
+msgid "The state code."
+msgstr "Staten kod."
+
+#: model@md.category.language|_description@:1
+msgid "General Model Category Language"
+msgstr "Allmän Modell Kategori Språk"
+
+#: model@md.language|_description@:1
+msgid "General Model Language"
+msgstr "Allmän Modell Språk"
+
+#: model@md.language|_columns@iso631_1$label:1
 msgid "Code ISO 639-1"
 msgstr "ISO 639-1-koden"
 
-#: md.language-iso631_2t:1
+#: model@md.language|_columns@iso631_2t$label:1
 msgid "Code ISO 639-2T"
 msgstr "Kod ISO 639-2T"
 
-#: md.language-iso631_2b:1
+#: model@md.language|_columns@iso631_2b$label:1
 msgid "Code ISO 639-2B"
 msgstr "Kod ISO 639-2B"
 
-#: md.group.quantity-numerator:1 md.uom-numerator:1
+#: model@md.group.quantity|_description@:1
+msgid "General Model Group Quantity"
+msgstr "Generella Modellen Grupp Kvantitet"
+
+#: model@md.group.quantity|_columns@numerator$label:1
+#: model@md.uom|_columns@numerator$label:1
 msgid "Numerator"
 msgstr "Täljare"
 
-#: md.group.quantity-denominator:1 md.uom-denominator:1
+#: model@md.group.quantity|_columns@denominator$label:1
+#: model@md.uom|_columns@denominator$label:1
 msgid "Denomerator"
 msgstr "Denomerator"
 
-#: md.quantity.uom-group_id:1
+#: model@md.quantity.uom|_description@:1
+msgid "General Model Quantity Unit of Measure"
+msgstr "Allmän Modell Kvantitet måttenhet"
+
+#: model@md.quantity.uom|_columns@group_id$label:1
 msgid "Group Quantity"
 msgstr "Grupp Kvantitet"
 
-#: md.quantity.uom-meter:1
+#: model@md.quantity.uom|_columns@meter$label:1
 msgid "Meter"
 msgstr "Mätaren"
 
-#: md.quantity.uom-weight:1 md.product-weight:1
+#: model@md.quantity.uom|_columns@weight$label:1
+#: model@md.product|_columns@weight$label:1
 msgid "Weight"
 msgstr "Vikt"
 
-#: md.quantity.uom-tense:1
+#: model@md.quantity.uom|_columns@tense$label:1
 msgid "Tense"
 msgstr "Spänd"
 
-#: md.quantity.uom-ampere:1
+#: model@md.quantity.uom|_columns@ampere$label:1
 msgid "Ampere"
 msgstr "Ampere"
 
-#: md.quantity.uom-kelvin:1
+#: model@md.quantity.uom|_columns@kelvin$label:1
 msgid "Kelvin"
 msgstr "Kelvin"
 
-#: md.quantity.uom-mole:1
+#: model@md.quantity.uom|_columns@mole$label:1
 msgid "Mole"
 msgstr "Mullvad"
 
-#: md.quantity.uom-candelle:1
+#: model@md.quantity.uom|_columns@candelle$label:1
 msgid "Candelle"
 msgstr "Candelle"
 
-#: md.quantity.uom-uoms:1 md.partner.products-uom:1 md.recepture.input-uom:1
-#: md.recepture.output-uom:1
+#: model@md.quantity.uom|_columns@uoms$label:1
+#: model@md.partner.products|_columns@uom$label:1
+#: model@md.recepture.input|_columns@uom$label:1
+#: model@md.recepture.output|_columns@uom$label:1
 msgid "UoM"
 msgstr "UoM"
 
-#: md.uom-quantity_id:1 md.recepture.input-quantity:1
-#: md.recepture.output-quantity:1
+#: model@md.uom|_description@:1
+msgid "General Model Unit of Measure"
+msgstr "Allmän Modell måttenhet"
+
+#: model@md.uom|_columns@quantity_id$label:1
+#: model@md.recepture.input|_columns@quantity$label:1
+#: model@md.recepture.output|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Mängd"
 
-#: md.uom-isocode:1 md.currency-isocode:1
+#: model@md.uom|_columns@isocode$label:1
+#: model@md.currency|_columns@isocode$label:1
 msgid "ISO Code"
 msgstr "ISO-Kod"
 
-#: md.uom-places:1
+#: model@md.uom|_columns@places$label:1
 msgid "Decimal places"
 msgstr "Decimaler"
 
-#: md.uom-round:1
+#: model@md.uom|_columns@round$label:1
 msgid "Rounding off"
 msgstr "Avrundning av"
 
-#: md.uom-extconst:1
+#: model@md.uom|_columns@extconst$label:1
 msgid "Extend Constant"
 msgstr "Utöka Konstant"
 
-#: md.currency-currency_rate:1 md.company-currency_rate:1
-#: md.currency.rate-rate:1
+#: model@md.currency|_description@:1
+msgid "General Model Currency"
+msgstr "Allmän Modell Valuta"
+
+#: model@md.currency|_columns@currency_rate$label:1
+#: model@md.company|_columns@currency_rate$label:1
+#: model@md.currency.rate|_columns@rate$label:1
 msgid "Currency Rate"
 msgstr "Valuta Priser"
 
-#: md.vat.code-subtype_vat:1
+#: model@md.vat.code|_description@:1
+msgid "General Model Vat Code"
+msgstr "Allmän Modell Moms Kod"
+
+#: model@md.vat.code|_columns@subtype_vat$label:1
 msgid "Subtype VAT"
 msgstr "Subtyp MOMS"
 
-#: md.vat.code-value:1
+#: model@md.vat.code|_columns@subtype_vat$selections#i:1
+#: model@md.excise.code|_columns@subtype_excise$selections#i:1
+msgid "Include"
+msgstr "Inkluderar"
+
+#: model@md.vat.code|_columns@subtype_vat$selections#e:1
+#: model@md.excise.code|_columns@subtype_excise$selections#e:1
+msgid "Exclude"
+msgstr "Utesluta"
+
+#: model@md.vat.code|_columns@subtype_vat$selections#n:1
+#: model@md.vat.code|_columns@type_vat$selections#n:1
+#: model@md.excise.code|_columns@subtype_excise$selections#n:1
+#: model@md.excise.code|_columns@type_vat$selections#n:1
+msgid "None"
+msgstr "Ingen"
+
+#: model@md.vat.code|_columns@value$label:1
+#: model@md.excise.code|_columns@value$label:1
 msgid "Percent"
 msgstr "Procent"
 
-#: md.vat.code-type_vat:1
+#: model@md.vat.code|_columns@type_vat$label:1
 msgid "Type VAT"
 msgstr "Typ MOMS"
 
-#: md.gtis-descr:1 md.type.items-descr:1 md.incoterms-descr:1
-#: md.role.partners-descr:1
+#: model@md.vat.code|_columns@type_vat$selections#s:1
+#: model@md.excise.code|_columns@type_vat$selections#s:1
+msgid "Sales"
+msgstr "Försäljning"
+
+#: model@md.vat.code|_columns@type_vat$selections#p:1
+#: model@md.excise.code|_columns@type_vat$selections#p:1
+msgid "Purchses"
+msgstr "Purchses"
+
+#: model@md.excise.code|_description@:1
+msgid "General Model Excise Code"
+msgstr "Allmän Modell Punktskatter Kod"
+
+#: model@md.excise.code|_columns@subtype_excise$label:1
+msgid "Subtype Excise"
+msgstr "Subtyp Punktskatter"
+
+#: model@md.excise.code|_columns@type_vat$label:1
+msgid "Type Excise"
+msgstr "Typ Punktskatter"
+
+#: model@md.category.product|_description@:1
+msgid "General Model Category Product"
+msgstr "Allmän Modell Kategori Produkt"
+
+#: model@md.gtis|_description@:1
+msgid "General Model Group Of Type Items"
+msgstr "Generella Modellen Grupp Skriver Artiklar"
+
+#: model@md.gtis|_columns@descr$label:1
+#: model@md.type.items|_columns@descr$label:1
+#: model@md.incoterms|_columns@descr$label:1
+#: model@md.role.partners|_columns@descr$label:1
 msgid "Description"
 msgstr "Beskrivning"
 
-#: md.type.items-usage:1 md.type.plates-usage:1 md.location-usage:1
-#: md.partner.contacts-usage:1 md.recepture-usage:1
+#: model@md.type.items|_description@:1
+msgid "General Model Type Of Items"
+msgstr "Allmän Modell Typ Av Objekt"
+
+#: model@md.type.items|_columns@usage$label:1
+#: model@md.type.plates|_columns@usage$label:1
+#: model@md.location|_columns@usage$label:1
+#: model@md.partner.contacts|_columns@usage$label:1
+#: model@md.recepture|_columns@usage$label:1
 msgid "Usage"
 msgstr "Användning"
 
-#: md.products.template-category_id:1 md.location-category_id:1
-#: md.partner-category_id:1
+#: model@md.type.items|_columns@usage$selections#a:1
+#: model@md.type.plates|_columns@usage$selections#a:1
+#: model@md.location|_columns@usage$selections#all:1
+#: model@md.role.partners|_columns@trole$selections#a:1
+#: model@md.recepture|_columns@usage$selections#a:1
+msgid "All"
+msgstr "Alla"
+
+#: model@md.type.plates|_description@:1
+msgid "General Model Type Of Plates"
+msgstr "Allmän Modell Typ Av Plattor"
+
+#: model@md.products.template|_description@:1
+msgid "General Model Product Template"
+msgstr "Allmän Modell Produkt Mall"
+
+#: model@md.products.template|_columns@category_id$label:1
+#: model@md.location|_columns@category_id$label:1
+#: model@md.partner|_columns@category_id$label:1
 msgid "Category"
 msgstr "Kategori"
 
-#: md.products.template-mtype:1 md.currency.rate-type:1 md.recepture-type:1
+#: model@md.products.template|_columns@mtype$label:1
+#: model@md.currency.rate|_columns@type$label:1
+#: model@md.recepture|_columns@type$label:1
 msgid "Type"
 msgstr "Typ"
 
-#: md.products.template-products:1 md.partner-products:1
-msgid "Products"
-msgstr "Produkter"
-
-#: md.product-template_id:1
-msgid "Template"
-msgstr "Mall"
-
-#: md.product-uom:1
-msgid "Unit Of Measure"
-msgstr "Måttenhet"
-
-#: md.product-gti:1
-msgid "Group Of Type Items"
-msgstr "Gruppen Skriver Artiklar"
-
-#: md.product-volume:1
-msgid "Volume"
-msgstr "Volym"
-
-#: md.product-volume_uom:1
-msgid "Volume UoM"
-msgstr "Volym UoM"
-
-#: md.product-weight_uom:1
-msgid "Weight UoM"
-msgstr "Vikt UoM"
-
-#: md.product-state:1
-msgid "State"
-msgstr "Staten"
-
-#: md.product-qrcode:1
-msgid "QRCode"
-msgstr "Qr-kod"
-
-#: md.product-image:1 md.partner.contacts-image:1 md.partner.products-image:1
-msgid "Photo"
-msgstr "Foto"
-
-#: md.product-image_medium:1 md.partner.contacts-image_medium:1
-#: md.partner.products-image_medium:1
-msgid "Medium-sized photo"
-msgstr "Medelstora foto"
-
-#: md.product-image_small:1 md.partner.contacts-image_small:1
-#: md.partner.products-image_small:1
-msgid "Small-sized photo"
-msgstr "Små-och medelstora foto"
-
-#: md.product-link:1 md.partner.products-link:1
-msgid "Link"
-msgstr "Länk"
-
-#: md.incoterms-mode:1
-msgid "Mode Of Transport"
-msgstr "Transportsätt"
-
-#: md.incoterms-mot:1
-msgid "Momemt Of Transition"
-msgstr "Momemt Av Övergången"
-
-#: md.location-latitude:1 md.partner-latitude:1
-msgid "Latitude"
-msgstr "Latitud"
-
-#: md.location-longitude:1 md.partner-longitude:1
-msgid "Longitude"
-msgstr "Longitud"
-
-#: md.partner-ispeople:1
-msgid "People"
-msgstr "Människor"
-
-#: md.partner-iscustomer:1
-msgid "Customer"
-msgstr "Kunden"
-
-#: md.partner-issuplier:1
-msgid "Suplier"
-msgstr "Leverantör"
-
-#: md.partner-vat_number:1
-msgid "VAT Number"
-msgstr "VAT-Nummer"
-
-#: md.partner-vat_reason:1
-msgid "VAT Reason"
-msgstr "MOMS Anledning"
-
-#: md.partner-addresses:1
-msgid "Addresses"
-msgstr "Adresser"
-
-#: md.partner-contacts:1
-msgid "Contacts"
-msgstr "Kontakter"
-
-#: md.partner-roles:1
-msgid "Roles"
-msgstr "Roller"
-
-#: md.partner.addresses-partner_id:1 md.partner.contacts-partner_id:1
-#: md.partner.products-partner_id:1 md.partner.roles-partner_id:1
-msgid "Partner"
-msgstr "Partner"
-
-#: md.partner.addresses-taddr:1
-msgid "Type Of Address"
-msgstr "Typ Av Adress"
-
-#: md.partner.addresses-state:1
-msgid "State Of Coutry"
-msgstr "Staten Coutry"
-
-#: md.partner.addresses-sity:1 md.banks-city:1
-msgid "City"
-msgstr "Staden"
-
-#: md.partner.addresses-street:1 md.banks-street:1
-msgid "Street"
-msgstr "Street"
-
-#: md.partner.addresses-street2:1
-msgid "Street 2"
-msgstr "Street 2"
-
-#: md.partner.addresses-house:1
-msgid "House"
-msgstr "Hus"
-
-#: md.partner.addresses-room:1
-msgid "Room"
-msgstr "Rummet"
-
-#: md.partner.contacts-sequence:1 md.partners.bank-sequence:1
-msgid "Sequence"
-msgstr "Sekvens"
-
-#: md.partner.contacts-firstname:1
-msgid "First Name"
-msgstr "Förnamn"
-
-#: md.partner.contacts-lastname:1
-msgid "Last Name"
-msgstr "Efternamn"
-
-#: md.partner.contacts-middlename:1
-msgid "Middle Name"
-msgstr "Mitt Namn"
-
-#: md.partner.contacts-fullname:1
-msgid "Full Name"
-msgstr "Fullständigt Namn"
-
-#: md.partner.contacts-gender:1
-msgid "Gender"
-msgstr "Kön"
-
-#: md.partner.contacts-marital:1
-msgid "Marital Status"
-msgstr "Civilstånd"
-
-#: md.partner.contacts-birthday:1
-msgid "Date of Birth"
-msgstr "Födelsedatum"
-
-#: md.partner.contacts-address_id:1
-msgid "Work Address"
-msgstr "Adress"
-
-#: md.partner.contacts-work_phone:1
-msgid "Work Phone"
-msgstr "Telefon Arbete"
-
-#: md.partner.contacts-mobile_phone:1
-msgid "Work Mobile"
-msgstr "Arbete Mobil"
-
-#: md.partner.contacts-work_email:1
-msgid "Work Email"
-msgstr "Arbete E-Post"
-
-#: md.partner.contacts-work_location:1
-msgid "Work Location"
-msgstr "Arbetsplats"
-
-#: md.partner.products-product_id:1 md.recepture.input-product:1
-#: md.recepture.output-product:1
+#: model@md.products.template|_columns@mtype$selections#p:1
+#: model@md.partner.products|_columns@product_id$label:1
+#: model@md.recepture.input|_columns@product$label:1
+#: model@md.recepture.output|_columns@product$label:1
 msgid "Product"
 msgstr "Produkten"
 
-#: md.partner.products-minqty:1
-msgid "Min Quantity"
-msgstr "Min Kvantitet"
+#: model@md.products.template|_columns@mtype$selections#s:1
+msgid "Service"
+msgstr "Service"
 
-#: md.partner.products-prices:1
-msgid "Prices"
-msgstr "Priser"
+#: model@md.products.template|_columns@mtype$selections#w:1
+msgid "Work"
+msgstr "Arbete"
 
-#: md.role.partners-trole:1
-msgid "Type Of Role"
-msgstr "Typ Av Roll"
+#: model@md.products.template|_columns@mtype$selections#c:1
+msgid "Consumable"
+msgstr "Förbrukningsmaterial"
 
-#: md.role.partners-name:1 md.partner.roles-role_id:1
-msgid "Role"
-msgstr "Roll"
+#: model@md.products.template|_columns@products$label:1
+#: model@md.partner|_columns@products$label:1
+msgid "Products"
+msgstr "Produkter"
 
-#: md.partner.roles-name:1 md.partners.bank-bank_bic:1
-msgid "Unknown"
-msgstr "Okänd"
+#: model@md.product|_description@:1
+msgid "General Model Product"
+msgstr "Allmän Modell Produkt"
 
-#: md.pricelist.partner.products-partner_product_id:1
-msgid "Partner Product"
-msgstr "Partner Produkt"
+#: model@md.product|_columns@template_id$label:1
+msgid "Template"
+msgstr "Mall"
 
-#: md.pricelist.partner.products-valid_from:1
-msgid "Valid From"
-msgstr "Giltig Från"
+#: model@md.product|_columns@uom$label:1
+msgid "Unit Of Measure"
+msgstr "Måttenhet"
 
-#: md.pricelist.partner.products-valid_to:1
-msgid "Valid to"
-msgstr "Giltig till"
+#: model@md.product|_columns@gti$label:1
+msgid "Group Of Type Items"
+msgstr "Gruppen Skriver Artiklar"
 
-#: md.pricelist.partner.products-currency_id:1 md.company-currency_id:1
-#: md.partners.bank-currency_id:1
-msgid "Currency"
-msgstr "Valuta"
+#: model@md.product|_columns@volume$label:1
+msgid "Volume"
+msgstr "Volym"
 
-#: md.pricelist.partner.products-qty:1
-msgid "Qty Price"
-msgstr "Antal Pris"
+#: model@md.product|_columns@volume_uom$label:1
+msgid "Volume UoM"
+msgstr "Volym UoM"
 
-#: md.pricelist.partner.products-price:1
-msgid "Price"
-msgstr "Pris"
+#: model@md.product|_columns@weight_uom$label:1
+msgid "Weight UoM"
+msgstr "Vikt UoM"
 
-#: md.currency.rate-currency_id:1
-msgid "From Currency"
-msgstr "Från Valuta"
+#: model@md.product|_columns@state$label:1
+msgid "State"
+msgstr "Staten"
 
-#: md.currency.rate-currency_id1:1
-msgid "To Currency"
-msgstr "Att Valuta"
+#: model@md.product|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Förslag till"
 
-#: md.currency.rate-company_id:1 md.partners.bank-company_id:1
+#: model@md.product|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Godkänd"
+
+#: model@md.product|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "I Processen"
+
+#: model@md.product|_columns@state$selections#closing:1
+msgid "Closing"
+msgstr "Utgående"
+
+#: model@md.product|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Stängt"
+
+#: model@md.product|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Avbokning"
+
+#: model@md.product|_columns@qrcode$label:1
+msgid "QRCode"
+msgstr "Qr-kod"
+
+#: model@md.product|_columns@qrcode$help:1
+msgid "This field holds the image QRCode"
+msgstr "Detta område har bilden qr-kod"
+
+#: model@md.product|_columns@image$label:1
+#: model@md.partner.contacts|_columns@image$label:1
+#: model@md.partner.products|_columns@image$label:1
+msgid "Photo"
+msgstr "Foto"
+
+#: model@md.product|_columns@image$help:1
+#: model@md.partner.contacts|_columns@image$help:1
+#: model@md.partner.products|_columns@image$help:1
+msgid ""
+"This field holds the image used as photo for the employee, limited to "
+"1024x1024px."
+msgstr ""
+"Detta område har den bild som används som bild för den anställde, begränsat "
+"till 1024x1024px."
+
+#: model@md.product|_columns@image_medium$label:1
+#: model@md.partner.contacts|_columns@image_medium$label:1
+#: model@md.partner.products|_columns@image_medium$label:1
+msgid "Medium-sized photo"
+msgstr "Medelstora foto"
+
+#: model@md.product|_columns@image_medium$help:1
+#: model@md.partner.contacts|_columns@image_medium$help:1
+#: model@md.partner.products|_columns@image_medium$help:1
+msgid ""
+"Medium-sized photo of the employee. It is automatically resized as a "
+"128x128px image, with aspect ratio preserved. Use this field in form views "
+"or some kanban views."
+msgstr ""
+"Medelstora bild av den anställde. Det är automatiskt i storlek som en "
+"128x128px bild med bildförhållandet bibehålls. Använd det här området i form"
+" åsikter eller några kanban utsikt."
+
+#: model@md.product|_columns@image_small$label:1
+#: model@md.partner.contacts|_columns@image_small$label:1
+#: model@md.partner.products|_columns@image_small$label:1
+msgid "Small-sized photo"
+msgstr "Små-och medelstora foto"
+
+#: model@md.product|_columns@image_small$help:1
+msgid ""
+"Small-sized photo of the product. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr ""
+"Små-och medelstora bild av produkten. Det är automatiskt i storlek som en "
+"64x64px bild med bildförhållandet bibehålls. Använd detta fält någonstans en"
+" liten bild krävs."
+
+#: model@md.product|_columns@link$label:1
+#: model@md.partner.products|_columns@link$label:1
+msgid "Link"
+msgstr "Länk"
+
+#: model@md.incoterms|_description@:1
+msgid "General Model Incoterms"
+msgstr "Allmän Modell Incoterms"
+
+#: model@md.incoterms|_columns@mode$label:1
+msgid "Mode Of Transport"
+msgstr "Transportsätt"
+
+#: model@md.incoterms|_columns@mode$selections#А:1
+msgid "All Mode Of Transport"
+msgstr "Alla Transportslag"
+
+#: model@md.incoterms|_columns@mode$selections#S:1
+msgid "Sea & Water Mode oF Transport"
+msgstr "Hav och Vatten transportsätt"
+
+#: model@md.incoterms|_columns@grp$selections#E:1
+msgid "Departure"
+msgstr "Avgång"
+
+#: model@md.incoterms|_columns@grp$selections#F:1
+msgid "Main Carriage Unpaid"
+msgstr "Viktigaste Transport Obetalda"
+
+#: model@md.incoterms|_columns@grp$selections#C:1
+msgid "Main Carriage Paid"
+msgstr "Viktigaste Fraktfritt"
+
+#: model@md.incoterms|_columns@grp$selections#D:1
+msgid "Arrival"
+msgstr "Ankomst"
+
+#: model@md.incoterms|_columns@mot$label:1
+msgid "Momemt Of Transition"
+msgstr "Momemt Av Övergången"
+
+#: model@md.incoterms|_columns@mot$selections#se:1
+msgid "Seller"
+msgstr "Säljare"
+
+#: model@md.incoterms|_columns@mot$selections#sc:1
+msgid "Customs Of Seller"
+msgstr "Tullen Säljaren"
+
+#: model@md.incoterms|_columns@mot$selections#ssh:1
+msgid "Seller Shipping"
+msgstr "Säljaren Frakt"
+
+#: model@md.incoterms|_columns@mot$selections#ste:1
+msgid "Seller Terminal"
+msgstr "Säljaren Terminal"
+
+#: model@md.incoterms|_columns@mot$selections#ld:1
+msgid "Loading"
+msgstr "Laddar"
+
+#: model@md.incoterms|_columns@mot$selections#dl:1
+msgid "Delivery"
+msgstr "Leverans"
+
+#: model@md.incoterms|_columns@mot$selections#ul:1
+msgid "Unloading"
+msgstr "Lossning"
+
+#: model@md.incoterms|_columns@mot$selections#bte:1
+msgid "Buyer Terminal"
+msgstr "Köparen Terminal"
+
+#: model@md.incoterms|_columns@mot$selections#bsh:1
+msgid "Buyer Shipping"
+msgstr "Köparen Frakt"
+
+#: model@md.incoterms|_columns@mot$selections#bc:1
+msgid "Customs Of Buyer"
+msgstr "Tullen Av Köparen"
+
+#: model@md.incoterms|_columns@mot$selections#ba:1
+msgid "Buyer"
+msgstr "Köpare"
+
+#: model@md.category.partner|_description@:1
+msgid "General Model Category Partner"
+msgstr "Allmän Modell Kategori Partner"
+
+#: model@md.category.location|_description@:1
+msgid "General Model Category Location"
+msgstr "Allmän Modell Kategori Läge"
+
+#: model@md.location|_description@:1
+msgid "General Master Data Location"
+msgstr "Allmänt Master Data Läge"
+
+#: model@md.location|_columns@usage$selections#partner:1
+#: model@md.partner.addresses|_columns@partner_id$label:1
+#: model@md.partner.contacts|_columns@partner_id$label:1
+#: model@md.partner.products|_columns@partner_id$label:1
+#: model@md.partner.roles|_columns@partner_id$label:1
+msgid "Partner"
+msgstr "Partner"
+
+#: model@md.location|_columns@usage$selections#company:1
+#: model@md.currency.rate|_columns@company_id$label:1
+#: model@md.partners.bank|_columns@company_id$label:1
 msgid "Company"
 msgstr "Företaget"
 
-#: md.currency.rate-date:1
+#: model@md.location|_columns@usage$selections#stock:1
+msgid "Stock"
+msgstr "Lager"
+
+#: model@md.location|_columns@latitude$label:1
+#: model@md.partner|_columns@latitude$label:1
+msgid "Latitude"
+msgstr "Latitud"
+
+#: model@md.location|_columns@longitude$label:1
+#: model@md.partner|_columns@longitude$label:1
+msgid "Longitude"
+msgstr "Longitud"
+
+#: model@md.partner|_description@:1
+msgid "General Model Partner"
+msgstr "Allmän Modell Partner"
+
+#: model@md.partner|_columns@ispeople$label:1
+msgid "People"
+msgstr "Människor"
+
+#: model@md.partner|_columns@iscustomer$label:1
+#: model@md.role.partners|_columns@trole$selections#c:1
+msgid "Customer"
+msgstr "Kunden"
+
+#: model@md.partner|_columns@issuplier$label:1
+msgid "Suplier"
+msgstr "Leverantör"
+
+#: model@md.partner|_columns@vat_number$label:1
+msgid "VAT Number"
+msgstr "VAT-Nummer"
+
+#: model@md.partner|_columns@vat_reason$label:1
+msgid "VAT Reason"
+msgstr "MOMS Anledning"
+
+#: model@md.partner|_columns@vat_reason$selections#y:1
+msgid "Yes"
+msgstr "Ja"
+
+#: model@md.partner|_columns@vat_reason$selections#n:1
+msgid "No"
+msgstr "Inga"
+
+#: model@md.partner|_columns@addresses$label:1
+msgid "Addresses"
+msgstr "Adresser"
+
+#: model@md.partner|_columns@contacts$label:1
+msgid "Contacts"
+msgstr "Kontakter"
+
+#: model@md.partner|_columns@roles$label:1
+msgid "Roles"
+msgstr "Roller"
+
+#: model@md.partner.addresses|_description@:1
+msgid "General Model Partner Addresses"
+msgstr "Allmän Modell Partner Adresser"
+
+#: model@md.partner.addresses|_columns@taddr$label:1
+msgid "Type Of Address"
+msgstr "Typ Av Adress"
+
+#: model@md.partner.addresses|_columns@taddr$selections#l:1
+msgid "Location"
+msgstr "Läge"
+
+#: model@md.partner.addresses|_columns@taddr$selections#p:1
+msgid "Postal"
+msgstr "Post"
+
+#: model@md.partner.addresses|_columns@taddr$selections#a:1
+msgid "Situtation"
+msgstr "Situationen"
+
+#: model@md.partner.addresses|_columns@state$label:1
+msgid "State Of Coutry"
+msgstr "Staten Coutry"
+
+#: model@md.partner.addresses|_columns@sity$label:1
+#: model@md.banks|_columns@city$label:1
+msgid "City"
+msgstr "Staden"
+
+#: model@md.partner.addresses|_columns@street$label:1
+#: model@md.banks|_columns@street$label:1
+msgid "Street"
+msgstr "Street"
+
+#: model@md.partner.addresses|_columns@street2$label:1
+msgid "Street 2"
+msgstr "Street 2"
+
+#: model@md.partner.addresses|_columns@house$label:1
+msgid "House"
+msgstr "Hus"
+
+#: model@md.partner.addresses|_columns@room$label:1
+msgid "Room"
+msgstr "Rummet"
+
+#: model@md.partner.contacts|_description@:1
+msgid "General Model Partner Contacts"
+msgstr "Allmän Modell Partner Kontakter"
+
+#: model@md.partner.contacts|_columns@usage$selections#d:1
+msgid "Dear"
+msgstr "Kära"
+
+#: model@md.partner.contacts|_columns@sequence$label:1
+#: model@md.partners.bank|_columns@sequence$label:1
+msgid "Sequence"
+msgstr "Sekvens"
+
+#: model@md.partner.contacts|_columns@firstname$label:1
+msgid "First Name"
+msgstr "Förnamn"
+
+#: model@md.partner.contacts|_columns@lastname$label:1
+msgid "Last Name"
+msgstr "Efternamn"
+
+#: model@md.partner.contacts|_columns@middlename$label:1
+msgid "Middle Name"
+msgstr "Mitt Namn"
+
+#: model@md.partner.contacts|_columns@fullname$label:1
+msgid "Full Name"
+msgstr "Fullständigt Namn"
+
+#: model@md.partner.contacts|_columns@gender$label:1
+msgid "Gender"
+msgstr "Kön"
+
+#: model@md.partner.contacts|_columns@gender$selections#male:1
+msgid "Male"
+msgstr "Hane"
+
+#: model@md.partner.contacts|_columns@gender$selections#female:1
+msgid "Female"
+msgstr "Kvinna"
+
+#: model@md.partner.contacts|_columns@gender$selections#other:1
+msgid "Other"
+msgstr "Andra"
+
+#: model@md.partner.contacts|_columns@marital$label:1
+msgid "Marital Status"
+msgstr "Civilstånd"
+
+#: model@md.partner.contacts|_columns@marital$selections#single:1
+msgid "Single"
+msgstr "Enda"
+
+#: model@md.partner.contacts|_columns@marital$selections#married:1
+msgid "Married"
+msgstr "Gift"
+
+#: model@md.partner.contacts|_columns@marital$selections#widower:1
+msgid "Widower"
+msgstr "Änkling"
+
+#: model@md.partner.contacts|_columns@marital$selections#divorced:1
+msgid "Divorced"
+msgstr "Frånskild"
+
+#: model@md.partner.contacts|_columns@birthday$label:1
+msgid "Date of Birth"
+msgstr "Födelsedatum"
+
+#: model@md.partner.contacts|_columns@image_small$help:1
+#: model@md.partner.products|_columns@image_small$help:1
+msgid ""
+"Small-sized photo of the employee. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr ""
+"Små-och medelstora bild av den anställde. Det är automatiskt i storlek som "
+"en 64x64px bild med bildförhållandet bibehålls. Använd detta fält någonstans"
+" en liten bild krävs."
+
+#: model@md.partner.contacts|_columns@address_id$label:1
+msgid "Work Address"
+msgstr "Adress"
+
+#: model@md.partner.contacts|_columns@work_phone$label:1
+msgid "Work Phone"
+msgstr "Telefon Arbete"
+
+#: model@md.partner.contacts|_columns@mobile_phone$label:1
+msgid "Work Mobile"
+msgstr "Arbete Mobil"
+
+#: model@md.partner.contacts|_columns@work_email$label:1
+msgid "Work Email"
+msgstr "Arbete E-Post"
+
+#: model@md.partner.contacts|_columns@work_location$label:1
+msgid "Work Location"
+msgstr "Arbetsplats"
+
+#: model@md.partner.products|_description@:1
+msgid "General Model Partner Products"
+msgstr "Allmän Modell Partner Produkter"
+
+#: model@md.partner.products|_columns@minqty$label:1
+msgid "Min Quantity"
+msgstr "Min Kvantitet"
+
+#: model@md.partner.products|_columns@prices$label:1
+msgid "Prices"
+msgstr "Priser"
+
+#: model@md.role.partners|_description@:1
+msgid "General Model Role Partners"
+msgstr "Allmän Modell Roll Partners"
+
+#: model@md.role.partners|_columns@trole$label:1
+msgid "Type Of Role"
+msgstr "Typ Av Roll"
+
+#: model@md.role.partners|_columns@trole$selections#s:1
+msgid "Supplier"
+msgstr "Leverantör"
+
+#: model@md.role.partners|_columns@trole$selections#i:1
+msgid "Internal"
+msgstr "Interna"
+
+#: model@md.role.partners|_columns@trole$selections#p:1
+msgid "Person"
+msgstr "Person"
+
+#: model@md.role.partners|_columns@name$label:1
+#: model@md.partner.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Roll"
+
+#: model@md.partner.roles|_description@:1
+msgid "General Model Partner Roles"
+msgstr "Allmän Modell Partner Roller"
+
+#: model@md.partner.roles|_columns@name$label:1
+#: model@md.partners.bank|_columns@bank_bic$label:1
+msgid "Unknown"
+msgstr "Okänd"
+
+#: model@md.pricelist.partner.products|_description@:1
+msgid "General Model Pricelist Partner Products"
+msgstr "Allmän Modell Prislista Partner Produkter"
+
+#: model@md.pricelist.partner.products|_columns@partner_product_id$label:1
+msgid "Partner Product"
+msgstr "Partner Produkt"
+
+#: model@md.pricelist.partner.products|_columns@valid_from$label:1
+msgid "Valid From"
+msgstr "Giltig Från"
+
+#: model@md.pricelist.partner.products|_columns@valid_to$label:1
+msgid "Valid to"
+msgstr "Giltig till"
+
+#: model@md.pricelist.partner.products|_columns@currency_id$label:1
+#: model@md.company|_columns@currency_id$label:1
+#: model@md.partners.bank|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Valuta"
+
+#: model@md.pricelist.partner.products|_columns@qty$label:1
+msgid "Qty Price"
+msgstr "Antal Pris"
+
+#: model@md.pricelist.partner.products|_columns@price$label:1
+msgid "Price"
+msgstr "Pris"
+
+#: model@md.company|_description@:1
+msgid "General Model Company"
+msgstr "Allmän Modell Företaget"
+
+#: model@md.currency.rate|_description@:1
+msgid "General Model Currency Rate"
+msgstr "Allmän Modell Valuta Priser"
+
+#: model@md.currency.rate|_columns@currency_id$label:1
+msgid "From Currency"
+msgstr "Från Valuta"
+
+#: model@md.currency.rate|_columns@currency_id1$label:1
+msgid "To Currency"
+msgstr "Att Valuta"
+
+#: model@md.currency.rate|_columns@date$label:1
 msgid "Date"
 msgstr "Datum"
 
-#: md.currency.rate-account:1
+#: model@md.currency.rate|_columns@account$label:1
 msgid "Accout"
 msgstr "Accout"
 
-#: md.banks-street2:1
+#: model@md.currency.rate|_columns@type$selections#m:1
+msgid "Monthly"
+msgstr "Månad"
+
+#: model@md.currency.rate|_columns@type$selections#d:1
+msgid "Day"
+msgstr "Dag"
+
+#: model@md.currency.rate|_columns@type$selections#w:1
+msgid "Week"
+msgstr "Vecka"
+
+#: model@md.banks|_description@:1
+msgid "General Model Bank"
+msgstr "Allmän Modell Bank"
+
+#: model@md.banks|_columns@street2$label:1
 msgid "Street2"
 msgstr "Street2"
 
-#: md.banks-zip:1
+#: model@md.banks|_columns@zip$label:1
 msgid "ZIP"
 msgstr "ZIP"
 
-#: md.banks-state_id:1
+#: model@md.banks|_columns@state_id$label:1
 msgid "Fed. State"
 msgstr "Fed. Staten"
 
-#: md.banks-email:1
+#: model@md.banks|_columns@email$label:1
 msgid "Email"
 msgstr "E-post"
 
-#: md.banks-phone:1
+#: model@md.banks|_columns@phone$label:1
 msgid "Phone"
 msgstr "Telefon"
 
-#: md.banks-bic:1
+#: model@md.banks|_columns@bic$label:1
 msgid "Bank Identifier Code"
 msgstr "Bank Identifier Code"
 
-#: md.banks-partners:1
+#: model@md.banks|_columns@bic$help:1
+msgid "Sometimes called BIC or Swift."
+msgstr "Ibland kallas BIC eller Swift."
+
+#: model@md.banks|_columns@partners$label:1
 msgid "Partners"
 msgstr "Partners"
 
-#: md.banks-inactive:1
+#: model@md.banks|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Inaktiv"
 
-#: md.partners.bank-acc_type:1
+#: model@md.partners.bank|_description@:1
+msgid "General Model Bank of Partner"
+msgstr "Allmän Modell Bank av Partner"
+
+#: model@md.partners.bank|_columns@acc_type$label:1
 msgid "ACC Type"
 msgstr "ACC Typ"
 
-#: md.partners.bank-acc_number:1
+#: model@md.partners.bank|_columns@acc_type$help:1
+msgid "Bank account type, inferred from account number"
+msgstr "Bankkonto typ, härledas från kontonummer"
+
+#: model@md.partners.bank|_columns@acc_number$label:1
 msgid "Account Number"
 msgstr "Kontonummer"
 
-#: md.partners.bank-sanitized_acc_number:1
+#: model@md.partners.bank|_columns@sanitized_acc_number$label:1
 msgid "Sanitized Account Number"
 msgstr "Sanitized Det Spelar Kontonummer"
 
-#: md.partners.bank-partner_id:1
+#: model@md.partners.bank|_columns@partner_id$label:1
 msgid "Account Holder"
 msgstr "Kontohavaren"
 
-#: md.partners.bank-bank_id:1
+#: model@md.partners.bank|_columns@bank_id$label:1
 msgid "Bank"
 msgstr "Bank"
 
-#: md.partners.bank-bank_name:1
+#: model@md.partners.bank|_columns@bank_name$label:1
 msgid "Bank Name"
 msgstr "Bankens Namn"
 
-#: md.recepture-subtype:1
+#: model@md.recepture|_description@:1
+msgid "General Model Recipe"
+msgstr "Allmän Modell Recept"
+
+#: model@md.recepture|_columns@type$selections#real:1
+msgid "Real"
+msgstr "Real"
+
+#: model@md.recepture|_columns@type$selections#kvazi:1
+msgid "Kwazi"
+msgstr "Kwazi"
+
+#: model@md.recepture|_columns@subtype$label:1
 msgid "Subtype"
 msgstr "Subtype"
 
-#: md.recepture-partition:1
+#: model@md.recepture|_columns@subtype$selections#bom:1
+msgid "BoM"
+msgstr "BoM"
+
+#: model@md.recepture|_columns@subtype$selections#mob:1
+msgid "MoB"
+msgstr "MoB"
+
+#: model@md.recepture|_columns@subtype$selections#bob:1
+msgid "BoB"
+msgstr "BoB"
+
+#: model@md.recepture|_columns@partition$label:1
 msgid "Partition"
 msgstr "Partition"
 
-#: md.recepture-input_items:1
+#: model@md.recepture|_columns@input_items$label:1
 msgid "Input"
 msgstr "Ingång"
 
-#: md.recepture-output_items:1
+#: model@md.recepture|_columns@output_items$label:1
 msgid "Output"
 msgstr "Utgång"
 
-#: md.recepture.input-recepture_id:1 md.recepture.output-recepture_id:1
+#: model@md.recepture.input|_description@:1
+msgid "General Model Input Recipe"
+msgstr "Allmän Modell Ingång Recept"
+
+#: model@md.recepture.input|_columns@recepture_id$label:1
+#: model@md.recepture.output|_columns@recepture_id$label:1
 msgid "Recepture"
 msgstr "Recepture"
+
+#: model@md.recepture.output|_description@:1
+msgid "General Model Output Recipe"
+msgstr "Allmän Modell Utgång Recept"

@@ -3,536 +3,1021 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-04-02 15:13:27+0300\n"
-"PO-Revision-Date: 2020-04-02 15:13:27+0300\n"
+"POT-Creation-Date: 2020-05-15 19:41:56+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:56+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: purchase.unit.categories-name:1 purchase.channel.categories-name:1
-#: purchase.segment.categories-name:1 purchase.area.categories-name:1
-#: purchase.region.categories-name:1 purchase.division.categories-name:1
-#: purchase.subdivision.categories-name:1 purchase.order.types-name:1
-#: purchase.invoice.types-name:1 purchase.order.categories-name:1
-#: purchase.invoce.categories-name:1 purchase.orders-name:1
-#: purchase.invoices-name:1
+#: model@purchase.unit.categories|_description@:1
+msgid "General Model Categories Purchase Unit"
+msgstr "Modelo Geral De Categorias De Unidade De Compra"
+
+#: model@purchase.unit.categories|_columns@name$label:1
+#: model@purchase.channel.categories|_columns@name$label:1
+#: model@purchase.segment.categories|_columns@name$label:1
+#: model@purchase.area.categories|_columns@name$label:1
+#: model@purchase.region.categories|_columns@name$label:1
+#: model@purchase.division.categories|_columns@name$label:1
+#: model@purchase.subdivision.categories|_columns@name$label:1
+#: model@purchase.order.types|_columns@name$label:1
+#: model@purchase.invoice.types|_columns@name$label:1
+#: model@purchase.order.categories|_columns@name$label:1
+#: model@purchase.invoce.categories|_columns@name$label:1
+#: model@purchase.orders|_columns@name$label:1
+#: model@purchase.invoices|_columns@name$label:1
 msgid "Name"
 msgstr "Nome"
 
-#: purchase.unit.categories-parent_id:1
-#: purchase.channel.categories-parent_id:1
-#: purchase.segment.categories-parent_id:1
-#: purchase.area.categories-parent_id:1 purchase.region.categories-parent_id:1
-#: purchase.division.categories-parent_id:1
-#: purchase.subdivision.categories-parent_id:1
-#: purchase.order.categories-parent_id:1
-#: purchase.invoce.categories-parent_id:1
+#: model@purchase.unit.categories|_columns@parent_id$label:1
+#: model@purchase.channel.categories|_columns@parent_id$label:1
+#: model@purchase.segment.categories|_columns@parent_id$label:1
+#: model@purchase.area.categories|_columns@parent_id$label:1
+#: model@purchase.region.categories|_columns@parent_id$label:1
+#: model@purchase.division.categories|_columns@parent_id$label:1
+#: model@purchase.subdivision.categories|_columns@parent_id$label:1
+#: model@purchase.order.categories|_columns@parent_id$label:1
+#: model@purchase.invoce.categories|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Pai"
 
-#: purchase.unit.categories-childs_id:1
-#: purchase.channel.categories-childs_id:1
-#: purchase.segment.categories-childs_id:1
-#: purchase.area.categories-childs_id:1 purchase.region.categories-childs_id:1
-#: purchase.division.categories-childs_id:1
-#: purchase.subdivision.categories-childs_id:1
-#: purchase.order.categories-childs_id:1
-#: purchase.invoce.categories-childs_id:1
+#: model@purchase.unit.categories|_columns@childs_id$label:1
+#: model@purchase.channel.categories|_columns@childs_id$label:1
+#: model@purchase.segment.categories|_columns@childs_id$label:1
+#: model@purchase.area.categories|_columns@childs_id$label:1
+#: model@purchase.region.categories|_columns@childs_id$label:1
+#: model@purchase.division.categories|_columns@childs_id$label:1
+#: model@purchase.subdivision.categories|_columns@childs_id$label:1
+#: model@purchase.order.categories|_columns@childs_id$label:1
+#: model@purchase.invoce.categories|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: purchase.unit.categories-fullname:1 purchase.channel.categories-fullname:1
-#: purchase.segment.categories-fullname:1 purchase.area.categories-fullname:1
-#: purchase.region.categories-fullname:1
-#: purchase.division.categories-fullname:1
-#: purchase.subdivision.categories-fullname:1
-#: purchase.unit.channel.assigments-fullname:1
-#: purchase.unit.segment.assigments-fullname:1
-#: purchase.unit.area.assigments-fullname:1
-#: purchase.unit.region.assigments-fullname:1
-#: purchase.division.subdivision.assigments-fullname:1
-#: purchase.markets-fullname:1 purchase.teams-fullname:1
-#: purchase.order.categories-fullname:1 purchase.invoce.categories-fullname:1
-#: purchase.orders-fullname:1 purchase.invoices-fullname:1
+#: model@purchase.unit.categories|_columns@fullname$label:1
+#: model@purchase.channel.categories|_columns@fullname$label:1
+#: model@purchase.segment.categories|_columns@fullname$label:1
+#: model@purchase.area.categories|_columns@fullname$label:1
+#: model@purchase.region.categories|_columns@fullname$label:1
+#: model@purchase.division.categories|_columns@fullname$label:1
+#: model@purchase.subdivision.categories|_columns@fullname$label:1
+#: model@purchase.unit.channel.assigments|_columns@fullname$label:1
+#: model@purchase.unit.segment.assigments|_columns@fullname$label:1
+#: model@purchase.unit.area.assigments|_columns@fullname$label:1
+#: model@purchase.unit.region.assigments|_columns@fullname$label:1
+#: model@purchase.division.subdivision.assigments|_columns@fullname$label:1
+#: model@purchase.markets|_columns@fullname$label:1
+#: model@purchase.teams|_columns@fullname$label:1
+#: model@purchase.order.categories|_columns@fullname$label:1
+#: model@purchase.invoce.categories|_columns@fullname$label:1
+#: model@purchase.orders|_columns@fullname$label:1
+#: model@purchase.invoices|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Nome Completo"
 
-#: purchase.unit.categories-units:1
+#: model@purchase.unit.categories|_columns@units$label:1
 msgid "Units"
 msgstr "Unidades"
 
-#: purchase.unit.categories-note:1 purchase.channel.categories-note:1
-#: purchase.segment.categories-note:1 purchase.area.categories-note:1
-#: purchase.region.categories-note:1 purchase.division.categories-note:1
-#: purchase.subdivision.categories-note:1 purchase.markets-note:1
-#: purchase.teams-note:1 purchase.order.types-note:1
-#: purchase.order.type.roles-note:1 purchase.order.type.plates-note:1
-#: purchase.order.type.items-note:1 purchase.invoice.types-note:1
-#: purchase.invoice.type.roles-note:1 purchase.order.categories-note:1
-#: purchase.invoce.categories-note:1 purchase.orders-note:1
-#: purchase.order.payment.schedules-note:1 purchase.order.output.plates-note:1
-#: purchase.order.items-note:1 purchase.order.item.delivery.schedules-note:1
-#: purchase.order.item.output.plates-note:1
-#: purchase.order.item.payment.schedules-note:1 purchase.invoices-note:1
-#: purchase.invoice.items-note:1
-#: purchase.invoce.item.delivery.schedules-note:1 md.purchase.product-note:1
+#: model@purchase.unit.categories|_columns@note$label:1
+#: model@purchase.channel.categories|_columns@note$label:1
+#: model@purchase.segment.categories|_columns@note$label:1
+#: model@purchase.area.categories|_columns@note$label:1
+#: model@purchase.region.categories|_columns@note$label:1
+#: model@purchase.division.categories|_columns@note$label:1
+#: model@purchase.subdivision.categories|_columns@note$label:1
+#: model@purchase.markets|_columns@note$label:1
+#: model@purchase.teams|_columns@note$label:1
+#: model@purchase.order.types|_columns@note$label:1
+#: model@purchase.order.type.roles|_columns@note$label:1
+#: model@purchase.order.type.plates|_columns@note$label:1
+#: model@purchase.order.type.items|_columns@note$label:1
+#: model@purchase.invoice.types|_columns@note$label:1
+#: model@purchase.invoice.type.roles|_columns@note$label:1
+#: model@purchase.order.categories|_columns@note$label:1
+#: model@purchase.invoce.categories|_columns@note$label:1
+#: model@purchase.orders|_columns@note$label:1
+#: model@purchase.order.payment.schedules|_columns@note$label:1
+#: model@purchase.order.output.plates|_columns@note$label:1
+#: model@purchase.order.items|_columns@note$label:1
+#: model@purchase.order.item.delivery.schedules|_columns@note$label:1
+#: model@purchase.order.item.output.plates|_columns@note$label:1
+#: model@purchase.order.item.payment.schedules|_columns@note$label:1
+#: model@purchase.invoices|_columns@note$label:1
+#: model@purchase.invoice.items|_columns@note$label:1
+#: model@purchase.invoce.item.delivery.schedules|_columns@note$label:1
+#: model@md.purchase.product|_columns@note$label:1
 msgid "Note"
 msgstr "Nota"
 
-#: purchase.units-category_id:1 purchase.channels-category_id:1
-#: purchase.segments-category_id:1 purchase.areas-category_id:1
-#: purchase.regions-category_id:1 purchase.divisions-category_id:1
-#: purchase.subdivisions-category_id:1 purchase.orders-category_id:1
-#: purchase.invoices-category_id:1
+#: model@purchase.units|_description@:1
+msgid "General Model Purchase Units"
+msgstr "Modelo Geral Para Aquisição De Unidades"
+
+#: model@purchase.units|_columns@category_id$label:1
+#: model@purchase.channels|_columns@category_id$label:1
+#: model@purchase.segments|_columns@category_id$label:1
+#: model@purchase.areas|_columns@category_id$label:1
+#: model@purchase.regions|_columns@category_id$label:1
+#: model@purchase.divisions|_columns@category_id$label:1
+#: model@purchase.subdivisions|_columns@category_id$label:1
+#: model@purchase.orders|_columns@category_id$label:1
+#: model@purchase.invoices|_columns@category_id$label:1
 msgid "Category"
 msgstr "Categoria"
 
-#: purchase.units-company_id:1
+#: model@purchase.units|_columns@company_id$label:1
 msgid "Companies"
 msgstr "Empresas"
 
-#: purchase.units-code:1 purchase.channels-code:1 purchase.segments-code:1
-#: purchase.areas-code:1 purchase.regions-code:1 purchase.divisions-code:1
-#: purchase.subdivisions-code:1 purchase.pricing.group.levels-code:1
-#: purchase.texts-code:1 purchase.schema.texts-code:1
+#: model@purchase.units|_columns@code$label:1
+#: model@purchase.channels|_columns@code$label:1
+#: model@purchase.segments|_columns@code$label:1
+#: model@purchase.areas|_columns@code$label:1
+#: model@purchase.regions|_columns@code$label:1
+#: model@purchase.divisions|_columns@code$label:1
+#: model@purchase.subdivisions|_columns@code$label:1
+#: model@purchase.pricing.group.levels|_columns@code$label:1
+#: model@purchase.texts|_columns@code$label:1
+#: model@purchase.schema.texts|_columns@code$label:1
 msgid "Code"
 msgstr "Código"
 
-#: purchase.units-descr:1 purchase.channels-descr:1 purchase.segments-descr:1
-#: purchase.areas-descr:1 purchase.regions-descr:1 purchase.divisions-descr:1
-#: purchase.subdivisions-descr:1 purchase.pricing.group.levels-descr:1
-#: purchase.texts-descr:1 purchase.schema.texts-descr:1
+#: model@purchase.units|_columns@descr$label:1
+#: model@purchase.channels|_columns@descr$label:1
+#: model@purchase.segments|_columns@descr$label:1
+#: model@purchase.areas|_columns@descr$label:1
+#: model@purchase.regions|_columns@descr$label:1
+#: model@purchase.divisions|_columns@descr$label:1
+#: model@purchase.subdivisions|_columns@descr$label:1
+#: model@purchase.pricing.group.levels|_columns@descr$label:1
+#: model@purchase.texts|_columns@descr$label:1
+#: model@purchase.schema.texts|_columns@descr$label:1
 msgid "Description"
 msgstr "Descrição"
 
-#: purchase.units-channels:1 purchase.channel.categories-channels:1
+#: model@purchase.units|_columns@channels$label:1
+#: model@purchase.channel.categories|_columns@channels$label:1
 msgid "Channels"
 msgstr "Canais"
 
-#: purchase.units-segments:1 purchase.segment.categories-segments:1
+#: model@purchase.units|_columns@segments$label:1
+#: model@purchase.segment.categories|_columns@segments$label:1
 msgid "Segments"
 msgstr "Segmentos"
 
-#: purchase.units-areas:1 purchase.area.categories-areas:1
+#: model@purchase.units|_columns@areas$label:1
+#: model@purchase.area.categories|_columns@areas$label:1
 msgid "Areas"
 msgstr "Áreas"
 
-#: purchase.units-regions:1
+#: model@purchase.units|_columns@regions$label:1
 msgid "Regions"
 msgstr "Regiões"
 
-#: purchase.region.categories-segments:1
+#: model@purchase.channel.categories|_description@:1
+msgid "General Model Categories Purchase Chanel"
+msgstr "Modelo Geral De Categorias De Comprar Chanel"
+
+#: model@purchase.channels|_description@:1
+msgid "General Model Purchase Channels"
+msgstr "Geral Do Modelo De Canais De Compras"
+
+#: model@purchase.segment.categories|_description@:1
+msgid "General Model Categories Purchase Segment"
+msgstr "Modelo Geral De Categorias De Compra Do Segmento"
+
+#: model@purchase.segments|_description@:1
+msgid "General Model Purchase Segments"
+msgstr "Modelo Geral De Compra Segmentos"
+
+#: model@purchase.area.categories|_description@:1
+msgid "General Model Categories Purchase Area"
+msgstr "Modelo Geral De Categorias Área De Compras"
+
+#: model@purchase.areas|_description@:1
+msgid "General Model Purchase Areas"
+msgstr "Modelo Geral Áreas De Compras"
+
+#: model@purchase.region.categories|_description@:1
+msgid "General Model Categories Purchase Region"
+msgstr "Modelo Geral De Categorias De Compra Região"
+
+#: model@purchase.region.categories|_columns@segments$label:1
 msgid "REgions"
 msgstr "Regiões"
 
-#: purchase.division.categories-divisions:1
+#: model@purchase.regions|_description@:1
+msgid "General Model Purchase Regions"
+msgstr "Modelo Geral De Compra Regiões"
+
+#: model@purchase.division.categories|_description@:1
+msgid "General Model Categories Purchase Division"
+msgstr "Modelo Geral De Categorias De Compra Divisão"
+
+#: model@purchase.division.categories|_columns@divisions$label:1
 msgid "Divisions"
 msgstr "Divisões"
 
-#: purchase.divisions-subdivisions:1
+#: model@purchase.divisions|_description@:1
+msgid "General Model Purchase Divisions"
+msgstr "Modelo Geral De Compra Divisões"
+
+#: model@purchase.divisions|_columns@subdivisions$label:1
 msgid "SubDivisions"
 msgstr "Subdivisões"
 
-#: purchase.subdivision.categories-subdivisions:1
-#: purchase.order.categories-orders:1 purchase.invoce.categories-invoices:1
+#: model@purchase.subdivision.categories|_description@:1
+msgid "General Model Categories Purchase Subdivision"
+msgstr "Modelo Geral De Categorias De Compra Subdivisão"
+
+#: model@purchase.subdivision.categories|_columns@subdivisions$label:1
+#: model@purchase.order.categories|_columns@orders$label:1
+#: model@purchase.invoce.categories|_columns@invoices$label:1
 msgid "Orders"
 msgstr "Encomendas"
 
-#: purchase.unit.channel.assigments-unit_id:1
-#: purchase.unit.segment.assigments-unit_id:1
-#: purchase.unit.area.assigments-unit_id:1
-#: purchase.unit.region.assigments-unit_id:1 purchase.markets-unit_id:1
-#: purchase.order.items-unit:1 purchase.order.pricing.items-unit:1
-#: purchase.invoice.items-unit:1 purchase.invoice.pricing.items-unit:1
-#: md.purchase.product-unit:1
+#: model@purchase.subdivisions|_description@:1
+msgid "General Model Purchase Subdivisions"
+msgstr "Modelo Geral De Compra Subdivisões"
+
+#: model@purchase.unit.channel.assigments|_description@:1
+msgid "General Model Purchase Unit Of Channel Assigment"
+msgstr "Modelo Geral De Compra Da Unidade De Canal De Atribuição"
+
+#: model@purchase.unit.channel.assigments|_columns@unit_id$label:1
+#: model@purchase.unit.segment.assigments|_columns@unit_id$label:1
+#: model@purchase.unit.area.assigments|_columns@unit_id$label:1
+#: model@purchase.unit.region.assigments|_columns@unit_id$label:1
+#: model@purchase.markets|_columns@unit_id$label:1
+#: model@purchase.order.items|_columns@unit$label:1
+#: model@purchase.order.pricing.items|_columns@unit$label:1
+#: model@purchase.invoice.items|_columns@unit$label:1
+#: model@purchase.invoice.pricing.items|_columns@unit$label:1
+#: model@md.purchase.product|_columns@unit$label:1
 msgid "Unit"
 msgstr "Unidade"
 
-#: purchase.unit.channel.assigments-channel_id:1 purchase.markets-channel_id:1
+#: model@purchase.unit.channel.assigments|_columns@channel_id$label:1
+#: model@purchase.markets|_columns@channel_id$label:1
 msgid "Channel"
 msgstr "Canal"
 
-#: purchase.unit.segment.assigments-segment_id:1 purchase.markets-segment_id:1
+#: model@purchase.unit.segment.assigments|_description@:1
+msgid "General Model Purchase Unit Of Segment Assigment"
+msgstr "Modelo Geral De Compra Da Unidade Do Segmento De Atribuição"
+
+#: model@purchase.unit.segment.assigments|_columns@segment_id$label:1
+#: model@purchase.markets|_columns@segment_id$label:1
 msgid "Segment"
 msgstr "Segmento"
 
-#: purchase.unit.area.assigments-area_id:1 purchase.markets-area_id:1
+#: model@purchase.unit.area.assigments|_description@:1
+msgid "General Model Purchase Unit Of Area Assigment"
+msgstr "Modelo Geral De Compra Da Unidade De Área De Atribuição"
+
+#: model@purchase.unit.area.assigments|_columns@area_id$label:1
+#: model@purchase.markets|_columns@area_id$label:1
 msgid "Area"
 msgstr "Área"
 
-#: purchase.unit.region.assigments-region_id:1 purchase.markets-region_id:1
+#: model@purchase.unit.region.assigments|_description@:1
+msgid "General Model Purchase Unit Of Region Assigment"
+msgstr "Modelo Geral De Compra Da Unidade Da Região De Atribuição"
+
+#: model@purchase.unit.region.assigments|_columns@region_id$label:1
+#: model@purchase.markets|_columns@region_id$label:1
 msgid "Region"
 msgstr "Região"
 
-#: purchase.division.subdivision.assigments-division_id:1
-#: purchase.teams-division_id:1
+#: model@purchase.division.subdivision.assigments|_description@:1
+msgid "General Model Purchase Division Of Subdivision Assigment"
+msgstr "Modelo Geral De Compra Da Divisão De Subdivisão De Atribuição"
+
+#: model@purchase.division.subdivision.assigments|_columns@division_id$label:1
+#: model@purchase.teams|_columns@division_id$label:1
 msgid "Division"
 msgstr "Divisão"
 
-#: purchase.division.subdivision.assigments-subdivision_id:1
-#: purchase.teams-subdivision_id:1
+#: model@purchase.division.subdivision.assigments|_columns@subdivision_id$label:1
+#: model@purchase.teams|_columns@subdivision_id$label:1
 msgid "Subdivision"
 msgstr "Subdivisão"
 
-#: purchase.schema.texts-usage:1
+#: model@purchase.markets|_description@:1
+msgid "General Model Purchase Market"
+msgstr "Modelo Geral De Compra Do Mercado"
+
+#: model@purchase.teams|_description@:1
+msgid "General Model Purchase Teams"
+msgstr "Modelo Geral De Compra Equipes"
+
+#: model@purchase.pricing.group.levels|_description@:1
+msgid "General Model Purchase Pricing Group Levels"
+msgstr "Modelo Geral De Compra De Preço De Grupo"
+
+#: model@purchase.texts|_description@:1
+msgid "General Model Purchase Texts"
+msgstr "Modelo Geral De Compra Textos"
+
+#: model@purchase.schema.texts|_description@:1
+msgid "General Model Schema Of Purchase Texts"
+msgstr "Modelo Geral Do Esquema De Compra De Textos"
+
+#: model@purchase.schema.texts|_columns@usage$label:1
 msgid "Usage"
 msgstr "Utilização"
 
-#: purchase.schema.texts-texts:1 purchase.orders-texts:1
-#: purchase.order.items-texts:1 purchase.invoices-texts:1
-#: purchase.invoice.items-texts:1
-msgid "Texts"
-msgstr "Textos"
-
-#: purchase.schema.text.items-schema_id:1
-msgid "Schema"
-msgstr "Esquema"
-
-#: purchase.schema.text.items-seq:1 purchase.order.type.plates-seq:1
-#: purchase.order.texts-seq:1 purchase.order.item.texts-seq:1
-#: purchase.invoice.texts-seq:1 purchase.invoice.item.texts-seq:1
-msgid "Sequence"
-msgstr "Sequência"
-
-#: purchase.schema.text.items-text_id:1
-msgid "Text"
-msgstr "Texto"
-
-#: purchase.schema.text.items-descr:1 purchase.order.texts-descr:1
-#: purchase.order.item.texts-descr:1 purchase.invoice.texts-descr:1
-#: purchase.invoice.item.texts-descr:1
-msgid "Unknown"
-msgstr "Desconhecido"
-
-#: purchase.order.types-otype:1 purchase.order.type.roles-type_id:1
-#: purchase.order.type.plates-type_id:1 purchase.order.type.items-type_id:1
-#: purchase.invoice.types-itype:1 purchase.invoice.type.roles-type_id:1
-#: purchase.orders-otype:1 purchase.order.output.plates-otype:1
-#: purchase.order.item.output.plates-otype:1 purchase.invoices-itype:1
-msgid "Type"
-msgstr "Tipo"
-
-#: purchase.order.types-htschema:1 purchase.invoice.types-htschema:1
-msgid "Text Schema Of Head"
-msgstr "Texto De Esquema De Cabeça"
-
-#: purchase.order.types-itschema:1 purchase.invoice.types-itschema:1
-msgid "Text Schema Of Item"
-msgstr "Texto De Esquema De Item"
-
-#: purchase.order.types-roles:1 purchase.invoice.types-roles:1
-#: purchase.orders-roles:1 purchase.order.items-roles:1
-#: purchase.invoices-roles:1 purchase.invoice.items-roles:1
-msgid "Roles"
-msgstr "Funções"
-
-#: purchase.order.types-plates:1 purchase.orders-plates:1
-#: purchase.order.items-plates:1
-msgid "Plates"
-msgstr "Placas"
-
-#: purchase.order.types-tis:1
-msgid "TIs"
-msgstr "TIs"
-
-#: purchase.order.type.roles-role_id:1 purchase.invoice.type.roles-role_id:1
-#: purchase.order.roles-role_id:1 purchase.order.output.plates-role:1
-#: purchase.order.item.roles-role_id:1
-#: purchase.order.item.output.plates-role:1 purchase.invoice.roles-role_id:1
-#: purchase.invoice.item.roles-role_id:1
-msgid "Role"
-msgstr "Função"
-
-#: purchase.order.type.roles-required:1 purchase.order.type.plates-required:1
-#: purchase.invoice.type.roles-required:1
-msgid "Required"
-msgstr "Necessário"
-
-#: purchase.order.type.plates-plate:1
-msgid "Plate"
-msgstr "Placa"
-
-#: purchase.order.type.items-gti_id:1
-msgid "GTI"
-msgstr "GTI"
-
-#: purchase.order.type.items-itype_id:1
-msgid "Type Of Items"
-msgstr "Tipo De Itens"
-
-#: purchase.orders-company:1 purchase.invoices-company:1
-msgid "Company"
-msgstr "Empresa"
-
-#: purchase.orders-market_id:1 purchase.invoices-market_id:1
-msgid "Market"
-msgstr "Mercado"
-
-#: purchase.orders-team_id:1 purchase.invoices-team_id:1
-msgid "Team"
-msgstr "Equipa"
-
-#: purchase.orders-manager:1
-msgid "Manager"
-msgstr "Gestor de"
-
-#: purchase.orders-origin:1 purchase.invoices-origin:1
-msgid "Origin"
-msgstr "Origem"
-
-#: purchase.orders-doo:1
-msgid "Date Of Order"
-msgstr "Data Do Fim"
-
-#: purchase.orders-from_date:1
-msgid "Begin Date Of Order"
-msgstr "Comece A Data De Encomenda"
-
-#: purchase.orders-to_date:1
-msgid "End Date Of Order"
-msgstr "Data Do Fim Do Fim"
-
-#: purchase.orders-partner:1 purchase.order.output.plates-partner:1
-#: purchase.order.item.output.plates-partner:1 purchase.invoices-partner:1
-msgid "Partner"
-msgstr "Parceiros"
-
-#: purchase.orders-currency:1 purchase.order.pricing-currency:1
-#: purchase.order.payment.schedules-currency:1 purchase.order.items-currency:1
-#: purchase.order.pricing.items-currency:1
-#: purchase.order.item.payment.schedules-currency:1
-#: purchase.invoices-currency:1 purchase.invoice.pricing-currency:1
-#: purchase.invoice.items-currency:1 purchase.invoice.pricing.items-currency:1
-#: md.purchase.product-currency:1
-msgid "Currency"
-msgstr "Moeda"
-
-#: purchase.orders-incoterms1:1 purchase.invoices-incoterms1:1
-msgid "Incoterms 1"
-msgstr "Incoterms 1"
-
-#: purchase.orders-incoterms2:1 purchase.invoices-incoterms2:1
-msgid "Incoterms 2"
-msgstr "Incoterms 2"
-
-#: purchase.orders-pm:1
-msgid "Price Method"
-msgstr "Preço Método"
-
-#: purchase.orders-state:1 purchase.order.output.plates-state:1
-#: purchase.order.item.output.plates-state:1 purchase.invoices-state:1
-msgid "State"
-msgstr "Estado"
-
-#: purchase.orders-amount:1 purchase.order.pricing-amount:1
-#: purchase.order.payment.schedules-amount:1 purchase.order.items-amount:1
-#: purchase.order.pricing.items-amount:1
-#: purchase.order.item.payment.schedules-amount:1 purchase.invoices-amount:1
-#: purchase.invoice.pricing-amount:1 purchase.invoice.items-amount:1
-#: purchase.invoice.pricing.items-amount:1
-msgid "Amount"
-msgstr "Quantidade"
-
-#: purchase.orders-vat_amount:1 purchase.order.items-vat_amount:1
-#: purchase.invoices-vat_amount:1 purchase.invoice.items-vat_amount:1
-msgid "VAT Amount"
-msgstr "Valor do IVA"
-
-#: purchase.orders-total_amount:1 purchase.order.items-total_amount:1
-#: purchase.invoices-total_amount:1 purchase.invoice.items-total_amount:1
-msgid "Total Amount"
-msgstr "Montante Total"
-
-#: purchase.orders-recepture:1
-msgid "Recepture"
-msgstr "Recepture"
-
-#: purchase.orders-items:1 purchase.invoices-items:1
-msgid "Items"
-msgstr "Itens"
-
-#: purchase.orders-pricing:1 purchase.order.items-pricing:1
-#: purchase.invoices-pricing:1 purchase.invoice.items-pricing:1
-msgid "Pricing"
-msgstr "Preços"
-
-#: purchase.orders-payments:1 purchase.order.items-payments:1
-msgid "Payments"
-msgstr "Pagamentos"
-
-#: purchase.order.texts-order_id:1 purchase.order.roles-order_id:1
-#: purchase.order.pricing-order_id:1
-#: purchase.order.payment.schedules-order_id:1
-#: purchase.order.output.plates-order_id:1
-#: purchase.order.pricing.items-item_id:1
-#: purchase.order.item.output.plates-item_id:1
-#: purchase.invoice.texts-invoice_id:1
-#: purchase.invoice.pricing.items-item_id:1
-msgid "Order"
-msgstr "Fim"
-
-#: purchase.order.texts-text_id:1 purchase.order.item.texts-text_id:1
-#: purchase.invoice.texts-text_id:1 purchase.invoice.item.texts-text_id:1
-msgid "Text ID"
-msgstr "ID do texto"
-
-#: purchase.order.texts-content:1 purchase.order.item.texts-content:1
-#: purchase.invoice.texts-content:1 purchase.invoice.item.texts-content:1
-msgid "Content"
-msgstr "Conteúdo"
-
-#: purchase.order.roles-patner_id:1 purchase.order.item.roles-patner_id:1
-#: purchase.invoice.roles-patner_id:1 purchase.invoice.item.roles-patner_id:1
-msgid "Parther"
-msgstr "Parther"
-
-#: purchase.order.pricing-level:1 purchase.order.pricing.items-level:1
-#: purchase.invoice.pricing-level:1 purchase.invoice.pricing.items-level:1
-msgid "Level"
-msgstr "Nível"
-
-#: purchase.order.pricing-cond:1 purchase.order.pricing.items-cond:1
-#: purchase.invoice.pricing-cond:1 purchase.invoice.pricing.items-cond:1
-msgid "Condition"
-msgstr "Condição"
-
-#: purchase.order.pricing-from_level:1
-#: purchase.order.pricing.items-from_level:1
-#: purchase.invoice.pricing-from_level:1
-#: purchase.invoice.pricing.items-from_level:1
-msgid "From Level"
-msgstr "A Partir Do Nível"
-
-#: purchase.order.pricing-to_level:1 purchase.order.pricing.items-to_level:1
-#: purchase.invoice.pricing-to_level:1
-#: purchase.invoice.pricing.items-to_level:1
-msgid "To Level"
-msgstr "Para O Nível"
-
-#: purchase.order.pricing-group_level:1
-#: purchase.order.pricing.items-group_level:1
-#: purchase.invoice.pricing-group_level:1
-#: purchase.invoice.pricing.items-group_level:1
-msgid "Group Level"
-msgstr "A Nível Do Grupo"
-
-#: purchase.order.payment.schedules-schedule:1
-#: purchase.order.output.plates-schedule:1
-#: purchase.order.item.delivery.schedules-schedule:1
-#: purchase.order.item.output.plates-schedule:1
-#: purchase.order.item.payment.schedules-schedule:1
-#: purchase.invoce.item.delivery.schedules-schedule:1
-msgid "Schedule"
-msgstr "Agenda"
-
-#: purchase.order.output.plates-language:1
-#: purchase.order.item.output.plates-language:1
-msgid "language"
-msgstr "idioma"
-
-#: purchase.order.output.plates-msm:1 purchase.order.item.output.plates-msm:1
-msgid "Message Sending Method"
-msgstr "Método De Envio Mensagem"
-
-#: purchase.order.items-order_id:1
-msgid "Purchase Order"
-msgstr "Ordem De Compra"
-
-#: purchase.order.items-itype_id:1
-msgid "Group Of Type Items"
-msgstr "Grupo De Itens Do Tipo"
-
-#: purchase.order.items-product:1 purchase.invoice.items-product:1
-#: md.purchase.product-product_id:1
-msgid "Product"
-msgstr "Produto"
-
-#: purchase.order.items-quantity:1
-#: purchase.order.item.delivery.schedules-quantity:1
-#: purchase.invoice.items-quantity:1
-#: purchase.invoce.item.delivery.schedules-quantity:1
-msgid "Quantity"
-msgstr "Quantidade"
-
-#: purchase.order.items-uom:1 purchase.invoice.items-uom:1
-msgid "UoM"
-msgstr "UoM"
-
-#: purchase.order.items-price:1 purchase.order.pricing.items-price:1
-#: purchase.invoice.items-price:1 purchase.invoice.pricing.items-price:1
-#: md.purchase.product-price:1
-msgid "Price"
-msgstr "Preço"
-
-#: purchase.order.items-uop:1 purchase.order.pricing.items-uop:1
-#: purchase.invoice.items-uop:1 purchase.invoice.pricing.items-uop:1
-#: md.purchase.product-uop:1
-msgid "Unit Of Price"
-msgstr "Unidade De Preço"
-
-#: purchase.order.items-vat_code:1 purchase.invoice.items-vat_code:1
-msgid "Vat code"
-msgstr "Código do iva"
-
-#: purchase.order.items-volume:1
-msgid "Volume"
-msgstr "Volume"
-
-#: purchase.order.items-volume_total:1
-msgid "Volume Total"
-msgstr "Volume Total"
-
-#: purchase.order.items-volume_uom:1
-msgid "Volume UoM"
-msgstr "Volume Udm"
-
-#: purchase.order.items-weight:1
-msgid "Weight"
-msgstr "Peso"
-
-#: purchase.order.items-weight_total:1
-msgid "Weight Total"
-msgstr "Peso Total"
-
-#: purchase.order.items-weight_uom:1
-msgid "Weight UoM"
-msgstr "Peso Udm"
-
-#: purchase.order.items-delivery_schedules:1
-#: purchase.invoice.items-delivery_schedules:1
-msgid "Delivery Schedule"
-msgstr "Programação De Entrega"
-
-#: purchase.order.pricing.items-cop:1 purchase.invoice.pricing.items-cop:1
-msgid "Currency Of Price"
-msgstr "Moeda De Preço"
-
-#: purchase.order.item.texts-item_id:1 purchase.order.item.roles-item_id:1
-#: purchase.order.item.payment.schedules-item_id:1
-#: purchase.invoice.item.texts-item_id:1 purchase.invoice.item.roles-item_id:1
+#: model@purchase.schema.texts|_columns@usage$selections#h:1
+msgid "Header"
+msgstr "Cabeçalho"
+
+#: model@purchase.schema.texts|_columns@usage$selections#i:1
+#: model@purchase.order.pricing.items|_columns@item_id$label:1
+#: model@purchase.order.item.texts|_columns@item_id$label:1
+#: model@purchase.order.item.roles|_columns@item_id$label:1
+#: model@purchase.order.item.output.plates|_columns@item_id$label:1
+#: model@purchase.order.item.payment.schedules|_columns@item_id$label:1
+#: model@purchase.invoice.item.texts|_columns@item_id$label:1
+#: model@purchase.invoice.item.roles|_columns@item_id$label:1
 msgid "Item"
 msgstr "Item"
 
-#: purchase.order.item.delivery.schedules-item_id:1
-#: purchase.invoce.item.delivery.schedules-item_id:1
-msgid "Order Item"
-msgstr "Item Da Ordem Do Cliente"
+#: model@purchase.schema.texts|_columns@usage$selections#b:1
+msgid "Both"
+msgstr "Ambos"
 
-#: purchase.invoices-doi:1
-msgid "Date Of Invoice"
-msgstr "Data Da Factura"
+#: model@purchase.schema.texts|_columns@texts$label:1
+#: model@purchase.orders|_columns@texts$label:1
+#: model@purchase.order.items|_columns@texts$label:1
+#: model@purchase.invoices|_columns@texts$label:1
+#: model@purchase.invoice.items|_columns@texts$label:1
+msgid "Texts"
+msgstr "Textos"
 
-#: purchase.invoice.pricing-invoice_id:1 purchase.invoice.roles-invoice_id:1
-#: purchase.invoice.items-invoice_id:1
+#: model@purchase.schema.text.items|_description@:1
+msgid "General Model Items Of Schema Purchase Texts"
+msgstr "Geral Itens De Modelo De Esquema De Compra De Textos"
+
+#: model@purchase.schema.text.items|_columns@schema_id$label:1
+msgid "Schema"
+msgstr "Esquema"
+
+#: model@purchase.schema.text.items|_columns@seq$label:1
+#: model@purchase.order.type.plates|_columns@seq$label:1
+#: model@purchase.order.texts|_columns@seq$label:1
+#: model@purchase.order.item.texts|_columns@seq$label:1
+#: model@purchase.invoice.texts|_columns@seq$label:1
+#: model@purchase.invoice.item.texts|_columns@seq$label:1
+msgid "Sequence"
+msgstr "Sequência"
+
+#: model@purchase.schema.text.items|_columns@text_id$label:1
+msgid "Text"
+msgstr "Texto"
+
+#: model@purchase.schema.text.items|_columns@descr$label:1
+#: model@purchase.order.texts|_columns@descr$label:1
+#: model@purchase.order.item.texts|_columns@descr$label:1
+#: model@purchase.invoice.texts|_columns@descr$label:1
+#: model@purchase.invoice.item.texts|_columns@descr$label:1
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#: model@purchase.order.types|_description@:1
+msgid "General Model Types Purchase Order"
+msgstr "Modelo Geral De Tipos De Ordem De Compra"
+
+#: model@purchase.order.types|_columns@otype$label:1
+#: model@purchase.order.type.roles|_columns@type_id$label:1
+#: model@purchase.order.type.plates|_columns@type_id$label:1
+#: model@purchase.order.type.items|_columns@type_id$label:1
+#: model@purchase.invoice.types|_columns@itype$label:1
+#: model@purchase.invoice.type.roles|_columns@type_id$label:1
+#: model@purchase.orders|_columns@otype$label:1
+#: model@purchase.order.output.plates|_columns@otype$label:1
+#: model@purchase.order.item.output.plates|_columns@otype$label:1
+#: model@purchase.invoices|_columns@itype$label:1
+msgid "Type"
+msgstr "Tipo"
+
+#: model@purchase.order.types|_columns@otype$selections#ord:1
+#: model@purchase.order.texts|_columns@order_id$label:1
+#: model@purchase.order.roles|_columns@order_id$label:1
+#: model@purchase.order.pricing|_columns@order_id$label:1
+#: model@purchase.order.payment.schedules|_columns@order_id$label:1
+#: model@purchase.order.output.plates|_columns@order_id$label:1
+#: model@purchase.invoice.texts|_columns@invoice_id$label:1
+#: model@purchase.invoice.pricing.items|_columns@item_id$label:1
+msgid "Order"
+msgstr "Fim"
+
+#: model@purchase.order.types|_columns@otype$selections#ap:1
+#: model@purchase.invoice.types|_columns@itype$selections#ap:1
+msgid "Advance Payment"
+msgstr "Pagamento Antecipado"
+
+#: model@purchase.order.types|_columns@otype$selections#ps:1
+#: model@purchase.invoice.types|_columns@itype$selections#ps:1
+msgid "Pseduo"
+msgstr "Pseduo"
+
+#: model@purchase.order.types|_columns@otype$selections#dm:1
+msgid "Debit Request"
+msgstr "Débito Pedido"
+
+#: model@purchase.order.types|_columns@otype$selections#cr:1
+msgid "Credit Request"
+msgstr "Solicitação De Crédito"
+
+#: model@purchase.order.types|_columns@otype$selections#rо:1
+msgid "Return"
+msgstr "Retorno"
+
+#: model@purchase.order.types|_columns@htschema$label:1
+#: model@purchase.invoice.types|_columns@htschema$label:1
+msgid "Text Schema Of Head"
+msgstr "Texto De Esquema De Cabeça"
+
+#: model@purchase.order.types|_columns@itschema$label:1
+#: model@purchase.invoice.types|_columns@itschema$label:1
+msgid "Text Schema Of Item"
+msgstr "Texto De Esquema De Item"
+
+#: model@purchase.order.types|_columns@roles$label:1
+#: model@purchase.invoice.types|_columns@roles$label:1
+#: model@purchase.orders|_columns@roles$label:1
+#: model@purchase.order.items|_columns@roles$label:1
+#: model@purchase.invoices|_columns@roles$label:1
+#: model@purchase.invoice.items|_columns@roles$label:1
+msgid "Roles"
+msgstr "Funções"
+
+#: model@purchase.order.types|_columns@plates$label:1
+#: model@purchase.orders|_columns@plates$label:1
+#: model@purchase.order.items|_columns@plates$label:1
+msgid "Plates"
+msgstr "Placas"
+
+#: model@purchase.order.types|_columns@tis$label:1
+msgid "TIs"
+msgstr "TIs"
+
+#: model@purchase.order.type.roles|_description@:1
+msgid "General Model Role Purchase Order Types"
+msgstr "Geral Função Do Modelo De Tipos De Ordem De Compra"
+
+#: model@purchase.order.type.roles|_columns@role_id$label:1
+#: model@purchase.invoice.type.roles|_columns@role_id$label:1
+#: model@purchase.order.roles|_columns@role_id$label:1
+#: model@purchase.order.output.plates|_columns@role$label:1
+#: model@purchase.order.item.roles|_columns@role_id$label:1
+#: model@purchase.order.item.output.plates|_columns@role$label:1
+#: model@purchase.invoice.roles|_columns@role_id$label:1
+#: model@purchase.invoice.item.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Função"
+
+#: model@purchase.order.type.roles|_columns@required$label:1
+#: model@purchase.order.type.plates|_columns@required$label:1
+#: model@purchase.invoice.type.roles|_columns@required$label:1
+msgid "Required"
+msgstr "Necessário"
+
+#: model@purchase.order.type.plates|_description@:1
+msgid "General Model Purchase Order Plates"
+msgstr "Modelo Geral De Pedido De Compra De Placas De"
+
+#: model@purchase.order.type.plates|_columns@plate$label:1
+msgid "Plate"
+msgstr "Placa"
+
+#: model@purchase.order.type.items|_description@:1
+msgid "General Model Plates Of Purchase Order Items"
+msgstr "Modelo Geral Placas De Ordem De Compra De Itens"
+
+#: model@purchase.order.type.items|_columns@gti_id$label:1
+msgid "GTI"
+msgstr "GTI"
+
+#: model@purchase.order.type.items|_columns@itype_id$label:1
+msgid "Type Of Items"
+msgstr "Tipo De Itens"
+
+#: model@purchase.invoice.types|_description@:1
+msgid "General Model Types Purchase Invoice"
+msgstr "Em Geral Os Tipos De Modelo De Nota Fiscal De Compra"
+
+#: model@purchase.invoice.types|_columns@itype$selections#in:1
+#: model@purchase.invoice.pricing|_columns@invoice_id$label:1
+#: model@purchase.invoice.roles|_columns@invoice_id$label:1
+#: model@purchase.invoice.items|_columns@invoice_id$label:1
 msgid "Invoice"
 msgstr "Nota fiscal"
 
-#: md.purchase.product-vat:1
+#: model@purchase.invoice.types|_columns@itype$selections#dm:1
+msgid "Debit Memo"
+msgstr "Nota De Débito"
+
+#: model@purchase.invoice.types|_columns@itype$selections#cr:1
+msgid "Credit Memo"
+msgstr "Memorando De Crédito"
+
+#: model@purchase.invoice.types|_columns@itype$selections#rin:1
+msgid "Reversal Invoice"
+msgstr "Reversão Fatura"
+
+#: model@purchase.invoice.types|_columns@itype$selections#rap:1
+msgid "Reversal Advance Payment"
+msgstr "Reversão De Antecipação De Pagamento"
+
+#: model@purchase.invoice.types|_columns@itype$selections#rps:1
+msgid "Reversal Pseduo"
+msgstr "Reversão Pseduo"
+
+#: model@purchase.invoice.types|_columns@itype$selections#rdm:1
+msgid "Reversal Debit Memo"
+msgstr "Estorno De Nota De Débito"
+
+#: model@purchase.invoice.types|_columns@itype$selections#rcr:1
+msgid "Reversal Credit Memo"
+msgstr "Estorno De Nota De Crédito"
+
+#: model@purchase.invoice.type.roles|_description@:1
+msgid "General Model Role Purchase Invoice Types"
+msgstr "Geral Função Do Modelo De Nota Fiscal De Compra Tipos De"
+
+#: model@purchase.order.categories|_description@:1
+msgid "General Model Categories Purchase Order"
+msgstr "Modelo Geral De Categorias De Ordem De Compra"
+
+#: model@purchase.invoce.categories|_description@:1
+msgid "General Model Categories Purchase Invoce"
+msgstr "Modelo Geral De Categorias De Compra Invoce"
+
+#: model@purchase.orders|_description@:1
+msgid "General Model Purchase Order"
+msgstr "Modelo Geral De Ordem De Compra"
+
+#: model@purchase.orders|_columns@company$label:1
+#: model@purchase.invoices|_columns@company$label:1
+msgid "Company"
+msgstr "Empresa"
+
+#: model@purchase.orders|_columns@market_id$label:1
+#: model@purchase.invoices|_columns@market_id$label:1
+msgid "Market"
+msgstr "Mercado"
+
+#: model@purchase.orders|_columns@team_id$label:1
+#: model@purchase.invoices|_columns@team_id$label:1
+msgid "Team"
+msgstr "Equipa"
+
+#: model@purchase.orders|_columns@manager$label:1
+msgid "Manager"
+msgstr "Gestor de"
+
+#: model@purchase.orders|_columns@origin$label:1
+#: model@purchase.invoices|_columns@origin$label:1
+msgid "Origin"
+msgstr "Origem"
+
+#: model@purchase.orders|_columns@doo$label:1
+msgid "Date Of Order"
+msgstr "Data Do Fim"
+
+#: model@purchase.orders|_columns@from_date$label:1
+msgid "Begin Date Of Order"
+msgstr "Comece A Data De Encomenda"
+
+#: model@purchase.orders|_columns@to_date$label:1
+msgid "End Date Of Order"
+msgstr "Data Do Fim Do Fim"
+
+#: model@purchase.orders|_columns@partner$label:1
+#: model@purchase.order.output.plates|_columns@partner$label:1
+#: model@purchase.order.item.output.plates|_columns@partner$label:1
+#: model@purchase.invoices|_columns@partner$label:1
+msgid "Partner"
+msgstr "Parceiros"
+
+#: model@purchase.orders|_columns@currency$label:1
+#: model@purchase.order.pricing|_columns@currency$label:1
+#: model@purchase.order.payment.schedules|_columns@currency$label:1
+#: model@purchase.order.items|_columns@currency$label:1
+#: model@purchase.order.pricing.items|_columns@currency$label:1
+#: model@purchase.order.item.payment.schedules|_columns@currency$label:1
+#: model@purchase.invoices|_columns@currency$label:1
+#: model@purchase.invoice.pricing|_columns@currency$label:1
+#: model@purchase.invoice.items|_columns@currency$label:1
+#: model@purchase.invoice.pricing.items|_columns@currency$label:1
+#: model@md.purchase.product|_columns@currency$label:1
+msgid "Currency"
+msgstr "Moeda"
+
+#: model@purchase.orders|_columns@incoterms1$label:1
+#: model@purchase.invoices|_columns@incoterms1$label:1
+msgid "Incoterms 1"
+msgstr "Incoterms 1"
+
+#: model@purchase.orders|_columns@incoterms2$label:1
+#: model@purchase.invoices|_columns@incoterms2$label:1
+msgid "Incoterms 2"
+msgstr "Incoterms 2"
+
+#: model@purchase.orders|_columns@pm$label:1
+msgid "Price Method"
+msgstr "Preço Método"
+
+#: model@purchase.orders|_columns@pm$selections#p:1
+msgid "Plain"
+msgstr "Simples"
+
+#: model@purchase.orders|_columns@pm$selections#c:1
+msgid "Complicated"
+msgstr "Complicado"
+
+#: model@purchase.orders|_columns@state$label:1
+#: model@purchase.order.output.plates|_columns@state$label:1
+#: model@purchase.order.item.output.plates|_columns@state$label:1
+#: model@purchase.invoices|_columns@state$label:1
+msgid "State"
+msgstr "Estado"
+
+#: model@purchase.orders|_columns@state$selections#draft:1
+#: model@purchase.invoices|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Projecto de"
+
+#: model@purchase.orders|_columns@state$selections#approved:1
+#: model@purchase.invoices|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Aprovado"
+
+#: model@purchase.orders|_columns@state$selections#inprocess:1
+#: model@purchase.invoices|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "No Processo De"
+
+#: model@purchase.orders|_columns@state$selections#closed:1
+#: model@purchase.invoices|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Fechado"
+
+#: model@purchase.orders|_columns@state$selections#canceled:1
+#: model@purchase.invoices|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Cancelado"
+
+#: model@purchase.orders|_columns@amount$label:1
+#: model@purchase.order.pricing|_columns@amount$label:1
+#: model@purchase.order.payment.schedules|_columns@amount$label:1
+#: model@purchase.order.items|_columns@amount$label:1
+#: model@purchase.order.pricing.items|_columns@amount$label:1
+#: model@purchase.order.item.payment.schedules|_columns@amount$label:1
+#: model@purchase.invoices|_columns@amount$label:1
+#: model@purchase.invoice.pricing|_columns@amount$label:1
+#: model@purchase.invoice.items|_columns@amount$label:1
+#: model@purchase.invoice.pricing.items|_columns@amount$label:1
+msgid "Amount"
+msgstr "Quantidade"
+
+#: model@purchase.orders|_columns@vat_amount$label:1
+#: model@purchase.order.items|_columns@vat_amount$label:1
+#: model@purchase.invoices|_columns@vat_amount$label:1
+#: model@purchase.invoice.items|_columns@vat_amount$label:1
+msgid "VAT Amount"
+msgstr "Valor do IVA"
+
+#: model@purchase.orders|_columns@total_amount$label:1
+#: model@purchase.order.items|_columns@total_amount$label:1
+#: model@purchase.invoices|_columns@total_amount$label:1
+#: model@purchase.invoice.items|_columns@total_amount$label:1
+msgid "Total Amount"
+msgstr "Montante Total"
+
+#: model@purchase.orders|_columns@recepture$label:1
+msgid "Recepture"
+msgstr "Recepture"
+
+#: model@purchase.orders|_columns@items$label:1
+#: model@purchase.invoices|_columns@items$label:1
+msgid "Items"
+msgstr "Itens"
+
+#: model@purchase.orders|_columns@pricing$label:1
+#: model@purchase.order.items|_columns@pricing$label:1
+#: model@purchase.invoices|_columns@pricing$label:1
+#: model@purchase.invoice.items|_columns@pricing$label:1
+msgid "Pricing"
+msgstr "Preços"
+
+#: model@purchase.orders|_columns@payments$label:1
+#: model@purchase.order.items|_columns@payments$label:1
+msgid "Payments"
+msgstr "Pagamentos"
+
+#: model@purchase.order.texts|_description@:1
+msgid "General Model Purchase Order Texts"
+msgstr "Modelo Geral De Pedido De Compra Textos"
+
+#: model@purchase.order.texts|_columns@text_id$label:1
+#: model@purchase.order.item.texts|_columns@text_id$label:1
+#: model@purchase.invoice.texts|_columns@text_id$label:1
+#: model@purchase.invoice.item.texts|_columns@text_id$label:1
+msgid "Text ID"
+msgstr "ID do texto"
+
+#: model@purchase.order.texts|_columns@content$label:1
+#: model@purchase.order.item.texts|_columns@content$label:1
+#: model@purchase.invoice.texts|_columns@content$label:1
+#: model@purchase.invoice.item.texts|_columns@content$label:1
+msgid "Content"
+msgstr "Conteúdo"
+
+#: model@purchase.order.roles|_description@:1
+#: model@purchase.order.item.roles|_description@:1
+msgid "General Model Purchase Order Roles"
+msgstr "Modelo Geral De Pedido De Compra De Papéis"
+
+#: model@purchase.order.roles|_columns@patner_id$label:1
+#: model@purchase.order.item.roles|_columns@patner_id$label:1
+#: model@purchase.invoice.roles|_columns@patner_id$label:1
+#: model@purchase.invoice.item.roles|_columns@patner_id$label:1
+msgid "Parther"
+msgstr "Parther"
+
+#: model@purchase.order.pricing|_description@:1
+msgid "General Model Purchase Order Pricing"
+msgstr "Modelo Geral De Pedido De Compra De Preços"
+
+#: model@purchase.order.pricing|_columns@level$label:1
+#: model@purchase.order.pricing.items|_columns@level$label:1
+#: model@purchase.invoice.pricing|_columns@level$label:1
+#: model@purchase.invoice.pricing.items|_columns@level$label:1
+msgid "Level"
+msgstr "Nível"
+
+#: model@purchase.order.pricing|_columns@cond$label:1
+#: model@purchase.order.pricing.items|_columns@cond$label:1
+#: model@purchase.invoice.pricing|_columns@cond$label:1
+#: model@purchase.invoice.pricing.items|_columns@cond$label:1
+msgid "Condition"
+msgstr "Condição"
+
+#: model@purchase.order.pricing|_columns@from_level$label:1
+#: model@purchase.order.pricing.items|_columns@from_level$label:1
+#: model@purchase.invoice.pricing|_columns@from_level$label:1
+#: model@purchase.invoice.pricing.items|_columns@from_level$label:1
+msgid "From Level"
+msgstr "A Partir Do Nível"
+
+#: model@purchase.order.pricing|_columns@to_level$label:1
+#: model@purchase.order.pricing.items|_columns@to_level$label:1
+#: model@purchase.invoice.pricing|_columns@to_level$label:1
+#: model@purchase.invoice.pricing.items|_columns@to_level$label:1
+msgid "To Level"
+msgstr "Para O Nível"
+
+#: model@purchase.order.pricing|_columns@group_level$label:1
+#: model@purchase.order.pricing.items|_columns@group_level$label:1
+#: model@purchase.invoice.pricing|_columns@group_level$label:1
+#: model@purchase.invoice.pricing.items|_columns@group_level$label:1
+msgid "Group Level"
+msgstr "A Nível Do Grupo"
+
+#: model@purchase.order.payment.schedules|_description@:1
+msgid "General Model Purchase Order Payment Schedules"
+msgstr "Modelo Geral De Pedido De Compra Prazos De Pagamento"
+
+#: model@purchase.order.payment.schedules|_columns@schedule$label:1
+#: model@purchase.order.output.plates|_columns@schedule$label:1
+#: model@purchase.order.item.delivery.schedules|_columns@schedule$label:1
+#: model@purchase.order.item.output.plates|_columns@schedule$label:1
+#: model@purchase.order.item.payment.schedules|_columns@schedule$label:1
+#: model@purchase.invoce.item.delivery.schedules|_columns@schedule$label:1
+msgid "Schedule"
+msgstr "Agenda"
+
+#: model@purchase.order.output.plates|_description@:1
+msgid "General Model Purchase Order Output Plates"
+msgstr "Modelo Geral De Compra, Ordem De Saída De Placas"
+
+#: model@purchase.order.output.plates|_columns@state$selections#c:1
+#: model@purchase.order.item.output.plates|_columns@state$selections#c:1
+msgid "Created"
+msgstr "Criado"
+
+#: model@purchase.order.output.plates|_columns@state$selections#p:1
+#: model@purchase.order.item.output.plates|_columns@state$selections#p:1
+msgid "Printed"
+msgstr "Impresso"
+
+#: model@purchase.order.output.plates|_columns@state$selections#e:1
+#: model@purchase.order.item.output.plates|_columns@state$selections#e:1
+msgid "Error"
+msgstr "Erro"
+
+#: model@purchase.order.output.plates|_columns@state$selections#w:1
+#: model@purchase.order.item.output.plates|_columns@state$selections#w:1
+msgid "Warning"
+msgstr "Aviso"
+
+#: model@purchase.order.output.plates|_columns@state$selections#i:1
+#: model@purchase.order.item.output.plates|_columns@state$selections#i:1
+msgid "Info"
+msgstr "Informações"
+
+#: model@purchase.order.output.plates|_columns@language$label:1
+#: model@purchase.order.item.output.plates|_columns@language$label:1
+msgid "language"
+msgstr "idioma"
+
+#: model@purchase.order.output.plates|_columns@msm$label:1
+#: model@purchase.order.item.output.plates|_columns@msm$label:1
+msgid "Message Sending Method"
+msgstr "Método De Envio Mensagem"
+
+#: model@purchase.order.output.plates|_columns@msm$selections#pj:1
+#: model@purchase.order.item.output.plates|_columns@msm$selections#pj:1
+msgid "Peridiocal Job Send"
+msgstr "Peridiocal Trabalho De Enviar"
+
+#: model@purchase.order.output.plates|_columns@msm$selections#tj:1
+#: model@purchase.order.item.output.plates|_columns@msm$selections#tj:1
+msgid "Timing Job Send"
+msgstr "Temporização De Trabalho Enviar"
+
+#: model@purchase.order.output.plates|_columns@msm$selections#ss:1
+#: model@purchase.order.item.output.plates|_columns@msm$selections#ss:1
+msgid "Self Output Send"
+msgstr "Auto De Saída De Envio"
+
+#: model@purchase.order.output.plates|_columns@msm$selections#im:1
+#: model@purchase.order.item.output.plates|_columns@msm$selections#im:1
+msgid "Immediately Send"
+msgstr "Enviar Imediatamente"
+
+#: model@purchase.order.items|_description@:1
+msgid "General Model Purchase Order Items"
+msgstr "Modelo Geral De Pedido De Compra De Itens"
+
+#: model@purchase.order.items|_columns@order_id$label:1
+msgid "Purchase Order"
+msgstr "Ordem De Compra"
+
+#: model@purchase.order.items|_columns@itype_id$label:1
+msgid "Group Of Type Items"
+msgstr "Grupo De Itens Do Tipo"
+
+#: model@purchase.order.items|_columns@product$label:1
+#: model@purchase.invoice.items|_columns@product$label:1
+#: model@md.purchase.product|_columns@product_id$label:1
+msgid "Product"
+msgstr "Produto"
+
+#: model@purchase.order.items|_columns@quantity$label:1
+#: model@purchase.order.item.delivery.schedules|_columns@quantity$label:1
+#: model@purchase.invoice.items|_columns@quantity$label:1
+#: model@purchase.invoce.item.delivery.schedules|_columns@quantity$label:1
+msgid "Quantity"
+msgstr "Quantidade"
+
+#: model@purchase.order.items|_columns@uom$label:1
+#: model@purchase.invoice.items|_columns@uom$label:1
+msgid "UoM"
+msgstr "UoM"
+
+#: model@purchase.order.items|_columns@price$label:1
+#: model@purchase.order.pricing.items|_columns@price$label:1
+#: model@purchase.invoice.items|_columns@price$label:1
+#: model@purchase.invoice.pricing.items|_columns@price$label:1
+#: model@md.purchase.product|_columns@price$label:1
+msgid "Price"
+msgstr "Preço"
+
+#: model@purchase.order.items|_columns@uop$label:1
+#: model@purchase.order.pricing.items|_columns@uop$label:1
+#: model@purchase.invoice.items|_columns@uop$label:1
+#: model@purchase.invoice.pricing.items|_columns@uop$label:1
+#: model@md.purchase.product|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Unidade De Preço"
+
+#: model@purchase.order.items|_columns@vat_code$label:1
+#: model@purchase.invoice.items|_columns@vat_code$label:1
+msgid "Vat code"
+msgstr "Código do iva"
+
+#: model@purchase.order.items|_columns@volume$label:1
+msgid "Volume"
+msgstr "Volume"
+
+#: model@purchase.order.items|_columns@volume_total$label:1
+msgid "Volume Total"
+msgstr "Volume Total"
+
+#: model@purchase.order.items|_columns@volume_uom$label:1
+msgid "Volume UoM"
+msgstr "Volume Udm"
+
+#: model@purchase.order.items|_columns@weight$label:1
+msgid "Weight"
+msgstr "Peso"
+
+#: model@purchase.order.items|_columns@weight_total$label:1
+msgid "Weight Total"
+msgstr "Peso Total"
+
+#: model@purchase.order.items|_columns@weight_uom$label:1
+msgid "Weight UoM"
+msgstr "Peso Udm"
+
+#: model@purchase.order.items|_columns@delivery_schedules$label:1
+#: model@purchase.invoice.items|_columns@delivery_schedules$label:1
+msgid "Delivery Schedule"
+msgstr "Programação De Entrega"
+
+#: model@purchase.order.pricing.items|_description@:1
+msgid "General Model Purchase Order Item Pricing"
+msgstr "Modelo Geral De Pedido De Compra Item De Preços"
+
+#: model@purchase.order.pricing.items|_columns@cop$label:1
+#: model@purchase.invoice.pricing.items|_columns@cop$label:1
+msgid "Currency Of Price"
+msgstr "Moeda De Preço"
+
+#: model@purchase.order.item.texts|_description@:1
+msgid "General Model Purchase Order Item Texts"
+msgstr "Modelo Geral De Pedido De Compra Item De Textos"
+
+#: model@purchase.order.item.delivery.schedules|_description@:1
+msgid "General Model Purchase Order Item Delivery Schedules"
+msgstr "Modelo Geral De Pedido De Compra Item Prazos De Entrega"
+
+#: model@purchase.order.item.delivery.schedules|_columns@item_id$label:1
+#: model@purchase.invoce.item.delivery.schedules|_columns@item_id$label:1
+msgid "Order Item"
+msgstr "Item Da Ordem Do Cliente"
+
+#: model@purchase.order.item.output.plates|_description@:1
+msgid "General Model Purchase Order Item Output Plates"
+msgstr "Modelo Geral De Compra De Item De Ordem De Saída De Placas"
+
+#: model@purchase.order.item.payment.schedules|_description@:1
+msgid "General Model Purchase Order Item Payment Schedules"
+msgstr "Modelo Geral De Compra De Item De Ordem De Prazos De Pagamento"
+
+#: model@purchase.invoices|_description@:1
+msgid "General Model Purchase Invoice"
+msgstr "Geral Do Modelo De Nota Fiscal De Compra"
+
+#: model@purchase.invoices|_columns@doi$label:1
+msgid "Date Of Invoice"
+msgstr "Data Da Factura"
+
+#: model@purchase.invoice.pricing|_description@:1
+msgid "General Model Purchase Invoice Pricing"
+msgstr "Geral Do Modelo De Nota Fiscal De Compra De Preços"
+
+#: model@purchase.invoice.texts|_description@:1
+msgid "General Model Purchase Invoce Texts"
+msgstr "Modelo Geral De Compra Invoce Textos"
+
+#: model@purchase.invoice.roles|_description@:1
+msgid "General Model Purchase Invoice Roles"
+msgstr "Modelo Geral Fatura De Compra De Papéis"
+
+#: model@purchase.invoice.items|_description@:1
+msgid "General Model Purchase Invoice Items"
+msgstr "Geral Do Modelo De Nota Fiscal De Compra De Itens"
+
+#: model@purchase.invoice.item.texts|_description@:1
+msgid "General Model Purchase Invoce Item Texts"
+msgstr "Modelo Geral De Compra Invoce Item De Textos"
+
+#: model@purchase.invoice.item.roles|_description@:1
+msgid "General Model Purchase Invoice Item Roles"
+msgstr "Geral Do Modelo De Nota Fiscal De Compra Item De Funções"
+
+#: model@purchase.invoice.pricing.items|_description@:1
+msgid "General Model Purchase Invoice Item Pricing"
+msgstr "Geral Do Modelo De Nota Fiscal De Compra Item De Preços"
+
+#: model@purchase.invoce.item.delivery.schedules|_description@:1
+msgid "General Model Purchase Invoice Item Delivery Schedules"
+msgstr "Geral Do Modelo De Nota Fiscal De Compra Do Item Prazos De Entrega"
+
+#: model@md.purchase.product|_description@:1
+msgid "General Model Purchase Of Product"
+msgstr "Modelo Geral De Compra Do Produto"
+
+#: model@md.purchase.product|_columns@vat$label:1
 msgid "VAT Code"
 msgstr "Código do IVA"
 
-#: md.purchase.product-uom:1
+#: model@md.purchase.product|_columns@uom$label:1
 msgid "Unit Of Measure"
 msgstr "Unidade De Medida"

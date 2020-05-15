@@ -280,24 +280,44 @@
           <column name="note">Model bc.inherit.columns grant crw</column>
           <column name="group_id">bc.crw</column>
         </record>
-        <record id="bc.translations.readonly">
-          <column name="name">bc.translations.readonly</column>
-          <column name="note">Model bc.translations grant readonly</column>
+        <record id="bc.record.translations.readonly">
+          <column name="name">bc.record.translations.readonly</column>
+          <column name="note">Model bc.record.translations grant readonly</column>
           <column name="group_id">bc.readonly</column>
         </record>
-        <record id="bc.translations.nodrop">
-          <column name="name">bc.translations.nodrop</column>
-          <column name="note">Model bc.translations grant nodrop</column>
+        <record id="bc.record.translations.nodrop">
+          <column name="name">bc.record.translations.nodrop</column>
+          <column name="note">Model bc.record.translations grant nodrop</column>
           <column name="group_id">bc.nodrop</column>
         </record>
-        <record id="bc.translations.full">
-          <column name="name">bc.translations.full</column>
-          <column name="note">Model bc.translations grant full</column>
+        <record id="bc.record.translations.full">
+          <column name="name">bc.record.translations.full</column>
+          <column name="note">Model bc.record.translations grant full</column>
           <column name="group_id">bc.full</column>
         </record>
-        <record id="bc.translations.crw">
-          <column name="name">bc.translations.crw</column>
-          <column name="note">Model bc.translations grant crw</column>
+        <record id="bc.record.translations.crw">
+          <column name="name">bc.record.translations.crw</column>
+          <column name="note">Model bc.record.translations grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
+        <record id="bc.model.translations.readonly">
+          <column name="name">bc.model.translations.readonly</column>
+          <column name="note">Model bc.model.translations grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.model.translations.nodrop">
+          <column name="name">bc.model.translations.nodrop</column>
+          <column name="note">Model bc.model.translations grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.model.translations.full">
+          <column name="name">bc.model.translations.full</column>
+          <column name="note">Model bc.model.translations grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.model.translations.crw">
+          <column name="name">bc.model.translations.crw</column>
+          <column name="note">Model bc.model.translations grant crw</column>
           <column name="group_id">bc.crw</column>
         </record>
         <record id="bc.group.access.readonly">
@@ -1252,15 +1272,15 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="bc.bc.translations.readonly">
-          <column name="access_id">bc.translations.readonly</column>
-          <column name="model_id">bc.translations</column>
+        <record id="bc.bc.record.translations.readonly">
+          <column name="access_id">bc.record.translations.readonly</column>
+          <column name="model_id">bc.record.translations</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="bc.bc.translations.nodrop">
-          <column name="access_id">bc.translations.nodrop</column>
-          <column name="model_id">bc.translations</column>
+        <record id="bc.bc.record.translations.nodrop">
+          <column name="access_id">bc.record.translations.nodrop</column>
+          <column name="model_id">bc.record.translations</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -1272,9 +1292,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="bc.bc.translations.full">
-          <column name="access_id">bc.translations.full</column>
-          <column name="model_id">bc.translations</column>
+        <record id="bc.bc.record.translations.full">
+          <column name="access_id">bc.record.translations.full</column>
+          <column name="model_id">bc.record.translations</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -1288,9 +1308,59 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="bc.bc.translations.crw">
-          <column name="access_id">bc.translations.crw</column>
-          <column name="model_id">bc.translations</column>
+        <record id="bc.bc.record.translations.crw">
+          <column name="access_id">bc.record.translations.crw</column>
+          <column name="model_id">bc.record.translations</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.model.translations.readonly">
+          <column name="access_id">bc.model.translations.readonly</column>
+          <column name="model_id">bc.model.translations</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.model.translations.nodrop">
+          <column name="access_id">bc.model.translations.nodrop</column>
+          <column name="model_id">bc.model.translations</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.model.translations.full">
+          <column name="access_id">bc.model.translations.full</column>
+          <column name="model_id">bc.model.translations</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.model.translations.crw">
+          <column name="access_id">bc.model.translations.crw</column>
+          <column name="model_id">bc.model.translations</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

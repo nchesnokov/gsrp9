@@ -3,203 +3,776 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:35:10+0000\n"
-"PO-Revision-Date: 2020-02-13 14:35:10+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:56+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:56+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: md.project.product-product_id:1 project.element.products-product_id:1
-msgid "Product"
-msgstr "Produkt"
+#: model@prj.unit.categories|_description@:1
+msgid "General Model Categories Project Unit"
+msgstr "Generelle Modellen Kategorier Prosjektet Enhet"
 
-#: md.project.product-vat:1
-msgid "VAT Code"
-msgstr "MVA-Kode"
-
-#: md.project.product-uom:1 project.task.resources-uom:1
-#: project.element.resources-uom:1
-msgid "Unit Of Measure"
-msgstr "Måleenheten"
-
-#: md.project.product-price:1
-msgid "Price"
-msgstr "Pris"
-
-#: md.project.product-currency:1 project.resource-currency:1
-msgid "Currency"
-msgstr "Valuta"
-
-#: md.project.product-unit:1
-msgid "Unit"
-msgstr "Enhet"
-
-#: md.project.product-uop:1
-msgid "Unit Of Price"
-msgstr "Enhet For Pris"
-
-#: md.project.product-note:1 project.resource.category-note:1
-#: project.bill.category-note:1 project.portfolio.category-note:1
-#: project.project.category-note:1 project.stage.category-note:1
-#: project.task.category-note:1 project.element.category-note:1
-#: project.resource-note:1 project.bill-note:1 project.portfolio-note:1
-#: project.project-note:1 project.stage-note:1 project.task-note:1
-#: project.element-note:1 project.element.products-note:1
-msgid "Note"
-msgstr "Merk"
-
-#: project.resource.category-name:1 project.bill.category-name:1
-#: project.portfolio.category-name:1 project.project.category-name:1
-#: project.stage.category-name:1 project.task.category-name:1
-#: project.element.category-name:1
+#: model@prj.unit.categories|_columns@name$label:1
+#: model@prj.channel.categories|_columns@name$label:1
+#: model@prj.segment.categories|_columns@name$label:1
+#: model@prj.area.categories|_columns@name$label:1
+#: model@prj.region.categories|_columns@name$label:1
+#: model@prj.division.categories|_columns@name$label:1
+#: model@prj.subdivision.categories|_columns@name$label:1
+#: model@prj.bill.types|_columns@name$label:1
+#: model@prj.resource.category|_columns@name$label:1
+#: model@prj.bill.category|_columns@name$label:1
+#: model@prj.portfolio.category|_columns@name$label:1
+#: model@prj.prj.category|_columns@name$label:1
+#: model@prj.stage.category|_columns@name$label:1
+#: model@prj.task.category|_columns@name$label:1
+#: model@prj.element.category|_columns@name$label:1
 msgid "Name"
 msgstr "Navn"
 
-#: project.resource.category-parent_id:1 project.bill.category-parent_id:1
-#: project.portfolio.category-parent_id:1 project.project.category-parent_id:1
-#: project.stage.category-parent_id:1 project.task.category-parent_id:1
-#: project.element.category-parent_id:1 project.bill-parent_id:1
-#: project.portfolio-parent_id:1 project.project-parent_id:1
-#: project.stage-parent_id:1 project.task-parent_id:1
-#: project.element-parent_id:1
+#: model@prj.unit.categories|_columns@parent_id$label:1
+#: model@prj.channel.categories|_columns@parent_id$label:1
+#: model@prj.segment.categories|_columns@parent_id$label:1
+#: model@prj.area.categories|_columns@parent_id$label:1
+#: model@prj.region.categories|_columns@parent_id$label:1
+#: model@prj.division.categories|_columns@parent_id$label:1
+#: model@prj.subdivision.categories|_columns@parent_id$label:1
+#: model@prj.resource.category|_columns@parent_id$label:1
+#: model@prj.bill.category|_columns@parent_id$label:1
+#: model@prj.portfolio.category|_columns@parent_id$label:1
+#: model@prj.prj.category|_columns@parent_id$label:1
+#: model@prj.stage.category|_columns@parent_id$label:1
+#: model@prj.task.category|_columns@parent_id$label:1
+#: model@prj.element.category|_columns@parent_id$label:1
+#: model@prj.bill|_columns@parent_id$label:1
+#: model@prj.portfolio|_columns@parent_id$label:1
+#: model@prj.project|_columns@parent_id$label:1
+#: model@prj.stage|_columns@parent_id$label:1
+#: model@prj.task|_columns@parent_id$label:1
+#: model@prj.element|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Foreldre"
 
-#: project.resource.category-childs_id:1 project.bill.category-childs_id:1
-#: project.portfolio.category-childs_id:1 project.project.category-childs_id:1
-#: project.stage.category-childs_id:1 project.task.category-childs_id:1
-#: project.element.category-childs_id:1 project.bill-childs_id:1
-#: project.portfolio-childs_id:1 project.project-childs_id:1
-#: project.stage-childs_id:1 project.task-childs_id:1
-#: project.element-childs_id:1
+#: model@prj.unit.categories|_columns@childs_id$label:1
+#: model@prj.channel.categories|_columns@childs_id$label:1
+#: model@prj.segment.categories|_columns@childs_id$label:1
+#: model@prj.area.categories|_columns@childs_id$label:1
+#: model@prj.region.categories|_columns@childs_id$label:1
+#: model@prj.division.categories|_columns@childs_id$label:1
+#: model@prj.subdivision.categories|_columns@childs_id$label:1
+#: model@prj.resource.category|_columns@childs_id$label:1
+#: model@prj.bill.category|_columns@childs_id$label:1
+#: model@prj.portfolio.category|_columns@childs_id$label:1
+#: model@prj.prj.category|_columns@childs_id$label:1
+#: model@prj.stage.category|_columns@childs_id$label:1
+#: model@prj.task.category|_columns@childs_id$label:1
+#: model@prj.element.category|_columns@childs_id$label:1
+#: model@prj.bill|_columns@childs_id$label:1
+#: model@prj.portfolio|_columns@childs_id$label:1
+#: model@prj.project|_columns@childs_id$label:1
+#: model@prj.stage|_columns@childs_id$label:1
+#: model@prj.task|_columns@childs_id$label:1
+#: model@prj.element|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: project.resource.category-projects:1 project.project.category-projects:1
-#: project.portfolio-projects:1
-msgid "Projects"
-msgstr "Prosjekter"
+#: model@prj.unit.categories|_columns@fullname$label:1
+#: model@prj.channel.categories|_columns@fullname$label:1
+#: model@prj.segment.categories|_columns@fullname$label:1
+#: model@prj.area.categories|_columns@fullname$label:1
+#: model@prj.region.categories|_columns@fullname$label:1
+#: model@prj.division.categories|_columns@fullname$label:1
+#: model@prj.subdivision.categories|_columns@fullname$label:1
+#: model@prj.unit.channel.assigments|_columns@fullname$label:1
+#: model@prj.unit.segment.assigments|_columns@fullname$label:1
+#: model@prj.unit.area.assigments|_columns@fullname$label:1
+#: model@prj.unit.region.assigments|_columns@fullname$label:1
+#: model@prj.division.subdivision.assigments|_columns@fullname$label:1
+#: model@prj.markets|_columns@fullname$label:1
+#: model@prj.teams|_columns@fullname$label:1
+#: model@prj.bill|_columns@fullname$label:1
+msgid "Full Name"
+msgstr "Fullt Navn"
 
-#: project.bill.category-bills:1
-msgid "Bills"
-msgstr "Regninger"
+#: model@prj.unit.categories|_columns@units$label:1
+msgid "Units"
+msgstr "Enheter"
 
-#: project.portfolio.category-portfolios:1 project.bill-portfolios:1
-msgid "Portfolios"
-msgstr "Porteføljer"
+#: model@prj.unit.categories|_columns@note$label:1
+#: model@prj.channel.categories|_columns@note$label:1
+#: model@prj.segment.categories|_columns@note$label:1
+#: model@prj.area.categories|_columns@note$label:1
+#: model@prj.region.categories|_columns@note$label:1
+#: model@prj.division.categories|_columns@note$label:1
+#: model@prj.subdivision.categories|_columns@note$label:1
+#: model@prj.markets|_columns@note$label:1
+#: model@prj.teams|_columns@note$label:1
+#: model@prj.bill.types|_columns@note$label:1
+#: model@prj.bill.type.roles|_columns@note$label:1
+#: model@prj.bill.type.plates|_columns@note$label:1
+#: model@prj.resource.category|_columns@note$label:1
+#: model@prj.bill.category|_columns@note$label:1
+#: model@prj.portfolio.category|_columns@note$label:1
+#: model@prj.prj.category|_columns@note$label:1
+#: model@prj.stage.category|_columns@note$label:1
+#: model@prj.task.category|_columns@note$label:1
+#: model@prj.element.category|_columns@note$label:1
+#: model@prj.resource|_columns@note$label:1
+#: model@prj.bill|_columns@note$label:1
+#: model@prj.portfolio|_columns@note$label:1
+#: model@prj.project|_columns@note$label:1
+#: model@prj.stage|_columns@note$label:1 model@prj.task|_columns@note$label:1
+#: model@prj.element|_columns@note$label:1
+#: model@prj.element.products|_columns@note$label:1
+#: model@md.prj.product|_columns@note$label:1
+msgid "Note"
+msgstr "Merk"
 
-#: project.stage.category-stages:1
-msgid "Orders"
-msgstr "Bestillinger"
+#: model@prj.units|_description@:1
+msgid "General Model Project Units"
+msgstr "Generelle Modellen Prosjektet Enheter"
 
-#: project.task.category-tasks:1 project.stage-tasks:1
-msgid "Tasks"
-msgstr "Oppgaver"
-
-#: project.element.category-elements:1 project.stage-elements:1
-msgid "Elements"
-msgstr "Elementer"
-
-#: project.resource-name:1 project.task.resources-resource_id:1
-#: project.element.resources-resource_id:1
-msgid "Resource"
-msgstr "Ressurs"
-
-#: project.resource-category_id:1 project.bill-category_id:1
-#: project.portfolio-category_id:1 project.project-category_id:1
-#: project.task-category_id:1
+#: model@prj.units|_columns@category_id$label:1
+#: model@prj.channels|_columns@category_id$label:1
+#: model@prj.segments|_columns@category_id$label:1
+#: model@prj.areas|_columns@category_id$label:1
+#: model@prj.regions|_columns@category_id$label:1
+#: model@prj.divisions|_columns@category_id$label:1
+#: model@prj.subdivisions|_columns@category_id$label:1
+#: model@prj.resource|_columns@category_id$label:1
+#: model@prj.bill|_columns@category_id$label:1
+#: model@prj.portfolio|_columns@category_id$label:1
+#: model@prj.project|_columns@category_id$label:1
+#: model@prj.task|_columns@category_id$label:1
 msgid "Category"
 msgstr "Kategori"
 
-#: project.resource-cost:1
-msgid "Cost"
-msgstr "Kostnad"
+#: model@prj.units|_columns@company_id$label:1
+msgid "Companies"
+msgstr "Selskaper"
 
-#: project.bill-name:1 project.portfolio-bill_id:1
-msgid "Bill"
-msgstr "Bill"
+#: model@prj.units|_columns@code$label:1
+#: model@prj.channels|_columns@code$label:1
+#: model@prj.segments|_columns@code$label:1
+#: model@prj.areas|_columns@code$label:1
+#: model@prj.regions|_columns@code$label:1
+#: model@prj.divisions|_columns@code$label:1
+#: model@prj.subdivisions|_columns@code$label:1
+#: model@prj.pricing.group.levels|_columns@code$label:1
+#: model@prj.texts|_columns@code$label:1
+#: model@prj.schema.texts|_columns@code$label:1
+msgid "Code"
+msgstr "Kode"
 
-#: project.bill-start_date:1 project.portfolio-start_date:1
-#: project.project-start_date:1 project.stage-start_date:1
-#: project.task-start_date:1
-msgid "Start date"
-msgstr "Start dato"
+#: model@prj.units|_columns@descr$label:1
+#: model@prj.channels|_columns@descr$label:1
+#: model@prj.segments|_columns@descr$label:1
+#: model@prj.areas|_columns@descr$label:1
+#: model@prj.regions|_columns@descr$label:1
+#: model@prj.divisions|_columns@descr$label:1
+#: model@prj.subdivisions|_columns@descr$label:1
+#: model@prj.pricing.group.levels|_columns@descr$label:1
+#: model@prj.texts|_columns@descr$label:1
+#: model@prj.schema.texts|_columns@descr$label:1
+msgid "Description"
+msgstr "Beskrivelse"
 
-#: project.bill-end_date:1 project.portfolio-end_date:1
-#: project.project-end_date:1 project.stage-end_date:1 project.task-end_date:1
-msgid "End date"
-msgstr "Slutt dato"
+#: model@prj.units|_columns@channels$label:1
+#: model@prj.channel.categories|_columns@channels$label:1
+msgid "Channels"
+msgstr "Tv"
 
-#: project.bill-progress:1 project.portfolio-progress:1
-#: project.project-progress:1 project.stage-progress:1 project.task-progress:1
-msgid "Progress"
-msgstr "Fremgang"
+#: model@prj.units|_columns@segments$label:1
+#: model@prj.segment.categories|_columns@segments$label:1
+msgid "Segments"
+msgstr "Segmenter"
 
-#: project.bill-project_type:1 project.portfolio-project_type:1
-#: project.project-project_type:1 project.task-project_type:1
-msgid "Project Type"
-msgstr "Type Prosjekt"
+#: model@prj.units|_columns@areas$label:1
+#: model@prj.area.categories|_columns@areas$label:1
+msgid "Areas"
+msgstr "Områder"
 
-#: project.bill-state:1 project.portfolio-state:1 project.project-state:1
-#: project.task-state:1
-msgid "State"
-msgstr "Staten"
+#: model@prj.units|_columns@regions$label:1
+msgid "Regions"
+msgstr "Regioner"
 
-#: project.portfolio-name:1 project.project-portfolio_id:1
-msgid "Portfolio"
-msgstr "Portefølje"
+#: model@prj.channel.categories|_description@:1
+msgid "General Model Categories Project Chanel"
+msgstr "Generelle Modellen Kategorier Prosjektet Chanel"
 
-#: project.project-name:1 project.stage-project_id:1
-msgid "Project"
-msgstr "Prosjekt"
+#: model@prj.channels|_description@:1
+msgid "General Model Project Channels"
+msgstr "Generelle Modellen Prosjekt-Tv"
 
-#: project.project-stages:1
-msgid "Stages"
-msgstr "Stadier"
+#: model@prj.segment.categories|_description@:1
+msgid "General Model Categories Project Segment"
+msgstr "Generelle Modellen Kategorier Prosjektet Segment"
 
-#: project.stage-name:1 project.task-stage_id:1 project.element-stage_id:1
-msgid "Stage"
-msgstr "Scenen"
+#: model@prj.segments|_description@:1
+msgid "General Model Project Segments"
+msgstr "Generelle Modellen Prosjektet Segmenter"
 
-#: project.stage-type:1 project.stage-project_type:1
+#: model@prj.area.categories|_description@:1
+msgid "General Model Categories Project Area"
+msgstr "Generelle Modellen Kategorier Prosjektområdet"
+
+#: model@prj.areas|_description@:1
+msgid "General Model Project Areas"
+msgstr "Generelle Modellen Prosjektet Områder"
+
+#: model@prj.region.categories|_description@:1
+msgid "General Model Categories Project Region"
+msgstr "Generelle Modellen Kategorier Prosjektet Regionen"
+
+#: model@prj.region.categories|_columns@segments$label:1
+msgid "REgions"
+msgstr "Regioner"
+
+#: model@prj.regions|_description@:1
+msgid "General Model Project Regions"
+msgstr "Generelle Modellen Prosjektet Regioner"
+
+#: model@prj.division.categories|_description@:1
+msgid "General Model Categories Project Division"
+msgstr "Generelle Modellen Kategorier Prosjektet Divisjon"
+
+#: model@prj.division.categories|_columns@divisions$label:1
+msgid "Divisions"
+msgstr "Avdelinger"
+
+#: model@prj.divisions|_description@:1
+msgid "General Model Project Divisions"
+msgstr "Generelle Modellen Prosjektet Divisjoner"
+
+#: model@prj.divisions|_columns@subdivisions$label:1
+msgid "SubDivisions"
+msgstr "Undergrupper"
+
+#: model@prj.subdivision.categories|_description@:1
+msgid "General Model Categories Project Subdivision"
+msgstr "Generelle Modellen Kategorier Prosjektet Inndeling"
+
+#: model@prj.subdivision.categories|_columns@subdivisions$label:1
+#: model@prj.stage.category|_columns@stages$label:1
+msgid "Orders"
+msgstr "Bestillinger"
+
+#: model@prj.subdivisions|_description@:1
+msgid "General Model Project Subdivisions"
+msgstr "Generelle Modellen Prosjektet Undergrupper"
+
+#: model@prj.unit.channel.assigments|_description@:1
+msgid "General Model Project Unit Of Channel Assigment"
+msgstr "Generelle Modellen Prosjektet Enhet Av Kanal Assigment"
+
+#: model@prj.unit.channel.assigments|_columns@unit_id$label:1
+#: model@prj.unit.segment.assigments|_columns@unit_id$label:1
+#: model@prj.unit.area.assigments|_columns@unit_id$label:1
+#: model@prj.unit.region.assigments|_columns@unit_id$label:1
+#: model@prj.markets|_columns@unit_id$label:1
+#: model@md.prj.product|_columns@unit$label:1
+msgid "Unit"
+msgstr "Enhet"
+
+#: model@prj.unit.channel.assigments|_columns@channel_id$label:1
+#: model@prj.markets|_columns@channel_id$label:1
+msgid "Channel"
+msgstr "Kanal"
+
+#: model@prj.unit.segment.assigments|_description@:1
+msgid "General Model Project Unit Of Segment Assigment"
+msgstr "Generelle Modellen Prosjektet Enhet Av Segmentet Assigment"
+
+#: model@prj.unit.segment.assigments|_columns@segment_id$label:1
+#: model@prj.markets|_columns@segment_id$label:1
+msgid "Segment"
+msgstr "Segmentet"
+
+#: model@prj.unit.area.assigments|_description@:1
+msgid "General Model Project Unit Of Area Assigment"
+msgstr "Generelle Modellen Prosjektet Enhet Av Området Assigment"
+
+#: model@prj.unit.area.assigments|_columns@area_id$label:1
+#: model@prj.markets|_columns@area_id$label:1
+msgid "Area"
+msgstr "Område"
+
+#: model@prj.unit.region.assigments|_description@:1
+msgid "General Model Project Unit Of Region Assigment"
+msgstr "Generelle Modellen Prosjektet Enhet Av Regionen Assigment"
+
+#: model@prj.unit.region.assigments|_columns@region_id$label:1
+#: model@prj.markets|_columns@region_id$label:1
+msgid "Region"
+msgstr "Regionen"
+
+#: model@prj.division.subdivision.assigments|_description@:1
+msgid "General Model Project Division Of Subdivision Assigment"
+msgstr "Generelle Modellen Prosjektet Divisjon Av Underavdeling Assigment"
+
+#: model@prj.division.subdivision.assigments|_columns@division_id$label:1
+#: model@prj.teams|_columns@division_id$label:1
+msgid "Division"
+msgstr "Divisjon"
+
+#: model@prj.division.subdivision.assigments|_columns@subdivision_id$label:1
+#: model@prj.teams|_columns@subdivision_id$label:1
+msgid "Subdivision"
+msgstr "Inndeling"
+
+#: model@prj.markets|_description@:1
+msgid "General Model Project Market"
+msgstr "Generelle Modellen Prosjektet Markedet"
+
+#: model@prj.teams|_description@:1
+msgid "General Model Project Teams"
+msgstr "Generelle Modellen Prosjekt-Team"
+
+#: model@prj.pricing.group.levels|_description@:1
+msgid "General Model Project Pricing Group Levels"
+msgstr "Generelle Modellen Prosjektet Priser Gruppe Nivåer"
+
+#: model@prj.texts|_description@:1
+msgid "General Model Project Texts"
+msgstr "Generelle Modellen Prosjektet Tekster"
+
+#: model@prj.schema.texts|_description@:1
+msgid "General Model Schema Of Project Texts"
+msgstr "Generelle Modellen Skjema For Prosjektet Tekster"
+
+#: model@prj.schema.texts|_columns@usage$label:1
+msgid "Usage"
+msgstr "Bruk"
+
+#: model@prj.schema.texts|_columns@usage$selections#h:1
+msgid "Header"
+msgstr "Header"
+
+#: model@prj.schema.texts|_columns@usage$selections#i:1
+msgid "Item"
+msgstr "Elementet"
+
+#: model@prj.schema.texts|_columns@usage$selections#b:1
+msgid "Both"
+msgstr "Både"
+
+#: model@prj.schema.texts|_columns@texts$label:1
+msgid "Texts"
+msgstr "Tekster"
+
+#: model@prj.schema.text.items|_description@:1
+msgid "General Model Items Of Schema Project Texts"
+msgstr "Generelle Modellen Elementer Av Skjema Prosjekt Tekster"
+
+#: model@prj.schema.text.items|_columns@schema_id$label:1
+msgid "Schema"
+msgstr "Skjema"
+
+#: model@prj.schema.text.items|_columns@seq$label:1
+#: model@prj.bill.type.plates|_columns@seq$label:1
+msgid "Sequence"
+msgstr "Rekkefølge"
+
+#: model@prj.schema.text.items|_columns@text_id$label:1
+msgid "Text"
+msgstr "Tekst"
+
+#: model@prj.schema.text.items|_columns@descr$label:1
+msgid "Unknown"
+msgstr "Ukjent"
+
+#: model@prj.bill.types|_description@:1
+msgid "General Model Types Project Bill"
+msgstr "Generelle Modellen Typer Prosjekt Bill"
+
+#: model@prj.bill.types|_columns@ptype$label:1
+#: model@prj.bill.type.roles|_columns@type_id$label:1
+#: model@prj.bill.type.plates|_columns@type_id$label:1
+#: model@prj.bill|_columns@btype$label:1 model@prj.stage|_columns@type$label:1
+#: model@prj.stage|_columns@prj_type$label:1
 msgid "Type"
 msgstr "Type"
 
-#: project.stage-state:1
-msgid "Project State"
-msgstr "Prosjektet Staten"
+#: model@prj.bill.types|_columns@ptype$selections#ord:1
+msgid "Order"
+msgstr "Rekkefølge"
 
-#: project.task-name:1 project.task.resources-task_id:1
+#: model@prj.bill.types|_columns@ptype$selections#ap:1
+msgid "Advance Payment"
+msgstr "Forskudd"
+
+#: model@prj.bill.types|_columns@ptype$selections#ps:1
+msgid "Pseduo"
+msgstr "Pseduo"
+
+#: model@prj.bill.types|_columns@ptype$selections#dm:1
+msgid "Debit Request"
+msgstr "Debet Forespørsel"
+
+#: model@prj.bill.types|_columns@ptype$selections#cr:1
+msgid "Credit Request"
+msgstr "Be Om Kreditt"
+
+#: model@prj.bill.types|_columns@ptype$selections#rо:1
+msgid "Return"
+msgstr "Tilbake"
+
+#: model@prj.bill.types|_columns@htschema$label:1
+msgid "Text Schema Of Head"
+msgstr "Tekst Skjema For Hodet"
+
+#: model@prj.bill.types|_columns@itschema$label:1
+msgid "Text Schema Of Item"
+msgstr "Tekst Skjema For Elementet"
+
+#: model@prj.bill.types|_columns@roles$label:1
+msgid "Roles"
+msgstr "Roller"
+
+#: model@prj.bill.types|_columns@plates$label:1
+msgid "Plates"
+msgstr "Plater"
+
+#: model@prj.bill.types|_columns@tis$label:1
+msgid "TIs"
+msgstr "TIs"
+
+#: model@prj.bill.type.roles|_description@:1
+msgid "General Model Role Project BIll Types"
+msgstr "Generelle Modellen Rolle Prosjektet BIll Typer"
+
+#: model@prj.bill.type.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Rolle"
+
+#: model@prj.bill.type.roles|_columns@required$label:1
+#: model@prj.bill.type.plates|_columns@required$label:1
+msgid "Required"
+msgstr "Nødvendig"
+
+#: model@prj.bill.type.plates|_description@:1
+msgid "General Model Project Bill Plates"
+msgstr "Generelle Modellen Prosjektet Bill Plater"
+
+#: model@prj.bill.type.plates|_columns@plate$label:1
+msgid "Plate"
+msgstr "Plate"
+
+#: model@prj.resource.category|_description@:1
+msgid "General Model Category Project Resource"
+msgstr "Generelle Modellen Kategori Prosjektet Ressurs"
+
+#: model@prj.resource.category|_columns@projects$label:1
+#: model@prj.prj.category|_columns@projects$label:1
+#: model@prj.portfolio|_columns@projects$label:1
+msgid "Projects"
+msgstr "Prosjekter"
+
+#: model@prj.bill.category|_description@:1
+msgid "General Model Category Project Bill"
+msgstr "Generelle Modellen Kategori Prosjektet Bill"
+
+#: model@prj.bill.category|_columns@bills$label:1
+msgid "Bills"
+msgstr "Regninger"
+
+#: model@prj.portfolio.category|_description@:1
+msgid "General Model Category Project Portfolio"
+msgstr "Generelle Modellen Kategori Prosjektporteføljen"
+
+#: model@prj.portfolio.category|_columns@portfolios$label:1
+#: model@prj.bill|_columns@portfolios$label:1
+msgid "Portfolios"
+msgstr "Porteføljer"
+
+#: model@prj.prj.category|_description@:1
+msgid "General Model Category Project Project"
+msgstr "Generelle Modellen Kategori Prosjektet"
+
+#: model@prj.stage.category|_description@:1
+msgid "General Model Category Project Stage"
+msgstr "Generelle Modellen Kategori Prosjektet Scenen"
+
+#: model@prj.task.category|_description@:1
+msgid "General Model Category Project Task"
+msgstr "Generelle Modellen Kategori Prosjekt Oppgave"
+
+#: model@prj.task.category|_columns@tasks$label:1
+#: model@prj.stage|_columns@tasks$label:1
+msgid "Tasks"
+msgstr "Oppgaver"
+
+#: model@prj.element.category|_description@:1
+msgid "General Model Category Project Element"
+msgstr "Generelle Modellen Kategori Prosjektet Element"
+
+#: model@prj.element.category|_columns@elements$label:1
+#: model@prj.stage|_columns@elements$label:1
+msgid "Elements"
+msgstr "Elementer"
+
+#: model@prj.resource|_description@:1
+msgid "General Model Project Resource"
+msgstr "Generelle Modellen Prosjektet Ressurs"
+
+#: model@prj.resource|_columns@name$label:1
+#: model@prj.task.resources|_columns@resource_id$label:1
+#: model@prj.element.resources|_columns@resource_id$label:1
+msgid "Resource"
+msgstr "Ressurs"
+
+#: model@prj.resource|_columns@cost$label:1
+msgid "Cost"
+msgstr "Kostnad"
+
+#: model@prj.resource|_columns@currency$label:1
+#: model@md.prj.product|_columns@currency$label:1
+msgid "Currency"
+msgstr "Valuta"
+
+#: model@prj.bill|_description@:1
+msgid "General Model Projects Bill"
+msgstr "Generelle Modellen Prosjekter Bill"
+
+#: model@prj.bill|_columns@name$label:1
+#: model@prj.portfolio|_columns@bill_id$label:1
+msgid "Bill"
+msgstr "Bill"
+
+#: model@prj.bill|_columns@company$label:1
+msgid "Company"
+msgstr "Selskapet"
+
+#: model@prj.bill|_columns@start_date$label:1
+#: model@prj.portfolio|_columns@start_date$label:1
+#: model@prj.project|_columns@start_date$label:1
+#: model@prj.stage|_columns@start_date$label:1
+#: model@prj.task|_columns@start_date$label:1
+msgid "Start date"
+msgstr "Start dato"
+
+#: model@prj.bill|_columns@end_date$label:1
+#: model@prj.portfolio|_columns@end_date$label:1
+#: model@prj.project|_columns@end_date$label:1
+#: model@prj.stage|_columns@end_date$label:1
+#: model@prj.task|_columns@end_date$label:1
+msgid "End date"
+msgstr "Slutt dato"
+
+#: model@prj.bill|_columns@progress$label:1
+#: model@prj.portfolio|_columns@progress$label:1
+#: model@prj.project|_columns@progress$label:1
+#: model@prj.stage|_columns@progress$label:1
+#: model@prj.task|_columns@progress$label:1
+msgid "Progress"
+msgstr "Fremgang"
+
+#: model@prj.bill|_columns@prj_type$label:1
+#: model@prj.portfolio|_columns@prj_type$label:1
+#: model@prj.project|_columns@prj_type$label:1
+#: model@prj.task|_columns@prj_type$label:1
+msgid "Project Type"
+msgstr "Type Prosjekt"
+
+#: model@prj.bill|_columns@prj_type$selections#project:1
+#: model@prj.portfolio|_columns@prj_type$selections#project:1
+#: model@prj.project|_columns@name$label:1
+#: model@prj.project|_columns@prj_type$selections#project:1
+#: model@prj.stage|_columns@prj_id$label:1
+#: model@prj.stage|_columns@prj_type$selections#project:1
+#: model@prj.task|_columns@prj_type$selections#project:1
+msgid "Project"
+msgstr "Prosjekt"
+
+#: model@prj.bill|_columns@prj_type$selections#milestone:1
+#: model@prj.portfolio|_columns@prj_type$selections#milestone:1
+#: model@prj.project|_columns@prj_type$selections#milestone:1
+#: model@prj.stage|_columns@prj_type$selections#milestone:1
+#: model@prj.task|_columns@prj_type$selections#milestone:1
+msgid "Milestone"
+msgstr "Milepæl"
+
+#: model@prj.bill|_columns@prj_type$selections#task:1
+#: model@prj.portfolio|_columns@prj_type$selections#task:1
+#: model@prj.project|_columns@prj_type$selections#task:1
+#: model@prj.stage|_columns@prj_type$selections#task:1
+#: model@prj.task|_columns@name$label:1
+#: model@prj.task|_columns@prj_type$selections#task:1
+#: model@prj.task.resources|_columns@task_id$label:1
 msgid "Task"
 msgstr "Oppgave"
 
-#: project.task-resources:1
+#: model@prj.bill|_columns@state$label:1
+#: model@prj.portfolio|_columns@state$label:1
+#: model@prj.project|_columns@state$label:1
+#: model@prj.task|_columns@state$label:1
+msgid "State"
+msgstr "Staten"
+
+#: model@prj.bill|_columns@state$selections#draft:1
+#: model@prj.portfolio|_columns@state$selections#draft:1
+#: model@prj.project|_columns@state$selections#draft:1
+#: model@prj.stage|_columns@state$selections#draft:1
+#: model@prj.task|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Utkast"
+
+#: model@prj.bill|_columns@state$selections#approved:1
+#: model@prj.portfolio|_columns@state$selections#approved:1
+#: model@prj.project|_columns@state$selections#approved:1
+#: model@prj.stage|_columns@state$selections#approved:1
+#: model@prj.task|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Godkjent"
+
+#: model@prj.bill|_columns@state$selections#inprocess:1
+#: model@prj.portfolio|_columns@state$selections#inprocess:1
+#: model@prj.project|_columns@state$selections#inprocess:1
+#: model@prj.stage|_columns@state$selections#inprocess:1
+#: model@prj.task|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "I Prosessen"
+
+#: model@prj.bill|_columns@state$selections#closed:1
+#: model@prj.portfolio|_columns@state$selections#closed:1
+#: model@prj.project|_columns@state$selections#closed:1
+#: model@prj.stage|_columns@state$selections#closed:1
+#: model@prj.task|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Stengt"
+
+#: model@prj.bill|_columns@state$selections#canceled:1
+#: model@prj.portfolio|_columns@state$selections#canceled:1
+#: model@prj.project|_columns@state$selections#canceled:1
+#: model@prj.stage|_columns@state$selections#canceled:1
+#: model@prj.task|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Avlyst"
+
+#: model@prj.portfolio|_description@:1
+msgid "General Model Projects Portfolio"
+msgstr "Generelle Modellen Prosjekter Portefølje"
+
+#: model@prj.portfolio|_columns@name$label:1
+#: model@prj.project|_columns@portfolio_id$label:1
+msgid "Portfolio"
+msgstr "Portefølje"
+
+#: model@prj.project|_description@:1
+msgid "General Model Project"
+msgstr "Generelle Modellen Prosjekt"
+
+#: model@prj.project|_columns@stages$label:1
+msgid "Stages"
+msgstr "Stadier"
+
+#: model@prj.stage|_description@:1
+msgid "General Model Project Stage"
+msgstr "Generelle Modellen Prosjektet Scenen"
+
+#: model@prj.stage|_columns@name$label:1
+#: model@prj.task|_columns@stage_id$label:1
+#: model@prj.element|_columns@stage_id$label:1
+msgid "Stage"
+msgstr "Scenen"
+
+#: model@prj.stage|_columns@type$selections#b:1
+msgid "Begin"
+msgstr "Begynner"
+
+#: model@prj.stage|_columns@type$selections#e:1
+msgid "End"
+msgstr "Slutten"
+
+#: model@prj.stage|_columns@type$selections#w:1
+msgid "Work"
+msgstr "Arbeid"
+
+#: model@prj.stage|_columns@type$selections#s:1
+msgid "Situtation"
+msgstr "Situtation"
+
+#: model@prj.stage|_columns@state$label:1
+msgid "Project State"
+msgstr "Prosjektet Staten"
+
+#: model@prj.task|_description@:1
+msgid "General Model Project Task"
+msgstr "Generelle Modellen Prosjekt Oppgave"
+
+#: model@prj.task|_columns@resources$label:1
 msgid "Recources"
 msgstr "Recources"
 
-#: project.element-name:1 project.element.products-element_id:1
-#: project.element.resources-element_id:1
+#: model@prj.element|_description@:1
+msgid "General Model Project Element"
+msgstr "Generelle Modellen Prosjektet Element"
+
+#: model@prj.element|_columns@name$label:1
+#: model@prj.element.products|_columns@element_id$label:1
+#: model@prj.element.resources|_columns@element_id$label:1
 msgid "Element"
 msgstr "Element"
 
-#: project.element-products:1
+#: model@prj.element|_columns@products$label:1
 msgid "Products"
 msgstr "Produkter"
 
-#: project.element-resources:1
+#: model@prj.element|_columns@resources$label:1
 msgid "Resources"
 msgstr "Ressurser"
 
-#: project.element.products-quantity:1
+#: model@prj.element.products|_description@:1
+msgid "General Model Project Element Products"
+msgstr "Generelle Modellen Prosjektet Element Produkter"
+
+#: model@prj.element.products|_columns@product_id$label:1
+#: model@md.prj.product|_columns@product_id$label:1
+msgid "Product"
+msgstr "Produkt"
+
+#: model@prj.element.products|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Antall"
 
-#: project.element.products-uom:1
+#: model@prj.element.products|_columns@uom$label:1
 msgid "UoM"
 msgstr "UoM"
 
-#: project.task.resources-quantiny:1 project.element.resources-quantiny:1
+#: model@prj.task.resources|_description@:1
+msgid "General Model Project Task Resources"
+msgstr "Generelle Modellen Prosjekt Oppgave Ressurser"
+
+#: model@prj.task.resources|_columns@quantiny$label:1
+#: model@prj.element.resources|_columns@quantiny$label:1
 msgid "Job"
 msgstr "Jobb"
+
+#: model@prj.task.resources|_columns@uom$label:1
+#: model@prj.element.resources|_columns@uom$label:1
+#: model@md.prj.product|_columns@uom$label:1
+msgid "Unit Of Measure"
+msgstr "Måleenheten"
+
+#: model@prj.element.resources|_description@:1
+msgid "General Model Project Element Resources"
+msgstr "Generelle Modellen Prosjektet Element Ressurser"
+
+#: model@md.prj.product|_description@:1
+msgid "General Model Project Of Product"
+msgstr "Generelle Modellen Prosjekt Av Produktet"
+
+#: model@md.prj.product|_columns@vat$label:1
+msgid "VAT Code"
+msgstr "MVA-Kode"
+
+#: model@md.prj.product|_columns@price$label:1
+msgid "Price"
+msgstr "Pris"
+
+#: model@md.prj.product|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Enhet For Pris"

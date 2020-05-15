@@ -3,186 +3,392 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:39:34+0000\n"
-"PO-Revision-Date: 2020-02-13 14:39:34+0000\n"
+"POT-Creation-Date: 2020-05-15 19:42:35+0300\n"
+"PO-Revision-Date: 2020-05-15 19:42:35+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: md.tm.product-product_id:1 tm.order.items-product:1
+#: model@md.tm.product|_description@:1
+msgid "General Model TM Of Product"
+msgstr "Το γενικό Πρότυπο TM Προϊόντος"
+
+#: model@md.tm.product|_columns@product_id$label:1
+#: model@tm.order.items|_columns@product$label:1
 msgid "Product"
 msgstr "Το προϊόν"
 
-#: md.tm.product-vat:1
+#: model@md.tm.product|_columns@vat$label:1
 msgid "VAT Code"
 msgstr "Κώδικα ΦΠΑ"
 
-#: md.tm.product-uom:1
+#: model@md.tm.product|_columns@uom$label:1
 msgid "Unit Of Measure"
 msgstr "Μονάδα Μέτρησης"
 
-#: md.tm.product-price:1
+#: model@md.tm.product|_columns@price$label:1
 msgid "Price"
 msgstr "Τιμή"
 
-#: md.tm.product-currency:1
+#: model@md.tm.product|_columns@currency$label:1
 msgid "Currency"
 msgstr "Νόμισμα"
 
-#: md.tm.product-unit:1
+#: model@md.tm.product|_columns@unit$label:1
 msgid "Unit"
 msgstr "Μονάδα"
 
-#: md.tm.product-uop:1
+#: model@md.tm.product|_columns@uop$label:1
 msgid "Unit Of Price"
 msgstr "Μονάδα Τιμή"
 
-#: md.tm.product-note:1 tm.locations-note:1 tm.maps-note:1 tm.handlings-note:1
-#: tm.category.node-note:1 tm.nodes-note:1 tm.node.items-note:1
-#: tm.category.equipment-note:1 tm.template.equipment-note:1
-#: tm.template.nodes-note:1 tm.template.maps-note:1
-#: tm.template.handlings-note:1 tm.unit.equipments-note:1 tm.orders-note:1
-#: tm.order.items-note:1 tm.unit.equipment.orders-note:1
+#: model@md.tm.product|_columns@note$label:1
+#: model@tm.locations|_columns@note$label:1
+#: model@tm.maps|_columns@note$label:1
+#: model@tm.handlings|_columns@note$label:1
+#: model@tm.category.node|_columns@note$label:1
+#: model@tm.nodes|_columns@note$label:1
+#: model@tm.node.items|_columns@note$label:1
+#: model@tm.category.equipment|_columns@note$label:1
+#: model@tm.template.equipment|_columns@note$label:1
+#: model@tm.template.nodes|_columns@note$label:1
+#: model@tm.template.maps|_columns@note$label:1
+#: model@tm.template.handlings|_columns@note$label:1
+#: model@tm.unit.equipments|_columns@note$label:1
+#: model@tm.orders|_columns@note$label:1
+#: model@tm.order.items|_columns@note$label:1
+#: model@tm.unit.equipment.orders|_columns@note$label:1
 msgid "Note"
 msgstr "Σημείωση"
 
-#: tm.locations-usage:1
+#: model@tm.locations|_description@:1
+msgid "General Model Locations"
+msgstr "Το Γενικό Πρότυπο Τοποθεσίες"
+
+#: model@tm.locations|_columns@usage$label:1
 msgid "Usage"
 msgstr "Χρήση"
 
-#: tm.locations-name:1 tm.maps-name:1 tm.handlings-name:1
-#: tm.category.node-name:1 tm.nodes-name:1 tm.node.items-name:1
-#: tm.category.equipment-name:1 tm.template.equipment-name:1
-#: tm.unit.equipments-name:1 tm.orders-name:1
+#: model@tm.locations|_columns@usage$selections#supplier:1
+msgid "Vendor Location"
+msgstr "Θέση Του Πωλητή"
+
+#: model@tm.locations|_columns@usage$selections#view:1
+msgid "View"
+msgstr "Δείτε"
+
+#: model@tm.locations|_columns@usage$selections#internal:1
+msgid "Internal Location"
+msgstr "Εσωτερική Θέση"
+
+#: model@tm.locations|_columns@usage$selections#customer:1
+msgid "Customer Location"
+msgstr "Τοποθεσία Πελάτη"
+
+#: model@tm.locations|_columns@usage$selections#inventory:1
+msgid "Inventory Loss"
+msgstr "Απογραφή Απώλεια"
+
+#: model@tm.locations|_columns@usage$selections#procurement:1
+msgid "Procurement"
+msgstr "Συμβάσεις"
+
+#: model@tm.locations|_columns@usage$selections#production:1
+msgid "Production"
+msgstr "Παραγωγή"
+
+#: model@tm.locations|_columns@usage$selections#transit:1
+msgid "Transit Location"
+msgstr "Διαμετακόμισης Τοποθεσία"
+
+#: model@tm.locations|_columns@name$label:1
+#: model@tm.maps|_columns@name$label:1
+#: model@tm.handlings|_columns@name$label:1
+#: model@tm.category.node|_columns@name$label:1
+#: model@tm.nodes|_columns@name$label:1
+#: model@tm.node.items|_columns@name$label:1
+#: model@tm.category.equipment|_columns@name$label:1
+#: model@tm.template.equipment|_columns@name$label:1
+#: model@tm.unit.equipments|_columns@name$label:1
+#: model@tm.orders|_columns@name$label:1
 msgid "Name"
 msgstr "Όνομα"
 
-#: tm.locations-parent_id:1 tm.category.node-parent_id:1 tm.nodes-parent_id:1
-#: tm.node.items-parent_id:1 tm.category.equipment-parent_id:1
+#: model@tm.locations|_columns@parent_id$label:1
+#: model@tm.category.node|_columns@parent_id$label:1
+#: model@tm.nodes|_columns@parent_id$label:1
+#: model@tm.node.items|_columns@parent_id$label:1
+#: model@tm.category.equipment|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Μητρική"
 
-#: tm.locations-childs_id:1 tm.category.node-childs_id:1 tm.nodes-childs_id:1
-#: tm.node.items-childs_id:1 tm.category.equipment-childs_id:1
+#: model@tm.locations|_columns@childs_id$label:1
+#: model@tm.category.node|_columns@childs_id$label:1
+#: model@tm.nodes|_columns@childs_id$label:1
+#: model@tm.node.items|_columns@childs_id$label:1
+#: model@tm.category.equipment|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: tm.maps-otype:1 tm.template.handlings-otype:1 tm.orders-otype:1
-#: tm.unit.equipment.orders-otype:1
+#: model@tm.maps|_description@:1
+msgid "General Model Maps"
+msgstr "Το Γενικό Πρότυπο Χάρτες"
+
+#: model@tm.maps|_columns@otype$label:1
+#: model@tm.template.handlings|_columns@otype$label:1
+#: model@tm.orders|_columns@otype$label:1
+#: model@tm.unit.equipment.orders|_columns@otype$label:1
 msgid "Type"
 msgstr "Τύπος"
 
-#: tm.maps-state:1 tm.handlings-state:1 tm.template.equipment-state:1
-#: tm.unit.equipments-state:1 tm.orders-state:1
-#: tm.unit.equipment.orders-state:1
+#: model@tm.maps|_columns@otype$selections#r:1
+#: model@tm.orders|_columns@otype$selections#r:1
+msgid "Repair"
+msgstr "Επισκευή"
+
+#: model@tm.maps|_columns@otype$selections#s:1
+msgid "Service"
+msgstr "Υπηρεσία"
+
+#: model@tm.maps|_columns@otype$selections#d:1
+msgid "Disassemkble"
+msgstr "Disassemkble"
+
+#: model@tm.maps|_columns@state$label:1
+#: model@tm.handlings|_columns@state$label:1
+#: model@tm.template.equipment|_columns@state$label:1
+#: model@tm.unit.equipments|_columns@state$label:1
+#: model@tm.orders|_columns@state$label:1
+#: model@tm.unit.equipment.orders|_columns@state$label:1
 msgid "State"
 msgstr "Μέλος"
 
-#: tm.maps-recepture_id:1 tm.orders-recepture:1
+#: model@tm.maps|_columns@state$selections#draft:1
+#: model@tm.handlings|_columns@state$selections#draft:1
+#: model@tm.template.equipment|_columns@state$selections#draft:1
+#: model@tm.unit.equipments|_columns@state$selections#draft:1
+#: model@tm.orders|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Σχέδιο"
+
+#: model@tm.maps|_columns@state$selections#approved:1
+#: model@tm.handlings|_columns@state$selections#approved:1
+#: model@tm.template.equipment|_columns@state$selections#approved:1
+#: model@tm.unit.equipments|_columns@state$selections#approved:1
+#: model@tm.orders|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Εγκεκριμένο"
+
+#: model@tm.maps|_columns@state$selections#inprocess:1
+#: model@tm.handlings|_columns@state$selections#inprocess:1
+#: model@tm.template.equipment|_columns@state$selections#inprocess:1
+#: model@tm.unit.equipments|_columns@state$selections#inprocess:1
+#: model@tm.orders|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "Στη Διαδικασία"
+
+#: model@tm.maps|_columns@state$selections#closed:1
+#: model@tm.handlings|_columns@state$selections#closed:1
+#: model@tm.template.equipment|_columns@state$selections#closed:1
+#: model@tm.unit.equipments|_columns@state$selections#closed:1
+#: model@tm.orders|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Κλειστά"
+
+#: model@tm.maps|_columns@state$selections#canceled:1
+#: model@tm.handlings|_columns@state$selections#canceled:1
+#: model@tm.template.equipment|_columns@state$selections#canceled:1
+#: model@tm.unit.equipments|_columns@state$selections#canceled:1
+#: model@tm.orders|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Ακυρώθηκε"
+
+#: model@tm.maps|_columns@recepture_id$label:1
+#: model@tm.orders|_columns@recepture$label:1
 msgid "Recepture"
 msgstr "Recepture"
 
-#: tm.handlings-map_id:1 tm.template.maps-map_id:1
+#: model@tm.handlings|_description@:1
+msgid "General Model Handlings"
+msgstr "Το Γενικό Πρότυπο Που Χειρισμούς"
+
+#: model@tm.handlings|_columns@map_id$label:1
+#: model@tm.template.maps|_columns@map_id$label:1
 msgid "Map"
 msgstr "Χάρτης"
 
-#: tm.nodes-category_id:1 tm.unit.equipments-category_id:1
+#: model@tm.category.node|_description@:1
+msgid "General Model Category Node"
+msgstr "Το Γενικό Πρότυπο Της Κατηγορίας Κόμβο"
+
+#: model@tm.nodes|_description@:1
+msgid "General Model Nodes"
+msgstr "Το Γενικό Πρότυπο Που Κόμβους"
+
+#: model@tm.nodes|_columns@category_id$label:1
+#: model@tm.unit.equipments|_columns@category_id$label:1
 msgid "Category"
 msgstr "Κατηγορία"
 
-#: tm.nodes-items:1 tm.orders-items:1
+#: model@tm.nodes|_columns@items$label:1
+#: model@tm.orders|_columns@items$label:1
 msgid "Items"
 msgstr "Στοιχεία"
 
-#: tm.nodes-inactive:1 tm.unit.equipments-inactive:1
+#: model@tm.nodes|_columns@inactive$label:1
+#: model@tm.unit.equipments|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Ανενεργό"
 
-#: tm.node.items-node_id:1 tm.template.nodes-node_id:1
+#: model@tm.node.items|_description@:1
+msgid "General Model Node Items"
+msgstr "Το Γενικό Πρότυπο Που Κόμβο Στοιχεία"
+
+#: model@tm.node.items|_columns@node_id$label:1
+#: model@tm.template.nodes|_columns@node_id$label:1
 msgid "Node"
 msgstr "Κόμβος"
 
-#: tm.template.equipment-nodes:1
+#: model@tm.category.equipment|_description@:1
+msgid "General Model Category Equipment"
+msgstr "Το Γενικό Πρότυπο Της Κατηγορίας Εξοπλισμού"
+
+#: model@tm.template.equipment|_description@:1
+msgid "General Model Template Equipment"
+msgstr "Το Γενικό Πρότυπο Πρότυπο Εξοπλισμό"
+
+#: model@tm.template.equipment|_columns@nodes$label:1
 msgid "Nodes"
 msgstr "Κόμβους"
 
-#: tm.template.equipment-maps:1
+#: model@tm.template.equipment|_columns@maps$label:1
 msgid "Maps"
 msgstr "Χάρτες"
 
-#: tm.template.equipment-handlings:1
+#: model@tm.template.equipment|_columns@handlings$label:1
 msgid "Handlings"
 msgstr "Χειρισμούς"
 
-#: tm.template.equipment-inactive:1
+#: model@tm.template.equipment|_columns@inactive$label:1
 msgid "InActive"
 msgstr "Ανενεργό"
 
-#: tm.template.nodes-template_equipment_id:1
-#: tm.template.maps-template_equipment_id:1
-#: tm.template.handlings-template_equipment_id:1
-#: tm.unit.equipments-template_id:1
+#: model@tm.template.nodes|_description@:1
+msgid "General Model Template Nodes"
+msgstr "Το Γενικό Πρότυπο Πρότυπο Κόμβους"
+
+#: model@tm.template.nodes|_columns@template_equipment_id$label:1
+#: model@tm.template.maps|_columns@template_equipment_id$label:1
+#: model@tm.template.handlings|_columns@template_equipment_id$label:1
+#: model@tm.unit.equipments|_columns@template_id$label:1
 msgid "Template"
 msgstr "Πρότυπο"
 
-#: tm.template.handlings-handling_id:1
+#: model@tm.template.maps|_description@:1
+msgid "General Model Template Maps"
+msgstr "Το Γενικό Πρότυπο Πρότυπο Χάρτες"
+
+#: model@tm.template.handlings|_description@:1
+msgid "General Model Template Handlings"
+msgstr "Το Γενικό Πρότυπο Πρότυπο Χειρισμούς"
+
+#: model@tm.template.handlings|_columns@handling_id$label:1
 msgid "Handling"
 msgstr "Χειρισμό"
 
-#: tm.template.handlings-period:1
+#: model@tm.template.handlings|_columns@otype$selections#p:1
+msgid "Primary"
+msgstr "Κύρια"
+
+#: model@tm.template.handlings|_columns@otype$selections#P:1
+msgid "Periodical"
+msgstr "Περιοδικό"
+
+#: model@tm.template.handlings|_columns@otype$selections#l:1
+msgid "Latest"
+msgstr "Τελευταία"
+
+#: model@tm.template.handlings|_columns@period$label:1
 msgid "Period"
 msgstr "Περίοδο"
 
-#: tm.template.handlings-unit:1 tm.order.items-uom:1
+#: model@tm.template.handlings|_columns@unit$label:1
+#: model@tm.order.items|_columns@uom$label:1
 msgid "UoM"
 msgstr "Μομ"
 
-#: tm.unit.equipments-location_id:1
+#: model@tm.unit.equipments|_description@:1
+msgid "General Model Unit Equipments"
+msgstr "Το Γενικό Πρότυπο Μονάδα Εξοπλισμοί"
+
+#: model@tm.unit.equipments|_columns@location_id$label:1
 msgid "Location"
 msgstr "Τοποθεσία"
 
-#: tm.unit.equipments-serial_no:1
+#: model@tm.unit.equipments|_columns@serial_no$label:1
 msgid "Serial No"
 msgstr "Αύξων Αριθ."
 
-#: tm.unit.equipments-orders:1
+#: model@tm.unit.equipments|_columns@orders$label:1
 msgid "Orders"
 msgstr "Παραγγελίες"
 
-#: tm.orders-origin:1
+#: model@tm.orders|_description@:1
+msgid "General Model Order"
+msgstr "Το Γενικό Πρότυπο, Ώστε"
+
+#: model@tm.orders|_columns@origin$label:1
 msgid "Origin"
 msgstr "Προέλευσης"
 
-#: tm.orders-unit_equipment_id:1 tm.unit.equipment.orders-unit_equipment_id:1
+#: model@tm.orders|_columns@otype$selections#d:1
+msgid "Disassemble"
+msgstr "Αποσυνθέσει"
+
+#: model@tm.orders|_columns@otype$selections#s:1
+msgid "Services"
+msgstr "Υπηρεσίες"
+
+#: model@tm.orders|_columns@unit_equipment_id$label:1
+#: model@tm.unit.equipment.orders|_columns@unit_equipment_id$label:1
 msgid "Unit Equipment"
 msgstr "Εξοπλισμός Μονάδων"
 
-#: tm.orders-doo:1
+#: model@tm.orders|_columns@doo$label:1
 msgid "Date Of Order"
 msgstr "Ημερομηνία Της Παραγγελίας"
 
-#: tm.orders-from_date:1
+#: model@tm.orders|_columns@from_date$label:1
 msgid "Start date"
 msgstr "Ημερομηνία έναρξης"
 
-#: tm.orders-to_date:1
+#: model@tm.orders|_columns@to_date$label:1
 msgid "End date"
 msgstr "Ημερομηνία λήξης"
 
-#: tm.order.items-order_id:1 tm.unit.equipment.orders-order_id:1
+#: model@tm.order.items|_description@:1
+msgid "General Model Order Items"
+msgstr "Το Γενικό Πρότυπο Στοιχεία Παραγγελίας"
+
+#: model@tm.order.items|_columns@order_id$label:1
+#: model@tm.unit.equipment.orders|_columns@order_id$label:1
 msgid "Order"
 msgstr "Παραγγελία"
 
-#: tm.order.items-quantity:1
+#: model@tm.order.items|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Ποσότητα"
 
-#: tm.unit.equipment.orders-start_date:1
+#: model@tm.unit.equipment.orders|_description@:1
+msgid "General Model Unit Equipment Orders"
+msgstr "Το Γενικό Πρότυπο Μονάδα Εξοπλισμού Παραγγελίες"
+
+#: model@tm.unit.equipment.orders|_columns@start_date$label:1
 msgid "Start Date"
 msgstr "Ημερομηνία Έναρξης"
 
-#: tm.unit.equipment.orders-end_date:1
+#: model@tm.unit.equipment.orders|_columns@end_date$label:1
 msgid "End Date"
 msgstr "Ημερομηνία Λήξης"

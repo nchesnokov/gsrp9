@@ -3,542 +3,1138 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:24+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:24+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:54+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: fa.accounts.type-name:1
+#: model@fa.accounts.type|_description@:1
+msgid "Genaral Model Account Type"
+msgstr "Genaral Modelis Konta Tips"
+
+#: model@fa.accounts.type|_columns@name$label:1
 msgid "Account Type"
 msgstr "Konta Tips"
 
-#: fa.accounts.type-include_initial_balance:1
+#: model@fa.accounts.type|_columns@include_initial_balance$label:1
 msgid "Bring Accounts Balance Forward"
 msgstr "Dot Pārskatu Bilances Uz Priekšu"
 
-#: fa.accounts.type-type:1 fa.accounts-user_type_id:1
-#: fa.accounts.journal-type:1 fa.account.template-user_type_id:1
+#: model@fa.accounts.type|_columns@include_initial_balance$help:1
+msgid ""
+"Used in reports to know if we should consider journal items from the "
+"beginning of time instead of from the fiscal year only. Account types that "
+"should be reset to zero at each new fiscal year (like expenses, revenue..) "
+"should not have this option set."
+msgstr ""
+"Izmantot ziņojumi zināt, ja mēs būtu jāapsver vēstnesis objektus, sākot no "
+"laika, nevis no taksācijas gadu tikai. Kontu veidi, ka būtu iespējams "
+"atiestatīt uz nulli pie katra jauna taksācijas gadā (piemēram, izmaksas, "
+"ieņēmumi..) nebūtu šo iespēju uzstādīt."
+
+#: model@fa.accounts.type|_columns@type$label:1
+#: model@fa.accounts|_columns@user_type_id$label:1
+#: model@fa.accounts.journal|_columns@type$label:1
+#: model@fa.account.template|_columns@user_type_id$label:1
 msgid "Type"
 msgstr "Veids"
 
-#: fa.accounts.type-note:1 fa.account.template-note:1
-#: fa.fiscal.position.template-note:1
+#: model@fa.accounts.type|_columns@type$selections#other:1
+msgid "Regular"
+msgstr "Regulāri"
+
+#: model@fa.accounts.type|_columns@type$selections#receivable:1
+msgid "Receivable"
+msgstr "Saņemamās"
+
+#: model@fa.accounts.type|_columns@type$selections#payable:1
+msgid "Payable"
+msgstr "Jāmaksā"
+
+#: model@fa.accounts.type|_columns@type$selections#liquidity:1
+msgid "Liquidity"
+msgstr "Likviditātes"
+
+#: model@fa.accounts.type|_columns@type$help:1
+msgid ""
+"The 'Internal Type' is used for features available on different types of "
+"accounts: liquidity type is for cash or bank accounts, payable/receivable is"
+" for vendor/customer accounts."
+msgstr ""
+"\"Iekšējais Tipa\" lieto, runājot par funkcijām, kas ir pieejamas uz "
+"dažādiem kontiem: likviditātes veids ir skaidrā naudā vai ar bankas kontu, "
+"kreditoru/debitoru ir piegādātāju/klientu kontos."
+
+#: model@fa.accounts.type|_columns@note$label:1
+#: model@fa.account.template|_columns@note$label:1
+#: model@fa.fiscal.position.template|_columns@note$label:1
 msgid "Note"
 msgstr "Piezīme"
 
-#: fa.accounts.tag-name:1 fa.accounts-name:1 fa.accounts.tax.group-name:1
-#: fa.accounts.payment.method-name:1
+#: model@fa.accounts.tag|_description@:1
+msgid "General Model Account Tag"
+msgstr "Vispārējā Modeļa Vērā Atzīmju"
+
+#: model@fa.accounts.tag|_columns@name$label:1
+#: model@fa.accounts|_columns@name$label:1
+#: model@fa.accounts.tax.group|_columns@name$label:1
+#: model@fa.accounts.payment.method|_columns@name$label:1
 msgid "Name"
 msgstr "Nosaukums"
 
-#: fa.accounts.tag-applicability:1
+#: model@fa.accounts.tag|_columns@applicability$label:1
 msgid "Applicability"
 msgstr "Piemērojamība"
 
-#: fa.accounts.tag-color:1
+#: model@fa.accounts.tag|_columns@applicability$selections#accounts:1
+msgid "Accounts"
+msgstr "Konti"
+
+#: model@fa.accounts.tag|_columns@applicability$selections#taxes:1
+msgid "Taxes"
+msgstr "Nodokļi"
+
+#: model@fa.accounts.tag|_columns@color$label:1
 msgid "Color Index"
 msgstr "Krāsu Indekss"
 
-#: fa.accounts.tag-inactive:1 fa.accounts.journal-inactive:1
-#: fa.accounts.tax-inactive:1
+#: model@fa.accounts.tag|_columns@inactive$label:1
+#: model@fa.accounts.journal|_columns@inactive$label:1
+#: model@fa.accounts.tax|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Neaktīvs"
 
-#: fa.accounts-currency_id:1 fa.account.template-currency_id:1
+#: model@fa.accounts.tag|_columns@inactive$help:1
+msgid "Set active to false to hide the Account Tag without removing it."
+msgstr "Uzstādīt aktīvo false, lai slēptu Kontu Frāzi, nenoņemot to."
+
+#: model@fa.accounts|_description@:1
+msgid "Genaral Model Account"
+msgstr "Genaral Modelis Konts"
+
+#: model@fa.accounts|_columns@currency_id$label:1
+#: model@fa.account.template|_columns@currency_id$label:1
 msgid "Account Currency"
 msgstr "Konta Valūta"
 
-#: fa.accounts-code:1 fa.account.template-code:1
-#: fa.accounts.payment.method-code:1
+#: model@fa.accounts|_columns@currency_id$help:1
+msgid "Forces all moves for this account to have this account currency."
+msgstr "Spēki, visi pārceļas uz šo kontu, lai šī konta valūtā."
+
+#: model@fa.accounts|_columns@code$label:1
+#: model@fa.account.template|_columns@code$label:1
+#: model@fa.accounts.payment.method|_columns@code$label:1
 msgid "Code"
 msgstr "Kods"
 
-#: fa.accounts-deprecated:1
+#: model@fa.accounts|_columns@deprecated$label:1
 msgid "Deprecated"
 msgstr "Novecojušais"
 
-#: fa.accounts-internal_type:1
+#: model@fa.accounts|_columns@user_type_id$help:1
+msgid ""
+"Account Type is used for information purpose, to generate country-specific "
+"legal reports, and set the rules to close a fiscal year and generate opening"
+" entries."
+msgstr ""
+"Konta Tips tiek izmantots, lai iegūtu informāciju nolūkam, lai radītu "
+"valstij raksturīgu juridisko ziņojumi, un paredz noteikumus, lai aizvērtu "
+"taksācijas gadā un radīt atvēršanas ierakstus."
+
+#: model@fa.accounts|_columns@internal_type$label:1
 msgid "Internal Type"
 msgstr "Iekšējā Tips"
 
-#: fa.accounts-last_time_entries_checked:1
+#: model@fa.accounts|_columns@internal_type$selections#user:1
+msgid "User"
+msgstr "Lietotājs"
+
+#: model@fa.accounts|_columns@last_time_entries_checked$label:1
 msgid "Latest Invoices & Payments Matching Date"
 msgstr "Jaunākās Rēķinus Un Maksājumus, Saskaņošanas Datums"
 
-#: fa.accounts-reconcile:1
+#: model@fa.accounts|_columns@last_time_entries_checked$help:1
+msgid ""
+"Last time the invoices & payments matching was performed on this account. It"
+" is set either if there's not at least an unreconciled debit and an "
+"unreconciled credit Or if you click the \"Done\" button."
+msgstr ""
+"Pēdējo reizi rēķinus & maksājums saskaņošana tika veikta no šā konta. Tas ir"
+" norādīts, vai nu, ja tur nav vismaz unreconciled debeta un unreconciled "
+"kredītu Vai, ja jūs noklikšķiniet uz \"Gatavs\" pogu."
+
+#: model@fa.accounts|_columns@reconcile$label:1
 msgid "Allow Reconciliation"
 msgstr "Ļauj Saskaņošana"
 
-#: fa.accounts-tax_ids:1 fa.account.template-tax_ids:1
+#: model@fa.accounts|_columns@reconcile$help:1
+msgid ""
+"Check this box if this account allows invoices & payments matching of "
+"journal items."
+msgstr ""
+"Atzīmējiet šo izvēles rūtiņu, ja šis konts ļauj rēķinus & maksājums "
+"atbilstību vēstnesis objektus."
+
+#: model@fa.accounts|_columns@tax_ids$label:1
+#: model@fa.account.template|_columns@tax_ids$label:1
 msgid "Default Taxes"
 msgstr "Noklusējuma Nodokļi"
 
-#: fa.accounts-note:1
+#: model@fa.accounts|_columns@note$label:1
 msgid "Internal Notes"
 msgstr "Iekšējās Piezīmes"
 
-#: fa.accounts-company_id:1 fa.accounts.journal-company_id:1
-#: fa.accounts.tax-company_id:1 fa.accounts.reconcile.model-company_id:1
-#: fa.chart.template-company_id:1 fa.tax.template-company_id:1
+#: model@fa.accounts|_columns@company_id$label:1
+#: model@fa.accounts.journal|_columns@company_id$label:1
+#: model@fa.accounts.tax|_columns@company_id$label:1
+#: model@fa.accounts.reconcile.model|_columns@company_id$label:1
+#: model@fa.chart.template|_columns@company_id$label:1
+#: model@fa.tax.template|_columns@company_id$label:1
 msgid "Company"
 msgstr "Uzņēmums"
 
-#: fa.accounts-tag_ids:1 fa.accounts.tax-tag_ids:1
+#: model@fa.accounts|_columns@tag_ids$label:1
+#: model@fa.accounts.tax|_columns@tag_ids$label:1
 msgid "Tags"
 msgstr "Tagi"
 
-#: fa.accounts-group_id:1 fa.account.template-group_id:1
+#: model@fa.accounts|_columns@group_id$label:1
+#: model@fa.account.template|_columns@group_id$label:1
 msgid "Group"
 msgstr "Grupa"
 
-#: fa.accounts-opening_debit:1
+#: model@fa.accounts|_columns@opening_debit$label:1
 msgid "Opening debit"
 msgstr "Atvēršanas debeta"
 
-#: fa.accounts-opening_credit:1
+#: model@fa.accounts|_columns@opening_debit$help:1
+msgid "Opening debit value for this account."
+msgstr "Atvēršanas debeta vērtība kontu."
+
+#: model@fa.accounts|_columns@opening_credit$label:1
 msgid "Opening credit"
 msgstr "Atvēršanas kredītu"
 
-#: fa.accounts.group-name:1 fa.account.template-name:1
-#: fa.chart.template-name:1
+#: model@fa.accounts|_columns@opening_credit$help:1
+msgid "Opening credit value for this account."
+msgstr "Atvēršanas kredīta vērtība kontu."
+
+#: model@fa.accounts.group|_description@:1
+msgid "Genaral Model Accounts Group"
+msgstr "Genaral Modelis Kontu Grupas"
+
+#: model@fa.accounts.group|_columns@name$label:1
+#: model@fa.account.template|_columns@name$label:1
+#: model@fa.chart.template|_columns@name$label:1
 msgid "name"
 msgstr "nosaukums"
 
-#: fa.accounts.group-code_prefix:1
+#: model@fa.accounts.group|_columns@code_prefix$label:1
 msgid "Code Prefix"
 msgstr "Kods Prefikss"
 
-#: fa.accounts.group-parent_id:1
+#: model@fa.accounts.group|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Vecākiem"
 
-#: fa.accounts.group-childs_id:1
+#: model@fa.accounts.group|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: fa.accounts.journal-name:1
+#: model@fa.accounts.journal|_description@:1
+msgid "General Model Accounts Journal"
+msgstr "Vispārējā Modeļa Kontu Vēstnesis"
+
+#: model@fa.accounts.journal|_columns@name$label:1
 msgid "Journal Name"
 msgstr "Vēstnesis Nosaukums"
 
-#: fa.accounts.journal-code:1
+#: model@fa.accounts.journal|_columns@code$label:1
 msgid "Short Code"
 msgstr "Īso Kodu"
 
-#: fa.accounts.journal-type_control_ids:1
-msgid "Account Types Allowed"
-msgstr "Kontu Tipi, Kas Ir Atļauti"
+#: model@fa.accounts.journal|_columns@code$help:1
+msgid "The journal entries of this journal will be named using this prefix."
+msgstr ""
+"Žurnālā ierakstus par šo vēstnesis tiks nosaukta, izmantojot šo prefiksu."
 
-#: fa.accounts.journal-account_control_ids:1
-msgid "Accounts Allowed"
-msgstr "Kontu Atļauts"
+#: model@fa.accounts.journal|_columns@inactive$help:1
+msgid "Set active to false to hide the Journal without removing it."
+msgstr "Uzstādīt aktīvo false, lai paslēptu Vēstnesis, nenoņemot to."
 
-#: fa.accounts.journal-default_credit_account_id:1
-msgid "Default Credit Account"
-msgstr "Saistību Nepildīšanas Gadījuma Kredīta Konts"
+#: model@fa.accounts.journal|_columns@type$selections#sale:1
+msgid "Sale"
+msgstr "Pārdošana"
 
-#: fa.accounts.journal-default_debit_account_id:1
-msgid "Default Debit Account"
-msgstr "Noklusējuma Debeta Konts"
+#: model@fa.accounts.journal|_columns@type$selections#purchase:1
+msgid "Purchase"
+msgstr "Pirkt"
 
-#: fa.accounts.journal-update_posted:1
-msgid "Allow Cancelling Entries"
-msgstr "Ļauj Anulē Ierakstu"
+#: model@fa.accounts.journal|_columns@type$selections#cash:1
+msgid "Cash"
+msgstr "Nauda"
 
-#: fa.accounts.journal-group_invoice_lines:1
-msgid "Group Invoice Lines"
-msgstr "Grupas Rēķina Rindas"
-
-#: fa.accounts.journal-sequence:1 fa.accounts.tax.group-sequence:1
-#: fa.accounts.reconcile.model-sequence:1 fa.tax.template-sequence:1
-#: fa.fiscal.position.template-sequence:1
-#: fa.reconcile.model.template-sequence:1
-msgid "Sequence"
-msgstr "Secība"
-
-#: fa.accounts.journal-sequence_number_next:1
-msgid "Next Number"
-msgstr "Nākamais Numurs"
-
-#: fa.accounts.journal-refund_sequence_number_next:1
-msgid "Credit Notes: Next Number"
-msgstr "Kredīts Piezīmes: Nākamais Numurs"
-
-#: fa.accounts.journal-currency_id:1 fa.chart.template-currency_id:1
-msgid "Currency"
-msgstr "Valūta"
-
-#: fa.accounts.journal-refund_sequence:1
-msgid "Dedicated Credit Note Sequence"
-msgstr "Īpašu Kredītu, Ņemiet Vērā, Secība"
-
-#: fa.accounts.journal-inbound_payment_method_ids:1
-msgid "Debit Methods"
-msgstr "Debeta Metodes"
-
-#: fa.accounts.journal-outbound_payment_method_ids:1
-msgid "Payment Methods"
-msgstr "Maksājumu Metodes"
-
-#: fa.accounts.journal-at_least_one_inbound:1
-msgid "At least one inbound"
-msgstr "Vismaz vienu ienākošo"
-
-#: fa.accounts.journal-at_least_one_outbound:1
-msgid "At least one outbound"
-msgstr "Vismaz vienu izejošo"
-
-#: fa.accounts.journal-profit_account_id:1
-msgid "Profit Account"
-msgstr "Peļņas Konts"
-
-#: fa.accounts.journal-loss_account_id:1
-msgid "Loss Account"
-msgstr "Zaudējumu Aprēķins"
-
-#: fa.accounts.journal-belongs_to_company:1
-msgid "Belong to the user's current company"
-msgstr "Pieder pie lietotāja pašreizējo uzņēmums"
-
-#: fa.accounts.journal-bank_statements_source:1
-msgid "Bank Feeds"
-msgstr "Bankas Plūsmas"
-
-#: fa.accounts.journal-bank_acc_number:1
-msgid "Bank ACC number"
-msgstr "Bankas ACC skaits"
-
-#: fa.accounts.journal-bank_id:1
+#: model@fa.accounts.journal|_columns@type$selections#bank:1
+#: model@fa.accounts.journal|_columns@bank_id$label:1
 msgid "Bank"
 msgstr "Banka"
 
-#: fa.accounts.tax-name:1 fa.tax.template-name:1
+#: model@fa.accounts.journal|_columns@type$selections#general:1
+msgid "Miscellaneous"
+msgstr "Dažādi"
+
+#: model@fa.accounts.journal|_columns@type$help:1
+msgid ""
+"Select 'Sale' for customer invoices journals.\n"
+"Select 'Purchase' for vendor bills journals.\n"
+"Select 'Cash' or 'Bank' for journals that are used in customer or vendor payments.\n"
+"Select 'General' for miscellaneous operations journals."
+msgstr ""
+"Izvēlieties \"Pārdošana\" klientu rēķinus žurnālos.\n"
+"Izvēlieties \"Iepirkuma\" par piegādātāju rēķinus žurnālos.\n"
+"Atzīmējiet \"skaidrā Naudā\", vai \"Banka\" par žurnāliem, kas tiek izmantoti klientu vai piegādātāju maksājums.\n"
+"Izvēlieties \"General\" dažādu operāciju žurnālu."
+
+#: model@fa.accounts.journal|_columns@type_control_ids$label:1
+msgid "Account Types Allowed"
+msgstr "Kontu Tipi, Kas Ir Atļauti"
+
+#: model@fa.accounts.journal|_columns@account_control_ids$label:1
+msgid "Accounts Allowed"
+msgstr "Kontu Atļauts"
+
+#: model@fa.accounts.journal|_columns@default_credit_account_id$label:1
+msgid "Default Credit Account"
+msgstr "Saistību Nepildīšanas Gadījuma Kredīta Konts"
+
+#: model@fa.accounts.journal|_columns@default_credit_account_id$help:1
+msgid "It acts as a default account for credit amount"
+msgstr "Tas darbojas kā noklusējuma konts kredīta summa"
+
+#: model@fa.accounts.journal|_columns@default_debit_account_id$label:1
+msgid "Default Debit Account"
+msgstr "Noklusējuma Debeta Konts"
+
+#: model@fa.accounts.journal|_columns@default_debit_account_id$help:1
+msgid "It acts as a default account for debit amount"
+msgstr "Tas darbojas kā noklusējuma kontu debeta summa"
+
+#: model@fa.accounts.journal|_columns@update_posted$label:1
+msgid "Allow Cancelling Entries"
+msgstr "Ļauj Anulē Ierakstu"
+
+#: model@fa.accounts.journal|_columns@update_posted$help:1
+msgid ""
+"Check this box if you want to allow the cancellation the entries related to "
+"this journal or of the invoice related to this journal"
+msgstr ""
+"Atzīmējiet šo izvēles rūtiņu, ja vēlaties, lai ļautu anulēšana ierakstus, "
+"kas saistīti ar šo vēstnesī vai rēķinā, kas saistīti ar šo vēstnesis"
+
+#: model@fa.accounts.journal|_columns@group_invoice_lines$label:1
+msgid "Group Invoice Lines"
+msgstr "Grupas Rēķina Rindas"
+
+#: model@fa.accounts.journal|_columns@group_invoice_lines$help:1
+msgid ""
+"If this box is checked, the system will try to group the accounting lines "
+"when generating them from invoices."
+msgstr ""
+"Ja šī rūtiņa ir atzīmēta, sistēma mēģinās grupas grāmatvedības līnijām, "
+"veidojot tos no rēķiniem."
+
+#: model@fa.accounts.journal|_columns@sequence$label:1
+#: model@fa.accounts.tax.group|_columns@sequence$label:1
+#: model@fa.accounts.reconcile.model|_columns@sequence$label:1
+#: model@fa.tax.template|_columns@sequence$label:1
+#: model@fa.fiscal.position.template|_columns@sequence$label:1
+#: model@fa.reconcile.model.template|_columns@sequence$label:1
+msgid "Sequence"
+msgstr "Secība"
+
+#: model@fa.accounts.journal|_columns@sequence$help:1
+msgid "Used to order Journals in the dashboard view"
+msgstr "Izmantot pasūtīt Žurnālos paneļa skats"
+
+#: model@fa.accounts.journal|_columns@sequence_number_next$label:1
+msgid "Next Number"
+msgstr "Nākamais Numurs"
+
+#: model@fa.accounts.journal|_columns@sequence_number_next$help:1
+msgid "The next sequence number will be used for the next invoice."
+msgstr "Nākamo kārtas numuru, kas tiks izmantota nākamo rēķinu."
+
+#: model@fa.accounts.journal|_columns@refund_sequence_number_next$label:1
+msgid "Credit Notes: Next Number"
+msgstr "Kredīts Piezīmes: Nākamais Numurs"
+
+#: model@fa.accounts.journal|_columns@refund_sequence_number_next$help:1
+msgid "The next sequence number will be used for the next credit note."
+msgstr "Nākamo kārtas numuru, kas tiks izmantota nākamo kredīta piezīme."
+
+#: model@fa.accounts.journal|_columns@currency_id$label:1
+#: model@fa.chart.template|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Valūta"
+
+#: model@fa.accounts.journal|_columns@currency_id$help:1
+msgid "The currency used to enter statement"
+msgstr "Valūta, ko izmanto, lai ievadītu paziņojums"
+
+#: model@fa.accounts.journal|_columns@company_id$help:1
+msgid "Company related to this journal"
+msgstr "Uzņēmums, kas saistīti ar šo vēstnesis"
+
+#: model@fa.accounts.journal|_columns@refund_sequence$label:1
+msgid "Dedicated Credit Note Sequence"
+msgstr "Īpašu Kredītu, Ņemiet Vērā, Secība"
+
+#: model@fa.accounts.journal|_columns@refund_sequence$help:1
+msgid ""
+"Check this box if you don't want to share the same sequence for invoices and"
+" credit notes made from this journal"
+msgstr ""
+"Atzīmējiet šo izvēles rūtiņu, ja nevēlaties, lai dalītos pašā secībā, "
+"rēķiniem un kredīta avizo, kas izgatavoti no šāda vēstnesis"
+
+#: model@fa.accounts.journal|_columns@inbound_payment_method_ids$label:1
+msgid "Debit Methods"
+msgstr "Debeta Metodes"
+
+#: model@fa.accounts.journal|_columns@outbound_payment_method_ids$label:1
+msgid "Payment Methods"
+msgstr "Maksājumu Metodes"
+
+#: model@fa.accounts.journal|_columns@at_least_one_inbound$label:1
+msgid "At least one inbound"
+msgstr "Vismaz vienu ienākošo"
+
+#: model@fa.accounts.journal|_columns@at_least_one_outbound$label:1
+msgid "At least one outbound"
+msgstr "Vismaz vienu izejošo"
+
+#: model@fa.accounts.journal|_columns@profit_account_id$label:1
+msgid "Profit Account"
+msgstr "Peļņas Konts"
+
+#: model@fa.accounts.journal|_columns@profit_account_id$help:1
+msgid ""
+"Used to register a profit when the ending balance of a cash register differs"
+" from what the system computes"
+msgstr ""
+"Ko izmanto, lai reģistrētu peļņu, ja beigu bilance naudas līdzekļu reģistrā "
+"atšķiras no tā, ko sistēma computes"
+
+#: model@fa.accounts.journal|_columns@loss_account_id$label:1
+msgid "Loss Account"
+msgstr "Zaudējumu Aprēķins"
+
+#: model@fa.accounts.journal|_columns@loss_account_id$help:1
+msgid ""
+"Used to register a loss when the ending balance of a cash register differs "
+"from what the system computes"
+msgstr ""
+"Izmantota, lai reģistrētu zaudējumu aprēķinā periodā, kad beidzas bilance "
+"naudas līdzekļu reģistrā atšķiras no tā, ko sistēma computes"
+
+#: model@fa.accounts.journal|_columns@belongs_to_company$label:1
+msgid "Belong to the user's current company"
+msgstr "Pieder pie lietotāja pašreizējo uzņēmums"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$label:1
+msgid "Bank Feeds"
+msgstr "Bankas Plūsmas"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$selections#undefined:1
+msgid "Undefined Yet"
+msgstr "Undefined Vēl"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$selections#manual:1
+msgid "Record Manually"
+msgstr "Ierakstīt Manuāli"
+
+#: model@fa.accounts.journal|_columns@bank_acc_number$label:1
+msgid "Bank ACC number"
+msgstr "Bankas ACC skaits"
+
+#: model@fa.accounts.tax.group|_description@:1
+msgid "General Model Account Tax Group"
+msgstr "Vispārējā Modeļa Vērā Nodokļu Grupa"
+
+#: model@fa.accounts.tax|_description@:1
+msgid "General Model Accounts Tax"
+msgstr "Vispārējā Modeļa Kontu Nodoklis"
+
+#: model@fa.accounts.tax|_columns@name$label:1
+#: model@fa.tax.template|_columns@name$label:1
 msgid "Tax Name"
 msgstr "Nodokļa Nosaukums"
 
-#: fa.accounts.tax-type_tax_use:1 fa.tax.template-type_tax_use:1
+#: model@fa.accounts.tax|_columns@type_tax_use$label:1
+#: model@fa.tax.template|_columns@type_tax_use$label:1
 msgid "Tax Scope"
 msgstr "Nodokļa Piemērošanas Joma"
 
-#: fa.accounts.tax-tax_adjustment:1
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#sale:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#sale:1
+msgid "Sales"
+msgstr "Pārdošana"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#purchase:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#purchase:1
+msgid "Purchases"
+msgstr "Iepirkumi"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#none:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#none:1
+msgid "None"
+msgstr "Nav"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$help:1
+#: model@fa.tax.template|_columns@type_tax_use$help:1
+msgid ""
+"Determines where the tax is selectable. Note : 'None' means a tax can't be "
+"used by itself, however it can still be used in a group."
+msgstr ""
+"Nosaka, ja nodokļu var izvēlēties. Piezīme: \"Nav\" nozīmē nodokli, nevar "
+"izmantot ar sevi, tomēr tas vēl var izmantot grupas."
+
+#: model@fa.accounts.tax|_columns@tax_adjustment$label:1
 msgid "Tax adjustment"
 msgstr "Nodokļu korekcijas"
 
-#: fa.accounts.tax-amount_type:1 fa.tax.template-amount_type:1
+#: model@fa.accounts.tax|_columns@tax_adjustment$help:1
+msgid ""
+"Set this field to true if this tax can be used in the tax adjustment wizard,"
+" used to manually fill some data in the tax declaration"
+msgstr ""
+"Kopumu šajā jomā, lai taisnība, ja šis nodoklis var tikt izmantots nodokļu "
+"korekcijas vednis, ko izmanto, lai manuāli jāaizpilda daži dati, nodokļu "
+"deklarācijas"
+
+#: model@fa.accounts.tax|_columns@amount_type$label:1
+#: model@fa.tax.template|_columns@amount_type$label:1
 msgid "Tax Computation"
 msgstr "Nodokļu Aprēķināšana"
 
-#: fa.accounts.tax-children_tax_ids:1 fa.tax.template-children_tax_ids:1
+#: model@fa.accounts.tax|_columns@amount_type$selections#group:1
+#: model@fa.tax.template|_columns@amount_type$selections#group:1
+msgid "Group of Taxes"
+msgstr "Grupa no Nodokļiem"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#fixed:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$selections#fixed:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$selections#fixed:1
+#: model@fa.tax.template|_columns@amount_type$selections#fixed:1
+#: model@fa.reconcile.model.template|_columns@amount_type$selections#fixed:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$selections#fixed:1
+msgid "Fixed"
+msgstr "Fiksēts"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#percent:1
+#: model@fa.tax.template|_columns@amount_type$selections#percent:1
+msgid "Percentage of Price"
+msgstr "Procentos no Cenas"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#division:1
+#: model@fa.tax.template|_columns@amount_type$selections#division:1
+msgid "Percentage of Price Tax Included"
+msgstr "Procentos no Cenas Iekļauti Nodokļu"
+
+#: model@fa.accounts.tax|_columns@inactive$help:1
+#: model@fa.tax.template|_columns@active$help:1
+msgid "Set active to false to hide the tax without removing it."
+msgstr "Uzstādīt aktīvo false, lai paslēptu nodokļu nenoņemot to."
+
+#: model@fa.accounts.tax|_columns@children_tax_ids$label:1
+#: model@fa.tax.template|_columns@children_tax_ids$label:1
 msgid "Children Taxes"
 msgstr "Bērnu Nodokļiem"
 
-#: fa.accounts.tax-sequence:1 fa.reconcile.model.template-amount:1
+#: model@fa.accounts.tax|_columns@sequence$label:1
+#: model@fa.reconcile.model.template|_columns@amount$label:1
 msgid "unknown"
 msgstr "nav zināms"
 
-#: fa.accounts.tax-amount:1
+#: model@fa.accounts.tax|_columns@sequence$help:1
+#: model@fa.tax.template|_columns@sequence$help:1
+msgid ""
+"The sequence field is used to define order in which the tax lines are "
+"applied."
+msgstr ""
+"Sērijas lauks tiek izmantots, lai noteiktu kārtību, kādā nodokļu līnijas ir "
+"piemērotas."
+
+#: model@fa.accounts.tax|_columns@amount$label:1
 msgid "Amont"
 msgstr "Amont"
 
-#: fa.accounts.tax-account_id:1 fa.tax.template-account_id:1
+#: model@fa.accounts.tax|_columns@account_id$label:1
+#: model@fa.tax.template|_columns@account_id$label:1
 msgid "Tax Account"
 msgstr "Nodokļu Konts"
 
-#: fa.accounts.tax-refund_account_id:1
+#: model@fa.accounts.tax|_columns@account_id$help:1
+#: model@fa.tax.template|_columns@account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for invoices. Leave empty to "
+"use the expense account."
+msgstr ""
+"Kontu, kas tiks noteikts, pamatojoties uz rēķinu, nodokļu līnijas rēķiniem. "
+"Atstāt tukšu, lai izmantotu izdevumi kontu."
+
+#: model@fa.accounts.tax|_columns@refund_account_id$label:1
 msgid "Tax Account on Credit Notes"
 msgstr "Nodokļu Konts, uz Kredīta Piezīmes"
 
-#: fa.accounts.tax-description:1
+#: model@fa.accounts.tax|_columns@refund_account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for credit notes. Leave empty "
+"to use the expense account."
+msgstr ""
+"Kontu, kas tiks noteikts, pamatojoties uz rēķinu, nodokļu līnijas kredīta "
+"piezīmes. Atstāt tukšu, lai izmantotu izdevumi kontu."
+
+#: model@fa.accounts.tax|_columns@description$label:1
 msgid "Label on Invoices"
 msgstr "Etiķetes uz Rēķiniem"
 
-#: fa.accounts.tax-price_include:1 fa.tax.template-price_include:1
+#: model@fa.accounts.tax|_columns@price_include$label:1
+#: model@fa.tax.template|_columns@price_include$label:1
 msgid "Included in Price"
 msgstr "Cenā"
 
-#: fa.accounts.tax-include_base_amount:1
+#: model@fa.accounts.tax|_columns@price_include$help:1
+#: model@fa.tax.template|_columns@price_include$help:1
+msgid ""
+"Check this if the price you use on the product and invoices includes this "
+"tax."
+msgstr ""
+"Atzīmējiet šo, ja cena jūs izmantot par preci un rēķinus, kas ietver šo "
+"nodokli."
+
+#: model@fa.accounts.tax|_columns@include_base_amount$label:1
 msgid "Affect Base of Subsequent Taxes"
 msgstr "Ietekmēt Bāze Turpmākiem Nodokļi"
 
-#: fa.accounts.tax-analytic:1
+#: model@fa.accounts.tax|_columns@include_base_amount$help:1
+#: model@fa.tax.template|_columns@include_base_amount$help:1
+msgid ""
+"If set, taxes which are computed after this one will be computed based on "
+"the price tax included."
+msgstr ""
+"Ja kas, nodokļi, kurus aprēķina pēc vienas šīs būs aprēķina, pamatojoties uz"
+" cenu nodoklis iekļauts."
+
+#: model@fa.accounts.tax|_columns@analytic$label:1
 msgid "Include in Analytic Cost"
 msgstr "Ietver Analītisko Izmaksu"
 
-#: fa.accounts.tax-tax_group_id:1 fa.tax.template-tax_group_id:1
+#: model@fa.accounts.tax|_columns@analytic$help:1
+#: model@fa.tax.template|_columns@analytic$help:1
+msgid ""
+"If set, the amount computed by this tax will be assigned to the same "
+"analytic account as the invoice line (if any)"
+msgstr ""
+"Ja kas, summu, kas aprēķināta, ar šo nodokli tiks piešķirts pašā analytic "
+"kontā, kā rēķina līnijas (ja tādas ir)"
+
+#: model@fa.accounts.tax|_columns@tax_group_id$label:1
+#: model@fa.tax.template|_columns@tax_group_id$label:1
 msgid "Tax Group"
 msgstr "Nodokļu Grupa"
 
-#: fa.accounts.tax-hide_tax_exigibility:1
+#: model@fa.accounts.tax|_columns@hide_tax_exigibility$label:1
 msgid "Hide Use Cash Basis Option"
 msgstr "Paslēpt Izmantojiet Atstarpes, Pamatojoties Variants"
 
-#: fa.accounts.tax-tax_exigibility:1 fa.tax.template-tax_exigibility:1
+#: model@fa.accounts.tax|_columns@tax_exigibility$label:1
+#: model@fa.tax.template|_columns@tax_exigibility$label:1
 msgid "Tax Due"
 msgstr "Nodokļu Sakarā"
 
-#: fa.accounts.tax-cash_basis_account:1 fa.tax.template-cash_basis_account:1
+#: model@fa.accounts.tax|_columns@tax_exigibility$selections#on_invoice:1
+#: model@fa.tax.template|_columns@tax_exigibility$selections#on_invoice:1
+msgid "Based on Invoice"
+msgstr "Pamatojoties uz Rēķinu"
+
+#: model@fa.accounts.tax|_columns@tax_exigibility$selections#on_payment:1
+#: model@fa.tax.template|_columns@tax_exigibility$selections#on_payment:1
+msgid "Based on Payment"
+msgstr "Pamatojoties uz Maksājumu"
+
+#: model@fa.accounts.tax|_columns@tax_exigibility$help:1
+#: model@fa.tax.template|_columns@tax_exigibility$help:1
+msgid ""
+"Based on Invoice: the tax is due as soon as the invoice is validated.\n"
+"Based on Payment: the tax is due as soon as the payment of the invoice is received."
+msgstr ""
+"Pamatojoties uz Rēķinu: nodoklis ir jāmaksā, līdzko rēķins ir apstiprināts.\n"
+"Pamatojoties uz Maksājumu: nodoklis ir jāmaksā, tiklīdz maksājuma rēķina saņemšanas."
+
+#: model@fa.accounts.tax|_columns@cash_basis_account$label:1
+#: model@fa.tax.template|_columns@cash_basis_account$label:1
 msgid "Tax Received Account"
 msgstr "Nodokļu Saņēma Konts"
 
-#: fa.accounts.reconcile.model-name:1 fa.reconcile.model.template-name:1
+#: model@fa.accounts.tax|_columns@cash_basis_account$help:1
+msgid ""
+"Account used as counterpart for the journal entry, for taxes eligible based "
+"on payments."
+msgstr ""
+"Kontu, kas izmantots kā kompensāciju par žurnāla ieraksts par nodokļu "
+"attiecināmās pamatojoties uz maksājumu."
+
+#: model@fa.accounts.reconcile.model|_description@:1
+msgid "General Model Accounts Reconcile"
+msgstr "Vispārējā Modeļa Kontu Saskaņot"
+
+#: model@fa.accounts.reconcile.model|_columns@name$label:1
+#: model@fa.reconcile.model.template|_columns@name$label:1
 msgid "Button Label"
 msgstr "Pogas Etiķeti"
 
-#: fa.accounts.reconcile.model-has_second_line:1
-#: fa.reconcile.model.template-has_second_line:1
+#: model@fa.accounts.reconcile.model|_columns@has_second_line$label:1
+#: model@fa.reconcile.model.template|_columns@has_second_line$label:1
 msgid "Add a second line"
 msgstr "Pievienot otrā līnija"
 
-#: fa.accounts.reconcile.model-account_id:1
-#: fa.reconcile.model.template-account_id:1
+#: model@fa.accounts.reconcile.model|_columns@account_id$label:1
+#: model@fa.reconcile.model.template|_columns@account_id$label:1
 msgid "Account"
 msgstr "Konts"
 
-#: fa.accounts.reconcile.model-journal_id:1
+#: model@fa.accounts.reconcile.model|_columns@journal_id$label:1
 msgid "Journal"
 msgstr "Vēstnesis"
 
-#: fa.accounts.reconcile.model-label:1 fa.reconcile.model.template-label:1
+#: model@fa.accounts.reconcile.model|_columns@journal_id$help:1
+#: model@fa.accounts.reconcile.model|_columns@second_journal_id$help:1
+msgid "This field is ignored in a bank statement reconciliation."
+msgstr "Šis lauks tiek ignorēts bankas paziņojumu, saskaņošana."
+
+#: model@fa.accounts.reconcile.model|_columns@label$label:1
+#: model@fa.reconcile.model.template|_columns@label$label:1
 msgid "Journal Item Label"
 msgstr "Vēstnesis Vienumu Etiķetes"
 
-#: fa.accounts.reconcile.model-amount_type:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$label:1
 msgid "Amount Type"
 msgstr "Summa Tips"
 
-#: fa.accounts.reconcile.model-amount:1 fa.tax.template-amount:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$selections#percentage:1
+#: model@fa.reconcile.model.template|_columns@amount_type$selections#percentage:1
+msgid "Percentage of balance"
+msgstr "Procentos bilances"
+
+#: model@fa.accounts.reconcile.model|_columns@amount$label:1
+#: model@fa.tax.template|_columns@amount$label:1
 msgid "Amount"
 msgstr "Summa"
 
-#: fa.accounts.reconcile.model-tax_id:1 fa.reconcile.model.template-tax_id:1
+#: model@fa.accounts.reconcile.model|_columns@amount$help:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount$help:1
+#: model@fa.reconcile.model.template|_columns@amount$help:1
+#: model@fa.reconcile.model.template|_columns@second_amount$help:1
+msgid ""
+"Fixed amount will count as a debit if it is negative, as a credit if it is "
+"positive."
+msgstr ""
+"Fiksētu summu, kas tiks ieskaitīta kā debeta ja tas ir negatīvs, kā kredītu,"
+" ja tas ir pozitīvs."
+
+#: model@fa.accounts.reconcile.model|_columns@tax_id$label:1
+#: model@fa.reconcile.model.template|_columns@tax_id$label:1
 msgid "Tax"
 msgstr "Nodokļu"
 
-#: fa.accounts.reconcile.model-second_account_id:1
-#: fa.reconcile.model.template-second_account_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_account_id$label:1
+#: model@fa.reconcile.model.template|_columns@second_account_id$label:1
 msgid "Second Account"
 msgstr "Otro Kontu"
 
-#: fa.accounts.reconcile.model-second_journal_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_journal_id$label:1
 msgid "Second Journal"
 msgstr "Otrais Vēstnesis"
 
-#: fa.accounts.reconcile.model-second_label:1
-#: fa.reconcile.model.template-second_label:1
+#: model@fa.accounts.reconcile.model|_columns@second_label$label:1
+#: model@fa.reconcile.model.template|_columns@second_label$label:1
 msgid "Second Journal Item Label"
 msgstr "Otrais Vēstnesis Vienumu Etiķetes"
 
-#: fa.accounts.reconcile.model-second_amount_type:1
-#: fa.reconcile.model.template-second_amount_type:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$label:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$label:1
 msgid "Second Amount type"
 msgstr "Otrā Summu tips"
 
-#: fa.accounts.reconcile.model-second_amount:1
-#: fa.reconcile.model.template-second_amount:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$selections#percentage:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$selections#percentage:1
+msgid "Percentage of amount"
+msgstr "Procentos no summas"
+
+#: model@fa.accounts.reconcile.model|_columns@second_amount$label:1
+#: model@fa.reconcile.model.template|_columns@second_amount$label:1
 msgid "Second Amount"
 msgstr "Otrajā Summa"
 
-#: fa.accounts.reconcile.model-second_tax_id:1
-#: fa.reconcile.model.template-second_tax_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_tax_id$label:1
+#: model@fa.reconcile.model.template|_columns@second_tax_id$label:1
 msgid "Second Tax"
 msgstr "Otrā Nodoklis"
 
-#: fa.account.template-reconcile:1
+#: model@fa.account.template|_description@:1
+msgid "Genaral Model Templates for Accounts"
+msgstr "Genaral Modelis Veidnes Konti"
+
+#: model@fa.account.template|_columns@currency_id$help:1
+msgid "Forces all moves for this account to have this secondary currency."
+msgstr "Spēki, visi pārceļas uz šo kontu, kurā ir šī sekundārā valūtā."
+
+#: model@fa.account.template|_columns@user_type_id$help:1
+msgid ""
+"These types are defined according to your country. The type contains more "
+"information about the account and its specificities."
+msgstr ""
+"Šie veidi ir definēti saskaņā ar jūsu valsti. Tipa, kas satur vairāk "
+"informāciju par kontu un tā specifiku."
+
+#: model@fa.account.template|_columns@reconcile$label:1
 msgid "Allow Invoices & payments Matching"
 msgstr "Ļauj Rēķini un maksājumi Matching"
 
-#: fa.account.template-nocreate:1
+#: model@fa.account.template|_columns@reconcile$help:1
+msgid ""
+"Check this option if you want the user to reconcile entries in this account."
+msgstr ""
+"Atzīmējiet šo opciju, ja jūs vēlaties, lai lietotājs, lai saskaņotu "
+"ierakstus šajā kontā."
+
+#: model@fa.account.template|_columns@nocreate$label:1
 msgid "Optional Create"
 msgstr "Pēc Izvēles Izveidot"
 
-#: fa.account.template-chart_template_id:1 fa.tax.template-chart_template_id:1
-#: fa.fiscal.position.template-chart_template_id:1
-#: fa.reconcile.model.template-chart_template_id:1
+#: model@fa.account.template|_columns@nocreate$help:1
+msgid ""
+"If checked, the new chart of accounts will not contain this by default."
+msgstr "Ja pārbauda, jauno kontu plānu, neietver tas pēc noklusējuma."
+
+#: model@fa.account.template|_columns@chart_template_id$label:1
+#: model@fa.tax.template|_columns@chart_template_id$label:1
+#: model@fa.fiscal.position.template|_columns@chart_template_id$label:1
+#: model@fa.reconcile.model.template|_columns@chart_template_id$label:1
 msgid "Chart Template"
 msgstr "Diagrammas Veidni"
 
-#: fa.account.template-tag_ids:1 fa.tax.template-tag_ids:1
+#: model@fa.account.template|_columns@chart_template_id$help:1
+msgid ""
+"This optional field allow you to link an account template to a specific "
+"chart template that may differ from the one its root parent belongs to. This"
+" allow you to define chart templates that extend another and complete it "
+"with few new accounts (You don't need to define the whole structure that is "
+"common to both several times)."
+msgstr ""
+"Šajā izvēles laukā ļauj jums saiti kontu veidni ar konkrētu diagrammas "
+"veidni, kas var atšķirties no tās saknes, vecākiem pieder. Tas ļauj jums, "
+"lai definētu diagrammas veidnes, kas sniedzas otru un aizpildīt to ar maz "
+"jaunu kontu (Jums nav nepieciešams, lai noteiktu visu struktūru, kas ir "
+"kopīga, lai gan vairākas reizes)."
+
+#: model@fa.account.template|_columns@tag_ids$label:1
+#: model@fa.tax.template|_columns@tag_ids$label:1
 msgid "Account tag"
 msgstr "Konta frāze"
 
-#: fa.chart.template-parent_id:1
+#: model@fa.account.template|_columns@tag_ids$help:1
+#: model@fa.tax.template|_columns@tag_ids$help:1
+msgid "Optional tags you may want to assign for custom reporting"
+msgstr ""
+"Pēc izvēles tagus, jūs, iespējams, vēlaties, lai piešķirtu pasūtījuma "
+"ziņojumi"
+
+#: model@fa.chart.template|_description@:1
+msgid "Genaral Model Templates for Account Chart"
+msgstr "Genaral Modelis Veidnes Kontu Diagramma"
+
+#: model@fa.chart.template|_columns@parent_id$label:1
 msgid "Parent Chart Template"
 msgstr "Mātes Diagrammas Veidni"
 
-#: fa.chart.template-code_digits:1
+#: model@fa.chart.template|_columns@code_digits$label:1
 msgid "# of Digits"
 msgstr "# Cipariem"
 
-#: fa.chart.template-visible:1
+#: model@fa.chart.template|_columns@code_digits$help:1
+msgid "No. of Digits to use for account code"
+msgstr "Nē. Cipari, lai izmantotu konta kods"
+
+#: model@fa.chart.template|_columns@visible$label:1
 msgid "Can be Visible?"
 msgstr "Var būt Redzamas?"
 
-#: fa.chart.template-use_anglo_saxon:1
+#: model@fa.chart.template|_columns@visible$help:1
+msgid ""
+"Set this to False if you don't want this template to be used actively in the"
+" wizard that generate Chart of Accounts from templates, this is useful when "
+"you want to generate accounts of this template only when loading its child "
+"template."
+msgstr ""
+"Uzstādiet šo uz False, ja jūs nevēlaties, šo veidni izmanto, aktīvi vedņa "
+"darbības, kas rada Kontu plānu no veidnes, kas tas ir noderīgi, ja vēlaties "
+"ģenerēt pārskatus šo veidlapu tikai tad, ja iekraušanas savu bērnu veidni."
+
+#: model@fa.chart.template|_columns@use_anglo_saxon$label:1
 msgid "Use Anglo-Saxon accounting"
 msgstr "Izmantot Anglo-Saxon grāmatvedības"
 
-#: fa.chart.template-complete_tax_set:1
+#: model@fa.chart.template|_columns@complete_tax_set$label:1
 msgid "Complete Set of Taxes"
 msgstr "Pilns Komplekts Nodokļi"
 
-#: fa.chart.template-account_ids:1
+#: model@fa.chart.template|_columns@complete_tax_set$help:1
+msgid ""
+"This boolean helps you to choose if you want to propose to the user to "
+"encode the sale and purchase rates or choose from list of taxes. This last "
+"choice assumes that the set of tax defined on this template is complete"
+msgstr ""
+"Tas boolean palīdz izvēlēties, ja jūs vēlaties ierosināt, lai lietotājs, lai"
+" kodētu pārdošanas un pirkšanas likmes vai izvēlies no saraksta nodokļus. Šī"
+" pēdējā izvēle, tiek pieņemts, ka nodokļu noteikts šo veidni ir pabeigta"
+
+#: model@fa.chart.template|_columns@account_ids$label:1
 msgid "Associated Account Templates"
 msgstr "Saistīto Kontu Veidnes"
 
-#: fa.chart.template-tax_template_ids:1
+#: model@fa.chart.template|_columns@tax_template_ids$label:1
 msgid "Tax Template List"
 msgstr "Nodokļu Veidņu Sarakstam"
 
-#: fa.chart.template-bank_account_code_prefix:1
+#: model@fa.chart.template|_columns@tax_template_ids$help:1
+msgid "List of all the taxes that have to be installed by the wizard"
+msgstr "Sarakstu ar visiem nodokļiem, kas ir jāuzstāda, izmantojot vedni"
+
+#: model@fa.chart.template|_columns@bank_account_code_prefix$label:1
 msgid "Prefix of the bank accounts"
 msgstr "Prefikss bankas kontu"
 
-#: fa.chart.template-cash_account_code_prefix:1
+#: model@fa.chart.template|_columns@cash_account_code_prefix$label:1
 msgid "Prefix of the main cash accounts"
 msgstr "Prefiksu no galvenajiem naudas kontu"
 
-#: fa.chart.template-transfer_account_id:1
+#: model@fa.chart.template|_columns@transfer_account_id$label:1
 msgid "Transfer Account"
 msgstr "Pārsūtīt Konts"
 
-#: fa.chart.template-income_currency_exchange_account_id:1
+#: model@fa.chart.template|_columns@transfer_account_id$help:1
+msgid ""
+"Intermediary account used when moving money from a liquidity account to "
+"another"
+msgstr ""
+"Starpnieka kontu, kas izmantots, pārvietojot naudu no likviditātes konta uz "
+"citu"
+
+#: model@fa.chart.template|_columns@income_currency_exchange_account_id$label:1
 msgid "Gain Exchange Rate Account"
 msgstr "Peļņa Valūtas Maiņas Kursa Rēķina"
 
-#: fa.chart.template-expense_currency_exchange_account_id:1
+#: model@fa.chart.template|_columns@expense_currency_exchange_account_id$label:1
 msgid "Loss Exchange Rate Account"
 msgstr "Zaudējumi Valūtas Maiņas Kursa Rēķina"
 
-#: fa.chart.template-property_account_receivable_id:1
+#: model@fa.chart.template|_columns@property_account_receivable_id$label:1
 msgid "Receivable Account"
 msgstr "Parādu Kontā"
 
-#: fa.chart.template-property_account_payable_id:1
+#: model@fa.chart.template|_columns@property_account_payable_id$label:1
 msgid "Payable Account"
 msgstr "Kreditoru Konts"
 
-#: fa.chart.template-property_account_expense_categ_id:1
+#: model@fa.chart.template|_columns@property_account_expense_categ_id$label:1
 msgid "Category of Expense Account"
 msgstr "Kategorija Izdevumu Konts"
 
-#: fa.chart.template-property_account_income_categ_id:1
+#: model@fa.chart.template|_columns@property_account_income_categ_id$label:1
 msgid "Category of Income Account"
 msgstr "Ienākumu Konta"
 
-#: fa.chart.template-property_account_expense_id:1
+#: model@fa.chart.template|_columns@property_account_expense_id$label:1
 msgid "Expense Account on Product Template"
 msgstr "Izdevumi Kontā par Produkta Veidne"
 
-#: fa.chart.template-property_account_income_id:1
+#: model@fa.chart.template|_columns@property_account_income_id$label:1
 msgid "Income Account on Product Template"
 msgstr "Ienākumu Kontā par Produkta Veidne"
 
-#: fa.chart.template-property_stock_account_input_categ_id:1
+#: model@fa.chart.template|_columns@property_stock_account_input_categ_id$label:1
 msgid "Input Account for Stock Valuation"
 msgstr "Ievadi Vērā Krājumu Novērtēšana"
 
-#: fa.chart.template-property_stock_account_output_categ_id:1
+#: model@fa.chart.template|_columns@property_stock_account_output_categ_id$label:1
 msgid "Output Account for Stock Valuation"
 msgstr "Izejas Vērā Krājumu Novērtēšana"
 
-#: fa.chart.template-property_stock_valuation_account_id:1
+#: model@fa.chart.template|_columns@property_stock_valuation_account_id$label:1
 msgid "Account Template for Stock Valuation"
 msgstr "Konta Veidni Krājumu Novērtēšana"
 
-#: fa.tax.template-tax_adjustment:1
+#: model@fa.tax.template|_description@:1
+msgid "General Model Templates for Taxes"
+msgstr "Vispārīgi Modelis Veidnes Nodokļi"
+
+#: model@fa.tax.template|_columns@tax_adjustment$label:1
 msgid "Tax Adjustment"
 msgstr "Nodokļu Korekcijas"
 
-#: fa.tax.template-active:1
+#: model@fa.tax.template|_columns@active$label:1
 msgid "Active"
 msgstr "Aktīvs"
 
-#: fa.tax.template-refund_account_id:1
+#: model@fa.tax.template|_columns@refund_account_id$label:1
 msgid "Tax Account on Refunds"
 msgstr "Nodokļu Vērā Kompensācijas"
 
-#: fa.tax.template-description:1
+#: model@fa.tax.template|_columns@refund_account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for refunds. Leave empty to "
+"use the expense account."
+msgstr ""
+"Kontu, kas tiks noteikts, pamatojoties uz rēķinu, nodokļu līnijas "
+"kompensācijas. Atstāt tukšu, lai izmantotu izdevumi kontu."
+
+#: model@fa.tax.template|_columns@description$label:1
 msgid "Display on Invoices"
 msgstr "Displeja par Rēķiniem"
 
-#: fa.tax.template-include_base_amount:1
+#: model@fa.tax.template|_columns@include_base_amount$label:1
 msgid "Affect Subsequent Taxes"
 msgstr "Ietekmēt Turpmākās Nodokļi"
 
-#: fa.tax.template-analytic:1
+#: model@fa.tax.template|_columns@analytic$label:1
 msgid "Analytic Cost"
 msgstr "Analītisko Izmaksu"
 
-#: fa.fiscal.position.template-name:1
+#: model@fa.tax.template|_columns@cash_basis_account$help:1
+msgid ""
+"Account used as counterpart for the journal entry, for taxes exigible based "
+"on payments."
+msgstr ""
+"Kontu, kas izmantots kā kompensāciju par žurnāla ieraksts par nodokļu "
+"exigible, pamatojoties uz maksājumiem."
+
+#: model@fa.fiscal.position.template|_description@:1
+msgid "Genaral Model Template for Fiscal Position"
+msgstr "Genaral Modeļa paraugu Fiskālajai Pozīcijai"
+
+#: model@fa.fiscal.position.template|_columns@name$label:1
 msgid "Fiscal Position Template"
 msgstr "Fiskālā Pozīcija Veidne"
 
-#: fa.fiscal.position.template-account_ids:1
+#: model@fa.fiscal.position.template|_columns@account_ids$label:1
 msgid "Account Mapping"
 msgstr "Vērā Kartēšanas"
 
-#: fa.fiscal.position.template-tax_ids:1
+#: model@fa.fiscal.position.template|_columns@tax_ids$label:1
 msgid "Tax Mapping"
 msgstr "Nodokļu Kartēšanas"
 
-#: fa.fiscal.position.template-auto_apply:1
+#: model@fa.fiscal.position.template|_columns@auto_apply$label:1
 msgid "Detect Automatically"
 msgstr "Atklāt Automātiski"
 
-#: fa.fiscal.position.template-vat_required:1
+#: model@fa.fiscal.position.template|_columns@auto_apply$help:1
+msgid "Apply automatically this fiscal position."
+msgstr "Automātiski piemēro šo fiskālo stāvokli."
+
+#: model@fa.fiscal.position.template|_columns@vat_required$label:1
 msgid "VAT required"
 msgstr "PVN nepieciešams"
 
-#: fa.fiscal.position.template-country_id:1
+#: model@fa.fiscal.position.template|_columns@vat_required$help:1
+msgid "Apply only if partner has a VAT number."
+msgstr "Piemēro tikai tad, ja partneris ir PVN numurs."
+
+#: model@fa.fiscal.position.template|_columns@country_id$label:1
 msgid "Country"
 msgstr "Valsts"
 
-#: fa.fiscal.position.template-country_group_id:1
+#: model@fa.fiscal.position.template|_columns@country_id$help:1
+msgid "Apply only if delivery or invoicing country match."
+msgstr "Attiecas tikai, ja piegādi vai rēķinu valsts maču."
+
+#: model@fa.fiscal.position.template|_columns@country_group_id$label:1
 msgid "Country Group"
 msgstr "Valsts Grupā"
 
-#: fa.fiscal.position.template-state_ids:1
+#: model@fa.fiscal.position.template|_columns@country_group_id$help:1
+msgid "Apply only if delivery or invocing country match the group."
+msgstr "Attiecas tikai, ja piegādi vai invocing valsts atbilstības grupas."
+
+#: model@fa.fiscal.position.template|_columns@state_ids$label:1
 msgid "Federal States"
 msgstr "Federālas Valstis"
 
-#: fa.fiscal.position.template-zip_from:1
+#: model@fa.fiscal.position.template|_columns@zip_from$label:1
 msgid "Zip Range From"
 msgstr "Zip Diapazonā No"
 
-#: fa.fiscal.position.template-zip_to:1
+#: model@fa.fiscal.position.template|_columns@zip_to$label:1
 msgid "Zip Range To"
 msgstr "Zip Diapazons"
 
-#: fa.fiscal.position.tax.template-position_id:1
+#: model@fa.fiscal.position.tax.template|_description@:1
+msgid "Genaral Model Template Tax Fiscal Position"
+msgstr "Genaral Modelis Veidnes Nodokļu Fiskālo Situāciju."
+
+#: model@fa.fiscal.position.tax.template|_columns@position_id$label:1
 msgid "Fiscal Position"
 msgstr "Fiskālais Stāvoklis"
 
-#: fa.fiscal.position.tax.template-tax_src_id:1
+#: model@fa.fiscal.position.tax.template|_columns@tax_src_id$label:1
 msgid "Tax Source"
 msgstr "Nodokļu Avots"
 
-#: fa.fiscal.position.tax.template-tax_dest_id:1
+#: model@fa.fiscal.position.tax.template|_columns@tax_dest_id$label:1
 msgid "Replacement Tax"
 msgstr "Rezerves Nodoklis"
 
-#: fa.fiscal.position.account.template-position_id:1
+#: model@fa.fiscal.position.account.template|_description@:1
+msgid "Genaral Model Template Account Fiscal Mapping"
+msgstr "Genaral Modelis Veidnes Vērā Fiskālo Kartēšanas"
+
+#: model@fa.fiscal.position.account.template|_columns@position_id$label:1
 msgid "Fiscal Mapping"
 msgstr "Fiskālās Kartēšanas"
 
-#: fa.fiscal.position.account.template-account_src_id:1
+#: model@fa.fiscal.position.account.template|_columns@account_src_id$label:1
 msgid "Account Source"
 msgstr "Konta Avots"
 
-#: fa.fiscal.position.account.template-account_dest_id:1
+#: model@fa.fiscal.position.account.template|_columns@account_dest_id$label:1
 msgid "Account Destination"
 msgstr "Konta Galamērķi"
 
-#: fa.reconcile.model.template-amount_type:1
+#: model@fa.reconcile.model.template|_description@:1
+msgid "Genaral Model Reconcile Model Template"
+msgstr "Genaral Modeli, Saskaņot Modelis Veidnes"
+
+#: model@fa.reconcile.model.template|_columns@amount_type$label:1
 msgid "Amount type"
 msgstr "Summa tips"
 
-#: fa.accounts.payment.method-payment_type:1
+#: model@fa.accounts.payment.method|_description@:1
+msgid "Genaral  ModelPayment Methods"
+msgstr "Genaral ModelPayment Metodes"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$label:1
 msgid "Payment Type"
 msgstr "Maksājuma Veids"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$selections#inbound:1
+msgid "Inbound"
+msgstr "Ārzemju"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$selections#outbound:1
+msgid "Outbound"
+msgstr "Ārzemju"

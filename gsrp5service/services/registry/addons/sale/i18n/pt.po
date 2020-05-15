@@ -3,487 +3,931 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-04-02 15:16:08+0300\n"
-"PO-Revision-Date: 2020-04-02 15:16:08+0300\n"
+"POT-Creation-Date: 2020-05-15 19:41:57+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:57+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: sale.unit.categories-name:1 sale.channel.categories-name:1
-#: sale.segment.categories-name:1 sale.area.categories-name:1
-#: sale.region.categories-name:1 sale.division.categories-name:1
-#: sale.subdivision.categories-name:1 sale.order.types-name:1
-#: sale.invoice.types-name:1 sale.order.categories-name:1
-#: sale.invoice.categories-name:1 sale.orders-name:1 sale.invoices-name:1
+#: model@sale.unit.categories|_description@:1
+msgid "General Model Categories Sale Unit"
+msgstr "Modelo Geral De Categorias De Unidade De Venda"
+
+#: model@sale.unit.categories|_columns@name$label:1
+#: model@sale.channel.categories|_columns@name$label:1
+#: model@sale.segment.categories|_columns@name$label:1
+#: model@sale.area.categories|_columns@name$label:1
+#: model@sale.region.categories|_columns@name$label:1
+#: model@sale.division.categories|_columns@name$label:1
+#: model@sale.subdivision.categories|_columns@name$label:1
+#: model@sale.order.types|_columns@name$label:1
+#: model@sale.invoice.types|_columns@name$label:1
+#: model@sale.order.categories|_columns@name$label:1
+#: model@sale.invoice.categories|_columns@name$label:1
+#: model@sale.orders|_columns@name$label:1
+#: model@sale.invoices|_columns@name$label:1
 msgid "Name"
 msgstr "Nome"
 
-#: sale.unit.categories-parent_id:1 sale.channel.categories-parent_id:1
-#: sale.segment.categories-parent_id:1 sale.area.categories-parent_id:1
-#: sale.region.categories-parent_id:1 sale.division.categories-parent_id:1
-#: sale.subdivision.categories-parent_id:1 sale.order.categories-parent_id:1
-#: sale.invoice.categories-parent_id:1
+#: model@sale.unit.categories|_columns@parent_id$label:1
+#: model@sale.channel.categories|_columns@parent_id$label:1
+#: model@sale.segment.categories|_columns@parent_id$label:1
+#: model@sale.area.categories|_columns@parent_id$label:1
+#: model@sale.region.categories|_columns@parent_id$label:1
+#: model@sale.division.categories|_columns@parent_id$label:1
+#: model@sale.subdivision.categories|_columns@parent_id$label:1
+#: model@sale.order.categories|_columns@parent_id$label:1
+#: model@sale.invoice.categories|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Pai"
 
-#: sale.unit.categories-childs_id:1 sale.channel.categories-childs_id:1
-#: sale.segment.categories-childs_id:1 sale.area.categories-childs_id:1
-#: sale.region.categories-childs_id:1 sale.division.categories-childs_id:1
-#: sale.subdivision.categories-childs_id:1 sale.order.categories-childs_id:1
-#: sale.invoice.categories-childs_id:1
+#: model@sale.unit.categories|_columns@childs_id$label:1
+#: model@sale.channel.categories|_columns@childs_id$label:1
+#: model@sale.segment.categories|_columns@childs_id$label:1
+#: model@sale.area.categories|_columns@childs_id$label:1
+#: model@sale.region.categories|_columns@childs_id$label:1
+#: model@sale.division.categories|_columns@childs_id$label:1
+#: model@sale.subdivision.categories|_columns@childs_id$label:1
+#: model@sale.order.categories|_columns@childs_id$label:1
+#: model@sale.invoice.categories|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: sale.unit.categories-fullname:1 sale.channel.categories-fullname:1
-#: sale.segment.categories-fullname:1 sale.area.categories-fullname:1
-#: sale.region.categories-fullname:1 sale.division.categories-fullname:1
-#: sale.subdivision.categories-fullname:1
-#: sale.unit.channel.assigments-fullname:1
-#: sale.unit.segment.assigments-fullname:1
-#: sale.unit.area.assigments-fullname:1 sale.unit.region.assigments-fullname:1
-#: sale.division.subdivision.assigments-fullname:1 sale.markets-fullname:1
-#: sale.teams-fullname:1 sale.order.categories-fullname:1
-#: sale.invoice.categories-fullname:1 sale.orders-fullname:1
-#: sale.invoices-fullname:1
+#: model@sale.unit.categories|_columns@fullname$label:1
+#: model@sale.channel.categories|_columns@fullname$label:1
+#: model@sale.segment.categories|_columns@fullname$label:1
+#: model@sale.area.categories|_columns@fullname$label:1
+#: model@sale.region.categories|_columns@fullname$label:1
+#: model@sale.division.categories|_columns@fullname$label:1
+#: model@sale.subdivision.categories|_columns@fullname$label:1
+#: model@sale.unit.channel.assigments|_columns@fullname$label:1
+#: model@sale.unit.segment.assigments|_columns@fullname$label:1
+#: model@sale.unit.area.assigments|_columns@fullname$label:1
+#: model@sale.unit.region.assigments|_columns@fullname$label:1
+#: model@sale.division.subdivision.assigments|_columns@fullname$label:1
+#: model@sale.markets|_columns@fullname$label:1
+#: model@sale.teams|_columns@fullname$label:1
+#: model@sale.order.categories|_columns@fullname$label:1
+#: model@sale.invoice.categories|_columns@fullname$label:1
+#: model@sale.orders|_columns@fullname$label:1
+#: model@sale.invoices|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Nome Completo"
 
-#: sale.unit.categories-units:1
+#: model@sale.unit.categories|_columns@units$label:1
 msgid "Units"
 msgstr "Unidades"
 
-#: sale.unit.categories-note:1 sale.channel.categories-note:1
-#: sale.segment.categories-note:1 sale.area.categories-note:1
-#: sale.region.categories-note:1 sale.division.categories-note:1
-#: sale.subdivision.categories-note:1 sale.markets-note:1 sale.teams-note:1
-#: sale.order.types-note:1 sale.order.type.roles-note:1
-#: sale.order.type.items-note:1 sale.invoice.types-note:1
-#: sale.invoice.type.roles-note:1 sale.order.categories-note:1
-#: sale.invoice.categories-note:1 sale.orders-note:1
-#: sale.order.payment.schedules-note:1 sale.order.output.plates-note:1
-#: sale.order.items-note:1 sale.order.item.delivery.schedules-note:1
-#: sale.order.item.output.plates-note:1
-#: sale.order.item.payment.schedules-note:1 sale.invoices-note:1
-#: sale.invoice.items-note:1 sale.invoice.item.delivery.schedules-note:1
-#: md.sale.product-note:1
+#: model@sale.unit.categories|_columns@note$label:1
+#: model@sale.channel.categories|_columns@note$label:1
+#: model@sale.segment.categories|_columns@note$label:1
+#: model@sale.area.categories|_columns@note$label:1
+#: model@sale.region.categories|_columns@note$label:1
+#: model@sale.division.categories|_columns@note$label:1
+#: model@sale.subdivision.categories|_columns@note$label:1
+#: model@sale.markets|_columns@note$label:1
+#: model@sale.teams|_columns@note$label:1
+#: model@sale.order.types|_columns@note$label:1
+#: model@sale.order.type.roles|_columns@note$label:1
+#: model@sale.order.type.items|_columns@note$label:1
+#: model@sale.invoice.types|_columns@note$label:1
+#: model@sale.invoice.type.roles|_columns@note$label:1
+#: model@sale.order.categories|_columns@note$label:1
+#: model@sale.invoice.categories|_columns@note$label:1
+#: model@sale.orders|_columns@note$label:1
+#: model@sale.order.payment.schedules|_columns@note$label:1
+#: model@sale.order.output.plates|_columns@note$label:1
+#: model@sale.order.items|_columns@note$label:1
+#: model@sale.order.item.delivery.schedules|_columns@note$label:1
+#: model@sale.order.item.output.plates|_columns@note$label:1
+#: model@sale.order.item.payment.schedules|_columns@note$label:1
+#: model@sale.invoices|_columns@note$label:1
+#: model@sale.invoice.items|_columns@note$label:1
+#: model@sale.invoice.item.delivery.schedules|_columns@note$label:1
+#: model@md.sale.product|_columns@note$label:1
 msgid "Note"
 msgstr "Nota"
 
-#: sale.units-category_id:1 sale.channels-category_id:1
-#: sale.segments-category_id:1 sale.areas-category_id:1
-#: sale.regions-category_id:1 sale.divisions-category_id:1
-#: sale.subdivisions-category_id:1 sale.orders-category:1
-#: sale.invoices-category_id:1
+#: model@sale.units|_description@:1
+msgid "General Model Sale Units"
+msgstr "Modelo Geral De Venda De Unidades"
+
+#: model@sale.units|_columns@category_id$label:1
+#: model@sale.channels|_columns@category_id$label:1
+#: model@sale.segments|_columns@category_id$label:1
+#: model@sale.areas|_columns@category_id$label:1
+#: model@sale.regions|_columns@category_id$label:1
+#: model@sale.divisions|_columns@category_id$label:1
+#: model@sale.subdivisions|_columns@category_id$label:1
+#: model@sale.orders|_columns@category$label:1
+#: model@sale.invoices|_columns@category_id$label:1
 msgid "Category"
 msgstr "Categoria"
 
-#: sale.units-company_id:1
+#: model@sale.units|_columns@company_id$label:1
 msgid "Companies"
 msgstr "Empresas"
 
-#: sale.units-code:1 sale.channels-code:1 sale.segments-code:1
-#: sale.areas-code:1 sale.regions-code:1 sale.divisions-code:1
-#: sale.subdivisions-code:1 sale.pricing.group.levels-code:1 sale.texts-code:1
-#: sale.schema.texts-code:1
+#: model@sale.units|_columns@code$label:1
+#: model@sale.channels|_columns@code$label:1
+#: model@sale.segments|_columns@code$label:1
+#: model@sale.areas|_columns@code$label:1
+#: model@sale.regions|_columns@code$label:1
+#: model@sale.divisions|_columns@code$label:1
+#: model@sale.subdivisions|_columns@code$label:1
+#: model@sale.pricing.group.levels|_columns@code$label:1
+#: model@sale.texts|_columns@code$label:1
+#: model@sale.schema.texts|_columns@code$label:1
 msgid "Code"
 msgstr "Código"
 
-#: sale.units-descr:1 sale.channels-descr:1 sale.segments-descr:1
-#: sale.areas-descr:1 sale.regions-descr:1 sale.divisions-descr:1
-#: sale.subdivisions-descr:1 sale.pricing.group.levels-descr:1
-#: sale.texts-descr:1 sale.schema.texts-descr:1
+#: model@sale.units|_columns@descr$label:1
+#: model@sale.channels|_columns@descr$label:1
+#: model@sale.segments|_columns@descr$label:1
+#: model@sale.areas|_columns@descr$label:1
+#: model@sale.regions|_columns@descr$label:1
+#: model@sale.divisions|_columns@descr$label:1
+#: model@sale.subdivisions|_columns@descr$label:1
+#: model@sale.pricing.group.levels|_columns@descr$label:1
+#: model@sale.texts|_columns@descr$label:1
+#: model@sale.schema.texts|_columns@descr$label:1
 msgid "Description"
 msgstr "Descrição"
 
-#: sale.units-channels:1 sale.channel.categories-channels:1
+#: model@sale.units|_columns@channels$label:1
+#: model@sale.channel.categories|_columns@channels$label:1
 msgid "Channels"
 msgstr "Canais"
 
-#: sale.units-segments:1 sale.segment.categories-segments:1
+#: model@sale.units|_columns@segments$label:1
+#: model@sale.segment.categories|_columns@segments$label:1
 msgid "Segments"
 msgstr "Segmentos"
 
-#: sale.units-areas:1 sale.area.categories-areas:1
+#: model@sale.units|_columns@areas$label:1
+#: model@sale.area.categories|_columns@areas$label:1
 msgid "Areas"
 msgstr "Áreas"
 
-#: sale.units-regions:1
+#: model@sale.units|_columns@regions$label:1
 msgid "Regions"
 msgstr "Regiões"
 
-#: sale.region.categories-segments:1
+#: model@sale.channel.categories|_description@:1
+msgid "General Model Categories Sale Chanel"
+msgstr "Modelo Geral De Categorias Venda Chanel"
+
+#: model@sale.channels|_description@:1
+msgid "General Model Sale Channels"
+msgstr "Geral Do Modelo De Canais De Venda"
+
+#: model@sale.segment.categories|_description@:1
+msgid "General Model Categories Sale Segment"
+msgstr "Modelo Geral De Categorias De Segmento De Venda"
+
+#: model@sale.segments|_description@:1
+msgid "General Model Sale Segments"
+msgstr "Modelo Geral De Venda Segmentos"
+
+#: model@sale.area.categories|_description@:1
+msgid "General Model Categories Sale Area"
+msgstr "Modelo Geral De Categorias Área De Venda"
+
+#: model@sale.areas|_description@:1
+msgid "General Model Sale Areas"
+msgstr "Modelo Geral De Venda De Domínios"
+
+#: model@sale.region.categories|_description@:1
+msgid "General Model Categories Sale Region"
+msgstr "Modelo Geral De Categorias Venda Região"
+
+#: model@sale.region.categories|_columns@segments$label:1
 msgid "REgions"
 msgstr "Regiões"
 
-#: sale.division.categories-divisions:1
+#: model@sale.regions|_description@:1
+msgid "General Model Sale Regions"
+msgstr "Modelo Geral De Venda Regiões"
+
+#: model@sale.division.categories|_description@:1
+msgid "General Model Categories Sale Division"
+msgstr "Modelo Geral De Categorias Venda Da Divisão De"
+
+#: model@sale.division.categories|_columns@divisions$label:1
 msgid "Divisions"
 msgstr "Divisões"
 
-#: sale.divisions-subdivisions:1
+#: model@sale.divisions|_description@:1
+msgid "General Model Sale Divisions"
+msgstr "Modelo Geral De Venda Divisões"
+
+#: model@sale.divisions|_columns@subdivisions$label:1
 msgid "SubDivisions"
 msgstr "Subdivisões"
 
-#: sale.subdivision.categories-subdivisions:1 sale.order.categories-orders:1
-#: sale.invoice.categories-invoices:1
+#: model@sale.subdivision.categories|_description@:1
+msgid "General Model Categories Sale Subdivision"
+msgstr "Modelo Geral De Categorias Venda Subdivisão"
+
+#: model@sale.subdivision.categories|_columns@subdivisions$label:1
+#: model@sale.order.categories|_columns@orders$label:1
+#: model@sale.invoice.categories|_columns@invoices$label:1
 msgid "Orders"
 msgstr "Encomendas"
 
-#: sale.unit.channel.assigments-unit_id:1
-#: sale.unit.segment.assigments-unit_id:1 sale.unit.area.assigments-unit_id:1
-#: sale.unit.region.assigments-unit_id:1 sale.markets-unit_id:1
-#: sale.order.items-unit:1 sale.order.pricing.items-unit:1
-#: sale.invoice.items-unit:1 md.sale.product-unit:1
+#: model@sale.subdivisions|_description@:1
+msgid "General Model Sale Subdivisions"
+msgstr "Modelo Geral De Venda Subdivisões"
+
+#: model@sale.unit.channel.assigments|_description@:1
+msgid "General Model Sale Unit Of Channel Assigment"
+msgstr "Modelo Geral De Venda Da Unidade De Canal De Atribuição"
+
+#: model@sale.unit.channel.assigments|_columns@unit_id$label:1
+#: model@sale.unit.segment.assigments|_columns@unit_id$label:1
+#: model@sale.unit.area.assigments|_columns@unit_id$label:1
+#: model@sale.unit.region.assigments|_columns@unit_id$label:1
+#: model@sale.markets|_columns@unit_id$label:1
+#: model@sale.order.items|_columns@unit$label:1
+#: model@sale.order.pricing.items|_columns@unit$label:1
+#: model@sale.invoice.items|_columns@unit$label:1
+#: model@md.sale.product|_columns@unit$label:1
 msgid "Unit"
 msgstr "Unidade"
 
-#: sale.unit.channel.assigments-channel_id:1 sale.markets-channel_id:1
+#: model@sale.unit.channel.assigments|_columns@channel_id$label:1
+#: model@sale.markets|_columns@channel_id$label:1
 msgid "Channel"
 msgstr "Canal"
 
-#: sale.unit.segment.assigments-segment_id:1 sale.markets-segment_id:1
+#: model@sale.unit.segment.assigments|_description@:1
+msgid "General Model Sale Unit Of Segment Assigment"
+msgstr "Modelo Geral De Venda De Unidade Do Segmento De Atribuição"
+
+#: model@sale.unit.segment.assigments|_columns@segment_id$label:1
+#: model@sale.markets|_columns@segment_id$label:1
 msgid "Segment"
 msgstr "Segmento"
 
-#: sale.unit.area.assigments-area_id:1 sale.markets-area_id:1
+#: model@sale.unit.area.assigments|_description@:1
+msgid "General Model Sale Unit Of Area Assigment"
+msgstr "Modelo Geral De Venda De Unidade Da Área De Atribuição"
+
+#: model@sale.unit.area.assigments|_columns@area_id$label:1
+#: model@sale.markets|_columns@area_id$label:1
 msgid "Area"
 msgstr "Área"
 
-#: sale.unit.region.assigments-region_id:1 sale.markets-region_id:1
+#: model@sale.unit.region.assigments|_description@:1
+msgid "General Model Sale Unit Of Region Assigment"
+msgstr "Modelo Geral De Venda De Unidade Da Região De Atribuição"
+
+#: model@sale.unit.region.assigments|_columns@region_id$label:1
+#: model@sale.markets|_columns@region_id$label:1
 msgid "Region"
 msgstr "Região"
 
-#: sale.division.subdivision.assigments-division_id:1 sale.teams-division_id:1
+#: model@sale.division.subdivision.assigments|_description@:1
+msgid "General Model Sale Division Of Subdivision Assigment"
+msgstr "Modelo Geral Para A Venda Da Divisão De Subdivisão De Atribuição"
+
+#: model@sale.division.subdivision.assigments|_columns@division_id$label:1
+#: model@sale.teams|_columns@division_id$label:1
 msgid "Division"
 msgstr "Divisão"
 
-#: sale.division.subdivision.assigments-subdivision_id:1
-#: sale.teams-subdivision_id:1
+#: model@sale.division.subdivision.assigments|_columns@subdivision_id$label:1
+#: model@sale.teams|_columns@subdivision_id$label:1
 msgid "Subdivision"
 msgstr "Subdivisão"
 
-#: sale.schema.texts-usage:1
+#: model@sale.markets|_description@:1
+msgid "General Model Sale Market"
+msgstr "Modelo Geral De Venda Do Mercado"
+
+#: model@sale.teams|_description@:1
+msgid "General Model Sale Teams"
+msgstr "Modelo Geral De Equipas De Vendas"
+
+#: model@sale.pricing.group.levels|_description@:1
+msgid "General Model Sale Pricing Group Levels"
+msgstr "Modelo Geral De Venda De Preço De Grupo"
+
+#: model@sale.texts|_description@:1
+msgid "General Model Sale Texts"
+msgstr "Modelo Geral De Venda Textos"
+
+#: model@sale.schema.texts|_description@:1
+msgid "General Model Schema Of Sale Texts"
+msgstr "Modelo Geral Do Esquema De Venda Textos"
+
+#: model@sale.schema.texts|_columns@usage$label:1
 msgid "Usage"
 msgstr "Utilização"
 
-#: sale.schema.texts-texts:1 sale.orders-texts:1 sale.order.items-texts:1
-#: sale.invoices-texts:1 sale.invoice.items-texts:1
-msgid "Texts"
-msgstr "Textos"
+#: model@sale.schema.texts|_columns@usage$selections#h:1
+msgid "Header"
+msgstr "Cabeçalho"
 
-#: sale.schema.text.items-schema_id:1
-msgid "Schema"
-msgstr "Esquema"
-
-#: sale.schema.text.items-seq:1 sale.order.texts-seq:1
-#: sale.order.item.texts-seq:1 sale.invoice.texts-seq:1
-#: sale.invoice.item.texts-seq:1
-msgid "Sequence"
-msgstr "Sequência"
-
-#: sale.schema.text.items-text_id:1
-msgid "Text"
-msgstr "Texto"
-
-#: sale.schema.text.items-descr:1 sale.order.texts-descr:1
-#: sale.order.item.texts-descr:1 sale.invoice.texts-descr:1
-#: sale.invoice.item.texts-descr:1
-msgid "Unknown"
-msgstr "Desconhecido"
-
-#: sale.order.types-otype:1 sale.order.type.roles-type_id:1
-#: sale.order.type.items-type_id:1 sale.invoice.type.roles-type_id:1
-#: sale.orders-otype:1 sale.order.output.plates-otype:1
-#: sale.order.item.output.plates-otype:1 sale.invoices-itype:1
-msgid "Type"
-msgstr "Tipo"
-
-#: sale.order.types-htschema:1 sale.invoice.types-htschema:1
-msgid "Text Schema Of Head"
-msgstr "Texto De Esquema De Cabeça"
-
-#: sale.order.types-itschema:1 sale.invoice.types-itschema:1
-msgid "Text Schema Of Item"
-msgstr "Texto De Esquema De Item"
-
-#: sale.order.types-roles:1 sale.invoice.types-roles:1 sale.orders-roles:1
-#: sale.order.items-roles:1 sale.invoices-roles:1 sale.invoice.items-roles:1
-msgid "Roles"
-msgstr "Funções"
-
-#: sale.order.types-tis:1
-msgid "TIs"
-msgstr "TIs"
-
-#: sale.order.types-required:1 sale.invoice.type.roles-required:1
-msgid "Required"
-msgstr "Necessário"
-
-#: sale.order.type.roles-role_id:1 sale.invoice.type.roles-role_id:1
-#: sale.order.roles-role_id:1 sale.order.output.plates-role:1
-#: sale.order.item.roles-role_id:1 sale.order.item.output.plates-role:1
-#: sale.invoice.roles-role_id:1 sale.invoice.item.roles-role_id:1
-msgid "Role"
-msgstr "Função"
-
-#: sale.order.type.items-gti_id:1
-msgid "GTI"
-msgstr "GTI"
-
-#: sale.order.type.items-itype_id:1
-msgid "Type Of Items"
-msgstr "Tipo De Itens"
-
-#: sale.orders-company:1 sale.invoices-company:1
-msgid "Company"
-msgstr "Empresa"
-
-#: sale.orders-market:1 sale.invoices-market_id:1
-msgid "Market"
-msgstr "Mercado"
-
-#: sale.orders-team:1 sale.invoices-team_id:1
-msgid "Team"
-msgstr "Equipa"
-
-#: sale.orders-origin:1 sale.invoices-origin:1
-msgid "Origin"
-msgstr "Origem"
-
-#: sale.orders-manager:1
-msgid "Manager"
-msgstr "Gestor de"
-
-#: sale.orders-doo:1
-msgid "Date Of Order"
-msgstr "Data Do Fim"
-
-#: sale.orders-from_date:1
-msgid "Begin Date Of Order"
-msgstr "Comece A Data De Encomenda"
-
-#: sale.orders-to_date:1
-msgid "End Date Of Order"
-msgstr "Data Do Fim Do Fim"
-
-#: sale.orders-partner:1 sale.order.output.plates-partner:1
-#: sale.order.item.output.plates-partner:1 sale.invoices-partner:1
-msgid "Partner"
-msgstr "Parceiros"
-
-#: sale.orders-currency:1 sale.order.pricing-currency:1
-#: sale.order.payment.schedules-currency:1 sale.order.items-currency:1
-#: sale.order.pricing.items-currency:1
-#: sale.order.item.payment.schedules-currency:1 sale.invoices-currency:1
-#: sale.invoice.items-currency:1 md.sale.product-currency:1
-msgid "Currency"
-msgstr "Moeda"
-
-#: sale.orders-incoterms1:1 sale.invoices-incoterms1:1
-msgid "Incoterms 1"
-msgstr "Incoterms 1"
-
-#: sale.orders-incoterms2:1 sale.invoices-incoterms2:1
-msgid "Incoterms 2"
-msgstr "Incoterms 2"
-
-#: sale.orders-state:1 sale.order.output.plates-state:1
-#: sale.order.item.output.plates-state:1 sale.invoices-state:1
-msgid "State"
-msgstr "Estado"
-
-#: sale.orders-amount:1 sale.order.pricing-amount:1
-#: sale.order.payment.schedules-amount:1 sale.order.items-amount:1
-#: sale.order.pricing.items-amount:1
-#: sale.order.item.payment.schedules-amount:1 sale.invoices-amount:1
-#: sale.invoice.items-amount:1
-msgid "Amount"
-msgstr "Quantidade"
-
-#: sale.orders-vat_amount:1 sale.order.items-vat_amount:1
-#: sale.invoices-vat_amount:1 sale.invoice.items-vat_amount:1
-msgid "VAT Amount"
-msgstr "Valor do IVA"
-
-#: sale.orders-total_amount:1 sale.order.items-total_amount:1
-#: sale.invoices-total_amount:1 sale.invoice.items-total_amount:1
-msgid "Total Amount"
-msgstr "Montante Total"
-
-#: sale.orders-recepture:1
-msgid "Recepture"
-msgstr "Recepture"
-
-#: sale.orders-items:1 sale.invoices-items:1
-msgid "Items"
-msgstr "Itens"
-
-#: sale.orders-pricing:1 sale.order.items-pricing:1
-msgid "Pricing"
-msgstr "Preços"
-
-#: sale.orders-plates:1 sale.order.items-plates:1
-msgid "Plates"
-msgstr "Placas"
-
-#: sale.orders-payments:1 sale.order.items-payments:1
-msgid "Payments"
-msgstr "Pagamentos"
-
-#: sale.order.texts-order_id:1 sale.order.roles-order_id:1
-#: sale.order.pricing-order_id:1 sale.order.payment.schedules-order_id:1
-#: sale.order.output.plates-order_id:1 sale.order.pricing.items-item_id:1
-#: sale.order.item.output.plates-item_id:1 sale.invoice.texts-invoice_id:1
-#: sale.invoice.item.texts-item_id:1
-msgid "Order"
-msgstr "Fim"
-
-#: sale.order.texts-text_id:1 sale.order.item.texts-text_id:1
-#: sale.invoice.texts-text_id:1 sale.invoice.item.texts-text_id:1
-msgid "Text ID"
-msgstr "ID do texto"
-
-#: sale.order.texts-content:1 sale.order.item.texts-content:1
-#: sale.invoice.texts-content:1 sale.invoice.item.texts-content:1
-msgid "Content"
-msgstr "Conteúdo"
-
-#: sale.order.roles-patner_id:1 sale.order.item.roles-patner_id:1
-#: sale.invoice.roles-patner_id:1 sale.invoice.item.roles-patner_id:1
-msgid "Parther"
-msgstr "Parther"
-
-#: sale.order.pricing-level:1 sale.order.pricing.items-level:1
-msgid "Level"
-msgstr "Nível"
-
-#: sale.order.pricing-cond:1 sale.order.pricing.items-cond:1
-msgid "Condition"
-msgstr "Condição"
-
-#: sale.order.pricing-from_level:1 sale.order.pricing.items-from_level:1
-msgid "From Level"
-msgstr "A Partir Do Nível"
-
-#: sale.order.pricing-to_level:1 sale.order.pricing.items-to_level:1
-msgid "To Level"
-msgstr "Para O Nível"
-
-#: sale.order.pricing-group_level:1 sale.order.pricing.items-group_level:1
-msgid "Group Level"
-msgstr "A Nível Do Grupo"
-
-#: sale.order.payment.schedules-schedule:1 sale.order.output.plates-schedule:1
-#: sale.order.item.delivery.schedules-schedule:1
-#: sale.order.item.output.plates-schedule:1
-#: sale.order.item.payment.schedules-schedule:1
-#: sale.invoice.item.delivery.schedules-schedule:1
-msgid "Schedule"
-msgstr "Agenda"
-
-#: sale.order.output.plates-language:1
-#: sale.order.item.output.plates-language:1
-msgid "language"
-msgstr "idioma"
-
-#: sale.order.output.plates-msm:1 sale.order.item.output.plates-msm:1
-msgid "Message Sending Method"
-msgstr "Método De Envio Mensagem"
-
-#: sale.order.items-order_id:1
-msgid "Sales Order"
-msgstr "Ordem De Venda"
-
-#: sale.order.items-itype_id:1
-msgid "Group Of Type Items"
-msgstr "Grupo De Itens Do Tipo"
-
-#: sale.order.items-product:1 sale.invoice.items-product:1
-#: md.sale.product-product_id:1
-msgid "Product"
-msgstr "Produto"
-
-#: sale.order.items-quantity:1 sale.order.item.delivery.schedules-quantity:1
-#: sale.invoice.items-quantity:1
-#: sale.invoice.item.delivery.schedules-quantity:1
-msgid "Quantity"
-msgstr "Quantidade"
-
-#: sale.order.items-uom:1 sale.invoice.items-uom:1
-msgid "UoM"
-msgstr "UoM"
-
-#: sale.order.items-price:1 sale.order.pricing.items-price:1
-#: sale.invoice.items-price:1 md.sale.product-price:1
-msgid "Price"
-msgstr "Preço"
-
-#: sale.order.items-uop:1 sale.order.pricing.items-uop:1
-#: sale.invoice.items-uop:1 md.sale.product-uop:1
-msgid "Unit Of Price"
-msgstr "Unidade De Preço"
-
-#: sale.order.items-vat_code:1 sale.invoice.items-vat_code:1
-msgid "Vat code"
-msgstr "Código do iva"
-
-#: sale.order.items-volume:1
-msgid "Volume"
-msgstr "Volume"
-
-#: sale.order.items-volume_total:1
-msgid "Volume Total"
-msgstr "Volume Total"
-
-#: sale.order.items-volume_uom:1
-msgid "Volume UoM"
-msgstr "Volume Udm"
-
-#: sale.order.items-weight:1
-msgid "Weight"
-msgstr "Peso"
-
-#: sale.order.items-weight_total:1
-msgid "Weight Total"
-msgstr "Peso Total"
-
-#: sale.order.items-weight_uom:1
-msgid "Weight UoM"
-msgstr "Peso Udm"
-
-#: sale.order.items-delivery_schedules:1
-#: sale.invoice.items-delivery_schedules:1
-msgid "Delivery Schedule"
-msgstr "Programação De Entrega"
-
-#: sale.order.pricing.items-cop:1
-msgid "Currency Of Price"
-msgstr "Moeda De Preço"
-
-#: sale.order.item.texts-item_id:1 sale.order.item.roles-item_id:1
-#: sale.order.item.payment.schedules-item_id:1
-#: sale.invoice.item.roles-item_id:1
+#: model@sale.schema.texts|_columns@usage$selections#i:1
+#: model@sale.order.item.texts|_columns@item_id$label:1
+#: model@sale.order.item.roles|_columns@item_id$label:1
+#: model@sale.order.item.payment.schedules|_columns@item_id$label:1
+#: model@sale.invoice.item.roles|_columns@item_id$label:1
 msgid "Item"
 msgstr "Item"
 
-#: sale.order.item.delivery.schedules-item_id:1
-#: sale.invoice.item.delivery.schedules-item_id:1
+#: model@sale.schema.texts|_columns@usage$selections#b:1
+msgid "Both"
+msgstr "Ambos"
+
+#: model@sale.schema.texts|_columns@texts$label:1
+#: model@sale.orders|_columns@texts$label:1
+#: model@sale.order.items|_columns@texts$label:1
+#: model@sale.invoices|_columns@texts$label:1
+#: model@sale.invoice.items|_columns@texts$label:1
+msgid "Texts"
+msgstr "Textos"
+
+#: model@sale.schema.text.items|_description@:1
+msgid "General Model Items Of Schema Sale Texts"
+msgstr "Geral Itens De Modelo De Esquema De Venda Textos"
+
+#: model@sale.schema.text.items|_columns@schema_id$label:1
+msgid "Schema"
+msgstr "Esquema"
+
+#: model@sale.schema.text.items|_columns@seq$label:1
+#: model@sale.order.texts|_columns@seq$label:1
+#: model@sale.order.item.texts|_columns@seq$label:1
+#: model@sale.invoice.texts|_columns@seq$label:1
+#: model@sale.invoice.item.texts|_columns@seq$label:1
+msgid "Sequence"
+msgstr "Sequência"
+
+#: model@sale.schema.text.items|_columns@text_id$label:1
+msgid "Text"
+msgstr "Texto"
+
+#: model@sale.schema.text.items|_columns@descr$label:1
+#: model@sale.order.texts|_columns@descr$label:1
+#: model@sale.order.item.texts|_columns@descr$label:1
+#: model@sale.invoice.texts|_columns@descr$label:1
+#: model@sale.invoice.item.texts|_columns@descr$label:1
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#: model@sale.order.types|_description@:1
+msgid "General Model Types Sale Order"
+msgstr "Modelo Geral De Tipos De Ordem De Venda"
+
+#: model@sale.order.types|_columns@otype$label:1
+#: model@sale.order.type.roles|_columns@type_id$label:1
+#: model@sale.order.type.items|_columns@type_id$label:1
+#: model@sale.invoice.type.roles|_columns@type_id$label:1
+#: model@sale.orders|_columns@otype$label:1
+#: model@sale.order.output.plates|_columns@otype$label:1
+#: model@sale.order.item.output.plates|_columns@otype$label:1
+#: model@sale.invoices|_columns@itype$label:1
+msgid "Type"
+msgstr "Tipo"
+
+#: model@sale.order.types|_columns@otype$selections#ord:1
+#: model@sale.order.texts|_columns@order_id$label:1
+#: model@sale.order.roles|_columns@order_id$label:1
+#: model@sale.order.pricing|_columns@order_id$label:1
+#: model@sale.order.payment.schedules|_columns@order_id$label:1
+#: model@sale.order.output.plates|_columns@order_id$label:1
+#: model@sale.order.pricing.items|_columns@item_id$label:1
+#: model@sale.order.item.output.plates|_columns@item_id$label:1
+#: model@sale.invoice.texts|_columns@invoice_id$label:1
+#: model@sale.invoice.item.texts|_columns@item_id$label:1
+msgid "Order"
+msgstr "Fim"
+
+#: model@sale.order.types|_columns@otype$selections#ap:1
+msgid "Advance Payment"
+msgstr "Pagamento Antecipado"
+
+#: model@sale.order.types|_columns@otype$selections#ps:1
+msgid "Pseduo"
+msgstr "Pseduo"
+
+#: model@sale.order.types|_columns@otype$selections#dm:1
+msgid "Debit Request"
+msgstr "Débito Pedido"
+
+#: model@sale.order.types|_columns@otype$selections#cr:1
+msgid "Credit Request"
+msgstr "Solicitação De Crédito"
+
+#: model@sale.order.types|_columns@otype$selections#rо:1
+msgid "Return"
+msgstr "Retorno"
+
+#: model@sale.order.types|_columns@htschema$label:1
+#: model@sale.invoice.types|_columns@htschema$label:1
+msgid "Text Schema Of Head"
+msgstr "Texto De Esquema De Cabeça"
+
+#: model@sale.order.types|_columns@itschema$label:1
+#: model@sale.invoice.types|_columns@itschema$label:1
+msgid "Text Schema Of Item"
+msgstr "Texto De Esquema De Item"
+
+#: model@sale.order.types|_columns@roles$label:1
+#: model@sale.invoice.types|_columns@roles$label:1
+#: model@sale.orders|_columns@roles$label:1
+#: model@sale.order.items|_columns@roles$label:1
+#: model@sale.invoices|_columns@roles$label:1
+#: model@sale.invoice.items|_columns@roles$label:1
+msgid "Roles"
+msgstr "Funções"
+
+#: model@sale.order.types|_columns@tis$label:1
+msgid "TIs"
+msgstr "TIs"
+
+#: model@sale.order.types|_columns@required$label:1
+#: model@sale.invoice.type.roles|_columns@required$label:1
+msgid "Required"
+msgstr "Necessário"
+
+#: model@sale.order.type.roles|_description@:1
+msgid "General Model Role Sale Order Types"
+msgstr "Geral Função Do Modelo De Tipos De Ordem De Venda"
+
+#: model@sale.order.type.roles|_columns@role_id$label:1
+#: model@sale.invoice.type.roles|_columns@role_id$label:1
+#: model@sale.order.roles|_columns@role_id$label:1
+#: model@sale.order.output.plates|_columns@role$label:1
+#: model@sale.order.item.roles|_columns@role_id$label:1
+#: model@sale.order.item.output.plates|_columns@role$label:1
+#: model@sale.invoice.roles|_columns@role_id$label:1
+#: model@sale.invoice.item.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Função"
+
+#: model@sale.order.type.items|_description@:1
+msgid "General Model Role Sale Order Items"
+msgstr "Geral Função Do Modelo De Venda De Itens Do Pedido"
+
+#: model@sale.order.type.items|_columns@gti_id$label:1
+msgid "GTI"
+msgstr "GTI"
+
+#: model@sale.order.type.items|_columns@itype_id$label:1
+msgid "Type Of Items"
+msgstr "Tipo De Itens"
+
+#: model@sale.invoice.types|_description@:1
+msgid "General Model Types Sale Invoice"
+msgstr "Em Geral Os Tipos De Modelo De Venda Nota Fiscal"
+
+#: model@sale.invoice.type.roles|_description@:1
+msgid "General Model Role sale Invoice Types"
+msgstr "Geral Função do Modelo de venda nota fiscal Tipos de"
+
+#: model@sale.order.categories|_description@:1
+msgid "General Model Category Sale Order"
+msgstr "Modelo Geral Para A Categoria De Ordem De Venda"
+
+#: model@sale.invoice.categories|_description@:1
+msgid "General Model Category Sale Invoice"
+msgstr "Modelo Geral Para A Categoria De Venda Nota Fiscal"
+
+#: model@sale.orders|_description@:1
+msgid "General Model Sale Orders"
+msgstr "Modelo Geral As Ordens De Venda"
+
+#: model@sale.orders|_columns@company$label:1
+#: model@sale.invoices|_columns@company$label:1
+msgid "Company"
+msgstr "Empresa"
+
+#: model@sale.orders|_columns@market$label:1
+#: model@sale.invoices|_columns@market_id$label:1
+msgid "Market"
+msgstr "Mercado"
+
+#: model@sale.orders|_columns@team$label:1
+#: model@sale.invoices|_columns@team_id$label:1
+msgid "Team"
+msgstr "Equipa"
+
+#: model@sale.orders|_columns@origin$label:1
+#: model@sale.invoices|_columns@origin$label:1
+msgid "Origin"
+msgstr "Origem"
+
+#: model@sale.orders|_columns@manager$label:1
+msgid "Manager"
+msgstr "Gestor de"
+
+#: model@sale.orders|_columns@doo$label:1
+msgid "Date Of Order"
+msgstr "Data Do Fim"
+
+#: model@sale.orders|_columns@from_date$label:1
+msgid "Begin Date Of Order"
+msgstr "Comece A Data De Encomenda"
+
+#: model@sale.orders|_columns@to_date$label:1
+msgid "End Date Of Order"
+msgstr "Data Do Fim Do Fim"
+
+#: model@sale.orders|_columns@partner$label:1
+#: model@sale.order.output.plates|_columns@partner$label:1
+#: model@sale.order.item.output.plates|_columns@partner$label:1
+#: model@sale.invoices|_columns@partner$label:1
+msgid "Partner"
+msgstr "Parceiros"
+
+#: model@sale.orders|_columns@currency$label:1
+#: model@sale.order.pricing|_columns@currency$label:1
+#: model@sale.order.payment.schedules|_columns@currency$label:1
+#: model@sale.order.items|_columns@currency$label:1
+#: model@sale.order.pricing.items|_columns@currency$label:1
+#: model@sale.order.item.payment.schedules|_columns@currency$label:1
+#: model@sale.invoices|_columns@currency$label:1
+#: model@sale.invoice.items|_columns@currency$label:1
+#: model@md.sale.product|_columns@currency$label:1
+msgid "Currency"
+msgstr "Moeda"
+
+#: model@sale.orders|_columns@incoterms1$label:1
+#: model@sale.invoices|_columns@incoterms1$label:1
+msgid "Incoterms 1"
+msgstr "Incoterms 1"
+
+#: model@sale.orders|_columns@incoterms2$label:1
+#: model@sale.invoices|_columns@incoterms2$label:1
+msgid "Incoterms 2"
+msgstr "Incoterms 2"
+
+#: model@sale.orders|_columns@state$label:1
+#: model@sale.order.output.plates|_columns@state$label:1
+#: model@sale.order.item.output.plates|_columns@state$label:1
+#: model@sale.invoices|_columns@state$label:1
+msgid "State"
+msgstr "Estado"
+
+#: model@sale.orders|_columns@state$selections#draft:1
+#: model@sale.invoices|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Projecto de"
+
+#: model@sale.orders|_columns@state$selections#approved:1
+#: model@sale.invoices|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Aprovado"
+
+#: model@sale.orders|_columns@state$selections#inprocess:1
+#: model@sale.invoices|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "No Processo De"
+
+#: model@sale.orders|_columns@state$selections#closed:1
+#: model@sale.invoices|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Fechado"
+
+#: model@sale.orders|_columns@state$selections#canceled:1
+#: model@sale.invoices|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Cancelado"
+
+#: model@sale.orders|_columns@amount$label:1
+#: model@sale.order.pricing|_columns@amount$label:1
+#: model@sale.order.payment.schedules|_columns@amount$label:1
+#: model@sale.order.items|_columns@amount$label:1
+#: model@sale.order.pricing.items|_columns@amount$label:1
+#: model@sale.order.item.payment.schedules|_columns@amount$label:1
+#: model@sale.invoices|_columns@amount$label:1
+#: model@sale.invoice.items|_columns@amount$label:1
+msgid "Amount"
+msgstr "Quantidade"
+
+#: model@sale.orders|_columns@vat_amount$label:1
+#: model@sale.order.items|_columns@vat_amount$label:1
+#: model@sale.invoices|_columns@vat_amount$label:1
+#: model@sale.invoice.items|_columns@vat_amount$label:1
+msgid "VAT Amount"
+msgstr "Valor do IVA"
+
+#: model@sale.orders|_columns@total_amount$label:1
+#: model@sale.order.items|_columns@total_amount$label:1
+#: model@sale.invoices|_columns@total_amount$label:1
+#: model@sale.invoice.items|_columns@total_amount$label:1
+msgid "Total Amount"
+msgstr "Montante Total"
+
+#: model@sale.orders|_columns@recepture$label:1
+msgid "Recepture"
+msgstr "Recepture"
+
+#: model@sale.orders|_columns@items$label:1
+#: model@sale.invoices|_columns@items$label:1
+msgid "Items"
+msgstr "Itens"
+
+#: model@sale.orders|_columns@pricing$label:1
+#: model@sale.order.items|_columns@pricing$label:1
+msgid "Pricing"
+msgstr "Preços"
+
+#: model@sale.orders|_columns@plates$label:1
+#: model@sale.order.items|_columns@plates$label:1
+msgid "Plates"
+msgstr "Placas"
+
+#: model@sale.orders|_columns@payments$label:1
+#: model@sale.order.items|_columns@payments$label:1
+msgid "Payments"
+msgstr "Pagamentos"
+
+#: model@sale.order.texts|_description@:1
+msgid "General Model Sale Order Texts"
+msgstr "Geral Do Modelo De Vendas Textos"
+
+#: model@sale.order.texts|_columns@text_id$label:1
+#: model@sale.order.item.texts|_columns@text_id$label:1
+#: model@sale.invoice.texts|_columns@text_id$label:1
+#: model@sale.invoice.item.texts|_columns@text_id$label:1
+msgid "Text ID"
+msgstr "ID do texto"
+
+#: model@sale.order.texts|_columns@content$label:1
+#: model@sale.order.item.texts|_columns@content$label:1
+#: model@sale.invoice.texts|_columns@content$label:1
+#: model@sale.invoice.item.texts|_columns@content$label:1
+msgid "Content"
+msgstr "Conteúdo"
+
+#: model@sale.order.roles|_description@:1
+#: model@sale.order.item.roles|_description@:1
+msgid "General Model Sale Order Roles"
+msgstr "Geral Do Modelo De Vendas Funções"
+
+#: model@sale.order.roles|_columns@patner_id$label:1
+#: model@sale.order.item.roles|_columns@patner_id$label:1
+#: model@sale.invoice.roles|_columns@patner_id$label:1
+#: model@sale.invoice.item.roles|_columns@patner_id$label:1
+msgid "Parther"
+msgstr "Parther"
+
+#: model@sale.order.pricing|_description@:1
+msgid "General Model Sale Order Pricing"
+msgstr "Modelo Geral De Venda, A Fim De Preços"
+
+#: model@sale.order.pricing|_columns@level$label:1
+#: model@sale.order.pricing.items|_columns@level$label:1
+msgid "Level"
+msgstr "Nível"
+
+#: model@sale.order.pricing|_columns@cond$label:1
+#: model@sale.order.pricing.items|_columns@cond$label:1
+msgid "Condition"
+msgstr "Condição"
+
+#: model@sale.order.pricing|_columns@from_level$label:1
+#: model@sale.order.pricing.items|_columns@from_level$label:1
+msgid "From Level"
+msgstr "A Partir Do Nível"
+
+#: model@sale.order.pricing|_columns@to_level$label:1
+#: model@sale.order.pricing.items|_columns@to_level$label:1
+msgid "To Level"
+msgstr "Para O Nível"
+
+#: model@sale.order.pricing|_columns@group_level$label:1
+#: model@sale.order.pricing.items|_columns@group_level$label:1
+msgid "Group Level"
+msgstr "A Nível Do Grupo"
+
+#: model@sale.order.payment.schedules|_description@:1
+msgid "General Model Sale Order Payment Schedules"
+msgstr "Modelo Geral De Venda Ordem De Prazos De Pagamento"
+
+#: model@sale.order.payment.schedules|_columns@schedule$label:1
+#: model@sale.order.output.plates|_columns@schedule$label:1
+#: model@sale.order.item.delivery.schedules|_columns@schedule$label:1
+#: model@sale.order.item.output.plates|_columns@schedule$label:1
+#: model@sale.order.item.payment.schedules|_columns@schedule$label:1
+#: model@sale.invoice.item.delivery.schedules|_columns@schedule$label:1
+msgid "Schedule"
+msgstr "Agenda"
+
+#: model@sale.order.output.plates|_description@:1
+msgid "General Model Sale Order Output Plates"
+msgstr "Modelo Geral De Venda, A Fim De Saída De Placas"
+
+#: model@sale.order.output.plates|_columns@state$selections#c:1
+#: model@sale.order.item.output.plates|_columns@state$selections#c:1
+msgid "Created"
+msgstr "Criado"
+
+#: model@sale.order.output.plates|_columns@state$selections#p:1
+#: model@sale.order.item.output.plates|_columns@state$selections#p:1
+msgid "Printed"
+msgstr "Impresso"
+
+#: model@sale.order.output.plates|_columns@state$selections#e:1
+#: model@sale.order.item.output.plates|_columns@state$selections#e:1
+msgid "Error"
+msgstr "Erro"
+
+#: model@sale.order.output.plates|_columns@state$selections#w:1
+#: model@sale.order.item.output.plates|_columns@state$selections#w:1
+msgid "Warning"
+msgstr "Aviso"
+
+#: model@sale.order.output.plates|_columns@state$selections#i:1
+#: model@sale.order.item.output.plates|_columns@state$selections#i:1
+msgid "Info"
+msgstr "Informações"
+
+#: model@sale.order.output.plates|_columns@language$label:1
+#: model@sale.order.item.output.plates|_columns@language$label:1
+msgid "language"
+msgstr "idioma"
+
+#: model@sale.order.output.plates|_columns@msm$label:1
+#: model@sale.order.item.output.plates|_columns@msm$label:1
+msgid "Message Sending Method"
+msgstr "Método De Envio Mensagem"
+
+#: model@sale.order.output.plates|_columns@msm$selections#pj:1
+#: model@sale.order.item.output.plates|_columns@msm$selections#pj:1
+msgid "Peridiocal Job Send"
+msgstr "Peridiocal Trabalho De Enviar"
+
+#: model@sale.order.output.plates|_columns@msm$selections#tj:1
+#: model@sale.order.item.output.plates|_columns@msm$selections#tj:1
+msgid "Timing Job Send"
+msgstr "Temporização De Trabalho Enviar"
+
+#: model@sale.order.output.plates|_columns@msm$selections#ss:1
+#: model@sale.order.item.output.plates|_columns@msm$selections#ss:1
+msgid "Self Output Send"
+msgstr "Auto De Saída De Envio"
+
+#: model@sale.order.output.plates|_columns@msm$selections#im:1
+#: model@sale.order.item.output.plates|_columns@msm$selections#im:1
+msgid "Immediately Send"
+msgstr "Enviar Imediatamente"
+
+#: model@sale.order.items|_description@:1
+msgid "General Model Sale Order Items"
+msgstr "Modelo Geral De Venda De Itens Do Pedido"
+
+#: model@sale.order.items|_columns@order_id$label:1
+msgid "Sales Order"
+msgstr "Ordem De Venda"
+
+#: model@sale.order.items|_columns@itype_id$label:1
+msgid "Group Of Type Items"
+msgstr "Grupo De Itens Do Tipo"
+
+#: model@sale.order.items|_columns@product$label:1
+#: model@sale.invoice.items|_columns@product$label:1
+#: model@md.sale.product|_columns@product_id$label:1
+msgid "Product"
+msgstr "Produto"
+
+#: model@sale.order.items|_columns@quantity$label:1
+#: model@sale.order.item.delivery.schedules|_columns@quantity$label:1
+#: model@sale.invoice.items|_columns@quantity$label:1
+#: model@sale.invoice.item.delivery.schedules|_columns@quantity$label:1
+msgid "Quantity"
+msgstr "Quantidade"
+
+#: model@sale.order.items|_columns@uom$label:1
+#: model@sale.invoice.items|_columns@uom$label:1
+msgid "UoM"
+msgstr "UoM"
+
+#: model@sale.order.items|_columns@price$label:1
+#: model@sale.order.pricing.items|_columns@price$label:1
+#: model@sale.invoice.items|_columns@price$label:1
+#: model@md.sale.product|_columns@price$label:1
+msgid "Price"
+msgstr "Preço"
+
+#: model@sale.order.items|_columns@uop$label:1
+#: model@sale.order.pricing.items|_columns@uop$label:1
+#: model@sale.invoice.items|_columns@uop$label:1
+#: model@md.sale.product|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Unidade De Preço"
+
+#: model@sale.order.items|_columns@vat_code$label:1
+#: model@sale.invoice.items|_columns@vat_code$label:1
+msgid "Vat code"
+msgstr "Código do iva"
+
+#: model@sale.order.items|_columns@volume$label:1
+msgid "Volume"
+msgstr "Volume"
+
+#: model@sale.order.items|_columns@volume_total$label:1
+msgid "Volume Total"
+msgstr "Volume Total"
+
+#: model@sale.order.items|_columns@volume_uom$label:1
+msgid "Volume UoM"
+msgstr "Volume Udm"
+
+#: model@sale.order.items|_columns@weight$label:1
+msgid "Weight"
+msgstr "Peso"
+
+#: model@sale.order.items|_columns@weight_total$label:1
+msgid "Weight Total"
+msgstr "Peso Total"
+
+#: model@sale.order.items|_columns@weight_uom$label:1
+msgid "Weight UoM"
+msgstr "Peso Udm"
+
+#: model@sale.order.items|_columns@delivery_schedules$label:1
+#: model@sale.invoice.items|_columns@delivery_schedules$label:1
+msgid "Delivery Schedule"
+msgstr "Programação De Entrega"
+
+#: model@sale.order.pricing.items|_description@:1
+msgid "General Model Sale Order Item Pricing"
+msgstr "Modelo Geral De Venda De Item De Ordem De Preços"
+
+#: model@sale.order.pricing.items|_columns@cop$label:1
+msgid "Currency Of Price"
+msgstr "Moeda De Preço"
+
+#: model@sale.order.item.texts|_description@:1
+msgid "General Model Sale Order Item Texts"
+msgstr "Modelo Geral De Venda De Item De Ordem De Textos"
+
+#: model@sale.order.item.delivery.schedules|_description@:1
+#: model@sale.invoice.item.delivery.schedules|_description@:1
+msgid "General Model Sales Order Item Delivery Schedules"
+msgstr "Modelo Geral De Vendas De Item De Ordem De Prazos De Entrega"
+
+#: model@sale.order.item.delivery.schedules|_columns@item_id$label:1
+#: model@sale.invoice.item.delivery.schedules|_columns@item_id$label:1
 msgid "Order Item"
 msgstr "Item Da Ordem Do Cliente"
 
-#: sale.invoices-doi:1
+#: model@sale.order.item.output.plates|_description@:1
+msgid "General Model Sale Order Item Output Plates"
+msgstr "Modelo Geral De Venda De Item De Ordem De Saída De Placas"
+
+#: model@sale.order.item.payment.schedules|_description@:1
+msgid "General Model Sale Order Item Payment Schedules"
+msgstr "Modelo Geral De Venda De Item De Ordem De Prazos De Pagamento"
+
+#: model@sale.invoices|_description@:1
+msgid "General Model Sale Invoices"
+msgstr "Modelo Geral De Venda De Faturas"
+
+#: model@sale.invoices|_columns@doi$label:1
 msgid "Date Of Invoice"
 msgstr "Data Da Factura"
 
-#: sale.invoice.roles-invoice_id:1 sale.invoice.items-invoice_id:1
+#: model@sale.invoice.texts|_description@:1
+msgid "General Model Sale Invoce Texts"
+msgstr "Modelo Geral De Venda Invoce Textos"
+
+#: model@sale.invoice.roles|_description@:1
+msgid "General Model sale Invoice Roles"
+msgstr "Modelo geral de venda Fatura Funções"
+
+#: model@sale.invoice.roles|_columns@invoice_id$label:1
+#: model@sale.invoice.items|_columns@invoice_id$label:1
 msgid "Invoice"
 msgstr "Nota fiscal"
 
-#: md.sale.product-vat:1
+#: model@sale.invoice.items|_description@:1
+msgid "General Model Sales Invoice Items"
+msgstr "Modelo Geral De Vendas De Itens De Nota Fiscal"
+
+#: model@sale.invoice.item.texts|_description@:1
+msgid "General Model Sale Invoce Item Texts"
+msgstr "Modelo Geral De Venda Invoce Item De Textos"
+
+#: model@sale.invoice.item.roles|_description@:1
+msgid "General Model Sale Invoice Item Roles"
+msgstr "Modelo Geral De Venda De Item De Nota Fiscal De Funções"
+
+#: model@md.sale.product|_description@:1
+msgid "General Model Sale Of Product"
+msgstr "Modelo Geral De Venda Do Produto"
+
+#: model@md.sale.product|_columns@vat$label:1
 msgid "VAT Code"
 msgstr "Código do IVA"
 
-#: md.sale.product-uom:1
+#: model@md.sale.product|_columns@uom$label:1
 msgid "Unit Of Measure"
 msgstr "Unidade De Medida"

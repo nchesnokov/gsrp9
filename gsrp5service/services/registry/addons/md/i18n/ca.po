@@ -3,534 +3,1084 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:33:06+0000\n"
-"PO-Revision-Date: 2020-02-13 14:33:06+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:51+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:51+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: md.category.country-name:1 md.country.group-name:1 md.country-name:1
-#: md.category.language-name:1 md.language-name:1 md.group.quantity-name:1
-#: md.quantity.uom-name:1 md.uom-name:1 md.currency-name:1 md.vat.code-name:1
-#: md.category.product-name:1 md.type.plates-name:1
-#: md.products.template-name:1 md.product-name:1 md.incoterms-name:1
-#: md.category.partner-name:1 md.category.location-name:1 md.location-name:1
-#: md.partner-name:1 md.company-name:1 md.banks-name:1 md.recepture-name:1
+#: model@md.category.country|_description@:1
+msgid "General Model Category Country"
+msgstr "Model General Categoria De País"
+
+#: model@md.category.country|_columns@name$label:1
+#: model@md.country.group|_columns@name$label:1
+#: model@md.country|_columns@name$label:1
+#: model@md.category.language|_columns@name$label:1
+#: model@md.language|_columns@name$label:1
+#: model@md.group.quantity|_columns@name$label:1
+#: model@md.quantity.uom|_columns@name$label:1
+#: model@md.uom|_columns@name$label:1 model@md.currency|_columns@name$label:1
+#: model@md.vat.code|_columns@name$label:1
+#: model@md.excise.code|_columns@name$label:1
+#: model@md.category.product|_columns@name$label:1
+#: model@md.type.plates|_columns@name$label:1
+#: model@md.products.template|_columns@name$label:1
+#: model@md.product|_columns@name$label:1
+#: model@md.incoterms|_columns@name$label:1
+#: model@md.category.partner|_columns@name$label:1
+#: model@md.category.location|_columns@name$label:1
+#: model@md.location|_columns@name$label:1
+#: model@md.partner|_columns@name$label:1
+#: model@md.company|_columns@name$label:1 model@md.banks|_columns@name$label:1
+#: model@md.recepture|_columns@name$label:1
 msgid "Name"
 msgstr "Nom"
 
-#: md.category.country-parent_id:1 md.category.language-parent_id:1
-#: md.group.quantity-parent_id:1 md.category.product-parent_id:1
-#: md.category.partner-parent_id:1 md.category.location-parent_id:1
+#: model@md.category.country|_columns@parent_id$label:1
+#: model@md.category.language|_columns@parent_id$label:1
+#: model@md.group.quantity|_columns@parent_id$label:1
+#: model@md.category.product|_columns@parent_id$label:1
+#: model@md.category.partner|_columns@parent_id$label:1
+#: model@md.category.location|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Pare"
 
-#: md.category.country-childs_id:1 md.category.language-childs_id:1
-#: md.group.quantity-childs_id:1 md.category.product-childs_id:1
-#: md.category.partner-childs_id:1 md.category.location-childs_id:1
+#: model@md.category.country|_columns@childs_id$label:1
+#: model@md.category.language|_columns@childs_id$label:1
+#: model@md.group.quantity|_columns@childs_id$label:1
+#: model@md.category.product|_columns@childs_id$label:1
+#: model@md.category.partner|_columns@childs_id$label:1
+#: model@md.category.location|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Nens"
 
-#: md.category.country-note:1 md.category.language-note:1
-#: md.group.quantity-note:1 md.quantity.uom-note:1 md.currency-note:1
-#: md.category.product-note:1 md.type.items-note:1 md.type.plates-note:1
-#: md.products.template-note:1 md.product-note:1 md.incoterms-note:1
-#: md.category.partner-note:1 md.category.location-note:1 md.location-note:1
-#: md.partner.contacts-note:1 md.partner.products-note:1
-#: md.role.partners-note:1 md.pricelist.partner.products-note:1
-#: md.company-note:1 md.banks-note:1 md.partners.bank-note:1
-#: md.recepture.input-note:1 md.recepture.output-note:1
+#: model@md.category.country|_columns@note$label:1
+#: model@md.category.language|_columns@note$label:1
+#: model@md.group.quantity|_columns@note$label:1
+#: model@md.quantity.uom|_columns@note$label:1
+#: model@md.currency|_columns@note$label:1
+#: model@md.category.product|_columns@note$label:1
+#: model@md.type.items|_columns@note$label:1
+#: model@md.type.plates|_columns@note$label:1
+#: model@md.products.template|_columns@note$label:1
+#: model@md.product|_columns@note$label:1
+#: model@md.incoterms|_columns@note$label:1
+#: model@md.category.partner|_columns@note$label:1
+#: model@md.category.location|_columns@note$label:1
+#: model@md.location|_columns@note$label:1
+#: model@md.partner.contacts|_columns@note$label:1
+#: model@md.partner.products|_columns@note$label:1
+#: model@md.role.partners|_columns@note$label:1
+#: model@md.pricelist.partner.products|_columns@note$label:1
+#: model@md.company|_columns@note$label:1 model@md.banks|_columns@note$label:1
+#: model@md.partners.bank|_columns@note$label:1
+#: model@md.recepture.input|_columns@note$label:1
+#: model@md.recepture.output|_columns@note$label:1
 msgid "Note"
 msgstr "Nota"
 
-#: md.country.group-country_ids:1
+#: model@md.country.group|_description@:1
+msgid "General Model Country Group"
+msgstr "Model General De País De Grup"
+
+#: model@md.country.group|_columns@country_ids$label:1
 msgid "Countries"
 msgstr "Països"
 
-#: md.country-shortname:1 md.uom-shortname:1 md.currency-shortname:1
+#: model@md.country|_description@:1
+msgid "General Model Country"
+msgstr "General, Model De País"
+
+#: model@md.country|__doc__@:1
+msgid ""
+"\n"
+"\tСтраны мира\n"
+"\t"
+msgstr ""
+"\n"
+" Страны мира\n"
+" "
+
+#: model@md.country|_columns@shortname$label:1
+#: model@md.uom|_columns@shortname$label:1
+#: model@md.currency|_columns@shortname$label:1
 msgid "Short Name"
 msgstr "Nom Curt"
 
-#: md.country-code:1 md.uom-code:1 md.currency-code:1 md.vat.code-code:1
-#: md.gtis-code:1 md.type.items-code:1 md.product-code:1 md.partner-code:1
+#: model@md.country|_columns@code$label:1 model@md.uom|_columns@code$label:1
+#: model@md.currency|_columns@code$label:1
+#: model@md.vat.code|_columns@code$label:1
+#: model@md.excise.code|_columns@code$label:1
+#: model@md.gtis|_columns@code$label:1
+#: model@md.type.items|_columns@code$label:1
+#: model@md.product|_columns@code$label:1
+#: model@md.partner|_columns@code$label:1
 msgid "Code"
 msgstr "Codi"
 
-#: md.country-alpha2:1
+#: model@md.country|_columns@alpha2$label:1
 msgid "Alpha2"
 msgstr "Alpha2"
 
-#: md.country-alpha3:1
+#: model@md.country|_columns@alpha3$label:1
 msgid "Alpha3"
 msgstr "Alpha3"
 
-#: md.country-group_ids:1 md.incoterms-grp:1
+#: model@md.country|_columns@group_ids$label:1
+#: model@md.incoterms|_columns@grp$label:1
 msgid "Group"
 msgstr "Grup"
 
-#: md.country-states:1
+#: model@md.country|_columns@states$label:1
 msgid "States"
 msgstr "Estats"
 
-#: md.country.states-country_id:1 md.partner-country_id:1
-#: md.partner.addresses-country:1 md.company-country_id:1
-#: md.banks-country_id:1
+#: model@md.country.states|_description@:1
+msgid "General Model Country States"
+msgstr "Model General De País Estats"
+
+#: model@md.country.states|_columns@country_id$label:1
+#: model@md.partner|_columns@country_id$label:1
+#: model@md.partner.addresses|_columns@country$label:1
+#: model@md.company|_columns@country_id$label:1
+#: model@md.banks|_columns@country_id$label:1
 msgid "Country"
 msgstr "País"
 
-#: md.country.states-name:1
+#: model@md.country.states|_columns@name$label:1
 msgid "State Name"
 msgstr "Estat Nom"
 
-#: md.country.states-code:1
+#: model@md.country.states|_columns@name$help:1
+msgid ""
+"Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
+msgstr ""
+"Divisions administratives del país. E. g. Fed. L'Estat, Departement, Canton"
+
+#: model@md.country.states|_columns@code$label:1
 msgid "State Code"
 msgstr "Estat Codi"
 
-#: md.language-iso631_1:1
+#: model@md.country.states|_columns@code$help:1
+msgid "The state code."
+msgstr "L'estat de codi."
+
+#: model@md.category.language|_description@:1
+msgid "General Model Category Language"
+msgstr "Model General De La Categoria D'Idioma"
+
+#: model@md.language|_description@:1
+msgid "General Model Language"
+msgstr "Model General De Llengua"
+
+#: model@md.language|_columns@iso631_1$label:1
 msgid "Code ISO 639-1"
 msgstr "Codi ISO 639-1"
 
-#: md.language-iso631_2t:1
+#: model@md.language|_columns@iso631_2t$label:1
 msgid "Code ISO 639-2T"
 msgstr "Codi ISO 639-2T"
 
-#: md.language-iso631_2b:1
+#: model@md.language|_columns@iso631_2b$label:1
 msgid "Code ISO 639-2B"
 msgstr "Codi ISO 639-2B"
 
-#: md.group.quantity-numerator:1 md.uom-numerator:1
+#: model@md.group.quantity|_description@:1
+msgid "General Model Group Quantity"
+msgstr "Model General Grup Quantitat"
+
+#: model@md.group.quantity|_columns@numerator$label:1
+#: model@md.uom|_columns@numerator$label:1
 msgid "Numerator"
 msgstr "Numerador"
 
-#: md.group.quantity-denominator:1 md.uom-denominator:1
+#: model@md.group.quantity|_columns@denominator$label:1
+#: model@md.uom|_columns@denominator$label:1
 msgid "Denomerator"
 msgstr "Denomerator"
 
-#: md.quantity.uom-group_id:1
+#: model@md.quantity.uom|_description@:1
+msgid "General Model Quantity Unit of Measure"
+msgstr "Model General Quantitat Unitat de Mesura"
+
+#: model@md.quantity.uom|_columns@group_id$label:1
 msgid "Group Quantity"
 msgstr "Grup Quantitat"
 
-#: md.quantity.uom-meter:1
+#: model@md.quantity.uom|_columns@meter$label:1
 msgid "Meter"
 msgstr "Metre"
 
-#: md.quantity.uom-weight:1 md.product-weight:1
+#: model@md.quantity.uom|_columns@weight$label:1
+#: model@md.product|_columns@weight$label:1
 msgid "Weight"
 msgstr "Pes"
 
-#: md.quantity.uom-tense:1
+#: model@md.quantity.uom|_columns@tense$label:1
 msgid "Tense"
 msgstr "Tensa"
 
-#: md.quantity.uom-ampere:1
+#: model@md.quantity.uom|_columns@ampere$label:1
 msgid "Ampere"
 msgstr "Ampere"
 
-#: md.quantity.uom-kelvin:1
+#: model@md.quantity.uom|_columns@kelvin$label:1
 msgid "Kelvin"
 msgstr "Kelvin"
 
-#: md.quantity.uom-mole:1
+#: model@md.quantity.uom|_columns@mole$label:1
 msgid "Mole"
 msgstr "Talp"
 
-#: md.quantity.uom-candelle:1
+#: model@md.quantity.uom|_columns@candelle$label:1
 msgid "Candelle"
 msgstr "Candelle"
 
-#: md.quantity.uom-uoms:1 md.partner.products-uom:1 md.recepture.input-uom:1
-#: md.recepture.output-uom:1
+#: model@md.quantity.uom|_columns@uoms$label:1
+#: model@md.partner.products|_columns@uom$label:1
+#: model@md.recepture.input|_columns@uom$label:1
+#: model@md.recepture.output|_columns@uom$label:1
 msgid "UoM"
 msgstr "UoM"
 
-#: md.uom-quantity_id:1 md.recepture.input-quantity:1
-#: md.recepture.output-quantity:1
+#: model@md.uom|_description@:1
+msgid "General Model Unit of Measure"
+msgstr "Model General Unitat de Mesura"
+
+#: model@md.uom|_columns@quantity_id$label:1
+#: model@md.recepture.input|_columns@quantity$label:1
+#: model@md.recepture.output|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Quantitat"
 
-#: md.uom-isocode:1 md.currency-isocode:1
+#: model@md.uom|_columns@isocode$label:1
+#: model@md.currency|_columns@isocode$label:1
 msgid "ISO Code"
 msgstr "Codi ISO"
 
-#: md.uom-places:1
+#: model@md.uom|_columns@places$label:1
 msgid "Decimal places"
 msgstr "Llocs decimals"
 
-#: md.uom-round:1
+#: model@md.uom|_columns@round$label:1
 msgid "Rounding off"
 msgstr "Arrodoniments"
 
-#: md.uom-extconst:1
+#: model@md.uom|_columns@extconst$label:1
 msgid "Extend Constant"
 msgstr "Ampliar Constant"
 
-#: md.currency-currency_rate:1 md.company-currency_rate:1
-#: md.currency.rate-rate:1
+#: model@md.currency|_description@:1
+msgid "General Model Currency"
+msgstr "Model General Moneda"
+
+#: model@md.currency|_columns@currency_rate$label:1
+#: model@md.company|_columns@currency_rate$label:1
+#: model@md.currency.rate|_columns@rate$label:1
 msgid "Currency Rate"
 msgstr "Tipus De Canvi"
 
-#: md.vat.code-subtype_vat:1
+#: model@md.vat.code|_description@:1
+msgid "General Model Vat Code"
+msgstr "Model General De L'Iva Codi"
+
+#: model@md.vat.code|_columns@subtype_vat$label:1
 msgid "Subtype VAT"
 msgstr "Subtipus IVA"
 
-#: md.vat.code-value:1
+#: model@md.vat.code|_columns@subtype_vat$selections#i:1
+#: model@md.excise.code|_columns@subtype_excise$selections#i:1
+msgid "Include"
+msgstr "Incloure"
+
+#: model@md.vat.code|_columns@subtype_vat$selections#e:1
+#: model@md.excise.code|_columns@subtype_excise$selections#e:1
+msgid "Exclude"
+msgstr "Excloure"
+
+#: model@md.vat.code|_columns@subtype_vat$selections#n:1
+#: model@md.vat.code|_columns@type_vat$selections#n:1
+#: model@md.excise.code|_columns@subtype_excise$selections#n:1
+#: model@md.excise.code|_columns@type_vat$selections#n:1
+msgid "None"
+msgstr "Cap"
+
+#: model@md.vat.code|_columns@value$label:1
+#: model@md.excise.code|_columns@value$label:1
 msgid "Percent"
 msgstr "Per cent"
 
-#: md.vat.code-type_vat:1
+#: model@md.vat.code|_columns@type_vat$label:1
 msgid "Type VAT"
 msgstr "Tipus IVA"
 
-#: md.gtis-descr:1 md.type.items-descr:1 md.incoterms-descr:1
-#: md.role.partners-descr:1
+#: model@md.vat.code|_columns@type_vat$selections#s:1
+#: model@md.excise.code|_columns@type_vat$selections#s:1
+msgid "Sales"
+msgstr "Venda"
+
+#: model@md.vat.code|_columns@type_vat$selections#p:1
+#: model@md.excise.code|_columns@type_vat$selections#p:1
+msgid "Purchses"
+msgstr "Purchses"
+
+#: model@md.excise.code|_description@:1
+msgid "General Model Excise Code"
+msgstr "Model General Especials Codi"
+
+#: model@md.excise.code|_columns@subtype_excise$label:1
+msgid "Subtype Excise"
+msgstr "Subtipus Especials"
+
+#: model@md.excise.code|_columns@type_vat$label:1
+msgid "Type Excise"
+msgstr "Tipus Especials"
+
+#: model@md.category.product|_description@:1
+msgid "General Model Category Product"
+msgstr "Model General De La Categoria De Producte"
+
+#: model@md.gtis|_description@:1
+msgid "General Model Group Of Type Items"
+msgstr "Model General Del Grup D'Elements De Tipus"
+
+#: model@md.gtis|_columns@descr$label:1
+#: model@md.type.items|_columns@descr$label:1
+#: model@md.incoterms|_columns@descr$label:1
+#: model@md.role.partners|_columns@descr$label:1
 msgid "Description"
 msgstr "Descripció"
 
-#: md.type.items-usage:1 md.type.plates-usage:1 md.location-usage:1
-#: md.partner.contacts-usage:1 md.recepture-usage:1
+#: model@md.type.items|_description@:1
+msgid "General Model Type Of Items"
+msgstr "Model General Tipus D'Elements"
+
+#: model@md.type.items|_columns@usage$label:1
+#: model@md.type.plates|_columns@usage$label:1
+#: model@md.location|_columns@usage$label:1
+#: model@md.partner.contacts|_columns@usage$label:1
+#: model@md.recepture|_columns@usage$label:1
 msgid "Usage"
 msgstr "Ús"
 
-#: md.products.template-category_id:1 md.location-category_id:1
-#: md.partner-category_id:1
+#: model@md.type.items|_columns@usage$selections#a:1
+#: model@md.type.plates|_columns@usage$selections#a:1
+#: model@md.location|_columns@usage$selections#all:1
+#: model@md.role.partners|_columns@trole$selections#a:1
+#: model@md.recepture|_columns@usage$selections#a:1
+msgid "All"
+msgstr "Tot"
+
+#: model@md.type.plates|_description@:1
+msgid "General Model Type Of Plates"
+msgstr "Model General Tipus De Plaques"
+
+#: model@md.products.template|_description@:1
+msgid "General Model Product Template"
+msgstr "Model General De Producte Plantilla"
+
+#: model@md.products.template|_columns@category_id$label:1
+#: model@md.location|_columns@category_id$label:1
+#: model@md.partner|_columns@category_id$label:1
 msgid "Category"
 msgstr "Categoria"
 
-#: md.products.template-mtype:1 md.currency.rate-type:1 md.recepture-type:1
+#: model@md.products.template|_columns@mtype$label:1
+#: model@md.currency.rate|_columns@type$label:1
+#: model@md.recepture|_columns@type$label:1
 msgid "Type"
 msgstr "Tipus"
 
-#: md.products.template-products:1 md.partner-products:1
-msgid "Products"
-msgstr "Productes"
-
-#: md.product-template_id:1
-msgid "Template"
-msgstr "Plantilla"
-
-#: md.product-uom:1
-msgid "Unit Of Measure"
-msgstr "Unitat De Mesura"
-
-#: md.product-gti:1
-msgid "Group Of Type Items"
-msgstr "Grup D'Elements De Tipus"
-
-#: md.product-volume:1
-msgid "Volume"
-msgstr "Volum"
-
-#: md.product-volume_uom:1
-msgid "Volume UoM"
-msgstr "Volum UoM"
-
-#: md.product-weight_uom:1
-msgid "Weight UoM"
-msgstr "Pes UoM"
-
-#: md.product-state:1
-msgid "State"
-msgstr "Estat"
-
-#: md.product-qrcode:1
-msgid "QRCode"
-msgstr "QRCode"
-
-#: md.product-image:1 md.partner.contacts-image:1 md.partner.products-image:1
-msgid "Photo"
-msgstr "Foto"
-
-#: md.product-image_medium:1 md.partner.contacts-image_medium:1
-#: md.partner.products-image_medium:1
-msgid "Medium-sized photo"
-msgstr "Mitjà-fotografia de mida carnet"
-
-#: md.product-image_small:1 md.partner.contacts-image_small:1
-#: md.partner.products-image_small:1
-msgid "Small-sized photo"
-msgstr "Petit-fotografia de mida carnet"
-
-#: md.product-link:1 md.partner.products-link:1
-msgid "Link"
-msgstr "Enllaç"
-
-#: md.incoterms-mode:1
-msgid "Mode Of Transport"
-msgstr "Mode De Transport"
-
-#: md.incoterms-mot:1
-msgid "Momemt Of Transition"
-msgstr "Momemt De Transició"
-
-#: md.location-latitude:1 md.partner-latitude:1
-msgid "Latitude"
-msgstr "Latitud"
-
-#: md.location-longitude:1 md.partner-longitude:1
-msgid "Longitude"
-msgstr "Longitud"
-
-#: md.partner-ispeople:1
-msgid "People"
-msgstr "Persones"
-
-#: md.partner-iscustomer:1
-msgid "Customer"
-msgstr "Atenció al client"
-
-#: md.partner-issuplier:1
-msgid "Suplier"
-msgstr "Suplier"
-
-#: md.partner-vat_number:1
-msgid "VAT Number"
-msgstr "Nif"
-
-#: md.partner-vat_reason:1
-msgid "VAT Reason"
-msgstr "IVA Raó"
-
-#: md.partner-addresses:1
-msgid "Addresses"
-msgstr "Les adreces"
-
-#: md.partner-contacts:1
-msgid "Contacts"
-msgstr "Contactes"
-
-#: md.partner-roles:1
-msgid "Roles"
-msgstr "Funcions"
-
-#: md.partner.addresses-partner_id:1 md.partner.contacts-partner_id:1
-#: md.partner.products-partner_id:1 md.partner.roles-partner_id:1
-msgid "Partner"
-msgstr "Parella"
-
-#: md.partner.addresses-taddr:1
-msgid "Type Of Address"
-msgstr "Tipus D'Adreça"
-
-#: md.partner.addresses-state:1
-msgid "State Of Coutry"
-msgstr "Estat De Coutry"
-
-#: md.partner.addresses-sity:1 md.banks-city:1
-msgid "City"
-msgstr "Ciutat"
-
-#: md.partner.addresses-street:1 md.banks-street:1
-msgid "Street"
-msgstr "Carrer"
-
-#: md.partner.addresses-street2:1
-msgid "Street 2"
-msgstr "Carrer 2"
-
-#: md.partner.addresses-house:1
-msgid "House"
-msgstr "Casa"
-
-#: md.partner.addresses-room:1
-msgid "Room"
-msgstr "Instal·lacions de l'"
-
-#: md.partner.contacts-sequence:1 md.partners.bank-sequence:1
-msgid "Sequence"
-msgstr "Seqüència"
-
-#: md.partner.contacts-firstname:1
-msgid "First Name"
-msgstr "Nom"
-
-#: md.partner.contacts-lastname:1
-msgid "Last Name"
-msgstr "Cognom"
-
-#: md.partner.contacts-middlename:1
-msgid "Middle Name"
-msgstr "Segon Nom"
-
-#: md.partner.contacts-fullname:1
-msgid "Full Name"
-msgstr "Nom Complet"
-
-#: md.partner.contacts-gender:1
-msgid "Gender"
-msgstr "Gènere"
-
-#: md.partner.contacts-marital:1
-msgid "Marital Status"
-msgstr "Estat Civil"
-
-#: md.partner.contacts-birthday:1
-msgid "Date of Birth"
-msgstr "Data de Naixement"
-
-#: md.partner.contacts-address_id:1
-msgid "Work Address"
-msgstr "Adreça De La Feina"
-
-#: md.partner.contacts-work_phone:1
-msgid "Work Phone"
-msgstr "Telèfon De Treball"
-
-#: md.partner.contacts-mobile_phone:1
-msgid "Work Mobile"
-msgstr "Treball Mòbil"
-
-#: md.partner.contacts-work_email:1
-msgid "Work Email"
-msgstr "Correu Electrònic De La Feina"
-
-#: md.partner.contacts-work_location:1
-msgid "Work Location"
-msgstr "Lloc De Feina"
-
-#: md.partner.products-product_id:1 md.recepture.input-product:1
-#: md.recepture.output-product:1
+#: model@md.products.template|_columns@mtype$selections#p:1
+#: model@md.partner.products|_columns@product_id$label:1
+#: model@md.recepture.input|_columns@product$label:1
+#: model@md.recepture.output|_columns@product$label:1
 msgid "Product"
 msgstr "Producte"
 
-#: md.partner.products-minqty:1
-msgid "Min Quantity"
-msgstr "Quantitat Min"
+#: model@md.products.template|_columns@mtype$selections#s:1
+msgid "Service"
+msgstr "Servei"
 
-#: md.partner.products-prices:1
-msgid "Prices"
-msgstr "Preus"
+#: model@md.products.template|_columns@mtype$selections#w:1
+msgid "Work"
+msgstr "De treball"
 
-#: md.role.partners-trole:1
-msgid "Type Of Role"
-msgstr "Tipus De Paper"
+#: model@md.products.template|_columns@mtype$selections#c:1
+msgid "Consumable"
+msgstr "Material fungible"
 
-#: md.role.partners-name:1 md.partner.roles-role_id:1
-msgid "Role"
-msgstr "Paper"
+#: model@md.products.template|_columns@products$label:1
+#: model@md.partner|_columns@products$label:1
+msgid "Products"
+msgstr "Productes"
 
-#: md.partner.roles-name:1 md.partners.bank-bank_bic:1
-msgid "Unknown"
-msgstr "Desconegut"
+#: model@md.product|_description@:1
+msgid "General Model Product"
+msgstr "Model General De Producte"
 
-#: md.pricelist.partner.products-partner_product_id:1
-msgid "Partner Product"
-msgstr "Soci Producte"
+#: model@md.product|_columns@template_id$label:1
+msgid "Template"
+msgstr "Plantilla"
 
-#: md.pricelist.partner.products-valid_from:1
-msgid "Valid From"
-msgstr "Vàlid De"
+#: model@md.product|_columns@uom$label:1
+msgid "Unit Of Measure"
+msgstr "Unitat De Mesura"
 
-#: md.pricelist.partner.products-valid_to:1
-msgid "Valid to"
-msgstr "Vàlid per"
+#: model@md.product|_columns@gti$label:1
+msgid "Group Of Type Items"
+msgstr "Grup D'Elements De Tipus"
 
-#: md.pricelist.partner.products-currency_id:1 md.company-currency_id:1
-#: md.partners.bank-currency_id:1
-msgid "Currency"
-msgstr "Moneda"
+#: model@md.product|_columns@volume$label:1
+msgid "Volume"
+msgstr "Volum"
 
-#: md.pricelist.partner.products-qty:1
-msgid "Qty Price"
-msgstr "Qty Preu"
+#: model@md.product|_columns@volume_uom$label:1
+msgid "Volume UoM"
+msgstr "Volum UoM"
 
-#: md.pricelist.partner.products-price:1
-msgid "Price"
-msgstr "Preu"
+#: model@md.product|_columns@weight_uom$label:1
+msgid "Weight UoM"
+msgstr "Pes UoM"
 
-#: md.currency.rate-currency_id:1
-msgid "From Currency"
-msgstr "Des De Moneda"
+#: model@md.product|_columns@state$label:1
+msgid "State"
+msgstr "Estat"
 
-#: md.currency.rate-currency_id1:1
-msgid "To Currency"
-msgstr "A La Moneda"
+#: model@md.product|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Esborrany"
 
-#: md.currency.rate-company_id:1 md.partners.bank-company_id:1
+#: model@md.product|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Aprovat"
+
+#: model@md.product|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "En Procés"
+
+#: model@md.product|_columns@state$selections#closing:1
+msgid "Closing"
+msgstr "Cloenda"
+
+#: model@md.product|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Tancat"
+
+#: model@md.product|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Cancel·lat"
+
+#: model@md.product|_columns@qrcode$label:1
+msgid "QRCode"
+msgstr "QRCode"
+
+#: model@md.product|_columns@qrcode$help:1
+msgid "This field holds the image QRCode"
+msgstr "Aquest camp conté la imatge QRCode"
+
+#: model@md.product|_columns@image$label:1
+#: model@md.partner.contacts|_columns@image$label:1
+#: model@md.partner.products|_columns@image$label:1
+msgid "Photo"
+msgstr "Foto"
+
+#: model@md.product|_columns@image$help:1
+#: model@md.partner.contacts|_columns@image$help:1
+#: model@md.partner.products|_columns@image$help:1
+msgid ""
+"This field holds the image used as photo for the employee, limited to "
+"1024x1024px."
+msgstr ""
+"Aquest camp conté la imatge que s'utilitza com a foto per a l'empleat, "
+"limitat a 1024x1024px."
+
+#: model@md.product|_columns@image_medium$label:1
+#: model@md.partner.contacts|_columns@image_medium$label:1
+#: model@md.partner.products|_columns@image_medium$label:1
+msgid "Medium-sized photo"
+msgstr "Mitjà-fotografia de mida carnet"
+
+#: model@md.product|_columns@image_medium$help:1
+#: model@md.partner.contacts|_columns@image_medium$help:1
+#: model@md.partner.products|_columns@image_medium$help:1
+msgid ""
+"Medium-sized photo of the employee. It is automatically resized as a "
+"128x128px image, with aspect ratio preserved. Use this field in form views "
+"or some kanban views."
+msgstr ""
+"Mitjà-fotografia de mida carnet de l'empleat. És automàticament la mida com "
+"un 128x128px imatge amb relació d'aspecte de preservar. Useu aquest camp en "
+"forma opinions o alguns kanban vistes."
+
+#: model@md.product|_columns@image_small$label:1
+#: model@md.partner.contacts|_columns@image_small$label:1
+#: model@md.partner.products|_columns@image_small$label:1
+msgid "Small-sized photo"
+msgstr "Petit-fotografia de mida carnet"
+
+#: model@md.product|_columns@image_small$help:1
+msgid ""
+"Small-sized photo of the product. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr ""
+"De petites dimensions foto del producte. És automàticament la mida com un "
+"64x64px imatge amb relació d'aspecte de preservar. Useu aquest camp per "
+"enlloc un petita imatge és necessari."
+
+#: model@md.product|_columns@link$label:1
+#: model@md.partner.products|_columns@link$label:1
+msgid "Link"
+msgstr "Enllaç"
+
+#: model@md.incoterms|_description@:1
+msgid "General Model Incoterms"
+msgstr "Model General Incoterms"
+
+#: model@md.incoterms|_columns@mode$label:1
+msgid "Mode Of Transport"
+msgstr "Mode De Transport"
+
+#: model@md.incoterms|_columns@mode$selections#А:1
+msgid "All Mode Of Transport"
+msgstr "Tot Mode De Transport"
+
+#: model@md.incoterms|_columns@mode$selections#S:1
+msgid "Sea & Water Mode oF Transport"
+msgstr "Mar & Aigua Mode de Transport"
+
+#: model@md.incoterms|_columns@grp$selections#E:1
+msgid "Departure"
+msgstr "Sortida"
+
+#: model@md.incoterms|_columns@grp$selections#F:1
+msgid "Main Carriage Unpaid"
+msgstr "Principals Transport Pendents"
+
+#: model@md.incoterms|_columns@grp$selections#C:1
+msgid "Main Carriage Paid"
+msgstr "Principals Ports Pagats"
+
+#: model@md.incoterms|_columns@grp$selections#D:1
+msgid "Arrival"
+msgstr "Arribada"
+
+#: model@md.incoterms|_columns@mot$label:1
+msgid "Momemt Of Transition"
+msgstr "Momemt De Transició"
+
+#: model@md.incoterms|_columns@mot$selections#se:1
+msgid "Seller"
+msgstr "Venedor"
+
+#: model@md.incoterms|_columns@mot$selections#sc:1
+msgid "Customs Of Seller"
+msgstr "Costums Del Venedor"
+
+#: model@md.incoterms|_columns@mot$selections#ssh:1
+msgid "Seller Shipping"
+msgstr "Venedor D'Enviament"
+
+#: model@md.incoterms|_columns@mot$selections#ste:1
+msgid "Seller Terminal"
+msgstr "Venedor Terminal"
+
+#: model@md.incoterms|_columns@mot$selections#ld:1
+msgid "Loading"
+msgstr "Càrrega"
+
+#: model@md.incoterms|_columns@mot$selections#dl:1
+msgid "Delivery"
+msgstr "Lliurament"
+
+#: model@md.incoterms|_columns@mot$selections#ul:1
+msgid "Unloading"
+msgstr "Descàrrega"
+
+#: model@md.incoterms|_columns@mot$selections#bte:1
+msgid "Buyer Terminal"
+msgstr "Comprador Terminal"
+
+#: model@md.incoterms|_columns@mot$selections#bsh:1
+msgid "Buyer Shipping"
+msgstr "El Comprador D'Enviament"
+
+#: model@md.incoterms|_columns@mot$selections#bc:1
+msgid "Customs Of Buyer"
+msgstr "Costums Del Comprador"
+
+#: model@md.incoterms|_columns@mot$selections#ba:1
+msgid "Buyer"
+msgstr "Comprador"
+
+#: model@md.category.partner|_description@:1
+msgid "General Model Category Partner"
+msgstr "Model General De La Categoria Soci"
+
+#: model@md.category.location|_description@:1
+msgid "General Model Category Location"
+msgstr "Model General Categoria Ubicació"
+
+#: model@md.location|_description@:1
+msgid "General Master Data Location"
+msgstr "General De Dades Mestre Ubicació"
+
+#: model@md.location|_columns@usage$selections#partner:1
+#: model@md.partner.addresses|_columns@partner_id$label:1
+#: model@md.partner.contacts|_columns@partner_id$label:1
+#: model@md.partner.products|_columns@partner_id$label:1
+#: model@md.partner.roles|_columns@partner_id$label:1
+msgid "Partner"
+msgstr "Parella"
+
+#: model@md.location|_columns@usage$selections#company:1
+#: model@md.currency.rate|_columns@company_id$label:1
+#: model@md.partners.bank|_columns@company_id$label:1
 msgid "Company"
 msgstr "Empresa"
 
-#: md.currency.rate-date:1
+#: model@md.location|_columns@usage$selections#stock:1
+msgid "Stock"
+msgstr "Estoc"
+
+#: model@md.location|_columns@latitude$label:1
+#: model@md.partner|_columns@latitude$label:1
+msgid "Latitude"
+msgstr "Latitud"
+
+#: model@md.location|_columns@longitude$label:1
+#: model@md.partner|_columns@longitude$label:1
+msgid "Longitude"
+msgstr "Longitud"
+
+#: model@md.partner|_description@:1
+msgid "General Model Partner"
+msgstr "Model General De Socis"
+
+#: model@md.partner|_columns@ispeople$label:1
+msgid "People"
+msgstr "Persones"
+
+#: model@md.partner|_columns@iscustomer$label:1
+#: model@md.role.partners|_columns@trole$selections#c:1
+msgid "Customer"
+msgstr "Atenció al client"
+
+#: model@md.partner|_columns@issuplier$label:1
+msgid "Suplier"
+msgstr "Suplier"
+
+#: model@md.partner|_columns@vat_number$label:1
+msgid "VAT Number"
+msgstr "Nif"
+
+#: model@md.partner|_columns@vat_reason$label:1
+msgid "VAT Reason"
+msgstr "IVA Raó"
+
+#: model@md.partner|_columns@vat_reason$selections#y:1
+msgid "Yes"
+msgstr "Sí"
+
+#: model@md.partner|_columns@vat_reason$selections#n:1
+msgid "No"
+msgstr "No"
+
+#: model@md.partner|_columns@addresses$label:1
+msgid "Addresses"
+msgstr "Les adreces"
+
+#: model@md.partner|_columns@contacts$label:1
+msgid "Contacts"
+msgstr "Contactes"
+
+#: model@md.partner|_columns@roles$label:1
+msgid "Roles"
+msgstr "Funcions"
+
+#: model@md.partner.addresses|_description@:1
+msgid "General Model Partner Addresses"
+msgstr "Model General De Socis Adreces"
+
+#: model@md.partner.addresses|_columns@taddr$label:1
+msgid "Type Of Address"
+msgstr "Tipus D'Adreça"
+
+#: model@md.partner.addresses|_columns@taddr$selections#l:1
+msgid "Location"
+msgstr "Ubicació"
+
+#: model@md.partner.addresses|_columns@taddr$selections#p:1
+msgid "Postal"
+msgstr "Postal"
+
+#: model@md.partner.addresses|_columns@taddr$selections#a:1
+msgid "Situtation"
+msgstr "Situtation"
+
+#: model@md.partner.addresses|_columns@state$label:1
+msgid "State Of Coutry"
+msgstr "Estat De Coutry"
+
+#: model@md.partner.addresses|_columns@sity$label:1
+#: model@md.banks|_columns@city$label:1
+msgid "City"
+msgstr "Ciutat"
+
+#: model@md.partner.addresses|_columns@street$label:1
+#: model@md.banks|_columns@street$label:1
+msgid "Street"
+msgstr "Carrer"
+
+#: model@md.partner.addresses|_columns@street2$label:1
+msgid "Street 2"
+msgstr "Carrer 2"
+
+#: model@md.partner.addresses|_columns@house$label:1
+msgid "House"
+msgstr "Casa"
+
+#: model@md.partner.addresses|_columns@room$label:1
+msgid "Room"
+msgstr "Instal·lacions de l'"
+
+#: model@md.partner.contacts|_description@:1
+msgid "General Model Partner Contacts"
+msgstr "Model General De Socis Contactes"
+
+#: model@md.partner.contacts|_columns@usage$selections#d:1
+msgid "Dear"
+msgstr "Benvolguts"
+
+#: model@md.partner.contacts|_columns@sequence$label:1
+#: model@md.partners.bank|_columns@sequence$label:1
+msgid "Sequence"
+msgstr "Seqüència"
+
+#: model@md.partner.contacts|_columns@firstname$label:1
+msgid "First Name"
+msgstr "Nom"
+
+#: model@md.partner.contacts|_columns@lastname$label:1
+msgid "Last Name"
+msgstr "Cognom"
+
+#: model@md.partner.contacts|_columns@middlename$label:1
+msgid "Middle Name"
+msgstr "Segon Nom"
+
+#: model@md.partner.contacts|_columns@fullname$label:1
+msgid "Full Name"
+msgstr "Nom Complet"
+
+#: model@md.partner.contacts|_columns@gender$label:1
+msgid "Gender"
+msgstr "Gènere"
+
+#: model@md.partner.contacts|_columns@gender$selections#male:1
+msgid "Male"
+msgstr "Masculí"
+
+#: model@md.partner.contacts|_columns@gender$selections#female:1
+msgid "Female"
+msgstr "Femení"
+
+#: model@md.partner.contacts|_columns@gender$selections#other:1
+msgid "Other"
+msgstr "Altres"
+
+#: model@md.partner.contacts|_columns@marital$label:1
+msgid "Marital Status"
+msgstr "Estat Civil"
+
+#: model@md.partner.contacts|_columns@marital$selections#single:1
+msgid "Single"
+msgstr "Sol"
+
+#: model@md.partner.contacts|_columns@marital$selections#married:1
+msgid "Married"
+msgstr "Casat"
+
+#: model@md.partner.contacts|_columns@marital$selections#widower:1
+msgid "Widower"
+msgstr "Vidu"
+
+#: model@md.partner.contacts|_columns@marital$selections#divorced:1
+msgid "Divorced"
+msgstr "Divorciat"
+
+#: model@md.partner.contacts|_columns@birthday$label:1
+msgid "Date of Birth"
+msgstr "Data de Naixement"
+
+#: model@md.partner.contacts|_columns@image_small$help:1
+#: model@md.partner.products|_columns@image_small$help:1
+msgid ""
+"Small-sized photo of the employee. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr ""
+"Petit-fotografia de mida carnet de l'empleat. És automàticament la mida com "
+"un 64x64px imatge amb relació d'aspecte de preservar. Useu aquest camp per "
+"enlloc un petita imatge és necessari."
+
+#: model@md.partner.contacts|_columns@address_id$label:1
+msgid "Work Address"
+msgstr "Adreça De La Feina"
+
+#: model@md.partner.contacts|_columns@work_phone$label:1
+msgid "Work Phone"
+msgstr "Telèfon De Treball"
+
+#: model@md.partner.contacts|_columns@mobile_phone$label:1
+msgid "Work Mobile"
+msgstr "Treball Mòbil"
+
+#: model@md.partner.contacts|_columns@work_email$label:1
+msgid "Work Email"
+msgstr "Correu Electrònic De La Feina"
+
+#: model@md.partner.contacts|_columns@work_location$label:1
+msgid "Work Location"
+msgstr "Lloc De Feina"
+
+#: model@md.partner.products|_description@:1
+msgid "General Model Partner Products"
+msgstr "Model General De Socis Productes"
+
+#: model@md.partner.products|_columns@minqty$label:1
+msgid "Min Quantity"
+msgstr "Quantitat Min"
+
+#: model@md.partner.products|_columns@prices$label:1
+msgid "Prices"
+msgstr "Preus"
+
+#: model@md.role.partners|_description@:1
+msgid "General Model Role Partners"
+msgstr "Model General Paper Socis"
+
+#: model@md.role.partners|_columns@trole$label:1
+msgid "Type Of Role"
+msgstr "Tipus De Paper"
+
+#: model@md.role.partners|_columns@trole$selections#s:1
+msgid "Supplier"
+msgstr "Proveïdor"
+
+#: model@md.role.partners|_columns@trole$selections#i:1
+msgid "Internal"
+msgstr "Interns"
+
+#: model@md.role.partners|_columns@trole$selections#p:1
+msgid "Person"
+msgstr "Persona"
+
+#: model@md.role.partners|_columns@name$label:1
+#: model@md.partner.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Paper"
+
+#: model@md.partner.roles|_description@:1
+msgid "General Model Partner Roles"
+msgstr "Model General De Socis Rols"
+
+#: model@md.partner.roles|_columns@name$label:1
+#: model@md.partners.bank|_columns@bank_bic$label:1
+msgid "Unknown"
+msgstr "Desconegut"
+
+#: model@md.pricelist.partner.products|_description@:1
+msgid "General Model Pricelist Partner Products"
+msgstr "Model General Relació De Parella Productes"
+
+#: model@md.pricelist.partner.products|_columns@partner_product_id$label:1
+msgid "Partner Product"
+msgstr "Soci Producte"
+
+#: model@md.pricelist.partner.products|_columns@valid_from$label:1
+msgid "Valid From"
+msgstr "Vàlid De"
+
+#: model@md.pricelist.partner.products|_columns@valid_to$label:1
+msgid "Valid to"
+msgstr "Vàlid per"
+
+#: model@md.pricelist.partner.products|_columns@currency_id$label:1
+#: model@md.company|_columns@currency_id$label:1
+#: model@md.partners.bank|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Moneda"
+
+#: model@md.pricelist.partner.products|_columns@qty$label:1
+msgid "Qty Price"
+msgstr "Qty Preu"
+
+#: model@md.pricelist.partner.products|_columns@price$label:1
+msgid "Price"
+msgstr "Preu"
+
+#: model@md.company|_description@:1
+msgid "General Model Company"
+msgstr "Model General De L'Empresa"
+
+#: model@md.currency.rate|_description@:1
+msgid "General Model Currency Rate"
+msgstr "Model General Tipus De Canvi"
+
+#: model@md.currency.rate|_columns@currency_id$label:1
+msgid "From Currency"
+msgstr "Des De Moneda"
+
+#: model@md.currency.rate|_columns@currency_id1$label:1
+msgid "To Currency"
+msgstr "A La Moneda"
+
+#: model@md.currency.rate|_columns@date$label:1
 msgid "Date"
 msgstr "Data"
 
-#: md.currency.rate-account:1
+#: model@md.currency.rate|_columns@account$label:1
 msgid "Accout"
 msgstr "Accout"
 
-#: md.banks-street2:1
+#: model@md.currency.rate|_columns@type$selections#m:1
+msgid "Monthly"
+msgstr "Mensual"
+
+#: model@md.currency.rate|_columns@type$selections#d:1
+msgid "Day"
+msgstr "Dia"
+
+#: model@md.currency.rate|_columns@type$selections#w:1
+msgid "Week"
+msgstr "Setmana"
+
+#: model@md.banks|_description@:1
+msgid "General Model Bank"
+msgstr "Model General De Banc"
+
+#: model@md.banks|_columns@street2$label:1
 msgid "Street2"
 msgstr "Street2"
 
-#: md.banks-zip:1
+#: model@md.banks|_columns@zip$label:1
 msgid "ZIP"
 msgstr "ZIP"
 
-#: md.banks-state_id:1
+#: model@md.banks|_columns@state_id$label:1
 msgid "Fed. State"
 msgstr "Fed. Estat"
 
-#: md.banks-email:1
+#: model@md.banks|_columns@email$label:1
 msgid "Email"
 msgstr "Correu electrònic"
 
-#: md.banks-phone:1
+#: model@md.banks|_columns@phone$label:1
 msgid "Phone"
 msgstr "Telèfon"
 
-#: md.banks-bic:1
+#: model@md.banks|_columns@bic$label:1
 msgid "Bank Identifier Code"
 msgstr "Codi Identificador Del Banc"
 
-#: md.banks-partners:1
+#: model@md.banks|_columns@bic$help:1
+msgid "Sometimes called BIC or Swift."
+msgstr "De vegades anomenat BIC o Swift."
+
+#: model@md.banks|_columns@partners$label:1
 msgid "Partners"
 msgstr "Socis"
 
-#: md.banks-inactive:1
+#: model@md.banks|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Inactiu"
 
-#: md.partners.bank-acc_type:1
+#: model@md.partners.bank|_description@:1
+msgid "General Model Bank of Partner"
+msgstr "Model General del Banc de Soci"
+
+#: model@md.partners.bank|_columns@acc_type$label:1
 msgid "ACC Type"
 msgstr "ACC Tipus"
 
-#: md.partners.bank-acc_number:1
+#: model@md.partners.bank|_columns@acc_type$help:1
+msgid "Bank account type, inferred from account number"
+msgstr "Banc tipus de compte, inferir del número de compte"
+
+#: model@md.partners.bank|_columns@acc_number$label:1
 msgid "Account Number"
 msgstr "Número De Compte"
 
-#: md.partners.bank-sanitized_acc_number:1
+#: model@md.partners.bank|_columns@sanitized_acc_number$label:1
 msgid "Sanitized Account Number"
 msgstr "Sanejats Número De Compte"
 
-#: md.partners.bank-partner_id:1
+#: model@md.partners.bank|_columns@partner_id$label:1
 msgid "Account Holder"
 msgstr "Titular Del Compte"
 
-#: md.partners.bank-bank_id:1
+#: model@md.partners.bank|_columns@bank_id$label:1
 msgid "Bank"
 msgstr "Banc"
 
-#: md.partners.bank-bank_name:1
+#: model@md.partners.bank|_columns@bank_name$label:1
 msgid "Bank Name"
 msgstr "Nom Del Banc"
 
-#: md.recepture-subtype:1
+#: model@md.recepture|_description@:1
+msgid "General Model Recipe"
+msgstr "Model General Recepta"
+
+#: model@md.recepture|_columns@type$selections#real:1
+msgid "Real"
+msgstr "Real"
+
+#: model@md.recepture|_columns@type$selections#kvazi:1
+msgid "Kwazi"
+msgstr "Kwazi"
+
+#: model@md.recepture|_columns@subtype$label:1
 msgid "Subtype"
 msgstr "Subtipus"
 
-#: md.recepture-partition:1
+#: model@md.recepture|_columns@subtype$selections#bom:1
+msgid "BoM"
+msgstr "BoM"
+
+#: model@md.recepture|_columns@subtype$selections#mob:1
+msgid "MoB"
+msgstr "MoB"
+
+#: model@md.recepture|_columns@subtype$selections#bob:1
+msgid "BoB"
+msgstr "BoB"
+
+#: model@md.recepture|_columns@partition$label:1
 msgid "Partition"
 msgstr "Partició"
 
-#: md.recepture-input_items:1
+#: model@md.recepture|_columns@input_items$label:1
 msgid "Input"
 msgstr "D'entrada"
 
-#: md.recepture-output_items:1
+#: model@md.recepture|_columns@output_items$label:1
 msgid "Output"
 msgstr "Sortida"
 
-#: md.recepture.input-recepture_id:1 md.recepture.output-recepture_id:1
+#: model@md.recepture.input|_description@:1
+msgid "General Model Input Recipe"
+msgstr "Model General D'Entrada Recepta"
+
+#: model@md.recepture.input|_columns@recepture_id$label:1
+#: model@md.recepture.output|_columns@recepture_id$label:1
 msgid "Recepture"
 msgstr "Recepture"
+
+#: model@md.recepture.output|_description@:1
+msgid "General Model Output Recipe"
+msgstr "Model General De Sortida Recepta"

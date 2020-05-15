@@ -3,276 +3,455 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2019-09-05 23:15:23+0300\n"
-"PO-Revision-Date: 2019-09-05 23:15:23+0300\n"
+"POT-Creation-Date: 2020-05-15 19:41:53+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:53+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ehs.workcenter.category-name:1 ehs.route.category-name:1
-#: ehs.production.order.category-name:1 ehs.technologic.order.category-name:1
-#: ehs.disassembly.order.category-name:1 ehs.workcenter-name:1
-#: ehs.route-name:1 ehs.production.order-name:1 ehs.technologic.order-name:1
-#: ehs.disassembly.order-name:1
+#: model@ehs.workcenter.category|_description@:1
+msgid "General Model Category Workcenter"
+msgstr "Generelle Modellen Kategori Workcenter"
+
+#: model@ehs.workcenter.category|_columns@name$label:1
+#: model@ehs.route.category|_columns@name$label:1
+#: model@ehs.production.order.category|_columns@name$label:1
+#: model@ehs.technologic.order.category|_columns@name$label:1
+#: model@ehs.disassembly.order.category|_columns@name$label:1
+#: model@ehs.workcenter|_columns@name$label:1
+#: model@ehs.route|_columns@name$label:1
+#: model@ehs.production.order|_columns@name$label:1
+#: model@ehs.technologic.order|_columns@name$label:1
+#: model@ehs.disassembly.order|_columns@name$label:1
 msgid "Name"
 msgstr "Navn"
 
-#: ehs.workcenter.category-parent_id:1 ehs.route.category-parent_id:1
-#: ehs.production.order.category-parent_id:1
-#: ehs.technologic.order.category-parent_id:1
-#: ehs.disassembly.order.category-parent_id:1 ehs.route.items-parent_id:1
-#: ehs.production.order.items-parent_id:1
-#: ehs.technologic.order.items-parent_id:1
-#: ehs.disassembly.order.items-parent_id:1
+#: model@ehs.workcenter.category|_columns@parent_id$label:1
+#: model@ehs.route.category|_columns@parent_id$label:1
+#: model@ehs.production.order.category|_columns@parent_id$label:1
+#: model@ehs.technologic.order.category|_columns@parent_id$label:1
+#: model@ehs.disassembly.order.category|_columns@parent_id$label:1
+#: model@ehs.route.items|_columns@parent_id$label:1
+#: model@ehs.production.order.items|_columns@parent_id$label:1
+#: model@ehs.technologic.order.items|_columns@parent_id$label:1
+#: model@ehs.disassembly.order.items|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Foreldre"
 
-#: ehs.workcenter.category-childs_id:1 ehs.route.category-childs_id:1
-#: ehs.production.order.category-childs_id:1
-#: ehs.technologic.order.category-childs_id:1
-#: ehs.disassembly.order.category-childs_id:1 ehs.route.items-childs_id:1
-#: ehs.production.order.items-childs_id:1
-#: ehs.technologic.order.items-childs_id:1
-#: ehs.disassembly.order.items-childs_id:1
+#: model@ehs.workcenter.category|_columns@childs_id$label:1
+#: model@ehs.route.category|_columns@childs_id$label:1
+#: model@ehs.production.order.category|_columns@childs_id$label:1
+#: model@ehs.technologic.order.category|_columns@childs_id$label:1
+#: model@ehs.disassembly.order.category|_columns@childs_id$label:1
+#: model@ehs.route.items|_columns@childs_id$label:1
+#: model@ehs.production.order.items|_columns@childs_id$label:1
+#: model@ehs.technologic.order.items|_columns@childs_id$label:1
+#: model@ehs.disassembly.order.items|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: ehs.workcenter.category-workcenters:1 ehs.route.category-routes:1
-#: ehs.production.order.category-orders:1
-#: ehs.technologic.order.category-orders:1
-#: ehs.disassembly.order.category-orders:1
+#: model@ehs.workcenter.category|_columns@workcenters$label:1
+#: model@ehs.route.category|_columns@routes$label:1
+#: model@ehs.production.order.category|_columns@orders$label:1
+#: model@ehs.technologic.order.category|_columns@orders$label:1
+#: model@ehs.disassembly.order.category|_columns@orders$label:1
 msgid "Orders"
 msgstr "Bestillinger"
 
-#: ehs.workcenter.category-note:1 ehs.route.category-note:1
-#: ehs.production.order.category-note:1 ehs.technologic.order.category-note:1
-#: ehs.disassembly.order.category-note:1 ehs.workcenter-note:1
-#: ehs.workcenter.products-note:1 ehs.workcenter.product.prices-note:1
-#: ehs.route-note:1 ehs.route.items-note:1 ehs.production.order-note:1
-#: ehs.production.order.items-note:1 ehs.production.order.item.bom-note:1
-#: ehs.production.order.delivery.schedules-note:1 ehs.technologic.order-note:1
-#: ehs.technologic.order.items-note:1 ehs.technologic.order.item.ibob-note:1
-#: ehs.technologic.order.item.obob-note:1
-#: ehs.technologic.order.delivery.schedules-note:1
-#: ehs.disassembly.order-note:1 ehs.disassembly.order.items-note:1
-#: ehs.disassembly.order.item.mob-note:1
-#: ehs.disassembly.order.delivery.schedules-note:1
+#: model@ehs.workcenter.category|_columns@note$label:1
+#: model@ehs.route.category|_columns@note$label:1
+#: model@ehs.production.order.category|_columns@note$label:1
+#: model@ehs.technologic.order.category|_columns@note$label:1
+#: model@ehs.disassembly.order.category|_columns@note$label:1
+#: model@ehs.workcenter|_columns@note$label:1
+#: model@ehs.workcenter.products|_columns@note$label:1
+#: model@ehs.workcenter.product.prices|_columns@note$label:1
+#: model@ehs.route|_columns@note$label:1
+#: model@ehs.route.items|_columns@note$label:1
+#: model@ehs.production.order|_columns@note$label:1
+#: model@ehs.production.order.items|_columns@note$label:1
+#: model@ehs.production.order.item.bom|_columns@note$label:1
+#: model@ehs.production.order.delivery.schedules|_columns@note$label:1
+#: model@ehs.technologic.order|_columns@note$label:1
+#: model@ehs.technologic.order.items|_columns@note$label:1
+#: model@ehs.technologic.order.item.ibob|_columns@note$label:1
+#: model@ehs.technologic.order.item.obob|_columns@note$label:1
+#: model@ehs.technologic.order.delivery.schedules|_columns@note$label:1
+#: model@ehs.disassembly.order|_columns@note$label:1
+#: model@ehs.disassembly.order.items|_columns@note$label:1
+#: model@ehs.disassembly.order.item.mob|_columns@note$label:1
+#: model@ehs.disassembly.order.delivery.schedules|_columns@note$label:1
 msgid "Note"
 msgstr "Merk"
 
-#: ehs.workcenter-wctype:1 ehs.route-rtype:1
+#: model@ehs.route.category|_description@:1
+msgid "General Model Category Route"
+msgstr "Generelle Modellen Kategori Rute"
+
+#: model@ehs.production.order.category|_description@:1
+msgid "General Model Category Production Order"
+msgstr "Generelle Modellen Kategori Produksjonsordre"
+
+#: model@ehs.technologic.order.category|_description@:1
+msgid "General Model Category Technologic Order"
+msgstr "Generelle Modellen Kategori Teknisk Ordre"
+
+#: model@ehs.disassembly.order.category|_description@:1
+msgid "General Model Category Disassembly Order"
+msgstr "Generelle Modellen Kategori For Demontering"
+
+#: model@ehs.workcenter|_description@:1
+msgid "General Model Workcenter"
+msgstr "Generelle Modellen Workcenter"
+
+#: model@ehs.workcenter|_columns@wctype$label:1
+#: model@ehs.route|_columns@rtype$label:1
 msgid "Type"
 msgstr "Type"
 
-#: ehs.workcenter-cost_peer_hour:1
+#: model@ehs.workcenter|_columns@wctype$selections#p:1
+#: model@ehs.route|_columns@rtype$selections#p:1
+msgid "Production"
+msgstr "Produksjon"
+
+#: model@ehs.workcenter|_columns@wctype$selections#t:1
+#: model@ehs.route|_columns@rtype$selections#t:1
+msgid "Technology"
+msgstr "Teknologi"
+
+#: model@ehs.workcenter|_columns@wctype$selections#d:1
+#: model@ehs.route|_columns@rtype$selections#d:1
+msgid "Disassembly"
+msgstr "Demontering"
+
+#: model@ehs.workcenter|_columns@wctype$selections#a:1
+#: model@ehs.route|_columns@rtype$selections#a:1
+msgid "All"
+msgstr "Alle"
+
+#: model@ehs.workcenter|_columns@cost_peer_hour$label:1
 msgid "Cost Peer Hours"
 msgstr "Kostnadene Peer Timer"
 
-#: ehs.workcenter-currency:1 ehs.workcenter.product.prices-currency:1
-#: ehs.production.order.item.bom-currency:1
-#: ehs.technologic.order.item.ibob-currency:1
-#: ehs.technologic.order.item.obob-currency:1
-#: ehs.disassembly.order.item.mob-currency:1
+#: model@ehs.workcenter|_columns@currency$label:1
+#: model@ehs.workcenter.product.prices|_columns@currency$label:1
+#: model@ehs.production.order.item.bom|_columns@currency$label:1
+#: model@ehs.technologic.order.item.ibob|_columns@currency$label:1
+#: model@ehs.technologic.order.item.obob|_columns@currency$label:1
+#: model@ehs.disassembly.order.item.mob|_columns@currency$label:1
 msgid "Currency"
 msgstr "Valuta"
 
-#: ehs.workcenter-products:1
+#: model@ehs.workcenter|_columns@products$label:1
 msgid "Products"
 msgstr "Produkter"
 
-#: ehs.workcenter.products-workcenter_id:1 ehs.route.items-workcenter:1
+#: model@ehs.workcenter.products|_description@:1
+msgid "General Model Workcenter Products"
+msgstr "Generelle Modellen Workcenter Produkter"
+
+#: model@ehs.workcenter.products|_columns@workcenter_id$label:1
+#: model@ehs.route.items|_columns@workcenter$label:1
 msgid "Workcenter"
 msgstr "Workcenter"
 
-#: ehs.workcenter.products-product:1
-#: ehs.workcenter.product.prices-product_id:1
-#: ehs.production.order.items-product:1
-#: ehs.production.order.item.bom-product:1
-#: ehs.technologic.order.item.ibob-product:1
-#: ehs.technologic.order.item.obob-product:1
-#: ehs.disassembly.order.items-product:1
-#: ehs.disassembly.order.item.mob-product:1
+#: model@ehs.workcenter.products|_columns@product$label:1
+#: model@ehs.workcenter.product.prices|_columns@product_id$label:1
+#: model@ehs.production.order.items|_columns@product$label:1
+#: model@ehs.production.order.item.bom|_columns@product$label:1
+#: model@ehs.technologic.order.item.ibob|_columns@product$label:1
+#: model@ehs.technologic.order.item.obob|_columns@product$label:1
+#: model@ehs.disassembly.order.items|_columns@product$label:1
+#: model@ehs.disassembly.order.item.mob|_columns@product$label:1
 msgid "Product"
 msgstr "Produkt"
 
-#: ehs.workcenter.products-prices:1
+#: model@ehs.workcenter.products|_columns@prices$label:1
 msgid "Prices"
 msgstr "Priser"
 
-#: ehs.workcenter.product.prices-from_date:1
+#: model@ehs.workcenter.product.prices|_description@:1
+msgid "General Model Workcenter Product Prices"
+msgstr "Generelle Modellen Workcenter Produktet Priser"
+
+#: model@ehs.workcenter.product.prices|_columns@from_date$label:1
 msgid "From"
 msgstr "Fra"
 
-#: ehs.workcenter.product.prices-to_date:1
+#: model@ehs.workcenter.product.prices|_columns@to_date$label:1
 msgid "To"
 msgstr "For å"
 
-#: ehs.workcenter.product.prices-price:1
+#: model@ehs.workcenter.product.prices|_columns@price$label:1
 msgid "Price Peer Hours"
 msgstr "Pris Peer Timer"
 
-#: ehs.workcenter.product.prices-unit:1 ehs.production.order.item.bom-unit:1
-#: ehs.technologic.order.item.ibob-unit:1
-#: ehs.technologic.order.item.obob-unit:1
-#: ehs.disassembly.order.item.mob-unit:1
+#: model@ehs.workcenter.product.prices|_columns@unit$label:1
+#: model@ehs.production.order.item.bom|_columns@unit$label:1
+#: model@ehs.technologic.order.item.ibob|_columns@unit$label:1
+#: model@ehs.technologic.order.item.obob|_columns@unit$label:1
+#: model@ehs.disassembly.order.item.mob|_columns@unit$label:1
 msgid "Unit"
 msgstr "Enhet"
 
-#: ehs.workcenter.product.prices-uop:1
+#: model@ehs.workcenter.product.prices|_columns@uop$label:1
 msgid "Unit Of Price Peer Hours"
 msgstr "Enhet Pris Peer Timer"
 
-#: ehs.route-category_id:1 ehs.production.order-category_id:1
-#: ehs.technologic.order-category_id:1 ehs.disassembly.order-category_id:1
+#: model@ehs.route|_description@:1
+msgid "General Model Route"
+msgstr "Generelle Modellen Rute"
+
+#: model@ehs.route|_columns@category_id$label:1
+#: model@ehs.production.order|_columns@category_id$label:1
+#: model@ehs.technologic.order|_columns@category_id$label:1
+#: model@ehs.disassembly.order|_columns@category_id$label:1
 msgid "Category"
 msgstr "Kategori"
 
-#: ehs.route-items:1 ehs.production.order-items:1
-#: ehs.technologic.order-items:1 ehs.disassembly.order-items:1
+#: model@ehs.route|_columns@items$label:1
+#: model@ehs.production.order|_columns@items$label:1
+#: model@ehs.technologic.order|_columns@items$label:1
+#: model@ehs.disassembly.order|_columns@items$label:1
 msgid "Items"
 msgstr "Elementer"
 
-#: ehs.route.items-route_id:1 ehs.production.order-route:1
-#: ehs.technologic.order-route:1 ehs.disassembly.order-route:1
+#: model@ehs.route.items|_description@:1
+msgid "General Model Route Items"
+msgstr "Generelle Modellen Ruten Elementer"
+
+#: model@ehs.route.items|_columns@route_id$label:1
+#: model@ehs.production.order|_columns@route$label:1
+#: model@ehs.technologic.order|_columns@route$label:1
+#: model@ehs.disassembly.order|_columns@route$label:1
 msgid "Route"
 msgstr "Rute"
 
-#: ehs.production.order-company:1 ehs.technologic.order-company:1
-#: ehs.disassembly.order-company:1
+#: model@ehs.production.order|_description@:1
+msgid "General Model Production Order"
+msgstr "Generell Modell For Produksjon"
+
+#: model@ehs.production.order|_columns@company$label:1
+#: model@ehs.technologic.order|_columns@company$label:1
+#: model@ehs.disassembly.order|_columns@company$label:1
 msgid "Company"
 msgstr "Selskapet"
 
-#: ehs.production.order-origin:1 ehs.technologic.order-origin:1
-#: ehs.disassembly.order-origin:1
+#: model@ehs.production.order|_columns@origin$label:1
+#: model@ehs.technologic.order|_columns@origin$label:1
+#: model@ehs.disassembly.order|_columns@origin$label:1
 msgid "Origin"
 msgstr "Opprinnelse"
 
-#: ehs.production.order-dopo:1
+#: model@ehs.production.order|_columns@dopo$label:1
 msgid "Date Of Production Order"
 msgstr "Dato For Produksjonsordre"
 
-#: ehs.production.order-from_date:1
+#: model@ehs.production.order|_columns@from_date$label:1
 msgid "Start Date Of Production Order"
 msgstr "Start Dato For Produksjonsordre"
 
-#: ehs.production.order-to_date:1
+#: model@ehs.production.order|_columns@to_date$label:1
 msgid "End Date Of Production Order"
 msgstr "Sluttdato For Produksjonsordre"
 
-#: ehs.production.order-state:1 ehs.technologic.order-state:1
-#: ehs.disassembly.order-state:1
+#: model@ehs.production.order|_columns@state$label:1
+#: model@ehs.technologic.order|_columns@state$label:1
+#: model@ehs.disassembly.order|_columns@state$label:1
 msgid "State"
 msgstr "Staten"
 
-#: ehs.production.order.items-order_id:1
+#: model@ehs.production.order|_columns@state$selections#draft:1
+#: model@ehs.technologic.order|_columns@state$selections#draft:1
+#: model@ehs.disassembly.order|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Utkast"
+
+#: model@ehs.production.order|_columns@state$selections#approved:1
+#: model@ehs.technologic.order|_columns@state$selections#approved:1
+#: model@ehs.disassembly.order|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Godkjent"
+
+#: model@ehs.production.order|_columns@state$selections#inprocess:1
+#: model@ehs.technologic.order|_columns@state$selections#inprocess:1
+#: model@ehs.disassembly.order|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "I Prosessen"
+
+#: model@ehs.production.order|_columns@state$selections#closed:1
+#: model@ehs.technologic.order|_columns@state$selections#closed:1
+#: model@ehs.disassembly.order|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Stengt"
+
+#: model@ehs.production.order|_columns@state$selections#canceled:1
+#: model@ehs.technologic.order|_columns@state$selections#canceled:1
+#: model@ehs.disassembly.order|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Avlyst"
+
+#: model@ehs.production.order.items|_description@:1
+msgid "General Model Production Order Items"
+msgstr "Generell Modell For Produksjon Elementer"
+
+#: model@ehs.production.order.items|_columns@order_id$label:1
 msgid "Production Order"
 msgstr "Produksjonsordre"
 
-#: ehs.production.order.items-recepture_id:1
-#: ehs.technologic.order.items-recepture_id:1
-#: ehs.disassembly.order.items-recepture_id:1
+#: model@ehs.production.order.items|_columns@recepture_id$label:1
+#: model@ehs.technologic.order.items|_columns@recepture_id$label:1
+#: model@ehs.disassembly.order.items|_columns@recepture_id$label:1
 msgid "Recepture"
 msgstr "Recepture"
 
-#: ehs.production.order.items-boms:1
+#: model@ehs.production.order.items|_columns@boms$label:1
 msgid "BoM"
 msgstr "BoM"
 
-#: ehs.production.order.items-schedules:1
-#: ehs.production.order.delivery.schedules-schedule:1
-#: ehs.technologic.order.items-schedules:1
-#: ehs.technologic.order.delivery.schedules-schedule:1
-#: ehs.disassembly.order.items-schedules:1
-#: ehs.disassembly.order.delivery.schedules-schedule:1
+#: model@ehs.production.order.items|_columns@schedules$label:1
+#: model@ehs.production.order.delivery.schedules|_columns@schedule$label:1
+#: model@ehs.technologic.order.items|_columns@schedules$label:1
+#: model@ehs.technologic.order.delivery.schedules|_columns@schedule$label:1
+#: model@ehs.disassembly.order.items|_columns@schedules$label:1
+#: model@ehs.disassembly.order.delivery.schedules|_columns@schedule$label:1
 msgid "Schedule"
 msgstr "Planen"
 
-#: ehs.production.order.item.bom-item_id:1
-#: ehs.production.order.delivery.schedules-item_id:1
-#: ehs.technologic.order.item.ibob-item_id:1
-#: ehs.technologic.order.item.obob-item_id:1
-#: ehs.technologic.order.delivery.schedules-item_id:1
-#: ehs.disassembly.order.item.mob-item_id:1
-#: ehs.disassembly.order.delivery.schedules-item_id:1
+#: model@ehs.production.order.item.bom|_description@:1
+msgid "General Model Production Order Items BoM"
+msgstr "Generell Modell For Produksjon Elementer BoM"
+
+#: model@ehs.production.order.item.bom|_columns@item_id$label:1
+#: model@ehs.production.order.delivery.schedules|_columns@item_id$label:1
+#: model@ehs.technologic.order.item.ibob|_columns@item_id$label:1
+#: model@ehs.technologic.order.item.obob|_columns@item_id$label:1
+#: model@ehs.technologic.order.delivery.schedules|_columns@item_id$label:1
+#: model@ehs.disassembly.order.item.mob|_columns@item_id$label:1
+#: model@ehs.disassembly.order.delivery.schedules|_columns@item_id$label:1
 msgid "Item"
 msgstr "Elementet"
 
-#: ehs.production.order.item.bom-quantity:1
-#: ehs.technologic.order.item.ibob-quantity:1
-#: ehs.technologic.order.item.obob-quantity:1
-#: ehs.disassembly.order.item.mob-quantity:1
+#: model@ehs.production.order.item.bom|_columns@quantity$label:1
+#: model@ehs.technologic.order.item.ibob|_columns@quantity$label:1
+#: model@ehs.technologic.order.item.obob|_columns@quantity$label:1
+#: model@ehs.disassembly.order.item.mob|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Antall"
 
-#: ehs.production.order.item.bom-uom:1 ehs.technologic.order.item.ibob-uom:1
-#: ehs.technologic.order.item.obob-uom:1 ehs.disassembly.order.item.mob-uom:1
+#: model@ehs.production.order.item.bom|_columns@uom$label:1
+#: model@ehs.technologic.order.item.ibob|_columns@uom$label:1
+#: model@ehs.technologic.order.item.obob|_columns@uom$label:1
+#: model@ehs.disassembly.order.item.mob|_columns@uom$label:1
 msgid "UoM"
 msgstr "UoM"
 
-#: ehs.production.order.item.bom-price:1
-#: ehs.technologic.order.item.ibob-price:1
-#: ehs.technologic.order.item.obob-price:1
-#: ehs.disassembly.order.item.mob-price:1
+#: model@ehs.production.order.item.bom|_columns@price$label:1
+#: model@ehs.technologic.order.item.ibob|_columns@price$label:1
+#: model@ehs.technologic.order.item.obob|_columns@price$label:1
+#: model@ehs.disassembly.order.item.mob|_columns@price$label:1
 msgid "Price"
 msgstr "Pris"
 
-#: ehs.production.order.item.bom-uop:1 ehs.technologic.order.item.ibob-uop:1
-#: ehs.technologic.order.item.obob-uop:1 ehs.disassembly.order.item.mob-uop:1
+#: model@ehs.production.order.item.bom|_columns@uop$label:1
+#: model@ehs.technologic.order.item.ibob|_columns@uop$label:1
+#: model@ehs.technologic.order.item.obob|_columns@uop$label:1
+#: model@ehs.disassembly.order.item.mob|_columns@uop$label:1
 msgid "Unit Of Price"
 msgstr "Enhet For Pris"
 
-#: ehs.production.order.item.bom-amount:1
-#: ehs.technologic.order.item.ibob-amount:1
-#: ehs.technologic.order.item.obob-amount:1
-#: ehs.disassembly.order.item.mob-amount:1
+#: model@ehs.production.order.item.bom|_columns@amount$label:1
+#: model@ehs.technologic.order.item.ibob|_columns@amount$label:1
+#: model@ehs.technologic.order.item.obob|_columns@amount$label:1
+#: model@ehs.disassembly.order.item.mob|_columns@amount$label:1
 msgid "Amount"
 msgstr "Beløp"
 
-#: ehs.production.order.delivery.schedules-part:1
-#: ehs.technologic.order.delivery.schedules-part:1
-#: ehs.disassembly.order.delivery.schedules-part:1
+#: model@ehs.production.order.delivery.schedules|_description@:1
+msgid "General Model Production Order Delivery Schedule"
+msgstr "Generelle Modellen Produksjon For Leveransen"
+
+#: model@ehs.production.order.delivery.schedules|_columns@part$label:1
+#: model@ehs.technologic.order.delivery.schedules|_columns@part$label:1
+#: model@ehs.disassembly.order.delivery.schedules|_columns@part$label:1
 msgid "Part"
 msgstr "Del"
 
-#: ehs.technologic.order-doto:1
+#: model@ehs.technologic.order|_description@:1
+msgid "General Model Technologic Order"
+msgstr "Generelle Modellen For Teknisk"
+
+#: model@ehs.technologic.order|_columns@doto$label:1
 msgid "Date Of Technologic Order"
 msgstr "Dato Teknisk Ordre"
 
-#: ehs.technologic.order-from_date:1
+#: model@ehs.technologic.order|_columns@from_date$label:1
 msgid "Start Date Of Technologic Order"
 msgstr "Start Dato Teknisk Ordre"
 
-#: ehs.technologic.order-to_date:1
+#: model@ehs.technologic.order|_columns@to_date$label:1
 msgid "End Date Of Technologic Order"
 msgstr "Sluttdato Teknisk Ordre"
 
-#: ehs.technologic.order.items-order_id:1
-#: ehs.disassembly.order.items-order_id:1
+#: model@ehs.technologic.order.items|_description@:1
+msgid "General Model Technologic Order Items"
+msgstr "Generelle Modellen For Teknisk Elementer"
+
+#: model@ehs.technologic.order.items|_columns@order_id$label:1
+#: model@ehs.disassembly.order.items|_columns@order_id$label:1
 msgid "Technologic Order"
 msgstr "Teknisk Ordre"
 
-#: ehs.technologic.order.items-ibobs:1
+#: model@ehs.technologic.order.items|_columns@ibobs$label:1
 msgid "InBoB"
 msgstr "InBoB"
 
-#: ehs.technologic.order.items-obobs:1
+#: model@ehs.technologic.order.items|_columns@obobs$label:1
 msgid "OutBoB"
 msgstr "OutBoB"
 
-#: ehs.disassembly.order-dodo:1
+#: model@ehs.technologic.order.item.ibob|_description@:1
+msgid "General Model Technologic Order Items InBoB"
+msgstr "Generelle Modellen For Teknisk Elementer InBoB"
+
+#: model@ehs.technologic.order.item.obob|_description@:1
+msgid "General Model Technologic Order Items OutBoB"
+msgstr "Generelle Modellen For Teknisk Elementer OutBoB"
+
+#: model@ehs.technologic.order.delivery.schedules|_description@:1
+msgid "General Model Technologic Order Delivery Schedule"
+msgstr "Generelle Modellen Teknisk For Leveransen"
+
+#: model@ehs.disassembly.order|_description@:1
+msgid "General Model Disassembly Order"
+msgstr "Generelle Modellen For Demontering"
+
+#: model@ehs.disassembly.order|_columns@dodo$label:1
 msgid "Date Of Disassembly Order"
 msgstr "Dato For Demontering"
 
-#: ehs.disassembly.order-from_date:1
+#: model@ehs.disassembly.order|_columns@from_date$label:1
 msgid "Start Date Of Disassembly Order"
 msgstr "Start Dato For Demontering"
 
-#: ehs.disassembly.order-to_date:1
+#: model@ehs.disassembly.order|_columns@to_date$label:1
 msgid "End Date Of Disassembly Order"
 msgstr "Sluttdato For Demontering For"
 
-#: ehs.disassembly.order.items-mobs:1
+#: model@ehs.disassembly.order.items|_description@:1
+msgid "General Model Disassembly Order Items"
+msgstr "Generelle Modellen For Demontering Elementer"
+
+#: model@ehs.disassembly.order.items|_columns@mobs$label:1
 msgid "MoB"
 msgstr "MoB"
+
+#: model@ehs.disassembly.order.item.mob|_description@:1
+msgid "General Model Disassembly Order Items MoB"
+msgstr "Generelle Modellen For Demontering Elementer MoB"
+
+#: model@ehs.disassembly.order.delivery.schedules|_description@:1
+msgid "General Model Disassembly Order Delivery Schedule"
+msgstr "Generelle Modellen Demontering For Leveransen"

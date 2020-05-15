@@ -3,219 +3,345 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:24+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:24+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:54+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: hcm.employee.categories-name:1
+#: model@hcm.employee.categories|_description@:1
+msgid "Employee Category"
+msgstr "Работникот Категорија"
+
+#: model@hcm.employee.categories|_columns@name$label:1
 msgid "Employee Tag"
 msgstr "Работникот Ознака"
 
-#: hcm.employee.categories-color:1 hcm.department-color:1
-#: hcm.employees-color:1
+#: model@hcm.employee.categories|_columns@color$label:1
+#: model@hcm.department|_columns@color$label:1
+#: model@hcm.employees|_columns@color$label:1
 msgid "Color Index"
 msgstr "Боја На Индекс"
 
-#: hcm.employee.categories-employee_ids:1 hcm.job-employee_ids:1
+#: model@hcm.employee.categories|_columns@employee_ids$label:1
+#: model@hcm.job|_columns@employee_ids$label:1
 msgid "Employees"
 msgstr "Вработени"
 
-#: hcm.department-name:1
+#: model@hcm.department|_description@:1
+msgid "HR Department"
+msgstr "Одделот за човечки ресурси"
+
+#: model@hcm.department|_columns@name$label:1
 msgid "Department Name"
 msgstr "Одделот За Името"
 
-#: hcm.department-complete_name:1
+#: model@hcm.department|_columns@complete_name$label:1
 msgid "Complete Name"
 msgstr "Целосно Име"
 
-#: hcm.department-active:1 hcm.employees-active:1
+#: model@hcm.department|_columns@active$label:1
+#: model@hcm.employees|_columns@active$label:1
 msgid "Active"
 msgstr "Активни"
 
-#: hcm.department-company_id:1 hcm.job-company_id:1
+#: model@hcm.department|_columns@company_id$label:1
+#: model@hcm.job|_columns@company_id$label:1
 msgid "Company"
 msgstr "Компанија"
 
-#: hcm.department-parent_id:1
+#: model@hcm.department|_columns@parent_id$label:1
 msgid "Parent Department"
 msgstr "Родител Оддел"
 
-#: hcm.department-childs_id:1
+#: model@hcm.department|_columns@childs_id$label:1
 msgid "Child Departments"
 msgstr "Детето Одделенија"
 
-#: hcm.department-manager_id:1 hcm.employees-parent_id:1
+#: model@hcm.department|_columns@manager_id$label:1
+#: model@hcm.employees|_columns@parent_id$label:1
 msgid "Manager"
 msgstr "Менаџерот"
 
-#: hcm.department-member_ids:1
+#: model@hcm.department|_columns@member_ids$label:1
 msgid "Members"
 msgstr "Членови"
 
-#: hcm.department-jobs_ids:1
+#: model@hcm.department|_columns@jobs_ids$label:1
 msgid "Jobs"
 msgstr "Работни места"
 
-#: hcm.department-note:1
+#: model@hcm.department|_columns@note$label:1
 msgid "Note"
 msgstr "Забелешка"
 
-#: hcm.job-name:1 hcm.employees-job_id:1
+#: model@hcm.job|_description@:1 model@hcm.job|_columns@name$label:1
+#: model@hcm.employees|_columns@job_id$label:1
 msgid "Job Position"
 msgstr "Работно Место"
 
-#: hcm.job-expected_employees:1
+#: model@hcm.job|_columns@expected_employees$label:1
 msgid "Total Forecasted Employees"
 msgstr "Вкупно Прогнозира Вработени"
 
-#: hcm.job-no_of_employee:1
+#: model@hcm.job|_columns@expected_employees$help:1
+msgid ""
+"Expected number of employees for this job position after new recruitment."
+msgstr ""
+"Очекуваниот број на вработени за ова работно место по нови вработувања."
+
+#: model@hcm.job|_columns@no_of_employee$label:1
 msgid "Current Number of Employees"
 msgstr "Тековниот Број на Вработени"
 
-#: hcm.job-no_of_recruitment:1
+#: model@hcm.job|_columns@no_of_employee$help:1
+msgid "Number of employees currently occupying this job position."
+msgstr "Бројот на вработени моментално окупаторската ова работно место."
+
+#: model@hcm.job|_columns@no_of_recruitment$label:1
 msgid "Expected New Employees"
 msgstr "Се Очекува Новите Вработени"
 
-#: hcm.job-no_of_hired_employee:1
+#: model@hcm.job|_columns@no_of_recruitment$help:1
+msgid "Number of new employees you expect to recruit."
+msgstr "Бројот на нови вработени ќе се очекува да регрутира."
+
+#: model@hcm.job|_columns@no_of_hired_employee$label:1
 msgid "Hired Employees"
 msgstr "Вработени Вработените"
 
-#: hcm.job-description:1
+#: model@hcm.job|_columns@no_of_hired_employee$help:1
+msgid ""
+"Number of hired employees for this job position during recruitment phase."
+msgstr ""
+"Број на ангажирани работници за ова работно место при регрутирањето фаза."
+
+#: model@hcm.job|_columns@description$label:1
 msgid "Job Description"
 msgstr "Опис На Работата"
 
-#: hcm.job-requirements:1
+#: model@hcm.job|_columns@requirements$label:1
 msgid "Requirements"
 msgstr "Услови"
 
-#: hcm.job-department_id:1 hcm.employees-department_id:1
+#: model@hcm.job|_columns@department_id$label:1
+#: model@hcm.employees|_columns@department_id$label:1
 msgid "Department"
 msgstr "Оддел"
 
-#: hcm.job-state:1
+#: model@hcm.job|_columns@state$label:1
 msgid "Status"
 msgstr "Статус"
 
-#: hcm.employees-firstname:1
+#: model@hcm.job|_columns@state$selections#recruit:1
+msgid "Recruitment in Progress"
+msgstr "Регрутацијата е во Тек"
+
+#: model@hcm.job|_columns@state$selections#open:1
+msgid "Not Recruiting"
+msgstr "Не Регрутирање"
+
+#: model@hcm.job|_columns@state$help:1
+msgid ""
+"Set whether the recruitment process is open or closed for this job position."
+msgstr ""
+"Одберете дали процесот на регрутирање е отворена или затворена за ова "
+"работно место."
+
+#: model@hcm.employees|_description@:1
+msgid "General Employees Humam Capital Managament"
+msgstr "Општи Вработените Humam Капитал Managament"
+
+#: model@hcm.employees|_columns@firstname$label:1
 msgid "First Name"
 msgstr "Име"
 
-#: hcm.employees-lastname:1
+#: model@hcm.employees|_columns@lastname$label:1
 msgid "Last Name"
 msgstr "Презиме"
 
-#: hcm.employees-middlename:1
+#: model@hcm.employees|_columns@middlename$label:1
 msgid "Middle Name"
 msgstr "Име"
 
-#: hcm.employees-fullname:1
+#: model@hcm.employees|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Полно Име"
 
-#: hcm.employees-user_id:1
+#: model@hcm.employees|_columns@user_id$label:1
 msgid "User"
 msgstr "Корисникот"
 
-#: hcm.employees-address_home_id:1
+#: model@hcm.employees|_columns@address_home_id$label:1
 msgid "Private Address"
 msgstr "Приватна Адреса"
 
-#: hcm.employees-is_address_home_a_company:1
+#: model@hcm.employees|_columns@address_home_id$help:1
+msgid ""
+"Enter here the private address of the employee, not the one linked to your "
+"company."
+msgstr ""
+"Внесете тука приватниот адреса на работникот, а не една поврзани со вашата "
+"компанија."
+
+#: model@hcm.employees|_columns@is_address_home_a_company$label:1
 msgid "The employee adress has a company linked"
 msgstr "Работникот адреса има една компанија поврзани"
 
-#: hcm.employees-country_id:1
+#: model@hcm.employees|_columns@country_id$label:1
 msgid "Nationality (Country)"
 msgstr "Националност (Земја)"
 
-#: hcm.employees-gender:1
+#: model@hcm.employees|_columns@gender$label:1
 msgid "Gender"
 msgstr "Пол"
 
-#: hcm.employees-marital:1
+#: model@hcm.employees|_columns@gender$selections#male:1
+msgid "Male"
+msgstr "Машки"
+
+#: model@hcm.employees|_columns@gender$selections#female:1
+msgid "Female"
+msgstr "Женски"
+
+#: model@hcm.employees|_columns@gender$selections#other:1
+msgid "Other"
+msgstr "Други"
+
+#: model@hcm.employees|_columns@marital$label:1
 msgid "Marital Status"
 msgstr "Брачен Статус"
 
-#: hcm.employees-birthday:1
+#: model@hcm.employees|_columns@marital$selections#single:1
+msgid "Single"
+msgstr "Еден"
+
+#: model@hcm.employees|_columns@marital$selections#married:1
+msgid "Married"
+msgstr "Во брак"
+
+#: model@hcm.employees|_columns@marital$selections#widower:1
+msgid "Widower"
+msgstr "Widower"
+
+#: model@hcm.employees|_columns@marital$selections#divorced:1
+msgid "Divorced"
+msgstr "Разведен"
+
+#: model@hcm.employees|_columns@birthday$label:1
 msgid "Date of Birth"
 msgstr "Датум на Раѓање"
 
-#: hcm.employees-ssnid:1
+#: model@hcm.employees|_columns@ssnid$label:1
 msgid "SSN No"
 msgstr "SSN Не"
 
-#: hcm.employees-sinid:1
+#: model@hcm.employees|_columns@ssnid$help:1
+msgid "Social Security Number"
+msgstr "Social Security Number"
+
+#: model@hcm.employees|_columns@sinid$label:1
 msgid "SIN No"
 msgstr "ГРЕВОТ Не"
 
-#: hcm.employees-identification_id:1
+#: model@hcm.employees|_columns@sinid$help:1
+msgid "Social Insurance Number"
+msgstr "За Социјално Осигурување Број"
+
+#: model@hcm.employees|_columns@identification_id$label:1
 msgid "Identification No"
 msgstr "Без Идентификација"
 
-#: hcm.employees-passport_id:1
+#: model@hcm.employees|_columns@passport_id$label:1
 msgid "Passport No"
 msgstr "Пасош Нема"
 
-#: hcm.employees-permit_no:1
+#: model@hcm.employees|_columns@permit_no$label:1
 msgid "Work Permit No"
 msgstr "Дозвола За Работа Без"
 
-#: hcm.employees-visa_no:1
+#: model@hcm.employees|_columns@visa_no$label:1
 msgid "Visa No"
 msgstr "Виза Не"
 
-#: hcm.employees-visa_expire:1
+#: model@hcm.employees|_columns@visa_expire$label:1
 msgid "Visa Expire Date"
 msgstr "Виза Истече Датум"
 
-#: hcm.employees-image:1
+#: model@hcm.employees|_columns@image$label:1
 msgid "Photo"
 msgstr "Фото"
 
-#: hcm.employees-image_medium:1
+#: model@hcm.employees|_columns@image$help:1
+msgid ""
+"This field holds the image used as photo for the employee, limited to "
+"1024x1024px."
+msgstr ""
+"Ова поле ја држи сликата се користи како фотографија за работникот, "
+"ограничен на 1024x1024px."
+
+#: model@hcm.employees|_columns@image_medium$label:1
 msgid "Medium-sized photo"
 msgstr "Средни фото"
 
-#: hcm.employees-image_small:1
+#: model@hcm.employees|_columns@image_medium$help:1
+msgid ""
+"Medium-sized photo of the employee. It is automatically resized as a "
+"128x128px image, with aspect ratio preserved. Use this field in form views "
+"or some kanban views."
+msgstr ""
+"Средни фото на работникот. Тоа е автоматски променета како 128x128px слика "
+"со размер зачувани. Користете го ова поле во облик погледи или некои kanban "
+"ставови."
+
+#: model@hcm.employees|_columns@image_small$label:1
 msgid "Small-sized photo"
 msgstr "Мала големина на фотографија"
 
-#: hcm.employees-address_id:1
+#: model@hcm.employees|_columns@image_small$help:1
+msgid ""
+"Small-sized photo of the employee. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr ""
+"Мала големина на фотографија на работникот. Тоа е автоматски променета како "
+"64x64px слика со размер зачувани. Користете го ова поле за никаде мала слика"
+" е потребно."
+
+#: model@hcm.employees|_columns@address_id$label:1
 msgid "Work Address"
 msgstr "Работата Адреса"
 
-#: hcm.employees-work_phone:1
+#: model@hcm.employees|_columns@work_phone$label:1
 msgid "Work Phone"
 msgstr "Работа Телефонот"
 
-#: hcm.employees-mobile_phone:1
+#: model@hcm.employees|_columns@mobile_phone$label:1
 msgid "Work Mobile"
 msgstr "Работа Мобилен"
 
-#: hcm.employees-work_email:1
+#: model@hcm.employees|_columns@work_email$label:1
 msgid "Work Email"
 msgstr "Работата Е-Пошта"
 
-#: hcm.employees-work_location:1
+#: model@hcm.employees|_columns@work_location$label:1
 msgid "Work Location"
 msgstr "Работа Локација"
 
-#: hcm.employees-child_ids:1
+#: model@hcm.employees|_columns@child_ids$label:1
 msgid "Subordinates"
 msgstr "Потчинети"
 
-#: hcm.employees-coach_id:1
+#: model@hcm.employees|_columns@coach_id$label:1
 msgid "Coach"
 msgstr "Тренер"
 
-#: hcm.employees-category_ids:1
+#: model@hcm.employees|_columns@category_ids$label:1
 msgid "Categories"
 msgstr "Категории"
 
-#: hcm.employees-notes:1
+#: model@hcm.employees|_columns@notes$label:1
 msgid "Notes"
 msgstr "Белешки"

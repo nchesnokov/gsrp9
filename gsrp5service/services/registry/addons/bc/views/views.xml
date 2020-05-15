@@ -174,7 +174,7 @@
           <column name="model">bc.langs</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="name"/>
+              <field name="code"/>
               <field name="description"/>
             </form>
           </column>
@@ -184,7 +184,7 @@
           <column name="model">bc.langs</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="name"/>
+              <field name="code"/>
               <field name="description"/>
             </list>
           </column>
@@ -194,7 +194,7 @@
           <column name="model">bc.langs</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="name"/>
+              <field name="code"/>
               <field name="description"/>
             </m2mlist>
           </column>
@@ -204,7 +204,7 @@
           <column name="model">bc.langs</column>
           <column name="arch" type="Xml">
             <search>
-              <field name="name"/>
+              <field name="code"/>
               <field name="description"/>
             </search>
           </column>
@@ -214,7 +214,7 @@
           <column name="model">bc.langs</column>
           <column name="arch" type="Xml">
             <find>
-              <field name="name"/>
+              <field name="code"/>
               <field name="description"/>
             </find>
           </column>
@@ -914,43 +914,68 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.bc.translations.form">
-          <column name="name">view.bc.translations.form</column>
-          <column name="model">bc.translations</column>
+        <record id="view.bc.record.translations.form">
+          <column name="name">view.bc.record.translations.form</column>
+          <column name="model">bc.record.translations</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="module_id"/>
-              <field name="lang_id"/>
-              <field name="model_id"/>
-              <field name="record_id"/>
-              <field name="column_id"/>
+              <field name="lang"/>
+              <field name="model"/>
+              <field name="record"/>
               <field name="tr"/>
             </form>
           </column>
         </record>
-        <record id="view.bc.translations.list">
-          <column name="name">view.bc.translations.list</column>
-          <column name="model">bc.translations</column>
+        <record id="view.bc.record.translations.list">
+          <column name="name">view.bc.record.translations.list</column>
+          <column name="model">bc.record.translations</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="module_id"/>
-              <field name="lang_id"/>
-              <field name="model_id"/>
-              <field name="record_id"/>
-              <field name="column_id"/>
+              <field name="lang"/>
+              <field name="model"/>
+              <field name="record"/>
             </list>
           </column>
         </record>
-        <record id="view.bc.translations.m2mlist">
-          <column name="name">view.bc.translations.m2mlist</column>
-          <column name="model">bc.translations</column>
+        <record id="view.bc.record.translations.m2mlist">
+          <column name="name">view.bc.record.translations.m2mlist</column>
+          <column name="model">bc.record.translations</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="module_id"/>
-              <field name="lang_id"/>
-              <field name="model_id"/>
-              <field name="record_id"/>
-              <field name="column_id"/>
+              <field name="lang"/>
+              <field name="model"/>
+              <field name="record"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.model.translations.form">
+          <column name="name">view.bc.model.translations.form</column>
+          <column name="model">bc.model.translations</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="lang"/>
+              <field name="model"/>
+              <field name="tr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.model.translations.list">
+          <column name="name">view.bc.model.translations.list</column>
+          <column name="model">bc.model.translations</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="lang"/>
+              <field name="model"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.model.translations.m2mlist">
+          <column name="name">view.bc.model.translations.m2mlist</column>
+          <column name="model">bc.model.translations</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="lang"/>
+              <field name="model"/>
             </m2mlist>
           </column>
         </record>

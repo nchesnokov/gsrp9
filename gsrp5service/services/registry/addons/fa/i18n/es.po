@@ -3,542 +3,1158 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:23+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:23+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:53+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:53+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: fa.accounts.type-name:1
+#: model@fa.accounts.type|_description@:1
+msgid "Genaral Model Account Type"
+msgstr "Genaral Modelo Tipo De Cuenta"
+
+#: model@fa.accounts.type|_columns@name$label:1
 msgid "Account Type"
 msgstr "Tipo De Cuenta"
 
-#: fa.accounts.type-include_initial_balance:1
+#: model@fa.accounts.type|_columns@include_initial_balance$label:1
 msgid "Bring Accounts Balance Forward"
 msgstr "Llevar Las Cuentas De Balance Adelante"
 
-#: fa.accounts.type-type:1 fa.accounts-user_type_id:1
-#: fa.accounts.journal-type:1 fa.account.template-user_type_id:1
+#: model@fa.accounts.type|_columns@include_initial_balance$help:1
+msgid ""
+"Used in reports to know if we should consider journal items from the "
+"beginning of time instead of from the fiscal year only. Account types that "
+"should be reset to zero at each new fiscal year (like expenses, revenue..) "
+"should not have this option set."
+msgstr ""
+"Usada en los informes para saber si debemos considerar los elementos del "
+"diario desde el principio de los tiempos, en lugar de desde el año fiscal "
+"sólo. Los tipos de cuenta que se debe restablecer a cero en cada nuevo año "
+"fiscal (como gastos, ingresos..) no tienen esta opción."
+
+#: model@fa.accounts.type|_columns@type$label:1
+#: model@fa.accounts|_columns@user_type_id$label:1
+#: model@fa.accounts.journal|_columns@type$label:1
+#: model@fa.account.template|_columns@user_type_id$label:1
 msgid "Type"
 msgstr "Tipo de"
 
-#: fa.accounts.type-note:1 fa.account.template-note:1
-#: fa.fiscal.position.template-note:1
+#: model@fa.accounts.type|_columns@type$selections#other:1
+msgid "Regular"
+msgstr "Regular"
+
+#: model@fa.accounts.type|_columns@type$selections#receivable:1
+msgid "Receivable"
+msgstr "Por cobrar"
+
+#: model@fa.accounts.type|_columns@type$selections#payable:1
+msgid "Payable"
+msgstr "Por pagar"
+
+#: model@fa.accounts.type|_columns@type$selections#liquidity:1
+msgid "Liquidity"
+msgstr "Liquidez"
+
+#: model@fa.accounts.type|_columns@type$help:1
+msgid ""
+"The 'Internal Type' is used for features available on different types of "
+"accounts: liquidity type is for cash or bank accounts, payable/receivable is"
+" for vendor/customer accounts."
+msgstr ""
+"La 'Interna' se utiliza para las funciones disponibles en diferentes tipos "
+"de cuentas: de liquidez, tipo de dinero en efectivo o cuentas bancarias, "
+"pagar/por cobrar es para proveedores/cuentas de los clientes."
+
+#: model@fa.accounts.type|_columns@note$label:1
+#: model@fa.account.template|_columns@note$label:1
+#: model@fa.fiscal.position.template|_columns@note$label:1
 msgid "Note"
 msgstr "Nota"
 
-#: fa.accounts.tag-name:1 fa.accounts-name:1 fa.accounts.tax.group-name:1
-#: fa.accounts.payment.method-name:1
+#: model@fa.accounts.tag|_description@:1
+msgid "General Model Account Tag"
+msgstr "Modelo General De La Cuenta De Etiqueta"
+
+#: model@fa.accounts.tag|_columns@name$label:1
+#: model@fa.accounts|_columns@name$label:1
+#: model@fa.accounts.tax.group|_columns@name$label:1
+#: model@fa.accounts.payment.method|_columns@name$label:1
 msgid "Name"
 msgstr "Nombre"
 
-#: fa.accounts.tag-applicability:1
+#: model@fa.accounts.tag|_columns@applicability$label:1
 msgid "Applicability"
 msgstr "Aplicabilidad"
 
-#: fa.accounts.tag-color:1
+#: model@fa.accounts.tag|_columns@applicability$selections#accounts:1
+msgid "Accounts"
+msgstr "Cuentas"
+
+#: model@fa.accounts.tag|_columns@applicability$selections#taxes:1
+msgid "Taxes"
+msgstr "Impuestos"
+
+#: model@fa.accounts.tag|_columns@color$label:1
 msgid "Color Index"
 msgstr "Índice De Color"
 
-#: fa.accounts.tag-inactive:1 fa.accounts.journal-inactive:1
-#: fa.accounts.tax-inactive:1
+#: model@fa.accounts.tag|_columns@inactive$label:1
+#: model@fa.accounts.journal|_columns@inactive$label:1
+#: model@fa.accounts.tax|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Inactivo"
 
-#: fa.accounts-currency_id:1 fa.account.template-currency_id:1
+#: model@fa.accounts.tag|_columns@inactive$help:1
+msgid "Set active to false to hide the Account Tag without removing it."
+msgstr ""
+"Conjunto de activos a false para ocultar la Cuenta de Etiqueta sin tener que"
+" quitarla."
+
+#: model@fa.accounts|_description@:1
+msgid "Genaral Model Account"
+msgstr "General Modelo De La Cuenta"
+
+#: model@fa.accounts|_columns@currency_id$label:1
+#: model@fa.account.template|_columns@currency_id$label:1
 msgid "Account Currency"
 msgstr "Moneda De La Cuenta"
 
-#: fa.accounts-code:1 fa.account.template-code:1
-#: fa.accounts.payment.method-code:1
+#: model@fa.accounts|_columns@currency_id$help:1
+msgid "Forces all moves for this account to have this account currency."
+msgstr ""
+"Las fuerzas de todos los movimientos de esta cuenta para tener esta moneda "
+"de la cuenta."
+
+#: model@fa.accounts|_columns@code$label:1
+#: model@fa.account.template|_columns@code$label:1
+#: model@fa.accounts.payment.method|_columns@code$label:1
 msgid "Code"
 msgstr "Código"
 
-#: fa.accounts-deprecated:1
+#: model@fa.accounts|_columns@deprecated$label:1
 msgid "Deprecated"
 msgstr "Obsoleto"
 
-#: fa.accounts-internal_type:1
+#: model@fa.accounts|_columns@user_type_id$help:1
+msgid ""
+"Account Type is used for information purpose, to generate country-specific "
+"legal reports, and set the rules to close a fiscal year and generate opening"
+" entries."
+msgstr ""
+"Tipo de cuenta se utiliza para fines de información, para generar "
+"específicas de cada país de informes jurídicos, y establecer las reglas para"
+" cerrar un año fiscal y generar la apertura de inscripciones."
+
+#: model@fa.accounts|_columns@internal_type$label:1
 msgid "Internal Type"
 msgstr "Tipo Interno"
 
-#: fa.accounts-last_time_entries_checked:1
+#: model@fa.accounts|_columns@internal_type$selections#user:1
+msgid "User"
+msgstr "Usuario"
+
+#: model@fa.accounts|_columns@last_time_entries_checked$label:1
 msgid "Latest Invoices & Payments Matching Date"
 msgstr "Últimas Facturas Y Pagos De Coincidencia De La Fecha"
 
-#: fa.accounts-reconcile:1
+#: model@fa.accounts|_columns@last_time_entries_checked$help:1
+msgid ""
+"Last time the invoices & payments matching was performed on this account. It"
+" is set either if there's not at least an unreconciled debit and an "
+"unreconciled credit Or if you click the \"Done\" button."
+msgstr ""
+"Pasado el tiempo de las facturas y pagos de contrapartida se realizó en esta"
+" cuenta. Se establece que si no hay al menos un sin conciliar de débito y no"
+" de crédito O si usted haga clic en el botón \"Hecho\"."
+
+#: model@fa.accounts|_columns@reconcile$label:1
 msgid "Allow Reconciliation"
 msgstr "Permitir La Reconciliación"
 
-#: fa.accounts-tax_ids:1 fa.account.template-tax_ids:1
+#: model@fa.accounts|_columns@reconcile$help:1
+msgid ""
+"Check this box if this account allows invoices & payments matching of "
+"journal items."
+msgstr ""
+"Marque esta casilla si esta cuenta permite a facturas y pagos de "
+"coincidencia de elementos del diario."
+
+#: model@fa.accounts|_columns@tax_ids$label:1
+#: model@fa.account.template|_columns@tax_ids$label:1
 msgid "Default Taxes"
 msgstr "Impuestos Por Defecto"
 
-#: fa.accounts-note:1
+#: model@fa.accounts|_columns@note$label:1
 msgid "Internal Notes"
 msgstr "Notas Internas"
 
-#: fa.accounts-company_id:1 fa.accounts.journal-company_id:1
-#: fa.accounts.tax-company_id:1 fa.accounts.reconcile.model-company_id:1
-#: fa.chart.template-company_id:1 fa.tax.template-company_id:1
+#: model@fa.accounts|_columns@company_id$label:1
+#: model@fa.accounts.journal|_columns@company_id$label:1
+#: model@fa.accounts.tax|_columns@company_id$label:1
+#: model@fa.accounts.reconcile.model|_columns@company_id$label:1
+#: model@fa.chart.template|_columns@company_id$label:1
+#: model@fa.tax.template|_columns@company_id$label:1
 msgid "Company"
 msgstr "Empresa"
 
-#: fa.accounts-tag_ids:1 fa.accounts.tax-tag_ids:1
+#: model@fa.accounts|_columns@tag_ids$label:1
+#: model@fa.accounts.tax|_columns@tag_ids$label:1
 msgid "Tags"
 msgstr "Etiquetas"
 
-#: fa.accounts-group_id:1 fa.account.template-group_id:1
+#: model@fa.accounts|_columns@group_id$label:1
+#: model@fa.account.template|_columns@group_id$label:1
 msgid "Group"
 msgstr "Grupo"
 
-#: fa.accounts-opening_debit:1
+#: model@fa.accounts|_columns@opening_debit$label:1
 msgid "Opening debit"
 msgstr "La apertura de débito"
 
-#: fa.accounts-opening_credit:1
+#: model@fa.accounts|_columns@opening_debit$help:1
+msgid "Opening debit value for this account."
+msgstr "La apertura de valor de débito para esta cuenta."
+
+#: model@fa.accounts|_columns@opening_credit$label:1
 msgid "Opening credit"
 msgstr "La apertura de crédito"
 
-#: fa.accounts.group-name:1 fa.account.template-name:1
-#: fa.chart.template-name:1
+#: model@fa.accounts|_columns@opening_credit$help:1
+msgid "Opening credit value for this account."
+msgstr "La apertura de crédito, el valor de esta cuenta."
+
+#: model@fa.accounts.group|_description@:1
+msgid "Genaral Model Accounts Group"
+msgstr "Genaral Modelo De Grupo De Cuentas"
+
+#: model@fa.accounts.group|_columns@name$label:1
+#: model@fa.account.template|_columns@name$label:1
+#: model@fa.chart.template|_columns@name$label:1
 msgid "name"
 msgstr "nombre"
 
-#: fa.accounts.group-code_prefix:1
+#: model@fa.accounts.group|_columns@code_prefix$label:1
 msgid "Code Prefix"
 msgstr "Prefijo Del Código De"
 
-#: fa.accounts.group-parent_id:1
+#: model@fa.accounts.group|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Los padres"
 
-#: fa.accounts.group-childs_id:1
+#: model@fa.accounts.group|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Niño"
 
-#: fa.accounts.journal-name:1
+#: model@fa.accounts.journal|_description@:1
+msgid "General Model Accounts Journal"
+msgstr "Modelo General De Cuentas De Diario"
+
+#: model@fa.accounts.journal|_columns@name$label:1
 msgid "Journal Name"
 msgstr "Nombre De La Revista"
 
-#: fa.accounts.journal-code:1
+#: model@fa.accounts.journal|_columns@code$label:1
 msgid "Short Code"
 msgstr "Código Corto"
 
-#: fa.accounts.journal-type_control_ids:1
-msgid "Account Types Allowed"
-msgstr "Tipos De Cuenta De Lo Permitido"
+#: model@fa.accounts.journal|_columns@code$help:1
+msgid "The journal entries of this journal will be named using this prefix."
+msgstr ""
+"El diario de las entradas de este diario se denomina con este prefijo."
 
-#: fa.accounts.journal-account_control_ids:1
-msgid "Accounts Allowed"
-msgstr "Cuentas Permitido"
+#: model@fa.accounts.journal|_columns@inactive$help:1
+msgid "Set active to false to hide the Journal without removing it."
+msgstr ""
+"Conjunto de activos a false para ocultar la Revista sin necesidad de "
+"extraerlo."
 
-#: fa.accounts.journal-default_credit_account_id:1
-msgid "Default Credit Account"
-msgstr "Por Defecto La Cuenta De Crédito"
+#: model@fa.accounts.journal|_columns@type$selections#sale:1
+msgid "Sale"
+msgstr "Venta"
 
-#: fa.accounts.journal-default_debit_account_id:1
-msgid "Default Debit Account"
-msgstr "Defecto De Débito De La Cuenta"
+#: model@fa.accounts.journal|_columns@type$selections#purchase:1
+msgid "Purchase"
+msgstr "Compra"
 
-#: fa.accounts.journal-update_posted:1
-msgid "Allow Cancelling Entries"
-msgstr "Permitir La Cancelación De Las Entradas"
+#: model@fa.accounts.journal|_columns@type$selections#cash:1
+msgid "Cash"
+msgstr "Efectivo"
 
-#: fa.accounts.journal-group_invoice_lines:1
-msgid "Group Invoice Lines"
-msgstr "Grupo De Líneas De La Factura"
-
-#: fa.accounts.journal-sequence:1 fa.accounts.tax.group-sequence:1
-#: fa.accounts.reconcile.model-sequence:1 fa.tax.template-sequence:1
-#: fa.fiscal.position.template-sequence:1
-#: fa.reconcile.model.template-sequence:1
-msgid "Sequence"
-msgstr "Secuencia"
-
-#: fa.accounts.journal-sequence_number_next:1
-msgid "Next Number"
-msgstr "El Próximo Número"
-
-#: fa.accounts.journal-refund_sequence_number_next:1
-msgid "Credit Notes: Next Number"
-msgstr "Notas De Crédito: Número Siguiente"
-
-#: fa.accounts.journal-currency_id:1 fa.chart.template-currency_id:1
-msgid "Currency"
-msgstr "Moneda"
-
-#: fa.accounts.journal-refund_sequence:1
-msgid "Dedicated Credit Note Sequence"
-msgstr "Dedicado Nota De Crédito De La Secuencia"
-
-#: fa.accounts.journal-inbound_payment_method_ids:1
-msgid "Debit Methods"
-msgstr "De Débito Métodos"
-
-#: fa.accounts.journal-outbound_payment_method_ids:1
-msgid "Payment Methods"
-msgstr "Métodos De Pago"
-
-#: fa.accounts.journal-at_least_one_inbound:1
-msgid "At least one inbound"
-msgstr "Al menos uno de los entrantes"
-
-#: fa.accounts.journal-at_least_one_outbound:1
-msgid "At least one outbound"
-msgstr "Al menos uno de salida"
-
-#: fa.accounts.journal-profit_account_id:1
-msgid "Profit Account"
-msgstr "Cuenta De Ganancias"
-
-#: fa.accounts.journal-loss_account_id:1
-msgid "Loss Account"
-msgstr "Cuenta De Pérdidas"
-
-#: fa.accounts.journal-belongs_to_company:1
-msgid "Belong to the user's current company"
-msgstr "Pertenecen al usuario actual de la empresa"
-
-#: fa.accounts.journal-bank_statements_source:1
-msgid "Bank Feeds"
-msgstr "Banco De Feeds"
-
-#: fa.accounts.journal-bank_acc_number:1
-msgid "Bank ACC number"
-msgstr "Banco ACC número"
-
-#: fa.accounts.journal-bank_id:1
+#: model@fa.accounts.journal|_columns@type$selections#bank:1
+#: model@fa.accounts.journal|_columns@bank_id$label:1
 msgid "Bank"
 msgstr "Banco"
 
-#: fa.accounts.tax-name:1 fa.tax.template-name:1
+#: model@fa.accounts.journal|_columns@type$selections#general:1
+msgid "Miscellaneous"
+msgstr "Miscelánea"
+
+#: model@fa.accounts.journal|_columns@type$help:1
+msgid ""
+"Select 'Sale' for customer invoices journals.\n"
+"Select 'Purchase' for vendor bills journals.\n"
+"Select 'Cash' or 'Bank' for journals that are used in customer or vendor payments.\n"
+"Select 'General' for miscellaneous operations journals."
+msgstr ""
+"Seleccione 'Venta' de facturas de clientes diarios.\n"
+"Seleccione 'Compra' para el proveedor de facturas de revistas.\n"
+"Seleccione 'Efectivo' o 'Banco' de las revistas que se utilizan en el cliente o proveedor de pagos.\n"
+"Seleccione \"General\" para diversas operaciones revistas."
+
+#: model@fa.accounts.journal|_columns@type_control_ids$label:1
+msgid "Account Types Allowed"
+msgstr "Tipos De Cuenta De Lo Permitido"
+
+#: model@fa.accounts.journal|_columns@account_control_ids$label:1
+msgid "Accounts Allowed"
+msgstr "Cuentas Permitido"
+
+#: model@fa.accounts.journal|_columns@default_credit_account_id$label:1
+msgid "Default Credit Account"
+msgstr "Por Defecto La Cuenta De Crédito"
+
+#: model@fa.accounts.journal|_columns@default_credit_account_id$help:1
+msgid "It acts as a default account for credit amount"
+msgstr "Actúa como una cuenta por defecto para la cantidad de crédito"
+
+#: model@fa.accounts.journal|_columns@default_debit_account_id$label:1
+msgid "Default Debit Account"
+msgstr "Defecto De Débito De La Cuenta"
+
+#: model@fa.accounts.journal|_columns@default_debit_account_id$help:1
+msgid "It acts as a default account for debit amount"
+msgstr "Actúa como una cuenta por defecto para la cantidad de débito"
+
+#: model@fa.accounts.journal|_columns@update_posted$label:1
+msgid "Allow Cancelling Entries"
+msgstr "Permitir La Cancelación De Las Entradas"
+
+#: model@fa.accounts.journal|_columns@update_posted$help:1
+msgid ""
+"Check this box if you want to allow the cancellation the entries related to "
+"this journal or of the invoice related to this journal"
+msgstr ""
+"Marque esta casilla si desea permitir la cancelación de las entradas "
+"relacionadas con esta revista o de la factura relativa a este diario"
+
+#: model@fa.accounts.journal|_columns@group_invoice_lines$label:1
+msgid "Group Invoice Lines"
+msgstr "Grupo De Líneas De La Factura"
+
+#: model@fa.accounts.journal|_columns@group_invoice_lines$help:1
+msgid ""
+"If this box is checked, the system will try to group the accounting lines "
+"when generating them from invoices."
+msgstr ""
+"Si esta casilla está marcada, el sistema intentará grupo de la contabilidad "
+"de las líneas de generación de facturas."
+
+#: model@fa.accounts.journal|_columns@sequence$label:1
+#: model@fa.accounts.tax.group|_columns@sequence$label:1
+#: model@fa.accounts.reconcile.model|_columns@sequence$label:1
+#: model@fa.tax.template|_columns@sequence$label:1
+#: model@fa.fiscal.position.template|_columns@sequence$label:1
+#: model@fa.reconcile.model.template|_columns@sequence$label:1
+msgid "Sequence"
+msgstr "Secuencia"
+
+#: model@fa.accounts.journal|_columns@sequence$help:1
+msgid "Used to order Journals in the dashboard view"
+msgstr "Se utiliza para el fin de las Revistas en la vista de panel"
+
+#: model@fa.accounts.journal|_columns@sequence_number_next$label:1
+msgid "Next Number"
+msgstr "El Próximo Número"
+
+#: model@fa.accounts.journal|_columns@sequence_number_next$help:1
+msgid "The next sequence number will be used for the next invoice."
+msgstr ""
+"El siguiente número de secuencia se utiliza para la siguiente factura."
+
+#: model@fa.accounts.journal|_columns@refund_sequence_number_next$label:1
+msgid "Credit Notes: Next Number"
+msgstr "Notas De Crédito: Número Siguiente"
+
+#: model@fa.accounts.journal|_columns@refund_sequence_number_next$help:1
+msgid "The next sequence number will be used for the next credit note."
+msgstr ""
+"El siguiente número de secuencia se utiliza para la siguiente nota de "
+"crédito."
+
+#: model@fa.accounts.journal|_columns@currency_id$label:1
+#: model@fa.chart.template|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Moneda"
+
+#: model@fa.accounts.journal|_columns@currency_id$help:1
+msgid "The currency used to enter statement"
+msgstr "La moneda que se utiliza para entrar en la declaración de"
+
+#: model@fa.accounts.journal|_columns@company_id$help:1
+msgid "Company related to this journal"
+msgstr "Empresa relacionada a este diario"
+
+#: model@fa.accounts.journal|_columns@refund_sequence$label:1
+msgid "Dedicated Credit Note Sequence"
+msgstr "Dedicado Nota De Crédito De La Secuencia"
+
+#: model@fa.accounts.journal|_columns@refund_sequence$help:1
+msgid ""
+"Check this box if you don't want to share the same sequence for invoices and"
+" credit notes made from this journal"
+msgstr ""
+"Marque esta casilla si no desea compartir el mismo proceso para las facturas"
+" y notas de crédito de este diario"
+
+#: model@fa.accounts.journal|_columns@inbound_payment_method_ids$label:1
+msgid "Debit Methods"
+msgstr "De Débito Métodos"
+
+#: model@fa.accounts.journal|_columns@outbound_payment_method_ids$label:1
+msgid "Payment Methods"
+msgstr "Métodos De Pago"
+
+#: model@fa.accounts.journal|_columns@at_least_one_inbound$label:1
+msgid "At least one inbound"
+msgstr "Al menos uno de los entrantes"
+
+#: model@fa.accounts.journal|_columns@at_least_one_outbound$label:1
+msgid "At least one outbound"
+msgstr "Al menos uno de salida"
+
+#: model@fa.accounts.journal|_columns@profit_account_id$label:1
+msgid "Profit Account"
+msgstr "Cuenta De Ganancias"
+
+#: model@fa.accounts.journal|_columns@profit_account_id$help:1
+msgid ""
+"Used to register a profit when the ending balance of a cash register differs"
+" from what the system computes"
+msgstr ""
+"Se utiliza para registrar una ganancia cuando el saldo final de caja "
+"registradora difiere de lo que calcula el sistema"
+
+#: model@fa.accounts.journal|_columns@loss_account_id$label:1
+msgid "Loss Account"
+msgstr "Cuenta De Pérdidas"
+
+#: model@fa.accounts.journal|_columns@loss_account_id$help:1
+msgid ""
+"Used to register a loss when the ending balance of a cash register differs "
+"from what the system computes"
+msgstr ""
+"Utiliza para registrar una pérdida cuando el saldo final de caja "
+"registradora difiere de lo que calcula el sistema"
+
+#: model@fa.accounts.journal|_columns@belongs_to_company$label:1
+msgid "Belong to the user's current company"
+msgstr "Pertenecen al usuario actual de la empresa"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$label:1
+msgid "Bank Feeds"
+msgstr "Banco De Feeds"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$selections#undefined:1
+msgid "Undefined Yet"
+msgstr "Sin Definir Aún"
+
+#: model@fa.accounts.journal|_columns@bank_statements_source$selections#manual:1
+msgid "Record Manually"
+msgstr "Registro De Forma Manual"
+
+#: model@fa.accounts.journal|_columns@bank_acc_number$label:1
+msgid "Bank ACC number"
+msgstr "Banco ACC número"
+
+#: model@fa.accounts.tax.group|_description@:1
+msgid "General Model Account Tax Group"
+msgstr "Modelo General De La Cuenta De Grupo De Impuestos"
+
+#: model@fa.accounts.tax|_description@:1
+msgid "General Model Accounts Tax"
+msgstr "Modelo General De Cuentas De Impuestos"
+
+#: model@fa.accounts.tax|_columns@name$label:1
+#: model@fa.tax.template|_columns@name$label:1
 msgid "Tax Name"
 msgstr "Impuesto De Nombre"
 
-#: fa.accounts.tax-type_tax_use:1 fa.tax.template-type_tax_use:1
+#: model@fa.accounts.tax|_columns@type_tax_use$label:1
+#: model@fa.tax.template|_columns@type_tax_use$label:1
 msgid "Tax Scope"
 msgstr "Ámbito De Aplicación Del Impuesto"
 
-#: fa.accounts.tax-tax_adjustment:1
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#sale:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#sale:1
+msgid "Sales"
+msgstr "Ventas"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#purchase:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#purchase:1
+msgid "Purchases"
+msgstr "Compras"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$selections#none:1
+#: model@fa.tax.template|_columns@type_tax_use$selections#none:1
+msgid "None"
+msgstr "Ninguno"
+
+#: model@fa.accounts.tax|_columns@type_tax_use$help:1
+#: model@fa.tax.template|_columns@type_tax_use$help:1
+msgid ""
+"Determines where the tax is selectable. Note : 'None' means a tax can't be "
+"used by itself, however it can still be used in a group."
+msgstr ""
+"Determina donde el impuesto es seleccionable. Nota : 'None' significa un "
+"impuesto no puede ser utilizado por sí mismo, sin embargo, todavía puede ser"
+" utilizado en un grupo."
+
+#: model@fa.accounts.tax|_columns@tax_adjustment$label:1
 msgid "Tax adjustment"
 msgstr "Ajuste de impuestos"
 
-#: fa.accounts.tax-amount_type:1 fa.tax.template-amount_type:1
+#: model@fa.accounts.tax|_columns@tax_adjustment$help:1
+msgid ""
+"Set this field to true if this tax can be used in the tax adjustment wizard,"
+" used to manually fill some data in the tax declaration"
+msgstr ""
+"Establezca este campo true si este impuesto puede ser utilizado en el ajuste"
+" fiscal asistente, se utiliza para rellenar manualmente algunos datos en la "
+"declaración de impuestos"
+
+#: model@fa.accounts.tax|_columns@amount_type$label:1
+#: model@fa.tax.template|_columns@amount_type$label:1
 msgid "Tax Computation"
 msgstr "Cálculo De Impuestos"
 
-#: fa.accounts.tax-children_tax_ids:1 fa.tax.template-children_tax_ids:1
+#: model@fa.accounts.tax|_columns@amount_type$selections#group:1
+#: model@fa.tax.template|_columns@amount_type$selections#group:1
+msgid "Group of Taxes"
+msgstr "Grupo de Impuestos"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#fixed:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$selections#fixed:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$selections#fixed:1
+#: model@fa.tax.template|_columns@amount_type$selections#fixed:1
+#: model@fa.reconcile.model.template|_columns@amount_type$selections#fixed:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$selections#fixed:1
+msgid "Fixed"
+msgstr "Fijo"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#percent:1
+#: model@fa.tax.template|_columns@amount_type$selections#percent:1
+msgid "Percentage of Price"
+msgstr "Porcentaje de Precio"
+
+#: model@fa.accounts.tax|_columns@amount_type$selections#division:1
+#: model@fa.tax.template|_columns@amount_type$selections#division:1
+msgid "Percentage of Price Tax Included"
+msgstr "Porcentaje de Precio con Impuestos Incluidos"
+
+#: model@fa.accounts.tax|_columns@inactive$help:1
+#: model@fa.tax.template|_columns@active$help:1
+msgid "Set active to false to hide the tax without removing it."
+msgstr ""
+"Conjunto de activos a false para ocultar el impuesto sin la eliminación de "
+"la."
+
+#: model@fa.accounts.tax|_columns@children_tax_ids$label:1
+#: model@fa.tax.template|_columns@children_tax_ids$label:1
 msgid "Children Taxes"
 msgstr "Los Niños De Impuestos"
 
-#: fa.accounts.tax-sequence:1 fa.reconcile.model.template-amount:1
+#: model@fa.accounts.tax|_columns@sequence$label:1
+#: model@fa.reconcile.model.template|_columns@amount$label:1
 msgid "unknown"
 msgstr "desconocido"
 
-#: fa.accounts.tax-amount:1
+#: model@fa.accounts.tax|_columns@sequence$help:1
+#: model@fa.tax.template|_columns@sequence$help:1
+msgid ""
+"The sequence field is used to define order in which the tax lines are "
+"applied."
+msgstr ""
+"El campo de secuencia se utiliza para definir el orden en el que el impuesto"
+" líneas se aplican."
+
+#: model@fa.accounts.tax|_columns@amount$label:1
 msgid "Amont"
 msgstr "Amont"
 
-#: fa.accounts.tax-account_id:1 fa.tax.template-account_id:1
+#: model@fa.accounts.tax|_columns@account_id$label:1
+#: model@fa.tax.template|_columns@account_id$label:1
 msgid "Tax Account"
 msgstr "La Cuenta De Impuestos"
 
-#: fa.accounts.tax-refund_account_id:1
+#: model@fa.accounts.tax|_columns@account_id$help:1
+#: model@fa.tax.template|_columns@account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for invoices. Leave empty to "
+"use the expense account."
+msgstr ""
+"Cuenta que se establecerá en la factura de impuestos de líneas de facturas. "
+"Dejar en blanco para usar la cuenta de gastos."
+
+#: model@fa.accounts.tax|_columns@refund_account_id$label:1
 msgid "Tax Account on Credit Notes"
 msgstr "La Cuenta de impuestos sobre las Notas de Crédito"
 
-#: fa.accounts.tax-description:1
+#: model@fa.accounts.tax|_columns@refund_account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for credit notes. Leave empty "
+"to use the expense account."
+msgstr ""
+"Cuenta que se establecerá en la factura de impuestos de las líneas de notas "
+"de crédito. Dejar en blanco para usar la cuenta de gastos."
+
+#: model@fa.accounts.tax|_columns@description$label:1
 msgid "Label on Invoices"
 msgstr "Etiqueta en las Facturas"
 
-#: fa.accounts.tax-price_include:1 fa.tax.template-price_include:1
+#: model@fa.accounts.tax|_columns@price_include$label:1
+#: model@fa.tax.template|_columns@price_include$label:1
 msgid "Included in Price"
 msgstr "Incluido en el Precio"
 
-#: fa.accounts.tax-include_base_amount:1
+#: model@fa.accounts.tax|_columns@price_include$help:1
+#: model@fa.tax.template|_columns@price_include$help:1
+msgid ""
+"Check this if the price you use on the product and invoices includes this "
+"tax."
+msgstr ""
+"Marque esta opción si el precio que se utiliza en el producto y facturas "
+"incluye este impuesto."
+
+#: model@fa.accounts.tax|_columns@include_base_amount$label:1
 msgid "Affect Base of Subsequent Taxes"
 msgstr "Afectan a Base de Posteriores Impuestos"
 
-#: fa.accounts.tax-analytic:1
+#: model@fa.accounts.tax|_columns@include_base_amount$help:1
+#: model@fa.tax.template|_columns@include_base_amount$help:1
+msgid ""
+"If set, taxes which are computed after this one will be computed based on "
+"the price tax included."
+msgstr ""
+"Si se establece, los impuestos que se calculan después de este se calcula "
+"con base en el precio (impuestos incluidos)."
+
+#: model@fa.accounts.tax|_columns@analytic$label:1
 msgid "Include in Analytic Cost"
 msgstr "Incluir en la Analítica de Costes"
 
-#: fa.accounts.tax-tax_group_id:1 fa.tax.template-tax_group_id:1
+#: model@fa.accounts.tax|_columns@analytic$help:1
+#: model@fa.tax.template|_columns@analytic$help:1
+msgid ""
+"If set, the amount computed by this tax will be assigned to the same "
+"analytic account as the invoice line (if any)"
+msgstr ""
+"Si se establece, la cantidad calculada por este impuesto serán asignados a "
+"la misma analítica de la cuenta de la factura de la línea (si la hubiere)"
+
+#: model@fa.accounts.tax|_columns@tax_group_id$label:1
+#: model@fa.tax.template|_columns@tax_group_id$label:1
 msgid "Tax Group"
 msgstr "En El Grupo De Impuestos"
 
-#: fa.accounts.tax-hide_tax_exigibility:1
+#: model@fa.accounts.tax|_columns@hide_tax_exigibility$label:1
 msgid "Hide Use Cash Basis Option"
 msgstr "Ocultar El Uso De La Base De Efectivo Opción"
 
-#: fa.accounts.tax-tax_exigibility:1 fa.tax.template-tax_exigibility:1
+#: model@fa.accounts.tax|_columns@tax_exigibility$label:1
+#: model@fa.tax.template|_columns@tax_exigibility$label:1
 msgid "Tax Due"
 msgstr "El Impuesto"
 
-#: fa.accounts.tax-cash_basis_account:1 fa.tax.template-cash_basis_account:1
+#: model@fa.accounts.tax|_columns@tax_exigibility$selections#on_invoice:1
+#: model@fa.tax.template|_columns@tax_exigibility$selections#on_invoice:1
+msgid "Based on Invoice"
+msgstr "Basado en la Factura"
+
+#: model@fa.accounts.tax|_columns@tax_exigibility$selections#on_payment:1
+#: model@fa.tax.template|_columns@tax_exigibility$selections#on_payment:1
+msgid "Based on Payment"
+msgstr "Basado en el Pago"
+
+#: model@fa.accounts.tax|_columns@tax_exigibility$help:1
+#: model@fa.tax.template|_columns@tax_exigibility$help:1
+msgid ""
+"Based on Invoice: the tax is due as soon as the invoice is validated.\n"
+"Based on Payment: the tax is due as soon as the payment of the invoice is received."
+msgstr ""
+"Basado en Factura: el impuesto es debido tan pronto como la factura es validado.\n"
+"Base de Pago: el impuesto es debido tan pronto como el pago de la factura que se recibe."
+
+#: model@fa.accounts.tax|_columns@cash_basis_account$label:1
+#: model@fa.tax.template|_columns@cash_basis_account$label:1
 msgid "Tax Received Account"
 msgstr "Fiscal Recibido De La Cuenta"
 
-#: fa.accounts.reconcile.model-name:1 fa.reconcile.model.template-name:1
+#: model@fa.accounts.tax|_columns@cash_basis_account$help:1
+msgid ""
+"Account used as counterpart for the journal entry, for taxes eligible based "
+"on payments."
+msgstr ""
+"Cuenta utilizada como contraparte para la entrada de diario, para los "
+"impuestos elegibles basado en los pagos."
+
+#: model@fa.accounts.reconcile.model|_description@:1
+msgid "General Model Accounts Reconcile"
+msgstr "Modelo General De Cuentas De Conciliar"
+
+#: model@fa.accounts.reconcile.model|_columns@name$label:1
+#: model@fa.reconcile.model.template|_columns@name$label:1
 msgid "Button Label"
 msgstr "Etiqueta Del Botón"
 
-#: fa.accounts.reconcile.model-has_second_line:1
-#: fa.reconcile.model.template-has_second_line:1
+#: model@fa.accounts.reconcile.model|_columns@has_second_line$label:1
+#: model@fa.reconcile.model.template|_columns@has_second_line$label:1
 msgid "Add a second line"
 msgstr "Añadir una segunda línea"
 
-#: fa.accounts.reconcile.model-account_id:1
-#: fa.reconcile.model.template-account_id:1
+#: model@fa.accounts.reconcile.model|_columns@account_id$label:1
+#: model@fa.reconcile.model.template|_columns@account_id$label:1
 msgid "Account"
 msgstr "Cuenta"
 
-#: fa.accounts.reconcile.model-journal_id:1
+#: model@fa.accounts.reconcile.model|_columns@journal_id$label:1
 msgid "Journal"
 msgstr "Diario"
 
-#: fa.accounts.reconcile.model-label:1 fa.reconcile.model.template-label:1
+#: model@fa.accounts.reconcile.model|_columns@journal_id$help:1
+#: model@fa.accounts.reconcile.model|_columns@second_journal_id$help:1
+msgid "This field is ignored in a bank statement reconciliation."
+msgstr ""
+"Este campo es ignorado en un banco de la declaración de la reconciliación."
+
+#: model@fa.accounts.reconcile.model|_columns@label$label:1
+#: model@fa.reconcile.model.template|_columns@label$label:1
 msgid "Journal Item Label"
 msgstr "Diario De Etiqueta De Elemento"
 
-#: fa.accounts.reconcile.model-amount_type:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$label:1
 msgid "Amount Type"
 msgstr "Cantidad Tipo De"
 
-#: fa.accounts.reconcile.model-amount:1 fa.tax.template-amount:1
+#: model@fa.accounts.reconcile.model|_columns@amount_type$selections#percentage:1
+#: model@fa.reconcile.model.template|_columns@amount_type$selections#percentage:1
+msgid "Percentage of balance"
+msgstr "Porcentaje de saldo"
+
+#: model@fa.accounts.reconcile.model|_columns@amount$label:1
+#: model@fa.tax.template|_columns@amount$label:1
 msgid "Amount"
 msgstr "Cantidad"
 
-#: fa.accounts.reconcile.model-tax_id:1 fa.reconcile.model.template-tax_id:1
+#: model@fa.accounts.reconcile.model|_columns@amount$help:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount$help:1
+#: model@fa.reconcile.model.template|_columns@amount$help:1
+#: model@fa.reconcile.model.template|_columns@second_amount$help:1
+msgid ""
+"Fixed amount will count as a debit if it is negative, as a credit if it is "
+"positive."
+msgstr ""
+"Cantidad fija, se cuenta como una tarjeta de débito si es negativo, como un "
+"crédito si es positivo."
+
+#: model@fa.accounts.reconcile.model|_columns@tax_id$label:1
+#: model@fa.reconcile.model.template|_columns@tax_id$label:1
 msgid "Tax"
 msgstr "De impuestos"
 
-#: fa.accounts.reconcile.model-second_account_id:1
-#: fa.reconcile.model.template-second_account_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_account_id$label:1
+#: model@fa.reconcile.model.template|_columns@second_account_id$label:1
 msgid "Second Account"
 msgstr "Segunda Cuenta"
 
-#: fa.accounts.reconcile.model-second_journal_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_journal_id$label:1
 msgid "Second Journal"
 msgstr "Segundo Diario"
 
-#: fa.accounts.reconcile.model-second_label:1
-#: fa.reconcile.model.template-second_label:1
+#: model@fa.accounts.reconcile.model|_columns@second_label$label:1
+#: model@fa.reconcile.model.template|_columns@second_label$label:1
 msgid "Second Journal Item Label"
 msgstr "Segundo Diario De Etiqueta De Elemento"
 
-#: fa.accounts.reconcile.model-second_amount_type:1
-#: fa.reconcile.model.template-second_amount_type:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$label:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$label:1
 msgid "Second Amount type"
 msgstr "El segundo tipo de suma"
 
-#: fa.accounts.reconcile.model-second_amount:1
-#: fa.reconcile.model.template-second_amount:1
+#: model@fa.accounts.reconcile.model|_columns@second_amount_type$selections#percentage:1
+#: model@fa.reconcile.model.template|_columns@second_amount_type$selections#percentage:1
+msgid "Percentage of amount"
+msgstr "Porcentaje de cantidad"
+
+#: model@fa.accounts.reconcile.model|_columns@second_amount$label:1
+#: model@fa.reconcile.model.template|_columns@second_amount$label:1
 msgid "Second Amount"
 msgstr "Segunda Cantidad"
 
-#: fa.accounts.reconcile.model-second_tax_id:1
-#: fa.reconcile.model.template-second_tax_id:1
+#: model@fa.accounts.reconcile.model|_columns@second_tax_id$label:1
+#: model@fa.reconcile.model.template|_columns@second_tax_id$label:1
 msgid "Second Tax"
 msgstr "Segundo De Impuestos"
 
-#: fa.account.template-reconcile:1
+#: model@fa.account.template|_description@:1
+msgid "Genaral Model Templates for Accounts"
+msgstr "Genaral Modelo de Plantillas para las Cuentas"
+
+#: model@fa.account.template|_columns@currency_id$help:1
+msgid "Forces all moves for this account to have this secondary currency."
+msgstr ""
+"Las fuerzas de todos los movimientos de esta cuenta para tener esta divisa "
+"secundaria."
+
+#: model@fa.account.template|_columns@user_type_id$help:1
+msgid ""
+"These types are defined according to your country. The type contains more "
+"information about the account and its specificities."
+msgstr ""
+"Estos tipos se definen de acuerdo a su país. El tipo contiene más "
+"información acerca de la cuenta y sus especificidades."
+
+#: model@fa.account.template|_columns@reconcile$label:1
 msgid "Allow Invoices & payments Matching"
 msgstr "Permitir Facturas y pagos de contrapartida"
 
-#: fa.account.template-nocreate:1
+#: model@fa.account.template|_columns@reconcile$help:1
+msgid ""
+"Check this option if you want the user to reconcile entries in this account."
+msgstr ""
+"Marque esta opción si desea que el usuario conciliar las entradas en esta "
+"cuenta."
+
+#: model@fa.account.template|_columns@nocreate$label:1
 msgid "Optional Create"
 msgstr "Opcional Crear"
 
-#: fa.account.template-chart_template_id:1 fa.tax.template-chart_template_id:1
-#: fa.fiscal.position.template-chart_template_id:1
-#: fa.reconcile.model.template-chart_template_id:1
+#: model@fa.account.template|_columns@nocreate$help:1
+msgid ""
+"If checked, the new chart of accounts will not contain this by default."
+msgstr ""
+"Si está marcada, el nuevo cuadro de cuentas no contienen esta por defecto."
+
+#: model@fa.account.template|_columns@chart_template_id$label:1
+#: model@fa.tax.template|_columns@chart_template_id$label:1
+#: model@fa.fiscal.position.template|_columns@chart_template_id$label:1
+#: model@fa.reconcile.model.template|_columns@chart_template_id$label:1
 msgid "Chart Template"
 msgstr "Plantilla De Gráfico"
 
-#: fa.account.template-tag_ids:1 fa.tax.template-tag_ids:1
+#: model@fa.account.template|_columns@chart_template_id$help:1
+msgid ""
+"This optional field allow you to link an account template to a specific "
+"chart template that may differ from the one its root parent belongs to. This"
+" allow you to define chart templates that extend another and complete it "
+"with few new accounts (You don't need to define the whole structure that is "
+"common to both several times)."
+msgstr ""
+"Este campo opcional permiten vincular una cuenta de plantilla específica de "
+"una plantilla de gráfico que puede diferir de la de su principal raíz "
+"pertenece. Esto permite que usted para definir las plantillas de los "
+"gráficos que se extienden a otro y completar con unas cuentas nuevas (no es "
+"necesario para definir la totalidad de la estructura que es común a ambos "
+"varias veces)."
+
+#: model@fa.account.template|_columns@tag_ids$label:1
+#: model@fa.tax.template|_columns@tag_ids$label:1
 msgid "Account tag"
 msgstr "Cuenta etiqueta"
 
-#: fa.chart.template-parent_id:1
+#: model@fa.account.template|_columns@tag_ids$help:1
+#: model@fa.tax.template|_columns@tag_ids$help:1
+msgid "Optional tags you may want to assign for custom reporting"
+msgstr ""
+"Etiquetas opcionales es posible que desee asignar para la generación de "
+"informes personalizados"
+
+#: model@fa.chart.template|_description@:1
+msgid "Genaral Model Templates for Account Chart"
+msgstr "Genaral de Plantillas de modelos de plan de Cuenta"
+
+#: model@fa.chart.template|_columns@parent_id$label:1
 msgid "Parent Chart Template"
 msgstr "Los Padres Plantilla De Gráfico"
 
-#: fa.chart.template-code_digits:1
+#: model@fa.chart.template|_columns@code_digits$label:1
 msgid "# of Digits"
 msgstr " nº de Dígitos"
 
-#: fa.chart.template-visible:1
+#: model@fa.chart.template|_columns@code_digits$help:1
+msgid "No. of Digits to use for account code"
+msgstr "No. de Dígitos a utilizar para el código de cuenta"
+
+#: model@fa.chart.template|_columns@visible$label:1
 msgid "Can be Visible?"
 msgstr "Puede ser Visible?"
 
-#: fa.chart.template-use_anglo_saxon:1
+#: model@fa.chart.template|_columns@visible$help:1
+msgid ""
+"Set this to False if you don't want this template to be used actively in the"
+" wizard that generate Chart of Accounts from templates, this is useful when "
+"you want to generate accounts of this template only when loading its child "
+"template."
+msgstr ""
+"Establecer a False si no desea que esta plantilla para ser utilizado "
+"activamente en el asistente para generar el Gráfico de Cuentas a partir de "
+"plantillas, esto es útil cuando se desea generar cuentas de esta plantilla "
+"sólo cuando la carga de su hijo plantilla."
+
+#: model@fa.chart.template|_columns@use_anglo_saxon$label:1
 msgid "Use Anglo-Saxon accounting"
 msgstr "El uso Anglosajón de contabilidad"
 
-#: fa.chart.template-complete_tax_set:1
+#: model@fa.chart.template|_columns@complete_tax_set$label:1
 msgid "Complete Set of Taxes"
 msgstr "Conjunto completo de los Impuestos"
 
-#: fa.chart.template-account_ids:1
+#: model@fa.chart.template|_columns@complete_tax_set$help:1
+msgid ""
+"This boolean helps you to choose if you want to propose to the user to "
+"encode the sale and purchase rates or choose from list of taxes. This last "
+"choice assumes that the set of tax defined on this template is complete"
+msgstr ""
+"Este booleano ayuda a elegir si desea proponer al usuario para codificar la "
+"venta y los precios de compra o elegir de la lista de los impuestos. Esta "
+"última opción supone que el conjunto de los impuestos definidos en esta "
+"plantilla está completa"
+
+#: model@fa.chart.template|_columns@account_ids$label:1
 msgid "Associated Account Templates"
 msgstr "Asociada A La Cuenta De Plantillas"
 
-#: fa.chart.template-tax_template_ids:1
+#: model@fa.chart.template|_columns@tax_template_ids$label:1
 msgid "Tax Template List"
 msgstr "Impuesto Plantilla De Lista"
 
-#: fa.chart.template-bank_account_code_prefix:1
+#: model@fa.chart.template|_columns@tax_template_ids$help:1
+msgid "List of all the taxes that have to be installed by the wizard"
+msgstr ""
+"Lista de todos los impuestos que tienen que ser instalados por el asistente"
+
+#: model@fa.chart.template|_columns@bank_account_code_prefix$label:1
 msgid "Prefix of the bank accounts"
 msgstr "Prefijo de las cuentas bancarias"
 
-#: fa.chart.template-cash_account_code_prefix:1
+#: model@fa.chart.template|_columns@cash_account_code_prefix$label:1
 msgid "Prefix of the main cash accounts"
 msgstr "Prefijo de las principales cuentas de efectivo"
 
-#: fa.chart.template-transfer_account_id:1
+#: model@fa.chart.template|_columns@transfer_account_id$label:1
 msgid "Transfer Account"
 msgstr "Transferencia De La Cuenta"
 
-#: fa.chart.template-income_currency_exchange_account_id:1
+#: model@fa.chart.template|_columns@transfer_account_id$help:1
+msgid ""
+"Intermediary account used when moving money from a liquidity account to "
+"another"
+msgstr ""
+"Intermediario cuenta que se utiliza para mover dinero de una de liquidez de "
+"la cuenta a otra"
+
+#: model@fa.chart.template|_columns@income_currency_exchange_account_id$label:1
 msgid "Gain Exchange Rate Account"
 msgstr "Aumento De La Tasa De Cambio De La Cuenta"
 
-#: fa.chart.template-expense_currency_exchange_account_id:1
+#: model@fa.chart.template|_columns@expense_currency_exchange_account_id$label:1
 msgid "Loss Exchange Rate Account"
 msgstr "La Pérdida De La Tasa De Cambio De La Cuenta"
 
-#: fa.chart.template-property_account_receivable_id:1
+#: model@fa.chart.template|_columns@property_account_receivable_id$label:1
 msgid "Receivable Account"
 msgstr "Por Cobrar De La Cuenta"
 
-#: fa.chart.template-property_account_payable_id:1
+#: model@fa.chart.template|_columns@property_account_payable_id$label:1
 msgid "Payable Account"
 msgstr "Pagar La Cuenta"
 
-#: fa.chart.template-property_account_expense_categ_id:1
+#: model@fa.chart.template|_columns@property_account_expense_categ_id$label:1
 msgid "Category of Expense Account"
 msgstr "Categoría de la Cuenta de Gastos"
 
-#: fa.chart.template-property_account_income_categ_id:1
+#: model@fa.chart.template|_columns@property_account_income_categ_id$label:1
 msgid "Category of Income Account"
 msgstr "Categoría de la Cuenta de Ingresos"
 
-#: fa.chart.template-property_account_expense_id:1
+#: model@fa.chart.template|_columns@property_account_expense_id$label:1
 msgid "Expense Account on Product Template"
 msgstr "Cuenta de gastos de Plantilla de Producto"
 
-#: fa.chart.template-property_account_income_id:1
+#: model@fa.chart.template|_columns@property_account_income_id$label:1
 msgid "Income Account on Product Template"
 msgstr "Cuenta de ingresos en la Plantilla de Producto"
 
-#: fa.chart.template-property_stock_account_input_categ_id:1
+#: model@fa.chart.template|_columns@property_stock_account_input_categ_id$label:1
 msgid "Input Account for Stock Valuation"
 msgstr "De entrada Cuenta para la Valoración de las Existencias"
 
-#: fa.chart.template-property_stock_account_output_categ_id:1
+#: model@fa.chart.template|_columns@property_stock_account_output_categ_id$label:1
 msgid "Output Account for Stock Valuation"
 msgstr "Salida en Cuenta para la Valoración de las Existencias"
 
-#: fa.chart.template-property_stock_valuation_account_id:1
+#: model@fa.chart.template|_columns@property_stock_valuation_account_id$label:1
 msgid "Account Template for Stock Valuation"
 msgstr "Plantilla de cuenta para la Valoración de las Existencias"
 
-#: fa.tax.template-tax_adjustment:1
+#: model@fa.tax.template|_description@:1
+msgid "General Model Templates for Taxes"
+msgstr "Modelo General de Plantillas para los Impuestos"
+
+#: model@fa.tax.template|_columns@tax_adjustment$label:1
 msgid "Tax Adjustment"
 msgstr "Ajuste De Impuestos"
 
-#: fa.tax.template-active:1
+#: model@fa.tax.template|_columns@active$label:1
 msgid "Active"
 msgstr "Activo"
 
-#: fa.tax.template-refund_account_id:1
+#: model@fa.tax.template|_columns@refund_account_id$label:1
 msgid "Tax Account on Refunds"
 msgstr "La Cuenta de impuestos sobre Reembolsos"
 
-#: fa.tax.template-description:1
+#: model@fa.tax.template|_columns@refund_account_id$help:1
+msgid ""
+"Account that will be set on invoice tax lines for refunds. Leave empty to "
+"use the expense account."
+msgstr ""
+"Cuenta que se establecerá en la factura de impuestos de líneas para los "
+"reembolsos. Dejar en blanco para usar la cuenta de gastos."
+
+#: model@fa.tax.template|_columns@description$label:1
 msgid "Display on Invoices"
 msgstr "Mostrar en las Facturas"
 
-#: fa.tax.template-include_base_amount:1
+#: model@fa.tax.template|_columns@include_base_amount$label:1
 msgid "Affect Subsequent Taxes"
 msgstr "Afecta A Los Siguientes Impuestos"
 
-#: fa.tax.template-analytic:1
+#: model@fa.tax.template|_columns@analytic$label:1
 msgid "Analytic Cost"
 msgstr "Analítica De Costes"
 
-#: fa.fiscal.position.template-name:1
+#: model@fa.tax.template|_columns@cash_basis_account$help:1
+msgid ""
+"Account used as counterpart for the journal entry, for taxes exigible based "
+"on payments."
+msgstr ""
+"Cuenta utilizada como contraparte para la entrada de diario, para los "
+"impuestos exigibles basan en los pagos."
+
+#: model@fa.fiscal.position.template|_description@:1
+msgid "Genaral Model Template for Fiscal Position"
+msgstr "Genaral Modelo de Plantilla para el ejercicio Fiscal de Posición"
+
+#: model@fa.fiscal.position.template|_columns@name$label:1
 msgid "Fiscal Position Template"
 msgstr "La Posición Fiscal De La Plantilla"
 
-#: fa.fiscal.position.template-account_ids:1
+#: model@fa.fiscal.position.template|_columns@account_ids$label:1
 msgid "Account Mapping"
 msgstr "Asignación De Cuenta"
 
-#: fa.fiscal.position.template-tax_ids:1
+#: model@fa.fiscal.position.template|_columns@tax_ids$label:1
 msgid "Tax Mapping"
 msgstr "Impuesto Sobre La Asignación De"
 
-#: fa.fiscal.position.template-auto_apply:1
+#: model@fa.fiscal.position.template|_columns@auto_apply$label:1
 msgid "Detect Automatically"
 msgstr "Detectar Automáticamente"
 
-#: fa.fiscal.position.template-vat_required:1
+#: model@fa.fiscal.position.template|_columns@auto_apply$help:1
+msgid "Apply automatically this fiscal position."
+msgstr "Se aplican automáticamente a esta posición fiscal."
+
+#: model@fa.fiscal.position.template|_columns@vat_required$label:1
 msgid "VAT required"
 msgstr "El IVA se requiere"
 
-#: fa.fiscal.position.template-country_id:1
+#: model@fa.fiscal.position.template|_columns@vat_required$help:1
+msgid "Apply only if partner has a VAT number."
+msgstr "Sólo se aplican si la pareja tiene un número de IVA."
+
+#: model@fa.fiscal.position.template|_columns@country_id$label:1
 msgid "Country"
 msgstr "País"
 
-#: fa.fiscal.position.template-country_group_id:1
+#: model@fa.fiscal.position.template|_columns@country_id$help:1
+msgid "Apply only if delivery or invoicing country match."
+msgstr "Sólo se aplican si la entrega o facturación país partido."
+
+#: model@fa.fiscal.position.template|_columns@country_group_id$label:1
 msgid "Country Group"
 msgstr "Grupo De País"
 
-#: fa.fiscal.position.template-state_ids:1
+#: model@fa.fiscal.position.template|_columns@country_group_id$help:1
+msgid "Apply only if delivery or invocing country match the group."
+msgstr "Sólo se aplican si la entrega o invocing país coincide con el grupo."
+
+#: model@fa.fiscal.position.template|_columns@state_ids$label:1
 msgid "Federal States"
 msgstr "Los Estados Federales"
 
-#: fa.fiscal.position.template-zip_from:1
+#: model@fa.fiscal.position.template|_columns@zip_from$label:1
 msgid "Zip Range From"
 msgstr "Zip Gama De"
 
-#: fa.fiscal.position.template-zip_to:1
+#: model@fa.fiscal.position.template|_columns@zip_to$label:1
 msgid "Zip Range To"
 msgstr "Zip Rango De"
 
-#: fa.fiscal.position.tax.template-position_id:1
+#: model@fa.fiscal.position.tax.template|_description@:1
+msgid "Genaral Model Template Tax Fiscal Position"
+msgstr "General Modelo De La Plantilla De Fiscales Situación Fiscal"
+
+#: model@fa.fiscal.position.tax.template|_columns@position_id$label:1
 msgid "Fiscal Position"
 msgstr "La Posición Fiscal De"
 
-#: fa.fiscal.position.tax.template-tax_src_id:1
+#: model@fa.fiscal.position.tax.template|_columns@tax_src_id$label:1
 msgid "Tax Source"
 msgstr "Fuente De Renta"
 
-#: fa.fiscal.position.tax.template-tax_dest_id:1
+#: model@fa.fiscal.position.tax.template|_columns@tax_dest_id$label:1
 msgid "Replacement Tax"
 msgstr "La Sustitución De Impuestos"
 
-#: fa.fiscal.position.account.template-position_id:1
+#: model@fa.fiscal.position.account.template|_description@:1
+msgid "Genaral Model Template Account Fiscal Mapping"
+msgstr "Genaral Modelo De Plantilla De La Cuenta Fiscal De La Asignación De"
+
+#: model@fa.fiscal.position.account.template|_columns@position_id$label:1
 msgid "Fiscal Mapping"
 msgstr "Fiscal De Asignación De"
 
-#: fa.fiscal.position.account.template-account_src_id:1
+#: model@fa.fiscal.position.account.template|_columns@account_src_id$label:1
 msgid "Account Source"
 msgstr "Origen De La Cuenta"
 
-#: fa.fiscal.position.account.template-account_dest_id:1
+#: model@fa.fiscal.position.account.template|_columns@account_dest_id$label:1
 msgid "Account Destination"
 msgstr "La Cuenta De Destino"
 
-#: fa.reconcile.model.template-amount_type:1
+#: model@fa.reconcile.model.template|_description@:1
+msgid "Genaral Model Reconcile Model Template"
+msgstr "Genaral Modelo De Conciliar Modelo De Plantilla"
+
+#: model@fa.reconcile.model.template|_columns@amount_type$label:1
 msgid "Amount type"
 msgstr "Cantidad tipo de"
 
-#: fa.accounts.payment.method-payment_type:1
+#: model@fa.accounts.payment.method|_description@:1
+msgid "Genaral  ModelPayment Methods"
+msgstr "Genaral ModelPayment Métodos"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$label:1
 msgid "Payment Type"
 msgstr "Tipo De Pago"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$selections#inbound:1
+msgid "Inbound"
+msgstr "De entrada"
+
+#: model@fa.accounts.payment.method|_columns@payment_type$selections#outbound:1
+msgid "Outbound"
+msgstr "Salida"

@@ -1,5 +1,5 @@
 from gsrp5service.orm import fields
-from gsrp5service.orm.model import Model
+from gsrp5service.orm.model import Model,ModelInherit
 
 #Pricing
 class mm_pricing_group_levels(Model):
@@ -27,10 +27,10 @@ class mm_texts(Model):
 	'descr':fields.varchar(label = 'Description',size=128,translate=True),
 	}
 
-purchase_texts()
+mm_texts()
 
-class purchase_schema_texts(Model):
-	_name = 'purchase.schema.texts'
+class mm_schema_texts(Model):
+	_name = 'mm.schema.texts'
 	_description = 'General Model Schema Of Manufactured Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
@@ -39,24 +39,24 @@ class purchase_schema_texts(Model):
 	'usage': fields.selection(label='Usage',selections=[('h','Header'),('i','Item'),('b','Both')]),
 	'code': fields.varchar(label = 'Code',size=8,translate=True),
 	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	'texts': fields.one2many(label='Texts',obj='purchase.schema.text.items',rel='schema_id')
+	'texts': fields.one2many(label='Texts',obj='mm.schema.text.items',rel='schema_id')
 	}
 
-purchase_schema_texts()
+mm_schema_texts()
 
-class purchase_schema_text_items(Model):
-	_name = 'purchase.schema.text.items'
-	_description = 'General Model Items Of Schema manufactured Texts'
+class mm_schema_text_items(Model):
+	_name = 'mm.schema.text.items'
+	_description = 'General Model Items Of Schema Manufactured Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
-	'schema_id': fields.many2one(label = 'Schema',obj='purchase.schema.texts'),
+	'schema_id': fields.many2one(label = 'Schema',obj='mm.schema.texts'),
 	'seq': fields.integer(label='Sequence'),
-	'text_id': fields.many2one(label = 'Text',obj='purchase.texts'),
+	'text_id': fields.many2one(label = 'Text',obj='mm.texts'),
 	'descr': fields.referenced(ref='text_id.descr')
 	}
 
-purchase_schema_text_items()
+mm_schema_text_items()
 
 # Text end
 
@@ -69,7 +69,7 @@ class mm_production_order_types(Model):
 	'otype': fields.selection(label='Type',selections=[('ord','Order'),('ap','Advance Payment'),('ps','Pseduo'),('dm','Debit Request'),('cr','Credit Request'),('rо','Return')]),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'htschema': fields.many2one(label='Text Schema Of Head',obj='mm.schema.texts',domain=[('usage','in',('h','b'))]),
-	'itschema': fields.many2one(label='Text Schema Of Item',obj='m.schema.texts',domain=[('usage','in',('i','b'))]),
+	'itschema': fields.many2one(label='Text Schema Of Item',obj='mm.schema.texts',domain=[('usage','in',('i','b'))]),
 	'roles': fields.one2many(label='Roles',obj='mm.production.order.type.roles',rel='type_id'),
 	'note': fields.text(label = 'Note')
 	}
@@ -77,7 +77,7 @@ class mm_production_order_types(Model):
 mm_production_order_types()
 
 class mm_production_order_type_roles(Model):
-	_name = 'purchase.order.type.roles'
+	_name = 'mm.production.order.type.roles'
 	_description = 'General Model Role Production Order Types'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -138,7 +138,7 @@ class mm_disassembly_order_types(Model):
 mm_disassembly_order_types()
 
 class mm_disassembly_order_type_roles(Model):
-	_name = 'mm.technologic.order.type.roles'
+	_name = 'mm.disassembly.order.type.roles'
 	_description = 'General Model Role Technologic Order Types'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -160,7 +160,7 @@ class mm_workcenter_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mm.workcenter.category'),
 	'childs_id': fields.one2many(obj = 'mm.workcenter.category',rel = 'parent_id',label = 'Childs'),
-	'workcenters': fields.one2many(label='Orders',obj='mm.workcenter',rel='category_id',limit = 80,readonly=True),
+	'workcenters': fields.one2many(label='Orders',obj='mm.workcenters',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -187,7 +187,7 @@ class mm_production_order_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mm.production.order.category'),
 	'childs_id': fields.one2many(obj = 'mm.production.order.category',rel = 'parent_id',label = 'Childs'),
-	'orders': fields.one2many(label='Orders',obj='mm.production.order',rel='category_id',limit = 80,readonly=True),
+	'orders': fields.one2many(label='Orders',obj='mm.production.orders',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -200,7 +200,7 @@ class mm_technologic_order_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mm.technologic.order.category'),
 	'childs_id': fields.one2many(obj = 'mm.technologic.order.category',rel = 'parent_id',label = 'Childs'),
-	'orders': fields.one2many(label='Orders',obj='mm.technologic.order',rel='category_id',limit = 80,readonly=True),
+	'orders': fields.one2many(label='Orders',obj='mm.technologic.orders',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -213,14 +213,14 @@ class mm_disassembly_order_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mm.disassembly.order.category'),
 	'childs_id': fields.one2many(obj = 'mm.disassembly.order.category',rel = 'parent_id',label = 'Childs'),
-	'orders': fields.one2many(label='Orders',obj='mm.disassembly.order',rel='category_id',limit = 80,readonly=True),
+	'orders': fields.one2many(label='Orders',obj='mm.disassembly.orders',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
 
 mm_disassembly_order_category()
 # workcenter
-class mm_workcenter(Model):
-	_name = 'mm.workcenter'
+class mm_workcenters(Model):
+	_name = 'mm.workcenters'
 	_description = 'General Model Workcenter'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
@@ -231,13 +231,13 @@ class mm_workcenter(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-mm_workcenter()
+mm_workcenters()
 
 class mm_workcenter_products(Model):
 	_name = 'mm.workcenter.products'
 	_description = 'General Model Workcenter Products'
 	_columns = {
-	'workcenter_id': fields.many2one(label='Workcenter',obj='mm.workcenter'),
+	'workcenter_id': fields.many2one(label='Workcenter',obj='mm.workcenters'),
 	'product': fields.many2one(label='Product',obj='md.product'),
 	'prices': fields.one2many(label='Prices',obj='mm.workcenter.product.prices',rel='product_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
@@ -280,7 +280,7 @@ class mm_route_items(Model):
 	_description = 'General Model Route Items'
 	_columns = {
 	'route_id': fields.many2one(label='Route',obj='mm.route'),
-	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenter'),
+	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters'),
 	'parent_id': fields.many2one(label='Parent',obj='mm.route.items'),
 	'childs_id': fields.one2many(obj = 'mm.route.items',rel = 'parent_id',label = 'Childs'),
 	'note': fields.text(label = 'Note')

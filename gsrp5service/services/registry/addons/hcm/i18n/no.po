@@ -3,219 +3,344 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:24+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:24+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:54+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: hcm.employee.categories-name:1
+#: model@hcm.employee.categories|_description@:1
+msgid "Employee Category"
+msgstr "Ansatt Kategori"
+
+#: model@hcm.employee.categories|_columns@name$label:1
 msgid "Employee Tag"
 msgstr "Ansatt Tag"
 
-#: hcm.employee.categories-color:1 hcm.department-color:1
-#: hcm.employees-color:1
+#: model@hcm.employee.categories|_columns@color$label:1
+#: model@hcm.department|_columns@color$label:1
+#: model@hcm.employees|_columns@color$label:1
 msgid "Color Index"
 msgstr "Color Index"
 
-#: hcm.employee.categories-employee_ids:1 hcm.job-employee_ids:1
+#: model@hcm.employee.categories|_columns@employee_ids$label:1
+#: model@hcm.job|_columns@employee_ids$label:1
 msgid "Employees"
 msgstr "Ansatte"
 
-#: hcm.department-name:1
+#: model@hcm.department|_description@:1
+msgid "HR Department"
+msgstr "HR-Avdelingen"
+
+#: model@hcm.department|_columns@name$label:1
 msgid "Department Name"
 msgstr "Avdeling"
 
-#: hcm.department-complete_name:1
+#: model@hcm.department|_columns@complete_name$label:1
 msgid "Complete Name"
 msgstr "Fullstendig Navn"
 
-#: hcm.department-active:1 hcm.employees-active:1
+#: model@hcm.department|_columns@active$label:1
+#: model@hcm.employees|_columns@active$label:1
 msgid "Active"
 msgstr "Aktiv"
 
-#: hcm.department-company_id:1 hcm.job-company_id:1
+#: model@hcm.department|_columns@company_id$label:1
+#: model@hcm.job|_columns@company_id$label:1
 msgid "Company"
 msgstr "Selskapet"
 
-#: hcm.department-parent_id:1
+#: model@hcm.department|_columns@parent_id$label:1
 msgid "Parent Department"
 msgstr "Overordnede Avdeling"
 
-#: hcm.department-childs_id:1
+#: model@hcm.department|_columns@childs_id$label:1
 msgid "Child Departments"
 msgstr "Barn Avdelinger"
 
-#: hcm.department-manager_id:1 hcm.employees-parent_id:1
+#: model@hcm.department|_columns@manager_id$label:1
+#: model@hcm.employees|_columns@parent_id$label:1
 msgid "Manager"
 msgstr "Manager"
 
-#: hcm.department-member_ids:1
+#: model@hcm.department|_columns@member_ids$label:1
 msgid "Members"
 msgstr "Medlemmer"
 
-#: hcm.department-jobs_ids:1
+#: model@hcm.department|_columns@jobs_ids$label:1
 msgid "Jobs"
 msgstr "Jobber"
 
-#: hcm.department-note:1
+#: model@hcm.department|_columns@note$label:1
 msgid "Note"
 msgstr "Merk"
 
-#: hcm.job-name:1 hcm.employees-job_id:1
+#: model@hcm.job|_description@:1 model@hcm.job|_columns@name$label:1
+#: model@hcm.employees|_columns@job_id$label:1
 msgid "Job Position"
 msgstr "Stilling"
 
-#: hcm.job-expected_employees:1
+#: model@hcm.job|_columns@expected_employees$label:1
 msgid "Total Forecasted Employees"
 msgstr "Totalt Anslås Ansatte"
 
-#: hcm.job-no_of_employee:1
+#: model@hcm.job|_columns@expected_employees$help:1
+msgid ""
+"Expected number of employees for this job position after new recruitment."
+msgstr "Forventet antall ansatte for denne stilling etter ny rekruttering."
+
+#: model@hcm.job|_columns@no_of_employee$label:1
 msgid "Current Number of Employees"
 msgstr "Gjeldende Antall Ansatte"
 
-#: hcm.job-no_of_recruitment:1
+#: model@hcm.job|_columns@no_of_employee$help:1
+msgid "Number of employees currently occupying this job position."
+msgstr "Antall ansatte i dag opptar denne stilling."
+
+#: model@hcm.job|_columns@no_of_recruitment$label:1
 msgid "Expected New Employees"
 msgstr "Forventet Nye Ansatte"
 
-#: hcm.job-no_of_hired_employee:1
+#: model@hcm.job|_columns@no_of_recruitment$help:1
+msgid "Number of new employees you expect to recruit."
+msgstr "Antall nye ansatte forventer du å rekruttere."
+
+#: model@hcm.job|_columns@no_of_hired_employee$label:1
 msgid "Hired Employees"
 msgstr "Innleide Arbeidstakere"
 
-#: hcm.job-description:1
+#: model@hcm.job|_columns@no_of_hired_employee$help:1
+msgid ""
+"Number of hired employees for this job position during recruitment phase."
+msgstr ""
+"Antall ansatt medarbeidere for denne jobben posisjon under rekruttering "
+"fase."
+
+#: model@hcm.job|_columns@description$label:1
 msgid "Job Description"
 msgstr "Jobb Beskrivelse"
 
-#: hcm.job-requirements:1
+#: model@hcm.job|_columns@requirements$label:1
 msgid "Requirements"
 msgstr "Krav"
 
-#: hcm.job-department_id:1 hcm.employees-department_id:1
+#: model@hcm.job|_columns@department_id$label:1
+#: model@hcm.employees|_columns@department_id$label:1
 msgid "Department"
 msgstr "Avdeling"
 
-#: hcm.job-state:1
+#: model@hcm.job|_columns@state$label:1
 msgid "Status"
 msgstr "Status"
 
-#: hcm.employees-firstname:1
+#: model@hcm.job|_columns@state$selections#recruit:1
+msgid "Recruitment in Progress"
+msgstr "Rekruttering Pågår"
+
+#: model@hcm.job|_columns@state$selections#open:1
+msgid "Not Recruiting"
+msgstr "Ikke Rekruttere"
+
+#: model@hcm.job|_columns@state$help:1
+msgid ""
+"Set whether the recruitment process is open or closed for this job position."
+msgstr ""
+"Angi om rekrutteringsprosessen er åpne eller lukket for denne stilling."
+
+#: model@hcm.employees|_description@:1
+msgid "General Employees Humam Capital Managament"
+msgstr "Generelle Ansatte Humam Kapital Managament"
+
+#: model@hcm.employees|_columns@firstname$label:1
 msgid "First Name"
 msgstr "Fornavn"
 
-#: hcm.employees-lastname:1
+#: model@hcm.employees|_columns@lastname$label:1
 msgid "Last Name"
 msgstr "Etternavn"
 
-#: hcm.employees-middlename:1
+#: model@hcm.employees|_columns@middlename$label:1
 msgid "Middle Name"
 msgstr "Mellomnavn"
 
-#: hcm.employees-fullname:1
+#: model@hcm.employees|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Fullt Navn"
 
-#: hcm.employees-user_id:1
+#: model@hcm.employees|_columns@user_id$label:1
 msgid "User"
 msgstr "Bruker"
 
-#: hcm.employees-address_home_id:1
+#: model@hcm.employees|_columns@address_home_id$label:1
 msgid "Private Address"
 msgstr "Privat Adresse"
 
-#: hcm.employees-is_address_home_a_company:1
+#: model@hcm.employees|_columns@address_home_id$help:1
+msgid ""
+"Enter here the private address of the employee, not the one linked to your "
+"company."
+msgstr ""
+"Skriv her den private adressen til den ansatte, ikke er knyttet til "
+"bedriften."
+
+#: model@hcm.employees|_columns@is_address_home_a_company$label:1
 msgid "The employee adress has a company linked"
 msgstr "Den ansatte adresse har selskapet knyttet"
 
-#: hcm.employees-country_id:1
+#: model@hcm.employees|_columns@country_id$label:1
 msgid "Nationality (Country)"
 msgstr "Nasjonalitet (Land)"
 
-#: hcm.employees-gender:1
+#: model@hcm.employees|_columns@gender$label:1
 msgid "Gender"
 msgstr "Kjønn"
 
-#: hcm.employees-marital:1
+#: model@hcm.employees|_columns@gender$selections#male:1
+msgid "Male"
+msgstr "Mann"
+
+#: model@hcm.employees|_columns@gender$selections#female:1
+msgid "Female"
+msgstr "Kvinne"
+
+#: model@hcm.employees|_columns@gender$selections#other:1
+msgid "Other"
+msgstr "Andre"
+
+#: model@hcm.employees|_columns@marital$label:1
 msgid "Marital Status"
 msgstr "Sivil Status"
 
-#: hcm.employees-birthday:1
+#: model@hcm.employees|_columns@marital$selections#single:1
+msgid "Single"
+msgstr "Enkeltrom"
+
+#: model@hcm.employees|_columns@marital$selections#married:1
+msgid "Married"
+msgstr "Gift"
+
+#: model@hcm.employees|_columns@marital$selections#widower:1
+msgid "Widower"
+msgstr "Enkemann"
+
+#: model@hcm.employees|_columns@marital$selections#divorced:1
+msgid "Divorced"
+msgstr "Skilt"
+
+#: model@hcm.employees|_columns@birthday$label:1
 msgid "Date of Birth"
 msgstr "Fødselsdato"
 
-#: hcm.employees-ssnid:1
+#: model@hcm.employees|_columns@ssnid$label:1
 msgid "SSN No"
 msgstr "SSN Ingen"
 
-#: hcm.employees-sinid:1
+#: model@hcm.employees|_columns@ssnid$help:1
+msgid "Social Security Number"
+msgstr "Social Security-Nummer"
+
+#: model@hcm.employees|_columns@sinid$label:1
 msgid "SIN No"
 msgstr "SYND Ikke"
 
-#: hcm.employees-identification_id:1
+#: model@hcm.employees|_columns@sinid$help:1
+msgid "Social Insurance Number"
+msgstr "Sosial Forsikring Nummer"
+
+#: model@hcm.employees|_columns@identification_id$label:1
 msgid "Identification No"
 msgstr "Identifikasjon Ingen"
 
-#: hcm.employees-passport_id:1
+#: model@hcm.employees|_columns@passport_id$label:1
 msgid "Passport No"
 msgstr "Pass Ingen"
 
-#: hcm.employees-permit_no:1
+#: model@hcm.employees|_columns@permit_no$label:1
 msgid "Work Permit No"
 msgstr "Arbeidstillatelse Ingen"
 
-#: hcm.employees-visa_no:1
+#: model@hcm.employees|_columns@visa_no$label:1
 msgid "Visa No"
 msgstr "Visa Ingen"
 
-#: hcm.employees-visa_expire:1
+#: model@hcm.employees|_columns@visa_expire$label:1
 msgid "Visa Expire Date"
 msgstr "Visum Utløper Dato"
 
-#: hcm.employees-image:1
+#: model@hcm.employees|_columns@image$label:1
 msgid "Photo"
 msgstr "Bilde"
 
-#: hcm.employees-image_medium:1
+#: model@hcm.employees|_columns@image$help:1
+msgid ""
+"This field holds the image used as photo for the employee, limited to "
+"1024x1024px."
+msgstr ""
+"Dette feltet har bildet brukes som bilde for arbeidstaker, begrenset til "
+"1024x1024px."
+
+#: model@hcm.employees|_columns@image_medium$label:1
 msgid "Medium-sized photo"
 msgstr "Mellomstore bilde"
 
-#: hcm.employees-image_small:1
+#: model@hcm.employees|_columns@image_medium$help:1
+msgid ""
+"Medium-sized photo of the employee. It is automatically resized as a "
+"128x128px image, with aspect ratio preserved. Use this field in form views "
+"or some kanban views."
+msgstr ""
+"Mellomstore bilde av den ansatte. Det er automatisk endret som en 128x128px "
+"bilde, med størrelsesforholdet bevares. Bruk dette feltet i form utsikt, "
+"eller noen kanban utsikt."
+
+#: model@hcm.employees|_columns@image_small$label:1
 msgid "Small-sized photo"
 msgstr "Små-sized bilde"
 
-#: hcm.employees-address_id:1
+#: model@hcm.employees|_columns@image_small$help:1
+msgid ""
+"Small-sized photo of the employee. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr ""
+"Små-sized bilde av den ansatte. Det er automatisk endret som en 64x64px "
+"bilde, med størrelsesforholdet bevares. Bruk dette feltet hvor som helst et "
+"lite bilde er nødvendig."
+
+#: model@hcm.employees|_columns@address_id$label:1
 msgid "Work Address"
 msgstr "Work Adresse"
 
-#: hcm.employees-work_phone:1
+#: model@hcm.employees|_columns@work_phone$label:1
 msgid "Work Phone"
 msgstr "Telefon Arbeid"
 
-#: hcm.employees-mobile_phone:1
+#: model@hcm.employees|_columns@mobile_phone$label:1
 msgid "Work Mobile"
 msgstr "Arbeid Mobile"
 
-#: hcm.employees-work_email:1
+#: model@hcm.employees|_columns@work_email$label:1
 msgid "Work Email"
 msgstr "E-Post Arbeid"
 
-#: hcm.employees-work_location:1
+#: model@hcm.employees|_columns@work_location$label:1
 msgid "Work Location"
 msgstr "Arbeid Beliggenhet"
 
-#: hcm.employees-child_ids:1
+#: model@hcm.employees|_columns@child_ids$label:1
 msgid "Subordinates"
 msgstr "Underordnede"
 
-#: hcm.employees-coach_id:1
+#: model@hcm.employees|_columns@coach_id$label:1
 msgid "Coach"
 msgstr "Trener"
 
-#: hcm.employees-category_ids:1
+#: model@hcm.employees|_columns@category_ids$label:1
 msgid "Categories"
 msgstr "Kategorier"
 
-#: hcm.employees-notes:1
+#: model@hcm.employees|_columns@notes$label:1
 msgid "Notes"
 msgstr "Notater"

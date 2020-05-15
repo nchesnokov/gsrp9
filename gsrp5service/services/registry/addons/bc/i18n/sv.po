@@ -3,456 +3,755 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:33:05+0000\n"
-"PO-Revision-Date: 2020-02-13 14:33:05+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:51+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:51+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: bc.users-login:1
+#: model@bc.users|_description@:1
+msgid "General Model Users"
+msgstr "Allmän Modell Användare"
+
+#: model@bc.users|_columns@login$label:1
 msgid "Login"
 msgstr "Logga in"
 
-#: bc.users-password:1
+#: model@bc.users|_columns@password$label:1
 msgid "Password"
 msgstr "Lösenord"
 
-#: bc.users-firstname:1
+#: model@bc.users|_columns@firstname$label:1
 msgid "First Name"
 msgstr "Förnamn"
 
-#: bc.users-lastname:1
+#: model@bc.users|_columns@lastname$label:1
 msgid "Last Name"
 msgstr "Efternamn"
 
-#: bc.users-issuperuser:1
+#: model@bc.users|_columns@issuperuser$label:1
 msgid "Is Super User"
 msgstr "Är Super User"
 
-#: bc.langs-name:1 bc.translations-lang_id:1
-msgid "Language"
-msgstr "Språk"
+#: model@bc.area.messages|_description@:1
+msgid "General Model Area Messages"
+msgstr "Generella Modellen Område Meddelanden"
 
-#: bc.langs-description:1 bc.class.models-descr:1 bc.class.categories-descr:1
-#: bc.models-description:1 bc.inherits-description:1
-msgid "Description"
-msgstr "Beskrivning"
-
-#: bc.group.modules-name:1 bc.modules-name:1 bc.module.files-filename:1
-#: bc.models-name:1 bc.inherits-name:1 bc.model.columns-col_name:1
-#: bc.inherit.columns-col_name:1 bc.model.data-name:1
-#: bc.tuning.ui.views-name:1 bc.general.tuning.ui.views-name:1
-#: bc.ui.reports-name:1 bc.ui.menus-name:1
-msgid "Name"
-msgstr "Namn"
-
-#: bc.group.modules-name2:1
-msgid "Name 2"
-msgstr "Namn 2"
-
-#: bc.group.modules-parent_id:1 bc.group.access-parent_id:1
-#: bc.ui.menus-parent_id:1
-msgid "Parent"
-msgstr "Förälder"
-
-#: bc.group.modules-childs_id:1 bc.group.access-childs_id:1
-#: bc.ui.menus-childs_id:1
-msgid "Childs"
-msgstr "Childs"
-
-#: bc.group.modules-bc_modules:1
-msgid "Modules"
-msgstr "Moduler"
-
-#: bc.group.modules-note:1 bc.class.models-note:1 bc.class.categories-note:1
-#: bc.group.access-note:1 bc.access-note:1 bc.model.access-note:1
-msgid "Note"
-msgstr "Observera"
-
-#: bc.modules-bc_group_module_id:1 bc.access-group_id:1
-msgid "Group"
-msgstr "Grupp"
-
-#: bc.modules-code:1 bc.class.models-name:1 bc.class.categories-name:1
-msgid "Code"
-msgstr "Kod"
-
-#: bc.modules-version:1
-msgid "Version"
-msgstr "Version"
-
-#: bc.modules-category:1
-msgid "Category"
-msgstr "Kategori"
-
-#: bc.modules-shortdescription:1
-msgid "Short Description"
-msgstr "Kort Beskrivning"
-
-#: bc.modules-author:1
-msgid "Author"
-msgstr "Författare"
-
-#: bc.modules-website:1
-msgid "Website"
-msgstr "Hemsida"
-
-#: bc.modules-maintainer:1
-msgid "Maintainer"
-msgstr "Ansvariga"
-
-#: bc.modules-able:1
-msgid "Able"
-msgstr "Kan"
-
-#: bc.modules-area:1
+#: model@bc.area.messages|_columns@name$label:1
+#: model@bc.messages|_columns@area$label:1
+#: model@bc.modules|_columns@area$label:1
 msgid "Area"
 msgstr "Området"
 
-#: bc.modules-icon:1
+#: model@bc.area.messages|_columns@note$label:1
+#: model@bc.messages|_columns@note$label:1
+#: model@bc.group.modules|_columns@note$label:1
+#: model@bc.class.models|_columns@note$label:1
+#: model@bc.class.categories|_columns@note$label:1
+#: model@bc.group.access|_columns@note$label:1
+#: model@bc.access|_columns@note$label:1
+#: model@bc.model.access|_columns@note$label:1
+msgid "Note"
+msgstr "Observera"
+
+#: model@bc.messages|_description@:1
+msgid "General Model Messages"
+msgstr "Allmän Modell Meddelanden"
+
+#: model@bc.messages|_columns@code$label:1
+msgid "Message"
+msgstr "Meddelande"
+
+#: model@bc.messages|_columns@descr$label:1
+#: model@bc.langs|_columns@description$label:1
+#: model@bc.class.models|_columns@descr$label:1
+#: model@bc.class.categories|_columns@descr$label:1
+#: model@bc.models|_columns@description$label:1
+#: model@bc.inherits|_columns@description$label:1
+msgid "Description"
+msgstr "Beskrivning"
+
+#: model@bc.langs|_description@:1
+msgid "General Model Langs"
+msgstr "Allmän Modell Langs"
+
+#: model@bc.langs|_columns@code$label:1
+#: model@bc.record.translations|_columns@lang$label:1
+#: model@bc.model.translations|_columns@lang$label:1
+msgid "Language"
+msgstr "Språk"
+
+#: model@bc.group.modules|_description@:1
+msgid "General Model Module Groups"
+msgstr "Allmän Modell Modul Grupper"
+
+#: model@bc.group.modules|_columns@name$label:1
+#: model@bc.modules|_columns@name$label:1
+#: model@bc.module.files|_columns@filename$label:1
+#: model@bc.models|_columns@name$label:1
+#: model@bc.inherits|_columns@name$label:1
+#: model@bc.model.columns|_columns@col_name$label:1
+#: model@bc.inherit.columns|_columns@col_name$label:1
+#: model@bc.model.data|_columns@name$label:1
+#: model@bc.tuning.ui.views|_columns@name$label:1
+#: model@bc.general.tuning.ui.views|_columns@name$label:1
+#: model@bc.ui.reports|_columns@name$label:1
+#: model@bc.ui.menus|_columns@name$label:1
+msgid "Name"
+msgstr "Namn"
+
+#: model@bc.group.modules|_columns@name2$label:1
+msgid "Name 2"
+msgstr "Namn 2"
+
+#: model@bc.group.modules|_columns@parent_id$label:1
+#: model@bc.group.access|_columns@parent_id$label:1
+#: model@bc.ui.menus|_columns@parent_id$label:1
+msgid "Parent"
+msgstr "Förälder"
+
+#: model@bc.group.modules|_columns@childs_id$label:1
+#: model@bc.group.access|_columns@childs_id$label:1
+#: model@bc.ui.menus|_columns@childs_id$label:1
+msgid "Childs"
+msgstr "Childs"
+
+#: model@bc.group.modules|_columns@bc_modules$label:1
+msgid "Modules"
+msgstr "Moduler"
+
+#: model@bc.modules|_description@:1
+msgid "General Model Modules"
+msgstr "Allmän Modell Moduler"
+
+#: model@bc.modules|_columns@bc_group_module_id$label:1
+#: model@bc.access|_columns@group_id$label:1
+msgid "Group"
+msgstr "Grupp"
+
+#: model@bc.modules|_columns@code$label:1
+#: model@bc.class.models|_columns@name$label:1
+#: model@bc.class.categories|_columns@name$label:1
+msgid "Code"
+msgstr "Kod"
+
+#: model@bc.modules|_columns@version$label:1
+msgid "Version"
+msgstr "Version"
+
+#: model@bc.modules|_columns@category$label:1
+msgid "Category"
+msgstr "Kategori"
+
+#: model@bc.modules|_columns@shortdescription$label:1
+msgid "Short Description"
+msgstr "Kort Beskrivning"
+
+#: model@bc.modules|_columns@author$label:1
+msgid "Author"
+msgstr "Författare"
+
+#: model@bc.modules|_columns@website$label:1
+msgid "Website"
+msgstr "Hemsida"
+
+#: model@bc.modules|_columns@maintainer$label:1
+msgid "Maintainer"
+msgstr "Ansvariga"
+
+#: model@bc.modules|_columns@able$label:1
+msgid "Able"
+msgstr "Kan"
+
+#: model@bc.modules|_columns@area$selections#S:1
+msgid "System"
+msgstr "Systemet"
+
+#: model@bc.modules|_columns@area$selections#A:1
+msgid "Application"
+msgstr "Ansökan"
+
+#: model@bc.modules|_columns@area$selections#E:1
+msgid "Extra"
+msgstr "Extra"
+
+#: model@bc.modules|_columns@icon$label:1
 msgid "Icon"
 msgstr "Ikonen"
 
-#: bc.modules-image:1
+#: model@bc.modules|_columns@image$label:1
 msgid "Image "
 msgstr "Bild "
 
-#: bc.modules-state:1
+#: model@bc.modules|_columns@state$label:1
 msgid "State"
 msgstr "Staten"
 
-#: bc.modules-description:1
+#: model@bc.modules|_columns@state$selections#N:1
+msgid "Not installed"
+msgstr "Inte installerats"
+
+#: model@bc.modules|_columns@state$selections#I:1
+msgid "Installed"
+msgstr "Installerade"
+
+#: model@bc.modules|_columns@state$selections#i:1
+msgid "To be installed"
+msgstr "För att installeras"
+
+#: model@bc.modules|_columns@state$selections#u:1
+msgid "To be upgrade"
+msgstr "Att vara uppgradering"
+
+#: model@bc.modules|_columns@state$selections#r:1
+msgid "To be uninstalled"
+msgstr "Att avinstalleras"
+
+#: model@bc.modules|_columns@description$label:1
 msgid "Long Description"
 msgstr "Lång Beskrivning"
 
-#: bc.modules-models:1 bc.access-models:1
+#: model@bc.modules|_columns@models$label:1
+#: model@bc.access|_columns@models$label:1
 msgid "Models"
 msgstr "Modeller"
 
-#: bc.modules-inherits:1 bc.inherit.columns-inherit_id:1
-#: bc.ui.views.inherit-name:1
+#: model@bc.modules|_columns@inherits$label:1
+#: model@bc.inherit.columns|_columns@inherit_id$label:1
+#: model@bc.ui.views.inherit|_columns@name$label:1
 msgid "Inherit"
 msgstr "Ärva"
 
-#: bc.modules-files:1
+#: model@bc.modules|_columns@files$label:1
 msgid "Files"
 msgstr "Filer"
 
-#: bc.module.files-module_id:1 bc.models-module_id:1 bc.inherits-module_id:1
-#: bc.translations-module_id:1 bc.model.data-module:1
+#: model@bc.module.files|_description@:1
+msgid "General Model Module File"
+msgstr "Allmän Modell Modul Fil"
+
+#: model@bc.module.files|_columns@module_id$label:1
+#: model@bc.models|_columns@module_id$label:1
+#: model@bc.inherits|_columns@module_id$label:1
+#: model@bc.model.data|_columns@module$label:1
 msgid "Module"
 msgstr "Modul"
 
-#: bc.module.files-size:1 bc.model.columns-size:1 bc.inherit.columns-size:1
+#: model@bc.module.files|_columns@size$label:1
+#: model@bc.model.columns|_columns@size$label:1
+#: model@bc.inherit.columns|_columns@size$label:1
 msgid "Size"
 msgstr "Storlek"
 
-#: bc.module.files-ctime:1
+#: model@bc.module.files|_columns@ctime$label:1
 msgid "Created"
 msgstr "Skapad"
 
-#: bc.module.files-mtime:1
+#: model@bc.module.files|_columns@mtime$label:1
 msgid "Modified"
 msgstr "Modifierad"
 
-#: bc.models-db_table:1
+#: model@bc.class.models|_description@:1
+msgid "General Model Class Models"
+msgstr "Allmän Modell Klass Modeller"
+
+#: model@bc.class.categories|_description@:1
+msgid "General Model Class Categories"
+msgstr "Allmän Modell Klass Kategorier"
+
+#: model@bc.models|_description@:1
+msgid "General Model Models"
+msgstr "Allmän Modell Modeller"
+
+#: model@bc.models|_columns@db_table$label:1
 msgid "Database table"
 msgstr "Databastabell"
 
-#: bc.models-class_model:1
+#: model@bc.models|_columns@class_model$label:1
 msgid "Class Model"
 msgstr "Klass Modell"
 
-#: bc.models-class_category:1
+#: model@bc.models|_columns@class_category$label:1
 msgid "Class Categoty"
 msgstr "Klass Categoty"
 
-#: bc.models-columns:1 bc.inherits-columns:1
+#: model@bc.models|_columns@columns$label:1
+#: model@bc.inherits|_columns@columns$label:1
+#: model@bc.tuning.ui.views|_columns@cols$label:1
+#: model@bc.general.tuning.ui.views|_columns@cols$label:1
 msgid "Columns"
 msgstr "Kolumner"
 
-#: bc.model.columns-model_id:1 bc.translations-model_id:1
-#: bc.model.access-model_id:1 bc.model.data-model:1
+#: model@bc.inherits|_description@:1
+msgid "General Model Inherits"
+msgstr "Allmän Modell Ärver"
+
+#: model@bc.model.columns|_description@:1
+msgid "General Model Model Columns"
+msgstr "Allmän Modell Kolumner"
+
+#: model@bc.model.columns|_columns@model_id$label:1
+#: model@bc.record.translations|_columns@model$label:1
+#: model@bc.model.translations|_columns@model$label:1
+#: model@bc.model.access|_columns@model_id$label:1
+#: model@bc.model.data|_columns@model$label:1
 msgid "Model"
 msgstr "Modell"
 
-#: bc.model.columns-col_type:1 bc.inherit.columns-col_type:1
+#: model@bc.model.columns|_columns@col_type$label:1
+#: model@bc.inherit.columns|_columns@col_type$label:1
 msgid "Type"
 msgstr "Typ"
 
-#: bc.model.columns-label:1 bc.inherit.columns-label:1
+#: model@bc.model.columns|_columns@label$label:1
+#: model@bc.inherit.columns|_columns@label$label:1
 msgid "label"
 msgstr "etikett"
 
-#: bc.model.columns-readanly:1 bc.inherit.columns-readanly:1
+#: model@bc.model.columns|_columns@readanly$label:1
+#: model@bc.inherit.columns|_columns@readanly$label:1
+#: model@bc.tuning.ui.view.items|_columns@readonly$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@readonly$label:1
 msgid "Readonly"
 msgstr "Readonly"
 
-#: bc.model.columns-priority:1 bc.inherit.columns-priority:1
+#: model@bc.model.columns|_columns@priority$label:1
+#: model@bc.inherit.columns|_columns@priority$label:1
 msgid "Prority"
 msgstr "Prority"
 
-#: bc.model.columns-domain:1 bc.inherit.columns-domain:1
+#: model@bc.model.columns|_columns@domain$label:1
+#: model@bc.inherit.columns|_columns@domain$label:1
 msgid "Domain"
 msgstr "Domän"
 
-#: bc.model.columns-required:1 bc.inherit.columns-required:1
+#: model@bc.model.columns|_columns@required$label:1
+#: model@bc.inherit.columns|_columns@required$label:1
+#: model@bc.tuning.ui.view.items|_columns@required$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@required$label:1
 msgid "Required"
 msgstr "Krävs"
 
-#: bc.model.columns-precision:1 bc.inherit.columns-precision:1
+#: model@bc.model.columns|_columns@precision$label:1
+#: model@bc.inherit.columns|_columns@precision$label:1
 msgid "Precesion"
 msgstr "Precesion"
 
-#: bc.model.columns-on_delete:1 bc.inherit.columns-on_delete:1
+#: model@bc.model.columns|_columns@on_delete$label:1
+#: model@bc.inherit.columns|_columns@on_delete$label:1
 msgid "On Delete"
 msgstr "På Ta Bort"
 
-#: bc.model.columns-on_update:1 bc.inherit.columns-on_update:1
+#: model@bc.model.columns|_columns@on_delete$selections#a:1
+#: model@bc.model.columns|_columns@on_update$selections#a:1
+#: model@bc.inherit.columns|_columns@on_delete$selections#a:1
+#: model@bc.inherit.columns|_columns@on_update$selections#a:1
+msgid "No action"
+msgstr "Inga åtgärder"
+
+#: model@bc.model.columns|_columns@on_delete$selections#r:1
+#: model@bc.model.columns|_columns@on_update$selections#r:1
+#: model@bc.inherit.columns|_columns@on_delete$selections#r:1
+#: model@bc.inherit.columns|_columns@on_update$selections#r:1
+msgid "Restrict"
+msgstr "Begränsa"
+
+#: model@bc.model.columns|_columns@on_delete$selections#n:1
+#: model@bc.model.columns|_columns@on_update$selections#n:1
+#: model@bc.inherit.columns|_columns@on_delete$selections#n:1
+#: model@bc.inherit.columns|_columns@on_update$selections#n:1
+msgid "Set Null"
+msgstr "Null"
+
+#: model@bc.model.columns|_columns@on_delete$selections#c:1
+#: model@bc.model.columns|_columns@on_update$selections#c:1
+#: model@bc.inherit.columns|_columns@on_delete$selections#c:1
+#: model@bc.inherit.columns|_columns@on_update$selections#c:1
+msgid "Cascade"
+msgstr "Cascade"
+
+#: model@bc.model.columns|_columns@on_delete$selections#d:1
+#: model@bc.model.columns|_columns@on_update$selections#d:1
+#: model@bc.inherit.columns|_columns@on_delete$selections#d:1
+#: model@bc.inherit.columns|_columns@on_update$selections#d:1
+msgid "Set default"
+msgstr "Set default"
+
+#: model@bc.model.columns|_columns@on_update$label:1
+#: model@bc.inherit.columns|_columns@on_update$label:1
 msgid "On Update"
 msgstr "Om Uppdateringen"
 
-#: bc.model.columns-change_default:1 bc.inherit.columns-change_default:1
+#: model@bc.model.columns|_columns@change_default$label:1
+#: model@bc.inherit.columns|_columns@change_default$label:1
 msgid "Change default"
 msgstr "Ändra standard"
 
-#: bc.model.columns-translate:1 bc.inherit.columns-translate:1
+#: model@bc.model.columns|_columns@translate$label:1
+#: model@bc.inherit.columns|_columns@translate$label:1
 msgid "Translate"
 msgstr "Översätt"
 
-#: bc.model.columns-selections:1 bc.inherit.columns-selections:1
+#: model@bc.model.columns|_columns@selections$label:1
+#: model@bc.inherit.columns|_columns@selections$label:1
 msgid "Selections"
 msgstr "Val"
 
-#: bc.model.columns-selectable:1 bc.inherit.columns-selectable:1
+#: model@bc.model.columns|_columns@selectable$label:1
+#: model@bc.inherit.columns|_columns@selectable$label:1
 msgid "Selectable"
 msgstr "Valbara"
 
-#: bc.model.columns-relatedy:1
+#: model@bc.model.columns|_columns@relatedy$label:1
 msgid "Relatedy"
 msgstr "Relatedy"
 
-#: bc.model.columns-manual:1 bc.inherit.columns-manual:1
+#: model@bc.model.columns|_columns@manual$label:1
+#: model@bc.inherit.columns|_columns@manual$label:1
 msgid "Manual"
 msgstr "Manuell"
 
-#: bc.model.columns-help:1 bc.inherit.columns-help:1
+#: model@bc.model.columns|_columns@help$label:1
+#: model@bc.inherit.columns|_columns@help$label:1
 msgid "Help"
 msgstr "Hjälp"
 
-#: bc.model.columns-col_unique:1 bc.inherit.columns-col_unique:1
+#: model@bc.model.columns|_columns@col_unique$label:1
+#: model@bc.inherit.columns|_columns@col_unique$label:1
 msgid "Unique"
 msgstr "Unik"
 
-#: bc.model.columns-col_check:1 bc.inherit.columns-col_check:1
+#: model@bc.model.columns|_columns@col_check$label:1
+#: model@bc.inherit.columns|_columns@col_check$label:1
 msgid "Check"
 msgstr "In"
 
-#: bc.model.columns-col_default:1 bc.inherit.columns-col_default:1
+#: model@bc.model.columns|_columns@col_default$label:1
+#: model@bc.inherit.columns|_columns@col_default$label:1
 msgid "Default"
 msgstr "Standard"
 
-#: bc.model.columns-col_family:1 bc.inherit.columns-col_family:1
+#: model@bc.model.columns|_columns@col_family$label:1
+#: model@bc.inherit.columns|_columns@col_family$label:1
 msgid "Family"
 msgstr "Familj"
 
-#: bc.model.columns-timezone:1 bc.inherit.columns-timezone:1
+#: model@bc.model.columns|_columns@timezone$label:1
+#: model@bc.inherit.columns|_columns@timezone$label:1
 msgid "Timezone"
 msgstr "Tidszon"
 
-#: bc.model.columns-obj:1 bc.inherit.columns-obj:1
+#: model@bc.model.columns|_columns@obj$label:1
+#: model@bc.inherit.columns|_columns@obj$label:1
 msgid "Obj"
 msgstr "Pr"
 
-#: bc.model.columns-rel:1 bc.inherit.columns-rel:1
+#: model@bc.model.columns|_columns@rel$label:1
+#: model@bc.inherit.columns|_columns@rel$label:1
 msgid "Relation"
 msgstr "Förhållande"
 
-#: bc.model.columns-id1:1 bc.inherit.columns-id1:1
+#: model@bc.model.columns|_columns@id1$label:1
+#: model@bc.inherit.columns|_columns@id1$label:1
 msgid "Id1"
 msgstr "Id1"
 
-#: bc.model.columns-id2:1 bc.inherit.columns-id2:1
+#: model@bc.model.columns|_columns@id2$label:1
+#: model@bc.inherit.columns|_columns@id2$label:1
 msgid "Id2"
 msgstr "Id2"
 
-#: bc.inherit.columns-filtering:1
+#: model@bc.inherit.columns|_description@:1
+msgid "General Model Inherit Columns"
+msgstr "Allmän Modell Ärva Kolumner"
+
+#: model@bc.inherit.columns|_columns@filtering$label:1
 msgid "Filtering"
 msgstr "Filtrering"
 
-#: bc.translations-record_id:1
+#: model@bc.record.translations|_description@:1
+msgid "General Model Record Translations"
+msgstr "Allmän Modell Post Översättningar"
+
+#: model@bc.record.translations|_columns@record$label:1
 msgid "Record ID"
 msgstr "Post-ID:"
 
-#: bc.translations-column_id:1
-msgid "Column ID"
-msgstr "Kolumnen ID"
-
-#: bc.translations-tr:1
+#: model@bc.record.translations|_columns@tr$label:1
+#: model@bc.model.translations|_columns@tr$label:1
 msgid "Translations"
 msgstr "Översättningar"
 
-#: bc.group.access-name:1
+#: model@bc.model.translations|_description@:1
+msgid "General Model Model Translations"
+msgstr "Allmän Modell Översättningar"
+
+#: model@bc.group.access|_description@:1
+msgid "General Model Group Access"
+msgstr "Allmän Modell Koncernen Tillgång"
+
+#: model@bc.group.access|_columns@name$label:1
 msgid "Group Access"
 msgstr "Koncernen Tillgång"
 
-#: bc.group.access-roles:1
+#: model@bc.group.access|_columns@roles$label:1
 msgid "Roles"
 msgstr "Roller"
 
-#: bc.group.access-active:1
+#: model@bc.group.access|_columns@active$label:1
 msgid "Active"
 msgstr "Aktiv"
 
-#: bc.access-name:1 bc.model.access-access_id:1
+#: model@bc.access|_description@:1
+msgid "General Model Access"
+msgstr "Allmän Modell Tillgång"
+
+#: model@bc.access|_columns@name$label:1
+#: model@bc.model.access|_columns@access_id$label:1
 msgid "Access"
 msgstr "Tillgång"
 
-#: bc.access-inactive:1 bc.model.access-inactive:1
+#: model@bc.access|_columns@inactive$label:1
+#: model@bc.model.access|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Inaktiv"
 
-#: bc.model.access-acreate:1
+#: model@bc.model.access|_description@:1
+msgid "General Model Model Access"
+msgstr "Allmän Modell Tillgång"
+
+#: model@bc.model.access|_columns@acreate$label:1
 msgid "Create"
 msgstr "Skapa"
 
-#: bc.model.access-awrite:1
+#: model@bc.model.access|_columns@awrite$label:1
 msgid "Write"
 msgstr "Skriva"
 
-#: bc.model.access-amodify:1
+#: model@bc.model.access|_columns@amodify$label:1
 msgid "Modify"
 msgstr "Ändra"
 
-#: bc.model.access-aread:1
+#: model@bc.model.access|_columns@aread$label:1
 msgid "Read"
 msgstr "Läs"
 
-#: bc.model.access-aunlink:1
+#: model@bc.model.access|_columns@aunlink$label:1
 msgid "Unlink"
 msgstr "Ta bort länk"
 
-#: bc.model.access-aselect:1
+#: model@bc.model.access|_columns@aselect$label:1
 msgid "Select"
 msgstr "Välj"
 
-#: bc.model.access-aupdate:1
+#: model@bc.model.access|_columns@aupdate$label:1
 msgid "Update"
 msgstr "Uppdatering"
 
-#: bc.model.access-adelete:1
+#: model@bc.model.access|_columns@adelete$label:1
 msgid "Delete"
 msgstr "Ta bort"
 
-#: bc.model.access-ainsert:1
+#: model@bc.model.access|_columns@ainsert$label:1
 msgid "Insert"
 msgstr "Infoga"
 
-#: bc.model.access-aupsert:1
+#: model@bc.model.access|_columns@aupsert$label:1
 msgid "Upsert"
 msgstr "Uppdatera"
 
-#: bc.model.access-abrowse:1
+#: model@bc.model.access|_columns@abrowse$label:1
 msgid "Browse"
 msgstr "Bläddra bland"
 
-#: bc.model.access-aselectbrowse:1
+#: model@bc.model.access|_columns@aselectbrowse$label:1
 msgid "Browse Select"
 msgstr "Välj Bläddra Bland"
 
-#: bc.model.access-auth:1
+#: model@bc.model.access|_columns@auth$label:1
 msgid "Auth"
 msgstr "Auth"
 
-#: bc.model.data-rec_id:1
+#: model@bc.model.data|_description@:1
+msgid "General Model Loading Model XML Data"
+msgstr "Allmän Modell Laddar Modell XML-Data"
+
+#: model@bc.model.data|_columns@rec_id$label:1
 msgid "ID record"
 msgstr "ID-post"
 
-#: bc.model.data-file_id:1
+#: model@bc.model.data|_columns@file_id$label:1
 msgid "File"
 msgstr "Fil"
 
-#: bc.model.data-date_init:1
+#: model@bc.model.data|_columns@date_init$label:1
 msgid "Timestamp init"
 msgstr "Timestamp init"
 
-#: bc.model.data-date_update:1
+#: model@bc.model.data|_columns@date_update$label:1
 msgid "Timestamp update"
 msgstr "Timestamp uppdatering"
 
-#: bc.ui.views-name:1
+#: model@bc.ui.views|_description@:1
+msgid "General Model Models views"
+msgstr "Allmän Modell Modeller synpunkter"
+
+#: model@bc.ui.views|_columns@name$label:1
 msgid "View name"
 msgstr "Visa namn"
 
-#: bc.ui.views-model:1
+#: model@bc.ui.views|_columns@model$label:1
 msgid "Model Name"
 msgstr "Modell Namn"
 
-#: bc.ui.views-type:1 bc.ui.views.inherit-type:1
+#: model@bc.ui.views|_columns@type$label:1
+#: model@bc.ui.views.inherit|_columns@type$label:1
 msgid "Arch Type"
 msgstr "Arch Typ"
 
-#: bc.ui.views-arch:1 bc.ui.views.inherit-arch:1
+#: model@bc.ui.views|_columns@type$selections#xml:1
+#: model@bc.ui.views.inherit|_columns@type$selections#xml:1
+msgid "Xml"
+msgstr "Xml"
+
+#: model@bc.ui.views|_columns@type$selections#html:1
+#: model@bc.ui.views.inherit|_columns@type$selections#html:1
+msgid "Html"
+msgstr "Html -"
+
+#: model@bc.ui.views|_columns@arch$label:1
+#: model@bc.ui.views.inherit|_columns@arch$label:1
 msgid "Arch Blob"
 msgstr "Arch Blob"
 
-#: bc.ui.views-inherit_views:1
+#: model@bc.ui.views|_columns@inherit_views$label:1
 msgid "Inherit Views"
 msgstr "Ärva Synpunkter"
 
-#: bc.ui.views.inherit-view_id:1 bc.tuning.ui.views-view_id:1
-#: bc.general.tuning.ui.views-view_id:1 bc.view.actions-view_id:1
+#: model@bc.ui.views.inherit|_description@:1
+msgid "General Model Models Views Inherit"
+msgstr "Allmän Modell Modeller Utsikt Ärva"
+
+#: model@bc.ui.views.inherit|_columns@view_id$label:1
+#: model@bc.tuning.ui.views|_columns@view$label:1
+#: model@bc.general.tuning.ui.views|_columns@view$label:1
+#: model@bc.actions|_columns@ta$selections#view:1
+#: model@bc.view.actions|_columns@view_id$label:1
 msgid "View"
 msgstr "Visa"
 
-#: bc.tuning.ui.views-user_id:1
+#: model@bc.tuning.ui.views|_description@:1
+msgid "General Model Tunning Models Views"
+msgstr "Allmän Modell Tunning Modeller Synpunkter"
+
+#: model@bc.tuning.ui.views|_columns@tuser$label:1
 msgid "User"
 msgstr "Användare"
 
-#: bc.tuning.ui.views-col_name:1 bc.general.tuning.ui.views-col_name:1
-msgid "Column"
-msgstr "Kolumn"
+#: model@bc.tuning.ui.views|_columns@fullname$label:1
+#: model@bc.general.tuning.ui.views|_columns@fullname$label:1
+msgid "Full Name"
+msgstr "Fullständigt Namn"
 
-#: bc.tuning.ui.views-sequence:1 bc.general.tuning.ui.views-sequence:1
-#: bc.ui.menus-sequence:1
+#: model@bc.tuning.ui.view.items|_description@:1
+#: model@bc.general.tuning.ui.view.items|_description@:1
+msgid "General Model Tunning Models View Items"
+msgstr "Allmän Modell Tunning Modeller Visa Objekt"
+
+#: model@bc.tuning.ui.view.items|_columns@tunning_id$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@tunning_id$label:1
+msgid "Tunning"
+msgstr "Tunning"
+
+#: model@bc.tuning.ui.view.items|_columns@sequence$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@sequence$label:1
+#: model@bc.ui.menus|_columns@sequence$label:1
 msgid "Sequence"
 msgstr "Sekvens"
 
-#: bc.tuning.ui.views-values:1 bc.general.tuning.ui.views-values:1
+#: model@bc.tuning.ui.view.items|_columns@col_name$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@col_name$label:1
+msgid "Column"
+msgstr "Kolumn"
+
+#: model@bc.tuning.ui.view.items|_columns@invisible$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@invisible$label:1
+msgid "Invisible"
+msgstr "Osynlig"
+
+#: model@bc.tuning.ui.view.items|_columns@values$label:1
+#: model@bc.general.tuning.ui.view.items|_columns@values$label:1
 msgid "Values"
 msgstr "Värderingar"
 
-#: bc.ui.reports-label:1 bc.ui.menus-label:1
+#: model@bc.general.tuning.ui.views|_description@:1
+msgid "General Model General Tunning Models Views"
+msgstr "Allmän Modell Allmänna Tunning Modeller Synpunkter"
+
+#: model@bc.ui.reports|_description@:1
+msgid "General Model Reports"
+msgstr "Allmän Modell Rapporter"
+
+#: model@bc.ui.reports|_columns@label$label:1
+#: model@bc.ui.menus|_columns@label$label:1
 msgid "Label"
 msgstr "Etikett"
 
-#: bc.ui.reports-report:1 bc.report.actions-report_id:1
+#: model@bc.ui.reports|_columns@report$label:1
+#: model@bc.actions|_columns@ta$selections#report:1
+#: model@bc.report.actions|_columns@report_id$label:1
 msgid "Report"
 msgstr "Rapport"
 
-#: bc.ui.reports-infile:1
+#: model@bc.ui.reports|_columns@infile$label:1
 msgid "Report Input File"
 msgstr "Rapport Ingång Fil"
 
-#: bc.ui.reports-outfile:1
+#: model@bc.ui.reports|_columns@outfile$label:1
 msgid "Report Output File"
 msgstr "Rapportfilen"
 
-#: bc.actions-name:1 bc.view.actions-action_id:1 bc.report.actions-action_id:1
-#: bc.ui.menus-action_id:1
+#: model@bc.actions|_description@:1
+msgid "General Model Actions"
+msgstr "Allmän Modell Åtgärder"
+
+#: model@bc.actions|_columns@name$label:1
+#: model@bc.view.actions|_columns@action_id$label:1
+#: model@bc.report.actions|_columns@action_id$label:1
+#: model@bc.ui.menus|_columns@action_id$label:1
 msgid "Action"
 msgstr "Åtgärd"
 
-#: bc.actions-ta:1
+#: model@bc.actions|_columns@ta$label:1
 msgid "Type Action"
 msgstr "Typ Av Åtgärd"
 
-#: bc.actions-va:1
+#: model@bc.actions|_columns@ta$selections#wkf:1
+msgid "Worlflow"
+msgstr "Worlflow"
+
+#: model@bc.actions|_columns@ta$selections#server:1
+msgid "Server"
+msgstr "Server"
+
+#: model@bc.actions|_columns@va$label:1
 msgid "View action"
 msgstr "Visa åtgärder"
 
-#: bc.actions-ra:1
+#: model@bc.actions|_columns@ra$label:1
 msgid "Report action"
 msgstr "Rapporten åtgärder"
+
+#: model@bc.view.actions|_description@:1
+msgid "General Model View Actions"
+msgstr "Allmän Modell Visa Åtgärder"
+
+#: model@bc.report.actions|_description@:1
+msgid "General Model Report Actions"
+msgstr "Allmän Modell Rapportera Om De Åtgärder Som"
+
+#: model@bc.ui.menus|_description@:1
+msgid "General Model Application Menus"
+msgstr "Generella Modellen Irb"

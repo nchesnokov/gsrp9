@@ -3,536 +3,1021 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-04-02 15:13:33+0300\n"
-"PO-Revision-Date: 2020-04-02 15:13:33+0300\n"
+"POT-Creation-Date: 2020-05-15 19:41:56+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:56+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: purchase.unit.categories-name:1 purchase.channel.categories-name:1
-#: purchase.segment.categories-name:1 purchase.area.categories-name:1
-#: purchase.region.categories-name:1 purchase.division.categories-name:1
-#: purchase.subdivision.categories-name:1 purchase.order.types-name:1
-#: purchase.invoice.types-name:1 purchase.order.categories-name:1
-#: purchase.invoce.categories-name:1 purchase.orders-name:1
-#: purchase.invoices-name:1
+#: model@purchase.unit.categories|_description@:1
+msgid "General Model Categories Purchase Unit"
+msgstr "Генеральна Модель Категорії Купити Блок"
+
+#: model@purchase.unit.categories|_columns@name$label:1
+#: model@purchase.channel.categories|_columns@name$label:1
+#: model@purchase.segment.categories|_columns@name$label:1
+#: model@purchase.area.categories|_columns@name$label:1
+#: model@purchase.region.categories|_columns@name$label:1
+#: model@purchase.division.categories|_columns@name$label:1
+#: model@purchase.subdivision.categories|_columns@name$label:1
+#: model@purchase.order.types|_columns@name$label:1
+#: model@purchase.invoice.types|_columns@name$label:1
+#: model@purchase.order.categories|_columns@name$label:1
+#: model@purchase.invoce.categories|_columns@name$label:1
+#: model@purchase.orders|_columns@name$label:1
+#: model@purchase.invoices|_columns@name$label:1
 msgid "Name"
 msgstr "Назва"
 
-#: purchase.unit.categories-parent_id:1
-#: purchase.channel.categories-parent_id:1
-#: purchase.segment.categories-parent_id:1
-#: purchase.area.categories-parent_id:1 purchase.region.categories-parent_id:1
-#: purchase.division.categories-parent_id:1
-#: purchase.subdivision.categories-parent_id:1
-#: purchase.order.categories-parent_id:1
-#: purchase.invoce.categories-parent_id:1
+#: model@purchase.unit.categories|_columns@parent_id$label:1
+#: model@purchase.channel.categories|_columns@parent_id$label:1
+#: model@purchase.segment.categories|_columns@parent_id$label:1
+#: model@purchase.area.categories|_columns@parent_id$label:1
+#: model@purchase.region.categories|_columns@parent_id$label:1
+#: model@purchase.division.categories|_columns@parent_id$label:1
+#: model@purchase.subdivision.categories|_columns@parent_id$label:1
+#: model@purchase.order.categories|_columns@parent_id$label:1
+#: model@purchase.invoce.categories|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Батько"
 
-#: purchase.unit.categories-childs_id:1
-#: purchase.channel.categories-childs_id:1
-#: purchase.segment.categories-childs_id:1
-#: purchase.area.categories-childs_id:1 purchase.region.categories-childs_id:1
-#: purchase.division.categories-childs_id:1
-#: purchase.subdivision.categories-childs_id:1
-#: purchase.order.categories-childs_id:1
-#: purchase.invoce.categories-childs_id:1
+#: model@purchase.unit.categories|_columns@childs_id$label:1
+#: model@purchase.channel.categories|_columns@childs_id$label:1
+#: model@purchase.segment.categories|_columns@childs_id$label:1
+#: model@purchase.area.categories|_columns@childs_id$label:1
+#: model@purchase.region.categories|_columns@childs_id$label:1
+#: model@purchase.division.categories|_columns@childs_id$label:1
+#: model@purchase.subdivision.categories|_columns@childs_id$label:1
+#: model@purchase.order.categories|_columns@childs_id$label:1
+#: model@purchase.invoce.categories|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Дитини"
 
-#: purchase.unit.categories-fullname:1 purchase.channel.categories-fullname:1
-#: purchase.segment.categories-fullname:1 purchase.area.categories-fullname:1
-#: purchase.region.categories-fullname:1
-#: purchase.division.categories-fullname:1
-#: purchase.subdivision.categories-fullname:1
-#: purchase.unit.channel.assigments-fullname:1
-#: purchase.unit.segment.assigments-fullname:1
-#: purchase.unit.area.assigments-fullname:1
-#: purchase.unit.region.assigments-fullname:1
-#: purchase.division.subdivision.assigments-fullname:1
-#: purchase.markets-fullname:1 purchase.teams-fullname:1
-#: purchase.order.categories-fullname:1 purchase.invoce.categories-fullname:1
-#: purchase.orders-fullname:1 purchase.invoices-fullname:1
+#: model@purchase.unit.categories|_columns@fullname$label:1
+#: model@purchase.channel.categories|_columns@fullname$label:1
+#: model@purchase.segment.categories|_columns@fullname$label:1
+#: model@purchase.area.categories|_columns@fullname$label:1
+#: model@purchase.region.categories|_columns@fullname$label:1
+#: model@purchase.division.categories|_columns@fullname$label:1
+#: model@purchase.subdivision.categories|_columns@fullname$label:1
+#: model@purchase.unit.channel.assigments|_columns@fullname$label:1
+#: model@purchase.unit.segment.assigments|_columns@fullname$label:1
+#: model@purchase.unit.area.assigments|_columns@fullname$label:1
+#: model@purchase.unit.region.assigments|_columns@fullname$label:1
+#: model@purchase.division.subdivision.assigments|_columns@fullname$label:1
+#: model@purchase.markets|_columns@fullname$label:1
+#: model@purchase.teams|_columns@fullname$label:1
+#: model@purchase.order.categories|_columns@fullname$label:1
+#: model@purchase.invoce.categories|_columns@fullname$label:1
+#: model@purchase.orders|_columns@fullname$label:1
+#: model@purchase.invoices|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Повна Назва"
 
-#: purchase.unit.categories-units:1
+#: model@purchase.unit.categories|_columns@units$label:1
 msgid "Units"
 msgstr "Одиниці"
 
-#: purchase.unit.categories-note:1 purchase.channel.categories-note:1
-#: purchase.segment.categories-note:1 purchase.area.categories-note:1
-#: purchase.region.categories-note:1 purchase.division.categories-note:1
-#: purchase.subdivision.categories-note:1 purchase.markets-note:1
-#: purchase.teams-note:1 purchase.order.types-note:1
-#: purchase.order.type.roles-note:1 purchase.order.type.plates-note:1
-#: purchase.order.type.items-note:1 purchase.invoice.types-note:1
-#: purchase.invoice.type.roles-note:1 purchase.order.categories-note:1
-#: purchase.invoce.categories-note:1 purchase.orders-note:1
-#: purchase.order.payment.schedules-note:1 purchase.order.output.plates-note:1
-#: purchase.order.items-note:1 purchase.order.item.delivery.schedules-note:1
-#: purchase.order.item.output.plates-note:1
-#: purchase.order.item.payment.schedules-note:1 purchase.invoices-note:1
-#: purchase.invoice.items-note:1
-#: purchase.invoce.item.delivery.schedules-note:1 md.purchase.product-note:1
+#: model@purchase.unit.categories|_columns@note$label:1
+#: model@purchase.channel.categories|_columns@note$label:1
+#: model@purchase.segment.categories|_columns@note$label:1
+#: model@purchase.area.categories|_columns@note$label:1
+#: model@purchase.region.categories|_columns@note$label:1
+#: model@purchase.division.categories|_columns@note$label:1
+#: model@purchase.subdivision.categories|_columns@note$label:1
+#: model@purchase.markets|_columns@note$label:1
+#: model@purchase.teams|_columns@note$label:1
+#: model@purchase.order.types|_columns@note$label:1
+#: model@purchase.order.type.roles|_columns@note$label:1
+#: model@purchase.order.type.plates|_columns@note$label:1
+#: model@purchase.order.type.items|_columns@note$label:1
+#: model@purchase.invoice.types|_columns@note$label:1
+#: model@purchase.invoice.type.roles|_columns@note$label:1
+#: model@purchase.order.categories|_columns@note$label:1
+#: model@purchase.invoce.categories|_columns@note$label:1
+#: model@purchase.orders|_columns@note$label:1
+#: model@purchase.order.payment.schedules|_columns@note$label:1
+#: model@purchase.order.output.plates|_columns@note$label:1
+#: model@purchase.order.items|_columns@note$label:1
+#: model@purchase.order.item.delivery.schedules|_columns@note$label:1
+#: model@purchase.order.item.output.plates|_columns@note$label:1
+#: model@purchase.order.item.payment.schedules|_columns@note$label:1
+#: model@purchase.invoices|_columns@note$label:1
+#: model@purchase.invoice.items|_columns@note$label:1
+#: model@purchase.invoce.item.delivery.schedules|_columns@note$label:1
+#: model@md.purchase.product|_columns@note$label:1
 msgid "Note"
 msgstr "Примітка"
 
-#: purchase.units-category_id:1 purchase.channels-category_id:1
-#: purchase.segments-category_id:1 purchase.areas-category_id:1
-#: purchase.regions-category_id:1 purchase.divisions-category_id:1
-#: purchase.subdivisions-category_id:1 purchase.orders-category_id:1
-#: purchase.invoices-category_id:1
+#: model@purchase.units|_description@:1
+msgid "General Model Purchase Units"
+msgstr "Генеральна Модель Одиницях Покупки "
+
+#: model@purchase.units|_columns@category_id$label:1
+#: model@purchase.channels|_columns@category_id$label:1
+#: model@purchase.segments|_columns@category_id$label:1
+#: model@purchase.areas|_columns@category_id$label:1
+#: model@purchase.regions|_columns@category_id$label:1
+#: model@purchase.divisions|_columns@category_id$label:1
+#: model@purchase.subdivisions|_columns@category_id$label:1
+#: model@purchase.orders|_columns@category_id$label:1
+#: model@purchase.invoices|_columns@category_id$label:1
 msgid "Category"
 msgstr "Категорія"
 
-#: purchase.units-company_id:1
+#: model@purchase.units|_columns@company_id$label:1
 msgid "Companies"
 msgstr "Компаній"
 
-#: purchase.units-code:1 purchase.channels-code:1 purchase.segments-code:1
-#: purchase.areas-code:1 purchase.regions-code:1 purchase.divisions-code:1
-#: purchase.subdivisions-code:1 purchase.pricing.group.levels-code:1
-#: purchase.texts-code:1 purchase.schema.texts-code:1
+#: model@purchase.units|_columns@code$label:1
+#: model@purchase.channels|_columns@code$label:1
+#: model@purchase.segments|_columns@code$label:1
+#: model@purchase.areas|_columns@code$label:1
+#: model@purchase.regions|_columns@code$label:1
+#: model@purchase.divisions|_columns@code$label:1
+#: model@purchase.subdivisions|_columns@code$label:1
+#: model@purchase.pricing.group.levels|_columns@code$label:1
+#: model@purchase.texts|_columns@code$label:1
+#: model@purchase.schema.texts|_columns@code$label:1
 msgid "Code"
 msgstr "Код"
 
-#: purchase.units-descr:1 purchase.channels-descr:1 purchase.segments-descr:1
-#: purchase.areas-descr:1 purchase.regions-descr:1 purchase.divisions-descr:1
-#: purchase.subdivisions-descr:1 purchase.pricing.group.levels-descr:1
-#: purchase.texts-descr:1 purchase.schema.texts-descr:1
+#: model@purchase.units|_columns@descr$label:1
+#: model@purchase.channels|_columns@descr$label:1
+#: model@purchase.segments|_columns@descr$label:1
+#: model@purchase.areas|_columns@descr$label:1
+#: model@purchase.regions|_columns@descr$label:1
+#: model@purchase.divisions|_columns@descr$label:1
+#: model@purchase.subdivisions|_columns@descr$label:1
+#: model@purchase.pricing.group.levels|_columns@descr$label:1
+#: model@purchase.texts|_columns@descr$label:1
+#: model@purchase.schema.texts|_columns@descr$label:1
 msgid "Description"
 msgstr "Опис"
 
-#: purchase.units-channels:1 purchase.channel.categories-channels:1
+#: model@purchase.units|_columns@channels$label:1
+#: model@purchase.channel.categories|_columns@channels$label:1
 msgid "Channels"
 msgstr "Канали"
 
-#: purchase.units-segments:1 purchase.segment.categories-segments:1
+#: model@purchase.units|_columns@segments$label:1
+#: model@purchase.segment.categories|_columns@segments$label:1
 msgid "Segments"
 msgstr "Сегментів"
 
-#: purchase.units-areas:1 purchase.area.categories-areas:1
+#: model@purchase.units|_columns@areas$label:1
+#: model@purchase.area.categories|_columns@areas$label:1
 msgid "Areas"
 msgstr "Області"
 
-#: purchase.units-regions:1
+#: model@purchase.units|_columns@regions$label:1
 msgid "Regions"
 msgstr "Регіони"
 
-#: purchase.region.categories-segments:1
+#: model@purchase.channel.categories|_description@:1
+msgid "General Model Categories Purchase Chanel"
+msgstr "Генеральна Модель Категорії Купити Шанель"
+
+#: model@purchase.channels|_description@:1
+msgid "General Model Purchase Channels"
+msgstr "Генеральна Модель Канали Покупки "
+
+#: model@purchase.segment.categories|_description@:1
+msgid "General Model Categories Purchase Segment"
+msgstr "Генеральна Модель Категорії Купити Сегмент"
+
+#: model@purchase.segments|_description@:1
+msgid "General Model Purchase Segments"
+msgstr "Генерал Модель Сегментів Купівлю "
+
+#: model@purchase.area.categories|_description@:1
+msgid "General Model Categories Purchase Area"
+msgstr "Генеральна Модель Категорії Купити Куточок"
+
+#: model@purchase.areas|_description@:1
+msgid "General Model Purchase Areas"
+msgstr "Серед Загальних Зон, Придбати Модель "
+
+#: model@purchase.region.categories|_description@:1
+msgid "General Model Categories Purchase Region"
+msgstr "Генеральна Модель Категорії Купити Області"
+
+#: model@purchase.region.categories|_columns@segments$label:1
 msgid "REgions"
 msgstr "Регіони"
 
-#: purchase.division.categories-divisions:1
+#: model@purchase.regions|_description@:1
+msgid "General Model Purchase Regions"
+msgstr "Загальна Купівля Моделі Регіонів"
+
+#: model@purchase.division.categories|_description@:1
+msgid "General Model Categories Purchase Division"
+msgstr "Генеральна Модель Категорії Закупівля"
+
+#: model@purchase.division.categories|_columns@divisions$label:1
 msgid "Divisions"
 msgstr "Підрозділи"
 
-#: purchase.divisions-subdivisions:1
+#: model@purchase.divisions|_description@:1
+msgid "General Model Purchase Divisions"
+msgstr "Загальними Відділами Придбати Модель "
+
+#: model@purchase.divisions|_columns@subdivisions$label:1
 msgid "SubDivisions"
 msgstr "Підрозділів"
 
-#: purchase.subdivision.categories-subdivisions:1
-#: purchase.order.categories-orders:1 purchase.invoce.categories-invoices:1
+#: model@purchase.subdivision.categories|_description@:1
+msgid "General Model Categories Purchase Subdivision"
+msgstr "Генеральна Модель Категорії Купити Підрозділ"
+
+#: model@purchase.subdivision.categories|_columns@subdivisions$label:1
+#: model@purchase.order.categories|_columns@orders$label:1
+#: model@purchase.invoce.categories|_columns@invoices$label:1
 msgid "Orders"
 msgstr "Замовлення"
 
-#: purchase.unit.channel.assigments-unit_id:1
-#: purchase.unit.segment.assigments-unit_id:1
-#: purchase.unit.area.assigments-unit_id:1
-#: purchase.unit.region.assigments-unit_id:1 purchase.markets-unit_id:1
-#: purchase.order.items-unit:1 purchase.order.pricing.items-unit:1
-#: purchase.invoice.items-unit:1 purchase.invoice.pricing.items-unit:1
-#: md.purchase.product-unit:1
+#: model@purchase.subdivisions|_description@:1
+msgid "General Model Purchase Subdivisions"
+msgstr "Генеральна Модель Підрозділів Покупки "
+
+#: model@purchase.unit.channel.assigments|_description@:1
+msgid "General Model Purchase Unit Of Channel Assigment"
+msgstr "Загальне Пристрій Купівля Моделі Розпаювання Канал "
+
+#: model@purchase.unit.channel.assigments|_columns@unit_id$label:1
+#: model@purchase.unit.segment.assigments|_columns@unit_id$label:1
+#: model@purchase.unit.area.assigments|_columns@unit_id$label:1
+#: model@purchase.unit.region.assigments|_columns@unit_id$label:1
+#: model@purchase.markets|_columns@unit_id$label:1
+#: model@purchase.order.items|_columns@unit$label:1
+#: model@purchase.order.pricing.items|_columns@unit$label:1
+#: model@purchase.invoice.items|_columns@unit$label:1
+#: model@purchase.invoice.pricing.items|_columns@unit$label:1
+#: model@md.purchase.product|_columns@unit$label:1
 msgid "Unit"
 msgstr "Блок"
 
-#: purchase.unit.channel.assigments-channel_id:1 purchase.markets-channel_id:1
+#: model@purchase.unit.channel.assigments|_columns@channel_id$label:1
+#: model@purchase.markets|_columns@channel_id$label:1
 msgid "Channel"
 msgstr "Канал"
 
-#: purchase.unit.segment.assigments-segment_id:1 purchase.markets-segment_id:1
+#: model@purchase.unit.segment.assigments|_description@:1
+msgid "General Model Purchase Unit Of Segment Assigment"
+msgstr "Загальне Пристрій Купівля Моделі Розпаювання Сегмента "
+
+#: model@purchase.unit.segment.assigments|_columns@segment_id$label:1
+#: model@purchase.markets|_columns@segment_id$label:1
 msgid "Segment"
 msgstr "Сегмент"
 
-#: purchase.unit.area.assigments-area_id:1 purchase.markets-area_id:1
+#: model@purchase.unit.area.assigments|_description@:1
+msgid "General Model Purchase Unit Of Area Assigment"
+msgstr "Загальні Блок Купити Модель Куточок Розпаювання"
+
+#: model@purchase.unit.area.assigments|_columns@area_id$label:1
+#: model@purchase.markets|_columns@area_id$label:1
 msgid "Area"
 msgstr "Площа"
 
-#: purchase.unit.region.assigments-region_id:1 purchase.markets-region_id:1
+#: model@purchase.unit.region.assigments|_description@:1
+msgid "General Model Purchase Unit Of Region Assigment"
+msgstr "Загальне Пристрій Купівля Моделі Регіону Розпаювання"
+
+#: model@purchase.unit.region.assigments|_columns@region_id$label:1
+#: model@purchase.markets|_columns@region_id$label:1
 msgid "Region"
 msgstr "Області"
 
-#: purchase.division.subdivision.assigments-division_id:1
-#: purchase.teams-division_id:1
+#: model@purchase.division.subdivision.assigments|_description@:1
+msgid "General Model Purchase Division Of Subdivision Assigment"
+msgstr "Загальний Відділ Купити Модель Підрозділу Розпаювання"
+
+#: model@purchase.division.subdivision.assigments|_columns@division_id$label:1
+#: model@purchase.teams|_columns@division_id$label:1
 msgid "Division"
 msgstr "Відділ"
 
-#: purchase.division.subdivision.assigments-subdivision_id:1
-#: purchase.teams-subdivision_id:1
+#: model@purchase.division.subdivision.assigments|_columns@subdivision_id$label:1
+#: model@purchase.teams|_columns@subdivision_id$label:1
 msgid "Subdivision"
 msgstr "Підрозділ"
 
-#: purchase.schema.texts-usage:1
+#: model@purchase.markets|_description@:1
+msgid "General Model Purchase Market"
+msgstr "Загальний Ринок Купити Модель "
+
+#: model@purchase.teams|_description@:1
+msgid "General Model Purchase Teams"
+msgstr "Генерал Модель Команд Купити "
+
+#: model@purchase.pricing.group.levels|_description@:1
+msgid "General Model Purchase Pricing Group Levels"
+msgstr "Генеральна Модель Купити Рівні Цінова Група "
+
+#: model@purchase.texts|_description@:1
+msgid "General Model Purchase Texts"
+msgstr "Загальна Купівля Моделі Текстів"
+
+#: model@purchase.schema.texts|_description@:1
+msgid "General Model Schema Of Purchase Texts"
+msgstr "Загальні Моделі Схеми Покупки Текстів"
+
+#: model@purchase.schema.texts|_columns@usage$label:1
 msgid "Usage"
 msgstr "Використання"
 
-#: purchase.schema.texts-texts:1 purchase.orders-texts:1
-#: purchase.order.items-texts:1 purchase.invoices-texts:1
-#: purchase.invoice.items-texts:1
-msgid "Texts"
-msgstr "Тексти"
-
-#: purchase.schema.text.items-schema_id:1
-msgid "Schema"
-msgstr "Схема"
-
-#: purchase.schema.text.items-seq:1 purchase.order.type.plates-seq:1
-#: purchase.order.texts-seq:1 purchase.order.item.texts-seq:1
-#: purchase.invoice.texts-seq:1 purchase.invoice.item.texts-seq:1
-msgid "Sequence"
-msgstr "Послідовність"
-
-#: purchase.schema.text.items-text_id:1
-msgid "Text"
-msgstr "Текст"
-
-#: purchase.schema.text.items-descr:1 purchase.order.texts-descr:1
-#: purchase.order.item.texts-descr:1 purchase.invoice.texts-descr:1
-#: purchase.invoice.item.texts-descr:1
-msgid "Unknown"
-msgstr "Невідомо"
-
-#: purchase.order.types-otype:1 purchase.order.type.roles-type_id:1
-#: purchase.order.type.plates-type_id:1 purchase.order.type.items-type_id:1
-#: purchase.invoice.types-itype:1 purchase.invoice.type.roles-type_id:1
-#: purchase.orders-otype:1 purchase.order.output.plates-otype:1
-#: purchase.order.item.output.plates-otype:1 purchase.invoices-itype:1
-msgid "Type"
-msgstr "Тип"
-
-#: purchase.order.types-htschema:1 purchase.invoice.types-htschema:1
-msgid "Text Schema Of Head"
-msgstr "Текст Схеми Голови"
-
-#: purchase.order.types-itschema:1 purchase.invoice.types-itschema:1
-msgid "Text Schema Of Item"
-msgstr "Текст Схеми Елемента"
-
-#: purchase.order.types-roles:1 purchase.invoice.types-roles:1
-#: purchase.orders-roles:1 purchase.order.items-roles:1
-#: purchase.invoices-roles:1 purchase.invoice.items-roles:1
-msgid "Roles"
-msgstr "Ролі"
-
-#: purchase.order.types-plates:1 purchase.orders-plates:1
-#: purchase.order.items-plates:1
-msgid "Plates"
-msgstr "Плити"
-
-#: purchase.order.types-tis:1
-msgid "TIs"
-msgstr "Тіс"
-
-#: purchase.order.type.roles-role_id:1 purchase.invoice.type.roles-role_id:1
-#: purchase.order.roles-role_id:1 purchase.order.output.plates-role:1
-#: purchase.order.item.roles-role_id:1
-#: purchase.order.item.output.plates-role:1 purchase.invoice.roles-role_id:1
-#: purchase.invoice.item.roles-role_id:1
-msgid "Role"
-msgstr "Роль"
-
-#: purchase.order.type.roles-required:1 purchase.order.type.plates-required:1
-#: purchase.invoice.type.roles-required:1
-msgid "Required"
-msgstr "Потрібно"
-
-#: purchase.order.type.plates-plate:1
-msgid "Plate"
-msgstr "Плити"
-
-#: purchase.order.type.items-gti_id:1
-msgid "GTI"
-msgstr "ГТІ"
-
-#: purchase.order.type.items-itype_id:1
-msgid "Type Of Items"
-msgstr "Тип Елементів"
-
-#: purchase.orders-company:1 purchase.invoices-company:1
-msgid "Company"
-msgstr "Компанія"
-
-#: purchase.orders-market_id:1 purchase.invoices-market_id:1
-msgid "Market"
-msgstr "Ринок"
-
-#: purchase.orders-team_id:1 purchase.invoices-team_id:1
-msgid "Team"
-msgstr "Команда"
-
-#: purchase.orders-manager:1
-msgid "Manager"
-msgstr "Менеджер"
-
-#: purchase.orders-origin:1 purchase.invoices-origin:1
-msgid "Origin"
-msgstr "Походження"
-
-#: purchase.orders-doo:1
-msgid "Date Of Order"
-msgstr "Дата Замовлення"
-
-#: purchase.orders-from_date:1
-msgid "Begin Date Of Order"
-msgstr "Дата Початку Замовлення"
-
-#: purchase.orders-to_date:1
-msgid "End Date Of Order"
-msgstr "Дата Закінчення Замовлення"
-
-#: purchase.orders-partner:1 purchase.order.output.plates-partner:1
-#: purchase.order.item.output.plates-partner:1 purchase.invoices-partner:1
-msgid "Partner"
-msgstr "Партнер"
-
-#: purchase.orders-currency:1 purchase.order.pricing-currency:1
-#: purchase.order.payment.schedules-currency:1 purchase.order.items-currency:1
-#: purchase.order.pricing.items-currency:1
-#: purchase.order.item.payment.schedules-currency:1
-#: purchase.invoices-currency:1 purchase.invoice.pricing-currency:1
-#: purchase.invoice.items-currency:1 purchase.invoice.pricing.items-currency:1
-#: md.purchase.product-currency:1
-msgid "Currency"
-msgstr "Валюта"
-
-#: purchase.orders-incoterms1:1 purchase.invoices-incoterms1:1
-msgid "Incoterms 1"
-msgstr "Інкотермс 1"
-
-#: purchase.orders-incoterms2:1 purchase.invoices-incoterms2:1
-msgid "Incoterms 2"
-msgstr "Інкотермс 2"
-
-#: purchase.orders-pm:1
-msgid "Price Method"
-msgstr "Спосіб Ціна "
-
-#: purchase.orders-state:1 purchase.order.output.plates-state:1
-#: purchase.order.item.output.plates-state:1 purchase.invoices-state:1
-msgid "State"
-msgstr "Держава"
-
-#: purchase.orders-amount:1 purchase.order.pricing-amount:1
-#: purchase.order.payment.schedules-amount:1 purchase.order.items-amount:1
-#: purchase.order.pricing.items-amount:1
-#: purchase.order.item.payment.schedules-amount:1 purchase.invoices-amount:1
-#: purchase.invoice.pricing-amount:1 purchase.invoice.items-amount:1
-#: purchase.invoice.pricing.items-amount:1
-msgid "Amount"
-msgstr "Сума"
-
-#: purchase.orders-vat_amount:1 purchase.order.items-vat_amount:1
-#: purchase.invoices-vat_amount:1 purchase.invoice.items-vat_amount:1
-msgid "VAT Amount"
-msgstr "Сума ПДВ "
-
-#: purchase.orders-total_amount:1 purchase.order.items-total_amount:1
-#: purchase.invoices-total_amount:1 purchase.invoice.items-total_amount:1
-msgid "Total Amount"
-msgstr "Загальна Сума"
-
-#: purchase.orders-recepture:1
-msgid "Recepture"
-msgstr "Recepture"
-
-#: purchase.orders-items:1 purchase.invoices-items:1
-msgid "Items"
-msgstr "Елементи"
-
-#: purchase.orders-pricing:1 purchase.order.items-pricing:1
-#: purchase.invoices-pricing:1 purchase.invoice.items-pricing:1
-msgid "Pricing"
-msgstr "Ціноутворення"
-
-#: purchase.orders-payments:1 purchase.order.items-payments:1
-msgid "Payments"
-msgstr "Платежі"
-
-#: purchase.order.texts-order_id:1 purchase.order.roles-order_id:1
-#: purchase.order.pricing-order_id:1
-#: purchase.order.payment.schedules-order_id:1
-#: purchase.order.output.plates-order_id:1
-#: purchase.order.pricing.items-item_id:1
-#: purchase.order.item.output.plates-item_id:1
-#: purchase.invoice.texts-invoice_id:1
-#: purchase.invoice.pricing.items-item_id:1
-msgid "Order"
-msgstr "Замовлення"
-
-#: purchase.order.texts-text_id:1 purchase.order.item.texts-text_id:1
-#: purchase.invoice.texts-text_id:1 purchase.invoice.item.texts-text_id:1
-msgid "Text ID"
-msgstr "Ідентифікатор тексту "
-
-#: purchase.order.texts-content:1 purchase.order.item.texts-content:1
-#: purchase.invoice.texts-content:1 purchase.invoice.item.texts-content:1
-msgid "Content"
-msgstr "Зміст"
-
-#: purchase.order.roles-patner_id:1 purchase.order.item.roles-patner_id:1
-#: purchase.invoice.roles-patner_id:1 purchase.invoice.item.roles-patner_id:1
-msgid "Parther"
-msgstr "Партнер"
-
-#: purchase.order.pricing-level:1 purchase.order.pricing.items-level:1
-#: purchase.invoice.pricing-level:1 purchase.invoice.pricing.items-level:1
-msgid "Level"
-msgstr "Рівень"
-
-#: purchase.order.pricing-cond:1 purchase.order.pricing.items-cond:1
-#: purchase.invoice.pricing-cond:1 purchase.invoice.pricing.items-cond:1
-msgid "Condition"
-msgstr "Стан"
-
-#: purchase.order.pricing-from_level:1
-#: purchase.order.pricing.items-from_level:1
-#: purchase.invoice.pricing-from_level:1
-#: purchase.invoice.pricing.items-from_level:1
-msgid "From Level"
-msgstr "Від Рівня"
-
-#: purchase.order.pricing-to_level:1 purchase.order.pricing.items-to_level:1
-#: purchase.invoice.pricing-to_level:1
-#: purchase.invoice.pricing.items-to_level:1
-msgid "To Level"
-msgstr "На Рівні"
-
-#: purchase.order.pricing-group_level:1
-#: purchase.order.pricing.items-group_level:1
-#: purchase.invoice.pricing-group_level:1
-#: purchase.invoice.pricing.items-group_level:1
-msgid "Group Level"
-msgstr "Рівень Групи "
-
-#: purchase.order.payment.schedules-schedule:1
-#: purchase.order.output.plates-schedule:1
-#: purchase.order.item.delivery.schedules-schedule:1
-#: purchase.order.item.output.plates-schedule:1
-#: purchase.order.item.payment.schedules-schedule:1
-#: purchase.invoce.item.delivery.schedules-schedule:1
-msgid "Schedule"
-msgstr "Розклад"
-
-#: purchase.order.output.plates-language:1
-#: purchase.order.item.output.plates-language:1
-msgid "language"
-msgstr "мова"
-
-#: purchase.order.output.plates-msm:1 purchase.order.item.output.plates-msm:1
-msgid "Message Sending Method"
-msgstr "Спосіб Відправлення Повідомлення "
-
-#: purchase.order.items-order_id:1
-msgid "Purchase Order"
-msgstr "Замовлення На Купівлю "
-
-#: purchase.order.items-itype_id:1
-msgid "Group Of Type Items"
-msgstr "Група Елементів Тип "
-
-#: purchase.order.items-product:1 purchase.invoice.items-product:1
-#: md.purchase.product-product_id:1
-msgid "Product"
-msgstr "Продукт"
-
-#: purchase.order.items-quantity:1
-#: purchase.order.item.delivery.schedules-quantity:1
-#: purchase.invoice.items-quantity:1
-#: purchase.invoce.item.delivery.schedules-quantity:1
-msgid "Quantity"
-msgstr "Кількість"
-
-#: purchase.order.items-uom:1 purchase.invoice.items-uom:1
-msgid "UoM"
-msgstr "Одиниця"
-
-#: purchase.order.items-price:1 purchase.order.pricing.items-price:1
-#: purchase.invoice.items-price:1 purchase.invoice.pricing.items-price:1
-#: md.purchase.product-price:1
-msgid "Price"
-msgstr "Ціна"
-
-#: purchase.order.items-uop:1 purchase.order.pricing.items-uop:1
-#: purchase.invoice.items-uop:1 purchase.invoice.pricing.items-uop:1
-#: md.purchase.product-uop:1
-msgid "Unit Of Price"
-msgstr "Одиниця Ціна"
-
-#: purchase.order.items-vat_code:1 purchase.invoice.items-vat_code:1
-msgid "Vat code"
-msgstr "Код ПДВ "
-
-#: purchase.order.items-volume:1
-msgid "Volume"
-msgstr "Обсяг"
-
-#: purchase.order.items-volume_total:1
-msgid "Volume Total"
-msgstr "Обсягу"
-
-#: purchase.order.items-volume_uom:1
-msgid "Volume UoM"
-msgstr "Одиниця Обсягу "
-
-#: purchase.order.items-weight:1
-msgid "Weight"
-msgstr "Вага"
-
-#: purchase.order.items-weight_total:1
-msgid "Weight Total"
-msgstr "Вага Всього"
-
-#: purchase.order.items-weight_uom:1
-msgid "Weight UoM"
-msgstr "Еи Вага "
-
-#: purchase.order.items-delivery_schedules:1
-#: purchase.invoice.items-delivery_schedules:1
-msgid "Delivery Schedule"
-msgstr "Графік Поставки "
-
-#: purchase.order.pricing.items-cop:1 purchase.invoice.pricing.items-cop:1
-msgid "Currency Of Price"
-msgstr "Валюта Ціни"
-
-#: purchase.order.item.texts-item_id:1 purchase.order.item.roles-item_id:1
-#: purchase.order.item.payment.schedules-item_id:1
-#: purchase.invoice.item.texts-item_id:1 purchase.invoice.item.roles-item_id:1
+#: model@purchase.schema.texts|_columns@usage$selections#h:1
+msgid "Header"
+msgstr "Заголовок"
+
+#: model@purchase.schema.texts|_columns@usage$selections#i:1
+#: model@purchase.order.pricing.items|_columns@item_id$label:1
+#: model@purchase.order.item.texts|_columns@item_id$label:1
+#: model@purchase.order.item.roles|_columns@item_id$label:1
+#: model@purchase.order.item.output.plates|_columns@item_id$label:1
+#: model@purchase.order.item.payment.schedules|_columns@item_id$label:1
+#: model@purchase.invoice.item.texts|_columns@item_id$label:1
+#: model@purchase.invoice.item.roles|_columns@item_id$label:1
 msgid "Item"
 msgstr "Пункт"
 
-#: purchase.order.item.delivery.schedules-item_id:1
-#: purchase.invoce.item.delivery.schedules-item_id:1
-msgid "Order Item"
-msgstr "Номенклатура Замовлення "
+#: model@purchase.schema.texts|_columns@usage$selections#b:1
+msgid "Both"
+msgstr "Обидва"
 
-#: purchase.invoices-doi:1
-msgid "Date Of Invoice"
-msgstr "Дата Рахунку-Фактури"
+#: model@purchase.schema.texts|_columns@texts$label:1
+#: model@purchase.orders|_columns@texts$label:1
+#: model@purchase.order.items|_columns@texts$label:1
+#: model@purchase.invoices|_columns@texts$label:1
+#: model@purchase.invoice.items|_columns@texts$label:1
+msgid "Texts"
+msgstr "Тексти"
 
-#: purchase.invoice.pricing-invoice_id:1 purchase.invoice.roles-invoice_id:1
-#: purchase.invoice.items-invoice_id:1
+#: model@purchase.schema.text.items|_description@:1
+msgid "General Model Items Of Schema Purchase Texts"
+msgstr "Загальна Модель Елементів Схеми Покупки Текстів"
+
+#: model@purchase.schema.text.items|_columns@schema_id$label:1
+msgid "Schema"
+msgstr "Схема"
+
+#: model@purchase.schema.text.items|_columns@seq$label:1
+#: model@purchase.order.type.plates|_columns@seq$label:1
+#: model@purchase.order.texts|_columns@seq$label:1
+#: model@purchase.order.item.texts|_columns@seq$label:1
+#: model@purchase.invoice.texts|_columns@seq$label:1
+#: model@purchase.invoice.item.texts|_columns@seq$label:1
+msgid "Sequence"
+msgstr "Послідовність"
+
+#: model@purchase.schema.text.items|_columns@text_id$label:1
+msgid "Text"
+msgstr "Текст"
+
+#: model@purchase.schema.text.items|_columns@descr$label:1
+#: model@purchase.order.texts|_columns@descr$label:1
+#: model@purchase.order.item.texts|_columns@descr$label:1
+#: model@purchase.invoice.texts|_columns@descr$label:1
+#: model@purchase.invoice.item.texts|_columns@descr$label:1
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: model@purchase.order.types|_description@:1
+msgid "General Model Types Purchase Order"
+msgstr "Загальні Типи Моделей Замовлення На Купівлю "
+
+#: model@purchase.order.types|_columns@otype$label:1
+#: model@purchase.order.type.roles|_columns@type_id$label:1
+#: model@purchase.order.type.plates|_columns@type_id$label:1
+#: model@purchase.order.type.items|_columns@type_id$label:1
+#: model@purchase.invoice.types|_columns@itype$label:1
+#: model@purchase.invoice.type.roles|_columns@type_id$label:1
+#: model@purchase.orders|_columns@otype$label:1
+#: model@purchase.order.output.plates|_columns@otype$label:1
+#: model@purchase.order.item.output.plates|_columns@otype$label:1
+#: model@purchase.invoices|_columns@itype$label:1
+msgid "Type"
+msgstr "Тип"
+
+#: model@purchase.order.types|_columns@otype$selections#ord:1
+#: model@purchase.order.texts|_columns@order_id$label:1
+#: model@purchase.order.roles|_columns@order_id$label:1
+#: model@purchase.order.pricing|_columns@order_id$label:1
+#: model@purchase.order.payment.schedules|_columns@order_id$label:1
+#: model@purchase.order.output.plates|_columns@order_id$label:1
+#: model@purchase.invoice.texts|_columns@invoice_id$label:1
+#: model@purchase.invoice.pricing.items|_columns@item_id$label:1
+msgid "Order"
+msgstr "Замовлення"
+
+#: model@purchase.order.types|_columns@otype$selections#ap:1
+#: model@purchase.invoice.types|_columns@itype$selections#ap:1
+msgid "Advance Payment"
+msgstr "Авансовий Платіж"
+
+#: model@purchase.order.types|_columns@otype$selections#ps:1
+#: model@purchase.invoice.types|_columns@itype$selections#ps:1
+msgid "Pseduo"
+msgstr "Pseduo"
+
+#: model@purchase.order.types|_columns@otype$selections#dm:1
+msgid "Debit Request"
+msgstr "Запит Дебетування "
+
+#: model@purchase.order.types|_columns@otype$selections#cr:1
+msgid "Credit Request"
+msgstr "Кредитною Заявкою"
+
+#: model@purchase.order.types|_columns@otype$selections#rо:1
+msgid "Return"
+msgstr "Повернутися"
+
+#: model@purchase.order.types|_columns@htschema$label:1
+#: model@purchase.invoice.types|_columns@htschema$label:1
+msgid "Text Schema Of Head"
+msgstr "Текст Схеми Голови"
+
+#: model@purchase.order.types|_columns@itschema$label:1
+#: model@purchase.invoice.types|_columns@itschema$label:1
+msgid "Text Schema Of Item"
+msgstr "Текст Схеми Елемента"
+
+#: model@purchase.order.types|_columns@roles$label:1
+#: model@purchase.invoice.types|_columns@roles$label:1
+#: model@purchase.orders|_columns@roles$label:1
+#: model@purchase.order.items|_columns@roles$label:1
+#: model@purchase.invoices|_columns@roles$label:1
+#: model@purchase.invoice.items|_columns@roles$label:1
+msgid "Roles"
+msgstr "Ролі"
+
+#: model@purchase.order.types|_columns@plates$label:1
+#: model@purchase.orders|_columns@plates$label:1
+#: model@purchase.order.items|_columns@plates$label:1
+msgid "Plates"
+msgstr "Плити"
+
+#: model@purchase.order.types|_columns@tis$label:1
+msgid "TIs"
+msgstr "Тіс"
+
+#: model@purchase.order.type.roles|_description@:1
+msgid "General Model Role Purchase Order Types"
+msgstr "Загальні Ролі Моделі Типів Замовлень На Купівлю "
+
+#: model@purchase.order.type.roles|_columns@role_id$label:1
+#: model@purchase.invoice.type.roles|_columns@role_id$label:1
+#: model@purchase.order.roles|_columns@role_id$label:1
+#: model@purchase.order.output.plates|_columns@role$label:1
+#: model@purchase.order.item.roles|_columns@role_id$label:1
+#: model@purchase.order.item.output.plates|_columns@role$label:1
+#: model@purchase.invoice.roles|_columns@role_id$label:1
+#: model@purchase.invoice.item.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Роль"
+
+#: model@purchase.order.type.roles|_columns@required$label:1
+#: model@purchase.order.type.plates|_columns@required$label:1
+#: model@purchase.invoice.type.roles|_columns@required$label:1
+msgid "Required"
+msgstr "Потрібно"
+
+#: model@purchase.order.type.plates|_description@:1
+msgid "General Model Purchase Order Plates"
+msgstr "Генеральна Модель Тарілки Замовлення На Купівлю "
+
+#: model@purchase.order.type.plates|_columns@plate$label:1
+msgid "Plate"
+msgstr "Плити"
+
+#: model@purchase.order.type.items|_description@:1
+msgid "General Model Plates Of Purchase Order Items"
+msgstr "Генерал Модель Тарілки Купити Позицій Замовлення "
+
+#: model@purchase.order.type.items|_columns@gti_id$label:1
+msgid "GTI"
+msgstr "ГТІ"
+
+#: model@purchase.order.type.items|_columns@itype_id$label:1
+msgid "Type Of Items"
+msgstr "Тип Елементів"
+
+#: model@purchase.invoice.types|_description@:1
+msgid "General Model Types Purchase Invoice"
+msgstr "Загальні Типи Моделей Купити Накладної"
+
+#: model@purchase.invoice.types|_columns@itype$selections#in:1
+#: model@purchase.invoice.pricing|_columns@invoice_id$label:1
+#: model@purchase.invoice.roles|_columns@invoice_id$label:1
+#: model@purchase.invoice.items|_columns@invoice_id$label:1
 msgid "Invoice"
 msgstr "Рахунок-фактура"
 
-#: md.purchase.product-vat:1
+#: model@purchase.invoice.types|_columns@itype$selections#dm:1
+msgid "Debit Memo"
+msgstr "Дебетове Авізо"
+
+#: model@purchase.invoice.types|_columns@itype$selections#cr:1
+msgid "Credit Memo"
+msgstr "Кредитове Авізо"
+
+#: model@purchase.invoice.types|_columns@itype$selections#rin:1
+msgid "Reversal Invoice"
+msgstr "Рахунок-Фактура Сторно "
+
+#: model@purchase.invoice.types|_columns@itype$selections#rap:1
+msgid "Reversal Advance Payment"
+msgstr "Сторно Авансу"
+
+#: model@purchase.invoice.types|_columns@itype$selections#rps:1
+msgid "Reversal Pseduo"
+msgstr "Розворот Pseduo"
+
+#: model@purchase.invoice.types|_columns@itype$selections#rdm:1
+msgid "Reversal Debit Memo"
+msgstr "Сторно Дебетового Авізо"
+
+#: model@purchase.invoice.types|_columns@itype$selections#rcr:1
+msgid "Reversal Credit Memo"
+msgstr "Сторно Кредитового Авізо"
+
+#: model@purchase.invoice.type.roles|_description@:1
+msgid "General Model Role Purchase Invoice Types"
+msgstr "Взагалі Рольова Модель Покупки Видах Рахунки-Фактури "
+
+#: model@purchase.order.categories|_description@:1
+msgid "General Model Categories Purchase Order"
+msgstr "Генеральна Модель Категоріях Замовлення На Купівлю "
+
+#: model@purchase.invoce.categories|_description@:1
+msgid "General Model Categories Purchase Invoce"
+msgstr "Генеральна Модель Категорії Купити Інвойс"
+
+#: model@purchase.orders|_description@:1
+msgid "General Model Purchase Order"
+msgstr "Генеральна Модель Замовлення На Купівлю "
+
+#: model@purchase.orders|_columns@company$label:1
+#: model@purchase.invoices|_columns@company$label:1
+msgid "Company"
+msgstr "Компанія"
+
+#: model@purchase.orders|_columns@market_id$label:1
+#: model@purchase.invoices|_columns@market_id$label:1
+msgid "Market"
+msgstr "Ринок"
+
+#: model@purchase.orders|_columns@team_id$label:1
+#: model@purchase.invoices|_columns@team_id$label:1
+msgid "Team"
+msgstr "Команда"
+
+#: model@purchase.orders|_columns@manager$label:1
+msgid "Manager"
+msgstr "Менеджер"
+
+#: model@purchase.orders|_columns@origin$label:1
+#: model@purchase.invoices|_columns@origin$label:1
+msgid "Origin"
+msgstr "Походження"
+
+#: model@purchase.orders|_columns@doo$label:1
+msgid "Date Of Order"
+msgstr "Дата Замовлення"
+
+#: model@purchase.orders|_columns@from_date$label:1
+msgid "Begin Date Of Order"
+msgstr "Дата Початку Замовлення"
+
+#: model@purchase.orders|_columns@to_date$label:1
+msgid "End Date Of Order"
+msgstr "Дата Закінчення Замовлення"
+
+#: model@purchase.orders|_columns@partner$label:1
+#: model@purchase.order.output.plates|_columns@partner$label:1
+#: model@purchase.order.item.output.plates|_columns@partner$label:1
+#: model@purchase.invoices|_columns@partner$label:1
+msgid "Partner"
+msgstr "Партнер"
+
+#: model@purchase.orders|_columns@currency$label:1
+#: model@purchase.order.pricing|_columns@currency$label:1
+#: model@purchase.order.payment.schedules|_columns@currency$label:1
+#: model@purchase.order.items|_columns@currency$label:1
+#: model@purchase.order.pricing.items|_columns@currency$label:1
+#: model@purchase.order.item.payment.schedules|_columns@currency$label:1
+#: model@purchase.invoices|_columns@currency$label:1
+#: model@purchase.invoice.pricing|_columns@currency$label:1
+#: model@purchase.invoice.items|_columns@currency$label:1
+#: model@purchase.invoice.pricing.items|_columns@currency$label:1
+#: model@md.purchase.product|_columns@currency$label:1
+msgid "Currency"
+msgstr "Валюта"
+
+#: model@purchase.orders|_columns@incoterms1$label:1
+#: model@purchase.invoices|_columns@incoterms1$label:1
+msgid "Incoterms 1"
+msgstr "Інкотермс 1"
+
+#: model@purchase.orders|_columns@incoterms2$label:1
+#: model@purchase.invoices|_columns@incoterms2$label:1
+msgid "Incoterms 2"
+msgstr "Інкотермс 2"
+
+#: model@purchase.orders|_columns@pm$label:1
+msgid "Price Method"
+msgstr "Спосіб Ціна "
+
+#: model@purchase.orders|_columns@pm$selections#p:1
+msgid "Plain"
+msgstr "Рівнина"
+
+#: model@purchase.orders|_columns@pm$selections#c:1
+msgid "Complicated"
+msgstr "Складно"
+
+#: model@purchase.orders|_columns@state$label:1
+#: model@purchase.order.output.plates|_columns@state$label:1
+#: model@purchase.order.item.output.plates|_columns@state$label:1
+#: model@purchase.invoices|_columns@state$label:1
+msgid "State"
+msgstr "Держава"
+
+#: model@purchase.orders|_columns@state$selections#draft:1
+#: model@purchase.invoices|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Проект"
+
+#: model@purchase.orders|_columns@state$selections#approved:1
+#: model@purchase.invoices|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Затверджений"
+
+#: model@purchase.orders|_columns@state$selections#inprocess:1
+#: model@purchase.invoices|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "У Процесі"
+
+#: model@purchase.orders|_columns@state$selections#closed:1
+#: model@purchase.invoices|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Закриті"
+
+#: model@purchase.orders|_columns@state$selections#canceled:1
+#: model@purchase.invoices|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Скасували"
+
+#: model@purchase.orders|_columns@amount$label:1
+#: model@purchase.order.pricing|_columns@amount$label:1
+#: model@purchase.order.payment.schedules|_columns@amount$label:1
+#: model@purchase.order.items|_columns@amount$label:1
+#: model@purchase.order.pricing.items|_columns@amount$label:1
+#: model@purchase.order.item.payment.schedules|_columns@amount$label:1
+#: model@purchase.invoices|_columns@amount$label:1
+#: model@purchase.invoice.pricing|_columns@amount$label:1
+#: model@purchase.invoice.items|_columns@amount$label:1
+#: model@purchase.invoice.pricing.items|_columns@amount$label:1
+msgid "Amount"
+msgstr "Сума"
+
+#: model@purchase.orders|_columns@vat_amount$label:1
+#: model@purchase.order.items|_columns@vat_amount$label:1
+#: model@purchase.invoices|_columns@vat_amount$label:1
+#: model@purchase.invoice.items|_columns@vat_amount$label:1
+msgid "VAT Amount"
+msgstr "Сума ПДВ "
+
+#: model@purchase.orders|_columns@total_amount$label:1
+#: model@purchase.order.items|_columns@total_amount$label:1
+#: model@purchase.invoices|_columns@total_amount$label:1
+#: model@purchase.invoice.items|_columns@total_amount$label:1
+msgid "Total Amount"
+msgstr "Загальна Сума"
+
+#: model@purchase.orders|_columns@recepture$label:1
+msgid "Recepture"
+msgstr "Recepture"
+
+#: model@purchase.orders|_columns@items$label:1
+#: model@purchase.invoices|_columns@items$label:1
+msgid "Items"
+msgstr "Елементи"
+
+#: model@purchase.orders|_columns@pricing$label:1
+#: model@purchase.order.items|_columns@pricing$label:1
+#: model@purchase.invoices|_columns@pricing$label:1
+#: model@purchase.invoice.items|_columns@pricing$label:1
+msgid "Pricing"
+msgstr "Ціноутворення"
+
+#: model@purchase.orders|_columns@payments$label:1
+#: model@purchase.order.items|_columns@payments$label:1
+msgid "Payments"
+msgstr "Платежі"
+
+#: model@purchase.order.texts|_description@:1
+msgid "General Model Purchase Order Texts"
+msgstr "Спільні Покупки Модель Текстів Замовлення"
+
+#: model@purchase.order.texts|_columns@text_id$label:1
+#: model@purchase.order.item.texts|_columns@text_id$label:1
+#: model@purchase.invoice.texts|_columns@text_id$label:1
+#: model@purchase.invoice.item.texts|_columns@text_id$label:1
+msgid "Text ID"
+msgstr "Ідентифікатор тексту "
+
+#: model@purchase.order.texts|_columns@content$label:1
+#: model@purchase.order.item.texts|_columns@content$label:1
+#: model@purchase.invoice.texts|_columns@content$label:1
+#: model@purchase.invoice.item.texts|_columns@content$label:1
+msgid "Content"
+msgstr "Зміст"
+
+#: model@purchase.order.roles|_description@:1
+#: model@purchase.order.item.roles|_description@:1
+msgid "General Model Purchase Order Roles"
+msgstr "Загальна Купівля Моделі Ролей Замовлення "
+
+#: model@purchase.order.roles|_columns@patner_id$label:1
+#: model@purchase.order.item.roles|_columns@patner_id$label:1
+#: model@purchase.invoice.roles|_columns@patner_id$label:1
+#: model@purchase.invoice.item.roles|_columns@patner_id$label:1
+msgid "Parther"
+msgstr "Партнер"
+
+#: model@purchase.order.pricing|_description@:1
+msgid "General Model Purchase Order Pricing"
+msgstr "Загальна Купівля Моделі Порядку Ціноутворення"
+
+#: model@purchase.order.pricing|_columns@level$label:1
+#: model@purchase.order.pricing.items|_columns@level$label:1
+#: model@purchase.invoice.pricing|_columns@level$label:1
+#: model@purchase.invoice.pricing.items|_columns@level$label:1
+msgid "Level"
+msgstr "Рівень"
+
+#: model@purchase.order.pricing|_columns@cond$label:1
+#: model@purchase.order.pricing.items|_columns@cond$label:1
+#: model@purchase.invoice.pricing|_columns@cond$label:1
+#: model@purchase.invoice.pricing.items|_columns@cond$label:1
+msgid "Condition"
+msgstr "Стан"
+
+#: model@purchase.order.pricing|_columns@from_level$label:1
+#: model@purchase.order.pricing.items|_columns@from_level$label:1
+#: model@purchase.invoice.pricing|_columns@from_level$label:1
+#: model@purchase.invoice.pricing.items|_columns@from_level$label:1
+msgid "From Level"
+msgstr "Від Рівня"
+
+#: model@purchase.order.pricing|_columns@to_level$label:1
+#: model@purchase.order.pricing.items|_columns@to_level$label:1
+#: model@purchase.invoice.pricing|_columns@to_level$label:1
+#: model@purchase.invoice.pricing.items|_columns@to_level$label:1
+msgid "To Level"
+msgstr "На Рівні"
+
+#: model@purchase.order.pricing|_columns@group_level$label:1
+#: model@purchase.order.pricing.items|_columns@group_level$label:1
+#: model@purchase.invoice.pricing|_columns@group_level$label:1
+#: model@purchase.invoice.pricing.items|_columns@group_level$label:1
+msgid "Group Level"
+msgstr "Рівень Групи "
+
+#: model@purchase.order.payment.schedules|_description@:1
+msgid "General Model Purchase Order Payment Schedules"
+msgstr "Генеральна Модель Замовлення На Купівлю Графіків Платежів "
+
+#: model@purchase.order.payment.schedules|_columns@schedule$label:1
+#: model@purchase.order.output.plates|_columns@schedule$label:1
+#: model@purchase.order.item.delivery.schedules|_columns@schedule$label:1
+#: model@purchase.order.item.output.plates|_columns@schedule$label:1
+#: model@purchase.order.item.payment.schedules|_columns@schedule$label:1
+#: model@purchase.invoce.item.delivery.schedules|_columns@schedule$label:1
+msgid "Schedule"
+msgstr "Розклад"
+
+#: model@purchase.order.output.plates|_description@:1
+msgid "General Model Purchase Order Output Plates"
+msgstr "Генеральна Модель Виведення Замовлення На Поставку Пластин"
+
+#: model@purchase.order.output.plates|_columns@state$selections#c:1
+#: model@purchase.order.item.output.plates|_columns@state$selections#c:1
+msgid "Created"
+msgstr "Створений"
+
+#: model@purchase.order.output.plates|_columns@state$selections#p:1
+#: model@purchase.order.item.output.plates|_columns@state$selections#p:1
+msgid "Printed"
+msgstr "Надруковано"
+
+#: model@purchase.order.output.plates|_columns@state$selections#e:1
+#: model@purchase.order.item.output.plates|_columns@state$selections#e:1
+msgid "Error"
+msgstr "Помилка"
+
+#: model@purchase.order.output.plates|_columns@state$selections#w:1
+#: model@purchase.order.item.output.plates|_columns@state$selections#w:1
+msgid "Warning"
+msgstr "Попередження"
+
+#: model@purchase.order.output.plates|_columns@state$selections#i:1
+#: model@purchase.order.item.output.plates|_columns@state$selections#i:1
+msgid "Info"
+msgstr "Інформація"
+
+#: model@purchase.order.output.plates|_columns@language$label:1
+#: model@purchase.order.item.output.plates|_columns@language$label:1
+msgid "language"
+msgstr "мова"
+
+#: model@purchase.order.output.plates|_columns@msm$label:1
+#: model@purchase.order.item.output.plates|_columns@msm$label:1
+msgid "Message Sending Method"
+msgstr "Спосіб Відправлення Повідомлення "
+
+#: model@purchase.order.output.plates|_columns@msm$selections#pj:1
+#: model@purchase.order.item.output.plates|_columns@msm$selections#pj:1
+msgid "Peridiocal Job Send"
+msgstr "Peridiocal Роботу Відправити"
+
+#: model@purchase.order.output.plates|_columns@msm$selections#tj:1
+#: model@purchase.order.item.output.plates|_columns@msm$selections#tj:1
+msgid "Timing Job Send"
+msgstr "Завдання Часу Відправлення"
+
+#: model@purchase.order.output.plates|_columns@msm$selections#ss:1
+#: model@purchase.order.item.output.plates|_columns@msm$selections#ss:1
+msgid "Self Output Send"
+msgstr "Вихід Самостійно Відправити"
+
+#: model@purchase.order.output.plates|_columns@msm$selections#im:1
+#: model@purchase.order.item.output.plates|_columns@msm$selections#im:1
+msgid "Immediately Send"
+msgstr "Негайно Відправити"
+
+#: model@purchase.order.items|_description@:1
+msgid "General Model Purchase Order Items"
+msgstr "Загальна Купівля Моделі Деталі Замовлення "
+
+#: model@purchase.order.items|_columns@order_id$label:1
+msgid "Purchase Order"
+msgstr "Замовлення На Купівлю "
+
+#: model@purchase.order.items|_columns@itype_id$label:1
+msgid "Group Of Type Items"
+msgstr "Група Елементів Тип "
+
+#: model@purchase.order.items|_columns@product$label:1
+#: model@purchase.invoice.items|_columns@product$label:1
+#: model@md.purchase.product|_columns@product_id$label:1
+msgid "Product"
+msgstr "Продукт"
+
+#: model@purchase.order.items|_columns@quantity$label:1
+#: model@purchase.order.item.delivery.schedules|_columns@quantity$label:1
+#: model@purchase.invoice.items|_columns@quantity$label:1
+#: model@purchase.invoce.item.delivery.schedules|_columns@quantity$label:1
+msgid "Quantity"
+msgstr "Кількість"
+
+#: model@purchase.order.items|_columns@uom$label:1
+#: model@purchase.invoice.items|_columns@uom$label:1
+msgid "UoM"
+msgstr "Одиниця"
+
+#: model@purchase.order.items|_columns@price$label:1
+#: model@purchase.order.pricing.items|_columns@price$label:1
+#: model@purchase.invoice.items|_columns@price$label:1
+#: model@purchase.invoice.pricing.items|_columns@price$label:1
+#: model@md.purchase.product|_columns@price$label:1
+msgid "Price"
+msgstr "Ціна"
+
+#: model@purchase.order.items|_columns@uop$label:1
+#: model@purchase.order.pricing.items|_columns@uop$label:1
+#: model@purchase.invoice.items|_columns@uop$label:1
+#: model@purchase.invoice.pricing.items|_columns@uop$label:1
+#: model@md.purchase.product|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Одиниця Ціна"
+
+#: model@purchase.order.items|_columns@vat_code$label:1
+#: model@purchase.invoice.items|_columns@vat_code$label:1
+msgid "Vat code"
+msgstr "Код ПДВ "
+
+#: model@purchase.order.items|_columns@volume$label:1
+msgid "Volume"
+msgstr "Обсяг"
+
+#: model@purchase.order.items|_columns@volume_total$label:1
+msgid "Volume Total"
+msgstr "Обсягу"
+
+#: model@purchase.order.items|_columns@volume_uom$label:1
+msgid "Volume UoM"
+msgstr "Одиниця Обсягу "
+
+#: model@purchase.order.items|_columns@weight$label:1
+msgid "Weight"
+msgstr "Вага"
+
+#: model@purchase.order.items|_columns@weight_total$label:1
+msgid "Weight Total"
+msgstr "Вага Всього"
+
+#: model@purchase.order.items|_columns@weight_uom$label:1
+msgid "Weight UoM"
+msgstr "Еи Вага "
+
+#: model@purchase.order.items|_columns@delivery_schedules$label:1
+#: model@purchase.invoice.items|_columns@delivery_schedules$label:1
+msgid "Delivery Schedule"
+msgstr "Графік Поставки "
+
+#: model@purchase.order.pricing.items|_description@:1
+msgid "General Model Purchase Order Item Pricing"
+msgstr "Генеральна Модель Купівлі Товару Порядку Ціноутворення"
+
+#: model@purchase.order.pricing.items|_columns@cop$label:1
+#: model@purchase.invoice.pricing.items|_columns@cop$label:1
+msgid "Currency Of Price"
+msgstr "Валюта Ціни"
+
+#: model@purchase.order.item.texts|_description@:1
+msgid "General Model Purchase Order Item Texts"
+msgstr "Генеральна Модель Текстів Замовлення"
+
+#: model@purchase.order.item.delivery.schedules|_description@:1
+msgid "General Model Purchase Order Item Delivery Schedules"
+msgstr "Генеральна Модель Замовлення Строків Поставки Товару "
+
+#: model@purchase.order.item.delivery.schedules|_columns@item_id$label:1
+#: model@purchase.invoce.item.delivery.schedules|_columns@item_id$label:1
+msgid "Order Item"
+msgstr "Номенклатура Замовлення "
+
+#: model@purchase.order.item.output.plates|_description@:1
+msgid "General Model Purchase Order Item Output Plates"
+msgstr "Генеральна Модель Замовлення Виведення Пластин"
+
+#: model@purchase.order.item.payment.schedules|_description@:1
+msgid "General Model Purchase Order Item Payment Schedules"
+msgstr "Генеральна Модель Замовлення Графіки Платежів "
+
+#: model@purchase.invoices|_description@:1
+msgid "General Model Purchase Invoice"
+msgstr "Генеральна Модель Прибуткова Накладна "
+
+#: model@purchase.invoices|_columns@doi$label:1
+msgid "Date Of Invoice"
+msgstr "Дата Рахунку-Фактури"
+
+#: model@purchase.invoice.pricing|_description@:1
+msgid "General Model Purchase Invoice Pricing"
+msgstr "Загальна Купівля Моделі Ціноутворення Накладної "
+
+#: model@purchase.invoice.texts|_description@:1
+msgid "General Model Purchase Invoce Texts"
+msgstr "Загальна Купівля Моделі Інвойс Текстів"
+
+#: model@purchase.invoice.roles|_description@:1
+msgid "General Model Purchase Invoice Roles"
+msgstr "Загальна Купівля Моделі Ролей Накладної "
+
+#: model@purchase.invoice.items|_description@:1
+msgid "General Model Purchase Invoice Items"
+msgstr "Загальна Купівля Моделі Деталі Фактури "
+
+#: model@purchase.invoice.item.texts|_description@:1
+msgid "General Model Purchase Invoce Item Texts"
+msgstr "Купити Загальна Модель Інвойс Пункту Текстів"
+
+#: model@purchase.invoice.item.roles|_description@:1
+msgid "General Model Purchase Invoice Item Roles"
+msgstr "Генеральна Модель Купівлі Товару Накладної Ролей"
+
+#: model@purchase.invoice.pricing.items|_description@:1
+msgid "General Model Purchase Invoice Item Pricing"
+msgstr "Генерал Модель Купівлі Товару Накладної Ціноутворення"
+
+#: model@purchase.invoce.item.delivery.schedules|_description@:1
+msgid "General Model Purchase Invoice Item Delivery Schedules"
+msgstr "Генерал Модель Купівлі Товару За Накладною Графіків Поставок "
+
+#: model@md.purchase.product|_description@:1
+msgid "General Model Purchase Of Product"
+msgstr "Купити Загальна Модель Продукту"
+
+#: model@md.purchase.product|_columns@vat$label:1
 msgid "VAT Code"
 msgstr "Код ПДВ "
 
-#: md.purchase.product-uom:1
+#: model@md.purchase.product|_columns@uom$label:1
 msgid "Unit Of Measure"
 msgstr "Одиниця Виміру"

@@ -3,349 +3,597 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:24+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:24+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:54+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: le.shipping.points-company_id:1 le.inbound.delivery-company_id:1
-#: le.outbound.delivery-company_id:1 le.internal.delivery-company_id:1
+#: model@le.shipping.points|_description@:1
+msgid "General Model Shipping Points"
+msgstr "Modelo General De Envío De Los Puntos De"
+
+#: model@le.shipping.points|_columns@company_id$label:1
+#: model@le.inbound.delivery|_columns@company_id$label:1
+#: model@le.outbound.delivery|_columns@company_id$label:1
+#: model@le.internal.delivery|_columns@company_id$label:1
 msgid "Company"
 msgstr "Empresa"
 
-#: le.shipping.points-ptype:1 le.delivery.schema.texts-usage:1
+#: model@le.shipping.points|_columns@ptype$label:1
+#: model@le.delivery.schema.texts|_columns@usage$label:1
 msgid "Usage"
 msgstr "El uso de"
 
-#: le.shipping.points-name:1 le.loading.places-name:1
-#: le.md.group.freight.cargo-name:1 le.inbound.delivery.types-name:1
-#: le.outbound.delivery.types-name:1 le.internal.delivery.types-name:1
-#: le.inbound.delivery.category-name:1 le.outbound.delivery.category-name:1
-#: le.internal.delivery.category-name:1 le.inbound.delivery-name:1
-#: le.outbound.delivery-name:1 le.internal.delivery-name:1
+#: model@le.shipping.points|_columns@ptype$selections#i:1
+msgid "Inbound"
+msgstr "De entrada"
+
+#: model@le.shipping.points|_columns@ptype$selections#o:1
+msgid "Outbound"
+msgstr "Salida"
+
+#: model@le.shipping.points|_columns@ptype$selections#b:1
+#: model@le.delivery.schema.texts|_columns@usage$selections#b:1
+msgid "Both"
+msgstr "Ambos"
+
+#: model@le.shipping.points|_columns@name$label:1
+#: model@le.loading.places|_columns@name$label:1
+#: model@le.md.group.freight.cargo|_columns@name$label:1
+#: model@le.inbound.delivery.types|_columns@name$label:1
+#: model@le.outbound.delivery.types|_columns@name$label:1
+#: model@le.internal.delivery.types|_columns@name$label:1
+#: model@le.inbound.delivery.category|_columns@name$label:1
+#: model@le.outbound.delivery.category|_columns@name$label:1
+#: model@le.internal.delivery.category|_columns@name$label:1
+#: model@le.inbound.delivery|_columns@name$label:1
+#: model@le.outbound.delivery|_columns@name$label:1
+#: model@le.internal.delivery|_columns@name$label:1
 msgid "Name"
 msgstr "Nombre"
 
-#: le.shipping.points-places:1 le.inbound.delivery-place_id:1
-#: le.outbound.delivery-place_id:1 le.internal.delivery-place_id:1
+#: model@le.shipping.points|_columns@places$label:1
+#: model@le.inbound.delivery|_columns@place_id$label:1
+#: model@le.outbound.delivery|_columns@place_id$label:1
+#: model@le.internal.delivery|_columns@place_id$label:1
 msgid "Loading Place"
 msgstr "Lugar De Carga"
 
-#: le.shipping.points-note:1 le.loading.places-note:1
-#: le.md.group.freight.cargo-note:1 le.inbound.delivery.types-note:1
-#: le.inbound.delivery.type.roles-note:1 le.outbound.delivery.types-note:1
-#: le.outbound.delivery.type.roles-note:1 le.internal.delivery.types-note:1
-#: le.internal.delivery.type.roles-note:1 md.pack.product-note:1
-#: le.inbound.delivery.category-note:1 le.outbound.delivery.category-note:1
-#: le.internal.delivery.category-note:1 le.inbound.delivery-note:1
-#: le.inbound.delivery.items-note:1 le.inbound.delivery.packlist-note:1
-#: le.outbound.delivery-note:1 le.outbound.delivery.items-note:1
-#: le.outbound.delivery.packlist-note:1 le.internal.delivery-note:1
-#: le.internal.delivery.items-note:1 le.internal.delivery.packlist-note:1
+#: model@le.shipping.points|_columns@note$label:1
+#: model@le.loading.places|_columns@note$label:1
+#: model@le.md.group.freight.cargo|_columns@note$label:1
+#: model@le.inbound.delivery.types|_columns@note$label:1
+#: model@le.inbound.delivery.type.roles|_columns@note$label:1
+#: model@le.outbound.delivery.types|_columns@note$label:1
+#: model@le.outbound.delivery.type.roles|_columns@note$label:1
+#: model@le.internal.delivery.types|_columns@note$label:1
+#: model@le.internal.delivery.type.roles|_columns@note$label:1
+#: model@md.pack.product|_columns@note$label:1
+#: model@le.inbound.delivery.category|_columns@note$label:1
+#: model@le.outbound.delivery.category|_columns@note$label:1
+#: model@le.internal.delivery.category|_columns@note$label:1
+#: model@le.inbound.delivery|_columns@note$label:1
+#: model@le.inbound.delivery.items|_columns@note$label:1
+#: model@le.inbound.delivery.packlist|_columns@note$label:1
+#: model@le.outbound.delivery|_columns@note$label:1
+#: model@le.outbound.delivery.items|_columns@note$label:1
+#: model@le.outbound.delivery.packlist|_columns@note$label:1
+#: model@le.internal.delivery|_columns@note$label:1
+#: model@le.internal.delivery.items|_columns@note$label:1
+#: model@le.internal.delivery.packlist|_columns@note$label:1
 msgid "Note"
 msgstr "Nota"
 
-#: le.loading.places-point_id:1
+#: model@le.loading.places|_description@:1
+msgid "General Model Loading Places"
+msgstr "Modelo General De Carga De Los Lugares"
+
+#: model@le.loading.places|_columns@point_id$label:1
 msgid "Shiping Point"
 msgstr "Shiping Punto"
 
-#: le.md.group.freight.cargo-descr:1 le.delivery.texts-descr:1
-#: le.delivery.schema.texts-descr:1
+#: model@le.md.group.freight.cargo|_description@:1
+msgid "General Model Fleight Cargo Group"
+msgstr "Modelo General Fleight De Carga De Grupo"
+
+#: model@le.md.group.freight.cargo|_columns@descr$label:1
+#: model@le.delivery.texts|_columns@descr$label:1
+#: model@le.delivery.schema.texts|_columns@descr$label:1
 msgid "Description"
 msgstr "Descripción"
 
-#: le.delivery.texts-code:1 le.delivery.schema.texts-code:1
+#: model@le.delivery.texts|_description@:1
+msgid "General Model Delivery Texts"
+msgstr "General Del Modelo De Entrega De Textos"
+
+#: model@le.delivery.texts|_columns@code$label:1
+#: model@le.delivery.schema.texts|_columns@code$label:1
 msgid "Code"
 msgstr "Código"
 
-#: le.delivery.schema.texts-texts:1 le.inbound.delivery-texts:1
-#: le.inbound.delivery.items-texts:1 le.outbound.delivery-texts:1
-#: le.outbound.delivery.items-texts:1 le.internal.delivery-texts:1
-#: le.internal.delivery.items-texts:1
-msgid "Texts"
-msgstr "Textos"
+#: model@le.delivery.schema.texts|_description@:1
+msgid "General Model Schema Of Delivery Texts"
+msgstr "General Modelo De Esquema De Entrega De Textos"
 
-#: le.delivery.schema.text.items-schema_id:1
-msgid "Schema"
-msgstr "Esquema"
+#: model@le.delivery.schema.texts|_columns@usage$selections#h:1
+msgid "Header"
+msgstr "Encabezado"
 
-#: le.delivery.schema.text.items-text_id:1
-msgid "Text"
-msgstr "Texto"
-
-#: le.delivery.schema.text.items-descr:1 le.inbound.delivery.texts-descr:1
-#: le.inbound.delivery.item.texts-descr:1 le.outbound.delivery.texts-descr:1
-#: le.outbound.delivery.item.texts-descr:1 le.internal.delivery.texts-descr:1
-#: le.internal.delivery.item.texts-descr:1
-msgid "Unknown"
-msgstr "Desconocido"
-
-#: le.inbound.delivery.types-htschema:1 le.outbound.delivery.types-htschema:1
-#: le.internal.delivery.types-htschema:1
-msgid "Text Schema Of Head"
-msgstr "Texto Del Esquema De Cabeza"
-
-#: le.inbound.delivery.types-itschema:1 le.outbound.delivery.types-itschema:1
-#: le.internal.delivery.types-itschema:1
-msgid "Text Schema Of Item"
-msgstr "Texto Del Esquema De Elemento"
-
-#: le.inbound.delivery.types-roles:1 le.outbound.delivery.types-roles:1
-#: le.internal.delivery.types-roles:1 le.inbound.delivery-roles:1
-#: le.outbound.delivery-roles:1 le.internal.delivery-roles:1
-msgid "Roles"
-msgstr "Funciones"
-
-#: le.inbound.delivery.types-required:1 le.outbound.delivery.types-required:1
-#: le.internal.delivery.types-required:1
-msgid "Required"
-msgstr "Se requiere"
-
-#: le.inbound.delivery.type.roles-type_id:1
-#: le.outbound.delivery.type.roles-type_id:1
-#: le.internal.delivery.type.roles-type_id:1 le.inbound.delivery-dtype:1
-#: le.outbound.delivery-dtype:1 le.internal.delivery-dtype:1
-msgid "Type"
-msgstr "Tipo de"
-
-#: le.inbound.delivery.type.roles-role_id:1
-#: le.outbound.delivery.type.roles-role_id:1
-#: le.internal.delivery.type.roles-role_id:1
-#: le.inbound.delivery.roles-role_id:1 le.outbound.delivery.roles-role_id:1
-#: le.internal.delivery.roles-role_id:1
-msgid "Role"
-msgstr "Papel"
-
-#: md.pack.product-product_id:1 le.inbound.delivery.items-product:1
-#: le.inbound.delivery.packlist-product:1 le.outbound.delivery.items-product:1
-#: le.outbound.delivery.packlist-product:1
-#: le.internal.delivery.items-product:1
-#: le.internal.delivery.packlist-product:1
-#: le.md.group.freight.cargo.product-product_id:1
-msgid "Product"
-msgstr "Producto"
-
-#: md.pack.product-vat:1
-msgid "VAT Code"
-msgstr "IVA Código"
-
-#: md.pack.product-uom:1
-msgid "Unit Of Measure"
-msgstr "Unidad De Medida"
-
-#: md.pack.product-price:1 le.inbound.delivery.items-price:1
-#: le.inbound.delivery.packlist-price:1 le.outbound.delivery.items-price:1
-#: le.outbound.delivery.packlist-price:1 le.internal.delivery.items-price:1
-#: le.internal.delivery.packlist-price:1
-msgid "Price"
-msgstr "Precio"
-
-#: md.pack.product-currency:1 le.inbound.delivery-currency:1
-#: le.inbound.delivery.items-currency:1
-#: le.inbound.delivery.packlist-currency:1 le.outbound.delivery-currency:1
-#: le.outbound.delivery.items-currency:1
-#: le.outbound.delivery.packlist-currency:1 le.internal.delivery-currency:1
-#: le.internal.delivery.items-currency:1
-#: le.internal.delivery.packlist-currency:1
-msgid "Currency"
-msgstr "Moneda"
-
-#: md.pack.product-unit:1 le.inbound.delivery.items-unit:1
-#: le.inbound.delivery.packlist-unit:1 le.outbound.delivery.items-unit:1
-#: le.outbound.delivery.packlist-unit:1 le.internal.delivery.items-unit:1
-#: le.internal.delivery.packlist-unit:1
-msgid "Unit"
-msgstr "Unidad"
-
-#: md.pack.product-uop:1 le.inbound.delivery.items-uop:1
-#: le.inbound.delivery.packlist-uop:1 le.outbound.delivery.items-uop:1
-#: le.outbound.delivery.packlist-uop:1 le.internal.delivery.items-uop:1
-#: le.internal.delivery.packlist-uop:1
-msgid "Unit Of Price"
-msgstr "Unidad De Precio"
-
-#: le.inbound.delivery.category-parent_id:1
-#: le.outbound.delivery.category-parent_id:1
-#: le.internal.delivery.category-parent_id:1
-msgid "Parent"
-msgstr "Los padres"
-
-#: le.inbound.delivery.category-childs_id:1
-#: le.outbound.delivery.category-childs_id:1
-#: le.internal.delivery.category-childs_id:1
-msgid "Childs"
-msgstr "Niño"
-
-#: le.inbound.delivery.category-deliveries:1
-#: le.outbound.delivery.category-deliveries:1
-#: le.internal.delivery.category-deliveries:1
-msgid "Deliveries"
-msgstr "Entregas"
-
-#: le.inbound.delivery-point_id:1 le.outbound.delivery-point_id:1
-#: le.internal.delivery-point_id:1
-msgid "Shipping Point"
-msgstr "En El Punto De Envío"
-
-#: le.inbound.delivery-category_id:1 le.outbound.delivery-category_id:1
-#: le.internal.delivery-category_id:1
-msgid "Category"
-msgstr "Categoría"
-
-#: le.inbound.delivery-origin:1 le.outbound.delivery-origin:1
-#: le.internal.delivery-origin:1
-msgid "Origin"
-msgstr "Origen"
-
-#: le.inbound.delivery-dod:1 le.outbound.delivery-dod:1
-#: le.internal.delivery-dod:1
-msgid "Date Of Delivery"
-msgstr "Fecha De Entrega"
-
-#: le.inbound.delivery-partner:1 le.outbound.delivery-partner:1
-#: le.internal.delivery-partner:1
-msgid "Partner"
-msgstr "Socio"
-
-#: le.inbound.delivery-incoterms1:1 le.outbound.delivery-incoterms1:1
-#: le.internal.delivery-incoterms1:1
-msgid "Incoterms 1"
-msgstr "Incoterms 1"
-
-#: le.inbound.delivery-incoterms2:1 le.outbound.delivery-incoterms2:1
-#: le.internal.delivery-incoterms2:1
-msgid "Incoterms 2"
-msgstr "Incoterms 2"
-
-#: le.inbound.delivery-state:1 le.outbound.delivery-state:1
-#: le.internal.delivery-state:1
-msgid "State"
-msgstr "Estado"
-
-#: le.inbound.delivery-amount:1 le.inbound.delivery.items-amount:1
-#: le.inbound.delivery.packlist-amount:1 le.outbound.delivery-amount:1
-#: le.outbound.delivery.items-amount:1 le.outbound.delivery.packlist-amount:1
-#: le.internal.delivery-amount:1 le.internal.delivery.items-amount:1
-#: le.internal.delivery.packlist-amount:1
-msgid "Amount"
-msgstr "Cantidad"
-
-#: le.inbound.delivery-vat_amount:1 le.inbound.delivery.items-vat_amount:1
-#: le.inbound.delivery.packlist-vat_amount:1 le.outbound.delivery-vat_amount:1
-#: le.outbound.delivery.items-vat_amount:1
-#: le.outbound.delivery.packlist-vat_amount:1
-#: le.internal.delivery-vat_amount:1 le.internal.delivery.items-vat_amount:1
-#: le.internal.delivery.packlist-vat_amount:1
-msgid "VAT Amount"
-msgstr "Importe de IVA"
-
-#: le.inbound.delivery-total_amount:1 le.inbound.delivery.items-total_amount:1
-#: le.inbound.delivery.packlist-total_amount:1
-#: le.outbound.delivery-total_amount:1
-#: le.outbound.delivery.items-total_amount:1
-#: le.outbound.delivery.packlist-total_amount:1
-#: le.internal.delivery-total_amount:1
-#: le.internal.delivery.items-total_amount:1
-#: le.internal.delivery.packlist-total_amount:1
-msgid "Total Amount"
-msgstr "Cantidad Total"
-
-#: le.inbound.delivery-items:1 le.outbound.delivery-items:1
-#: le.internal.delivery-items:1
-msgid "Items"
-msgstr "Elementos"
-
-#: le.inbound.delivery.texts-delivery_id:1
-#: le.inbound.delivery.roles-delivery_id:1
-#: le.inbound.delivery.items-delivery_id:1
-#: le.outbound.delivery.texts-delivery_id:1
-#: le.outbound.delivery.roles-delivery_id:1
-#: le.outbound.delivery.items-delivery_id:1
-#: le.internal.delivery.texts-delivery_id:1
-#: le.internal.delivery.roles-delivery_id:1
-#: le.internal.delivery.items-delivery_id:1
-msgid "Delivery"
-msgstr "Entrega"
-
-#: le.inbound.delivery.texts-seq:1 le.inbound.delivery.item.texts-seq:1
-#: le.outbound.delivery.texts-seq:1 le.outbound.delivery.item.texts-seq:1
-#: le.internal.delivery.texts-seq:1 le.internal.delivery.item.texts-seq:1
-msgid "Sequence"
-msgstr "Secuencia"
-
-#: le.inbound.delivery.texts-text_id:1
-#: le.inbound.delivery.item.texts-text_id:1
-#: le.outbound.delivery.texts-text_id:1
-#: le.outbound.delivery.item.texts-text_id:1
-#: le.internal.delivery.texts-text_id:1
-#: le.internal.delivery.item.texts-text_id:1
-msgid "Text ID"
-msgstr "Texto ID"
-
-#: le.inbound.delivery.texts-content:1
-#: le.inbound.delivery.item.texts-content:1
-#: le.outbound.delivery.texts-content:1
-#: le.outbound.delivery.item.texts-content:1
-#: le.internal.delivery.texts-content:1
-#: le.internal.delivery.item.texts-content:1
-msgid "Content"
-msgstr "Contenido"
-
-#: le.inbound.delivery.roles-patner_id:1
-#: le.outbound.delivery.roles-patner_id:1
-#: le.internal.delivery.roles-patner_id:1
-msgid "Parther"
-msgstr "Parther"
-
-#: le.inbound.delivery.items-quantity:1
-#: le.inbound.delivery.packlist-quantity:1
-#: le.outbound.delivery.items-quantity:1
-#: le.outbound.delivery.packlist-quantity:1
-#: le.internal.delivery.items-quantity:1
-#: le.internal.delivery.packlist-quantity:1
-msgid "Quantity"
-msgstr "Cantidad"
-
-#: le.inbound.delivery.items-uom:1 le.inbound.delivery.packlist-uom:1
-#: le.outbound.delivery.items-uom:1 le.outbound.delivery.packlist-uom:1
-#: le.internal.delivery.items-uom:1 le.internal.delivery.packlist-uom:1
-msgid "UoM"
-msgstr "Unidad de medida"
-
-#: le.inbound.delivery.items-schedule:1 le.outbound.delivery.items-schedule:1
-#: le.internal.delivery.items-schedule:1
-msgid "Schedule"
-msgstr "Horario"
-
-#: le.inbound.delivery.items-vat_code:1
-#: le.inbound.delivery.packlist-vat_code:1
-#: le.outbound.delivery.items-vat_code:1
-#: le.outbound.delivery.packlist-vat_code:1
-#: le.internal.delivery.items-vat_code:1
-#: le.internal.delivery.packlist-vat_code:1
-msgid "Vat code"
-msgstr "Iva código"
-
-#: le.inbound.delivery.items-packlist:1 le.outbound.delivery.items-packlist:1
-#: le.internal.delivery.items-packlist:1
-msgid "Pack List"
-msgstr "La Lista De Paquete"
-
-#: le.inbound.delivery.item.texts-item_id:1
-#: le.outbound.delivery.item.texts-item_id:1
-#: le.internal.delivery.item.texts-item_id:1
+#: model@le.delivery.schema.texts|_columns@usage$selections#i:1
+#: model@le.inbound.delivery.item.texts|_columns@item_id$label:1
+#: model@le.outbound.delivery.item.texts|_columns@item_id$label:1
+#: model@le.internal.delivery.item.texts|_columns@item_id$label:1
 msgid "Item"
 msgstr "Elemento"
 
-#: le.inbound.delivery.packlist-item_id:1
-#: le.outbound.delivery.packlist-item_id:1
-#: le.internal.delivery.packlist-item_id:1
+#: model@le.delivery.schema.texts|_columns@texts$label:1
+#: model@le.inbound.delivery|_columns@texts$label:1
+#: model@le.inbound.delivery.items|_columns@texts$label:1
+#: model@le.outbound.delivery|_columns@texts$label:1
+#: model@le.outbound.delivery.items|_columns@texts$label:1
+#: model@le.internal.delivery|_columns@texts$label:1
+#: model@le.internal.delivery.items|_columns@texts$label:1
+msgid "Texts"
+msgstr "Textos"
+
+#: model@le.delivery.schema.text.items|_description@:1
+msgid "General Model Items Of Schema Delivery Texts"
+msgstr "General De Los Elementos Del Modelo De Esquema De Entrega De Textos"
+
+#: model@le.delivery.schema.text.items|_columns@schema_id$label:1
+msgid "Schema"
+msgstr "Esquema"
+
+#: model@le.delivery.schema.text.items|_columns@text_id$label:1
+msgid "Text"
+msgstr "Texto"
+
+#: model@le.delivery.schema.text.items|_columns@descr$label:1
+#: model@le.inbound.delivery.texts|_columns@descr$label:1
+#: model@le.inbound.delivery.item.texts|_columns@descr$label:1
+#: model@le.outbound.delivery.texts|_columns@descr$label:1
+#: model@le.outbound.delivery.item.texts|_columns@descr$label:1
+#: model@le.internal.delivery.texts|_columns@descr$label:1
+#: model@le.internal.delivery.item.texts|_columns@descr$label:1
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: model@le.inbound.delivery.types|_description@:1
+msgid "General Model Types Inbound Delivery"
+msgstr "General De Los Tipos De Modelo De Entrega Entrante"
+
+#: model@le.inbound.delivery.types|_columns@htschema$label:1
+#: model@le.outbound.delivery.types|_columns@htschema$label:1
+#: model@le.internal.delivery.types|_columns@htschema$label:1
+msgid "Text Schema Of Head"
+msgstr "Texto Del Esquema De Cabeza"
+
+#: model@le.inbound.delivery.types|_columns@itschema$label:1
+#: model@le.outbound.delivery.types|_columns@itschema$label:1
+#: model@le.internal.delivery.types|_columns@itschema$label:1
+msgid "Text Schema Of Item"
+msgstr "Texto Del Esquema De Elemento"
+
+#: model@le.inbound.delivery.types|_columns@roles$label:1
+#: model@le.outbound.delivery.types|_columns@roles$label:1
+#: model@le.internal.delivery.types|_columns@roles$label:1
+#: model@le.inbound.delivery|_columns@roles$label:1
+#: model@le.outbound.delivery|_columns@roles$label:1
+#: model@le.internal.delivery|_columns@roles$label:1
+msgid "Roles"
+msgstr "Funciones"
+
+#: model@le.inbound.delivery.types|_columns@required$label:1
+#: model@le.outbound.delivery.types|_columns@required$label:1
+#: model@le.internal.delivery.types|_columns@required$label:1
+msgid "Required"
+msgstr "Se requiere"
+
+#: model@le.inbound.delivery.type.roles|_description@:1
+msgid "General Model Role Inbound Delivery Types"
+msgstr "General De La Función De Modelo De Entrega Entrante Tipos"
+
+#: model@le.inbound.delivery.type.roles|_columns@type_id$label:1
+#: model@le.outbound.delivery.type.roles|_columns@type_id$label:1
+#: model@le.internal.delivery.type.roles|_columns@type_id$label:1
+#: model@le.inbound.delivery|_columns@dtype$label:1
+#: model@le.outbound.delivery|_columns@dtype$label:1
+#: model@le.internal.delivery|_columns@dtype$label:1
+msgid "Type"
+msgstr "Tipo de"
+
+#: model@le.inbound.delivery.type.roles|_columns@role_id$label:1
+#: model@le.outbound.delivery.type.roles|_columns@role_id$label:1
+#: model@le.internal.delivery.type.roles|_columns@role_id$label:1
+#: model@le.inbound.delivery.roles|_columns@role_id$label:1
+#: model@le.outbound.delivery.roles|_columns@role_id$label:1
+#: model@le.internal.delivery.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Papel"
+
+#: model@le.outbound.delivery.types|_description@:1
+msgid "General Model Types Outbound Delivery"
+msgstr "General De Los Tipos De Modelos De Entrega De Salida"
+
+#: model@le.outbound.delivery.type.roles|_description@:1
+msgid "General Model Role Outbound Delivery Types"
+msgstr "General De La Función De Modelo De Entrega De Salida Tipos De"
+
+#: model@le.internal.delivery.types|_description@:1
+msgid "General Model Types Internal Delivery"
+msgstr "General De Los Tipos De Modelo De Entrega Interna"
+
+#: model@le.internal.delivery.type.roles|_description@:1
+msgid "General Model Role Internal Delivery Types"
+msgstr "General Modelo De Papel Interna De Los Tipos De Entrega"
+
+#: model@md.pack.product|_description@:1
+msgid "General Model Pack Of Product"
+msgstr "General Modelo Pack De Producto"
+
+#: model@md.pack.product|_columns@product_id$label:1
+#: model@le.inbound.delivery.items|_columns@product$label:1
+#: model@le.inbound.delivery.packlist|_columns@product$label:1
+#: model@le.outbound.delivery.items|_columns@product$label:1
+#: model@le.outbound.delivery.packlist|_columns@product$label:1
+#: model@le.internal.delivery.items|_columns@product$label:1
+#: model@le.internal.delivery.packlist|_columns@product$label:1
+#: model@le.md.group.freight.cargo.product|_columns@product_id$label:1
+msgid "Product"
+msgstr "Producto"
+
+#: model@md.pack.product|_columns@vat$label:1
+msgid "VAT Code"
+msgstr "IVA Código"
+
+#: model@md.pack.product|_columns@uom$label:1
+msgid "Unit Of Measure"
+msgstr "Unidad De Medida"
+
+#: model@md.pack.product|_columns@price$label:1
+#: model@le.inbound.delivery.items|_columns@price$label:1
+#: model@le.inbound.delivery.packlist|_columns@price$label:1
+#: model@le.outbound.delivery.items|_columns@price$label:1
+#: model@le.outbound.delivery.packlist|_columns@price$label:1
+#: model@le.internal.delivery.items|_columns@price$label:1
+#: model@le.internal.delivery.packlist|_columns@price$label:1
+msgid "Price"
+msgstr "Precio"
+
+#: model@md.pack.product|_columns@currency$label:1
+#: model@le.inbound.delivery|_columns@currency$label:1
+#: model@le.inbound.delivery.items|_columns@currency$label:1
+#: model@le.inbound.delivery.packlist|_columns@currency$label:1
+#: model@le.outbound.delivery|_columns@currency$label:1
+#: model@le.outbound.delivery.items|_columns@currency$label:1
+#: model@le.outbound.delivery.packlist|_columns@currency$label:1
+#: model@le.internal.delivery|_columns@currency$label:1
+#: model@le.internal.delivery.items|_columns@currency$label:1
+#: model@le.internal.delivery.packlist|_columns@currency$label:1
+msgid "Currency"
+msgstr "Moneda"
+
+#: model@md.pack.product|_columns@unit$label:1
+#: model@le.inbound.delivery.items|_columns@unit$label:1
+#: model@le.inbound.delivery.packlist|_columns@unit$label:1
+#: model@le.outbound.delivery.items|_columns@unit$label:1
+#: model@le.outbound.delivery.packlist|_columns@unit$label:1
+#: model@le.internal.delivery.items|_columns@unit$label:1
+#: model@le.internal.delivery.packlist|_columns@unit$label:1
+msgid "Unit"
+msgstr "Unidad"
+
+#: model@md.pack.product|_columns@uop$label:1
+#: model@le.inbound.delivery.items|_columns@uop$label:1
+#: model@le.inbound.delivery.packlist|_columns@uop$label:1
+#: model@le.outbound.delivery.items|_columns@uop$label:1
+#: model@le.outbound.delivery.packlist|_columns@uop$label:1
+#: model@le.internal.delivery.items|_columns@uop$label:1
+#: model@le.internal.delivery.packlist|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Unidad De Precio"
+
+#: model@le.inbound.delivery.category|_description@:1
+msgid "General Model Category Inbound Delivery"
+msgstr "Modelo General De La Categoría De Entrega Entrante"
+
+#: model@le.inbound.delivery.category|_columns@parent_id$label:1
+#: model@le.outbound.delivery.category|_columns@parent_id$label:1
+#: model@le.internal.delivery.category|_columns@parent_id$label:1
+msgid "Parent"
+msgstr "Los padres"
+
+#: model@le.inbound.delivery.category|_columns@childs_id$label:1
+#: model@le.outbound.delivery.category|_columns@childs_id$label:1
+#: model@le.internal.delivery.category|_columns@childs_id$label:1
+msgid "Childs"
+msgstr "Niño"
+
+#: model@le.inbound.delivery.category|_columns@deliveries$label:1
+#: model@le.outbound.delivery.category|_columns@deliveries$label:1
+#: model@le.internal.delivery.category|_columns@deliveries$label:1
+msgid "Deliveries"
+msgstr "Entregas"
+
+#: model@le.outbound.delivery.category|_description@:1
+msgid "General Model Category Outbound Delivery"
+msgstr "Modelo General De La Categoría De La Entrega De Salida"
+
+#: model@le.internal.delivery.category|_description@:1
+msgid "General Model Category Internal Delivery"
+msgstr "Modelo General De La Categoría De Entrega Interna"
+
+#: model@le.inbound.delivery|_description@:1
+msgid "General Model Inbound Delivery"
+msgstr "General Del Modelo De Entrega Entrante"
+
+#: model@le.inbound.delivery|_columns@point_id$label:1
+#: model@le.outbound.delivery|_columns@point_id$label:1
+#: model@le.internal.delivery|_columns@point_id$label:1
+msgid "Shipping Point"
+msgstr "En El Punto De Envío"
+
+#: model@le.inbound.delivery|_columns@category_id$label:1
+#: model@le.outbound.delivery|_columns@category_id$label:1
+#: model@le.internal.delivery|_columns@category_id$label:1
+msgid "Category"
+msgstr "Categoría"
+
+#: model@le.inbound.delivery|_columns@origin$label:1
+#: model@le.outbound.delivery|_columns@origin$label:1
+#: model@le.internal.delivery|_columns@origin$label:1
+msgid "Origin"
+msgstr "Origen"
+
+#: model@le.inbound.delivery|_columns@dod$label:1
+#: model@le.outbound.delivery|_columns@dod$label:1
+#: model@le.internal.delivery|_columns@dod$label:1
+msgid "Date Of Delivery"
+msgstr "Fecha De Entrega"
+
+#: model@le.inbound.delivery|_columns@partner$label:1
+#: model@le.outbound.delivery|_columns@partner$label:1
+#: model@le.internal.delivery|_columns@partner$label:1
+msgid "Partner"
+msgstr "Socio"
+
+#: model@le.inbound.delivery|_columns@incoterms1$label:1
+#: model@le.outbound.delivery|_columns@incoterms1$label:1
+#: model@le.internal.delivery|_columns@incoterms1$label:1
+msgid "Incoterms 1"
+msgstr "Incoterms 1"
+
+#: model@le.inbound.delivery|_columns@incoterms2$label:1
+#: model@le.outbound.delivery|_columns@incoterms2$label:1
+#: model@le.internal.delivery|_columns@incoterms2$label:1
+msgid "Incoterms 2"
+msgstr "Incoterms 2"
+
+#: model@le.inbound.delivery|_columns@state$label:1
+#: model@le.outbound.delivery|_columns@state$label:1
+#: model@le.internal.delivery|_columns@state$label:1
+msgid "State"
+msgstr "Estado"
+
+#: model@le.inbound.delivery|_columns@state$selections#draft:1
+#: model@le.outbound.delivery|_columns@state$selections#draft:1
+#: model@le.internal.delivery|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Proyecto de"
+
+#: model@le.inbound.delivery|_columns@state$selections#inprocess:1
+#: model@le.outbound.delivery|_columns@state$selections#inprocess:1
+#: model@le.internal.delivery|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "En El Proceso De"
+
+#: model@le.inbound.delivery|_columns@state$selections#closed:1
+#: model@le.outbound.delivery|_columns@state$selections#closed:1
+#: model@le.internal.delivery|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Cerrado"
+
+#: model@le.inbound.delivery|_columns@state$selections#canceled:1
+#: model@le.outbound.delivery|_columns@state$selections#canceled:1
+#: model@le.internal.delivery|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Cancelada"
+
+#: model@le.inbound.delivery|_columns@amount$label:1
+#: model@le.inbound.delivery.items|_columns@amount$label:1
+#: model@le.inbound.delivery.packlist|_columns@amount$label:1
+#: model@le.outbound.delivery|_columns@amount$label:1
+#: model@le.outbound.delivery.items|_columns@amount$label:1
+#: model@le.outbound.delivery.packlist|_columns@amount$label:1
+#: model@le.internal.delivery|_columns@amount$label:1
+#: model@le.internal.delivery.items|_columns@amount$label:1
+#: model@le.internal.delivery.packlist|_columns@amount$label:1
+msgid "Amount"
+msgstr "Cantidad"
+
+#: model@le.inbound.delivery|_columns@vat_amount$label:1
+#: model@le.inbound.delivery.items|_columns@vat_amount$label:1
+#: model@le.inbound.delivery.packlist|_columns@vat_amount$label:1
+#: model@le.outbound.delivery|_columns@vat_amount$label:1
+#: model@le.outbound.delivery.items|_columns@vat_amount$label:1
+#: model@le.outbound.delivery.packlist|_columns@vat_amount$label:1
+#: model@le.internal.delivery|_columns@vat_amount$label:1
+#: model@le.internal.delivery.items|_columns@vat_amount$label:1
+#: model@le.internal.delivery.packlist|_columns@vat_amount$label:1
+msgid "VAT Amount"
+msgstr "Importe de IVA"
+
+#: model@le.inbound.delivery|_columns@total_amount$label:1
+#: model@le.inbound.delivery.items|_columns@total_amount$label:1
+#: model@le.inbound.delivery.packlist|_columns@total_amount$label:1
+#: model@le.outbound.delivery|_columns@total_amount$label:1
+#: model@le.outbound.delivery.items|_columns@total_amount$label:1
+#: model@le.outbound.delivery.packlist|_columns@total_amount$label:1
+#: model@le.internal.delivery|_columns@total_amount$label:1
+#: model@le.internal.delivery.items|_columns@total_amount$label:1
+#: model@le.internal.delivery.packlist|_columns@total_amount$label:1
+msgid "Total Amount"
+msgstr "Cantidad Total"
+
+#: model@le.inbound.delivery|_columns@items$label:1
+#: model@le.outbound.delivery|_columns@items$label:1
+#: model@le.internal.delivery|_columns@items$label:1
+msgid "Items"
+msgstr "Elementos"
+
+#: model@le.inbound.delivery.texts|_description@:1
+#: model@le.inbound.delivery.item.texts|_description@:1
+#: model@le.internal.delivery.texts|_description@:1
+#: model@le.internal.delivery.item.texts|_description@:1
+msgid "General Model Inbound Delivery Texts"
+msgstr "Modelo General De Entrada De Entrega De Textos"
+
+#: model@le.inbound.delivery.texts|_columns@delivery_id$label:1
+#: model@le.inbound.delivery.roles|_columns@delivery_id$label:1
+#: model@le.inbound.delivery.items|_columns@delivery_id$label:1
+#: model@le.outbound.delivery.texts|_columns@delivery_id$label:1
+#: model@le.outbound.delivery.roles|_columns@delivery_id$label:1
+#: model@le.outbound.delivery.items|_columns@delivery_id$label:1
+#: model@le.internal.delivery.texts|_columns@delivery_id$label:1
+#: model@le.internal.delivery.roles|_columns@delivery_id$label:1
+#: model@le.internal.delivery.items|_columns@delivery_id$label:1
+msgid "Delivery"
+msgstr "Entrega"
+
+#: model@le.inbound.delivery.texts|_columns@seq$label:1
+#: model@le.inbound.delivery.item.texts|_columns@seq$label:1
+#: model@le.outbound.delivery.texts|_columns@seq$label:1
+#: model@le.outbound.delivery.item.texts|_columns@seq$label:1
+#: model@le.internal.delivery.texts|_columns@seq$label:1
+#: model@le.internal.delivery.item.texts|_columns@seq$label:1
+msgid "Sequence"
+msgstr "Secuencia"
+
+#: model@le.inbound.delivery.texts|_columns@text_id$label:1
+#: model@le.inbound.delivery.item.texts|_columns@text_id$label:1
+#: model@le.outbound.delivery.texts|_columns@text_id$label:1
+#: model@le.outbound.delivery.item.texts|_columns@text_id$label:1
+#: model@le.internal.delivery.texts|_columns@text_id$label:1
+#: model@le.internal.delivery.item.texts|_columns@text_id$label:1
+msgid "Text ID"
+msgstr "Texto ID"
+
+#: model@le.inbound.delivery.texts|_columns@content$label:1
+#: model@le.inbound.delivery.item.texts|_columns@content$label:1
+#: model@le.outbound.delivery.texts|_columns@content$label:1
+#: model@le.outbound.delivery.item.texts|_columns@content$label:1
+#: model@le.internal.delivery.texts|_columns@content$label:1
+#: model@le.internal.delivery.item.texts|_columns@content$label:1
+msgid "Content"
+msgstr "Contenido"
+
+#: model@le.inbound.delivery.roles|_description@:1
+msgid "General Model Inbound Delivery Roles"
+msgstr "General Del Modelo De Entrega Entrante Funciones"
+
+#: model@le.inbound.delivery.roles|_columns@patner_id$label:1
+#: model@le.outbound.delivery.roles|_columns@patner_id$label:1
+#: model@le.internal.delivery.roles|_columns@patner_id$label:1
+msgid "Parther"
+msgstr "Parther"
+
+#: model@le.inbound.delivery.items|_description@:1
+msgid "General Model Inbound Delivery Items"
+msgstr "Modelo General De Entrada De Entrega De Los Artículos"
+
+#: model@le.inbound.delivery.items|_columns@quantity$label:1
+#: model@le.inbound.delivery.packlist|_columns@quantity$label:1
+#: model@le.outbound.delivery.items|_columns@quantity$label:1
+#: model@le.outbound.delivery.packlist|_columns@quantity$label:1
+#: model@le.internal.delivery.items|_columns@quantity$label:1
+#: model@le.internal.delivery.packlist|_columns@quantity$label:1
+msgid "Quantity"
+msgstr "Cantidad"
+
+#: model@le.inbound.delivery.items|_columns@uom$label:1
+#: model@le.inbound.delivery.packlist|_columns@uom$label:1
+#: model@le.outbound.delivery.items|_columns@uom$label:1
+#: model@le.outbound.delivery.packlist|_columns@uom$label:1
+#: model@le.internal.delivery.items|_columns@uom$label:1
+#: model@le.internal.delivery.packlist|_columns@uom$label:1
+msgid "UoM"
+msgstr "Unidad de medida"
+
+#: model@le.inbound.delivery.items|_columns@schedule$label:1
+#: model@le.outbound.delivery.items|_columns@schedule$label:1
+#: model@le.internal.delivery.items|_columns@schedule$label:1
+msgid "Schedule"
+msgstr "Horario"
+
+#: model@le.inbound.delivery.items|_columns@vat_code$label:1
+#: model@le.inbound.delivery.packlist|_columns@vat_code$label:1
+#: model@le.outbound.delivery.items|_columns@vat_code$label:1
+#: model@le.outbound.delivery.packlist|_columns@vat_code$label:1
+#: model@le.internal.delivery.items|_columns@vat_code$label:1
+#: model@le.internal.delivery.packlist|_columns@vat_code$label:1
+msgid "Vat code"
+msgstr "Iva código"
+
+#: model@le.inbound.delivery.items|_columns@packlist$label:1
+#: model@le.outbound.delivery.items|_columns@packlist$label:1
+#: model@le.internal.delivery.items|_columns@packlist$label:1
+msgid "Pack List"
+msgstr "La Lista De Paquete"
+
+#: model@le.inbound.delivery.packlist|_description@:1
+msgid "General Model Packlist Of Inbound Delivery"
+msgstr "Modelo General Packlist De Entrega Entrante"
+
+#: model@le.inbound.delivery.packlist|_columns@item_id$label:1
+#: model@le.outbound.delivery.packlist|_columns@item_id$label:1
+#: model@le.internal.delivery.packlist|_columns@item_id$label:1
 msgid "Delivery Item"
 msgstr "Posición De La Entrega."
 
-#: le.md.group.freight.cargo.product-group_freight_cargo_id:1
+#: model@le.outbound.delivery|_description@:1
+msgid "General Model Outbound Delivery"
+msgstr "General Del Modelo De Entrega De Salida"
+
+#: model@le.outbound.delivery.texts|_description@:1
+#: model@le.outbound.delivery.item.texts|_description@:1
+msgid "General Model Outbound Delivery Texts"
+msgstr "General Del Modelo De Entrega De Salida Textos"
+
+#: model@le.outbound.delivery.roles|_description@:1
+msgid "General Model Outbound Delivery Roles"
+msgstr "General Del Modelo De Entrega De Salida Funciones"
+
+#: model@le.outbound.delivery.items|_description@:1
+msgid "General Model Outbound Delivery Items"
+msgstr "General Del Modelo De Entrega De Salida De Los Elementos De"
+
+#: model@le.outbound.delivery.packlist|_description@:1
+msgid "General Model Packlist Of Outbound Delivery"
+msgstr "Modelo General Packlist De Entrega De Salida"
+
+#: model@le.internal.delivery|_description@:1
+msgid "General Model Internal Delivery"
+msgstr "General Del Modelo De Entrega Interna"
+
+#: model@le.internal.delivery.roles|_description@:1
+msgid "General Model Internal Delivery Roles"
+msgstr "General Del Modelo De Entrega Interna De Los Roles De"
+
+#: model@le.internal.delivery.items|_description@:1
+msgid "General Model Internal Delivery Items"
+msgstr "General Modelo Interno De Entrega De Los Artículos"
+
+#: model@le.internal.delivery.packlist|_description@:1
+msgid "General Model Packlist Of Internal Delivery"
+msgstr "Modelo General Packlist De Entrega Interna"
+
+#: model@le.md.group.freight.cargo.product|_description@:1
+msgid "General Model Fleight Cargo Group Product"
+msgstr "Modelo General Fleight De Carga De Producto De Grupo"
+
+#: model@le.md.group.freight.cargo.product|_columns@group_freight_cargo_id$label:1
 msgid "Freight Cargo Group"
 msgstr "Flete A Cargo Del Grupo De"

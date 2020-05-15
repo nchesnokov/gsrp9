@@ -3,534 +3,1083 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:33:07+0000\n"
-"PO-Revision-Date: 2020-02-13 14:33:07+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:51+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:51+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: md.category.country-name:1 md.country.group-name:1 md.country-name:1
-#: md.category.language-name:1 md.language-name:1 md.group.quantity-name:1
-#: md.quantity.uom-name:1 md.uom-name:1 md.currency-name:1 md.vat.code-name:1
-#: md.category.product-name:1 md.type.plates-name:1
-#: md.products.template-name:1 md.product-name:1 md.incoterms-name:1
-#: md.category.partner-name:1 md.category.location-name:1 md.location-name:1
-#: md.partner-name:1 md.company-name:1 md.banks-name:1 md.recepture-name:1
+#: model@md.category.country|_description@:1
+msgid "General Model Category Country"
+msgstr "Yleinen Malli Luokka Maassa"
+
+#: model@md.category.country|_columns@name$label:1
+#: model@md.country.group|_columns@name$label:1
+#: model@md.country|_columns@name$label:1
+#: model@md.category.language|_columns@name$label:1
+#: model@md.language|_columns@name$label:1
+#: model@md.group.quantity|_columns@name$label:1
+#: model@md.quantity.uom|_columns@name$label:1
+#: model@md.uom|_columns@name$label:1 model@md.currency|_columns@name$label:1
+#: model@md.vat.code|_columns@name$label:1
+#: model@md.excise.code|_columns@name$label:1
+#: model@md.category.product|_columns@name$label:1
+#: model@md.type.plates|_columns@name$label:1
+#: model@md.products.template|_columns@name$label:1
+#: model@md.product|_columns@name$label:1
+#: model@md.incoterms|_columns@name$label:1
+#: model@md.category.partner|_columns@name$label:1
+#: model@md.category.location|_columns@name$label:1
+#: model@md.location|_columns@name$label:1
+#: model@md.partner|_columns@name$label:1
+#: model@md.company|_columns@name$label:1 model@md.banks|_columns@name$label:1
+#: model@md.recepture|_columns@name$label:1
 msgid "Name"
 msgstr "Nimi"
 
-#: md.category.country-parent_id:1 md.category.language-parent_id:1
-#: md.group.quantity-parent_id:1 md.category.product-parent_id:1
-#: md.category.partner-parent_id:1 md.category.location-parent_id:1
+#: model@md.category.country|_columns@parent_id$label:1
+#: model@md.category.language|_columns@parent_id$label:1
+#: model@md.group.quantity|_columns@parent_id$label:1
+#: model@md.category.product|_columns@parent_id$label:1
+#: model@md.category.partner|_columns@parent_id$label:1
+#: model@md.category.location|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Vanhempi"
 
-#: md.category.country-childs_id:1 md.category.language-childs_id:1
-#: md.group.quantity-childs_id:1 md.category.product-childs_id:1
-#: md.category.partner-childs_id:1 md.category.location-childs_id:1
+#: model@md.category.country|_columns@childs_id$label:1
+#: model@md.category.language|_columns@childs_id$label:1
+#: model@md.group.quantity|_columns@childs_id$label:1
+#: model@md.category.product|_columns@childs_id$label:1
+#: model@md.category.partner|_columns@childs_id$label:1
+#: model@md.category.location|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: md.category.country-note:1 md.category.language-note:1
-#: md.group.quantity-note:1 md.quantity.uom-note:1 md.currency-note:1
-#: md.category.product-note:1 md.type.items-note:1 md.type.plates-note:1
-#: md.products.template-note:1 md.product-note:1 md.incoterms-note:1
-#: md.category.partner-note:1 md.category.location-note:1 md.location-note:1
-#: md.partner.contacts-note:1 md.partner.products-note:1
-#: md.role.partners-note:1 md.pricelist.partner.products-note:1
-#: md.company-note:1 md.banks-note:1 md.partners.bank-note:1
-#: md.recepture.input-note:1 md.recepture.output-note:1
+#: model@md.category.country|_columns@note$label:1
+#: model@md.category.language|_columns@note$label:1
+#: model@md.group.quantity|_columns@note$label:1
+#: model@md.quantity.uom|_columns@note$label:1
+#: model@md.currency|_columns@note$label:1
+#: model@md.category.product|_columns@note$label:1
+#: model@md.type.items|_columns@note$label:1
+#: model@md.type.plates|_columns@note$label:1
+#: model@md.products.template|_columns@note$label:1
+#: model@md.product|_columns@note$label:1
+#: model@md.incoterms|_columns@note$label:1
+#: model@md.category.partner|_columns@note$label:1
+#: model@md.category.location|_columns@note$label:1
+#: model@md.location|_columns@note$label:1
+#: model@md.partner.contacts|_columns@note$label:1
+#: model@md.partner.products|_columns@note$label:1
+#: model@md.role.partners|_columns@note$label:1
+#: model@md.pricelist.partner.products|_columns@note$label:1
+#: model@md.company|_columns@note$label:1 model@md.banks|_columns@note$label:1
+#: model@md.partners.bank|_columns@note$label:1
+#: model@md.recepture.input|_columns@note$label:1
+#: model@md.recepture.output|_columns@note$label:1
 msgid "Note"
 msgstr "Huomautus"
 
-#: md.country.group-country_ids:1
+#: model@md.country.group|_description@:1
+msgid "General Model Country Group"
+msgstr "Yleinen Malli Maa Ryhmä"
+
+#: model@md.country.group|_columns@country_ids$label:1
 msgid "Countries"
 msgstr "Maissa"
 
-#: md.country-shortname:1 md.uom-shortname:1 md.currency-shortname:1
+#: model@md.country|_description@:1
+msgid "General Model Country"
+msgstr "Yleinen Malli Maa"
+
+#: model@md.country|__doc__@:1
+msgid ""
+"\n"
+"\tСтраны мира\n"
+"\t"
+msgstr ""
+"\n"
+" Страны мира\n"
+" "
+
+#: model@md.country|_columns@shortname$label:1
+#: model@md.uom|_columns@shortname$label:1
+#: model@md.currency|_columns@shortname$label:1
 msgid "Short Name"
 msgstr "Lyhyt Nimi"
 
-#: md.country-code:1 md.uom-code:1 md.currency-code:1 md.vat.code-code:1
-#: md.gtis-code:1 md.type.items-code:1 md.product-code:1 md.partner-code:1
+#: model@md.country|_columns@code$label:1 model@md.uom|_columns@code$label:1
+#: model@md.currency|_columns@code$label:1
+#: model@md.vat.code|_columns@code$label:1
+#: model@md.excise.code|_columns@code$label:1
+#: model@md.gtis|_columns@code$label:1
+#: model@md.type.items|_columns@code$label:1
+#: model@md.product|_columns@code$label:1
+#: model@md.partner|_columns@code$label:1
 msgid "Code"
 msgstr "Koodi"
 
-#: md.country-alpha2:1
+#: model@md.country|_columns@alpha2$label:1
 msgid "Alpha2"
 msgstr "Alfa2"
 
-#: md.country-alpha3:1
+#: model@md.country|_columns@alpha3$label:1
 msgid "Alpha3"
 msgstr "Alfa3"
 
-#: md.country-group_ids:1 md.incoterms-grp:1
+#: model@md.country|_columns@group_ids$label:1
+#: model@md.incoterms|_columns@grp$label:1
 msgid "Group"
 msgstr "Ryhmä"
 
-#: md.country-states:1
+#: model@md.country|_columns@states$label:1
 msgid "States"
 msgstr "Valtioiden"
 
-#: md.country.states-country_id:1 md.partner-country_id:1
-#: md.partner.addresses-country:1 md.company-country_id:1
-#: md.banks-country_id:1
+#: model@md.country.states|_description@:1
+msgid "General Model Country States"
+msgstr "Yleinen Malli Maan Valtioissa"
+
+#: model@md.country.states|_columns@country_id$label:1
+#: model@md.partner|_columns@country_id$label:1
+#: model@md.partner.addresses|_columns@country$label:1
+#: model@md.company|_columns@country_id$label:1
+#: model@md.banks|_columns@country_id$label:1
 msgid "Country"
 msgstr "Maa"
 
-#: md.country.states-name:1
+#: model@md.country.states|_columns@name$label:1
 msgid "State Name"
 msgstr "Valtion Nimi"
 
-#: md.country.states-code:1
+#: model@md.country.states|_columns@name$help:1
+msgid ""
+"Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
+msgstr "Hallinnollinen jako maa. E. g. Fed. Valtion, Departement, Canton"
+
+#: model@md.country.states|_columns@code$label:1
 msgid "State Code"
 msgstr "Valtion Code"
 
-#: md.language-iso631_1:1
+#: model@md.country.states|_columns@code$help:1
+msgid "The state code."
+msgstr "Valtion code."
+
+#: model@md.category.language|_description@:1
+msgid "General Model Category Language"
+msgstr "Yleinen Malli, Luokka, Kieli"
+
+#: model@md.language|_description@:1
+msgid "General Model Language"
+msgstr "Yleinen Malli Kieli"
+
+#: model@md.language|_columns@iso631_1$label:1
 msgid "Code ISO 639-1"
 msgstr "ISO 639-1-koodi"
 
-#: md.language-iso631_2t:1
+#: model@md.language|_columns@iso631_2t$label:1
 msgid "Code ISO 639-2T"
 msgstr "Koodi ISO-639-2T"
 
-#: md.language-iso631_2b:1
+#: model@md.language|_columns@iso631_2b$label:1
 msgid "Code ISO 639-2B"
 msgstr "Koodi ISO-639-2B"
 
-#: md.group.quantity-numerator:1 md.uom-numerator:1
+#: model@md.group.quantity|_description@:1
+msgid "General Model Group Quantity"
+msgstr "Yleinen Malli Ryhmä Määrä"
+
+#: model@md.group.quantity|_columns@numerator$label:1
+#: model@md.uom|_columns@numerator$label:1
 msgid "Numerator"
 msgstr "Osoittaja"
 
-#: md.group.quantity-denominator:1 md.uom-denominator:1
+#: model@md.group.quantity|_columns@denominator$label:1
+#: model@md.uom|_columns@denominator$label:1
 msgid "Denomerator"
 msgstr "Denomerator"
 
-#: md.quantity.uom-group_id:1
+#: model@md.quantity.uom|_description@:1
+msgid "General Model Quantity Unit of Measure"
+msgstr "Yleinen Malli, Määrä, mittayksikkö"
+
+#: model@md.quantity.uom|_columns@group_id$label:1
 msgid "Group Quantity"
 msgstr "Ryhmä Määrä"
 
-#: md.quantity.uom-meter:1
+#: model@md.quantity.uom|_columns@meter$label:1
 msgid "Meter"
 msgstr "Mittari"
 
-#: md.quantity.uom-weight:1 md.product-weight:1
+#: model@md.quantity.uom|_columns@weight$label:1
+#: model@md.product|_columns@weight$label:1
 msgid "Weight"
 msgstr "Paino"
 
-#: md.quantity.uom-tense:1
+#: model@md.quantity.uom|_columns@tense$label:1
 msgid "Tense"
 msgstr "Jännittynyt"
 
-#: md.quantity.uom-ampere:1
+#: model@md.quantity.uom|_columns@ampere$label:1
 msgid "Ampere"
 msgstr "Ampere"
 
-#: md.quantity.uom-kelvin:1
+#: model@md.quantity.uom|_columns@kelvin$label:1
 msgid "Kelvin"
 msgstr "Kelvin"
 
-#: md.quantity.uom-mole:1
+#: model@md.quantity.uom|_columns@mole$label:1
 msgid "Mole"
 msgstr "Myyrä"
 
-#: md.quantity.uom-candelle:1
+#: model@md.quantity.uom|_columns@candelle$label:1
 msgid "Candelle"
 msgstr "Candelle"
 
-#: md.quantity.uom-uoms:1 md.partner.products-uom:1 md.recepture.input-uom:1
-#: md.recepture.output-uom:1
+#: model@md.quantity.uom|_columns@uoms$label:1
+#: model@md.partner.products|_columns@uom$label:1
+#: model@md.recepture.input|_columns@uom$label:1
+#: model@md.recepture.output|_columns@uom$label:1
 msgid "UoM"
 msgstr "My"
 
-#: md.uom-quantity_id:1 md.recepture.input-quantity:1
-#: md.recepture.output-quantity:1
+#: model@md.uom|_description@:1
+msgid "General Model Unit of Measure"
+msgstr "Yleinen Malli mittayksikkö"
+
+#: model@md.uom|_columns@quantity_id$label:1
+#: model@md.recepture.input|_columns@quantity$label:1
+#: model@md.recepture.output|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Määrä"
 
-#: md.uom-isocode:1 md.currency-isocode:1
+#: model@md.uom|_columns@isocode$label:1
+#: model@md.currency|_columns@isocode$label:1
 msgid "ISO Code"
 msgstr "ISO-Koodi"
 
-#: md.uom-places:1
+#: model@md.uom|_columns@places$label:1
 msgid "Decimal places"
 msgstr "Desimaalin tarkkuudella"
 
-#: md.uom-round:1
+#: model@md.uom|_columns@round$label:1
 msgid "Rounding off"
 msgstr "Pyöristäminen"
 
-#: md.uom-extconst:1
+#: model@md.uom|_columns@extconst$label:1
 msgid "Extend Constant"
 msgstr "Laajentaa Jatkuvasti"
 
-#: md.currency-currency_rate:1 md.company-currency_rate:1
-#: md.currency.rate-rate:1
+#: model@md.currency|_description@:1
+msgid "General Model Currency"
+msgstr "Yleinen Malli Valuutta"
+
+#: model@md.currency|_columns@currency_rate$label:1
+#: model@md.company|_columns@currency_rate$label:1
+#: model@md.currency.rate|_columns@rate$label:1
 msgid "Currency Rate"
 msgstr "Valuuttakurssien"
 
-#: md.vat.code-subtype_vat:1
+#: model@md.vat.code|_description@:1
+msgid "General Model Vat Code"
+msgstr "Yleinen Malli Alv-Koodi"
+
+#: model@md.vat.code|_columns@subtype_vat$label:1
 msgid "Subtype VAT"
 msgstr "Alatyyppi ALV"
 
-#: md.vat.code-value:1
+#: model@md.vat.code|_columns@subtype_vat$selections#i:1
+#: model@md.excise.code|_columns@subtype_excise$selections#i:1
+msgid "Include"
+msgstr "Sisältää"
+
+#: model@md.vat.code|_columns@subtype_vat$selections#e:1
+#: model@md.excise.code|_columns@subtype_excise$selections#e:1
+msgid "Exclude"
+msgstr "Pois"
+
+#: model@md.vat.code|_columns@subtype_vat$selections#n:1
+#: model@md.vat.code|_columns@type_vat$selections#n:1
+#: model@md.excise.code|_columns@subtype_excise$selections#n:1
+#: model@md.excise.code|_columns@type_vat$selections#n:1
+msgid "None"
+msgstr "Ei mitään"
+
+#: model@md.vat.code|_columns@value$label:1
+#: model@md.excise.code|_columns@value$label:1
 msgid "Percent"
 msgstr "Prosenttia"
 
-#: md.vat.code-type_vat:1
+#: model@md.vat.code|_columns@type_vat$label:1
 msgid "Type VAT"
 msgstr "Kirjoita ALV"
 
-#: md.gtis-descr:1 md.type.items-descr:1 md.incoterms-descr:1
-#: md.role.partners-descr:1
+#: model@md.vat.code|_columns@type_vat$selections#s:1
+#: model@md.excise.code|_columns@type_vat$selections#s:1
+msgid "Sales"
+msgstr "Myynti"
+
+#: model@md.vat.code|_columns@type_vat$selections#p:1
+#: model@md.excise.code|_columns@type_vat$selections#p:1
+msgid "Purchses"
+msgstr "Purchses"
+
+#: model@md.excise.code|_description@:1
+msgid "General Model Excise Code"
+msgstr "Yleinen Malli Valmisteveron Koodi"
+
+#: model@md.excise.code|_columns@subtype_excise$label:1
+msgid "Subtype Excise"
+msgstr "Alatyyppi Valmisteveron"
+
+#: model@md.excise.code|_columns@type_vat$label:1
+msgid "Type Excise"
+msgstr "Tyyppi Valmisteveron"
+
+#: model@md.category.product|_description@:1
+msgid "General Model Category Product"
+msgstr "Yleinen Malli-Luokan Tuote"
+
+#: model@md.gtis|_description@:1
+msgid "General Model Group Of Type Items"
+msgstr "Yleinen Malli Ryhmä Tyyppi Kohteita"
+
+#: model@md.gtis|_columns@descr$label:1
+#: model@md.type.items|_columns@descr$label:1
+#: model@md.incoterms|_columns@descr$label:1
+#: model@md.role.partners|_columns@descr$label:1
 msgid "Description"
 msgstr "Kuvaus"
 
-#: md.type.items-usage:1 md.type.plates-usage:1 md.location-usage:1
-#: md.partner.contacts-usage:1 md.recepture-usage:1
+#: model@md.type.items|_description@:1
+msgid "General Model Type Of Items"
+msgstr "Yleinen Malli Tyyppi Kohteita"
+
+#: model@md.type.items|_columns@usage$label:1
+#: model@md.type.plates|_columns@usage$label:1
+#: model@md.location|_columns@usage$label:1
+#: model@md.partner.contacts|_columns@usage$label:1
+#: model@md.recepture|_columns@usage$label:1
 msgid "Usage"
 msgstr "Käyttö"
 
-#: md.products.template-category_id:1 md.location-category_id:1
-#: md.partner-category_id:1
+#: model@md.type.items|_columns@usage$selections#a:1
+#: model@md.type.plates|_columns@usage$selections#a:1
+#: model@md.location|_columns@usage$selections#all:1
+#: model@md.role.partners|_columns@trole$selections#a:1
+#: model@md.recepture|_columns@usage$selections#a:1
+msgid "All"
+msgstr "Kaikki"
+
+#: model@md.type.plates|_description@:1
+msgid "General Model Type Of Plates"
+msgstr "Yleinen Malli Tyyppi Levyjä"
+
+#: model@md.products.template|_description@:1
+msgid "General Model Product Template"
+msgstr "Yleinen Malli Tuotteen Malli"
+
+#: model@md.products.template|_columns@category_id$label:1
+#: model@md.location|_columns@category_id$label:1
+#: model@md.partner|_columns@category_id$label:1
 msgid "Category"
 msgstr "Luokka"
 
-#: md.products.template-mtype:1 md.currency.rate-type:1 md.recepture-type:1
+#: model@md.products.template|_columns@mtype$label:1
+#: model@md.currency.rate|_columns@type$label:1
+#: model@md.recepture|_columns@type$label:1
 msgid "Type"
 msgstr "Tyyppi"
 
-#: md.products.template-products:1 md.partner-products:1
-msgid "Products"
-msgstr "Tuotteet"
-
-#: md.product-template_id:1
-msgid "Template"
-msgstr "Malli"
-
-#: md.product-uom:1
-msgid "Unit Of Measure"
-msgstr "Mittayksikkö"
-
-#: md.product-gti:1
-msgid "Group Of Type Items"
-msgstr "Ryhmä Tyyppi Kohteita"
-
-#: md.product-volume:1
-msgid "Volume"
-msgstr "Tilavuus"
-
-#: md.product-volume_uom:1
-msgid "Volume UoM"
-msgstr "Tilavuus My"
-
-#: md.product-weight_uom:1
-msgid "Weight UoM"
-msgstr "Paino My"
-
-#: md.product-state:1
-msgid "State"
-msgstr "Valtion"
-
-#: md.product-qrcode:1
-msgid "QRCode"
-msgstr "QRCode"
-
-#: md.product-image:1 md.partner.contacts-image:1 md.partner.products-image:1
-msgid "Photo"
-msgstr "Kuva"
-
-#: md.product-image_medium:1 md.partner.contacts-image_medium:1
-#: md.partner.products-image_medium:1
-msgid "Medium-sized photo"
-msgstr "Medium-kokoinen kuva"
-
-#: md.product-image_small:1 md.partner.contacts-image_small:1
-#: md.partner.products-image_small:1
-msgid "Small-sized photo"
-msgstr "Pieni-kokoinen kuva"
-
-#: md.product-link:1 md.partner.products-link:1
-msgid "Link"
-msgstr "Linkki"
-
-#: md.incoterms-mode:1
-msgid "Mode Of Transport"
-msgstr "Kuljetusmuoto"
-
-#: md.incoterms-mot:1
-msgid "Momemt Of Transition"
-msgstr "Momemt Siirtyminen"
-
-#: md.location-latitude:1 md.partner-latitude:1
-msgid "Latitude"
-msgstr "Leveyttä"
-
-#: md.location-longitude:1 md.partner-longitude:1
-msgid "Longitude"
-msgstr "Pituutta"
-
-#: md.partner-ispeople:1
-msgid "People"
-msgstr "Ihmiset"
-
-#: md.partner-iscustomer:1
-msgid "Customer"
-msgstr "Asiakas"
-
-#: md.partner-issuplier:1
-msgid "Suplier"
-msgstr "Suplier"
-
-#: md.partner-vat_number:1
-msgid "VAT Number"
-msgstr "ALV-Numero"
-
-#: md.partner-vat_reason:1
-msgid "VAT Reason"
-msgstr "ALV Syy"
-
-#: md.partner-addresses:1
-msgid "Addresses"
-msgstr "Osoitteet"
-
-#: md.partner-contacts:1
-msgid "Contacts"
-msgstr "Yhteystiedot"
-
-#: md.partner-roles:1
-msgid "Roles"
-msgstr "Roolit"
-
-#: md.partner.addresses-partner_id:1 md.partner.contacts-partner_id:1
-#: md.partner.products-partner_id:1 md.partner.roles-partner_id:1
-msgid "Partner"
-msgstr "Kumppani"
-
-#: md.partner.addresses-taddr:1
-msgid "Type Of Address"
-msgstr "Tyyppi Osoite"
-
-#: md.partner.addresses-state:1
-msgid "State Of Coutry"
-msgstr "Valtion Coutry"
-
-#: md.partner.addresses-sity:1 md.banks-city:1
-msgid "City"
-msgstr "Kaupunki"
-
-#: md.partner.addresses-street:1 md.banks-street:1
-msgid "Street"
-msgstr "Street"
-
-#: md.partner.addresses-street2:1
-msgid "Street 2"
-msgstr "Street 2"
-
-#: md.partner.addresses-house:1
-msgid "House"
-msgstr "Talo"
-
-#: md.partner.addresses-room:1
-msgid "Room"
-msgstr "Huone"
-
-#: md.partner.contacts-sequence:1 md.partners.bank-sequence:1
-msgid "Sequence"
-msgstr "Järjestyksessä"
-
-#: md.partner.contacts-firstname:1
-msgid "First Name"
-msgstr "Ensimmäinen Nimi"
-
-#: md.partner.contacts-lastname:1
-msgid "Last Name"
-msgstr "Sukunimi"
-
-#: md.partner.contacts-middlename:1
-msgid "Middle Name"
-msgstr "Lähi-Nimi"
-
-#: md.partner.contacts-fullname:1
-msgid "Full Name"
-msgstr "Koko Nimi"
-
-#: md.partner.contacts-gender:1
-msgid "Gender"
-msgstr "Sukupuolten"
-
-#: md.partner.contacts-marital:1
-msgid "Marital Status"
-msgstr "Siviilisääty"
-
-#: md.partner.contacts-birthday:1
-msgid "Date of Birth"
-msgstr "Syntymäaika"
-
-#: md.partner.contacts-address_id:1
-msgid "Work Address"
-msgstr "Työ-Osoite"
-
-#: md.partner.contacts-work_phone:1
-msgid "Work Phone"
-msgstr "Työ Puhelin"
-
-#: md.partner.contacts-mobile_phone:1
-msgid "Work Mobile"
-msgstr "Työ Mobiili"
-
-#: md.partner.contacts-work_email:1
-msgid "Work Email"
-msgstr "Työ Sähköposti"
-
-#: md.partner.contacts-work_location:1
-msgid "Work Location"
-msgstr "Työn Sijainti"
-
-#: md.partner.products-product_id:1 md.recepture.input-product:1
-#: md.recepture.output-product:1
+#: model@md.products.template|_columns@mtype$selections#p:1
+#: model@md.partner.products|_columns@product_id$label:1
+#: model@md.recepture.input|_columns@product$label:1
+#: model@md.recepture.output|_columns@product$label:1
 msgid "Product"
 msgstr "Tuote"
 
-#: md.partner.products-minqty:1
-msgid "Min Quantity"
-msgstr "Min Määrä"
+#: model@md.products.template|_columns@mtype$selections#s:1
+msgid "Service"
+msgstr "Palvelu"
 
-#: md.partner.products-prices:1
-msgid "Prices"
-msgstr "Hinnat"
+#: model@md.products.template|_columns@mtype$selections#w:1
+msgid "Work"
+msgstr "Työ"
 
-#: md.role.partners-trole:1
-msgid "Type Of Role"
-msgstr "Tyyppi Rooli"
+#: model@md.products.template|_columns@mtype$selections#c:1
+msgid "Consumable"
+msgstr "Kuluvia"
 
-#: md.role.partners-name:1 md.partner.roles-role_id:1
-msgid "Role"
-msgstr "Rooli"
+#: model@md.products.template|_columns@products$label:1
+#: model@md.partner|_columns@products$label:1
+msgid "Products"
+msgstr "Tuotteet"
 
-#: md.partner.roles-name:1 md.partners.bank-bank_bic:1
-msgid "Unknown"
-msgstr "Tuntematon"
+#: model@md.product|_description@:1
+msgid "General Model Product"
+msgstr "Yleinen Malli Tuotteen"
 
-#: md.pricelist.partner.products-partner_product_id:1
-msgid "Partner Product"
-msgstr "Kumppani Tuote"
+#: model@md.product|_columns@template_id$label:1
+msgid "Template"
+msgstr "Malli"
 
-#: md.pricelist.partner.products-valid_from:1
-msgid "Valid From"
-msgstr "Voimassa"
+#: model@md.product|_columns@uom$label:1
+msgid "Unit Of Measure"
+msgstr "Mittayksikkö"
 
-#: md.pricelist.partner.products-valid_to:1
-msgid "Valid to"
-msgstr "Voimassa"
+#: model@md.product|_columns@gti$label:1
+msgid "Group Of Type Items"
+msgstr "Ryhmä Tyyppi Kohteita"
 
-#: md.pricelist.partner.products-currency_id:1 md.company-currency_id:1
-#: md.partners.bank-currency_id:1
-msgid "Currency"
-msgstr "Valuutta"
+#: model@md.product|_columns@volume$label:1
+msgid "Volume"
+msgstr "Tilavuus"
 
-#: md.pricelist.partner.products-qty:1
-msgid "Qty Price"
-msgstr "Kpl Hinta"
+#: model@md.product|_columns@volume_uom$label:1
+msgid "Volume UoM"
+msgstr "Tilavuus My"
 
-#: md.pricelist.partner.products-price:1
-msgid "Price"
-msgstr "Hinta"
+#: model@md.product|_columns@weight_uom$label:1
+msgid "Weight UoM"
+msgstr "Paino My"
 
-#: md.currency.rate-currency_id:1
-msgid "From Currency"
-msgstr "Valuutta"
+#: model@md.product|_columns@state$label:1
+msgid "State"
+msgstr "Valtion"
 
-#: md.currency.rate-currency_id1:1
-msgid "To Currency"
-msgstr "Valuutta"
+#: model@md.product|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Luonnos"
 
-#: md.currency.rate-company_id:1 md.partners.bank-company_id:1
+#: model@md.product|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Hyväksytty"
+
+#: model@md.product|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "Prosessi"
+
+#: model@md.product|_columns@state$selections#closing:1
+msgid "Closing"
+msgstr "Sulkeminen"
+
+#: model@md.product|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Suljettu"
+
+#: model@md.product|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Peruttu"
+
+#: model@md.product|_columns@qrcode$label:1
+msgid "QRCode"
+msgstr "QRCode"
+
+#: model@md.product|_columns@qrcode$help:1
+msgid "This field holds the image QRCode"
+msgstr "Tämä kenttä sisältää kuvan QRCode"
+
+#: model@md.product|_columns@image$label:1
+#: model@md.partner.contacts|_columns@image$label:1
+#: model@md.partner.products|_columns@image$label:1
+msgid "Photo"
+msgstr "Kuva"
+
+#: model@md.product|_columns@image$help:1
+#: model@md.partner.contacts|_columns@image$help:1
+#: model@md.partner.products|_columns@image$help:1
+msgid ""
+"This field holds the image used as photo for the employee, limited to "
+"1024x1024px."
+msgstr ""
+"Tämä kenttä sisältää kuvan käytetty kuva työntekijälle, rajoitettu "
+"1024x1024px."
+
+#: model@md.product|_columns@image_medium$label:1
+#: model@md.partner.contacts|_columns@image_medium$label:1
+#: model@md.partner.products|_columns@image_medium$label:1
+msgid "Medium-sized photo"
+msgstr "Medium-kokoinen kuva"
+
+#: model@md.product|_columns@image_medium$help:1
+#: model@md.partner.contacts|_columns@image_medium$help:1
+#: model@md.partner.products|_columns@image_medium$help:1
+msgid ""
+"Medium-sized photo of the employee. It is automatically resized as a "
+"128x128px image, with aspect ratio preserved. Use this field in form views "
+"or some kanban views."
+msgstr ""
+"Medium-kokoinen valokuva työntekijä. Se on automaattisesti kokoa kuin "
+"128x128px kuva, kuvasuhde säilytetään. Käytä tätä kenttää muodossa "
+"näkemyksiä tai jotkut kanban näkemyksiä."
+
+#: model@md.product|_columns@image_small$label:1
+#: model@md.partner.contacts|_columns@image_small$label:1
+#: model@md.partner.products|_columns@image_small$label:1
+msgid "Small-sized photo"
+msgstr "Pieni-kokoinen kuva"
+
+#: model@md.product|_columns@image_small$help:1
+msgid ""
+"Small-sized photo of the product. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr ""
+"Pieni-kokoinen valokuva tuotteesta. Se on automaattisesti kokoa kuin 64x64px"
+" kuva, kuvasuhde säilytetään. Käytä tätä kenttää tahansa pieni kuva on "
+"pakollinen."
+
+#: model@md.product|_columns@link$label:1
+#: model@md.partner.products|_columns@link$label:1
+msgid "Link"
+msgstr "Linkki"
+
+#: model@md.incoterms|_description@:1
+msgid "General Model Incoterms"
+msgstr "Yleinen Malli Incoterms"
+
+#: model@md.incoterms|_columns@mode$label:1
+msgid "Mode Of Transport"
+msgstr "Kuljetusmuoto"
+
+#: model@md.incoterms|_columns@mode$selections#А:1
+msgid "All Mode Of Transport"
+msgstr "Kaikki Kuljetusmuoto"
+
+#: model@md.incoterms|_columns@mode$selections#S:1
+msgid "Sea & Water Mode oF Transport"
+msgstr "Meri ja Vesi kuljetusmuoto"
+
+#: model@md.incoterms|_columns@grp$selections#E:1
+msgid "Departure"
+msgstr "Lähtö"
+
+#: model@md.incoterms|_columns@grp$selections#F:1
+msgid "Main Carriage Unpaid"
+msgstr "Tärkeimmät Kuljetus Palkaton"
+
+#: model@md.incoterms|_columns@grp$selections#C:1
+msgid "Main Carriage Paid"
+msgstr "Main Carriage Paid"
+
+#: model@md.incoterms|_columns@grp$selections#D:1
+msgid "Arrival"
+msgstr "Saapuminen"
+
+#: model@md.incoterms|_columns@mot$label:1
+msgid "Momemt Of Transition"
+msgstr "Momemt Siirtyminen"
+
+#: model@md.incoterms|_columns@mot$selections#se:1
+msgid "Seller"
+msgstr "Myyjä"
+
+#: model@md.incoterms|_columns@mot$selections#sc:1
+msgid "Customs Of Seller"
+msgstr "Tulli Myyjä"
+
+#: model@md.incoterms|_columns@mot$selections#ssh:1
+msgid "Seller Shipping"
+msgstr "Myyjän Toimitus"
+
+#: model@md.incoterms|_columns@mot$selections#ste:1
+msgid "Seller Terminal"
+msgstr "Myyjä Terminaali"
+
+#: model@md.incoterms|_columns@mot$selections#ld:1
+msgid "Loading"
+msgstr "Lastaus"
+
+#: model@md.incoterms|_columns@mot$selections#dl:1
+msgid "Delivery"
+msgstr "Toimitus"
+
+#: model@md.incoterms|_columns@mot$selections#ul:1
+msgid "Unloading"
+msgstr "Purku"
+
+#: model@md.incoterms|_columns@mot$selections#bte:1
+msgid "Buyer Terminal"
+msgstr "Ostaja Terminaali"
+
+#: model@md.incoterms|_columns@mot$selections#bsh:1
+msgid "Buyer Shipping"
+msgstr "Ostajalle Toimituskulut"
+
+#: model@md.incoterms|_columns@mot$selections#bc:1
+msgid "Customs Of Buyer"
+msgstr "Tulli Ostaja"
+
+#: model@md.incoterms|_columns@mot$selections#ba:1
+msgid "Buyer"
+msgstr "Ostaja"
+
+#: model@md.category.partner|_description@:1
+msgid "General Model Category Partner"
+msgstr "Yleinen Malli Luokka Kumppani"
+
+#: model@md.category.location|_description@:1
+msgid "General Model Category Location"
+msgstr "Yleinen Malli, Luokka, Sijainti"
+
+#: model@md.location|_description@:1
+msgid "General Master Data Location"
+msgstr "Yleensä Master Datan Sijainti"
+
+#: model@md.location|_columns@usage$selections#partner:1
+#: model@md.partner.addresses|_columns@partner_id$label:1
+#: model@md.partner.contacts|_columns@partner_id$label:1
+#: model@md.partner.products|_columns@partner_id$label:1
+#: model@md.partner.roles|_columns@partner_id$label:1
+msgid "Partner"
+msgstr "Kumppani"
+
+#: model@md.location|_columns@usage$selections#company:1
+#: model@md.currency.rate|_columns@company_id$label:1
+#: model@md.partners.bank|_columns@company_id$label:1
 msgid "Company"
 msgstr "Yritys"
 
-#: md.currency.rate-date:1
+#: model@md.location|_columns@usage$selections#stock:1
+msgid "Stock"
+msgstr "Varastossa"
+
+#: model@md.location|_columns@latitude$label:1
+#: model@md.partner|_columns@latitude$label:1
+msgid "Latitude"
+msgstr "Leveyttä"
+
+#: model@md.location|_columns@longitude$label:1
+#: model@md.partner|_columns@longitude$label:1
+msgid "Longitude"
+msgstr "Pituutta"
+
+#: model@md.partner|_description@:1
+msgid "General Model Partner"
+msgstr "Yleinen Malli Kumppani"
+
+#: model@md.partner|_columns@ispeople$label:1
+msgid "People"
+msgstr "Ihmiset"
+
+#: model@md.partner|_columns@iscustomer$label:1
+#: model@md.role.partners|_columns@trole$selections#c:1
+msgid "Customer"
+msgstr "Asiakas"
+
+#: model@md.partner|_columns@issuplier$label:1
+msgid "Suplier"
+msgstr "Suplier"
+
+#: model@md.partner|_columns@vat_number$label:1
+msgid "VAT Number"
+msgstr "ALV-Numero"
+
+#: model@md.partner|_columns@vat_reason$label:1
+msgid "VAT Reason"
+msgstr "ALV Syy"
+
+#: model@md.partner|_columns@vat_reason$selections#y:1
+msgid "Yes"
+msgstr "Kyllä"
+
+#: model@md.partner|_columns@vat_reason$selections#n:1
+msgid "No"
+msgstr "Ei"
+
+#: model@md.partner|_columns@addresses$label:1
+msgid "Addresses"
+msgstr "Osoitteet"
+
+#: model@md.partner|_columns@contacts$label:1
+msgid "Contacts"
+msgstr "Yhteystiedot"
+
+#: model@md.partner|_columns@roles$label:1
+msgid "Roles"
+msgstr "Roolit"
+
+#: model@md.partner.addresses|_description@:1
+msgid "General Model Partner Addresses"
+msgstr "Yleinen Malli Kumppanin Osoitteet"
+
+#: model@md.partner.addresses|_columns@taddr$label:1
+msgid "Type Of Address"
+msgstr "Tyyppi Osoite"
+
+#: model@md.partner.addresses|_columns@taddr$selections#l:1
+msgid "Location"
+msgstr "Sijainti"
+
+#: model@md.partner.addresses|_columns@taddr$selections#p:1
+msgid "Postal"
+msgstr "Posti"
+
+#: model@md.partner.addresses|_columns@taddr$selections#a:1
+msgid "Situtation"
+msgstr "Situtation"
+
+#: model@md.partner.addresses|_columns@state$label:1
+msgid "State Of Coutry"
+msgstr "Valtion Coutry"
+
+#: model@md.partner.addresses|_columns@sity$label:1
+#: model@md.banks|_columns@city$label:1
+msgid "City"
+msgstr "Kaupunki"
+
+#: model@md.partner.addresses|_columns@street$label:1
+#: model@md.banks|_columns@street$label:1
+msgid "Street"
+msgstr "Street"
+
+#: model@md.partner.addresses|_columns@street2$label:1
+msgid "Street 2"
+msgstr "Street 2"
+
+#: model@md.partner.addresses|_columns@house$label:1
+msgid "House"
+msgstr "Talo"
+
+#: model@md.partner.addresses|_columns@room$label:1
+msgid "Room"
+msgstr "Huone"
+
+#: model@md.partner.contacts|_description@:1
+msgid "General Model Partner Contacts"
+msgstr "Yleinen Malli Kumppani Yhteystiedot"
+
+#: model@md.partner.contacts|_columns@usage$selections#d:1
+msgid "Dear"
+msgstr "Rakas"
+
+#: model@md.partner.contacts|_columns@sequence$label:1
+#: model@md.partners.bank|_columns@sequence$label:1
+msgid "Sequence"
+msgstr "Järjestyksessä"
+
+#: model@md.partner.contacts|_columns@firstname$label:1
+msgid "First Name"
+msgstr "Ensimmäinen Nimi"
+
+#: model@md.partner.contacts|_columns@lastname$label:1
+msgid "Last Name"
+msgstr "Sukunimi"
+
+#: model@md.partner.contacts|_columns@middlename$label:1
+msgid "Middle Name"
+msgstr "Lähi-Nimi"
+
+#: model@md.partner.contacts|_columns@fullname$label:1
+msgid "Full Name"
+msgstr "Koko Nimi"
+
+#: model@md.partner.contacts|_columns@gender$label:1
+msgid "Gender"
+msgstr "Sukupuolten"
+
+#: model@md.partner.contacts|_columns@gender$selections#male:1
+msgid "Male"
+msgstr "Mies"
+
+#: model@md.partner.contacts|_columns@gender$selections#female:1
+msgid "Female"
+msgstr "Nainen"
+
+#: model@md.partner.contacts|_columns@gender$selections#other:1
+msgid "Other"
+msgstr "Muut"
+
+#: model@md.partner.contacts|_columns@marital$label:1
+msgid "Marital Status"
+msgstr "Siviilisääty"
+
+#: model@md.partner.contacts|_columns@marital$selections#single:1
+msgid "Single"
+msgstr "Yhden"
+
+#: model@md.partner.contacts|_columns@marital$selections#married:1
+msgid "Married"
+msgstr "Naimisissa"
+
+#: model@md.partner.contacts|_columns@marital$selections#widower:1
+msgid "Widower"
+msgstr "Leski"
+
+#: model@md.partner.contacts|_columns@marital$selections#divorced:1
+msgid "Divorced"
+msgstr "Eronnut"
+
+#: model@md.partner.contacts|_columns@birthday$label:1
+msgid "Date of Birth"
+msgstr "Syntymäaika"
+
+#: model@md.partner.contacts|_columns@image_small$help:1
+#: model@md.partner.products|_columns@image_small$help:1
+msgid ""
+"Small-sized photo of the employee. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr ""
+"Pieni-kokoinen valokuva työntekijä. Se on automaattisesti kokoa kuin 64x64px"
+" kuva, kuvasuhde säilytetään. Käytä tätä kenttää tahansa pieni kuva on "
+"pakollinen."
+
+#: model@md.partner.contacts|_columns@address_id$label:1
+msgid "Work Address"
+msgstr "Työ-Osoite"
+
+#: model@md.partner.contacts|_columns@work_phone$label:1
+msgid "Work Phone"
+msgstr "Työ Puhelin"
+
+#: model@md.partner.contacts|_columns@mobile_phone$label:1
+msgid "Work Mobile"
+msgstr "Työ Mobiili"
+
+#: model@md.partner.contacts|_columns@work_email$label:1
+msgid "Work Email"
+msgstr "Työ Sähköposti"
+
+#: model@md.partner.contacts|_columns@work_location$label:1
+msgid "Work Location"
+msgstr "Työn Sijainti"
+
+#: model@md.partner.products|_description@:1
+msgid "General Model Partner Products"
+msgstr "Yleinen Malli Partner-Tuotteita"
+
+#: model@md.partner.products|_columns@minqty$label:1
+msgid "Min Quantity"
+msgstr "Min Määrä"
+
+#: model@md.partner.products|_columns@prices$label:1
+msgid "Prices"
+msgstr "Hinnat"
+
+#: model@md.role.partners|_description@:1
+msgid "General Model Role Partners"
+msgstr "Yleinen Malli Rooli Kumppanit"
+
+#: model@md.role.partners|_columns@trole$label:1
+msgid "Type Of Role"
+msgstr "Tyyppi Rooli"
+
+#: model@md.role.partners|_columns@trole$selections#s:1
+msgid "Supplier"
+msgstr "Toimittaja"
+
+#: model@md.role.partners|_columns@trole$selections#i:1
+msgid "Internal"
+msgstr "Sisäinen"
+
+#: model@md.role.partners|_columns@trole$selections#p:1
+msgid "Person"
+msgstr "Henkilö"
+
+#: model@md.role.partners|_columns@name$label:1
+#: model@md.partner.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Rooli"
+
+#: model@md.partner.roles|_description@:1
+msgid "General Model Partner Roles"
+msgstr "Yleinen Malli Kumppanin Roolit"
+
+#: model@md.partner.roles|_columns@name$label:1
+#: model@md.partners.bank|_columns@bank_bic$label:1
+msgid "Unknown"
+msgstr "Tuntematon"
+
+#: model@md.pricelist.partner.products|_description@:1
+msgid "General Model Pricelist Partner Products"
+msgstr "Yleinen Malli Hinnasto Kumppani Tuotteita"
+
+#: model@md.pricelist.partner.products|_columns@partner_product_id$label:1
+msgid "Partner Product"
+msgstr "Kumppani Tuote"
+
+#: model@md.pricelist.partner.products|_columns@valid_from$label:1
+msgid "Valid From"
+msgstr "Voimassa"
+
+#: model@md.pricelist.partner.products|_columns@valid_to$label:1
+msgid "Valid to"
+msgstr "Voimassa"
+
+#: model@md.pricelist.partner.products|_columns@currency_id$label:1
+#: model@md.company|_columns@currency_id$label:1
+#: model@md.partners.bank|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Valuutta"
+
+#: model@md.pricelist.partner.products|_columns@qty$label:1
+msgid "Qty Price"
+msgstr "Kpl Hinta"
+
+#: model@md.pricelist.partner.products|_columns@price$label:1
+msgid "Price"
+msgstr "Hinta"
+
+#: model@md.company|_description@:1
+msgid "General Model Company"
+msgstr "Yrityksen Yleinen Malli"
+
+#: model@md.currency.rate|_description@:1
+msgid "General Model Currency Rate"
+msgstr "Yleinen Malli Valuuttakurssien"
+
+#: model@md.currency.rate|_columns@currency_id$label:1
+msgid "From Currency"
+msgstr "Valuutta"
+
+#: model@md.currency.rate|_columns@currency_id1$label:1
+msgid "To Currency"
+msgstr "Valuutta"
+
+#: model@md.currency.rate|_columns@date$label:1
 msgid "Date"
 msgstr "Päivämäärä"
 
-#: md.currency.rate-account:1
+#: model@md.currency.rate|_columns@account$label:1
 msgid "Accout"
 msgstr "Accout"
 
-#: md.banks-street2:1
+#: model@md.currency.rate|_columns@type$selections#m:1
+msgid "Monthly"
+msgstr "Kuukausittain"
+
+#: model@md.currency.rate|_columns@type$selections#d:1
+msgid "Day"
+msgstr "Päivä"
+
+#: model@md.currency.rate|_columns@type$selections#w:1
+msgid "Week"
+msgstr "Viikolla"
+
+#: model@md.banks|_description@:1
+msgid "General Model Bank"
+msgstr "Yleinen Malli Bank"
+
+#: model@md.banks|_columns@street2$label:1
 msgid "Street2"
 msgstr "Street2"
 
-#: md.banks-zip:1
+#: model@md.banks|_columns@zip$label:1
 msgid "ZIP"
 msgstr "ZIP"
 
-#: md.banks-state_id:1
+#: model@md.banks|_columns@state_id$label:1
 msgid "Fed. State"
 msgstr "Fed. Valtion"
 
-#: md.banks-email:1
+#: model@md.banks|_columns@email$label:1
 msgid "Email"
 msgstr "Sähköposti"
 
-#: md.banks-phone:1
+#: model@md.banks|_columns@phone$label:1
 msgid "Phone"
 msgstr "Puhelin"
 
-#: md.banks-bic:1
+#: model@md.banks|_columns@bic$label:1
 msgid "Bank Identifier Code"
 msgstr "Bank Identifier Code"
 
-#: md.banks-partners:1
+#: model@md.banks|_columns@bic$help:1
+msgid "Sometimes called BIC or Swift."
+msgstr "Joskus kutsutaan BIC-tai Swift."
+
+#: model@md.banks|_columns@partners$label:1
 msgid "Partners"
 msgstr "Kumppanit"
 
-#: md.banks-inactive:1
+#: model@md.banks|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Aktiivinen"
 
-#: md.partners.bank-acc_type:1
+#: model@md.partners.bank|_description@:1
+msgid "General Model Bank of Partner"
+msgstr "Yleinen Malli Pankki Kumppani"
+
+#: model@md.partners.bank|_columns@acc_type$label:1
 msgid "ACC Type"
 msgstr "ACC Tyyppi"
 
-#: md.partners.bank-acc_number:1
+#: model@md.partners.bank|_columns@acc_type$help:1
+msgid "Bank account type, inferred from account number"
+msgstr "Pankkitilin tyyppi, päätellä tilinumero"
+
+#: model@md.partners.bank|_columns@acc_number$label:1
 msgid "Account Number"
 msgstr "Tilinumero"
 
-#: md.partners.bank-sanitized_acc_number:1
+#: model@md.partners.bank|_columns@sanitized_acc_number$label:1
 msgid "Sanitized Account Number"
 msgstr "Puhtaita Tilinumero"
 
-#: md.partners.bank-partner_id:1
+#: model@md.partners.bank|_columns@partner_id$label:1
 msgid "Account Holder"
 msgstr "Tilinomistajan"
 
-#: md.partners.bank-bank_id:1
+#: model@md.partners.bank|_columns@bank_id$label:1
 msgid "Bank"
 msgstr "Pankki"
 
-#: md.partners.bank-bank_name:1
+#: model@md.partners.bank|_columns@bank_name$label:1
 msgid "Bank Name"
 msgstr "Pankin Nimi"
 
-#: md.recepture-subtype:1
+#: model@md.recepture|_description@:1
+msgid "General Model Recipe"
+msgstr "Yleinen Malli Resepti"
+
+#: model@md.recepture|_columns@type$selections#real:1
+msgid "Real"
+msgstr "Todellinen"
+
+#: model@md.recepture|_columns@type$selections#kvazi:1
+msgid "Kwazi"
+msgstr "Kwazi"
+
+#: model@md.recepture|_columns@subtype$label:1
 msgid "Subtype"
 msgstr "Alatyyppi"
 
-#: md.recepture-partition:1
+#: model@md.recepture|_columns@subtype$selections#bom:1
+msgid "BoM"
+msgstr "BoM"
+
+#: model@md.recepture|_columns@subtype$selections#mob:1
+msgid "MoB"
+msgstr "MoB"
+
+#: model@md.recepture|_columns@subtype$selections#bob:1
+msgid "BoB"
+msgstr "BoB"
+
+#: model@md.recepture|_columns@partition$label:1
 msgid "Partition"
 msgstr "Osio"
 
-#: md.recepture-input_items:1
+#: model@md.recepture|_columns@input_items$label:1
 msgid "Input"
 msgstr "Input"
 
-#: md.recepture-output_items:1
+#: model@md.recepture|_columns@output_items$label:1
 msgid "Output"
 msgstr "Lähtö"
 
-#: md.recepture.input-recepture_id:1 md.recepture.output-recepture_id:1
+#: model@md.recepture.input|_description@:1
+msgid "General Model Input Recipe"
+msgstr "Yleinen Malli Input Resepti"
+
+#: model@md.recepture.input|_columns@recepture_id$label:1
+#: model@md.recepture.output|_columns@recepture_id$label:1
 msgid "Recepture"
 msgstr "Recepture"
+
+#: model@md.recepture.output|_description@:1
+msgid "General Model Output Recipe"
+msgstr "Yleinen Malli Lähtö Resepti"

@@ -3,219 +3,346 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:34:24+0000\n"
-"PO-Revision-Date: 2020-02-13 14:34:24+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:54+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: hcm.employee.categories-name:1
+#: model@hcm.employee.categories|_description@:1
+msgid "Employee Category"
+msgstr "Катэгорыі Работнікаў "
+
+#: model@hcm.employee.categories|_columns@name$label:1
 msgid "Employee Tag"
 msgstr "Тэг Супрацоўніка "
 
-#: hcm.employee.categories-color:1 hcm.department-color:1
-#: hcm.employees-color:1
+#: model@hcm.employee.categories|_columns@color$label:1
+#: model@hcm.department|_columns@color$label:1
+#: model@hcm.employees|_columns@color$label:1
 msgid "Color Index"
 msgstr "Індэкс Колер "
 
-#: hcm.employee.categories-employee_ids:1 hcm.job-employee_ids:1
+#: model@hcm.employee.categories|_columns@employee_ids$label:1
+#: model@hcm.job|_columns@employee_ids$label:1
 msgid "Employees"
 msgstr "Супрацоўнікаў"
 
-#: hcm.department-name:1
+#: model@hcm.department|_description@:1
+msgid "HR Department"
+msgstr "Аддзел кадраў "
+
+#: model@hcm.department|_columns@name$label:1
 msgid "Department Name"
 msgstr "Назва Аддзела "
 
-#: hcm.department-complete_name:1
+#: model@hcm.department|_columns@complete_name$label:1
 msgid "Complete Name"
 msgstr "Поўнае Імя"
 
-#: hcm.department-active:1 hcm.employees-active:1
+#: model@hcm.department|_columns@active$label:1
+#: model@hcm.employees|_columns@active$label:1
 msgid "Active"
 msgstr "Актыўны"
 
-#: hcm.department-company_id:1 hcm.job-company_id:1
+#: model@hcm.department|_columns@company_id$label:1
+#: model@hcm.job|_columns@company_id$label:1
 msgid "Company"
 msgstr "Кампанія"
 
-#: hcm.department-parent_id:1
+#: model@hcm.department|_columns@parent_id$label:1
 msgid "Parent Department"
 msgstr "Бацькі"
 
-#: hcm.department-childs_id:1
+#: model@hcm.department|_columns@childs_id$label:1
 msgid "Child Departments"
 msgstr "Даччыныя Аддзелы "
 
-#: hcm.department-manager_id:1 hcm.employees-parent_id:1
+#: model@hcm.department|_columns@manager_id$label:1
+#: model@hcm.employees|_columns@parent_id$label:1
 msgid "Manager"
 msgstr "Менеджэр"
 
-#: hcm.department-member_ids:1
+#: model@hcm.department|_columns@member_ids$label:1
 msgid "Members"
 msgstr "Удзельнікі"
 
-#: hcm.department-jobs_ids:1
+#: model@hcm.department|_columns@jobs_ids$label:1
 msgid "Jobs"
 msgstr "Вакансіі"
 
-#: hcm.department-note:1
+#: model@hcm.department|_columns@note$label:1
 msgid "Note"
 msgstr "Заўвага"
 
-#: hcm.job-name:1 hcm.employees-job_id:1
+#: model@hcm.job|_description@:1 model@hcm.job|_columns@name$label:1
+#: model@hcm.employees|_columns@job_id$label:1
 msgid "Job Position"
 msgstr "Пасаду "
 
-#: hcm.job-expected_employees:1
+#: model@hcm.job|_columns@expected_employees$label:1
 msgid "Total Forecasted Employees"
 msgstr "Агульная Прагнозная Супрацоўнікаў"
 
-#: hcm.job-no_of_employee:1
+#: model@hcm.job|_columns@expected_employees$help:1
+msgid ""
+"Expected number of employees for this job position after new recruitment."
+msgstr ""
+"Чакаецца, што колькасць супрацоўнікаў на гэтай пасадзе пасля таго, як новы "
+"набор."
+
+#: model@hcm.job|_columns@no_of_employee$label:1
 msgid "Current Number of Employees"
 msgstr "Бягучае колькасць супрацоўнікаў"
 
-#: hcm.job-no_of_recruitment:1
+#: model@hcm.job|_columns@no_of_employee$help:1
+msgid "Number of employees currently occupying this job position."
+msgstr ""
+"Колькасць супрацоўнікаў у цяперашні час які займае дадзеную пасаду, працу."
+
+#: model@hcm.job|_columns@no_of_recruitment$label:1
 msgid "Expected New Employees"
 msgstr "Чакаецца, Што Новыя Супрацоўнікі"
 
-#: hcm.job-no_of_hired_employee:1
+#: model@hcm.job|_columns@no_of_recruitment$help:1
+msgid "Number of new employees you expect to recruit."
+msgstr "Лік новых супрацоўнікаў вы плануеце наняць."
+
+#: model@hcm.job|_columns@no_of_hired_employee$label:1
 msgid "Hired Employees"
 msgstr "Наёмныя Работнікі"
 
-#: hcm.job-description:1
+#: model@hcm.job|_columns@no_of_hired_employee$help:1
+msgid ""
+"Number of hired employees for this job position during recruitment phase."
+msgstr ""
+"Колькасць наёмных работнікаў на гэтай пасадзе на этапе падбору персаналу."
+
+#: model@hcm.job|_columns@description$label:1
 msgid "Job Description"
 msgstr "Апісанне Працы "
 
-#: hcm.job-requirements:1
+#: model@hcm.job|_columns@requirements$label:1
 msgid "Requirements"
 msgstr "Патрабаванні"
 
-#: hcm.job-department_id:1 hcm.employees-department_id:1
+#: model@hcm.job|_columns@department_id$label:1
+#: model@hcm.employees|_columns@department_id$label:1
 msgid "Department"
 msgstr "Аддзел"
 
-#: hcm.job-state:1
+#: model@hcm.job|_columns@state$label:1
 msgid "Status"
 msgstr "Статус"
 
-#: hcm.employees-firstname:1
+#: model@hcm.job|_columns@state$selections#recruit:1
+msgid "Recruitment in Progress"
+msgstr "Набор працягваецца"
+
+#: model@hcm.job|_columns@state$selections#open:1
+msgid "Not Recruiting"
+msgstr "Не Рэкрутынгу"
+
+#: model@hcm.job|_columns@state$help:1
+msgid ""
+"Set whether the recruitment process is open or closed for this job position."
+msgstr ""
+"Ўсталяваць, ці з'яўляецца працэс найму, адкрыты або закрыты для гэтай "
+"пасады."
+
+#: model@hcm.employees|_description@:1
+msgid "General Employees Humam Capital Managament"
+msgstr "Агульныя Супрацоўнікі Сталічнага Ўпраўлення Хумам "
+
+#: model@hcm.employees|_columns@firstname$label:1
 msgid "First Name"
 msgstr "Імя"
 
-#: hcm.employees-lastname:1
+#: model@hcm.employees|_columns@lastname$label:1
 msgid "Last Name"
 msgstr "Прозвішча"
 
-#: hcm.employees-middlename:1
+#: model@hcm.employees|_columns@middlename$label:1
 msgid "Middle Name"
 msgstr "Імя па бацьку"
 
-#: hcm.employees-fullname:1
+#: model@hcm.employees|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Поўная Назва"
 
-#: hcm.employees-user_id:1
+#: model@hcm.employees|_columns@user_id$label:1
 msgid "User"
 msgstr "Карыстальнік"
 
-#: hcm.employees-address_home_id:1
+#: model@hcm.employees|_columns@address_home_id$label:1
 msgid "Private Address"
 msgstr "Прыватны Адрас"
 
-#: hcm.employees-is_address_home_a_company:1
+#: model@hcm.employees|_columns@address_home_id$help:1
+msgid ""
+"Enter here the private address of the employee, not the one linked to your "
+"company."
+msgstr ""
+"Калі ласка, увядзіце прыватны адрас работніка, не звязаны з вашай кампаніяй."
+
+#: model@hcm.employees|_columns@is_address_home_a_company$label:1
 msgid "The employee adress has a company linked"
 msgstr "Работнік адрас кампаніі звязаны"
 
-#: hcm.employees-country_id:1
+#: model@hcm.employees|_columns@country_id$label:1
 msgid "Nationality (Country)"
 msgstr "Грамадзянства (Краіна)"
 
-#: hcm.employees-gender:1
+#: model@hcm.employees|_columns@gender$label:1
 msgid "Gender"
 msgstr "Гендэрныя"
 
-#: hcm.employees-marital:1
+#: model@hcm.employees|_columns@gender$selections#male:1
+msgid "Male"
+msgstr "Мужчына"
+
+#: model@hcm.employees|_columns@gender$selections#female:1
+msgid "Female"
+msgstr "Жанчына"
+
+#: model@hcm.employees|_columns@gender$selections#other:1
+msgid "Other"
+msgstr "Іншыя"
+
+#: model@hcm.employees|_columns@marital$label:1
 msgid "Marital Status"
 msgstr "Сямейнае Становішча"
 
-#: hcm.employees-birthday:1
+#: model@hcm.employees|_columns@marital$selections#single:1
+msgid "Single"
+msgstr "Адзін"
+
+#: model@hcm.employees|_columns@marital$selections#married:1
+msgid "Married"
+msgstr "Жанаты"
+
+#: model@hcm.employees|_columns@marital$selections#widower:1
+msgid "Widower"
+msgstr "Удавец"
+
+#: model@hcm.employees|_columns@marital$selections#divorced:1
+msgid "Divorced"
+msgstr "Развялося"
+
+#: model@hcm.employees|_columns@birthday$label:1
 msgid "Date of Birth"
 msgstr "Дата нараджэння"
 
-#: hcm.employees-ssnid:1
+#: model@hcm.employees|_columns@ssnid$label:1
 msgid "SSN No"
 msgstr "ССН няма"
 
-#: hcm.employees-sinid:1
+#: model@hcm.employees|_columns@ssnid$help:1
+msgid "Social Security Number"
+msgstr "Нумар Сацыяльнага Страхавання "
+
+#: model@hcm.employees|_columns@sinid$label:1
 msgid "SIN No"
 msgstr "Граху няма"
 
-#: hcm.employees-identification_id:1
+#: model@hcm.employees|_columns@sinid$help:1
+msgid "Social Insurance Number"
+msgstr "Нумар Сацыяльнага Страхавання"
+
+#: model@hcm.employees|_columns@identification_id$label:1
 msgid "Identification No"
 msgstr "Ідэнтыфікацыя Няма"
 
-#: hcm.employees-passport_id:1
+#: model@hcm.employees|_columns@passport_id$label:1
 msgid "Passport No"
 msgstr "Пашпарта Няма"
 
-#: hcm.employees-permit_no:1
+#: model@hcm.employees|_columns@permit_no$label:1
 msgid "Work Permit No"
 msgstr "Дазволу На Працу Няма"
 
-#: hcm.employees-visa_no:1
+#: model@hcm.employees|_columns@visa_no$label:1
 msgid "Visa No"
 msgstr "Візы Няма"
 
-#: hcm.employees-visa_expire:1
+#: model@hcm.employees|_columns@visa_expire$label:1
 msgid "Visa Expire Date"
 msgstr "Віза Заканчваецца Дата"
 
-#: hcm.employees-image:1
+#: model@hcm.employees|_columns@image$label:1
 msgid "Photo"
 msgstr "Фота"
 
-#: hcm.employees-image_medium:1
+#: model@hcm.employees|_columns@image$help:1
+msgid ""
+"This field holds the image used as photo for the employee, limited to "
+"1024x1024px."
+msgstr ""
+"Гэта поле ўтрымлівае малюнак, якое выкарыстоўваецца ў якасці фота для "
+"работніка, абмяжоўваючыся 1024x1024px."
+
+#: model@hcm.employees|_columns@image_medium$label:1
 msgid "Medium-sized photo"
 msgstr "Сярэднія цэны"
 
-#: hcm.employees-image_small:1
+#: model@hcm.employees|_columns@image_medium$help:1
+msgid ""
+"Medium-sized photo of the employee. It is automatically resized as a "
+"128x128px image, with aspect ratio preserved. Use this field in form views "
+"or some kanban views."
+msgstr ""
+"Сярэдняга памеру фатаграфіяй супрацоўніка. Ён аўтаматычна змяняецца ў якасці"
+" малюнка 128x128px, з суадносіны бакоў захоўваецца. Выкарыстоўвайце гэта "
+"поле ў прадстаўленне формы або некаторыя канбан выглядам."
+
+#: model@hcm.employees|_columns@image_small$label:1
 msgid "Small-sized photo"
 msgstr "Малагабарытныя фота"
 
-#: hcm.employees-address_id:1
+#: model@hcm.employees|_columns@image_small$help:1
+msgid ""
+"Small-sized photo of the employee. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr ""
+"Малагабарытныя фатаграфіяй супрацоўніка. Ён аўтаматычна змяняецца ў якасці "
+"малюнка 64x64px, з суадносіны бакоў захоўваецца. Выкарыстоўвайце гэта поле, "
+"дзе патрабуецца невялікае малюнак."
+
+#: model@hcm.employees|_columns@address_id$label:1
 msgid "Work Address"
 msgstr "Працоўны Адрас"
 
-#: hcm.employees-work_phone:1
+#: model@hcm.employees|_columns@work_phone$label:1
 msgid "Work Phone"
 msgstr "Працоўны Тэлефон"
 
-#: hcm.employees-mobile_phone:1
+#: model@hcm.employees|_columns@mobile_phone$label:1
 msgid "Work Mobile"
 msgstr "Праца Мабільных"
 
-#: hcm.employees-work_email:1
+#: model@hcm.employees|_columns@work_email$label:1
 msgid "Work Email"
 msgstr "Праца Па Электроннай Пошце"
 
-#: hcm.employees-work_location:1
+#: model@hcm.employees|_columns@work_location$label:1
 msgid "Work Location"
 msgstr "Месца Працы "
 
-#: hcm.employees-child_ids:1
+#: model@hcm.employees|_columns@child_ids$label:1
 msgid "Subordinates"
 msgstr "Падначаленых"
 
-#: hcm.employees-coach_id:1
+#: model@hcm.employees|_columns@coach_id$label:1
 msgid "Coach"
 msgstr "Трэнер"
 
-#: hcm.employees-category_ids:1
+#: model@hcm.employees|_columns@category_ids$label:1
 msgid "Categories"
 msgstr "Катэгорыі"
 
-#: hcm.employees-notes:1
+#: model@hcm.employees|_columns@notes$label:1
 msgid "Notes"
 msgstr "Заўвагі"

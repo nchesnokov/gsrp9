@@ -3,203 +3,776 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:35:10+0000\n"
-"PO-Revision-Date: 2020-02-13 14:35:10+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:56+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:56+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: md.project.product-product_id:1 project.element.products-product_id:1
-msgid "Product"
-msgstr "Termék"
+#: model@prj.unit.categories|_description@:1
+msgid "General Model Categories Project Unit"
+msgstr "Általános Modell Kategóriában Projekt Egység"
 
-#: md.project.product-vat:1
-msgid "VAT Code"
-msgstr "ÁFA Kód"
-
-#: md.project.product-uom:1 project.task.resources-uom:1
-#: project.element.resources-uom:1
-msgid "Unit Of Measure"
-msgstr "Mértékegység"
-
-#: md.project.product-price:1
-msgid "Price"
-msgstr "Ár"
-
-#: md.project.product-currency:1 project.resource-currency:1
-msgid "Currency"
-msgstr "Pénznem"
-
-#: md.project.product-unit:1
-msgid "Unit"
-msgstr "Egység"
-
-#: md.project.product-uop:1
-msgid "Unit Of Price"
-msgstr "Egység Ár"
-
-#: md.project.product-note:1 project.resource.category-note:1
-#: project.bill.category-note:1 project.portfolio.category-note:1
-#: project.project.category-note:1 project.stage.category-note:1
-#: project.task.category-note:1 project.element.category-note:1
-#: project.resource-note:1 project.bill-note:1 project.portfolio-note:1
-#: project.project-note:1 project.stage-note:1 project.task-note:1
-#: project.element-note:1 project.element.products-note:1
-msgid "Note"
-msgstr "Megjegyzés"
-
-#: project.resource.category-name:1 project.bill.category-name:1
-#: project.portfolio.category-name:1 project.project.category-name:1
-#: project.stage.category-name:1 project.task.category-name:1
-#: project.element.category-name:1
+#: model@prj.unit.categories|_columns@name$label:1
+#: model@prj.channel.categories|_columns@name$label:1
+#: model@prj.segment.categories|_columns@name$label:1
+#: model@prj.area.categories|_columns@name$label:1
+#: model@prj.region.categories|_columns@name$label:1
+#: model@prj.division.categories|_columns@name$label:1
+#: model@prj.subdivision.categories|_columns@name$label:1
+#: model@prj.bill.types|_columns@name$label:1
+#: model@prj.resource.category|_columns@name$label:1
+#: model@prj.bill.category|_columns@name$label:1
+#: model@prj.portfolio.category|_columns@name$label:1
+#: model@prj.prj.category|_columns@name$label:1
+#: model@prj.stage.category|_columns@name$label:1
+#: model@prj.task.category|_columns@name$label:1
+#: model@prj.element.category|_columns@name$label:1
 msgid "Name"
 msgstr "Név"
 
-#: project.resource.category-parent_id:1 project.bill.category-parent_id:1
-#: project.portfolio.category-parent_id:1 project.project.category-parent_id:1
-#: project.stage.category-parent_id:1 project.task.category-parent_id:1
-#: project.element.category-parent_id:1 project.bill-parent_id:1
-#: project.portfolio-parent_id:1 project.project-parent_id:1
-#: project.stage-parent_id:1 project.task-parent_id:1
-#: project.element-parent_id:1
+#: model@prj.unit.categories|_columns@parent_id$label:1
+#: model@prj.channel.categories|_columns@parent_id$label:1
+#: model@prj.segment.categories|_columns@parent_id$label:1
+#: model@prj.area.categories|_columns@parent_id$label:1
+#: model@prj.region.categories|_columns@parent_id$label:1
+#: model@prj.division.categories|_columns@parent_id$label:1
+#: model@prj.subdivision.categories|_columns@parent_id$label:1
+#: model@prj.resource.category|_columns@parent_id$label:1
+#: model@prj.bill.category|_columns@parent_id$label:1
+#: model@prj.portfolio.category|_columns@parent_id$label:1
+#: model@prj.prj.category|_columns@parent_id$label:1
+#: model@prj.stage.category|_columns@parent_id$label:1
+#: model@prj.task.category|_columns@parent_id$label:1
+#: model@prj.element.category|_columns@parent_id$label:1
+#: model@prj.bill|_columns@parent_id$label:1
+#: model@prj.portfolio|_columns@parent_id$label:1
+#: model@prj.project|_columns@parent_id$label:1
+#: model@prj.stage|_columns@parent_id$label:1
+#: model@prj.task|_columns@parent_id$label:1
+#: model@prj.element|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Szülő"
 
-#: project.resource.category-childs_id:1 project.bill.category-childs_id:1
-#: project.portfolio.category-childs_id:1 project.project.category-childs_id:1
-#: project.stage.category-childs_id:1 project.task.category-childs_id:1
-#: project.element.category-childs_id:1 project.bill-childs_id:1
-#: project.portfolio-childs_id:1 project.project-childs_id:1
-#: project.stage-childs_id:1 project.task-childs_id:1
-#: project.element-childs_id:1
+#: model@prj.unit.categories|_columns@childs_id$label:1
+#: model@prj.channel.categories|_columns@childs_id$label:1
+#: model@prj.segment.categories|_columns@childs_id$label:1
+#: model@prj.area.categories|_columns@childs_id$label:1
+#: model@prj.region.categories|_columns@childs_id$label:1
+#: model@prj.division.categories|_columns@childs_id$label:1
+#: model@prj.subdivision.categories|_columns@childs_id$label:1
+#: model@prj.resource.category|_columns@childs_id$label:1
+#: model@prj.bill.category|_columns@childs_id$label:1
+#: model@prj.portfolio.category|_columns@childs_id$label:1
+#: model@prj.prj.category|_columns@childs_id$label:1
+#: model@prj.stage.category|_columns@childs_id$label:1
+#: model@prj.task.category|_columns@childs_id$label:1
+#: model@prj.element.category|_columns@childs_id$label:1
+#: model@prj.bill|_columns@childs_id$label:1
+#: model@prj.portfolio|_columns@childs_id$label:1
+#: model@prj.project|_columns@childs_id$label:1
+#: model@prj.stage|_columns@childs_id$label:1
+#: model@prj.task|_columns@childs_id$label:1
+#: model@prj.element|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: project.resource.category-projects:1 project.project.category-projects:1
-#: project.portfolio-projects:1
-msgid "Projects"
-msgstr "Projektek"
+#: model@prj.unit.categories|_columns@fullname$label:1
+#: model@prj.channel.categories|_columns@fullname$label:1
+#: model@prj.segment.categories|_columns@fullname$label:1
+#: model@prj.area.categories|_columns@fullname$label:1
+#: model@prj.region.categories|_columns@fullname$label:1
+#: model@prj.division.categories|_columns@fullname$label:1
+#: model@prj.subdivision.categories|_columns@fullname$label:1
+#: model@prj.unit.channel.assigments|_columns@fullname$label:1
+#: model@prj.unit.segment.assigments|_columns@fullname$label:1
+#: model@prj.unit.area.assigments|_columns@fullname$label:1
+#: model@prj.unit.region.assigments|_columns@fullname$label:1
+#: model@prj.division.subdivision.assigments|_columns@fullname$label:1
+#: model@prj.markets|_columns@fullname$label:1
+#: model@prj.teams|_columns@fullname$label:1
+#: model@prj.bill|_columns@fullname$label:1
+msgid "Full Name"
+msgstr "Teljes Név"
 
-#: project.bill.category-bills:1
-msgid "Bills"
-msgstr "Számlák"
+#: model@prj.unit.categories|_columns@units$label:1
+msgid "Units"
+msgstr "Egységek"
 
-#: project.portfolio.category-portfolios:1 project.bill-portfolios:1
-msgid "Portfolios"
-msgstr "A portfóliók"
+#: model@prj.unit.categories|_columns@note$label:1
+#: model@prj.channel.categories|_columns@note$label:1
+#: model@prj.segment.categories|_columns@note$label:1
+#: model@prj.area.categories|_columns@note$label:1
+#: model@prj.region.categories|_columns@note$label:1
+#: model@prj.division.categories|_columns@note$label:1
+#: model@prj.subdivision.categories|_columns@note$label:1
+#: model@prj.markets|_columns@note$label:1
+#: model@prj.teams|_columns@note$label:1
+#: model@prj.bill.types|_columns@note$label:1
+#: model@prj.bill.type.roles|_columns@note$label:1
+#: model@prj.bill.type.plates|_columns@note$label:1
+#: model@prj.resource.category|_columns@note$label:1
+#: model@prj.bill.category|_columns@note$label:1
+#: model@prj.portfolio.category|_columns@note$label:1
+#: model@prj.prj.category|_columns@note$label:1
+#: model@prj.stage.category|_columns@note$label:1
+#: model@prj.task.category|_columns@note$label:1
+#: model@prj.element.category|_columns@note$label:1
+#: model@prj.resource|_columns@note$label:1
+#: model@prj.bill|_columns@note$label:1
+#: model@prj.portfolio|_columns@note$label:1
+#: model@prj.project|_columns@note$label:1
+#: model@prj.stage|_columns@note$label:1 model@prj.task|_columns@note$label:1
+#: model@prj.element|_columns@note$label:1
+#: model@prj.element.products|_columns@note$label:1
+#: model@md.prj.product|_columns@note$label:1
+msgid "Note"
+msgstr "Megjegyzés"
 
-#: project.stage.category-stages:1
-msgid "Orders"
-msgstr "Parancs"
+#: model@prj.units|_description@:1
+msgid "General Model Project Units"
+msgstr "Általános Modell Projekt Egységek"
 
-#: project.task.category-tasks:1 project.stage-tasks:1
-msgid "Tasks"
-msgstr "Feladatok"
-
-#: project.element.category-elements:1 project.stage-elements:1
-msgid "Elements"
-msgstr "Elemek"
-
-#: project.resource-name:1 project.task.resources-resource_id:1
-#: project.element.resources-resource_id:1
-msgid "Resource"
-msgstr "Forrás"
-
-#: project.resource-category_id:1 project.bill-category_id:1
-#: project.portfolio-category_id:1 project.project-category_id:1
-#: project.task-category_id:1
+#: model@prj.units|_columns@category_id$label:1
+#: model@prj.channels|_columns@category_id$label:1
+#: model@prj.segments|_columns@category_id$label:1
+#: model@prj.areas|_columns@category_id$label:1
+#: model@prj.regions|_columns@category_id$label:1
+#: model@prj.divisions|_columns@category_id$label:1
+#: model@prj.subdivisions|_columns@category_id$label:1
+#: model@prj.resource|_columns@category_id$label:1
+#: model@prj.bill|_columns@category_id$label:1
+#: model@prj.portfolio|_columns@category_id$label:1
+#: model@prj.project|_columns@category_id$label:1
+#: model@prj.task|_columns@category_id$label:1
 msgid "Category"
 msgstr "Kategória"
 
-#: project.resource-cost:1
-msgid "Cost"
-msgstr "Költség"
+#: model@prj.units|_columns@company_id$label:1
+msgid "Companies"
+msgstr "Vállalatok"
 
-#: project.bill-name:1 project.portfolio-bill_id:1
-msgid "Bill"
-msgstr "Bill"
+#: model@prj.units|_columns@code$label:1
+#: model@prj.channels|_columns@code$label:1
+#: model@prj.segments|_columns@code$label:1
+#: model@prj.areas|_columns@code$label:1
+#: model@prj.regions|_columns@code$label:1
+#: model@prj.divisions|_columns@code$label:1
+#: model@prj.subdivisions|_columns@code$label:1
+#: model@prj.pricing.group.levels|_columns@code$label:1
+#: model@prj.texts|_columns@code$label:1
+#: model@prj.schema.texts|_columns@code$label:1
+msgid "Code"
+msgstr "Kód"
 
-#: project.bill-start_date:1 project.portfolio-start_date:1
-#: project.project-start_date:1 project.stage-start_date:1
-#: project.task-start_date:1
-msgid "Start date"
-msgstr "Kezdés dátuma"
+#: model@prj.units|_columns@descr$label:1
+#: model@prj.channels|_columns@descr$label:1
+#: model@prj.segments|_columns@descr$label:1
+#: model@prj.areas|_columns@descr$label:1
+#: model@prj.regions|_columns@descr$label:1
+#: model@prj.divisions|_columns@descr$label:1
+#: model@prj.subdivisions|_columns@descr$label:1
+#: model@prj.pricing.group.levels|_columns@descr$label:1
+#: model@prj.texts|_columns@descr$label:1
+#: model@prj.schema.texts|_columns@descr$label:1
+msgid "Description"
+msgstr "Leírás"
 
-#: project.bill-end_date:1 project.portfolio-end_date:1
-#: project.project-end_date:1 project.stage-end_date:1 project.task-end_date:1
-msgid "End date"
-msgstr "Befejezés dátuma"
+#: model@prj.units|_columns@channels$label:1
+#: model@prj.channel.categories|_columns@channels$label:1
+msgid "Channels"
+msgstr "Csatornák"
 
-#: project.bill-progress:1 project.portfolio-progress:1
-#: project.project-progress:1 project.stage-progress:1 project.task-progress:1
-msgid "Progress"
-msgstr "Haladás"
+#: model@prj.units|_columns@segments$label:1
+#: model@prj.segment.categories|_columns@segments$label:1
+msgid "Segments"
+msgstr "Szegmensek"
 
-#: project.bill-project_type:1 project.portfolio-project_type:1
-#: project.project-project_type:1 project.task-project_type:1
-msgid "Project Type"
-msgstr "Projekt Típusa"
+#: model@prj.units|_columns@areas$label:1
+#: model@prj.area.categories|_columns@areas$label:1
+msgid "Areas"
+msgstr "Területek"
 
-#: project.bill-state:1 project.portfolio-state:1 project.project-state:1
-#: project.task-state:1
-msgid "State"
-msgstr "Állami"
+#: model@prj.units|_columns@regions$label:1
+msgid "Regions"
+msgstr "Régiók"
 
-#: project.portfolio-name:1 project.project-portfolio_id:1
-msgid "Portfolio"
-msgstr "Portfólió"
+#: model@prj.channel.categories|_description@:1
+msgid "General Model Categories Project Chanel"
+msgstr "Általános Modell Kategóriában Projekt Chanel"
 
-#: project.project-name:1 project.stage-project_id:1
-msgid "Project"
-msgstr "Projekt"
+#: model@prj.channels|_description@:1
+msgid "General Model Project Channels"
+msgstr "Általános Modell Projekt Csatornák"
 
-#: project.project-stages:1
-msgid "Stages"
-msgstr "Szakaszok"
+#: model@prj.segment.categories|_description@:1
+msgid "General Model Categories Project Segment"
+msgstr "Általános Modell Kategóriában Szegmens Projekt"
 
-#: project.stage-name:1 project.task-stage_id:1 project.element-stage_id:1
-msgid "Stage"
-msgstr "Színpad"
+#: model@prj.segments|_description@:1
+msgid "General Model Project Segments"
+msgstr "Általános Modell Projekt Szegmensek"
 
-#: project.stage-type:1 project.stage-project_type:1
+#: model@prj.area.categories|_description@:1
+msgid "General Model Categories Project Area"
+msgstr "Általános Modell Kategóriában Projekt-Terület"
+
+#: model@prj.areas|_description@:1
+msgid "General Model Project Areas"
+msgstr "Általános Modell Projekt Területek"
+
+#: model@prj.region.categories|_description@:1
+msgid "General Model Categories Project Region"
+msgstr "Általános Modell Kategória Régió Projekt"
+
+#: model@prj.region.categories|_columns@segments$label:1
+msgid "REgions"
+msgstr "Régiók"
+
+#: model@prj.regions|_description@:1
+msgid "General Model Project Regions"
+msgstr "Általános Modell Projekt Régiók"
+
+#: model@prj.division.categories|_description@:1
+msgid "General Model Categories Project Division"
+msgstr "Általános Modell Kategóriában Projekt Osztály"
+
+#: model@prj.division.categories|_columns@divisions$label:1
+msgid "Divisions"
+msgstr "Megosztottság"
+
+#: model@prj.divisions|_description@:1
+msgid "General Model Project Divisions"
+msgstr "Általános Modell Projekt Megosztottság"
+
+#: model@prj.divisions|_columns@subdivisions$label:1
+msgid "SubDivisions"
+msgstr "Alegységei"
+
+#: model@prj.subdivision.categories|_description@:1
+msgid "General Model Categories Project Subdivision"
+msgstr "Általános Modell Kategóriában Projekt Alkörzet"
+
+#: model@prj.subdivision.categories|_columns@subdivisions$label:1
+#: model@prj.stage.category|_columns@stages$label:1
+msgid "Orders"
+msgstr "Parancs"
+
+#: model@prj.subdivisions|_description@:1
+msgid "General Model Project Subdivisions"
+msgstr "Általános Modell Projekt Felosztást"
+
+#: model@prj.unit.channel.assigments|_description@:1
+msgid "General Model Project Unit Of Channel Assigment"
+msgstr "Általános Modell Projekt Egység Csatorna Assigment"
+
+#: model@prj.unit.channel.assigments|_columns@unit_id$label:1
+#: model@prj.unit.segment.assigments|_columns@unit_id$label:1
+#: model@prj.unit.area.assigments|_columns@unit_id$label:1
+#: model@prj.unit.region.assigments|_columns@unit_id$label:1
+#: model@prj.markets|_columns@unit_id$label:1
+#: model@md.prj.product|_columns@unit$label:1
+msgid "Unit"
+msgstr "Egység"
+
+#: model@prj.unit.channel.assigments|_columns@channel_id$label:1
+#: model@prj.markets|_columns@channel_id$label:1
+msgid "Channel"
+msgstr "Csatorna"
+
+#: model@prj.unit.segment.assigments|_description@:1
+msgid "General Model Project Unit Of Segment Assigment"
+msgstr "Általános Modell Projekt Egység Szegmens Assigment"
+
+#: model@prj.unit.segment.assigments|_columns@segment_id$label:1
+#: model@prj.markets|_columns@segment_id$label:1
+msgid "Segment"
+msgstr "Szegmens"
+
+#: model@prj.unit.area.assigments|_description@:1
+msgid "General Model Project Unit Of Area Assigment"
+msgstr "Általános Modell Projekt Egységnyi Területen Assigment"
+
+#: model@prj.unit.area.assigments|_columns@area_id$label:1
+#: model@prj.markets|_columns@area_id$label:1
+msgid "Area"
+msgstr "Terület"
+
+#: model@prj.unit.region.assigments|_description@:1
+msgid "General Model Project Unit Of Region Assigment"
+msgstr "Általános Modell Projekt Egység Régió Assigment"
+
+#: model@prj.unit.region.assigments|_columns@region_id$label:1
+#: model@prj.markets|_columns@region_id$label:1
+msgid "Region"
+msgstr "Régió"
+
+#: model@prj.division.subdivision.assigments|_description@:1
+msgid "General Model Project Division Of Subdivision Assigment"
+msgstr "Általános Modell Projekt Osztály Egysége Assigment"
+
+#: model@prj.division.subdivision.assigments|_columns@division_id$label:1
+#: model@prj.teams|_columns@division_id$label:1
+msgid "Division"
+msgstr "Osztály"
+
+#: model@prj.division.subdivision.assigments|_columns@subdivision_id$label:1
+#: model@prj.teams|_columns@subdivision_id$label:1
+msgid "Subdivision"
+msgstr "Felosztás"
+
+#: model@prj.markets|_description@:1
+msgid "General Model Project Market"
+msgstr "Általános Modell Projekt Piac"
+
+#: model@prj.teams|_description@:1
+msgid "General Model Project Teams"
+msgstr "Általános Modell Projekt Csapat"
+
+#: model@prj.pricing.group.levels|_description@:1
+msgid "General Model Project Pricing Group Levels"
+msgstr "Általános Modell Projekt Árképzési Csoport Szinten"
+
+#: model@prj.texts|_description@:1
+msgid "General Model Project Texts"
+msgstr "Általános Modell Projekt Szövegek"
+
+#: model@prj.schema.texts|_description@:1
+msgid "General Model Schema Of Project Texts"
+msgstr "Általános Modell Séma A Projekt Szövegek"
+
+#: model@prj.schema.texts|_columns@usage$label:1
+msgid "Usage"
+msgstr "Használat"
+
+#: model@prj.schema.texts|_columns@usage$selections#h:1
+msgid "Header"
+msgstr "Fejléc"
+
+#: model@prj.schema.texts|_columns@usage$selections#i:1
+msgid "Item"
+msgstr "Elem"
+
+#: model@prj.schema.texts|_columns@usage$selections#b:1
+msgid "Both"
+msgstr "Mind"
+
+#: model@prj.schema.texts|_columns@texts$label:1
+msgid "Texts"
+msgstr "Szövegek"
+
+#: model@prj.schema.text.items|_description@:1
+msgid "General Model Items Of Schema Project Texts"
+msgstr "Általános Modell Elemek A Séma Projekt Szövegek"
+
+#: model@prj.schema.text.items|_columns@schema_id$label:1
+msgid "Schema"
+msgstr "Séma"
+
+#: model@prj.schema.text.items|_columns@seq$label:1
+#: model@prj.bill.type.plates|_columns@seq$label:1
+msgid "Sequence"
+msgstr "Sorrend"
+
+#: model@prj.schema.text.items|_columns@text_id$label:1
+msgid "Text"
+msgstr "Szöveg"
+
+#: model@prj.schema.text.items|_columns@descr$label:1
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+#: model@prj.bill.types|_description@:1
+msgid "General Model Types Project Bill"
+msgstr "Általános Típus Projekt Bill"
+
+#: model@prj.bill.types|_columns@ptype$label:1
+#: model@prj.bill.type.roles|_columns@type_id$label:1
+#: model@prj.bill.type.plates|_columns@type_id$label:1
+#: model@prj.bill|_columns@btype$label:1 model@prj.stage|_columns@type$label:1
+#: model@prj.stage|_columns@prj_type$label:1
 msgid "Type"
 msgstr "Típus"
 
-#: project.stage-state:1
-msgid "Project State"
-msgstr "A Projekt Állami"
+#: model@prj.bill.types|_columns@ptype$selections#ord:1
+msgid "Order"
+msgstr "Rendelés"
 
-#: project.task-name:1 project.task.resources-task_id:1
+#: model@prj.bill.types|_columns@ptype$selections#ap:1
+msgid "Advance Payment"
+msgstr "Előre Fizetés"
+
+#: model@prj.bill.types|_columns@ptype$selections#ps:1
+msgid "Pseduo"
+msgstr "Pseduo"
+
+#: model@prj.bill.types|_columns@ptype$selections#dm:1
+msgid "Debit Request"
+msgstr "Betéti Kérés"
+
+#: model@prj.bill.types|_columns@ptype$selections#cr:1
+msgid "Credit Request"
+msgstr "Hitel Kérelem"
+
+#: model@prj.bill.types|_columns@ptype$selections#rо:1
+msgid "Return"
+msgstr "Vissza"
+
+#: model@prj.bill.types|_columns@htschema$label:1
+msgid "Text Schema Of Head"
+msgstr "Szöveg Séma A Fejét"
+
+#: model@prj.bill.types|_columns@itschema$label:1
+msgid "Text Schema Of Item"
+msgstr "Szöveg Séma Elem"
+
+#: model@prj.bill.types|_columns@roles$label:1
+msgid "Roles"
+msgstr "Szerepek"
+
+#: model@prj.bill.types|_columns@plates$label:1
+msgid "Plates"
+msgstr "Lemezek"
+
+#: model@prj.bill.types|_columns@tis$label:1
+msgid "TIs"
+msgstr "TIs"
+
+#: model@prj.bill.type.roles|_description@:1
+msgid "General Model Role Project BIll Types"
+msgstr "Általános Modell Szerepe Projekt BIll Több Fájltípus Megnyitásához"
+
+#: model@prj.bill.type.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Szerep"
+
+#: model@prj.bill.type.roles|_columns@required$label:1
+#: model@prj.bill.type.plates|_columns@required$label:1
+msgid "Required"
+msgstr "Szükséges"
+
+#: model@prj.bill.type.plates|_description@:1
+msgid "General Model Project Bill Plates"
+msgstr "Általános Modell Projekt Bill Lemezek"
+
+#: model@prj.bill.type.plates|_columns@plate$label:1
+msgid "Plate"
+msgstr "Lemez"
+
+#: model@prj.resource.category|_description@:1
+msgid "General Model Category Project Resource"
+msgstr "Általános Modell Kategória Projekt Erőforrás"
+
+#: model@prj.resource.category|_columns@projects$label:1
+#: model@prj.prj.category|_columns@projects$label:1
+#: model@prj.portfolio|_columns@projects$label:1
+msgid "Projects"
+msgstr "Projektek"
+
+#: model@prj.bill.category|_description@:1
+msgid "General Model Category Project Bill"
+msgstr "Általános Modell Kategória Projekt Bill"
+
+#: model@prj.bill.category|_columns@bills$label:1
+msgid "Bills"
+msgstr "Számlák"
+
+#: model@prj.portfolio.category|_description@:1
+msgid "General Model Category Project Portfolio"
+msgstr "Általános Modell Kategória Projekt-Portfólió"
+
+#: model@prj.portfolio.category|_columns@portfolios$label:1
+#: model@prj.bill|_columns@portfolios$label:1
+msgid "Portfolios"
+msgstr "A portfóliók"
+
+#: model@prj.prj.category|_description@:1
+msgid "General Model Category Project Project"
+msgstr "Általános Modell Kategóriába Tartozó Projekt Projekt"
+
+#: model@prj.stage.category|_description@:1
+msgid "General Model Category Project Stage"
+msgstr "Általános Modell Kategória Projekt Szakasz"
+
+#: model@prj.task.category|_description@:1
+msgid "General Model Category Project Task"
+msgstr "Általános Modell Kategória Projekt Feladat"
+
+#: model@prj.task.category|_columns@tasks$label:1
+#: model@prj.stage|_columns@tasks$label:1
+msgid "Tasks"
+msgstr "Feladatok"
+
+#: model@prj.element.category|_description@:1
+msgid "General Model Category Project Element"
+msgstr "Általános Modell Kategória Projekt Elem"
+
+#: model@prj.element.category|_columns@elements$label:1
+#: model@prj.stage|_columns@elements$label:1
+msgid "Elements"
+msgstr "Elemek"
+
+#: model@prj.resource|_description@:1
+msgid "General Model Project Resource"
+msgstr "Általános Modell Projekt Erőforrás"
+
+#: model@prj.resource|_columns@name$label:1
+#: model@prj.task.resources|_columns@resource_id$label:1
+#: model@prj.element.resources|_columns@resource_id$label:1
+msgid "Resource"
+msgstr "Forrás"
+
+#: model@prj.resource|_columns@cost$label:1
+msgid "Cost"
+msgstr "Költség"
+
+#: model@prj.resource|_columns@currency$label:1
+#: model@md.prj.product|_columns@currency$label:1
+msgid "Currency"
+msgstr "Pénznem"
+
+#: model@prj.bill|_description@:1
+msgid "General Model Projects Bill"
+msgstr "Általános Modell Projektek Bill"
+
+#: model@prj.bill|_columns@name$label:1
+#: model@prj.portfolio|_columns@bill_id$label:1
+msgid "Bill"
+msgstr "Bill"
+
+#: model@prj.bill|_columns@company$label:1
+msgid "Company"
+msgstr "Cég"
+
+#: model@prj.bill|_columns@start_date$label:1
+#: model@prj.portfolio|_columns@start_date$label:1
+#: model@prj.project|_columns@start_date$label:1
+#: model@prj.stage|_columns@start_date$label:1
+#: model@prj.task|_columns@start_date$label:1
+msgid "Start date"
+msgstr "Kezdés dátuma"
+
+#: model@prj.bill|_columns@end_date$label:1
+#: model@prj.portfolio|_columns@end_date$label:1
+#: model@prj.project|_columns@end_date$label:1
+#: model@prj.stage|_columns@end_date$label:1
+#: model@prj.task|_columns@end_date$label:1
+msgid "End date"
+msgstr "Befejezés dátuma"
+
+#: model@prj.bill|_columns@progress$label:1
+#: model@prj.portfolio|_columns@progress$label:1
+#: model@prj.project|_columns@progress$label:1
+#: model@prj.stage|_columns@progress$label:1
+#: model@prj.task|_columns@progress$label:1
+msgid "Progress"
+msgstr "Haladás"
+
+#: model@prj.bill|_columns@prj_type$label:1
+#: model@prj.portfolio|_columns@prj_type$label:1
+#: model@prj.project|_columns@prj_type$label:1
+#: model@prj.task|_columns@prj_type$label:1
+msgid "Project Type"
+msgstr "Projekt Típusa"
+
+#: model@prj.bill|_columns@prj_type$selections#project:1
+#: model@prj.portfolio|_columns@prj_type$selections#project:1
+#: model@prj.project|_columns@name$label:1
+#: model@prj.project|_columns@prj_type$selections#project:1
+#: model@prj.stage|_columns@prj_id$label:1
+#: model@prj.stage|_columns@prj_type$selections#project:1
+#: model@prj.task|_columns@prj_type$selections#project:1
+msgid "Project"
+msgstr "Projekt"
+
+#: model@prj.bill|_columns@prj_type$selections#milestone:1
+#: model@prj.portfolio|_columns@prj_type$selections#milestone:1
+#: model@prj.project|_columns@prj_type$selections#milestone:1
+#: model@prj.stage|_columns@prj_type$selections#milestone:1
+#: model@prj.task|_columns@prj_type$selections#milestone:1
+msgid "Milestone"
+msgstr "Mérföldkő"
+
+#: model@prj.bill|_columns@prj_type$selections#task:1
+#: model@prj.portfolio|_columns@prj_type$selections#task:1
+#: model@prj.project|_columns@prj_type$selections#task:1
+#: model@prj.stage|_columns@prj_type$selections#task:1
+#: model@prj.task|_columns@name$label:1
+#: model@prj.task|_columns@prj_type$selections#task:1
+#: model@prj.task.resources|_columns@task_id$label:1
 msgid "Task"
 msgstr "Feladat"
 
-#: project.task-resources:1
+#: model@prj.bill|_columns@state$label:1
+#: model@prj.portfolio|_columns@state$label:1
+#: model@prj.project|_columns@state$label:1
+#: model@prj.task|_columns@state$label:1
+msgid "State"
+msgstr "Állami"
+
+#: model@prj.bill|_columns@state$selections#draft:1
+#: model@prj.portfolio|_columns@state$selections#draft:1
+#: model@prj.project|_columns@state$selections#draft:1
+#: model@prj.stage|_columns@state$selections#draft:1
+#: model@prj.task|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Tervezet"
+
+#: model@prj.bill|_columns@state$selections#approved:1
+#: model@prj.portfolio|_columns@state$selections#approved:1
+#: model@prj.project|_columns@state$selections#approved:1
+#: model@prj.stage|_columns@state$selections#approved:1
+#: model@prj.task|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Jóváhagyott"
+
+#: model@prj.bill|_columns@state$selections#inprocess:1
+#: model@prj.portfolio|_columns@state$selections#inprocess:1
+#: model@prj.project|_columns@state$selections#inprocess:1
+#: model@prj.stage|_columns@state$selections#inprocess:1
+#: model@prj.task|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "A Folyamat"
+
+#: model@prj.bill|_columns@state$selections#closed:1
+#: model@prj.portfolio|_columns@state$selections#closed:1
+#: model@prj.project|_columns@state$selections#closed:1
+#: model@prj.stage|_columns@state$selections#closed:1
+#: model@prj.task|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Zárt"
+
+#: model@prj.bill|_columns@state$selections#canceled:1
+#: model@prj.portfolio|_columns@state$selections#canceled:1
+#: model@prj.project|_columns@state$selections#canceled:1
+#: model@prj.stage|_columns@state$selections#canceled:1
+#: model@prj.task|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Elmarad"
+
+#: model@prj.portfolio|_description@:1
+msgid "General Model Projects Portfolio"
+msgstr "Általános Modell Portfólió Projektek"
+
+#: model@prj.portfolio|_columns@name$label:1
+#: model@prj.project|_columns@portfolio_id$label:1
+msgid "Portfolio"
+msgstr "Portfólió"
+
+#: model@prj.project|_description@:1
+msgid "General Model Project"
+msgstr "Általános Modell-Projekt"
+
+#: model@prj.project|_columns@stages$label:1
+msgid "Stages"
+msgstr "Szakaszok"
+
+#: model@prj.stage|_description@:1
+msgid "General Model Project Stage"
+msgstr "Általános Modell Projekt Szakasz"
+
+#: model@prj.stage|_columns@name$label:1
+#: model@prj.task|_columns@stage_id$label:1
+#: model@prj.element|_columns@stage_id$label:1
+msgid "Stage"
+msgstr "Színpad"
+
+#: model@prj.stage|_columns@type$selections#b:1
+msgid "Begin"
+msgstr "Kezdődik"
+
+#: model@prj.stage|_columns@type$selections#e:1
+msgid "End"
+msgstr "Vége"
+
+#: model@prj.stage|_columns@type$selections#w:1
+msgid "Work"
+msgstr "Munka"
+
+#: model@prj.stage|_columns@type$selections#s:1
+msgid "Situtation"
+msgstr "Helyzethez"
+
+#: model@prj.stage|_columns@state$label:1
+msgid "Project State"
+msgstr "A Projekt Állami"
+
+#: model@prj.task|_description@:1
+msgid "General Model Project Task"
+msgstr "Általános Modell Projekt Feladat"
+
+#: model@prj.task|_columns@resources$label:1
 msgid "Recources"
 msgstr "Recources"
 
-#: project.element-name:1 project.element.products-element_id:1
-#: project.element.resources-element_id:1
+#: model@prj.element|_description@:1
+msgid "General Model Project Element"
+msgstr "Általános Modell Projekt Elem"
+
+#: model@prj.element|_columns@name$label:1
+#: model@prj.element.products|_columns@element_id$label:1
+#: model@prj.element.resources|_columns@element_id$label:1
 msgid "Element"
 msgstr "Elem"
 
-#: project.element-products:1
+#: model@prj.element|_columns@products$label:1
 msgid "Products"
 msgstr "Termékek"
 
-#: project.element-resources:1
+#: model@prj.element|_columns@resources$label:1
 msgid "Resources"
 msgstr "Források"
 
-#: project.element.products-quantity:1
+#: model@prj.element.products|_description@:1
+msgid "General Model Project Element Products"
+msgstr "Általános Modell Projekt Elem Termékek"
+
+#: model@prj.element.products|_columns@product_id$label:1
+#: model@md.prj.product|_columns@product_id$label:1
+msgid "Product"
+msgstr "Termék"
+
+#: model@prj.element.products|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Mennyiség"
 
-#: project.element.products-uom:1
+#: model@prj.element.products|_columns@uom$label:1
 msgid "UoM"
 msgstr "UoM"
 
-#: project.task.resources-quantiny:1 project.element.resources-quantiny:1
+#: model@prj.task.resources|_description@:1
+msgid "General Model Project Task Resources"
+msgstr "Általános Modell Projekt Feladat Források"
+
+#: model@prj.task.resources|_columns@quantiny$label:1
+#: model@prj.element.resources|_columns@quantiny$label:1
 msgid "Job"
 msgstr "Munka"
+
+#: model@prj.task.resources|_columns@uom$label:1
+#: model@prj.element.resources|_columns@uom$label:1
+#: model@md.prj.product|_columns@uom$label:1
+msgid "Unit Of Measure"
+msgstr "Mértékegység"
+
+#: model@prj.element.resources|_description@:1
+msgid "General Model Project Element Resources"
+msgstr "Általános Modell Projekt Elem Források"
+
+#: model@md.prj.product|_description@:1
+msgid "General Model Project Of Product"
+msgstr "Általános Modell Projekt Termék"
+
+#: model@md.prj.product|_columns@vat$label:1
+msgid "VAT Code"
+msgstr "ÁFA Kód"
+
+#: model@md.prj.product|_columns@price$label:1
+msgid "Price"
+msgstr "Ár"
+
+#: model@md.prj.product|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Egység Ár"

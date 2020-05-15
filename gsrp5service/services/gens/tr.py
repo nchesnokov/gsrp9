@@ -8,6 +8,8 @@ from yandex import Translater
 import datetime
 from datetime import date,time,datetime
 
+import web_pdb
+
 _logger = logging.getLogger('listener.' + __name__)
 
 tr = Translater.Translater()
@@ -20,7 +22,7 @@ def _get_mt(p):
 		po = polib.pofile(p)
 		for entry in po:
 			if entry.msgstr:
-					res[entry.msgid] = entry.msgstr
+				res[entry.msgid] = entry.msgstr
 
 	return res
 
@@ -30,6 +32,7 @@ def _download_i18n_tr(cr,pool,uid,path,module):
 	
 		for lang in list(map(lambda x: x.split('-')[1],filter(lambda x: x[:3] == 'en-',tr.get_langs()))):
 			mt = _get_mt(opj(path,module,'i18n','%s.po') % (lang,))
+			#web_pdb.set_trace()
 			#print('MT:',mt)
 			#print('Translate module:%s lang:%s' % (module,lang))
 			out = polib.POFile()

@@ -3,534 +3,1083 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:33:08+0000\n"
-"PO-Revision-Date: 2020-02-13 14:33:08+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:51+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:51+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: md.category.country-name:1 md.country.group-name:1 md.country-name:1
-#: md.category.language-name:1 md.language-name:1 md.group.quantity-name:1
-#: md.quantity.uom-name:1 md.uom-name:1 md.currency-name:1 md.vat.code-name:1
-#: md.category.product-name:1 md.type.plates-name:1
-#: md.products.template-name:1 md.product-name:1 md.incoterms-name:1
-#: md.category.partner-name:1 md.category.location-name:1 md.location-name:1
-#: md.partner-name:1 md.company-name:1 md.banks-name:1 md.recepture-name:1
+#: model@md.category.country|_description@:1
+msgid "General Model Category Country"
+msgstr "Általános Modell Kategória Ország"
+
+#: model@md.category.country|_columns@name$label:1
+#: model@md.country.group|_columns@name$label:1
+#: model@md.country|_columns@name$label:1
+#: model@md.category.language|_columns@name$label:1
+#: model@md.language|_columns@name$label:1
+#: model@md.group.quantity|_columns@name$label:1
+#: model@md.quantity.uom|_columns@name$label:1
+#: model@md.uom|_columns@name$label:1 model@md.currency|_columns@name$label:1
+#: model@md.vat.code|_columns@name$label:1
+#: model@md.excise.code|_columns@name$label:1
+#: model@md.category.product|_columns@name$label:1
+#: model@md.type.plates|_columns@name$label:1
+#: model@md.products.template|_columns@name$label:1
+#: model@md.product|_columns@name$label:1
+#: model@md.incoterms|_columns@name$label:1
+#: model@md.category.partner|_columns@name$label:1
+#: model@md.category.location|_columns@name$label:1
+#: model@md.location|_columns@name$label:1
+#: model@md.partner|_columns@name$label:1
+#: model@md.company|_columns@name$label:1 model@md.banks|_columns@name$label:1
+#: model@md.recepture|_columns@name$label:1
 msgid "Name"
 msgstr "Név"
 
-#: md.category.country-parent_id:1 md.category.language-parent_id:1
-#: md.group.quantity-parent_id:1 md.category.product-parent_id:1
-#: md.category.partner-parent_id:1 md.category.location-parent_id:1
+#: model@md.category.country|_columns@parent_id$label:1
+#: model@md.category.language|_columns@parent_id$label:1
+#: model@md.group.quantity|_columns@parent_id$label:1
+#: model@md.category.product|_columns@parent_id$label:1
+#: model@md.category.partner|_columns@parent_id$label:1
+#: model@md.category.location|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Szülő"
 
-#: md.category.country-childs_id:1 md.category.language-childs_id:1
-#: md.group.quantity-childs_id:1 md.category.product-childs_id:1
-#: md.category.partner-childs_id:1 md.category.location-childs_id:1
+#: model@md.category.country|_columns@childs_id$label:1
+#: model@md.category.language|_columns@childs_id$label:1
+#: model@md.group.quantity|_columns@childs_id$label:1
+#: model@md.category.product|_columns@childs_id$label:1
+#: model@md.category.partner|_columns@childs_id$label:1
+#: model@md.category.location|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: md.category.country-note:1 md.category.language-note:1
-#: md.group.quantity-note:1 md.quantity.uom-note:1 md.currency-note:1
-#: md.category.product-note:1 md.type.items-note:1 md.type.plates-note:1
-#: md.products.template-note:1 md.product-note:1 md.incoterms-note:1
-#: md.category.partner-note:1 md.category.location-note:1 md.location-note:1
-#: md.partner.contacts-note:1 md.partner.products-note:1
-#: md.role.partners-note:1 md.pricelist.partner.products-note:1
-#: md.company-note:1 md.banks-note:1 md.partners.bank-note:1
-#: md.recepture.input-note:1 md.recepture.output-note:1
+#: model@md.category.country|_columns@note$label:1
+#: model@md.category.language|_columns@note$label:1
+#: model@md.group.quantity|_columns@note$label:1
+#: model@md.quantity.uom|_columns@note$label:1
+#: model@md.currency|_columns@note$label:1
+#: model@md.category.product|_columns@note$label:1
+#: model@md.type.items|_columns@note$label:1
+#: model@md.type.plates|_columns@note$label:1
+#: model@md.products.template|_columns@note$label:1
+#: model@md.product|_columns@note$label:1
+#: model@md.incoterms|_columns@note$label:1
+#: model@md.category.partner|_columns@note$label:1
+#: model@md.category.location|_columns@note$label:1
+#: model@md.location|_columns@note$label:1
+#: model@md.partner.contacts|_columns@note$label:1
+#: model@md.partner.products|_columns@note$label:1
+#: model@md.role.partners|_columns@note$label:1
+#: model@md.pricelist.partner.products|_columns@note$label:1
+#: model@md.company|_columns@note$label:1 model@md.banks|_columns@note$label:1
+#: model@md.partners.bank|_columns@note$label:1
+#: model@md.recepture.input|_columns@note$label:1
+#: model@md.recepture.output|_columns@note$label:1
 msgid "Note"
 msgstr "Megjegyzés"
 
-#: md.country.group-country_ids:1
+#: model@md.country.group|_description@:1
+msgid "General Model Country Group"
+msgstr "Általános Modell Ország Csoport"
+
+#: model@md.country.group|_columns@country_ids$label:1
 msgid "Countries"
 msgstr "Ország"
 
-#: md.country-shortname:1 md.uom-shortname:1 md.currency-shortname:1
+#: model@md.country|_description@:1
+msgid "General Model Country"
+msgstr "Általános Modell Ország"
+
+#: model@md.country|__doc__@:1
+msgid ""
+"\n"
+"\tСтраны мира\n"
+"\t"
+msgstr ""
+"\n"
+" Страны мира\n"
+" "
+
+#: model@md.country|_columns@shortname$label:1
+#: model@md.uom|_columns@shortname$label:1
+#: model@md.currency|_columns@shortname$label:1
 msgid "Short Name"
 msgstr "Rövid Név"
 
-#: md.country-code:1 md.uom-code:1 md.currency-code:1 md.vat.code-code:1
-#: md.gtis-code:1 md.type.items-code:1 md.product-code:1 md.partner-code:1
+#: model@md.country|_columns@code$label:1 model@md.uom|_columns@code$label:1
+#: model@md.currency|_columns@code$label:1
+#: model@md.vat.code|_columns@code$label:1
+#: model@md.excise.code|_columns@code$label:1
+#: model@md.gtis|_columns@code$label:1
+#: model@md.type.items|_columns@code$label:1
+#: model@md.product|_columns@code$label:1
+#: model@md.partner|_columns@code$label:1
 msgid "Code"
 msgstr "Kód"
 
-#: md.country-alpha2:1
+#: model@md.country|_columns@alpha2$label:1
 msgid "Alpha2"
 msgstr "Alpha2"
 
-#: md.country-alpha3:1
+#: model@md.country|_columns@alpha3$label:1
 msgid "Alpha3"
 msgstr "Alpha3"
 
-#: md.country-group_ids:1 md.incoterms-grp:1
+#: model@md.country|_columns@group_ids$label:1
+#: model@md.incoterms|_columns@grp$label:1
 msgid "Group"
 msgstr "Csoport"
 
-#: md.country-states:1
+#: model@md.country|_columns@states$label:1
 msgid "States"
 msgstr "Államok"
 
-#: md.country.states-country_id:1 md.partner-country_id:1
-#: md.partner.addresses-country:1 md.company-country_id:1
-#: md.banks-country_id:1
+#: model@md.country.states|_description@:1
+msgid "General Model Country States"
+msgstr "Általános Modell Ország Államok"
+
+#: model@md.country.states|_columns@country_id$label:1
+#: model@md.partner|_columns@country_id$label:1
+#: model@md.partner.addresses|_columns@country$label:1
+#: model@md.company|_columns@country_id$label:1
+#: model@md.banks|_columns@country_id$label:1
 msgid "Country"
 msgstr "Ország"
 
-#: md.country.states-name:1
+#: model@md.country.states|_columns@name$label:1
 msgid "State Name"
 msgstr "Állami Név"
 
-#: md.country.states-code:1
+#: model@md.country.states|_columns@name$help:1
+msgid ""
+"Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
+msgstr "Közigazgatási körzetek egy ország. E. g. Fed. Állami, Részleg, Canton"
+
+#: model@md.country.states|_columns@code$label:1
 msgid "State Code"
 msgstr "Állami Kód"
 
-#: md.language-iso631_1:1
+#: model@md.country.states|_columns@code$help:1
+msgid "The state code."
+msgstr "Az állam kódját."
+
+#: model@md.category.language|_description@:1
+msgid "General Model Category Language"
+msgstr "Általános Modell Kategória Nyelv"
+
+#: model@md.language|_description@:1
+msgid "General Model Language"
+msgstr "Általános Modell Nyelv"
+
+#: model@md.language|_columns@iso631_1$label:1
 msgid "Code ISO 639-1"
 msgstr "Kód az ISO 639-1"
 
-#: md.language-iso631_2t:1
+#: model@md.language|_columns@iso631_2t$label:1
 msgid "Code ISO 639-2T"
 msgstr "Kód ISO 639-2T"
 
-#: md.language-iso631_2b:1
+#: model@md.language|_columns@iso631_2b$label:1
 msgid "Code ISO 639-2B"
 msgstr "Kód ISO 639-2B"
 
-#: md.group.quantity-numerator:1 md.uom-numerator:1
+#: model@md.group.quantity|_description@:1
+msgid "General Model Group Quantity"
+msgstr "Általános Modell Csoport Mennyiség"
+
+#: model@md.group.quantity|_columns@numerator$label:1
+#: model@md.uom|_columns@numerator$label:1
 msgid "Numerator"
 msgstr "Számláló"
 
-#: md.group.quantity-denominator:1 md.uom-denominator:1
+#: model@md.group.quantity|_columns@denominator$label:1
+#: model@md.uom|_columns@denominator$label:1
 msgid "Denomerator"
 msgstr "Denomerator"
 
-#: md.quantity.uom-group_id:1
+#: model@md.quantity.uom|_description@:1
+msgid "General Model Quantity Unit of Measure"
+msgstr "Általános Modell Mennyiség mértékegység"
+
+#: model@md.quantity.uom|_columns@group_id$label:1
 msgid "Group Quantity"
 msgstr "Csoport Mennyiség"
 
-#: md.quantity.uom-meter:1
+#: model@md.quantity.uom|_columns@meter$label:1
 msgid "Meter"
 msgstr "Mérő"
 
-#: md.quantity.uom-weight:1 md.product-weight:1
+#: model@md.quantity.uom|_columns@weight$label:1
+#: model@md.product|_columns@weight$label:1
 msgid "Weight"
 msgstr "Tömeg"
 
-#: md.quantity.uom-tense:1
+#: model@md.quantity.uom|_columns@tense$label:1
 msgid "Tense"
 msgstr "Feszült"
 
-#: md.quantity.uom-ampere:1
+#: model@md.quantity.uom|_columns@ampere$label:1
 msgid "Ampere"
 msgstr "Ampere"
 
-#: md.quantity.uom-kelvin:1
+#: model@md.quantity.uom|_columns@kelvin$label:1
 msgid "Kelvin"
 msgstr "Kelvin"
 
-#: md.quantity.uom-mole:1
+#: model@md.quantity.uom|_columns@mole$label:1
 msgid "Mole"
 msgstr "Tégla"
 
-#: md.quantity.uom-candelle:1
+#: model@md.quantity.uom|_columns@candelle$label:1
 msgid "Candelle"
 msgstr "Candelle"
 
-#: md.quantity.uom-uoms:1 md.partner.products-uom:1 md.recepture.input-uom:1
-#: md.recepture.output-uom:1
+#: model@md.quantity.uom|_columns@uoms$label:1
+#: model@md.partner.products|_columns@uom$label:1
+#: model@md.recepture.input|_columns@uom$label:1
+#: model@md.recepture.output|_columns@uom$label:1
 msgid "UoM"
 msgstr "UoM"
 
-#: md.uom-quantity_id:1 md.recepture.input-quantity:1
-#: md.recepture.output-quantity:1
+#: model@md.uom|_description@:1
+msgid "General Model Unit of Measure"
+msgstr "Általános Modell mértékegység"
+
+#: model@md.uom|_columns@quantity_id$label:1
+#: model@md.recepture.input|_columns@quantity$label:1
+#: model@md.recepture.output|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Mennyiség"
 
-#: md.uom-isocode:1 md.currency-isocode:1
+#: model@md.uom|_columns@isocode$label:1
+#: model@md.currency|_columns@isocode$label:1
 msgid "ISO Code"
 msgstr "ISO-Kód"
 
-#: md.uom-places:1
+#: model@md.uom|_columns@places$label:1
 msgid "Decimal places"
 msgstr "Tizedes"
 
-#: md.uom-round:1
+#: model@md.uom|_columns@round$label:1
 msgid "Rounding off"
 msgstr "Kerekítés"
 
-#: md.uom-extconst:1
+#: model@md.uom|_columns@extconst$label:1
 msgid "Extend Constant"
 msgstr "Kiterjesztése Folyamatos"
 
-#: md.currency-currency_rate:1 md.company-currency_rate:1
-#: md.currency.rate-rate:1
+#: model@md.currency|_description@:1
+msgid "General Model Currency"
+msgstr "Általános Modell, Pénznem"
+
+#: model@md.currency|_columns@currency_rate$label:1
+#: model@md.company|_columns@currency_rate$label:1
+#: model@md.currency.rate|_columns@rate$label:1
 msgid "Currency Rate"
 msgstr "Valuta Árfolyam"
 
-#: md.vat.code-subtype_vat:1
+#: model@md.vat.code|_description@:1
+msgid "General Model Vat Code"
+msgstr "Általános Modell Áfa Kód"
+
+#: model@md.vat.code|_columns@subtype_vat$label:1
 msgid "Subtype VAT"
 msgstr "Altípus ÁFA"
 
-#: md.vat.code-value:1
+#: model@md.vat.code|_columns@subtype_vat$selections#i:1
+#: model@md.excise.code|_columns@subtype_excise$selections#i:1
+msgid "Include"
+msgstr "Tartalmazza"
+
+#: model@md.vat.code|_columns@subtype_vat$selections#e:1
+#: model@md.excise.code|_columns@subtype_excise$selections#e:1
+msgid "Exclude"
+msgstr "Kizárni"
+
+#: model@md.vat.code|_columns@subtype_vat$selections#n:1
+#: model@md.vat.code|_columns@type_vat$selections#n:1
+#: model@md.excise.code|_columns@subtype_excise$selections#n:1
+#: model@md.excise.code|_columns@type_vat$selections#n:1
+msgid "None"
+msgstr "Egyik sem"
+
+#: model@md.vat.code|_columns@value$label:1
+#: model@md.excise.code|_columns@value$label:1
 msgid "Percent"
 msgstr "Százalék"
 
-#: md.vat.code-type_vat:1
+#: model@md.vat.code|_columns@type_vat$label:1
 msgid "Type VAT"
 msgstr "Típus ÁFA"
 
-#: md.gtis-descr:1 md.type.items-descr:1 md.incoterms-descr:1
-#: md.role.partners-descr:1
+#: model@md.vat.code|_columns@type_vat$selections#s:1
+#: model@md.excise.code|_columns@type_vat$selections#s:1
+msgid "Sales"
+msgstr "Értékesítés"
+
+#: model@md.vat.code|_columns@type_vat$selections#p:1
+#: model@md.excise.code|_columns@type_vat$selections#p:1
+msgid "Purchses"
+msgstr "Purchses"
+
+#: model@md.excise.code|_description@:1
+msgid "General Model Excise Code"
+msgstr "Általános Modell Jövedéki Kód"
+
+#: model@md.excise.code|_columns@subtype_excise$label:1
+msgid "Subtype Excise"
+msgstr "Altípus Jövedéki"
+
+#: model@md.excise.code|_columns@type_vat$label:1
+msgid "Type Excise"
+msgstr "Típus Jövedéki"
+
+#: model@md.category.product|_description@:1
+msgid "General Model Category Product"
+msgstr "Általános Modell Kategória Termék"
+
+#: model@md.gtis|_description@:1
+msgid "General Model Group Of Type Items"
+msgstr "Általános Modell Csoport Típus Tételek"
+
+#: model@md.gtis|_columns@descr$label:1
+#: model@md.type.items|_columns@descr$label:1
+#: model@md.incoterms|_columns@descr$label:1
+#: model@md.role.partners|_columns@descr$label:1
 msgid "Description"
 msgstr "Leírás"
 
-#: md.type.items-usage:1 md.type.plates-usage:1 md.location-usage:1
-#: md.partner.contacts-usage:1 md.recepture-usage:1
+#: model@md.type.items|_description@:1
+msgid "General Model Type Of Items"
+msgstr "Általános Modell Típusú Elemek"
+
+#: model@md.type.items|_columns@usage$label:1
+#: model@md.type.plates|_columns@usage$label:1
+#: model@md.location|_columns@usage$label:1
+#: model@md.partner.contacts|_columns@usage$label:1
+#: model@md.recepture|_columns@usage$label:1
 msgid "Usage"
 msgstr "Használat"
 
-#: md.products.template-category_id:1 md.location-category_id:1
-#: md.partner-category_id:1
+#: model@md.type.items|_columns@usage$selections#a:1
+#: model@md.type.plates|_columns@usage$selections#a:1
+#: model@md.location|_columns@usage$selections#all:1
+#: model@md.role.partners|_columns@trole$selections#a:1
+#: model@md.recepture|_columns@usage$selections#a:1
+msgid "All"
+msgstr "Összes"
+
+#: model@md.type.plates|_description@:1
+msgid "General Model Type Of Plates"
+msgstr "Általános Modell Típusú Lemezek"
+
+#: model@md.products.template|_description@:1
+msgid "General Model Product Template"
+msgstr "Általános Modell Termék Sablon"
+
+#: model@md.products.template|_columns@category_id$label:1
+#: model@md.location|_columns@category_id$label:1
+#: model@md.partner|_columns@category_id$label:1
 msgid "Category"
 msgstr "Kategória"
 
-#: md.products.template-mtype:1 md.currency.rate-type:1 md.recepture-type:1
+#: model@md.products.template|_columns@mtype$label:1
+#: model@md.currency.rate|_columns@type$label:1
+#: model@md.recepture|_columns@type$label:1
 msgid "Type"
 msgstr "Típus"
 
-#: md.products.template-products:1 md.partner-products:1
-msgid "Products"
-msgstr "Termékek"
-
-#: md.product-template_id:1
-msgid "Template"
-msgstr "Sablon"
-
-#: md.product-uom:1
-msgid "Unit Of Measure"
-msgstr "Mértékegység"
-
-#: md.product-gti:1
-msgid "Group Of Type Items"
-msgstr "Csoport Típus Tételek"
-
-#: md.product-volume:1
-msgid "Volume"
-msgstr "Mennyiség"
-
-#: md.product-volume_uom:1
-msgid "Volume UoM"
-msgstr "Hangerő UoM"
-
-#: md.product-weight_uom:1
-msgid "Weight UoM"
-msgstr "Súly UoM"
-
-#: md.product-state:1
-msgid "State"
-msgstr "Állami"
-
-#: md.product-qrcode:1
-msgid "QRCode"
-msgstr "QRCode"
-
-#: md.product-image:1 md.partner.contacts-image:1 md.partner.products-image:1
-msgid "Photo"
-msgstr "Fotó"
-
-#: md.product-image_medium:1 md.partner.contacts-image_medium:1
-#: md.partner.products-image_medium:1
-msgid "Medium-sized photo"
-msgstr "Közepes méretű fotó"
-
-#: md.product-image_small:1 md.partner.contacts-image_small:1
-#: md.partner.products-image_small:1
-msgid "Small-sized photo"
-msgstr "Kis méretű fénykép"
-
-#: md.product-link:1 md.partner.products-link:1
-msgid "Link"
-msgstr "Kapcsolat"
-
-#: md.incoterms-mode:1
-msgid "Mode Of Transport"
-msgstr "Szállítási Mód"
-
-#: md.incoterms-mot:1
-msgid "Momemt Of Transition"
-msgstr "Momemt Átmenet"
-
-#: md.location-latitude:1 md.partner-latitude:1
-msgid "Latitude"
-msgstr "Szélesség"
-
-#: md.location-longitude:1 md.partner-longitude:1
-msgid "Longitude"
-msgstr "Hosszúság"
-
-#: md.partner-ispeople:1
-msgid "People"
-msgstr "Az emberek"
-
-#: md.partner-iscustomer:1
-msgid "Customer"
-msgstr "Ügyfél"
-
-#: md.partner-issuplier:1
-msgid "Suplier"
-msgstr "Suplier"
-
-#: md.partner-vat_number:1
-msgid "VAT Number"
-msgstr "Adószám"
-
-#: md.partner-vat_reason:1
-msgid "VAT Reason"
-msgstr "ÁFA Ok"
-
-#: md.partner-addresses:1
-msgid "Addresses"
-msgstr "Címek"
-
-#: md.partner-contacts:1
-msgid "Contacts"
-msgstr "Kapcsolatok"
-
-#: md.partner-roles:1
-msgid "Roles"
-msgstr "Szerepek"
-
-#: md.partner.addresses-partner_id:1 md.partner.contacts-partner_id:1
-#: md.partner.products-partner_id:1 md.partner.roles-partner_id:1
-msgid "Partner"
-msgstr "Partner"
-
-#: md.partner.addresses-taddr:1
-msgid "Type Of Address"
-msgstr "Írja Be A Cím"
-
-#: md.partner.addresses-state:1
-msgid "State Of Coutry"
-msgstr "Állam Coutry"
-
-#: md.partner.addresses-sity:1 md.banks-city:1
-msgid "City"
-msgstr "Város"
-
-#: md.partner.addresses-street:1 md.banks-street:1
-msgid "Street"
-msgstr "Utca"
-
-#: md.partner.addresses-street2:1
-msgid "Street 2"
-msgstr "Utca 2"
-
-#: md.partner.addresses-house:1
-msgid "House"
-msgstr "Ház"
-
-#: md.partner.addresses-room:1
-msgid "Room"
-msgstr "Szoba"
-
-#: md.partner.contacts-sequence:1 md.partners.bank-sequence:1
-msgid "Sequence"
-msgstr "Sorrend"
-
-#: md.partner.contacts-firstname:1
-msgid "First Name"
-msgstr "Keresztnév"
-
-#: md.partner.contacts-lastname:1
-msgid "Last Name"
-msgstr "Vezetéknév"
-
-#: md.partner.contacts-middlename:1
-msgid "Middle Name"
-msgstr "Középső Neve"
-
-#: md.partner.contacts-fullname:1
-msgid "Full Name"
-msgstr "Teljes Név"
-
-#: md.partner.contacts-gender:1
-msgid "Gender"
-msgstr "A nemek közötti"
-
-#: md.partner.contacts-marital:1
-msgid "Marital Status"
-msgstr "Családi Állapot"
-
-#: md.partner.contacts-birthday:1
-msgid "Date of Birth"
-msgstr "Születési dátuma"
-
-#: md.partner.contacts-address_id:1
-msgid "Work Address"
-msgstr "Munkahelyi Címe"
-
-#: md.partner.contacts-work_phone:1
-msgid "Work Phone"
-msgstr "Munkahelyi Telefon"
-
-#: md.partner.contacts-mobile_phone:1
-msgid "Work Mobile"
-msgstr "Munka Mobil"
-
-#: md.partner.contacts-work_email:1
-msgid "Work Email"
-msgstr "A Munka E-Mail"
-
-#: md.partner.contacts-work_location:1
-msgid "Work Location"
-msgstr "Munka Helye"
-
-#: md.partner.products-product_id:1 md.recepture.input-product:1
-#: md.recepture.output-product:1
+#: model@md.products.template|_columns@mtype$selections#p:1
+#: model@md.partner.products|_columns@product_id$label:1
+#: model@md.recepture.input|_columns@product$label:1
+#: model@md.recepture.output|_columns@product$label:1
 msgid "Product"
 msgstr "Termék"
 
-#: md.partner.products-minqty:1
-msgid "Min Quantity"
-msgstr "Min Mennyiség"
+#: model@md.products.template|_columns@mtype$selections#s:1
+msgid "Service"
+msgstr "Szolgáltatás"
 
-#: md.partner.products-prices:1
-msgid "Prices"
-msgstr "Árak"
+#: model@md.products.template|_columns@mtype$selections#w:1
+msgid "Work"
+msgstr "Munka"
 
-#: md.role.partners-trole:1
-msgid "Type Of Role"
-msgstr "Szerep"
+#: model@md.products.template|_columns@mtype$selections#c:1
+msgid "Consumable"
+msgstr "Fogyasztható"
 
-#: md.role.partners-name:1 md.partner.roles-role_id:1
-msgid "Role"
-msgstr "Szerep"
+#: model@md.products.template|_columns@products$label:1
+#: model@md.partner|_columns@products$label:1
+msgid "Products"
+msgstr "Termékek"
 
-#: md.partner.roles-name:1 md.partners.bank-bank_bic:1
-msgid "Unknown"
-msgstr "Ismeretlen"
+#: model@md.product|_description@:1
+msgid "General Model Product"
+msgstr "Általános Modell Termék"
 
-#: md.pricelist.partner.products-partner_product_id:1
-msgid "Partner Product"
-msgstr "Partner Termék"
+#: model@md.product|_columns@template_id$label:1
+msgid "Template"
+msgstr "Sablon"
 
-#: md.pricelist.partner.products-valid_from:1
-msgid "Valid From"
-msgstr "Érvényesség"
+#: model@md.product|_columns@uom$label:1
+msgid "Unit Of Measure"
+msgstr "Mértékegység"
 
-#: md.pricelist.partner.products-valid_to:1
-msgid "Valid to"
-msgstr "Érvényes"
+#: model@md.product|_columns@gti$label:1
+msgid "Group Of Type Items"
+msgstr "Csoport Típus Tételek"
 
-#: md.pricelist.partner.products-currency_id:1 md.company-currency_id:1
-#: md.partners.bank-currency_id:1
-msgid "Currency"
-msgstr "Pénznem"
+#: model@md.product|_columns@volume$label:1
+msgid "Volume"
+msgstr "Mennyiség"
 
-#: md.pricelist.partner.products-qty:1
-msgid "Qty Price"
-msgstr "Db Ár"
+#: model@md.product|_columns@volume_uom$label:1
+msgid "Volume UoM"
+msgstr "Hangerő UoM"
 
-#: md.pricelist.partner.products-price:1
-msgid "Price"
-msgstr "Ár"
+#: model@md.product|_columns@weight_uom$label:1
+msgid "Weight UoM"
+msgstr "Súly UoM"
 
-#: md.currency.rate-currency_id:1
-msgid "From Currency"
-msgstr "A Pénznem"
+#: model@md.product|_columns@state$label:1
+msgid "State"
+msgstr "Állami"
 
-#: md.currency.rate-currency_id1:1
-msgid "To Currency"
-msgstr "Pénznem"
+#: model@md.product|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Tervezet"
 
-#: md.currency.rate-company_id:1 md.partners.bank-company_id:1
+#: model@md.product|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Jóváhagyott"
+
+#: model@md.product|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "A Folyamat"
+
+#: model@md.product|_columns@state$selections#closing:1
+msgid "Closing"
+msgstr "Bezár"
+
+#: model@md.product|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Zárt"
+
+#: model@md.product|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Elmarad"
+
+#: model@md.product|_columns@qrcode$label:1
+msgid "QRCode"
+msgstr "QRCode"
+
+#: model@md.product|_columns@qrcode$help:1
+msgid "This field holds the image QRCode"
+msgstr "Ez a mező tartalmazza a kép QRCode"
+
+#: model@md.product|_columns@image$label:1
+#: model@md.partner.contacts|_columns@image$label:1
+#: model@md.partner.products|_columns@image$label:1
+msgid "Photo"
+msgstr "Fotó"
+
+#: model@md.product|_columns@image$help:1
+#: model@md.partner.contacts|_columns@image$help:1
+#: model@md.partner.products|_columns@image$help:1
+msgid ""
+"This field holds the image used as photo for the employee, limited to "
+"1024x1024px."
+msgstr ""
+"Ez a mező tartalmazza a képet használni, mint egy fotó a munkavállaló, "
+"korlátozott 1024x1024px."
+
+#: model@md.product|_columns@image_medium$label:1
+#: model@md.partner.contacts|_columns@image_medium$label:1
+#: model@md.partner.products|_columns@image_medium$label:1
+msgid "Medium-sized photo"
+msgstr "Közepes méretű fotó"
+
+#: model@md.product|_columns@image_medium$help:1
+#: model@md.partner.contacts|_columns@image_medium$help:1
+#: model@md.partner.products|_columns@image_medium$help:1
+msgid ""
+"Medium-sized photo of the employee. It is automatically resized as a "
+"128x128px image, with aspect ratio preserved. Use this field in form views "
+"or some kanban views."
+msgstr ""
+"Közepes méretű fotó a munkavállaló. Ez automatikusan átméretezi, mint egy "
+"128x128px képet, képarány megmarad. Használja ezt a mezőt formában "
+"véleményét, vagy egy kanban a kilátás."
+
+#: model@md.product|_columns@image_small$label:1
+#: model@md.partner.contacts|_columns@image_small$label:1
+#: model@md.partner.products|_columns@image_small$label:1
+msgid "Small-sized photo"
+msgstr "Kis méretű fénykép"
+
+#: model@md.product|_columns@image_small$help:1
+msgid ""
+"Small-sized photo of the product. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr ""
+"Kis méretű fénykép a termék. Ez automatikusan átméretezi, mint egy 64x64px "
+"képet, képarány megmarad. Használja ezt a mezőt sehol egy kis kép van "
+"szükség."
+
+#: model@md.product|_columns@link$label:1
+#: model@md.partner.products|_columns@link$label:1
+msgid "Link"
+msgstr "Kapcsolat"
+
+#: model@md.incoterms|_description@:1
+msgid "General Model Incoterms"
+msgstr "Általános Modell, Incoterms"
+
+#: model@md.incoterms|_columns@mode$label:1
+msgid "Mode Of Transport"
+msgstr "Szállítási Mód"
+
+#: model@md.incoterms|_columns@mode$selections#А:1
+msgid "All Mode Of Transport"
+msgstr "Minden Szállítási Mód"
+
+#: model@md.incoterms|_columns@mode$selections#S:1
+msgid "Sea & Water Mode oF Transport"
+msgstr "Tenger & Víz Szállítási Mód"
+
+#: model@md.incoterms|_columns@grp$selections#E:1
+msgid "Departure"
+msgstr "Indulás"
+
+#: model@md.incoterms|_columns@grp$selections#F:1
+msgid "Main Carriage Unpaid"
+msgstr "Fő Szállítás Fizetés Nélküli"
+
+#: model@md.incoterms|_columns@grp$selections#C:1
+msgid "Main Carriage Paid"
+msgstr "Fő Fuvarozás Fizetve ... "
+
+#: model@md.incoterms|_columns@grp$selections#D:1
+msgid "Arrival"
+msgstr "Érkezés"
+
+#: model@md.incoterms|_columns@mot$label:1
+msgid "Momemt Of Transition"
+msgstr "Momemt Átmenet"
+
+#: model@md.incoterms|_columns@mot$selections#se:1
+msgid "Seller"
+msgstr "Eladó"
+
+#: model@md.incoterms|_columns@mot$selections#sc:1
+msgid "Customs Of Seller"
+msgstr "Vám-Eladó"
+
+#: model@md.incoterms|_columns@mot$selections#ssh:1
+msgid "Seller Shipping"
+msgstr "Eladó Szállítás"
+
+#: model@md.incoterms|_columns@mot$selections#ste:1
+msgid "Seller Terminal"
+msgstr "Eladó Terminál"
+
+#: model@md.incoterms|_columns@mot$selections#ld:1
+msgid "Loading"
+msgstr "Betöltése"
+
+#: model@md.incoterms|_columns@mot$selections#dl:1
+msgid "Delivery"
+msgstr "Szállítás"
+
+#: model@md.incoterms|_columns@mot$selections#ul:1
+msgid "Unloading"
+msgstr "Kirakodás"
+
+#: model@md.incoterms|_columns@mot$selections#bte:1
+msgid "Buyer Terminal"
+msgstr "Vevő Terminál"
+
+#: model@md.incoterms|_columns@mot$selections#bsh:1
+msgid "Buyer Shipping"
+msgstr "Vevő Szállítás"
+
+#: model@md.incoterms|_columns@mot$selections#bc:1
+msgid "Customs Of Buyer"
+msgstr "A Vámosok A Vevő"
+
+#: model@md.incoterms|_columns@mot$selections#ba:1
+msgid "Buyer"
+msgstr "Vevő"
+
+#: model@md.category.partner|_description@:1
+msgid "General Model Category Partner"
+msgstr "Általános Modell Kategória Partner"
+
+#: model@md.category.location|_description@:1
+msgid "General Model Category Location"
+msgstr "Általános Modell Kategória Helye"
+
+#: model@md.location|_description@:1
+msgid "General Master Data Location"
+msgstr "Általános Mester Adatok Helye"
+
+#: model@md.location|_columns@usage$selections#partner:1
+#: model@md.partner.addresses|_columns@partner_id$label:1
+#: model@md.partner.contacts|_columns@partner_id$label:1
+#: model@md.partner.products|_columns@partner_id$label:1
+#: model@md.partner.roles|_columns@partner_id$label:1
+msgid "Partner"
+msgstr "Partner"
+
+#: model@md.location|_columns@usage$selections#company:1
+#: model@md.currency.rate|_columns@company_id$label:1
+#: model@md.partners.bank|_columns@company_id$label:1
 msgid "Company"
 msgstr "Cég"
 
-#: md.currency.rate-date:1
+#: model@md.location|_columns@usage$selections#stock:1
+msgid "Stock"
+msgstr "Raktáron"
+
+#: model@md.location|_columns@latitude$label:1
+#: model@md.partner|_columns@latitude$label:1
+msgid "Latitude"
+msgstr "Szélesség"
+
+#: model@md.location|_columns@longitude$label:1
+#: model@md.partner|_columns@longitude$label:1
+msgid "Longitude"
+msgstr "Hosszúság"
+
+#: model@md.partner|_description@:1
+msgid "General Model Partner"
+msgstr "Általános Modell Partner"
+
+#: model@md.partner|_columns@ispeople$label:1
+msgid "People"
+msgstr "Az emberek"
+
+#: model@md.partner|_columns@iscustomer$label:1
+#: model@md.role.partners|_columns@trole$selections#c:1
+msgid "Customer"
+msgstr "Ügyfél"
+
+#: model@md.partner|_columns@issuplier$label:1
+msgid "Suplier"
+msgstr "Suplier"
+
+#: model@md.partner|_columns@vat_number$label:1
+msgid "VAT Number"
+msgstr "Adószám"
+
+#: model@md.partner|_columns@vat_reason$label:1
+msgid "VAT Reason"
+msgstr "ÁFA Ok"
+
+#: model@md.partner|_columns@vat_reason$selections#y:1
+msgid "Yes"
+msgstr "Igen"
+
+#: model@md.partner|_columns@vat_reason$selections#n:1
+msgid "No"
+msgstr "Nem"
+
+#: model@md.partner|_columns@addresses$label:1
+msgid "Addresses"
+msgstr "Címek"
+
+#: model@md.partner|_columns@contacts$label:1
+msgid "Contacts"
+msgstr "Kapcsolatok"
+
+#: model@md.partner|_columns@roles$label:1
+msgid "Roles"
+msgstr "Szerepek"
+
+#: model@md.partner.addresses|_description@:1
+msgid "General Model Partner Addresses"
+msgstr "Általános Modell Partner Cím"
+
+#: model@md.partner.addresses|_columns@taddr$label:1
+msgid "Type Of Address"
+msgstr "Írja Be A Cím"
+
+#: model@md.partner.addresses|_columns@taddr$selections#l:1
+msgid "Location"
+msgstr "Helyszín"
+
+#: model@md.partner.addresses|_columns@taddr$selections#p:1
+msgid "Postal"
+msgstr "Postai"
+
+#: model@md.partner.addresses|_columns@taddr$selections#a:1
+msgid "Situtation"
+msgstr "Helyzethez"
+
+#: model@md.partner.addresses|_columns@state$label:1
+msgid "State Of Coutry"
+msgstr "Állam Coutry"
+
+#: model@md.partner.addresses|_columns@sity$label:1
+#: model@md.banks|_columns@city$label:1
+msgid "City"
+msgstr "Város"
+
+#: model@md.partner.addresses|_columns@street$label:1
+#: model@md.banks|_columns@street$label:1
+msgid "Street"
+msgstr "Utca"
+
+#: model@md.partner.addresses|_columns@street2$label:1
+msgid "Street 2"
+msgstr "Utca 2"
+
+#: model@md.partner.addresses|_columns@house$label:1
+msgid "House"
+msgstr "Ház"
+
+#: model@md.partner.addresses|_columns@room$label:1
+msgid "Room"
+msgstr "Szoba"
+
+#: model@md.partner.contacts|_description@:1
+msgid "General Model Partner Contacts"
+msgstr "Általános Modell Partner Kapcsolatok"
+
+#: model@md.partner.contacts|_columns@usage$selections#d:1
+msgid "Dear"
+msgstr "Kedves"
+
+#: model@md.partner.contacts|_columns@sequence$label:1
+#: model@md.partners.bank|_columns@sequence$label:1
+msgid "Sequence"
+msgstr "Sorrend"
+
+#: model@md.partner.contacts|_columns@firstname$label:1
+msgid "First Name"
+msgstr "Keresztnév"
+
+#: model@md.partner.contacts|_columns@lastname$label:1
+msgid "Last Name"
+msgstr "Vezetéknév"
+
+#: model@md.partner.contacts|_columns@middlename$label:1
+msgid "Middle Name"
+msgstr "Középső Neve"
+
+#: model@md.partner.contacts|_columns@fullname$label:1
+msgid "Full Name"
+msgstr "Teljes Név"
+
+#: model@md.partner.contacts|_columns@gender$label:1
+msgid "Gender"
+msgstr "A nemek közötti"
+
+#: model@md.partner.contacts|_columns@gender$selections#male:1
+msgid "Male"
+msgstr "Férfi"
+
+#: model@md.partner.contacts|_columns@gender$selections#female:1
+msgid "Female"
+msgstr "Női"
+
+#: model@md.partner.contacts|_columns@gender$selections#other:1
+msgid "Other"
+msgstr "Egyéb"
+
+#: model@md.partner.contacts|_columns@marital$label:1
+msgid "Marital Status"
+msgstr "Családi Állapot"
+
+#: model@md.partner.contacts|_columns@marital$selections#single:1
+msgid "Single"
+msgstr "Egyetlen"
+
+#: model@md.partner.contacts|_columns@marital$selections#married:1
+msgid "Married"
+msgstr "Házas"
+
+#: model@md.partner.contacts|_columns@marital$selections#widower:1
+msgid "Widower"
+msgstr "Özvegy"
+
+#: model@md.partner.contacts|_columns@marital$selections#divorced:1
+msgid "Divorced"
+msgstr "Elvált"
+
+#: model@md.partner.contacts|_columns@birthday$label:1
+msgid "Date of Birth"
+msgstr "Születési dátuma"
+
+#: model@md.partner.contacts|_columns@image_small$help:1
+#: model@md.partner.products|_columns@image_small$help:1
+msgid ""
+"Small-sized photo of the employee. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr ""
+"Kis méretű fénykép a munkavállaló. Ez automatikusan átméretezi, mint egy "
+"64x64px képet, képarány megmarad. Használja ezt a mezőt sehol egy kis kép "
+"van szükség."
+
+#: model@md.partner.contacts|_columns@address_id$label:1
+msgid "Work Address"
+msgstr "Munkahelyi Címe"
+
+#: model@md.partner.contacts|_columns@work_phone$label:1
+msgid "Work Phone"
+msgstr "Munkahelyi Telefon"
+
+#: model@md.partner.contacts|_columns@mobile_phone$label:1
+msgid "Work Mobile"
+msgstr "Munka Mobil"
+
+#: model@md.partner.contacts|_columns@work_email$label:1
+msgid "Work Email"
+msgstr "A Munka E-Mail"
+
+#: model@md.partner.contacts|_columns@work_location$label:1
+msgid "Work Location"
+msgstr "Munka Helye"
+
+#: model@md.partner.products|_description@:1
+msgid "General Model Partner Products"
+msgstr "Általános Modell Partner Termékek"
+
+#: model@md.partner.products|_columns@minqty$label:1
+msgid "Min Quantity"
+msgstr "Min Mennyiség"
+
+#: model@md.partner.products|_columns@prices$label:1
+msgid "Prices"
+msgstr "Árak"
+
+#: model@md.role.partners|_description@:1
+msgid "General Model Role Partners"
+msgstr "Általános Modell Szerepe Partnerek"
+
+#: model@md.role.partners|_columns@trole$label:1
+msgid "Type Of Role"
+msgstr "Szerep"
+
+#: model@md.role.partners|_columns@trole$selections#s:1
+msgid "Supplier"
+msgstr "Szállító"
+
+#: model@md.role.partners|_columns@trole$selections#i:1
+msgid "Internal"
+msgstr "Belső"
+
+#: model@md.role.partners|_columns@trole$selections#p:1
+msgid "Person"
+msgstr "Személy"
+
+#: model@md.role.partners|_columns@name$label:1
+#: model@md.partner.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Szerep"
+
+#: model@md.partner.roles|_description@:1
+msgid "General Model Partner Roles"
+msgstr "Általános Modell Partner Szerepek"
+
+#: model@md.partner.roles|_columns@name$label:1
+#: model@md.partners.bank|_columns@bank_bic$label:1
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+#: model@md.pricelist.partner.products|_description@:1
+msgid "General Model Pricelist Partner Products"
+msgstr "Általános Modell Árlista Partner Termékek"
+
+#: model@md.pricelist.partner.products|_columns@partner_product_id$label:1
+msgid "Partner Product"
+msgstr "Partner Termék"
+
+#: model@md.pricelist.partner.products|_columns@valid_from$label:1
+msgid "Valid From"
+msgstr "Érvényesség"
+
+#: model@md.pricelist.partner.products|_columns@valid_to$label:1
+msgid "Valid to"
+msgstr "Érvényes"
+
+#: model@md.pricelist.partner.products|_columns@currency_id$label:1
+#: model@md.company|_columns@currency_id$label:1
+#: model@md.partners.bank|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Pénznem"
+
+#: model@md.pricelist.partner.products|_columns@qty$label:1
+msgid "Qty Price"
+msgstr "Db Ár"
+
+#: model@md.pricelist.partner.products|_columns@price$label:1
+msgid "Price"
+msgstr "Ár"
+
+#: model@md.company|_description@:1
+msgid "General Model Company"
+msgstr "Általános Modell Cég"
+
+#: model@md.currency.rate|_description@:1
+msgid "General Model Currency Rate"
+msgstr "Általános Modell Valuta Árfolyam"
+
+#: model@md.currency.rate|_columns@currency_id$label:1
+msgid "From Currency"
+msgstr "A Pénznem"
+
+#: model@md.currency.rate|_columns@currency_id1$label:1
+msgid "To Currency"
+msgstr "Pénznem"
+
+#: model@md.currency.rate|_columns@date$label:1
 msgid "Date"
 msgstr "Időpont"
 
-#: md.currency.rate-account:1
+#: model@md.currency.rate|_columns@account$label:1
 msgid "Accout"
 msgstr "Accout"
 
-#: md.banks-street2:1
+#: model@md.currency.rate|_columns@type$selections#m:1
+msgid "Monthly"
+msgstr "Havi"
+
+#: model@md.currency.rate|_columns@type$selections#d:1
+msgid "Day"
+msgstr "Nap"
+
+#: model@md.currency.rate|_columns@type$selections#w:1
+msgid "Week"
+msgstr "Hét"
+
+#: model@md.banks|_description@:1
+msgid "General Model Bank"
+msgstr "Általános Modell Bank"
+
+#: model@md.banks|_columns@street2$label:1
 msgid "Street2"
 msgstr "Street2"
 
-#: md.banks-zip:1
+#: model@md.banks|_columns@zip$label:1
 msgid "ZIP"
 msgstr "ZIP"
 
-#: md.banks-state_id:1
+#: model@md.banks|_columns@state_id$label:1
 msgid "Fed. State"
 msgstr "Fed. Állami"
 
-#: md.banks-email:1
+#: model@md.banks|_columns@email$label:1
 msgid "Email"
 msgstr "E-mail"
 
-#: md.banks-phone:1
+#: model@md.banks|_columns@phone$label:1
 msgid "Phone"
 msgstr "Telefon"
 
-#: md.banks-bic:1
+#: model@md.banks|_columns@bic$label:1
 msgid "Bank Identifier Code"
 msgstr "Bank Azonosító Kód"
 
-#: md.banks-partners:1
+#: model@md.banks|_columns@bic$help:1
+msgid "Sometimes called BIC or Swift."
+msgstr "Más néven BIC vagy Swift."
+
+#: model@md.banks|_columns@partners$label:1
 msgid "Partners"
 msgstr "Partnerek"
 
-#: md.banks-inactive:1
+#: model@md.banks|_columns@inactive$label:1
 msgid "Inactive"
 msgstr "Inaktív"
 
-#: md.partners.bank-acc_type:1
+#: model@md.partners.bank|_description@:1
+msgid "General Model Bank of Partner"
+msgstr "Általános Modell Bank Partner"
+
+#: model@md.partners.bank|_columns@acc_type$label:1
 msgid "ACC Type"
 msgstr "ACC Típus"
 
-#: md.partners.bank-acc_number:1
+#: model@md.partners.bank|_columns@acc_type$help:1
+msgid "Bank account type, inferred from account number"
+msgstr "Bankszámla típusa következtetni számlaszám"
+
+#: model@md.partners.bank|_columns@acc_number$label:1
 msgid "Account Number"
 msgstr "Számla Száma"
 
-#: md.partners.bank-sanitized_acc_number:1
+#: model@md.partners.bank|_columns@sanitized_acc_number$label:1
 msgid "Sanitized Account Number"
 msgstr "Megtisztítva Számlaszám"
 
-#: md.partners.bank-partner_id:1
+#: model@md.partners.bank|_columns@partner_id$label:1
 msgid "Account Holder"
 msgstr "Számlatulajdonos"
 
-#: md.partners.bank-bank_id:1
+#: model@md.partners.bank|_columns@bank_id$label:1
 msgid "Bank"
 msgstr "Bank"
 
-#: md.partners.bank-bank_name:1
+#: model@md.partners.bank|_columns@bank_name$label:1
 msgid "Bank Name"
 msgstr "Bank Neve"
 
-#: md.recepture-subtype:1
+#: model@md.recepture|_description@:1
+msgid "General Model Recipe"
+msgstr "Általános Modell Recept"
+
+#: model@md.recepture|_columns@type$selections#real:1
+msgid "Real"
+msgstr "Valódi"
+
+#: model@md.recepture|_columns@type$selections#kvazi:1
+msgid "Kwazi"
+msgstr "Kwazi"
+
+#: model@md.recepture|_columns@subtype$label:1
 msgid "Subtype"
 msgstr "Altípus"
 
-#: md.recepture-partition:1
+#: model@md.recepture|_columns@subtype$selections#bom:1
+msgid "BoM"
+msgstr "BoM"
+
+#: model@md.recepture|_columns@subtype$selections#mob:1
+msgid "MoB"
+msgstr "Maffia"
+
+#: model@md.recepture|_columns@subtype$selections#bob:1
+msgid "BoB"
+msgstr "BoB"
+
+#: model@md.recepture|_columns@partition$label:1
 msgid "Partition"
 msgstr "Partíció"
 
-#: md.recepture-input_items:1
+#: model@md.recepture|_columns@input_items$label:1
 msgid "Input"
 msgstr "Bemeneti"
 
-#: md.recepture-output_items:1
+#: model@md.recepture|_columns@output_items$label:1
 msgid "Output"
 msgstr "Kimenet"
 
-#: md.recepture.input-recepture_id:1 md.recepture.output-recepture_id:1
+#: model@md.recepture.input|_description@:1
+msgid "General Model Input Recipe"
+msgstr "Általános Modell Bemeneti Recept"
+
+#: model@md.recepture.input|_columns@recepture_id$label:1
+#: model@md.recepture.output|_columns@recepture_id$label:1
 msgid "Recepture"
 msgstr "Recepture"
+
+#: model@md.recepture.output|_description@:1
+msgid "General Model Output Recipe"
+msgstr "Általános Modell Kimeneti Recept"

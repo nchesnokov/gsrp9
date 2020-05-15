@@ -3,108 +3,180 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:33:36+0000\n"
-"PO-Revision-Date: 2020-02-13 14:33:36+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:52+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:52+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: md.cost.product-product_id:1
+#: model@md.cost.product|_description@:1
+msgid "General Model Cost Of Product"
+msgstr "Általános Modell Költsége Termék"
+
+#: model@md.cost.product|_columns@product_id$label:1
 msgid "Product"
 msgstr "Termék"
 
-#: md.cost.product-quantity:1
+#: model@md.cost.product|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Mennyiség"
 
-#: md.cost.product-uom:1
+#: model@md.cost.product|_columns@uom$label:1
 msgid "UoM"
 msgstr "UoM"
 
-#: md.cost.product-price:1
+#: model@md.cost.product|_columns@price$label:1
 msgid "Price"
 msgstr "Ár"
 
-#: md.cost.product-currency:1 cm.cost.center-currency:1
-#: cm.cost.order-currency:1 cm.cost.collector-currency:1
-#: cm.corporations-currency:1
+#: model@md.cost.product|_columns@currency$label:1
+#: model@cm.cost.center|_columns@currency$label:1
+#: model@cm.cost.order|_columns@currency$label:1
+#: model@cm.cost.collector|_columns@currency$label:1
+#: model@cm.corporations|_columns@currency$label:1
 msgid "Currency"
 msgstr "Pénznem"
 
-#: md.cost.product-unit:1
+#: model@md.cost.product|_columns@unit$label:1
 msgid "Unit"
 msgstr "Egység"
 
-#: md.cost.product-uop:1
+#: model@md.cost.product|_columns@uop$label:1
 msgid "Unit Of Price"
 msgstr "Egység Ár"
 
-#: md.cost.product-note:1 cm.cost.center.category-note:1
-#: cm.cost.order.category-note:1 cm.cost.collector.category-note:1
-#: cm.cost.center-note:1 cm.cost.center.dates-note:1 cm.cost.order-note:1
-#: cm.cost.order.dates-note:1 cm.cost.collector-note:1
-#: cm.cost.collector.dates-note:1 cm.corporations-note:1
+#: model@md.cost.product|_columns@note$label:1
+#: model@cm.cost.center.category|_columns@note$label:1
+#: model@cm.cost.order.category|_columns@note$label:1
+#: model@cm.cost.collector.category|_columns@note$label:1
+#: model@cm.cost.center|_columns@note$label:1
+#: model@cm.cost.center.dates|_columns@note$label:1
+#: model@cm.cost.order|_columns@note$label:1
+#: model@cm.cost.order.dates|_columns@note$label:1
+#: model@cm.cost.collector|_columns@note$label:1
+#: model@cm.cost.collector.dates|_columns@note$label:1
+#: model@cm.corporations|_columns@note$label:1
 msgid "Note"
 msgstr "Megjegyzés"
 
-#: cm.cost.center.category-name:1 cm.cost.order.category-name:1
-#: cm.cost.collector.category-name:1 cm.cost.center-name:1
-#: cm.cost.order-name:1 cm.cost.collector-name:1 cm.corporations-name:1
+#: model@cm.cost.center.category|_description@:1
+msgid "General Model Cost Center Category"
+msgstr "Általános Modell Költség Központ Kategória"
+
+#: model@cm.cost.center.category|_columns@name$label:1
+#: model@cm.cost.order.category|_columns@name$label:1
+#: model@cm.cost.collector.category|_columns@name$label:1
+#: model@cm.cost.center|_columns@name$label:1
+#: model@cm.cost.order|_columns@name$label:1
+#: model@cm.cost.collector|_columns@name$label:1
+#: model@cm.corporations|_columns@name$label:1
 msgid "Name"
 msgstr "Név"
 
-#: cm.cost.center.category-parent_id:1 cm.cost.order.category-parent_id:1
-#: cm.cost.collector.category-parent_id:1
+#: model@cm.cost.center.category|_columns@parent_id$label:1
+#: model@cm.cost.order.category|_columns@parent_id$label:1
+#: model@cm.cost.collector.category|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Szülő"
 
-#: cm.cost.center.category-childs_id:1 cm.cost.order.category-childs_id:1
-#: cm.cost.collector.category-childs_id:1
+#: model@cm.cost.center.category|_columns@childs_id$label:1
+#: model@cm.cost.order.category|_columns@childs_id$label:1
+#: model@cm.cost.collector.category|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: cm.cost.center-category:1 cm.cost.order-category:1
-#: cm.cost.collector-category:1
+#: model@cm.cost.order.category|_description@:1
+msgid "General Model Cost Order Category"
+msgstr "Általános Modell Ára Érdekében Kategória"
+
+#: model@cm.cost.collector.category|_description@:1
+msgid "General Model Cost Collector Category"
+msgstr "Általános Modell Ára Gyűjtő Kategória"
+
+#: model@cm.cost.center|_description@:1
+msgid "General Model Cost Center"
+msgstr "Általános Modell Költség Center"
+
+#: model@cm.cost.center|_columns@category$label:1
+#: model@cm.cost.order|_columns@category$label:1
+#: model@cm.cost.collector|_columns@category$label:1
 msgid "Category"
 msgstr "Kategória"
 
-#: cm.cost.center-company:1 cm.cost.order-company:1
-#: cm.cost.collector-company:1
+#: model@cm.cost.center|_columns@company$label:1
+#: model@cm.cost.order|_columns@company$label:1
+#: model@cm.cost.collector|_columns@company$label:1
 msgid "Company"
 msgstr "Cég"
 
-#: cm.cost.center-dates:1 cm.cost.order-dates:1 cm.cost.collector-dates:1
+#: model@cm.cost.center|_columns@dates$label:1
+#: model@cm.cost.order|_columns@dates$label:1
+#: model@cm.cost.collector|_columns@dates$label:1
 msgid "Dates"
 msgstr "Dátumok"
 
-#: cm.cost.center.dates-cost_center_id:1
+#: model@cm.cost.center.dates|_description@:1
+msgid "General Model Cost Center Dates"
+msgstr "Általános Modell Költséghely Dátumok"
+
+#: model@cm.cost.center.dates|_columns@cost_center_id$label:1
 msgid "Cost Center"
 msgstr "Költség Center"
 
-#: cm.cost.center.dates-cost_date:1 cm.cost.order.dates-cost_date:1
-#: cm.cost.collector.dates-cost_date:1
+#: model@cm.cost.center.dates|_columns@cost_date$label:1
+#: model@cm.cost.order.dates|_columns@cost_date$label:1
+#: model@cm.cost.collector.dates|_columns@cost_date$label:1
 msgid "Date"
 msgstr "Időpont"
 
-#: cm.cost.center.dates-cost:1 cm.cost.order.dates-cost:1
-#: cm.cost.collector.dates-cost:1
+#: model@cm.cost.center.dates|_columns@cost$label:1
+#: model@cm.cost.order.dates|_columns@cost$label:1
+#: model@cm.cost.collector.dates|_columns@cost$label:1
 msgid "Cost"
 msgstr "Költség"
 
-#: cm.cost.order.dates-cost_order_id:1
+#: model@cm.cost.order|_description@:1
+msgid "General Model Cost Order"
+msgstr "Általános Modell Költség Rendelés"
+
+#: model@cm.cost.order.dates|_description@:1
+msgid "General Model Cost Order Dates"
+msgstr "Általános Modell Költség Rendelés Időpontjai"
+
+#: model@cm.cost.order.dates|_columns@cost_order_id$label:1
 msgid "Cost Order"
 msgstr "Költség Rendelés"
 
-#: cm.cost.collector.dates-cost_collector_id:1
+#: model@cm.cost.collector|_description@:1
+msgid "General Model Cost Collector"
+msgstr "Általános Modell Ára Gyűjtő"
+
+#: model@cm.cost.collector.dates|_description@:1
+msgid "General Model Cost Collector Dates"
+msgstr "Általános Modell Ára Gyűjtő Dátumok"
+
+#: model@cm.cost.collector.dates|_columns@cost_collector_id$label:1
 msgid "Cost Collector"
 msgstr "Költség Gyűjtő"
 
-#: cm.corporations-usage:1
+#: model@cm.corporations|_description@:1
+msgid "General Model Corporations"
+msgstr "Általános Modell Vállalatok"
+
+#: model@cm.corporations|_columns@usage$label:1
 msgid "Usage"
 msgstr "Használat"
 
-#: cm.corporations-companies:1
+#: model@cm.corporations|_columns@usage$selections#o:1
+msgid "One To One"
+msgstr "Az Egyik, Hogy Egy"
+
+#: model@cm.corporations|_columns@usage$selections#m:1
+msgid "One To Many"
+msgstr "Az Egyik, Hogy Sok"
+
+#: model@cm.corporations|_columns@companies$label:1
 msgid "Companies"
 msgstr "Vállalatok"

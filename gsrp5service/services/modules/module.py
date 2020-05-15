@@ -7,6 +7,8 @@ from lxml import etree
 import os
 import csv
 import yaml
+import json
+import polib
 from yaml import Loader
 from os.path import join as opj
 from . import genddl
@@ -73,12 +75,13 @@ def _load(cr,pool,uid,registry,able=None, modules = None):
 				if not dep in depends and registry._modules[dep]['meta']['able'] in able and ('state' in registry._modules[dep] and registry._modules[dep]['state'] in ('I',)):
 					depends.append(dep)
 
-		if registry._modules[_module]['state'] in ('I',):
+		if 'state' in registry._modules[_module] and registry._modules[_module]['state'] in ('I',):
 			depends.append(_module)
-
+	
 	if len(depends) == 0:
 		log.append('Not modules for loading')
 	else:
+		registry._load_module('bc')
 		for depend in depends:
 			registry._load_module(depend)
 			chunk = _chunks[depend]
@@ -109,9 +112,11 @@ def _load(cr,pool,uid,registry,able=None, modules = None):
 			if 'i18n' in chunk and 'i18n' in info['meta']:
 				metas['i18n'] = info['meta']['i18n']
 				
+			registry._load_module(depend)
 			_loadFiles(cr,pool,uid,depend,registry._modules[depend],metas)
 			cr.commit()
-			_load_env(cr,pool,uid,depend)
+			if 'env' in metas:
+				_load_env(cr,pool,uid,depend)
 			
 			cr.commit()
 			_logger.info("Module: %s loaded:" % (depend,))
@@ -957,6 +962,25 @@ def _loadFiles(cr,pool,uid,name,info,metas):
 					_logger.info("Loaded  file: %s" % (opj(path,name,f),))
 				else:
 					_logger.critical("Loading  file: %s not found" % (opj(path,name,f),))
+			elif ext == 'po':		
+				if os.path.exists(opj(path,name,f)):
+					_logger.info("loading file: %s" % (opj(path,name,f),))
+					res = _load_i18n(path,name,f)
+					for lang in res.keys():
+						r = pool.get('bc.langs').search(cr,pool,uid,[('code','=',lang)])
+						if len(r) > 0:
+							for model in res[lang].keys():
+								r1 = pool.get('bc.models').search(cr,pool,uid,[('name','=',model)])
+								if len(r1) > 0:
+									v = res[lang][model]
+									pool.get('bc.model.translations').modify(cr,pool,uid,{'lang':r[0],'model':r1[0],'tr':json.dumps(v)},{})
+							
+						
+					_logger.info("Loaded  file: %s" % (opj(path,name,f),))
+				else:
+					_logger.critical("Loading  file: %s not found" % (opj(path,name,f),))
+
+
 
 def _convertFromYAML(cr,pool,uid,model,records):
 	m = pool.get(model)
@@ -1146,3 +1170,29 @@ def _loadXMLFile(cr,pool,uid,info,path,name,fl):
 def _upgrademoduleslist(cr,pool,uid,registry,db):
 
 	return _load_list_modules(cr,pool,uid,registry,db)
+
+def _load_i18n(path,name,f):
+	res = {}
+	fn = opj(path,name,f)
+	if os.path.exists(fn):
+		lang = f.split('.')[0].split('/')[1].upper()
+		po = polib.pofile(fn)
+		res[lang] = {}
+		for entry in po:
+			if entry.msgstr:
+				for o in entry.occurrences:
+					v = dict(map(lambda x:x.split('@'),o[0].split('|')))
+					model = v['model']
+					for attr in ('_description','__doc__','_columns'):
+						if attr in v:	
+							if attr == '_columns':
+								col_name,col_attr = v['_columns'].split('$')
+								if col_attr in ('label','manual','help'):															
+									res[lang].setdefault(model,{}).setdefault(attr,{}).setdefault(col_name,{})[col_attr] = entry.msgstr
+								elif col_attr == 'selections':
+									sel_val = col_attr.split('#')[1]
+									res[lang].setdefault(model,{}).setdefault(attr,{}).setdefault(col_name,{}).setfefault(col_attr,[]).append((sel_val,entry.msgstr))
+							else:
+								res[lang].setdefault(model,{})[attr] = entry.msgstr
+
+	return res

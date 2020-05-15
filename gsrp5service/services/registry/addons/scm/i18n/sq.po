@@ -3,276 +3,455 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2019-09-05 23:16:11+0300\n"
-"PO-Revision-Date: 2019-09-05 23:16:11+0300\n"
+"POT-Creation-Date: 2020-05-15 19:41:58+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:58+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: scm.workcenter.category-name:1 scm.route.category-name:1
-#: scm.production.order.category-name:1 scm.technologic.order.category-name:1
-#: scm.disassembly.order.category-name:1 scm.workcenter-name:1
-#: scm.route-name:1 scm.production.order-name:1 scm.technologic.order-name:1
-#: scm.disassembly.order-name:1
+#: model@scm.workcenter.category|_description@:1
+msgid "General Model Category Workcenter"
+msgstr "Përgjithshëm Model Kategori Workcenter"
+
+#: model@scm.workcenter.category|_columns@name$label:1
+#: model@scm.route.category|_columns@name$label:1
+#: model@scm.production.order.category|_columns@name$label:1
+#: model@scm.technologic.order.category|_columns@name$label:1
+#: model@scm.disassembly.order.category|_columns@name$label:1
+#: model@scm.workcenter|_columns@name$label:1
+#: model@scm.route|_columns@name$label:1
+#: model@scm.production.order|_columns@name$label:1
+#: model@scm.technologic.order|_columns@name$label:1
+#: model@scm.disassembly.order|_columns@name$label:1
 msgid "Name"
 msgstr "Emri"
 
-#: scm.workcenter.category-parent_id:1 scm.route.category-parent_id:1
-#: scm.production.order.category-parent_id:1
-#: scm.technologic.order.category-parent_id:1
-#: scm.disassembly.order.category-parent_id:1 scm.route.items-parent_id:1
-#: scm.production.order.items-parent_id:1
-#: scm.technologic.order.items-parent_id:1
-#: scm.disassembly.order.items-parent_id:1
+#: model@scm.workcenter.category|_columns@parent_id$label:1
+#: model@scm.route.category|_columns@parent_id$label:1
+#: model@scm.production.order.category|_columns@parent_id$label:1
+#: model@scm.technologic.order.category|_columns@parent_id$label:1
+#: model@scm.disassembly.order.category|_columns@parent_id$label:1
+#: model@scm.route.items|_columns@parent_id$label:1
+#: model@scm.production.order.items|_columns@parent_id$label:1
+#: model@scm.technologic.order.items|_columns@parent_id$label:1
+#: model@scm.disassembly.order.items|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Prindi"
 
-#: scm.workcenter.category-childs_id:1 scm.route.category-childs_id:1
-#: scm.production.order.category-childs_id:1
-#: scm.technologic.order.category-childs_id:1
-#: scm.disassembly.order.category-childs_id:1 scm.route.items-childs_id:1
-#: scm.production.order.items-childs_id:1
-#: scm.technologic.order.items-childs_id:1
-#: scm.disassembly.order.items-childs_id:1
+#: model@scm.workcenter.category|_columns@childs_id$label:1
+#: model@scm.route.category|_columns@childs_id$label:1
+#: model@scm.production.order.category|_columns@childs_id$label:1
+#: model@scm.technologic.order.category|_columns@childs_id$label:1
+#: model@scm.disassembly.order.category|_columns@childs_id$label:1
+#: model@scm.route.items|_columns@childs_id$label:1
+#: model@scm.production.order.items|_columns@childs_id$label:1
+#: model@scm.technologic.order.items|_columns@childs_id$label:1
+#: model@scm.disassembly.order.items|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
-#: scm.workcenter.category-workcenters:1 scm.route.category-routes:1
-#: scm.production.order.category-orders:1
-#: scm.technologic.order.category-orders:1
-#: scm.disassembly.order.category-orders:1
+#: model@scm.workcenter.category|_columns@workcenters$label:1
+#: model@scm.route.category|_columns@routes$label:1
+#: model@scm.production.order.category|_columns@orders$label:1
+#: model@scm.technologic.order.category|_columns@orders$label:1
+#: model@scm.disassembly.order.category|_columns@orders$label:1
 msgid "Orders"
 msgstr "Urdhrat"
 
-#: scm.workcenter.category-note:1 scm.route.category-note:1
-#: scm.production.order.category-note:1 scm.technologic.order.category-note:1
-#: scm.disassembly.order.category-note:1 scm.workcenter-note:1
-#: scm.workcenter.products-note:1 scm.workcenter.product.prices-note:1
-#: scm.route-note:1 scm.route.items-note:1 scm.production.order-note:1
-#: scm.production.order.items-note:1 scm.production.order.item.bom-note:1
-#: scm.production.order.delivery.schedules-note:1 scm.technologic.order-note:1
-#: scm.technologic.order.items-note:1 scm.technologic.order.item.ibob-note:1
-#: scm.technologic.order.item.obob-note:1
-#: scm.technologic.order.delivery.schedules-note:1
-#: scm.disassembly.order-note:1 scm.disassembly.order.items-note:1
-#: scm.disassembly.order.item.mob-note:1
-#: scm.disassembly.order.delivery.schedules-note:1
+#: model@scm.workcenter.category|_columns@note$label:1
+#: model@scm.route.category|_columns@note$label:1
+#: model@scm.production.order.category|_columns@note$label:1
+#: model@scm.technologic.order.category|_columns@note$label:1
+#: model@scm.disassembly.order.category|_columns@note$label:1
+#: model@scm.workcenter|_columns@note$label:1
+#: model@scm.workcenter.products|_columns@note$label:1
+#: model@scm.workcenter.product.prices|_columns@note$label:1
+#: model@scm.route|_columns@note$label:1
+#: model@scm.route.items|_columns@note$label:1
+#: model@scm.production.order|_columns@note$label:1
+#: model@scm.production.order.items|_columns@note$label:1
+#: model@scm.production.order.item.bom|_columns@note$label:1
+#: model@scm.production.order.delivery.schedules|_columns@note$label:1
+#: model@scm.technologic.order|_columns@note$label:1
+#: model@scm.technologic.order.items|_columns@note$label:1
+#: model@scm.technologic.order.item.ibob|_columns@note$label:1
+#: model@scm.technologic.order.item.obob|_columns@note$label:1
+#: model@scm.technologic.order.delivery.schedules|_columns@note$label:1
+#: model@scm.disassembly.order|_columns@note$label:1
+#: model@scm.disassembly.order.items|_columns@note$label:1
+#: model@scm.disassembly.order.item.mob|_columns@note$label:1
+#: model@scm.disassembly.order.delivery.schedules|_columns@note$label:1
 msgid "Note"
 msgstr "Shënim"
 
-#: scm.workcenter-wctype:1 scm.route-rtype:1
+#: model@scm.route.category|_description@:1
+msgid "General Model Category Route"
+msgstr "Përgjithshëm Model Kategori Rrugë"
+
+#: model@scm.production.order.category|_description@:1
+msgid "General Model Category Production Order"
+msgstr "Përgjithshëm Model Kategori Të Prodhimit Mënyrë Që"
+
+#: model@scm.technologic.order.category|_description@:1
+msgid "General Model Category Technologic Order"
+msgstr "Përgjithshëm Model Kategori Technologic Mënyrë Që"
+
+#: model@scm.disassembly.order.category|_description@:1
+msgid "General Model Category Disassembly Order"
+msgstr "Përgjithshëm Model Kategori Disassembly Mënyrë Që"
+
+#: model@scm.workcenter|_description@:1
+msgid "General Model Workcenter"
+msgstr "Përgjithshëm Model Workcenter"
+
+#: model@scm.workcenter|_columns@wctype$label:1
+#: model@scm.route|_columns@rtype$label:1
 msgid "Type"
 msgstr "Lloji"
 
-#: scm.workcenter-cost_peer_hour:1
+#: model@scm.workcenter|_columns@wctype$selections#p:1
+#: model@scm.route|_columns@rtype$selections#p:1
+msgid "Production"
+msgstr "Prodhimi"
+
+#: model@scm.workcenter|_columns@wctype$selections#t:1
+#: model@scm.route|_columns@rtype$selections#t:1
+msgid "Technology"
+msgstr "Teknologji"
+
+#: model@scm.workcenter|_columns@wctype$selections#d:1
+#: model@scm.route|_columns@rtype$selections#d:1
+msgid "Disassembly"
+msgstr "Disassembly"
+
+#: model@scm.workcenter|_columns@wctype$selections#a:1
+#: model@scm.route|_columns@rtype$selections#a:1
+msgid "All"
+msgstr "Të gjitha"
+
+#: model@scm.workcenter|_columns@cost_peer_hour$label:1
 msgid "Cost Peer Hours"
 msgstr "Kostoja E Kolegëve Orë"
 
-#: scm.workcenter-currency:1 scm.workcenter.product.prices-currency:1
-#: scm.production.order.item.bom-currency:1
-#: scm.technologic.order.item.ibob-currency:1
-#: scm.technologic.order.item.obob-currency:1
-#: scm.disassembly.order.item.mob-currency:1
+#: model@scm.workcenter|_columns@currency$label:1
+#: model@scm.workcenter.product.prices|_columns@currency$label:1
+#: model@scm.production.order.item.bom|_columns@currency$label:1
+#: model@scm.technologic.order.item.ibob|_columns@currency$label:1
+#: model@scm.technologic.order.item.obob|_columns@currency$label:1
+#: model@scm.disassembly.order.item.mob|_columns@currency$label:1
 msgid "Currency"
 msgstr "Monedha"
 
-#: scm.workcenter-products:1
+#: model@scm.workcenter|_columns@products$label:1
 msgid "Products"
 msgstr "Produktet"
 
-#: scm.workcenter.products-workcenter_id:1 scm.route.items-workcenter:1
+#: model@scm.workcenter.products|_description@:1
+msgid "General Model Workcenter Products"
+msgstr "Përgjithshëm Model Workcenter Produkteve"
+
+#: model@scm.workcenter.products|_columns@workcenter_id$label:1
+#: model@scm.route.items|_columns@workcenter$label:1
 msgid "Workcenter"
 msgstr "Workcenter"
 
-#: scm.workcenter.products-product:1
-#: scm.workcenter.product.prices-product_id:1
-#: scm.production.order.items-product:1
-#: scm.production.order.item.bom-product:1
-#: scm.technologic.order.item.ibob-product:1
-#: scm.technologic.order.item.obob-product:1
-#: scm.disassembly.order.items-product:1
-#: scm.disassembly.order.item.mob-product:1
+#: model@scm.workcenter.products|_columns@product$label:1
+#: model@scm.workcenter.product.prices|_columns@product_id$label:1
+#: model@scm.production.order.items|_columns@product$label:1
+#: model@scm.production.order.item.bom|_columns@product$label:1
+#: model@scm.technologic.order.item.ibob|_columns@product$label:1
+#: model@scm.technologic.order.item.obob|_columns@product$label:1
+#: model@scm.disassembly.order.items|_columns@product$label:1
+#: model@scm.disassembly.order.item.mob|_columns@product$label:1
 msgid "Product"
 msgstr "Produkt"
 
-#: scm.workcenter.products-prices:1
+#: model@scm.workcenter.products|_columns@prices$label:1
 msgid "Prices"
 msgstr "Çmimet"
 
-#: scm.workcenter.product.prices-from_date:1
+#: model@scm.workcenter.product.prices|_description@:1
+msgid "General Model Workcenter Product Prices"
+msgstr "Përgjithshëm Model Workcenter Çmimet E Produkteve"
+
+#: model@scm.workcenter.product.prices|_columns@from_date$label:1
 msgid "From"
 msgstr "Nga"
 
-#: scm.workcenter.product.prices-to_date:1
+#: model@scm.workcenter.product.prices|_columns@to_date$label:1
 msgid "To"
 msgstr "Për"
 
-#: scm.workcenter.product.prices-price:1
+#: model@scm.workcenter.product.prices|_columns@price$label:1
 msgid "Price Peer Hours"
 msgstr "Çmimi Kolegëve Orë"
 
-#: scm.workcenter.product.prices-unit:1 scm.production.order.item.bom-unit:1
-#: scm.technologic.order.item.ibob-unit:1
-#: scm.technologic.order.item.obob-unit:1
-#: scm.disassembly.order.item.mob-unit:1
+#: model@scm.workcenter.product.prices|_columns@unit$label:1
+#: model@scm.production.order.item.bom|_columns@unit$label:1
+#: model@scm.technologic.order.item.ibob|_columns@unit$label:1
+#: model@scm.technologic.order.item.obob|_columns@unit$label:1
+#: model@scm.disassembly.order.item.mob|_columns@unit$label:1
 msgid "Unit"
 msgstr "Njësia"
 
-#: scm.workcenter.product.prices-uop:1
+#: model@scm.workcenter.product.prices|_columns@uop$label:1
 msgid "Unit Of Price Peer Hours"
 msgstr "Njësia E Çmimi Kolegëve Orë"
 
-#: scm.route-category_id:1 scm.production.order-category_id:1
-#: scm.technologic.order-category_id:1 scm.disassembly.order-category_id:1
+#: model@scm.route|_description@:1
+msgid "General Model Route"
+msgstr "Përgjithshëm Model Rrugë"
+
+#: model@scm.route|_columns@category_id$label:1
+#: model@scm.production.order|_columns@category_id$label:1
+#: model@scm.technologic.order|_columns@category_id$label:1
+#: model@scm.disassembly.order|_columns@category_id$label:1
 msgid "Category"
 msgstr "Kategoria"
 
-#: scm.route-items:1 scm.production.order-items:1
-#: scm.technologic.order-items:1 scm.disassembly.order-items:1
+#: model@scm.route|_columns@items$label:1
+#: model@scm.production.order|_columns@items$label:1
+#: model@scm.technologic.order|_columns@items$label:1
+#: model@scm.disassembly.order|_columns@items$label:1
 msgid "Items"
 msgstr "Artikuj"
 
-#: scm.route.items-route_id:1 scm.production.order-route:1
-#: scm.technologic.order-route:1 scm.disassembly.order-route:1
+#: model@scm.route.items|_description@:1
+msgid "General Model Route Items"
+msgstr "Përgjithshëm Model Rrugë Artikuj"
+
+#: model@scm.route.items|_columns@route_id$label:1
+#: model@scm.production.order|_columns@route$label:1
+#: model@scm.technologic.order|_columns@route$label:1
+#: model@scm.disassembly.order|_columns@route$label:1
 msgid "Route"
 msgstr "Rruga"
 
-#: scm.production.order-company:1 scm.technologic.order-company:1
-#: scm.disassembly.order-company:1
+#: model@scm.production.order|_description@:1
+msgid "General Model Production Order"
+msgstr "Përgjithshëm Model Prodhimi Mënyrë Që"
+
+#: model@scm.production.order|_columns@company$label:1
+#: model@scm.technologic.order|_columns@company$label:1
+#: model@scm.disassembly.order|_columns@company$label:1
 msgid "Company"
 msgstr "Kompania"
 
-#: scm.production.order-origin:1 scm.technologic.order-origin:1
-#: scm.disassembly.order-origin:1
+#: model@scm.production.order|_columns@origin$label:1
+#: model@scm.technologic.order|_columns@origin$label:1
+#: model@scm.disassembly.order|_columns@origin$label:1
 msgid "Origin"
 msgstr "Origjina"
 
-#: scm.production.order-dopo:1
+#: model@scm.production.order|_columns@dopo$label:1
 msgid "Date Of Production Order"
 msgstr "Data E Prodhimit Mënyrë Që"
 
-#: scm.production.order-from_date:1
+#: model@scm.production.order|_columns@from_date$label:1
 msgid "Start Date Of Production Order"
 msgstr "Data E Fillimit Të Prodhimit Mënyrë Që"
 
-#: scm.production.order-to_date:1
+#: model@scm.production.order|_columns@to_date$label:1
 msgid "End Date Of Production Order"
 msgstr "Data E Fundit E Prodhimit Mënyrë Që"
 
-#: scm.production.order-state:1 scm.technologic.order-state:1
-#: scm.disassembly.order-state:1
+#: model@scm.production.order|_columns@state$label:1
+#: model@scm.technologic.order|_columns@state$label:1
+#: model@scm.disassembly.order|_columns@state$label:1
 msgid "State"
 msgstr "Shteti"
 
-#: scm.production.order.items-order_id:1
+#: model@scm.production.order|_columns@state$selections#draft:1
+#: model@scm.technologic.order|_columns@state$selections#draft:1
+#: model@scm.disassembly.order|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Draft"
+
+#: model@scm.production.order|_columns@state$selections#approved:1
+#: model@scm.technologic.order|_columns@state$selections#approved:1
+#: model@scm.disassembly.order|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Miratuar"
+
+#: model@scm.production.order|_columns@state$selections#inprocess:1
+#: model@scm.technologic.order|_columns@state$selections#inprocess:1
+#: model@scm.disassembly.order|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "Në Proces"
+
+#: model@scm.production.order|_columns@state$selections#closed:1
+#: model@scm.technologic.order|_columns@state$selections#closed:1
+#: model@scm.disassembly.order|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Mbyllur"
+
+#: model@scm.production.order|_columns@state$selections#canceled:1
+#: model@scm.technologic.order|_columns@state$selections#canceled:1
+#: model@scm.disassembly.order|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Anulua"
+
+#: model@scm.production.order.items|_description@:1
+msgid "General Model Production Order Items"
+msgstr "Modeli Të Përgjithshëm Të Prodhimit Të Rendit Artikuj"
+
+#: model@scm.production.order.items|_columns@order_id$label:1
 msgid "Production Order"
 msgstr "Prodhimi Mënyrë Që"
 
-#: scm.production.order.items-recepture_id:1
-#: scm.technologic.order.items-recepture_id:1
-#: scm.disassembly.order.items-recepture_id:1
+#: model@scm.production.order.items|_columns@recepture_id$label:1
+#: model@scm.technologic.order.items|_columns@recepture_id$label:1
+#: model@scm.disassembly.order.items|_columns@recepture_id$label:1
 msgid "Recepture"
 msgstr "Recepture"
 
-#: scm.production.order.items-boms:1
+#: model@scm.production.order.items|_columns@boms$label:1
 msgid "BoM"
 msgstr "BoM"
 
-#: scm.production.order.items-schedules:1
-#: scm.production.order.delivery.schedules-schedule:1
-#: scm.technologic.order.items-schedules:1
-#: scm.technologic.order.delivery.schedules-schedule:1
-#: scm.disassembly.order.items-schedules:1
-#: scm.disassembly.order.delivery.schedules-schedule:1
+#: model@scm.production.order.items|_columns@schedules$label:1
+#: model@scm.production.order.delivery.schedules|_columns@schedule$label:1
+#: model@scm.technologic.order.items|_columns@schedules$label:1
+#: model@scm.technologic.order.delivery.schedules|_columns@schedule$label:1
+#: model@scm.disassembly.order.items|_columns@schedules$label:1
+#: model@scm.disassembly.order.delivery.schedules|_columns@schedule$label:1
 msgid "Schedule"
 msgstr "Orari"
 
-#: scm.production.order.item.bom-item_id:1
-#: scm.production.order.delivery.schedules-item_id:1
-#: scm.technologic.order.item.ibob-item_id:1
-#: scm.technologic.order.item.obob-item_id:1
-#: scm.technologic.order.delivery.schedules-item_id:1
-#: scm.disassembly.order.item.mob-item_id:1
-#: scm.disassembly.order.delivery.schedules-item_id:1
+#: model@scm.production.order.item.bom|_description@:1
+msgid "General Model Production Order Items BoM"
+msgstr "Përgjithshëm Model Prodhimi Mënyrë Që Sendet E BoM"
+
+#: model@scm.production.order.item.bom|_columns@item_id$label:1
+#: model@scm.production.order.delivery.schedules|_columns@item_id$label:1
+#: model@scm.technologic.order.item.ibob|_columns@item_id$label:1
+#: model@scm.technologic.order.item.obob|_columns@item_id$label:1
+#: model@scm.technologic.order.delivery.schedules|_columns@item_id$label:1
+#: model@scm.disassembly.order.item.mob|_columns@item_id$label:1
+#: model@scm.disassembly.order.delivery.schedules|_columns@item_id$label:1
 msgid "Item"
 msgstr "Pika"
 
-#: scm.production.order.item.bom-quantity:1
-#: scm.technologic.order.item.ibob-quantity:1
-#: scm.technologic.order.item.obob-quantity:1
-#: scm.disassembly.order.item.mob-quantity:1
+#: model@scm.production.order.item.bom|_columns@quantity$label:1
+#: model@scm.technologic.order.item.ibob|_columns@quantity$label:1
+#: model@scm.technologic.order.item.obob|_columns@quantity$label:1
+#: model@scm.disassembly.order.item.mob|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Sasia"
 
-#: scm.production.order.item.bom-uom:1 scm.technologic.order.item.ibob-uom:1
-#: scm.technologic.order.item.obob-uom:1 scm.disassembly.order.item.mob-uom:1
+#: model@scm.production.order.item.bom|_columns@uom$label:1
+#: model@scm.technologic.order.item.ibob|_columns@uom$label:1
+#: model@scm.technologic.order.item.obob|_columns@uom$label:1
+#: model@scm.disassembly.order.item.mob|_columns@uom$label:1
 msgid "UoM"
 msgstr "UoM"
 
-#: scm.production.order.item.bom-price:1
-#: scm.technologic.order.item.ibob-price:1
-#: scm.technologic.order.item.obob-price:1
-#: scm.disassembly.order.item.mob-price:1
+#: model@scm.production.order.item.bom|_columns@price$label:1
+#: model@scm.technologic.order.item.ibob|_columns@price$label:1
+#: model@scm.technologic.order.item.obob|_columns@price$label:1
+#: model@scm.disassembly.order.item.mob|_columns@price$label:1
 msgid "Price"
 msgstr "Çmimi"
 
-#: scm.production.order.item.bom-uop:1 scm.technologic.order.item.ibob-uop:1
-#: scm.technologic.order.item.obob-uop:1 scm.disassembly.order.item.mob-uop:1
+#: model@scm.production.order.item.bom|_columns@uop$label:1
+#: model@scm.technologic.order.item.ibob|_columns@uop$label:1
+#: model@scm.technologic.order.item.obob|_columns@uop$label:1
+#: model@scm.disassembly.order.item.mob|_columns@uop$label:1
 msgid "Unit Of Price"
 msgstr "Njësia E Çmimi"
 
-#: scm.production.order.item.bom-amount:1
-#: scm.technologic.order.item.ibob-amount:1
-#: scm.technologic.order.item.obob-amount:1
-#: scm.disassembly.order.item.mob-amount:1
+#: model@scm.production.order.item.bom|_columns@amount$label:1
+#: model@scm.technologic.order.item.ibob|_columns@amount$label:1
+#: model@scm.technologic.order.item.obob|_columns@amount$label:1
+#: model@scm.disassembly.order.item.mob|_columns@amount$label:1
 msgid "Amount"
 msgstr "Sasia"
 
-#: scm.production.order.delivery.schedules-part:1
-#: scm.technologic.order.delivery.schedules-part:1
-#: scm.disassembly.order.delivery.schedules-part:1
+#: model@scm.production.order.delivery.schedules|_description@:1
+msgid "General Model Production Order Delivery Schedule"
+msgstr "Përgjithshëm Model Prodhimi Qëllim Të Ofrimit Të Planifikojë"
+
+#: model@scm.production.order.delivery.schedules|_columns@part$label:1
+#: model@scm.technologic.order.delivery.schedules|_columns@part$label:1
+#: model@scm.disassembly.order.delivery.schedules|_columns@part$label:1
 msgid "Part"
 msgstr "Pjesë"
 
-#: scm.technologic.order-doto:1
+#: model@scm.technologic.order|_description@:1
+msgid "General Model Technologic Order"
+msgstr "Përgjithshëm Model Technologic Mënyrë Që"
+
+#: model@scm.technologic.order|_columns@doto$label:1
 msgid "Date Of Technologic Order"
 msgstr "Data E Technologic Mënyrë Që"
 
-#: scm.technologic.order-from_date:1
+#: model@scm.technologic.order|_columns@from_date$label:1
 msgid "Start Date Of Technologic Order"
 msgstr "Data E Fillimit Të Technologic Mënyrë Që"
 
-#: scm.technologic.order-to_date:1
+#: model@scm.technologic.order|_columns@to_date$label:1
 msgid "End Date Of Technologic Order"
 msgstr "Data E Fundit E Technologic Mënyrë Që"
 
-#: scm.technologic.order.items-order_id:1
-#: scm.disassembly.order.items-order_id:1
+#: model@scm.technologic.order.items|_description@:1
+msgid "General Model Technologic Order Items"
+msgstr "Përgjithshëm Model Technologic Rendit Artikuj"
+
+#: model@scm.technologic.order.items|_columns@order_id$label:1
+#: model@scm.disassembly.order.items|_columns@order_id$label:1
 msgid "Technologic Order"
 msgstr "Technologic Mënyrë Që"
 
-#: scm.technologic.order.items-ibobs:1
+#: model@scm.technologic.order.items|_columns@ibobs$label:1
 msgid "InBoB"
 msgstr "InBoB"
 
-#: scm.technologic.order.items-obobs:1
+#: model@scm.technologic.order.items|_columns@obobs$label:1
 msgid "OutBoB"
 msgstr "OutBoB"
 
-#: scm.disassembly.order-dodo:1
+#: model@scm.technologic.order.item.ibob|_description@:1
+msgid "General Model Technologic Order Items InBoB"
+msgstr "Përgjithshëm Model Technologic Mënyrë Që Sendet E InBoB"
+
+#: model@scm.technologic.order.item.obob|_description@:1
+msgid "General Model Technologic Order Items OutBoB"
+msgstr "Përgjithshëm Model Technologic Mënyrë Që Sendet E OutBoB"
+
+#: model@scm.technologic.order.delivery.schedules|_description@:1
+msgid "General Model Technologic Order Delivery Schedule"
+msgstr "Përgjithshëm Model Technologic Qëllim Të Ofrimit Të Planifikojë"
+
+#: model@scm.disassembly.order|_description@:1
+msgid "General Model Disassembly Order"
+msgstr "Përgjithshëm Model Disassembly Mënyrë Që"
+
+#: model@scm.disassembly.order|_columns@dodo$label:1
 msgid "Date Of Disassembly Order"
 msgstr "Data E Disassembly Mënyrë Që"
 
-#: scm.disassembly.order-from_date:1
+#: model@scm.disassembly.order|_columns@from_date$label:1
 msgid "Start Date Of Disassembly Order"
 msgstr "Data E Fillimit Të Disassembly Mënyrë Që"
 
-#: scm.disassembly.order-to_date:1
+#: model@scm.disassembly.order|_columns@to_date$label:1
 msgid "End Date Of Disassembly Order"
 msgstr "Data E Fundit E Disassembly Mënyrë Që"
 
-#: scm.disassembly.order.items-mobs:1
+#: model@scm.disassembly.order.items|_description@:1
+msgid "General Model Disassembly Order Items"
+msgstr "Përgjithshëm Model Disassembly Rendit Artikuj"
+
+#: model@scm.disassembly.order.items|_columns@mobs$label:1
 msgid "MoB"
 msgstr "MoB"
+
+#: model@scm.disassembly.order.item.mob|_description@:1
+msgid "General Model Disassembly Order Items MoB"
+msgstr "Përgjithshëm Model Disassembly Mënyrë Që Sendet MoB"
+
+#: model@scm.disassembly.order.delivery.schedules|_description@:1
+msgid "General Model Disassembly Order Delivery Schedule"
+msgstr "Përgjithshëm Model Disassembly Qëllim Të Ofrimit Të Planifikojë"

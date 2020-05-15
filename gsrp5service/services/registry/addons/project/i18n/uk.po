@@ -3,203 +3,776 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-02-13 14:35:10+0000\n"
-"PO-Revision-Date: 2020-02-13 14:35:10+0000\n"
+"POT-Creation-Date: 2020-05-15 19:41:56+0300\n"
+"PO-Revision-Date: 2020-05-15 19:41:56+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: md.project.product-product_id:1 project.element.products-product_id:1
-msgid "Product"
-msgstr "Продукт"
+#: model@prj.unit.categories|_description@:1
+msgid "General Model Categories Project Unit"
+msgstr "Генеральна Модель Категорії Блок Проекту "
 
-#: md.project.product-vat:1
-msgid "VAT Code"
-msgstr "Код ПДВ "
-
-#: md.project.product-uom:1 project.task.resources-uom:1
-#: project.element.resources-uom:1
-msgid "Unit Of Measure"
-msgstr "Одиниця Виміру"
-
-#: md.project.product-price:1
-msgid "Price"
-msgstr "Ціна"
-
-#: md.project.product-currency:1 project.resource-currency:1
-msgid "Currency"
-msgstr "Валюта"
-
-#: md.project.product-unit:1
-msgid "Unit"
-msgstr "Блок"
-
-#: md.project.product-uop:1
-msgid "Unit Of Price"
-msgstr "Одиниця Ціна"
-
-#: md.project.product-note:1 project.resource.category-note:1
-#: project.bill.category-note:1 project.portfolio.category-note:1
-#: project.project.category-note:1 project.stage.category-note:1
-#: project.task.category-note:1 project.element.category-note:1
-#: project.resource-note:1 project.bill-note:1 project.portfolio-note:1
-#: project.project-note:1 project.stage-note:1 project.task-note:1
-#: project.element-note:1 project.element.products-note:1
-msgid "Note"
-msgstr "Примітка"
-
-#: project.resource.category-name:1 project.bill.category-name:1
-#: project.portfolio.category-name:1 project.project.category-name:1
-#: project.stage.category-name:1 project.task.category-name:1
-#: project.element.category-name:1
+#: model@prj.unit.categories|_columns@name$label:1
+#: model@prj.channel.categories|_columns@name$label:1
+#: model@prj.segment.categories|_columns@name$label:1
+#: model@prj.area.categories|_columns@name$label:1
+#: model@prj.region.categories|_columns@name$label:1
+#: model@prj.division.categories|_columns@name$label:1
+#: model@prj.subdivision.categories|_columns@name$label:1
+#: model@prj.bill.types|_columns@name$label:1
+#: model@prj.resource.category|_columns@name$label:1
+#: model@prj.bill.category|_columns@name$label:1
+#: model@prj.portfolio.category|_columns@name$label:1
+#: model@prj.prj.category|_columns@name$label:1
+#: model@prj.stage.category|_columns@name$label:1
+#: model@prj.task.category|_columns@name$label:1
+#: model@prj.element.category|_columns@name$label:1
 msgid "Name"
 msgstr "Назва"
 
-#: project.resource.category-parent_id:1 project.bill.category-parent_id:1
-#: project.portfolio.category-parent_id:1 project.project.category-parent_id:1
-#: project.stage.category-parent_id:1 project.task.category-parent_id:1
-#: project.element.category-parent_id:1 project.bill-parent_id:1
-#: project.portfolio-parent_id:1 project.project-parent_id:1
-#: project.stage-parent_id:1 project.task-parent_id:1
-#: project.element-parent_id:1
+#: model@prj.unit.categories|_columns@parent_id$label:1
+#: model@prj.channel.categories|_columns@parent_id$label:1
+#: model@prj.segment.categories|_columns@parent_id$label:1
+#: model@prj.area.categories|_columns@parent_id$label:1
+#: model@prj.region.categories|_columns@parent_id$label:1
+#: model@prj.division.categories|_columns@parent_id$label:1
+#: model@prj.subdivision.categories|_columns@parent_id$label:1
+#: model@prj.resource.category|_columns@parent_id$label:1
+#: model@prj.bill.category|_columns@parent_id$label:1
+#: model@prj.portfolio.category|_columns@parent_id$label:1
+#: model@prj.prj.category|_columns@parent_id$label:1
+#: model@prj.stage.category|_columns@parent_id$label:1
+#: model@prj.task.category|_columns@parent_id$label:1
+#: model@prj.element.category|_columns@parent_id$label:1
+#: model@prj.bill|_columns@parent_id$label:1
+#: model@prj.portfolio|_columns@parent_id$label:1
+#: model@prj.project|_columns@parent_id$label:1
+#: model@prj.stage|_columns@parent_id$label:1
+#: model@prj.task|_columns@parent_id$label:1
+#: model@prj.element|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Батько"
 
-#: project.resource.category-childs_id:1 project.bill.category-childs_id:1
-#: project.portfolio.category-childs_id:1 project.project.category-childs_id:1
-#: project.stage.category-childs_id:1 project.task.category-childs_id:1
-#: project.element.category-childs_id:1 project.bill-childs_id:1
-#: project.portfolio-childs_id:1 project.project-childs_id:1
-#: project.stage-childs_id:1 project.task-childs_id:1
-#: project.element-childs_id:1
+#: model@prj.unit.categories|_columns@childs_id$label:1
+#: model@prj.channel.categories|_columns@childs_id$label:1
+#: model@prj.segment.categories|_columns@childs_id$label:1
+#: model@prj.area.categories|_columns@childs_id$label:1
+#: model@prj.region.categories|_columns@childs_id$label:1
+#: model@prj.division.categories|_columns@childs_id$label:1
+#: model@prj.subdivision.categories|_columns@childs_id$label:1
+#: model@prj.resource.category|_columns@childs_id$label:1
+#: model@prj.bill.category|_columns@childs_id$label:1
+#: model@prj.portfolio.category|_columns@childs_id$label:1
+#: model@prj.prj.category|_columns@childs_id$label:1
+#: model@prj.stage.category|_columns@childs_id$label:1
+#: model@prj.task.category|_columns@childs_id$label:1
+#: model@prj.element.category|_columns@childs_id$label:1
+#: model@prj.bill|_columns@childs_id$label:1
+#: model@prj.portfolio|_columns@childs_id$label:1
+#: model@prj.project|_columns@childs_id$label:1
+#: model@prj.stage|_columns@childs_id$label:1
+#: model@prj.task|_columns@childs_id$label:1
+#: model@prj.element|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Дитини"
 
-#: project.resource.category-projects:1 project.project.category-projects:1
-#: project.portfolio-projects:1
-msgid "Projects"
-msgstr "Проекти"
+#: model@prj.unit.categories|_columns@fullname$label:1
+#: model@prj.channel.categories|_columns@fullname$label:1
+#: model@prj.segment.categories|_columns@fullname$label:1
+#: model@prj.area.categories|_columns@fullname$label:1
+#: model@prj.region.categories|_columns@fullname$label:1
+#: model@prj.division.categories|_columns@fullname$label:1
+#: model@prj.subdivision.categories|_columns@fullname$label:1
+#: model@prj.unit.channel.assigments|_columns@fullname$label:1
+#: model@prj.unit.segment.assigments|_columns@fullname$label:1
+#: model@prj.unit.area.assigments|_columns@fullname$label:1
+#: model@prj.unit.region.assigments|_columns@fullname$label:1
+#: model@prj.division.subdivision.assigments|_columns@fullname$label:1
+#: model@prj.markets|_columns@fullname$label:1
+#: model@prj.teams|_columns@fullname$label:1
+#: model@prj.bill|_columns@fullname$label:1
+msgid "Full Name"
+msgstr "Повна Назва"
 
-#: project.bill.category-bills:1
-msgid "Bills"
-msgstr "Законопроекти"
+#: model@prj.unit.categories|_columns@units$label:1
+msgid "Units"
+msgstr "Одиниці"
 
-#: project.portfolio.category-portfolios:1 project.bill-portfolios:1
-msgid "Portfolios"
-msgstr "Портфелі"
+#: model@prj.unit.categories|_columns@note$label:1
+#: model@prj.channel.categories|_columns@note$label:1
+#: model@prj.segment.categories|_columns@note$label:1
+#: model@prj.area.categories|_columns@note$label:1
+#: model@prj.region.categories|_columns@note$label:1
+#: model@prj.division.categories|_columns@note$label:1
+#: model@prj.subdivision.categories|_columns@note$label:1
+#: model@prj.markets|_columns@note$label:1
+#: model@prj.teams|_columns@note$label:1
+#: model@prj.bill.types|_columns@note$label:1
+#: model@prj.bill.type.roles|_columns@note$label:1
+#: model@prj.bill.type.plates|_columns@note$label:1
+#: model@prj.resource.category|_columns@note$label:1
+#: model@prj.bill.category|_columns@note$label:1
+#: model@prj.portfolio.category|_columns@note$label:1
+#: model@prj.prj.category|_columns@note$label:1
+#: model@prj.stage.category|_columns@note$label:1
+#: model@prj.task.category|_columns@note$label:1
+#: model@prj.element.category|_columns@note$label:1
+#: model@prj.resource|_columns@note$label:1
+#: model@prj.bill|_columns@note$label:1
+#: model@prj.portfolio|_columns@note$label:1
+#: model@prj.project|_columns@note$label:1
+#: model@prj.stage|_columns@note$label:1 model@prj.task|_columns@note$label:1
+#: model@prj.element|_columns@note$label:1
+#: model@prj.element.products|_columns@note$label:1
+#: model@md.prj.product|_columns@note$label:1
+msgid "Note"
+msgstr "Примітка"
 
-#: project.stage.category-stages:1
-msgid "Orders"
-msgstr "Замовлення"
+#: model@prj.units|_description@:1
+msgid "General Model Project Units"
+msgstr "Генеральна Модель Одиницях Проекту "
 
-#: project.task.category-tasks:1 project.stage-tasks:1
-msgid "Tasks"
-msgstr "Завдання"
-
-#: project.element.category-elements:1 project.stage-elements:1
-msgid "Elements"
-msgstr "Елементи"
-
-#: project.resource-name:1 project.task.resources-resource_id:1
-#: project.element.resources-resource_id:1
-msgid "Resource"
-msgstr "Ресурс"
-
-#: project.resource-category_id:1 project.bill-category_id:1
-#: project.portfolio-category_id:1 project.project-category_id:1
-#: project.task-category_id:1
+#: model@prj.units|_columns@category_id$label:1
+#: model@prj.channels|_columns@category_id$label:1
+#: model@prj.segments|_columns@category_id$label:1
+#: model@prj.areas|_columns@category_id$label:1
+#: model@prj.regions|_columns@category_id$label:1
+#: model@prj.divisions|_columns@category_id$label:1
+#: model@prj.subdivisions|_columns@category_id$label:1
+#: model@prj.resource|_columns@category_id$label:1
+#: model@prj.bill|_columns@category_id$label:1
+#: model@prj.portfolio|_columns@category_id$label:1
+#: model@prj.project|_columns@category_id$label:1
+#: model@prj.task|_columns@category_id$label:1
 msgid "Category"
 msgstr "Категорія"
 
-#: project.resource-cost:1
-msgid "Cost"
-msgstr "Вартість"
+#: model@prj.units|_columns@company_id$label:1
+msgid "Companies"
+msgstr "Компаній"
 
-#: project.bill-name:1 project.portfolio-bill_id:1
-msgid "Bill"
-msgstr "Білл"
+#: model@prj.units|_columns@code$label:1
+#: model@prj.channels|_columns@code$label:1
+#: model@prj.segments|_columns@code$label:1
+#: model@prj.areas|_columns@code$label:1
+#: model@prj.regions|_columns@code$label:1
+#: model@prj.divisions|_columns@code$label:1
+#: model@prj.subdivisions|_columns@code$label:1
+#: model@prj.pricing.group.levels|_columns@code$label:1
+#: model@prj.texts|_columns@code$label:1
+#: model@prj.schema.texts|_columns@code$label:1
+msgid "Code"
+msgstr "Код"
 
-#: project.bill-start_date:1 project.portfolio-start_date:1
-#: project.project-start_date:1 project.stage-start_date:1
-#: project.task-start_date:1
-msgid "Start date"
-msgstr "Дата початку"
+#: model@prj.units|_columns@descr$label:1
+#: model@prj.channels|_columns@descr$label:1
+#: model@prj.segments|_columns@descr$label:1
+#: model@prj.areas|_columns@descr$label:1
+#: model@prj.regions|_columns@descr$label:1
+#: model@prj.divisions|_columns@descr$label:1
+#: model@prj.subdivisions|_columns@descr$label:1
+#: model@prj.pricing.group.levels|_columns@descr$label:1
+#: model@prj.texts|_columns@descr$label:1
+#: model@prj.schema.texts|_columns@descr$label:1
+msgid "Description"
+msgstr "Опис"
 
-#: project.bill-end_date:1 project.portfolio-end_date:1
-#: project.project-end_date:1 project.stage-end_date:1 project.task-end_date:1
-msgid "End date"
-msgstr "Дата закінчення"
+#: model@prj.units|_columns@channels$label:1
+#: model@prj.channel.categories|_columns@channels$label:1
+msgid "Channels"
+msgstr "Канали"
 
-#: project.bill-progress:1 project.portfolio-progress:1
-#: project.project-progress:1 project.stage-progress:1 project.task-progress:1
-msgid "Progress"
-msgstr "Прогрес"
+#: model@prj.units|_columns@segments$label:1
+#: model@prj.segment.categories|_columns@segments$label:1
+msgid "Segments"
+msgstr "Сегментів"
 
-#: project.bill-project_type:1 project.portfolio-project_type:1
-#: project.project-project_type:1 project.task-project_type:1
-msgid "Project Type"
-msgstr "Тип Проекту "
+#: model@prj.units|_columns@areas$label:1
+#: model@prj.area.categories|_columns@areas$label:1
+msgid "Areas"
+msgstr "Області"
 
-#: project.bill-state:1 project.portfolio-state:1 project.project-state:1
-#: project.task-state:1
-msgid "State"
-msgstr "Держава"
+#: model@prj.units|_columns@regions$label:1
+msgid "Regions"
+msgstr "Регіони"
 
-#: project.portfolio-name:1 project.project-portfolio_id:1
-msgid "Portfolio"
-msgstr "Портфоліо"
+#: model@prj.channel.categories|_description@:1
+msgid "General Model Categories Project Chanel"
+msgstr "Генеральна Модель Категорії Проекту Шанель"
 
-#: project.project-name:1 project.stage-project_id:1
-msgid "Project"
-msgstr "Проект"
+#: model@prj.channels|_description@:1
+msgid "General Model Project Channels"
+msgstr "Генеральна Модель Канали Проекту "
 
-#: project.project-stages:1
-msgid "Stages"
-msgstr "Етапи"
+#: model@prj.segment.categories|_description@:1
+msgid "General Model Categories Project Segment"
+msgstr "Генеральна Модель Категорії Проекту "
 
-#: project.stage-name:1 project.task-stage_id:1 project.element-stage_id:1
-msgid "Stage"
-msgstr "Етап"
+#: model@prj.segments|_description@:1
+msgid "General Model Project Segments"
+msgstr "Генеральна Модель Сегментів Проекту "
 
-#: project.stage-type:1 project.stage-project_type:1
+#: model@prj.area.categories|_description@:1
+msgid "General Model Categories Project Area"
+msgstr "Генеральна Модель Категорій Проекту "
+
+#: model@prj.areas|_description@:1
+msgid "General Model Project Areas"
+msgstr "Загальні Модельних Територіях Проекту "
+
+#: model@prj.region.categories|_description@:1
+msgid "General Model Categories Project Region"
+msgstr "Генеральна Модель Категорії Проекту Області"
+
+#: model@prj.region.categories|_columns@segments$label:1
+msgid "REgions"
+msgstr "Регіони"
+
+#: model@prj.regions|_description@:1
+msgid "General Model Project Regions"
+msgstr "Загальні Модельних Регіонів Проекту "
+
+#: model@prj.division.categories|_description@:1
+msgid "General Model Categories Project Division"
+msgstr "Генеральна Модель Категорії Проекту Відділу"
+
+#: model@prj.division.categories|_columns@divisions$label:1
+msgid "Divisions"
+msgstr "Підрозділи"
+
+#: model@prj.divisions|_description@:1
+msgid "General Model Project Divisions"
+msgstr "Генеральна Модель Відділами Проекту "
+
+#: model@prj.divisions|_columns@subdivisions$label:1
+msgid "SubDivisions"
+msgstr "Підрозділів"
+
+#: model@prj.subdivision.categories|_description@:1
+msgid "General Model Categories Project Subdivision"
+msgstr "Генеральна Модель Категоріях Підрозділ Проекту "
+
+#: model@prj.subdivision.categories|_columns@subdivisions$label:1
+#: model@prj.stage.category|_columns@stages$label:1
+msgid "Orders"
+msgstr "Замовлення"
+
+#: model@prj.subdivisions|_description@:1
+msgid "General Model Project Subdivisions"
+msgstr "Генеральна Модель Підрозділами Проекту "
+
+#: model@prj.unit.channel.assigments|_description@:1
+msgid "General Model Project Unit Of Channel Assigment"
+msgstr "Генеральна Модель Блоку Проекту Розпаювання Канал "
+
+#: model@prj.unit.channel.assigments|_columns@unit_id$label:1
+#: model@prj.unit.segment.assigments|_columns@unit_id$label:1
+#: model@prj.unit.area.assigments|_columns@unit_id$label:1
+#: model@prj.unit.region.assigments|_columns@unit_id$label:1
+#: model@prj.markets|_columns@unit_id$label:1
+#: model@md.prj.product|_columns@unit$label:1
+msgid "Unit"
+msgstr "Блок"
+
+#: model@prj.unit.channel.assigments|_columns@channel_id$label:1
+#: model@prj.markets|_columns@channel_id$label:1
+msgid "Channel"
+msgstr "Канал"
+
+#: model@prj.unit.segment.assigments|_description@:1
+msgid "General Model Project Unit Of Segment Assigment"
+msgstr "Генеральна Модель Блоку Проекту Розпаювання Сегмента "
+
+#: model@prj.unit.segment.assigments|_columns@segment_id$label:1
+#: model@prj.markets|_columns@segment_id$label:1
+msgid "Segment"
+msgstr "Сегмент"
+
+#: model@prj.unit.area.assigments|_description@:1
+msgid "General Model Project Unit Of Area Assigment"
+msgstr "Генеральна Модель Проекту Розпаювання Ділянки"
+
+#: model@prj.unit.area.assigments|_columns@area_id$label:1
+#: model@prj.markets|_columns@area_id$label:1
+msgid "Area"
+msgstr "Площа"
+
+#: model@prj.unit.region.assigments|_description@:1
+msgid "General Model Project Unit Of Region Assigment"
+msgstr "Загальна Модель Проекту Комплексу Регіону Розпаювання"
+
+#: model@prj.unit.region.assigments|_columns@region_id$label:1
+#: model@prj.markets|_columns@region_id$label:1
+msgid "Region"
+msgstr "Області"
+
+#: model@prj.division.subdivision.assigments|_description@:1
+msgid "General Model Project Division Of Subdivision Assigment"
+msgstr "Загальний Відділ Типовий Проект Межування Розпаювання"
+
+#: model@prj.division.subdivision.assigments|_columns@division_id$label:1
+#: model@prj.teams|_columns@division_id$label:1
+msgid "Division"
+msgstr "Відділ"
+
+#: model@prj.division.subdivision.assigments|_columns@subdivision_id$label:1
+#: model@prj.teams|_columns@subdivision_id$label:1
+msgid "Subdivision"
+msgstr "Підрозділ"
+
+#: model@prj.markets|_description@:1
+msgid "General Model Project Market"
+msgstr "Загальна Модель Ринку Проекту "
+
+#: model@prj.teams|_description@:1
+msgid "General Model Project Teams"
+msgstr "Генеральна Модель Проектних Команд"
+
+#: model@prj.pricing.group.levels|_description@:1
+msgid "General Model Project Pricing Group Levels"
+msgstr "Генеральна Модель Проекту Цінові Рівні Групи "
+
+#: model@prj.texts|_description@:1
+msgid "General Model Project Texts"
+msgstr "Загальні Моделі Тексту Проекту "
+
+#: model@prj.schema.texts|_description@:1
+msgid "General Model Schema Of Project Texts"
+msgstr "Загальні Моделі Схеми Текстів Проекту "
+
+#: model@prj.schema.texts|_columns@usage$label:1
+msgid "Usage"
+msgstr "Використання"
+
+#: model@prj.schema.texts|_columns@usage$selections#h:1
+msgid "Header"
+msgstr "Заголовок"
+
+#: model@prj.schema.texts|_columns@usage$selections#i:1
+msgid "Item"
+msgstr "Пункт"
+
+#: model@prj.schema.texts|_columns@usage$selections#b:1
+msgid "Both"
+msgstr "Обидва"
+
+#: model@prj.schema.texts|_columns@texts$label:1
+msgid "Texts"
+msgstr "Тексти"
+
+#: model@prj.schema.text.items|_description@:1
+msgid "General Model Items Of Schema Project Texts"
+msgstr "Загальні Елементи Моделі Проекту Схеми Тексту"
+
+#: model@prj.schema.text.items|_columns@schema_id$label:1
+msgid "Schema"
+msgstr "Схема"
+
+#: model@prj.schema.text.items|_columns@seq$label:1
+#: model@prj.bill.type.plates|_columns@seq$label:1
+msgid "Sequence"
+msgstr "Послідовність"
+
+#: model@prj.schema.text.items|_columns@text_id$label:1
+msgid "Text"
+msgstr "Текст"
+
+#: model@prj.schema.text.items|_columns@descr$label:1
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: model@prj.bill.types|_description@:1
+msgid "General Model Types Project Bill"
+msgstr "Загальні Види Типового Проекту Білл"
+
+#: model@prj.bill.types|_columns@ptype$label:1
+#: model@prj.bill.type.roles|_columns@type_id$label:1
+#: model@prj.bill.type.plates|_columns@type_id$label:1
+#: model@prj.bill|_columns@btype$label:1 model@prj.stage|_columns@type$label:1
+#: model@prj.stage|_columns@prj_type$label:1
 msgid "Type"
 msgstr "Тип"
 
-#: project.stage-state:1
-msgid "Project State"
-msgstr "Державний Проект "
+#: model@prj.bill.types|_columns@ptype$selections#ord:1
+msgid "Order"
+msgstr "Замовлення"
 
-#: project.task-name:1 project.task.resources-task_id:1
+#: model@prj.bill.types|_columns@ptype$selections#ap:1
+msgid "Advance Payment"
+msgstr "Авансовий Платіж"
+
+#: model@prj.bill.types|_columns@ptype$selections#ps:1
+msgid "Pseduo"
+msgstr "Pseduo"
+
+#: model@prj.bill.types|_columns@ptype$selections#dm:1
+msgid "Debit Request"
+msgstr "Запит Дебетування "
+
+#: model@prj.bill.types|_columns@ptype$selections#cr:1
+msgid "Credit Request"
+msgstr "Кредитною Заявкою"
+
+#: model@prj.bill.types|_columns@ptype$selections#rо:1
+msgid "Return"
+msgstr "Повернутися"
+
+#: model@prj.bill.types|_columns@htschema$label:1
+msgid "Text Schema Of Head"
+msgstr "Текст Схеми Голови"
+
+#: model@prj.bill.types|_columns@itschema$label:1
+msgid "Text Schema Of Item"
+msgstr "Текст Схеми Елемента"
+
+#: model@prj.bill.types|_columns@roles$label:1
+msgid "Roles"
+msgstr "Ролі"
+
+#: model@prj.bill.types|_columns@plates$label:1
+msgid "Plates"
+msgstr "Плити"
+
+#: model@prj.bill.types|_columns@tis$label:1
+msgid "TIs"
+msgstr "Тіс"
+
+#: model@prj.bill.type.roles|_description@:1
+msgid "General Model Role Project BIll Types"
+msgstr "Загалом Зразок Для Наслідування Видах Проект "
+
+#: model@prj.bill.type.roles|_columns@role_id$label:1
+msgid "Role"
+msgstr "Роль"
+
+#: model@prj.bill.type.roles|_columns@required$label:1
+#: model@prj.bill.type.plates|_columns@required$label:1
+msgid "Required"
+msgstr "Потрібно"
+
+#: model@prj.bill.type.plates|_description@:1
+msgid "General Model Project Bill Plates"
+msgstr "Проект Законопроекту Генеральна Модель Тарілки"
+
+#: model@prj.bill.type.plates|_columns@plate$label:1
+msgid "Plate"
+msgstr "Плити"
+
+#: model@prj.resource.category|_description@:1
+msgid "General Model Category Project Resource"
+msgstr "Загальна Модель Проекту Вид Ресурсу"
+
+#: model@prj.resource.category|_columns@projects$label:1
+#: model@prj.prj.category|_columns@projects$label:1
+#: model@prj.portfolio|_columns@projects$label:1
+msgid "Projects"
+msgstr "Проекти"
+
+#: model@prj.bill.category|_description@:1
+msgid "General Model Category Project Bill"
+msgstr "Загальні Білл Типовий Проект Категорії "
+
+#: model@prj.bill.category|_columns@bills$label:1
+msgid "Bills"
+msgstr "Законопроекти"
+
+#: model@prj.portfolio.category|_description@:1
+msgid "General Model Category Project Portfolio"
+msgstr "Загальний Портфель Модель Проекту Категорії "
+
+#: model@prj.portfolio.category|_columns@portfolios$label:1
+#: model@prj.bill|_columns@portfolios$label:1
+msgid "Portfolios"
+msgstr "Портфелі"
+
+#: model@prj.prj.category|_description@:1
+msgid "General Model Category Project Project"
+msgstr "Проект Загальної Моделі Категорії "
+
+#: model@prj.stage.category|_description@:1
+msgid "General Model Category Project Stage"
+msgstr "Генеральна Модель Етапу Проекту Категорії "
+
+#: model@prj.task.category|_description@:1
+msgid "General Model Category Project Task"
+msgstr "Загальна Модель Задачі Проекту Категорії "
+
+#: model@prj.task.category|_columns@tasks$label:1
+#: model@prj.stage|_columns@tasks$label:1
+msgid "Tasks"
+msgstr "Завдання"
+
+#: model@prj.element.category|_description@:1
+msgid "General Model Category Project Element"
+msgstr "Загальна Модель Елемента Проекту Категорії "
+
+#: model@prj.element.category|_columns@elements$label:1
+#: model@prj.stage|_columns@elements$label:1
+msgid "Elements"
+msgstr "Елементи"
+
+#: model@prj.resource|_description@:1
+msgid "General Model Project Resource"
+msgstr "Проект Загальної Моделі Ресурсів"
+
+#: model@prj.resource|_columns@name$label:1
+#: model@prj.task.resources|_columns@resource_id$label:1
+#: model@prj.element.resources|_columns@resource_id$label:1
+msgid "Resource"
+msgstr "Ресурс"
+
+#: model@prj.resource|_columns@cost$label:1
+msgid "Cost"
+msgstr "Вартість"
+
+#: model@prj.resource|_columns@currency$label:1
+#: model@md.prj.product|_columns@currency$label:1
+msgid "Currency"
+msgstr "Валюта"
+
+#: model@prj.bill|_description@:1
+msgid "General Model Projects Bill"
+msgstr "Законопроект Загальні Типові Проекти "
+
+#: model@prj.bill|_columns@name$label:1
+#: model@prj.portfolio|_columns@bill_id$label:1
+msgid "Bill"
+msgstr "Білл"
+
+#: model@prj.bill|_columns@company$label:1
+msgid "Company"
+msgstr "Компанія"
+
+#: model@prj.bill|_columns@start_date$label:1
+#: model@prj.portfolio|_columns@start_date$label:1
+#: model@prj.project|_columns@start_date$label:1
+#: model@prj.stage|_columns@start_date$label:1
+#: model@prj.task|_columns@start_date$label:1
+msgid "Start date"
+msgstr "Дата початку"
+
+#: model@prj.bill|_columns@end_date$label:1
+#: model@prj.portfolio|_columns@end_date$label:1
+#: model@prj.project|_columns@end_date$label:1
+#: model@prj.stage|_columns@end_date$label:1
+#: model@prj.task|_columns@end_date$label:1
+msgid "End date"
+msgstr "Дата закінчення"
+
+#: model@prj.bill|_columns@progress$label:1
+#: model@prj.portfolio|_columns@progress$label:1
+#: model@prj.project|_columns@progress$label:1
+#: model@prj.stage|_columns@progress$label:1
+#: model@prj.task|_columns@progress$label:1
+msgid "Progress"
+msgstr "Прогрес"
+
+#: model@prj.bill|_columns@prj_type$label:1
+#: model@prj.portfolio|_columns@prj_type$label:1
+#: model@prj.project|_columns@prj_type$label:1
+#: model@prj.task|_columns@prj_type$label:1
+msgid "Project Type"
+msgstr "Тип Проекту "
+
+#: model@prj.bill|_columns@prj_type$selections#project:1
+#: model@prj.portfolio|_columns@prj_type$selections#project:1
+#: model@prj.project|_columns@name$label:1
+#: model@prj.project|_columns@prj_type$selections#project:1
+#: model@prj.stage|_columns@prj_id$label:1
+#: model@prj.stage|_columns@prj_type$selections#project:1
+#: model@prj.task|_columns@prj_type$selections#project:1
+msgid "Project"
+msgstr "Проект"
+
+#: model@prj.bill|_columns@prj_type$selections#milestone:1
+#: model@prj.portfolio|_columns@prj_type$selections#milestone:1
+#: model@prj.project|_columns@prj_type$selections#milestone:1
+#: model@prj.stage|_columns@prj_type$selections#milestone:1
+#: model@prj.task|_columns@prj_type$selections#milestone:1
+msgid "Milestone"
+msgstr "Віха"
+
+#: model@prj.bill|_columns@prj_type$selections#task:1
+#: model@prj.portfolio|_columns@prj_type$selections#task:1
+#: model@prj.project|_columns@prj_type$selections#task:1
+#: model@prj.stage|_columns@prj_type$selections#task:1
+#: model@prj.task|_columns@name$label:1
+#: model@prj.task|_columns@prj_type$selections#task:1
+#: model@prj.task.resources|_columns@task_id$label:1
 msgid "Task"
 msgstr "Завдання"
 
-#: project.task-resources:1
+#: model@prj.bill|_columns@state$label:1
+#: model@prj.portfolio|_columns@state$label:1
+#: model@prj.project|_columns@state$label:1
+#: model@prj.task|_columns@state$label:1
+msgid "State"
+msgstr "Держава"
+
+#: model@prj.bill|_columns@state$selections#draft:1
+#: model@prj.portfolio|_columns@state$selections#draft:1
+#: model@prj.project|_columns@state$selections#draft:1
+#: model@prj.stage|_columns@state$selections#draft:1
+#: model@prj.task|_columns@state$selections#draft:1
+msgid "Draft"
+msgstr "Проект"
+
+#: model@prj.bill|_columns@state$selections#approved:1
+#: model@prj.portfolio|_columns@state$selections#approved:1
+#: model@prj.project|_columns@state$selections#approved:1
+#: model@prj.stage|_columns@state$selections#approved:1
+#: model@prj.task|_columns@state$selections#approved:1
+msgid "Approved"
+msgstr "Затверджений"
+
+#: model@prj.bill|_columns@state$selections#inprocess:1
+#: model@prj.portfolio|_columns@state$selections#inprocess:1
+#: model@prj.project|_columns@state$selections#inprocess:1
+#: model@prj.stage|_columns@state$selections#inprocess:1
+#: model@prj.task|_columns@state$selections#inprocess:1
+msgid "In Process"
+msgstr "У Процесі"
+
+#: model@prj.bill|_columns@state$selections#closed:1
+#: model@prj.portfolio|_columns@state$selections#closed:1
+#: model@prj.project|_columns@state$selections#closed:1
+#: model@prj.stage|_columns@state$selections#closed:1
+#: model@prj.task|_columns@state$selections#closed:1
+msgid "Closed"
+msgstr "Закриті"
+
+#: model@prj.bill|_columns@state$selections#canceled:1
+#: model@prj.portfolio|_columns@state$selections#canceled:1
+#: model@prj.project|_columns@state$selections#canceled:1
+#: model@prj.stage|_columns@state$selections#canceled:1
+#: model@prj.task|_columns@state$selections#canceled:1
+msgid "Canceled"
+msgstr "Скасували"
+
+#: model@prj.portfolio|_description@:1
+msgid "General Model Projects Portfolio"
+msgstr "Портфоліо Загальні Типові Проекти "
+
+#: model@prj.portfolio|_columns@name$label:1
+#: model@prj.project|_columns@portfolio_id$label:1
+msgid "Portfolio"
+msgstr "Портфоліо"
+
+#: model@prj.project|_description@:1
+msgid "General Model Project"
+msgstr "Загальна Модель Проекту"
+
+#: model@prj.project|_columns@stages$label:1
+msgid "Stages"
+msgstr "Етапи"
+
+#: model@prj.stage|_description@:1
+msgid "General Model Project Stage"
+msgstr "Етап Проекту Загальної Моделі "
+
+#: model@prj.stage|_columns@name$label:1
+#: model@prj.task|_columns@stage_id$label:1
+#: model@prj.element|_columns@stage_id$label:1
+msgid "Stage"
+msgstr "Етап"
+
+#: model@prj.stage|_columns@type$selections#b:1
+msgid "Begin"
+msgstr "Почати"
+
+#: model@prj.stage|_columns@type$selections#e:1
+msgid "End"
+msgstr "Кінець"
+
+#: model@prj.stage|_columns@type$selections#w:1
+msgid "Work"
+msgstr "Робота"
+
+#: model@prj.stage|_columns@type$selections#s:1
+msgid "Situtation"
+msgstr "Ситуація"
+
+#: model@prj.stage|_columns@state$label:1
+msgid "Project State"
+msgstr "Державний Проект "
+
+#: model@prj.task|_description@:1
+msgid "General Model Project Task"
+msgstr "Загальна Модель Задачі Проекту "
+
+#: model@prj.task|_columns@resources$label:1
 msgid "Recources"
 msgstr "Ресурси"
 
-#: project.element-name:1 project.element.products-element_id:1
-#: project.element.resources-element_id:1
+#: model@prj.element|_description@:1
+msgid "General Model Project Element"
+msgstr "Загальна Модель Елемента Проекту "
+
+#: model@prj.element|_columns@name$label:1
+#: model@prj.element.products|_columns@element_id$label:1
+#: model@prj.element.resources|_columns@element_id$label:1
 msgid "Element"
 msgstr "Елемент"
 
-#: project.element-products:1
+#: model@prj.element|_columns@products$label:1
 msgid "Products"
 msgstr "Продукти"
 
-#: project.element-resources:1
+#: model@prj.element|_columns@resources$label:1
 msgid "Resources"
 msgstr "Ресурси"
 
-#: project.element.products-quantity:1
+#: model@prj.element.products|_description@:1
+msgid "General Model Project Element Products"
+msgstr "Загальна Модель Проекту Елемент Продукти"
+
+#: model@prj.element.products|_columns@product_id$label:1
+#: model@md.prj.product|_columns@product_id$label:1
+msgid "Product"
+msgstr "Продукт"
+
+#: model@prj.element.products|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Кількість"
 
-#: project.element.products-uom:1
+#: model@prj.element.products|_columns@uom$label:1
 msgid "UoM"
 msgstr "Одиниця"
 
-#: project.task.resources-quantiny:1 project.element.resources-quantiny:1
+#: model@prj.task.resources|_description@:1
+msgid "General Model Project Task Resources"
+msgstr "Загальна Модель Задачі Проекту Ресурси"
+
+#: model@prj.task.resources|_columns@quantiny$label:1
+#: model@prj.element.resources|_columns@quantiny$label:1
 msgid "Job"
 msgstr "Робота"
+
+#: model@prj.task.resources|_columns@uom$label:1
+#: model@prj.element.resources|_columns@uom$label:1
+#: model@md.prj.product|_columns@uom$label:1
+msgid "Unit Of Measure"
+msgstr "Одиниця Виміру"
+
+#: model@prj.element.resources|_description@:1
+msgid "General Model Project Element Resources"
+msgstr "Загальна Модель Елемента Ресурсів Проекту"
+
+#: model@md.prj.product|_description@:1
+msgid "General Model Project Of Product"
+msgstr "Загальна Модель Проектного Продукту"
+
+#: model@md.prj.product|_columns@vat$label:1
+msgid "VAT Code"
+msgstr "Код ПДВ "
+
+#: model@md.prj.product|_columns@price$label:1
+msgid "Price"
+msgstr "Ціна"
+
+#: model@md.prj.product|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Одиниця Ціна"
