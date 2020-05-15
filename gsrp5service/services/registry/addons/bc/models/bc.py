@@ -128,7 +128,7 @@ class bc_langs(Model):
 	_description = 'General Model Langs'
 	_rec_name = 'code'
 	_columns = {
-	'code': fields.varchar(label='Language',size = 2,readonly=True),
+	'code': fields.varchar(label='Language',size = 3,readonly=True),
 	'description': fields.varchar(label='Description', size = 64,readonly=True)
 	}
 
