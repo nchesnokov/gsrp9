@@ -1,7 +1,7 @@
 from lxml import etree
 from io import BytesIO
 from gsrp5service.services.gens.views import isAllow,VIEWSGEN
-
+import web_pdb
 
 def get_viewname_by_window_action_id(cr,pool,uid,action_id):
 	action = pool.get('bc.actions').select(cr,pool,uid,fields=['view_id'],cond=[('name','=',action_id)])
@@ -158,16 +158,25 @@ def get_views_of_model_v2(cr,pool,uid,model):
 	
 	return [v]
 
-def get_meta_of_model_v2(cr,pool,uid,model):
-	return pool.get(model).modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
+def get_meta_of_model_v2(cr,pool,uid,model,context):
+	trs = pool.get('bc.model.translations').select(cr,pool,uid,['tr'],[('lang','=',context['lang']),('model','=',model)])
+	attrs = pool.get(model).modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
+	if len(trs) > 0:
+		tr = trs[0]['tr']
+		attrs['description'] = tr['_description']
+		for col in tr['_columns'].keys():
+			for attr in tr['_columns'][col]:
+				attrs['columns'][col][attr] = tr['_columns'][col][attr]
 	
-def get_meta_of_models_v2(cr,pool,uid,model):
+	return attrs
+	
+def get_meta_of_models_v2(cr,pool,uid,model,context):
 	models = []
 	m2mmodels = []
 	m2omodels = []
 	o2mmodels = []
 	v = {}
-	iobj = get_meta_of_model_v2(cr,pool,uid,model)
+	iobj = get_meta_of_model_v2(cr,pool,uid,model,context)
 
 	for m in filter(lambda x:'obj' in iobj['columns'][x] and iobj['columns'][x]['obj'] and iobj['columns'][x]['type'] == 'one2many',iobj['columns'].keys()):
 		models.append(iobj['columns'][m]['obj'])
@@ -181,38 +190,38 @@ def get_meta_of_models_v2(cr,pool,uid,model):
 	for o2m in filter(lambda x:'obj' in iobj['columns'][x] and iobj['columns'][x]['obj'] and iobj['columns'][x]['type'] == 'one2many',iobj['columns'].keys()):
 		o2mmodels.append(iobj['columns'][o2m]['obj'])
 
-	info = get_meta_of_model_v2(cr,pool,uid,model)
-	views = get_views_of_model_v2(cr,pool,uid,model,info)
-	info = get_referenced_attrs_v2(cr,pool,uid,info)
+	info = get_meta_of_model_v2(cr,pool,uid,model,context)
+	views = get_views_of_model_v2(cr,pool,uid,model,info,context)
+	info = get_referenced_attrs_v2(cr,pool,uid,info,context)
 	
-	v.setdefault(model,{}).setdefault('meta',info)
-	v.setdefault(model,{}).setdefault('views',views[model])  
-	v.setdefault(model,{}).setdefault('allow',list(filter(lambda x: isAllow(x,info),VIEWSGEN.keys())))
+	v.setdefault(model,{})['meta'] = info
+	v.setdefault(model,{})['views'] = views[model]  
+	v.setdefault(model,{})['allow'] = list(filter(lambda x: isAllow(x,info),VIEWSGEN.keys()))
 
 	for m2o in m2omodels:
 		if m2o in v:
 			continue
-		m2oinfo = get_meta_of_model_v2(cr,pool,uid,m2o)
-		m2oviews = get_views_of_model_v2(cr,pool,uid,m2o,m2oinfo)
-		m2oinfo = get_referenced_attrs_v2(cr,pool,uid,m2oinfo)
-		v.setdefault(m2o,{}).setdefault('meta',m2oinfo)
-		v.setdefault(m2o,{}).setdefault('views',m2oviews[m2o])  
-		v.setdefault(m2o,{}).setdefault('allow',list(filter(lambda x: isAllow(x,m2oinfo),VIEWSGEN.keys())))
+		m2oinfo = get_meta_of_model_v2(cr,pool,uid,m2o,context)
+		m2oviews = get_views_of_model_v2(cr,pool,uid,m2o,m2oinfo,context)
+		m2oinfo = get_referenced_attrs_v2(cr,pool,uid,m2oinfo,context)
+		v.setdefault(m2o,{})['meta'] = m2oinfo
+		v.setdefault(m2o,{})['views'] = m2oviews[m2o]  
+		v.setdefault(m2o,{})['allow'] = list(filter(lambda x: isAllow(x,m2oinfo),VIEWSGEN.keys()))
 
 	for m2m in m2mmodels:
 		if m2m in v:
 			continue
-		m2minfo = get_meta_of_model_v2(cr,pool,uid,m2m)
-		m2mviews = get_views_of_model_v2(cr,pool,uid,m2m,m2minfo)
-		m2minfo = get_referenced_attrs_v2(cr,pool,uid,m2minfo)
-		v.setdefault(m2m,{}).setdefault('meta',m2minfo)
-		v.setdefault(m2m,{}).setdefault('views',m2mviews[m2m])  
-		v.setdefault(m2m,{}).setdefault('allow',list(filter(lambda x: isAllow(x,m2minfo),VIEWSGEN.keys())))  
+		m2minfo = get_meta_of_model_v2(cr,pool,uid,m2m,context)
+		m2mviews = get_views_of_model_v2(cr,pool,uid,m2m,m2minfo,context)
+		m2minfo = get_referenced_attrs_v2(cr,pool,uid,m2minfo,context)
+		v.setdefault(m2m,{})['meta'] = m2minfo
+		v.setdefault(m2m,{})['views'] = m2mviews[m2m]
+		v.setdefault(m2m,{})['allow'] = list(filter(lambda x: isAllow(x,m2minfo),VIEWSGEN.keys())) 
 
 	for m in models:
 		if m == model or m in v:
 			continue
-		childs = get_meta_of_models_v2(cr,pool,uid,m)
+		childs = get_meta_of_models_v2(cr,pool,uid,m,context)
 		for k in childs.keys():
 			if k not in v:
 				v[k] = childs[k]
@@ -222,11 +231,11 @@ def get_meta_of_models_v2(cr,pool,uid,model):
 
 	return v
 			
-def get_views_of_model_v2(cr,pool,uid,model,info):
+def get_views_of_model_v2(cr,pool,uid,model,info,context):
 	o = {}
-	views = pool.get('bc.ui.views').select(cr,pool,uid,fields=['name','model','arch',{'inherit_views':['name','type','arch']}],cond=[('model','=',model)])
+	views = pool.get('bc.ui.views').select(cr,pool,uid,fields=['name','model','arch',{'inherit_views':['name','type','arch']}],cond=[('model','=',model)],context=context)
 	for view in views:
-		v = parse_view_v2(view,info)
+		v = parse_view_v2(view,info,context)
 		v['id'] = view['id']
 		o[v['type']] = v
 
@@ -238,9 +247,9 @@ def get_view_by_window_action_id_v2(cr,pool,uid,action_id):
 		return get_view_by_name_v2(cr,pool,uid,name[0])
 	return [None]
 
-def get_meta_by_window_action_id_v2(cr,pool,uid,action_id):
+def get_meta_by_window_action_id_v2(cr,pool,uid,action_id,context):
 	model = get_model_by_window_action_id_v2(cr,pool,uid,action_id)
-	mof = get_meta_of_models_v2(cr,pool,uid,model)
+	mof = get_meta_of_models_v2(cr,pool,uid,model,context)
 	return [{'root':model,'models':mof}]
 
 def get_view_by_name_v2(cr,pool,uid,name):
@@ -289,7 +298,7 @@ def get_view_by_name_v2(cr,pool,uid,name):
 	
 	return [v]
 
-def parse_view_v2(w,info):
+def parse_view_v2(w,info,context):
 	
 	o = {'type':'','header':{},'columns':{},'viewname':w['name'],'webicon':''}
 	for event,el in etree.iterparse(source=BytesIO(w['arch'].encode('utf-8')),events=('end','start')):
@@ -403,7 +412,7 @@ def view(cr,pool,uid,action_id = None, name = None):
 	
 	return [v,o,w['arch'],allow]
 
-def get_referenced_attrs_v2(cr,pool,uid,info):
+def get_referenced_attrs_v2(cr,pool,uid,info,context):
 	for column in info['columns'].keys():
 		if info['columns'][column]['type'] == 'referenced':
 			ref = info['columns'][column]['ref'];

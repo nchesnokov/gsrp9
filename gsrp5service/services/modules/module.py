@@ -973,7 +973,7 @@ def _loadFiles(cr,pool,uid,name,info,metas):
 								r1 = pool.get('bc.models').search(cr,pool,uid,[('name','=',model)])
 								if len(r1) > 0:
 									v = res[lang][model]
-									pool.get('bc.model.translations').modify(cr,pool,uid,{'lang':r[0],'model':r1[0],'tr':json.dumps(v)},{})
+									pool.get('bc.record.translations').modify(cr,pool,uid,{'lang':r[0],'model':r1[0],'record':r1[0],'tr':json.dumps(v)},{})
 							
 						
 					_logger.info("Loaded  file: %s" % (opj(path,name,f),))
