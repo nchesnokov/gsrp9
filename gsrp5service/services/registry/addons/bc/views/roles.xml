@@ -100,6 +100,26 @@
           <column name="note">Model bc.langs grant crw</column>
           <column name="group_id">bc.crw</column>
         </record>
+        <record id="bc.user.preferences.readonly">
+          <column name="name">bc.user.preferences.readonly</column>
+          <column name="note">Model bc.user.preferences grant readonly</column>
+          <column name="group_id">bc.readonly</column>
+        </record>
+        <record id="bc.user.preferences.nodrop">
+          <column name="name">bc.user.preferences.nodrop</column>
+          <column name="note">Model bc.user.preferences grant nodrop</column>
+          <column name="group_id">bc.nodrop</column>
+        </record>
+        <record id="bc.user.preferences.full">
+          <column name="name">bc.user.preferences.full</column>
+          <column name="note">Model bc.user.preferences grant full</column>
+          <column name="group_id">bc.full</column>
+        </record>
+        <record id="bc.user.preferences.crw">
+          <column name="name">bc.user.preferences.crw</column>
+          <column name="note">Model bc.user.preferences grant crw</column>
+          <column name="group_id">bc.crw</column>
+        </record>
         <record id="bc.group.modules.readonly">
           <column name="name">bc.group.modules.readonly</column>
           <column name="note">Model bc.group.modules grant readonly</column>
@@ -811,6 +831,56 @@
         <record id="bc.bc.langs.crw">
           <column name="access_id">bc.langs.crw</column>
           <column name="model_id">bc.langs</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.user.preferences.readonly">
+          <column name="access_id">bc.user.preferences.readonly</column>
+          <column name="model_id">bc.user.preferences</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="bc.bc.user.preferences.nodrop">
+          <column name="access_id">bc.user.preferences.nodrop</column>
+          <column name="model_id">bc.user.preferences</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.user.preferences.full">
+          <column name="access_id">bc.user.preferences.full</column>
+          <column name="model_id">bc.user.preferences</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="bc.bc.user.preferences.crw">
+          <column name="access_id">bc.user.preferences.crw</column>
+          <column name="model_id">bc.user.preferences</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

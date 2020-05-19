@@ -3,6 +3,8 @@ from gsrp5service.orm.model import Model
 
 from passlib.hash import pbkdf2_sha256
 
+import pytz
+
 class bc_users(Model):
 	_name = 'bc.users'
 	_description = 'General Model Users'
@@ -13,7 +15,9 @@ class bc_users(Model):
 	'password': fields.varchar('Password', required = True,readonly=True),
 	'firstname': fields.varchar('First Name', required = True, selectable = True,readonly=True),
 	'lastname': fields.varchar('Last Name', required = True, selectable = True,readonly=True),
-	'issuperuser': fields.boolean(label='Is Super User',readonly=True)}
+	'issuperuser': fields.boolean(label='Is Super User',readonly=True),
+	'preferences':fields.one2many(label='Preferences',obj='bc.user.preferences',rel='user_id')
+	}
 
 	_sql_constraints = [('full_name_unique','unique (firstname, lastname)', 'Login unique fullname of user')]
 	
@@ -133,6 +137,27 @@ class bc_langs(Model):
 	}
 
 bc_langs()
+
+class bc_user_preferences(Model):
+	_name = 'bc.user.preferences'
+	_description = 'General Model User Preferncess'
+	_columns = {
+	'user_id':fields.many2one(label='User',obj='bc.users',readonly=True),
+	'lang':fields.many2one(label='Language',obj='bc.langs'),
+	'country': fields.selection(label='Country',selections='_get_countries'),
+	'timezone': fields.selection(label='Timezone', selections='_get_timezones')
+	}
+	def _get_countries(self,cr,pool,uid,item,context={}):
+		return list(pytz.country_names.items())
+
+	def _get_timezones(self,cr,pool,uid,item,context={}):
+		res = []
+		for v in pytz.all_timezones:
+			res.append((v,v))
+		return res
+		
+bc_user_preferences()
+
 
 class bc_group_modules(Model):
 	_name = 'bc.group.modules'
@@ -323,7 +348,7 @@ class bc_record_translations(Model):
 	_columns = {
 	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
 	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
-	'record': fields.integer(label="Record ID",readonly=True),
+	'record': fields.uuid(label="Record ID",readonly=True),
 	'tr': fields.json(label='Translations',readonly=True)
 	}
 

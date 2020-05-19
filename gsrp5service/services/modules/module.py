@@ -1189,10 +1189,12 @@ def _load_i18n(path,name,f):
 								col_name,col_attr = v['_columns'].split('$')
 								if col_attr in ('label','manual','help'):															
 									res[lang].setdefault(model,{}).setdefault(attr,{}).setdefault(col_name,{})[col_attr] = entry.msgstr
-								elif col_attr == 'selections':
+								elif col_attr[:10] == 'selections':
 									sel_val = col_attr.split('#')[1]
-									res[lang].setdefault(model,{}).setdefault(attr,{}).setdefault(col_name,{}).setfefault(col_attr,[]).append((sel_val,entry.msgstr))
+									res[lang].setdefault(model,{}).setdefault(attr,{}).setdefault(col_name,{}).setdefault(col_attr[:10],[]).append({'__tuple__':(sel_val,entry.msgstr)})
 							else:
 								res[lang].setdefault(model,{})[attr] = entry.msgstr
 
+	if 'RU' in res and 'md.vat.code' in res['RU']:
+		print('RES:',res['RU']['md.vat.code'])
 	return res

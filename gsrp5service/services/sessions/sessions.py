@@ -3,6 +3,7 @@ import traceback
 import uuid
 import copy
 import pdb
+import pytz
 from passlib.hash import pbkdf2_sha256
 from decimal import Decimal
 from configparser import ConfigParser
@@ -126,7 +127,7 @@ class User(object):
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
 	
-					return [self._connected,self._uid]
+					return [self._connected,self._uid,{'country_timezones':dict(pytz.country_timezones),'country_names':dict(pytz.country_names),'langs':self._models.get('bc.langs').select(self._cursor,self._models,self._uid,['code','description']),'preferences':self._models.get('bc.user.preferences').select(self._cursor,self._models,self._uid,['user_id','lang','country','timezone'])}]
 				else:
 					return [False,'Invalid username or password']
 		

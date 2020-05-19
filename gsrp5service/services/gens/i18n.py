@@ -42,7 +42,7 @@ def _download_i18n(cr,pool,uid,path,module,models):
 				msgid = ci[k]['label']
 			
 			mt.setdefault(msgid,[]).append(('model@'+model._name+'|_columns@'+k+'$label', 1))
-			if 'selections' in ci [k] and ci[k]['selections']:
+			if 'selections' in ci[k] and ci[k]['selections']:
 				for ks1,ks2 in ci[k]['selections']:
 					msgid = ks2
 					mt.setdefault(msgid,[]).append(('model@'+model._name+'|_columns@'+k+'$selections#'+ks1, 1))

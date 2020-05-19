@@ -159,8 +159,17 @@ def get_views_of_model_v2(cr,pool,uid,model):
 	return [v]
 
 def get_meta_of_model_v2(cr,pool,uid,model,context):
-	trs = pool.get('bc.model.translations').select(cr,pool,uid,['tr'],[('lang','=',context['lang']),('model','=',model)])
-	attrs = pool.get(model).modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
+	trs = pool.get('bc.record.translations').select(cr,pool,uid,['tr'],[('lang','=',context['lang']),('model','=',model)])
+	m = pool.get(model)
+	attrs = m.modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
+	for s in m._selectionfields:
+		if s in attrs['columns'] and type(attrs['columns'][s]['selections']) == str:
+			method = getattr(m,attrs['columns'][s]['selections'],None)
+			if method:
+				v = method(cr,pool,uid,[],context)
+				if v is not None:
+					attrs['columns'][s]['selections'] = v
+					
 	if len(trs) > 0:
 		tr = trs[0]['tr']
 		attrs['description'] = tr['_description']

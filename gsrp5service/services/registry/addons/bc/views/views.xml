@@ -12,6 +12,7 @@
               <field name="firstname"/>
               <field name="lastname"/>
               <field name="issuperuser"/>
+              <field name="preferences"/>
             </form>
           </column>
         </record>
@@ -25,6 +26,7 @@
               <field name="firstname"/>
               <field name="lastname"/>
               <field name="issuperuser"/>
+              <field name="preferences"/>
             </list>
           </column>
         </record>
@@ -217,6 +219,42 @@
               <field name="code"/>
               <field name="description"/>
             </find>
+          </column>
+        </record>
+        <record id="view.bc.user.preferences.form">
+          <column name="name">view.bc.user.preferences.form</column>
+          <column name="model">bc.user.preferences</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="user_id"/>
+              <field name="lang"/>
+              <field name="country"/>
+              <field name="timezone"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.user.preferences.list">
+          <column name="name">view.bc.user.preferences.list</column>
+          <column name="model">bc.user.preferences</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="user_id"/>
+              <field name="lang"/>
+              <field name="country"/>
+              <field name="timezone"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.user.preferences.m2mlist">
+          <column name="name">view.bc.user.preferences.m2mlist</column>
+          <column name="model">bc.user.preferences</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="user_id"/>
+              <field name="lang"/>
+              <field name="country"/>
+              <field name="timezone"/>
+            </m2mlist>
           </column>
         </record>
         <record id="view.bc.group.modules.form">
