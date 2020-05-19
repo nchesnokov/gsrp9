@@ -1,6 +1,7 @@
 import os
 #import uuid
 import logging
+import web_pdb
 from copy import deepcopy
 from functools import reduce
 from .common import *
@@ -639,8 +640,9 @@ def _getColumns_Attrs(self):
 	return self._columns_attrs
 
 def _getColumns(self,columns=None,attributes=None):
+	
 	return columnsInfo(self,columns,attributes)
-
+	
 def _getFamily(self,columns):
 	return familyInfo(self,columns)
 
@@ -755,6 +757,15 @@ def columnsInfo(self, columns = None, attributes = None):
 		else:
 			res[column] = self._columns[column]._get_attrs(attributes)
 
+	for s in self._selectionfields:
+		if s in res and 'selections' in res[s] and type(res[s]['selections']) == str:
+			method = getattr(self,res[s]['selections'],None)
+			#web_pdb.set_trace()
+			if method:
+				v = method()
+				if v is not None:
+					res[s]['selections'] = v
+
 	return res
 
 def imodelInfo(self, columns = None, attributes = None):
@@ -785,6 +796,15 @@ def icolumnsInfo(self, columns = None, attributes = None):
 	
 	for column in columns:
 		res[column] = self._columns[column]._get_attrs(attributes)
+
+	for s in self._selectionfields:
+		if s in res and type(res[s]['selections']) == str:
+			method = getattr(self,res[s]['selections'],None)
+			if method:
+				v = method()
+				if v is not None:
+					res[s]['selections'] = v
+
 
 	return res
 

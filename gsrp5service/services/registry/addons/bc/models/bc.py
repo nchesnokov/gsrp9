@@ -147,10 +147,10 @@ class bc_user_preferences(Model):
 	'country': fields.selection(label='Country',selections='_get_countries'),
 	'timezone': fields.selection(label='Timezone', selections='_get_timezones')
 	}
-	def _get_countries(self,cr,pool,uid,item,context={}):
+	def _get_countries(self):
 		return list(pytz.country_names.items())
 
-	def _get_timezones(self,cr,pool,uid,item,context={}):
+	def _get_timezones(self):
 		res = []
 		for v in pytz.all_timezones:
 			res.append((v,v))

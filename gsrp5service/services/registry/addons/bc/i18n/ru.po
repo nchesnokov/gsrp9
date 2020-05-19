@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-15 19:41:51+0300\n"
-"PO-Revision-Date: 2020-05-15 19:41:51+0300\n"
+"POT-Creation-Date: 2020-05-19 21:00:26+0300\n"
+"PO-Revision-Date: 2020-05-19 21:00:26+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -34,6 +34,10 @@ msgstr "Фамилия"
 #: model@bc.users|_columns@issuperuser$label:1
 msgid "Is Super User"
 msgstr "Супер Пользователь"
+
+#: model@bc.users|_columns@preferences$label:1
+msgid "Preferences"
+msgstr "Предпочтения"
 
 #: model@bc.area.messages|_description@:1
 msgid "General Model Area Messages"
@@ -78,10 +82,3374 @@ msgid "General Model Langs"
 msgstr "Генеральная Модель Лэнг"
 
 #: model@bc.langs|_columns@code$label:1
+#: model@bc.user.preferences|_columns@lang$label:1
 #: model@bc.record.translations|_columns@lang$label:1
 #: model@bc.model.translations|_columns@lang$label:1
 msgid "Language"
 msgstr "Язык"
+
+#: model@bc.user.preferences|_description@:1
+msgid "General Model User Preferncess"
+msgstr "Генеральная Модель Пользователя Preferncess"
+
+#: model@bc.user.preferences|_columns@user_id$label:1
+#: model@bc.tuning.ui.views|_columns@tuser$label:1
+msgid "User"
+msgstr "Пользователь"
+
+#: model@bc.user.preferences|_columns@country$label:1
+msgid "Country"
+msgstr "Страна"
+
+#: model@bc.user.preferences|_columns@country$selections#AD:1
+msgid "Andorra"
+msgstr "Андорра"
+
+#: model@bc.user.preferences|_columns@country$selections#AE:1
+msgid "United Arab Emirates"
+msgstr "Объединенные Арабские Эмираты"
+
+#: model@bc.user.preferences|_columns@country$selections#AF:1
+msgid "Afghanistan"
+msgstr "Афганистан"
+
+#: model@bc.user.preferences|_columns@country$selections#AG:1
+msgid "Antigua & Barbuda"
+msgstr "Антигуа И Барбуда"
+
+#: model@bc.user.preferences|_columns@country$selections#AI:1
+msgid "Anguilla"
+msgstr "Ангилья"
+
+#: model@bc.user.preferences|_columns@country$selections#AL:1
+msgid "Albania"
+msgstr "Албания"
+
+#: model@bc.user.preferences|_columns@country$selections#AM:1
+msgid "Armenia"
+msgstr "Армения"
+
+#: model@bc.user.preferences|_columns@country$selections#AO:1
+msgid "Angola"
+msgstr "Ангола"
+
+#: model@bc.user.preferences|_columns@country$selections#AQ:1
+msgid "Antarctica"
+msgstr "Антарктида"
+
+#: model@bc.user.preferences|_columns@country$selections#AR:1
+msgid "Argentina"
+msgstr "Аргентина"
+
+#: model@bc.user.preferences|_columns@country$selections#AS:1
+msgid "Samoa (American)"
+msgstr "Самоа (Американский)"
+
+#: model@bc.user.preferences|_columns@country$selections#AT:1
+msgid "Austria"
+msgstr "Австрия"
+
+#: model@bc.user.preferences|_columns@country$selections#AU:1
+msgid "Australia"
+msgstr "Австралия"
+
+#: model@bc.user.preferences|_columns@country$selections#AW:1
+msgid "Aruba"
+msgstr "Аруба"
+
+#: model@bc.user.preferences|_columns@country$selections#AX:1
+msgid "Åland Islands"
+msgstr "Аландские Острова"
+
+#: model@bc.user.preferences|_columns@country$selections#AZ:1
+msgid "Azerbaijan"
+msgstr "Азербайджан"
+
+#: model@bc.user.preferences|_columns@country$selections#BA:1
+msgid "Bosnia & Herzegovina"
+msgstr "Босния И Герцеговина"
+
+#: model@bc.user.preferences|_columns@country$selections#BB:1
+msgid "Barbados"
+msgstr "Барбадос"
+
+#: model@bc.user.preferences|_columns@country$selections#BD:1
+msgid "Bangladesh"
+msgstr "Бангладеш"
+
+#: model@bc.user.preferences|_columns@country$selections#BE:1
+msgid "Belgium"
+msgstr "Бельгия"
+
+#: model@bc.user.preferences|_columns@country$selections#BF:1
+msgid "Burkina Faso"
+msgstr "Буркина-Фасо"
+
+#: model@bc.user.preferences|_columns@country$selections#BG:1
+msgid "Bulgaria"
+msgstr "Болгария"
+
+#: model@bc.user.preferences|_columns@country$selections#BH:1
+msgid "Bahrain"
+msgstr "Бахрейн"
+
+#: model@bc.user.preferences|_columns@country$selections#BI:1
+msgid "Burundi"
+msgstr "Бурунди"
+
+#: model@bc.user.preferences|_columns@country$selections#BJ:1
+msgid "Benin"
+msgstr "Бенин"
+
+#: model@bc.user.preferences|_columns@country$selections#BL:1
+msgid "St Barthelemy"
+msgstr "Сент-Бартелеми"
+
+#: model@bc.user.preferences|_columns@country$selections#BM:1
+msgid "Bermuda"
+msgstr "Бермуды"
+
+#: model@bc.user.preferences|_columns@country$selections#BN:1
+msgid "Brunei"
+msgstr "Бруней"
+
+#: model@bc.user.preferences|_columns@country$selections#BO:1
+msgid "Bolivia"
+msgstr "Боливия"
+
+#: model@bc.user.preferences|_columns@country$selections#BQ:1
+msgid "Caribbean NL"
+msgstr "Карибский НЛ"
+
+#: model@bc.user.preferences|_columns@country$selections#BR:1
+msgid "Brazil"
+msgstr "Бразилия"
+
+#: model@bc.user.preferences|_columns@country$selections#BS:1
+msgid "Bahamas"
+msgstr "Багамские острова"
+
+#: model@bc.user.preferences|_columns@country$selections#BT:1
+msgid "Bhutan"
+msgstr "Бутан"
+
+#: model@bc.user.preferences|_columns@country$selections#BV:1
+msgid "Bouvet Island"
+msgstr "Остров Буве "
+
+#: model@bc.user.preferences|_columns@country$selections#BW:1
+msgid "Botswana"
+msgstr "Ботсвана"
+
+#: model@bc.user.preferences|_columns@country$selections#BY:1
+msgid "Belarus"
+msgstr "Беларусь"
+
+#: model@bc.user.preferences|_columns@country$selections#BZ:1
+msgid "Belize"
+msgstr "Белиз"
+
+#: model@bc.user.preferences|_columns@country$selections#CA:1
+msgid "Canada"
+msgstr "Канада"
+
+#: model@bc.user.preferences|_columns@country$selections#CC:1
+msgid "Cocos (Keeling) Islands"
+msgstr "Кокосовые (Килинг) Острова"
+
+#: model@bc.user.preferences|_columns@country$selections#CD:1
+msgid "Congo (Dem. Rep.)"
+msgstr "Конго (Дем. Респ.)"
+
+#: model@bc.user.preferences|_columns@country$selections#CF:1
+msgid "Central African Rep."
+msgstr "Центрально-Африканская Респ."
+
+#: model@bc.user.preferences|_columns@country$selections#CG:1
+msgid "Congo (Rep.)"
+msgstr "Конго (Респ.)"
+
+#: model@bc.user.preferences|_columns@country$selections#CH:1
+msgid "Switzerland"
+msgstr "Швейцария"
+
+#: model@bc.user.preferences|_columns@country$selections#CI:1
+msgid "Côte d'Ivoire"
+msgstr "Кот-д'Ивуар"
+
+#: model@bc.user.preferences|_columns@country$selections#CK:1
+msgid "Cook Islands"
+msgstr "Острова Кука "
+
+#: model@bc.user.preferences|_columns@country$selections#CL:1
+msgid "Chile"
+msgstr "Чили"
+
+#: model@bc.user.preferences|_columns@country$selections#CM:1
+msgid "Cameroon"
+msgstr "Камерун"
+
+#: model@bc.user.preferences|_columns@country$selections#CN:1
+msgid "China"
+msgstr "Китай"
+
+#: model@bc.user.preferences|_columns@country$selections#CO:1
+msgid "Colombia"
+msgstr "Колумбия"
+
+#: model@bc.user.preferences|_columns@country$selections#CR:1
+msgid "Costa Rica"
+msgstr "Коста-Рика"
+
+#: model@bc.user.preferences|_columns@country$selections#CU:1
+#: model@bc.user.preferences|_columns@timezone$selections#Cuba:1
+msgid "Cuba"
+msgstr "Куба"
+
+#: model@bc.user.preferences|_columns@country$selections#CV:1
+msgid "Cape Verde"
+msgstr "Кабо-Верде"
+
+#: model@bc.user.preferences|_columns@country$selections#CW:1
+msgid "Curaçao"
+msgstr "Кюрасао"
+
+#: model@bc.user.preferences|_columns@country$selections#CX:1
+msgid "Christmas Island"
+msgstr "Остров Рождества"
+
+#: model@bc.user.preferences|_columns@country$selections#CY:1
+msgid "Cyprus"
+msgstr "Кипр"
+
+#: model@bc.user.preferences|_columns@country$selections#CZ:1
+msgid "Czech Republic"
+msgstr "Чехия"
+
+#: model@bc.user.preferences|_columns@country$selections#DE:1
+msgid "Germany"
+msgstr "Германия"
+
+#: model@bc.user.preferences|_columns@country$selections#DJ:1
+msgid "Djibouti"
+msgstr "Джибути"
+
+#: model@bc.user.preferences|_columns@country$selections#DK:1
+msgid "Denmark"
+msgstr "Дания"
+
+#: model@bc.user.preferences|_columns@country$selections#DM:1
+msgid "Dominica"
+msgstr "Доминика"
+
+#: model@bc.user.preferences|_columns@country$selections#DO:1
+msgid "Dominican Republic"
+msgstr "Доминиканская Республика"
+
+#: model@bc.user.preferences|_columns@country$selections#DZ:1
+msgid "Algeria"
+msgstr "Алжир"
+
+#: model@bc.user.preferences|_columns@country$selections#EC:1
+msgid "Ecuador"
+msgstr "Эквадор"
+
+#: model@bc.user.preferences|_columns@country$selections#EE:1
+msgid "Estonia"
+msgstr "Эстония"
+
+#: model@bc.user.preferences|_columns@country$selections#EG:1
+#: model@bc.user.preferences|_columns@timezone$selections#Egypt:1
+msgid "Egypt"
+msgstr "Египет"
+
+#: model@bc.user.preferences|_columns@country$selections#EH:1
+msgid "Western Sahara"
+msgstr "Западной Сахаре"
+
+#: model@bc.user.preferences|_columns@country$selections#ER:1
+msgid "Eritrea"
+msgstr "Эритрея"
+
+#: model@bc.user.preferences|_columns@country$selections#ES:1
+msgid "Spain"
+msgstr "Испания"
+
+#: model@bc.user.preferences|_columns@country$selections#ET:1
+msgid "Ethiopia"
+msgstr "Эфиопия"
+
+#: model@bc.user.preferences|_columns@country$selections#FI:1
+msgid "Finland"
+msgstr "Финляндия"
+
+#: model@bc.user.preferences|_columns@country$selections#FJ:1
+msgid "Fiji"
+msgstr "Фиджи"
+
+#: model@bc.user.preferences|_columns@country$selections#FK:1
+msgid "Falkland Islands"
+msgstr "Фолклендские Острова"
+
+#: model@bc.user.preferences|_columns@country$selections#FM:1
+msgid "Micronesia"
+msgstr "Микронезия"
+
+#: model@bc.user.preferences|_columns@country$selections#FO:1
+msgid "Faroe Islands"
+msgstr "Фарерские Острова"
+
+#: model@bc.user.preferences|_columns@country$selections#FR:1
+msgid "France"
+msgstr "Франция"
+
+#: model@bc.user.preferences|_columns@country$selections#GA:1
+msgid "Gabon"
+msgstr "Габон"
+
+#: model@bc.user.preferences|_columns@country$selections#GB:1
+msgid "Britain (UK)"
+msgstr "Англия (Великобритания)"
+
+#: model@bc.user.preferences|_columns@country$selections#GD:1
+msgid "Grenada"
+msgstr "Гренада"
+
+#: model@bc.user.preferences|_columns@country$selections#GE:1
+msgid "Georgia"
+msgstr "Грузия"
+
+#: model@bc.user.preferences|_columns@country$selections#GF:1
+msgid "French Guiana"
+msgstr "Французская Гвиана"
+
+#: model@bc.user.preferences|_columns@country$selections#GG:1
+msgid "Guernsey"
+msgstr "Гернси"
+
+#: model@bc.user.preferences|_columns@country$selections#GH:1
+msgid "Ghana"
+msgstr "Гана"
+
+#: model@bc.user.preferences|_columns@country$selections#GI:1
+msgid "Gibraltar"
+msgstr "Гибралтар"
+
+#: model@bc.user.preferences|_columns@country$selections#GL:1
+msgid "Greenland"
+msgstr "Гренландия"
+
+#: model@bc.user.preferences|_columns@country$selections#GM:1
+msgid "Gambia"
+msgstr "Гамбия"
+
+#: model@bc.user.preferences|_columns@country$selections#GN:1
+msgid "Guinea"
+msgstr "Гвинея"
+
+#: model@bc.user.preferences|_columns@country$selections#GP:1
+msgid "Guadeloupe"
+msgstr "Гваделупа"
+
+#: model@bc.user.preferences|_columns@country$selections#GQ:1
+msgid "Equatorial Guinea"
+msgstr "Экваториальная Гвинея"
+
+#: model@bc.user.preferences|_columns@country$selections#GR:1
+msgid "Greece"
+msgstr "Греция"
+
+#: model@bc.user.preferences|_columns@country$selections#GS:1
+msgid "South Georgia & the South Sandwich Islands"
+msgstr "Южная Георгия и Южные Сандвичевы острова"
+
+#: model@bc.user.preferences|_columns@country$selections#GT:1
+msgid "Guatemala"
+msgstr "Гватемала"
+
+#: model@bc.user.preferences|_columns@country$selections#GU:1
+msgid "Guam"
+msgstr "Гуам"
+
+#: model@bc.user.preferences|_columns@country$selections#GW:1
+msgid "Guinea-Bissau"
+msgstr "Гвинея-Бисау"
+
+#: model@bc.user.preferences|_columns@country$selections#GY:1
+msgid "Guyana"
+msgstr "Гайана"
+
+#: model@bc.user.preferences|_columns@country$selections#HK:1
+msgid "Hong Kong"
+msgstr "Гонконг"
+
+#: model@bc.user.preferences|_columns@country$selections#HM:1
+msgid "Heard Island & McDonald Islands"
+msgstr "Слышала Острова Макдональд"
+
+#: model@bc.user.preferences|_columns@country$selections#HN:1
+msgid "Honduras"
+msgstr "Гондурас"
+
+#: model@bc.user.preferences|_columns@country$selections#HR:1
+msgid "Croatia"
+msgstr "Хорватия"
+
+#: model@bc.user.preferences|_columns@country$selections#HT:1
+msgid "Haiti"
+msgstr "Гаити"
+
+#: model@bc.user.preferences|_columns@country$selections#HU:1
+msgid "Hungary"
+msgstr "Венгрия"
+
+#: model@bc.user.preferences|_columns@country$selections#ID:1
+msgid "Indonesia"
+msgstr "Индонезия"
+
+#: model@bc.user.preferences|_columns@country$selections#IE:1
+msgid "Ireland"
+msgstr "Ирландия"
+
+#: model@bc.user.preferences|_columns@country$selections#IL:1
+#: model@bc.user.preferences|_columns@timezone$selections#Israel:1
+msgid "Israel"
+msgstr "Израиль"
+
+#: model@bc.user.preferences|_columns@country$selections#IM:1
+msgid "Isle of Man"
+msgstr "Остров Мэн"
+
+#: model@bc.user.preferences|_columns@country$selections#IN:1
+msgid "India"
+msgstr "Индия"
+
+#: model@bc.user.preferences|_columns@country$selections#IO:1
+msgid "British Indian Ocean Territory"
+msgstr "Британская Территория В Индийском Океане "
+
+#: model@bc.user.preferences|_columns@country$selections#IQ:1
+msgid "Iraq"
+msgstr "Ирак"
+
+#: model@bc.user.preferences|_columns@country$selections#IR:1
+#: model@bc.user.preferences|_columns@timezone$selections#Iran:1
+msgid "Iran"
+msgstr "Иран"
+
+#: model@bc.user.preferences|_columns@country$selections#IS:1
+#: model@bc.user.preferences|_columns@timezone$selections#Iceland:1
+msgid "Iceland"
+msgstr "Исландия"
+
+#: model@bc.user.preferences|_columns@country$selections#IT:1
+msgid "Italy"
+msgstr "Италия"
+
+#: model@bc.user.preferences|_columns@country$selections#JE:1
+msgid "Jersey"
+msgstr "Джерси"
+
+#: model@bc.user.preferences|_columns@country$selections#JM:1
+#: model@bc.user.preferences|_columns@timezone$selections#Jamaica:1
+msgid "Jamaica"
+msgstr "Ямайка"
+
+#: model@bc.user.preferences|_columns@country$selections#JO:1
+msgid "Jordan"
+msgstr "Иордания"
+
+#: model@bc.user.preferences|_columns@country$selections#JP:1
+#: model@bc.user.preferences|_columns@timezone$selections#Japan:1
+msgid "Japan"
+msgstr "Япония"
+
+#: model@bc.user.preferences|_columns@country$selections#KE:1
+msgid "Kenya"
+msgstr "Кения"
+
+#: model@bc.user.preferences|_columns@country$selections#KG:1
+msgid "Kyrgyzstan"
+msgstr "Кыргызстан"
+
+#: model@bc.user.preferences|_columns@country$selections#KH:1
+msgid "Cambodia"
+msgstr "Камбоджа"
+
+#: model@bc.user.preferences|_columns@country$selections#KI:1
+msgid "Kiribati"
+msgstr "Кирибати"
+
+#: model@bc.user.preferences|_columns@country$selections#KM:1
+msgid "Comoros"
+msgstr "Коморские острова"
+
+#: model@bc.user.preferences|_columns@country$selections#KN:1
+msgid "St Kitts & Nevis"
+msgstr "Сент-Китс И Невис"
+
+#: model@bc.user.preferences|_columns@country$selections#KP:1
+msgid "Korea (North)"
+msgstr "Корея (Северная)"
+
+#: model@bc.user.preferences|_columns@country$selections#KR:1
+msgid "Korea (South)"
+msgstr "Корея (Южная)"
+
+#: model@bc.user.preferences|_columns@country$selections#KW:1
+msgid "Kuwait"
+msgstr "Кувейт"
+
+#: model@bc.user.preferences|_columns@country$selections#KY:1
+msgid "Cayman Islands"
+msgstr "Каймановы Острова"
+
+#: model@bc.user.preferences|_columns@country$selections#KZ:1
+msgid "Kazakhstan"
+msgstr "Казахстан"
+
+#: model@bc.user.preferences|_columns@country$selections#LA:1
+msgid "Laos"
+msgstr "Лаос"
+
+#: model@bc.user.preferences|_columns@country$selections#LB:1
+msgid "Lebanon"
+msgstr "Ливан"
+
+#: model@bc.user.preferences|_columns@country$selections#LC:1
+msgid "St Lucia"
+msgstr "Сент-Люсия"
+
+#: model@bc.user.preferences|_columns@country$selections#LI:1
+msgid "Liechtenstein"
+msgstr "Лихтенштейн"
+
+#: model@bc.user.preferences|_columns@country$selections#LK:1
+msgid "Sri Lanka"
+msgstr "Шри-Ланка"
+
+#: model@bc.user.preferences|_columns@country$selections#LR:1
+msgid "Liberia"
+msgstr "Либерия"
+
+#: model@bc.user.preferences|_columns@country$selections#LS:1
+msgid "Lesotho"
+msgstr "Лесото"
+
+#: model@bc.user.preferences|_columns@country$selections#LT:1
+msgid "Lithuania"
+msgstr "Литва"
+
+#: model@bc.user.preferences|_columns@country$selections#LU:1
+msgid "Luxembourg"
+msgstr "Люксембург"
+
+#: model@bc.user.preferences|_columns@country$selections#LV:1
+msgid "Latvia"
+msgstr "Латвия"
+
+#: model@bc.user.preferences|_columns@country$selections#LY:1
+#: model@bc.user.preferences|_columns@timezone$selections#Libya:1
+msgid "Libya"
+msgstr "Ливия"
+
+#: model@bc.user.preferences|_columns@country$selections#MA:1
+msgid "Morocco"
+msgstr "Марокко"
+
+#: model@bc.user.preferences|_columns@country$selections#MC:1
+msgid "Monaco"
+msgstr "Монако"
+
+#: model@bc.user.preferences|_columns@country$selections#MD:1
+msgid "Moldova"
+msgstr "Молдова"
+
+#: model@bc.user.preferences|_columns@country$selections#ME:1
+msgid "Montenegro"
+msgstr "Черногория"
+
+#: model@bc.user.preferences|_columns@country$selections#MF:1
+msgid "St Martin (French)"
+msgstr "Сен-Мартен (Французский)"
+
+#: model@bc.user.preferences|_columns@country$selections#MG:1
+msgid "Madagascar"
+msgstr "Мадагаскар"
+
+#: model@bc.user.preferences|_columns@country$selections#MH:1
+msgid "Marshall Islands"
+msgstr "Маршалловы Острова"
+
+#: model@bc.user.preferences|_columns@country$selections#MK:1
+msgid "North Macedonia"
+msgstr "Северная Македония"
+
+#: model@bc.user.preferences|_columns@country$selections#ML:1
+msgid "Mali"
+msgstr "Мали"
+
+#: model@bc.user.preferences|_columns@country$selections#MM:1
+msgid "Myanmar (Burma)"
+msgstr "Мьянма (Бирма)"
+
+#: model@bc.user.preferences|_columns@country$selections#MN:1
+msgid "Mongolia"
+msgstr "Монголия"
+
+#: model@bc.user.preferences|_columns@country$selections#MO:1
+msgid "Macau"
+msgstr "Макао"
+
+#: model@bc.user.preferences|_columns@country$selections#MP:1
+msgid "Northern Mariana Islands"
+msgstr "Северные Марианские Острова"
+
+#: model@bc.user.preferences|_columns@country$selections#MQ:1
+msgid "Martinique"
+msgstr "Мартиника"
+
+#: model@bc.user.preferences|_columns@country$selections#MR:1
+msgid "Mauritania"
+msgstr "Мавритания"
+
+#: model@bc.user.preferences|_columns@country$selections#MS:1
+msgid "Montserrat"
+msgstr "Монсеррат"
+
+#: model@bc.user.preferences|_columns@country$selections#MT:1
+msgid "Malta"
+msgstr "Мальта"
+
+#: model@bc.user.preferences|_columns@country$selections#MU:1
+msgid "Mauritius"
+msgstr "Маврикий"
+
+#: model@bc.user.preferences|_columns@country$selections#MV:1
+msgid "Maldives"
+msgstr "Мальдивы"
+
+#: model@bc.user.preferences|_columns@country$selections#MW:1
+msgid "Malawi"
+msgstr "Малави"
+
+#: model@bc.user.preferences|_columns@country$selections#MX:1
+msgid "Mexico"
+msgstr "Мексика"
+
+#: model@bc.user.preferences|_columns@country$selections#MY:1
+msgid "Malaysia"
+msgstr "Малайзия"
+
+#: model@bc.user.preferences|_columns@country$selections#MZ:1
+msgid "Mozambique"
+msgstr "Мозамбик"
+
+#: model@bc.user.preferences|_columns@country$selections#NA:1
+msgid "Namibia"
+msgstr "Намибия"
+
+#: model@bc.user.preferences|_columns@country$selections#NC:1
+msgid "New Caledonia"
+msgstr "Новая Каледония"
+
+#: model@bc.user.preferences|_columns@country$selections#NE:1
+msgid "Niger"
+msgstr "Нигер"
+
+#: model@bc.user.preferences|_columns@country$selections#NF:1
+msgid "Norfolk Island"
+msgstr "Остров Норфолк "
+
+#: model@bc.user.preferences|_columns@country$selections#NG:1
+msgid "Nigeria"
+msgstr "Нигерия"
+
+#: model@bc.user.preferences|_columns@country$selections#NI:1
+msgid "Nicaragua"
+msgstr "Никарагуа"
+
+#: model@bc.user.preferences|_columns@country$selections#NL:1
+msgid "Netherlands"
+msgstr "Нидерланды"
+
+#: model@bc.user.preferences|_columns@country$selections#NO:1
+msgid "Norway"
+msgstr "Норвегия"
+
+#: model@bc.user.preferences|_columns@country$selections#NP:1
+msgid "Nepal"
+msgstr "Непал"
+
+#: model@bc.user.preferences|_columns@country$selections#NR:1
+msgid "Nauru"
+msgstr "Науру"
+
+#: model@bc.user.preferences|_columns@country$selections#NU:1
+msgid "Niue"
+msgstr "Ниуэ"
+
+#: model@bc.user.preferences|_columns@country$selections#NZ:1
+msgid "New Zealand"
+msgstr "Новая Зеландия"
+
+#: model@bc.user.preferences|_columns@country$selections#OM:1
+msgid "Oman"
+msgstr "Оман"
+
+#: model@bc.user.preferences|_columns@country$selections#PA:1
+msgid "Panama"
+msgstr "Панама"
+
+#: model@bc.user.preferences|_columns@country$selections#PE:1
+msgid "Peru"
+msgstr "Перу"
+
+#: model@bc.user.preferences|_columns@country$selections#PF:1
+msgid "French Polynesia"
+msgstr "Французская Полинезия"
+
+#: model@bc.user.preferences|_columns@country$selections#PG:1
+msgid "Papua New Guinea"
+msgstr "Папуа Новая Гвинея"
+
+#: model@bc.user.preferences|_columns@country$selections#PH:1
+msgid "Philippines"
+msgstr "Филиппины"
+
+#: model@bc.user.preferences|_columns@country$selections#PK:1
+msgid "Pakistan"
+msgstr "Пакистан"
+
+#: model@bc.user.preferences|_columns@country$selections#PL:1
+#: model@bc.user.preferences|_columns@timezone$selections#Poland:1
+msgid "Poland"
+msgstr "Польша"
+
+#: model@bc.user.preferences|_columns@country$selections#PM:1
+msgid "St Pierre & Miquelon"
+msgstr "Сен-Пьер И Микелон"
+
+#: model@bc.user.preferences|_columns@country$selections#PN:1
+msgid "Pitcairn"
+msgstr "Питкэрн"
+
+#: model@bc.user.preferences|_columns@country$selections#PR:1
+msgid "Puerto Rico"
+msgstr "Пуэрто-Рико"
+
+#: model@bc.user.preferences|_columns@country$selections#PS:1
+msgid "Palestine"
+msgstr "Палестина"
+
+#: model@bc.user.preferences|_columns@country$selections#PT:1
+#: model@bc.user.preferences|_columns@timezone$selections#Portugal:1
+msgid "Portugal"
+msgstr "Португалия"
+
+#: model@bc.user.preferences|_columns@country$selections#PW:1
+msgid "Palau"
+msgstr "Палау"
+
+#: model@bc.user.preferences|_columns@country$selections#PY:1
+msgid "Paraguay"
+msgstr "Парагвай"
+
+#: model@bc.user.preferences|_columns@country$selections#QA:1
+msgid "Qatar"
+msgstr "Катар"
+
+#: model@bc.user.preferences|_columns@country$selections#RE:1
+msgid "Réunion"
+msgstr "Реюньон"
+
+#: model@bc.user.preferences|_columns@country$selections#RO:1
+msgid "Romania"
+msgstr "Румыния"
+
+#: model@bc.user.preferences|_columns@country$selections#RS:1
+msgid "Serbia"
+msgstr "Сербия"
+
+#: model@bc.user.preferences|_columns@country$selections#RU:1
+msgid "Russia"
+msgstr "Россия"
+
+#: model@bc.user.preferences|_columns@country$selections#RW:1
+msgid "Rwanda"
+msgstr "Руанда"
+
+#: model@bc.user.preferences|_columns@country$selections#SA:1
+msgid "Saudi Arabia"
+msgstr "Саудовская Аравия"
+
+#: model@bc.user.preferences|_columns@country$selections#SB:1
+msgid "Solomon Islands"
+msgstr "Соломоновы Острова"
+
+#: model@bc.user.preferences|_columns@country$selections#SC:1
+msgid "Seychelles"
+msgstr "Сейшелы"
+
+#: model@bc.user.preferences|_columns@country$selections#SD:1
+msgid "Sudan"
+msgstr "Судан"
+
+#: model@bc.user.preferences|_columns@country$selections#SE:1
+msgid "Sweden"
+msgstr "Швеция"
+
+#: model@bc.user.preferences|_columns@country$selections#SG:1
+#: model@bc.user.preferences|_columns@timezone$selections#Singapore:1
+msgid "Singapore"
+msgstr "Сингапур"
+
+#: model@bc.user.preferences|_columns@country$selections#SH:1
+msgid "St Helena"
+msgstr "Святой Елены"
+
+#: model@bc.user.preferences|_columns@country$selections#SI:1
+msgid "Slovenia"
+msgstr "Словения"
+
+#: model@bc.user.preferences|_columns@country$selections#SJ:1
+msgid "Svalbard & Jan Mayen"
+msgstr "Шпицберген И Ян-Майен"
+
+#: model@bc.user.preferences|_columns@country$selections#SK:1
+msgid "Slovakia"
+msgstr "Словакия"
+
+#: model@bc.user.preferences|_columns@country$selections#SL:1
+msgid "Sierra Leone"
+msgstr "Сьерра-Леоне"
+
+#: model@bc.user.preferences|_columns@country$selections#SM:1
+msgid "San Marino"
+msgstr "Сан-Марино"
+
+#: model@bc.user.preferences|_columns@country$selections#SN:1
+msgid "Senegal"
+msgstr "Сенегал"
+
+#: model@bc.user.preferences|_columns@country$selections#SO:1
+msgid "Somalia"
+msgstr "Сомали"
+
+#: model@bc.user.preferences|_columns@country$selections#SR:1
+msgid "Suriname"
+msgstr "Суринам"
+
+#: model@bc.user.preferences|_columns@country$selections#SS:1
+msgid "South Sudan"
+msgstr "Южный Судан"
+
+#: model@bc.user.preferences|_columns@country$selections#ST:1
+msgid "Sao Tome & Principe"
+msgstr "Сан-Томе И Принсипи"
+
+#: model@bc.user.preferences|_columns@country$selections#SV:1
+msgid "El Salvador"
+msgstr "Сальвадор"
+
+#: model@bc.user.preferences|_columns@country$selections#SX:1
+msgid "St Maarten (Dutch)"
+msgstr "Сент-Маартен (Голландский)"
+
+#: model@bc.user.preferences|_columns@country$selections#SY:1
+msgid "Syria"
+msgstr "Сирия"
+
+#: model@bc.user.preferences|_columns@country$selections#SZ:1
+msgid "Eswatini (Swaziland)"
+msgstr "Свазиленд (Свазиленд)"
+
+#: model@bc.user.preferences|_columns@country$selections#TC:1
+msgid "Turks & Caicos Is"
+msgstr "Теркс И Кайкос"
+
+#: model@bc.user.preferences|_columns@country$selections#TD:1
+msgid "Chad"
+msgstr "Чад"
+
+#: model@bc.user.preferences|_columns@country$selections#TF:1
+msgid "French Southern & Antarctic Lands"
+msgstr "Французские Южные И Антарктики Земли"
+
+#: model@bc.user.preferences|_columns@country$selections#TG:1
+msgid "Togo"
+msgstr "Того"
+
+#: model@bc.user.preferences|_columns@country$selections#TH:1
+msgid "Thailand"
+msgstr "Таиланд"
+
+#: model@bc.user.preferences|_columns@country$selections#TJ:1
+msgid "Tajikistan"
+msgstr "Таджикистан"
+
+#: model@bc.user.preferences|_columns@country$selections#TK:1
+msgid "Tokelau"
+msgstr "Токелау"
+
+#: model@bc.user.preferences|_columns@country$selections#TL:1
+msgid "East Timor"
+msgstr "Восточный Тимор"
+
+#: model@bc.user.preferences|_columns@country$selections#TM:1
+msgid "Turkmenistan"
+msgstr "Туркменистан"
+
+#: model@bc.user.preferences|_columns@country$selections#TN:1
+msgid "Tunisia"
+msgstr "Тунис"
+
+#: model@bc.user.preferences|_columns@country$selections#TO:1
+msgid "Tonga"
+msgstr "Тонга"
+
+#: model@bc.user.preferences|_columns@country$selections#TR:1
+#: model@bc.user.preferences|_columns@timezone$selections#Turkey:1
+msgid "Turkey"
+msgstr "Турция"
+
+#: model@bc.user.preferences|_columns@country$selections#TT:1
+msgid "Trinidad & Tobago"
+msgstr "Тринидад И Тобаго"
+
+#: model@bc.user.preferences|_columns@country$selections#TV:1
+msgid "Tuvalu"
+msgstr "Тувалу"
+
+#: model@bc.user.preferences|_columns@country$selections#TW:1
+msgid "Taiwan"
+msgstr "Тайвань"
+
+#: model@bc.user.preferences|_columns@country$selections#TZ:1
+msgid "Tanzania"
+msgstr "Танзания"
+
+#: model@bc.user.preferences|_columns@country$selections#UA:1
+msgid "Ukraine"
+msgstr "Украина"
+
+#: model@bc.user.preferences|_columns@country$selections#UG:1
+msgid "Uganda"
+msgstr "Уганда"
+
+#: model@bc.user.preferences|_columns@country$selections#UM:1
+msgid "US minor outlying islands"
+msgstr "США внешние малые острова"
+
+#: model@bc.user.preferences|_columns@country$selections#US:1
+msgid "United States"
+msgstr "США"
+
+#: model@bc.user.preferences|_columns@country$selections#UY:1
+msgid "Uruguay"
+msgstr "Уругвай"
+
+#: model@bc.user.preferences|_columns@country$selections#UZ:1
+msgid "Uzbekistan"
+msgstr "Узбекистан"
+
+#: model@bc.user.preferences|_columns@country$selections#VA:1
+msgid "Vatican City"
+msgstr "Ватикан "
+
+#: model@bc.user.preferences|_columns@country$selections#VC:1
+msgid "St Vincent"
+msgstr "Сент-Винсент"
+
+#: model@bc.user.preferences|_columns@country$selections#VE:1
+msgid "Venezuela"
+msgstr "Венесуэла"
+
+#: model@bc.user.preferences|_columns@country$selections#VG:1
+msgid "Virgin Islands (UK)"
+msgstr "Виргинские острова (Великобритания)"
+
+#: model@bc.user.preferences|_columns@country$selections#VI:1
+msgid "Virgin Islands (US)"
+msgstr "Виргинские острова (США)"
+
+#: model@bc.user.preferences|_columns@country$selections#VN:1
+msgid "Vietnam"
+msgstr "Вьетнам"
+
+#: model@bc.user.preferences|_columns@country$selections#VU:1
+msgid "Vanuatu"
+msgstr "Вануату"
+
+#: model@bc.user.preferences|_columns@country$selections#WF:1
+msgid "Wallis & Futuna"
+msgstr "Уоллис И Футуна"
+
+#: model@bc.user.preferences|_columns@country$selections#WS:1
+msgid "Samoa (western)"
+msgstr "Самоа (западное)"
+
+#: model@bc.user.preferences|_columns@country$selections#YE:1
+msgid "Yemen"
+msgstr "Йемен"
+
+#: model@bc.user.preferences|_columns@country$selections#YT:1
+msgid "Mayotte"
+msgstr "Майотта"
+
+#: model@bc.user.preferences|_columns@country$selections#ZA:1
+msgid "South Africa"
+msgstr "Южная Африка"
+
+#: model@bc.user.preferences|_columns@country$selections#ZM:1
+msgid "Zambia"
+msgstr "Замбия"
+
+#: model@bc.user.preferences|_columns@country$selections#ZW:1
+msgid "Zimbabwe"
+msgstr "Зимбабве"
+
+#: model@bc.user.preferences|_columns@timezone$label:1
+#: model@bc.model.columns|_columns@timezone$label:1
+#: model@bc.inherit.columns|_columns@timezone$label:1
+msgid "Timezone"
+msgstr "Часовой пояс"
+
+#: model@bc.user.preferences|_columns@timezone$selections#ROC:1
+msgid "ROC"
+msgstr "РПЦ"
+
+#: model@bc.user.preferences|_columns@timezone$selections#MET:1
+msgid "MET"
+msgstr "Встретились"
+
+#: model@bc.user.preferences|_columns@timezone$selections#UTC:1
+msgid "UTC"
+msgstr "Мирового"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Eire:1
+msgid "Eire"
+msgstr "Эйре"
+
+#: model@bc.user.preferences|_columns@timezone$selections#ROK:1
+msgid "ROK"
+msgstr "РК"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Universal:1
+msgid "Universal"
+msgstr "Универсальный"
+
+#: model@bc.user.preferences|_columns@timezone$selections#GMT+0:1
+msgid "GMT+0"
+msgstr "Мск+0"
+
+#: model@bc.user.preferences|_columns@timezone$selections#NZ:1
+msgid "NZ"
+msgstr "НЗ"
+
+#: model@bc.user.preferences|_columns@timezone$selections#CST6CDT:1
+msgid "CST6CDT"
+msgstr "CST6CDT"
+
+#: model@bc.user.preferences|_columns@timezone$selections#UCT:1
+msgid "UCT"
+msgstr "СРТ"
+
+#: model@bc.user.preferences|_columns@timezone$selections#GB-Eire:1
+msgid "GB-Eire"
+msgstr "ГБ-эйре"
+
+#: model@bc.user.preferences|_columns@timezone$selections#PST8PDT:1
+msgid "PST8PDT"
+msgstr "PST8PDT"
+
+#: model@bc.user.preferences|_columns@timezone$selections#EST5EDT:1
+msgid "EST5EDT"
+msgstr "Est5edt в"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Zulu:1
+msgid "Zulu"
+msgstr "Зулу"
+
+#: model@bc.user.preferences|_columns@timezone$selections#W-SU:1
+msgid "W-SU"
+msgstr "ВТ-СУ"
+
+#: model@bc.user.preferences|_columns@timezone$selections#GMT-0:1
+msgid "GMT-0"
+msgstr "Мск-0"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Kwajalein:1
+msgid "Kwajalein"
+msgstr "Кваджалейн"
+
+#: model@bc.user.preferences|_columns@timezone$selections#WET:1
+msgid "WET"
+msgstr "Мокрый"
+
+#: model@bc.user.preferences|_columns@timezone$selections#posixrules:1
+msgid "posixrules"
+msgstr "posixrules"
+
+#: model@bc.user.preferences|_columns@timezone$selections#MST:1
+msgid "MST"
+msgstr "МСТ"
+
+#: model@bc.user.preferences|_columns@timezone$selections#PRC:1
+msgid "PRC"
+msgstr "КНР"
+
+#: model@bc.user.preferences|_columns@timezone$selections#NZ-CHAT:1
+msgid "NZ-CHAT"
+msgstr "НЗ-ЧАТ"
+
+#: model@bc.user.preferences|_columns@timezone$selections#GMT0:1
+msgid "GMT0"
+msgstr "GMT0"
+
+#: model@bc.user.preferences|_columns@timezone$selections#CET:1
+msgid "CET"
+msgstr "Сет"
+
+#: model@bc.user.preferences|_columns@timezone$selections#EST:1
+msgid "EST"
+msgstr "Есть"
+
+#: model@bc.user.preferences|_columns@timezone$selections#GMT:1
+msgid "GMT"
+msgstr "Мск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#MST7MDT:1
+msgid "MST7MDT"
+msgstr "MST7MDT"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Factory:1
+msgid "Factory"
+msgstr "Фабрика"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Greenwich:1
+msgid "Greenwich"
+msgstr "Гринвич"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Navajo:1
+msgid "Navajo"
+msgstr "Навахо"
+
+#: model@bc.user.preferences|_columns@timezone$selections#EET:1
+msgid "EET"
+msgstr "Еет"
+
+#: model@bc.user.preferences|_columns@timezone$selections#GB:1
+msgid "GB"
+msgstr "ГБ"
+
+#: model@bc.user.preferences|_columns@timezone$selections#HST:1
+msgid "HST"
+msgstr "ВСД"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Hongkong:1
+msgid "Hongkong"
+msgstr "Гонконг"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Dhaka:1
+msgid "Asia/Dhaka"
+msgstr "Азия/Дакка"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Makassar:1
+msgid "Asia/Makassar"
+msgstr "Азии/Макассар"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Muscat:1
+msgid "Asia/Muscat"
+msgstr "Азия/Мускат"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Irkutsk:1
+msgid "Asia/Irkutsk"
+msgstr "Азия/Иркутск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Dushanbe:1
+msgid "Asia/Dushanbe"
+msgstr "Азия/Душанбе"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Famagusta:1
+msgid "Asia/Famagusta"
+msgstr "Азии/Фамагусты"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Bahrain:1
+msgid "Asia/Bahrain"
+msgstr "Азия/Бахрейн"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Taipei:1
+msgid "Asia/Taipei"
+msgstr "Азия/Тайбэй"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Urumqi:1
+msgid "Asia/Urumqi"
+msgstr "Азия/Урумчи"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Rangoon:1
+msgid "Asia/Rangoon"
+msgstr "Азия/Рангун"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Macao:1
+msgid "Asia/Macao"
+msgstr "Азия/Макао"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Baku:1
+msgid "Asia/Baku"
+msgstr "Азия/Баку"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Thimbu:1
+msgid "Asia/Thimbu"
+msgstr "Азии/Thimbu"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Tomsk:1
+msgid "Asia/Tomsk"
+msgstr "Азии/Томск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Beirut:1
+msgid "Asia/Beirut"
+msgstr "Азия/Бейрут"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Nicosia:1
+msgid "Asia/Nicosia"
+msgstr "Азия/Никосия"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Oral:1
+msgid "Asia/Oral"
+msgstr "Азии/Устный"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Riyadh:1
+msgid "Asia/Riyadh"
+msgstr "Азия/Эр-Рияд"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Hovd:1
+msgid "Asia/Hovd"
+msgstr "Азия/Ховд"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Hong_Kong:1
+msgid "Asia/Hong_Kong"
+msgstr "Азии/Hong_Kong"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Harbin:1
+msgid "Asia/Harbin"
+msgstr "Азия/Харбин"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Amman:1
+msgid "Asia/Amman"
+msgstr "Азии/Амман"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Kuching:1
+msgid "Asia/Kuching"
+msgstr "Азия/Кучинг"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Bangkok:1
+msgid "Asia/Bangkok"
+msgstr "Азия/Бангкок"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Kabul:1
+msgid "Asia/Kabul"
+msgstr "Азия/Кабул"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Thimphu:1
+msgid "Asia/Thimphu"
+msgstr "Азия/Тхимпху"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Karachi:1
+msgid "Asia/Karachi"
+msgstr "Азия/Карачи"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Tashkent:1
+msgid "Asia/Tashkent"
+msgstr "Азия/Ташкент"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Novokuznetsk:1
+msgid "Asia/Novokuznetsk"
+msgstr "Азия/Новокузнецк"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Kuala_Lumpur:1
+msgid "Asia/Kuala_Lumpur"
+msgstr "Азии/Kuala_Lumpur"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Vladivostok:1
+msgid "Asia/Vladivostok"
+msgstr "Азия/Владивосток"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Macau:1
+msgid "Asia/Macau"
+msgstr "Азия/Макао"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Bishkek:1
+msgid "Asia/Bishkek"
+msgstr "Азия/Бишкек"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Ulaanbaatar:1
+msgid "Asia/Ulaanbaatar"
+msgstr "Азиатско-Улан-Батор"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Aqtau:1
+msgid "Asia/Aqtau"
+msgstr "Азия/Актау"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Damascus:1
+msgid "Asia/Damascus"
+msgstr "Азия/Дамаск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Barnaul:1
+msgid "Asia/Barnaul"
+msgstr "Азии/Барнаул"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Ujung_Pandang:1
+msgid "Asia/Ujung_Pandang"
+msgstr "Азии/Ujung_Pandang"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Tehran:1
+msgid "Asia/Tehran"
+msgstr "Азия/Тегеран"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Dubai:1
+msgid "Asia/Dubai"
+msgstr "Азия/Дубаи"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Choibalsan:1
+msgid "Asia/Choibalsan"
+msgstr "Азии/Чойбалсан"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Tokyo:1
+msgid "Asia/Tokyo"
+msgstr "Азия/Токио"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Katmandu:1
+msgid "Asia/Katmandu"
+msgstr "Азия/Катманду"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Kathmandu:1
+msgid "Asia/Kathmandu"
+msgstr "Азия/Катманду"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Pyongyang:1
+msgid "Asia/Pyongyang"
+msgstr "Азия/Пхеньян"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Qostanay:1
+msgid "Asia/Qostanay"
+msgstr "Азии/Костанай"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Kashgar:1
+msgid "Asia/Kashgar"
+msgstr "Азия/Кашгар"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Samarkand:1
+msgid "Asia/Samarkand"
+msgstr "Азия/Самарканд"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Saigon:1
+msgid "Asia/Saigon"
+msgstr "Азии/Сайгон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Yangon:1
+msgid "Asia/Yangon"
+msgstr "Азиатско-Янгон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Yakutsk:1
+msgid "Asia/Yakutsk"
+msgstr "Азия/Якутск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Shanghai:1
+msgid "Asia/Shanghai"
+msgstr "Азия/Шанхай"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Tbilisi:1
+msgid "Asia/Tbilisi"
+msgstr "Азия/Тбилиси"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Gaza:1
+msgid "Asia/Gaza"
+msgstr "Азия/Газа"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Seoul:1
+msgid "Asia/Seoul"
+msgstr "Азия/Сеул"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Tel_Aviv:1
+msgid "Asia/Tel_Aviv"
+msgstr "Азии/Tel_Aviv"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Hebron:1
+msgid "Asia/Hebron"
+msgstr "Азии/Хеброн"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Colombo:1
+msgid "Asia/Colombo"
+msgstr "Азия/Коломбо"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Omsk:1
+msgid "Asia/Omsk"
+msgstr "Азия/Омск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Novosibirsk:1
+msgid "Asia/Novosibirsk"
+msgstr "Азия/Новосибирск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Phnom_Penh:1
+msgid "Asia/Phnom_Penh"
+msgstr "Азии/Phnom_Penh"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Chungking:1
+msgid "Asia/Chungking"
+msgstr "Азия/Чунцин"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Baghdad:1
+msgid "Asia/Baghdad"
+msgstr "Азия/Багдад"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Dili:1
+msgid "Asia/Dili"
+msgstr "Азия/Дили"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Sakhalin:1
+msgid "Asia/Sakhalin"
+msgstr "Азия/Сахалин"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Manila:1
+msgid "Asia/Manila"
+msgstr "Азия/Манила"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Aden:1
+msgid "Asia/Aden"
+msgstr "Азия/Аден"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Anadyr:1
+msgid "Asia/Anadyr"
+msgstr "Азия/Анадырь"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Dacca:1
+msgid "Asia/Dacca"
+msgstr "Азия/Дакка"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Chita:1
+msgid "Asia/Chita"
+msgstr "Азии/Чита"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Chongqing:1
+msgid "Asia/Chongqing"
+msgstr "Азия/Чунцин"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Pontianak:1
+msgid "Asia/Pontianak"
+msgstr "Азиатско-Понтианак"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Qatar:1
+msgid "Asia/Qatar"
+msgstr "Азия/Катар"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Ulan_Bator:1
+msgid "Asia/Ulan_Bator"
+msgstr "Азии/Ulan_Bator"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Qyzylorda:1
+msgid "Asia/Qyzylorda"
+msgstr "Азии/Кызылорда"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Srednekolymsk:1
+msgid "Asia/Srednekolymsk"
+msgstr "Азии/Среднеколымск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Jayapura:1
+msgid "Asia/Jayapura"
+msgstr "Азия/Джаяпура"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Yerevan:1
+msgid "Asia/Yerevan"
+msgstr "Азия/Ереван"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Aqtobe:1
+msgid "Asia/Aqtobe"
+msgstr "Азия/Актюбинск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Khandyga:1
+msgid "Asia/Khandyga"
+msgstr "Азии/Хандыга"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Ho_Chi_Minh:1
+msgid "Asia/Ho_Chi_Minh"
+msgstr "Азии/Ho_Chi_Minh"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Almaty:1
+msgid "Asia/Almaty"
+msgstr "Азия/Алматы"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Ashgabat:1
+msgid "Asia/Ashgabat"
+msgstr "Азия/Ашгабат"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Kuwait:1
+msgid "Asia/Kuwait"
+msgstr "Азия/Кувейт"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Magadan:1
+msgid "Asia/Magadan"
+msgstr "Азия/Магадан"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Singapore:1
+msgid "Asia/Singapore"
+msgstr "Азия/Сингапур"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Kamchatka:1
+msgid "Asia/Kamchatka"
+msgstr "Азия/Камчатка"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Atyrau:1
+msgid "Asia/Atyrau"
+msgstr "Азии/Атырау"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Istanbul:1
+msgid "Asia/Istanbul"
+msgstr "Азии/Стамбул"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Calcutta:1
+msgid "Asia/Calcutta"
+msgstr "Азия/Калькутта"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Krasnoyarsk:1
+msgid "Asia/Krasnoyarsk"
+msgstr "Азия/Красноярск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Ust-Nera:1
+msgid "Asia/Ust-Nera"
+msgstr "Азии/Усть-Нере"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Vientiane:1
+msgid "Asia/Vientiane"
+msgstr "Азия/Вьентьян"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Ashkhabad:1
+msgid "Asia/Ashkhabad"
+msgstr "Азия/Ашгабат"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Jakarta:1
+msgid "Asia/Jakarta"
+msgstr "Азия/Джакарта"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Brunei:1
+msgid "Asia/Brunei"
+msgstr "Азия/Бруней"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Jerusalem:1
+msgid "Asia/Jerusalem"
+msgstr "Азия/Иерусалим"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Yekaterinburg:1
+msgid "Asia/Yekaterinburg"
+msgstr "Азия/Екатеринбург"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Asia/Kolkata:1
+msgid "Asia/Kolkata"
+msgstr "Азия/Калькутта"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Buenos_Aires:1
+msgid "America/Buenos_Aires"
+msgstr "Америка/Buenos_Aires"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Manaus:1
+msgid "America/Manaus"
+msgstr "Америка/Манаус"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Blanc-Sablon:1
+msgid "America/Blanc-Sablon"
+msgstr "Америка/Блан-Саблон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Antigua:1
+msgid "America/Antigua"
+msgstr "Америка/Антигуа"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Grenada:1
+msgid "America/Grenada"
+msgstr "Америка/Гренада"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Catamarca:1
+msgid "America/Catamarca"
+msgstr "Америка/Катамарка"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Cordoba:1
+msgid "America/Cordoba"
+msgstr "Америка/Кордова"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Mexico_City:1
+msgid "America/Mexico_City"
+msgstr "Америка/Mexico_City"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Coral_Harbour:1
+msgid "America/Coral_Harbour"
+msgstr "Америка/Coral_Harbour"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Miquelon:1
+msgid "America/Miquelon"
+msgstr "Америка/Микелон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Toronto:1
+msgid "America/Toronto"
+msgstr "Америка/Торонто"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Vancouver:1
+msgid "America/Vancouver"
+msgstr "Америка/Ванкувер"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Punta_Arenas:1
+msgid "America/Punta_Arenas"
+msgstr "Америка/Punta_Arenas"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Cayman:1
+msgid "America/Cayman"
+msgstr "Америка/Кайман"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Tortola:1
+msgid "America/Tortola"
+msgstr "Америка/Тортола"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/La_Paz:1
+msgid "America/La_Paz"
+msgstr "Америка/La_Paz"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Lower_Princes:1
+msgid "America/Lower_Princes"
+msgstr "Америка/Lower_Princes"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Nassau:1
+msgid "America/Nassau"
+msgstr "Америка/Нассау"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Tijuana:1
+msgid "America/Tijuana"
+msgstr "Америка/Тихуана"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Regina:1
+msgid "America/Regina"
+msgstr "Америка/Реджина"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Bahia:1
+msgid "America/Bahia"
+msgstr "Америка/Баия"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Mazatlan:1
+msgid "America/Mazatlan"
+msgstr "Америка/Масатлан"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Phoenix:1
+msgid "America/Phoenix"
+msgstr "Америка/Финикс"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Montreal:1
+msgid "America/Montreal"
+msgstr "Америка/Монреаль"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Puerto_Rico:1
+msgid "America/Puerto_Rico"
+msgstr "Америка/Puerto_Rico"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Araguaina:1
+msgid "America/Araguaina"
+msgstr "Америка/Арагуаина"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Dominica:1
+msgid "America/Dominica"
+msgstr "Америка/Доминика"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Porto_Acre:1
+msgid "America/Porto_Acre"
+msgstr "Америка/Porto_Acre"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Belize:1
+msgid "America/Belize"
+msgstr "Америка/Белиз"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/St_Barthelemy:1
+msgid "America/St_Barthelemy"
+msgstr "Америка/St_Barthelemy"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Rainy_River:1
+msgid "America/Rainy_River"
+msgstr "Америка/Rainy_River"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Santo_Domingo:1
+msgid "America/Santo_Domingo"
+msgstr "Америка/Santo_Domingo"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Hermosillo:1
+msgid "America/Hermosillo"
+msgstr "Америка/Эрмосильо"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Fortaleza:1
+msgid "America/Fortaleza"
+msgstr "Америка/Форталеза"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Santiago:1
+msgid "America/Santiago"
+msgstr "Америка/Сантьяго"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Sitka:1
+msgid "America/Sitka"
+msgstr "Америка/Ситка"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Metlakatla:1
+msgid "America/Metlakatla"
+msgstr "Америка/В Metlakatla"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Costa_Rica:1
+msgid "America/Costa_Rica"
+msgstr "Америка/Costa_Rica"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Jujuy:1
+msgid "America/Jujuy"
+msgstr "Америка/Хухуй"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Kralendijk:1
+msgid "America/Kralendijk"
+msgstr "Америка/Кралендейк"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Montevideo:1
+msgid "America/Montevideo"
+msgstr "Америка/Монтевидео"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Panama:1
+msgid "America/Panama"
+msgstr "Америка/Панама"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Cayenne:1
+msgid "America/Cayenne"
+msgstr "Америка/Кайенна"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Monterrey:1
+msgid "America/Monterrey"
+msgstr "Америка/Монтеррей"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Indianapolis:1
+msgid "America/Indianapolis"
+msgstr "Америка/Индианаполис"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Dawson_Creek:1
+msgid "America/Dawson_Creek"
+msgstr "Америка/Dawson_Creek"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Martinique:1
+msgid "America/Martinique"
+msgstr "Америка/Мартиника"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Santa_Isabel:1
+msgid "America/Santa_Isabel"
+msgstr "Америка/Santa_Isabel"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Guayaquil:1
+msgid "America/Guayaquil"
+msgstr "Америка/Гуаякиль"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Santarem:1
+msgid "America/Santarem"
+msgstr "Америка/Сантарем"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Glace_Bay:1
+msgid "America/Glace_Bay"
+msgstr "Америка/Glace_Bay"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Adak:1
+msgid "America/Adak"
+msgstr "Америка/Адак"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Guatemala:1
+msgid "America/Guatemala"
+msgstr "Америка/Гватемала"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Cancun:1
+msgid "America/Cancun"
+msgstr "Америка/Канкун"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/St_Johns:1
+msgid "America/St_Johns"
+msgstr "Америка/St_Johns"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Mendoza:1
+msgid "America/Mendoza"
+msgstr "Америка/Мендоса"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Montserrat:1
+msgid "America/Montserrat"
+msgstr "Америка/Монтсеррат"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Rosario:1
+msgid "America/Rosario"
+msgstr "Америка/Росарио"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Ojinaga:1
+msgid "America/Ojinaga"
+msgstr "Америка/Охинага"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Aruba:1
+msgid "America/Aruba"
+msgstr "Америка/Аруба"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Porto_Velho:1
+msgid "America/Porto_Velho"
+msgstr "Америка/Porto_Velho"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Port_of_Spain:1
+msgid "America/Port_of_Spain"
+msgstr "Америка/Port_of_Spain"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Iqaluit:1
+msgid "America/Iqaluit"
+msgstr "Америка/Икалуит"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Marigot:1
+msgid "America/Marigot"
+msgstr "Америка/Мариго"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Ensenada:1
+msgid "America/Ensenada"
+msgstr "Америка/Энсенада"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/New_York:1
+msgid "America/New_York"
+msgstr "Америка/Нью-Йорк"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Resolute:1
+msgid "America/Resolute"
+msgstr "Америка/Решительные"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Danmarkshavn:1
+msgid "America/Danmarkshavn"
+msgstr "Америка/Danmarkshavn"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Belem:1
+msgid "America/Belem"
+msgstr "Америка/Белен"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Paramaribo:1
+msgid "America/Paramaribo"
+msgstr "Америка/Парамарибо"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Caracas:1
+msgid "America/Caracas"
+msgstr "Америка/Каракас"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Goose_Bay:1
+msgid "America/Goose_Bay"
+msgstr "Америка/Goose_Bay"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Bogota:1
+msgid "America/Bogota"
+msgstr "Америка/Богота"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Nome:1
+msgid "America/Nome"
+msgstr "Америка/Ном"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Managua:1
+msgid "America/Managua"
+msgstr "Америка/Манагуа"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Whitehorse:1
+msgid "America/Whitehorse"
+msgstr "Америка/Уайтхорс"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Sao_Paulo:1
+msgid "America/Sao_Paulo"
+msgstr "Америка/Sao_Paulo"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Boa_Vista:1
+msgid "America/Boa_Vista"
+msgstr "Америка/Boa_Vista"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Nipigon:1
+msgid "America/Nipigon"
+msgstr "Америка/Нипигон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Louisville:1
+msgid "America/Louisville"
+msgstr "Америка/Луисвилл"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Rankin_Inlet:1
+msgid "America/Rankin_Inlet"
+msgstr "Америка/Rankin_Inlet"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Chihuahua:1
+msgid "America/Chihuahua"
+msgstr "Америка/Чиуауа"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Nuuk:1
+msgid "America/Nuuk"
+msgstr "Америка/Нуук"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Atka:1
+msgid "America/Atka"
+msgstr "Америка/Атка"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/El_Salvador:1
+msgid "America/El_Salvador"
+msgstr "Америка/El_Salvador"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Anguilla:1
+msgid "America/Anguilla"
+msgstr "Америка/Ангилья"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Havana:1
+msgid "America/Havana"
+msgstr "Америка/Гавана"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Lima:1
+msgid "America/Lima"
+msgstr "Америка/Лима"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Detroit:1
+msgid "America/Detroit"
+msgstr "Америка/Детройт"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Bahia_Banderas:1
+msgid "America/Bahia_Banderas"
+msgstr "Америка/Bahia_Banderas"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Port-au-Prince:1
+msgid "America/Port-au-Prince"
+msgstr "Америка/Порт-о-Пренс"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Thule:1
+msgid "America/Thule"
+msgstr "Америка/Туле"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Asuncion:1
+msgid "America/Asuncion"
+msgstr "Америка/Асунсьон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Guyana:1
+msgid "America/Guyana"
+msgstr "Америка/Гайана"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Virgin:1
+msgid "America/Virgin"
+msgstr "Америка/Дева"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Yellowknife:1
+msgid "America/Yellowknife"
+msgstr "Америка/Йеллоунайф"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/St_Lucia:1
+msgid "America/St_Lucia"
+msgstr "Америка/St_Lucia"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Knox_IN:1
+msgid "America/Knox_IN"
+msgstr "Америка/Knox_IN"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Anchorage:1
+msgid "America/Anchorage"
+msgstr "Америка/Анкоридж"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Cambridge_Bay:1
+msgid "America/Cambridge_Bay"
+msgstr "Америка/Cambridge_Bay"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Edmonton:1
+msgid "America/Edmonton"
+msgstr "Америка/Эдмонтон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Halifax:1
+msgid "America/Halifax"
+msgstr "Америка/Галифакс"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Creston:1
+msgid "America/Creston"
+msgstr "Америка/Крестон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Denver:1
+msgid "America/Denver"
+msgstr "Америка/Денвер"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Noronha:1
+msgid "America/Noronha"
+msgstr "Америка/Норонха"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Swift_Current:1
+msgid "America/Swift_Current"
+msgstr "Америка/Swift_Current"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Recife:1
+msgid "America/Recife"
+msgstr "Америка/Ресифи"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Fort_Wayne:1
+msgid "America/Fort_Wayne"
+msgstr "Америка/Fort_Wayne"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Barbados:1
+msgid "America/Barbados"
+msgstr "Америка/Барбадос"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Eirunepe:1
+msgid "America/Eirunepe"
+msgstr "Америка/Еирунепе"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Rio_Branco:1
+msgid "America/Rio_Branco"
+msgstr "Америка/Rio_Branco"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Scoresbysund:1
+msgid "America/Scoresbysund"
+msgstr "Америка/Выражения"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Matamoros:1
+msgid "America/Matamoros"
+msgstr "Америка/Матаморос"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Maceio:1
+msgid "America/Maceio"
+msgstr "Америка/Масейо"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Pangnirtung:1
+msgid "America/Pangnirtung"
+msgstr "Америка/Панглао"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/St_Vincent:1
+msgid "America/St_Vincent"
+msgstr "Америка/St_Vincent"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Juneau:1
+msgid "America/Juneau"
+msgstr "Америка/Джуно"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Cuiaba:1
+msgid "America/Cuiaba"
+msgstr "Америка/Куяба"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Dawson:1
+msgid "America/Dawson"
+msgstr "Америка/Доусон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Chicago:1
+msgid "America/Chicago"
+msgstr "Америка/Чикаго"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Menominee:1
+msgid "America/Menominee"
+msgstr "Америка/Меномини"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Atikokan:1
+msgid "America/Atikokan"
+msgstr "Америка/Atikokan"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Fort_Nelson:1
+msgid "America/Fort_Nelson"
+msgstr "Америка/Fort_Nelson"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Guadeloupe:1
+msgid "America/Guadeloupe"
+msgstr "Америка/Гваделупа"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Inuvik:1
+msgid "America/Inuvik"
+msgstr "Америка/Инувик"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Los_Angeles:1
+msgid "America/Los_Angeles"
+msgstr "Америка/Лос"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Curacao:1
+msgid "America/Curacao"
+msgstr "Америка/Кюрасао"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Moncton:1
+msgid "America/Moncton"
+msgstr "Америка/Монктон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Shiprock:1
+msgid "America/Shiprock"
+msgstr "Америка/Шипрок"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Thunder_Bay:1
+msgid "America/Thunder_Bay"
+msgstr "Америка/Thunder_Bay"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Tegucigalpa:1
+msgid "America/Tegucigalpa"
+msgstr "Америка/Тегусигальпа"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Winnipeg:1
+msgid "America/Winnipeg"
+msgstr "Америка/Виннипег"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Grand_Turk:1
+msgid "America/Grand_Turk"
+msgstr "Америка/Grand_Turk"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/St_Thomas:1
+msgid "America/St_Thomas"
+msgstr "Америка/St_Thomas"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Merida:1
+msgid "America/Merida"
+msgstr "Америка/Мерида"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Campo_Grande:1
+msgid "America/Campo_Grande"
+msgstr "Америка/Campo_Grande"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Yakutat:1
+msgid "America/Yakutat"
+msgstr "Америка/Якутат"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Jamaica:1
+msgid "America/Jamaica"
+msgstr "Америка/Ямайка"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Boise:1
+msgid "America/Boise"
+msgstr "Америка/Бойсе"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/St_Kitts:1
+msgid "America/St_Kitts"
+msgstr "Америка/St_Kitts"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Godthab:1
+msgid "America/Godthab"
+msgstr "Америка/Godthab"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/North_Dakota/Center:1
+msgid "America/North_Dakota/Center"
+msgstr "Америка/North_Dakota/Центр"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/North_Dakota/Beulah:1
+msgid "America/North_Dakota/Beulah"
+msgstr "Америка/North_Dakota/Бьюла"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/North_Dakota/New_Salem:1
+msgid "America/North_Dakota/New_Salem"
+msgstr "Америка/North_Dakota/New_Salem"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Indiana/Petersburg:1
+msgid "America/Indiana/Petersburg"
+msgstr "Америка/Индиана/Петербург"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Indiana/Marengo:1
+msgid "America/Indiana/Marengo"
+msgstr "Америка/Индиана/Маренго"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Indiana/Vincennes:1
+msgid "America/Indiana/Vincennes"
+msgstr "Америка/Индиана/Венсен"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Indiana/Knox:1
+msgid "America/Indiana/Knox"
+msgstr "Америка/Индиана/Нокс"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Indiana/Tell_City:1
+msgid "America/Indiana/Tell_City"
+msgstr "Америка/Индиана/Tell_City"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Indiana/Indianapolis:1
+msgid "America/Indiana/Indianapolis"
+msgstr "Америка/Индиана/Индианаполис"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Indiana/Winamac:1
+msgid "America/Indiana/Winamac"
+msgstr "Америка/Индиана/Уинамак"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Indiana/Vevay:1
+msgid "America/Indiana/Vevay"
+msgstr "Америка/Индиана/Vevay"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Kentucky/Monticello:1
+msgid "America/Kentucky/Monticello"
+msgstr "Америка/Кентуки/Монтиселло"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Kentucky/Louisville:1
+msgid "America/Kentucky/Louisville"
+msgstr "Америка/Кентукки/Луисвилл"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/Buenos_Aires:1
+msgid "America/Argentina/Buenos_Aires"
+msgstr "Америка/Аргентина/Buenos_Aires"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/San_Luis:1
+msgid "America/Argentina/San_Luis"
+msgstr "Америка/Аргентина/San_Luis"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/San_Juan:1
+msgid "America/Argentina/San_Juan"
+msgstr "Америка/Аргентина/San_Juan"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/Salta:1
+msgid "America/Argentina/Salta"
+msgstr "Америка/Аргентина/Сальта"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/Catamarca:1
+msgid "America/Argentina/Catamarca"
+msgstr "Америка/Аргентина/Катамарка"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/Cordoba:1
+msgid "America/Argentina/Cordoba"
+msgstr "Америка/Аргентина/Кордова"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/La_Rioja:1
+msgid "America/Argentina/La_Rioja"
+msgstr "Америка/Аргентина/La_Rioja"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/Jujuy:1
+msgid "America/Argentina/Jujuy"
+msgstr "Америка/Аргентина/Неукен"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/Mendoza:1
+msgid "America/Argentina/Mendoza"
+msgstr "Америка/Аргентина/Мендоса"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/Ushuaia:1
+msgid "America/Argentina/Ushuaia"
+msgstr "Америка/Аргентина/Ушуайя"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/Rio_Gallegos:1
+msgid "America/Argentina/Rio_Gallegos"
+msgstr "Америка/Аргентина/Rio_Gallegos"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/Tucuman:1
+msgid "America/Argentina/Tucuman"
+msgstr "Америка/Аргентина/Тукуман"
+
+#: model@bc.user.preferences|_columns@timezone$selections#America/Argentina/ComodRivadavia:1
+msgid "America/Argentina/ComodRivadavia"
+msgstr "Америка/Аргентина/ComodRivadavia"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Mexico/BajaSur:1
+msgid "Mexico/BajaSur"
+msgstr "Мексика/BajaSur"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Mexico/General:1
+msgid "Mexico/General"
+msgstr "Мексика/Общие"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Mexico/BajaNorte:1
+msgid "Mexico/BajaNorte"
+msgstr "Мексика/BajaNorte"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Indian/Christmas:1
+msgid "Indian/Christmas"
+msgstr "Индийский/Рождество"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Indian/Maldives:1
+msgid "Indian/Maldives"
+msgstr "Индийский/Мальдивы"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Indian/Antananarivo:1
+msgid "Indian/Antananarivo"
+msgstr "Индийский/Антананариву"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Indian/Mayotte:1
+msgid "Indian/Mayotte"
+msgstr "Индийский/Майотта"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Indian/Reunion:1
+msgid "Indian/Reunion"
+msgstr "Индийский/Реюньон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Indian/Cocos:1
+msgid "Indian/Cocos"
+msgstr "Индийский/Кокосовые"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Indian/Chagos:1
+msgid "Indian/Chagos"
+msgstr "Индийский/Чагос"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Indian/Kerguelen:1
+msgid "Indian/Kerguelen"
+msgstr "Индийский/Кергелен"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Indian/Mahe:1
+msgid "Indian/Mahe"
+msgstr "Индийский/Маэ"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Indian/Comoro:1
+msgid "Indian/Comoro"
+msgstr "Индийский/Коморо"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Indian/Mauritius:1
+msgid "Indian/Mauritius"
+msgstr "Индус/Маврикий"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Wake:1
+msgid "Pacific/Wake"
+msgstr "Тихий Океан/Уэйк"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Honolulu:1
+msgid "Pacific/Honolulu"
+msgstr "Тихоокеанский/Гонолулу"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Nauru:1
+msgid "Pacific/Nauru"
+msgstr "Тихоокеанский/Науру"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Noumea:1
+msgid "Pacific/Noumea"
+msgstr "Тихоокеанский/Нумеа"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Guadalcanal:1
+msgid "Pacific/Guadalcanal"
+msgstr "Тихоокеанский/Гуадалканал"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Enderbury:1
+msgid "Pacific/Enderbury"
+msgstr "Тихоокеанская/Эндербери"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Saipan:1
+msgid "Pacific/Saipan"
+msgstr "Тихоокеанский/Сайпан"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Port_Moresby:1
+msgid "Pacific/Port_Moresby"
+msgstr "Тихоокеанская/Port_Moresby"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Guam:1
+msgid "Pacific/Guam"
+msgstr "Тихоокеанский/Гуам"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Palau:1
+msgid "Pacific/Palau"
+msgstr "Тихоокеанский/Палау"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Kiritimati:1
+msgid "Pacific/Kiritimati"
+msgstr "Тихоокеанская/Киритимати"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Chatham:1
+msgid "Pacific/Chatham"
+msgstr "Тихоокеанский/Чатем"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Truk:1
+msgid "Pacific/Truk"
+msgstr "Тихоокеанская/Трук"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Kosrae:1
+msgid "Pacific/Kosrae"
+msgstr "Тихий Океан/Косраэ"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Pitcairn:1
+msgid "Pacific/Pitcairn"
+msgstr "Тихий Океан/Питкэрн"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Fiji:1
+msgid "Pacific/Fiji"
+msgstr "Тихоокеанский/Фиджи"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Niue:1
+msgid "Pacific/Niue"
+msgstr "Тихоокеанский/Ниуэ"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Norfolk:1
+msgid "Pacific/Norfolk"
+msgstr "Тихоокеанский/Норфолк"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Bougainville:1
+msgid "Pacific/Bougainville"
+msgstr "Тихоокеанская/Бугенвиля"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Funafuti:1
+msgid "Pacific/Funafuti"
+msgstr "Тихоокеанский/Фунафути"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Midway:1
+msgid "Pacific/Midway"
+msgstr "Тихий Океан/Мидуэй"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Pohnpei:1
+msgid "Pacific/Pohnpei"
+msgstr "Тихоокеанская/Понпеи"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Chuuk:1
+msgid "Pacific/Chuuk"
+msgstr "Тихоокеанская/Чуук"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Tarawa:1
+msgid "Pacific/Tarawa"
+msgstr "Тихоокеанский/Тарава"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Kwajalein:1
+msgid "Pacific/Kwajalein"
+msgstr "Тихоокеанский/Кваджалейн"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Marquesas:1
+msgid "Pacific/Marquesas"
+msgstr "Тихоокеанская/Маркизские"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Majuro:1
+msgid "Pacific/Majuro"
+msgstr "Тихий Океан/Маджуро"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Fakaofo:1
+msgid "Pacific/Fakaofo"
+msgstr "Тихий Океан/Факаофо"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Gambier:1
+msgid "Pacific/Gambier"
+msgstr "Тихий Океан/Гамбьер"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Tahiti:1
+msgid "Pacific/Tahiti"
+msgstr "Тихоокеанский/Таити"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Galapagos:1
+msgid "Pacific/Galapagos"
+msgstr "Тихоокеанский/Галапагос"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Samoa:1
+msgid "Pacific/Samoa"
+msgstr "Тихоокеанская/Самоа"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Ponape:1
+msgid "Pacific/Ponape"
+msgstr "Тихоокеанская/Понапостили"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Easter:1
+msgid "Pacific/Easter"
+msgstr "Тихоокеанский/Пасха"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Rarotonga:1
+msgid "Pacific/Rarotonga"
+msgstr "Тихоокеанский/Раротонга"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Efate:1
+msgid "Pacific/Efate"
+msgstr "Тихоокеанский/Эфате"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Johnston:1
+msgid "Pacific/Johnston"
+msgstr "Тихоокеанский/Джонстон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Tongatapu:1
+msgid "Pacific/Tongatapu"
+msgstr "Тихоокеанский/Тонгатапу"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Wallis:1
+msgid "Pacific/Wallis"
+msgstr "Тихоокеанская Уоллис"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Auckland:1
+msgid "Pacific/Auckland"
+msgstr "Тихоокеанская/Окленд"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Pago_Pago:1
+msgid "Pacific/Pago_Pago"
+msgstr "Тихоокеанская/Pago_Pago"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Yap:1
+msgid "Pacific/Yap"
+msgstr "Тихоокеанская/Яп"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Pacific/Apia:1
+msgid "Pacific/Apia"
+msgstr "Тихий Океан/Апиа"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Canada/Eastern:1
+msgid "Canada/Eastern"
+msgstr "Канада/Восточная"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Canada/Saskatchewan:1
+msgid "Canada/Saskatchewan"
+msgstr "Канада/Саскачеван"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Canada/Yukon:1
+msgid "Canada/Yukon"
+msgstr "Канада/Юкон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Canada/Pacific:1
+msgid "Canada/Pacific"
+msgstr "Канада/Тихого Океана"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Canada/Atlantic:1
+msgid "Canada/Atlantic"
+msgstr "Канада/Атлантик"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Canada/Mountain:1
+msgid "Canada/Mountain"
+msgstr "Канада/Горы"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Canada/Newfoundland:1
+msgid "Canada/Newfoundland"
+msgstr "Канада/Ньюфаундленд"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Canada/Central:1
+msgid "Canada/Central"
+msgstr "Канада/Центральный"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/Pacific-New:1
+msgid "US/Pacific-New"
+msgstr "США/Тихоокеанская-новая"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/Eastern:1
+msgid "US/Eastern"
+msgstr "США/восточные"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/Michigan:1
+msgid "US/Michigan"
+msgstr "США/Мичиган"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/Arizona:1
+msgid "US/Arizona"
+msgstr "США/Аризона"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/Indiana-Starke:1
+msgid "US/Indiana-Starke"
+msgstr "США/Индиана-Старк"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/Hawaii:1
+msgid "US/Hawaii"
+msgstr "США/Гавайи"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/Pacific:1
+msgid "US/Pacific"
+msgstr "США/Тихоокеанский"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/Alaska:1
+msgid "US/Alaska"
+msgstr "США/Аляска"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/East-Indiana:1
+msgid "US/East-Indiana"
+msgstr "США/Восток-Индиана"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/Mountain:1
+msgid "US/Mountain"
+msgstr "США/горы"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/Samoa:1
+msgid "US/Samoa"
+msgstr "США/Самоа"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/Aleutian:1
+msgid "US/Aleutian"
+msgstr "США/Алеутский"
+
+#: model@bc.user.preferences|_columns@timezone$selections#US/Central:1
+msgid "US/Central"
+msgstr "США/Центральный"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Atlantic/Madeira:1
+msgid "Atlantic/Madeira"
+msgstr "Атлантика/Мадейра"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Atlantic/Stanley:1
+msgid "Atlantic/Stanley"
+msgstr "Атлантика/Стэнли"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Atlantic/Reykjavik:1
+msgid "Atlantic/Reykjavik"
+msgstr "Атлантик/Рейкьявик"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Atlantic/Faeroe:1
+msgid "Atlantic/Faeroe"
+msgstr "Атлантик/Фарерские"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Atlantic/St_Helena:1
+msgid "Atlantic/St_Helena"
+msgstr "Атлантик/St_Helena"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Atlantic/Bermuda:1
+msgid "Atlantic/Bermuda"
+msgstr "Атлантик/Бермуды"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Atlantic/Canary:1
+msgid "Atlantic/Canary"
+msgstr "Атлантика/Канары"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Atlantic/Azores:1
+msgid "Atlantic/Azores"
+msgstr "Атлантик/Азорские Острова"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Atlantic/Cape_Verde:1
+msgid "Atlantic/Cape_Verde"
+msgstr "Атлантик/Cape_Verde"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Atlantic/Faroe:1
+msgid "Atlantic/Faroe"
+msgstr "Атлантик/Фарерские"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Atlantic/Jan_Mayen:1
+msgid "Atlantic/Jan_Mayen"
+msgstr "Атлантик/Jan_Mayen"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Atlantic/South_Georgia:1
+msgid "Atlantic/South_Georgia"
+msgstr "Атлантик/South_Georgia"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Arctic/Longyearbyen:1
+msgid "Arctic/Longyearbyen"
+msgstr "Арктика/Лонгйир"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Chile/EasterIsland:1
+msgid "Chile/EasterIsland"
+msgstr "Чили/Остров_ Пасхи"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Chile/Continental:1
+msgid "Chile/Continental"
+msgstr "Чили/Континентальный"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Victoria:1
+msgid "Australia/Victoria"
+msgstr "Австралия/Виктория"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/NSW:1
+msgid "Australia/NSW"
+msgstr "Австралия/Новый Южный Уэльс"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Currie:1
+msgid "Australia/Currie"
+msgstr "Австралия/Карри"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Eucla:1
+msgid "Australia/Eucla"
+msgstr "Австралия/В Eufaula"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Broken_Hill:1
+msgid "Australia/Broken_Hill"
+msgstr "Австралия/Broken_Hill"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/South:1
+msgid "Australia/South"
+msgstr "Австралия/Южная"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Canberra:1
+msgid "Australia/Canberra"
+msgstr "Австралия/Канберра"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/North:1
+msgid "Australia/North"
+msgstr "Австралия/Норт"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Queensland:1
+msgid "Australia/Queensland"
+msgstr "Австралия/Квинсленд"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Brisbane:1
+msgid "Australia/Brisbane"
+msgstr "Австралия/Брисбен"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Sydney:1
+msgid "Australia/Sydney"
+msgstr "Австралия/Сидней"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Perth:1
+msgid "Australia/Perth"
+msgstr "Австралия/Перт"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Lord_Howe:1
+msgid "Australia/Lord_Howe"
+msgstr "Австралия/Lord_Howe"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/LHI:1
+msgid "Australia/LHI"
+msgstr "Австралия/LHI"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/ACT:1
+msgid "Australia/ACT"
+msgstr "Австралия/акт"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/West:1
+msgid "Australia/West"
+msgstr "Австралия/Западная"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Darwin:1
+msgid "Australia/Darwin"
+msgstr "Австралия/Дарвин"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Melbourne:1
+msgid "Australia/Melbourne"
+msgstr "Австралия/Мельбурн"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Yancowinna:1
+msgid "Australia/Yancowinna"
+msgstr "Австралия/Yancowinna"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Adelaide:1
+msgid "Australia/Adelaide"
+msgstr "Австралия/Аделаида"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Hobart:1
+msgid "Australia/Hobart"
+msgstr "Австралия/Хобарт"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Lindeman:1
+msgid "Australia/Lindeman"
+msgstr "Австралия/Линдеман"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Australia/Tasmania:1
+msgid "Australia/Tasmania"
+msgstr "Австралия/Тасмания"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Antarctica/Davis:1
+msgid "Antarctica/Davis"
+msgstr "Антарктида/Дэвис"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Antarctica/Vostok:1
+msgid "Antarctica/Vostok"
+msgstr "Антарктика/Восток"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Antarctica/Casey:1
+msgid "Antarctica/Casey"
+msgstr "Антарктида/Кейси"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Antarctica/Palmer:1
+msgid "Antarctica/Palmer"
+msgstr "Антарктида/Паломник"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Antarctica/Macquarie:1
+msgid "Antarctica/Macquarie"
+msgstr "Антарктида/Маккуори"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Antarctica/Rothera:1
+msgid "Antarctica/Rothera"
+msgstr "Антарктида/Ротера"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Antarctica/DumontDUrville:1
+msgid "Antarctica/DumontDUrville"
+msgstr "Антарктида/DumontDUrville"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Antarctica/Syowa:1
+msgid "Antarctica/Syowa"
+msgstr "Антарктида/Сева"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Antarctica/Mawson:1
+msgid "Antarctica/Mawson"
+msgstr "Антарктида/Моусон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Antarctica/South_Pole:1
+msgid "Antarctica/South_Pole"
+msgstr "Антарктида/South_Pole"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Antarctica/Troll:1
+msgid "Antarctica/Troll"
+msgstr "Антарктида/Троль"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Antarctica/McMurdo:1
+msgid "Antarctica/McMurdo"
+msgstr "Антарктика/МакМердо"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Gaborone:1
+msgid "Africa/Gaborone"
+msgstr "Африка/Габороне"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Kampala:1
+msgid "Africa/Kampala"
+msgstr "Африка/Кампала"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Monrovia:1
+msgid "Africa/Monrovia"
+msgstr "Африка/Монровии"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Maseru:1
+msgid "Africa/Maseru"
+msgstr "Африка/Масеру"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Dakar:1
+msgid "Africa/Dakar"
+msgstr "Африка/Дакар"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Sao_Tome:1
+msgid "Africa/Sao_Tome"
+msgstr "Африка/Sao_Tome"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Brazzaville:1
+msgid "Africa/Brazzaville"
+msgstr "Африка/Браззавиль"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Johannesburg:1
+msgid "Africa/Johannesburg"
+msgstr "Африка/Иоганнесбург"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Bangui:1
+msgid "Africa/Bangui"
+msgstr "Африка/Банги"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Malabo:1
+msgid "Africa/Malabo"
+msgstr "Африка/Малабо"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Douala:1
+msgid "Africa/Douala"
+msgstr "Африка/Дуала"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Accra:1
+msgid "Africa/Accra"
+msgstr "Африка/Аккре"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Djibouti:1
+msgid "Africa/Djibouti"
+msgstr "Африка/Джибути"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Lusaka:1
+msgid "Africa/Lusaka"
+msgstr "Африка/Лусака"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Blantyre:1
+msgid "Africa/Blantyre"
+msgstr "Африка/Блантайр"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Asmara:1
+msgid "Africa/Asmara"
+msgstr "Африка/Асмэре"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Timbuktu:1
+msgid "Africa/Timbuktu"
+msgstr "Африка/Томбукту"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Ndjamena:1
+msgid "Africa/Ndjamena"
+msgstr "Африка/Нджамена"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Niamey:1
+msgid "Africa/Niamey"
+msgstr "Африка/Ниамей"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Tripoli:1
+msgid "Africa/Tripoli"
+msgstr "Африка/Триполи"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Lubumbashi:1
+msgid "Africa/Lubumbashi"
+msgstr "Африка/Лубумбаши"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Freetown:1
+msgid "Africa/Freetown"
+msgstr "Африка/Фритаун"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Addis_Ababa:1
+msgid "Africa/Addis_Ababa"
+msgstr "Африка/Addis_Ababa"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Harare:1
+msgid "Africa/Harare"
+msgstr "Африка/Хараре"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Cairo:1
+msgid "Africa/Cairo"
+msgstr "Африка/Каир"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Mogadishu:1
+msgid "Africa/Mogadishu"
+msgstr "Африка/Могадишо"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Mbabane:1
+msgid "Africa/Mbabane"
+msgstr "Африка/Мбабане"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Bamako:1
+msgid "Africa/Bamako"
+msgstr "Африка/Бамако"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Lome:1
+msgid "Africa/Lome"
+msgstr "Африка/Ломе"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Ceuta:1
+msgid "Africa/Ceuta"
+msgstr "Африка/Сеута"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Bujumbura:1
+msgid "Africa/Bujumbura"
+msgstr "Африка/Бужумбура"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Maputo:1
+msgid "Africa/Maputo"
+msgstr "Африка/Мапуту"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Nairobi:1
+msgid "Africa/Nairobi"
+msgstr "Африка/Найроби"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Kinshasa:1
+msgid "Africa/Kinshasa"
+msgstr "Африка/Киншаса"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Ouagadougou:1
+msgid "Africa/Ouagadougou"
+msgstr "Африка/Уагадугу"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Banjul:1
+msgid "Africa/Banjul"
+msgstr "Африка/Банги"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Nouakchott:1
+msgid "Africa/Nouakchott"
+msgstr "Африка/Нуакшот"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Bissau:1
+msgid "Africa/Bissau"
+msgstr "Африка/Биссау"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Porto-Novo:1
+msgid "Africa/Porto-Novo"
+msgstr "Африка/Порто-Ново"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Lagos:1
+msgid "Africa/Lagos"
+msgstr "Африка/Лагос"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Juba:1
+msgid "Africa/Juba"
+msgstr "Африка/Джуба"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Casablanca:1
+msgid "Africa/Casablanca"
+msgstr "Африка/Касабланка"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/El_Aaiun:1
+msgid "Africa/El_Aaiun"
+msgstr "Африка/El_Aaiun"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Khartoum:1
+msgid "Africa/Khartoum"
+msgstr "Африка/Хартум"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Conakry:1
+msgid "Africa/Conakry"
+msgstr "Африка-Конакри"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Dar_es_Salaam:1
+msgid "Africa/Dar_es_Salaam"
+msgstr "Африка/Dar_es_Salaam"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Algiers:1
+msgid "Africa/Algiers"
+msgstr "Африка/Алжир"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Libreville:1
+msgid "Africa/Libreville"
+msgstr "Африка/Либревиль"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Abidjan:1
+msgid "Africa/Abidjan"
+msgstr "Африка/Абиджане"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Tunis:1
+msgid "Africa/Tunis"
+msgstr "Африка/Тунис"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Luanda:1
+msgid "Africa/Luanda"
+msgstr "Африка/Луанда"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Kigali:1
+msgid "Africa/Kigali"
+msgstr "Африка/Кигали"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Asmera:1
+msgid "Africa/Asmera"
+msgstr "Африка/Асмэра"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Africa/Windhoek:1
+msgid "Africa/Windhoek"
+msgstr "Африка/Виндхук"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Brazil/DeNoronha:1
+msgid "Brazil/DeNoronha"
+msgstr "Бразилия/DeNoronha"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Brazil/East:1
+msgid "Brazil/East"
+msgstr "Бразилия/Восток"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Brazil/Acre:1
+msgid "Brazil/Acre"
+msgstr "Бразилия/Акр"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Brazil/West:1
+msgid "Brazil/West"
+msgstr "Бразилия/Запад"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Madrid:1
+msgid "Europe/Madrid"
+msgstr "Европа/Мадрид"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Amsterdam:1
+msgid "Europe/Amsterdam"
+msgstr "Европа/Амстердам"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Stockholm:1
+msgid "Europe/Stockholm"
+msgstr "Европа/Стокгольм"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Helsinki:1
+msgid "Europe/Helsinki"
+msgstr "Европа/Хельсинки"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Podgorica:1
+msgid "Europe/Podgorica"
+msgstr "Европа/Подгорица"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Warsaw:1
+msgid "Europe/Warsaw"
+msgstr "Европа/Варшава"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Brussels:1
+msgid "Europe/Brussels"
+msgstr "Европа/Брюссель"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Isle_of_Man:1
+msgid "Europe/Isle_of_Man"
+msgstr "Европа/Isle_of_Man"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Nicosia:1
+msgid "Europe/Nicosia"
+msgstr "Европа/Никозия"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Busingen:1
+msgid "Europe/Busingen"
+msgstr "Европа/Бюзинген"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Ulyanovsk:1
+msgid "Europe/Ulyanovsk"
+msgstr "Европы/Ульяновск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Zaporozhye:1
+msgid "Europe/Zaporozhye"
+msgstr "Европа/Запорожье"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Skopje:1
+msgid "Europe/Skopje"
+msgstr "Европа/Скопье"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Luxembourg:1
+msgid "Europe/Luxembourg"
+msgstr "Европа/Люксембург"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Athens:1
+msgid "Europe/Athens"
+msgstr "Европа/Афины"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Zagreb:1
+msgid "Europe/Zagreb"
+msgstr "Европа/Загреб"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Riga:1
+msgid "Europe/Riga"
+msgstr "Европа/Рига"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Malta:1
+msgid "Europe/Malta"
+msgstr "Европа/Мальта"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Tirane:1
+msgid "Europe/Tirane"
+msgstr "Европа/Тирана"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Tallinn:1
+msgid "Europe/Tallinn"
+msgstr "Европа/Таллин"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Rome:1
+msgid "Europe/Rome"
+msgstr "Европа/Рим"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Vilnius:1
+msgid "Europe/Vilnius"
+msgstr "Европа/Вильнюс"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Vienna:1
+msgid "Europe/Vienna"
+msgstr "Европа/Вена"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Kaliningrad:1
+msgid "Europe/Kaliningrad"
+msgstr "Европа/Калининград"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Samara:1
+msgid "Europe/Samara"
+msgstr "Европа/Самара"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/San_Marino:1
+msgid "Europe/San_Marino"
+msgstr "Европа/San_Marino"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Bucharest:1
+msgid "Europe/Bucharest"
+msgstr "Европа/Бухарест"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Belfast:1
+msgid "Europe/Belfast"
+msgstr "Европа/Белфаст"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Gibraltar:1
+msgid "Europe/Gibraltar"
+msgstr "Европа/Гибралтар"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Kirov:1
+msgid "Europe/Kirov"
+msgstr "Европа/Киров"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Mariehamn:1
+msgid "Europe/Mariehamn"
+msgstr "Европа/Мариехамн"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Sarajevo:1
+msgid "Europe/Sarajevo"
+msgstr "Европа/Сараево"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Zurich:1
+msgid "Europe/Zurich"
+msgstr "Европа/Цюрих"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Saratov:1
+msgid "Europe/Saratov"
+msgstr "Европа/Саратов"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Monaco:1
+msgid "Europe/Monaco"
+msgstr "Европа/Монако"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Budapest:1
+msgid "Europe/Budapest"
+msgstr "Европа/Будапешт"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Sofia:1
+msgid "Europe/Sofia"
+msgstr "Европа/София"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Vatican:1
+msgid "Europe/Vatican"
+msgstr "Европа/Ватикан"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Oslo:1
+msgid "Europe/Oslo"
+msgstr "Европа/Осло"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Dublin:1
+msgid "Europe/Dublin"
+msgstr "Европа/Дублин"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Guernsey:1
+msgid "Europe/Guernsey"
+msgstr "Европа/Гернси"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Jersey:1
+msgid "Europe/Jersey"
+msgstr "Европа/Джерси"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Copenhagen:1
+msgid "Europe/Copenhagen"
+msgstr "Европа/Копенгаген"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Berlin:1
+msgid "Europe/Berlin"
+msgstr "Европа/Берлин"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Chisinau:1
+msgid "Europe/Chisinau"
+msgstr "Европа/Кишинев"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Ljubljana:1
+msgid "Europe/Ljubljana"
+msgstr "Европа/Любляна"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Belgrade:1
+msgid "Europe/Belgrade"
+msgstr "Европа/Белград"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Uzhgorod:1
+msgid "Europe/Uzhgorod"
+msgstr "Европа/Ужгород"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Andorra:1
+msgid "Europe/Andorra"
+msgstr "Европа/Андорра"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Kiev:1
+msgid "Europe/Kiev"
+msgstr "Европа/Киев"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/London:1
+msgid "Europe/London"
+msgstr "Европа/Лондон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Tiraspol:1
+msgid "Europe/Tiraspol"
+msgstr "Европа/Тирасполь"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Volgograd:1
+msgid "Europe/Volgograd"
+msgstr "Европа/Волгоград"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Moscow:1
+msgid "Europe/Moscow"
+msgstr "Европы/Москва"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Istanbul:1
+msgid "Europe/Istanbul"
+msgstr "Европа/Стамбул"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Astrakhan:1
+msgid "Europe/Astrakhan"
+msgstr "Европа/Астрахань"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Lisbon:1
+msgid "Europe/Lisbon"
+msgstr "Европа/Лиссабон"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Paris:1
+msgid "Europe/Paris"
+msgstr "Европа/Париж"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Bratislava:1
+msgid "Europe/Bratislava"
+msgstr "Европа/Братислава"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Prague:1
+msgid "Europe/Prague"
+msgstr "Европа/Прага"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Simferopol:1
+msgid "Europe/Simferopol"
+msgstr "Европа/Симферополь"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Minsk:1
+msgid "Europe/Minsk"
+msgstr "Европы/Минск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Europe/Vaduz:1
+msgid "Europe/Vaduz"
+msgstr "Европа/Вадуц"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-10:1
+msgid "Etc/GMT-10"
+msgstr "И т. д/мск-10"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+6:1
+msgid "Etc/GMT+6"
+msgstr "И т. д/по Гринвичу+6"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/UTC:1
+msgid "Etc/UTC"
+msgstr "И т. д/мирового"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-14:1
+msgid "Etc/GMT-14"
+msgstr "И т. д/мск-14"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+12:1
+msgid "Etc/GMT+12"
+msgstr "И т. д/по Гринвичу+12"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+3:1
+msgid "Etc/GMT+3"
+msgstr "И т. д/по Гринвичу+3"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/Universal:1
+msgid "Etc/Universal"
+msgstr "И Т. Д/Универсальный"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+4:1
+msgid "Etc/GMT+4"
+msgstr "И т. д/по Гринвичу+4"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-6:1
+msgid "Etc/GMT-6"
+msgstr "И т. д/мск-6"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+0:1
+msgid "Etc/GMT+0"
+msgstr "Пр/мск+0"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/UCT:1
+msgid "Etc/UCT"
+msgstr "И т. д/СРТ"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-3:1
+msgid "Etc/GMT-3"
+msgstr "И т. д/мск-3"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-11:1
+msgid "Etc/GMT-11"
+msgstr "И т. д/МСК-11"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-1:1
+msgid "Etc/GMT-1"
+msgstr "И т. д/мск-1"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+2:1
+msgid "Etc/GMT+2"
+msgstr "И т. д/по Гринвичу+2"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-7:1
+msgid "Etc/GMT-7"
+msgstr "И т. д/мск-7"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/Zulu:1
+msgid "Etc/Zulu"
+msgstr "И Т. Д/Зулу"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-12:1
+msgid "Etc/GMT-12"
+msgstr "И т. д/мск-12"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-0:1
+msgid "Etc/GMT-0"
+msgstr "И т. д/мск-0"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+10:1
+msgid "Etc/GMT+10"
+msgstr "И т. д/по Гринвичу+10"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT0:1
+msgid "Etc/GMT0"
+msgstr "И т. д/GMT0"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+5:1
+msgid "Etc/GMT+5"
+msgstr "И т. д/по Гринвичу+5"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+8:1
+msgid "Etc/GMT+8"
+msgstr "И т. д/по Гринвичу+8"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-9:1
+msgid "Etc/GMT-9"
+msgstr "И т. д/мск-9"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-5:1
+msgid "Etc/GMT-5"
+msgstr "И т. д/мск-5"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-2:1
+msgid "Etc/GMT-2"
+msgstr "И т. д/мск-2"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT:1
+msgid "Etc/GMT"
+msgstr "И т. д./мск"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-8:1
+msgid "Etc/GMT-8"
+msgstr "И т. д/мск-8"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+7:1
+msgid "Etc/GMT+7"
+msgstr "Пр/мск+7"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+11:1
+msgid "Etc/GMT+11"
+msgstr "И т. д/по Гринвичу+11"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/Greenwich:1
+msgid "Etc/Greenwich"
+msgstr "И Т. Д/Гринвич"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-4:1
+msgid "Etc/GMT-4"
+msgstr "И т. д/МСК-4"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+1:1
+msgid "Etc/GMT+1"
+msgstr "И т. д/по Гринвичу+1"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT+9:1
+msgid "Etc/GMT+9"
+msgstr "И т. д/по Гринвичу+9"
+
+#: model@bc.user.preferences|_columns@timezone$selections#Etc/GMT-13:1
+msgid "Etc/GMT-13"
+msgstr "И т. д/мск-13"
 
 #: model@bc.group.modules|_description@:1
 msgid "General Model Module Groups"
@@ -438,11 +3806,6 @@ msgstr "По умолчанию"
 msgid "Family"
 msgstr "Семья"
 
-#: model@bc.model.columns|_columns@timezone$label:1
-#: model@bc.inherit.columns|_columns@timezone$label:1
-msgid "Timezone"
-msgstr "Часовой пояс"
-
 #: model@bc.model.columns|_columns@obj$label:1
 #: model@bc.inherit.columns|_columns@obj$label:1
 msgid "Obj"
@@ -645,10 +4008,6 @@ msgstr "Вид"
 #: model@bc.tuning.ui.views|_description@:1
 msgid "General Model Tunning Models Views"
 msgstr "Общие Тюнинг Модели Представления"
-
-#: model@bc.tuning.ui.views|_columns@tuser$label:1
-msgid "User"
-msgstr "Пользователь"
 
 #: model@bc.tuning.ui.views|_columns@fullname$label:1
 #: model@bc.general.tuning.ui.views|_columns@fullname$label:1

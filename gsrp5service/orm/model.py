@@ -56,113 +56,95 @@ class BaseModelInherit(object, metaclass = MetaModel):
 	@property
 	def _columnsmeta(self):
 		r = {}
-		c = self.columnsInfo(attributes=['type'])
-		for k in c.keys():
-			r[k] = c[k]['type']
+
+		for k in self._columns.keys():
+			r[k] = self._columns[k]._type
+
 		return r 
 
 	@property
+	def _rowfields(self):
+		return list(filter(lambda x: self._columns[x]._type not in ('one2many','many2many'),self._columns.keys())) 
+
+	@property
 	def _m2ofields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'many2one',c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'many2one',self._columns.keys())) 
 
 	@property
 	def _m2orelatedfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] in ('many2one','related'),c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type in ('many2one','related'),self._columns.keys())) 
 
 	@property
 	def _joinfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] in ('many2one','related','referenced'),c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type in ('many2one','related','referenced'),self._columns.keys())) 
 
 	@property
 	def _o2mfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'one2many',c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'one2many',self._columns.keys())) 
 
 	@property
 	def _o2rfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'one2related',c.keys())) 
-
+		return list(filter(lambda x: self._columns[x]._type == 'one2related',self._columns.keys())) 
 
 	@property
 	def _m2mfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'many2many',c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'many2many',self._columns.keys())) 
 
 	@property
 	def _relatedfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'related',c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'related',self._columns.keys())) 
 
 	@property
 	def _referencedfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'referenced',c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'referenced',self._columns.keys())) 
 
 	@property
 	def _selectionfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'selection',c.keys())) 
-
-	@property
-	def _iPropertyfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'iProperty',c.keys())) 
-
+		return list(filter(lambda x: self._columns[x]._type == 'selection',self._columns.keys())) 
 
 	@property
 	def _readonlyfields(self):
-		c = self.columnsInfo(attributes=['compute','type'])
-		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] or c[x]['type'] == 'referenced',c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute or self._columns[x]._type == 'referenced',self._columns.keys())) 
 
 	@property
 	def _on_change_fields(self):
-		c = self.columnsInfo(attributes=['on_change'])
-		return list(filter(lambda x: 'on_change' in c[x] and c[x]['on_change'] and type(c[x]['on_change']) == str,c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'on_change') and self._columns[x].on_change and type(self._columns[x].on_change) == str,self._columns.keys())) 
 
 	@property
 	def _on_check_fields(self):
-		c = self.columnsInfo(attributes=['on_check'])
-		return list(filter(lambda x: 'on_check' in c[x] and c[x]['on_check'] and type(c[x]['on_check']) == str,c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'on_check') and self._columns[x].on_change and type(self._columns[x].on_change) == str,self._columns.keys())) 
 
 	@property
 	def _computefields(self):
-		c = self.columnsInfo(attributes=['compute'])
-		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str,c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute and type(self._columns[x].compute) == str,self._columns.keys())) 
+
+	@property
+	def _domaincomputefields(self):
+		return list(filter(lambda x: hasattr(self._columns[x],'domain') and self._columns[x].domain and type(self._columns[x].domain) == str,self._columns.keys())) 
 
 	@property
 	def _storecomputefields(self):
-		c = self.columnsInfo(attributes=['compute','store'])
-		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str and 'store' in c[x] and c[x]['store'],c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute and type(self._columns[x].compute) == str and hasattr(self._columns[x],'store') and self._columns[x].store,self._columns.keys())) 
 
 	@property
 	def _nostorecomputefields(self):
-		c = self.columnsInfo(attributes=['compute','store'])
-		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str and 'store' in c[x] and not c[x]['store'],c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute and type(self._columns[x].compute) == str and hasattr(self._columns[x],'store') and not self._columns[x].store,self._columns.keys())) 
 
 	@property
 	def _nosavedfields(self):
-		c = self.columnsInfo(attributes=['type','compute','store'])
-		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str and 'store' in c[x] and not c[x]['store'] or 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) in (list,tuple) or c[x]['type'] == 'referenced',c.keys())) 
-
+		return list(filter(lambda x: hasattr(self._columns[x],'store') and not self._columns[x].store or self._columns[x]._type == 'referenced' or hasattr(self._columns[x],'compute') and type(self._columns[x].compute) in (list,tuple),self._columns.keys())) 
 
 	@property
 	def _requiredfields(self):
-		c = self.columnsInfo(attributes=['required'])
-		return list(filter(lambda x: 'required' in c[x] and c[x]['required'] and 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str,c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'required') and self._columns[x].required,self._columns.keys())) 
 
 	@property
 	def _storefields(self):
-		c = self.columnsInfo(attributes=['store'])
-		return list(filter(lambda x: 'store' in c[x] and c[x]['store'],c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'store') and self._columns[x].store,self._columns.keys())) 
 
 	@property
 	def _selectablefields(self):
-		c = self.columnsInfo(attributes=['store','type'])
-		return list(filter(lambda x: 'store' in c[x] and c[x]['store'] or c[x]['type'] in ('one2many','many2many','text','xml','binary','referenced'),c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'store') and self._columns[x].store or self._columns[x]._type in ('one2many','many2many','text','xml','binary','referenced'),self._columns.keys())) 
 
 	def modelInfo(self, columns = None, attributes = None):
 		return mm.imodelInfo(self, columns = None, attributes = None)
@@ -214,115 +196,95 @@ class BaseModel(object, metaclass = MetaModel):
 	@property
 	def _columnsmeta(self):
 		r = {}
-		c = self.columnsInfo(attributes=['type'])
-		for k in c.keys():
-			r[k] = c[k]['type']
+
+		for k in self._columns.keys():
+			r[k] = self._columns[k]._type
+
 		return r 
 
 	@property
 	def _rowfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] not in ('one2many','many2many'),c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type not in ('one2many','many2many'),self._columns.keys())) 
 
 	@property
 	def _m2ofields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'many2one',c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'many2one',self._columns.keys())) 
 
 	@property
 	def _m2orelatedfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] in ('many2one','related'),c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type in ('many2one','related'),self._columns.keys())) 
 
 	@property
 	def _joinfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] in ('many2one','related','referenced'),c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type in ('many2one','related','referenced'),self._columns.keys())) 
 
 	@property
 	def _o2mfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'one2many',c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'one2many',self._columns.keys())) 
 
 	@property
 	def _o2rfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'one2related',c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'one2related',self._columns.keys())) 
 
 	@property
 	def _m2mfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'many2many',c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'many2many',self._columns.keys())) 
 
 	@property
 	def _relatedfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'related',c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'related',self._columns.keys())) 
 
 	@property
 	def _referencedfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'referenced',c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'referenced',self._columns.keys())) 
 
 	@property
 	def _selectionfields(self):
-		c = self.columnsInfo(attributes=['type'])
-		return list(filter(lambda x: c[x]['type'] == 'selection',c.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'selection',self._columns.keys())) 
 
 	@property
 	def _readonlyfields(self):
-		c = self.columnsInfo(attributes=['compute','type'])
-		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] or c[x]['type'] == 'referenced',c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute or self._columns[x]._type == 'referenced',self._columns.keys())) 
 
 	@property
 	def _on_change_fields(self):
-		c = self.columnsInfo(attributes=['on_change'])
-		return list(filter(lambda x: 'on_change' in c[x] and c[x]['on_change'] and type(c[x]['on_change']) == str,c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'on_change') and self._columns[x].on_change and type(self._columns[x].on_change) == str,self._columns.keys())) 
 
 	@property
 	def _on_check_fields(self):
-		c = self.columnsInfo(attributes=['on_check'])
-		return list(filter(lambda x: 'on_check' in c[x] and c[x]['on_check'] and type(c[x]['on_check']) == str,c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'on_check') and self._columns[x].on_change and type(self._columns[x].on_change) == str,self._columns.keys())) 
 
 	@property
 	def _computefields(self):
-		c = self.columnsInfo(attributes=['compute'])
-		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str,c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute and type(self._columns[x].compute) == str,self._columns.keys())) 
 
 	@property
 	def _domaincomputefields(self):
-		c = self.columnsInfo(attributes=['domain'])
-		return list(filter(lambda x: 'domain' in c[x] and c[x]['domain'] and type(c[x]['domain']) == str,c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'domain') and self._columns[x].domain and type(self._columns[x].domain) == str,self._columns.keys())) 
 
 	@property
 	def _storecomputefields(self):
-		c = self.columnsInfo(attributes=['compute','store'])
-		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str and 'store' in c[x] and c[x]['store'],c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute and type(self._columns[x].compute) == str and hasattr(self._columns[x],'store') and self._columns[x].store,self._columns.keys())) 
 
 	@property
 	def _nostorecomputefields(self):
-		c = self.columnsInfo(attributes=['compute','store'])
-		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str and 'store' in c[x] and not c[x]['store'],c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute and type(self._columns[x].compute) == str and hasattr(self._columns[x],'store') and not self._columns[x].store,self._columns.keys())) 
 
 	@property
 	def _nosavedfields(self):
-		c = self.columnsInfo(attributes=['type','compute','store'])
-		return list(filter(lambda x: 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str and 'store' in c[x] and not c[x]['store'] or 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) in (list,tuple) or c[x]['type'] == 'referenced',c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'store') and not self._columns[x].store or self._columns[x]._type == 'referenced' or hasattr(self._columns[x],'compute') and type(self._columns[x].compute) in (list,tuple),self._columns.keys())) 
 
 	@property
 	def _requiredfields(self):
-		c = self.columnsInfo(attributes=['required'])
-		return list(filter(lambda x: 'required' in c[x] and c[x]['required'] and 'compute' in c[x] and c[x]['compute'] and type(c[x]['compute']) == str,c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'required') and self._columns[x].required,self._columns.keys())) 
 
 	@property
 	def _storefields(self):
-		c = self.columnsInfo(attributes=['store'])
-		return list(filter(lambda x: 'store' in c[x] and c[x]['store'],c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'store') and self._columns[x].store,self._columns.keys())) 
 
 	@property
 	def _selectablefields(self):
-		c = self.columnsInfo(attributes=['store','type'])
-		return list(filter(lambda x: 'store' in c[x] and c[x]['store'] or c[x]['type'] in ('one2many','many2many','text','xml','binary','referenced'),c.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'store') and self._columns[x].store or self._columns[x]._type in ('one2many','many2many','text','xml','binary','referenced'),self._columns.keys())) 
 
 	def _getMessage(self,cr,pool,uid,area,code,context={}):
 		r = pool.get('bc.messages').select(cr,pool,uid,['area','code','descr'],[('area','=',area),('code','=',code)],context,limit=1)
