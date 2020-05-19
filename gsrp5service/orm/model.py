@@ -123,6 +123,10 @@ class BaseModelInherit(object, metaclass = MetaModel):
 		return list(filter(lambda x: hasattr(self._columns[x],'domain') and self._columns[x].domain and type(self._columns[x].domain) == str,self._columns.keys())) 
 
 	@property
+	def _selectioncomputefields(self):
+		return list(filter(lambda x: hasattr(self._columns[x],'selections') and self._columns[x].selections and type(self._columns[x].selections) == str,self._columns.keys())) 
+
+	@property
 	def _storecomputefields(self):
 		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute and type(self._columns[x].compute) == str and hasattr(self._columns[x],'store') and self._columns[x].store,self._columns.keys())) 
 
@@ -244,7 +248,7 @@ class BaseModel(object, metaclass = MetaModel):
 
 	@property
 	def _readonlyfields(self):
-		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute or self._columns[x]._type == 'referenced',self._columns.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'readonly') and self._columns[x].readonly or hasattr(self._columns[x],'compute') and self._columns[x].compute or self._columns[x]._type == 'referenced',self._columns.keys())) 
 
 	@property
 	def _on_change_fields(self):
@@ -261,6 +265,10 @@ class BaseModel(object, metaclass = MetaModel):
 	@property
 	def _domaincomputefields(self):
 		return list(filter(lambda x: hasattr(self._columns[x],'domain') and self._columns[x].domain and type(self._columns[x].domain) == str,self._columns.keys())) 
+
+	@property
+	def _selectioncomputefields(self):
+		return list(filter(lambda x: hasattr(self._columns[x],'selections') and self._columns[x].selections and type(self._columns[x].selections) == str,self._columns.keys())) 
 
 	@property
 	def _storecomputefields(self):
