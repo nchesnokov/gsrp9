@@ -256,7 +256,7 @@ class BaseModel(object, metaclass = MetaModel):
 
 	@property
 	def _on_check_fields(self):
-		return list(filter(lambda x: hasattr(self._columns[x],'on_check') and self._columns[x].on_change and type(self._columns[x].on_change) == str,self._columns.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'on_check') and self._columns[x].on_check and type(self._columns[x].on_check) == str,self._columns.keys())) 
 
 	@property
 	def _computefields(self):

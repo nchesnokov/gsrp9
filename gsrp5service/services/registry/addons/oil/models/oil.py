@@ -3,7 +3,7 @@ from gsrp5service.orm.model import Model
 
 class oil_field_category(Model):
 	_name = 'oil.field.category'
-	_description = 'General Model Field Category'
+	_description = 'Field Category'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='oil.field.category'),
@@ -17,7 +17,7 @@ oil_field_category()
 
 class oil_reservoir_category(Model):
 	_name = 'oil.reservoir.category'
-	_description = 'General Model Reservoir Category'
+	_description = 'Reservoir Category'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='oil.reservoir.category'),
@@ -31,7 +31,7 @@ oil_reservoir_category()
 
 class oil_platform_category(Model):
 	_name = 'oil.platform.category'
-	_description = 'General Model Platform Category'
+	_description = 'Platform Category'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='oil.platform.category'),
@@ -45,7 +45,7 @@ oil_reservoir_category()
 
 class oil_well_category(Model):
 	_name = 'oil.well.category'
-	_description = 'General Model Well Category'
+	_description = 'Well Category'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='oil.well.category'),
@@ -61,7 +61,7 @@ oil_well_category()
 
 class oil_field(Model):
 	_name = 'oil.field'
-	_description = 'General Model Field'
+	_description = 'Field'
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='oil.field.category'),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
@@ -80,7 +80,7 @@ oil_field()
 
 class oil_reservoir(Model):
 	_name = 'oil.reservoir'
-	_description = 'General Model Reservoir'
+	_description = 'Reservoir'
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='oil.reservoir.category'),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
@@ -92,7 +92,7 @@ oil_reservoir()
 
 class oil_platform(Model):
 	_name = 'oil.platform'
-	_description = 'General Model Platform'
+	_description = 'Platform'
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='oil.platform.category'),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
@@ -108,7 +108,7 @@ oil_platform()
 
 class oil_well(Model):
 	_name = 'oil.well'
-	_description = 'General Model Well'
+	_description = 'Well'
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='oil.well.category'),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),

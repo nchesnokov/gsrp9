@@ -88,21 +88,21 @@
       <records model="bc.ui.reports">
         <record id="bc.ui.report.docx.crm.request.categories">
           <column name="name">bc.ui.report.docx.crm.request.categories</column>
-          <column name="label">Category CRM Request</column>
+          <column name="label">Request</column>
           <column name="report">report_crm_request_categories</column>
           <column name="infile">infile_crm_request_categories.docx</column>
           <column name="outfile">outfile_crm_request_categories.docx</column>
         </record>
         <record id="bc.ui.report.docx.crm.offer.categories">
           <column name="name">bc.ui.report.docx.crm.offer.categories</column>
-          <column name="label">Category CRM Offer</column>
+          <column name="label">Offer</column>
           <column name="report">report_crm_offer_categories</column>
           <column name="infile">infile_crm_offer_categories.docx</column>
           <column name="outfile">outfile_crm_offer_categories.docx</column>
         </record>
         <record id="bc.ui.report.docx.crm.contract.categories">
           <column name="name">bc.ui.report.docx.crm.contract.categories</column>
-          <column name="label">Category CRM Contract</column>
+          <column name="label">Contract</column>
           <column name="report">report_crm_contract_categories</column>
           <column name="infile">infile_crm_contract_categories.docx</column>
           <column name="outfile">outfile_crm_contract_categories.docx</column>
@@ -159,7 +159,7 @@
           <record id="ui.menu.crm.request.categories.search">
           <column name="sequence">0</column>
             <column name="name">ui.menu.crm.request.categories.search</column>
-            <column name="label">Category CRM Request</column>
+            <column name="label">Request</column>
           <column name="parent_id">ui.menu.crm</column>
           <column name="sequence">0</column>
           <column name="action_id">action.crm.request.categories.search</column>
@@ -167,7 +167,7 @@
           <record id="ui.menu.crm.offer.categories.search">
           <column name="sequence">1</column>
             <column name="name">ui.menu.crm.offer.categories.search</column>
-            <column name="label">Category CRM Offer</column>
+            <column name="label">Offer</column>
           <column name="parent_id">ui.menu.crm</column>
           <column name="sequence">10</column>
           <column name="action_id">action.crm.offer.categories.search</column>
@@ -175,7 +175,7 @@
           <record id="ui.menu.crm.contract.categories.search">
           <column name="sequence">2</column>
             <column name="name">ui.menu.crm.contract.categories.search</column>
-            <column name="label">Category CRM Contract</column>
+            <column name="label">Contract</column>
           <column name="parent_id">ui.menu.crm</column>
           <column name="sequence">20</column>
           <column name="action_id">action.crm.contract.categories.search</column>
@@ -216,7 +216,7 @@
           <record id="ui.menu.crm.request.categories.report">
           <column name="sequence">0</column>
             <column name="name">ui.menu.crm.request.categories.report</column>
-            <column name="label">Category CRM Request</column>
+            <column name="label">Request</column>
           <column name="parent_id">ui.menu.crm.report</column>
           <column name="sequence">0</column>
           <column name="action_id">action.crm.request.categories.report</column>
@@ -224,7 +224,7 @@
           <record id="ui.menu.crm.offer.categories.report">
           <column name="sequence">1</column>
             <column name="name">ui.menu.crm.offer.categories.report</column>
-            <column name="label">Category CRM Offer</column>
+            <column name="label">Offer</column>
           <column name="parent_id">ui.menu.crm.report</column>
           <column name="sequence">10</column>
           <column name="action_id">action.crm.offer.categories.report</column>
@@ -232,7 +232,7 @@
           <record id="ui.menu.crm.contract.categories.report">
           <column name="sequence">2</column>
             <column name="name">ui.menu.crm.contract.categories.report</column>
-            <column name="label">Category CRM Contract</column>
+            <column name="label">Contract</column>
           <column name="parent_id">ui.menu.crm.report</column>
           <column name="sequence">20</column>
           <column name="action_id">action.crm.contract.categories.report</column>
@@ -477,7 +477,7 @@
           <record id="ui.menu.crm_unit.categories.custom">
           <column name="sequence">0</column>
             <column name="name">ui.menu.crm_unit.categories.custom</column>
-            <column name="label">Categories CRM Unit</column>
+            <column name="label">Unit</column>
           <column name="parent_id">ui.menu.crm.custom</column>
           <column name="sequence">0</column>
           <column name="action_id">action.crm_unit.categories.custom</column>
@@ -493,7 +493,7 @@
           <record id="ui.menu.crm_channel.categories.custom">
           <column name="sequence">2</column>
             <column name="name">ui.menu.crm_channel.categories.custom</column>
-            <column name="label">Categories CRM Chanel</column>
+            <column name="label">Chanel</column>
           <column name="parent_id">ui.menu.crm.custom</column>
           <column name="sequence">20</column>
           <column name="action_id">action.crm_channel.categories.custom</column>
@@ -509,7 +509,7 @@
           <record id="ui.menu.crm_segment.categories.custom">
           <column name="sequence">4</column>
             <column name="name">ui.menu.crm_segment.categories.custom</column>
-            <column name="label">Categories CRM Segment</column>
+            <column name="label">Segment</column>
           <column name="parent_id">ui.menu.crm.custom</column>
           <column name="sequence">40</column>
           <column name="action_id">action.crm_segment.categories.custom</column>
@@ -525,7 +525,7 @@
           <record id="ui.menu.crm_area.categories.custom">
           <column name="sequence">6</column>
             <column name="name">ui.menu.crm_area.categories.custom</column>
-            <column name="label">Categories CRM Area</column>
+            <column name="label">Area</column>
           <column name="parent_id">ui.menu.crm.custom</column>
           <column name="sequence">60</column>
           <column name="action_id">action.crm_area.categories.custom</column>
@@ -541,7 +541,7 @@
           <record id="ui.menu.crm_region.categories.custom">
           <column name="sequence">8</column>
             <column name="name">ui.menu.crm_region.categories.custom</column>
-            <column name="label">Categories CRM Region</column>
+            <column name="label">Region</column>
           <column name="parent_id">ui.menu.crm.custom</column>
           <column name="sequence">80</column>
           <column name="action_id">action.crm_region.categories.custom</column>
@@ -557,7 +557,7 @@
           <record id="ui.menu.crm_division.categories.custom">
           <column name="sequence">10</column>
             <column name="name">ui.menu.crm_division.categories.custom</column>
-            <column name="label">Categories CRM Division</column>
+            <column name="label">Division</column>
           <column name="parent_id">ui.menu.crm.custom</column>
           <column name="sequence">100</column>
           <column name="action_id">action.crm_division.categories.custom</column>
@@ -573,7 +573,7 @@
           <record id="ui.menu.crm_subdivision.categories.custom">
           <column name="sequence">12</column>
             <column name="name">ui.menu.crm_subdivision.categories.custom</column>
-            <column name="label">Categories CRM Subdivision</column>
+            <column name="label">Subdivision</column>
           <column name="parent_id">ui.menu.crm.custom</column>
           <column name="sequence">120</column>
           <column name="action_id">action.crm_subdivision.categories.custom</column>
@@ -645,7 +645,7 @@
           <record id="ui.menu.crm.schema.texts.custom">
           <column name="sequence">21</column>
             <column name="name">ui.menu.crm.schema.texts.custom</column>
-            <column name="label">Schema Of CRM Texts</column>
+            <column name="label">CRM Texts</column>
           <column name="parent_id">ui.menu.crm.custom</column>
           <column name="sequence">210</column>
           <column name="action_id">action.crm.schema.texts.custom</column>
@@ -653,7 +653,7 @@
           <record id="ui.menu.crm.request.types.custom">
           <column name="sequence">22</column>
             <column name="name">ui.menu.crm.request.types.custom</column>
-            <column name="label">Types CRM Request</column>
+            <column name="label">Request</column>
           <column name="parent_id">ui.menu.crm.custom</column>
           <column name="sequence">220</column>
           <column name="action_id">action.crm.request.types.custom</column>
@@ -661,7 +661,7 @@
           <record id="ui.menu.crm.offer.types.custom">
           <column name="sequence">23</column>
             <column name="name">ui.menu.crm.offer.types.custom</column>
-            <column name="label">Types CRM Offer</column>
+            <column name="label">Offer</column>
           <column name="parent_id">ui.menu.crm.custom</column>
           <column name="sequence">230</column>
           <column name="action_id">action.crm.offer.types.custom</column>
@@ -669,7 +669,7 @@
           <record id="ui.menu.crm.contract.types.custom">
           <column name="sequence">24</column>
             <column name="name">ui.menu.crm.contract.types.custom</column>
-            <column name="label">Types CRM Contract</column>
+            <column name="label">Contract</column>
           <column name="parent_id">ui.menu.crm.custom</column>
           <column name="sequence">240</column>
           <column name="action_id">action.crm.contract.types.custom</column>
@@ -780,7 +780,7 @@
       <records model="bc.ui.reports">
         <record id="bc.ui.report.docx.crm_unit.categories">
           <column name="name">bc.ui.report.docx.crm_unit.categories</column>
-          <column name="label">Categories CRM Unit</column>
+          <column name="label">Unit</column>
           <column name="report">report_crm_unit_categories</column>
           <column name="infile">infile_crm_unit_categories.docx</column>
           <column name="outfile">outfile_crm_unit_categories.docx</column>
@@ -794,7 +794,7 @@
         </record>
         <record id="bc.ui.report.docx.crm_channel.categories">
           <column name="name">bc.ui.report.docx.crm_channel.categories</column>
-          <column name="label">Categories CRM Chanel</column>
+          <column name="label">Chanel</column>
           <column name="report">report_crm_channel_categories</column>
           <column name="infile">infile_crm_channel_categories.docx</column>
           <column name="outfile">outfile_crm_channel_categories.docx</column>
@@ -808,7 +808,7 @@
         </record>
         <record id="bc.ui.report.docx.crm_segment.categories">
           <column name="name">bc.ui.report.docx.crm_segment.categories</column>
-          <column name="label">Categories CRM Segment</column>
+          <column name="label">Segment</column>
           <column name="report">report_crm_segment_categories</column>
           <column name="infile">infile_crm_segment_categories.docx</column>
           <column name="outfile">outfile_crm_segment_categories.docx</column>
@@ -822,7 +822,7 @@
         </record>
         <record id="bc.ui.report.docx.crm_area.categories">
           <column name="name">bc.ui.report.docx.crm_area.categories</column>
-          <column name="label">Categories CRM Area</column>
+          <column name="label">Area</column>
           <column name="report">report_crm_area_categories</column>
           <column name="infile">infile_crm_area_categories.docx</column>
           <column name="outfile">outfile_crm_area_categories.docx</column>
@@ -836,7 +836,7 @@
         </record>
         <record id="bc.ui.report.docx.crm_region.categories">
           <column name="name">bc.ui.report.docx.crm_region.categories</column>
-          <column name="label">Categories CRM Region</column>
+          <column name="label">Region</column>
           <column name="report">report_crm_region_categories</column>
           <column name="infile">infile_crm_region_categories.docx</column>
           <column name="outfile">outfile_crm_region_categories.docx</column>
@@ -850,7 +850,7 @@
         </record>
         <record id="bc.ui.report.docx.crm_division.categories">
           <column name="name">bc.ui.report.docx.crm_division.categories</column>
-          <column name="label">Categories CRM Division</column>
+          <column name="label">Division</column>
           <column name="report">report_crm_division_categories</column>
           <column name="infile">infile_crm_division_categories.docx</column>
           <column name="outfile">outfile_crm_division_categories.docx</column>
@@ -864,7 +864,7 @@
         </record>
         <record id="bc.ui.report.docx.crm_subdivision.categories">
           <column name="name">bc.ui.report.docx.crm_subdivision.categories</column>
-          <column name="label">Categories CRM Subdivision</column>
+          <column name="label">Subdivision</column>
           <column name="report">report_crm_subdivision_categories</column>
           <column name="infile">infile_crm_subdivision_categories.docx</column>
           <column name="outfile">outfile_crm_subdivision_categories.docx</column>
@@ -927,28 +927,28 @@
         </record>
         <record id="bc.ui.report.docx.crm.schema.texts">
           <column name="name">bc.ui.report.docx.crm.schema.texts</column>
-          <column name="label">Schema Of CRM Texts</column>
+          <column name="label">CRM Texts</column>
           <column name="report">report_crm_schema_texts</column>
           <column name="infile">infile_crm_schema_texts.docx</column>
           <column name="outfile">outfile_crm_schema_texts.docx</column>
         </record>
         <record id="bc.ui.report.docx.crm.request.types">
           <column name="name">bc.ui.report.docx.crm.request.types</column>
-          <column name="label">Types CRM Request</column>
+          <column name="label">Request</column>
           <column name="report">report_crm_request_types</column>
           <column name="infile">infile_crm_request_types.docx</column>
           <column name="outfile">outfile_crm_request_types.docx</column>
         </record>
         <record id="bc.ui.report.docx.crm.offer.types">
           <column name="name">bc.ui.report.docx.crm.offer.types</column>
-          <column name="label">Types CRM Offer</column>
+          <column name="label">Offer</column>
           <column name="report">report_crm_offer_types</column>
           <column name="infile">infile_crm_offer_types.docx</column>
           <column name="outfile">outfile_crm_offer_types.docx</column>
         </record>
         <record id="bc.ui.report.docx.crm.contract.types">
           <column name="name">bc.ui.report.docx.crm.contract.types</column>
-          <column name="label">Types CRM Contract</column>
+          <column name="label">Contract</column>
           <column name="report">report_crm_contract_types</column>
           <column name="infile">infile_crm_contract_types.docx</column>
           <column name="outfile">outfile_crm_contract_types.docx</column>
@@ -1067,7 +1067,7 @@
           <record id="ui.menu.crm_unit.categories.report">
           <column name="sequence">0</column>
             <column name="name">ui.menu.crm_unit.categories.report</column>
-            <column name="label">Categories CRM Unit</column>
+            <column name="label">Unit</column>
           <column name="parent_id">ui.menu.crm.report.custom</column>
           <column name="sequence">0</column>
           <column name="action_id">action.crm_unit.categories.report</column>
@@ -1083,7 +1083,7 @@
           <record id="ui.menu.crm_channel.categories.report">
           <column name="sequence">2</column>
             <column name="name">ui.menu.crm_channel.categories.report</column>
-            <column name="label">Categories CRM Chanel</column>
+            <column name="label">Chanel</column>
           <column name="parent_id">ui.menu.crm.report.custom</column>
           <column name="sequence">20</column>
           <column name="action_id">action.crm_channel.categories.report</column>
@@ -1099,7 +1099,7 @@
           <record id="ui.menu.crm_segment.categories.report">
           <column name="sequence">4</column>
             <column name="name">ui.menu.crm_segment.categories.report</column>
-            <column name="label">Categories CRM Segment</column>
+            <column name="label">Segment</column>
           <column name="parent_id">ui.menu.crm.report.custom</column>
           <column name="sequence">40</column>
           <column name="action_id">action.crm_segment.categories.report</column>
@@ -1115,7 +1115,7 @@
           <record id="ui.menu.crm_area.categories.report">
           <column name="sequence">6</column>
             <column name="name">ui.menu.crm_area.categories.report</column>
-            <column name="label">Categories CRM Area</column>
+            <column name="label">Area</column>
           <column name="parent_id">ui.menu.crm.report.custom</column>
           <column name="sequence">60</column>
           <column name="action_id">action.crm_area.categories.report</column>
@@ -1131,7 +1131,7 @@
           <record id="ui.menu.crm_region.categories.report">
           <column name="sequence">8</column>
             <column name="name">ui.menu.crm_region.categories.report</column>
-            <column name="label">Categories CRM Region</column>
+            <column name="label">Region</column>
           <column name="parent_id">ui.menu.crm.report.custom</column>
           <column name="sequence">80</column>
           <column name="action_id">action.crm_region.categories.report</column>
@@ -1147,7 +1147,7 @@
           <record id="ui.menu.crm_division.categories.report">
           <column name="sequence">10</column>
             <column name="name">ui.menu.crm_division.categories.report</column>
-            <column name="label">Categories CRM Division</column>
+            <column name="label">Division</column>
           <column name="parent_id">ui.menu.crm.report.custom</column>
           <column name="sequence">100</column>
           <column name="action_id">action.crm_division.categories.report</column>
@@ -1163,7 +1163,7 @@
           <record id="ui.menu.crm_subdivision.categories.report">
           <column name="sequence">12</column>
             <column name="name">ui.menu.crm_subdivision.categories.report</column>
-            <column name="label">Categories CRM Subdivision</column>
+            <column name="label">Subdivision</column>
           <column name="parent_id">ui.menu.crm.report.custom</column>
           <column name="sequence">120</column>
           <column name="action_id">action.crm_subdivision.categories.report</column>
@@ -1235,7 +1235,7 @@
           <record id="ui.menu.crm.schema.texts.report">
           <column name="sequence">21</column>
             <column name="name">ui.menu.crm.schema.texts.report</column>
-            <column name="label">Schema Of CRM Texts</column>
+            <column name="label">CRM Texts</column>
           <column name="parent_id">ui.menu.crm.report.custom</column>
           <column name="sequence">210</column>
           <column name="action_id">action.crm.schema.texts.report</column>
@@ -1243,7 +1243,7 @@
           <record id="ui.menu.crm.request.types.report">
           <column name="sequence">22</column>
             <column name="name">ui.menu.crm.request.types.report</column>
-            <column name="label">Types CRM Request</column>
+            <column name="label">Request</column>
           <column name="parent_id">ui.menu.crm.report.custom</column>
           <column name="sequence">220</column>
           <column name="action_id">action.crm.request.types.report</column>
@@ -1251,7 +1251,7 @@
           <record id="ui.menu.crm.offer.types.report">
           <column name="sequence">23</column>
             <column name="name">ui.menu.crm.offer.types.report</column>
-            <column name="label">Types CRM Offer</column>
+            <column name="label">Offer</column>
           <column name="parent_id">ui.menu.crm.report.custom</column>
           <column name="sequence">230</column>
           <column name="action_id">action.crm.offer.types.report</column>
@@ -1259,7 +1259,7 @@
           <record id="ui.menu.crm.contract.types.report">
           <column name="sequence">24</column>
             <column name="name">ui.menu.crm.contract.types.report</column>
-            <column name="label">Types CRM Contract</column>
+            <column name="label">Contract</column>
           <column name="parent_id">ui.menu.crm.report.custom</column>
           <column name="sequence">240</column>
           <column name="action_id">action.crm.contract.types.report</column>

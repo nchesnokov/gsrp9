@@ -160,26 +160,6 @@
           <column name="note">Model mrp.request.type.roles grant crw</column>
           <column name="group_id">mrp.crw</column>
         </record>
-        <record id="md.mrp.product.readonly">
-          <column name="name">md.mrp.product.readonly</column>
-          <column name="note">Model md.mrp.product grant readonly</column>
-          <column name="group_id">mrp.readonly</column>
-        </record>
-        <record id="md.mrp.product.nodrop">
-          <column name="name">md.mrp.product.nodrop</column>
-          <column name="note">Model md.mrp.product grant nodrop</column>
-          <column name="group_id">mrp.nodrop</column>
-        </record>
-        <record id="md.mrp.product.full">
-          <column name="name">md.mrp.product.full</column>
-          <column name="note">Model md.mrp.product grant full</column>
-          <column name="group_id">mrp.full</column>
-        </record>
-        <record id="md.mrp.product.crw">
-          <column name="name">md.mrp.product.crw</column>
-          <column name="note">Model md.mrp.product grant crw</column>
-          <column name="group_id">mrp.crw</column>
-        </record>
         <record id="mrp.demand.category.readonly">
           <column name="name">mrp.demand.category.readonly</column>
           <column name="note">Model mrp.demand.category grant readonly</column>
@@ -498,6 +478,26 @@
         <record id="mrp.request.delivery.schedules.crw">
           <column name="name">mrp.request.delivery.schedules.crw</column>
           <column name="note">Model mrp.request.delivery.schedules grant crw</column>
+          <column name="group_id">mrp.crw</column>
+        </record>
+        <record id="md.mrp.product.readonly">
+          <column name="name">md.mrp.product.readonly</column>
+          <column name="note">Model md.mrp.product grant readonly</column>
+          <column name="group_id">mrp.readonly</column>
+        </record>
+        <record id="md.mrp.product.nodrop">
+          <column name="name">md.mrp.product.nodrop</column>
+          <column name="note">Model md.mrp.product grant nodrop</column>
+          <column name="group_id">mrp.nodrop</column>
+        </record>
+        <record id="md.mrp.product.full">
+          <column name="name">md.mrp.product.full</column>
+          <column name="note">Model md.mrp.product grant full</column>
+          <column name="group_id">mrp.full</column>
+        </record>
+        <record id="md.mrp.product.crw">
+          <column name="name">md.mrp.product.crw</column>
+          <column name="note">Model md.mrp.product grant crw</column>
           <column name="group_id">mrp.crw</column>
         </record>
       </records>
@@ -841,56 +841,6 @@
         <record id="mrp.mrp.request.type.roles.crw">
           <column name="access_id">mrp.request.type.roles.crw</column>
           <column name="model_id">mrp.request.type.roles</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="mrp.md.mrp.product.readonly">
-          <column name="access_id">md.mrp.product.readonly</column>
-          <column name="model_id">md.mrp.product</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-        </record>
-        <record id="mrp.md.mrp.product.nodrop">
-          <column name="access_id">md.mrp.product.nodrop</column>
-          <column name="model_id">md.mrp.product</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="mrp.md.mrp.product.full">
-          <column name="access_id">md.mrp.product.full</column>
-          <column name="model_id">md.mrp.product</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="mrp.md.mrp.product.crw">
-          <column name="access_id">md.mrp.product.crw</column>
-          <column name="model_id">md.mrp.product</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -1691,6 +1641,56 @@
         <record id="mrp.mrp.request.delivery.schedules.crw">
           <column name="access_id">mrp.request.delivery.schedules.crw</column>
           <column name="model_id">mrp.request.delivery.schedules</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mrp.md.mrp.product.readonly">
+          <column name="access_id">md.mrp.product.readonly</column>
+          <column name="model_id">md.mrp.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="mrp.md.mrp.product.nodrop">
+          <column name="access_id">md.mrp.product.nodrop</column>
+          <column name="model_id">md.mrp.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mrp.md.mrp.product.full">
+          <column name="access_id">md.mrp.product.full</column>
+          <column name="model_id">md.mrp.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="mrp.md.mrp.product.crw">
+          <column name="access_id">md.mrp.product.crw</column>
+          <column name="model_id">md.mrp.product</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

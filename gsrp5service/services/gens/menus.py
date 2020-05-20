@@ -43,13 +43,14 @@ def RecordMenuItems(level,pool,models,key,menu):
 
 	b.write((indent + '<records model="%s">\n' % ('bc.ui.menus',)).encode('utf-8'))
 	for idx,model in enumerate(models):
-		d = model._description.split(' ')
-		if len(d) == 1:
-			label = d[0]
-		elif len(d) == 2:
-			label = d[0] + ' ' + d[1]
-		else:
-			label = reduce(lambda x,y:x + ' ' + y,d[2:])
+		label = model._description
+		# d = model._description.split(' ')
+		# if len(d) == 1:
+			# label = d[0]
+		# elif len(d) == 2:
+			# label = d[0] + ' ' + d[1]
+		# else:
+			# label = reduce(lambda x,y:x + ' ' + y,d[2:])
 
 		if isAllow(key,model.modelInfo()):
 			RecordMenuItem(level + 1,idx,model._name,key,label,menu)
@@ -88,13 +89,14 @@ def RecordsReport(level,pool,module,models):
 
 	b.write((indent + '<records model="%s">\n' % ('bc.ui.reports',)).encode('utf-8'))
 	for idx,model in enumerate(models):
-		d = model._description.split(' ')
-		if len(d) == 1:
-			description = d[0]
-		elif len(d) == 2:
-			description = d[0] + ' ' + d[1]
-		else:
-			description = reduce(lambda x,y:x + ' ' + y,d[2:])
+		description = model._description
+		# d = model._description.split(' ')
+		# if len(d) == 1:
+			# description = d[0]
+		# elif len(d) == 2:
+			# description = d[0] + ' ' + d[1]
+		# else:
+			# description = reduce(lambda x,y:x + ' ' + y,d[2:])
 
 		if isAllow('report',model.modelInfo()):
 			RecordReport(level + 1,idx,module,model._name,description)
@@ -117,13 +119,14 @@ def Views(level,pool,module,models,key):
 
 	b.write((indent + '<records model="%s">\n' % ('bc.view.actions',)).encode('utf-8'))
 	for idx,model in enumerate(models):
-		d = model._description.split(' ')
-		if len(d) == 1:
-			description = d[0]
-		elif len(d) == 2:
-			description = d[0] + ' ' + d[1]
-		else:
-			description = reduce(lambda x,y:x + ' ' + y,d[2:])
+		description = model._description
+		# d = model._description.split(' ')
+		# if len(d) == 1:
+			# description = d[0]
+		# elif len(d) == 2:
+			# description = d[0] + ' ' + d[1]
+		# else:
+			# description = reduce(lambda x,y:x + ' ' + y,d[2:])
 
 		if isAllow(key,model.modelInfo()):
 			View(level + 1,idx,module,model._name,description,key)
@@ -145,13 +148,14 @@ def Reports(level,pool,module,models):
 
 	b.write((indent + '<records model="%s">\n' % ('bc.report.actions',)).encode('utf-8'))
 	for idx,model in enumerate(models):
-		d = model._description.split(' ')
-		if len(d) == 1:
-			description = d[0]
-		elif len(d) == 2:
-			description = d[0] + ' ' + d[1]
-		else:
-			description = reduce(lambda x,y:x + ' ' + y,d[2:])
+		description = model._description
+		# d = model._description.split(' ')
+		# if len(d) == 1:
+			# description = d[0]
+		# elif len(d) == 2:
+			# description = d[0] + ' ' + d[1]
+		# else:
+			# description = reduce(lambda x,y:x + ' ' + y,d[2:])
 
 		if isAllow('report',model.modelInfo()):
 			Report(level + 1,idx,module,model._name,description)
@@ -174,13 +178,14 @@ def Customs(level,pool,module,models,key):
 
 	b.write((indent + '<records model="%s">\n' % ('bc.view.actions',)).encode('utf-8'))
 	for idx,model in enumerate(models):
-		d = model._description.split(' ')
-		if len(d) == 1:
-			description = d[0]
-		elif len(d) == 2:
-			description = d[0] + ' ' + d[1]
-		else:
-			description = reduce(lambda x,y:x + ' ' + y,d[2:])
+		description = model._description
+		# d = model._description.split(' ')
+		# if len(d) == 1:
+			# description = d[0]
+		# elif len(d) == 2:
+			# description = d[0] + ' ' + d[1]
+		# else:
+			# description = reduce(lambda x,y:x + ' ' + y,d[2:])
 
 		if isAllow(key,model.modelInfo()):
 			Custom(level + 1,idx,module,model._name,description,key)

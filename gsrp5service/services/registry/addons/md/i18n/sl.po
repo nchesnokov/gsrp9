@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-19 21:13:32+0300\n"
-"PO-Revision-Date: 2020-05-19 21:13:32+0300\n"
+"POT-Creation-Date: 2020-05-20 19:19:54+0300\n"
+"PO-Revision-Date: 2020-05-20 19:19:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: model@md.category.country|_description@:1
-msgid "General Model Category Country"
-msgstr "Splošni Model Kategorija Državi"
+msgid "Category Country"
+msgstr "Kategorija Državi"
 
 #: model@md.category.country|_columns@name$label:1
 #: model@md.country.group|_columns@name$label:1
@@ -36,6 +36,8 @@ msgstr "Splošni Model Kategorija Državi"
 #: model@md.partner|_columns@name$label:1
 #: model@md.company|_columns@name$label:1 model@md.banks|_columns@name$label:1
 #: model@md.recepture|_columns@name$label:1
+#: model@md.boms|_columns@name$label:1 model@md.mobs|_columns@name$label:1
+#: model@md.bobs|_columns@name$label:1
 msgid "Name"
 msgstr "Ime"
 
@@ -79,20 +81,29 @@ msgstr "Childs"
 #: model@md.partners.bank|_columns@note$label:1
 #: model@md.recepture.input|_columns@note$label:1
 #: model@md.recepture.output|_columns@note$label:1
+#: model@md.bom.items|_columns@note$label:1
+#: model@md.mob.items|_columns@note$label:1
+#: model@md.bob.input.items|_columns@note$label:1
+#: model@md.bob.output.items|_columns@note$label:1
 msgid "Note"
 msgstr "Opomba"
 
 #: model@md.country.group|_description@:1
-msgid "General Model Country Group"
-msgstr "Splošni Model Države Skupine"
+msgid "Country Group"
+msgstr "Države Skupine"
 
 #: model@md.country.group|_columns@country_ids$label:1
 msgid "Countries"
 msgstr "Države"
 
 #: model@md.country|_description@:1
-msgid "General Model Country"
-msgstr "Splošni Model Državi"
+#: model@md.country.states|_columns@country_id$label:1
+#: model@md.partner|_columns@country_id$label:1
+#: model@md.partner.addresses|_columns@country$label:1
+#: model@md.company|_columns@country_id$label:1
+#: model@md.banks|_columns@country_id$label:1
+msgid "Country"
+msgstr "Država"
 
 #: model@md.country|__doc__@:1
 msgid ""
@@ -142,14 +153,6 @@ msgstr "Članice"
 msgid "General Model Country States"
 msgstr "Splošni Model Države Članice"
 
-#: model@md.country.states|_columns@country_id$label:1
-#: model@md.partner|_columns@country_id$label:1
-#: model@md.partner.addresses|_columns@country$label:1
-#: model@md.company|_columns@country_id$label:1
-#: model@md.banks|_columns@country_id$label:1
-msgid "Country"
-msgstr "Država"
-
 #: model@md.country.states|_columns@name$label:1
 msgid "State Name"
 msgstr "Članica Ime"
@@ -168,12 +171,12 @@ msgid "The state code."
 msgstr "Državni kode."
 
 #: model@md.category.language|_description@:1
-msgid "General Model Category Language"
-msgstr "Splošni Model Jezikovne Kategorije"
+msgid "Category Language"
+msgstr "Kategorija Jezik"
 
 #: model@md.language|_description@:1
-msgid "General Model Language"
-msgstr "Splošni Model Jezika"
+msgid "Language"
+msgstr "Jezik"
 
 #: model@md.language|_columns@iso631_1$label:1
 msgid "Code ISO 639-1"
@@ -188,8 +191,9 @@ msgid "Code ISO 639-2B"
 msgstr "Kode ISO 639-2B"
 
 #: model@md.group.quantity|_description@:1
-msgid "General Model Group Quantity"
-msgstr "Splošni Model Skupine Količina"
+#: model@md.quantity.uom|_columns@group_id$label:1
+msgid "Group Quantity"
+msgstr "Skupina Količina"
 
 #: model@md.group.quantity|_columns@numerator$label:1
 #: model@md.uom|_columns@numerator$label:1
@@ -202,12 +206,8 @@ msgid "Denomerator"
 msgstr "Denomerator"
 
 #: model@md.quantity.uom|_description@:1
-msgid "General Model Quantity Unit of Measure"
-msgstr "Splošni Model Količina Enota mere"
-
-#: model@md.quantity.uom|_columns@group_id$label:1
-msgid "Group Quantity"
-msgstr "Skupina Količina"
+msgid "Quantity Unit of Measure"
+msgstr "Količina merska Enota"
 
 #: model@md.quantity.uom|_columns@meter$label:1
 msgid "Meter"
@@ -242,16 +242,24 @@ msgstr "Candelle"
 #: model@md.partner.products|_columns@uom$label:1
 #: model@md.recepture.input|_columns@uom$label:1
 #: model@md.recepture.output|_columns@uom$label:1
+#: model@md.bom.items|_columns@uom$label:1
+#: model@md.mob.items|_columns@uom$label:1
+#: model@md.bob.input.items|_columns@uom$label:1
+#: model@md.bob.output.items|_columns@uom$label:1
 msgid "UoM"
 msgstr "UoM"
 
 #: model@md.uom|_description@:1
-msgid "General Model Unit of Measure"
-msgstr "Splošni Model Enota mere"
+msgid "Unit of Measure"
+msgstr "Merska enota"
 
 #: model@md.uom|_columns@quantity_id$label:1
 #: model@md.recepture.input|_columns@quantity$label:1
 #: model@md.recepture.output|_columns@quantity$label:1
+#: model@md.bom.items|_columns@quantity$label:1
+#: model@md.mob.items|_columns@quantity$label:1
+#: model@md.bob.input.items|_columns@quantity$label:1
+#: model@md.bob.output.items|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Količina"
 
@@ -273,18 +281,22 @@ msgid "Extend Constant"
 msgstr "Razširitev Stalno"
 
 #: model@md.currency|_description@:1
-msgid "General Model Currency"
-msgstr "Splošni Model Valuti"
+#: model@md.pricelist.partner.products|_columns@currency_id$label:1
+#: model@md.company|_columns@currency_id$label:1
+#: model@md.partners.bank|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Valuti"
 
 #: model@md.currency|_columns@currency_rate$label:1
 #: model@md.company|_columns@currency_rate$label:1
+#: model@md.currency.rate|_description@:1
 #: model@md.currency.rate|_columns@rate$label:1
 msgid "Currency Rate"
 msgstr "Valuta Stopnja"
 
 #: model@md.vat.code|_description@:1
-msgid "General Model Vat Code"
-msgstr "Splošni Model Ddv Kodo"
+msgid "Vat Code"
+msgstr "Ddv Kodo"
 
 #: model@md.vat.code|_columns@subtype_vat$label:1
 msgid "Subtype VAT"
@@ -327,8 +339,8 @@ msgid "Purchses"
 msgstr "Purchses"
 
 #: model@md.excise.code|_description@:1
-msgid "General Model Excise Code"
-msgstr "Splošni Model Trošarine Kodo"
+msgid "Excise Code"
+msgstr "Trošarine Kodo"
 
 #: model@md.excise.code|_columns@subtype_excise$label:1
 msgid "Subtype Excise"
@@ -339,12 +351,12 @@ msgid "Type Excise"
 msgstr "Vrsta Trošarinskega"
 
 #: model@md.category.product|_description@:1
-msgid "General Model Category Product"
-msgstr "Splošni Model Kategorija Izdelka"
+msgid "Category Product"
+msgstr "Kategorija Izdelka"
 
-#: model@md.gtis|_description@:1
-msgid "General Model Group Of Type Items"
-msgstr "Splošni Model Skupine Vrsto Predmetov"
+#: model@md.gtis|_description@:1 model@md.product|_columns@gti$label:1
+msgid "Group Of Type Items"
+msgstr "Skupina Vrsto Predmetov"
 
 #: model@md.gtis|_columns@descr$label:1
 #: model@md.type.items|_columns@descr$label:1
@@ -354,14 +366,16 @@ msgid "Description"
 msgstr "Opis"
 
 #: model@md.type.items|_description@:1
-msgid "General Model Type Of Items"
-msgstr "Splošni Model Vrsto Predmetov,"
+msgid "Type Of Items"
+msgstr "Vrsto Predmetov,"
 
 #: model@md.type.items|_columns@usage$label:1
 #: model@md.type.plates|_columns@usage$label:1
 #: model@md.location|_columns@usage$label:1
 #: model@md.partner.contacts|_columns@usage$label:1
 #: model@md.recepture|_columns@usage$label:1
+#: model@md.boms|_columns@usage$label:1 model@md.mobs|_columns@usage$label:1
+#: model@md.bobs|_columns@usage$label:1
 msgid "Usage"
 msgstr "Uporaba"
 
@@ -370,16 +384,19 @@ msgstr "Uporaba"
 #: model@md.location|_columns@usage$selections#all:1
 #: model@md.role.partners|_columns@trole$selections#a:1
 #: model@md.recepture|_columns@usage$selections#a:1
+#: model@md.boms|_columns@usage$selections#all:1
+#: model@md.mobs|_columns@usage$selections#all:1
+#: model@md.bobs|_columns@usage$selections#all:1
 msgid "All"
 msgstr "Vse"
 
 #: model@md.type.plates|_description@:1
-msgid "General Model Type Of Plates"
-msgstr "Splošni Model Tip Plošč"
+msgid "Type Of Plates"
+msgstr "Tip Plošč"
 
 #: model@md.products.template|_description@:1
-msgid "General Model Product Template"
-msgstr "Splošnega Modela Izdelka Predlogo"
+msgid "Product Template"
+msgstr "Izdelek Predlogo"
 
 #: model@md.products.template|_columns@category_id$label:1
 #: model@md.location|_columns@category_id$label:1
@@ -390,13 +407,22 @@ msgstr "Kategorija"
 #: model@md.products.template|_columns@mtype$label:1
 #: model@md.currency.rate|_columns@type$label:1
 #: model@md.recepture|_columns@type$label:1
+#: model@md.boms|_columns@type$label:1 model@md.mobs|_columns@type$label:1
+#: model@md.bobs|_columns@type$label:1
 msgid "Type"
 msgstr "Vrsta"
 
 #: model@md.products.template|_columns@mtype$selections#p:1
+#: model@md.product|_description@:1
 #: model@md.partner.products|_columns@product_id$label:1
 #: model@md.recepture.input|_columns@product$label:1
 #: model@md.recepture.output|_columns@product$label:1
+#: model@md.boms|_columns@product$label:1
+#: model@md.bom.items|_columns@product$label:1
+#: model@md.mobs|_columns@product$label:1
+#: model@md.mob.items|_columns@product$label:1
+#: model@md.bob.input.items|_columns@product$label:1
+#: model@md.bob.output.items|_columns@product$label:1
 msgid "Product"
 msgstr "Izdelek"
 
@@ -417,10 +443,6 @@ msgstr "Potrošni"
 msgid "Products"
 msgstr "Izdelki"
 
-#: model@md.product|_description@:1
-msgid "General Model Product"
-msgstr "Splošnega Modela Izdelka"
-
 #: model@md.product|_columns@template_id$label:1
 msgid "Template"
 msgstr "Predlogo"
@@ -428,10 +450,6 @@ msgstr "Predlogo"
 #: model@md.product|_columns@uom$label:1
 msgid "Unit Of Measure"
 msgstr "Merska Enota"
-
-#: model@md.product|_columns@gti$label:1
-msgid "Group Of Type Items"
-msgstr "Skupina Vrsto Predmetov"
 
 #: model@md.product|_columns@volume$label:1
 msgid "Volume"
@@ -537,8 +555,8 @@ msgid "Link"
 msgstr "Povezava"
 
 #: model@md.incoterms|_description@:1
-msgid "General Model Incoterms"
-msgstr "Splošni Model Incoterms"
+msgid "Incoterms"
+msgstr "Incoterms"
 
 #: model@md.incoterms|_columns@mode$label:1
 msgid "Mode Of Transport"
@@ -617,18 +635,19 @@ msgid "Buyer"
 msgstr "Kupec"
 
 #: model@md.category.partner|_description@:1
-msgid "General Model Category Partner"
-msgstr "Splošni Model Kategorija Partnerja"
+msgid "Category Partner"
+msgstr "Kategorija Partnerja"
 
 #: model@md.category.location|_description@:1
-msgid "General Model Category Location"
-msgstr "Splošni Model Kategorija Lokacija"
+msgid "Category Location"
+msgstr "Kategorija Lokacija"
 
 #: model@md.location|_description@:1
 msgid "General Master Data Location"
 msgstr "Splošno Matičnih Podatkov Mesto"
 
 #: model@md.location|_columns@usage$selections#partner:1
+#: model@md.partner|_description@:1
 #: model@md.partner.addresses|_columns@partner_id$label:1
 #: model@md.partner.contacts|_columns@partner_id$label:1
 #: model@md.partner.products|_columns@partner_id$label:1
@@ -637,8 +656,12 @@ msgid "Partner"
 msgstr "Partner"
 
 #: model@md.location|_columns@usage$selections#company:1
+#: model@md.company|_description@:1
 #: model@md.currency.rate|_columns@company_id$label:1
 #: model@md.partners.bank|_columns@company_id$label:1
+#: model@md.boms|_columns@company$label:1
+#: model@md.mobs|_columns@company$label:1
+#: model@md.bobs|_columns@company$label:1
 msgid "Company"
 msgstr "Podjetje"
 
@@ -655,10 +678,6 @@ msgstr "Zemljepisna širina"
 #: model@md.partner|_columns@longitude$label:1
 msgid "Longitude"
 msgstr "Zemljepisna dolžina"
-
-#: model@md.partner|_description@:1
-msgid "General Model Partner"
-msgstr "Splošni Model Partner"
 
 #: model@md.partner|_columns@ispeople$label:1
 msgid "People"
@@ -702,8 +721,8 @@ msgid "Roles"
 msgstr "Vloge"
 
 #: model@md.partner.addresses|_description@:1
-msgid "General Model Partner Addresses"
-msgstr "Splošni Model Partner Naslovi"
+msgid "Partner Addresses"
+msgstr "Partner Naslovi"
 
 #: model@md.partner.addresses|_columns@taddr$label:1
 msgid "Type Of Address"
@@ -748,8 +767,8 @@ msgid "Room"
 msgstr "Soba"
 
 #: model@md.partner.contacts|_description@:1
-msgid "General Model Partner Contacts"
-msgstr "Splošni Model Partner Imenik"
+msgid "Partner Contacts"
+msgstr "Partner Imenik"
 
 #: model@md.partner.contacts|_columns@usage$selections#d:1
 msgid "Dear"
@@ -773,6 +792,9 @@ msgid "Middle Name"
 msgstr "Srednje Ime"
 
 #: model@md.partner.contacts|_columns@fullname$label:1
+#: model@md.boms|_columns@fullname$label:1
+#: model@md.mobs|_columns@fullname$label:1
+#: model@md.bobs|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Polno Ime"
 
@@ -847,8 +869,8 @@ msgid "Work Location"
 msgstr "Lokacija Dela"
 
 #: model@md.partner.products|_description@:1
-msgid "General Model Partner Products"
-msgstr "Splošni Model Partner Izdelki"
+msgid "Partner Products"
+msgstr "Partner Izdelki"
 
 #: model@md.partner.products|_columns@minqty$label:1
 msgid "Min Quantity"
@@ -859,8 +881,8 @@ msgid "Prices"
 msgstr "Cene"
 
 #: model@md.role.partners|_description@:1
-msgid "General Model Role Partners"
-msgstr "Splošni Model Vloga Partnerjev"
+msgid "Role Partners"
+msgstr "Vloga Partnerjev"
 
 #: model@md.role.partners|_columns@trole$label:1
 msgid "Type Of Role"
@@ -884,8 +906,8 @@ msgid "Role"
 msgstr "Vlogo"
 
 #: model@md.partner.roles|_description@:1
-msgid "General Model Partner Roles"
-msgstr "Splošni Model Vloge Partnerjev"
+msgid "Partner Roles"
+msgstr "Vloge Partnerjev"
 
 #: model@md.partner.roles|_columns@name$label:1
 #: model@md.partners.bank|_columns@bank_bic$label:1
@@ -893,8 +915,8 @@ msgid "Unknown"
 msgstr "Neznan"
 
 #: model@md.pricelist.partner.products|_description@:1
-msgid "General Model Pricelist Partner Products"
-msgstr "Splošni Model Cenik Partner Izdelki"
+msgid "Pricelist Partner Products"
+msgstr "Cenik Partner Izdelki"
 
 #: model@md.pricelist.partner.products|_columns@partner_product_id$label:1
 msgid "Partner Product"
@@ -908,12 +930,6 @@ msgstr "Velja Od"
 msgid "Valid to"
 msgstr "Velja za"
 
-#: model@md.pricelist.partner.products|_columns@currency_id$label:1
-#: model@md.company|_columns@currency_id$label:1
-#: model@md.partners.bank|_columns@currency_id$label:1
-msgid "Currency"
-msgstr "Valuti"
-
 #: model@md.pricelist.partner.products|_columns@qty$label:1
 msgid "Qty Price"
 msgstr "Diod Cena"
@@ -921,14 +937,6 @@ msgstr "Diod Cena"
 #: model@md.pricelist.partner.products|_columns@price$label:1
 msgid "Price"
 msgstr "Cena"
-
-#: model@md.company|_description@:1
-msgid "General Model Company"
-msgstr "Splošni Model Podjetja"
-
-#: model@md.currency.rate|_description@:1
-msgid "General Model Currency Rate"
-msgstr "Splošni Model Valuti Stopnja"
 
 #: model@md.currency.rate|_columns@currency_id$label:1
 msgid "From Currency"
@@ -959,8 +967,9 @@ msgid "Week"
 msgstr "Teden"
 
 #: model@md.banks|_description@:1
-msgid "General Model Bank"
-msgstr "Splošni Model Banke"
+#: model@md.partners.bank|_columns@bank_id$label:1
+msgid "Bank"
+msgstr "Banka"
 
 #: model@md.banks|_columns@street2$label:1
 msgid "Street2"
@@ -999,8 +1008,8 @@ msgid "Inactive"
 msgstr "Neaktivnih"
 
 #: model@md.partners.bank|_description@:1
-msgid "General Model Bank of Partner"
-msgstr "Splošni Model Banke Partner"
+msgid "Bank of Partner"
+msgstr "Banka Partner"
 
 #: model@md.partners.bank|_columns@acc_type$label:1
 msgid "ACC Type"
@@ -1022,23 +1031,27 @@ msgstr "Sanirati Številka Računa"
 msgid "Account Holder"
 msgstr "Imetnik Računa"
 
-#: model@md.partners.bank|_columns@bank_id$label:1
-msgid "Bank"
-msgstr "Banka"
-
 #: model@md.partners.bank|_columns@bank_name$label:1
 msgid "Bank Name"
 msgstr "Ime Banke"
 
 #: model@md.recepture|_description@:1
-msgid "General Model Recipe"
-msgstr "Splošni Model Recept"
+#: model@md.recepture.input|_columns@recepture_id$label:1
+#: model@md.recepture.output|_columns@recepture_id$label:1
+msgid "Recipe"
+msgstr "Recept"
 
 #: model@md.recepture|_columns@type$selections#real:1
+#: model@md.boms|_columns@type$selections#real:1
+#: model@md.mobs|_columns@type$selections#real:1
+#: model@md.bobs|_columns@type$selections#real:1
 msgid "Real"
 msgstr "Real"
 
 #: model@md.recepture|_columns@type$selections#kvazi:1
+#: model@md.boms|_columns@type$selections#kvazi:1
+#: model@md.mobs|_columns@type$selections#kvazi:1
+#: model@md.bobs|_columns@type$selections#kvazi:1
 msgid "Kwazi"
 msgstr "Kwazi"
 
@@ -1047,10 +1060,14 @@ msgid "Subtype"
 msgstr "Podvrsta"
 
 #: model@md.recepture|_columns@subtype$selections#bom:1
+#: model@md.bom.items|_columns@bom_id$label:1
+#: model@md.bob.input.items|_columns@bob_id$label:1
+#: model@md.bob.output.items|_columns@bob_id$label:1
 msgid "BoM"
 msgstr "BoM"
 
 #: model@md.recepture|_columns@subtype$selections#mob:1
+#: model@md.mob.items|_columns@bom_id$label:1
 msgid "MoB"
 msgstr "MoB"
 
@@ -1059,10 +1076,15 @@ msgid "BoB"
 msgstr "BoB"
 
 #: model@md.recepture|_columns@partition$label:1
+#: model@md.boms|_columns@partition$label:1
+#: model@md.mobs|_columns@partition$label:1
+#: model@md.bobs|_columns@partition$label:1
 msgid "Partition"
 msgstr "Particija"
 
 #: model@md.recepture|_columns@input_items$label:1
+#: model@md.boms|_columns@items$label:1 model@md.mobs|_columns@items$label:1
+#: model@md.bobs|_columns@input_items$label:1
 msgid "Input"
 msgstr "Vhod"
 
@@ -1071,14 +1093,38 @@ msgid "Output"
 msgstr "Izhod"
 
 #: model@md.recepture.input|_description@:1
-msgid "General Model Input Recipe"
-msgstr "Splošni Model Input Recept"
-
-#: model@md.recepture.input|_columns@recepture_id$label:1
-#: model@md.recepture.output|_columns@recepture_id$label:1
-msgid "Recepture"
-msgstr "Recepture"
+msgid "Input Recipe"
+msgstr "Vnos Recept"
 
 #: model@md.recepture.output|_description@:1
-msgid "General Model Output Recipe"
-msgstr "Splošni Model Izhodna Recept"
+msgid "Output Recipe"
+msgstr "Izhod Recept"
+
+#: model@md.boms|_description@:1
+msgid "Bill of Material"
+msgstr "Bill Materiala"
+
+#: model@md.bom.items|_description@:1
+msgid "BoM items"
+msgstr "BoM predmeti"
+
+#: model@md.mobs|_description@:1
+msgid "Material of Bills"
+msgstr "Material Računov"
+
+#: model@md.mob.items|_description@:1
+msgid "MoB items"
+msgstr "MoB predmeti"
+
+#: model@md.bobs|_description@:1
+msgid "Bill of Bills"
+msgstr "Obračun Računov"
+
+#: model@md.bobs|_columns@output_items$label:1
+msgid "output"
+msgstr "izhod"
+
+#: model@md.bob.input.items|_description@:1
+#: model@md.bob.output.items|_description@:1
+msgid "BoB items"
+msgstr "BoB predmeti"

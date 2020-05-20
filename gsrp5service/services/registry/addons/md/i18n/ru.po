@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-19 21:13:32+0300\n"
-"PO-Revision-Date: 2020-05-19 21:13:32+0300\n"
+"POT-Creation-Date: 2020-05-20 19:19:54+0300\n"
+"PO-Revision-Date: 2020-05-20 19:19:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: model@md.category.country|_description@:1
-msgid "General Model Category Country"
-msgstr "Общая Модель Страны Категории "
+msgid "Category Country"
+msgstr "Страна Категорию "
 
 #: model@md.category.country|_columns@name$label:1
 #: model@md.country.group|_columns@name$label:1
@@ -36,6 +36,8 @@ msgstr "Общая Модель Страны Категории "
 #: model@md.partner|_columns@name$label:1
 #: model@md.company|_columns@name$label:1 model@md.banks|_columns@name$label:1
 #: model@md.recepture|_columns@name$label:1
+#: model@md.boms|_columns@name$label:1 model@md.mobs|_columns@name$label:1
+#: model@md.bobs|_columns@name$label:1
 msgid "Name"
 msgstr "Название"
 
@@ -79,20 +81,29 @@ msgstr "Ребенка"
 #: model@md.partners.bank|_columns@note$label:1
 #: model@md.recepture.input|_columns@note$label:1
 #: model@md.recepture.output|_columns@note$label:1
+#: model@md.bom.items|_columns@note$label:1
+#: model@md.mob.items|_columns@note$label:1
+#: model@md.bob.input.items|_columns@note$label:1
+#: model@md.bob.output.items|_columns@note$label:1
 msgid "Note"
 msgstr "Примечание"
 
 #: model@md.country.group|_description@:1
-msgid "General Model Country Group"
-msgstr "Генеральная Модель Группы Стран"
+msgid "Country Group"
+msgstr "Страны Группы"
 
 #: model@md.country.group|_columns@country_ids$label:1
 msgid "Countries"
 msgstr "Страны"
 
 #: model@md.country|_description@:1
-msgid "General Model Country"
-msgstr "Общая Модель Страны"
+#: model@md.country.states|_columns@country_id$label:1
+#: model@md.partner|_columns@country_id$label:1
+#: model@md.partner.addresses|_columns@country$label:1
+#: model@md.company|_columns@country_id$label:1
+#: model@md.banks|_columns@country_id$label:1
+msgid "Country"
+msgstr "Страна"
 
 #: model@md.country|__doc__@:1
 msgid ""
@@ -142,14 +153,6 @@ msgstr "Государства"
 msgid "General Model Country States"
 msgstr "Общая Модель Страны"
 
-#: model@md.country.states|_columns@country_id$label:1
-#: model@md.partner|_columns@country_id$label:1
-#: model@md.partner.addresses|_columns@country$label:1
-#: model@md.company|_columns@country_id$label:1
-#: model@md.banks|_columns@country_id$label:1
-msgid "Country"
-msgstr "Страна"
-
 #: model@md.country.states|_columns@name$label:1
 msgid "State Name"
 msgstr "Название Государства"
@@ -170,12 +173,12 @@ msgid "The state code."
 msgstr "Код состояния."
 
 #: model@md.category.language|_description@:1
-msgid "General Model Category Language"
-msgstr "Общая Модель Языковой Категории "
+msgid "Category Language"
+msgstr "Языковые Категории "
 
 #: model@md.language|_description@:1
-msgid "General Model Language"
-msgstr "Общая Модель Языка"
+msgid "Language"
+msgstr "Язык"
 
 #: model@md.language|_columns@iso631_1$label:1
 msgid "Code ISO 639-1"
@@ -190,8 +193,9 @@ msgid "Code ISO 639-2B"
 msgstr "Код ISO 639-2Б"
 
 #: model@md.group.quantity|_description@:1
-msgid "General Model Group Quantity"
-msgstr "Модель Общего Количества Группы "
+#: model@md.quantity.uom|_columns@group_id$label:1
+msgid "Group Quantity"
+msgstr "Количество Групп "
 
 #: model@md.group.quantity|_columns@numerator$label:1
 #: model@md.uom|_columns@numerator$label:1
@@ -204,12 +208,8 @@ msgid "Denomerator"
 msgstr "Denomerator"
 
 #: model@md.quantity.uom|_description@:1
-msgid "General Model Quantity Unit of Measure"
-msgstr "Генеральная Модель Количество единица измерения"
-
-#: model@md.quantity.uom|_columns@group_id$label:1
-msgid "Group Quantity"
-msgstr "Количество Групп "
+msgid "Quantity Unit of Measure"
+msgstr "Количество единица измерения"
 
 #: model@md.quantity.uom|_columns@meter$label:1
 msgid "Meter"
@@ -244,16 +244,24 @@ msgstr "Candelle"
 #: model@md.partner.products|_columns@uom$label:1
 #: model@md.recepture.input|_columns@uom$label:1
 #: model@md.recepture.output|_columns@uom$label:1
+#: model@md.bom.items|_columns@uom$label:1
+#: model@md.mob.items|_columns@uom$label:1
+#: model@md.bob.input.items|_columns@uom$label:1
+#: model@md.bob.output.items|_columns@uom$label:1
 msgid "UoM"
 msgstr "Еи"
 
 #: model@md.uom|_description@:1
-msgid "General Model Unit of Measure"
-msgstr "Генеральная модель единица измерения"
+msgid "Unit of Measure"
+msgstr "Единица измерения"
 
 #: model@md.uom|_columns@quantity_id$label:1
 #: model@md.recepture.input|_columns@quantity$label:1
 #: model@md.recepture.output|_columns@quantity$label:1
+#: model@md.bom.items|_columns@quantity$label:1
+#: model@md.mob.items|_columns@quantity$label:1
+#: model@md.bob.input.items|_columns@quantity$label:1
+#: model@md.bob.output.items|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Количество"
 
@@ -275,18 +283,22 @@ msgid "Extend Constant"
 msgstr "Продлить Постоянная"
 
 #: model@md.currency|_description@:1
-msgid "General Model Currency"
-msgstr "Генеральная Модель Валюте"
+#: model@md.pricelist.partner.products|_columns@currency_id$label:1
+#: model@md.company|_columns@currency_id$label:1
+#: model@md.partners.bank|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Валюта"
 
 #: model@md.currency|_columns@currency_rate$label:1
 #: model@md.company|_columns@currency_rate$label:1
+#: model@md.currency.rate|_description@:1
 #: model@md.currency.rate|_columns@rate$label:1
 msgid "Currency Rate"
 msgstr "Курс Валют"
 
 #: model@md.vat.code|_description@:1
-msgid "General Model Vat Code"
-msgstr "Генеральная Модель Код НДС "
+msgid "Vat Code"
+msgstr "Код НДС "
 
 #: model@md.vat.code|_columns@subtype_vat$label:1
 msgid "Subtype VAT"
@@ -329,8 +341,8 @@ msgid "Purchses"
 msgstr "Purchses"
 
 #: model@md.excise.code|_description@:1
-msgid "General Model Excise Code"
-msgstr "Генеральная Модель Акцизный Код"
+msgid "Excise Code"
+msgstr "Акцизный Код"
 
 #: model@md.excise.code|_columns@subtype_excise$label:1
 msgid "Subtype Excise"
@@ -341,12 +353,12 @@ msgid "Type Excise"
 msgstr "Тип Акцизных"
 
 #: model@md.category.product|_description@:1
-msgid "General Model Category Product"
-msgstr "Генеральная Модель Категория Продукта "
+msgid "Category Product"
+msgstr "Категория Продукта "
 
-#: model@md.gtis|_description@:1
-msgid "General Model Group Of Type Items"
-msgstr "Генеральная Модель Группа Тип Элементов"
+#: model@md.gtis|_description@:1 model@md.product|_columns@gti$label:1
+msgid "Group Of Type Items"
+msgstr "Группа Элементов Тип "
 
 #: model@md.gtis|_columns@descr$label:1
 #: model@md.type.items|_columns@descr$label:1
@@ -356,14 +368,16 @@ msgid "Description"
 msgstr "Описание"
 
 #: model@md.type.items|_description@:1
-msgid "General Model Type Of Items"
-msgstr "Общие Тип Модели Элементов"
+msgid "Type Of Items"
+msgstr "Тип Элементов"
 
 #: model@md.type.items|_columns@usage$label:1
 #: model@md.type.plates|_columns@usage$label:1
 #: model@md.location|_columns@usage$label:1
 #: model@md.partner.contacts|_columns@usage$label:1
 #: model@md.recepture|_columns@usage$label:1
+#: model@md.boms|_columns@usage$label:1 model@md.mobs|_columns@usage$label:1
+#: model@md.bobs|_columns@usage$label:1
 msgid "Usage"
 msgstr "Использование"
 
@@ -372,16 +386,19 @@ msgstr "Использование"
 #: model@md.location|_columns@usage$selections#all:1
 #: model@md.role.partners|_columns@trole$selections#a:1
 #: model@md.recepture|_columns@usage$selections#a:1
+#: model@md.boms|_columns@usage$selections#all:1
+#: model@md.mobs|_columns@usage$selections#all:1
+#: model@md.bobs|_columns@usage$selections#all:1
 msgid "All"
 msgstr "Все"
 
 #: model@md.type.plates|_description@:1
-msgid "General Model Type Of Plates"
-msgstr "Общие Тип Модель Тарелки"
+msgid "Type Of Plates"
+msgstr "Тип Плиты"
 
 #: model@md.products.template|_description@:1
-msgid "General Model Product Template"
-msgstr "Генеральная Модель Продукта Шаблон"
+msgid "Product Template"
+msgstr "Шаблон Продукта "
 
 #: model@md.products.template|_columns@category_id$label:1
 #: model@md.location|_columns@category_id$label:1
@@ -392,13 +409,22 @@ msgstr "Категория"
 #: model@md.products.template|_columns@mtype$label:1
 #: model@md.currency.rate|_columns@type$label:1
 #: model@md.recepture|_columns@type$label:1
+#: model@md.boms|_columns@type$label:1 model@md.mobs|_columns@type$label:1
+#: model@md.bobs|_columns@type$label:1
 msgid "Type"
 msgstr "Тип"
 
 #: model@md.products.template|_columns@mtype$selections#p:1
+#: model@md.product|_description@:1
 #: model@md.partner.products|_columns@product_id$label:1
 #: model@md.recepture.input|_columns@product$label:1
 #: model@md.recepture.output|_columns@product$label:1
+#: model@md.boms|_columns@product$label:1
+#: model@md.bom.items|_columns@product$label:1
+#: model@md.mobs|_columns@product$label:1
+#: model@md.mob.items|_columns@product$label:1
+#: model@md.bob.input.items|_columns@product$label:1
+#: model@md.bob.output.items|_columns@product$label:1
 msgid "Product"
 msgstr "Продукт"
 
@@ -419,10 +445,6 @@ msgstr "Расходник"
 msgid "Products"
 msgstr "Продукты"
 
-#: model@md.product|_description@:1
-msgid "General Model Product"
-msgstr "Генеральная Модель Продукта"
-
 #: model@md.product|_columns@template_id$label:1
 msgid "Template"
 msgstr "Шаблон"
@@ -430,10 +452,6 @@ msgstr "Шаблон"
 #: model@md.product|_columns@uom$label:1
 msgid "Unit Of Measure"
 msgstr "Единица Измерения"
-
-#: model@md.product|_columns@gti$label:1
-msgid "Group Of Type Items"
-msgstr "Группа Элементов Тип "
 
 #: model@md.product|_columns@volume$label:1
 msgid "Volume"
@@ -539,8 +557,8 @@ msgid "Link"
 msgstr "Ссылка"
 
 #: model@md.incoterms|_description@:1
-msgid "General Model Incoterms"
-msgstr "Генеральная Модель Инкотермс"
+msgid "Incoterms"
+msgstr "Инкотермс"
 
 #: model@md.incoterms|_columns@mode$label:1
 msgid "Mode Of Transport"
@@ -619,18 +637,19 @@ msgid "Buyer"
 msgstr "Покупатель"
 
 #: model@md.category.partner|_description@:1
-msgid "General Model Category Partner"
-msgstr "Генеральная Модель Партнер Категории "
+msgid "Category Partner"
+msgstr "Партнер Категории "
 
 #: model@md.category.location|_description@:1
-msgid "General Model Category Location"
-msgstr "Генеральная Модель Категории Размещения "
+msgid "Category Location"
+msgstr "Категории Размещения "
 
 #: model@md.location|_description@:1
 msgid "General Master Data Location"
 msgstr "Общее Расположение Основных Данных "
 
 #: model@md.location|_columns@usage$selections#partner:1
+#: model@md.partner|_description@:1
 #: model@md.partner.addresses|_columns@partner_id$label:1
 #: model@md.partner.contacts|_columns@partner_id$label:1
 #: model@md.partner.products|_columns@partner_id$label:1
@@ -639,8 +658,12 @@ msgid "Partner"
 msgstr "Партнер"
 
 #: model@md.location|_columns@usage$selections#company:1
+#: model@md.company|_description@:1
 #: model@md.currency.rate|_columns@company_id$label:1
 #: model@md.partners.bank|_columns@company_id$label:1
+#: model@md.boms|_columns@company$label:1
+#: model@md.mobs|_columns@company$label:1
+#: model@md.bobs|_columns@company$label:1
 msgid "Company"
 msgstr "Компания"
 
@@ -657,10 +680,6 @@ msgstr "Широта"
 #: model@md.partner|_columns@longitude$label:1
 msgid "Longitude"
 msgstr "Долготы"
-
-#: model@md.partner|_description@:1
-msgid "General Model Partner"
-msgstr "Общие Модели Партнер"
 
 #: model@md.partner|_columns@ispeople$label:1
 msgid "People"
@@ -704,8 +723,8 @@ msgid "Roles"
 msgstr "Роли"
 
 #: model@md.partner.addresses|_description@:1
-msgid "General Model Partner Addresses"
-msgstr "Генеральная Модель Партнерских Организаций"
+msgid "Partner Addresses"
+msgstr "Партнер Адреса"
 
 #: model@md.partner.addresses|_columns@taddr$label:1
 msgid "Type Of Address"
@@ -750,8 +769,8 @@ msgid "Room"
 msgstr "Номер"
 
 #: model@md.partner.contacts|_description@:1
-msgid "General Model Partner Contacts"
-msgstr "Генеральная Модель Партнерских Контактов "
+msgid "Partner Contacts"
+msgstr "Контакты Партнер "
 
 #: model@md.partner.contacts|_columns@usage$selections#d:1
 msgid "Dear"
@@ -775,6 +794,9 @@ msgid "Middle Name"
 msgstr "Отчество"
 
 #: model@md.partner.contacts|_columns@fullname$label:1
+#: model@md.boms|_columns@fullname$label:1
+#: model@md.mobs|_columns@fullname$label:1
+#: model@md.bobs|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Полное Название"
 
@@ -850,8 +872,8 @@ msgid "Work Location"
 msgstr "Место Работы "
 
 #: model@md.partner.products|_description@:1
-msgid "General Model Partner Products"
-msgstr "Генеральная Модель Партнерских Продуктов"
+msgid "Partner Products"
+msgstr "Партнерских Продуктов"
 
 #: model@md.partner.products|_columns@minqty$label:1
 msgid "Min Quantity"
@@ -862,8 +884,8 @@ msgid "Prices"
 msgstr "Цены"
 
 #: model@md.role.partners|_description@:1
-msgid "General Model Role Partners"
-msgstr "Генеральная Модель Роли Партнеров"
+msgid "Role Partners"
+msgstr "Роль Партнеров"
 
 #: model@md.role.partners|_columns@trole$label:1
 msgid "Type Of Role"
@@ -887,8 +909,8 @@ msgid "Role"
 msgstr "Роль"
 
 #: model@md.partner.roles|_description@:1
-msgid "General Model Partner Roles"
-msgstr "Генеральная Модель Роли Партнера"
+msgid "Partner Roles"
+msgstr "Роли Партнера"
 
 #: model@md.partner.roles|_columns@name$label:1
 #: model@md.partners.bank|_columns@bank_bic$label:1
@@ -896,8 +918,8 @@ msgid "Unknown"
 msgstr "Неизвестно"
 
 #: model@md.pricelist.partner.products|_description@:1
-msgid "General Model Pricelist Partner Products"
-msgstr "Генеральная Модель Прейскурант Партнерских Продуктов"
+msgid "Pricelist Partner Products"
+msgstr "Прейскурант Партнерских Продуктов"
 
 #: model@md.pricelist.partner.products|_columns@partner_product_id$label:1
 msgid "Partner Product"
@@ -911,12 +933,6 @@ msgstr "Действует С"
 msgid "Valid to"
 msgstr "Допустимо"
 
-#: model@md.pricelist.partner.products|_columns@currency_id$label:1
-#: model@md.company|_columns@currency_id$label:1
-#: model@md.partners.bank|_columns@currency_id$label:1
-msgid "Currency"
-msgstr "Валюта"
-
 #: model@md.pricelist.partner.products|_columns@qty$label:1
 msgid "Qty Price"
 msgstr "Цена Qty"
@@ -924,14 +940,6 @@ msgstr "Цена Qty"
 #: model@md.pricelist.partner.products|_columns@price$label:1
 msgid "Price"
 msgstr "Цена"
-
-#: model@md.company|_description@:1
-msgid "General Model Company"
-msgstr "Генеральная Модель Компании"
-
-#: model@md.currency.rate|_description@:1
-msgid "General Model Currency Rate"
-msgstr "Общая Модель Валютного Курса"
 
 #: model@md.currency.rate|_columns@currency_id$label:1
 msgid "From Currency"
@@ -962,8 +970,9 @@ msgid "Week"
 msgstr "Неделю"
 
 #: model@md.banks|_description@:1
-msgid "General Model Bank"
-msgstr "Генеральная Модель Банка"
+#: model@md.partners.bank|_columns@bank_id$label:1
+msgid "Bank"
+msgstr "Банк"
 
 #: model@md.banks|_columns@street2$label:1
 msgid "Street2"
@@ -1002,8 +1011,8 @@ msgid "Inactive"
 msgstr "Неактивные"
 
 #: model@md.partners.bank|_description@:1
-msgid "General Model Bank of Partner"
-msgstr "Генеральная модель банка-партнера"
+msgid "Bank of Partner"
+msgstr "Банк партнер"
 
 #: model@md.partners.bank|_columns@acc_type$label:1
 msgid "ACC Type"
@@ -1025,23 +1034,27 @@ msgstr "Продезинфицировать Номер Счета "
 msgid "Account Holder"
 msgstr "Держатель Счета "
 
-#: model@md.partners.bank|_columns@bank_id$label:1
-msgid "Bank"
-msgstr "Банк"
-
 #: model@md.partners.bank|_columns@bank_name$label:1
 msgid "Bank Name"
 msgstr "Название Банка "
 
 #: model@md.recepture|_description@:1
-msgid "General Model Recipe"
-msgstr "Генеральная Модель Рецепт"
+#: model@md.recepture.input|_columns@recepture_id$label:1
+#: model@md.recepture.output|_columns@recepture_id$label:1
+msgid "Recipe"
+msgstr "Рецепт"
 
 #: model@md.recepture|_columns@type$selections#real:1
+#: model@md.boms|_columns@type$selections#real:1
+#: model@md.mobs|_columns@type$selections#real:1
+#: model@md.bobs|_columns@type$selections#real:1
 msgid "Real"
 msgstr "Реальные"
 
 #: model@md.recepture|_columns@type$selections#kvazi:1
+#: model@md.boms|_columns@type$selections#kvazi:1
+#: model@md.mobs|_columns@type$selections#kvazi:1
+#: model@md.bobs|_columns@type$selections#kvazi:1
 msgid "Kwazi"
 msgstr "Kwazi"
 
@@ -1050,10 +1063,14 @@ msgid "Subtype"
 msgstr "Подтип"
 
 #: model@md.recepture|_columns@subtype$selections#bom:1
+#: model@md.bom.items|_columns@bom_id$label:1
+#: model@md.bob.input.items|_columns@bob_id$label:1
+#: model@md.bob.output.items|_columns@bob_id$label:1
 msgid "BoM"
 msgstr "Спецификации"
 
 #: model@md.recepture|_columns@subtype$selections#mob:1
+#: model@md.mob.items|_columns@bom_id$label:1
 msgid "MoB"
 msgstr "Толпа"
 
@@ -1062,10 +1079,15 @@ msgid "BoB"
 msgstr "Боб"
 
 #: model@md.recepture|_columns@partition$label:1
+#: model@md.boms|_columns@partition$label:1
+#: model@md.mobs|_columns@partition$label:1
+#: model@md.bobs|_columns@partition$label:1
 msgid "Partition"
 msgstr "Раздел"
 
 #: model@md.recepture|_columns@input_items$label:1
+#: model@md.boms|_columns@items$label:1 model@md.mobs|_columns@items$label:1
+#: model@md.bobs|_columns@input_items$label:1
 msgid "Input"
 msgstr "Вход"
 
@@ -1074,14 +1096,38 @@ msgid "Output"
 msgstr "Выход"
 
 #: model@md.recepture.input|_description@:1
-msgid "General Model Input Recipe"
-msgstr "Генеральная Модель Ввод Рецептов "
-
-#: model@md.recepture.input|_columns@recepture_id$label:1
-#: model@md.recepture.output|_columns@recepture_id$label:1
-msgid "Recepture"
-msgstr "Recepture"
+msgid "Input Recipe"
+msgstr "Рецепт Вход "
 
 #: model@md.recepture.output|_description@:1
-msgid "General Model Output Recipe"
-msgstr "Генеральная Модель Рецепт Выход "
+msgid "Output Recipe"
+msgstr "Рецепт Выхода "
+
+#: model@md.boms|_description@:1
+msgid "Bill of Material"
+msgstr "Спецификации"
+
+#: model@md.bom.items|_description@:1
+msgid "BoM items"
+msgstr "Позиции спецификации "
+
+#: model@md.mobs|_description@:1
+msgid "Material of Bills"
+msgstr "Материал законопроектов"
+
+#: model@md.mob.items|_description@:1
+msgid "MoB items"
+msgstr "Элементы моб "
+
+#: model@md.bobs|_description@:1
+msgid "Bill of Bills"
+msgstr "Билл законопроектов"
+
+#: model@md.bobs|_columns@output_items$label:1
+msgid "output"
+msgstr "выход"
+
+#: model@md.bob.input.items|_description@:1
+#: model@md.bob.output.items|_description@:1
+msgid "BoB items"
+msgstr "Боб пунктов"

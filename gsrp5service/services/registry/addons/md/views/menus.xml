@@ -116,6 +116,18 @@
           <column name="name">action.md.recepture.search</column>
           <column name="ta">View</column>
         </record>
+        <record id="action.md.boms.search">
+          <column name="name">action.md.boms.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.md.mobs.search">
+          <column name="name">action.md.mobs.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.md.bobs.search">
+          <column name="name">action.md.bobs.search</column>
+          <column name="ta">View</column>
+        </record>
       </records>
       <records model="bc.actions">
         <record id="action.md.category.country.report">
@@ -224,6 +236,18 @@
         </record>
         <record id="action.md.recepture.report">
           <column name="name">action.md.recepture.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.md.boms.report">
+          <column name="name">action.md.boms.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.md.mobs.report">
+          <column name="name">action.md.mobs.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.md.bobs.report">
+          <column name="name">action.md.bobs.report</column>
           <column name="ta">Report</column>
         </record>
       </records>
@@ -336,6 +360,18 @@
           <column name="action_id">action.md.recepture.search</column>
           <column name="view_id">view.md.recepture.search</column>
         </record>
+        <record id="view.action.md.boms.search">
+          <column name="action_id">action.md.boms.search</column>
+          <column name="view_id">view.md.boms.search</column>
+        </record>
+        <record id="view.action.md.mobs.search">
+          <column name="action_id">action.md.mobs.search</column>
+          <column name="view_id">view.md.mobs.search</column>
+        </record>
+        <record id="view.action.md.bobs.search">
+          <column name="action_id">action.md.bobs.search</column>
+          <column name="view_id">view.md.bobs.search</column>
+        </record>
       </records>
       <records model="bc.ui.reports">
         <record id="bc.ui.report.docx.md.category.country">
@@ -361,7 +397,7 @@
         </record>
         <record id="bc.ui.report.docx.md.country.states">
           <column name="name">bc.ui.report.docx.md.country.states</column>
-          <column name="label">Country States</column>
+          <column name="label">General Model Country States</column>
           <column name="report">report_md_country_states</column>
           <column name="infile">infile_md_country_states.docx</column>
           <column name="outfile">outfile_md_country_states.docx</column>
@@ -480,7 +516,7 @@
         </record>
         <record id="bc.ui.report.docx.md.location">
           <column name="name">bc.ui.report.docx.md.location</column>
-          <column name="label">Data Location</column>
+          <column name="label">General Master Data Location</column>
           <column name="report">report_md_location</column>
           <column name="infile">infile_md_location.docx</column>
           <column name="outfile">outfile_md_location.docx</column>
@@ -526,6 +562,27 @@
           <column name="report">report_md_recepture</column>
           <column name="infile">infile_md_recepture.docx</column>
           <column name="outfile">outfile_md_recepture.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.md.boms">
+          <column name="name">bc.ui.report.docx.md.boms</column>
+          <column name="label">Bill of Material</column>
+          <column name="report">report_md_boms</column>
+          <column name="infile">infile_md_boms.docx</column>
+          <column name="outfile">outfile_md_boms.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.md.mobs">
+          <column name="name">bc.ui.report.docx.md.mobs</column>
+          <column name="label">Material of Bills</column>
+          <column name="report">report_md_mobs</column>
+          <column name="infile">infile_md_mobs.docx</column>
+          <column name="outfile">outfile_md_mobs.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.md.bobs">
+          <column name="name">bc.ui.report.docx.md.bobs</column>
+          <column name="label">Bill of Bills</column>
+          <column name="report">report_md_bobs</column>
+          <column name="infile">infile_md_bobs.docx</column>
+          <column name="outfile">outfile_md_bobs.docx</column>
         </record>
       </records>
       <records model="bc.report.actions">
@@ -637,6 +694,18 @@
           <column name="action_id">action.md.recepture.report</column>
           <column name="report_id">bc.ui.report.docx.md.recepture</column>
         </record>
+        <record id="report.action.md.boms.report">
+          <column name="action_id">action.md.boms.report</column>
+          <column name="report_id">bc.ui.report.docx.md.boms</column>
+        </record>
+        <record id="report.action.md.mobs.report">
+          <column name="action_id">action.md.mobs.report</column>
+          <column name="report_id">bc.ui.report.docx.md.mobs</column>
+        </record>
+        <record id="report.action.md.bobs.report">
+          <column name="action_id">action.md.bobs.report</column>
+          <column name="report_id">bc.ui.report.docx.md.bobs</column>
+        </record>
       </records>
       <records model="bc.ui.menus">
           <record id="ui.menu.md.category.country.search">
@@ -666,7 +735,7 @@
           <record id="ui.menu.md.country.states.search">
           <column name="sequence">3</column>
             <column name="name">ui.menu.md.country.states.search</column>
-            <column name="label">Country States</column>
+            <column name="label">General Model Country States</column>
           <column name="parent_id">ui.menu.md</column>
           <column name="sequence">30</column>
           <column name="action_id">action.md.country.states.search</column>
@@ -802,7 +871,7 @@
           <record id="ui.menu.md.location.search">
           <column name="sequence">20</column>
             <column name="name">ui.menu.md.location.search</column>
-            <column name="label">Data Location</column>
+            <column name="label">General Master Data Location</column>
           <column name="parent_id">ui.menu.md</column>
           <column name="sequence">200</column>
           <column name="action_id">action.md.location.search</column>
@@ -855,6 +924,30 @@
           <column name="sequence">260</column>
           <column name="action_id">action.md.recepture.search</column>
           </record>
+          <record id="ui.menu.md.boms.search">
+          <column name="sequence">27</column>
+            <column name="name">ui.menu.md.boms.search</column>
+            <column name="label">Bill of Material</column>
+          <column name="parent_id">ui.menu.md</column>
+          <column name="sequence">270</column>
+          <column name="action_id">action.md.boms.search</column>
+          </record>
+          <record id="ui.menu.md.mobs.search">
+          <column name="sequence">28</column>
+            <column name="name">ui.menu.md.mobs.search</column>
+            <column name="label">Material of Bills</column>
+          <column name="parent_id">ui.menu.md</column>
+          <column name="sequence">280</column>
+          <column name="action_id">action.md.mobs.search</column>
+          </record>
+          <record id="ui.menu.md.bobs.search">
+          <column name="sequence">29</column>
+            <column name="name">ui.menu.md.bobs.search</column>
+            <column name="label">Bill of Bills</column>
+          <column name="parent_id">ui.menu.md</column>
+          <column name="sequence">290</column>
+          <column name="action_id">action.md.bobs.search</column>
+          </record>
       </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.md.report">
@@ -891,7 +984,7 @@
           <record id="ui.menu.md.country.states.report">
           <column name="sequence">3</column>
             <column name="name">ui.menu.md.country.states.report</column>
-            <column name="label">Country States</column>
+            <column name="label">General Model Country States</column>
           <column name="parent_id">ui.menu.md.report</column>
           <column name="sequence">30</column>
           <column name="action_id">action.md.country.states.report</column>
@@ -1027,7 +1120,7 @@
           <record id="ui.menu.md.location.report">
           <column name="sequence">20</column>
             <column name="name">ui.menu.md.location.report</column>
-            <column name="label">Data Location</column>
+            <column name="label">General Master Data Location</column>
           <column name="parent_id">ui.menu.md.report</column>
           <column name="sequence">200</column>
           <column name="action_id">action.md.location.report</column>
@@ -1079,6 +1172,30 @@
           <column name="parent_id">ui.menu.md.report</column>
           <column name="sequence">260</column>
           <column name="action_id">action.md.recepture.report</column>
+          </record>
+          <record id="ui.menu.md.boms.report">
+          <column name="sequence">27</column>
+            <column name="name">ui.menu.md.boms.report</column>
+            <column name="label">Bill of Material</column>
+          <column name="parent_id">ui.menu.md.report</column>
+          <column name="sequence">270</column>
+          <column name="action_id">action.md.boms.report</column>
+          </record>
+          <record id="ui.menu.md.mobs.report">
+          <column name="sequence">28</column>
+            <column name="name">ui.menu.md.mobs.report</column>
+            <column name="label">Material of Bills</column>
+          <column name="parent_id">ui.menu.md.report</column>
+          <column name="sequence">280</column>
+          <column name="action_id">action.md.mobs.report</column>
+          </record>
+          <record id="ui.menu.md.bobs.report">
+          <column name="sequence">29</column>
+            <column name="name">ui.menu.md.bobs.report</column>
+            <column name="label">Bill of Bills</column>
+          <column name="parent_id">ui.menu.md.report</column>
+          <column name="sequence">290</column>
+          <column name="action_id">action.md.bobs.report</column>
           </record>
       </records>
       <records model="bc.actions">

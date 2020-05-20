@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-19 21:13:32+0300\n"
-"PO-Revision-Date: 2020-05-19 21:13:32+0300\n"
+"POT-Creation-Date: 2020-05-20 19:19:54+0300\n"
+"PO-Revision-Date: 2020-05-20 19:19:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: model@md.category.country|_description@:1
-msgid "General Model Category Country"
-msgstr "Általános Modell Kategória Ország"
+msgid "Category Country"
+msgstr "Kategória Ország"
 
 #: model@md.category.country|_columns@name$label:1
 #: model@md.country.group|_columns@name$label:1
@@ -36,6 +36,8 @@ msgstr "Általános Modell Kategória Ország"
 #: model@md.partner|_columns@name$label:1
 #: model@md.company|_columns@name$label:1 model@md.banks|_columns@name$label:1
 #: model@md.recepture|_columns@name$label:1
+#: model@md.boms|_columns@name$label:1 model@md.mobs|_columns@name$label:1
+#: model@md.bobs|_columns@name$label:1
 msgid "Name"
 msgstr "Név"
 
@@ -79,20 +81,29 @@ msgstr "Childs"
 #: model@md.partners.bank|_columns@note$label:1
 #: model@md.recepture.input|_columns@note$label:1
 #: model@md.recepture.output|_columns@note$label:1
+#: model@md.bom.items|_columns@note$label:1
+#: model@md.mob.items|_columns@note$label:1
+#: model@md.bob.input.items|_columns@note$label:1
+#: model@md.bob.output.items|_columns@note$label:1
 msgid "Note"
 msgstr "Megjegyzés"
 
 #: model@md.country.group|_description@:1
-msgid "General Model Country Group"
-msgstr "Általános Modell Ország Csoport"
+msgid "Country Group"
+msgstr "Ország-Csoport"
 
 #: model@md.country.group|_columns@country_ids$label:1
 msgid "Countries"
 msgstr "Ország"
 
 #: model@md.country|_description@:1
-msgid "General Model Country"
-msgstr "Általános Modell Ország"
+#: model@md.country.states|_columns@country_id$label:1
+#: model@md.partner|_columns@country_id$label:1
+#: model@md.partner.addresses|_columns@country$label:1
+#: model@md.company|_columns@country_id$label:1
+#: model@md.banks|_columns@country_id$label:1
+msgid "Country"
+msgstr "Ország"
 
 #: model@md.country|__doc__@:1
 msgid ""
@@ -142,14 +153,6 @@ msgstr "Államok"
 msgid "General Model Country States"
 msgstr "Általános Modell Ország Államok"
 
-#: model@md.country.states|_columns@country_id$label:1
-#: model@md.partner|_columns@country_id$label:1
-#: model@md.partner.addresses|_columns@country$label:1
-#: model@md.company|_columns@country_id$label:1
-#: model@md.banks|_columns@country_id$label:1
-msgid "Country"
-msgstr "Ország"
-
 #: model@md.country.states|_columns@name$label:1
 msgid "State Name"
 msgstr "Állami Név"
@@ -168,12 +171,12 @@ msgid "The state code."
 msgstr "Az állam kódját."
 
 #: model@md.category.language|_description@:1
-msgid "General Model Category Language"
-msgstr "Általános Modell Kategória Nyelv"
+msgid "Category Language"
+msgstr "Kategória Nyelv"
 
 #: model@md.language|_description@:1
-msgid "General Model Language"
-msgstr "Általános Modell Nyelv"
+msgid "Language"
+msgstr "Nyelv"
 
 #: model@md.language|_columns@iso631_1$label:1
 msgid "Code ISO 639-1"
@@ -188,8 +191,9 @@ msgid "Code ISO 639-2B"
 msgstr "Kód ISO 639-2B"
 
 #: model@md.group.quantity|_description@:1
-msgid "General Model Group Quantity"
-msgstr "Általános Modell Csoport Mennyiség"
+#: model@md.quantity.uom|_columns@group_id$label:1
+msgid "Group Quantity"
+msgstr "Csoport Mennyiség"
 
 #: model@md.group.quantity|_columns@numerator$label:1
 #: model@md.uom|_columns@numerator$label:1
@@ -202,12 +206,8 @@ msgid "Denomerator"
 msgstr "Denomerator"
 
 #: model@md.quantity.uom|_description@:1
-msgid "General Model Quantity Unit of Measure"
-msgstr "Általános Modell Mennyiség mértékegység"
-
-#: model@md.quantity.uom|_columns@group_id$label:1
-msgid "Group Quantity"
-msgstr "Csoport Mennyiség"
+msgid "Quantity Unit of Measure"
+msgstr "Mennyiség mértékegység"
 
 #: model@md.quantity.uom|_columns@meter$label:1
 msgid "Meter"
@@ -242,16 +242,24 @@ msgstr "Candelle"
 #: model@md.partner.products|_columns@uom$label:1
 #: model@md.recepture.input|_columns@uom$label:1
 #: model@md.recepture.output|_columns@uom$label:1
+#: model@md.bom.items|_columns@uom$label:1
+#: model@md.mob.items|_columns@uom$label:1
+#: model@md.bob.input.items|_columns@uom$label:1
+#: model@md.bob.output.items|_columns@uom$label:1
 msgid "UoM"
 msgstr "UoM"
 
 #: model@md.uom|_description@:1
-msgid "General Model Unit of Measure"
-msgstr "Általános Modell mértékegység"
+msgid "Unit of Measure"
+msgstr "Mértékegység"
 
 #: model@md.uom|_columns@quantity_id$label:1
 #: model@md.recepture.input|_columns@quantity$label:1
 #: model@md.recepture.output|_columns@quantity$label:1
+#: model@md.bom.items|_columns@quantity$label:1
+#: model@md.mob.items|_columns@quantity$label:1
+#: model@md.bob.input.items|_columns@quantity$label:1
+#: model@md.bob.output.items|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Mennyiség"
 
@@ -273,18 +281,22 @@ msgid "Extend Constant"
 msgstr "Kiterjesztése Folyamatos"
 
 #: model@md.currency|_description@:1
-msgid "General Model Currency"
-msgstr "Általános Modell, Pénznem"
+#: model@md.pricelist.partner.products|_columns@currency_id$label:1
+#: model@md.company|_columns@currency_id$label:1
+#: model@md.partners.bank|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Pénznem"
 
 #: model@md.currency|_columns@currency_rate$label:1
 #: model@md.company|_columns@currency_rate$label:1
+#: model@md.currency.rate|_description@:1
 #: model@md.currency.rate|_columns@rate$label:1
 msgid "Currency Rate"
 msgstr "Valuta Árfolyam"
 
 #: model@md.vat.code|_description@:1
-msgid "General Model Vat Code"
-msgstr "Általános Modell Áfa Kód"
+msgid "Vat Code"
+msgstr "Áfa Kód"
 
 #: model@md.vat.code|_columns@subtype_vat$label:1
 msgid "Subtype VAT"
@@ -327,8 +339,8 @@ msgid "Purchses"
 msgstr "Purchses"
 
 #: model@md.excise.code|_description@:1
-msgid "General Model Excise Code"
-msgstr "Általános Modell Jövedéki Kód"
+msgid "Excise Code"
+msgstr "Jövedéki Kód"
 
 #: model@md.excise.code|_columns@subtype_excise$label:1
 msgid "Subtype Excise"
@@ -339,12 +351,12 @@ msgid "Type Excise"
 msgstr "Típus Jövedéki"
 
 #: model@md.category.product|_description@:1
-msgid "General Model Category Product"
-msgstr "Általános Modell Kategória Termék"
+msgid "Category Product"
+msgstr "Termék Kategória"
 
-#: model@md.gtis|_description@:1
-msgid "General Model Group Of Type Items"
-msgstr "Általános Modell Csoport Típus Tételek"
+#: model@md.gtis|_description@:1 model@md.product|_columns@gti$label:1
+msgid "Group Of Type Items"
+msgstr "Csoport Típus Tételek"
 
 #: model@md.gtis|_columns@descr$label:1
 #: model@md.type.items|_columns@descr$label:1
@@ -354,14 +366,16 @@ msgid "Description"
 msgstr "Leírás"
 
 #: model@md.type.items|_description@:1
-msgid "General Model Type Of Items"
-msgstr "Általános Modell Típusú Elemek"
+msgid "Type Of Items"
+msgstr "Típusú Elemek"
 
 #: model@md.type.items|_columns@usage$label:1
 #: model@md.type.plates|_columns@usage$label:1
 #: model@md.location|_columns@usage$label:1
 #: model@md.partner.contacts|_columns@usage$label:1
 #: model@md.recepture|_columns@usage$label:1
+#: model@md.boms|_columns@usage$label:1 model@md.mobs|_columns@usage$label:1
+#: model@md.bobs|_columns@usage$label:1
 msgid "Usage"
 msgstr "Használat"
 
@@ -370,16 +384,19 @@ msgstr "Használat"
 #: model@md.location|_columns@usage$selections#all:1
 #: model@md.role.partners|_columns@trole$selections#a:1
 #: model@md.recepture|_columns@usage$selections#a:1
+#: model@md.boms|_columns@usage$selections#all:1
+#: model@md.mobs|_columns@usage$selections#all:1
+#: model@md.bobs|_columns@usage$selections#all:1
 msgid "All"
 msgstr "Összes"
 
 #: model@md.type.plates|_description@:1
-msgid "General Model Type Of Plates"
-msgstr "Általános Modell Típusú Lemezek"
+msgid "Type Of Plates"
+msgstr "Típusa, Rendszáma"
 
 #: model@md.products.template|_description@:1
-msgid "General Model Product Template"
-msgstr "Általános Modell Termék Sablon"
+msgid "Product Template"
+msgstr "Termék Sablon"
 
 #: model@md.products.template|_columns@category_id$label:1
 #: model@md.location|_columns@category_id$label:1
@@ -390,13 +407,22 @@ msgstr "Kategória"
 #: model@md.products.template|_columns@mtype$label:1
 #: model@md.currency.rate|_columns@type$label:1
 #: model@md.recepture|_columns@type$label:1
+#: model@md.boms|_columns@type$label:1 model@md.mobs|_columns@type$label:1
+#: model@md.bobs|_columns@type$label:1
 msgid "Type"
 msgstr "Típus"
 
 #: model@md.products.template|_columns@mtype$selections#p:1
+#: model@md.product|_description@:1
 #: model@md.partner.products|_columns@product_id$label:1
 #: model@md.recepture.input|_columns@product$label:1
 #: model@md.recepture.output|_columns@product$label:1
+#: model@md.boms|_columns@product$label:1
+#: model@md.bom.items|_columns@product$label:1
+#: model@md.mobs|_columns@product$label:1
+#: model@md.mob.items|_columns@product$label:1
+#: model@md.bob.input.items|_columns@product$label:1
+#: model@md.bob.output.items|_columns@product$label:1
 msgid "Product"
 msgstr "Termék"
 
@@ -417,10 +443,6 @@ msgstr "Fogyasztható"
 msgid "Products"
 msgstr "Termékek"
 
-#: model@md.product|_description@:1
-msgid "General Model Product"
-msgstr "Általános Modell Termék"
-
 #: model@md.product|_columns@template_id$label:1
 msgid "Template"
 msgstr "Sablon"
@@ -428,10 +450,6 @@ msgstr "Sablon"
 #: model@md.product|_columns@uom$label:1
 msgid "Unit Of Measure"
 msgstr "Mértékegység"
-
-#: model@md.product|_columns@gti$label:1
-msgid "Group Of Type Items"
-msgstr "Csoport Típus Tételek"
 
 #: model@md.product|_columns@volume$label:1
 msgid "Volume"
@@ -537,8 +555,8 @@ msgid "Link"
 msgstr "Kapcsolat"
 
 #: model@md.incoterms|_description@:1
-msgid "General Model Incoterms"
-msgstr "Általános Modell, Incoterms"
+msgid "Incoterms"
+msgstr "Incoterms"
 
 #: model@md.incoterms|_columns@mode$label:1
 msgid "Mode Of Transport"
@@ -617,18 +635,19 @@ msgid "Buyer"
 msgstr "Vevő"
 
 #: model@md.category.partner|_description@:1
-msgid "General Model Category Partner"
-msgstr "Általános Modell Kategória Partner"
+msgid "Category Partner"
+msgstr "Kategória Partner"
 
 #: model@md.category.location|_description@:1
-msgid "General Model Category Location"
-msgstr "Általános Modell Kategória Helye"
+msgid "Category Location"
+msgstr "Kategória Hely"
 
 #: model@md.location|_description@:1
 msgid "General Master Data Location"
 msgstr "Általános Mester Adatok Helye"
 
 #: model@md.location|_columns@usage$selections#partner:1
+#: model@md.partner|_description@:1
 #: model@md.partner.addresses|_columns@partner_id$label:1
 #: model@md.partner.contacts|_columns@partner_id$label:1
 #: model@md.partner.products|_columns@partner_id$label:1
@@ -637,8 +656,12 @@ msgid "Partner"
 msgstr "Partner"
 
 #: model@md.location|_columns@usage$selections#company:1
+#: model@md.company|_description@:1
 #: model@md.currency.rate|_columns@company_id$label:1
 #: model@md.partners.bank|_columns@company_id$label:1
+#: model@md.boms|_columns@company$label:1
+#: model@md.mobs|_columns@company$label:1
+#: model@md.bobs|_columns@company$label:1
 msgid "Company"
 msgstr "Cég"
 
@@ -655,10 +678,6 @@ msgstr "Szélesség"
 #: model@md.partner|_columns@longitude$label:1
 msgid "Longitude"
 msgstr "Hosszúság"
-
-#: model@md.partner|_description@:1
-msgid "General Model Partner"
-msgstr "Általános Modell Partner"
 
 #: model@md.partner|_columns@ispeople$label:1
 msgid "People"
@@ -702,8 +721,8 @@ msgid "Roles"
 msgstr "Szerepek"
 
 #: model@md.partner.addresses|_description@:1
-msgid "General Model Partner Addresses"
-msgstr "Általános Modell Partner Cím"
+msgid "Partner Addresses"
+msgstr "Partner Cím"
 
 #: model@md.partner.addresses|_columns@taddr$label:1
 msgid "Type Of Address"
@@ -748,8 +767,8 @@ msgid "Room"
 msgstr "Szoba"
 
 #: model@md.partner.contacts|_description@:1
-msgid "General Model Partner Contacts"
-msgstr "Általános Modell Partner Kapcsolatok"
+msgid "Partner Contacts"
+msgstr "Partner Kapcsolatok"
 
 #: model@md.partner.contacts|_columns@usage$selections#d:1
 msgid "Dear"
@@ -773,6 +792,9 @@ msgid "Middle Name"
 msgstr "Középső Neve"
 
 #: model@md.partner.contacts|_columns@fullname$label:1
+#: model@md.boms|_columns@fullname$label:1
+#: model@md.mobs|_columns@fullname$label:1
+#: model@md.bobs|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Teljes Név"
 
@@ -848,8 +870,8 @@ msgid "Work Location"
 msgstr "Munka Helye"
 
 #: model@md.partner.products|_description@:1
-msgid "General Model Partner Products"
-msgstr "Általános Modell Partner Termékek"
+msgid "Partner Products"
+msgstr "Partner Termékek"
 
 #: model@md.partner.products|_columns@minqty$label:1
 msgid "Min Quantity"
@@ -860,8 +882,8 @@ msgid "Prices"
 msgstr "Árak"
 
 #: model@md.role.partners|_description@:1
-msgid "General Model Role Partners"
-msgstr "Általános Modell Szerepe Partnerek"
+msgid "Role Partners"
+msgstr "Szerepet Partnerek"
 
 #: model@md.role.partners|_columns@trole$label:1
 msgid "Type Of Role"
@@ -885,8 +907,8 @@ msgid "Role"
 msgstr "Szerep"
 
 #: model@md.partner.roles|_description@:1
-msgid "General Model Partner Roles"
-msgstr "Általános Modell Partner Szerepek"
+msgid "Partner Roles"
+msgstr "Partner Szerepek"
 
 #: model@md.partner.roles|_columns@name$label:1
 #: model@md.partners.bank|_columns@bank_bic$label:1
@@ -894,8 +916,8 @@ msgid "Unknown"
 msgstr "Ismeretlen"
 
 #: model@md.pricelist.partner.products|_description@:1
-msgid "General Model Pricelist Partner Products"
-msgstr "Általános Modell Árlista Partner Termékek"
+msgid "Pricelist Partner Products"
+msgstr "Árlista Partner Termékek"
 
 #: model@md.pricelist.partner.products|_columns@partner_product_id$label:1
 msgid "Partner Product"
@@ -909,12 +931,6 @@ msgstr "Érvényesség"
 msgid "Valid to"
 msgstr "Érvényes"
 
-#: model@md.pricelist.partner.products|_columns@currency_id$label:1
-#: model@md.company|_columns@currency_id$label:1
-#: model@md.partners.bank|_columns@currency_id$label:1
-msgid "Currency"
-msgstr "Pénznem"
-
 #: model@md.pricelist.partner.products|_columns@qty$label:1
 msgid "Qty Price"
 msgstr "Db Ár"
@@ -922,14 +938,6 @@ msgstr "Db Ár"
 #: model@md.pricelist.partner.products|_columns@price$label:1
 msgid "Price"
 msgstr "Ár"
-
-#: model@md.company|_description@:1
-msgid "General Model Company"
-msgstr "Általános Modell Cég"
-
-#: model@md.currency.rate|_description@:1
-msgid "General Model Currency Rate"
-msgstr "Általános Modell Valuta Árfolyam"
 
 #: model@md.currency.rate|_columns@currency_id$label:1
 msgid "From Currency"
@@ -960,8 +968,9 @@ msgid "Week"
 msgstr "Hét"
 
 #: model@md.banks|_description@:1
-msgid "General Model Bank"
-msgstr "Általános Modell Bank"
+#: model@md.partners.bank|_columns@bank_id$label:1
+msgid "Bank"
+msgstr "Bank"
 
 #: model@md.banks|_columns@street2$label:1
 msgid "Street2"
@@ -1000,8 +1009,8 @@ msgid "Inactive"
 msgstr "Inaktív"
 
 #: model@md.partners.bank|_description@:1
-msgid "General Model Bank of Partner"
-msgstr "Általános Modell Bank Partner"
+msgid "Bank of Partner"
+msgstr "Bank Partner"
 
 #: model@md.partners.bank|_columns@acc_type$label:1
 msgid "ACC Type"
@@ -1023,23 +1032,27 @@ msgstr "Megtisztítva Számlaszám"
 msgid "Account Holder"
 msgstr "Számlatulajdonos"
 
-#: model@md.partners.bank|_columns@bank_id$label:1
-msgid "Bank"
-msgstr "Bank"
-
 #: model@md.partners.bank|_columns@bank_name$label:1
 msgid "Bank Name"
 msgstr "Bank Neve"
 
 #: model@md.recepture|_description@:1
-msgid "General Model Recipe"
-msgstr "Általános Modell Recept"
+#: model@md.recepture.input|_columns@recepture_id$label:1
+#: model@md.recepture.output|_columns@recepture_id$label:1
+msgid "Recipe"
+msgstr "Recept"
 
 #: model@md.recepture|_columns@type$selections#real:1
+#: model@md.boms|_columns@type$selections#real:1
+#: model@md.mobs|_columns@type$selections#real:1
+#: model@md.bobs|_columns@type$selections#real:1
 msgid "Real"
 msgstr "Valódi"
 
 #: model@md.recepture|_columns@type$selections#kvazi:1
+#: model@md.boms|_columns@type$selections#kvazi:1
+#: model@md.mobs|_columns@type$selections#kvazi:1
+#: model@md.bobs|_columns@type$selections#kvazi:1
 msgid "Kwazi"
 msgstr "Kwazi"
 
@@ -1048,10 +1061,14 @@ msgid "Subtype"
 msgstr "Altípus"
 
 #: model@md.recepture|_columns@subtype$selections#bom:1
+#: model@md.bom.items|_columns@bom_id$label:1
+#: model@md.bob.input.items|_columns@bob_id$label:1
+#: model@md.bob.output.items|_columns@bob_id$label:1
 msgid "BoM"
 msgstr "BoM"
 
 #: model@md.recepture|_columns@subtype$selections#mob:1
+#: model@md.mob.items|_columns@bom_id$label:1
 msgid "MoB"
 msgstr "Maffia"
 
@@ -1060,10 +1077,15 @@ msgid "BoB"
 msgstr "BoB"
 
 #: model@md.recepture|_columns@partition$label:1
+#: model@md.boms|_columns@partition$label:1
+#: model@md.mobs|_columns@partition$label:1
+#: model@md.bobs|_columns@partition$label:1
 msgid "Partition"
 msgstr "Partíció"
 
 #: model@md.recepture|_columns@input_items$label:1
+#: model@md.boms|_columns@items$label:1 model@md.mobs|_columns@items$label:1
+#: model@md.bobs|_columns@input_items$label:1
 msgid "Input"
 msgstr "Bemeneti"
 
@@ -1072,14 +1094,38 @@ msgid "Output"
 msgstr "Kimenet"
 
 #: model@md.recepture.input|_description@:1
-msgid "General Model Input Recipe"
-msgstr "Általános Modell Bemeneti Recept"
-
-#: model@md.recepture.input|_columns@recepture_id$label:1
-#: model@md.recepture.output|_columns@recepture_id$label:1
-msgid "Recepture"
-msgstr "Recepture"
+msgid "Input Recipe"
+msgstr "Bemeneti Recept"
 
 #: model@md.recepture.output|_description@:1
-msgid "General Model Output Recipe"
-msgstr "Általános Modell Kimeneti Recept"
+msgid "Output Recipe"
+msgstr "Kimeneti Recept"
+
+#: model@md.boms|_description@:1
+msgid "Bill of Material"
+msgstr "Az anyagjegyzék"
+
+#: model@md.bom.items|_description@:1
+msgid "BoM items"
+msgstr "BoM tételek"
+
+#: model@md.mobs|_description@:1
+msgid "Material of Bills"
+msgstr "Anyaga Számlák"
+
+#: model@md.mob.items|_description@:1
+msgid "MoB items"
+msgstr "Maffia tételek"
+
+#: model@md.bobs|_description@:1
+msgid "Bill of Bills"
+msgstr "Bill Számlák"
+
+#: model@md.bobs|_columns@output_items$label:1
+msgid "output"
+msgstr "kimenet"
+
+#: model@md.bob.input.items|_description@:1
+#: model@md.bob.output.items|_description@:1
+msgid "BoB items"
+msgstr "BoB tételek"

@@ -5,7 +5,7 @@ from gsrp5service.orm.model import Model,ModelInherit
 # Organization structure
 class prj_unit_categories(Model):
 	_name = 'prj.unit.categories'
-	_description = 'General Model Categories Project Unit'
+	_description = 'Categories Project Unit'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -22,7 +22,7 @@ prj_unit_categories()
 
 class prj_units(Model):
 	_name = 'prj.units'
-	_description = 'General Model Project Units'
+	_description = 'Project Units'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -41,7 +41,7 @@ prj_units()
 
 class prj_channel_categories(Model):
 	_name = 'prj.channel.categories'
-	_description = 'General Model Categories Project Chanel'
+	_description = 'Categories Project Chanel'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -58,7 +58,7 @@ prj_channel_categories()
 
 class prj_channels(Model):
 	_name = 'prj.channels'
-	_description = 'General Model Project Channels'
+	_description = 'Project Channels'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -72,7 +72,7 @@ prj_channels()
 
 class prj_segment_categories(Model):
 	_name = 'prj.segment.categories'
-	_description = 'General Model Categories Project Segment'
+	_description = 'Categories Project Segment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -89,7 +89,7 @@ prj_segment_categories()
 
 class prj_segments(Model):
 	_name = 'prj.segments'
-	_description = 'General Model Project Segments'
+	_description = 'Project Segments'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -103,7 +103,7 @@ prj_segments()
 
 class prj_area_categories(Model):
 	_name = 'prj.area.categories'
-	_description = 'General Model Categories Project Area'
+	_description = 'Categories Project Area'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -120,7 +120,7 @@ prj_area_categories()
 
 class prj_areas(Model):
 	_name = 'prj.areas'
-	_description = 'General Model Project Areas'
+	_description = 'Project Areas'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -134,7 +134,7 @@ prj_areas()
 
 class prj_region_categories(Model):
 	_name = 'prj.region.categories'
-	_description = 'General Model Categories Project Region'
+	_description = 'Categories Project Region'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -151,7 +151,7 @@ prj_region_categories()
 
 class prj_regions(Model):
 	_name = 'prj.regions'
-	_description = 'General Model Project Regions'
+	_description = 'Project Regions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -166,7 +166,7 @@ prj_regions()
 
 class prj_division_categories(Model):
 	_name = 'prj.division.categories'
-	_description = 'General Model Categories Project Division'
+	_description = 'Categories Project Division'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -183,7 +183,7 @@ prj_division_categories()
 
 class prj_divisions(Model):
 	_name = 'prj.divisions'
-	_description = 'General Model Project Divisions'
+	_description = 'Project Divisions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -198,7 +198,7 @@ prj_divisions()
 
 class prj_subdivision_categories(Model):
 	_name = 'prj.subdivision.categories'
-	_description = 'General Model Categories Project Subdivision'
+	_description = 'Categories Project Subdivision'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -215,7 +215,7 @@ prj_subdivision_categories()
 
 class prj_subdivisions(Model):
 	_name = 'prj.subdivisions'
-	_description = 'General Model Project Subdivisions'
+	_description = 'Project Subdivisions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -229,7 +229,7 @@ prj_subdivisions()
 
 class prj_unit_channel_assigments(Model):
 	_name = 'prj.unit.channel.assigments'
-	_description = 'General Model Project Unit Of Channel Assigment'
+	_description = 'Project Unit Of Channel Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -251,7 +251,7 @@ prj_unit_channel_assigments()
 
 class prj_unit_segment_assigments(Model):
 	_name = 'prj.unit.segment.assigments'
-	_description = 'General Model Project Unit Of Segment Assigment'
+	_description = 'Project Unit Of Segment Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -273,7 +273,7 @@ prj_unit_segment_assigments()
 
 class prj_unit_area_assigments(Model):
 	_name = 'prj.unit.area.assigments'
-	_description = 'General Model Project Unit Of Area Assigment'
+	_description = 'Project Unit Of Area Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -295,7 +295,7 @@ prj_unit_area_assigments()
 
 class prj_unit_region_assigments(Model):
 	_name = 'prj.unit.region.assigments'
-	_description = 'General Model Project Unit Of Region Assigment'
+	_description = 'Project Unit Of Region Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -319,7 +319,7 @@ prj_unit_segment_assigments()
 
 class prj_division_subdivision_assigments(Model):
 	_name = 'prj.division.subdivision.assigments'
-	_description = 'General Model Project Division Of Subdivision Assigment'
+	_description = 'Project Division Of Subdivision Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -342,7 +342,7 @@ prj_division_subdivision_assigments()
 
 class prj_markets(Model):
 	_name = 'prj.markets'
-	_description = 'General Model Project Market'
+	_description = 'Project Market'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -361,7 +361,7 @@ prj_markets()
 
 class prj_teams(Model):
 	_name = 'prj.teams'
-	_description = 'General Model Project Teams'
+	_description = 'Project Teams'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -381,7 +381,7 @@ prj_teams()
 #Pricing
 class prj_pricing_group_levels(Model):
 	_name = 'prj.pricing.group.levels'
-	_description = 'General Model Project Pricing Group Levels'
+	_description = 'Project Pricing Group Levels'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -395,7 +395,7 @@ prj_pricing_group_levels()
 #Text
 class prj_texts(Model):
 	_name = 'prj.texts'
-	_description = 'General Model Project Texts'
+	_description = 'Project Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -408,7 +408,7 @@ prj_texts()
 
 class prj_schema_texts(Model):
 	_name = 'prj.schema.texts'
-	_description = 'General Model Schema Of Project Texts'
+	_description = 'Schema Of Project Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -423,7 +423,7 @@ prj_schema_texts()
 
 class prj_schema_text_items(Model):
 	_name = 'prj.schema.text.items'
-	_description = 'General Model Items Of Schema Project Texts'
+	_description = 'Items Of Schema Project Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -438,7 +438,7 @@ prj_schema_text_items()
 # Text end
 class prj_bill_types(Model):
 	_name = 'prj.bill.types'
-	_description = 'General Model Types Project Bill'
+	_description = 'Types Project Bill'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -456,7 +456,7 @@ prj_bill_types()
 
 class prj_bill_type_roles(Model):
 	_name = 'prj.bill.type.roles'
-	_description = 'General Model Role Project BIll Types'
+	_description = 'Role Project BIll Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -471,7 +471,7 @@ prj_bill_type_roles()
 
 class prj_bill_type_plates(Model):
 	_name = 'prj.bill.type.plates'
-	_description = 'General Model Project Bill Plates'
+	_description = 'Project Bill Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -487,7 +487,7 @@ prj_bill_type_plates()
 
 class prj_resource_category(Model):
 	_name = 'prj.resource.category'
-	_description = 'General Model Category Project Resource'
+	_description = 'Category Project Resource'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.resource.category'),
@@ -500,7 +500,7 @@ prj_resource_category()
 
 class prj_bill_category(Model):
 	_name = 'prj.bill.category'
-	_description = 'General Model Category Project Bill'
+	_description = 'Category Project Bill'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.bill.category'),
@@ -513,7 +513,7 @@ prj_bill_category()
 
 class prj_portfolio_category(Model):
 	_name = 'prj.portfolio.category'
-	_description = 'General Model Category Project Portfolio'
+	_description = 'Category Project Portfolio'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.portfolio.category'),
@@ -526,7 +526,7 @@ prj_portfolio_category()
 
 class prj_prj_category(Model):
 	_name = 'prj.prj.category'
-	_description = 'General Model Category Project Project'
+	_description = 'Category Project Project'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.prj.category'),
@@ -539,7 +539,7 @@ prj_prj_category()
 
 class prj_stage_category(Model):
 	_name = 'prj.stage.category'
-	_description = 'General Model Category Project Stage'
+	_description = 'Category Project Stage'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.stage.category'),
@@ -552,7 +552,7 @@ prj_stage_category()
 
 class prj_task_category(Model):
 	_name = 'prj.task.category'
-	_description = 'General Model Category Project Task'
+	_description = 'Category Project Task'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.task.category'),
@@ -565,7 +565,7 @@ prj_task_category()
 
 class prj_element_category(Model):
 	_name = 'prj.element.category'
-	_description = 'General Model Category Project Element'
+	_description = 'Category Project Element'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.element.category'),
@@ -578,7 +578,7 @@ prj_element_category()
 
 class prj_resource(Model):
 	_name = 'prj.resource'
-	_description = 'General Model Project Resource'
+	_description = 'Project Resource'
 	_columns = {
 	'name': fields.varchar(label = 'Resource',translate=True),
 	'category_id': fields.many2one(label='Category',obj='prj.resource.category'),
@@ -591,7 +591,7 @@ prj_resource()
 
 class prj_bill(Model):
 	_name = 'prj.bill'
-	_description = 'General Model Projects Bill'
+	_description = 'Projects Bill'
 	_columns = {
 	'btype': fields.many2one(label='Type',obj='prj.bill.types',on_change='_on_change_btype', required = True),
 	'name': fields.varchar(label = 'Bill', required = True),
@@ -618,7 +618,7 @@ prj_bill()
 
 class prj_portfolio(Model):
 	_name = 'prj.portfolio'
-	_description = 'General Model Projects Portfolio'
+	_description = 'Projects Portfolio'
 	_columns = {
 	'bill_id': fields.many2one(label='Bill',obj='prj.bill'),
 	'name': fields.varchar(label = 'Portfolio'),
@@ -644,7 +644,7 @@ prj_portfolio()
 
 class prj_project(Model):
 	_name = 'prj.project'
-	_description = 'General Model Project'
+	_description = 'Project'
 	_columns = {
 	'portfolio_id': fields.many2one(label='Portfolio',obj='prj.portfolio'),
 	'name': fields.varchar(label = 'Project'),
@@ -669,7 +669,7 @@ prj_project()
 
 class prj_stage(Model):
 	_name = 'prj.stage'
-	_description = 'General Model Project Stage'
+	_description = 'Project Stage'
 	_columns = {
 	'prj_id': fields.many2one(label='Project',obj='prj.project', on_delete='c', on_update='c'),
 	'name': fields.varchar(label = 'Stage'),
@@ -695,7 +695,7 @@ prj_stage()
 
 class prj_task(Model):
 	_name = 'prj.task'
-	_description = 'General Model Project Task'
+	_description = 'Project Task'
 	_columns = {
 	'stage_id': fields.many2one(label='Stage',obj='prj.stage', on_delete='c', on_update='c',selectable=True,required=True),
 	'name': fields.varchar(label = 'Task',translate=True),
@@ -720,7 +720,7 @@ prj_task()
 
 class prj_element(Model):
 	_name = 'prj.element'
-	_description = 'General Model Project Element'
+	_description = 'Project Element'
 	_columns = {
 	'stage_id': fields.many2one(label='Stage',obj='prj.stage', on_delete='c', on_update='c', selectable=True, required=True),
 	'name': fields.varchar(label = 'Element',translate=True),
@@ -735,7 +735,7 @@ prj_element()
 
 class prj_element_products(Model):
 	_name = 'prj.element.products'
-	_description = 'General Model Project Element Products'
+	_description = 'Project Element Products'
 	_columns = {
 	'element_id': fields.many2one(label='Element',obj='prj.element', on_delete='c', on_update='c',selectable=True,required=True),
 	'product_id': fields.many2one(label = 'Product',obj='md.product'),
@@ -748,7 +748,7 @@ prj_element_products()
 
 class prj_task_resources(Model):
 	_name = 'prj.task.resources'
-	_description = 'General Model Project Task Resources'
+	_description = 'Project Task Resources'
 	_columns = {
 	'task_id': fields.many2one(label = 'Task',obj='prj.task', on_delete='c', on_update='c',required=True),
 	'resource_id': fields.many2one(label = 'Resource',obj='prj.resource', on_delete='c', on_update='c',required=True),
@@ -760,7 +760,7 @@ prj_task_resources()
 
 class prj_element_resources(Model):
 	_name = 'prj.element.resources'
-	_description = 'General Model Project Element Resources'
+	_description = 'Project Element Resources'
 	_columns = {
 	'element_id': fields.many2one(label = 'Element',obj='prj.element', on_delete='c', on_update='c',required=True),
 	'resource_id': fields.many2one(label = 'Resource',obj='prj.resource', on_delete='c', on_update='c',required=True),
@@ -772,7 +772,7 @@ prj_element_resources()
 
 class md_prj_product(Model):
 	_name = 'md.prj.product'
-	_description = 'General Model Project Of Product'
+	_description = 'Project Of Product'
 	_columns = {
 	'product_id': fields.many2one(label='Product',obj='md.product'),
 	'vat': fields.many2one(label='VAT Code',obj='md.vat.code',domain=[('type_vat','in',('p','n'))]),

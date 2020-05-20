@@ -73,7 +73,7 @@ hcm_job()
 
 class hcm_employees(Model):
 	_name = 'hcm.employees'
-	_description = 'General Employees Humam Capital Managament'
+	_description = 'Employees Humam Capital Managament'
 	_rec_name='fullname'
 	_order_by = 'fullname'
 	_childs_id = 'child_ids'

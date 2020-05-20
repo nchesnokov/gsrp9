@@ -4,7 +4,7 @@ from gsrp5service.orm.model import Model,ModelInherit
 
 class md_quality_product(Model):
 	_name = 'md.quality.product'
-	_description = 'General Model Quality Of Product'
+	_description = 'Quality Of Product'
 	_columns = {
 	'product_id': fields.many2one(label='Product',obj='md.product'),
 	'type_quailty': fields.selection(label='Type',selections=[('i','Input'),('o','Output'),('m','Manufacturing')]),
@@ -25,7 +25,7 @@ md_quality_product_inherit()
 
 class qm_category(Model):
 	_name = 'qm.category'
-	_description = 'General Model Quantity Category'
+	_description = 'Quantity Category'
 	_columns = {'name': fields.varchar(label = 'Name',size=64,translate=True)}
 
 qm_category()

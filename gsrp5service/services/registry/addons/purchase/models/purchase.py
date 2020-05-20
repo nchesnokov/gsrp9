@@ -10,7 +10,7 @@ from datetime import timedelta
 # Organization structure
 class purchase_unit_categories(Model):
 	_name = 'purchase.unit.categories'
-	_description = 'General Model Categories Purchase Unit'
+	_description = 'Categories Purchase Unit'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -27,7 +27,7 @@ purchase_unit_categories()
 
 class purchase_units(Model):
 	_name = 'purchase.units'
-	_description = 'General Model Purchase Units'
+	_description = 'Purchase Units'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -46,7 +46,7 @@ purchase_units()
 
 class purchase_channel_categories(Model):
 	_name = 'purchase.channel.categories'
-	_description = 'General Model Categories Purchase Chanel'
+	_description = 'Categories Purchase Chanel'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -63,7 +63,7 @@ purchase_channel_categories()
 
 class purchase_channels(Model):
 	_name = 'purchase.channels'
-	_description = 'General Model Purchase Channels'
+	_description = 'Purchase Channels'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -77,7 +77,7 @@ purchase_channels()
 
 class purchase_segment_categories(Model):
 	_name = 'purchase.segment.categories'
-	_description = 'General Model Categories Purchase Segment'
+	_description = 'Categories Purchase Segment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -94,7 +94,7 @@ purchase_segment_categories()
 
 class purchase_segments(Model):
 	_name = 'purchase.segments'
-	_description = 'General Model Purchase Segments'
+	_description = 'Purchase Segments'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -108,7 +108,7 @@ purchase_segments()
 
 class purchase_area_categories(Model):
 	_name = 'purchase.area.categories'
-	_description = 'General Model Categories Purchase Area'
+	_description = 'Categories Purchase Area'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -125,7 +125,7 @@ purchase_area_categories()
 
 class purchase_areas(Model):
 	_name = 'purchase.areas'
-	_description = 'General Model Purchase Areas'
+	_description = 'Purchase Areas'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -139,7 +139,7 @@ purchase_areas()
 
 class purchase_region_categories(Model):
 	_name = 'purchase.region.categories'
-	_description = 'General Model Categories Purchase Region'
+	_description = 'Categories Purchase Region'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -156,7 +156,7 @@ purchase_region_categories()
 
 class purchase_regions(Model):
 	_name = 'purchase.regions'
-	_description = 'General Model Purchase Regions'
+	_description = 'Purchase Regions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -171,7 +171,7 @@ purchase_regions()
 
 class purchase_division_categories(Model):
 	_name = 'purchase.division.categories'
-	_description = 'General Model Categories Purchase Division'
+	_description = 'Categories Purchase Division'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -188,7 +188,7 @@ purchase_division_categories()
 
 class purchase_divisions(Model):
 	_name = 'purchase.divisions'
-	_description = 'General Model Purchase Divisions'
+	_description = 'Purchase Divisions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -203,7 +203,7 @@ purchase_divisions()
 
 class purchase_subdivision_categories(Model):
 	_name = 'purchase.subdivision.categories'
-	_description = 'General Model Categories Purchase Subdivision'
+	_description = 'Categories Purchase Subdivision'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -220,7 +220,7 @@ purchase_subdivision_categories()
 
 class purchase_subdivisions(Model):
 	_name = 'purchase.subdivisions'
-	_description = 'General Model Purchase Subdivisions'
+	_description = 'Purchase Subdivisions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -234,7 +234,7 @@ purchase_subdivisions()
 
 class purchase_unit_channel_assigments(Model):
 	_name = 'purchase.unit.channel.assigments'
-	_description = 'General Model Purchase Unit Of Channel Assigment'
+	_description = 'Purchase Unit Of Channel Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -256,7 +256,7 @@ purchase_unit_channel_assigments()
 
 class purchase_unit_segment_assigments(Model):
 	_name = 'purchase.unit.segment.assigments'
-	_description = 'General Model Purchase Unit Of Segment Assigment'
+	_description = 'Purchase Unit Of Segment Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -278,7 +278,7 @@ purchase_unit_segment_assigments()
 
 class purchase_unit_area_assigments(Model):
 	_name = 'purchase.unit.area.assigments'
-	_description = 'General Model Purchase Unit Of Area Assigment'
+	_description = 'Purchase Unit Of Area Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -300,7 +300,7 @@ purchase_unit_area_assigments()
 
 class purchase_unit_region_assigments(Model):
 	_name = 'purchase.unit.region.assigments'
-	_description = 'General Model Purchase Unit Of Region Assigment'
+	_description = 'Purchase Unit Of Region Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -324,7 +324,7 @@ purchase_unit_segment_assigments()
 
 class purchase_division_subdivision_assigments(Model):
 	_name = 'purchase.division.subdivision.assigments'
-	_description = 'General Model Purchase Division Of Subdivision Assigment'
+	_description = 'Purchase Division Of Subdivision Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -347,7 +347,7 @@ purchase_division_subdivision_assigments()
 
 class purchase_markets(Model):
 	_name = 'purchase.markets'
-	_description = 'General Model Purchase Market'
+	_description = 'Purchase Market'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -366,7 +366,7 @@ purchase_markets()
 
 class purchase_teams(Model):
 	_name = 'purchase.teams'
-	_description = 'General Model Purchase Teams'
+	_description = 'Purchase Teams'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -384,7 +384,7 @@ purchase_teams()
 #Pricing
 class purchase_pricing_group_levels(Model):
 	_name = 'purchase.pricing.group.levels'
-	_description = 'General Model Purchase Pricing Group Levels'
+	_description = 'Purchase Pricing Group Levels'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -398,7 +398,7 @@ purchase_pricing_group_levels()
 #Text
 class purchase_texts(Model):
 	_name = 'purchase.texts'
-	_description = 'General Model Purchase Texts'
+	_description = 'Purchase Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -411,7 +411,7 @@ purchase_texts()
 
 class purchase_schema_texts(Model):
 	_name = 'purchase.schema.texts'
-	_description = 'General Model Schema Of Purchase Texts'
+	_description = 'Schema Of Purchase Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -426,7 +426,7 @@ purchase_schema_texts()
 
 class purchase_schema_text_items(Model):
 	_name = 'purchase.schema.text.items'
-	_description = 'General Model Items Of Schema Purchase Texts'
+	_description = 'Items Of Schema Purchase Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -442,7 +442,7 @@ purchase_schema_text_items()
 
 class purchase_order_types(Model):
 	_name = 'purchase.order.types'
-	_description = 'General Model Types Purchase Order'
+	_description = 'Types Purchase Order'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -460,7 +460,7 @@ purchase_order_types()
 
 class purchase_order_type_roles(Model):
 	_name = 'purchase.order.type.roles'
-	_description = 'General Model Role Purchase Order Types'
+	_description = 'Role Purchase Order Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -475,7 +475,7 @@ purchase_order_type_roles()
 
 class purchase_order_type_plates(Model):
 	_name = 'purchase.order.type.plates'
-	_description = 'General Model Purchase Order Plates'
+	_description = 'Purchase Order Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -491,7 +491,7 @@ purchase_order_type_plates()
 
 class purchase_order_type_items(Model):
 	_name = 'purchase.order.type.items'
-	_description = 'General Model Plates Of Purchase Order Items'
+	_description = 'Plates Of Purchase Order Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -505,7 +505,7 @@ purchase_order_type_items()
 
 class purchase_invoice_types(Model):
 	_name = 'purchase.invoice.types'
-	_description = 'General Model Types Purchase Invoice'
+	_description = 'Types Purchase Invoice'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_columns = {
@@ -521,7 +521,7 @@ purchase_invoice_types()
 
 class purchase_invoice_type_roles(Model):
 	_name = 'purchase.invoice.type.roles'
-	_description = 'General Model Role Purchase Invoice Types'
+	_description = 'Role Purchase Invoice Types'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_columns = {
@@ -537,7 +537,7 @@ purchase_invoice_type_roles()
 
 class purchase_order_categories(Model):
 	_name = 'purchase.order.categories'
-	_description = 'General Model Categories Purchase Order'
+	_description = 'Categories Purchase Order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='purchase.order.categories'),
@@ -551,7 +551,7 @@ purchase_order_categories()
 
 class purchase_invoce_categories(Model):
 	_name = 'purchase.invoce.categories'
-	_description = 'General Model Categories Purchase Invoce'
+	_description = 'Categories Purchase Invoce'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='purchase.invoce.categories'),
@@ -565,7 +565,7 @@ purchase_invoce_categories()
 
 class purchase_orders(Model):
 	_name = 'purchase.orders'
-	_description = 'General Model Purchase Order'
+	_description = 'Purchase Order'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_attrs = '_attrs_model_invisible'
 	_date = 'doo'
@@ -592,7 +592,7 @@ class purchase_orders(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','pur'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='purchase.order.items',rel='order_id'),
 	'pricing': fields.one2many(label='Pricing',obj='purchase.order.pricing',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.order.roles',rel='order_id'),
@@ -623,9 +623,9 @@ class purchase_orders(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
 				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
@@ -665,7 +665,7 @@ purchase_orders()
 
 class purchase_order_texts(Model):
 	_name = 'purchase.order.texts'
-	_description = 'General Model Purchase Order Texts'
+	_description = 'Purchase Order Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -683,7 +683,7 @@ purchase_order_texts()
 
 class purchase_order_roles(Model):
 	_name = 'purchase.order.roles'
-	_description = 'General Model Purchase Order Roles'
+	_description = 'Purchase Order Roles'
 	_columns = {
 	'order_id': fields.many2one(label = 'Order',obj='purchase.orders'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
@@ -694,7 +694,7 @@ purchase_order_roles()
 
 class purchase_order_pricing(Model):
 	_name = 'purchase.order.pricing'
-	_description = 'General Model Purchase Order Pricing'
+	_description = 'Purchase Order Pricing'
 	_columns = {
 	'order_id': fields.many2one(label = 'Order',obj='purchase.orders'),
 	'level': fields.integer(label = 'Level'),
@@ -710,7 +710,7 @@ purchase_order_pricing()
 
 class purchase_order_payment_schedules(Model):
 	_name = 'purchase.order.payment.schedules'
-	_description = 'General Model Purchase Order Payment Schedules'
+	_description = 'Purchase Order Payment Schedules'
 	_columns = {
 	'order_id': fields.many2one(label = 'Order',obj='purchase.orders'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -723,7 +723,7 @@ purchase_order_payment_schedules()
 
 class purchase_order_output_plates(Model):
 	_name = 'purchase.order.output.plates'
-	_description = 'General Model Purchase Order Output Plates'
+	_description = 'Purchase Order Output Plates'
 	_columns = {
 	'order_id': fields.many2one(label = 'Order',obj='purchase.orders'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -744,7 +744,7 @@ purchase_order_output_plates()
 
 class purchase_order_items(Model):
 	_name = 'purchase.order.items'
-	_description = 'General Model Purchase Order Items'
+	_description = 'Purchase Order Items'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'order_id': fields.many2one(obj = 'purchase.orders',label = 'Purchase Order'),
@@ -882,7 +882,7 @@ purchase_order_items()
 
 class purchase_order_pricing_items(Model):
 	_name = 'purchase.order.pricing.items'
-	_description = 'General Model Purchase Order Item Pricing'
+	_description = 'Purchase Order Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='purchase.order.items'),
 	'level': fields.integer(label = 'Level'),
@@ -902,7 +902,7 @@ purchase_order_pricing_items()
 
 class purchase_order_item_texts(Model):
 	_name = 'purchase.order.item.texts'
-	_description = 'General Model Purchase Order Item Texts'
+	_description = 'Purchase Order Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -920,7 +920,7 @@ purchase_order_item_texts()
 
 class purchase_order_item_roles(Model):
 	_name = 'purchase.order.item.roles'
-	_description = 'General Model Purchase Order Roles'
+	_description = 'Purchase Order Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='purchase.order.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
@@ -931,7 +931,7 @@ purchase_order_item_roles()
 
 class purchase_order_item_delivery_schedules(Model):
 	_name = 'purchase.order.item.delivery.schedules'
-	_description = 'General Model Purchase Order Item Delivery Schedules'
+	_description = 'Purchase Order Item Delivery Schedules'
 	_columns = {
 	'item_id': fields.many2one(obj = 'purchase.order.items',label = 'Order Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
@@ -947,7 +947,7 @@ purchase_order_item_delivery_schedules()
 
 class purchase_order_item_output_plates(Model):
 	_name = 'purchase.order.item.output.plates'
-	_description = 'General Model Purchase Order Item Output Plates'
+	_description = 'Purchase Order Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='purchase.order.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -968,7 +968,7 @@ purchase_order_item_output_plates()
 
 class purchase_order_item_payment_schedules(Model):
 	_name = 'purchase.order.item.payment.schedules'
-	_description = 'General Model Purchase Order Item Payment Schedules'
+	_description = 'Purchase Order Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='purchase.order.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -982,7 +982,7 @@ purchase_order_item_payment_schedules()
 # Invoice
 class purchase_invoices(Model):
 	_name = 'purchase.invoices'
-	_description = 'General Model Purchase Invoice'
+	_description = 'Purchase Invoice'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'doi'
 	_rec_name = 'fullname'
@@ -1004,6 +1004,7 @@ class purchase_invoices(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','pur'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='purchase.invoice.items',rel='invoice_id'),
 	'pricing': fields.one2many(label='Pricing',obj='purchase.invoice.pricing',rel='invoice_id'),
 	'roles': fields.one2many(label='Roles',obj='purchase.invoice.roles',rel='invoice_id'),
@@ -1019,6 +1020,23 @@ class purchase_invoices(Model):
 				for role in roles:
 					item[roles].append[role['role_id']]
 
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			for i in p:
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei['quantity'] = i['quantity']
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items['delivery_schedules'].append(ei)
+				for f in ('product','uom'):
+					item_items[f] = i[f]
+				item_items['price'] = 0.00
+				item['items'].append(item_items)
+
+		return None
+
+
 
 	_default = {
 		'state':'draft',
@@ -1029,7 +1047,7 @@ purchase_invoices()
 
 class purchase_invoice_pricing(Model):
 	_name = 'purchase.invoice.pricing'
-	_description = 'General Model Purchase Invoice Pricing'
+	_description = 'Purchase Invoice Pricing'
 	_columns = {
 	'invoice_id': fields.many2one(label = 'Invoice',obj='purchase.invoices'),
 	'level': fields.integer(label = 'Level'),
@@ -1045,7 +1063,7 @@ purchase_invoice_pricing()
 
 class purchase_invoice_texts(Model):
 	_name = 'purchase.invoice.texts'
-	_description = 'General Model Purchase Invoce Texts'
+	_description = 'Purchase Invoce Texts'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_order_by = "seq asc"
@@ -1063,7 +1081,7 @@ purchase_invoice_texts()
 
 class purchase_invoice_roles(Model):
 	_name = 'purchase.invoice.roles'
-	_description = 'General Model Purchase Invoice Roles'
+	_description = 'Purchase Invoice Roles'
 	_columns = {
 	'invoice_id': fields.many2one(label = 'Invoice',obj='purchase.invoices'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
@@ -1074,7 +1092,7 @@ purchase_invoice_roles()
 
 class purchase_invoice_items(Model):
 	_name = 'purchase.invoice.items'
-	_description = 'General Model Purchase Invoice Items'
+	_description = 'Purchase Invoice Items'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'invoice_id': fields.many2one(obj = 'purchase.invoices',label = 'Invoice'),
@@ -1117,7 +1135,7 @@ purchase_invoice_items()
 
 class purchase_invoice_item_texts(Model):
 	_name = 'purchase.invoice.item.texts'
-	_description = 'General Model Purchase Invoce Item Texts'
+	_description = 'Purchase Invoce Item Texts'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_order_by = "seq asc"
@@ -1135,7 +1153,7 @@ purchase_invoice_item_texts()
 
 class purchase_invoice_item_roles(Model):
 	_name = 'purchase.invoice.item.roles'
-	_description = 'General Model Purchase Invoice Item Roles'
+	_description = 'Purchase Invoice Item Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='purchase.invoice.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
@@ -1146,7 +1164,7 @@ purchase_invoice_item_roles()
 
 class purchase_invoice_pricing_items(Model):
 	_name = 'purchase.invoice.pricing.items'
-	_description = 'General Model Purchase Invoice Item Pricing'
+	_description = 'Purchase Invoice Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Order',obj='purchase.invoice.items'),
 	'level': fields.integer(label = 'Level'),
@@ -1167,7 +1185,7 @@ purchase_invoice_pricing_items()
 
 class purchase_invoce_item_delivery_schedules(Model):
 	_name = 'purchase.invoce.item.delivery.schedules'
-	_description = 'General Model Purchase Invoice Item Delivery Schedules'
+	_description = 'Purchase Invoice Item Delivery Schedules'
 	_columns = {
 	'item_id': fields.many2one(obj = 'purchase.invoice.items',label = 'Order Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
@@ -1185,7 +1203,7 @@ purchase_invoce_item_delivery_schedules()
 
 class md_purchase_product(Model):
 	_name = 'md.purchase.product'
-	_description = 'General Model Purchase Of Product'
+	_description = 'Purchase Of Product'
 	_columns = {
 	'product_id': fields.many2one(label='Product',obj='md.product'),
 	'vat': fields.many2one(label='VAT Code',obj='md.vat.code',domain=[('type_vat','in',('p','n'))]),
@@ -1205,7 +1223,7 @@ class md_purchase_product_inherit(ModelInherit):
 	_inherit = {'md.product':{'_columns':['purchase']},'md.recepture':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'md.type.plates':{'_columns':['usage']}}
 	_columns = {
 		'purchase': fields.one2many(label='Purchase',obj='md.purchase.product',rel='product_id'),
-		'usage': fields.iProperty(selections=[('p','Purchase')])
+		'usage': fields.iProperty(selections=[('pur','Purchase')])
 	}
 	
 md_purchase_product_inherit()

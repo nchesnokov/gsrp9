@@ -10,7 +10,7 @@ from datetime import timedelta
 # Organization structure
 class sale_unit_categories(Model):
 	_name = 'sale.unit.categories'
-	_description = 'General Model Categories Sale Unit'
+	_description = 'Categories Sale Unit'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -27,7 +27,7 @@ sale_unit_categories()
 
 class sale_units(Model):
 	_name = 'sale.units'
-	_description = 'General Model Sale Units'
+	_description = 'Sale Units'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -46,7 +46,7 @@ sale_units()
 
 class sale_channel_categories(Model):
 	_name = 'sale.channel.categories'
-	_description = 'General Model Categories Sale Chanel'
+	_description = 'Categories Sale Chanel'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -63,7 +63,7 @@ sale_channel_categories()
 
 class sale_channels(Model):
 	_name = 'sale.channels'
-	_description = 'General Model Sale Channels'
+	_description = 'Sale Channels'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -77,7 +77,7 @@ sale_channels()
 
 class sale_segment_categories(Model):
 	_name = 'sale.segment.categories'
-	_description = 'General Model Categories Sale Segment'
+	_description = 'Categories Sale Segment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -94,7 +94,7 @@ sale_segment_categories()
 
 class sale_segments(Model):
 	_name = 'sale.segments'
-	_description = 'General Model Sale Segments'
+	_description = 'Sale Segments'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -108,7 +108,7 @@ sale_segments()
 
 class sale_area_categories(Model):
 	_name = 'sale.area.categories'
-	_description = 'General Model Categories Sale Area'
+	_description = 'Categories Sale Area'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -125,7 +125,7 @@ sale_area_categories()
 
 class sale_areas(Model):
 	_name = 'sale.areas'
-	_description = 'General Model Sale Areas'
+	_description = 'Sale Areas'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -139,7 +139,7 @@ sale_areas()
 
 class sale_region_categories(Model):
 	_name = 'sale.region.categories'
-	_description = 'General Model Categories Sale Region'
+	_description = 'Categories Sale Region'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -156,7 +156,7 @@ sale_region_categories()
 
 class sale_regions(Model):
 	_name = 'sale.regions'
-	_description = 'General Model Sale Regions'
+	_description = 'Sale Regions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -171,7 +171,7 @@ sale_regions()
 
 class sale_division_categories(Model):
 	_name = 'sale.division.categories'
-	_description = 'General Model Categories Sale Division'
+	_description = 'Categories Sale Division'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -188,7 +188,7 @@ sale_division_categories()
 
 class sale_divisions(Model):
 	_name = 'sale.divisions'
-	_description = 'General Model Sale Divisions'
+	_description = 'Sale Divisions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -203,7 +203,7 @@ sale_divisions()
 
 class sale_subdivision_categories(Model):
 	_name = 'sale.subdivision.categories'
-	_description = 'General Model Categories Sale Subdivision'
+	_description = 'Categories Sale Subdivision'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -220,7 +220,7 @@ sale_subdivision_categories()
 
 class sale_subdivisions(Model):
 	_name = 'sale.subdivisions'
-	_description = 'General Model Sale Subdivisions'
+	_description = 'Sale Subdivisions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -234,7 +234,7 @@ sale_subdivisions()
 
 class sale_unit_channel_assigments(Model):
 	_name = 'sale.unit.channel.assigments'
-	_description = 'General Model Sale Unit Of Channel Assigment'
+	_description = 'Sale Unit Of Channel Assigment'
 	_rec_name = 'fullname'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -257,7 +257,7 @@ sale_unit_channel_assigments()
 
 class sale_unit_segment_assigments(Model):
 	_name = 'sale.unit.segment.assigments'
-	_description = 'General Model Sale Unit Of Segment Assigment'
+	_description = 'Sale Unit Of Segment Assigment'
 	_rec_name = 'fullname'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -280,7 +280,7 @@ sale_unit_segment_assigments()
 
 class sale_unit_area_assigments(Model):
 	_name = 'sale.unit.area.assigments'
-	_description = 'General Model Sale Unit Of Area Assigment'
+	_description = 'Sale Unit Of Area Assigment'
 	_rec_name = 'fullname'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -303,7 +303,7 @@ sale_unit_area_assigments()
 
 class sale_unit_region_assigments(Model):
 	_name = 'sale.unit.region.assigments'
-	_description = 'General Model Sale Unit Of Region Assigment'
+	_description = 'Sale Unit Of Region Assigment'
 	_rec_name = 'fullname'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -328,7 +328,7 @@ sale_unit_segment_assigments()
 
 class sale_division_subdivision_assigments(Model):
 	_name = 'sale.division.subdivision.assigments'
-	_description = 'General Model Sale Division Of Subdivision Assigment'
+	_description = 'Sale Division Of Subdivision Assigment'
 	_rec_name = 'fullname'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -353,7 +353,7 @@ sale_division_subdivision_assigments()
 
 class sale_markets(Model):
 	_name = 'sale.markets'
-	_description = 'General Model Sale Market'
+	_description = 'Sale Market'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -372,7 +372,7 @@ sale_markets()
 
 class sale_teams(Model):
 	_name = 'sale.teams'
-	_description = 'General Model Sale Teams'
+	_description = 'Sale Teams'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -390,7 +390,7 @@ sale_teams()
 #Pricing
 class sale_pricing_group_levels(Model):
 	_name = 'sale.pricing.group.levels'
-	_description = 'General Model Sale Pricing Group Levels'
+	_description = 'Sale Pricing Group Levels'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -404,7 +404,7 @@ sale_pricing_group_levels()
 #Text
 class sale_texts(Model):
 	_name = 'sale.texts'
-	_description = 'General Model Sale Texts'
+	_description = 'Sale Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -417,7 +417,7 @@ sale_texts()
 
 class sale_schema_texts(Model):
 	_name = 'sale.schema.texts'
-	_description = 'General Model Schema Of Sale Texts'
+	_description = 'Schema Of Sale Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -432,7 +432,7 @@ sale_schema_texts()
 
 class sale_schema_text_items(Model):
 	_name = 'sale.schema.text.items'
-	_description = 'General Model Items Of Schema Sale Texts'
+	_description = 'Items Of Schema Sale Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -448,7 +448,7 @@ sale_schema_text_items()
 
 class sale_order_types(Model):
 	_name = 'sale.order.types'
-	_description = 'General Model Types Sale Order'
+	_description = 'Types Sale Order'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -466,7 +466,7 @@ sale_order_types()
 
 class sale_order_type_roles(Model):
 	_name = 'sale.order.type.roles'
-	_description = 'General Model Role Sale Order Types'
+	_description = 'Role Sale Order Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -479,7 +479,7 @@ sale_order_type_roles()
 
 class sale_order_type_items(Model):
 	_name = 'sale.order.type.items'
-	_description = 'General Model Role Sale Order Items'
+	_description = 'Role Sale Order Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -494,7 +494,7 @@ sale_order_type_items()
 
 class sale_invoice_types(Model):
 	_name = 'sale.invoice.types'
-	_description = 'General Model Types Sale Invoice'
+	_description = 'Types Sale Invoice'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_columns = {
@@ -509,7 +509,7 @@ sale_invoice_types()
 
 class sale_invoice_type_roles(Model):
 	_name = 'sale.invoice.type.roles'
-	_description = 'General Model Role sale Invoice Types'
+	_description = 'Role sale Invoice Types'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_columns = {
@@ -525,7 +525,7 @@ sale_invoice_type_roles()
 
 class sales_order_categories(Model):
 	_name = 'sale.order.categories'
-	_description = 'General Model Category Sale Order'
+	_description = 'Category Sale Order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='sale.order.categories'),
@@ -539,7 +539,7 @@ sales_order_categories()
 
 class sale_invoice_categories(Model):
 	_name = 'sale.invoice.categories'
-	_description = 'General Model Category Sale Invoice'
+	_description = 'Category Sale Invoice'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='sale.invoice.categories'),
@@ -553,7 +553,7 @@ sale_invoice_categories()
 
 class sale_orders(Model):
 	_name = 'sale.orders'
-	_description = 'General Model Sale Orders'
+	_description = 'Sale Orders'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'doo'
@@ -636,7 +636,7 @@ sale_orders()
 
 class sale_order_texts(Model):
 	_name = 'sale.order.texts'
-	_description = 'General Model Sale Order Texts'
+	_description = 'Sale Order Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -653,7 +653,7 @@ sale_order_texts()
 
 class sale_order_roles(Model):
 	_name = 'sale.order.roles'
-	_description = 'General Model Sale Order Roles'
+	_description = 'Sale Order Roles'
 	_columns = {
 	'order_id': fields.many2one(label = 'Order',obj='sale.orders'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','i','p','a'))]),
@@ -664,7 +664,7 @@ sale_order_roles()
 
 class sale_order_pricing(Model):
 	_name = 'sale.order.pricing'
-	_description = 'General Model Sale Order Pricing'
+	_description = 'Sale Order Pricing'
 	_columns = {
 	'order_id': fields.many2one(label = 'Order',obj='sale.orders'),
 	'level': fields.integer(label = 'Level'),
@@ -680,7 +680,7 @@ sale_order_pricing()
 
 class sale_order_payment_schedules(Model):
 	_name = 'sale.order.payment.schedules'
-	_description = 'General Model Sale Order Payment Schedules'
+	_description = 'Sale Order Payment Schedules'
 	_columns = {
 	'order_id': fields.many2one(label = 'Order',obj='sale.orders'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -693,7 +693,7 @@ sale_order_payment_schedules()
 
 class sale_order_output_plates(Model):
 	_name = 'sale.order.output.plates'
-	_description = 'General Model Sale Order Output Plates'
+	_description = 'Sale Order Output Plates'
 	_columns = {
 	'order_id': fields.many2one(label = 'Order',obj='sale.orders'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -716,7 +716,7 @@ sale_order_output_plates()
 
 class sale_order_items(Model):
 	_name = 'sale.order.items'
-	_description = 'General Model Sale Order Items'
+	_description = 'Sale Order Items'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'order_id': fields.many2one(obj = 'sale.orders',label = 'Sales Order'),
@@ -849,7 +849,7 @@ sale_order_items()
 
 class sale_order_pricing_items(Model):
 	_name = 'sale.order.pricing.items'
-	_description = 'General Model Sale Order Item Pricing'
+	_description = 'Sale Order Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Order',obj='sale.order.items'),
 	'level': fields.integer(label = 'Level'),
@@ -869,7 +869,7 @@ sale_order_pricing_items()
 
 class sale_order_item_texts(Model):
 	_name = 'sale.order.item.texts'
-	_description = 'General Model Sale Order Item Texts'
+	_description = 'Sale Order Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -887,7 +887,7 @@ sale_order_item_texts()
 
 class sale_order_item_roles(Model):
 	_name = 'sale.order.item.roles'
-	_description = 'General Model Sale Order Roles'
+	_description = 'Sale Order Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='sale.order.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','i','p','a'))]),
@@ -899,7 +899,7 @@ sale_order_item_roles()
 
 class sale_order_item_delivery_schedules(Model):
 	_name = 'sale.order.item.delivery.schedules'
-	_description = 'General Model Sales Order Item Delivery Schedules'
+	_description = 'Sales Order Item Delivery Schedules'
 	_columns = {
 	'item_id': fields.many2one(obj = 'sale.order.items',label = 'Order Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
@@ -915,7 +915,7 @@ sale_order_item_delivery_schedules()
 
 class sale_order_item_output_plates(Model):
 	_name = 'sale.order.item.output.plates'
-	_description = 'General Model Sale Order Item Output Plates'
+	_description = 'Sale Order Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Order',obj='sale.order.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -936,7 +936,7 @@ sale_order_item_output_plates()
 
 class sale_order_item_payment_schedules(Model):
 	_name = 'sale.order.item.payment.schedules'
-	_description = 'General Model Sale Order Item Payment Schedules'
+	_description = 'Sale Order Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='sale.order.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -950,7 +950,7 @@ sale_order_item_payment_schedules()
 # Invoice
 class sale_invoices(Model):
 	_name = 'sale.invoices'
-	_description = 'General Model Sale Invoices'
+	_description = 'Sale Invoices'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'doi'
 	_columns = {
@@ -994,7 +994,7 @@ sale_invoices()
 
 class sale_invoice_texts(Model):
 	_name = 'sale.invoice.texts'
-	_description = 'General Model Sale Invoce Texts'
+	_description = 'Sale Invoce Texts'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_order_by = "seq asc"
@@ -1011,7 +1011,7 @@ sale_invoice_texts()
 
 class sale_invoice_roles(Model):
 	_name = 'sale.invoice.roles'
-	_description = 'General Model sale Invoice Roles'
+	_description = 'sale Invoice Roles'
 	_columns = {
 	'invoice_id': fields.many2one(label = 'Invoice',obj='sale.invoices'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','i','p','a'))]),
@@ -1022,7 +1022,7 @@ sale_invoice_roles()
 
 class sales_invoice_items(Model):
 	_name = 'sale.invoice.items'
-	_description = 'General Model Sales Invoice Items'
+	_description = 'Sales Invoice Items'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'invoice_id': fields.many2one(obj = 'sale.invoices',label = 'Invoice'),
@@ -1064,7 +1064,7 @@ sales_invoice_items()
 
 class sale_invoice_item_texts(Model):
 	_name = 'sale.invoice.item.texts'
-	_description = 'General Model Sale Invoce Item Texts'
+	_description = 'Sale Invoce Item Texts'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_order_by = "seq asc"
@@ -1081,7 +1081,7 @@ sale_invoice_item_texts()
 
 class sale_invoice_item_roles(Model):
 	_name = 'sale.invoice.item.roles'
-	_description = 'General Model Sale Invoice Item Roles'
+	_description = 'Sale Invoice Item Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='sale.invoice.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','i','p','a'))]),
@@ -1092,7 +1092,7 @@ sale_invoice_item_roles()
 
 class sales_invoce_item_delivery_schedules(Model):
 	_name = 'sale.invoice.item.delivery.schedules'
-	_description = 'General Model Sales Order Item Delivery Schedules'
+	_description = 'Sales Order Item Delivery Schedules'
 	_columns = {
 	'item_id': fields.many2one(obj = 'sale.invoice.items',label = 'Order Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
@@ -1110,7 +1110,7 @@ sales_invoce_item_delivery_schedules()
 
 class md_sale_product(Model):
 	_name = 'md.sale.product'
-	_description = 'General Model Sale Of Product'
+	_description = 'Sale Of Product'
 	_columns = {
 	'product_id': fields.many2one(label='Product',obj='md.product'),
 	'vat': fields.many2one(label='VAT Code',obj='md.vat.code',domain=[('type_vat','in',('s','n'))]),

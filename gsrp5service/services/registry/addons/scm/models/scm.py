@@ -3,7 +3,7 @@ from gsrp5service.orm.model import Model
 
 class scm_workcenter_category(Model):
 	_name = 'scm.workcenter.category'
-	_description = 'General Model Category Workcenter'
+	_description = 'Category Workcenter'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='scm.workcenter.category'),
@@ -16,7 +16,7 @@ scm_workcenter_category()
 
 class scm_route_category(Model):
 	_name = 'scm.route.category'
-	_description = 'General Model Category Route'
+	_description = 'Category Route'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='scm.route.category'),
@@ -30,7 +30,7 @@ scm_route_category()
 
 class scm_production_order_category(Model):
 	_name = 'scm.production.order.category'
-	_description = 'General Model Category Production Order'
+	_description = 'Category Production Order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='scm.production.order.category'),
@@ -43,7 +43,7 @@ scm_production_order_category()
 
 class scm_technologic_order_category(Model):
 	_name = 'scm.technologic.order.category'
-	_description = 'General Model Category Technologic Order'
+	_description = 'Category Technologic Order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='scm.technologic.order.category'),
@@ -56,7 +56,7 @@ scm_technologic_order_category()
 
 class scm_disassembly_order_category(Model):
 	_name = 'scm.disassembly.order.category'
-	_description = 'General Model Category Disassembly Order'
+	_description = 'Category Disassembly Order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='scm.disassembly.order.category'),
@@ -69,7 +69,7 @@ scm_disassembly_order_category()
 # workcenter
 class scm_workcenter(Model):
 	_name = 'scm.workcenter'
-	_description = 'General Model Workcenter'
+	_description = 'Workcenter'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'wctype': fields.selection(label='Type',selections=[('p','Production'),('t','Technology'),('d','Disassembly'),('a','All')]),
@@ -83,7 +83,7 @@ scm_workcenter()
 
 class scm_workcenter_products(Model):
 	_name = 'scm.workcenter.products'
-	_description = 'General Model Workcenter Products'
+	_description = 'Workcenter Products'
 	_columns = {
 	'workcenter_id': fields.many2one(label='Workcenter',obj='scm.workcenter'),
 	'product': fields.many2one(label='Product',obj='md.product'),
@@ -95,7 +95,7 @@ scm_workcenter_products()
 
 class scm_workcenter_product_prices(Model):
 	_name = 'scm.workcenter.product.prices'
-	_description = 'General Model Workcenter Product Prices'
+	_description = 'Workcenter Product Prices'
 	_columns = {
 	'product_id': fields.many2one(label='Product',obj='scm.workcenter.products'),
 	'from_date': fields.datetime(label='From',timezone=True),
@@ -112,7 +112,7 @@ scm_workcenter_product_prices()
 #route
 class scm_route(Model):
 	_name = 'scm.route'
-	_description = 'General Model Route'
+	_description = 'Route'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'category_id': fields.many2one(label='Category',obj='scm.route.category'),
@@ -125,7 +125,7 @@ scm_route()
 
 class scm_route_items(Model):
 	_name = 'scm.route.items'
-	_description = 'General Model Route Items'
+	_description = 'Route Items'
 	_columns = {
 	'route_id': fields.many2one(label='Route',obj='scm.route'),
 	'workcenter': fields.many2one(label='Workcenter',obj='scm.workcenter'),
@@ -139,7 +139,7 @@ scm_route_items()
 #production
 class scm_production_order(Model):
 	_name = 'scm.production.order'
-	_description = 'General Model Production Order'
+	_description = 'Production Order'
 	_date = 'dopo'
 	_columns = {
 	'name': fields.varchar(label = 'Name'),
@@ -162,7 +162,7 @@ scm_production_order()
 
 class scm_production_order_items(Model):
 	_name = 'scm.production.order.items'
-	_description = 'General Model Production Order Items'
+	_description = 'Production Order Items'
 	_columns = {
 	'order_id': fields.many2one(obj = 'scm.production.order',label = 'Production Order'),
 	'recepture_id': fields.many2one(label='Recepture',obj='md.recepture',domain=[('type','=','real'),('subtype','=','bom'),[('usage','=','m'),'|',('usage','=','a')]],on_change='_on_change_recepture'),
@@ -193,7 +193,7 @@ scm_production_order_items()
 
 class scm_production_order_item_bom(Model):
 	_name = 'scm.production.order.item.bom'
-	_description = 'General Model Production Order Items BoM'
+	_description = 'Production Order Items BoM'
 	_columns = {
 	'item_id': fields.many2one(obj = 'scm.production.order.items',label = 'Item'),
 	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
@@ -236,7 +236,7 @@ scm_production_order_item_bom()
 
 class scm_production_order_delivery_schedules(Model):
 	_name = 'scm.production.order.delivery.schedules'
-	_description = 'General Model Production Order Delivery Schedule'
+	_description = 'Production Order Delivery Schedule'
 	_columns = {
 	'item_id': fields.many2one(obj = 'scm.production.order.items',label = 'Item'),
 	'part': fields.numeric(label='Part',size=(11,3),required=True,check='part > 0.000'),
@@ -253,7 +253,7 @@ scm_production_order_delivery_schedules()
 # Technologic
 class scm_technologic_order(Model):
 	_name = 'scm.technologic.order'
-	_description = 'General Model Technologic Order'
+	_description = 'Technologic Order'
 	_date = 'doto'
 	_columns = {
 	'name': fields.varchar(label = 'Name'),
@@ -276,7 +276,7 @@ scm_technologic_order()
 
 class scm_technologic_order_items(Model):
 	_name = 'scm.technologic.order.items'
-	_description = 'General Model Technologic Order Items'
+	_description = 'Technologic Order Items'
 	_columns = {
 	'order_id': fields.many2one(obj = 'scm.technologic.order',label = 'Technologic Order'),
 	'recepture_id': fields.many2one(label='Recepture',obj='md.recepture',domain=[('type','=','real'),('subtype','=','bob'),[('usage','=','m'),'|',('usage','=','a')]],on_change='_on_change_recepture'),
@@ -309,7 +309,7 @@ scm_technologic_order_items()
 
 class scm_technologic_order_item_ibob(Model):
 	_name = 'scm.technologic.order.item.ibob'
-	_description = 'General Model Technologic Order Items InBoB'
+	_description = 'Technologic Order Items InBoB'
 	_columns = {
 	'item_id': fields.many2one(obj = 'scm.technologic.order.items',label = 'Item'),
 	'product': fields.many2one(label='Product',obj='md.product'),
@@ -326,7 +326,7 @@ scm_technologic_order_item_ibob()
 
 class scm_technologic_order_item_obob(Model):
 	_name = 'scm.technologic.order.item.obob'
-	_description = 'General Model Technologic Order Items OutBoB'
+	_description = 'Technologic Order Items OutBoB'
 	_columns = {
 	'item_id': fields.many2one(obj = 'scm.technologic.order.items',label = 'Item'),
 	'product': fields.many2one(label='Product',obj='md.product'),
@@ -343,7 +343,7 @@ scm_technologic_order_item_obob()
 
 class scm_technologic_order_delivery_schedules(Model):
 	_name = 'scm.technologic.order.delivery.schedules'
-	_description = 'General Model Technologic Order Delivery Schedule'
+	_description = 'Technologic Order Delivery Schedule'
 	_columns = {
 	'item_id': fields.many2one(obj = 'scm.technologic.order.items',label = 'Item'),
 	'part': fields.numeric(label='Part',size=(11,3),required=True,check='part > 0.000'),
@@ -360,7 +360,7 @@ scm_technologic_order_delivery_schedules()
 # Disassebly
 class scm_disassembly_order(Model):
 	_name = 'scm.disassembly.order'
-	_description = 'General Model Disassembly Order'
+	_description = 'Disassembly Order'
 	_date = 'dodo'
 	_columns = {
 	'name': fields.varchar(label = 'Name'),
@@ -383,7 +383,7 @@ scm_disassembly_order()
 
 class scm_disassembly_order_items(Model):
 	_name = 'scm.disassembly.order.items'
-	_description = 'General Model Disassembly Order Items'
+	_description = 'Disassembly Order Items'
 	_columns = {
 	'order_id': fields.many2one(obj = 'scm.disassembly.order',label = 'Technologic Order'),
 	'recepture_id': fields.many2one(label='Recepture',obj='md.recepture',domain=[('type','=','real'),('subtype','=','mob'),[('usage','=','m'),'|',('usage','=','a')]],on_change='_on_change_recepture'),
@@ -413,7 +413,7 @@ scm_disassembly_order_items()
 
 class scm_disassembly_order_item_mob(Model):
 	_name = 'scm.disassembly.order.item.mob'
-	_description = 'General Model Disassembly Order Items MoB'
+	_description = 'Disassembly Order Items MoB'
 	_columns = {
 	'item_id': fields.many2one(obj = 'scm.disassembly.order.items',label = 'Item'),
 	'product': fields.many2one(label='Product',obj='md.product'),
@@ -430,7 +430,7 @@ scm_disassembly_order_item_mob()
 
 class scm_disassembly_order_delivery_schedules(Model):
 	_name = 'scm.disassembly.order.delivery.schedules'
-	_description = 'General Model Disassembly Order Delivery Schedule'
+	_description = 'Disassembly Order Delivery Schedule'
 	_columns = {
 	'item_id': fields.many2one(obj = 'scm.disassembly.order.items',label = 'Item'),
 	'part': fields.numeric(label='Part',size=(11,3),required=True,check='part > 0.000'),

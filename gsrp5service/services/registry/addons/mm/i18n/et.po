@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-19 21:13:35+0300\n"
-"PO-Revision-Date: 2020-05-19 21:13:35+0300\n"
+"POT-Creation-Date: 2020-05-20 20:20:10+0300\n"
+"PO-Revision-Date: 2020-05-20 20:20:10+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: model@mm.pricing.group.levels|_description@:1
-msgid "General Model Production Pricing Group Levels"
-msgstr "Üldine Mudeli Tootmise Hindade Grupi Tasemel"
+msgid "Production Pricing Group Levels"
+msgstr "Toodangu Hindade Grupi Tasemel"
 
 #: model@mm.pricing.group.levels|_columns@code$label:1
 #: model@mm.texts|_columns@code$label:1
@@ -28,12 +28,12 @@ msgid "Description"
 msgstr "Kirjeldus"
 
 #: model@mm.texts|_description@:1
-msgid "General Model Manufactured Texts"
-msgstr "Üldine Mudel On Valmistatud Tekstid"
+msgid "Manufactured Texts"
+msgstr "Valmistatud Tekstid"
 
 #: model@mm.schema.texts|_description@:1
-msgid "General Model Schema Of Manufactured Texts"
-msgstr "Üldine Mudeli Skeem Valmistatud Tekstid"
+msgid "Schema Of Manufactured Texts"
+msgstr "Skeem Valmistatud Tekstid"
 
 #: model@mm.schema.texts|_columns@usage$label:1
 msgid "Usage"
@@ -44,12 +44,9 @@ msgid "Header"
 msgstr "Päis"
 
 #: model@mm.schema.texts|_columns@usage$selections#i:1
-#: model@mm.production.order.item.bom|_columns@item_id$label:1
 #: model@mm.production.order.delivery.schedules|_columns@item_id$label:1
-#: model@mm.technologic.order.item.ibob|_columns@item_id$label:1
-#: model@mm.technologic.order.item.obob|_columns@item_id$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@item_id$label:1
-#: model@mm.disassembly.order.item.mob|_columns@item_id$label:1
+#: model@mm.technologic.order.item.ibob|_columns@order_id$label:1
+#: model@mm.technologic.order.item.obob|_columns@order_id$label:1
 #: model@mm.disassembly.order.delivery.schedules|_columns@item_id$label:1
 msgid "Item"
 msgstr "Punkt"
@@ -66,8 +63,8 @@ msgid "Texts"
 msgstr "Tekstid"
 
 #: model@mm.schema.text.items|_description@:1
-msgid "General Model Items Of Schema Manufactured Texts"
-msgstr "Üldine Mudel Objektide Skeem Valmistatud Tekstid"
+msgid "Items Of Schema Manufactured Texts"
+msgstr "Objektide Skeem Valmistatud Tekstid"
 
 #: model@mm.schema.text.items|_columns@schema_id$label:1
 msgid "Schema"
@@ -92,8 +89,8 @@ msgid "Unknown"
 msgstr "Teadmata"
 
 #: model@mm.production.order.types|_description@:1
-msgid "General Model Types Production Order"
-msgstr "Üldine Mudel, Liigid, Tootmine, Et"
+msgid "Types Production Order"
+msgstr "Liigid, Tootmine, Et"
 
 #: model@mm.production.order.types|_columns@otype$label:1
 #: model@mm.production.order.type.roles|_columns@type_id$label:1
@@ -206,24 +203,21 @@ msgstr "Rollid"
 #: model@mm.route.items|_columns@note$label:1
 #: model@mm.production.orders|_columns@note$label:1
 #: model@mm.production.order.items|_columns@note$label:1
-#: model@mm.production.order.item.bom|_columns@note$label:1
 #: model@mm.production.order.delivery.schedules|_columns@note$label:1
 #: model@mm.technologic.orders|_columns@note$label:1
-#: model@mm.technologic.order.items|_columns@note$label:1
+#: model@mm.technologic.order.delivery.schedules|_columns@note$label:1
 #: model@mm.technologic.order.item.ibob|_columns@note$label:1
 #: model@mm.technologic.order.item.obob|_columns@note$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@note$label:1
 #: model@mm.disassembly.orders|_columns@note$label:1
 #: model@mm.disassembly.order.items|_columns@note$label:1
-#: model@mm.disassembly.order.item.mob|_columns@note$label:1
 #: model@mm.disassembly.order.delivery.schedules|_columns@note$label:1
 #: model@md.mm.product|_columns@note$label:1
 msgid "Note"
 msgstr "Märkus"
 
 #: model@mm.production.order.type.roles|_description@:1
-msgid "General Model Role Production Order Types"
-msgstr "Üldine Mudel Rolli Tootmise Et Tüübid"
+msgid "Role Production Order Types"
+msgstr "Roll Tootmise Et Tüübid"
 
 #: model@mm.production.order.type.roles|_columns@role_id$label:1
 #: model@mm.technologic.order.type.roles|_columns@role_id$label:1
@@ -241,21 +235,21 @@ msgid "Required"
 msgstr "Nõutav"
 
 #: model@mm.technologic.order.types|_description@:1
-msgid "General Model Types Technologic Order"
-msgstr "Üldine Mudel Tüüpi Technologic, Et"
+msgid "Types Technologic Order"
+msgstr "Tüübid Technologic, Et"
 
 #: model@mm.technologic.order.type.roles|_description@:1
 #: model@mm.disassembly.order.type.roles|_description@:1
-msgid "General Model Role Technologic Order Types"
-msgstr "Üldine Mudel Rolli Technologic, Et Tüübid"
+msgid "Role Technologic Order Types"
+msgstr "Roll Technologic, Et Tüübid"
 
 #: model@mm.disassembly.order.types|_description@:1
-msgid "General Model Types Disassembly Order"
-msgstr "Üldine Mudel Tüüpi Lahtivõtmine, Et"
+msgid "Types Disassembly Order"
+msgstr "Tüübid Lahtivõtmine, Et"
 
 #: model@mm.workcenter.category|_description@:1
-msgid "General Model Category Workcenter"
-msgstr "Üldine Mudeli Kategooria Workcenter"
+msgid "Category Workcenter"
+msgstr "Kategooria Workcenter"
 
 #: model@mm.workcenter.category|_columns@parent_id$label:1
 #: model@mm.route.category|_columns@parent_id$label:1
@@ -263,9 +257,6 @@ msgstr "Üldine Mudeli Kategooria Workcenter"
 #: model@mm.technologic.order.category|_columns@parent_id$label:1
 #: model@mm.disassembly.order.category|_columns@parent_id$label:1
 #: model@mm.route.items|_columns@parent_id$label:1
-#: model@mm.production.order.items|_columns@parent_id$label:1
-#: model@mm.technologic.order.items|_columns@parent_id$label:1
-#: model@mm.disassembly.order.items|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Lapsevanem"
 
@@ -275,9 +266,6 @@ msgstr "Lapsevanem"
 #: model@mm.technologic.order.category|_columns@childs_id$label:1
 #: model@mm.disassembly.order.category|_columns@childs_id$label:1
 #: model@mm.route.items|_columns@childs_id$label:1
-#: model@mm.production.order.items|_columns@childs_id$label:1
-#: model@mm.technologic.order.items|_columns@childs_id$label:1
-#: model@mm.disassembly.order.items|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
@@ -290,24 +278,26 @@ msgid "Orders"
 msgstr "Tellimused"
 
 #: model@mm.route.category|_description@:1
-msgid "General Model Category Route"
-msgstr "Üldine Mudeli Kategooria Marsruuti"
+msgid "Category Route"
+msgstr "Kategooria Marsruuti"
 
 #: model@mm.production.order.category|_description@:1
-msgid "General Model Category Production Order"
-msgstr "Üldine Mudeli Kategooria Tootmise Et"
+msgid "Category Production Order"
+msgstr "Kategooria Tootmise Et"
 
 #: model@mm.technologic.order.category|_description@:1
-msgid "General Model Category Technologic Order"
-msgstr "Üldine Mudeli Kategooria Technologic, Et"
+msgid "Category Technologic Order"
+msgstr "Kategooria Technologic, Et"
 
 #: model@mm.disassembly.order.category|_description@:1
-msgid "General Model Category Disassembly Order"
-msgstr "Üldine Mudeli Kategooria Lahtivõtmine, Et"
+msgid "Category Disassembly Order"
+msgstr "Kategooria Lahtivõtmine, Et"
 
 #: model@mm.workcenters|_description@:1
-msgid "General Model Workcenter"
-msgstr "Üldine Mudel Workcenter"
+#: model@mm.workcenter.products|_columns@workcenter_id$label:1
+#: model@mm.route.items|_columns@workcenter$label:1
+msgid "Workcenter"
+msgstr "Workcenter"
 
 #: model@mm.workcenters|_columns@wctype$selections#p:1
 #: model@mm.route|_columns@rtype$selections#p:1
@@ -336,12 +326,12 @@ msgstr "Kulude Peer Tundi"
 #: model@mm.workcenters|_columns@currency$label:1
 #: model@mm.workcenter.product.prices|_columns@currency$label:1
 #: model@mm.production.order.pricing|_columns@currency$label:1
-#: model@mm.production.order.item.bom|_columns@currency$label:1
+#: model@mm.production.order.items|_columns@currency$label:1
 #: model@mm.technologic.order.pricing|_columns@currency$label:1
 #: model@mm.technologic.order.item.ibob|_columns@currency$label:1
 #: model@mm.technologic.order.item.obob|_columns@currency$label:1
 #: model@mm.disassembly.order.pricing|_columns@currency$label:1
-#: model@mm.disassembly.order.item.mob|_columns@currency$label:1
+#: model@mm.disassembly.order.items|_columns@currency$label:1
 #: model@md.mm.product|_columns@currency$label:1
 msgid "Currency"
 msgstr "Valuuta"
@@ -351,22 +341,15 @@ msgid "Products"
 msgstr "Tooted"
 
 #: model@mm.workcenter.products|_description@:1
-msgid "General Model Workcenter Products"
-msgstr "Üldine Mudel Workcenter Tooted"
-
-#: model@mm.workcenter.products|_columns@workcenter_id$label:1
-#: model@mm.route.items|_columns@workcenter$label:1
-msgid "Workcenter"
-msgstr "Workcenter"
+msgid "Workcenter Products"
+msgstr "Workcenter Tooted"
 
 #: model@mm.workcenter.products|_columns@product$label:1
 #: model@mm.workcenter.product.prices|_columns@product_id$label:1
 #: model@mm.production.order.items|_columns@product$label:1
-#: model@mm.production.order.item.bom|_columns@product$label:1
 #: model@mm.technologic.order.item.ibob|_columns@product$label:1
 #: model@mm.technologic.order.item.obob|_columns@product$label:1
 #: model@mm.disassembly.order.items|_columns@product$label:1
-#: model@mm.disassembly.order.item.mob|_columns@product$label:1
 #: model@md.mm.product|_columns@product_id$label:1
 msgid "Product"
 msgstr "Toode"
@@ -376,8 +359,8 @@ msgid "Prices"
 msgstr "Hinnad"
 
 #: model@mm.workcenter.product.prices|_description@:1
-msgid "General Model Workcenter Product Prices"
-msgstr "Üldine Mudel Workcenter Toodete Hinnad"
+msgid "Workcenter Product Prices"
+msgstr "Workcenter Toodete Hinnad"
 
 #: model@mm.workcenter.product.prices|_columns@from_date$label:1
 msgid "From"
@@ -392,10 +375,10 @@ msgid "Price Peer Hours"
 msgstr "Hind Peer Tundi"
 
 #: model@mm.workcenter.product.prices|_columns@unit$label:1
-#: model@mm.production.order.item.bom|_columns@unit$label:1
+#: model@mm.production.order.items|_columns@unit$label:1
 #: model@mm.technologic.order.item.ibob|_columns@unit$label:1
 #: model@mm.technologic.order.item.obob|_columns@unit$label:1
-#: model@mm.disassembly.order.item.mob|_columns@unit$label:1
+#: model@mm.disassembly.order.items|_columns@unit$label:1
 #: model@md.mm.product|_columns@unit$label:1
 msgid "Unit"
 msgstr "Ühik"
@@ -405,8 +388,12 @@ msgid "Unit Of Price Peer Hours"
 msgstr "Ühiku Hind Peer Tundi"
 
 #: model@mm.route|_description@:1
-msgid "General Model Route"
-msgstr "Üldine Mudel Marsruut"
+#: model@mm.route.items|_columns@route_id$label:1
+#: model@mm.production.orders|_columns@route$label:1
+#: model@mm.technologic.orders|_columns@route$label:1
+#: model@mm.disassembly.orders|_columns@route$label:1
+msgid "Route"
+msgstr "Marsruut"
 
 #: model@mm.route|_columns@category_id$label:1
 #: model@mm.production.orders|_columns@category_id$label:1
@@ -417,25 +404,18 @@ msgstr "Kategooria"
 
 #: model@mm.route|_columns@items$label:1
 #: model@mm.production.orders|_columns@items$label:1
-#: model@mm.technologic.orders|_columns@items$label:1
 #: model@mm.disassembly.orders|_columns@items$label:1
 msgid "Items"
 msgstr "Kirjed"
 
 #: model@mm.route.items|_description@:1
-msgid "General Model Route Items"
-msgstr "Üldine Mudel Marsruudi Esemed"
-
-#: model@mm.route.items|_columns@route_id$label:1
-#: model@mm.production.orders|_columns@route$label:1
-#: model@mm.technologic.orders|_columns@route$label:1
-#: model@mm.disassembly.orders|_columns@route$label:1
-msgid "Route"
-msgstr "Marsruut"
+msgid "Route Items"
+msgstr "Marsruudi Esemed"
 
 #: model@mm.production.orders|_description@:1
-msgid "General Model Production Order"
-msgstr "Üldine Mudeli Tootmise Et"
+#: model@mm.production.order.items|_columns@order_id$label:1
+msgid "Production Order"
+msgstr "Tootmise Et"
 
 #: model@mm.production.orders|_columns@company$label:1
 #: model@mm.technologic.orders|_columns@company$label:1
@@ -448,6 +428,11 @@ msgstr "Ettevõte"
 #: model@mm.disassembly.orders|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Täielik Nimi"
+
+#: model@mm.production.orders|_columns@bom$label:1
+#: model@mm.disassembly.orders|_columns@mob$label:1
+msgid "BoM"
+msgstr "BoM"
 
 #: model@mm.production.orders|_columns@manager$label:1
 #: model@mm.technologic.orders|_columns@manager$label:1
@@ -510,8 +495,8 @@ msgid "Canceled"
 msgstr "Tühistatud"
 
 #: model@mm.production.order.texts|_description@:1
-msgid "General Model Production Order Texts"
-msgstr "Üldine Mudeli Tootmise Et Tekstid"
+msgid "Production Order Texts"
+msgstr "Tootmise Et Tekstid"
 
 #: model@mm.production.order.texts|_columns@text_id$label:1
 #: model@mm.technologic.order.texts|_columns@text_id$label:1
@@ -526,8 +511,8 @@ msgid "Content"
 msgstr "Sisu"
 
 #: model@mm.production.order.roles|_description@:1
-msgid "General Model Production Order Roles"
-msgstr "Üldine Mudeli Tootmise Et Rollid"
+msgid "Production Order Roles"
+msgstr "Tootmise Et Rollid"
 
 #: model@mm.production.order.roles|_columns@patner_id$label:1
 #: model@mm.technologic.order.roles|_columns@patner_id$label:1
@@ -536,8 +521,8 @@ msgid "Parther"
 msgstr "Parther"
 
 #: model@mm.production.order.pricing|_description@:1
-msgid "General Model Production Order Pricing"
-msgstr "Üldine Mudeli Tootmise Et Hinnakujundus"
+msgid "Production Order Pricing"
+msgstr "Tootmise Et Hinnakujundus"
 
 #: model@mm.production.order.pricing|_columns@level$label:1
 #: model@mm.technologic.order.pricing|_columns@level$label:1
@@ -570,79 +555,62 @@ msgid "Group Level"
 msgstr "Grupi Tasandil"
 
 #: model@mm.production.order.pricing|_columns@amount$label:1
-#: model@mm.production.order.item.bom|_columns@amount$label:1
+#: model@mm.production.order.items|_columns@amount$label:1
 #: model@mm.technologic.order.pricing|_columns@amount$label:1
 #: model@mm.technologic.order.item.ibob|_columns@amount$label:1
 #: model@mm.technologic.order.item.obob|_columns@amount$label:1
 #: model@mm.disassembly.order.pricing|_columns@amount$label:1
-#: model@mm.disassembly.order.item.mob|_columns@amount$label:1
+#: model@mm.disassembly.order.items|_columns@amount$label:1
 msgid "Amount"
 msgstr "Summa"
 
 #: model@mm.production.order.items|_description@:1
-msgid "General Model Production Order Items"
-msgstr "Üldine Mudeli Tootmise Et Esemed"
+msgid "Production Order Items"
+msgstr "Tootmise Et Esemed"
 
-#: model@mm.production.order.items|_columns@order_id$label:1
-msgid "Production Order"
-msgstr "Tootmise Et"
+#: model@mm.production.order.items|_columns@quantity$label:1
+#: model@mm.technologic.order.item.ibob|_columns@quantity$label:1
+#: model@mm.technologic.order.item.obob|_columns@quantity$label:1
+#: model@mm.disassembly.order.items|_columns@quantity$label:1
+msgid "Quantity"
+msgstr "Kogus"
 
-#: model@mm.production.order.items|_columns@recepture_id$label:1
-#: model@mm.technologic.order.items|_columns@recepture_id$label:1
-#: model@mm.disassembly.order.items|_columns@recepture_id$label:1
-msgid "Recepture"
-msgstr "Recepture"
+#: model@mm.production.order.items|_columns@uom$label:1
+#: model@mm.technologic.order.item.ibob|_columns@uom$label:1
+#: model@mm.technologic.order.item.obob|_columns@uom$label:1
+#: model@mm.disassembly.order.items|_columns@uom$label:1
+msgid "UoM"
+msgstr "UoM"
 
-#: model@mm.production.order.items|_columns@boms$label:1
-msgid "BoM"
-msgstr "BoM"
+#: model@mm.production.order.items|_columns@price$label:1
+#: model@mm.technologic.order.item.ibob|_columns@price$label:1
+#: model@mm.technologic.order.item.obob|_columns@price$label:1
+#: model@mm.disassembly.order.items|_columns@price$label:1
+#: model@md.mm.product|_columns@price$label:1
+msgid "Price"
+msgstr "Hind"
+
+#: model@mm.production.order.items|_columns@uop$label:1
+#: model@mm.technologic.order.item.ibob|_columns@uop$label:1
+#: model@mm.technologic.order.item.obob|_columns@uop$label:1
+#: model@mm.disassembly.order.items|_columns@uop$label:1
+#: model@md.mm.product|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Ühiku Hind"
 
 #: model@mm.production.order.items|_columns@schedules$label:1
 #: model@mm.production.order.delivery.schedules|_columns@schedule$label:1
-#: model@mm.technologic.order.items|_columns@schedules$label:1
+#: model@mm.technologic.orders|_columns@schedules$label:1
+#: model@mm.technologic.order.delivery.schedules|_columns@order_id$label:1
 #: model@mm.technologic.order.delivery.schedules|_columns@schedule$label:1
 #: model@mm.disassembly.order.items|_columns@schedules$label:1
 #: model@mm.disassembly.order.delivery.schedules|_columns@schedule$label:1
 msgid "Schedule"
 msgstr "Ajakava"
 
-#: model@mm.production.order.item.bom|_description@:1
-msgid "General Model Production Order Items BoM"
-msgstr "Üldine Mudeli Tootmise Et Esemed BoM"
-
-#: model@mm.production.order.item.bom|_columns@quantity$label:1
-#: model@mm.technologic.order.item.ibob|_columns@quantity$label:1
-#: model@mm.technologic.order.item.obob|_columns@quantity$label:1
-#: model@mm.disassembly.order.item.mob|_columns@quantity$label:1
-msgid "Quantity"
-msgstr "Kogus"
-
-#: model@mm.production.order.item.bom|_columns@uom$label:1
-#: model@mm.technologic.order.item.ibob|_columns@uom$label:1
-#: model@mm.technologic.order.item.obob|_columns@uom$label:1
-#: model@mm.disassembly.order.item.mob|_columns@uom$label:1
-msgid "UoM"
-msgstr "UoM"
-
-#: model@mm.production.order.item.bom|_columns@price$label:1
-#: model@mm.technologic.order.item.ibob|_columns@price$label:1
-#: model@mm.technologic.order.item.obob|_columns@price$label:1
-#: model@mm.disassembly.order.item.mob|_columns@price$label:1
-#: model@md.mm.product|_columns@price$label:1
-msgid "Price"
-msgstr "Hind"
-
-#: model@mm.production.order.item.bom|_columns@uop$label:1
-#: model@mm.technologic.order.item.ibob|_columns@uop$label:1
-#: model@mm.technologic.order.item.obob|_columns@uop$label:1
-#: model@mm.disassembly.order.item.mob|_columns@uop$label:1
-#: model@md.mm.product|_columns@uop$label:1
-msgid "Unit Of Price"
-msgstr "Ühiku Hind"
-
 #: model@mm.production.order.delivery.schedules|_description@:1
-msgid "General Model Production Order Delivery Schedule"
-msgstr "Üldine Mudeli Tootmise Tellimuse Kohaletoimetamine Ajakava"
+msgid "Production Order Delivery Schedule"
+msgstr "Tootmis-Kohaletoimetamise Ajakava"
 
 #: model@mm.production.order.delivery.schedules|_columns@part$label:1
 #: model@mm.technologic.order.delivery.schedules|_columns@part$label:1
@@ -651,8 +619,13 @@ msgid "Part"
 msgstr "Osa"
 
 #: model@mm.technologic.orders|_description@:1
-msgid "General Model Technologic Order"
-msgstr "Üldine Mudel Technologic, Et"
+#: model@mm.disassembly.order.items|_columns@order_id$label:1
+msgid "Technologic Order"
+msgstr "Technologic, Et"
+
+#: model@mm.technologic.orders|_columns@bob$label:1
+msgid "BoB"
+msgstr "BoB"
 
 #: model@mm.technologic.orders|_columns@doto$label:1
 msgid "Date Of Technologic Order"
@@ -666,50 +639,41 @@ msgstr "Alguskuupäev Technologic, Et"
 msgid "End Date Of Technologic Order"
 msgstr "Lõpu Kuupäev Technologic, Et"
 
-#: model@mm.technologic.order.texts|_description@:1
-msgid "General Model Technologic Order Texts"
-msgstr "Üldine Mudel Technologic, Et Tekstid"
-
-#: model@mm.technologic.order.roles|_description@:1
-msgid "General Model Technologic Order Roles"
-msgstr "Üldine Mudel Technologic, Et Rollid"
-
-#: model@mm.technologic.order.pricing|_description@:1
-msgid "General Model Technologic Order Pricing"
-msgstr "Üldine Mudel Technologic, Et Hinnakujundus"
-
-#: model@mm.technologic.order.items|_description@:1
-msgid "General Model Technologic Order Items"
-msgstr "Üldine Mudel Technologic, Et Esemed"
-
-#: model@mm.technologic.order.items|_columns@order_id$label:1
-#: model@mm.disassembly.order.items|_columns@order_id$label:1
-msgid "Technologic Order"
-msgstr "Technologic, Et"
-
-#: model@mm.technologic.order.items|_columns@ibobs$label:1
+#: model@mm.technologic.orders|_columns@ibobs$label:1
 msgid "InBoB"
 msgstr "InBoB"
 
-#: model@mm.technologic.order.items|_columns@obobs$label:1
+#: model@mm.technologic.orders|_columns@obobs$label:1
 msgid "OutBoB"
 msgstr "OutBoB"
 
+#: model@mm.technologic.order.delivery.schedules|_description@:1
+msgid "Technologic Order Delivery Schedule"
+msgstr "Technologic Tellimuse Kohaletoimetamine Ajakava"
+
+#: model@mm.technologic.order.texts|_description@:1
+msgid "Technologic Order Texts"
+msgstr "Technologic, Et Tekstid"
+
+#: model@mm.technologic.order.roles|_description@:1
+msgid "Technologic Order Roles"
+msgstr "Technologic, Et Rollid"
+
+#: model@mm.technologic.order.pricing|_description@:1
+msgid "Technologic Order Pricing"
+msgstr "Technologic, Et Hinnakujundus"
+
 #: model@mm.technologic.order.item.ibob|_description@:1
-msgid "General Model Technologic Order Items InBoB"
-msgstr "Üldine Mudel Technologic, Et Esemed InBoB"
+msgid "Technologic Order Items InBoB"
+msgstr "Technologic, Et Esemed InBoB"
 
 #: model@mm.technologic.order.item.obob|_description@:1
-msgid "General Model Technologic Order Items OutBoB"
-msgstr "Üldine Mudel Technologic, Et Esemed OutBoB"
-
-#: model@mm.technologic.order.delivery.schedules|_description@:1
-msgid "General Model Technologic Order Delivery Schedule"
-msgstr "Üldine Mudel Technologic Tellimuse Kohaletoimetamine Ajakava"
+msgid "Technologic Order Items OutBoB"
+msgstr "Technologic, Et Esemed OutBoB"
 
 #: model@mm.disassembly.orders|_description@:1
-msgid "General Model Disassembly Order"
-msgstr "Üldine Mudel Lahti, Et"
+msgid "Disassembly Order"
+msgstr "Lahtivõtmine, Et"
 
 #: model@mm.disassembly.orders|_columns@dodo$label:1
 msgid "Date Of Disassembly Order"
@@ -724,36 +688,28 @@ msgid "End Date Of Disassembly Order"
 msgstr "Lõpu Kuupäev, Demonteerimise, Et"
 
 #: model@mm.disassembly.order.texts|_description@:1
-msgid "General Model Disassembly Order Texts"
-msgstr "Üldine Mudel Lahtivõtmine, Et Tekstid"
+msgid "Disassembly Order Texts"
+msgstr "Lahtivõtmine, Et Tekstid"
 
 #: model@mm.disassembly.order.roles|_description@:1
-msgid "General Model Disassembly Order Roles"
-msgstr "Üldine Mudel Lahtivõtmine, Et Rollid"
+msgid "Disassembly Order Roles"
+msgstr "Lahtivõtmine, Et Rollid"
 
 #: model@mm.disassembly.order.pricing|_description@:1
-msgid "General Model Disassembly Order Pricing"
-msgstr "Üldine Mudel Lahtivõtmine, Et Hinnakujundus"
+msgid "Disassembly Order Pricing"
+msgstr "Lahtivõtmine, Et Hinnakujundus"
 
 #: model@mm.disassembly.order.items|_description@:1
-msgid "General Model Disassembly Order Items"
-msgstr "Üldine Mudel Lahtivõtmine, Et Esemed"
-
-#: model@mm.disassembly.order.items|_columns@mobs$label:1
-msgid "MoB"
-msgstr "MoB"
-
-#: model@mm.disassembly.order.item.mob|_description@:1
-msgid "General Model Disassembly Order Items MoB"
-msgstr "Üldine Mudel Lahtivõtmine, Et Esemed MoB"
+msgid "Disassembly Order Items"
+msgstr "Lahtivõtmine, Et Esemed"
 
 #: model@mm.disassembly.order.delivery.schedules|_description@:1
-msgid "General Model Disassembly Order Delivery Schedule"
-msgstr "Üldine Mudel Lahtivõtmine, Et Tarne Ajakava"
+msgid "Disassembly Order Delivery Schedule"
+msgstr "Lahtivõtmine, Et Tarne Ajakava"
 
 #: model@md.mm.product|_description@:1
-msgid "General Model Production Of Product"
-msgstr "Üldine Mudeli Tootmise Toode"
+msgid "Production Of Product"
+msgstr "Tootmise Toode"
 
 #: model@md.mm.product|_columns@uom$label:1
 msgid "Unit Of Measure"

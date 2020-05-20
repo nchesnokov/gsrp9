@@ -4,7 +4,7 @@ from gsrp5service.orm.model import Model, ModelInherit
 
 class md_warehouse_product(Model):
 	_name = 'md.warehouse.product'
-	_description = 'General Model Warehouse Of Product'
+	_description = 'Warehouse Of Product'
 	_columns = {
 	'product_id': fields.many2one(label='Product',obj='md.product'),
 	'strategy': fields.selection(label='Strategy',selections=[('l','LIfo'),('f','Fifo'),('n','Unordered'),('f','To fixed plase')]),
@@ -26,7 +26,7 @@ md_warehouse_product_inherit()
 
 class wm_category(Model):
 	_name = 'wm.category'
-	_description = 'General Model Warehouse Category'
+	_description = 'Warehouse Category'
 	_columns = {'name': fields.varchar(label = 'Name',size=64,translate=True)}
 
 wm_category()

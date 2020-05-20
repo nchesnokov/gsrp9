@@ -13,7 +13,7 @@ from base64 import b64encode
 
 class md_category_country(Model):
 	_name = 'md.category.country'
-	_description = 'General Model Category Country'
+	_description = 'Category Country'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.country'),
@@ -25,7 +25,7 @@ md_category_country()
 
 class md_country_group(Model):
 	_name = 'md.country.group'
-	_description = 'General Model Country Group'
+	_description = 'Country Group'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'country_ids': fields.many2many(label='Countries',obj='md.country',rel='md_country_md_country_group_rel',id1='group_pd',id2='country_id')
@@ -38,7 +38,7 @@ class md_country(Model):
 	Страны мира
 	"""
 	_name = 'md.country'
-	_description = 'General Model Country'
+	_description = 'Country'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'shortname': fields.varchar(label = 'Short Name',size=32),
@@ -69,7 +69,7 @@ md_country_states()
 
 class md_category_language(Model):
 	_name = 'md.category.language'
-	_description = 'General Model Category Language'
+	_description = 'Category Language'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.language'),
@@ -81,7 +81,7 @@ md_category_language()
 
 class md_language(Model):
 	_name = 'md.language'
-	_description = 'General Model Language'
+	_description = 'Language'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'iso631_1': fields.varchar(label = 'Code ISO 639-1',size=2,selectable = True),
@@ -93,7 +93,7 @@ md_language()
 
 class md_group_quantity(Model):
 	_name = 'md.group.quantity'
-	_description = 'General Model Group Quantity'
+	_description = 'Group Quantity'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'numerator': fields.integer(label='Numerator'),
@@ -107,7 +107,7 @@ md_group_quantity()
 
 class md_quantity_uom(Model):
 	_name = 'md.quantity.uom'
-	_description = 'General Model Quantity Unit of Measure'
+	_description = 'Quantity Unit of Measure'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'group_id': fields.many2one(label='Group Quantity',obj='md.group.quantity'),
@@ -138,7 +138,7 @@ md_quantity_uom()
 
 class md_uom(Model):
 	_name = 'md.uom'
-	_description = 'General Model Unit of Measure'
+	_description = 'Unit of Measure'
 	_columns = {
 	'quantity_id': fields.many2one(label='Quantity',obj='md.quantity.uom'),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
@@ -157,7 +157,7 @@ md_uom()
 
 class md_currency(Model):
 	_name = 'md.currency'
-	_description = 'General Model Currency'
+	_description = 'Currency'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'shortname': fields.varchar(label = 'Short Name',size=32),
@@ -171,7 +171,7 @@ md_currency()
 
 class md_vat_code(Model):
 	_name = 'md.vat.code'
-	_description = 'General Model Vat Code'
+	_description = 'Vat Code'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'subtype_vat': fields.selection(label='Subtype VAT',selections=[('i','Include'),('e','Exclude'),('n','None')]),
@@ -189,7 +189,7 @@ md_vat_code()
 
 class md_excise_code(Model):
 	_name = 'md.excise.code'
-	_description = 'General Model Excise Code'
+	_description = 'Excise Code'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'subtype_excise': fields.selection(label='Subtype Excise',selections=[('i','Include'),('e','Exclude'),('n','None')]),
@@ -207,7 +207,7 @@ md_excise_code()
 
 class md_category_product(Model):
 	_name = 'md.category.product'
-	_description = 'General Model Category Product'
+	_description = 'Category Product'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.product'),
@@ -219,7 +219,7 @@ md_category_product()
 
 class md_gtis(Model):
 	_name = 'md.gtis'
-	_description = 'General Model Group Of Type Items'
+	_description = 'Group Of Type Items'
 	_rec_name = 'code'
 	_columns = {
 	'code': fields.varchar(label = 'Code',size=64,translate=True),
@@ -230,7 +230,7 @@ md_gtis()
 
 class md_type_items(Model):
 	_name = 'md.type.items'
-	_description = 'General Model Type Of Items'
+	_description = 'Type Of Items'
 	_rec_name = 'code'
 	_columns = {
 	'usage': fields.selection(label='Usage',selections=[('a','All')]),
@@ -243,7 +243,7 @@ md_type_items()
 
 class md_type_plates(Model):
 	_name = 'md.type.plates'
-	_description = 'General Model Type Of Plates'
+	_description = 'Type Of Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -257,7 +257,7 @@ md_type_plates()
 
 class md_products_template(Model):
 	_name = 'md.products.template'
-	_description = 'General Model Product Template'
+	_description = 'Product Template'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'category_id': fields.many2one(label='Category',obj='md.category.product'),
@@ -270,7 +270,7 @@ md_products_template()
 
 class md_product(Model):
 	_name = 'md.product'
-	_description = 'General Model Product'
+	_description = 'Product'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'template_id': fields.many2one(label='Template',obj='md.products.template'),
@@ -309,7 +309,6 @@ class md_product(Model):
 			if record['template_id']['name']:
 				r = pool.get('md.products.template').select(cr,pool,uid,['mtype'],[('name','=',record['template_id']['name'])])
 				if len(r) > 0 and r[0]['mtype'] == 's':
-					return True
 					for field in fields:
 						res[field] = True
 		
@@ -407,7 +406,7 @@ md_product()
 
 class md_incoterms(Model):
 	_name = 'md.incoterms'
-	_description = 'General Model Incoterms'
+	_description = 'Incoterms'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=4,translate=True),
 	'descr': fields.varchar(label = 'Description',size=64,translate=True),
@@ -422,7 +421,7 @@ md_incoterms()
 
 class md_category_partner(Model):
 	_name = 'md.category.partner'
-	_description = 'General Model Category Partner'
+	_description = 'Category Partner'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.partner'),
@@ -434,7 +433,7 @@ md_category_partner()
 
 class md_category_location(Model):
 	_name = 'md.category.location'
-	_description = 'General Model Category Location'
+	_description = 'Category Location'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.location'),
@@ -459,7 +458,7 @@ md_location()
 
 class md_partner(Model):
 	_name = 'md.partner'
-	_description = 'General Model Partner'
+	_description = 'Partner'
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='md.category.partner'),
 	'country_id': fields.many2one(label='Country',obj='md.country',required=True),
@@ -482,7 +481,7 @@ md_partner()
 
 class md_partner_addresses(Model):
 	_name = 'md.partner.addresses'
-	_description = 'General Model Partner Addresses'
+	_description = 'Partner Addresses'
 	_columns = {
 	'partner_id': fields.many2one(label='Partner',obj='md.partner'),
 	'taddr': fields.selection(label='Type Of Address',selections=[('l','Location'),('p','Postal'),('a','Situtation')]),
@@ -499,7 +498,7 @@ md_partner_addresses()
 
 class md_partner_contacts(Model):
 	_name = 'md.partner.contacts'
-	_description = 'General Model Partner Contacts'
+	_description = 'Partner Contacts'
 	_columns = {
 	'partner_id': fields.many2one(label='Partner',obj='md.partner'),
 	'usage': fields.selection(label='Usage',selections=[('d','Dear')]),
@@ -532,7 +531,7 @@ md_partner_contacts()
 
 class md_partner_products(Model):
 	_name = 'md.partner.products'
-	_description = 'General Model Partner Products'
+	_description = 'Partner Products'
 	_columns = {
 	'partner_id': fields.many2one(label='Partner',obj='md.partner'),
 	'product_id': fields.many2one(label='Product',obj='md.product'),
@@ -554,7 +553,7 @@ md_partner_products()
 
 class md_role_partners(Model):
 	_name = 'md.role.partners'
-	_description = 'General Model Role Partners'
+	_description = 'Role Partners'
 	_columns = {
 	'trole': fields.selection(label='Type Of Role',selections=[('c','Customer'),('s','Supplier'),('i','Internal'),('p','Person'),('a','All')]),
 	'name': fields.varchar(label='Role',size=32,translate=True),
@@ -567,7 +566,7 @@ md_role_partners()
 
 class md_partner_roles(Model):
 	_name = 'md.partner.roles'
-	_description = 'General Model Partner Roles'
+	_description = 'Partner Roles'
 	_columns = {
 	'role_id': fields.many2one(label='Role',obj='md.role.partners'),
 	'name': fields.referenced(ref='role_id.descr'),
@@ -579,7 +578,7 @@ md_partner_roles()
 
 class md_pricelist_partner_products(Model):
 	_name = 'md.pricelist.partner.products'
-	_description = 'General Model Pricelist Partner Products'
+	_description = 'Pricelist Partner Products'
 	_columns = {
 	'partner_product_id': fields.many2one(label='Partner Product',obj='md.partner.products'),
 	'valid_from': fields.date(label='Valid From',required=True),
@@ -597,7 +596,7 @@ md_pricelist_partner_products()
 
 class md_company(Model):
 	_name = 'md.company'
-	_description = 'General Model Company'
+	_description = 'Company'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'country_id': fields.many2one(label='Country',obj='md.country'),
@@ -610,7 +609,7 @@ md_company()
 
 class md_currency_rate(Model):
 	_name = 'md.currency.rate'
-	_description = 'General Model Currency Rate'
+	_description = 'Currency Rate'
 	_columns = {
 	'currency_id': fields.many2one(label = 'From Currency',obj='md.currency'),
 	'currency_id1': fields.many2one(label = 'To Currency',obj='md.currency'),
@@ -631,7 +630,7 @@ md_currency_rate()
 
 class md_banks(Model):
 	_name = 'md.banks'
-	_description = 'General Model Bank'
+	_description = 'Bank'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'street': fields.varchar(label='Street'),
@@ -656,7 +655,7 @@ md_banks()
 
 class md_partners_bank(Model):
 	_name = 'md.partners.bank'
-	_description = 'General Model Bank of Partner'
+	_description = 'Bank of Partner'
 	_columns = {
 	'acc_type': fields.varchar(label = 'ACC Type',compute='_compute_acc_type', help='Bank account type, inferred from account number'),
 	'acc_number': fields.varchar(label='Account Number', required=True),
@@ -688,7 +687,7 @@ md_partners_bank()
 
 class md_recepture(Model):
 	_name = 'md.recepture'
-	_description = 'General Model Recipe'
+	_description = 'Recipe'
 	_columns = {
 	'name': fields.varchar(label="Name"),
 	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
@@ -703,9 +702,9 @@ md_recepture()
 
 class md_recepture_input(Model):
 	_name = 'md.recepture.input'
-	_description = 'General Model Input Recipe'
+	_description = 'Input Recipe'
 	_columns = {
-	'recepture_id': fields.many2one(label="Recepture",obj='md.recepture'),
+	'recepture_id': fields.many2one(label="Recipe",obj='md.recepture'),
 	'product': fields.many2one(label='Product',obj='md.product'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
 	'uom': fields.many2one(label='UoM',obj='md.uom'),
@@ -720,9 +719,9 @@ md_recepture_input()
 
 class md_recepture_output(Model):
 	_name = 'md.recepture.output'
-	_description = 'General Model Output Recipe'
+	_description = 'Output Recipe'
 	_columns = {
-	'recepture_id': fields.many2one(label="Recepture",obj='md.recepture'),
+	'recepture_id': fields.many2one(label="Recipe",obj='md.recepture'),
 	'product': fields.many2one(label='Product',obj='md.product'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
 	'uom': fields.many2one(label='UoM',obj='md.uom'),
@@ -735,3 +734,122 @@ class md_recepture_output(Model):
 
 
 md_recepture_output()
+
+# bbb
+class md_boms(Model):
+	_name = 'md.boms'
+	_description = 'Bill of Material'
+	_columns = {
+	'name': fields.varchar(label="Name"),
+	'company': fields.many2one(label='Company', obj='md.company'),
+	'fullname': fields.composite(label='Full Name', cols = ['company','name'], translate = True,required = True, compute = '_compute_composite'),
+	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
+	'usage': fields.selection(label='Usage',selections=[('all','All')]),
+	'product': fields.many2one(label='Product',obj='md.product'),
+	'partition': fields.integer(label='Partition',required=True,check='partition > 0'),
+	'items': fields.one2many(label='Input',obj='md.bom.items',rel='bom_id')
+	}
+
+md_boms()
+
+class md_bom_items(Model):
+	_name = 'md.bom.items'
+	_description = 'BoM items'
+	_columns = {
+	'bom_id': fields.many2one(label="BoM",obj='md.boms'),
+	'product': fields.many2one(label='Product',obj='md.product'),
+	'quantity': fields.numeric(label='Quantity',size=(11,3)),
+	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'note': fields.text(label = 'Note')
+	}
+
+	_default = {
+		'quantity': 1
+	}
+
+md_bom_items()
+
+class md_mobs(Model):
+	_name = 'md.mobs'
+	_description = 'Material of Bills'
+	_columns = {
+	'name': fields.varchar(label="Name"),
+	'company': fields.many2one(label='Company', obj='md.company'),
+	'fullname': fields.composite(label='Full Name', cols = ['company','name'], translate = True,required = True, compute = '_compute_composite'),
+	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
+	'usage': fields.selection(label='Usage',selections=[('all','All')]),
+	'product': fields.many2one(label='Product',obj='md.product'),
+	'partition': fields.integer(label='Partition',required=True,check='partition > 0'),
+	'items': fields.one2many(label='Input',obj='md.mob.items',rel='mob_id')
+	}
+
+md_mobs()
+
+class md_mob_items(Model):
+	_name = 'md.mob.items'
+	_description = 'MoB items'
+	_columns = {
+	'mob_id': fields.many2one(label="MoB",obj='md.mobs'),
+	'product': fields.many2one(label='Product',obj='md.product'),
+	'quantity': fields.numeric(label='Quantity',size=(11,3)),
+	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'note': fields.text(label = 'Note')
+	}
+
+	_default = {
+		'quantity': 1
+	}
+
+md_mob_items()
+
+class md_bobs(Model):
+	_name = 'md.bobs'
+	_description = 'Bill of Bills'
+	_columns = {
+	'name': fields.varchar(label="Name"),
+	'company': fields.many2one(label='Company', obj='md.company'),
+	'fullname': fields.composite(label='Full Name', cols = ['company','name'], translate = True,required = True, compute = '_compute_composite'),
+	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
+	'usage': fields.selection(label='Usage',selections=[('all','All')]),
+	'partition': fields.integer(label='Partition',required=True,check='partition > 0'),
+	'input_items': fields.one2many(label='Input',obj='md.bob.input.items',rel='bob_id'),
+	'output_items': fields.one2many(label='output',obj='md.bob.output.items',rel='bob_id')
+	}
+
+md_bobs()
+
+class md_bob_input_items(Model):
+	_name = 'md.bob.input.items'
+	_description = 'BoB items'
+	_columns = {
+	'bob_id': fields.many2one(label="BoM",obj='md.bobs'),
+	'product': fields.many2one(label='Product',obj='md.product'),
+	'quantity': fields.numeric(label='Quantity',size=(11,3)),
+	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'note': fields.text(label = 'Note')
+	}
+
+	_default = {
+		'quantity': 1
+	}
+
+md_bob_input_items()
+
+class md_bob_output_items(Model):
+	_name = 'md.bob.output.items'
+	_description = 'BoB items'
+	_columns = {
+	'bob_id': fields.many2one(label="BoM",obj='md.bobs'),
+	'product': fields.many2one(label='Product',obj='md.product'),
+	'quantity': fields.numeric(label='Quantity',size=(11,3)),
+	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'note': fields.text(label = 'Note')
+	}
+
+	_default = {
+		'quantity': 1
+	}
+
+md_bob_output_items()
+
+# bbb

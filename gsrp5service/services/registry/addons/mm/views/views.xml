@@ -2,6 +2,490 @@
   <gsrp>
     <data>
       <records model="bc.ui.views">
+        <record id="view.mm.pricing.group.levels.form">
+          <column name="name">view.mm.pricing.group.levels.form</column>
+          <column name="model">mm.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.pricing.group.levels.list">
+          <column name="name">view.mm.pricing.group.levels.list</column>
+          <column name="model">mm.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.pricing.group.levels.m2mlist">
+          <column name="name">view.mm.pricing.group.levels.m2mlist</column>
+          <column name="model">mm.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.pricing.group.levels.search">
+          <column name="name">view.mm.pricing.group.levels.search</column>
+          <column name="model">mm.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.mm.pricing.group.levels.find">
+          <column name="name">view.mm.pricing.group.levels.find</column>
+          <column name="model">mm.pricing.group.levels</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.mm.texts.form">
+          <column name="name">view.mm.texts.form</column>
+          <column name="model">mm.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.texts.list">
+          <column name="name">view.mm.texts.list</column>
+          <column name="model">mm.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.texts.m2mlist">
+          <column name="name">view.mm.texts.m2mlist</column>
+          <column name="model">mm.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.texts.search">
+          <column name="name">view.mm.texts.search</column>
+          <column name="model">mm.texts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.mm.texts.find">
+          <column name="name">view.mm.texts.find</column>
+          <column name="model">mm.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.mm.schema.texts.form">
+          <column name="name">view.mm.schema.texts.form</column>
+          <column name="model">mm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="texts"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.schema.texts.list">
+          <column name="name">view.mm.schema.texts.list</column>
+          <column name="model">mm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="texts"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.schema.texts.m2mlist">
+          <column name="name">view.mm.schema.texts.m2mlist</column>
+          <column name="model">mm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.schema.texts.search">
+          <column name="name">view.mm.schema.texts.search</column>
+          <column name="model">mm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.mm.schema.texts.find">
+          <column name="name">view.mm.schema.texts.find</column>
+          <column name="model">mm.schema.texts</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.mm.schema.text.items.form">
+          <column name="name">view.mm.schema.text.items.form</column>
+          <column name="model">mm.schema.text.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="schema_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.schema.text.items.list">
+          <column name="name">view.mm.schema.text.items.list</column>
+          <column name="model">mm.schema.text.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="schema_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.schema.text.items.m2mlist">
+          <column name="name">view.mm.schema.text.items.m2mlist</column>
+          <column name="model">mm.schema.text.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="schema_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.production.order.types.form">
+          <column name="name">view.mm.production.order.types.form</column>
+          <column name="model">mm.production.order.types</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="roles"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.production.order.types.list">
+          <column name="name">view.mm.production.order.types.list</column>
+          <column name="model">mm.production.order.types</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="roles"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.production.order.types.m2mlist">
+          <column name="name">view.mm.production.order.types.m2mlist</column>
+          <column name="model">mm.production.order.types</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.production.order.types.search">
+          <column name="name">view.mm.production.order.types.search</column>
+          <column name="model">mm.production.order.types</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.mm.production.order.types.find">
+          <column name="name">view.mm.production.order.types.find</column>
+          <column name="model">mm.production.order.types</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.mm.production.order.type.roles.form">
+          <column name="name">view.mm.production.order.type.roles.form</column>
+          <column name="model">mm.production.order.type.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="type_id"/>
+              <field name="role_id"/>
+              <field name="required"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.production.order.type.roles.list">
+          <column name="name">view.mm.production.order.type.roles.list</column>
+          <column name="model">mm.production.order.type.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="type_id"/>
+              <field name="role_id"/>
+              <field name="required"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.production.order.type.roles.m2mlist">
+          <column name="name">view.mm.production.order.type.roles.m2mlist</column>
+          <column name="model">mm.production.order.type.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="type_id"/>
+              <field name="role_id"/>
+              <field name="required"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.types.form">
+          <column name="name">view.mm.technologic.order.types.form</column>
+          <column name="model">mm.technologic.order.types</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="roles"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.types.list">
+          <column name="name">view.mm.technologic.order.types.list</column>
+          <column name="model">mm.technologic.order.types</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="roles"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.types.m2mlist">
+          <column name="name">view.mm.technologic.order.types.m2mlist</column>
+          <column name="model">mm.technologic.order.types</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.types.search">
+          <column name="name">view.mm.technologic.order.types.search</column>
+          <column name="model">mm.technologic.order.types</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.types.find">
+          <column name="name">view.mm.technologic.order.types.find</column>
+          <column name="model">mm.technologic.order.types</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.type.roles.form">
+          <column name="name">view.mm.technologic.order.type.roles.form</column>
+          <column name="model">mm.technologic.order.type.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="type_id"/>
+              <field name="role_id"/>
+              <field name="required"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.type.roles.list">
+          <column name="name">view.mm.technologic.order.type.roles.list</column>
+          <column name="model">mm.technologic.order.type.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="type_id"/>
+              <field name="role_id"/>
+              <field name="required"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.type.roles.m2mlist">
+          <column name="name">view.mm.technologic.order.type.roles.m2mlist</column>
+          <column name="model">mm.technologic.order.type.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="type_id"/>
+              <field name="role_id"/>
+              <field name="required"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.types.form">
+          <column name="name">view.mm.disassembly.order.types.form</column>
+          <column name="model">mm.disassembly.order.types</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="roles"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.types.list">
+          <column name="name">view.mm.disassembly.order.types.list</column>
+          <column name="model">mm.disassembly.order.types</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+              <field name="roles"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.types.m2mlist">
+          <column name="name">view.mm.disassembly.order.types.m2mlist</column>
+          <column name="model">mm.disassembly.order.types</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.types.search">
+          <column name="name">view.mm.disassembly.order.types.search</column>
+          <column name="model">mm.disassembly.order.types</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.types.find">
+          <column name="name">view.mm.disassembly.order.types.find</column>
+          <column name="model">mm.disassembly.order.types</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="otype"/>
+              <field name="name"/>
+              <field name="htschema"/>
+              <field name="itschema"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.type.roles.form">
+          <column name="name">view.mm.disassembly.order.type.roles.form</column>
+          <column name="model">mm.disassembly.order.type.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="type_id"/>
+              <field name="role_id"/>
+              <field name="required"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.type.roles.list">
+          <column name="name">view.mm.disassembly.order.type.roles.list</column>
+          <column name="model">mm.disassembly.order.type.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="type_id"/>
+              <field name="role_id"/>
+              <field name="required"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.type.roles.m2mlist">
+          <column name="name">view.mm.disassembly.order.type.roles.m2mlist</column>
+          <column name="model">mm.disassembly.order.type.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="type_id"/>
+              <field name="role_id"/>
+              <field name="required"/>
+            </m2mlist>
+          </column>
+        </record>
         <record id="view.mm.workcenter.category.form">
           <column name="name">view.mm.workcenter.category.form</column>
           <column name="model">mm.workcenter.category</column>
@@ -327,9 +811,9 @@
             </tree>
           </column>
         </record>
-        <record id="view.mm.workcenter.form">
-          <column name="name">view.mm.workcenter.form</column>
-          <column name="model">mm.workcenter</column>
+        <record id="view.mm.workcenters.form">
+          <column name="name">view.mm.workcenters.form</column>
+          <column name="model">mm.workcenters</column>
           <column name="arch" type="Xml">
             <form>
               <field name="name"/>
@@ -341,9 +825,9 @@
             </form>
           </column>
         </record>
-        <record id="view.mm.workcenter.list">
-          <column name="name">view.mm.workcenter.list</column>
-          <column name="model">mm.workcenter</column>
+        <record id="view.mm.workcenters.list">
+          <column name="name">view.mm.workcenters.list</column>
+          <column name="model">mm.workcenters</column>
           <column name="arch" type="Xml">
             <list>
               <field name="name"/>
@@ -354,9 +838,9 @@
             </list>
           </column>
         </record>
-        <record id="view.mm.workcenter.m2mlist">
-          <column name="name">view.mm.workcenter.m2mlist</column>
-          <column name="model">mm.workcenter</column>
+        <record id="view.mm.workcenters.m2mlist">
+          <column name="name">view.mm.workcenters.m2mlist</column>
+          <column name="model">mm.workcenters</column>
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="name"/>
@@ -366,9 +850,9 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.workcenter.search">
-          <column name="name">view.mm.workcenter.search</column>
-          <column name="model">mm.workcenter</column>
+        <record id="view.mm.workcenters.search">
+          <column name="name">view.mm.workcenters.search</column>
+          <column name="model">mm.workcenters</column>
           <column name="arch" type="Xml">
             <search>
               <field name="name"/>
@@ -378,9 +862,9 @@
             </search>
           </column>
         </record>
-        <record id="view.mm.workcenter.find">
-          <column name="name">view.mm.workcenter.find</column>
-          <column name="model">mm.workcenter</column>
+        <record id="view.mm.workcenters.find">
+          <column name="name">view.mm.workcenters.find</column>
+          <column name="model">mm.workcenters</column>
           <column name="arch" type="Xml">
             <find>
               <field name="name"/>
@@ -589,14 +1073,18 @@
             </tree>
           </column>
         </record>
-        <record id="view.mm.production.order.calendar">
-          <column name="name">view.mm.production.order.calendar</column>
-          <column name="model">mm.production.order</column>
+        <record id="view.mm.production.orders.calendar">
+          <column name="name">view.mm.production.orders.calendar</column>
+          <column name="model">mm.production.orders</column>
           <column name="arch" type="Xml">
             <calendar date="dopo">
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bom"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dopo"/>
               <field name="from_date"/>
@@ -606,14 +1094,18 @@
             </calendar>
           </column>
         </record>
-        <record id="view.mm.production.order.schedule">
-          <column name="name">view.mm.production.order.schedule</column>
-          <column name="model">mm.production.order</column>
+        <record id="view.mm.production.orders.schedule">
+          <column name="name">view.mm.production.orders.schedule</column>
+          <column name="model">mm.production.orders</column>
           <column name="arch" type="Xml">
             <schedule>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bom"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dopo"/>
               <field name="from_date"/>
@@ -623,14 +1115,18 @@
             </schedule>
           </column>
         </record>
-        <record id="view.mm.production.order.form">
-          <column name="name">view.mm.production.order.form</column>
-          <column name="model">mm.production.order</column>
+        <record id="view.mm.production.orders.form">
+          <column name="name">view.mm.production.orders.form</column>
+          <column name="model">mm.production.orders</column>
           <column name="arch" type="Xml">
             <form>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bom"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dopo"/>
               <field name="from_date"/>
@@ -638,18 +1134,23 @@
               <field name="route"/>
               <field name="state"/>
               <field name="items"/>
+              <field name="texts"/>
               <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.mm.production.order.graph">
-          <column name="name">view.mm.production.order.graph</column>
-          <column name="model">mm.production.order</column>
+        <record id="view.mm.production.orders.graph">
+          <column name="name">view.mm.production.orders.graph</column>
+          <column name="model">mm.production.orders</column>
           <column name="arch" type="Xml">
             <graph date="dopo">
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bom"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dopo"/>
               <field name="from_date"/>
@@ -659,14 +1160,18 @@
             </graph>
           </column>
         </record>
-        <record id="view.mm.production.order.kanban">
-          <column name="name">view.mm.production.order.kanban</column>
-          <column name="model">mm.production.order</column>
+        <record id="view.mm.production.orders.kanban">
+          <column name="name">view.mm.production.orders.kanban</column>
+          <column name="model">mm.production.orders</column>
           <column name="arch" type="Xml">
             <kanban>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bom"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dopo"/>
               <field name="from_date"/>
@@ -677,14 +1182,18 @@
             </kanban>
           </column>
         </record>
-        <record id="view.mm.production.order.list">
-          <column name="name">view.mm.production.order.list</column>
-          <column name="model">mm.production.order</column>
+        <record id="view.mm.production.orders.list">
+          <column name="name">view.mm.production.orders.list</column>
+          <column name="model">mm.production.orders</column>
           <column name="arch" type="Xml">
             <list>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bom"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dopo"/>
               <field name="from_date"/>
@@ -692,17 +1201,22 @@
               <field name="route"/>
               <field name="state"/>
               <field name="items"/>
+              <field name="texts"/>
             </list>
           </column>
         </record>
-        <record id="view.mm.production.order.m2mlist">
-          <column name="name">view.mm.production.order.m2mlist</column>
-          <column name="model">mm.production.order</column>
+        <record id="view.mm.production.orders.m2mlist">
+          <column name="name">view.mm.production.orders.m2mlist</column>
+          <column name="model">mm.production.orders</column>
           <column name="arch" type="Xml">
             <m2mlist>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bom"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dopo"/>
               <field name="from_date"/>
@@ -712,14 +1226,18 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.production.order.mdx">
-          <column name="name">view.mm.production.order.mdx</column>
-          <column name="model">mm.production.order</column>
+        <record id="view.mm.production.orders.mdx">
+          <column name="name">view.mm.production.orders.mdx</column>
+          <column name="model">mm.production.orders</column>
           <column name="arch" type="Xml">
             <mdx date="dopo">
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bom"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dopo"/>
               <field name="from_date"/>
@@ -729,14 +1247,18 @@
             </mdx>
           </column>
         </record>
-        <record id="view.mm.production.order.search">
-          <column name="name">view.mm.production.order.search</column>
-          <column name="model">mm.production.order</column>
+        <record id="view.mm.production.orders.search">
+          <column name="name">view.mm.production.orders.search</column>
+          <column name="model">mm.production.orders</column>
           <column name="arch" type="Xml">
             <search>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bom"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dopo"/>
               <field name="from_date"/>
@@ -746,14 +1268,18 @@
             </search>
           </column>
         </record>
-        <record id="view.mm.production.order.find">
-          <column name="name">view.mm.production.order.find</column>
-          <column name="model">mm.production.order</column>
+        <record id="view.mm.production.orders.find">
+          <column name="name">view.mm.production.orders.find</column>
+          <column name="model">mm.production.orders</column>
           <column name="arch" type="Xml">
             <find>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bom"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dopo"/>
               <field name="from_date"/>
@@ -763,17 +1289,138 @@
             </find>
           </column>
         </record>
+        <record id="view.mm.production.order.texts.form">
+          <column name="name">view.mm.production.order.texts.form</column>
+          <column name="model">mm.production.order.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.production.order.texts.list">
+          <column name="name">view.mm.production.order.texts.list</column>
+          <column name="model">mm.production.order.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.production.order.texts.m2mlist">
+          <column name="name">view.mm.production.order.texts.m2mlist</column>
+          <column name="model">mm.production.order.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.production.order.roles.form">
+          <column name="name">view.mm.production.order.roles.form</column>
+          <column name="model">mm.production.order.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.production.order.roles.list">
+          <column name="name">view.mm.production.order.roles.list</column>
+          <column name="model">mm.production.order.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.production.order.roles.m2mlist">
+          <column name="name">view.mm.production.order.roles.m2mlist</column>
+          <column name="model">mm.production.order.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.production.order.pricing.form">
+          <column name="name">view.mm.production.order.pricing.form</column>
+          <column name="model">mm.production.order.pricing</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.production.order.pricing.list">
+          <column name="name">view.mm.production.order.pricing.list</column>
+          <column name="model">mm.production.order.pricing</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.production.order.pricing.m2mlist">
+          <column name="name">view.mm.production.order.pricing.m2mlist</column>
+          <column name="model">mm.production.order.pricing</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </m2mlist>
+          </column>
+        </record>
         <record id="view.mm.production.order.items.form">
           <column name="name">view.mm.production.order.items.form</column>
           <column name="model">mm.production.order.items</column>
           <column name="arch" type="Xml">
             <form>
               <field name="order_id"/>
-              <field name="recepture_id"/>
               <field name="product"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-              <field name="boms"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
               <field name="schedules"/>
               <field name="note"/>
             </form>
@@ -785,11 +1432,14 @@
           <column name="arch" type="Xml">
             <list>
               <field name="order_id"/>
-              <field name="recepture_id"/>
               <field name="product"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-              <field name="boms"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
               <field name="schedules"/>
             </list>
           </column>
@@ -800,65 +1450,6 @@
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="order_id"/>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="parent_id"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.production.order.items.tree">
-          <column name="name">view.mm.production.order.items.tree</column>
-          <column name="model">mm.production.order.items</column>
-          <column name="arch" type="Xml">
-            <tree>
-              <field name="order_id"/>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="parent_id"/>
-            </tree>
-          </column>
-        </record>
-        <record id="view.mm.production.order.item.bom.form">
-          <column name="name">view.mm.production.order.item.bom.form</column>
-          <column name="model">mm.production.order.item.bom</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="item_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.mm.production.order.item.bom.list">
-          <column name="name">view.mm.production.order.item.bom.list</column>
-          <column name="model">mm.production.order.item.bom</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="item_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.mm.production.order.item.bom.m2mlist">
-          <column name="name">view.mm.production.order.item.bom.m2mlist</column>
-          <column name="model">mm.production.order.item.bom</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="item_id"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
@@ -904,13 +1495,17 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.technologic.order.calendar">
-          <column name="name">view.mm.technologic.order.calendar</column>
-          <column name="model">mm.technologic.order</column>
+        <record id="view.mm.technologic.orders.calendar">
+          <column name="name">view.mm.technologic.orders.calendar</column>
+          <column name="model">mm.technologic.orders</column>
           <column name="arch" type="Xml">
             <calendar date="doto">
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bob"/>
+              <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doto"/>
@@ -921,13 +1516,17 @@
             </calendar>
           </column>
         </record>
-        <record id="view.mm.technologic.order.schedule">
-          <column name="name">view.mm.technologic.order.schedule</column>
-          <column name="model">mm.technologic.order</column>
+        <record id="view.mm.technologic.orders.schedule">
+          <column name="name">view.mm.technologic.orders.schedule</column>
+          <column name="model">mm.technologic.orders</column>
           <column name="arch" type="Xml">
             <schedule>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bob"/>
+              <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doto"/>
@@ -938,13 +1537,17 @@
             </schedule>
           </column>
         </record>
-        <record id="view.mm.technologic.order.form">
-          <column name="name">view.mm.technologic.order.form</column>
-          <column name="model">mm.technologic.order</column>
+        <record id="view.mm.technologic.orders.form">
+          <column name="name">view.mm.technologic.orders.form</column>
+          <column name="model">mm.technologic.orders</column>
           <column name="arch" type="Xml">
             <form>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bob"/>
+              <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doto"/>
@@ -952,18 +1555,25 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
-              <field name="items"/>
+              <field name="schedules"/>
+              <field name="ibobs"/>
+              <field name="obobs"/>
+              <field name="texts"/>
               <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.mm.technologic.order.graph">
-          <column name="name">view.mm.technologic.order.graph</column>
-          <column name="model">mm.technologic.order</column>
+        <record id="view.mm.technologic.orders.graph">
+          <column name="name">view.mm.technologic.orders.graph</column>
+          <column name="model">mm.technologic.orders</column>
           <column name="arch" type="Xml">
             <graph date="doto">
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bob"/>
+              <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doto"/>
@@ -974,13 +1584,17 @@
             </graph>
           </column>
         </record>
-        <record id="view.mm.technologic.order.kanban">
-          <column name="name">view.mm.technologic.order.kanban</column>
-          <column name="model">mm.technologic.order</column>
+        <record id="view.mm.technologic.orders.kanban">
+          <column name="name">view.mm.technologic.orders.kanban</column>
+          <column name="model">mm.technologic.orders</column>
           <column name="arch" type="Xml">
             <kanban>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bob"/>
+              <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doto"/>
@@ -992,13 +1606,17 @@
             </kanban>
           </column>
         </record>
-        <record id="view.mm.technologic.order.list">
-          <column name="name">view.mm.technologic.order.list</column>
-          <column name="model">mm.technologic.order</column>
+        <record id="view.mm.technologic.orders.list">
+          <column name="name">view.mm.technologic.orders.list</column>
+          <column name="model">mm.technologic.orders</column>
           <column name="arch" type="Xml">
             <list>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bob"/>
+              <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doto"/>
@@ -1006,17 +1624,24 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
-              <field name="items"/>
+              <field name="schedules"/>
+              <field name="ibobs"/>
+              <field name="obobs"/>
+              <field name="texts"/>
             </list>
           </column>
         </record>
-        <record id="view.mm.technologic.order.m2mlist">
-          <column name="name">view.mm.technologic.order.m2mlist</column>
-          <column name="model">mm.technologic.order</column>
+        <record id="view.mm.technologic.orders.m2mlist">
+          <column name="name">view.mm.technologic.orders.m2mlist</column>
+          <column name="model">mm.technologic.orders</column>
           <column name="arch" type="Xml">
             <m2mlist>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bob"/>
+              <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doto"/>
@@ -1027,13 +1652,17 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.technologic.order.mdx">
-          <column name="name">view.mm.technologic.order.mdx</column>
-          <column name="model">mm.technologic.order</column>
+        <record id="view.mm.technologic.orders.mdx">
+          <column name="name">view.mm.technologic.orders.mdx</column>
+          <column name="model">mm.technologic.orders</column>
           <column name="arch" type="Xml">
             <mdx date="doto">
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bob"/>
+              <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doto"/>
@@ -1044,13 +1673,17 @@
             </mdx>
           </column>
         </record>
-        <record id="view.mm.technologic.order.search">
-          <column name="name">view.mm.technologic.order.search</column>
-          <column name="model">mm.technologic.order</column>
+        <record id="view.mm.technologic.orders.search">
+          <column name="name">view.mm.technologic.orders.search</column>
+          <column name="model">mm.technologic.orders</column>
           <column name="arch" type="Xml">
             <search>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bob"/>
+              <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doto"/>
@@ -1061,13 +1694,17 @@
             </search>
           </column>
         </record>
-        <record id="view.mm.technologic.order.find">
-          <column name="name">view.mm.technologic.order.find</column>
-          <column name="model">mm.technologic.order</column>
+        <record id="view.mm.technologic.orders.find">
+          <column name="name">view.mm.technologic.orders.find</column>
+          <column name="model">mm.technologic.orders</column>
           <column name="arch" type="Xml">
             <find>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="bob"/>
+              <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
               <field name="doto"/>
@@ -1078,57 +1715,156 @@
             </find>
           </column>
         </record>
-        <record id="view.mm.technologic.order.items.form">
-          <column name="name">view.mm.technologic.order.items.form</column>
-          <column name="model">mm.technologic.order.items</column>
+        <record id="view.mm.technologic.order.delivery.schedules.form">
+          <column name="name">view.mm.technologic.order.delivery.schedules.form</column>
+          <column name="model">mm.technologic.order.delivery.schedules</column>
           <column name="arch" type="Xml">
             <form>
               <field name="order_id"/>
-              <field name="recepture_id"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-              <field name="ibobs"/>
-              <field name="obobs"/>
-              <field name="schedules"/>
+              <field name="part"/>
+              <field name="schedule"/>
               <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.mm.technologic.order.items.list">
-          <column name="name">view.mm.technologic.order.items.list</column>
-          <column name="model">mm.technologic.order.items</column>
+        <record id="view.mm.technologic.order.delivery.schedules.list">
+          <column name="name">view.mm.technologic.order.delivery.schedules.list</column>
+          <column name="model">mm.technologic.order.delivery.schedules</column>
           <column name="arch" type="Xml">
             <list>
               <field name="order_id"/>
-              <field name="recepture_id"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-              <field name="ibobs"/>
-              <field name="obobs"/>
-              <field name="schedules"/>
+              <field name="part"/>
+              <field name="schedule"/>
             </list>
           </column>
         </record>
-        <record id="view.mm.technologic.order.items.m2mlist">
-          <column name="name">view.mm.technologic.order.items.m2mlist</column>
-          <column name="model">mm.technologic.order.items</column>
+        <record id="view.mm.technologic.order.delivery.schedules.m2mlist">
+          <column name="name">view.mm.technologic.order.delivery.schedules.m2mlist</column>
+          <column name="model">mm.technologic.order.delivery.schedules</column>
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="order_id"/>
-              <field name="recepture_id"/>
-              <field name="parent_id"/>
+              <field name="part"/>
+              <field name="schedule"/>
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.technologic.order.items.tree">
-          <column name="name">view.mm.technologic.order.items.tree</column>
-          <column name="model">mm.technologic.order.items</column>
+        <record id="view.mm.technologic.order.texts.form">
+          <column name="name">view.mm.technologic.order.texts.form</column>
+          <column name="model">mm.technologic.order.texts</column>
           <column name="arch" type="Xml">
-            <tree>
+            <form>
               <field name="order_id"/>
-              <field name="recepture_id"/>
-              <field name="parent_id"/>
-            </tree>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.texts.list">
+          <column name="name">view.mm.technologic.order.texts.list</column>
+          <column name="model">mm.technologic.order.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.texts.m2mlist">
+          <column name="name">view.mm.technologic.order.texts.m2mlist</column>
+          <column name="model">mm.technologic.order.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.roles.form">
+          <column name="name">view.mm.technologic.order.roles.form</column>
+          <column name="model">mm.technologic.order.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.roles.list">
+          <column name="name">view.mm.technologic.order.roles.list</column>
+          <column name="model">mm.technologic.order.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.roles.m2mlist">
+          <column name="name">view.mm.technologic.order.roles.m2mlist</column>
+          <column name="model">mm.technologic.order.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.pricing.form">
+          <column name="name">view.mm.technologic.order.pricing.form</column>
+          <column name="model">mm.technologic.order.pricing</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.pricing.list">
+          <column name="name">view.mm.technologic.order.pricing.list</column>
+          <column name="model">mm.technologic.order.pricing</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.pricing.m2mlist">
+          <column name="name">view.mm.technologic.order.pricing.m2mlist</column>
+          <column name="model">mm.technologic.order.pricing</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </m2mlist>
           </column>
         </record>
         <record id="view.mm.technologic.order.item.ibob.form">
@@ -1136,7 +1872,7 @@
           <column name="model">mm.technologic.order.item.ibob</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="item_id"/>
+              <field name="order_id"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
@@ -1154,7 +1890,7 @@
           <column name="model">mm.technologic.order.item.ibob</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="item_id"/>
+              <field name="order_id"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
@@ -1171,7 +1907,7 @@
           <column name="model">mm.technologic.order.item.ibob</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="item_id"/>
+              <field name="order_id"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
@@ -1188,7 +1924,7 @@
           <column name="model">mm.technologic.order.item.obob</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="item_id"/>
+              <field name="order_id"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
@@ -1206,7 +1942,7 @@
           <column name="model">mm.technologic.order.item.obob</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="item_id"/>
+              <field name="order_id"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
@@ -1223,7 +1959,7 @@
           <column name="model">mm.technologic.order.item.obob</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="item_id"/>
+              <field name="order_id"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
@@ -1235,48 +1971,18 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.technologic.order.delivery.schedules.form">
-          <column name="name">view.mm.technologic.order.delivery.schedules.form</column>
-          <column name="model">mm.technologic.order.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="item_id"/>
-              <field name="part"/>
-              <field name="schedule"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.mm.technologic.order.delivery.schedules.list">
-          <column name="name">view.mm.technologic.order.delivery.schedules.list</column>
-          <column name="model">mm.technologic.order.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="item_id"/>
-              <field name="part"/>
-              <field name="schedule"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.mm.technologic.order.delivery.schedules.m2mlist">
-          <column name="name">view.mm.technologic.order.delivery.schedules.m2mlist</column>
-          <column name="model">mm.technologic.order.delivery.schedules</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="item_id"/>
-              <field name="part"/>
-              <field name="schedule"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.disassembly.order.calendar">
-          <column name="name">view.mm.disassembly.order.calendar</column>
-          <column name="model">mm.disassembly.order</column>
+        <record id="view.mm.disassembly.orders.calendar">
+          <column name="name">view.mm.disassembly.orders.calendar</column>
+          <column name="model">mm.disassembly.orders</column>
           <column name="arch" type="Xml">
             <calendar date="dodo">
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="mob"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dodo"/>
               <field name="from_date"/>
@@ -1286,14 +1992,18 @@
             </calendar>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.schedule">
-          <column name="name">view.mm.disassembly.order.schedule</column>
-          <column name="model">mm.disassembly.order</column>
+        <record id="view.mm.disassembly.orders.schedule">
+          <column name="name">view.mm.disassembly.orders.schedule</column>
+          <column name="model">mm.disassembly.orders</column>
           <column name="arch" type="Xml">
             <schedule>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="mob"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dodo"/>
               <field name="from_date"/>
@@ -1303,14 +2013,18 @@
             </schedule>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.form">
-          <column name="name">view.mm.disassembly.order.form</column>
-          <column name="model">mm.disassembly.order</column>
+        <record id="view.mm.disassembly.orders.form">
+          <column name="name">view.mm.disassembly.orders.form</column>
+          <column name="model">mm.disassembly.orders</column>
           <column name="arch" type="Xml">
             <form>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="mob"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dodo"/>
               <field name="from_date"/>
@@ -1318,18 +2032,23 @@
               <field name="route"/>
               <field name="state"/>
               <field name="items"/>
+              <field name="texts"/>
               <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.graph">
-          <column name="name">view.mm.disassembly.order.graph</column>
-          <column name="model">mm.disassembly.order</column>
+        <record id="view.mm.disassembly.orders.graph">
+          <column name="name">view.mm.disassembly.orders.graph</column>
+          <column name="model">mm.disassembly.orders</column>
           <column name="arch" type="Xml">
             <graph date="dodo">
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="mob"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dodo"/>
               <field name="from_date"/>
@@ -1339,14 +2058,18 @@
             </graph>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.kanban">
-          <column name="name">view.mm.disassembly.order.kanban</column>
-          <column name="model">mm.disassembly.order</column>
+        <record id="view.mm.disassembly.orders.kanban">
+          <column name="name">view.mm.disassembly.orders.kanban</column>
+          <column name="model">mm.disassembly.orders</column>
           <column name="arch" type="Xml">
             <kanban>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="mob"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dodo"/>
               <field name="from_date"/>
@@ -1357,14 +2080,18 @@
             </kanban>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.list">
-          <column name="name">view.mm.disassembly.order.list</column>
-          <column name="model">mm.disassembly.order</column>
+        <record id="view.mm.disassembly.orders.list">
+          <column name="name">view.mm.disassembly.orders.list</column>
+          <column name="model">mm.disassembly.orders</column>
           <column name="arch" type="Xml">
             <list>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="mob"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dodo"/>
               <field name="from_date"/>
@@ -1372,17 +2099,22 @@
               <field name="route"/>
               <field name="state"/>
               <field name="items"/>
+              <field name="texts"/>
             </list>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.m2mlist">
-          <column name="name">view.mm.disassembly.order.m2mlist</column>
-          <column name="model">mm.disassembly.order</column>
+        <record id="view.mm.disassembly.orders.m2mlist">
+          <column name="name">view.mm.disassembly.orders.m2mlist</column>
+          <column name="model">mm.disassembly.orders</column>
           <column name="arch" type="Xml">
             <m2mlist>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="mob"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dodo"/>
               <field name="from_date"/>
@@ -1392,14 +2124,18 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.mdx">
-          <column name="name">view.mm.disassembly.order.mdx</column>
-          <column name="model">mm.disassembly.order</column>
+        <record id="view.mm.disassembly.orders.mdx">
+          <column name="name">view.mm.disassembly.orders.mdx</column>
+          <column name="model">mm.disassembly.orders</column>
           <column name="arch" type="Xml">
             <mdx date="dodo">
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="mob"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dodo"/>
               <field name="from_date"/>
@@ -1409,14 +2145,18 @@
             </mdx>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.search">
-          <column name="name">view.mm.disassembly.order.search</column>
-          <column name="model">mm.disassembly.order</column>
+        <record id="view.mm.disassembly.orders.search">
+          <column name="name">view.mm.disassembly.orders.search</column>
+          <column name="model">mm.disassembly.orders</column>
           <column name="arch" type="Xml">
             <search>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="mob"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dodo"/>
               <field name="from_date"/>
@@ -1426,14 +2166,18 @@
             </search>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.find">
-          <column name="name">view.mm.disassembly.order.find</column>
-          <column name="model">mm.disassembly.order</column>
+        <record id="view.mm.disassembly.orders.find">
+          <column name="name">view.mm.disassembly.orders.find</column>
+          <column name="model">mm.disassembly.orders</column>
           <column name="arch" type="Xml">
             <find>
+              <field name="otype"/>
               <field name="name"/>
               <field name="company"/>
+              <field name="fullname"/>
+              <field name="mob"/>
               <field name="category_id"/>
+              <field name="manager"/>
               <field name="origin"/>
               <field name="dodo"/>
               <field name="from_date"/>
@@ -1443,17 +2187,138 @@
             </find>
           </column>
         </record>
+        <record id="view.mm.disassembly.order.texts.form">
+          <column name="name">view.mm.disassembly.order.texts.form</column>
+          <column name="model">mm.disassembly.order.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.texts.list">
+          <column name="name">view.mm.disassembly.order.texts.list</column>
+          <column name="model">mm.disassembly.order.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.texts.m2mlist">
+          <column name="name">view.mm.disassembly.order.texts.m2mlist</column>
+          <column name="model">mm.disassembly.order.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.roles.form">
+          <column name="name">view.mm.disassembly.order.roles.form</column>
+          <column name="model">mm.disassembly.order.roles</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.roles.list">
+          <column name="name">view.mm.disassembly.order.roles.list</column>
+          <column name="model">mm.disassembly.order.roles</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.roles.m2mlist">
+          <column name="name">view.mm.disassembly.order.roles.m2mlist</column>
+          <column name="model">mm.disassembly.order.roles</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="role_id"/>
+              <field name="patner_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.pricing.form">
+          <column name="name">view.mm.disassembly.order.pricing.form</column>
+          <column name="model">mm.disassembly.order.pricing</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.pricing.list">
+          <column name="name">view.mm.disassembly.order.pricing.list</column>
+          <column name="model">mm.disassembly.order.pricing</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.pricing.m2mlist">
+          <column name="name">view.mm.disassembly.order.pricing.m2mlist</column>
+          <column name="model">mm.disassembly.order.pricing</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="level"/>
+              <field name="cond"/>
+              <field name="from_level"/>
+              <field name="to_level"/>
+              <field name="group_level"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </m2mlist>
+          </column>
+        </record>
         <record id="view.mm.disassembly.order.items.form">
           <column name="name">view.mm.disassembly.order.items.form</column>
           <column name="model">mm.disassembly.order.items</column>
           <column name="arch" type="Xml">
             <form>
               <field name="order_id"/>
-              <field name="recepture_id"/>
               <field name="product"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-              <field name="mobs"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
               <field name="schedules"/>
               <field name="note"/>
             </form>
@@ -1465,11 +2330,14 @@
           <column name="arch" type="Xml">
             <list>
               <field name="order_id"/>
-              <field name="recepture_id"/>
               <field name="product"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-              <field name="mobs"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="amount"/>
               <field name="schedules"/>
             </list>
           </column>
@@ -1480,65 +2348,6 @@
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="order_id"/>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="parent_id"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.disassembly.order.items.tree">
-          <column name="name">view.mm.disassembly.order.items.tree</column>
-          <column name="model">mm.disassembly.order.items</column>
-          <column name="arch" type="Xml">
-            <tree>
-              <field name="order_id"/>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="parent_id"/>
-            </tree>
-          </column>
-        </record>
-        <record id="view.mm.disassembly.order.item.mob.form">
-          <column name="name">view.mm.disassembly.order.item.mob.form</column>
-          <column name="model">mm.disassembly.order.item.mob</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="item_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.mm.disassembly.order.item.mob.list">
-          <column name="name">view.mm.disassembly.order.item.mob.list</column>
-          <column name="model">mm.disassembly.order.item.mob</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="item_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="amount"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.mm.disassembly.order.item.mob.m2mlist">
-          <column name="name">view.mm.disassembly.order.item.mob.m2mlist</column>
-          <column name="model">mm.disassembly.order.item.mob</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="item_id"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
@@ -1582,6 +2391,69 @@
               <field name="part"/>
               <field name="schedule"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.mm.product.form">
+          <column name="name">view.md.mm.product.form</column>
+          <column name="model">md.mm.product</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="product_id"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.mm.product.list">
+          <column name="name">view.md.mm.product.list</column>
+          <column name="model">md.mm.product</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="product_id"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.mm.product.m2mlist">
+          <column name="name">view.md.mm.product.m2mlist</column>
+          <column name="model">md.mm.product</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="product_id"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+            </m2mlist>
+          </column>
+        </record>
+      </records>
+      <records model="bc.ui.views.inherit">
+        <record id="view.md.mm.product.inherit.form.inherit.md.product">
+          <column name="view_id">view.md.product.form</column>
+          <column name="name">view.md.mm.product.inherit.form.inherit.md.product</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="production"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.mm.product.inherit.list.inherit.md.product">
+          <column name="view_id">view.md.product.list</column>
+          <column name="name">view.md.mm.product.inherit.list.inherit.md.product</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="production"/>
+            </list>
           </column>
         </record>
       </records>

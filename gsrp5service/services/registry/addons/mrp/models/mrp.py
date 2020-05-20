@@ -5,7 +5,7 @@ from gsrp5service.orm.model import Model, ModelInherit
 #Text
 class mrp_texts(Model):
 	_name = 'mrp.texts'
-	_description = 'General Model MRP Texts'
+	_description = 'MRP Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -18,7 +18,7 @@ mrp_texts()
 
 class mrp_schema_texts(Model):
 	_name = 'mrp.schema.texts'
-	_description = 'General Model Schema Of MRP Texts'
+	_description = 'Schema Of MRP Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -33,7 +33,7 @@ mrp_schema_texts()
 
 class mrp_schema_text_items(Model):
 	_name = 'mrp.schema.text.items'
-	_description = 'General Model Items Of Schema MRP Texts'
+	_description = 'Items Of Schema MRP Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -49,7 +49,7 @@ mrp_schema_text_items()
 
 class mrp_demand_types(Model):
 	_name = 'mrp.demand.types'
-	_description = 'General Model Types MRP Demand'
+	_description = 'Types MRP Demand'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -64,7 +64,7 @@ mrp_demand_types()
 
 class mrp_demand_type_roles(Model):
 	_name = 'mrp.demand.type.roles'
-	_description = 'General Model Role MRP Demand Types'
+	_description = 'Role MRP Demand Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -78,7 +78,7 @@ mrp_demand_type_roles()
 
 class mrp_request_types(Model):
 	_name = 'mrp.request.types'
-	_description = 'General Model Types MRP Request'
+	_description = 'Types MRP Request'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_columns = {
@@ -93,7 +93,7 @@ mrp_request_types()
 
 class mrp_request_type_roles(Model):
 	_name = 'mrp.request.type.roles'
-	_description = 'General Model Role MRP Request Types'
+	_description = 'Role MRP Request Types'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_columns = {
@@ -109,7 +109,7 @@ mrp_request_type_roles()
 
 class mrp_demand_category(Model):
 	_name = 'mrp.demand.category'
-	_description = 'General Model Category MRP Demand'
+	_description = 'Category MRP Demand'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mrp.demand.category'),
@@ -122,7 +122,7 @@ mrp_demand_category()
 
 class mrp_request_category(Model):
 	_name = 'mrp.request.category'
-	_description = 'General Model Category MRP Request'
+	_description = 'Category MRP Request'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mrp.request.category'),
@@ -170,7 +170,7 @@ mrp_demand()
 
 class mrp_demand_texts(Model):
 	_name = 'mrp.demand.texts'
-	_description = 'General Model MRP Demand Texts'
+	_description = 'MRP Demand Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -188,7 +188,7 @@ mrp_demand_texts()
 
 class mrp_demand_roles(Model):
 	_name = 'mrp.demand.roles'
-	_description = 'General Model MRP Demand Roles'
+	_description = 'MRP Demand Roles'
 	_columns = {
 	'demand_id': fields.many2one(label = 'Demand',obj='mrp.demand'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -200,7 +200,7 @@ mrp_demand_roles()
 
 class mrp_demand_items(Model):
 	_name = 'mrp.demand.items'
-	_description = 'General Model MRP Demand Item'
+	_description = 'MRP Demand Item'
 	_rec_name = None
 	_columns = {
 	'demand_id': fields.many2one(obj = 'mrp.demand',label = 'Demand'),
@@ -214,7 +214,7 @@ mrp_demand_items()
 
 class mrp_demand_item_texts(Model):
 	_name = 'mrp.demand.item.texts'
-	_description = 'General Model MRP Demand Item Texts'
+	_description = 'MRP Demand Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -232,7 +232,7 @@ mrp_demand_item_texts()
 
 class mrp_demand_item_roles(Model):
 	_name = 'mrp.demand.item.roles'
-	_description = 'General Model MRP Demand Roles'
+	_description = 'MRP Demand Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='mrp.demand.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -244,7 +244,7 @@ mrp_demand_item_roles()
 
 class mrp_demand_delivery_schedules(Model):
 	_name = 'mrp.demand.delivery.schedules'
-	_description = 'General Model MRP Demand Delivery Schedule'
+	_description = 'MRP Demand Delivery Schedule'
 	_rec_name = None
 	_columns = {
 	'item_id': fields.many2one(obj = 'mrp.demand.items',label = 'Item'),
@@ -296,7 +296,7 @@ mrp_request()
 
 class mrp_request_texts(Model):
 	_name = 'mrp.request.texts'
-	_description = 'General Model MRP Request Texts'
+	_description = 'MRP Request Texts'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_order_by = "seq asc"
@@ -314,7 +314,7 @@ mrp_request_texts()
 
 class mrp_request_roles(Model):
 	_name = 'mrp.request.roles'
-	_description = 'General Model Purchase Invoice Roles'
+	_description = 'Purchase Invoice Roles'
 	_columns = {
 	'invoice_id': fields.many2one(label = 'Request',obj='mrp.request'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -326,7 +326,7 @@ mrp_request_roles()
 
 class mrp_request_items(Model):
 	_name = 'mrp.request.items'
-	_description = 'General Model MRP Request Item'
+	_description = 'MRP Request Item'
 	_rec_name = None
 	_columns = {
 	'request_id': fields.many2one(obj = 'mrp.request',label = 'Request'),
@@ -340,7 +340,7 @@ mrp_request_items()
 
 class mrp_request_item_texts(Model):
 	_name = 'mrp.request.item.texts'
-	_description = 'General Model MRP Request Item Texts'
+	_description = 'MRP Request Item Texts'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_order_by = "seq asc"
@@ -358,7 +358,7 @@ mrp_request_item_texts()
 
 class mrp_request_item_roles(Model):
 	_name = 'mrp.request.item.roles'
-	_description = 'General Model MRP Request Item Roles'
+	_description = 'MRP Request Item Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='mrp.request.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('S','B'))]),
@@ -370,7 +370,7 @@ mrp_request_item_roles()
 
 class mrp_request_delivery_schedules(Model):
 	_name = 'mrp.request.delivery.schedules'
-	_description = 'General Model MRP Request Delivery Schedule'
+	_description = 'MRP Request Delivery Schedule'
 	_rec_name = None
 	_columns = {
 	'item_id': fields.many2one(obj = 'mrp.request.items',label = 'Item'),
@@ -388,7 +388,7 @@ mrp_request_delivery_schedules()
 
 class md_mrp_product(Model):
 	_name = 'md.mrp.product'
-	_description = 'General Model Mrp Of Product'
+	_description = 'Mrp Of Product'
 	_columns = {
 	'product_id': fields.many2one(label='Product',obj='md.product'),
 	'strategy': fields.selection(label='Strategy',selections=[('l','Lot'),('p','Point of order'),('n','Not planed')]),

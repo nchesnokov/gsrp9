@@ -130,6 +130,24 @@ def columnsIndex(pool,info):
 			res.append('INDEX '+ key + '_idx (' + key +')' )
 		if columns[key]['type'] == 'json':
 			res.append('INVERTED INDEX '+ key + '_inverted_idx (' + key +')' )
+
+	return res
+
+def indiciesIndex(pool,info):
+	res = []
+	columns = info['columns']
+	indicies = info['indicies']
+	for key in indicies.keys():
+		if len(indicies[key]) == 1:
+			idx = indicies[key][0]
+		else:
+			idx = reduce(lambda x,y: x + ',' + y,indicies[key])
+		# if columns[key]['type'] == 'json':
+			# res.append('INVERTED INDEX  '+ key + '_inverted_idx (' + indicies[key].join(',') +')' )
+		# else:
+			# res.append('INDEX ' + key + '_idx (' + indicies[key].join(',') +')' )
+		res.append('INDEX ' + key + '_idxi (' + idx + ')')
+
 	return res
 
 def relationTable(pool,info):
@@ -166,6 +184,7 @@ def createTable(pool,info):
 	res.extend(constraintModel(pool,info))
 	res.extend(columnsFamily(pool,info))
 	res.extend(columnsIndex(pool,info))
+	res.extend(indiciesIndex(pool,info))
 	sql = "CREATE TABLE IF NOT EXISTS "+info['table'] + ' ('+ reduce(lambda x,y: x + ',' + y,res) + ")"
 	res = []
 	res.extend(relationTable(pool,info))

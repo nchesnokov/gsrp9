@@ -64,14 +64,14 @@
       <records model="bc.ui.reports">
         <record id="bc.ui.report.docx.mrp.demand.category">
           <column name="name">bc.ui.report.docx.mrp.demand.category</column>
-          <column name="label">Category MRP Demand</column>
+          <column name="label">Demand</column>
           <column name="report">report_mrp_demand_category</column>
           <column name="infile">infile_mrp_demand_category.docx</column>
           <column name="outfile">outfile_mrp_demand_category.docx</column>
         </record>
         <record id="bc.ui.report.docx.mrp.request.category">
           <column name="name">bc.ui.report.docx.mrp.request.category</column>
-          <column name="label">Category MRP Request</column>
+          <column name="label">Request</column>
           <column name="report">report_mrp_request_category</column>
           <column name="infile">infile_mrp_request_category.docx</column>
           <column name="outfile">outfile_mrp_request_category.docx</column>
@@ -113,7 +113,7 @@
           <record id="ui.menu.mrp.demand.category.search">
           <column name="sequence">0</column>
             <column name="name">ui.menu.mrp.demand.category.search</column>
-            <column name="label">Category MRP Demand</column>
+            <column name="label">Demand</column>
           <column name="parent_id">ui.menu.mrp</column>
           <column name="sequence">0</column>
           <column name="action_id">action.mrp.demand.category.search</column>
@@ -121,7 +121,7 @@
           <record id="ui.menu.mrp.request.category.search">
           <column name="sequence">1</column>
             <column name="name">ui.menu.mrp.request.category.search</column>
-            <column name="label">Category MRP Request</column>
+            <column name="label">Request</column>
           <column name="parent_id">ui.menu.mrp</column>
           <column name="sequence">10</column>
           <column name="action_id">action.mrp.request.category.search</column>
@@ -154,7 +154,7 @@
           <record id="ui.menu.mrp.demand.category.report">
           <column name="sequence">0</column>
             <column name="name">ui.menu.mrp.demand.category.report</column>
-            <column name="label">Category MRP Demand</column>
+            <column name="label">Demand</column>
           <column name="parent_id">ui.menu.mrp.report</column>
           <column name="sequence">0</column>
           <column name="action_id">action.mrp.demand.category.report</column>
@@ -162,7 +162,7 @@
           <record id="ui.menu.mrp.request.category.report">
           <column name="sequence">1</column>
             <column name="name">ui.menu.mrp.request.category.report</column>
-            <column name="label">Category MRP Request</column>
+            <column name="label">Request</column>
           <column name="parent_id">ui.menu.mrp.report</column>
           <column name="sequence">10</column>
           <column name="action_id">action.mrp.request.category.report</column>
@@ -239,7 +239,7 @@
           <record id="ui.menu.mrp.schema.texts.custom">
           <column name="sequence">1</column>
             <column name="name">ui.menu.mrp.schema.texts.custom</column>
-            <column name="label">Schema Of MRP Texts</column>
+            <column name="label">MRP Texts</column>
           <column name="parent_id">ui.menu.mrp.custom</column>
           <column name="sequence">10</column>
           <column name="action_id">action.mrp.schema.texts.custom</column>
@@ -247,7 +247,7 @@
           <record id="ui.menu.mrp.demand.types.custom">
           <column name="sequence">2</column>
             <column name="name">ui.menu.mrp.demand.types.custom</column>
-            <column name="label">Types MRP Demand</column>
+            <column name="label">Demand</column>
           <column name="parent_id">ui.menu.mrp.custom</column>
           <column name="sequence">20</column>
           <column name="action_id">action.mrp.demand.types.custom</column>
@@ -255,7 +255,7 @@
           <record id="ui.menu.mrp.request.types.custom">
           <column name="sequence">3</column>
             <column name="name">ui.menu.mrp.request.types.custom</column>
-            <column name="label">Types MRP Request</column>
+            <column name="label">Request</column>
           <column name="parent_id">ui.menu.mrp.custom</column>
           <column name="sequence">30</column>
           <column name="action_id">action.mrp.request.types.custom</column>
@@ -289,21 +289,21 @@
         </record>
         <record id="bc.ui.report.docx.mrp.schema.texts">
           <column name="name">bc.ui.report.docx.mrp.schema.texts</column>
-          <column name="label">Schema Of MRP Texts</column>
+          <column name="label">MRP Texts</column>
           <column name="report">report_mrp_schema_texts</column>
           <column name="infile">infile_mrp_schema_texts.docx</column>
           <column name="outfile">outfile_mrp_schema_texts.docx</column>
         </record>
         <record id="bc.ui.report.docx.mrp.demand.types">
           <column name="name">bc.ui.report.docx.mrp.demand.types</column>
-          <column name="label">Types MRP Demand</column>
+          <column name="label">Demand</column>
           <column name="report">report_mrp_demand_types</column>
           <column name="infile">infile_mrp_demand_types.docx</column>
           <column name="outfile">outfile_mrp_demand_types.docx</column>
         </record>
         <record id="bc.ui.report.docx.mrp.request.types">
           <column name="name">bc.ui.report.docx.mrp.request.types</column>
-          <column name="label">Types MRP Request</column>
+          <column name="label">Request</column>
           <column name="report">report_mrp_request_types</column>
           <column name="infile">infile_mrp_request_types.docx</column>
           <column name="outfile">outfile_mrp_request_types.docx</column>
@@ -346,7 +346,7 @@
           <record id="ui.menu.mrp.schema.texts.report">
           <column name="sequence">1</column>
             <column name="name">ui.menu.mrp.schema.texts.report</column>
-            <column name="label">Schema Of MRP Texts</column>
+            <column name="label">MRP Texts</column>
           <column name="parent_id">ui.menu.mrp.report.custom</column>
           <column name="sequence">10</column>
           <column name="action_id">action.mrp.schema.texts.report</column>
@@ -354,7 +354,7 @@
           <record id="ui.menu.mrp.demand.types.report">
           <column name="sequence">2</column>
             <column name="name">ui.menu.mrp.demand.types.report</column>
-            <column name="label">Types MRP Demand</column>
+            <column name="label">Demand</column>
           <column name="parent_id">ui.menu.mrp.report.custom</column>
           <column name="sequence">20</column>
           <column name="action_id">action.mrp.demand.types.report</column>
@@ -362,7 +362,7 @@
           <record id="ui.menu.mrp.request.types.report">
           <column name="sequence">3</column>
             <column name="name">ui.menu.mrp.request.types.report</column>
-            <column name="label">Types MRP Request</column>
+            <column name="label">Request</column>
           <column name="parent_id">ui.menu.mrp.report.custom</column>
           <column name="sequence">30</column>
           <column name="action_id">action.mrp.request.types.report</column>

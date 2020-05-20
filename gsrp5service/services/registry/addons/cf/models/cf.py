@@ -7,7 +7,7 @@ from passlib.hash import pbkdf2_sha256
 
 class cf_groups(Model):
 	_name = 'cf.groups'
-	_description = 'General Model Colobrative Groups'
+	_description = 'Colobrative Groups'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=128),
 	'code': fields.integer(label='Code'),
@@ -18,7 +18,7 @@ cf_groups()
 
 class cf_tags(Model):
 	_name = 'cf.tags'
-	_description = 'General Model Colobrative Folders File Tags'
+	_description = 'Colobrative Folders File Tags'
 	_rec_name = 'tag'
 	_columns = {
 	'tag': fields.varchar(label = 'Tag',size=64),
@@ -31,7 +31,7 @@ cf_tags()
 
 class cf_file_access_users(Model):
 	_name = 'cf.file.access.users'
-	_description = 'General Model File Access Users'
+	_description = 'File Access Users'
 	_columns = {
 	'file_id': fields.many2one(label='File',obj='cf.files'),
 	'user_id': fields.many2one(label='User',obj='bc.users'),
@@ -50,7 +50,7 @@ cf_file_access_users()
 
 class cf_file_access_groups(Model):
 	_name = 'cf.file.access.groups'
-	_description = 'General Model File Access Groups'
+	_description = 'File Access Groups'
 	_columns = {
 	'file_id': fields.many2one(label='File',obj='cf.files'),
 	'group_id': fields.many2one(label='Group',obj='cf.groups'),
@@ -69,7 +69,7 @@ cf_file_access_groups()
 
 class cf_file_access_others(Model):
 	_name = 'cf.file.access.others'
-	_description = 'General Model File Access Others'
+	_description = 'File Access Others'
 	_columns = {
 	'file_id': fields.many2one(label='File',obj='cf.files'),
 	'r': fields.boolean(label = 'Read'),
@@ -87,7 +87,7 @@ cf_file_access_others()
 
 class cf_files(Model):
 	_name = 'cf.files'
-	_description = 'General Model Colobrative Files'
+	_description = 'Colobrative Files'
 	_log_access = False
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64),
@@ -147,7 +147,7 @@ cf_files()
 # Links
 class cf_link_access_users(Model):
 	_name = 'cf.link.access.users'
-	_description = 'General Model Link Access Users'
+	_description = 'Link Access Users'
 	_columns = {
 	'link_id': fields.many2one(label='Link',obj='cf.links'),
 	'user_id': fields.many2one(label='User',obj='bc.users'),
@@ -166,7 +166,7 @@ cf_link_access_users()
 
 class cf_link_access_groups(Model):
 	_name = 'cf.link.access.groups'
-	_description = 'General Model Link Access Groups'
+	_description = 'Link Access Groups'
 	_columns = {
 	'link_id': fields.many2one(label='Link',obj='cf.links'),
 	'group_id': fields.many2one(label='Group',obj='cf.groups'),
@@ -185,7 +185,7 @@ cf_link_access_groups()
 
 class cf_link_access_others(Model):
 	_name = 'cf.link.access.others'
-	_description = 'General Model Link Access Others'
+	_description = 'Link Access Others'
 	_columns = {
 	'link_id': fields.many2one(label='Link',obj='cf.links'),
 	'r': fields.boolean(label = 'Read'),
@@ -203,7 +203,7 @@ cf_link_access_others()
 
 class cf_links(Model):
 	_name = 'cf.links'
-	_description = 'General Model Colobrative Links'
+	_description = 'Colobrative Links'
 	_log_access = False
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64),
@@ -262,7 +262,7 @@ cf_links()
 # Folders
 class cf_folder_access_users(Model):
 	_name = 'cf.folder.access.users'
-	_description = 'General Model File Access Users'
+	_description = 'File Access Users'
 	_columns = {
 	'folder_id': fields.many2one(label='User',obj='cf.folders'),
 	'user_id': fields.many2one(label='User',obj='bc.users'),
@@ -281,7 +281,7 @@ cf_folder_access_users()
 
 class cf_folder_access_groups(Model):
 	_name = 'cf.folder.access.groups'
-	_description = 'General Model Folder Access Groups'
+	_description = 'Folder Access Groups'
 	_columns = {
 	'folder_id': fields.many2one(label='User',obj='cf.folders'),
 	'group_id': fields.many2one(label='Group',obj='cf.groups'),
@@ -300,7 +300,7 @@ cf_folder_access_groups()
 
 class cf_folder_access_others(Model):
 	_name = 'cf.folder.access.others'
-	_description = 'General Model Folder Access Others'
+	_description = 'Folder Access Others'
 	_columns = {
 	'folder_id': fields.many2one(label='Folder',obj='cf.folders'),
 	'r': fields.boolean(label = 'Read'),
@@ -318,7 +318,7 @@ cf_folder_access_others()
 
 class cf_folders(Model):
 	_name = 'cf.folders'
-	_description = 'General Model Colobrative Folders'
+	_description = 'Colobrative Folders'
 	_log_access = False
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64),

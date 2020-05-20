@@ -10,7 +10,7 @@ from datetime import timedelta
 # Organization
 class ctrm_channels(Model):
 	_name = 'ctrm.channels'
-	_description = 'General Model CTRM Cannels'
+	_description = 'CTRM Cannels'
 	_row_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -24,7 +24,7 @@ ctrm_channels()
 
 class ctrm_sectors(Model):
 	_name = 'ctrm.sectors'
-	_description = 'General Model CTRM Sectors'
+	_description = 'CTRM Sectors'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -38,7 +38,7 @@ ctrm_sectors()
 
 class ctrm_teams(Model):
 	_name = 'ctrm.teams'
-	_description = 'General Model CTRM Teams'
+	_description = 'CTRM Teams'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -52,7 +52,7 @@ ctrm_teams()
 
 class ctrm_groups(Model):
 	_name = 'ctrm.groups'
-	_description = 'General Model CTRM Groups'
+	_description = 'CTRM Groups'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -68,7 +68,7 @@ ctrm_groups()
 # Text
 class ctrm_texts(Model):
 	_name = 'ctrm.texts'
-	_description = 'General Model CTRM Texts'
+	_description = 'CTRM Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -81,7 +81,7 @@ ctrm_texts()
 
 class ctrm_schema_texts(Model):
 	_name = 'ctrm.schema.texts'
-	_description = 'General Model Schema Of CTRM Texts'
+	_description = 'Schema Of CTRM Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -100,7 +100,7 @@ ctrm_schema_texts()
 
 class ctrm_schema_text_items(Model):
 	_name = 'ctrm.schema.text.items'
-	_description = 'General Model Items Of Schema CTRM Texts'
+	_description = 'Items Of Schema CTRM Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -114,7 +114,7 @@ ctrm_schema_text_items()
 # Text end
 class ctrm_origin_quotes(Model):
 	_name = 'ctrm.origin.quotes'
-	_description = 'General Model Orgigin Quotes of CTRM'
+	_description = 'Orgigin Quotes of CTRM'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -132,7 +132,7 @@ ctrm_origin_quotes	()
 
 class ctrm_request_types(Model):
 	_name = 'ctrm.request.types'
-	_description = 'General Model Types CTRM Request'
+	_description = 'Types CTRM Request'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -148,7 +148,7 @@ ctrm_request_types()
 
 class ctrm_request_type_roles(Model):
 	_name = 'ctrm.request.type.roles'
-	_description = 'General Model Role CTRM Request Types'
+	_description = 'Role CTRM Request Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -161,7 +161,7 @@ ctrm_request_type_roles()
 
 class ctrm_offer_types(Model):
 	_name = 'ctrm.offer.types'
-	_description = 'General Model Types CTRM Offer'
+	_description = 'Types CTRM Offer'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -177,7 +177,7 @@ ctrm_offer_types()
 
 class ctrm_offer_type_roles(Model):
 	_name = 'ctrm.offer.type.roles'
-	_description = 'General Model Role CTRM Offer Types'
+	_description = 'Role CTRM Offer Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -190,7 +190,7 @@ ctrm_offer_type_roles()
 
 class ctrm_contract_types(Model):
 	_name = 'ctrm.contract.types'
-	_description = 'General Model Types CTRM Contract'
+	_description = 'Types CTRM Contract'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -206,7 +206,7 @@ ctrm_contract_types()
 
 class ctrm_contract_type_roles(Model):
 	_name = 'ctrm.contract.type.roles'
-	_description = 'General Model Role CTRM Contract Types'
+	_description = 'Role CTRM Contract Types'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_columns = {
@@ -221,7 +221,7 @@ ctrm_contract_type_roles()
 
 class ctrm_request_categories(Model):
 	_name = 'ctrm.request.categories'
-	_description = 'General Model Category CTRM Request'
+	_description = 'Category CTRM Request'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='ctrm.request.categories'),
@@ -234,7 +234,7 @@ ctrm_request_categories()
 
 class ctrm_offer_categories(Model):
 	_name = 'ctrm.offer.categories'
-	_description = 'General Model Category CTRM Offer'
+	_description = 'Category CTRM Offer'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='ctrm.offer.categories'),
@@ -247,7 +247,7 @@ ctrm_offer_categories()
 
 class ctrm_contract_categories(Model):
 	_name = 'ctrm.contract.categories'
-	_description = 'General Model Category CTRM Contract'
+	_description = 'Category CTRM Contract'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='ctrm.contract.categories'),
@@ -260,7 +260,7 @@ ctrm_contract_categories()
 
 class ctrm_requests(Model):
 	_name = 'ctrm.requests'
-	_description = 'General Model CTRM Request'
+	_description = 'CTRM Request'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'dor'
 	_columns = {
@@ -320,7 +320,7 @@ ctrm_requests()
 
 class ctrm_request_texts(Model):
 	_name = 'ctrm.request.texts'
-	_description = 'General Model CTRM Request Texts'
+	_description = 'CTRM Request Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -337,7 +337,7 @@ ctrm_request_texts()
 
 class ctrm_request_roles(Model):
 	_name = 'ctrm.request.roles'
-	_description = 'General Model CTRM Request Roles'
+	_description = 'CTRM Request Roles'
 	_columns = {
 	'request_id': fields.many2one(label = 'Request',obj='ctrm.requests'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -348,7 +348,7 @@ ctrm_request_roles()
 
 class ctrm_request_items(Model):
 	_name = 'ctrm.request.items'
-	_description = 'General Model CTRM Request Items'
+	_description = 'CTRM Request Items'
 	_inherits = {'common.model':{'_methods':['_calculate_vat_amount_costs','_calculate_items_amount_costs','_calculate_items']}}
 	_columns = {
 	'request_id': fields.many2one(obj = 'ctrm.requests',label = 'CTRM Request'),
@@ -390,7 +390,7 @@ ctrm_request_items()
 
 class ctrm_request_item_texts(Model):
 	_name = 'ctrm.request.item.texts'
-	_description = 'General Model CTRM Request Item Texts'
+	_description = 'CTRM Request Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -407,7 +407,7 @@ ctrm_request_item_texts()
 
 class ctrm_request_item_roles(Model):
 	_name = 'ctrm.request.item.roles'
-	_description = 'General Model CTRM Offer Item Roles'
+	_description = 'CTRM Offer Item Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='ctrm.request.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -418,7 +418,7 @@ ctrm_request_item_roles()
 
 class ctrm_request_item_delivery_schedules(Model):
 	_name = 'ctrm.request.item.delivery.schedules'
-	_description = 'General Model CTRM REquest Item Delivery Schedules'
+	_description = 'CTRM REquest Item Delivery Schedules'
 	_columns = {
 	'item_id': fields.many2one(obj = 'ctrm.request.items',label = 'Request Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
@@ -434,7 +434,7 @@ ctrm_request_item_delivery_schedules()
 
 class ctrm_offers(Model):
 	_name = 'ctrm.offers'
-	_description = 'General Model CTRM Offer'
+	_description = 'CTRM Offer'
 	_date = 'doo'
 	_columns = {
 	'otype': fields.many2one(label='Type',required = True,obj='ctrm.offer.types',on_change='on_change_otype'),
@@ -493,7 +493,7 @@ ctrm_offers()
 
 class ctrm_offer_texts(Model):
 	_name = 'ctrm.offer.texts'
-	_description = 'General Model CTRM Offer Texts'
+	_description = 'CTRM Offer Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -510,7 +510,7 @@ ctrm_offer_texts()
 
 class ctrm_offer_roles(Model):
 	_name = 'ctrm.offer.roles'
-	_description = 'General Model CTRM Offer Roles'
+	_description = 'CTRM Offer Roles'
 	_columns = {
 	'offer_id': fields.many2one(label = 'Request',obj='ctrm.offers'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -521,7 +521,7 @@ ctrm_offer_roles()
 
 class ctrm_offer_items(Model):
 	_name = 'ctrm.offer.items'
-	_description = 'General Model CTRM Offer Items'
+	_description = 'CTRM Offer Items'
 	_inherits = {'common.model':{'_methods':['_calculate_vat_amount_costs','_calculate_items_amount_costs','_calculate_items']}}
 	_columns = {
 	'offer_id': fields.many2one(obj = 'ctrm.offers',label = 'CTRM Offer'),
@@ -563,7 +563,7 @@ ctrm_offer_items()
 
 class ctrm_offer_item_texts(Model):
 	_name = 'ctrm.offer.item.texts'
-	_description = 'General Model CTRM Offer Item Texts'
+	_description = 'CTRM Offer Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -580,7 +580,7 @@ ctrm_offer_item_texts()
 
 class ctrm_offer_item_roles(Model):
 	_name = 'ctrm.offer.item.roles'
-	_description = 'General Model CTRM Offer Item Roles'
+	_description = 'CTRM Offer Item Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='ctrm.offer.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -591,7 +591,7 @@ ctrm_offer_item_roles()
 
 class ctrm_offer_item_delivery_schedules(Model):
 	_name = 'ctrm.offer.item.delivery.schedules'
-	_description = 'General Model CTRM Offer Item Delivery Schedules'
+	_description = 'CTRM Offer Item Delivery Schedules'
 	_columns = {
 	'item_id': fields.many2one(obj = 'ctrm.offer.items',label = 'Offer Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
@@ -608,7 +608,7 @@ ctrm_offer_item_delivery_schedules()
 # Contract
 class ctrm_contracts(Model):
 	_name = 'ctrm.contracts'
-	_description = 'General Model CTRM Contract'
+	_description = 'CTRM Contract'
 	_date = 'doc'
 	_columns = {
 	'ctype': fields.many2one(label='Type',obj='ctrm.contract.types',on_change='on_change_ctype'),
@@ -668,7 +668,7 @@ ctrm_contracts()
 
 class ctrm_contract_texts(Model):
 	_name = 'ctrm.contract.texts'
-	_description = 'General Model CTRM Contract Texts'
+	_description = 'CTRM Contract Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -685,7 +685,7 @@ ctrm_contract_texts()
 
 class ctrm_contract_roles(Model):
 	_name = 'ctrm.contract.roles'
-	_description = 'General Model CTRM Contracts Roles'
+	_description = 'CTRM Contracts Roles'
 	_columns = {
 	'offer_id': fields.many2one(label = 'Request',obj='ctrm.contracts'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -696,7 +696,7 @@ ctrm_contract_roles()
 
 class ctrm_contract_items(Model):
 	_name = 'ctrm.contract.items'
-	_description = 'General Model CTRM Offer Items'
+	_description = 'CTRM Offer Items'
 	_inherits = {'common.model':{'_methods':['_calculate_vat_amount_costs','_calculate_items_amount_costs']}}
 	_columns = {
 	'contract_id': fields.many2one(obj = 'ctrm.contracts',label = 'Contract'),
@@ -736,7 +736,7 @@ ctrm_contract_items()
 
 class ctrm_contract_item_texts(Model):
 	_name = 'ctrm.contract.item.texts'
-	_description = 'General Model CTRM Contract Item Texts'
+	_description = 'CTRM Contract Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -753,7 +753,7 @@ ctrm_contract_item_texts()
 
 class ctrm_contract_item_roles(Model):
 	_name = 'ctrm.contract.item.roles'
-	_description = 'General Model CTRM Contract Item Roles'
+	_description = 'CTRM Contract Item Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='ctrm.contract.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -764,7 +764,7 @@ ctrm_contract_item_roles()
 
 class ctrm_contract_item_delivery_schedules(Model):
 	_name = 'ctrm.contract.item.delivery.schedules'
-	_description = 'General Model CTRM Contract Item Delivery Schedules'
+	_description = 'CTRM Contract Item Delivery Schedules'
 	_columns = {
 	'item_id': fields.many2one(obj = 'ctrm.contract.items',label = 'Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),

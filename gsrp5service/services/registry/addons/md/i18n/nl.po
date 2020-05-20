@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-19 21:13:32+0300\n"
-"PO-Revision-Date: 2020-05-19 21:13:32+0300\n"
+"POT-Creation-Date: 2020-05-20 19:19:54+0300\n"
+"PO-Revision-Date: 2020-05-20 19:19:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: model@md.category.country|_description@:1
-msgid "General Model Category Country"
-msgstr "Algemene Model Categorie Land"
+msgid "Category Country"
+msgstr "Categorie Land"
 
 #: model@md.category.country|_columns@name$label:1
 #: model@md.country.group|_columns@name$label:1
@@ -36,6 +36,8 @@ msgstr "Algemene Model Categorie Land"
 #: model@md.partner|_columns@name$label:1
 #: model@md.company|_columns@name$label:1 model@md.banks|_columns@name$label:1
 #: model@md.recepture|_columns@name$label:1
+#: model@md.boms|_columns@name$label:1 model@md.mobs|_columns@name$label:1
+#: model@md.bobs|_columns@name$label:1
 msgid "Name"
 msgstr "Naam"
 
@@ -79,20 +81,29 @@ msgstr "Childs"
 #: model@md.partners.bank|_columns@note$label:1
 #: model@md.recepture.input|_columns@note$label:1
 #: model@md.recepture.output|_columns@note$label:1
+#: model@md.bom.items|_columns@note$label:1
+#: model@md.mob.items|_columns@note$label:1
+#: model@md.bob.input.items|_columns@note$label:1
+#: model@md.bob.output.items|_columns@note$label:1
 msgid "Note"
 msgstr "Opmerking"
 
 #: model@md.country.group|_description@:1
-msgid "General Model Country Group"
-msgstr "Algemene Model Land Groep"
+msgid "Country Group"
+msgstr "Land Groep"
 
 #: model@md.country.group|_columns@country_ids$label:1
 msgid "Countries"
 msgstr "Landen"
 
 #: model@md.country|_description@:1
-msgid "General Model Country"
-msgstr "Algemene Model Land"
+#: model@md.country.states|_columns@country_id$label:1
+#: model@md.partner|_columns@country_id$label:1
+#: model@md.partner.addresses|_columns@country$label:1
+#: model@md.company|_columns@country_id$label:1
+#: model@md.banks|_columns@country_id$label:1
+msgid "Country"
+msgstr "Land"
 
 #: model@md.country|__doc__@:1
 msgid ""
@@ -142,14 +153,6 @@ msgstr "Staten"
 msgid "General Model Country States"
 msgstr "Algemene Model Land Staten"
 
-#: model@md.country.states|_columns@country_id$label:1
-#: model@md.partner|_columns@country_id$label:1
-#: model@md.partner.addresses|_columns@country$label:1
-#: model@md.company|_columns@country_id$label:1
-#: model@md.banks|_columns@country_id$label:1
-msgid "Country"
-msgstr "Land"
-
 #: model@md.country.states|_columns@name$label:1
 msgid "State Name"
 msgstr "Staat Naam"
@@ -170,12 +173,12 @@ msgid "The state code."
 msgstr "De staat-code."
 
 #: model@md.category.language|_description@:1
-msgid "General Model Category Language"
-msgstr "Algemene Model Categorie Taal"
+msgid "Category Language"
+msgstr "Categorie Taal"
 
 #: model@md.language|_description@:1
-msgid "General Model Language"
-msgstr "Algemene Model Taal"
+msgid "Language"
+msgstr "Taal"
 
 #: model@md.language|_columns@iso631_1$label:1
 msgid "Code ISO 639-1"
@@ -190,8 +193,9 @@ msgid "Code ISO 639-2B"
 msgstr "Code ISO 639-2B"
 
 #: model@md.group.quantity|_description@:1
-msgid "General Model Group Quantity"
-msgstr "Algemene Model Groep Hoeveelheid"
+#: model@md.quantity.uom|_columns@group_id$label:1
+msgid "Group Quantity"
+msgstr "Groep Hoeveelheid"
 
 #: model@md.group.quantity|_columns@numerator$label:1
 #: model@md.uom|_columns@numerator$label:1
@@ -204,12 +208,8 @@ msgid "Denomerator"
 msgstr "Denomerator"
 
 #: model@md.quantity.uom|_description@:1
-msgid "General Model Quantity Unit of Measure"
-msgstr "Algemene Model Hoeveelheid Eenheid"
-
-#: model@md.quantity.uom|_columns@group_id$label:1
-msgid "Group Quantity"
-msgstr "Groep Hoeveelheid"
+msgid "Quantity Unit of Measure"
+msgstr "Hoeveelheid Eenheid"
 
 #: model@md.quantity.uom|_columns@meter$label:1
 msgid "Meter"
@@ -244,16 +244,24 @@ msgstr "Candelle"
 #: model@md.partner.products|_columns@uom$label:1
 #: model@md.recepture.input|_columns@uom$label:1
 #: model@md.recepture.output|_columns@uom$label:1
+#: model@md.bom.items|_columns@uom$label:1
+#: model@md.mob.items|_columns@uom$label:1
+#: model@md.bob.input.items|_columns@uom$label:1
+#: model@md.bob.output.items|_columns@uom$label:1
 msgid "UoM"
 msgstr "Eenheid"
 
 #: model@md.uom|_description@:1
-msgid "General Model Unit of Measure"
-msgstr "Algemene Model Eenheid"
+msgid "Unit of Measure"
+msgstr "Eenheid"
 
 #: model@md.uom|_columns@quantity_id$label:1
 #: model@md.recepture.input|_columns@quantity$label:1
 #: model@md.recepture.output|_columns@quantity$label:1
+#: model@md.bom.items|_columns@quantity$label:1
+#: model@md.mob.items|_columns@quantity$label:1
+#: model@md.bob.input.items|_columns@quantity$label:1
+#: model@md.bob.output.items|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Hoeveelheid"
 
@@ -275,18 +283,22 @@ msgid "Extend Constant"
 msgstr "Verlengen Constante"
 
 #: model@md.currency|_description@:1
-msgid "General Model Currency"
-msgstr "Algemene Model Munt"
+#: model@md.pricelist.partner.products|_columns@currency_id$label:1
+#: model@md.company|_columns@currency_id$label:1
+#: model@md.partners.bank|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Munt"
 
 #: model@md.currency|_columns@currency_rate$label:1
 #: model@md.company|_columns@currency_rate$label:1
+#: model@md.currency.rate|_description@:1
 #: model@md.currency.rate|_columns@rate$label:1
 msgid "Currency Rate"
 msgstr "Wisselkoers"
 
 #: model@md.vat.code|_description@:1
-msgid "General Model Vat Code"
-msgstr "Algemene Model Van De Btw-Code"
+msgid "Vat Code"
+msgstr "Btw Code"
 
 #: model@md.vat.code|_columns@subtype_vat$label:1
 msgid "Subtype VAT"
@@ -329,8 +341,8 @@ msgid "Purchses"
 msgstr "Purchses"
 
 #: model@md.excise.code|_description@:1
-msgid "General Model Excise Code"
-msgstr "Algemene Model Accijnzen Code"
+msgid "Excise Code"
+msgstr "Accijnzen Code"
 
 #: model@md.excise.code|_columns@subtype_excise$label:1
 msgid "Subtype Excise"
@@ -341,12 +353,12 @@ msgid "Type Excise"
 msgstr "Type Accijnzen"
 
 #: model@md.category.product|_description@:1
-msgid "General Model Category Product"
-msgstr "Algemene Model Categorie Product"
+msgid "Category Product"
+msgstr "Product Categorie"
 
-#: model@md.gtis|_description@:1
-msgid "General Model Group Of Type Items"
-msgstr "Algemene Model Groep Van Items Van Het Type"
+#: model@md.gtis|_description@:1 model@md.product|_columns@gti$label:1
+msgid "Group Of Type Items"
+msgstr "Groep Van Items Van Het Type"
 
 #: model@md.gtis|_columns@descr$label:1
 #: model@md.type.items|_columns@descr$label:1
@@ -356,14 +368,16 @@ msgid "Description"
 msgstr "Beschrijving"
 
 #: model@md.type.items|_description@:1
-msgid "General Model Type Of Items"
-msgstr "Algemene Model Type Items"
+msgid "Type Of Items"
+msgstr "Type Items"
 
 #: model@md.type.items|_columns@usage$label:1
 #: model@md.type.plates|_columns@usage$label:1
 #: model@md.location|_columns@usage$label:1
 #: model@md.partner.contacts|_columns@usage$label:1
 #: model@md.recepture|_columns@usage$label:1
+#: model@md.boms|_columns@usage$label:1 model@md.mobs|_columns@usage$label:1
+#: model@md.bobs|_columns@usage$label:1
 msgid "Usage"
 msgstr "Gebruik"
 
@@ -372,16 +386,19 @@ msgstr "Gebruik"
 #: model@md.location|_columns@usage$selections#all:1
 #: model@md.role.partners|_columns@trole$selections#a:1
 #: model@md.recepture|_columns@usage$selections#a:1
+#: model@md.boms|_columns@usage$selections#all:1
+#: model@md.mobs|_columns@usage$selections#all:1
+#: model@md.bobs|_columns@usage$selections#all:1
 msgid "All"
 msgstr "Alle"
 
 #: model@md.type.plates|_description@:1
-msgid "General Model Type Of Plates"
-msgstr "Algemene Model Type Platen"
+msgid "Type Of Plates"
+msgstr "Soort Platen"
 
 #: model@md.products.template|_description@:1
-msgid "General Model Product Template"
-msgstr "Algemene Model Product Sjabloon"
+msgid "Product Template"
+msgstr "Product Sjabloon"
 
 #: model@md.products.template|_columns@category_id$label:1
 #: model@md.location|_columns@category_id$label:1
@@ -392,13 +409,22 @@ msgstr "Categorie"
 #: model@md.products.template|_columns@mtype$label:1
 #: model@md.currency.rate|_columns@type$label:1
 #: model@md.recepture|_columns@type$label:1
+#: model@md.boms|_columns@type$label:1 model@md.mobs|_columns@type$label:1
+#: model@md.bobs|_columns@type$label:1
 msgid "Type"
 msgstr "Type"
 
 #: model@md.products.template|_columns@mtype$selections#p:1
+#: model@md.product|_description@:1
 #: model@md.partner.products|_columns@product_id$label:1
 #: model@md.recepture.input|_columns@product$label:1
 #: model@md.recepture.output|_columns@product$label:1
+#: model@md.boms|_columns@product$label:1
+#: model@md.bom.items|_columns@product$label:1
+#: model@md.mobs|_columns@product$label:1
+#: model@md.mob.items|_columns@product$label:1
+#: model@md.bob.input.items|_columns@product$label:1
+#: model@md.bob.output.items|_columns@product$label:1
 msgid "Product"
 msgstr "Product"
 
@@ -419,10 +445,6 @@ msgstr "Verbruiksartikelen"
 msgid "Products"
 msgstr "Producten"
 
-#: model@md.product|_description@:1
-msgid "General Model Product"
-msgstr "Het Algemeen Model Van Het Product"
-
 #: model@md.product|_columns@template_id$label:1
 msgid "Template"
 msgstr "Sjabloon"
@@ -430,10 +452,6 @@ msgstr "Sjabloon"
 #: model@md.product|_columns@uom$label:1
 msgid "Unit Of Measure"
 msgstr "Eenheid"
-
-#: model@md.product|_columns@gti$label:1
-msgid "Group Of Type Items"
-msgstr "Groep Van Items Van Het Type"
 
 #: model@md.product|_columns@volume$label:1
 msgid "Volume"
@@ -539,8 +557,8 @@ msgid "Link"
 msgstr "Link"
 
 #: model@md.incoterms|_description@:1
-msgid "General Model Incoterms"
-msgstr "Algemene Model Van De Incoterms"
+msgid "Incoterms"
+msgstr "Incoterms"
 
 #: model@md.incoterms|_columns@mode$label:1
 msgid "Mode Of Transport"
@@ -619,18 +637,19 @@ msgid "Buyer"
 msgstr "Koper"
 
 #: model@md.category.partner|_description@:1
-msgid "General Model Category Partner"
-msgstr "Algemene Model Categorie Partner"
+msgid "Category Partner"
+msgstr "Categorie Partner"
 
 #: model@md.category.location|_description@:1
-msgid "General Model Category Location"
-msgstr "Algemene Model Categorie Locatie"
+msgid "Category Location"
+msgstr "Categorie Locatie"
 
 #: model@md.location|_description@:1
 msgid "General Master Data Location"
 msgstr "Algemene Master Data Locatie"
 
 #: model@md.location|_columns@usage$selections#partner:1
+#: model@md.partner|_description@:1
 #: model@md.partner.addresses|_columns@partner_id$label:1
 #: model@md.partner.contacts|_columns@partner_id$label:1
 #: model@md.partner.products|_columns@partner_id$label:1
@@ -639,8 +658,12 @@ msgid "Partner"
 msgstr "Partner"
 
 #: model@md.location|_columns@usage$selections#company:1
+#: model@md.company|_description@:1
 #: model@md.currency.rate|_columns@company_id$label:1
 #: model@md.partners.bank|_columns@company_id$label:1
+#: model@md.boms|_columns@company$label:1
+#: model@md.mobs|_columns@company$label:1
+#: model@md.bobs|_columns@company$label:1
 msgid "Company"
 msgstr "Bedrijf"
 
@@ -657,10 +680,6 @@ msgstr "Breedtegraad"
 #: model@md.partner|_columns@longitude$label:1
 msgid "Longitude"
 msgstr "Breedtegraad"
-
-#: model@md.partner|_description@:1
-msgid "General Model Partner"
-msgstr "Algemene Model Partner"
 
 #: model@md.partner|_columns@ispeople$label:1
 msgid "People"
@@ -704,8 +723,8 @@ msgid "Roles"
 msgstr "Rollen"
 
 #: model@md.partner.addresses|_description@:1
-msgid "General Model Partner Addresses"
-msgstr "Algemene Model Partner Adressen"
+msgid "Partner Addresses"
+msgstr "Partner Adressen"
 
 #: model@md.partner.addresses|_columns@taddr$label:1
 msgid "Type Of Address"
@@ -750,8 +769,8 @@ msgid "Room"
 msgstr "Kamer"
 
 #: model@md.partner.contacts|_description@:1
-msgid "General Model Partner Contacts"
-msgstr "Algemene Model Partner Contacten"
+msgid "Partner Contacts"
+msgstr "Partner Contacten"
 
 #: model@md.partner.contacts|_columns@usage$selections#d:1
 msgid "Dear"
@@ -775,6 +794,9 @@ msgid "Middle Name"
 msgstr "Middelste Naam"
 
 #: model@md.partner.contacts|_columns@fullname$label:1
+#: model@md.boms|_columns@fullname$label:1
+#: model@md.mobs|_columns@fullname$label:1
+#: model@md.bobs|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Volledige Naam"
 
@@ -850,8 +872,8 @@ msgid "Work Location"
 msgstr "Werk Locatie"
 
 #: model@md.partner.products|_description@:1
-msgid "General Model Partner Products"
-msgstr "Algemene Model Partner Producten"
+msgid "Partner Products"
+msgstr "Partner Producten"
 
 #: model@md.partner.products|_columns@minqty$label:1
 msgid "Min Quantity"
@@ -862,8 +884,8 @@ msgid "Prices"
 msgstr "Prijzen"
 
 #: model@md.role.partners|_description@:1
-msgid "General Model Role Partners"
-msgstr "Algemene Model De Rol Van Partners"
+msgid "Role Partners"
+msgstr "Rol Van Partners"
 
 #: model@md.role.partners|_columns@trole$label:1
 msgid "Type Of Role"
@@ -887,8 +909,8 @@ msgid "Role"
 msgstr "Rol"
 
 #: model@md.partner.roles|_description@:1
-msgid "General Model Partner Roles"
-msgstr "Algemene Model Partner Rollen"
+msgid "Partner Roles"
+msgstr "Partner Van Rollen"
 
 #: model@md.partner.roles|_columns@name$label:1
 #: model@md.partners.bank|_columns@bank_bic$label:1
@@ -896,8 +918,8 @@ msgid "Unknown"
 msgstr "Onbekend"
 
 #: model@md.pricelist.partner.products|_description@:1
-msgid "General Model Pricelist Partner Products"
-msgstr "Algemene Model Prijslijst Partner Producten"
+msgid "Pricelist Partner Products"
+msgstr "Prijslijst Partner Producten"
 
 #: model@md.pricelist.partner.products|_columns@partner_product_id$label:1
 msgid "Partner Product"
@@ -911,12 +933,6 @@ msgstr "Geldig Van"
 msgid "Valid to"
 msgstr "Geldig tot"
 
-#: model@md.pricelist.partner.products|_columns@currency_id$label:1
-#: model@md.company|_columns@currency_id$label:1
-#: model@md.partners.bank|_columns@currency_id$label:1
-msgid "Currency"
-msgstr "Munt"
-
 #: model@md.pricelist.partner.products|_columns@qty$label:1
 msgid "Qty Price"
 msgstr "Aantal Prijs"
@@ -924,14 +940,6 @@ msgstr "Aantal Prijs"
 #: model@md.pricelist.partner.products|_columns@price$label:1
 msgid "Price"
 msgstr "Prijs"
-
-#: model@md.company|_description@:1
-msgid "General Model Company"
-msgstr "Algemene Model Company"
-
-#: model@md.currency.rate|_description@:1
-msgid "General Model Currency Rate"
-msgstr "Algemene Model Wisselkoers"
 
 #: model@md.currency.rate|_columns@currency_id$label:1
 msgid "From Currency"
@@ -962,8 +970,9 @@ msgid "Week"
 msgstr "Week"
 
 #: model@md.banks|_description@:1
-msgid "General Model Bank"
-msgstr "Algemene Model Bank"
+#: model@md.partners.bank|_columns@bank_id$label:1
+msgid "Bank"
+msgstr "Bank"
 
 #: model@md.banks|_columns@street2$label:1
 msgid "Street2"
@@ -1002,8 +1011,8 @@ msgid "Inactive"
 msgstr "Inactief"
 
 #: model@md.partners.bank|_description@:1
-msgid "General Model Bank of Partner"
-msgstr "Algemene Model Bank van Partner"
+msgid "Bank of Partner"
+msgstr "Bank van de Partner"
 
 #: model@md.partners.bank|_columns@acc_type$label:1
 msgid "ACC Type"
@@ -1025,23 +1034,27 @@ msgstr "Sanitized Rekeningnummer"
 msgid "Account Holder"
 msgstr "De Houder Van De Rekening"
 
-#: model@md.partners.bank|_columns@bank_id$label:1
-msgid "Bank"
-msgstr "Bank"
-
 #: model@md.partners.bank|_columns@bank_name$label:1
 msgid "Bank Name"
 msgstr "Bank Naam"
 
 #: model@md.recepture|_description@:1
-msgid "General Model Recipe"
-msgstr "Algemene Model Recept"
+#: model@md.recepture.input|_columns@recepture_id$label:1
+#: model@md.recepture.output|_columns@recepture_id$label:1
+msgid "Recipe"
+msgstr "Recept"
 
 #: model@md.recepture|_columns@type$selections#real:1
+#: model@md.boms|_columns@type$selections#real:1
+#: model@md.mobs|_columns@type$selections#real:1
+#: model@md.bobs|_columns@type$selections#real:1
 msgid "Real"
 msgstr "Real"
 
 #: model@md.recepture|_columns@type$selections#kvazi:1
+#: model@md.boms|_columns@type$selections#kvazi:1
+#: model@md.mobs|_columns@type$selections#kvazi:1
+#: model@md.bobs|_columns@type$selections#kvazi:1
 msgid "Kwazi"
 msgstr "Kwazi"
 
@@ -1050,10 +1063,14 @@ msgid "Subtype"
 msgstr "Subtype"
 
 #: model@md.recepture|_columns@subtype$selections#bom:1
+#: model@md.bom.items|_columns@bom_id$label:1
+#: model@md.bob.input.items|_columns@bob_id$label:1
+#: model@md.bob.output.items|_columns@bob_id$label:1
 msgid "BoM"
 msgstr "BoM"
 
 #: model@md.recepture|_columns@subtype$selections#mob:1
+#: model@md.mob.items|_columns@bom_id$label:1
 msgid "MoB"
 msgstr "MoB"
 
@@ -1062,10 +1079,15 @@ msgid "BoB"
 msgstr "BoB"
 
 #: model@md.recepture|_columns@partition$label:1
+#: model@md.boms|_columns@partition$label:1
+#: model@md.mobs|_columns@partition$label:1
+#: model@md.bobs|_columns@partition$label:1
 msgid "Partition"
 msgstr "Partitie"
 
 #: model@md.recepture|_columns@input_items$label:1
+#: model@md.boms|_columns@items$label:1 model@md.mobs|_columns@items$label:1
+#: model@md.bobs|_columns@input_items$label:1
 msgid "Input"
 msgstr "Ingang"
 
@@ -1074,14 +1096,38 @@ msgid "Output"
 msgstr "Uitgang"
 
 #: model@md.recepture.input|_description@:1
-msgid "General Model Input Recipe"
-msgstr "Algemene Model Input Recept"
-
-#: model@md.recepture.input|_columns@recepture_id$label:1
-#: model@md.recepture.output|_columns@recepture_id$label:1
-msgid "Recepture"
-msgstr "Recepture"
+msgid "Input Recipe"
+msgstr "Input Recept"
 
 #: model@md.recepture.output|_description@:1
-msgid "General Model Output Recipe"
-msgstr "Algemene Model Output Recept"
+msgid "Output Recipe"
+msgstr "Uitgang Recept"
+
+#: model@md.boms|_description@:1
+msgid "Bill of Material"
+msgstr "Bill van Materiaal"
+
+#: model@md.bom.items|_description@:1
+msgid "BoM items"
+msgstr "BoM items"
+
+#: model@md.mobs|_description@:1
+msgid "Material of Bills"
+msgstr "Materiaal van Facturen"
+
+#: model@md.mob.items|_description@:1
+msgid "MoB items"
+msgstr "MoB items"
+
+#: model@md.bobs|_description@:1
+msgid "Bill of Bills"
+msgstr "Bill van Facturen"
+
+#: model@md.bobs|_columns@output_items$label:1
+msgid "output"
+msgstr "uitgang"
+
+#: model@md.bob.input.items|_description@:1
+#: model@md.bob.output.items|_description@:1
+msgid "BoB items"
+msgstr "BoB items"

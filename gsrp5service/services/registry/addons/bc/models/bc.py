@@ -7,7 +7,7 @@ import pytz
 
 class bc_users(Model):
 	_name = 'bc.users'
-	_description = 'General Model Users'
+	_description = 'Users'
 	_log_access = False
 	_rec_name = 'login'
 	_columns = {
@@ -106,7 +106,7 @@ bc_users()
 
 class bc_area_messages(Model):
 	_name = 'bc.area.messages'
-	_description = 'General Model Area Messages'
+	_description = 'Area Messages'
 	_columns = {
 	'name': fields.varchar(label='Area', size = 64,readonly=True),
 	'note': fields.text(label='Note',readonly=True)
@@ -116,7 +116,7 @@ bc_area_messages()
 
 class bc_messages(Model):
 	_name = 'bc.messages'
-	_description = 'General Model Messages'
+	_description = 'Messages'
 	_rec_name='code'
 	_columns = {
 	'area': fields.many2one(label='Area', obj='bc.area.messages', readonly=True, required=True),
@@ -129,7 +129,7 @@ bc_messages()
 
 class bc_langs(Model):
 	_name = 'bc.langs'
-	_description = 'General Model Langs'
+	_description = 'Langs'
 	_rec_name = 'code'
 	_columns = {
 	'code': fields.varchar(label='Language',size = 3,readonly=True),
@@ -140,7 +140,7 @@ bc_langs()
 
 class bc_user_preferences(Model):
 	_name = 'bc.user.preferences'
-	_description = 'General Model User Preferncess'
+	_description = 'User Preferncess'
 	_columns = {
 	'user_id':fields.many2one(label='User',obj='bc.users',readonly=True),
 	'lang':fields.many2one(label='Language',obj='bc.langs'),
@@ -161,7 +161,7 @@ bc_user_preferences()
 
 class bc_group_modules(Model):
 	_name = 'bc.group.modules'
-	_description = 'General Model Module Groups'
+	_description = 'Module Groups'
 	_columns = {
 	'name': fields.varchar(label = 'Name',readonly=True),
 	'name2': fields.varchar(label = 'Name 2', selectable = True, required = True,readonly=True),
@@ -175,7 +175,7 @@ bc_group_modules()
 
 class bc_modules(Model):
 	_name = 'bc.modules'
-	_description = 'General Model Modules'
+	_description = 'Modules'
 	_rec_name = 'code'
 	_columns = {
 	'bc_group_module_id': fields.many2one(label = 'Group', obj = 'bc.group.modules', required = False, on_delete = 'n',readonly=True),
@@ -201,7 +201,7 @@ bc_modules()
 
 class bc_module_files(Model):
 	_name = 'bc.module.files'
-	_description = 'General Model Module File'
+	_description = 'Module File'
 	_rec_name = 'filename'
 	_order_by="module_id,id"
 	_columns = {
@@ -216,7 +216,7 @@ bc_module_files()
 
 class bc_class_models(Model):
 	_name = 'bc.class.models'
-	_description = 'General Model Class Models'
+	_description = 'Class Models'
 	_columns = {
 	'name': fields.varchar(label='Code', size = 64,readonly=True),
 	'descr': fields.varchar(label='Description', size = 64,readonly=True),
@@ -227,7 +227,7 @@ bc_class_models()
 
 class bc_class_categories(Model):
 	_name = 'bc.class.categories'
-	_description = 'General Model Class Categories'
+	_description = 'Class Categories'
 	_columns = {
 	'name': fields.varchar(label='Code', size = 64,readonly=True),
 	'descr': fields.varchar(label='Description', size = 64,readonly=True),
@@ -239,7 +239,7 @@ bc_class_models()
 
 class bc_models(Model):
 	_name = 'bc.models'
-	_description = 'General Model Models'
+	_description = 'Models'
 	_order_by="module_id"
 	_extra = {'env-fields':['class_model','class_category']}
 	_columns = {
@@ -257,7 +257,7 @@ bc_models()
 
 class bc_inherits(Model):
 	_name = 'bc.inherits'
-	_description = 'General Model Inherits'
+	_description = 'Inherits'
 	_order_by="module_id"
 	_columns = {
 	'name': fields.varchar(label = 'Name', size = 64,readonly=True),
@@ -270,7 +270,7 @@ bc_inherits()
 
 class bc_model_columns(Model):
 	_name = 'bc.model.columns'
-	_description = 'General Model Model Columns'
+	_description = 'Model Columns'
 	_order_by='model_id,col_name'
 	_columns = {
 	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
@@ -307,7 +307,7 @@ bc_model_columns()
 
 class bc_inherit_columns(Model):
 	_name = 'bc.inherit.columns'
-	_description = 'General Model Inherit Columns'
+	_description = 'Inherit Columns'
 	_order_by='inherit_id,col_name'
 	_columns = {
 	'inherit_id': fields.many2one(label = 'Inherit', obj = 'bc.inherits',readonly=True, on_delete = 'c'),
@@ -344,20 +344,22 @@ bc_inherit_columns()
 
 class bc_record_translations(Model):
 	_name = 'bc.record.translations'
-	_description = 'General Model Record Translations'
+	_description = 'Record Translations'
 	_columns = {
 	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
 	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
 	'record': fields.uuid(label="Record ID",readonly=True),
 	'tr': fields.json(label='Translations',readonly=True)
 	}
+	
+	_indicies = {'idx_record':['record']}
 
 bc_record_translations()
 
 
 class bc_model_translations(Model):
 	_name = 'bc.model.translations'
-	_description = 'General Model Model Translations'
+	_description = 'Model Translations'
 	_columns = {
 	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
 	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
@@ -369,7 +371,7 @@ bc_model_translations()
 
 class bc_group_access(Model):
 	_name = 'bc.group.access'
-	_description = 'General Model Group Access'
+	_description = 'Group Access'
 	_columns = {
 	'name': fields.varchar(label="Group Access",readonly=True),
 	'parent_id': fields.many2one(label='Parent',obj='bc.group.access',readonly=True),
@@ -383,7 +385,7 @@ bc_group_access()
 
 class bc_access(Model):
 	_name = 'bc.access'
-	_description = 'General Model Access'
+	_description = 'Access'
 	_columns = {
 	'name': fields.varchar(label="Access",readonly=True),
 	'group_id': fields.many2one(label='Group',obj='bc.group.access',readonly=True, on_delete = 'c'),
@@ -397,7 +399,7 @@ bc_access()
 
 class bc_model_access(Model):
 	_name = 'bc.model.access'
-	_description = 'General Model Model Access'
+	_description = 'Model Access'
 	_order_by='model_id,access_id'
 	_columns = {
 	'access_id': fields.many2one(label='Access',obj='bc.access',readonly=True, on_delete = 'c'),
@@ -425,7 +427,7 @@ bc_model_access()
 
 class bc_model_data(Model):
 	_name = 'bc.model.data'
-	_description = 'General Model Loading Model XML Data'
+	_description = 'Loading Model XML Data'
 	_table = 'bc_model_data'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size = 256,readonly=True),
@@ -440,7 +442,7 @@ class bc_model_data(Model):
 
 class bc_ui_views(Model):
 	_name = 'bc.ui.views'
-	_description = 'General Model Models views'
+	_description = 'Models views'
 	_columns = {
 	'name':fields.varchar(label = 'View name', size = 64,readonly=True),
 	'model': fields.varchar(label = 'Model Name', size = 64,selectable=True,readonly=True),
@@ -453,7 +455,7 @@ bc_ui_views()
 
 class bc_ui_views_inherit(Model):
 	_name = 'bc.ui.views.inherit'
-	_description = 'General Model Models Views Inherit'
+	_description = 'Models Views Inherit'
 	_columns = {
 	'view_id': fields.many2one(label='View',obj='bc.ui.views',readonly=True),
 	'name':fields.varchar(label = 'Inherit', size = 128,readonly=True),
@@ -465,70 +467,38 @@ bc_ui_views_inherit()
 
 class bc_tuning_ui_views(Model):
 	_name = 'bc.tuning.ui.views'
-	_description = 'General Model Tunning Models Views'
+	_description = 'Tunning Models Views'
 	_columns = {
 	'name':fields.varchar(label='Name',size=128,readonly=True),
 	'view':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
 	'tuser': fields.many2one(label = 'User', obj='bc.users',readonly=True, on_delete = 'c'),
 	'fullname': fields.composite(label='Full Name', cols = ['tuser','view','name'], translate = True,required = True, compute = '_compute_composite'),
-	'cols': fields.one2many(label='Columns',obj='bc.tuning.ui.view.items',rel='tunning_id',readonly = True),
+	'values': fields.json(label='Translations',readonly=True)
 	}
 
 	_sql_constraints = [('view_id_seq_unique','unique (tuser,view, name)', 'Sequence unique of vies')]
 
 bc_tuning_ui_views()
 
-class bc_tuning_ui_view_items(Model):
-	_name = 'bc.tuning.ui.view.items'
-	_description = 'General Model Tunning Models View Items'
-	_columns = {
-	'tunning_id': fields.many2one(label = 'Tunning', obj='bc.tuning.ui.views',readonly=True, on_delete = 'c'),
-	'sequence': fields.integer(label = 'Sequence',readonly=True),
-	'col_name': fields.varchar(label = 'Column', size=64,readonly=True),
-	'readonly': fields.boolean(label='Readonly',readonly=True),
-	'required': fields.boolean(label='Required',readonly=True),
-	'invisible': fields.boolean(label='Invisible',readonly=True),
-	'values': fields.json(label='Values',readonly=True)
-	
-	}
-
-bc_tuning_ui_view_items()
 
 
 class bc_general_tuning_ui_views(Model):
 	_name = 'bc.general.tuning.ui.views'
-	_description = 'General Model General Tunning Models Views'
+	_description = 'General Tunning Models Views'
 	_columns = {
 	'name':fields.varchar(label='Name',size=128,readonly=True),
 	'view':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
 	'fullname': fields.composite(label='Full Name', cols = ['view','name'], translate = True,required = True, compute = '_compute_composite'),
-	'cols': fields.one2many(label='Columns',obj='bc.general.tuning.ui.view.items',rel='tunning_id',readonly = True),
+	'values': fields.json(label='Translations',readonly=True)
 	}
 
 	_sql_constraints = [('view_id_seq_unique','unique (view, name)', 'Sequence unique of vies')]
 
 bc_general_tuning_ui_views()
 
-class bc_general_tuning_ui_view_items(Model):
-	_name = 'bc.general.tuning.ui.view.items'
-	_description = 'General Model Tunning Models View Items'
-	_columns = {
-	'tunning_id': fields.many2one(label = 'Tunning', obj='bc.general.tuning.ui.views',readonly=True, on_delete = 'c'),
-	'sequence': fields.integer(label = 'Sequence',readonly=True),
-	'col_name': fields.varchar(label = 'Column', size=64,readonly=True),
-	'readonly': fields.boolean(label='Readonly',readonly=True),
-	'required': fields.boolean(label='Required',readonly=True),
-	'invisible': fields.boolean(label='Invisible',readonly=True),
-	'values': fields.json(label='Values',readonly=True)
-	
-	}
-
-bc_general_tuning_ui_view_items()
-
-
 class bc_ui_reports(Model):
 	_name ='bc.ui.reports'
-	_description = 'General Model Reports'
+	_description = 'Reports'
 	_columns = {
 	'name': fields.varchar(label = 'Name',readonly=True),
 	'label': fields.varchar(label = 'Label',readonly=True),
@@ -541,7 +511,7 @@ bc_ui_reports()
 
 class bc_actions(Model):
 	_name = 'bc.actions'
-	_description = 'General Model Actions'
+	_description = 'Actions'
 	_columns = {
 	'name': fields.varchar(label = 'Action',readonly=True),
 	'ta': fields.selection(label='Type Action',selections=[('view','View'),('report','Report'),('wkf','Worlflow'),('server','Server')],readonly=True),
@@ -553,7 +523,7 @@ bc_actions()
 
 class bc_view_actions(Model):
 	_name = 'bc.view.actions'
-	_description = 'General Model View Actions'
+	_description = 'View Actions'
 	_columns = {
 	'action_id': fields.many2one(label = 'Action',obj='bc.actions',readonly=True, on_delete = 'c'),
 	'view_id': fields.many2one(label='View',obj='bc.ui.views',readonly=True, on_delete = 'c')
@@ -563,7 +533,7 @@ bc_view_actions()
 
 class bc_report_actions(Model):
 	_name = 'bc.report.actions'
-	_description = 'General Model Report Actions'
+	_description = 'Report Actions'
 	_columns = {
 	'action_id': fields.many2one(label = 'Action',obj='bc.actions',readonly=True, on_delete = 'c'),
 	'report_id': fields.many2one(label='Report',obj='bc.ui.reports',readonly=True, on_delete = 'c')
@@ -574,7 +544,7 @@ bc_report_actions()
 
 class bc_ui_menus(Model):
 	_name ='bc.ui.menus'
-	_description = 'General Model Application Menus'
+	_description = 'Application Menus'
 	_order_by = 'sequence,label'
 	_columns = {
 	'name': fields.varchar(label = 'Name',readonly=True),

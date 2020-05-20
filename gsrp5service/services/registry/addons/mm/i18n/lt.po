@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-19 21:13:35+0300\n"
-"PO-Revision-Date: 2020-05-19 21:13:35+0300\n"
+"POT-Creation-Date: 2020-05-20 20:20:10+0300\n"
+"PO-Revision-Date: 2020-05-20 20:20:10+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: model@mm.pricing.group.levels|_description@:1
-msgid "General Model Production Pricing Group Levels"
-msgstr "Bendrosios Modelio Gamybos Kainodaros Grupės Lygis"
+msgid "Production Pricing Group Levels"
+msgstr "Gamybos Kainodaros Grupės Lygis"
 
 #: model@mm.pricing.group.levels|_columns@code$label:1
 #: model@mm.texts|_columns@code$label:1
@@ -28,12 +28,12 @@ msgid "Description"
 msgstr "Aprašymas"
 
 #: model@mm.texts|_description@:1
-msgid "General Model Manufactured Texts"
-msgstr "Bendrasis Modelis Pagamintas Tekstai"
+msgid "Manufactured Texts"
+msgstr "Pagamintas Tekstai"
 
 #: model@mm.schema.texts|_description@:1
-msgid "General Model Schema Of Manufactured Texts"
-msgstr "Bendrosios Modelio Schema Pagamintų Tekstai"
+msgid "Schema Of Manufactured Texts"
+msgstr "Schema Pagamintų Tekstai"
 
 #: model@mm.schema.texts|_columns@usage$label:1
 msgid "Usage"
@@ -44,12 +44,9 @@ msgid "Header"
 msgstr "Antraštė"
 
 #: model@mm.schema.texts|_columns@usage$selections#i:1
-#: model@mm.production.order.item.bom|_columns@item_id$label:1
 #: model@mm.production.order.delivery.schedules|_columns@item_id$label:1
-#: model@mm.technologic.order.item.ibob|_columns@item_id$label:1
-#: model@mm.technologic.order.item.obob|_columns@item_id$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@item_id$label:1
-#: model@mm.disassembly.order.item.mob|_columns@item_id$label:1
+#: model@mm.technologic.order.item.ibob|_columns@order_id$label:1
+#: model@mm.technologic.order.item.obob|_columns@order_id$label:1
 #: model@mm.disassembly.order.delivery.schedules|_columns@item_id$label:1
 msgid "Item"
 msgstr "Punktas"
@@ -66,8 +63,8 @@ msgid "Texts"
 msgstr "Tekstai"
 
 #: model@mm.schema.text.items|_description@:1
-msgid "General Model Items Of Schema Manufactured Texts"
-msgstr "Bendrosios Modelio Elementų Schema, Pagaminti Tekstai"
+msgid "Items Of Schema Manufactured Texts"
+msgstr "Straipsniai Schema Pagaminti Tekstai"
 
 #: model@mm.schema.text.items|_columns@schema_id$label:1
 msgid "Schema"
@@ -92,8 +89,8 @@ msgid "Unknown"
 msgstr "Nežinomas"
 
 #: model@mm.production.order.types|_description@:1
-msgid "General Model Types Production Order"
-msgstr "Bendrosios Modelio Rūšių Gamybos Užsakymo"
+msgid "Types Production Order"
+msgstr "Rūšių Gamybos Užsakymo"
 
 #: model@mm.production.order.types|_columns@otype$label:1
 #: model@mm.production.order.type.roles|_columns@type_id$label:1
@@ -206,24 +203,21 @@ msgstr "Vaidmenys"
 #: model@mm.route.items|_columns@note$label:1
 #: model@mm.production.orders|_columns@note$label:1
 #: model@mm.production.order.items|_columns@note$label:1
-#: model@mm.production.order.item.bom|_columns@note$label:1
 #: model@mm.production.order.delivery.schedules|_columns@note$label:1
 #: model@mm.technologic.orders|_columns@note$label:1
-#: model@mm.technologic.order.items|_columns@note$label:1
+#: model@mm.technologic.order.delivery.schedules|_columns@note$label:1
 #: model@mm.technologic.order.item.ibob|_columns@note$label:1
 #: model@mm.technologic.order.item.obob|_columns@note$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@note$label:1
 #: model@mm.disassembly.orders|_columns@note$label:1
 #: model@mm.disassembly.order.items|_columns@note$label:1
-#: model@mm.disassembly.order.item.mob|_columns@note$label:1
 #: model@mm.disassembly.order.delivery.schedules|_columns@note$label:1
 #: model@md.mm.product|_columns@note$label:1
 msgid "Note"
 msgstr "Pastaba"
 
 #: model@mm.production.order.type.roles|_description@:1
-msgid "General Model Role Production Order Types"
-msgstr "Bendrosios Modelio Vaidmenį Gamybos Pavedimų Tipai"
+msgid "Role Production Order Types"
+msgstr "Vaidmuo Gamybos Pavedimų Tipai"
 
 #: model@mm.production.order.type.roles|_columns@role_id$label:1
 #: model@mm.technologic.order.type.roles|_columns@role_id$label:1
@@ -241,21 +235,21 @@ msgid "Required"
 msgstr "Reikalingas"
 
 #: model@mm.technologic.order.types|_description@:1
-msgid "General Model Types Technologic Order"
-msgstr "Bendrosios Modelio Rūšių Technologinių Užsakymo"
+msgid "Types Technologic Order"
+msgstr "Rūšių Technologinių Užsakymo"
 
 #: model@mm.technologic.order.type.roles|_description@:1
 #: model@mm.disassembly.order.type.roles|_description@:1
-msgid "General Model Role Technologic Order Types"
-msgstr "Bendrosios Modelio Vaidmenį Technologinių Pavedimų Tipai"
+msgid "Role Technologic Order Types"
+msgstr "Vaidmuo Technologijų Pavedimų Tipai"
 
 #: model@mm.disassembly.order.types|_description@:1
-msgid "General Model Types Disassembly Order"
-msgstr "Bendrosios Modelio Tipų Išardymo Tvarka"
+msgid "Types Disassembly Order"
+msgstr "Tipų Išardymo Tvarka"
 
 #: model@mm.workcenter.category|_description@:1
-msgid "General Model Category Workcenter"
-msgstr "Bendrosios Modelio Kategorija Workcenter"
+msgid "Category Workcenter"
+msgstr "Kategorija Workcenter"
 
 #: model@mm.workcenter.category|_columns@parent_id$label:1
 #: model@mm.route.category|_columns@parent_id$label:1
@@ -263,9 +257,6 @@ msgstr "Bendrosios Modelio Kategorija Workcenter"
 #: model@mm.technologic.order.category|_columns@parent_id$label:1
 #: model@mm.disassembly.order.category|_columns@parent_id$label:1
 #: model@mm.route.items|_columns@parent_id$label:1
-#: model@mm.production.order.items|_columns@parent_id$label:1
-#: model@mm.technologic.order.items|_columns@parent_id$label:1
-#: model@mm.disassembly.order.items|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Tėvų"
 
@@ -275,9 +266,6 @@ msgstr "Tėvų"
 #: model@mm.technologic.order.category|_columns@childs_id$label:1
 #: model@mm.disassembly.order.category|_columns@childs_id$label:1
 #: model@mm.route.items|_columns@childs_id$label:1
-#: model@mm.production.order.items|_columns@childs_id$label:1
-#: model@mm.technologic.order.items|_columns@childs_id$label:1
-#: model@mm.disassembly.order.items|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
@@ -290,24 +278,26 @@ msgid "Orders"
 msgstr "Užsakymai"
 
 #: model@mm.route.category|_description@:1
-msgid "General Model Category Route"
-msgstr "Bendrosios Modelio Kategorijos Maršrutą"
+msgid "Category Route"
+msgstr "Kategorijos Maršrutą"
 
 #: model@mm.production.order.category|_description@:1
-msgid "General Model Category Production Order"
-msgstr "Bendrosios Modelio Kategorijos Gamybos Užsakymo"
+msgid "Category Production Order"
+msgstr "Kategorijos Gamybos Užsakymo"
 
 #: model@mm.technologic.order.category|_description@:1
-msgid "General Model Category Technologic Order"
-msgstr "Bendrosios Modelio Kategorijos, Technologinių Užsakymo"
+msgid "Category Technologic Order"
+msgstr "Kategorijos, Technologinių Užsakymo"
 
 #: model@mm.disassembly.order.category|_description@:1
-msgid "General Model Category Disassembly Order"
-msgstr "Bendrosios Modelio Kategorija Išardymo Tvarka"
+msgid "Category Disassembly Order"
+msgstr "Kategorijos, Išardymo Tvarka"
 
 #: model@mm.workcenters|_description@:1
-msgid "General Model Workcenter"
-msgstr "Bendrosios Modelio Workcenter"
+#: model@mm.workcenter.products|_columns@workcenter_id$label:1
+#: model@mm.route.items|_columns@workcenter$label:1
+msgid "Workcenter"
+msgstr "Workcenter"
 
 #: model@mm.workcenters|_columns@wctype$selections#p:1
 #: model@mm.route|_columns@rtype$selections#p:1
@@ -336,12 +326,12 @@ msgstr "Sąnaudų Tarpusavio Valandas"
 #: model@mm.workcenters|_columns@currency$label:1
 #: model@mm.workcenter.product.prices|_columns@currency$label:1
 #: model@mm.production.order.pricing|_columns@currency$label:1
-#: model@mm.production.order.item.bom|_columns@currency$label:1
+#: model@mm.production.order.items|_columns@currency$label:1
 #: model@mm.technologic.order.pricing|_columns@currency$label:1
 #: model@mm.technologic.order.item.ibob|_columns@currency$label:1
 #: model@mm.technologic.order.item.obob|_columns@currency$label:1
 #: model@mm.disassembly.order.pricing|_columns@currency$label:1
-#: model@mm.disassembly.order.item.mob|_columns@currency$label:1
+#: model@mm.disassembly.order.items|_columns@currency$label:1
 #: model@md.mm.product|_columns@currency$label:1
 msgid "Currency"
 msgstr "Valiuta"
@@ -351,22 +341,15 @@ msgid "Products"
 msgstr "Produktai"
 
 #: model@mm.workcenter.products|_description@:1
-msgid "General Model Workcenter Products"
-msgstr "Bendrosios Modelio Workcenter Produktus"
-
-#: model@mm.workcenter.products|_columns@workcenter_id$label:1
-#: model@mm.route.items|_columns@workcenter$label:1
-msgid "Workcenter"
-msgstr "Workcenter"
+msgid "Workcenter Products"
+msgstr "Workcenter Produktus"
 
 #: model@mm.workcenter.products|_columns@product$label:1
 #: model@mm.workcenter.product.prices|_columns@product_id$label:1
 #: model@mm.production.order.items|_columns@product$label:1
-#: model@mm.production.order.item.bom|_columns@product$label:1
 #: model@mm.technologic.order.item.ibob|_columns@product$label:1
 #: model@mm.technologic.order.item.obob|_columns@product$label:1
 #: model@mm.disassembly.order.items|_columns@product$label:1
-#: model@mm.disassembly.order.item.mob|_columns@product$label:1
 #: model@md.mm.product|_columns@product_id$label:1
 msgid "Product"
 msgstr "Produktas"
@@ -376,8 +359,8 @@ msgid "Prices"
 msgstr "Kainos"
 
 #: model@mm.workcenter.product.prices|_description@:1
-msgid "General Model Workcenter Product Prices"
-msgstr "Bendrosios Modelio Workcenter Produkto Kainos"
+msgid "Workcenter Product Prices"
+msgstr "Workcenter Produkto Kainos"
 
 #: model@mm.workcenter.product.prices|_columns@from_date$label:1
 msgid "From"
@@ -392,10 +375,10 @@ msgid "Price Peer Hours"
 msgstr "Kaina Bendraamžių Valandas"
 
 #: model@mm.workcenter.product.prices|_columns@unit$label:1
-#: model@mm.production.order.item.bom|_columns@unit$label:1
+#: model@mm.production.order.items|_columns@unit$label:1
 #: model@mm.technologic.order.item.ibob|_columns@unit$label:1
 #: model@mm.technologic.order.item.obob|_columns@unit$label:1
-#: model@mm.disassembly.order.item.mob|_columns@unit$label:1
+#: model@mm.disassembly.order.items|_columns@unit$label:1
 #: model@md.mm.product|_columns@unit$label:1
 msgid "Unit"
 msgstr "Vienetas"
@@ -405,8 +388,12 @@ msgid "Unit Of Price Peer Hours"
 msgstr "Vieneto Kaina Bendraamžių Valandas"
 
 #: model@mm.route|_description@:1
-msgid "General Model Route"
-msgstr "Bendrosios Modelio Maršrutą"
+#: model@mm.route.items|_columns@route_id$label:1
+#: model@mm.production.orders|_columns@route$label:1
+#: model@mm.technologic.orders|_columns@route$label:1
+#: model@mm.disassembly.orders|_columns@route$label:1
+msgid "Route"
+msgstr "Maršrutas"
 
 #: model@mm.route|_columns@category_id$label:1
 #: model@mm.production.orders|_columns@category_id$label:1
@@ -417,25 +404,18 @@ msgstr "Kategorijos"
 
 #: model@mm.route|_columns@items$label:1
 #: model@mm.production.orders|_columns@items$label:1
-#: model@mm.technologic.orders|_columns@items$label:1
 #: model@mm.disassembly.orders|_columns@items$label:1
 msgid "Items"
 msgstr "Straipsniai"
 
 #: model@mm.route.items|_description@:1
-msgid "General Model Route Items"
-msgstr "Bendrosios Modelio Maršruto Punktai"
-
-#: model@mm.route.items|_columns@route_id$label:1
-#: model@mm.production.orders|_columns@route$label:1
-#: model@mm.technologic.orders|_columns@route$label:1
-#: model@mm.disassembly.orders|_columns@route$label:1
-msgid "Route"
-msgstr "Maršrutas"
+msgid "Route Items"
+msgstr "Maršruto Punktai"
 
 #: model@mm.production.orders|_description@:1
-msgid "General Model Production Order"
-msgstr "Bendrosios Modelio Gamybos Užsakymo"
+#: model@mm.production.order.items|_columns@order_id$label:1
+msgid "Production Order"
+msgstr "Gamybos Užsakymo"
 
 #: model@mm.production.orders|_columns@company$label:1
 #: model@mm.technologic.orders|_columns@company$label:1
@@ -448,6 +428,11 @@ msgstr "Bendrovė"
 #: model@mm.disassembly.orders|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Pilnas Vardas"
+
+#: model@mm.production.orders|_columns@bom$label:1
+#: model@mm.disassembly.orders|_columns@mob$label:1
+msgid "BoM"
+msgstr "BoM"
 
 #: model@mm.production.orders|_columns@manager$label:1
 #: model@mm.technologic.orders|_columns@manager$label:1
@@ -510,8 +495,8 @@ msgid "Canceled"
 msgstr "Atšaukti"
 
 #: model@mm.production.order.texts|_description@:1
-msgid "General Model Production Order Texts"
-msgstr "Bendrosios Modelio Gamybą, Kad Tekstai"
+msgid "Production Order Texts"
+msgstr "Gamybos Užsakymo Tekstai"
 
 #: model@mm.production.order.texts|_columns@text_id$label:1
 #: model@mm.technologic.order.texts|_columns@text_id$label:1
@@ -526,8 +511,8 @@ msgid "Content"
 msgstr "Kiekis"
 
 #: model@mm.production.order.roles|_description@:1
-msgid "General Model Production Order Roles"
-msgstr "Bendrosios Modelio Gamybą, Kad Vaidmenys"
+msgid "Production Order Roles"
+msgstr "Gamybos Užsakymo Vaidmenys"
 
 #: model@mm.production.order.roles|_columns@patner_id$label:1
 #: model@mm.technologic.order.roles|_columns@patner_id$label:1
@@ -536,8 +521,8 @@ msgid "Parther"
 msgstr "Parther"
 
 #: model@mm.production.order.pricing|_description@:1
-msgid "General Model Production Order Pricing"
-msgstr "Bendrosios Modelio Gamybos Kainų Nustatymo Tvarka"
+msgid "Production Order Pricing"
+msgstr "Gamybos Užsakymo Kainodara"
 
 #: model@mm.production.order.pricing|_columns@level$label:1
 #: model@mm.technologic.order.pricing|_columns@level$label:1
@@ -570,79 +555,62 @@ msgid "Group Level"
 msgstr "Grupės Lygis"
 
 #: model@mm.production.order.pricing|_columns@amount$label:1
-#: model@mm.production.order.item.bom|_columns@amount$label:1
+#: model@mm.production.order.items|_columns@amount$label:1
 #: model@mm.technologic.order.pricing|_columns@amount$label:1
 #: model@mm.technologic.order.item.ibob|_columns@amount$label:1
 #: model@mm.technologic.order.item.obob|_columns@amount$label:1
 #: model@mm.disassembly.order.pricing|_columns@amount$label:1
-#: model@mm.disassembly.order.item.mob|_columns@amount$label:1
+#: model@mm.disassembly.order.items|_columns@amount$label:1
 msgid "Amount"
 msgstr "Suma"
 
 #: model@mm.production.order.items|_description@:1
-msgid "General Model Production Order Items"
-msgstr "Bendrosios Modelio Gamybos Užsisakyti Prekes"
+msgid "Production Order Items"
+msgstr "Gamybos Užsisakyti Prekes"
 
-#: model@mm.production.order.items|_columns@order_id$label:1
-msgid "Production Order"
-msgstr "Gamybos Užsakymo"
+#: model@mm.production.order.items|_columns@quantity$label:1
+#: model@mm.technologic.order.item.ibob|_columns@quantity$label:1
+#: model@mm.technologic.order.item.obob|_columns@quantity$label:1
+#: model@mm.disassembly.order.items|_columns@quantity$label:1
+msgid "Quantity"
+msgstr "Kiekis"
 
-#: model@mm.production.order.items|_columns@recepture_id$label:1
-#: model@mm.technologic.order.items|_columns@recepture_id$label:1
-#: model@mm.disassembly.order.items|_columns@recepture_id$label:1
-msgid "Recepture"
-msgstr "Recepture"
+#: model@mm.production.order.items|_columns@uom$label:1
+#: model@mm.technologic.order.item.ibob|_columns@uom$label:1
+#: model@mm.technologic.order.item.obob|_columns@uom$label:1
+#: model@mm.disassembly.order.items|_columns@uom$label:1
+msgid "UoM"
+msgstr "UoM"
 
-#: model@mm.production.order.items|_columns@boms$label:1
-msgid "BoM"
-msgstr "BoM"
+#: model@mm.production.order.items|_columns@price$label:1
+#: model@mm.technologic.order.item.ibob|_columns@price$label:1
+#: model@mm.technologic.order.item.obob|_columns@price$label:1
+#: model@mm.disassembly.order.items|_columns@price$label:1
+#: model@md.mm.product|_columns@price$label:1
+msgid "Price"
+msgstr "Kaina"
+
+#: model@mm.production.order.items|_columns@uop$label:1
+#: model@mm.technologic.order.item.ibob|_columns@uop$label:1
+#: model@mm.technologic.order.item.obob|_columns@uop$label:1
+#: model@mm.disassembly.order.items|_columns@uop$label:1
+#: model@md.mm.product|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Vieneto Kaina"
 
 #: model@mm.production.order.items|_columns@schedules$label:1
 #: model@mm.production.order.delivery.schedules|_columns@schedule$label:1
-#: model@mm.technologic.order.items|_columns@schedules$label:1
+#: model@mm.technologic.orders|_columns@schedules$label:1
+#: model@mm.technologic.order.delivery.schedules|_columns@order_id$label:1
 #: model@mm.technologic.order.delivery.schedules|_columns@schedule$label:1
 #: model@mm.disassembly.order.items|_columns@schedules$label:1
 #: model@mm.disassembly.order.delivery.schedules|_columns@schedule$label:1
 msgid "Schedule"
 msgstr "Tvarkaraštis"
 
-#: model@mm.production.order.item.bom|_description@:1
-msgid "General Model Production Order Items BoM"
-msgstr "Bendrosios Modelio Gamybos Užsisakyti Prekes BoM"
-
-#: model@mm.production.order.item.bom|_columns@quantity$label:1
-#: model@mm.technologic.order.item.ibob|_columns@quantity$label:1
-#: model@mm.technologic.order.item.obob|_columns@quantity$label:1
-#: model@mm.disassembly.order.item.mob|_columns@quantity$label:1
-msgid "Quantity"
-msgstr "Kiekis"
-
-#: model@mm.production.order.item.bom|_columns@uom$label:1
-#: model@mm.technologic.order.item.ibob|_columns@uom$label:1
-#: model@mm.technologic.order.item.obob|_columns@uom$label:1
-#: model@mm.disassembly.order.item.mob|_columns@uom$label:1
-msgid "UoM"
-msgstr "UoM"
-
-#: model@mm.production.order.item.bom|_columns@price$label:1
-#: model@mm.technologic.order.item.ibob|_columns@price$label:1
-#: model@mm.technologic.order.item.obob|_columns@price$label:1
-#: model@mm.disassembly.order.item.mob|_columns@price$label:1
-#: model@md.mm.product|_columns@price$label:1
-msgid "Price"
-msgstr "Kaina"
-
-#: model@mm.production.order.item.bom|_columns@uop$label:1
-#: model@mm.technologic.order.item.ibob|_columns@uop$label:1
-#: model@mm.technologic.order.item.obob|_columns@uop$label:1
-#: model@mm.disassembly.order.item.mob|_columns@uop$label:1
-#: model@md.mm.product|_columns@uop$label:1
-msgid "Unit Of Price"
-msgstr "Vieneto Kaina"
-
 #: model@mm.production.order.delivery.schedules|_description@:1
-msgid "General Model Production Order Delivery Schedule"
-msgstr "Bendrosios Modelio Gamybos Užsakymo Pristatymo Grafikas"
+msgid "Production Order Delivery Schedule"
+msgstr "Gamybos Užsakymo Pristatymo Grafikas"
 
 #: model@mm.production.order.delivery.schedules|_columns@part$label:1
 #: model@mm.technologic.order.delivery.schedules|_columns@part$label:1
@@ -651,8 +619,13 @@ msgid "Part"
 msgstr "Dalis"
 
 #: model@mm.technologic.orders|_description@:1
-msgid "General Model Technologic Order"
-msgstr "Bendrosios Modelio Technologinis Užsakymo"
+#: model@mm.disassembly.order.items|_columns@order_id$label:1
+msgid "Technologic Order"
+msgstr "Technologinių Užsakymo"
+
+#: model@mm.technologic.orders|_columns@bob$label:1
+msgid "BoB"
+msgstr "BoB"
 
 #: model@mm.technologic.orders|_columns@doto$label:1
 msgid "Date Of Technologic Order"
@@ -666,50 +639,41 @@ msgstr "Pradžios Data Technologijų Užsakymo"
 msgid "End Date Of Technologic Order"
 msgstr "Pabaigos Data Technologinių Užsakymo"
 
-#: model@mm.technologic.order.texts|_description@:1
-msgid "General Model Technologic Order Texts"
-msgstr "Bendrosios Modelio Technologinis Kad Tekstai"
-
-#: model@mm.technologic.order.roles|_description@:1
-msgid "General Model Technologic Order Roles"
-msgstr "Bendrosios Modelio Technologinis Kad Vaidmenys"
-
-#: model@mm.technologic.order.pricing|_description@:1
-msgid "General Model Technologic Order Pricing"
-msgstr "Bendrosios Modelio Technologinis Kad Kainodara"
-
-#: model@mm.technologic.order.items|_description@:1
-msgid "General Model Technologic Order Items"
-msgstr "Bendrosios Modelio Technologinis Užsisakyti Prekes"
-
-#: model@mm.technologic.order.items|_columns@order_id$label:1
-#: model@mm.disassembly.order.items|_columns@order_id$label:1
-msgid "Technologic Order"
-msgstr "Technologinių Užsakymo"
-
-#: model@mm.technologic.order.items|_columns@ibobs$label:1
+#: model@mm.technologic.orders|_columns@ibobs$label:1
 msgid "InBoB"
 msgstr "InBoB"
 
-#: model@mm.technologic.order.items|_columns@obobs$label:1
+#: model@mm.technologic.orders|_columns@obobs$label:1
 msgid "OutBoB"
 msgstr "OutBoB"
 
+#: model@mm.technologic.order.delivery.schedules|_description@:1
+msgid "Technologic Order Delivery Schedule"
+msgstr "Technologinių Užsakymo Pristatymo Grafikas"
+
+#: model@mm.technologic.order.texts|_description@:1
+msgid "Technologic Order Texts"
+msgstr "Technologinių Kad Tekstai"
+
+#: model@mm.technologic.order.roles|_description@:1
+msgid "Technologic Order Roles"
+msgstr "Technologinių Kad Vaidmenys"
+
+#: model@mm.technologic.order.pricing|_description@:1
+msgid "Technologic Order Pricing"
+msgstr "Technologinių Kad Kainodara"
+
 #: model@mm.technologic.order.item.ibob|_description@:1
-msgid "General Model Technologic Order Items InBoB"
-msgstr "Bendrosios Modelio Technologinis Užsisakyti Prekes InBoB"
+msgid "Technologic Order Items InBoB"
+msgstr "Technologinių Užsisakyti Prekes InBoB"
 
 #: model@mm.technologic.order.item.obob|_description@:1
-msgid "General Model Technologic Order Items OutBoB"
-msgstr "Bendrosios Modelio Technologinis Užsisakyti Prekes OutBoB"
-
-#: model@mm.technologic.order.delivery.schedules|_description@:1
-msgid "General Model Technologic Order Delivery Schedule"
-msgstr "Bendrosios Modelio Technologinis Užsakymo Pristatymo Grafikas"
+msgid "Technologic Order Items OutBoB"
+msgstr "Technologinių Užsisakyti Prekes OutBoB"
 
 #: model@mm.disassembly.orders|_description@:1
-msgid "General Model Disassembly Order"
-msgstr "Bendrosios Modelio Išardymo Tvarka"
+msgid "Disassembly Order"
+msgstr "Išardymas Užsakymo"
 
 #: model@mm.disassembly.orders|_columns@dodo$label:1
 msgid "Date Of Disassembly Order"
@@ -724,36 +688,28 @@ msgid "End Date Of Disassembly Order"
 msgstr "Pabaigos Data Išardymą Užsakymo"
 
 #: model@mm.disassembly.order.texts|_description@:1
-msgid "General Model Disassembly Order Texts"
-msgstr "Bendrosios Modelio Išardymas Kad Tekstai"
+msgid "Disassembly Order Texts"
+msgstr "Išardymas Kad Tekstai"
 
 #: model@mm.disassembly.order.roles|_description@:1
-msgid "General Model Disassembly Order Roles"
-msgstr "Bendrosios Modelio Išardymas Kad Vaidmenys"
+msgid "Disassembly Order Roles"
+msgstr "Išardymas Kad Vaidmenys"
 
 #: model@mm.disassembly.order.pricing|_description@:1
-msgid "General Model Disassembly Order Pricing"
-msgstr "Bendrosios Modelio Išardymas Kad Kainodara"
+msgid "Disassembly Order Pricing"
+msgstr "Išardymas Kad Kainodara"
 
 #: model@mm.disassembly.order.items|_description@:1
-msgid "General Model Disassembly Order Items"
-msgstr "Bendrosios Modelio Išardymas Užsisakyti Prekes"
-
-#: model@mm.disassembly.order.items|_columns@mobs$label:1
-msgid "MoB"
-msgstr "MoB"
-
-#: model@mm.disassembly.order.item.mob|_description@:1
-msgid "General Model Disassembly Order Items MoB"
-msgstr "Bendrosios Modelio Išardymas Užsisakyti Prekes MoB"
+msgid "Disassembly Order Items"
+msgstr "Išardymas Užsisakyti Prekes"
 
 #: model@mm.disassembly.order.delivery.schedules|_description@:1
-msgid "General Model Disassembly Order Delivery Schedule"
-msgstr "Bendrosios Modelio Išardymas Užsakymo Pristatymo Grafikas"
+msgid "Disassembly Order Delivery Schedule"
+msgstr "Išardymas Užsakymo Pristatymo Grafikas"
 
 #: model@md.mm.product|_description@:1
-msgid "General Model Production Of Product"
-msgstr "Bendrosios Modelio Gamybos Produktas"
+msgid "Production Of Product"
+msgstr "Gamybos Produktas"
 
 #: model@md.mm.product|_columns@uom$label:1
 msgid "Unit Of Measure"

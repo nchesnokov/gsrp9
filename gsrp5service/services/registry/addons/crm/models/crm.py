@@ -10,7 +10,7 @@ from datetime import timedelta
 # Organization structure
 class crm_unit_categories(Model):
 	_name = 'crm_unit.categories'
-	_description = 'General Model Categories CRM Unit'
+	_description = 'Categories CRM Unit'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -26,7 +26,7 @@ crm_unit_categories()
 
 class crm_units(Model):
 	_name = 'crm_units'
-	_description = 'General Model CRM Units'
+	_description = 'CRM Units'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -45,7 +45,7 @@ crm_units()
 
 class crm_channel_categories(Model):
 	_name = 'crm_channel.categories'
-	_description = 'General Model Categories CRM Chanel'
+	_description = 'Categories CRM Chanel'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -61,7 +61,7 @@ crm_channel_categories()
 
 class crm_channels(Model):
 	_name = 'crm_channels'
-	_description = 'General Model CRM Channels'
+	_description = 'CRM Channels'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -75,7 +75,7 @@ crm_channels()
 
 class crm_segment_categories(Model):
 	_name = 'crm_segment.categories'
-	_description = 'General Model Categories CRM Segment'
+	_description = 'Categories CRM Segment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -91,7 +91,7 @@ crm_segment_categories()
 
 class crm_segments(Model):
 	_name = 'crm_segments'
-	_description = 'General Model CRM Segments'
+	_description = 'CRM Segments'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -105,7 +105,7 @@ crm_segments()
 
 class crm_area_categories(Model):
 	_name = 'crm_area.categories'
-	_description = 'General Model Categories CRM Area'
+	_description = 'Categories CRM Area'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -121,7 +121,7 @@ crm_area_categories()
 
 class crm_areas(Model):
 	_name = 'crm_areas'
-	_description = 'General Model CRM Areas'
+	_description = 'CRM Areas'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -135,7 +135,7 @@ crm_areas()
 
 class crm_region_categories(Model):
 	_name = 'crm_region.categories'
-	_description = 'General Model Categories CRM Region'
+	_description = 'Categories CRM Region'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -151,7 +151,7 @@ crm_region_categories()
 
 class crm_regions(Model):
 	_name = 'crm_regions'
-	_description = 'General Model CRM Regions'
+	_description = 'CRM Regions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -166,7 +166,7 @@ crm_regions()
 
 class crm_division_categories(Model):
 	_name = 'crm_division.categories'
-	_description = 'General Model Categories CRM Division'
+	_description = 'Categories CRM Division'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -182,7 +182,7 @@ crm_division_categories()
 
 class crm_divisions(Model):
 	_name = 'crm_divisions'
-	_description = 'General Model CRM Divisions'
+	_description = 'CRM Divisions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -197,7 +197,7 @@ crm_divisions()
 
 class crm_subdivision_categories(Model):
 	_name = 'crm_subdivision.categories'
-	_description = 'General Model Categories CRM Subdivision'
+	_description = 'Categories CRM Subdivision'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -213,7 +213,7 @@ crm_subdivision_categories()
 
 class crm_subdivisions(Model):
 	_name = 'crm_subdivisions'
-	_description = 'General Model CRM Subdivisions'
+	_description = 'CRM Subdivisions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -227,7 +227,7 @@ crm_subdivisions()
 
 class crm_unit_channel_assigments(Model):
 	_name = 'crm_unit.channel.assigments'
-	_description = 'General Model CRM Unit Of Channel Assigment'
+	_description = 'CRM Unit Of Channel Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -240,7 +240,7 @@ crm_unit_channel_assigments()
 
 class crm_unit_segment_assigments(Model):
 	_name = 'crm_unit.segment.assigments'
-	_description = 'General Model CRM Unit Of Segment Assigment'
+	_description = 'CRM Unit Of Segment Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -253,7 +253,7 @@ crm_unit_segment_assigments()
 
 class crm_unit_area_assigments(Model):
 	_name = 'crm_unit.area.assigments'
-	_description = 'General Model CRM Unit Of Area Assigment'
+	_description = 'CRM Unit Of Area Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -266,7 +266,7 @@ crm_unit_area_assigments()
 
 class crm_unit_region_assigments(Model):
 	_name = 'crm_unit.region.assigments'
-	_description = 'General Model CRM Unit Of Region Assigment'
+	_description = 'CRM Unit Of Region Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -281,7 +281,7 @@ crm_unit_segment_assigments()
 
 class crm_division_subdivision_assigments(Model):
 	_name = 'crm_division.subdivision.assigments'
-	_description = 'General Model CRM Division Of Subdivision Assigment'
+	_description = 'CRM Division Of Subdivision Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -295,7 +295,7 @@ crm_division_subdivision_assigments()
 
 class crm_markets(Model):
 	_name = 'crm.markets'
-	_description = 'General Model CRM Market'
+	_description = 'CRM Market'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -336,7 +336,7 @@ crm_markets()
 
 class crm_teams(Model):
 	_name = 'crm_teams'
-	_description = 'General Model CRM Teams'
+	_description = 'CRM Teams'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -366,7 +366,7 @@ crm_teams()
 # Organization
 class crm_channels(Model):
 	_name = 'crm.channels'
-	_description = 'General Model CRM Cannels'
+	_description = 'CRM Cannels'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -380,7 +380,7 @@ crm_channels()
 
 class crm_sectors(Model):
 	_name = 'crm.sectors'
-	_description = 'General Model CRM Sectors'
+	_description = 'CRM Sectors'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -394,7 +394,7 @@ crm_sectors()
 
 class crm_teams(Model):
 	_name = 'crm.teams'
-	_description = 'General Model CRM Teams'
+	_description = 'CRM Teams'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -408,7 +408,7 @@ crm_teams()
 
 class crm_groups(Model):
 	_name = 'crm.groups'
-	_description = 'General Model CRM Groups'
+	_description = 'CRM Groups'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -424,7 +424,7 @@ crm_groups()
 # Text
 class crm_texts(Model):
 	_name = 'crm.texts'
-	_description = 'General Model CRM Texts'
+	_description = 'CRM Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -437,7 +437,7 @@ crm_texts()
 
 class crm_schema_texts(Model):
 	_name = 'crm.schema.texts'
-	_description = 'General Model Schema Of CRM Texts'
+	_description = 'Schema Of CRM Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -456,7 +456,7 @@ crm_schema_texts()
 
 class crm_schema_text_items(Model):
 	_name = 'crm.schema.text.items'
-	_description = 'General Model Items Of Schema CRM Texts'
+	_description = 'Items Of Schema CRM Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -471,7 +471,7 @@ crm_schema_text_items()
 
 class crm_request_types(Model):
 	_name = 'crm.request.types'
-	_description = 'General Model Types CRM Request'
+	_description = 'Types CRM Request'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -488,7 +488,7 @@ crm_request_types()
 
 class crm_request_type_roles(Model):
 	_name = 'crm.request.type.roles'
-	_description = 'General Model Role CRM Request Types'
+	_description = 'Role CRM Request Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -501,7 +501,7 @@ crm_request_type_roles()
 
 class crm_offer_types(Model):
 	_name = 'crm.offer.types'
-	_description = 'General Model Types CRM Offer'
+	_description = 'Types CRM Offer'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -518,7 +518,7 @@ crm_offer_types()
 
 class crm_offer_type_roles(Model):
 	_name = 'crm.offer.type.roles'
-	_description = 'General Model Role CRM Offer Types'
+	_description = 'Role CRM Offer Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -531,7 +531,7 @@ crm_offer_type_roles()
 
 class crm_contract_types(Model):
 	_name = 'crm.contract.types'
-	_description = 'General Model Types CRM Contract'
+	_description = 'Types CRM Contract'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -547,7 +547,7 @@ crm_contract_types()
 
 class crm_contract_type_roles(Model):
 	_name = 'crm.contract.type.roles'
-	_description = 'General Model Role CRM Contract Types'
+	_description = 'Role CRM Contract Types'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_columns = {
@@ -562,7 +562,7 @@ crm_contract_type_roles()
 
 class crm_request_categories(Model):
 	_name = 'crm.request.categories'
-	_description = 'General Model Category CRM Request'
+	_description = 'Category CRM Request'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='crm.request.categories'),
@@ -575,7 +575,7 @@ crm_request_categories()
 
 class crm_offer_categories(Model):
 	_name = 'crm.offer.categories'
-	_description = 'General Model Category CRM Offer'
+	_description = 'Category CRM Offer'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='crm.offer.categories'),
@@ -588,7 +588,7 @@ crm_offer_categories()
 
 class crm_contract_categories(Model):
 	_name = 'crm.contract.categories'
-	_description = 'General Model Category CRM Contract'
+	_description = 'Category CRM Contract'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='crm.contract.categories'),
@@ -601,7 +601,7 @@ crm_contract_categories()
 
 class crm_requests(Model):
 	_name = 'crm.requests'
-	_description = 'General Model CRM Request'
+	_description = 'CRM Request'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'dor'
 	_columns = {
@@ -692,7 +692,7 @@ crm_requests()
 
 class crm_request_texts(Model):
 	_name = 'crm.request.texts'
-	_description = 'General Model CRM Request Texts'
+	_description = 'CRM Request Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -709,7 +709,7 @@ crm_request_texts()
 
 class crm_request_roles(Model):
 	_name = 'crm.request.roles'
-	_description = 'General Model CRM Request Roles'
+	_description = 'CRM Request Roles'
 	_columns = {
 	'request_id': fields.many2one(label = 'Request',obj='crm.requests'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -720,7 +720,7 @@ crm_request_roles()
 
 class crm_request_items(Model):
 	_name = 'crm.request.items'
-	_description = 'General Model CRM Request Items'
+	_description = 'CRM Request Items'
 	_inherits = {'common.model':{'_methods':['_calculate_vat_amount_costs','_calculate_items_amount_costs','_calculate_items']}}
 	_columns = {
 	'request_id': fields.many2one(obj = 'crm.requests',label = 'CRM Request'),
@@ -762,7 +762,7 @@ crm_request_items()
 
 class crm_request_item_texts(Model):
 	_name = 'crm.request.item.texts'
-	_description = 'General Model CRM Request Item Texts'
+	_description = 'CRM Request Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -779,7 +779,7 @@ crm_request_item_texts()
 
 class crm_request_item_roles(Model):
 	_name = 'crm.request.item.roles'
-	_description = 'General Model CRM Offer Item Roles'
+	_description = 'CRM Offer Item Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='crm.request.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -790,7 +790,7 @@ crm_request_item_roles()
 
 class crm_request_item_delivery_schedules(Model):
 	_name = 'crm.request.item.delivery.schedules'
-	_description = 'General Model CRM REquest Item Delivery Schedules'
+	_description = 'CRM REquest Item Delivery Schedules'
 	_columns = {
 	'item_id': fields.many2one(obj = 'crm.request.items',label = 'Request Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
@@ -806,7 +806,7 @@ crm_request_item_delivery_schedules()
 
 class crm_offers(Model):
 	_name = 'crm.offers'
-	_description = 'General Model CRM Offer'
+	_description = 'CRM Offer'
 	_date = 'doo'
 	_columns = {
 	'otype': fields.many2one(label='Type',required = True,obj='crm.offer.types',on_change='_on_change_otype'),
@@ -884,7 +884,7 @@ crm_offers()
 
 class crm_offer_texts(Model):
 	_name = 'crm.offer.texts'
-	_description = 'General Model CRM Offer Texts'
+	_description = 'CRM Offer Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -901,7 +901,7 @@ crm_offer_texts()
 
 class crm_offer_roles(Model):
 	_name = 'crm.offer.roles'
-	_description = 'General Model CRM Offer Roles'
+	_description = 'CRM Offer Roles'
 	_columns = {
 	'offer_id': fields.many2one(label = 'Request',obj='crm.offers'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -912,7 +912,7 @@ crm_offer_roles()
 
 class crm_offer_items(Model):
 	_name = 'crm.offer.items'
-	_description = 'General Model CRM Offer Items'
+	_description = 'CRM Offer Items'
 	_inherits = {'common.model':{'_methods':['_calculate_vat_amount_costs','_calculate_items_amount_costs','_calculate_items']}}
 	_columns = {
 	'offer_id': fields.many2one(obj = 'crm.offers',label = 'CRM Offer'),
@@ -954,7 +954,7 @@ crm_offer_items()
 
 class crm_offer_item_texts(Model):
 	_name = 'crm.offer.item.texts'
-	_description = 'General Model CRM Offer Item Texts'
+	_description = 'CRM Offer Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -971,7 +971,7 @@ crm_offer_item_texts()
 
 class crm_offer_item_roles(Model):
 	_name = 'crm.offer.item.roles'
-	_description = 'General Model CRM Offer Item Roles'
+	_description = 'CRM Offer Item Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='crm.offer.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -982,7 +982,7 @@ crm_offer_item_roles()
 
 class crm_offer_item_delivery_schedules(Model):
 	_name = 'crm.offer.item.delivery.schedules'
-	_description = 'General Model CRM Offer Item Delivery Schedules'
+	_description = 'CRM Offer Item Delivery Schedules'
 	_columns = {
 	'item_id': fields.many2one(obj = 'crm.offer.items',label = 'Offer Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
@@ -999,7 +999,7 @@ crm_offer_item_delivery_schedules()
 # Contract
 class crm_contracts(Model):
 	_name = 'crm.contracts'
-	_description = 'General Model CRM Contract'
+	_description = 'CRM Contract'
 	_date = 'doc'
 	_columns = {
 	'ctype': fields.many2one(label='Type',obj='crm.contract.types',on_change='_on_change_ctype'),
@@ -1078,7 +1078,7 @@ crm_contracts()
 
 class crm_contract_texts(Model):
 	_name = 'crm.contract.texts'
-	_description = 'General Model CRM Contract Texts'
+	_description = 'CRM Contract Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -1095,7 +1095,7 @@ crm_contract_texts()
 
 class crm_contract_roles(Model):
 	_name = 'crm.contract.roles'
-	_description = 'General Model CRM Contracts Roles'
+	_description = 'CRM Contracts Roles'
 	_columns = {
 	'offer_id': fields.many2one(label = 'Request',obj='crm.contracts'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -1106,7 +1106,7 @@ crm_contract_roles()
 
 class crm_contract_payment_schedules(Model):
 	_name = 'crm.contract.payment.schedules'
-	_description = 'General Model CRM Contract Payment Schedules'
+	_description = 'CRM Contract Payment Schedules'
 	_columns = {
 	'contract_id': fields.many2one(label='Contract',obj='crm.contracts'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -1120,7 +1120,7 @@ crm_contract_payment_schedules()
 
 class crm_contract_items(Model):
 	_name = 'crm.contract.items'
-	_description = 'General Model CRM Offer Items'
+	_description = 'CRM Offer Items'
 	_inherits = {'common.model':{'_methods':['_calculate_vat_amount_costs','_calculate_items_amount_costs']}}
 	_columns = {
 	'contract_id': fields.many2one(obj = 'crm.contracts',label = 'Contract'),
@@ -1161,7 +1161,7 @@ crm_contract_items()
 
 class crm_contract_item_texts(Model):
 	_name = 'crm.contract.item.texts'
-	_description = 'General Model CRM Contract Item Texts'
+	_description = 'CRM Contract Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -1178,7 +1178,7 @@ crm_contract_item_texts()
 
 class crm_contract_item_roles(Model):
 	_name = 'crm.contract.item.roles'
-	_description = 'General Model CRM Contract Item Roles'
+	_description = 'CRM Contract Item Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='crm.contract.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -1189,7 +1189,7 @@ crm_contract_item_roles()
 
 class crm_contract_item_delivery_schedules(Model):
 	_name = 'crm.contract.item.delivery.schedules'
-	_description = 'General Model CRM Contract Item Delivery Schedules'
+	_description = 'CRM Contract Item Delivery Schedules'
 	_columns = {
 	'item_id': fields.many2one(obj = 'crm.contract.items',label = 'Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
@@ -1206,7 +1206,7 @@ crm_contract_item_delivery_schedules()
 
 class crm_contract_item_payment_schedules(Model):
 	_name = 'crm.contract.item.payment.schedules'
-	_description = 'General Model CRM Contract Item Payment Schedules'
+	_description = 'CRM Contract Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='crm.contract.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),

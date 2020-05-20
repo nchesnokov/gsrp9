@@ -3,7 +3,7 @@ from gsrp5service.orm.model import Model
 
 class wkf1_workplaces(Model):
 	_name = 'wkf1.workplace'
-	_description = 'General Workflow Workplaces'
+	_description = 'Workflow Workplaces'
 	_columns = {
 	'name': fields.varchar(label = 'Workplace'),
 	'note': fields.text('Note')}
@@ -12,7 +12,7 @@ wkf1_workplaces()
 
 class wkf1_element_categories(Model):
 	_name = 'wkf1.element.categories'
-	_description = 'General Workflow Element Category'
+	_description = 'Workflow Element Category'
 	_rec_name = None
 	_columns = {
 	'name': fields.varchar(label = 'Element'),
@@ -25,7 +25,7 @@ wkf1_element_categories()
 
 class wkf1_elements(Model):
 	_name = 'wkf1.elements'
-	_description = 'General Workflow Element'
+	_description = 'Workflow Element'
 	_rec_name = None
 	_columns = {
 	'name': fields.varchar(label = 'Element'),

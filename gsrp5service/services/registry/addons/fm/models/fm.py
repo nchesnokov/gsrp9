@@ -6,7 +6,7 @@ from gsrp5service.orm.model import Model,ModelInherit
 #Organization structure
 class fm_unit_categories(Model):
 	_name = 'fm.unit.categories'
-	_description = 'General Model Categories Financial Management Unit'
+	_description = 'Categories Financial Management Unit'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -23,7 +23,7 @@ fm_unit_categories()
 
 class fm_units(Model):
 	_name = 'fm.units'
-	_description = 'General Model Financial Management Units'
+	_description = 'Financial Management Units'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -42,7 +42,7 @@ fm_units()
 
 class fm_currency_exchanges(Model):
 	_name = 'fm.currency.exchanges'
-	_description = 'General Model Currency Exchange'
+	_description = 'Currency Exchange'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -61,7 +61,7 @@ fm_currency_exchanges()
 # old
 class fcm_departament_categories(Model):
 	_name = 'fcm.departament.categories'
-	_description = 'General Model FCM Departament Category'
+	_description = 'FCM Departament Category'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='fcm.departament.categories'),
@@ -75,7 +75,7 @@ fcm_departament_categories()
 
 class fcm_obj_categories(Model):
 	_name = 'fcm.obj.categories'
-	_description = 'General Model FCM Object Category'
+	_description = 'FCM Object Category'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='fcm.obj.categories'),
@@ -88,7 +88,7 @@ fcm_obj_categories()
 
 class fcm_article_categories(Model):
 	_name = 'fcm.article.categories'
-	_description = 'General Model FCM Article Category'
+	_description = 'FCM Article Category'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='fcm.article.categories'),
@@ -102,7 +102,7 @@ fcm_article_categories()
 
 class fcm_departaments(Model):
 	_name = 'fcm.departaments'
-	_description = 'General Model FCM Departament'
+	_description = 'FCM Departament'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -115,7 +115,7 @@ fcm_departaments()
 
 class fcm_objs(Model):
 	_name = 'fcm.objs'
-	_description = 'General Model FCM Object'
+	_description = 'FCM Object'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -133,7 +133,7 @@ fcm_objs()
 
 class fcm_articles(Model):
 	_name = 'fcm.articles'
-	_description = 'General Model FCM Article'
+	_description = 'FCM Article'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -147,7 +147,7 @@ fcm_articles()
 # for company
 class fcm_company_departaments(Model):
 	_name = 'fcm.company.departaments'
-	_description = 'General Model FCM Departament Of Company'
+	_description = 'FCM Departament Of Company'
 	_columns = {
 	'company_id': fields.many2one(label='Company',obj='md.company',required=True),
 	'departament_id': fields.many2one(label='Departamant',obj='fcm.departaments'),
@@ -170,7 +170,7 @@ fcm_company_departaments()
 
 class fcm_company_objs(Model):
 	_name = 'fcm.company.objs'
-	_description = 'General Model FCM Object Of Company'
+	_description = 'FCM Object Of Company'
 	_columns = {
 	'company_id': fields.many2one(label='Company',obj='md.company',required=True),
 	'obj_id': fields.many2one(label='Object',obj='fcm.objs'),
@@ -193,7 +193,7 @@ fcm_company_objs()
 
 class fcm_company_articles(Model):
 	_name = 'fcm.company.articles'
-	_description = 'General Model FCM Article Of Company'
+	_description = 'FCM Article Of Company'
 	_columns = {
 	'company_id': fields.many2one(label='Company',obj='md.company',required=True),
 	'article_id': fields.many2one(label='Article',obj='fcm.articles'),

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-19 21:13:35+0300\n"
-"PO-Revision-Date: 2020-05-19 21:13:35+0300\n"
+"POT-Creation-Date: 2020-05-20 20:20:10+0300\n"
+"PO-Revision-Date: 2020-05-20 20:20:10+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: model@mm.pricing.group.levels|_description@:1
-msgid "General Model Production Pricing Group Levels"
-msgstr "Generelt Model Produktion Pricing Gruppe Niveauer"
+msgid "Production Pricing Group Levels"
+msgstr "Produktion Pricing Gruppe Niveauer"
 
 #: model@mm.pricing.group.levels|_columns@code$label:1
 #: model@mm.texts|_columns@code$label:1
@@ -28,12 +28,12 @@ msgid "Description"
 msgstr "Beskrivelse"
 
 #: model@mm.texts|_description@:1
-msgid "General Model Manufactured Texts"
-msgstr "Generel Model, Der Er Fremstillet Tekster"
+msgid "Manufactured Texts"
+msgstr "Fremstillet Tekster"
 
 #: model@mm.schema.texts|_description@:1
-msgid "General Model Schema Of Manufactured Texts"
-msgstr "Generel Model Skema Fremstillet Af Tekster"
+msgid "Schema Of Manufactured Texts"
+msgstr "Skema Fremstillet Af Tekster"
 
 #: model@mm.schema.texts|_columns@usage$label:1
 msgid "Usage"
@@ -44,12 +44,9 @@ msgid "Header"
 msgstr "Header"
 
 #: model@mm.schema.texts|_columns@usage$selections#i:1
-#: model@mm.production.order.item.bom|_columns@item_id$label:1
 #: model@mm.production.order.delivery.schedules|_columns@item_id$label:1
-#: model@mm.technologic.order.item.ibob|_columns@item_id$label:1
-#: model@mm.technologic.order.item.obob|_columns@item_id$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@item_id$label:1
-#: model@mm.disassembly.order.item.mob|_columns@item_id$label:1
+#: model@mm.technologic.order.item.ibob|_columns@order_id$label:1
+#: model@mm.technologic.order.item.obob|_columns@order_id$label:1
 #: model@mm.disassembly.order.delivery.schedules|_columns@item_id$label:1
 msgid "Item"
 msgstr "Item"
@@ -66,8 +63,8 @@ msgid "Texts"
 msgstr "Tekster"
 
 #: model@mm.schema.text.items|_description@:1
-msgid "General Model Items Of Schema Manufactured Texts"
-msgstr "Generel Model Elementer Af Skema, Der Er Fremstillet Tekster"
+msgid "Items Of Schema Manufactured Texts"
+msgstr "Elementer Af Skema, Der Er Fremstillet Tekster"
 
 #: model@mm.schema.text.items|_columns@schema_id$label:1
 msgid "Schema"
@@ -92,8 +89,8 @@ msgid "Unknown"
 msgstr "Ukendt"
 
 #: model@mm.production.order.types|_description@:1
-msgid "General Model Types Production Order"
-msgstr "Generel Model Typer Produktion For"
+msgid "Types Production Order"
+msgstr "Typer Produktion For"
 
 #: model@mm.production.order.types|_columns@otype$label:1
 #: model@mm.production.order.type.roles|_columns@type_id$label:1
@@ -206,24 +203,21 @@ msgstr "Roller"
 #: model@mm.route.items|_columns@note$label:1
 #: model@mm.production.orders|_columns@note$label:1
 #: model@mm.production.order.items|_columns@note$label:1
-#: model@mm.production.order.item.bom|_columns@note$label:1
 #: model@mm.production.order.delivery.schedules|_columns@note$label:1
 #: model@mm.technologic.orders|_columns@note$label:1
-#: model@mm.technologic.order.items|_columns@note$label:1
+#: model@mm.technologic.order.delivery.schedules|_columns@note$label:1
 #: model@mm.technologic.order.item.ibob|_columns@note$label:1
 #: model@mm.technologic.order.item.obob|_columns@note$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@note$label:1
 #: model@mm.disassembly.orders|_columns@note$label:1
 #: model@mm.disassembly.order.items|_columns@note$label:1
-#: model@mm.disassembly.order.item.mob|_columns@note$label:1
 #: model@mm.disassembly.order.delivery.schedules|_columns@note$label:1
 #: model@md.mm.product|_columns@note$label:1
 msgid "Note"
 msgstr "Bemærk"
 
 #: model@mm.production.order.type.roles|_description@:1
-msgid "General Model Role Production Order Types"
-msgstr "Generelt Rolle Model For Produktion Typer"
+msgid "Role Production Order Types"
+msgstr "Rolle Produktion For Typer"
 
 #: model@mm.production.order.type.roles|_columns@role_id$label:1
 #: model@mm.technologic.order.type.roles|_columns@role_id$label:1
@@ -241,21 +235,21 @@ msgid "Required"
 msgstr "Påkrævet"
 
 #: model@mm.technologic.order.types|_description@:1
-msgid "General Model Types Technologic Order"
-msgstr "Generel Model Former For Teknologisk"
+msgid "Types Technologic Order"
+msgstr "Former For Teknologisk"
 
 #: model@mm.technologic.order.type.roles|_description@:1
 #: model@mm.disassembly.order.type.roles|_description@:1
-msgid "General Model Role Technologic Order Types"
-msgstr "Generelt Rolle Model For Teknologisk Typer"
+msgid "Role Technologic Order Types"
+msgstr "Rolle Den Teknologiske Former For"
 
 #: model@mm.disassembly.order.types|_description@:1
-msgid "General Model Types Disassembly Order"
-msgstr "Generel Model Former For Demontering"
+msgid "Types Disassembly Order"
+msgstr "Typer Demontering For"
 
 #: model@mm.workcenter.category|_description@:1
-msgid "General Model Category Workcenter"
-msgstr "Generelt Model Kategori Workcenter"
+msgid "Category Workcenter"
+msgstr "Kategori Workcenter"
 
 #: model@mm.workcenter.category|_columns@parent_id$label:1
 #: model@mm.route.category|_columns@parent_id$label:1
@@ -263,9 +257,6 @@ msgstr "Generelt Model Kategori Workcenter"
 #: model@mm.technologic.order.category|_columns@parent_id$label:1
 #: model@mm.disassembly.order.category|_columns@parent_id$label:1
 #: model@mm.route.items|_columns@parent_id$label:1
-#: model@mm.production.order.items|_columns@parent_id$label:1
-#: model@mm.technologic.order.items|_columns@parent_id$label:1
-#: model@mm.disassembly.order.items|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Forældre"
 
@@ -275,9 +266,6 @@ msgstr "Forældre"
 #: model@mm.technologic.order.category|_columns@childs_id$label:1
 #: model@mm.disassembly.order.category|_columns@childs_id$label:1
 #: model@mm.route.items|_columns@childs_id$label:1
-#: model@mm.production.order.items|_columns@childs_id$label:1
-#: model@mm.technologic.order.items|_columns@childs_id$label:1
-#: model@mm.disassembly.order.items|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
 
@@ -290,24 +278,26 @@ msgid "Orders"
 msgstr "Ordrer"
 
 #: model@mm.route.category|_description@:1
-msgid "General Model Category Route"
-msgstr "Generelt Model Kategori Rute"
+msgid "Category Route"
+msgstr "Kategori Rute"
 
 #: model@mm.production.order.category|_description@:1
-msgid "General Model Category Production Order"
-msgstr "Generelt Model Kategori Produktion For"
+msgid "Category Production Order"
+msgstr "Kategori Produktion For"
 
 #: model@mm.technologic.order.category|_description@:1
-msgid "General Model Category Technologic Order"
-msgstr "Generelt Model Kategori For Teknologisk"
+msgid "Category Technologic Order"
+msgstr "Kategori For Teknologisk"
 
 #: model@mm.disassembly.order.category|_description@:1
-msgid "General Model Category Disassembly Order"
-msgstr "Generelt Model Kategori For Demontering"
+msgid "Category Disassembly Order"
+msgstr "Kategori Demontering For"
 
 #: model@mm.workcenters|_description@:1
-msgid "General Model Workcenter"
-msgstr "Generel Model Workcenter"
+#: model@mm.workcenter.products|_columns@workcenter_id$label:1
+#: model@mm.route.items|_columns@workcenter$label:1
+msgid "Workcenter"
+msgstr "Workcenter"
 
 #: model@mm.workcenters|_columns@wctype$selections#p:1
 #: model@mm.route|_columns@rtype$selections#p:1
@@ -336,12 +326,12 @@ msgstr "Omkostningerne Peer Timer"
 #: model@mm.workcenters|_columns@currency$label:1
 #: model@mm.workcenter.product.prices|_columns@currency$label:1
 #: model@mm.production.order.pricing|_columns@currency$label:1
-#: model@mm.production.order.item.bom|_columns@currency$label:1
+#: model@mm.production.order.items|_columns@currency$label:1
 #: model@mm.technologic.order.pricing|_columns@currency$label:1
 #: model@mm.technologic.order.item.ibob|_columns@currency$label:1
 #: model@mm.technologic.order.item.obob|_columns@currency$label:1
 #: model@mm.disassembly.order.pricing|_columns@currency$label:1
-#: model@mm.disassembly.order.item.mob|_columns@currency$label:1
+#: model@mm.disassembly.order.items|_columns@currency$label:1
 #: model@md.mm.product|_columns@currency$label:1
 msgid "Currency"
 msgstr "Valuta"
@@ -351,22 +341,15 @@ msgid "Products"
 msgstr "Produkter"
 
 #: model@mm.workcenter.products|_description@:1
-msgid "General Model Workcenter Products"
-msgstr "Generel Model Workcenter Produkter"
-
-#: model@mm.workcenter.products|_columns@workcenter_id$label:1
-#: model@mm.route.items|_columns@workcenter$label:1
-msgid "Workcenter"
-msgstr "Workcenter"
+msgid "Workcenter Products"
+msgstr "Workcenter Produkter"
 
 #: model@mm.workcenter.products|_columns@product$label:1
 #: model@mm.workcenter.product.prices|_columns@product_id$label:1
 #: model@mm.production.order.items|_columns@product$label:1
-#: model@mm.production.order.item.bom|_columns@product$label:1
 #: model@mm.technologic.order.item.ibob|_columns@product$label:1
 #: model@mm.technologic.order.item.obob|_columns@product$label:1
 #: model@mm.disassembly.order.items|_columns@product$label:1
-#: model@mm.disassembly.order.item.mob|_columns@product$label:1
 #: model@md.mm.product|_columns@product_id$label:1
 msgid "Product"
 msgstr "Produkt"
@@ -376,8 +359,8 @@ msgid "Prices"
 msgstr "Priser"
 
 #: model@mm.workcenter.product.prices|_description@:1
-msgid "General Model Workcenter Product Prices"
-msgstr "Generel Model Workcenter Produktet Priser"
+msgid "Workcenter Product Prices"
+msgstr "Workcenter Produktet Priser"
 
 #: model@mm.workcenter.product.prices|_columns@from_date$label:1
 msgid "From"
@@ -392,10 +375,10 @@ msgid "Price Peer Hours"
 msgstr "Pris Peer Timer"
 
 #: model@mm.workcenter.product.prices|_columns@unit$label:1
-#: model@mm.production.order.item.bom|_columns@unit$label:1
+#: model@mm.production.order.items|_columns@unit$label:1
 #: model@mm.technologic.order.item.ibob|_columns@unit$label:1
 #: model@mm.technologic.order.item.obob|_columns@unit$label:1
-#: model@mm.disassembly.order.item.mob|_columns@unit$label:1
+#: model@mm.disassembly.order.items|_columns@unit$label:1
 #: model@md.mm.product|_columns@unit$label:1
 msgid "Unit"
 msgstr "Enhed"
@@ -405,8 +388,12 @@ msgid "Unit Of Price Peer Hours"
 msgstr "Enhed Pris Peer Timer"
 
 #: model@mm.route|_description@:1
-msgid "General Model Route"
-msgstr "Generel Model Rute"
+#: model@mm.route.items|_columns@route_id$label:1
+#: model@mm.production.orders|_columns@route$label:1
+#: model@mm.technologic.orders|_columns@route$label:1
+#: model@mm.disassembly.orders|_columns@route$label:1
+msgid "Route"
+msgstr "Rute"
 
 #: model@mm.route|_columns@category_id$label:1
 #: model@mm.production.orders|_columns@category_id$label:1
@@ -417,25 +404,18 @@ msgstr "Kategori"
 
 #: model@mm.route|_columns@items$label:1
 #: model@mm.production.orders|_columns@items$label:1
-#: model@mm.technologic.orders|_columns@items$label:1
 #: model@mm.disassembly.orders|_columns@items$label:1
 msgid "Items"
 msgstr "Emner"
 
 #: model@mm.route.items|_description@:1
-msgid "General Model Route Items"
-msgstr "Generel Model Rute Elementer"
-
-#: model@mm.route.items|_columns@route_id$label:1
-#: model@mm.production.orders|_columns@route$label:1
-#: model@mm.technologic.orders|_columns@route$label:1
-#: model@mm.disassembly.orders|_columns@route$label:1
-msgid "Route"
-msgstr "Rute"
+msgid "Route Items"
+msgstr "Ruten Elementer"
 
 #: model@mm.production.orders|_description@:1
-msgid "General Model Production Order"
-msgstr "Generel Model For Produktion"
+#: model@mm.production.order.items|_columns@order_id$label:1
+msgid "Production Order"
+msgstr "Produktion For"
 
 #: model@mm.production.orders|_columns@company$label:1
 #: model@mm.technologic.orders|_columns@company$label:1
@@ -448,6 +428,11 @@ msgstr "Virksomhed"
 #: model@mm.disassembly.orders|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Fulde Navn"
+
+#: model@mm.production.orders|_columns@bom$label:1
+#: model@mm.disassembly.orders|_columns@mob$label:1
+msgid "BoM"
+msgstr "BoM"
 
 #: model@mm.production.orders|_columns@manager$label:1
 #: model@mm.technologic.orders|_columns@manager$label:1
@@ -510,8 +495,8 @@ msgid "Canceled"
 msgstr "Aflyst"
 
 #: model@mm.production.order.texts|_description@:1
-msgid "General Model Production Order Texts"
-msgstr "Generel Model For Produktion Af Tekster"
+msgid "Production Order Texts"
+msgstr "Produktion Af Tekster"
 
 #: model@mm.production.order.texts|_columns@text_id$label:1
 #: model@mm.technologic.order.texts|_columns@text_id$label:1
@@ -526,8 +511,8 @@ msgid "Content"
 msgstr "Indhold"
 
 #: model@mm.production.order.roles|_description@:1
-msgid "General Model Production Order Roles"
-msgstr "Generel Model For Produktion Roller"
+msgid "Production Order Roles"
+msgstr "Produktion For Roller"
 
 #: model@mm.production.order.roles|_columns@patner_id$label:1
 #: model@mm.technologic.order.roles|_columns@patner_id$label:1
@@ -536,8 +521,8 @@ msgid "Parther"
 msgstr "Parther"
 
 #: model@mm.production.order.pricing|_description@:1
-msgid "General Model Production Order Pricing"
-msgstr "Generelt Model Produktion For Prissætning"
+msgid "Production Order Pricing"
+msgstr "Produktion For Prissætning"
 
 #: model@mm.production.order.pricing|_columns@level$label:1
 #: model@mm.technologic.order.pricing|_columns@level$label:1
@@ -570,79 +555,62 @@ msgid "Group Level"
 msgstr "Gruppe-Niveau"
 
 #: model@mm.production.order.pricing|_columns@amount$label:1
-#: model@mm.production.order.item.bom|_columns@amount$label:1
+#: model@mm.production.order.items|_columns@amount$label:1
 #: model@mm.technologic.order.pricing|_columns@amount$label:1
 #: model@mm.technologic.order.item.ibob|_columns@amount$label:1
 #: model@mm.technologic.order.item.obob|_columns@amount$label:1
 #: model@mm.disassembly.order.pricing|_columns@amount$label:1
-#: model@mm.disassembly.order.item.mob|_columns@amount$label:1
+#: model@mm.disassembly.order.items|_columns@amount$label:1
 msgid "Amount"
 msgstr "Beløb"
 
 #: model@mm.production.order.items|_description@:1
-msgid "General Model Production Order Items"
-msgstr "Generelt Model Produktion For Elementer"
+msgid "Production Order Items"
+msgstr "Produktion For Elementer"
 
-#: model@mm.production.order.items|_columns@order_id$label:1
-msgid "Production Order"
-msgstr "Produktion For"
+#: model@mm.production.order.items|_columns@quantity$label:1
+#: model@mm.technologic.order.item.ibob|_columns@quantity$label:1
+#: model@mm.technologic.order.item.obob|_columns@quantity$label:1
+#: model@mm.disassembly.order.items|_columns@quantity$label:1
+msgid "Quantity"
+msgstr "Mængde"
 
-#: model@mm.production.order.items|_columns@recepture_id$label:1
-#: model@mm.technologic.order.items|_columns@recepture_id$label:1
-#: model@mm.disassembly.order.items|_columns@recepture_id$label:1
-msgid "Recepture"
-msgstr "Recepture"
+#: model@mm.production.order.items|_columns@uom$label:1
+#: model@mm.technologic.order.item.ibob|_columns@uom$label:1
+#: model@mm.technologic.order.item.obob|_columns@uom$label:1
+#: model@mm.disassembly.order.items|_columns@uom$label:1
+msgid "UoM"
+msgstr "UoM"
 
-#: model@mm.production.order.items|_columns@boms$label:1
-msgid "BoM"
-msgstr "BoM"
+#: model@mm.production.order.items|_columns@price$label:1
+#: model@mm.technologic.order.item.ibob|_columns@price$label:1
+#: model@mm.technologic.order.item.obob|_columns@price$label:1
+#: model@mm.disassembly.order.items|_columns@price$label:1
+#: model@md.mm.product|_columns@price$label:1
+msgid "Price"
+msgstr "Pris"
+
+#: model@mm.production.order.items|_columns@uop$label:1
+#: model@mm.technologic.order.item.ibob|_columns@uop$label:1
+#: model@mm.technologic.order.item.obob|_columns@uop$label:1
+#: model@mm.disassembly.order.items|_columns@uop$label:1
+#: model@md.mm.product|_columns@uop$label:1
+msgid "Unit Of Price"
+msgstr "Enhed Pris"
 
 #: model@mm.production.order.items|_columns@schedules$label:1
 #: model@mm.production.order.delivery.schedules|_columns@schedule$label:1
-#: model@mm.technologic.order.items|_columns@schedules$label:1
+#: model@mm.technologic.orders|_columns@schedules$label:1
+#: model@mm.technologic.order.delivery.schedules|_columns@order_id$label:1
 #: model@mm.technologic.order.delivery.schedules|_columns@schedule$label:1
 #: model@mm.disassembly.order.items|_columns@schedules$label:1
 #: model@mm.disassembly.order.delivery.schedules|_columns@schedule$label:1
 msgid "Schedule"
 msgstr "Tidsplan"
 
-#: model@mm.production.order.item.bom|_description@:1
-msgid "General Model Production Order Items BoM"
-msgstr "Generelt Model Produktion For Elementer, BoM"
-
-#: model@mm.production.order.item.bom|_columns@quantity$label:1
-#: model@mm.technologic.order.item.ibob|_columns@quantity$label:1
-#: model@mm.technologic.order.item.obob|_columns@quantity$label:1
-#: model@mm.disassembly.order.item.mob|_columns@quantity$label:1
-msgid "Quantity"
-msgstr "Mængde"
-
-#: model@mm.production.order.item.bom|_columns@uom$label:1
-#: model@mm.technologic.order.item.ibob|_columns@uom$label:1
-#: model@mm.technologic.order.item.obob|_columns@uom$label:1
-#: model@mm.disassembly.order.item.mob|_columns@uom$label:1
-msgid "UoM"
-msgstr "UoM"
-
-#: model@mm.production.order.item.bom|_columns@price$label:1
-#: model@mm.technologic.order.item.ibob|_columns@price$label:1
-#: model@mm.technologic.order.item.obob|_columns@price$label:1
-#: model@mm.disassembly.order.item.mob|_columns@price$label:1
-#: model@md.mm.product|_columns@price$label:1
-msgid "Price"
-msgstr "Pris"
-
-#: model@mm.production.order.item.bom|_columns@uop$label:1
-#: model@mm.technologic.order.item.ibob|_columns@uop$label:1
-#: model@mm.technologic.order.item.obob|_columns@uop$label:1
-#: model@mm.disassembly.order.item.mob|_columns@uop$label:1
-#: model@md.mm.product|_columns@uop$label:1
-msgid "Unit Of Price"
-msgstr "Enhed Pris"
-
 #: model@mm.production.order.delivery.schedules|_description@:1
-msgid "General Model Production Order Delivery Schedule"
-msgstr "Generel Model For Produktion Leveringsplan"
+msgid "Production Order Delivery Schedule"
+msgstr "Produktionen Tidsplan For Levering"
 
 #: model@mm.production.order.delivery.schedules|_columns@part$label:1
 #: model@mm.technologic.order.delivery.schedules|_columns@part$label:1
@@ -651,8 +619,13 @@ msgid "Part"
 msgstr "Del"
 
 #: model@mm.technologic.orders|_description@:1
-msgid "General Model Technologic Order"
-msgstr "Generel Model For Teknologisk"
+#: model@mm.disassembly.order.items|_columns@order_id$label:1
+msgid "Technologic Order"
+msgstr "Teknologisk For"
+
+#: model@mm.technologic.orders|_columns@bob$label:1
+msgid "BoB"
+msgstr "BoB"
 
 #: model@mm.technologic.orders|_columns@doto$label:1
 msgid "Date Of Technologic Order"
@@ -666,50 +639,41 @@ msgstr "Start Dato For Teknisk For"
 msgid "End Date Of Technologic Order"
 msgstr "Slutdato For Teknisk For"
 
-#: model@mm.technologic.order.texts|_description@:1
-msgid "General Model Technologic Order Texts"
-msgstr "Generel Model For Teknologisk Tekster"
-
-#: model@mm.technologic.order.roles|_description@:1
-msgid "General Model Technologic Order Roles"
-msgstr "Generel Model For Teknologisk Roller"
-
-#: model@mm.technologic.order.pricing|_description@:1
-msgid "General Model Technologic Order Pricing"
-msgstr "Generel Model For Teknologisk Priser"
-
-#: model@mm.technologic.order.items|_description@:1
-msgid "General Model Technologic Order Items"
-msgstr "Generel Model For Teknologisk Elementer"
-
-#: model@mm.technologic.order.items|_columns@order_id$label:1
-#: model@mm.disassembly.order.items|_columns@order_id$label:1
-msgid "Technologic Order"
-msgstr "Teknologisk For"
-
-#: model@mm.technologic.order.items|_columns@ibobs$label:1
+#: model@mm.technologic.orders|_columns@ibobs$label:1
 msgid "InBoB"
 msgstr "InBoB"
 
-#: model@mm.technologic.order.items|_columns@obobs$label:1
+#: model@mm.technologic.orders|_columns@obobs$label:1
 msgid "OutBoB"
 msgstr "OutBoB"
 
+#: model@mm.technologic.order.delivery.schedules|_description@:1
+msgid "Technologic Order Delivery Schedule"
+msgstr "Teknologisk Tidsplan For Levering"
+
+#: model@mm.technologic.order.texts|_description@:1
+msgid "Technologic Order Texts"
+msgstr "Teknologisk For Tekster"
+
+#: model@mm.technologic.order.roles|_description@:1
+msgid "Technologic Order Roles"
+msgstr "Teknologisk For Roller"
+
+#: model@mm.technologic.order.pricing|_description@:1
+msgid "Technologic Order Pricing"
+msgstr "Teknologisk For Prissætning"
+
 #: model@mm.technologic.order.item.ibob|_description@:1
-msgid "General Model Technologic Order Items InBoB"
-msgstr "Generel Model For Teknologisk Elementer InBoB"
+msgid "Technologic Order Items InBoB"
+msgstr "Teknologisk Sortere Elementer InBoB"
 
 #: model@mm.technologic.order.item.obob|_description@:1
-msgid "General Model Technologic Order Items OutBoB"
-msgstr "Generel Model For Teknologisk Elementer OutBoB"
-
-#: model@mm.technologic.order.delivery.schedules|_description@:1
-msgid "General Model Technologic Order Delivery Schedule"
-msgstr "Generel Model For Teknologisk Levering Tidsplan"
+msgid "Technologic Order Items OutBoB"
+msgstr "Teknologisk Sortere Elementer OutBoB"
 
 #: model@mm.disassembly.orders|_description@:1
-msgid "General Model Disassembly Order"
-msgstr "Generel Model For Demontering"
+msgid "Disassembly Order"
+msgstr "Afmontering For"
 
 #: model@mm.disassembly.orders|_columns@dodo$label:1
 msgid "Date Of Disassembly Order"
@@ -724,36 +688,28 @@ msgid "End Date Of Disassembly Order"
 msgstr "Dato For Afslutningen Af Demontering For"
 
 #: model@mm.disassembly.order.texts|_description@:1
-msgid "General Model Disassembly Order Texts"
-msgstr "Generel Model For Afmontering Tekster"
+msgid "Disassembly Order Texts"
+msgstr "Afmontering For Tekster"
 
 #: model@mm.disassembly.order.roles|_description@:1
-msgid "General Model Disassembly Order Roles"
-msgstr "Generel Model For Afmontering Roller"
+msgid "Disassembly Order Roles"
+msgstr "Afmontering For Roller"
 
 #: model@mm.disassembly.order.pricing|_description@:1
-msgid "General Model Disassembly Order Pricing"
-msgstr "Generel Model For Afmontering Priser"
+msgid "Disassembly Order Pricing"
+msgstr "Afmontering For Prissætning"
 
 #: model@mm.disassembly.order.items|_description@:1
-msgid "General Model Disassembly Order Items"
-msgstr "Generel Model Afmontering Sortere Elementer"
-
-#: model@mm.disassembly.order.items|_columns@mobs$label:1
-msgid "MoB"
-msgstr "MoB"
-
-#: model@mm.disassembly.order.item.mob|_description@:1
-msgid "General Model Disassembly Order Items MoB"
-msgstr "Generel Model For Afmontering Elementer MoB"
+msgid "Disassembly Order Items"
+msgstr "Afmontering Sortere Elementer"
 
 #: model@mm.disassembly.order.delivery.schedules|_description@:1
-msgid "General Model Disassembly Order Delivery Schedule"
-msgstr "Generel Model For Afmontering Levering Tidsplan"
+msgid "Disassembly Order Delivery Schedule"
+msgstr "Afmontering For Levering Tidsplan"
 
 #: model@md.mm.product|_description@:1
-msgid "General Model Production Of Product"
-msgstr "Generelt Model Produktion Af Produkt"
+msgid "Production Of Product"
+msgstr "Fremstilling Af Produkt"
 
 #: model@md.mm.product|_columns@uom$label:1
 msgid "Unit Of Measure"

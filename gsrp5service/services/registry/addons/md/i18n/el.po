@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-19 21:13:31+0300\n"
-"PO-Revision-Date: 2020-05-19 21:13:31+0300\n"
+"POT-Creation-Date: 2020-05-20 19:19:54+0300\n"
+"PO-Revision-Date: 2020-05-20 19:19:54+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -12,8 +12,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: model@md.category.country|_description@:1
-msgid "General Model Category Country"
-msgstr "Το Γενικό Πρότυπο Της Κατηγορίας Χώρα"
+msgid "Category Country"
+msgstr "Κατηγορία Χώρας"
 
 #: model@md.category.country|_columns@name$label:1
 #: model@md.country.group|_columns@name$label:1
@@ -36,6 +36,8 @@ msgstr "Το Γενικό Πρότυπο Της Κατηγορίας Χώρα"
 #: model@md.partner|_columns@name$label:1
 #: model@md.company|_columns@name$label:1 model@md.banks|_columns@name$label:1
 #: model@md.recepture|_columns@name$label:1
+#: model@md.boms|_columns@name$label:1 model@md.mobs|_columns@name$label:1
+#: model@md.bobs|_columns@name$label:1
 msgid "Name"
 msgstr "Όνομα"
 
@@ -79,20 +81,29 @@ msgstr "Childs"
 #: model@md.partners.bank|_columns@note$label:1
 #: model@md.recepture.input|_columns@note$label:1
 #: model@md.recepture.output|_columns@note$label:1
+#: model@md.bom.items|_columns@note$label:1
+#: model@md.mob.items|_columns@note$label:1
+#: model@md.bob.input.items|_columns@note$label:1
+#: model@md.bob.output.items|_columns@note$label:1
 msgid "Note"
 msgstr "Σημείωση"
 
 #: model@md.country.group|_description@:1
-msgid "General Model Country Group"
-msgstr "Το Γενικό Πρότυπο Της Χώρας Ομάδας"
+msgid "Country Group"
+msgstr "Χώρα Ομάδας"
 
 #: model@md.country.group|_columns@country_ids$label:1
 msgid "Countries"
 msgstr "Χώρες"
 
 #: model@md.country|_description@:1
-msgid "General Model Country"
-msgstr "Το Γενικό Πρότυπο Της Χώρας"
+#: model@md.country.states|_columns@country_id$label:1
+#: model@md.partner|_columns@country_id$label:1
+#: model@md.partner.addresses|_columns@country$label:1
+#: model@md.company|_columns@country_id$label:1
+#: model@md.banks|_columns@country_id$label:1
+msgid "Country"
+msgstr "Χώρα"
 
 #: model@md.country|__doc__@:1
 msgid ""
@@ -142,14 +153,6 @@ msgstr "Μέλη"
 msgid "General Model Country States"
 msgstr "Το Γενικό Πρότυπο Της Χώρας Μέλη"
 
-#: model@md.country.states|_columns@country_id$label:1
-#: model@md.partner|_columns@country_id$label:1
-#: model@md.partner.addresses|_columns@country$label:1
-#: model@md.company|_columns@country_id$label:1
-#: model@md.banks|_columns@country_id$label:1
-msgid "Country"
-msgstr "Χώρα"
-
 #: model@md.country.states|_columns@name$label:1
 msgid "State Name"
 msgstr "Το Όνομα Του Κράτους"
@@ -170,12 +173,12 @@ msgid "The state code."
 msgstr "Το κράτος κώδικα."
 
 #: model@md.category.language|_description@:1
-msgid "General Model Category Language"
-msgstr "Το Γενικό Πρότυπο Της Κατηγορίας Γλώσσα"
+msgid "Category Language"
+msgstr "Κατηγορία Γλώσσα"
 
 #: model@md.language|_description@:1
-msgid "General Model Language"
-msgstr "Το Γενικό Πρότυπο Της Γλώσσας"
+msgid "Language"
+msgstr "Γλώσσα"
 
 #: model@md.language|_columns@iso631_1$label:1
 msgid "Code ISO 639-1"
@@ -190,8 +193,9 @@ msgid "Code ISO 639-2B"
 msgstr "Κωδικός ISO 639-2B"
 
 #: model@md.group.quantity|_description@:1
-msgid "General Model Group Quantity"
-msgstr "Το Γενικό Πρότυπο Της Ομάδας Ποσότητα"
+#: model@md.quantity.uom|_columns@group_id$label:1
+msgid "Group Quantity"
+msgstr "Ομάδα Ποσότητα"
 
 #: model@md.group.quantity|_columns@numerator$label:1
 #: model@md.uom|_columns@numerator$label:1
@@ -204,12 +208,8 @@ msgid "Denomerator"
 msgstr "Denomerator"
 
 #: model@md.quantity.uom|_description@:1
-msgid "General Model Quantity Unit of Measure"
-msgstr "Το γενικό Πρότυπο Ποσότητα Μονάδα μέτρησης"
-
-#: model@md.quantity.uom|_columns@group_id$label:1
-msgid "Group Quantity"
-msgstr "Ομάδα Ποσότητα"
+msgid "Quantity Unit of Measure"
+msgstr "Ποσότητα Μονάδα μέτρησης"
 
 #: model@md.quantity.uom|_columns@meter$label:1
 msgid "Meter"
@@ -244,16 +244,24 @@ msgstr "Candelle"
 #: model@md.partner.products|_columns@uom$label:1
 #: model@md.recepture.input|_columns@uom$label:1
 #: model@md.recepture.output|_columns@uom$label:1
+#: model@md.bom.items|_columns@uom$label:1
+#: model@md.mob.items|_columns@uom$label:1
+#: model@md.bob.input.items|_columns@uom$label:1
+#: model@md.bob.output.items|_columns@uom$label:1
 msgid "UoM"
 msgstr "Μομ"
 
 #: model@md.uom|_description@:1
-msgid "General Model Unit of Measure"
-msgstr "Το γενικό Πρότυπο Μονάδα μέτρησης"
+msgid "Unit of Measure"
+msgstr "Μονάδα μέτρησης"
 
 #: model@md.uom|_columns@quantity_id$label:1
 #: model@md.recepture.input|_columns@quantity$label:1
 #: model@md.recepture.output|_columns@quantity$label:1
+#: model@md.bom.items|_columns@quantity$label:1
+#: model@md.mob.items|_columns@quantity$label:1
+#: model@md.bob.input.items|_columns@quantity$label:1
+#: model@md.bob.output.items|_columns@quantity$label:1
 msgid "Quantity"
 msgstr "Ποσότητα"
 
@@ -275,18 +283,22 @@ msgid "Extend Constant"
 msgstr "Επεκτείνει Σταθερά"
 
 #: model@md.currency|_description@:1
-msgid "General Model Currency"
-msgstr "Το Γενικό Πρότυπο Νόμισμα"
+#: model@md.pricelist.partner.products|_columns@currency_id$label:1
+#: model@md.company|_columns@currency_id$label:1
+#: model@md.partners.bank|_columns@currency_id$label:1
+msgid "Currency"
+msgstr "Νόμισμα"
 
 #: model@md.currency|_columns@currency_rate$label:1
 #: model@md.company|_columns@currency_rate$label:1
+#: model@md.currency.rate|_description@:1
 #: model@md.currency.rate|_columns@rate$label:1
 msgid "Currency Rate"
 msgstr "Ισοτιμία Του Νομίσματός"
 
 #: model@md.vat.code|_description@:1
-msgid "General Model Vat Code"
-msgstr "Το Γενικό Πρότυπο Κώδικα Φπα"
+msgid "Vat Code"
+msgstr "Κώδικα Φπα"
 
 #: model@md.vat.code|_columns@subtype_vat$label:1
 msgid "Subtype VAT"
@@ -329,8 +341,8 @@ msgid "Purchses"
 msgstr "Purchses"
 
 #: model@md.excise.code|_description@:1
-msgid "General Model Excise Code"
-msgstr "Το Γενικό Πρότυπο Κατανάλωσης Κώδικα"
+msgid "Excise Code"
+msgstr "Ειδικού Κώδικα"
 
 #: model@md.excise.code|_columns@subtype_excise$label:1
 msgid "Subtype Excise"
@@ -341,12 +353,12 @@ msgid "Type Excise"
 msgstr "Τύπος Ειδικών Φόρων Κατανάλωσης"
 
 #: model@md.category.product|_description@:1
-msgid "General Model Category Product"
-msgstr "Το Γενικό Πρότυπο Της Κατηγορίας Προϊόντων"
+msgid "Category Product"
+msgstr "Κατηγορία Προϊόντος"
 
-#: model@md.gtis|_description@:1
-msgid "General Model Group Of Type Items"
-msgstr "Το Γενικό Πρότυπο Της Ομάδας Από Στοιχεία Τύπου"
+#: model@md.gtis|_description@:1 model@md.product|_columns@gti$label:1
+msgid "Group Of Type Items"
+msgstr "Ομάδα Από Στοιχεία Τύπου"
 
 #: model@md.gtis|_columns@descr$label:1
 #: model@md.type.items|_columns@descr$label:1
@@ -356,14 +368,16 @@ msgid "Description"
 msgstr "Περιγραφή"
 
 #: model@md.type.items|_description@:1
-msgid "General Model Type Of Items"
-msgstr "Το Γενικό Πρότυπο Τύπος Στοιχείων"
+msgid "Type Of Items"
+msgstr "Τύπος Στοιχείων"
 
 #: model@md.type.items|_columns@usage$label:1
 #: model@md.type.plates|_columns@usage$label:1
 #: model@md.location|_columns@usage$label:1
 #: model@md.partner.contacts|_columns@usage$label:1
 #: model@md.recepture|_columns@usage$label:1
+#: model@md.boms|_columns@usage$label:1 model@md.mobs|_columns@usage$label:1
+#: model@md.bobs|_columns@usage$label:1
 msgid "Usage"
 msgstr "Χρήση"
 
@@ -372,16 +386,19 @@ msgstr "Χρήση"
 #: model@md.location|_columns@usage$selections#all:1
 #: model@md.role.partners|_columns@trole$selections#a:1
 #: model@md.recepture|_columns@usage$selections#a:1
+#: model@md.boms|_columns@usage$selections#all:1
+#: model@md.mobs|_columns@usage$selections#all:1
+#: model@md.bobs|_columns@usage$selections#all:1
 msgid "All"
 msgstr "Όλα"
 
 #: model@md.type.plates|_description@:1
-msgid "General Model Type Of Plates"
-msgstr "Το Γενικό Πρότυπο Τύπος Πιάτα"
+msgid "Type Of Plates"
+msgstr "Τύπος Πιάτα"
 
 #: model@md.products.template|_description@:1
-msgid "General Model Product Template"
-msgstr "Το Γενικό Πρότυπο Προϊόντων Πρότυπο"
+msgid "Product Template"
+msgstr "Προϊόντων Πρότυπο"
 
 #: model@md.products.template|_columns@category_id$label:1
 #: model@md.location|_columns@category_id$label:1
@@ -392,13 +409,22 @@ msgstr "Κατηγορία"
 #: model@md.products.template|_columns@mtype$label:1
 #: model@md.currency.rate|_columns@type$label:1
 #: model@md.recepture|_columns@type$label:1
+#: model@md.boms|_columns@type$label:1 model@md.mobs|_columns@type$label:1
+#: model@md.bobs|_columns@type$label:1
 msgid "Type"
 msgstr "Τύπος"
 
 #: model@md.products.template|_columns@mtype$selections#p:1
+#: model@md.product|_description@:1
 #: model@md.partner.products|_columns@product_id$label:1
 #: model@md.recepture.input|_columns@product$label:1
 #: model@md.recepture.output|_columns@product$label:1
+#: model@md.boms|_columns@product$label:1
+#: model@md.bom.items|_columns@product$label:1
+#: model@md.mobs|_columns@product$label:1
+#: model@md.mob.items|_columns@product$label:1
+#: model@md.bob.input.items|_columns@product$label:1
+#: model@md.bob.output.items|_columns@product$label:1
 msgid "Product"
 msgstr "Το προϊόν"
 
@@ -419,10 +445,6 @@ msgstr "Αναλώσιμα"
 msgid "Products"
 msgstr "Προϊόντα"
 
-#: model@md.product|_description@:1
-msgid "General Model Product"
-msgstr "Το Γενικό Πρότυπο Προϊόντος"
-
 #: model@md.product|_columns@template_id$label:1
 msgid "Template"
 msgstr "Πρότυπο"
@@ -430,10 +452,6 @@ msgstr "Πρότυπο"
 #: model@md.product|_columns@uom$label:1
 msgid "Unit Of Measure"
 msgstr "Μονάδα Μέτρησης"
-
-#: model@md.product|_columns@gti$label:1
-msgid "Group Of Type Items"
-msgstr "Ομάδα Από Στοιχεία Τύπου"
 
 #: model@md.product|_columns@volume$label:1
 msgid "Volume"
@@ -539,8 +557,8 @@ msgid "Link"
 msgstr "Link"
 
 #: model@md.incoterms|_description@:1
-msgid "General Model Incoterms"
-msgstr "Το Γενικό Πρότυπο Που Incoterms"
+msgid "Incoterms"
+msgstr "Incoterms"
 
 #: model@md.incoterms|_columns@mode$label:1
 msgid "Mode Of Transport"
@@ -619,18 +637,19 @@ msgid "Buyer"
 msgstr "Αγοραστή"
 
 #: model@md.category.partner|_description@:1
-msgid "General Model Category Partner"
-msgstr "Το Γενικό Πρότυπο Της Κατηγορίας Συνεργάτη"
+msgid "Category Partner"
+msgstr "Κατηγορία Συνεργάτη"
 
 #: model@md.category.location|_description@:1
-msgid "General Model Category Location"
-msgstr "Το Γενικό Πρότυπο Κατηγορία Καταλύματος"
+msgid "Category Location"
+msgstr "Κατηγορία Καταλύματος"
 
 #: model@md.location|_description@:1
 msgid "General Master Data Location"
 msgstr "Γενικό Master Δεδομένων Τοποθεσίας"
 
 #: model@md.location|_columns@usage$selections#partner:1
+#: model@md.partner|_description@:1
 #: model@md.partner.addresses|_columns@partner_id$label:1
 #: model@md.partner.contacts|_columns@partner_id$label:1
 #: model@md.partner.products|_columns@partner_id$label:1
@@ -639,8 +658,12 @@ msgid "Partner"
 msgstr "Συνεργάτης"
 
 #: model@md.location|_columns@usage$selections#company:1
+#: model@md.company|_description@:1
 #: model@md.currency.rate|_columns@company_id$label:1
 #: model@md.partners.bank|_columns@company_id$label:1
+#: model@md.boms|_columns@company$label:1
+#: model@md.mobs|_columns@company$label:1
+#: model@md.bobs|_columns@company$label:1
 msgid "Company"
 msgstr "Εταιρεία"
 
@@ -657,10 +680,6 @@ msgstr "Γεωγραφικό πλάτος"
 #: model@md.partner|_columns@longitude$label:1
 msgid "Longitude"
 msgstr "Γεωγραφικό μήκος"
-
-#: model@md.partner|_description@:1
-msgid "General Model Partner"
-msgstr "Το Γενικό Πρότυπο Συνεργάτη"
 
 #: model@md.partner|_columns@ispeople$label:1
 msgid "People"
@@ -704,8 +723,8 @@ msgid "Roles"
 msgstr "Ρόλους"
 
 #: model@md.partner.addresses|_description@:1
-msgid "General Model Partner Addresses"
-msgstr "Το Γενικό Πρότυπο Συνεργάτη Διευθύνσεις"
+msgid "Partner Addresses"
+msgstr "Συνεργάτης Διευθύνσεις"
 
 #: model@md.partner.addresses|_columns@taddr$label:1
 msgid "Type Of Address"
@@ -750,8 +769,8 @@ msgid "Room"
 msgstr "Δωμάτιο"
 
 #: model@md.partner.contacts|_description@:1
-msgid "General Model Partner Contacts"
-msgstr "Το Γενικό Πρότυπο Συνεργάτη Επαφές"
+msgid "Partner Contacts"
+msgstr "Συνεργάτης Επαφές"
 
 #: model@md.partner.contacts|_columns@usage$selections#d:1
 msgid "Dear"
@@ -775,6 +794,9 @@ msgid "Middle Name"
 msgstr "Το Μεσαίο Όνομα Του"
 
 #: model@md.partner.contacts|_columns@fullname$label:1
+#: model@md.boms|_columns@fullname$label:1
+#: model@md.mobs|_columns@fullname$label:1
+#: model@md.bobs|_columns@fullname$label:1
 msgid "Full Name"
 msgstr "Πλήρες Όνομα"
 
@@ -850,8 +872,8 @@ msgid "Work Location"
 msgstr "Θέση Εργασίας"
 
 #: model@md.partner.products|_description@:1
-msgid "General Model Partner Products"
-msgstr "Το Γενικό Πρότυπο Προϊόντα Συνεργατών"
+msgid "Partner Products"
+msgstr "Προϊόντα Συνεργατών"
 
 #: model@md.partner.products|_columns@minqty$label:1
 msgid "Min Quantity"
@@ -862,8 +884,8 @@ msgid "Prices"
 msgstr "Τιμές"
 
 #: model@md.role.partners|_description@:1
-msgid "General Model Role Partners"
-msgstr "Το Γενικό Πρότυπο Ρόλο Εταίρους"
+msgid "Role Partners"
+msgstr "Ρόλο Εταίρους"
 
 #: model@md.role.partners|_columns@trole$label:1
 msgid "Type Of Role"
@@ -887,8 +909,8 @@ msgid "Role"
 msgstr "Ρόλο"
 
 #: model@md.partner.roles|_description@:1
-msgid "General Model Partner Roles"
-msgstr "Το Γενικό Πρότυπο Συνεργάτη Ρόλους"
+msgid "Partner Roles"
+msgstr "Συνεργάτης Ρόλους"
 
 #: model@md.partner.roles|_columns@name$label:1
 #: model@md.partners.bank|_columns@bank_bic$label:1
@@ -896,8 +918,8 @@ msgid "Unknown"
 msgstr "Άγνωστο"
 
 #: model@md.pricelist.partner.products|_description@:1
-msgid "General Model Pricelist Partner Products"
-msgstr "Το Γενικό Πρότυπο Που Τιμοκατάλογος Προϊόντα Συνεργατών"
+msgid "Pricelist Partner Products"
+msgstr "Τιμοκατάλογος Προϊόντα Συνεργατών"
 
 #: model@md.pricelist.partner.products|_columns@partner_product_id$label:1
 msgid "Partner Product"
@@ -911,12 +933,6 @@ msgstr "Ισχύει Από"
 msgid "Valid to"
 msgstr "Ισχύει για"
 
-#: model@md.pricelist.partner.products|_columns@currency_id$label:1
-#: model@md.company|_columns@currency_id$label:1
-#: model@md.partners.bank|_columns@currency_id$label:1
-msgid "Currency"
-msgstr "Νόμισμα"
-
 #: model@md.pricelist.partner.products|_columns@qty$label:1
 msgid "Qty Price"
 msgstr "Ποσότητα Τιμή"
@@ -924,14 +940,6 @@ msgstr "Ποσότητα Τιμή"
 #: model@md.pricelist.partner.products|_columns@price$label:1
 msgid "Price"
 msgstr "Τιμή"
-
-#: model@md.company|_description@:1
-msgid "General Model Company"
-msgstr "Το Γενικό Πρότυπο Της Εταιρείας"
-
-#: model@md.currency.rate|_description@:1
-msgid "General Model Currency Rate"
-msgstr "Το Γενικό Πρότυπο Των Συναλλαγματικών Ισοτιμιών"
 
 #: model@md.currency.rate|_columns@currency_id$label:1
 msgid "From Currency"
@@ -962,8 +970,9 @@ msgid "Week"
 msgstr "Εβδομάδα"
 
 #: model@md.banks|_description@:1
-msgid "General Model Bank"
-msgstr "Το Γενικό Πρότυπο Της Τράπεζας"
+#: model@md.partners.bank|_columns@bank_id$label:1
+msgid "Bank"
+msgstr "Τράπεζα"
 
 #: model@md.banks|_columns@street2$label:1
 msgid "Street2"
@@ -1002,8 +1011,8 @@ msgid "Inactive"
 msgstr "Ανενεργό"
 
 #: model@md.partners.bank|_description@:1
-msgid "General Model Bank of Partner"
-msgstr "Το γενικό Πρότυπο της Τράπεζας της Συνεργάτη"
+msgid "Bank of Partner"
+msgstr "Τράπεζα της Συνεργάτη"
 
 #: model@md.partners.bank|_columns@acc_type$label:1
 msgid "ACC Type"
@@ -1025,23 +1034,27 @@ msgstr "Εξυγιανθεί Αριθμό Λογαριασμού"
 msgid "Account Holder"
 msgstr "Κάτοχος Του Λογαριασμού"
 
-#: model@md.partners.bank|_columns@bank_id$label:1
-msgid "Bank"
-msgstr "Τράπεζα"
-
 #: model@md.partners.bank|_columns@bank_name$label:1
 msgid "Bank Name"
 msgstr "Όνομα Τράπεζας"
 
 #: model@md.recepture|_description@:1
-msgid "General Model Recipe"
-msgstr "Το Γενικό Πρότυπο Συνταγή"
+#: model@md.recepture.input|_columns@recepture_id$label:1
+#: model@md.recepture.output|_columns@recepture_id$label:1
+msgid "Recipe"
+msgstr "Συνταγή"
 
 #: model@md.recepture|_columns@type$selections#real:1
+#: model@md.boms|_columns@type$selections#real:1
+#: model@md.mobs|_columns@type$selections#real:1
+#: model@md.bobs|_columns@type$selections#real:1
 msgid "Real"
 msgstr "Πραγματικό"
 
 #: model@md.recepture|_columns@type$selections#kvazi:1
+#: model@md.boms|_columns@type$selections#kvazi:1
+#: model@md.mobs|_columns@type$selections#kvazi:1
+#: model@md.bobs|_columns@type$selections#kvazi:1
 msgid "Kwazi"
 msgstr "Kwazi"
 
@@ -1050,10 +1063,14 @@ msgid "Subtype"
 msgstr "Υποτύπου"
 
 #: model@md.recepture|_columns@subtype$selections#bom:1
+#: model@md.bom.items|_columns@bom_id$label:1
+#: model@md.bob.input.items|_columns@bob_id$label:1
+#: model@md.bob.output.items|_columns@bob_id$label:1
 msgid "BoM"
 msgstr "BoM"
 
 #: model@md.recepture|_columns@subtype$selections#mob:1
+#: model@md.mob.items|_columns@bom_id$label:1
 msgid "MoB"
 msgstr "Μαφία"
 
@@ -1062,10 +1079,15 @@ msgid "BoB"
 msgstr "Μπομπ"
 
 #: model@md.recepture|_columns@partition$label:1
+#: model@md.boms|_columns@partition$label:1
+#: model@md.mobs|_columns@partition$label:1
+#: model@md.bobs|_columns@partition$label:1
 msgid "Partition"
 msgstr "Διαμέρισμα"
 
 #: model@md.recepture|_columns@input_items$label:1
+#: model@md.boms|_columns@items$label:1 model@md.mobs|_columns@items$label:1
+#: model@md.bobs|_columns@input_items$label:1
 msgid "Input"
 msgstr "Εισαγωγή"
 
@@ -1074,14 +1096,38 @@ msgid "Output"
 msgstr "Παραγωγή"
 
 #: model@md.recepture.input|_description@:1
-msgid "General Model Input Recipe"
-msgstr "Το Γενικό Πρότυπο Εισαγωγής Συνταγή"
-
-#: model@md.recepture.input|_columns@recepture_id$label:1
-#: model@md.recepture.output|_columns@recepture_id$label:1
-msgid "Recepture"
-msgstr "Recepture"
+msgid "Input Recipe"
+msgstr "Εισαγωγή Συνταγή"
 
 #: model@md.recepture.output|_description@:1
-msgid "General Model Output Recipe"
-msgstr "Το Γενικό Πρότυπο Παραγωγής Συνταγή"
+msgid "Output Recipe"
+msgstr "Παραγωγή Συνταγή"
+
+#: model@md.boms|_description@:1
+msgid "Bill of Material"
+msgstr "Μπιλ των Υλικών"
+
+#: model@md.bom.items|_description@:1
+msgid "BoM items"
+msgstr "BoM στοιχεία"
+
+#: model@md.mobs|_description@:1
+msgid "Material of Bills"
+msgstr "Το υλικό των Λογαριασμών"
+
+#: model@md.mob.items|_description@:1
+msgid "MoB items"
+msgstr "Μαφία στοιχεία"
+
+#: model@md.bobs|_description@:1
+msgid "Bill of Bills"
+msgstr "Μπιλ των Λογαριασμών"
+
+#: model@md.bobs|_columns@output_items$label:1
+msgid "output"
+msgstr "παραγωγή"
+
+#: model@md.bob.input.items|_description@:1
+#: model@md.bob.output.items|_description@:1
+msgid "BoB items"
+msgstr "Μπομπ στοιχεία"

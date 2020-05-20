@@ -758,18 +758,16 @@ def columnsInfo(self, columns = None, attributes = None):
 			res[column] = self._columns[column]._get_attrs(attributes)
 
 	for s in self._selectioncomputefields:
-		if s in res:
+		if s in res and 'selections' in res[s]:
 			method = getattr(self,res[s]['selections'],None)
-			#web_pdb.set_trace()
 			if method:
 				v = method()
 				if v is not None:
 					res[s]['selections'] = v
 
 	for d in self._domaincomputefields:
-		if d in res:
-			method = getattr(self,res[d]['selections'],None)
-			#web_pdb.set_trace()
+		if d in res and 'domain' in res[d]:
+			method = getattr(self,res[d]['domain'],None)
 			if method:
 				v = method()
 				if v is not None:

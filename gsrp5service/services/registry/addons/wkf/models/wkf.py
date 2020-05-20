@@ -3,7 +3,7 @@ from gsrp5service.orm.model import Model
 
 class wkf_locations(Model):
 	_name = 'wkf.locations'
-	_description = 'General Model WKF Location'
+	_description = 'WKF Location'
 	_columns = {
 	'usage': fields.selection(label='Usage',selections=[('supplier', 'Vendor Location'),
         ('view', 'View'),
@@ -22,7 +22,7 @@ wkf_locations()
 
 class wkf_workplace_categories(Model):
 	_name = 'wkf.workplice.categories'
-	_description = 'General Workflow Workplice Category'
+	_description = 'Workflow Workplice Category'
 	_columns = {
 	'name': fields.varchar(label = 'Category'),
 	'parent_id': fields.many2one(label='Parent',obj='wkf.workplice.categories'),
@@ -34,7 +34,7 @@ wkf_workplace_categories()
 
 class wkf_workplaces(Model):
 	_name = 'wkf.workplace'
-	_description = 'General Workflow Workplaces'
+	_description = 'Workflow Workplaces'
 	_columns = {
 	'name': fields.varchar(label = 'Workplace'),
 	'category_id': fields.many2one(label='Category',obj='wkf.workplice.categories'),
@@ -47,7 +47,7 @@ wkf_workplaces()
 
 class wkf_element_categories(Model):
 	_name = 'wkf.element.categories'
-	_description = 'General Workflow Element Category'
+	_description = 'Workflow Element Category'
 	_columns = {
 	'name': fields.varchar(label = 'Category'),
 	'parent_id': fields.many2one(label='Parent',obj='wkf.element.categories'),
@@ -60,7 +60,7 @@ wkf_element_categories()
 
 class wkf_elements(Model):
 	_name = 'wkf.elements'
-	_description = 'General Workflow Element'
+	_description = 'Workflow Element'
 	_columns = {
 	'name': fields.varchar(label = 'Element'),
 	'wkf_element_category_id': fields.many2one(label='Category',obj='wkf.element.categories'),
@@ -89,7 +89,7 @@ wkf_elements()
 
 class wkf_routes(Model):
 	_name = 'wkf.routes'
-	_description = 'General Workflow Routes'
+	_description = 'Workflow Routes'
 	_columns = {
 	'name': fields.varchar(label = 'Route'),
 	'element_id': fields.many2one(label='Element',obj='wkf.elements',domain=[('etype','=','R')]),
@@ -105,7 +105,7 @@ wkf_routes()
 
 class wkf_jobs(Model):
 	_name = 'wkf.jobs'
-	_description = 'General Workflow Jobs'
+	_description = 'Workflow Jobs'
 	_columns = {
 	'name': fields.varchar(label = 'Job'),
 	'parent_id': fields.many2one(label='Parent',obj='wkf.jobs'),
@@ -127,7 +127,7 @@ wkf_jobs()
 
 class wkf_job_history(Model):
 	_name = 'wkf.job.history'
-	_description = 'General Workflow History Job'
+	_description = 'Workflow History Job'
 	_columns = {
 	'job_id': fields.many2one(label='Job',obj='wkf.jobs',readonly=True),
 	'ts': fields.datetime(label='Timestamp',timezone=True,readonly=True),

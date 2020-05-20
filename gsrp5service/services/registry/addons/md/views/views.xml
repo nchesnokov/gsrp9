@@ -2385,6 +2385,382 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.md.boms.form">
+          <column name="name">view.md.boms.form</column>
+          <column name="model">md.boms</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="product"/>
+              <field name="partition"/>
+              <field name="items"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.boms.list">
+          <column name="name">view.md.boms.list</column>
+          <column name="model">md.boms</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="product"/>
+              <field name="partition"/>
+              <field name="items"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.boms.m2mlist">
+          <column name="name">view.md.boms.m2mlist</column>
+          <column name="model">md.boms</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="product"/>
+              <field name="partition"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.boms.search">
+          <column name="name">view.md.boms.search</column>
+          <column name="model">md.boms</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="product"/>
+              <field name="partition"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.boms.find">
+          <column name="name">view.md.boms.find</column>
+          <column name="model">md.boms</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="product"/>
+              <field name="partition"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.bom.items.form">
+          <column name="name">view.md.bom.items.form</column>
+          <column name="model">md.bom.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="bom_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.bom.items.list">
+          <column name="name">view.md.bom.items.list</column>
+          <column name="model">md.bom.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="bom_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.bom.items.m2mlist">
+          <column name="name">view.md.bom.items.m2mlist</column>
+          <column name="model">md.bom.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="bom_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.mobs.form">
+          <column name="name">view.md.mobs.form</column>
+          <column name="model">md.mobs</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="product"/>
+              <field name="partition"/>
+              <field name="items"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.mobs.list">
+          <column name="name">view.md.mobs.list</column>
+          <column name="model">md.mobs</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="product"/>
+              <field name="partition"/>
+              <field name="items"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.mobs.m2mlist">
+          <column name="name">view.md.mobs.m2mlist</column>
+          <column name="model">md.mobs</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="product"/>
+              <field name="partition"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.mobs.search">
+          <column name="name">view.md.mobs.search</column>
+          <column name="model">md.mobs</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="product"/>
+              <field name="partition"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.mobs.find">
+          <column name="name">view.md.mobs.find</column>
+          <column name="model">md.mobs</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="product"/>
+              <field name="partition"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.mob.items.form">
+          <column name="name">view.md.mob.items.form</column>
+          <column name="model">md.mob.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="mob_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.mob.items.list">
+          <column name="name">view.md.mob.items.list</column>
+          <column name="model">md.mob.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="mob_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.mob.items.m2mlist">
+          <column name="name">view.md.mob.items.m2mlist</column>
+          <column name="model">md.mob.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="mob_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.bobs.form">
+          <column name="name">view.md.bobs.form</column>
+          <column name="model">md.bobs</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="partition"/>
+              <field name="input_items"/>
+              <field name="output_items"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.bobs.list">
+          <column name="name">view.md.bobs.list</column>
+          <column name="model">md.bobs</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="partition"/>
+              <field name="input_items"/>
+              <field name="output_items"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.bobs.m2mlist">
+          <column name="name">view.md.bobs.m2mlist</column>
+          <column name="model">md.bobs</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="partition"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.bobs.search">
+          <column name="name">view.md.bobs.search</column>
+          <column name="model">md.bobs</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="partition"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.bobs.find">
+          <column name="name">view.md.bobs.find</column>
+          <column name="model">md.bobs</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="company"/>
+              <field name="fullname"/>
+              <field name="type"/>
+              <field name="usage"/>
+              <field name="partition"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.bob.input.items.form">
+          <column name="name">view.md.bob.input.items.form</column>
+          <column name="model">md.bob.input.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="bob_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.bob.input.items.list">
+          <column name="name">view.md.bob.input.items.list</column>
+          <column name="model">md.bob.input.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="bob_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.bob.input.items.m2mlist">
+          <column name="name">view.md.bob.input.items.m2mlist</column>
+          <column name="model">md.bob.input.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="bob_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.bob.output.items.form">
+          <column name="name">view.md.bob.output.items.form</column>
+          <column name="model">md.bob.output.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="bob_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.bob.output.items.list">
+          <column name="name">view.md.bob.output.items.list</column>
+          <column name="model">md.bob.output.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="bob_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.bob.output.items.m2mlist">
+          <column name="name">view.md.bob.output.items.m2mlist</column>
+          <column name="model">md.bob.output.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="bob_id"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+            </m2mlist>
+          </column>
+        </record>
       </records>
     </data>
   </gsrp>

@@ -3,7 +3,7 @@ from gsrp5service.orm.model import Model
 
 class fa_accounts_type(Model):
 	_name = "fa.accounts.type"
-	_description = "Genaral Model Account Type"
+	_description = 'Account Type'
 	_columns = {
 	'name': fields.varchar(label='Account Type', translate=True),
 	'include_initial_balance': fields.boolean(label="Bring Accounts Balance Forward", help="Used in reports to know if we should consider journal items from the beginning of time instead of from the fiscal year only. Account types that should be reset to zero at each new fiscal year (like expenses, revenue..) should not have this option set."),
@@ -300,7 +300,7 @@ fa_accounts_reconcile_model()
 
 class fa_account_template(Model):
 	_name = "fa.account.template"
-	_description = 'Genaral Model Templates for Accounts'
+	_description = 'Templates for Accounts'
 	_order = "code"
 	_columns = {
 	'name':fields.varchar(label="name",required=True),
@@ -431,7 +431,7 @@ fa_tax_template()
 
 class fa_fiscal_position_template(Model):
 	_name = 'fa.fiscal.position.template'
-	_description = 'Genaral Model Template for Fiscal Position'
+	_description = 'Template for Fiscal Position'
 	_columns = {
 	'sequence':fields.integer(label='Sequence'),
 	'name':fields.varchar(label='Fiscal Position Template', required=True),
@@ -459,7 +459,7 @@ fa_fiscal_position_template()
 
 class fa_fiscal_position_tax_template(Model):
 	_name = 'fa.fiscal.position.tax.template'
-	_description = 'Genaral Model Template Tax Fiscal Position'
+	_description = 'Template Tax Fiscal Position'
 	_rec_name = 'position_id'
 	_columns = {
 	'position_id':fields.many2one(obj='fa.fiscal.position.template', label='Fiscal Position', required=True, on_delete='c'),
@@ -471,7 +471,7 @@ fa_fiscal_position_tax_template()
 
 class fa_fiscal_position_account_template(Model):
 	_name = 'fa.fiscal.position.account.template'
-	_description = 'Genaral Model Template Account Fiscal Mapping'
+	_description = 'Template Account Fiscal Mapping'
 	_rec_name = 'position_id'
 	_columns = {
 	'position_id':fields.many2one(obj='fa.fiscal.position.template', label='Fiscal Mapping', required=True, on_delete='c'),
@@ -483,7 +483,7 @@ fa_fiscal_position_account_template()
 
 class fa_reconcile_model_template(Model):
 	_name = "fa.reconcile.model.template"
-	_description = 'Genaral Model Reconcile Model Template'
+	_description = 'Reconcile Model Template'
 	_columns = {
 	'chart_template_id':fields.many2one(obj='fa.chart.template', label='Chart Template', required=True),
 	'name':fields.varchar(label='Button Label', required=True),

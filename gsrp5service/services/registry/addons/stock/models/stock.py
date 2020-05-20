@@ -3,7 +3,7 @@ from gsrp5service.orm.model import Model, ModelInherit
 
 class st_location(Model):
 	_name = 'st.location'
-	_description = 'General Stock Location'
+	_description = 'Stock Location'
 	_columns = {
 	'usage': fields.selection(label='Usage',selections=[('supplier', 'Vendor Location'),
         ('view', 'View'),
@@ -35,7 +35,7 @@ st_stock()
 
 class st_product(Model):
 	_name = 'st.products'
-	_description = 'General Product'
+	_description = 'Stock Product Quantity'
 	_rec_name = None
 	_columns = {
 	'stock_id':  fields.many2one(label='Stock',obj='st.stock'),
@@ -47,7 +47,7 @@ st_product()
 
 class md_stock_product(Model):
 	_name = 'md.stock.product'
-	_description = 'General Model Stock Of Product'
+	_description = 'Stock Of Product'
 	_columns = {
 	'product_id': fields.many2one(label='Product',obj='md.product'),
 	'uom': fields.many2one(label="Unit Of Measure",obj='md.uom'),
@@ -58,7 +58,7 @@ md_stock_product()
 
 class md_stock_product_inherit(ModelInherit):
 	_name = 'md.stock.product.inherit'
-	_description = 'Genaral Model Inherit For Stock Product'
+	_description = 'Inherit For Stock Product'
 	_inherit = {'md.product':{'_columns':['stocks']}}
 	_columns = {
 		'stocks': fields.one2many(label='Stocks',obj='md.stock.product',rel='product_id')
@@ -69,7 +69,7 @@ md_stock_product_inherit()
 #
 class md_stock_company_inherit(ModelInherit):
 	_name = 'md.stock.company.inherit'
-	_description = 'Genaral Model Inherit For Stock Company'
+	_description = 'Inherit For Stock Company'
 	_inherit = {'md.company':{'_columns':['stocks']}}
 	_columns = {
 		'stocks': fields.one2many(label='Stock',obj='st.stock',rel='company_id')

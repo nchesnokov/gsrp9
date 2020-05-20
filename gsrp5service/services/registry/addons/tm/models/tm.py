@@ -3,7 +3,7 @@ from gsrp5service.orm.model import Model,ModelInherit
 
 class md_tm_product(Model):
 	_name = 'md.tm.product'
-	_description = 'General Model TM Of Product'
+	_description = 'TM Of Product'
 	_columns = {
 	'product_id': fields.many2one(label='Product',obj='md.product'),
 	'vat': fields.many2one(label='VAT Code',obj='md.vat.code',domain=[('type_vat','in',('p','n'))]),
@@ -31,7 +31,7 @@ md_tm_product_inherit()
 
 class tm_locations(Model):
 	_name = 'tm.locations'
-	_description = 'General Model Locations'
+	_description = 'Locations'
 	_columns = {
 	'usage': fields.selection(label='Usage',selections=[('supplier', 'Vendor Location'),
         ('view', 'View'),
@@ -55,7 +55,7 @@ tm_locations()
 
 class tm_maps(Model):
 	_name = 'tm.maps'
-	_description = 'General Model Maps'
+	_description = 'Maps'
 	_columns = {
 	'name': fields.varchar(label = 'Name'),
 	'otype': fields.selection(label='Type',selections=[('r','Repair'),('s','Service'),('d','Disassemkble')]),
@@ -72,7 +72,7 @@ tm_maps()
 
 class tm_handlings(Model):
 	_name = 'tm.handlings'
-	_description = 'General Model Handlings'
+	_description = 'Handlings'
 	_columns = {
 	'name': fields.varchar(label = 'Name'),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
@@ -87,7 +87,7 @@ tm_handlings()
 
 class tm_category_node(Model):
 	_name = 'tm.category.node'
-	_description = 'General Model Category Node'
+	_description = 'Category Node'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='tm.category.node'),
@@ -99,7 +99,7 @@ tm_category_node()
 
 class tm_nodes(Model):
 	_name = 'tm.nodes'
-	_description = 'General Model Nodes'
+	_description = 'Nodes'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'category_id': fields.many2one(label='Category',obj='tm.category.node'),
@@ -114,7 +114,7 @@ tm_nodes()
 
 class tm_node_items(Model):
 	_name = 'tm.node.items'
-	_description = 'General Model Node Items'
+	_description = 'Node Items'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'node_id': fields.many2one(label='Node',obj='tm.nodes'),
@@ -127,7 +127,7 @@ tm_node_items()
 
 class tm_category_equipment(Model):
 	_name = 'tm.category.equipment'
-	_description = 'General Model Category Equipment'
+	_description = 'Category Equipment'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='tm.category.equipment'),
@@ -139,7 +139,7 @@ tm_category_equipment()
 
 class tm_template_equipment(Model):
 	_name = 'tm.template.equipment'
-	_description = 'General Model Template Equipment'
+	_description = 'Template Equipment'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
@@ -159,7 +159,7 @@ tm_template_equipment()
 
 class tm_template_nodes(Model):
 	_name = 'tm.template.nodes'
-	_description = 'General Model Template Nodes'
+	_description = 'Template Nodes'
 	_columns = {
 	'template_equipment_id': fields.many2one(label='Template',obj='tm.template.equipment'),
 	'node_id': fields.many2one(label='Node',obj='tm.nodes'),
@@ -170,7 +170,7 @@ tm_template_nodes()
 
 class tm_template_maps(Model):
 	_name = 'tm.template.maps'
-	_description = 'General Model Template Maps'
+	_description = 'Template Maps'
 	_columns = {
 	'template_equipment_id': fields.many2one(label='Template',obj='tm.template.equipment'),
 	'map_id': fields.many2one(label='Map',obj='tm.maps'),
@@ -181,7 +181,7 @@ tm_template_maps()
 
 class tm_template_handlings(Model):
 	_name = 'tm.template.handlings'
-	_description = 'General Model Template Handlings'
+	_description = 'Template Handlings'
 	_columns = {
 	'template_equipment_id': fields.many2one(label='Template',obj='tm.template.equipment'),
 	'handling_id': fields.many2one(label='Handling',obj='tm.handlings'),
@@ -200,7 +200,7 @@ tm_template_handlings()
 
 class tm_unit_equipments(Model):
 	_name = 'tm.unit.equipments'
-	_description = 'General Model Unit Equipments'
+	_description = 'Unit Equipments'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'location_id': fields.many2one(label='Location',obj='tm.locations'),
@@ -222,7 +222,7 @@ tm_unit_equipments()
 
 class tm_orders(Model):
 	_name = 'tm.orders'
-	_description = 'General Model Order'
+	_description = 'Order'
 	_date = 'doo'
 	_columns = {
 	'name': fields.varchar(label = 'Name'),
@@ -247,7 +247,7 @@ tm_orders()
 
 class tm_order_items(Model):
 	_name = 'tm.order.items'
-	_description = 'General Model Order Items'
+	_description = 'Order Items'
 	_columns = {
 	'order_id': fields.many2one(obj = 'tm.orders',label = 'Order'),
 	'product': fields.many2one(label='Product',obj='md.product'),
@@ -264,7 +264,7 @@ tm_order_items()
 
 class tm_unit_equipment_orders(Model):
 	_name = 'tm.unit.equipment.orders'
-	_description = 'General Model Unit Equipment Orders'
+	_description = 'Unit Equipment Orders'
 	_columns = {
 	'unit_equipment_id': fields.many2one(label='Unit Equipment',obj='tm.unit.equipments'),
 	'order_id': fields.many2one(label='Order',obj='tm.orders'),

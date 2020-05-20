@@ -5,7 +5,7 @@ from decimal import Decimal
 
 class model_common(ModelInherit):
 	_name = 'common.model'
-	_description = 'Genaral Model Common'
+	_description = 'Common'
 	def _calculate_amount_costs(self,cr,pool,uid,record,context={}):
 		fields = ['amount','vat_amount','total_amount']
 		for field in fields:
@@ -98,7 +98,7 @@ model_common()
 
 class inherit_common(ModelInherit):
 	_name = 'common.inherit'
-	_description = 'Genaral Model Inherit'
+	_description = 'Inherit'
 
 	_columns = {
 	}
@@ -109,7 +109,7 @@ inherit_common()
 
 class seq_areas(Model):
 	_name = 'seq.areas'
-	_description = 'Genaral Model Sequense Area'
+	_description = 'Sequense Area'
 	_class_model = 'C'
 	_rec_name = 'area'
 	_columns = {
@@ -121,7 +121,7 @@ seq_areas()
 
 class seq_segments(Model):
 	_name = 'seq.segments'
-	_description = 'Genaral Model Sequense Segment'
+	_description = 'Sequense Segment'
 	_class_model = 'C'
 	_rec_name = 'segment'
 	_columns = {
@@ -133,7 +133,7 @@ seq_segments()
 
 class seq_access(Model):
 	_name = 'seq.access'
-	_description = 'Genaral Model Sequence Access'
+	_description = 'Sequence Access'
 	_class_model = 'C'
 	_rec_name = 'fullname'
 	_columns = {
@@ -154,7 +154,7 @@ seq_access()
 
 class seq_models(Model):
 	_name = 'seq.models'
-	_description = 'Genaral Model Sequence Models'
+	_description = 'Sequence Models'
 	_class_model = 'C'
 	_columns = {
 	'access_id': fields.many2one(label='Access Sequence',obj='seq.access'),
@@ -169,7 +169,7 @@ seq_models()
 
 class seq_model_columns(Model):
 	_name = 'seq.model.columns'
-	_description = 'Genaral Model Sequence Model Columns'
+	_description = 'Sequence Model Columns'
 	_class_model = 'C'
 	_columns = {
 	'model_id': fields.many2one(label='Model',obj='seq.models'),
@@ -181,7 +181,7 @@ seq_model_columns()
 
 class seq_model_column_values(Model):
 	_name = 'seq.model.column.values'
-	_description = 'Genaral Model Sequence Model Columns'
+	_description = 'Sequence Model Columns'
 	_class_model = 'C'
 	_columns = {
 	'model_id': fields.many2one(label='Model',obj='seq.models'),
@@ -194,7 +194,7 @@ seq_model_column_values()
 
 class seq_conditions(Model):
 	_name = 'seq.conditions'
-	_description = 'Genaral Model Sequence Condition'
+	_description = 'Sequence Condition'
 	_class_model = 'C'
 	_rec_name = 'fullname'
 	_columns = {
@@ -234,7 +234,7 @@ seq_conditions()
 
 class seq_access_schemas(Model):
 	_name = 'seq.access.schemas'
-	_description = 'Genaral Model Sequence Access Schema'
+	_description = 'Sequence Access Schema'
 	_rec_name = 'fullname'
 	_columns = {
 	'area': fields.many2one(label='Area',obj='seq.areas',required = True),

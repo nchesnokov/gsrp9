@@ -9,7 +9,7 @@ from datetime import timedelta
 # Organization structure
 class srm_unit_categories(Model):
 	_name = 'srm.unit.categories'
-	_description = 'General Model Categories Purchase Unit'
+	_description = 'Categories Purchase Unit'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -26,7 +26,7 @@ srm_unit_categories()
 
 class srm_units(Model):
 	_name = 'srm.units'
-	_description = 'General Model Purchase Units'
+	_description = 'Purchase Units'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -45,7 +45,7 @@ srm_units()
 
 class srm_channel_categories(Model):
 	_name = 'srm.channel.categories'
-	_description = 'General Model Categories Purchase Chanel'
+	_description = 'Categories Purchase Chanel'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -62,7 +62,7 @@ srm_channel_categories()
 
 class srm_channels(Model):
 	_name = 'srm.channels'
-	_description = 'General Model Purchase Channels'
+	_description = 'Purchase Channels'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -76,7 +76,7 @@ srm_channels()
 
 class srm_segment_categories(Model):
 	_name = 'srm.segment.categories'
-	_description = 'General Model Categories Purchase Segment'
+	_description = 'Categories Purchase Segment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -93,7 +93,7 @@ srm_segment_categories()
 
 class srm_segments(Model):
 	_name = 'srm.segments'
-	_description = 'General Model Purchase Segments'
+	_description = 'Purchase Segments'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -107,7 +107,7 @@ srm_segments()
 
 class srm_area_categories(Model):
 	_name = 'srm.area.categories'
-	_description = 'General Model Categories Purchase Area'
+	_description = 'Categories Purchase Area'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -124,7 +124,7 @@ srm_area_categories()
 
 class srm_areas(Model):
 	_name = 'srm.areas'
-	_description = 'General Model Purchase Areas'
+	_description = 'Purchase Areas'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -138,7 +138,7 @@ srm_areas()
 
 class srm_region_categories(Model):
 	_name = 'srm.region.categories'
-	_description = 'General Model Categories Purchase Region'
+	_description = 'Categories Purchase Region'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -155,7 +155,7 @@ srm_region_categories()
 
 class srm_regions(Model):
 	_name = 'srm.regions'
-	_description = 'General Model Purchase Regions'
+	_description = 'Purchase Regions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -170,7 +170,7 @@ srm_regions()
 
 class srm_division_categories(Model):
 	_name = 'srm.division.categories'
-	_description = 'General Model Categories Purchase Division'
+	_description = 'Categories Purchase Division'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -187,7 +187,7 @@ srm_division_categories()
 
 class srm_divisions(Model):
 	_name = 'srm.divisions'
-	_description = 'General Model Purchase Divisions'
+	_description = 'Purchase Divisions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -202,7 +202,7 @@ srm_divisions()
 
 class srm_subdivision_categories(Model):
 	_name = 'srm.subdivision.categories'
-	_description = 'General Model Categories Purchase Subdivision'
+	_description = 'Categories Purchase Subdivision'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -219,7 +219,7 @@ srm_subdivision_categories()
 
 class srm_subdivisions(Model):
 	_name = 'srm.subdivisions'
-	_description = 'General Model Purchase Subdivisions'
+	_description = 'Purchase Subdivisions'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -233,7 +233,7 @@ srm_subdivisions()
 
 class srm_unit_channel_assigments(Model):
 	_name = 'srm.unit.channel.assigments'
-	_description = 'General Model Purchase Unit Of Channel Assigment'
+	_description = 'Purchase Unit Of Channel Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -255,7 +255,7 @@ srm_unit_channel_assigments()
 
 class srm_unit_segment_assigments(Model):
 	_name = 'srm.unit.segment.assigments'
-	_description = 'General Model Purchase Unit Of Segment Assigment'
+	_description = 'Purchase Unit Of Segment Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -277,7 +277,7 @@ srm_unit_segment_assigments()
 
 class srm_unit_area_assigments(Model):
 	_name = 'srm.unit.area.assigments'
-	_description = 'General Model Purchase Unit Of Area Assigment'
+	_description = 'Purchase Unit Of Area Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -299,7 +299,7 @@ srm_unit_area_assigments()
 
 class srm_unit_region_assigments(Model):
 	_name = 'srm.unit.region.assigments'
-	_description = 'General Model Purchase Unit Of Region Assigment'
+	_description = 'Purchase Unit Of Region Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -323,7 +323,7 @@ srm_unit_segment_assigments()
 
 class srm_division_subdivision_assigments(Model):
 	_name = 'srm.division.subdivision.assigments'
-	_description = 'General Model Purchase Division Of Subdivision Assigment'
+	_description = 'Purchase Division Of Subdivision Assigment'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -346,7 +346,7 @@ srm_division_subdivision_assigments()
 
 class srm_markets(Model):
 	_name = 'srm.markets'
-	_description = 'General Model Purchase Market'
+	_description = 'Purchase Market'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -365,7 +365,7 @@ srm_markets()
 
 class srm_teams(Model):
 	_name = 'srm.teams'
-	_description = 'General Model Purchase Teams'
+	_description = 'Purchase Teams'
 	_class_model = 'C'
 	_class_category = 'order'
 	_rec_name = 'fullname'
@@ -440,7 +440,7 @@ srm_route_items()
 
 class srm_demand_category(Model):
 	_name = 'srm.demand.category'
-	_description = 'General Model Category SRM Demand'
+	_description = 'Category SRM Demand'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.demand.category'),
@@ -453,7 +453,7 @@ srm_demand_category()
 
 class srm_part_category(Model):
 	_name = 'srm.part.category'
-	_description = 'General Model Category SRM Part'
+	_description = 'Category SRM Part'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.part.category'),
@@ -466,7 +466,7 @@ srm_part_category()
 
 class srm_plan_category(Model):
 	_name = 'srm.plan.category'
-	_description = 'General Model Category SRM Plan'
+	_description = 'Category SRM Plan'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.plan.category'),
@@ -480,7 +480,7 @@ srm_plan_category()
 
 class srm_request_category(Model):
 	_name = 'srm.request.category'
-	_description = 'General Model Category SRM Request'
+	_description = 'Category SRM Request'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.request.category'),
@@ -494,7 +494,7 @@ srm_request_category()
 
 class srm_response_category(Model):
 	_name = 'srm.response.category'
-	_description = 'General Model Category SRM Response'
+	_description = 'Category SRM Response'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.response.category'),
@@ -508,7 +508,7 @@ srm_response_category()
 
 class srm_rfx_category(Model):
 	_name = 'srm.rfx.category'
-	_description = 'General Model Category SRM RFX'
+	_description = 'Category SRM RFX'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.rfx.category'),
@@ -522,7 +522,7 @@ srm_rfx_category()
 
 class srm_auction_category(Model):
 	_name = 'srm.auction.category'
-	_description = 'General Model Category SRM Auction'
+	_description = 'Category SRM Auction'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.auction.category'),
@@ -536,7 +536,7 @@ srm_auction_category()
 
 class srm_offer_category(Model):
 	_name = 'srm.offer.category'
-	_description = 'General Model Category SRM Offer'
+	_description = 'Category SRM Offer'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.offer.category'),
@@ -550,7 +550,7 @@ srm_offer_category()
 
 class srm_evolution_category(Model):
 	_name = 'srm.evolution.category'
-	_description = 'General Model Category SRM Evolution'
+	_description = 'Category SRM Evolution'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.evolution.category'),
@@ -564,7 +564,7 @@ srm_evolution_category()
 
 class srm_decision_category(Model):
 	_name = 'srm.decision.category'
-	_description = 'General Model Category SRM Decision'
+	_description = 'Category SRM Decision'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.decision.category'),
@@ -578,7 +578,7 @@ srm_decision_category()
 
 class srm_contract_category(Model):
 	_name = 'srm.contract.category'
-	_description = 'General Model Category SRM Contract'
+	_description = 'Category SRM Contract'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.contract.category'),
@@ -594,7 +594,7 @@ srm_contract_category()
 #Pricing
 class srm_pricing_group_levels(Model):
 	_name = 'srm.pricing.group.levels'
-	_description = 'General Model SRM Pricing Group Levels'
+	_description = 'SRM Pricing Group Levels'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -608,7 +608,7 @@ srm_pricing_group_levels()
 #Text
 class srm_texts(Model):
 	_name = 'srm.texts'
-	_description = 'General Model SRM Texts'
+	_description = 'SRM Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -621,7 +621,7 @@ srm_texts()
 
 class srm_schema_texts(Model):
 	_name = 'srm.schema.texts'
-	_description = 'General Model Schema Of SRM Texts'
+	_description = 'Schema Of SRM Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'order'
@@ -636,7 +636,7 @@ srm_schema_texts()
 
 class srm_schema_text_items(Model):
 	_name = 'srm.schema.text.items'
-	_description = 'General Model Items Of Schema SRM Texts'
+	_description = 'Items Of Schema SRM Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -663,7 +663,7 @@ srm_deadlines()
 # Types & Roles
 class srm_demand_types(Model):
 	_name = 'srm.demand.types'
-	_description = 'General Model Types SRM Demand'
+	_description = 'Types SRM Demand'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -679,7 +679,7 @@ srm_demand_types()
 
 class srm_demand_type_roles(Model):
 	_name = 'srm.demand.type.roles'
-	_description = 'General Model Role SRM Demand Types'
+	_description = 'Role SRM Demand Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -693,7 +693,7 @@ srm_demand_type_roles()
 
 class srm_demand_type_deadlines(Model):
 	_name = 'srm.demand.type.deadlines'
-	_description = 'General Model Deadlines SRM Demand Types'
+	_description = 'Deadlines SRM Demand Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -708,7 +708,7 @@ srm_demand_type_deadlines()
 
 class srm_demand_type_plates(Model):
 	_name = 'srm.demand.type.plates'
-	_description = 'General Model SRM Demand Plates'
+	_description = 'SRM Demand Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -724,7 +724,7 @@ srm_demand_type_plates()
 
 class srm_demand_type_items(Model):
 	_name = 'srm.demand.type.items'
-	_description = 'General Model Type of SRM Deamnd Items'
+	_description = 'Type of SRM Deamnd Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -825,7 +825,7 @@ srm_demands()
 
 class srm_demand_texts(Model):
 	_name = 'srm.demand.texts'
-	_description = 'General Model SRM Demand Texts'
+	_description = 'SRM Demand Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -843,7 +843,7 @@ srm_demand_texts()
 
 class srm_demand_roles(Model):
 	_name = 'srm.demand.roles'
-	_description = 'General Model SRM Demand Roles'
+	_description = 'SRM Demand Roles'
 	_columns = {
 	'demand_id': fields.many2one(label = 'Demand',obj='srm.demands'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -854,7 +854,7 @@ srm_demand_roles()
 
 class srm_demand_output_plates(Model):
 	_name = 'srm.demand.output.plates'
-	_description = 'General Model SRM Demand Output Plates'
+	_description = 'SRM Demand Output Plates'
 	_columns = {
 	'demand_id': fields.many2one(label = 'Demand',obj='srm.demands'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -889,7 +889,7 @@ srm_demand_deadlines()
 
 class srm_demand_pricing(Model):
 	_name = 'srm.demand.pricing'
-	_description = 'General Model SRM Demand Pricing'
+	_description = 'SRM Demand Pricing'
 	_columns = {
 	'demand_id': fields.many2one(label = 'Demand',obj='srm.demands'),
 	'level': fields.integer(label = 'Level'),
@@ -905,7 +905,7 @@ srm_demand_pricing()
 
 class srm_demand_payment_schedules(Model):
 	_name = 'srm.demand.payment.schedules'
-	_description = 'General Model SRM Demand Payment Schedules'
+	_description = 'SRM Demand Payment Schedules'
 	_columns = {
 	'demand_id': fields.many2one(label = 'Demand',obj='srm.demands'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -963,7 +963,7 @@ srm_demand_items()
 
 class srm_demand_pricing_items(Model):
 	_name = 'srm.demand.pricing.items'
-	_description = 'General Model Demand Item Pricing'
+	_description = 'Demand Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.demand.items'),
 	'level': fields.integer(label = 'Level'),
@@ -984,7 +984,7 @@ srm_demand_pricing_items()
 
 class srm_demand_item_texts(Model):
 	_name = 'srm.demand.item.texts'
-	_description = 'General Model SRM Demand Item Texts'
+	_description = 'SRM Demand Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -1001,7 +1001,7 @@ srm_demand_item_texts()
 
 class srm_demand_item_roles(Model):
 	_name = 'srm.demand.item.roles'
-	_description = 'General Model SRM Demand Roles'
+	_description = 'SRM Demand Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.demand.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -1025,7 +1025,7 @@ srm_demand_item_delivery_schedules()
 
 class srm_demand_item_output_plates(Model):
 	_name = 'srm.demand.item.output.plates'
-	_description = 'General Model Demand Item Output Plates'
+	_description = 'Demand Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.demand.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -1046,7 +1046,7 @@ srm_demand_item_output_plates()
 
 class srm_demand_item_payment_schedules(Model):
 	_name = 'srm.demand.item.payment.schedules'
-	_description = 'General Model Demand Item Payment Schedules'
+	_description = 'Demand Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.demand.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -1061,7 +1061,7 @@ srm_demand_item_payment_schedules()
 # Types & Roles
 class srm_part_types(Model):
 	_name = 'srm.part.types'
-	_description = 'General Model Types SRM Part'
+	_description = 'Types SRM Part'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1077,7 +1077,7 @@ srm_part_types()
 
 class srm_part_type_roles(Model):
 	_name = 'srm.part.type.roles'
-	_description = 'General Model Role SRM Part Types'
+	_description = 'Role SRM Part Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1091,7 +1091,7 @@ srm_part_type_roles()
 
 class srm_part_type_deadlines(Model):
 	_name = 'srm.part.type.deadlines'
-	_description = 'General Model Deadlines SRM Part Types'
+	_description = 'Deadlines SRM Part Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1106,7 +1106,7 @@ srm_part_type_deadlines()
 
 class srm_part_type_plates(Model):
 	_name = 'srm.part.type.plates'
-	_description = 'General Model SRM Part Plates'
+	_description = 'SRM Part Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1122,7 +1122,7 @@ srm_part_type_plates()
 
 class srm_part_type_items(Model):
 	_name = 'srm.part.type.items'
-	_description = 'General Model Type of SRM Part Items'
+	_description = 'Type of SRM Part Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1221,7 +1221,7 @@ srm_parts()
 
 class srm_part_texts(Model):
 	_name = 'srm.part.texts'
-	_description = 'General Model SRM Part Texts'
+	_description = 'SRM Part Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -1239,7 +1239,7 @@ srm_part_texts()
 
 class srm_part_roles(Model):
 	_name = 'srm.part.roles'
-	_description = 'General Model SRM Part Roles'
+	_description = 'SRM Part Roles'
 	_columns = {
 	'part_id': fields.many2one(label = 'Part',obj='srm.parts'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -1250,7 +1250,7 @@ srm_part_roles()
 
 class srm_part_output_plates(Model):
 	_name = 'srm.part.output.plates'
-	_description = 'General Model SRM Part Output Plates'
+	_description = 'SRM Part Output Plates'
 	_columns = {
 	'part_id': fields.many2one(label = 'Part',obj='srm.parts'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -1284,7 +1284,7 @@ srm_part_deadlines()
 
 class srm_part_pricing(Model):
 	_name = 'srm.part.pricing'
-	_description = 'General Model SRM Part Pricing'
+	_description = 'SRM Part Pricing'
 	_columns = {
 	'part_id': fields.many2one(label = 'Part',obj='srm.parts'),
 	'level': fields.integer(label = 'Level'),
@@ -1300,7 +1300,7 @@ srm_part_pricing()
 
 class srm_part_payment_schedules(Model):
 	_name = 'srm.part.payment.schedules'
-	_description = 'General Model SRM Part Payment Schedules'
+	_description = 'SRM Part Payment Schedules'
 	_columns = {
 	'part_id': fields.many2one(label = 'Part',obj='srm.parts'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -1358,7 +1358,7 @@ srm_part_items()
 
 class srm_part_pricing_items(Model):
 	_name = 'srm.part.pricing.items'
-	_description = 'General Model Part Item Pricing'
+	_description = 'Part Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.part.items'),
 	'level': fields.integer(label = 'Level'),
@@ -1379,7 +1379,7 @@ srm_part_pricing_items()
 
 class srm_part_item_texts(Model):
 	_name = 'srm.part.item.texts'
-	_description = 'General Model SRM Part Item Texts'
+	_description = 'SRM Part Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -1396,7 +1396,7 @@ srm_part_item_texts()
 
 class srm_part_item_roles(Model):
 	_name = 'srm.part.item.roles'
-	_description = 'General Model SRM Part Roles'
+	_description = 'SRM Part Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.part.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -1420,7 +1420,7 @@ srm_part_item_delivery_schedules()
 
 class srm_part_item_output_plates(Model):
 	_name = 'srm.part.item.output.plates'
-	_description = 'General Model Part Item Output Plates'
+	_description = 'Part Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.part.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -1441,7 +1441,7 @@ srm_part_item_output_plates()
 
 class srm_part_item_payment_schedules(Model):
 	_name = 'srm.part.item.payment.schedules'
-	_description = 'General Model Part Item Payment Schedules'
+	_description = 'Part Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.part.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -1456,7 +1456,7 @@ srm_part_item_payment_schedules()
 # Types & Roles
 class srm_plan_types(Model):
 	_name = 'srm.plan.types'
-	_description = 'General Model Types SRM Plan'
+	_description = 'Types SRM Plan'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1472,7 +1472,7 @@ srm_plan_types()
 
 class srm_plan_type_roles(Model):
 	_name = 'srm.plan.type.roles'
-	_description = 'General Model Role SRM Plan Types'
+	_description = 'Role SRM Plan Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1486,7 +1486,7 @@ srm_plan_type_roles()
 
 class srm_plan_type_deadlines(Model):
 	_name = 'srm.plan.type.deadlines'
-	_description = 'General Model Deadlines SRM Plan Types'
+	_description = 'Deadlines SRM Plan Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1501,7 +1501,7 @@ srm_plan_type_deadlines()
 
 class srm_plan_type_plates(Model):
 	_name = 'srm.plan.type.plates'
-	_description = 'General Model SRM Plan Plates'
+	_description = 'SRM Plan Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1517,7 +1517,7 @@ srm_plan_type_plates()
 
 class srm_plan_type_items(Model):
 	_name = 'srm.plan.type.items'
-	_description = 'General Model Type of SRM Plan Items'
+	_description = 'Type of SRM Plan Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1616,7 +1616,7 @@ srm_plans()
 
 class srm_plan_texts(Model):
 	_name = 'srm.plan.texts'
-	_description = 'General Model SRM Plan Texts'
+	_description = 'SRM Plan Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -1634,7 +1634,7 @@ srm_plan_texts()
 
 class srm_plan_roles(Model):
 	_name = 'srm.plan.roles'
-	_description = 'General Model SRM Plan Roles'
+	_description = 'SRM Plan Roles'
 	_columns = {
 	'plan_id': fields.many2one(label = 'Plan',obj='srm.plans'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -1645,7 +1645,7 @@ srm_plan_roles()
 
 class srm_plan_output_plates(Model):
 	_name = 'srm.plan.output.plates'
-	_description = 'General Model SRM Plan Output Plates'
+	_description = 'SRM Plan Output Plates'
 	_columns = {
 	'plan_id': fields.many2one(label = 'Plan',obj='srm.plans'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -1679,7 +1679,7 @@ srm_plan_deadlines()
 
 class srm_plan_pricing(Model):
 	_name = 'srm.plan.pricing'
-	_description = 'General Model SRM Plan Pricing'
+	_description = 'SRM Plan Pricing'
 	_columns = {
 	'plan_id': fields.many2one(label = 'Plan',obj='srm.plans'),
 	'level': fields.integer(label = 'Level'),
@@ -1695,7 +1695,7 @@ srm_plan_pricing()
 
 class srm_plan_payment_schedules(Model):
 	_name = 'srm.plan.payment.schedules'
-	_description = 'General Model SRM Plan Payment Schedules'
+	_description = 'SRM Plan Payment Schedules'
 	_columns = {
 	'plan_id': fields.many2one(label = 'Plan',obj='srm.plans'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -1753,7 +1753,7 @@ srm_plan_items()
 
 class srm_plan_pricing_items(Model):
 	_name = 'srm.plan.pricing.items'
-	_description = 'General Model Plan Item Pricing'
+	_description = 'Plan Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.plan.items'),
 	'level': fields.integer(label = 'Level'),
@@ -1774,7 +1774,7 @@ srm_plan_pricing_items()
 
 class srm_plan_item_texts(Model):
 	_name = 'srm.plan.item.texts'
-	_description = 'General Model SRM Plan Item Texts'
+	_description = 'SRM Plan Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -1791,7 +1791,7 @@ srm_plan_item_texts()
 
 class srm_plan_item_roles(Model):
 	_name = 'srm.plan.item.roles'
-	_description = 'General Model SRM Plan Roles'
+	_description = 'SRM Plan Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.plan.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -1815,7 +1815,7 @@ srm_plan_item_delivery_schedules()
 
 class srm_plan_item_output_plates(Model):
 	_name = 'srm.plan.item.output.plates'
-	_description = 'General Model Plan Item Output Plates'
+	_description = 'Plan Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.plan.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -1836,7 +1836,7 @@ srm_plan_item_output_plates()
 
 class srm_plan_item_payment_schedules(Model):
 	_name = 'srm.plan.item.payment.schedules'
-	_description = 'General Model Plan Item Payment Schedules'
+	_description = 'Plan Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.plan.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -1851,7 +1851,7 @@ srm_plan_item_payment_schedules()
 # Types & Roles
 class srm_request_types(Model):
 	_name = 'srm.request.types'
-	_description = 'General Model Types SRM Request'
+	_description = 'Types SRM Request'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1867,7 +1867,7 @@ srm_request_types()
 
 class srm_request_type_roles(Model):
 	_name = 'srm.request.type.roles'
-	_description = 'General Model Role SRM Request Types'
+	_description = 'Role SRM Request Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1881,7 +1881,7 @@ srm_request_type_roles()
 
 class srm_request_type_deadlines(Model):
 	_name = 'srm.request.type.deadlines'
-	_description = 'General Model Deadlines SRM Request Types'
+	_description = 'Deadlines SRM Request Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1896,7 +1896,7 @@ srm_request_type_deadlines()
 
 class srm_request_type_plates(Model):
 	_name = 'srm.request.type.plates'
-	_description = 'General Model SRM Request Plates'
+	_description = 'SRM Request Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -1912,7 +1912,7 @@ srm_request_type_plates()
 
 class srm_request_type_items(Model):
 	_name = 'srm.request.type.items'
-	_description = 'General Model Type of SRM Request Items'
+	_description = 'Type of SRM Request Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -2011,7 +2011,7 @@ srm_requests()
 
 class srm_request_texts(Model):
 	_name = 'srm.request.texts'
-	_description = 'General Model SRM Request Texts'
+	_description = 'SRM Request Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -2029,7 +2029,7 @@ srm_request_texts()
 
 class srm_request_roles(Model):
 	_name = 'srm.request.roles'
-	_description = 'General Model SRM Request Roles'
+	_description = 'SRM Request Roles'
 	_columns = {
 	'request_id': fields.many2one(label = 'Request',obj='srm.requests'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -2040,7 +2040,7 @@ srm_request_roles()
 
 class srm_request_output_plates(Model):
 	_name = 'srm.request.output.plates'
-	_description = 'General Model SRM Request Output Plates'
+	_description = 'SRM Request Output Plates'
 	_columns = {
 	'request_id': fields.many2one(label = 'Request',obj='srm.requests'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -2074,7 +2074,7 @@ srm_request_deadlines()
 
 class srm_request_pricing(Model):
 	_name = 'srm.request.pricing'
-	_description = 'General Model SRM Request Pricing'
+	_description = 'SRM Request Pricing'
 	_columns = {
 	'request_id': fields.many2one(label = 'Request',obj='srm.requests'),
 	'level': fields.integer(label = 'Level'),
@@ -2090,7 +2090,7 @@ srm_request_pricing()
 
 class srm_request_payment_schedules(Model):
 	_name = 'srm.request.payment.schedules'
-	_description = 'General Model SRM Request Payment Schedules'
+	_description = 'SRM Request Payment Schedules'
 	_columns = {
 	'request_id': fields.many2one(label = 'Request',obj='srm.requests'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -2148,7 +2148,7 @@ srm_request_items()
 
 class srm_request_pricing_items(Model):
 	_name = 'srm.request.pricing.items'
-	_description = 'General Model Request Item Pricing'
+	_description = 'Request Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.request.items'),
 	'level': fields.integer(label = 'Level'),
@@ -2169,7 +2169,7 @@ srm_request_pricing_items()
 
 class srm_request_item_texts(Model):
 	_name = 'srm.request.item.texts'
-	_description = 'General Model SRM Request Item Texts'
+	_description = 'SRM Request Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -2186,7 +2186,7 @@ srm_request_item_texts()
 
 class srm_request_item_roles(Model):
 	_name = 'srm.request.item.roles'
-	_description = 'General Model SRM Request Roles'
+	_description = 'SRM Request Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.request.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -2210,7 +2210,7 @@ srm_request_item_delivery_schedules()
 
 class srm_request_item_output_plates(Model):
 	_name = 'srm.request.item.output.plates'
-	_description = 'General Model Request Item Output Plates'
+	_description = 'Request Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.request.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -2231,7 +2231,7 @@ srm_request_item_output_plates()
 
 class srm_request_item_payment_schedules(Model):
 	_name = 'srm.request.item.payment.schedules'
-	_description = 'General Model Request Item Payment Schedules'
+	_description = 'Request Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.request.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -2246,7 +2246,7 @@ srm_request_item_payment_schedules()
 # Types & Roles
 class srm_response_types(Model):
 	_name = 'srm.response.types'
-	_description = 'General Model Types SRM Response'
+	_description = 'Types SRM Response'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -2262,7 +2262,7 @@ srm_response_types()
 
 class srm_response_type_roles(Model):
 	_name = 'srm.response.type.roles'
-	_description = 'General Model Role SRM Response Types'
+	_description = 'Role SRM Response Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -2276,7 +2276,7 @@ srm_response_type_roles()
 
 class srm_response_type_deadlines(Model):
 	_name = 'srm.response.type.deadlines'
-	_description = 'General Model Deadlines SRM Response Types'
+	_description = 'Deadlines SRM Response Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -2291,7 +2291,7 @@ srm_response_type_deadlines()
 
 class srm_response_type_plates(Model):
 	_name = 'srm.response.type.plates'
-	_description = 'General Model SRM Response Plates'
+	_description = 'SRM Response Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -2307,7 +2307,7 @@ srm_response_type_plates()
 
 class srm_response_type_items(Model):
 	_name = 'srm.response.type.items'
-	_description = 'General Model Type of SRM Response Items'
+	_description = 'Type of SRM Response Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -2406,7 +2406,7 @@ srm_responses()
 
 class srm_response_texts(Model):
 	_name = 'srm.response.texts'
-	_description = 'General Model SRM Response Texts'
+	_description = 'SRM Response Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -2424,7 +2424,7 @@ srm_response_texts()
 
 class srm_response_roles(Model):
 	_name = 'srm.response.roles'
-	_description = 'General Model SRM Response Roles'
+	_description = 'SRM Response Roles'
 	_columns = {
 	'response_id': fields.many2one(label = 'Response',obj='srm.responses'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -2435,7 +2435,7 @@ srm_response_roles()
 
 class srm_response_output_plates(Model):
 	_name = 'srm.response.output.plates'
-	_description = 'General Model SRM Response Output Plates'
+	_description = 'SRM Response Output Plates'
 	_columns = {
 	'response_id': fields.many2one(label = 'Response',obj='srm.responses'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -2469,7 +2469,7 @@ srm_response_deadlines()
 
 class srm_response_pricing(Model):
 	_name = 'srm.response.pricing'
-	_description = 'General Model SRM Response Pricing'
+	_description = 'SRM Response Pricing'
 	_columns = {
 	'response_id': fields.many2one(label = 'Response',obj='srm.responses'),
 	'level': fields.integer(label = 'Level'),
@@ -2485,7 +2485,7 @@ srm_response_pricing()
 
 class srm_response_payment_schedules(Model):
 	_name = 'srm.response.payment.schedules'
-	_description = 'General Model SRM Response Payment Schedules'
+	_description = 'SRM Response Payment Schedules'
 	_columns = {
 	'response_id': fields.many2one(label = 'Response',obj='srm.responses'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -2543,7 +2543,7 @@ srm_response_items()
 
 class srm_response_pricing_items(Model):
 	_name = 'srm.response.pricing.items'
-	_description = 'General Model Response Item Pricing'
+	_description = 'Response Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.response.items'),
 	'level': fields.integer(label = 'Level'),
@@ -2564,7 +2564,7 @@ srm_response_pricing_items()
 
 class srm_response_item_texts(Model):
 	_name = 'srm.response.item.texts'
-	_description = 'General Model SRM Response Item Texts'
+	_description = 'SRM Response Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -2581,7 +2581,7 @@ srm_response_item_texts()
 
 class srm_response_item_roles(Model):
 	_name = 'srm.response.item.roles'
-	_description = 'General Model SRM Response Roles'
+	_description = 'SRM Response Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.response.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -2605,7 +2605,7 @@ srm_response_item_delivery_schedules()
 
 class srm_response_item_output_plates(Model):
 	_name = 'srm.response.item.output.plates'
-	_description = 'General Model Response Item Output Plates'
+	_description = 'Response Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.response.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -2626,7 +2626,7 @@ srm_response_item_output_plates()
 
 class srm_response_item_payment_schedules(Model):
 	_name = 'srm.response.item.payment.schedules'
-	_description = 'General Model Response Item Payment Schedules'
+	_description = 'Response Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.response.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -2642,7 +2642,7 @@ srm_response_item_payment_schedules()
 # Types & Roles
 class srm_rfx_types(Model):
 	_name = 'srm.rfx.types'
-	_description = 'General Model Types SRM RFX'
+	_description = 'Types SRM RFX'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -2658,7 +2658,7 @@ srm_rfx_types()
 
 class srm_rfx_type_roles(Model):
 	_name = 'srm.rfx.type.roles'
-	_description = 'General Model Role SRM RFX Types'
+	_description = 'Role SRM RFX Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -2672,7 +2672,7 @@ srm_rfx_type_roles()
 
 class srm_rfx_type_deadlines(Model):
 	_name = 'srm.rfx.type.deadlines'
-	_description = 'General Model Deadlines SRM RFX Types'
+	_description = 'Deadlines SRM RFX Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -2687,7 +2687,7 @@ srm_rfx_type_deadlines()
 
 class srm_rfx_type_plates(Model):
 	_name = 'srm.rfx.type.plates'
-	_description = 'General Model SRM RFX Plates'
+	_description = 'SRM RFX Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -2703,7 +2703,7 @@ srm_rfx_type_plates()
 
 class srm_rfx_type_items(Model):
 	_name = 'srm.rfx.type.items'
-	_description = 'General Model Type of SRM RFX Items'
+	_description = 'Type of SRM RFX Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -2802,7 +2802,7 @@ srm_rfxs()
 
 class srm_rfx_texts(Model):
 	_name = 'srm.rfx.texts'
-	_description = 'General Model SRM RFX Texts'
+	_description = 'SRM RFX Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -2820,7 +2820,7 @@ srm_rfx_texts()
 
 class srm_rfx_roles(Model):
 	_name = 'srm.rfx.roles'
-	_description = 'General Model SRM RFX Roles'
+	_description = 'SRM RFX Roles'
 	_columns = {
 	'rfx_id': fields.many2one(label = 'RFX',obj='srm.rfxs'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -2831,7 +2831,7 @@ srm_rfx_roles()
 
 class srm_rfx_output_plates(Model):
 	_name = 'srm.rfx.output.plates'
-	_description = 'General Model SRM RFX Output Plates'
+	_description = 'SRM RFX Output Plates'
 	_columns = {
 	'rfx_id': fields.many2one(label = 'RFX',obj='srm.rfxs'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -2865,7 +2865,7 @@ srm_rfx_deadlines()
 
 class srm_rfx_pricing(Model):
 	_name = 'srm.rfx.pricing'
-	_description = 'General Model SRM RFX Pricing'
+	_description = 'SRM RFX Pricing'
 	_columns = {
 	'rfx_id': fields.many2one(label = 'RFX',obj='srm.rfxs'),
 	'level': fields.integer(label = 'Level'),
@@ -2881,7 +2881,7 @@ srm_rfx_pricing()
 
 class srm_rfx_payment_schedules(Model):
 	_name = 'srm.rfx.payment.schedules'
-	_description = 'General Model SRM RFX Payment Schedules'
+	_description = 'SRM RFX Payment Schedules'
 	_columns = {
 	'rfx_id': fields.many2one(label = 'RFX',obj='srm.rfxs'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -2939,7 +2939,7 @@ srm_rfx_items()
 
 class srm_rfx_pricing_items(Model):
 	_name = 'srm.rfx.pricing.items'
-	_description = 'General Model RFX Item Pricing'
+	_description = 'RFX Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.rfx.items'),
 	'level': fields.integer(label = 'Level'),
@@ -2960,7 +2960,7 @@ srm_rfx_pricing_items()
 
 class srm_rfx_item_texts(Model):
 	_name = 'srm.rfx.item.texts'
-	_description = 'General Model SRM RFX Item Texts'
+	_description = 'SRM RFX Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -2977,7 +2977,7 @@ srm_rfx_item_texts()
 
 class srm_rfx_item_roles(Model):
 	_name = 'srm.rfx.item.roles'
-	_description = 'General Model SRM RFX Roles'
+	_description = 'SRM RFX Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.rfx.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -3001,7 +3001,7 @@ srm_rfx_item_delivery_schedules()
 
 class srm_rfx_item_output_plates(Model):
 	_name = 'srm.rfx.item.output.plates'
-	_description = 'General Model RFX Item Output Plates'
+	_description = 'RFX Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.rfx.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -3022,7 +3022,7 @@ srm_rfx_item_output_plates()
 
 class srm_rfx_item_payment_schedules(Model):
 	_name = 'srm.rfx.item.payment.schedules'
-	_description = 'General Model RFX Item Payment Schedules'
+	_description = 'RFX Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.rfx.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -3037,7 +3037,7 @@ srm_rfx_item_payment_schedules()
 # Types & Roles
 class srm_auction_types(Model):
 	_name = 'srm.auction.types'
-	_description = 'General Model Types SRM Auction'
+	_description = 'Types SRM Auction'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3053,7 +3053,7 @@ srm_auction_types()
 
 class srm_auction_type_roles(Model):
 	_name = 'srm.auction.type.roles'
-	_description = 'General Model Role SRM Auction Types'
+	_description = 'Role SRM Auction Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3067,7 +3067,7 @@ srm_auction_type_roles()
 
 class srm_auction_type_deadlines(Model):
 	_name = 'srm.auction.type.deadlines'
-	_description = 'General Model Deadlines SRM Auction Types'
+	_description = 'Deadlines SRM Auction Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3082,7 +3082,7 @@ srm_auction_type_deadlines()
 
 class srm_auction_type_plates(Model):
 	_name = 'srm.auction.type.plates'
-	_description = 'General Model SRM Auction Plates'
+	_description = 'SRM Auction Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3098,7 +3098,7 @@ srm_auction_type_plates()
 
 class srm_auction_type_items(Model):
 	_name = 'srm.auction.type.items'
-	_description = 'General Model Type of SRM Auction Items'
+	_description = 'Type of SRM Auction Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3197,7 +3197,7 @@ srm_auctions()
 
 class srm_auction_texts(Model):
 	_name = 'srm.auction.texts'
-	_description = 'General Model SRM Auction Texts'
+	_description = 'SRM Auction Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -3215,7 +3215,7 @@ srm_auction_texts()
 
 class srm_auction_roles(Model):
 	_name = 'srm.auction.roles'
-	_description = 'General Model SRM Auction Roles'
+	_description = 'SRM Auction Roles'
 	_columns = {
 	'auction_id': fields.many2one(label = 'Auction',obj='srm.auctions'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -3226,7 +3226,7 @@ srm_auction_roles()
 
 class srm_auction_output_plates(Model):
 	_name = 'srm.auction.output.plates'
-	_description = 'General Model SRM Auction Output Plates'
+	_description = 'SRM Auction Output Plates'
 	_columns = {
 	'auction_id': fields.many2one(label = 'Auction',obj='srm.auctions'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -3260,7 +3260,7 @@ srm_auction_deadlines()
 
 class srm_auction_pricing(Model):
 	_name = 'srm.auction.pricing'
-	_description = 'General Model SRM Auction Pricing'
+	_description = 'SRM Auction Pricing'
 	_columns = {
 	'auction_id': fields.many2one(label = 'Auction',obj='srm.auctions'),
 	'level': fields.integer(label = 'Level'),
@@ -3276,7 +3276,7 @@ srm_auction_pricing()
 
 class srm_auction_payment_schedules(Model):
 	_name = 'srm.auction.payment.schedules'
-	_description = 'General Model SRM Auction Payment Schedules'
+	_description = 'SRM Auction Payment Schedules'
 	_columns = {
 	'auction_id': fields.many2one(label = 'Auction',obj='srm.auctions'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -3334,7 +3334,7 @@ srm_auction_items()
 
 class srm_auction_pricing_items(Model):
 	_name = 'srm.auction.pricing.items'
-	_description = 'General Model Auction Item Pricing'
+	_description = 'Auction Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.auction.items'),
 	'level': fields.integer(label = 'Level'),
@@ -3355,7 +3355,7 @@ srm_auction_pricing_items()
 
 class srm_auction_item_texts(Model):
 	_name = 'srm.auction.item.texts'
-	_description = 'General Model SRM Auction Item Texts'
+	_description = 'SRM Auction Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -3372,7 +3372,7 @@ srm_auction_item_texts()
 
 class srm_auction_item_roles(Model):
 	_name = 'srm.auction.item.roles'
-	_description = 'General Model SRM Auction Roles'
+	_description = 'SRM Auction Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.auction.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -3396,7 +3396,7 @@ srm_auction_item_delivery_schedules()
 
 class srm_auction_item_output_plates(Model):
 	_name = 'srm.auction.item.output.plates'
-	_description = 'General Model Auction Item Output Plates'
+	_description = 'Auction Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.auction.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -3417,7 +3417,7 @@ srm_auction_item_output_plates()
 
 class srm_auction_item_payment_schedules(Model):
 	_name = 'srm.auction.item.payment.schedules'
-	_description = 'General Model Auction Item Payment Schedules'
+	_description = 'Auction Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.auction.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -3432,7 +3432,7 @@ srm_auction_item_payment_schedules()
 # Types & Roles
 class srm_offer_types(Model):
 	_name = 'srm.offer.types'
-	_description = 'General Model Types SRM Offer'
+	_description = 'Types SRM Offer'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3448,7 +3448,7 @@ srm_offer_types()
 
 class srm_offer_type_roles(Model):
 	_name = 'srm.offer.type.roles'
-	_description = 'General Model Role SRM Offer Types'
+	_description = 'Role SRM Offer Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3462,7 +3462,7 @@ srm_offer_type_roles()
 
 class srm_offer_type_deadlines(Model):
 	_name = 'srm.offer.type.deadlines'
-	_description = 'General Model Deadlines SRM Offer Types'
+	_description = 'Deadlines SRM Offer Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3477,7 +3477,7 @@ srm_offer_type_deadlines()
 
 class srm_offer_type_plates(Model):
 	_name = 'srm.offer.type.plates'
-	_description = 'General Model SRM Offer Plates'
+	_description = 'SRM Offer Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3493,7 +3493,7 @@ srm_offer_type_plates()
 
 class srm_offer_type_items(Model):
 	_name = 'srm.offer.type.items'
-	_description = 'General Model Type of SRM Offer Items'
+	_description = 'Type of SRM Offer Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3592,7 +3592,7 @@ srm_offers()
 
 class srm_offer_texts(Model):
 	_name = 'srm.offer.texts'
-	_description = 'General Model SRM Offer Texts'
+	_description = 'SRM Offer Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -3610,7 +3610,7 @@ srm_offer_texts()
 
 class srm_offer_roles(Model):
 	_name = 'srm.offer.roles'
-	_description = 'General Model SRM Offer Roles'
+	_description = 'SRM Offer Roles'
 	_columns = {
 	'offer_id': fields.many2one(label = 'Offer',obj='srm.offers'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -3621,7 +3621,7 @@ srm_offer_roles()
 
 class srm_offer_output_plates(Model):
 	_name = 'srm.offer.output.plates'
-	_description = 'General Model SRM Offer Output Plates'
+	_description = 'SRM Offer Output Plates'
 	_columns = {
 	'offer_id': fields.many2one(label = 'Offer',obj='srm.offers'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -3655,7 +3655,7 @@ srm_offer_deadlines()
 
 class srm_offer_pricing(Model):
 	_name = 'srm.offer.pricing'
-	_description = 'General Model SRM Offer Pricing'
+	_description = 'SRM Offer Pricing'
 	_columns = {
 	'offer_id': fields.many2one(label = 'Offer',obj='srm.offers'),
 	'level': fields.integer(label = 'Level'),
@@ -3671,7 +3671,7 @@ srm_offer_pricing()
 
 class srm_offer_payment_schedules(Model):
 	_name = 'srm.offer.payment.schedules'
-	_description = 'General Model SRM Offer Payment Schedules'
+	_description = 'SRM Offer Payment Schedules'
 	_columns = {
 	'offer_id': fields.many2one(label = 'Offer',obj='srm.offers'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -3729,7 +3729,7 @@ srm_offer_items()
 
 class srm_offer_pricing_items(Model):
 	_name = 'srm.offer.pricing.items'
-	_description = 'General Model Offer Item Pricing'
+	_description = 'Offer Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.offer.items'),
 	'level': fields.integer(label = 'Level'),
@@ -3750,7 +3750,7 @@ srm_offer_pricing_items()
 
 class srm_offer_item_texts(Model):
 	_name = 'srm.offer.item.texts'
-	_description = 'General Model SRM Offer Item Texts'
+	_description = 'SRM Offer Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -3767,7 +3767,7 @@ srm_offer_item_texts()
 
 class srm_offer_item_roles(Model):
 	_name = 'srm.offer.item.roles'
-	_description = 'General Model SRM Offer Roles'
+	_description = 'SRM Offer Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.offer.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -3791,7 +3791,7 @@ srm_offer_item_delivery_schedules()
 
 class srm_offer_item_output_plates(Model):
 	_name = 'srm.offer.item.output.plates'
-	_description = 'General Model Offer Item Output Plates'
+	_description = 'Offer Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.offer.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -3812,7 +3812,7 @@ srm_offer_item_output_plates()
 
 class srm_offer_item_payment_schedules(Model):
 	_name = 'srm.offer.item.payment.schedules'
-	_description = 'General Model Offer Item Payment Schedules'
+	_description = 'Offer Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.offer.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -3827,7 +3827,7 @@ srm_offer_item_payment_schedules()
 # Types & Roles
 class srm_evolution_types(Model):
 	_name = 'srm.evolution.types'
-	_description = 'General Model Types SRM Evolution'
+	_description = 'Types SRM Evolution'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3843,7 +3843,7 @@ srm_evolution_types()
 
 class srm_evolution_type_roles(Model):
 	_name = 'srm.evolution.type.roles'
-	_description = 'General Model Role SRM Evolution Types'
+	_description = 'Role SRM Evolution Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3857,7 +3857,7 @@ srm_evolution_type_roles()
 
 class srm_evolution_type_deadlines(Model):
 	_name = 'srm.evolution.type.deadlines'
-	_description = 'General Model Deadlines SRM Evolution Types'
+	_description = 'Deadlines SRM Evolution Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3872,7 +3872,7 @@ srm_evolution_type_deadlines()
 
 class srm_evolution_type_plates(Model):
 	_name = 'srm.evolution.type.plates'
-	_description = 'General Model SRM Evolution Plates'
+	_description = 'SRM Evolution Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3888,7 +3888,7 @@ srm_evolution_type_plates()
 
 class srm_evolution_type_items(Model):
 	_name = 'srm.evolution.type.items'
-	_description = 'General Model Type of SRM Evolution Items'
+	_description = 'Type of SRM Evolution Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -3987,7 +3987,7 @@ srm_evolutions()
 
 class srm_evolution_texts(Model):
 	_name = 'srm.evolution.texts'
-	_description = 'General Model SRM Evolution Texts'
+	_description = 'SRM Evolution Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -4005,7 +4005,7 @@ srm_evolution_texts()
 
 class srm_evolution_roles(Model):
 	_name = 'srm.evolution.roles'
-	_description = 'General Model SRM Evolution Roles'
+	_description = 'SRM Evolution Roles'
 	_columns = {
 	'evolution_id': fields.many2one(label = 'Evolution',obj='srm.evolutions'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -4016,7 +4016,7 @@ srm_evolution_roles()
 
 class srm_evolution_output_plates(Model):
 	_name = 'srm.evolution.output.plates'
-	_description = 'General Model SRM Evolution Output Plates'
+	_description = 'SRM Evolution Output Plates'
 	_columns = {
 	'evolution_id': fields.many2one(label = 'Evolution',obj='srm.evolutions'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -4050,7 +4050,7 @@ srm_evolution_deadlines()
 
 class srm_evolution_pricing(Model):
 	_name = 'srm.evolution.pricing'
-	_description = 'General Model SRM Evolution Pricing'
+	_description = 'SRM Evolution Pricing'
 	_columns = {
 	'evolution_id': fields.many2one(label = 'Evolution',obj='srm.evolutions'),
 	'level': fields.integer(label = 'Level'),
@@ -4066,7 +4066,7 @@ srm_evolution_pricing()
 
 class srm_evolution_payment_schedules(Model):
 	_name = 'srm.evolution.payment.schedules'
-	_description = 'General Model SRM Evolution Payment Schedules'
+	_description = 'SRM Evolution Payment Schedules'
 	_columns = {
 	'evolution_id': fields.many2one(label = 'Evolution',obj='srm.evolutions'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -4124,7 +4124,7 @@ srm_evolution_items()
 
 class srm_evolution_pricing_items(Model):
 	_name = 'srm.evolution.pricing.items'
-	_description = 'General Model Evolution Item Pricing'
+	_description = 'Evolution Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.evolution.items'),
 	'level': fields.integer(label = 'Level'),
@@ -4145,7 +4145,7 @@ srm_evolution_pricing_items()
 
 class srm_evolution_item_texts(Model):
 	_name = 'srm.evolution.item.texts'
-	_description = 'General Model SRM Evolution Item Texts'
+	_description = 'SRM Evolution Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -4162,7 +4162,7 @@ srm_evolution_item_texts()
 
 class srm_evolution_item_roles(Model):
 	_name = 'srm.evolution.item.roles'
-	_description = 'General Model SRM Evolution Roles'
+	_description = 'SRM Evolution Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.evolution.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -4186,7 +4186,7 @@ srm_evolution_item_delivery_schedules()
 
 class srm_evolution_item_output_plates(Model):
 	_name = 'srm.evolution.item.output.plates'
-	_description = 'General Model Evolution Item Output Plates'
+	_description = 'Evolution Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.evolution.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -4207,7 +4207,7 @@ srm_evolution_item_output_plates()
 
 class srm_evolution_item_payment_schedules(Model):
 	_name = 'srm.evolution.item.payment.schedules'
-	_description = 'General Model Evolution Item Payment Schedules'
+	_description = 'Evolution Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.evolution.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -4222,7 +4222,7 @@ srm_evolution_item_payment_schedules()
 # Types & Roles
 class srm_decision_types(Model):
 	_name = 'srm.decision.types'
-	_description = 'General Model Types SRM Decision'
+	_description = 'Types SRM Decision'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -4238,7 +4238,7 @@ srm_decision_types()
 
 class srm_decision_type_roles(Model):
 	_name = 'srm.decision.type.roles'
-	_description = 'General Model Role SRM Decision Types'
+	_description = 'Role SRM Decision Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -4252,7 +4252,7 @@ srm_decision_type_roles()
 
 class srm_decision_type_deadlines(Model):
 	_name = 'srm.decision.type.deadlines'
-	_description = 'General Model Deadlines SRM Decision Types'
+	_description = 'Deadlines SRM Decision Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -4267,7 +4267,7 @@ srm_decision_type_deadlines()
 
 class srm_decision_type_plates(Model):
 	_name = 'srm.decision.type.plates'
-	_description = 'General Model SRM Decision Plates'
+	_description = 'SRM Decision Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -4283,7 +4283,7 @@ srm_decision_type_plates()
 
 class srm_decision_type_items(Model):
 	_name = 'srm.decision.type.items'
-	_description = 'General Model Type of SRM Decision Items'
+	_description = 'Type of SRM Decision Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -4382,7 +4382,7 @@ srm_decisions()
 
 class srm_decision_texts(Model):
 	_name = 'srm.decision.texts'
-	_description = 'General Model SRM Decision Texts'
+	_description = 'SRM Decision Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -4400,7 +4400,7 @@ srm_decision_texts()
 
 class srm_decision_roles(Model):
 	_name = 'srm.decision.roles'
-	_description = 'General Model SRM Decision Roles'
+	_description = 'SRM Decision Roles'
 	_columns = {
 	'decision_id': fields.many2one(label = 'Decision',obj='srm.decisions'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -4411,7 +4411,7 @@ srm_decision_roles()
 
 class srm_decision_output_plates(Model):
 	_name = 'srm.decision.output.plates'
-	_description = 'General Model SRM Decision Output Plates'
+	_description = 'SRM Decision Output Plates'
 	_columns = {
 	'decision_id': fields.many2one(label = 'Decision',obj='srm.decisions'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -4445,7 +4445,7 @@ srm_decision_deadlines()
 
 class srm_decision_pricing(Model):
 	_name = 'srm.decision.pricing'
-	_description = 'General Model SRM Decision Pricing'
+	_description = 'SRM Decision Pricing'
 	_columns = {
 	'decision_id': fields.many2one(label = 'Decision',obj='srm.decisions'),
 	'level': fields.integer(label = 'Level'),
@@ -4461,7 +4461,7 @@ srm_decision_pricing()
 
 class srm_decision_payment_schedules(Model):
 	_name = 'srm.decision.payment.schedules'
-	_description = 'General Model SRM Decision Payment Schedules'
+	_description = 'SRM Decision Payment Schedules'
 	_columns = {
 	'decision_id': fields.many2one(label = 'Decision',obj='srm.decisions'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -4519,7 +4519,7 @@ srm_decision_items()
 
 class srm_decision_pricing_items(Model):
 	_name = 'srm.decision.pricing.items'
-	_description = 'General Model Decision Item Pricing'
+	_description = 'Decision Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.decision.items'),
 	'level': fields.integer(label = 'Level'),
@@ -4540,7 +4540,7 @@ srm_decision_pricing_items()
 
 class srm_decision_item_texts(Model):
 	_name = 'srm.decision.item.texts'
-	_description = 'General Model SRM Decision Item Texts'
+	_description = 'SRM Decision Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -4557,7 +4557,7 @@ srm_decision_item_texts()
 
 class srm_decision_item_roles(Model):
 	_name = 'srm.decision.item.roles'
-	_description = 'General Model SRM Decision Roles'
+	_description = 'SRM Decision Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.decision.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -4581,7 +4581,7 @@ srm_decision_item_delivery_schedules()
 
 class srm_decision_item_output_plates(Model):
 	_name = 'srm.decision.item.output.plates'
-	_description = 'General Model Decision Item Output Plates'
+	_description = 'Decision Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.decision.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -4602,7 +4602,7 @@ srm_decision_item_output_plates()
 
 class srm_decision_item_payment_schedules(Model):
 	_name = 'srm.decision.item.payment.schedules'
-	_description = 'General Model Decision Item Payment Schedules'
+	_description = 'Decision Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.decision.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -4617,7 +4617,7 @@ srm_decision_item_payment_schedules()
 # Types & Roles
 class srm_contract_types(Model):
 	_name = 'srm.contract.types'
-	_description = 'General Model Types SRM Contract'
+	_description = 'Types SRM Contract'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -4633,7 +4633,7 @@ srm_contract_types()
 
 class srm_contract_type_roles(Model):
 	_name = 'srm.contract.type.roles'
-	_description = 'General Model Role SRM Contract Types'
+	_description = 'Role SRM Contract Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -4647,7 +4647,7 @@ srm_contract_type_roles()
 
 class srm_contract_type_deadlines(Model):
 	_name = 'srm.contract.type.deadlines'
-	_description = 'General Model Deadlines SRM Contract Types'
+	_description = 'Deadlines SRM Contract Types'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -4662,7 +4662,7 @@ srm_contract_type_deadlines()
 
 class srm_contract_type_plates(Model):
 	_name = 'srm.contract.type.plates'
-	_description = 'General Model SRM Contract Plates'
+	_description = 'SRM Contract Plates'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -4678,7 +4678,7 @@ srm_contract_type_plates()
 
 class srm_contract_type_items(Model):
 	_name = 'srm.contract.type.items'
-	_description = 'General Model Type of SRM Contract Items'
+	_description = 'Type of SRM Contract Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -4777,7 +4777,7 @@ srm_contracts()
 
 class srm_contract_texts(Model):
 	_name = 'srm.contract.texts'
-	_description = 'General Model SRM Contract Texts'
+	_description = 'SRM Contract Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -4795,7 +4795,7 @@ srm_contract_texts()
 
 class srm_contract_roles(Model):
 	_name = 'srm.contract.roles'
-	_description = 'General Model SRM Contract Roles'
+	_description = 'SRM Contract Roles'
 	_columns = {
 	'contract_id': fields.many2one(label = 'Contract',obj='srm.contracts'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -4806,7 +4806,7 @@ srm_contract_roles()
 
 class srm_contract_output_plates(Model):
 	_name = 'srm.contract.output.plates'
-	_description = 'General Model SRM Contract Output Plates'
+	_description = 'SRM Contract Output Plates'
 	_columns = {
 	'contract_id': fields.many2one(label = 'Contract',obj='srm.contracts'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -4840,7 +4840,7 @@ srm_contract_deadlines()
 
 class srm_contract_pricing(Model):
 	_name = 'srm.contract.pricing'
-	_description = 'General Model SRM Contract Pricing'
+	_description = 'SRM Contract Pricing'
 	_columns = {
 	'contract_id': fields.many2one(label = 'Contract',obj='srm.contracts'),
 	'level': fields.integer(label = 'Level'),
@@ -4856,7 +4856,7 @@ srm_contract_pricing()
 
 class srm_contract_payment_schedules(Model):
 	_name = 'srm.contract.payment.schedules'
-	_description = 'General Model SRM Contract Payment Schedules'
+	_description = 'SRM Contract Payment Schedules'
 	_columns = {
 	'contract_id': fields.many2one(label = 'Contract',obj='srm.contracts'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -4914,7 +4914,7 @@ srm_contract_items()
 
 class srm_contract_pricing_items(Model):
 	_name = 'srm.contract.pricing.items'
-	_description = 'General Model Contract Item Pricing'
+	_description = 'Contract Item Pricing'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.contract.items'),
 	'level': fields.integer(label = 'Level'),
@@ -4935,7 +4935,7 @@ srm_contract_pricing_items()
 
 class srm_contract_item_texts(Model):
 	_name = 'srm.contract.item.texts'
-	_description = 'General Model SRM Contract Item Texts'
+	_description = 'SRM Contract Item Texts'
 	_class_model = 'C'
 	_class_category = 'order'
 	_order_by = "seq asc"
@@ -4952,7 +4952,7 @@ srm_contract_item_texts()
 
 class srm_contract_item_roles(Model):
 	_name = 'srm.contract.item.roles'
-	_description = 'General Model SRM Contract Roles'
+	_description = 'SRM Contract Roles'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.contract.items'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -4976,7 +4976,7 @@ srm_contract_item_delivery_schedules()
 
 class srm_contract_item_output_plates(Model):
 	_name = 'srm.contract.item.output.plates'
-	_description = 'General Model Contract Item Output Plates'
+	_description = 'Contract Item Output Plates'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.contract.items'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
@@ -4997,7 +4997,7 @@ srm_contract_item_output_plates()
 
 class srm_contract_item_payment_schedules(Model):
 	_name = 'srm.contract.item.payment.schedules'
-	_description = 'General Model Contract Item Payment Schedules'
+	_description = 'Contract Item Payment Schedules'
 	_columns = {
 	'item_id': fields.many2one(label = 'Item',obj='srm.contract.items'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
@@ -5083,7 +5083,7 @@ srm_common_product()
 
 class md_srm_product(Model):
 	_name = 'md.srm.product'
-	_description = 'General Model SRM Of Product'
+	_description = 'SRM Of Product'
 	_columns = {
 	'product_id': fields.many2one(label='Product',obj='md.product'),
 	'vat': fields.many2one(label='VAT Code',obj='md.vat.code',domain=[('type_vat','in',('p','n'))]),

@@ -7,7 +7,7 @@ from decimal import Decimal
 
 class le_shipping_points(Model):
 	_name = 'le.shipping.points'
-	_description = 'General Model Shipping Points'
+	_description = 'Shipping Points'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_columns = {
@@ -32,7 +32,7 @@ le_shipping_point_company_inherit()
 
 class le_loading_places(Model):
 	_name = 'le.loading.places'
-	_description = 'General Model Loading Places'
+	_description = 'Loading Places'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_columns = {
@@ -45,7 +45,7 @@ le_loading_places()
 
 class le_md_group_freight_cargo(Model):
 	_name = 'le.md.group.freight.cargo'
-	_description = 'General Model Fleight Cargo Group'
+	_description = 'Fleight Cargo Group'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_columns = {
@@ -60,7 +60,7 @@ le_md_group_freight_cargo()
 #Text
 class le_delivery_texts(Model):
 	_name = 'le.delivery.texts'
-	_description = 'General Model Delivery Texts'
+	_description = 'Delivery Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'delivery'
@@ -73,7 +73,7 @@ le_delivery_texts()
 
 class le_delivery_schema_texts(Model):
 	_name = 'le.delivery.schema.texts'
-	_description = 'General Model Schema Of Delivery Texts'
+	_description = 'Schema Of Delivery Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
 	_class_category = 'delivery'
@@ -92,7 +92,7 @@ le_delivery_schema_texts()
 
 class le_delivery_schema_text_items(Model):
 	_name = 'le.delivery.schema.text.items'
-	_description = 'General Model Items Of Schema Delivery Texts'
+	_description = 'Items Of Schema Delivery Texts'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_columns = {
@@ -107,7 +107,7 @@ le_delivery_schema_text_items()
 
 class le_inbound_delivery_types(Model):
 	_name = 'le.inbound.delivery.types'
-	_description = 'General Model Types Inbound Delivery'
+	_description = 'Types Inbound Delivery'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_columns = {
@@ -123,7 +123,7 @@ le_inbound_delivery_types()
 
 class le_inbound_delivery_type_roles(Model):
 	_name = 'le.inbound.delivery.type.roles'
-	_description = 'General Model Role Inbound Delivery Types'
+	_description = 'Role Inbound Delivery Types'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_columns = {
@@ -136,7 +136,7 @@ le_inbound_delivery_type_roles()
 
 class le_outbound_delivery_types(Model):
 	_name = 'le.outbound.delivery.types'
-	_description = 'General Model Types Outbound Delivery'
+	_description = 'Types Outbound Delivery'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_columns = {
@@ -152,7 +152,7 @@ le_outbound_delivery_types()
 
 class le_outbound_delivery_type_roles(Model):
 	_name = 'le.outbound.delivery.type.roles'
-	_description = 'General Model Role Outbound Delivery Types'
+	_description = 'Role Outbound Delivery Types'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_columns = {
@@ -165,7 +165,7 @@ le_outbound_delivery_type_roles()
 
 class le_internal_delivery_types(Model):
 	_name = 'le.internal.delivery.types'
-	_description = 'General Model Types Internal Delivery'
+	_description = 'Types Internal Delivery'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_columns = {
@@ -181,7 +181,7 @@ le_internal_delivery_types()
 
 class le_internal_delivery_type_roles(Model):
 	_name = 'le.internal.delivery.type.roles'
-	_description = 'General Model Role Internal Delivery Types'
+	_description = 'Role Internal Delivery Types'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_columns = {
@@ -197,7 +197,7 @@ le_outbound_delivery_type_roles()
 
 class md_pack_product(Model):
 	_name = 'md.pack.product'
-	_description = 'General Model Pack Of Product'
+	_description = 'Pack Of Product'
 	_columns = {
 	'product_id': fields.many2one(label='Product',obj='md.product'),
 	'vat': fields.many2one(label='VAT Code',obj='md.vat.code',domain=[('type_vat','in',('p','n'))]),
@@ -225,7 +225,7 @@ md_pack_product_inherit()
 
 class le_inbound_delivery_category(Model):
 	_name = 'le.inbound.delivery.category'
-	_description = 'General Model Category Inbound Delivery'
+	_description = 'Category Inbound Delivery'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='le.inbound.delivery.category'),
@@ -238,7 +238,7 @@ le_inbound_delivery_category()
 
 class le_outbound_delivery_category(Model):
 	_name = 'le.outbound.delivery.category'
-	_description = 'General Model Category Outbound Delivery'
+	_description = 'Category Outbound Delivery'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='le.outbound.delivery.category'),
@@ -251,7 +251,7 @@ le_outbound_delivery_category()
 
 class le_internal_delivery_category(Model):
 	_name = 'le.internal.delivery.category'
-	_description = 'General Model Category Internal Delivery'
+	_description = 'Category Internal Delivery'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='le.internal.delivery.category'),
@@ -264,7 +264,7 @@ le_internal_delivery_category()
 # Inbound Delivery
 class le_inbound_delivery(Model):
 	_name = 'le.inbound.delivery'
-	_description = 'General Model Inbound Delivery'
+	_description = 'Inbound Delivery'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'dod'
 	_columns = {
@@ -306,7 +306,7 @@ le_inbound_delivery()
 
 class le_inbound_delivery_texts(Model):
 	_name = 'le.inbound.delivery.texts'
-	_description = 'General Model Inbound Delivery Texts'
+	_description = 'Inbound Delivery Texts'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
@@ -323,7 +323,7 @@ le_inbound_delivery_texts()
 
 class le_inbound_delivery_roles(Model):
 	_name = 'le.inbound.delivery.roles'
-	_description = 'General Model Inbound Delivery Roles'
+	_description = 'Inbound Delivery Roles'
 	_columns = {
 	'delivery_id': fields.many2one(label = 'Delivery',obj='le.inbound.delivery'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
@@ -334,7 +334,7 @@ le_inbound_delivery_roles()
 
 class le_inbound_delivery_items(Model):
 	_name = 'le.inbound.delivery.items'
-	_description = 'General Model Inbound Delivery Items'
+	_description = 'Inbound Delivery Items'
 	_columns = {
 	'delivery_id': fields.many2one(obj = 'le.inbound.delivery',label = 'Delivery'),
 	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
@@ -401,7 +401,7 @@ le_inbound_delivery_items()
 
 class le_inbound_delivery_item_texts(Model):
 	_name = 'le.inbound.delivery.item.texts'
-	_description = 'General Model Inbound Delivery Texts'
+	_description = 'Inbound Delivery Texts'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
@@ -420,7 +420,7 @@ le_inbound_delivery_texts()
 
 class le_inbound_delivery_packlist(Model):
 	_name = 'le.inbound.delivery.packlist'
-	_description = 'General Model Packlist Of Inbound Delivery'
+	_description = 'Packlist Of Inbound Delivery'
 	_columns = {
 	'item_id': fields.many2one(obj = 'le.inbound.delivery.items',label = 'Delivery Item'),
 	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
@@ -484,7 +484,7 @@ le_inbound_delivery_packlist()
 # Inbound Delivery end
 class le_outbound_delivery(Model):
 	_name = 'le.outbound.delivery'
-	_description = 'General Model Outbound Delivery'
+	_description = 'Outbound Delivery'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'dod'
 	_columns = {
@@ -535,7 +535,7 @@ le_outbound_delivery()
 
 class le_outbound_delivery_texts(Model):
 	_name = 'le.outbound.delivery.texts'
-	_description = 'General Model Outbound Delivery Texts'
+	_description = 'Outbound Delivery Texts'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
@@ -552,7 +552,7 @@ le_outbound_delivery_texts()
 
 class le_outbound_delivery_roles(Model):
 	_name = 'le.outbound.delivery.roles'
-	_description = 'General Model Outbound Delivery Roles'
+	_description = 'Outbound Delivery Roles'
 	_columns = {
 	'delivery_id': fields.many2one(label = 'Delivery',obj='le.outbound.delivery'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','a'))]),
@@ -563,7 +563,7 @@ le_inbound_delivery_roles()
 
 class le_outbound_delivery_items(Model):
 	_name = 'le.outbound.delivery.items'
-	_description = 'General Model Outbound Delivery Items'
+	_description = 'Outbound Delivery Items'
 	_columns = {
 	'delivery_id': fields.many2one(obj = 'le.outbound.delivery',label = 'Delivery'),
 	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
@@ -630,7 +630,7 @@ le_outbound_delivery_items()
 
 class le_outbound_delivery_item_texts(Model):
 	_name = 'le.outbound.delivery.item.texts'
-	_description = 'General Model Outbound Delivery Texts'
+	_description = 'Outbound Delivery Texts'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
@@ -647,7 +647,7 @@ le_outbound_delivery_item_texts()
 
 class le_outbound_delivery_packlist(Model):
 	_name = 'le.outbound.delivery.packlist'
-	_description = 'General Model Packlist Of Outbound Delivery'
+	_description = 'Packlist Of Outbound Delivery'
 	_columns = {
 	'item_id': fields.many2one(obj = 'le.outbound.delivery.items',label = 'Delivery Item'),
 	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
@@ -712,7 +712,7 @@ le_outbound_delivery_packlist()
 # Internal
 class le_internal_delivery(Model):
 	_name = 'le.internal.delivery'
-	_description = 'General Model Internal Delivery'
+	_description = 'Internal Delivery'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'dod'
 	_columns = {
@@ -754,7 +754,7 @@ le_internal_delivery()
 
 class le_internal_delivery_texts(Model):
 	_name = 'le.internal.delivery.texts'
-	_description = 'General Model Inbound Delivery Texts'
+	_description = 'Inbound Delivery Texts'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
@@ -772,7 +772,7 @@ le_internal_delivery_texts()
 
 class le_internal_delivery_roles(Model):
 	_name = 'le.internal.delivery.roles'
-	_description = 'General Model Internal Delivery Roles'
+	_description = 'Internal Delivery Roles'
 	_columns = {
 	'delivery_id': fields.many2one(label = 'Delivery',obj='le.internal.delivery'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('i','a'))]),
@@ -783,7 +783,7 @@ le_internal_delivery_roles()
 
 class le_internal_delivery_items(Model):
 	_name = 'le.internal.delivery.items'
-	_description = 'General Model Internal Delivery Items'
+	_description = 'Internal Delivery Items'
 	_columns = {
 	'delivery_id': fields.many2one(obj = 'le.internal.delivery',label = 'Delivery'),
 	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
@@ -850,7 +850,7 @@ le_internal_delivery_items()
 
 class le_internal_delivery_item_texts(Model):
 	_name = 'le.internal.delivery.item.texts'
-	_description = 'General Model Inbound Delivery Texts'
+	_description = 'Inbound Delivery Texts'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
@@ -868,7 +868,7 @@ le_internal_delivery_item_texts()
 
 class le_internal_delivery_packlist(Model):
 	_name = 'le.internal.delivery.packlist'
-	_description = 'General Model Packlist Of Internal Delivery'
+	_description = 'Packlist Of Internal Delivery'
 	_columns = {
 	'item_id': fields.many2one(obj = 'le.internal.delivery.items',label = 'Delivery Item'),
 	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
@@ -933,7 +933,7 @@ le_internal_delivery_packlist()
 # inherit
 class le_md_group_freight_cargo_product(Model):
 	_name = 'le.md.group.freight.cargo.product'
-	_description = 'General Model Fleight Cargo Group Product'
+	_description = 'Fleight Cargo Group Product'
 	_columns = {
 		'product_id': fields.many2one(label='Product',obj='md.product'),
 		'group_freight_cargo_id': fields.many2one(label='Freight Cargo Group',obj='le.md.group.freight.cargo',required=True),
@@ -941,13 +941,13 @@ class le_md_group_freight_cargo_product(Model):
 
 le_md_group_freight_cargo_product()
 
-# class le_md_group_freight_cargo_product_inherit(ModelInherit):
-	# _name = 'le.md.group.freight.cargo.product.inherit'
-	# _description = 'General Model Fleight Cargo Group Product Inherit'
-	# _inherit = {'md.product':{'_columns':['group_freight_cargo_product']}}
-	# _columns = {
-		# 'group_freight_cargo_product': fields.one2many(label='Freight Cargo Group Product',obj='le.md.group.freight.cargo.product',rel='product_id'),
-	# }
+class le_md_group_freight_cargo_product_inherit(ModelInherit):
+	_name = 'le.md.group.freight.cargo.product.inherit'
+	_description = 'Fleight Cargo Group Product Inherit'
+	_inherit = {'md.product':{'_columns':['group_freight_cargo_product']}}
+	_columns = {
+		'group_freight_cargo_product': fields.one2many(label='Freight Cargo Group Product',obj='le.md.group.freight.cargo.product',rel='product_id'),
+	}
 	
-# le_md_group_freight_cargo_product_inherit()
+le_md_group_freight_cargo_product_inherit()
 
