@@ -1083,6 +1083,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bom"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -1091,6 +1093,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </calendar>
           </column>
         </record>
@@ -1104,6 +1108,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bom"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -1112,6 +1118,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </schedule>
           </column>
         </record>
@@ -1125,6 +1133,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bom"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -1133,6 +1143,9 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
+              <field name="schedules"/>
               <field name="items"/>
               <field name="texts"/>
               <field name="note"/>
@@ -1149,6 +1162,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bom"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -1157,6 +1172,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </graph>
           </column>
         </record>
@@ -1170,6 +1187,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bom"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -1178,6 +1197,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
               <field name="note"/>
             </kanban>
           </column>
@@ -1192,6 +1213,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bom"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -1200,6 +1223,9 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
+              <field name="schedules"/>
               <field name="items"/>
               <field name="texts"/>
             </list>
@@ -1215,6 +1241,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bom"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -1223,6 +1251,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </m2mlist>
           </column>
         </record>
@@ -1236,6 +1266,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bom"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -1244,6 +1276,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </mdx>
           </column>
         </record>
@@ -1257,6 +1291,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bom"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -1265,6 +1301,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </search>
           </column>
         </record>
@@ -1278,6 +1316,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bom"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -1286,6 +1326,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </find>
           </column>
         </record>
@@ -1421,7 +1463,6 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
-              <field name="schedules"/>
               <field name="note"/>
             </form>
           </column>
@@ -1440,7 +1481,6 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
-              <field name="schedules"/>
             </list>
           </column>
         </record>
@@ -1461,35 +1501,35 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.production.order.delivery.schedules.form">
-          <column name="name">view.mm.production.order.delivery.schedules.form</column>
-          <column name="model">mm.production.order.delivery.schedules</column>
+        <record id="view.mm.production.order.schedules.form">
+          <column name="name">view.mm.production.order.schedules.form</column>
+          <column name="model">mm.production.order.schedules</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="item_id"/>
+              <field name="order_id"/>
               <field name="part"/>
               <field name="schedule"/>
               <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.mm.production.order.delivery.schedules.list">
-          <column name="name">view.mm.production.order.delivery.schedules.list</column>
-          <column name="model">mm.production.order.delivery.schedules</column>
+        <record id="view.mm.production.order.schedules.list">
+          <column name="name">view.mm.production.order.schedules.list</column>
+          <column name="model">mm.production.order.schedules</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="item_id"/>
+              <field name="order_id"/>
               <field name="part"/>
               <field name="schedule"/>
             </list>
           </column>
         </record>
-        <record id="view.mm.production.order.delivery.schedules.m2mlist">
-          <column name="name">view.mm.production.order.delivery.schedules.m2mlist</column>
-          <column name="model">mm.production.order.delivery.schedules</column>
+        <record id="view.mm.production.order.schedules.m2mlist">
+          <column name="name">view.mm.production.order.schedules.m2mlist</column>
+          <column name="model">mm.production.order.schedules</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="item_id"/>
+              <field name="order_id"/>
               <field name="part"/>
               <field name="schedule"/>
             </m2mlist>
@@ -1505,6 +1545,7 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bob"/>
+              <field name="part"/>
               <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
@@ -1513,6 +1554,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </calendar>
           </column>
         </record>
@@ -1526,6 +1569,7 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bob"/>
+              <field name="part"/>
               <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
@@ -1534,6 +1578,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </schedule>
           </column>
         </record>
@@ -1547,6 +1593,7 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bob"/>
+              <field name="part"/>
               <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
@@ -1555,6 +1602,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
               <field name="schedules"/>
               <field name="ibobs"/>
               <field name="obobs"/>
@@ -1573,6 +1622,7 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bob"/>
+              <field name="part"/>
               <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
@@ -1581,6 +1631,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </graph>
           </column>
         </record>
@@ -1594,6 +1646,7 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bob"/>
+              <field name="part"/>
               <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
@@ -1602,6 +1655,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
               <field name="note"/>
             </kanban>
           </column>
@@ -1616,6 +1671,7 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bob"/>
+              <field name="part"/>
               <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
@@ -1624,6 +1680,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
               <field name="schedules"/>
               <field name="ibobs"/>
               <field name="obobs"/>
@@ -1641,6 +1699,7 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bob"/>
+              <field name="part"/>
               <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
@@ -1649,6 +1708,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </m2mlist>
           </column>
         </record>
@@ -1662,6 +1723,7 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bob"/>
+              <field name="part"/>
               <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
@@ -1670,6 +1732,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </mdx>
           </column>
         </record>
@@ -1683,6 +1747,7 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bob"/>
+              <field name="part"/>
               <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
@@ -1691,6 +1756,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </search>
           </column>
         </record>
@@ -1704,6 +1771,7 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="bob"/>
+              <field name="part"/>
               <field name="manager"/>
               <field name="category_id"/>
               <field name="origin"/>
@@ -1712,12 +1780,14 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </find>
           </column>
         </record>
-        <record id="view.mm.technologic.order.delivery.schedules.form">
-          <column name="name">view.mm.technologic.order.delivery.schedules.form</column>
-          <column name="model">mm.technologic.order.delivery.schedules</column>
+        <record id="view.mm.technologic.order.schedules.form">
+          <column name="name">view.mm.technologic.order.schedules.form</column>
+          <column name="model">mm.technologic.order.schedules</column>
           <column name="arch" type="Xml">
             <form>
               <field name="order_id"/>
@@ -1727,9 +1797,9 @@
             </form>
           </column>
         </record>
-        <record id="view.mm.technologic.order.delivery.schedules.list">
-          <column name="name">view.mm.technologic.order.delivery.schedules.list</column>
-          <column name="model">mm.technologic.order.delivery.schedules</column>
+        <record id="view.mm.technologic.order.schedules.list">
+          <column name="name">view.mm.technologic.order.schedules.list</column>
+          <column name="model">mm.technologic.order.schedules</column>
           <column name="arch" type="Xml">
             <list>
               <field name="order_id"/>
@@ -1738,9 +1808,9 @@
             </list>
           </column>
         </record>
-        <record id="view.mm.technologic.order.delivery.schedules.m2mlist">
-          <column name="name">view.mm.technologic.order.delivery.schedules.m2mlist</column>
-          <column name="model">mm.technologic.order.delivery.schedules</column>
+        <record id="view.mm.technologic.order.schedules.m2mlist">
+          <column name="name">view.mm.technologic.order.schedules.m2mlist</column>
+          <column name="model">mm.technologic.order.schedules</column>
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="order_id"/>
@@ -1981,6 +2051,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="mob"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -1989,6 +2061,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </calendar>
           </column>
         </record>
@@ -2002,6 +2076,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="mob"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -2010,6 +2086,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </schedule>
           </column>
         </record>
@@ -2023,6 +2101,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="mob"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -2031,6 +2111,9 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
+              <field name="schedules"/>
               <field name="items"/>
               <field name="texts"/>
               <field name="note"/>
@@ -2047,6 +2130,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="mob"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -2055,6 +2140,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </graph>
           </column>
         </record>
@@ -2068,6 +2155,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="mob"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -2076,6 +2165,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
               <field name="note"/>
             </kanban>
           </column>
@@ -2090,6 +2181,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="mob"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -2098,6 +2191,9 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
+              <field name="schedules"/>
               <field name="items"/>
               <field name="texts"/>
             </list>
@@ -2113,6 +2209,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="mob"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -2121,6 +2219,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </m2mlist>
           </column>
         </record>
@@ -2134,6 +2234,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="mob"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -2142,6 +2244,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </mdx>
           </column>
         </record>
@@ -2155,6 +2259,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="mob"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -2163,6 +2269,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </search>
           </column>
         </record>
@@ -2176,6 +2284,8 @@
               <field name="company"/>
               <field name="fullname"/>
               <field name="mob"/>
+              <field name="product"/>
+              <field name="part"/>
               <field name="category_id"/>
               <field name="manager"/>
               <field name="origin"/>
@@ -2184,6 +2294,8 @@
               <field name="to_date"/>
               <field name="route"/>
               <field name="state"/>
+              <field name="parts"/>
+              <field name="amount"/>
             </find>
           </column>
         </record>
@@ -2319,7 +2431,6 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
-              <field name="schedules"/>
               <field name="note"/>
             </form>
           </column>
@@ -2338,7 +2449,6 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
-              <field name="schedules"/>
             </list>
           </column>
         </record>
@@ -2359,35 +2469,35 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.delivery.schedules.form">
-          <column name="name">view.mm.disassembly.order.delivery.schedules.form</column>
-          <column name="model">mm.disassembly.order.delivery.schedules</column>
+        <record id="view.mm.disassembly.order.schedules.form">
+          <column name="name">view.mm.disassembly.order.schedules.form</column>
+          <column name="model">mm.disassembly.order.schedules</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="item_id"/>
+              <field name="order_id"/>
               <field name="part"/>
               <field name="schedule"/>
               <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.delivery.schedules.list">
-          <column name="name">view.mm.disassembly.order.delivery.schedules.list</column>
-          <column name="model">mm.disassembly.order.delivery.schedules</column>
+        <record id="view.mm.disassembly.order.schedules.list">
+          <column name="name">view.mm.disassembly.order.schedules.list</column>
+          <column name="model">mm.disassembly.order.schedules</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="item_id"/>
+              <field name="order_id"/>
               <field name="part"/>
               <field name="schedule"/>
             </list>
           </column>
         </record>
-        <record id="view.mm.disassembly.order.delivery.schedules.m2mlist">
-          <column name="name">view.mm.disassembly.order.delivery.schedules.m2mlist</column>
-          <column name="model">mm.disassembly.order.delivery.schedules</column>
+        <record id="view.mm.disassembly.order.schedules.m2mlist">
+          <column name="name">view.mm.disassembly.order.schedules.m2mlist</column>
+          <column name="model">mm.disassembly.order.schedules</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="item_id"/>
+              <field name="order_id"/>
               <field name="part"/>
               <field name="schedule"/>
             </m2mlist>

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-20 20:20:10+0300\n"
-"PO-Revision-Date: 2020-05-20 20:20:10+0300\n"
+"POT-Creation-Date: 2020-05-21 18:40:41+0300\n"
+"PO-Revision-Date: 2020-05-21 18:40:41+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -44,10 +44,9 @@ msgid "Header"
 msgstr "Fejléc"
 
 #: model@mm.schema.texts|_columns@usage$selections#i:1
-#: model@mm.production.order.delivery.schedules|_columns@item_id$label:1
 #: model@mm.technologic.order.item.ibob|_columns@order_id$label:1
 #: model@mm.technologic.order.item.obob|_columns@order_id$label:1
-#: model@mm.disassembly.order.delivery.schedules|_columns@item_id$label:1
+#: model@mm.disassembly.order.schedules|_columns@order_id$label:1
 msgid "Item"
 msgstr "Elem"
 
@@ -112,6 +111,7 @@ msgstr "Típus"
 #: model@mm.production.order.texts|_columns@order_id$label:1
 #: model@mm.production.order.roles|_columns@order_id$label:1
 #: model@mm.production.order.pricing|_columns@order_id$label:1
+#: model@mm.production.order.schedules|_columns@order_id$label:1
 #: model@mm.technologic.order.texts|_columns@order_id$label:1
 #: model@mm.technologic.order.roles|_columns@order_id$label:1
 #: model@mm.technologic.order.pricing|_columns@order_id$label:1
@@ -203,14 +203,14 @@ msgstr "Szerepek"
 #: model@mm.route.items|_columns@note$label:1
 #: model@mm.production.orders|_columns@note$label:1
 #: model@mm.production.order.items|_columns@note$label:1
-#: model@mm.production.order.delivery.schedules|_columns@note$label:1
+#: model@mm.production.order.schedules|_columns@note$label:1
 #: model@mm.technologic.orders|_columns@note$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@note$label:1
+#: model@mm.technologic.order.schedules|_columns@note$label:1
 #: model@mm.technologic.order.item.ibob|_columns@note$label:1
 #: model@mm.technologic.order.item.obob|_columns@note$label:1
 #: model@mm.disassembly.orders|_columns@note$label:1
 #: model@mm.disassembly.order.items|_columns@note$label:1
-#: model@mm.disassembly.order.delivery.schedules|_columns@note$label:1
+#: model@mm.disassembly.order.schedules|_columns@note$label:1
 #: model@md.mm.product|_columns@note$label:1
 msgid "Note"
 msgstr "Megjegyzés"
@@ -434,6 +434,15 @@ msgstr "Teljes Név"
 msgid "BoM"
 msgstr "BoM"
 
+#: model@mm.production.orders|_columns@product$label:1
+msgid "Production Product"
+msgstr "Termelési Termék"
+
+#: model@mm.production.orders|_columns@part$label:1
+#: model@mm.technologic.orders|_columns@part$label:1
+msgid "Production Part"
+msgstr "Termelési Rész"
+
 #: model@mm.production.orders|_columns@manager$label:1
 #: model@mm.technologic.orders|_columns@manager$label:1
 #: model@mm.disassembly.orders|_columns@manager$label:1
@@ -493,6 +502,35 @@ msgstr "Zárt"
 #: model@mm.disassembly.orders|_columns@state$selections#canceled:1
 msgid "Canceled"
 msgstr "Elmarad"
+
+#: model@mm.production.orders|_columns@parts$label:1
+#: model@mm.technologic.orders|_columns@parts$label:1
+#: model@mm.disassembly.orders|_columns@parts$label:1
+msgid "Parts"
+msgstr "Alkatrész"
+
+#: model@mm.production.orders|_columns@amount$label:1
+#: model@mm.production.order.pricing|_columns@amount$label:1
+#: model@mm.production.order.items|_columns@amount$label:1
+#: model@mm.technologic.orders|_columns@amount$label:1
+#: model@mm.technologic.order.pricing|_columns@amount$label:1
+#: model@mm.technologic.order.item.ibob|_columns@amount$label:1
+#: model@mm.technologic.order.item.obob|_columns@amount$label:1
+#: model@mm.disassembly.orders|_columns@amount$label:1
+#: model@mm.disassembly.order.pricing|_columns@amount$label:1
+#: model@mm.disassembly.order.items|_columns@amount$label:1
+msgid "Amount"
+msgstr "Összeg"
+
+#: model@mm.production.orders|_columns@schedules$label:1
+#: model@mm.production.order.schedules|_columns@schedule$label:1
+#: model@mm.technologic.orders|_columns@schedules$label:1
+#: model@mm.technologic.order.schedules|_columns@order_id$label:1
+#: model@mm.technologic.order.schedules|_columns@schedule$label:1
+#: model@mm.disassembly.orders|_columns@schedules$label:1
+#: model@mm.disassembly.order.schedules|_columns@schedule$label:1
+msgid "Schedule"
+msgstr "Menetrend"
 
 #: model@mm.production.order.texts|_description@:1
 msgid "Production Order Texts"
@@ -554,16 +592,6 @@ msgstr "Szint"
 msgid "Group Level"
 msgstr "Csoport Szinten"
 
-#: model@mm.production.order.pricing|_columns@amount$label:1
-#: model@mm.production.order.items|_columns@amount$label:1
-#: model@mm.technologic.order.pricing|_columns@amount$label:1
-#: model@mm.technologic.order.item.ibob|_columns@amount$label:1
-#: model@mm.technologic.order.item.obob|_columns@amount$label:1
-#: model@mm.disassembly.order.pricing|_columns@amount$label:1
-#: model@mm.disassembly.order.items|_columns@amount$label:1
-msgid "Amount"
-msgstr "Összeg"
-
 #: model@mm.production.order.items|_description@:1
 msgid "Production Order Items"
 msgstr "Gyártási Rendelés Tételek"
@@ -598,23 +626,13 @@ msgstr "Ár"
 msgid "Unit Of Price"
 msgstr "Egység Ár"
 
-#: model@mm.production.order.items|_columns@schedules$label:1
-#: model@mm.production.order.delivery.schedules|_columns@schedule$label:1
-#: model@mm.technologic.orders|_columns@schedules$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@order_id$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@schedule$label:1
-#: model@mm.disassembly.order.items|_columns@schedules$label:1
-#: model@mm.disassembly.order.delivery.schedules|_columns@schedule$label:1
-msgid "Schedule"
-msgstr "Menetrend"
+#: model@mm.production.order.schedules|_description@:1
+msgid "Production Order Schedule"
+msgstr "Termelési Rend Menetrend"
 
-#: model@mm.production.order.delivery.schedules|_description@:1
-msgid "Production Order Delivery Schedule"
-msgstr "Gyártási Rendelés Szállítási Ütemezés"
-
-#: model@mm.production.order.delivery.schedules|_columns@part$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@part$label:1
-#: model@mm.disassembly.order.delivery.schedules|_columns@part$label:1
+#: model@mm.production.order.schedules|_columns@part$label:1
+#: model@mm.technologic.order.schedules|_columns@part$label:1
+#: model@mm.disassembly.order.schedules|_columns@part$label:1
 msgid "Part"
 msgstr "Rész"
 
@@ -647,7 +665,7 @@ msgstr "InBoB"
 msgid "OutBoB"
 msgstr "OutBoB"
 
-#: model@mm.technologic.order.delivery.schedules|_description@:1
+#: model@mm.technologic.order.schedules|_description@:1
 msgid "Technologic Order Delivery Schedule"
 msgstr "Technológiai Rend Szállítási Ütemezés"
 
@@ -674,6 +692,14 @@ msgstr "Technológiai Rend Elemek OutBoB"
 #: model@mm.disassembly.orders|_description@:1
 msgid "Disassembly Order"
 msgstr "Szétszerelés Rendelés"
+
+#: model@mm.disassembly.orders|_columns@product$label:1
+msgid "Disassembly Product"
+msgstr "Szétszerelés Termék"
+
+#: model@mm.disassembly.orders|_columns@part$label:1
+msgid "Disassembly Part"
+msgstr "Szétszerelés Rész"
 
 #: model@mm.disassembly.orders|_columns@dodo$label:1
 msgid "Date Of Disassembly Order"
@@ -703,7 +729,7 @@ msgstr "Szétszerelés Érdekében, Árképzés"
 msgid "Disassembly Order Items"
 msgstr "Szétszerelés Rendelés Tételek"
 
-#: model@mm.disassembly.order.delivery.schedules|_description@:1
+#: model@mm.disassembly.order.schedules|_description@:1
 msgid "Disassembly Order Delivery Schedule"
 msgstr "Szétszerelés Rendelés Szállítási Ütemezés"
 

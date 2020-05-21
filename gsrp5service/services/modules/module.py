@@ -515,34 +515,35 @@ def _uninstallModule(cr,pool,uid,name,registry):
 	sqls = []
 	for models in (module_models,db_models):
 		for model in reversed(models):
-			mods = mom[model]
-			table = None
-			inherit = None
-			if '_table' in mods['attrs']:
-				table = mods['attrs']['_table']
-			else:
-				table = mods['attrs']['_name'].replace('.','_')
-	
-			if '_inherit' in mods['attrs'] and mods['attrs']['_inherit']:
-				inherit = mods['attrs']['_inherit']
-	
-			if table:
-				if inherit:
-					for ikey in inherit.keys():
-						for icolkey in inherit[ikey]['_columns']:
-							sqls.append("ALTER TABLE IF EXISTS %s DROP COLUMN IF EXISTS %s CASCADE" % (ikey,icolkey))
-						
-						mmiv = pool.get('bc.ui.views').select(cr,pool,uid,[{'inherit_views':['name']}],[('model','=',ikey)])
-						pool.get('bc.ui.views.inherit').unlink(cr,pool,uid,list(map(lambda x: x['id'],mmiv))) 				
-						
+			if model in mom:
+				mods = mom[model]
+				table = None
+				inherit = None
+				if '_table' in mods['attrs']:
+					table = mods['attrs']['_table']
 				else:
-					if model in pool:
-						columns = pool.get(model).modelInfo()['columns']
-						for key in filter(lambda x: columns[x]['type'] == 'many2many',columns.keys()):
-							rel = genddl.getName(columns[key]['rel'])
-							sqls.append("DROP TABLE IF EXISTS %s " % (genddl.getName(rel),))
+					table = mods['attrs']['_name'].replace('.','_')
 		
-					sqls.append("DROP TABLE IF EXISTS "+table)
+				if '_inherit' in mods['attrs'] and mods['attrs']['_inherit']:
+					inherit = mods['attrs']['_inherit']
+		
+				if table:
+					if inherit:
+						for ikey in inherit.keys():
+							for icolkey in inherit[ikey]['_columns']:
+								sqls.append("ALTER TABLE IF EXISTS %s DROP COLUMN IF EXISTS %s CASCADE" % (ikey,icolkey))
+							
+							mmiv = pool.get('bc.ui.views').select(cr,pool,uid,[{'inherit_views':['name']}],[('model','=',ikey)])
+							pool.get('bc.ui.views.inherit').unlink(cr,pool,uid,list(map(lambda x: x['id'],mmiv))) 				
+							
+					else:
+						if model in pool:
+							columns = pool.get(model).modelInfo()['columns']
+							for key in filter(lambda x: columns[x]['type'] == 'many2many',columns.keys()):
+								rel = genddl.getName(columns[key]['rel'])
+								sqls.append("DROP TABLE IF EXISTS %s " % (genddl.getName(rel),))
+			
+						sqls.append("DROP TABLE IF EXISTS "+table)
 	
 	if len(sqls) > 0:
 		cr.commit()

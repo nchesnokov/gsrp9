@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-20 20:20:10+0300\n"
-"PO-Revision-Date: 2020-05-20 20:20:10+0300\n"
+"POT-Creation-Date: 2020-05-21 18:40:37+0300\n"
+"PO-Revision-Date: 2020-05-21 18:40:37+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -44,10 +44,9 @@ msgid "Header"
 msgstr "Κεφαλίδα"
 
 #: model@mm.schema.texts|_columns@usage$selections#i:1
-#: model@mm.production.order.delivery.schedules|_columns@item_id$label:1
 #: model@mm.technologic.order.item.ibob|_columns@order_id$label:1
 #: model@mm.technologic.order.item.obob|_columns@order_id$label:1
-#: model@mm.disassembly.order.delivery.schedules|_columns@item_id$label:1
+#: model@mm.disassembly.order.schedules|_columns@order_id$label:1
 msgid "Item"
 msgstr "Στοιχείο"
 
@@ -112,6 +111,7 @@ msgstr "Τύπος"
 #: model@mm.production.order.texts|_columns@order_id$label:1
 #: model@mm.production.order.roles|_columns@order_id$label:1
 #: model@mm.production.order.pricing|_columns@order_id$label:1
+#: model@mm.production.order.schedules|_columns@order_id$label:1
 #: model@mm.technologic.order.texts|_columns@order_id$label:1
 #: model@mm.technologic.order.roles|_columns@order_id$label:1
 #: model@mm.technologic.order.pricing|_columns@order_id$label:1
@@ -203,14 +203,14 @@ msgstr "Ρόλους"
 #: model@mm.route.items|_columns@note$label:1
 #: model@mm.production.orders|_columns@note$label:1
 #: model@mm.production.order.items|_columns@note$label:1
-#: model@mm.production.order.delivery.schedules|_columns@note$label:1
+#: model@mm.production.order.schedules|_columns@note$label:1
 #: model@mm.technologic.orders|_columns@note$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@note$label:1
+#: model@mm.technologic.order.schedules|_columns@note$label:1
 #: model@mm.technologic.order.item.ibob|_columns@note$label:1
 #: model@mm.technologic.order.item.obob|_columns@note$label:1
 #: model@mm.disassembly.orders|_columns@note$label:1
 #: model@mm.disassembly.order.items|_columns@note$label:1
-#: model@mm.disassembly.order.delivery.schedules|_columns@note$label:1
+#: model@mm.disassembly.order.schedules|_columns@note$label:1
 #: model@md.mm.product|_columns@note$label:1
 msgid "Note"
 msgstr "Σημείωση"
@@ -434,6 +434,15 @@ msgstr "Πλήρες Όνομα"
 msgid "BoM"
 msgstr "BoM"
 
+#: model@mm.production.orders|_columns@product$label:1
+msgid "Production Product"
+msgstr "Παραγωγή Προϊόντων"
+
+#: model@mm.production.orders|_columns@part$label:1
+#: model@mm.technologic.orders|_columns@part$label:1
+msgid "Production Part"
+msgstr "Τμήμα Παραγωγής"
+
 #: model@mm.production.orders|_columns@manager$label:1
 #: model@mm.technologic.orders|_columns@manager$label:1
 #: model@mm.disassembly.orders|_columns@manager$label:1
@@ -493,6 +502,35 @@ msgstr "Κλειστά"
 #: model@mm.disassembly.orders|_columns@state$selections#canceled:1
 msgid "Canceled"
 msgstr "Ακυρώθηκε"
+
+#: model@mm.production.orders|_columns@parts$label:1
+#: model@mm.technologic.orders|_columns@parts$label:1
+#: model@mm.disassembly.orders|_columns@parts$label:1
+msgid "Parts"
+msgstr "Μέρη"
+
+#: model@mm.production.orders|_columns@amount$label:1
+#: model@mm.production.order.pricing|_columns@amount$label:1
+#: model@mm.production.order.items|_columns@amount$label:1
+#: model@mm.technologic.orders|_columns@amount$label:1
+#: model@mm.technologic.order.pricing|_columns@amount$label:1
+#: model@mm.technologic.order.item.ibob|_columns@amount$label:1
+#: model@mm.technologic.order.item.obob|_columns@amount$label:1
+#: model@mm.disassembly.orders|_columns@amount$label:1
+#: model@mm.disassembly.order.pricing|_columns@amount$label:1
+#: model@mm.disassembly.order.items|_columns@amount$label:1
+msgid "Amount"
+msgstr "Ποσό"
+
+#: model@mm.production.orders|_columns@schedules$label:1
+#: model@mm.production.order.schedules|_columns@schedule$label:1
+#: model@mm.technologic.orders|_columns@schedules$label:1
+#: model@mm.technologic.order.schedules|_columns@order_id$label:1
+#: model@mm.technologic.order.schedules|_columns@schedule$label:1
+#: model@mm.disassembly.orders|_columns@schedules$label:1
+#: model@mm.disassembly.order.schedules|_columns@schedule$label:1
+msgid "Schedule"
+msgstr "Πρόγραμμα"
 
 #: model@mm.production.order.texts|_description@:1
 msgid "Production Order Texts"
@@ -554,16 +592,6 @@ msgstr "Για Να Το Επίπεδο"
 msgid "Group Level"
 msgstr "Σε Επίπεδο Ομίλου"
 
-#: model@mm.production.order.pricing|_columns@amount$label:1
-#: model@mm.production.order.items|_columns@amount$label:1
-#: model@mm.technologic.order.pricing|_columns@amount$label:1
-#: model@mm.technologic.order.item.ibob|_columns@amount$label:1
-#: model@mm.technologic.order.item.obob|_columns@amount$label:1
-#: model@mm.disassembly.order.pricing|_columns@amount$label:1
-#: model@mm.disassembly.order.items|_columns@amount$label:1
-msgid "Amount"
-msgstr "Ποσό"
-
 #: model@mm.production.order.items|_description@:1
 msgid "Production Order Items"
 msgstr "Παραγωγή Είδη Παραγγελίας"
@@ -598,23 +626,13 @@ msgstr "Τιμή"
 msgid "Unit Of Price"
 msgstr "Μονάδα Τιμή"
 
-#: model@mm.production.order.items|_columns@schedules$label:1
-#: model@mm.production.order.delivery.schedules|_columns@schedule$label:1
-#: model@mm.technologic.orders|_columns@schedules$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@order_id$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@schedule$label:1
-#: model@mm.disassembly.order.items|_columns@schedules$label:1
-#: model@mm.disassembly.order.delivery.schedules|_columns@schedule$label:1
-msgid "Schedule"
-msgstr "Πρόγραμμα"
+#: model@mm.production.order.schedules|_description@:1
+msgid "Production Order Schedule"
+msgstr "Εντολή Παραγωγής Χρονοδιάγραμμα"
 
-#: model@mm.production.order.delivery.schedules|_description@:1
-msgid "Production Order Delivery Schedule"
-msgstr "Εντολή Παραγωγής Χρονοδιάγραμμα Παράδοσης"
-
-#: model@mm.production.order.delivery.schedules|_columns@part$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@part$label:1
-#: model@mm.disassembly.order.delivery.schedules|_columns@part$label:1
+#: model@mm.production.order.schedules|_columns@part$label:1
+#: model@mm.technologic.order.schedules|_columns@part$label:1
+#: model@mm.disassembly.order.schedules|_columns@part$label:1
 msgid "Part"
 msgstr "Μέρος"
 
@@ -647,7 +665,7 @@ msgstr "InBoB"
 msgid "OutBoB"
 msgstr "OutBoB"
 
-#: model@mm.technologic.order.delivery.schedules|_description@:1
+#: model@mm.technologic.order.schedules|_description@:1
 msgid "Technologic Order Delivery Schedule"
 msgstr "Τεχνολογική Παράδοση Της Παραγγελίας Πρόγραμμα"
 
@@ -674,6 +692,14 @@ msgstr "Τεχνολογικό Στοιχεία Παραγγελίας OutBoB"
 #: model@mm.disassembly.orders|_description@:1
 msgid "Disassembly Order"
 msgstr "Αποσυναρμολόγηση, Ώστε"
+
+#: model@mm.disassembly.orders|_columns@product$label:1
+msgid "Disassembly Product"
+msgstr "Αποσυναρμολόγηση Προϊόντων"
+
+#: model@mm.disassembly.orders|_columns@part$label:1
+msgid "Disassembly Part"
+msgstr "Αποσυναρμολόγηση Μέρος"
 
 #: model@mm.disassembly.orders|_columns@dodo$label:1
 msgid "Date Of Disassembly Order"
@@ -703,7 +729,7 @@ msgstr "Αποσυναρμολόγηση, Ώστε Τιμολόγηση"
 msgid "Disassembly Order Items"
 msgstr "Αποσυναρμολόγηση Στοιχεία Παραγγελίας"
 
-#: model@mm.disassembly.order.delivery.schedules|_description@:1
+#: model@mm.disassembly.order.schedules|_description@:1
 msgid "Disassembly Order Delivery Schedule"
 msgstr "Αποσυναρμολόγηση, Ώστε Το Χρονοδιάγραμμα Παράδοσης"
 

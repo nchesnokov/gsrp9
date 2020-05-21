@@ -1,6 +1,35 @@
 from gsrp5service.orm import fields
 from gsrp5service.orm.model import Model,ModelInherit
 
+import web_pdb
+
+
+class model_common(ModelInherit):
+	_name = 'mm.common.model'
+	_description = 'Manufsctured management Common'
+	def _calculate_amount_costs(self,cr,pool,uid,record,context={}):
+		fields = ['amount']
+		for field in fields:
+			if field in record:
+				record[field] = None
+			for o2mfield in self._o2mfields:
+				if o2mfield in record:
+					for rec in record[o2mfield]:
+						if field in rec and rec[field]:
+							if field not in record or record[field] is None:
+								record[field] = rec[field]
+							else:
+								record[field] += rec[field]
+
+	def _calculate_parts(self,cr,pool,uid,item,context={}):		
+		if 'schedules' in item and item['schedules']:
+			item['parts'] = None
+			for r in item['schedules']:
+				if item['parts'] is None:
+					item['parts'] = r['part']
+				else:
+					item['parts'] += r['part']
+
 #Pricing
 class mm_pricing_group_levels(Model):
 	_name = 'mm.pricing.group.levels'
@@ -151,8 +180,6 @@ class mm_disassembly_order_type_roles(Model):
 
 mm_disassembly_order_type_roles()
 
-
-
 class mm_workcenter_category(Model):
 	_name = 'mm.workcenter.category'
 	_description = 'Category Workcenter'
@@ -178,7 +205,6 @@ class mm_route_category(Model):
 	}
 
 mm_route_category()
-
 
 class mm_production_order_category(Model):
 	_name = 'mm.production.order.category'
@@ -260,7 +286,6 @@ class mm_workcenter_product_prices(Model):
 	}
 
 mm_workcenter_product_prices()
-
 #route
 class mm_route(Model):
 	_name = 'mm.route'
@@ -292,6 +317,7 @@ mm_route_items()
 class mm_production_orders(Model):
 	_name = 'mm.production.orders'
 	_description = 'Production Order'
+	_inherits = {'mm.common.model':{'_methods':['_calculate_amount_costs','_calculate_parts']}}
 	_date = 'dopo'
 	_columns = {
 	'otype': fields.many2one(label='Type',obj='mm.production.order.types',on_change='_on_change_otype', required = True),
@@ -299,6 +325,8 @@ class mm_production_orders(Model):
 	'company': fields.many2one(label='Company',obj='md.company'),
 	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True, compute = '_compute_composite'),
 	'bom': fields.many2one(label='BoM',obj='md.boms',on_change='_on_change_bom'),
+	'product': fields.many2one(label='Production Product',obj='md.product',readonly=True),
+	'part': fields.numeric(label='Production Part',size=(11,3), readonly=True),
 	'category_id': fields.many2one(label='Category',obj='mm.production.order.category'),
 	'manager': fields.many2one(label='Manager',obj='bc.users'),
 	'origin': fields.varchar(label = 'Origin'),
@@ -307,6 +335,9 @@ class mm_production_orders(Model):
 	'to_date': fields.date(label='End Date Of Production Order',required=True),
 	'route': fields.many2one(label='Route',obj='mm.route',domain=[('rtype','in',('p','a'))]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
+	'parts': fields.numeric(label='Parts',size=(11,3),compute='_calculate_parts'),
+	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
+	'schedules': fields.one2many(label='Schedule',obj='mm.production.order.schedules',rel='order_id'),
 	'items': fields.one2many(label='Items',obj='mm.production.order.items',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='mm.production.order.texts',rel='order_id'),
 	'note': fields.text('Note')}
@@ -317,16 +348,19 @@ class mm_production_orders(Model):
 
 	def _on_change_bom(self,cr,pool,uid,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
-			for i in p:
-				ei = pool.get('mm.production.order.items')._buildEmptyItem()
-				ei['product'] = i['product']
-				ei['uom'] = i['uom']
-				ei['price'] = 0.00
-				ei['amount'] = 0.00
-				item['items'].append(ei)
-
-		return None
+			b = pool.get('md.boms').select(cr,pool,uid,['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['bom']['name'])],context)
+			if len(b) > 0:
+				item['product'] = b[0]['product']
+				item['part'] = b[0]['partition']
+				p = b[0]['items']
+				for i in p:
+					ei = pool.get('mm.production.order.items')._buildEmptyItem()
+					ei['product'] = i['product']
+					ei['quantity'] = i['quantity']
+					ei['uom'] = i['uom']
+					ei['price'] = 0.00
+					ei['amount'] = 0.00
+					item['items'].append(ei)
 
 mm_production_orders()
 
@@ -379,20 +413,19 @@ class mm_production_order_items(Model):
 	_description = 'Production Order Items'
 	_columns = {
 	'order_id': fields.many2one(obj = 'mm.production.orders',label = 'Production Order'),
-	'product': fields.many2one(label='Product',obj='md.product',readonly=True),
-	'quantity': fields.numeric(label='Quantity',size=(13,3),compute='_calculate_bom_item_schedule'),
+	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product',readonly=True),
+	'quantity': fields.numeric(label='Quantity',size=(13,3)),
 	'uom': fields.many2one(label='UoM',obj='md.uom'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'currency': fields.many2one(label='Currency',obj='md.currency'),
 	'unit': fields.integer(label='Unit'),
 	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
-	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_bom_item'),
-	'schedules': fields.one2many(label='Schedule',obj='mm.production.order.delivery.schedules',rel='item_id'),
+	'amount': fields.numeric(label='Amount',size=(15,2),priority=1,compute='_calculate_bom_item'),
 	'note': fields.text(label = 'Note')}
 
 	def _on_change_product(self,cr,pool,uid,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.cost.product').select(cr,pool,uid,['uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = pool.get('md.mm.product').select(cr,pool,uid,['uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				for f in ('uom','price','currency','unit','uop'):
 					if f not in item or item[f] != p[0][f]:
@@ -410,29 +443,20 @@ class mm_production_order_items(Model):
 		return None
 
 	def _calculate_bom_item(self,cr,pool,uid,item,context={}):		
+		#web_pdb.set_trace()
 		if 'quantity' in item and item['quantity'] and 'uom' in item and item['uom'] and 'price' in item and item['price'] and 'currency' in item and item['currency'] and 'unit' in item and item['unit'] and 'uop' in item and item['uop']:
 			item['amount'] = item['price'] / item['unit'] * item['quantity']
 
 		return None
 
-	def _calculate_bom_item_schedule(self,cr,pool,uid,item,context={}):		
-		if 'schedules' in item and item['schedules']:
-			item['quantity'] = None
-			for r in item['schedules']:
-				if quantity is None:
-					item['quantity'] = r['part']
-				else:
-					item['quantity'] += r['part']
-
-		return None
 
 mm_production_order_items()
 
 class mm_production_order_delivery_schedules(Model):
-	_name = 'mm.production.order.delivery.schedules'
-	_description = 'Production Order Delivery Schedule'
+	_name = 'mm.production.order.schedules'
+	_description = 'Production Order Schedule'
 	_columns = {
-	'item_id': fields.many2one(obj = 'mm.production.order.items',label = 'Item'),
+	'order_id': fields.many2one(obj = 'mm.production.orders',label = 'Order'),
 	'part': fields.numeric(label='Part',size=(11,3),required=True,check='part > 0.000'),
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
@@ -448,6 +472,7 @@ mm_production_order_delivery_schedules()
 class mm_technologic_orders(Model):
 	_name = 'mm.technologic.orders'
 	_description = 'Technologic Order'
+	_inherits = {'mm.common.model':{'_methods':['_calculate_amount_costs','_calculate_parts']}}
 	_date = 'doto'
 	_columns = {
 	'otype': fields.many2one(label='Type',obj='mm.technologic.order.types',on_change='_on_change_otype', required = True),
@@ -455,6 +480,7 @@ class mm_technologic_orders(Model):
 	'company': fields.many2one(label='Company',obj='md.company'),
 	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True, compute = '_compute_composite'),
 	'bob': fields.many2one(label='BoB',obj='md.boms',compute='_on_change_bob'),
+	'part': fields.numeric(label='Production Part',size=(11,3), readonly=True),
 	'manager': fields.many2one(label='Manager',obj='bc.users'),
 	'category_id': fields.many2one(label='Category',obj='mm.technologic.order.category'),
 	'origin': fields.varchar(label = 'Origin'),
@@ -463,7 +489,9 @@ class mm_technologic_orders(Model):
 	'to_date': fields.date(label='End Date Of Technologic Order',required=True),
 	'route': fields.many2one(label='Route',obj='mm.route',domain=[('rtype','in',('t','a'))]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
-	'schedules': fields.one2many(label='Schedule',obj='mm.technologic.order.delivery.schedules',rel='order_id'),
+	'parts': fields.numeric(label='Parts',size=(11,3),compute='_calculate_parts'),
+	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
+	'schedules': fields.one2many(label='Schedule',obj='mm.technologic.order.schedules',rel='order_id'),
 	'ibobs': fields.one2many(label='InBoB',obj='mm.technologic.order.item.ibob',rel='order_id'),
 	'obobs': fields.one2many(label='OutBoB',obj='mm.technologic.order.item.obob',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='mm.technologic.order.texts',rel='order_id'),
@@ -471,27 +499,29 @@ class mm_technologic_orders(Model):
 
 	def _on_change_bob(self,cr,pool,uid,item,context={}):		
 		if item['bob'] and 'name' in item['bob'] and item['bob']['name']:
-			p = pool.get('md.bob.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bob_id','=',item['bob']['name'])],context)
-			for i in p:
-				ei = pool.get('mm.technologic.order.item.ibob')._buildEmptyItem()
-				ei['product'] = i['product']
-				ei['quantity'] = i['quantity']
-				ei['uom'] = i['uom']
-				ei['price'] = 0.00
-				ei['amount'] = 0.00
-				item['ibobs'].append(ei)
-				
-			p = pool.get('md.bob.output.items').select(cr,pool,uid,['product','quantity','uom'],[('bob_id','=',item['bob_id']['name'])],context)
-			for i in p:
-				ei = pool.get('mm.technologic.order.item.obob')._buildEmptyItem()
-				ei['product'] = i['product']
-				ei['quantity'] = i['quantity']
-				ei['uom'] = i['uom']
-				ei['price'] = 0.00
-				ei['amount'] = 0.00
-				item['obobs'].append(ei)
-				
-		return None
+			b = pool.get('md.bobs').select(cr,pool,uid,['fullname','partition',{'input_items':['product','quantity','uom']},{'output_items':['product','quantity','uom']}],[('fullname','=',item['bob']['name'])],context)
+			if len(b) > 0:
+				item['part'] = b[0]['partition']
+				p = b[0]['input_items']
+				for i in p:
+					ei = pool.get('mm.technologic.order.item.ibob')._buildEmptyItem()
+					ei['product'] = i['product']
+					ei['quantity'] = i['quantity']
+					ei['uom'] = i['uom']
+					ei['price'] = 0.00
+					ei['amount'] = 0.00
+					item['ibobs'].append(ei)
+					
+				p = b[0]['output_items']
+				for i in p:
+					ei = pool.get('mm.technologic.order.item.obob')._buildEmptyItem()
+					ei['product'] = i['product']
+					ei['quantity'] = i['quantity']
+					ei['uom'] = i['uom']
+					ei['price'] = 0.00
+					ei['amount'] = 0.00
+					item['obobs'].append(ei)
+
 
 	_default = {
 		'state':'draft'
@@ -500,7 +530,7 @@ class mm_technologic_orders(Model):
 mm_technologic_orders()
 
 class mm_technologic_order_delivery_schedules(Model):
-	_name = 'mm.technologic.order.delivery.schedules'
+	_name = 'mm.technologic.order.schedules'
 	_description = 'Technologic Order Delivery Schedule'
 	_columns = {
 	'order_id': fields.many2one(obj = 'mm.technologic.orders',label = 'Schedule'),
@@ -597,6 +627,7 @@ mm_technologic_order_item_obob()
 class mm_disassembly_orders(Model):
 	_name = 'mm.disassembly.orders'
 	_description = 'Disassembly Order'
+	_inherits = {'mm.common.model':{'_methods':['_calculate_amount_costs','_calculate_parts']}}
 	_date = 'dodo'
 	_columns = {
 	'otype': fields.many2one(label='Type',obj='mm.disassembly.order.types',on_change='_on_change_otype', required = True),
@@ -604,6 +635,8 @@ class mm_disassembly_orders(Model):
 	'company': fields.many2one(label='Company',obj='md.company'),
 	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True, compute = '_compute_composite'),
 	'mob': fields.many2one(label='BoM',obj='md.mobs',on_change='_on_change_mob'),
+	'product': fields.many2one(label='Disassembly Product',obj='md.product',readonly=True),
+	'part': fields.numeric(label='Disassembly Part',size=(11,3), readonly=True),
 	'category_id': fields.many2one(label='Category',obj='mm.disassembly.order.category'),
 	'manager': fields.many2one(label='Manager',obj='bc.users'),
 	'origin': fields.varchar(label = 'Origin'),
@@ -612,22 +645,28 @@ class mm_disassembly_orders(Model):
 	'to_date': fields.date(label='End Date Of Disassembly Order',required=True),
 	'route': fields.many2one(label='Route',obj='mm.route',domain=[('rtype','in',('d','a'))]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
+	'parts': fields.numeric(label='Parts',size=(15,2),compute='_calculate_parts'),
+	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
+	'schedules': fields.one2many(label='Schedule',obj='mm.disassembly.order.schedules',rel='order_id'),
 	'items': fields.one2many(label='Items',obj='mm.disassembly.order.items',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='mm.disassembly.order.texts',rel='order_id'),
 	'note': fields.text('Note')}
 
 	def _on_change_mob(self,cr,pool,uid,item,context={}):		
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
-			p = pool.get('md.bom.items').select(cr,pool,uid,['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
-			for i in p:
-				ei = pool.get('mm.disassembly.order.items')._buildEmptyItem()
-				ei['product'] = i['product']
-				ei['uom'] = i['uom']
-				ei['price'] = 0.00
-				ei['amount'] = 0.00
-				item['items'].append(ei)
+			b = pool.get('md.mobs').select(cr,pool,uid,['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['mob']['name'])],context)
+			if len(b) > 0:
+				item['product'] = b[0]['product']
+				item['part'] = b[0]['partition']
+				p = b[0]['items']
 
-		return None
+				for i in p:
+					ei = pool.get('mm.disassembly.order.items')._buildEmptyItem()
+					ei['product'] = i['product']
+					ei['uom'] = i['uom']
+					ei['price'] = 0.00
+					ei['amount'] = 0.00
+					item['items'].append(ei)
 
 	_default = {
 		'state':'draft'
@@ -685,19 +724,18 @@ class mm_disassembly_order_items(Model):
 	_columns = {
 	'order_id': fields.many2one(obj = 'mm.disassembly.orders',label = 'Technologic Order'),
 	'product': fields.many2one(label='Product',obj='md.product',readonly=True),
-	'quantity': fields.numeric(label='Quantity',size=(13,3),compute='_calculate_mob_item_schedule'),
+	'quantity': fields.numeric(label='Quantity',size=(13,3)),
 	'uom': fields.many2one(label='UoM',obj='md.uom'),
 	'price': fields.numeric(label='Price',size=(13,2)),
 	'currency': fields.many2one(label='Currency',obj='md.currency'),
 	'unit': fields.integer(label='Unit'),
 	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
-	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_mob_item'),
-	'schedules': fields.one2many(label='Schedule',obj='mm.disassembly.order.delivery.schedules',rel='item_id'),
+	'amount': fields.numeric(label='Amount',size=(15,2),priority=1,compute='_calculate_mob_item'),
 	'note': fields.text(label = 'Note')
 	}
 
-	def _calculate_mob_item(self,cr,pool,uid,item,context={}):		
-		if 'quantity' in item and 'uom' in item and 'price' in item and 'currency' in item and 'unit' in item and 'uop' in item:
+	def _calculate_mob_item(self,cr,pool,uid,item,context={}):
+		if 'quantity' in item and item['quantity'] and 'uom' in item and item['uom'] and 'price' in item and item['price'] and 'currency' in item and item['currency'] and 'unit' in item and item['unit'] and 'uop' in item and item['uop']:
 			item['amount'] = item['price'] / item['unit'] * item['quantity']
 
 		return None
@@ -717,10 +755,10 @@ class mm_disassembly_order_items(Model):
 mm_disassembly_order_items()
 
 class mm_disassembly_order_delivery_schedules(Model):
-	_name = 'mm.disassembly.order.delivery.schedules'
+	_name = 'mm.disassembly.order.schedules'
 	_description = 'Disassembly Order Delivery Schedule'
 	_columns = {
-	'item_id': fields.many2one(obj = 'mm.disassembly.order.items',label = 'Item'),
+	'order_id': fields.many2one(obj = 'mm.disassembly.orders',label = 'Item'),
 	'part': fields.numeric(label='Part',size=(11,3),required=True,check='part > 0.000'),
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')

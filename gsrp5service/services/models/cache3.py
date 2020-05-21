@@ -20,7 +20,9 @@ class orm_exception(Exception):
 def _join_diffs(d1,d2):
 	for k2 in d2.keys():
 		if k2 in ('__update__','__insert__','__delete__'):
-			d1[k2].update(d2[k2])
+			for k21 in d2[k2].keys():
+				for k211 in d2[k2][k21].keys():
+					d1.setdefault(k2,{}).setdefault(k21,{})[k211]  = d2[k2][k21][k211]
 		elif k2 in ('__append__','__remove__'):
 			d1[k2].extend(d2[k2])
 
@@ -1912,7 +1914,6 @@ class MCache(object):
 		return ['rollbacked']
 			
 	def _post_diff(self,diffs,context):
-		#web_pdb.set_trace()
 		if '__o2m_append__' in diffs:
 			apnds1 = diffs['__o2m_append__']
 			for apnd1 in apnds1:
@@ -2035,7 +2036,8 @@ class MCache(object):
 		levels = {}
 		diffs1 = self._data._odiffs(False)
 		ch1 = DCacheDict(self._data._getCData(self._data._root),self._data._model,self._cr,self._pool,self._uid,self._context)
-
+		
+		#web_pdb.set_trace()
 		self._post_diff(diffs1,context)
 		diffs2 = ch1._pdiffs()
 		
@@ -2062,6 +2064,7 @@ class MCache(object):
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
 
+		print('MCHACHE:',res)
 		if len(res) > 0:
 			return [res]
 		

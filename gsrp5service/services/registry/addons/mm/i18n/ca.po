@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-20 20:20:10+0300\n"
-"PO-Revision-Date: 2020-05-20 20:20:10+0300\n"
+"POT-Creation-Date: 2020-05-21 18:40:33+0300\n"
+"PO-Revision-Date: 2020-05-21 18:40:33+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -44,10 +44,9 @@ msgid "Header"
 msgstr "Capçalera"
 
 #: model@mm.schema.texts|_columns@usage$selections#i:1
-#: model@mm.production.order.delivery.schedules|_columns@item_id$label:1
 #: model@mm.technologic.order.item.ibob|_columns@order_id$label:1
 #: model@mm.technologic.order.item.obob|_columns@order_id$label:1
-#: model@mm.disassembly.order.delivery.schedules|_columns@item_id$label:1
+#: model@mm.disassembly.order.schedules|_columns@order_id$label:1
 msgid "Item"
 msgstr "Item"
 
@@ -112,6 +111,7 @@ msgstr "Tipus"
 #: model@mm.production.order.texts|_columns@order_id$label:1
 #: model@mm.production.order.roles|_columns@order_id$label:1
 #: model@mm.production.order.pricing|_columns@order_id$label:1
+#: model@mm.production.order.schedules|_columns@order_id$label:1
 #: model@mm.technologic.order.texts|_columns@order_id$label:1
 #: model@mm.technologic.order.roles|_columns@order_id$label:1
 #: model@mm.technologic.order.pricing|_columns@order_id$label:1
@@ -203,14 +203,14 @@ msgstr "Funcions"
 #: model@mm.route.items|_columns@note$label:1
 #: model@mm.production.orders|_columns@note$label:1
 #: model@mm.production.order.items|_columns@note$label:1
-#: model@mm.production.order.delivery.schedules|_columns@note$label:1
+#: model@mm.production.order.schedules|_columns@note$label:1
 #: model@mm.technologic.orders|_columns@note$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@note$label:1
+#: model@mm.technologic.order.schedules|_columns@note$label:1
 #: model@mm.technologic.order.item.ibob|_columns@note$label:1
 #: model@mm.technologic.order.item.obob|_columns@note$label:1
 #: model@mm.disassembly.orders|_columns@note$label:1
 #: model@mm.disassembly.order.items|_columns@note$label:1
-#: model@mm.disassembly.order.delivery.schedules|_columns@note$label:1
+#: model@mm.disassembly.order.schedules|_columns@note$label:1
 #: model@md.mm.product|_columns@note$label:1
 msgid "Note"
 msgstr "Nota"
@@ -434,6 +434,15 @@ msgstr "Nom Complet"
 msgid "BoM"
 msgstr "BoM"
 
+#: model@mm.production.orders|_columns@product$label:1
+msgid "Production Product"
+msgstr "Producció De Producte"
+
+#: model@mm.production.orders|_columns@part$label:1
+#: model@mm.technologic.orders|_columns@part$label:1
+msgid "Production Part"
+msgstr "Part De La Producció"
+
 #: model@mm.production.orders|_columns@manager$label:1
 #: model@mm.technologic.orders|_columns@manager$label:1
 #: model@mm.disassembly.orders|_columns@manager$label:1
@@ -493,6 +502,35 @@ msgstr "Tancat"
 #: model@mm.disassembly.orders|_columns@state$selections#canceled:1
 msgid "Canceled"
 msgstr "Cancel·lat"
+
+#: model@mm.production.orders|_columns@parts$label:1
+#: model@mm.technologic.orders|_columns@parts$label:1
+#: model@mm.disassembly.orders|_columns@parts$label:1
+msgid "Parts"
+msgstr "Parts"
+
+#: model@mm.production.orders|_columns@amount$label:1
+#: model@mm.production.order.pricing|_columns@amount$label:1
+#: model@mm.production.order.items|_columns@amount$label:1
+#: model@mm.technologic.orders|_columns@amount$label:1
+#: model@mm.technologic.order.pricing|_columns@amount$label:1
+#: model@mm.technologic.order.item.ibob|_columns@amount$label:1
+#: model@mm.technologic.order.item.obob|_columns@amount$label:1
+#: model@mm.disassembly.orders|_columns@amount$label:1
+#: model@mm.disassembly.order.pricing|_columns@amount$label:1
+#: model@mm.disassembly.order.items|_columns@amount$label:1
+msgid "Amount"
+msgstr "Quantitat"
+
+#: model@mm.production.orders|_columns@schedules$label:1
+#: model@mm.production.order.schedules|_columns@schedule$label:1
+#: model@mm.technologic.orders|_columns@schedules$label:1
+#: model@mm.technologic.order.schedules|_columns@order_id$label:1
+#: model@mm.technologic.order.schedules|_columns@schedule$label:1
+#: model@mm.disassembly.orders|_columns@schedules$label:1
+#: model@mm.disassembly.order.schedules|_columns@schedule$label:1
+msgid "Schedule"
+msgstr "Horari"
 
 #: model@mm.production.order.texts|_description@:1
 msgid "Production Order Texts"
@@ -554,16 +592,6 @@ msgstr "A Nivell"
 msgid "Group Level"
 msgstr "A Nivell De Grup"
 
-#: model@mm.production.order.pricing|_columns@amount$label:1
-#: model@mm.production.order.items|_columns@amount$label:1
-#: model@mm.technologic.order.pricing|_columns@amount$label:1
-#: model@mm.technologic.order.item.ibob|_columns@amount$label:1
-#: model@mm.technologic.order.item.obob|_columns@amount$label:1
-#: model@mm.disassembly.order.pricing|_columns@amount$label:1
-#: model@mm.disassembly.order.items|_columns@amount$label:1
-msgid "Amount"
-msgstr "Quantitat"
-
 #: model@mm.production.order.items|_description@:1
 msgid "Production Order Items"
 msgstr "Ordre De Producció Elements"
@@ -598,23 +626,13 @@ msgstr "Preu"
 msgid "Unit Of Price"
 msgstr "Unitat De Preu"
 
-#: model@mm.production.order.items|_columns@schedules$label:1
-#: model@mm.production.order.delivery.schedules|_columns@schedule$label:1
-#: model@mm.technologic.orders|_columns@schedules$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@order_id$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@schedule$label:1
-#: model@mm.disassembly.order.items|_columns@schedules$label:1
-#: model@mm.disassembly.order.delivery.schedules|_columns@schedule$label:1
-msgid "Schedule"
-msgstr "Horari"
+#: model@mm.production.order.schedules|_description@:1
+msgid "Production Order Schedule"
+msgstr "Ordre De Producció Horari"
 
-#: model@mm.production.order.delivery.schedules|_description@:1
-msgid "Production Order Delivery Schedule"
-msgstr "Ordre De Producció Horari De Lliurament"
-
-#: model@mm.production.order.delivery.schedules|_columns@part$label:1
-#: model@mm.technologic.order.delivery.schedules|_columns@part$label:1
-#: model@mm.disassembly.order.delivery.schedules|_columns@part$label:1
+#: model@mm.production.order.schedules|_columns@part$label:1
+#: model@mm.technologic.order.schedules|_columns@part$label:1
+#: model@mm.disassembly.order.schedules|_columns@part$label:1
 msgid "Part"
 msgstr "Part"
 
@@ -647,7 +665,7 @@ msgstr "InBoB"
 msgid "OutBoB"
 msgstr "OutBoB"
 
-#: model@mm.technologic.order.delivery.schedules|_description@:1
+#: model@mm.technologic.order.schedules|_description@:1
 msgid "Technologic Order Delivery Schedule"
 msgstr "Tecnològics, Per Horari De Lliurament"
 
@@ -674,6 +692,14 @@ msgstr "Tecnològics Per Elements OutBoB"
 #: model@mm.disassembly.orders|_description@:1
 msgid "Disassembly Order"
 msgstr "Desmuntatge Per"
+
+#: model@mm.disassembly.orders|_columns@product$label:1
+msgid "Disassembly Product"
+msgstr "Desmuntatge Producte"
+
+#: model@mm.disassembly.orders|_columns@part$label:1
+msgid "Disassembly Part"
+msgstr "Desmuntatge Part"
 
 #: model@mm.disassembly.orders|_columns@dodo$label:1
 msgid "Date Of Disassembly Order"
@@ -703,7 +729,7 @@ msgstr "Desmuntatge Ordre De Preus"
 msgid "Disassembly Order Items"
 msgstr "Desmuntatge Per Elements"
 
-#: model@mm.disassembly.order.delivery.schedules|_description@:1
+#: model@mm.disassembly.order.schedules|_description@:1
 msgid "Disassembly Order Delivery Schedule"
 msgstr "Desmuntatge Ordre Horari De Lliurament"
 
