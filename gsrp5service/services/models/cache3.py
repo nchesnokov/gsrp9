@@ -22,28 +22,28 @@ def _join_diffs(d1,d2):
 	for k1 in filter(lambda x: x in keys1,('__o2m_append__',)):
 		for r1 in d1[k1]:
 			if '__update__' in d2 and r1['__path__'] in d2['__update__']:
-				 r1['__data__'].update(d2['__update__'][r1['__path__']])
-				 del d2['__update__'][r1['__path__']]
+				r1['__data__'].update(d2['__update__'][r1['__path__']])
+				del d2['__update__'][r1['__path__']]
 
 			if '__insert__' in d2 and r1['__path__'] in d2['__insert__']:
-				 r1['__data__'].update(d2['__insert__'][r1['__path__']])
-				 del d2['__insert__'][r1['__path__']]
+				r1['__data__'].update(d2['__insert__'][r1['__path__']])
+				del d2['__insert__'][r1['__path__']]
 
-			if '__delete__' in d2 and r2['__path__'] in d2['__delete__']:
+			if '__delete__' in d2 and r1['__path__'] in d2['__delete__']:
 				for k2d in d2['__delete__'][r1['__path__']].keys():
-					del r2['__data__'][k2d]
+					del r1['__data__'][k2d]
 
 	keys2 = list(d2.keys())
 	for k2 in filter(lambda x: x in keys2,('__o2m_append__','__o2m_remove__','__m2m_append__','__m2m_remove__','__update__','__insert__','__delete__')):
 		if k2 in ('__o2m_append__','__m2m_append__'):
 			for r2 in d2[k2]:
 				if r2['__path__'] in d2['__update__']:
-					 r2['__data__'].update(d2['__update__'][r2['__path__']])
-					 del d2['__update__'][r2['__path__']]
+					r2['__data__'].update(d2['__update__'][r2['__path__']])
+					del d2['__update__'][r2['__path__']]
 
 				if r2['__path__'] in d2['__insert__']:
-					 r2['__data__'].update(d2['__insert__'][r2['__path__']])
-					 del d2['__insert__'][r2['__path__']]
+					r2['__data__'].update(d2['__insert__'][r2['__path__']])
+					del d2['__insert__'][r2['__path__']]
 
 				if r2['__path__'] in d2['__delete__']:
 					for k2d in d2['__delete__'][r2['__path__']].keys():
