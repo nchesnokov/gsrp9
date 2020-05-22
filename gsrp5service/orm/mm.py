@@ -560,6 +560,19 @@ def _compute_composite_tree(self,cr,pool,uid,item,context):
 			item[fullname] = v
 
 # modelinfo
+def _setDefault(self,item):
+	_default = self._default
+	m1 = self.columnsInfo(attributes=['type','obj'])
+	for k in _default.keys():
+		if k in item:
+			if m1[k]['type'] in ('numeric','decimal'):
+				item[k] = Decimal(_default[k])
+			elif m1[k]['type'] in ('many2one','related'):
+				item.setdefault(k,{})['name'] = _default[k]
+			else:
+				item[k] = _default[k]	
+
+
 def _buildEmptyItem(self):
 	r = dict.fromkeys(list(self._columns.keys()))
 	for o2mfiled in self._o2mfields:
@@ -571,6 +584,8 @@ def _buildEmptyItem(self):
 	for m2orelatedfield in self._m2orelatedfields:
 		r[m2orelatedfield] = {'id':None,'name':None}
 	
+	
+	_setDefault(self,r)
 	return r
 
 def _buildSchemaColumns(self,pool):

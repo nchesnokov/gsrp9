@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-21 18:40:44+0300\n"
-"PO-Revision-Date: 2020-05-21 18:40:44+0300\n"
+"POT-Creation-Date: 2020-05-22 11:45:26+0300\n"
+"PO-Revision-Date: 2020-05-22 11:45:26+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -430,7 +430,6 @@ msgid "Full Name"
 msgstr "Volledige Naam"
 
 #: model@mm.production.orders|_columns@bom$label:1
-#: model@mm.disassembly.orders|_columns@mob$label:1
 msgid "BoM"
 msgstr "BoM"
 
@@ -512,7 +511,6 @@ msgstr "Delen"
 #: model@mm.production.orders|_columns@amount$label:1
 #: model@mm.production.order.pricing|_columns@amount$label:1
 #: model@mm.production.order.items|_columns@amount$label:1
-#: model@mm.technologic.orders|_columns@amount$label:1
 #: model@mm.technologic.order.pricing|_columns@amount$label:1
 #: model@mm.technologic.order.item.ibob|_columns@amount$label:1
 #: model@mm.technologic.order.item.obob|_columns@amount$label:1
@@ -657,6 +655,14 @@ msgstr "Start Datum Van Technologische Bestelling"
 msgid "End Date Of Technologic Order"
 msgstr "Datum Van Het Einde Van Technologische Bestelling"
 
+#: model@mm.technologic.orders|_columns@oamount$label:1
+msgid "Ounput Amount"
+msgstr "Ounput Bedrag"
+
+#: model@mm.technologic.orders|_columns@iamount$label:1
+msgid "Input Amount"
+msgstr "Input Bedrag"
+
 #: model@mm.technologic.orders|_columns@ibobs$label:1
 msgid "InBoB"
 msgstr "InBoB"
@@ -692,6 +698,10 @@ msgstr "Technologische Om De Items OutBoB"
 #: model@mm.disassembly.orders|_description@:1
 msgid "Disassembly Order"
 msgstr "Demontage Volgorde"
+
+#: model@mm.disassembly.orders|_columns@mob$label:1
+msgid "MoB"
+msgstr "MoB"
 
 #: model@mm.disassembly.orders|_columns@product$label:1
 msgid "Disassembly Product"

@@ -380,8 +380,6 @@ class mm_production_orders(Model):
 					ei['product'] = i['product']
 					ei['quantity'] = i['quantity']
 					ei['uom'] = i['uom']
-					ei['price'] = 0.00
-					ei['amount'] = 0.00
 					item['items'].append(ei)
 
 mm_production_orders()
@@ -448,7 +446,9 @@ class mm_production_order_items(Model):
 	}
 
 	_default = {
-		'quantity': 1.000
+		'quantity': 1.000,
+		'price': '0.00',
+		'amount': '0.00',
 	}
 
 mm_production_order_items()
@@ -491,7 +491,7 @@ class mm_technologic_orders(Model):
 	'route': fields.many2one(label='Route',obj='mm.route',domain=[('rtype','in',('t','a'))]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
 	'parts': fields.numeric(label='Parts',size=(11,3),compute='_calculate_parts'),
-	'oamount': fields.numeric(label='Ounput Amount',size=(15,2),compute='_calculate_oamount_costs'),
+	'oamount': fields.numeric(label='Output Amount',size=(15,2),compute='_calculate_oamount_costs'),
 	'iamount': fields.numeric(label='Input Amount',size=(15,2),compute='_calculate_iamount_costs'),
 	'schedules': fields.one2many(label='Schedule',obj='mm.technologic.order.schedules',rel='order_id'),
 	'ibobs': fields.one2many(label='InBoB',obj='mm.technologic.order.item.ibob',rel='order_id'),
@@ -510,8 +510,6 @@ class mm_technologic_orders(Model):
 					ei['product'] = i['product']
 					ei['quantity'] = i['quantity']
 					ei['uom'] = i['uom']
-					ei['price'] = 0.00
-					ei['amount'] = 0.00
 					item['ibobs'].append(ei)
 					
 				p = b[0]['output_items']
@@ -520,24 +518,22 @@ class mm_technologic_orders(Model):
 					ei['product'] = i['product']
 					ei['quantity'] = i['quantity']
 					ei['uom'] = i['uom']
-					ei['price'] = 0.00
-					ei['amount'] = 0.00
 					item['obobs'].append(ei)
 
 	def _calculate_oamount_costs(self,cr,pool,uid,item,context={}):		
 		if 'obobs' in item and item['obobs']:
-			item['obobs'] = None
+			item['oamount'] = None
 			for r in item['obobs']:
-				if item['amount'] is None:
+				if item['oamount'] is None:
 					item['oamount'] = r['amount']
 				else:
 					item['oamount'] += r['amount']
 
 	def _calculate_iamount_costs(self,cr,pool,uid,item,context={}):		
 		if 'ibobs' in item and item['ibobs']:
-			item['ibobs'] = None
+			item['iamount'] = None
 			for r in item['ibobs']:
-				if item['amount'] is None:
+				if item['iamount'] is None:
 					item['iamount'] = r['amount']
 				else:
 					item['iamount'] += r['amount']
@@ -627,7 +623,10 @@ class mm_technologic_order_item_ibob(Model):
 	}
 
 	_default = {
-		'quantity': 1.000
+		'quantity': 1.000,
+		'price': '0.00',
+		'amount': '0.00',
+
 	}
 
 mm_technologic_order_item_ibob()
@@ -650,7 +649,9 @@ class mm_technologic_order_item_obob(Model):
 	}
 
 	_default = {
-		'quantity': 1.000
+		'quantity': 1.000,
+		'price': '0.00',
+		'amount': '0.00',
 	}
 
 mm_technologic_order_item_obob()
@@ -697,8 +698,6 @@ class mm_disassembly_orders(Model):
 					ei['product'] = i['product']
 					ei['quantity'] = i['quantity']
 					ei['uom'] = i['uom']
-					ei['price'] = 0.00
-					ei['amount'] = 0.00
 					item['items'].append(ei)
 
 	_default = {
@@ -769,7 +768,9 @@ class mm_disassembly_order_items(Model):
 	}
 
 	_default = {
-		'quantity': 1.000
+		'quantity': 1.000,
+		'price': '0.00',
+		'amount': '0.00',
 	}
 
 
