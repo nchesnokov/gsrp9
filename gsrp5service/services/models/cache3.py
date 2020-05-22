@@ -18,13 +18,42 @@ class orm_exception(Exception):
 		self.kwargs = kwargs
 
 def _join_diffs(d1,d2):
-	for k2 in d2.keys():
-		if k2 in ('__update__','__insert__','__delete__'):
-			for k21 in d2[k2].keys():
-				for k211 in d2[k2][k21].keys():
-					d1.setdefault(k2,{}).setdefault(k21,{})[k211]  = d2[k2][k21][k211]
-		elif k2 in ('__append__','__remove__'):
+	keys1 = list(d1.keys())
+	for k1 in filter(lambda x: x in keys1,('__o2m_append__',)):
+		for r1 in d1[k1]:
+			if '__update__' in d2 and r1['__path__'] in d2['__update__']:
+				 r1['__data__'].update(d2['__update__'][r1['__path__']])
+				 del d2['__update__'][r1['__path__']]
+
+			if '__insert__' in d2 and r1['__path__'] in d2['__insert__']:
+				 r1['__data__'].update(d2['__insert__'][r1['__path__']])
+				 del d2['__insert__'][r1['__path__']]
+
+			if '__delete__' in d2 and r2['__path__'] in d2['__delete__']:
+				for k2d in d2['__delete__'][r1['__path__']].keys():
+					del r2['__data__'][k2d]
+
+	keys2 = list(d2.keys())
+	for k2 in filter(lambda x: x in keys2,('__o2m_append__','__o2m_remove__','__m2m_append__','__m2m_remove__','__update__','__insert__','__delete__')):
+		if k2 in ('__o2m_append__','__m2m_append__'):
+			for r2 in d2[k2]:
+				if r2['__path__'] in d2['__update__']:
+					 r2['__data__'].update(d2['__update__'][r2['__path__']])
+					 del d2['__update__'][r2['__path__']]
+
+				if r2['__path__'] in d2['__insert__']:
+					 r2['__data__'].update(d2['__insert__'][r2['__path__']])
+					 del d2['__insert__'][r2['__path__']]
+
+				if r2['__path__'] in d2['__delete__']:
+					for k2d in d2['__delete__'][r2['__path__']].keys():
+						del r2['__data__'][k2d]
 			d1[k2].extend(d2[k2])
+		elif k2 in ('__o2m_remove__','__m2m_remove__'):
+			d1[k2].extend(d2[k2])
+		elif k2 in ('__update__','__insert__','__delete__'):
+			for k21 in d2[k2].keys():
+				d1.setdefault(k2,{})[k21].update(d2[k2][k21])
 
 def _createRecord(self, cr, pool, uid, record, context):
 	oid = None
@@ -649,6 +678,13 @@ class DCacheDict(object):
 					del oattrs[path]
 
 		def _apply_diffs(self,o,c,diffs):
+	
+			_m2m_remove(self,o,c,diffs)
+			_o2m_remove(self,o,c,diffs)
+	
+			_m2m_append(self,o,c,diffs)
+			_o2m_append(self,o,c,diffs)
+
 			_update(self,o,c,diffs)
 			_insert(self,o,c,diffs)
 			_delete(self,o,c,diffs)
@@ -656,12 +692,7 @@ class DCacheDict(object):
 			_meta_update(self,o,c,diffs)
 			_meta_insert(self,o,c,diffs)
 			_meta_delete(self,o,c,diffs)
-	
-			_m2m_remove(self,o,c,diffs)
-			_o2m_remove(self,o,c,diffs)
-	
-			_m2m_append(self,o,c,diffs)
-			_o2m_append(self,o,c,diffs)
+
 
 		_apply_diffs(self,o,c,diffs)
 			
@@ -1913,105 +1944,15 @@ class MCache(object):
 		
 		return ['rollbacked']
 			
-	def _post_diff(self,diffs,context):
-		if '__o2m_append__' in diffs:
-			apnds1 = diffs['__o2m_append__']
-			for apnd1 in apnds1:
-				if '__o2m_containers__' in apnd1:
-					for k1 in apnd1['__o2m_containers__'].keys():
-						if len(apnd1['__o2m_containers__'][k1]) > 0:
-							self._post_diff_recursive(apnd1['__o2m_containers__'][k1],context)
-
-				m = self._pool.get(apnd1['__model__'])
-				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,apnd1['__data__'].keys()))
-				ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
-				priority = {}
-				for on_change_field in on_change_fields:
-					priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field)
-				
-				pkeys = list(priority.keys())
-				pkeys.sort()
-
-				for pkey in pkeys:
-					for on_change_field in priority[pkey]:
-						self._on_change(apnd1['__path__'],apnd1['__model__'],on_change_field,context)
-						self._do_calculate(apnd1['__path__'],context)
-						diffs2 = self._data._odiffs()
-						if len(diffs2) > 0:
-							self._post_diff(diffs2,context)
-
-		if '__insert__' in diffs:
-			insts1 = diffs['__insert__']
-			for inst1 in insts1.keys():
-				model = self._data._cmodels[inst1]
-				m = self._pool.get(model)
-				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,insts1[inst1].keys()))
-				ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
-				priority = {}
-				for on_change_field in on_change_fields:
-					priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field)
-				
-				pkeys = list(priority.keys())
-				pkeys.sort()
-
-				for pkey in pkeys:
-					for on_change_field in priority[pkey]:
-						self._on_change(inst1,model,on_change_field,context)
-						self._do_calculate(inst1,context)
-						diffs2 = self._data._odiffs()
-						if len(diffs2) > 0:
-							self._post_diff(diffs2,context)
-
-		if '__update__' in diffs:
-			upds1 = diffs['__update__']
-			for upd1 in upds1.keys():
-				model = self._data._cmodels[upd1]
-				m = self._pool.get(model)
-				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,upds1[upd1].keys()))
-				ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
-				priority = {}
-				for on_change_field in on_change_fields:
-					priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field)
-				
-				pkeys = list(priority.keys())
-				pkeys.sort()
-
-				for pkey in pkeys:
-					for on_change_field in priority[pkey]:
-						self._on_change(upd1,model,on_change_field,context)
-						self._do_calculate(upd1,context)
-						diffs2 = self._data._odiffs()
-						if len(diffs2) > 0:
-							self._post_diff(diffs2,context)
-
-
-		if '__delete__' in diffs:
-			insts1 = diffs['__delete__']
-			for inst1 in insts1.keys():
-				model = self._data._cmodels[inst1]
-				m = self._pool.get(model)
-				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,insts1[inst1].keys()))
-				ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
-				priority = {}
-				for on_change_field in on_change_fields:
-					priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field)
-				
-				pkeys = list(priority.keys())
-				pkeys.sort()
-
-				for pkey in pkeys:
-					for on_change_field in priority[pkey]:
-						self._on_change(inst1,model,on_change_field,context)
-						self._do_calculate(inst1,context)
-						diffs2 = self._data._odiffs()
-						if len(diffs2) > 0:
-							self._post_diff(diffs2,context)
-#
-	def _post_diff_recursive(self,apnds1,context):
+	def _post_diff(self,data,diffs,context):
+		#if '__o2m_append__' in diffs:
+			#apnds1 = diffs['__o2m_append__']
+		apnds1 = diffs
 		for apnd1 in apnds1:
 			if '__o2m_containers__' in apnd1:
 				for k1 in apnd1['__o2m_containers__'].keys():
-					self._post_diff_recursive(apnd1['__o2m_containers__'][k1],context)
+					if len(apnd1['__o2m_containers__'][k1]) > 0:
+						self._post_diff_recursive(apnd1['__o2m_containers__'][k1],context)
 
 			m = self._pool.get(apnd1['__model__'])
 			on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,apnd1['__data__'].keys()))
@@ -2027,21 +1968,112 @@ class MCache(object):
 				for on_change_field in priority[pkey]:
 					self._on_change(apnd1['__path__'],apnd1['__model__'],on_change_field,context)
 					self._do_calculate(apnd1['__path__'],context)
-					diffs2 = self._data._odiffs()
-					if len(diffs2) > 0:
-						self._post_diff(diffs2,context)
+					diffs2 = data._odiffs()
+					if len(diffs2) > 0 and '__o2m_append__' in diffs2:
+						self._post_diff(data,diffs2['__o2m_append__'],context)
+
+						if '__insert__' in diffs2:
+							insts2 = diffs2['__insert__']
+							for inst2 in insts2.keys():
+								model2 = self._data._cmodels[inst2]
+								m2 = self._pool.get(model2)
+								on_change_fields2 = list(filter(lambda x: x in m2._on_change_fields and x is not None,insts2[inst2].keys()))
+								ci2 = m2.columnsInfo(columns=on_change_fields2,attributes=['on_change','priority'])
+								priority2 = {}
+								for on_change_field2 in on_change_fields2:
+									priority2.setdefault(ci2[on_change_field2]['on_change'],set()).add(on_change_field2)
+								
+								pkeys2 = list(priority2.keys())
+								pkeys2.sort()
+				
+								for pkey2 in pkeys2:
+									for on_change_field2 in priority2[pkey2]:
+										self._on_change(inst2,model2,on_change_field2,context)
+										self._do_calculate(inst2,context)
+										diffs3 = data._odiffs()
+										if len(diffs3) > 0 and '__o2m_append__' in diffs3:
+											self._post_diff(data,diffs3['__o2m_append__'],context)
+				
+						if '__update__' in diffs2:
+							upds2 = diffs2['__update__']
+							for upd2 in upds2.keys():
+								model2 = self._data._cmodels[upd2]
+								m2 = self._pool.get(model2)
+								on_change_fields2 = list(filter(lambda x: x in m2._on_change_fields and x is not None,upds2[upd2].keys()))
+								ci2 = m2.columnsInfo(columns=on_change_fields2,attributes=['on_change','priority'])
+								priority2 = {}
+								for on_change_field2 in on_change_fields2:
+									priority2.setdefault(ci2[on_change_field2]['on_change'],set()).add(on_change_field2)
+								
+								pkeys2 = list(priority2.keys())
+								pkeys2.sort()
+				
+								for pkey2 in pkeys2:
+									for on_change_field in priority2[pkey2]:
+										self._on_change(upd2,model2,on_change_field2,context)
+										self._do_calculate(upd2,context)
+										diffs3 = data._odiffs()
+										if len(diffs3) > 0 and '__o2m_append__' in diffs3:
+											self._post_diff(data,diffs3['__o2m_append__'],context)
+				
+				
+							if '__delete__' in diffs2:
+								insts2 = diffs2['__delete__']
+								for inst2 in insts2.keys():
+									model2 = self._data._cmodels[inst2]
+									m2 = self._pool.get(model2)
+									on_change_fields2 = list(filter(lambda x: x in m2._on_change_fields and x is not None,insts2[inst2].keys()))
+									ci2 = m2.columnsInfo(columns=on_change_fields2,attributes=['on_change','priority'])
+									priority2 = {}
+									for on_change_field2 in on_change_fields2:
+										priority2.setdefault(ci2[on_change_field2]['on_change'],set()).add(on_change_field2)
+									
+									pkeys2 = list(priority2.keys())
+									pkeys2.sort()
+					
+									for pkey2 in pkeys2:
+										for on_change_field2 in priority2[pkey]:
+											self._on_change(inst2,model2,on_change_field2,context)
+											self._do_calculate(inst2,context)
+											diffs3 = data._odiffs()
+											if len(diffs3) > 0 and '__o2m_append__' in diffs3:
+												self._post_diff(data,diffs3['__o2m_append__'],context)
+#
+	def _post_diff_recursive(self,data,apnds1,context):
+		for apnd1 in apnds1:
+			if '__o2m_containers__' in apnd1:
+				for k1 in apnd1['__o2m_containers__'].keys():
+					self._post_diff_recursive(data,apnd1['__o2m_containers__'][k1],context)
+
+			m = self._pool.get(apnd1['__model__'])
+			on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,apnd1['__data__'].keys()))
+			ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
+			priority = {}
+			for on_change_field in on_change_fields:
+				priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field)
+			
+			pkeys = list(priority.keys())
+			pkeys.sort()
+
+			for pkey in pkeys:
+				for on_change_field in priority[pkey]:
+					self._on_change(apnd1['__path__'],apnd1['__model__'],on_change_field,context)
+					self._do_calculate(apnd1['__path__'],context)
+					diffs2 = data._odiffs()
+					if len(diffs2) > 0 and '__o2m_append__' in diffs2:
+						self._post_diff(data,diffs2['__o2m_append__'],context)
 
 #
 	def _post_diffs(self,context):
 		levels = {}
 		diffs1 = self._data._odiffs(False)
-		ch1 = DCacheDict(self._data._getCData(self._data._root),self._data._model,self._cr,self._pool,self._uid,self._context)
-		
-		#web_pdb.set_trace()
-		self._post_diff(diffs1,context)
-		diffs2 = ch1._pdiffs()
-		
-		_join_diffs(diffs1,diffs2)
+		if '__o2m_append__' in diffs1:
+			ch1 = DCacheDict(self._data._getCData(self._data._root),self._data._model,self._cr,self._pool,self._uid,self._context)
+			
+			self._post_diff(ch1,diffs1['__o2m_append__'],context)
+			diffs2 = ch1._pdiffs()
+			
+			_join_diffs(diffs1,diffs2)
 		
 		self._data._apply_from_diffs('o','c',diffs1)
 
