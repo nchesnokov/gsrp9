@@ -1,6 +1,7 @@
 from .view import get_meta_by_window_action_id_v2
 
 def run(cr,pool,uid,action_id,context):
+	cr.rollback()
 	r = pool.get('bc.actions').select(cr,pool,uid,['name','ta'],[('name','=',action_id)],context)
 	tp = r[0]['ta']
 	if tp == 'view':

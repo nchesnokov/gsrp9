@@ -53,139 +53,6 @@ class model_common(ModelInherit):
 
 
 
-class mm_workcenter_category(Model):
-	_name = 'mm.workcenter.category'
-	_description = 'Category Workcenter'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='mm.workcenter.category'),
-	'childs_id': fields.one2many(obj = 'mm.workcenter.category',rel = 'parent_id',label = 'Childs'),
-	'workcenters': fields.one2many(label='Orders',obj='mm.workcenters',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_workcenter_category()
-
-class mm_route_category(Model):
-	_name = 'mm.route.category'
-	_description = 'Category Route'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='mm.route.category'),
-	'childs_id': fields.one2many(obj = 'mm.route.category',rel = 'parent_id',label = 'Childs'),
-	'routes': fields.one2many(label='Orders',obj='mm.route',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_route_category()
-
-class mm_production_order_category(Model):
-	_name = 'mm.production.order.category'
-	_description = 'Category Production Order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='mm.production.order.category'),
-	'childs_id': fields.one2many(obj = 'mm.production.order.category',rel = 'parent_id',label = 'Childs'),
-	'orders': fields.one2many(label='Orders',obj='mm.production.orders',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_production_order_category()
-
-class mm_technologic_order_category(Model):
-	_name = 'mm.technologic.order.category'
-	_description = 'Category Technologic Order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='mm.technologic.order.category'),
-	'childs_id': fields.one2many(obj = 'mm.technologic.order.category',rel = 'parent_id',label = 'Childs'),
-	'orders': fields.one2many(label='Orders',obj='mm.technologic.orders',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_technologic_order_category()
-
-class mm_disassembly_order_category(Model):
-	_name = 'mm.disassembly.order.category'
-	_description = 'Category Disassembly Order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='mm.disassembly.order.category'),
-	'childs_id': fields.one2many(obj = 'mm.disassembly.order.category',rel = 'parent_id',label = 'Childs'),
-	'orders': fields.one2many(label='Orders',obj='mm.disassembly.orders',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_disassembly_order_category()
-# workcenter
-class mm_workcenters(Model):
-	_name = 'mm.workcenters'
-	_description = 'Workcenter'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'wctype': fields.selection(label='Type',selections=[('p','Production'),('t','Technology'),('d','Disassembly'),('a','All')]),
-	'cost_peer_hour': fields.numeric(label='Cost Peer Hours',size=(15,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
-	'products': fields.one2many(label='Products',obj='mm.workcenter.products',rel='workcenter_id',limit = 80),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_workcenters()
-
-class mm_workcenter_products(Model):
-	_name = 'mm.workcenter.products'
-	_description = 'Workcenter Products'
-	_columns = {
-	'workcenter_id': fields.many2one(label='Workcenter',obj='mm.workcenters'),
-	'product': fields.many2one(label='Product',obj='md.product'),
-	'prices': fields.one2many(label='Prices',obj='mm.workcenter.product.prices',rel='product_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_workcenter_products()
-
-class mm_workcenter_product_prices(Model):
-	_name = 'mm.workcenter.product.prices'
-	_description = 'Workcenter Product Prices'
-	_columns = {
-	'product_id': fields.many2one(label='Product',obj='mm.workcenter.products'),
-	'from_date': fields.datetime(label='From',timezone=True),
-	'to_date': fields.datetime(label='To',timezone=True),
-	'price': fields.numeric(label='Price Peer Hours',size=(13,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
-	'unit': fields.integer(label='Unit'),
-	'uop': fields.many2one(label="Unit Of Price Peer Hours",obj='md.uom',),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_workcenter_product_prices()
-#route
-class mm_route(Model):
-	_name = 'mm.route'
-	_description = 'Route'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'category_id': fields.many2one(label='Category',obj='mm.route.category'),
-	'rtype': fields.selection(label='Type',selections=[('p','Production'),('t','Technology'),('d','Disassembly'),('a','All')]),
-	'items': fields.one2many(obj = 'mm.route.items',rel = 'route_id',label = 'Items'),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_route()
-
-class mm_route_items(Model):
-	_name = 'mm.route.items'
-	_description = 'Route Items'
-	_columns = {
-	'route_id': fields.many2one(label='Route',obj='mm.route'),
-	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters'),
-	'parent_id': fields.many2one(label='Parent',obj='mm.route.items'),
-	'childs_id': fields.one2many(obj = 'mm.route.items',rel = 'parent_id',label = 'Childs'),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_route_items()
-
 #production
 class mm_production_orders(Model):
 	_name = 'mm.production.orders'
@@ -212,12 +79,35 @@ class mm_production_orders(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'schedules': fields.one2many(label='Schedule',obj='mm.production.order.schedules',rel='order_id'),
 	'items': fields.one2many(label='Items',obj='mm.production.order.items',rel='order_id'),
+	'roles': fields.one2many(label='Roles',obj='mm.production.order.roles',rel='order_id'),
+	'pricing': fields.one2many(label='Pricing',obj='mm.production.order.pricing',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='mm.production.order.texts',rel='order_id'),
-	'note': fields.text('Note')}
+	'note': fields.text(label='Note')}
 
 	_default = {
 		'state':'draft'
 	}
+
+	def _on_change_otype(self,cr,pool,uid,item,context={}):		
+		roles = pool.get('mm.production.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+		for role in roles:
+			item_role = pool.get('mm.production.order.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = pool.get('mm.production.order.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = pool.get('mm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = pool.get('mm.production.order.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 	def _on_change_bom(self,cr,pool,uid,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
@@ -347,8 +237,31 @@ class mm_technologic_orders(Model):
 	'schedules': fields.one2many(label='Schedule',obj='mm.technologic.order.schedules',rel='order_id'),
 	'ibobs': fields.one2many(label='InBoB',obj='mm.technologic.order.item.ibob',rel='order_id'),
 	'obobs': fields.one2many(label='OutBoB',obj='mm.technologic.order.item.obob',rel='order_id'),
+	'roles': fields.one2many(label='Roles',obj='mm.technologic.order.roles',rel='order_id'),
+	'pricing': fields.one2many(label='Pricing',obj='mm.technologic.order.pricing',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='mm.technologic.order.texts',rel='order_id'),
-	'note': fields.text('Note')}
+	'note': fields.text(label='Note')}
+
+	def _on_change_otype(self,cr,pool,uid,item,context={}):		
+		roles = pool.get('mm.technologic.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+		for role in roles:
+			item_role = pool.get('mm.technologic.order.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = pool.get('mm.technologic.order.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = pool.get('mm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = pool.get('mm.technologic.order.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 	def _on_change_bob(self,cr,pool,uid,item,context={}):		
 		if item['bob'] and 'name' in item['bob'] and item['bob']['name']:
@@ -533,8 +446,31 @@ class mm_disassembly_orders(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'schedules': fields.one2many(label='Schedule',obj='mm.disassembly.order.schedules',rel='order_id'),
 	'items': fields.one2many(label='Items',obj='mm.disassembly.order.items',rel='order_id'),
+	'roles': fields.one2many(label='Roles',obj='mm.disassembly.order.roles',rel='order_id'),
+	'pricing': fields.one2many(label='Pricing',obj='mm.disassembly.order.pricing',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='mm.disassembly.order.texts',rel='order_id'),
 	'note': fields.text('Note')}
+
+	def _on_change_otype(self,cr,pool,uid,item,context={}):		
+		roles = pool.get('mm.disassembly.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+		for role in roles:
+			item_role = pool.get('mm.disassembly.order.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = pool.get('mm.disassembly.order.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = pool.get('mm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = pool.get('mm.disassembly.order.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 	def _on_change_mob(self,cr,pool,uid,item,context={}):		
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:

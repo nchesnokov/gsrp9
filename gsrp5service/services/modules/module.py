@@ -547,13 +547,18 @@ def _uninstallModule(cr,pool,uid,name,registry):
 	
 	if len(sqls) > 0:
 		cr.commit()
+		_logger.info("Drop tables")
+
 		cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
-	
+
+		_logger.info("Tables dropped")
+
 	module_id = registry._modules[name]['db_id']
 	pool.get('bc.modules').write(cr=cr,pool=pool,uid=uid,records={'id':module_id,'state':'N'})
 	registry._modules[name]['state'] = 'N'
 
 	cr.commit()
+
 	_logger.info(" Module: %s Uninstalled" % (name,))
 
 def _upgradeModule(cr,pool,uid,name,registry):

@@ -442,6 +442,33 @@ def _getToLongitudeName(self):
 	return n
 
 # geo end
+
+def _getPrevName(self):
+	n = _getName(self,'prev')
+	if n:
+		if not self._columns[n]._type in ('many2one','related'):
+			n = None
+
+	return n
+
+def _getNextName(self):
+	n = _getName(self,'next')
+	if n:
+		if not self._columns[n]._type in ('many2one','related'):
+			n = None
+
+	return n
+
+def _getTransitionsName(self):
+	n = _getName(self,'transitions')
+	if n:
+		if not self._columns[n]._type in ('one2many','one2related'):
+			n = None
+
+	return n
+
+
+#wkf end
 def _getName(self,name):
 	n = None
 	fname = '_' + name
@@ -459,7 +486,7 @@ def _getName(self,name):
 def _getNames(self,names):
 	n = {}
 	if not names:
-		names = ('parent_id','childs_id','row_name','full_name','rec_name','date','start_date','end_date','from_date','to_date','from_time','to_time','progress','project_type','sequence','state','inactive','latitude','longitude','from_latitude','from_longitude','to_latitude','to_longitude')
+		names = ('parent_id','childs_id','row_name','full_name','rec_name','date','start_date','end_date','from_date','to_date','from_time','to_time','progress','project_type','sequence','state','inactive','prev','next','transitions','latitude','longitude','from_latitude','from_longitude','to_latitude','to_longitude')
 	for name in names:
 		ns = name.split('_')
 		if len(ns) == 1:

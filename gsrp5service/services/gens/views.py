@@ -288,7 +288,7 @@ def ViewGeo(level,modelinfo,columns):
 	if modelinfo['names']['to_longitude'] != DMN['to_longitude']:
 		addparm += ' to_longitude="%s"' % (modelinfo['names']['to_longitude'],)
 
-	b.write((indent + '<geo%s>\n' % (addparm,)).encode('utf-8'))
+	b.write((indent + '<geo %s>\n' % (addparm,)).encode('utf-8'))
 	ColumnsView(level+1,modelinfo['columns'],columns,'geo')
 	b.write((indent + '</geo>\n').encode('utf-8'))
 
@@ -299,6 +299,22 @@ def iViewGeo(level,modelinfo,columns):
 	b.write((indent + '<geo>\n').encode('utf-8'))
 	ColumnsView(level+1,modelinfo['columns'],columns,'geo')
 	b.write((indent + '</geo>\n').encode('utf-8'))
+
+def ViewFlow(level,modelinfo,columns):
+
+	indent = TAB * level
+	
+	b.write((indent + '<flow>\n').encode('utf-8'))
+	ColumnsView(level+1,modelinfo['columns'],columns,'search')
+	b.write((indent + '</flow>\n').encode('utf-8'))
+
+def iViewFlow(level,modelinfo,columns):
+
+	indent = TAB * level
+	
+	b.write((indent + '<flow>\n').encode('utf-8'))
+	ColumnsView(level+1,modelinfo['columns'],columns,'search')
+	b.write((indent + '</flow>\n').encode('utf-8'))
 
 
 def RecordView(level,module,model,modelinfo,columns,view):
@@ -450,14 +466,16 @@ def isAllow(view,info):
 	if view == 'geo' and (info['names']['from_latitude'] and info['names']['from_longitude'] or info['names']['to_latitude'] and info['names']['to_longitude'] or info['names']['latitude'] and info['names']['longitude']):
 		r = True
 
+	if view == 'flow' and  info['names']['prev'] and info['names']['next'] and info['names']['transitions'] :
+		r = True
 	
 	return r
 
 			
-VIEWSGEN  = {'calendar':ViewCalendar,'schedule':ViewSchedule,'form': ViewForm, 'gantt':ViewGantt, 'graph':ViewGraph, 'kanban':ViewKanban,'list':ViewList,'m2mlist':ViewM2MList,'mdx':ViewMdx,'search':ViewSearch,'find':ViewFind,'tree':ViewTree,'geo':ViewGeo}		
+VIEWSGEN  = {'calendar':ViewCalendar,'schedule':ViewSchedule,'form': ViewForm, 'gantt':ViewGantt, 'graph':ViewGraph, 'kanban':ViewKanban,'list':ViewList,'m2mlist':ViewM2MList,'mdx':ViewMdx,'search':ViewSearch,'find':ViewFind,'tree':ViewTree,'geo':ViewGeo,'flow':ViewFlow}		
 
-IVIEWSGEN  = {'calendar':iViewCalendar,'schedule':iViewSchedule,'form': iViewForm, 'gantt':iViewGantt, 'graph':iViewGraph, 'kanban':iViewKanban,'list':iViewList,'m2mlist':iViewM2MList,'mdx':iViewMdx,'search':iViewSearch,'find':iViewFind,'tree':iViewTree,'geo':iViewGeo}		
+IVIEWSGEN  = {'calendar':iViewCalendar,'schedule':iViewSchedule,'form': iViewForm, 'gantt':iViewGantt, 'graph':iViewGraph, 'kanban':iViewKanban,'list':iViewList,'m2mlist':iViewM2MList,'mdx':iViewMdx,'search':iViewSearch,'find':iViewFind,'tree':iViewTree,'geo':iViewGeo,'flow':iViewFlow}		
 
-EXCLUDE = {'calendar':['one2many','one2related','many2many','text','binary','xml','json'],'form':[],'schedule':['one2many','one2related','many2many','text','binary','xml','json'],'gantt':['one2many','one2related','many2many','text','binary','xml','json'],'graph':['one2many','one2related','many2many','text','binary','xml','json'],'kanban':['one2many','one2related','many2many','xml','json'],'list':['many2many','text','binary','xml','json'],'m2mlist':['one2many','one2related','many2many','text','binary','xml','json'],'mdx':['one2many','one2related','many2many','text','binary','xml','json'],'search':['one2many','one2related','many2many','text','binary','xml','json'],'find':['one2many','one2related','many2many','text','binary','xml','json'],'tree':['one2many','one2related','many2many','text','binary','xml','json'],'geo':['one2many','one2related','many2many','text','binary','xml','json']}
+EXCLUDE = {'calendar':['one2many','one2related','many2many','text','binary','xml','json'],'form':[],'schedule':['one2many','one2related','many2many','text','binary','xml','json'],'gantt':['one2many','one2related','many2many','text','binary','xml','json'],'graph':['one2many','one2related','many2many','text','binary','xml','json'],'kanban':['one2many','one2related','many2many','xml','json'],'list':['many2many','text','binary','xml','json'],'m2mlist':['one2many','one2related','many2many','text','binary','xml','json'],'mdx':['one2many','one2related','many2many','text','binary','xml','json'],'search':['one2many','one2related','many2many','text','binary','xml','json'],'find':['one2many','one2related','many2many','text','binary','xml','json'],'tree':['one2many','one2related','many2many','text','binary','xml','json'],'geo':['one2many','one2related','many2many','text','binary','xml','json'],'flow':['integer','float','real','decimal','numeric','date','time','datetime','one2related','many2many','text','binary','xml','json']}
 
 

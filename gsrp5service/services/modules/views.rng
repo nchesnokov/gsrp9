@@ -17,6 +17,7 @@
      		 <ref name="kanban"/>
      		 <ref name="mdx"/>
       		 <ref name="geo"/>
+      		 <ref name="flow"/>
 		</choice>
 	</start>
 
@@ -79,6 +80,16 @@
 		</oneOrMore>
 		</element>
      </define>
+
+     <define name="flow">
+		<element name="flow">
+		<text/>
+		<oneOrMore>
+			<ref name="field"/>
+		</oneOrMore>
+		</element>
+     </define>
+
      <define name="tree">
 		<element name="tree">
 		<text/>
