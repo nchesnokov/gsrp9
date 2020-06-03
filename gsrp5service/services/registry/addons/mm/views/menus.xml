@@ -198,6 +198,38 @@
           <column name="name">action.mm.route.custom</column>
           <column name="ta">View</column>
         </record>
+        <record id="action.mm.map.op.category.custom">
+          <column name="name">action.mm.map.op.category.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.mm.map.ops.custom">
+          <column name="name">action.mm.map.ops.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.mm.production.map.category.custom">
+          <column name="name">action.mm.production.map.category.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.mm.production.maps.custom">
+          <column name="name">action.mm.production.maps.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.mm.technologic.map.category.custom">
+          <column name="name">action.mm.technologic.map.category.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.mm.technologic.maps.custom">
+          <column name="name">action.mm.technologic.maps.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.mm.disassembly.map.category.custom">
+          <column name="name">action.mm.disassembly.map.category.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.mm.disassembly.maps.custom">
+          <column name="name">action.mm.disassembly.maps.custom</column>
+          <column name="ta">View</column>
+        </record>
       </records>
       <records model="bc.view.actions">
         <record id="view.action.mm.pricing.group.levels.custom">
@@ -251,6 +283,38 @@
         <record id="view.action.mm.route.custom">
           <column name="action_id">action.mm.route.custom</column>
           <column name="view_id">view.mm.route.search</column>
+        </record>
+        <record id="view.action.mm.map.op.category.custom">
+          <column name="action_id">action.mm.map.op.category.custom</column>
+          <column name="view_id">view.mm.map.op.category.search</column>
+        </record>
+        <record id="view.action.mm.map.ops.custom">
+          <column name="action_id">action.mm.map.ops.custom</column>
+          <column name="view_id">view.mm.map.ops.search</column>
+        </record>
+        <record id="view.action.mm.production.map.category.custom">
+          <column name="action_id">action.mm.production.map.category.custom</column>
+          <column name="view_id">view.mm.production.map.category.search</column>
+        </record>
+        <record id="view.action.mm.production.maps.custom">
+          <column name="action_id">action.mm.production.maps.custom</column>
+          <column name="view_id">view.mm.production.maps.search</column>
+        </record>
+        <record id="view.action.mm.technologic.map.category.custom">
+          <column name="action_id">action.mm.technologic.map.category.custom</column>
+          <column name="view_id">view.mm.technologic.map.category.search</column>
+        </record>
+        <record id="view.action.mm.technologic.maps.custom">
+          <column name="action_id">action.mm.technologic.maps.custom</column>
+          <column name="view_id">view.mm.technologic.maps.search</column>
+        </record>
+        <record id="view.action.mm.disassembly.map.category.custom">
+          <column name="action_id">action.mm.disassembly.map.category.custom</column>
+          <column name="view_id">view.mm.disassembly.map.category.search</column>
+        </record>
+        <record id="view.action.mm.disassembly.maps.custom">
+          <column name="action_id">action.mm.disassembly.maps.custom</column>
+          <column name="view_id">view.mm.disassembly.maps.search</column>
         </record>
       </records>
       <records model="bc.ui.menus">
@@ -365,6 +429,70 @@
           <column name="sequence">120</column>
           <column name="action_id">action.mm.route.custom</column>
           </record>
+          <record id="ui.menu.mm.map.op.category.custom">
+          <column name="sequence">13</column>
+            <column name="name">ui.menu.mm.map.op.category.custom</column>
+            <column name="label">Category Technologic Operations</column>
+          <column name="parent_id">ui.menu.mm.custom</column>
+          <column name="sequence">130</column>
+          <column name="action_id">action.mm.map.op.category.custom</column>
+          </record>
+          <record id="ui.menu.mm.map.ops.custom">
+          <column name="sequence">14</column>
+            <column name="name">ui.menu.mm.map.ops.custom</column>
+            <column name="label">Route</column>
+          <column name="parent_id">ui.menu.mm.custom</column>
+          <column name="sequence">140</column>
+          <column name="action_id">action.mm.map.ops.custom</column>
+          </record>
+          <record id="ui.menu.mm.production.map.category.custom">
+          <column name="sequence">15</column>
+            <column name="name">ui.menu.mm.production.map.category.custom</column>
+            <column name="label">Category Production Map</column>
+          <column name="parent_id">ui.menu.mm.custom</column>
+          <column name="sequence">150</column>
+          <column name="action_id">action.mm.production.map.category.custom</column>
+          </record>
+          <record id="ui.menu.mm.production.maps.custom">
+          <column name="sequence">16</column>
+            <column name="name">ui.menu.mm.production.maps.custom</column>
+            <column name="label">Production Map</column>
+          <column name="parent_id">ui.menu.mm.custom</column>
+          <column name="sequence">160</column>
+          <column name="action_id">action.mm.production.maps.custom</column>
+          </record>
+          <record id="ui.menu.mm.technologic.map.category.custom">
+          <column name="sequence">17</column>
+            <column name="name">ui.menu.mm.technologic.map.category.custom</column>
+            <column name="label">Category Technologic Map</column>
+          <column name="parent_id">ui.menu.mm.custom</column>
+          <column name="sequence">170</column>
+          <column name="action_id">action.mm.technologic.map.category.custom</column>
+          </record>
+          <record id="ui.menu.mm.technologic.maps.custom">
+          <column name="sequence">18</column>
+            <column name="name">ui.menu.mm.technologic.maps.custom</column>
+            <column name="label">Technologic Map</column>
+          <column name="parent_id">ui.menu.mm.custom</column>
+          <column name="sequence">180</column>
+          <column name="action_id">action.mm.technologic.maps.custom</column>
+          </record>
+          <record id="ui.menu.mm.disassembly.map.category.custom">
+          <column name="sequence">19</column>
+            <column name="name">ui.menu.mm.disassembly.map.category.custom</column>
+            <column name="label">Category Technologic Map</column>
+          <column name="parent_id">ui.menu.mm.custom</column>
+          <column name="sequence">190</column>
+          <column name="action_id">action.mm.disassembly.map.category.custom</column>
+          </record>
+          <record id="ui.menu.mm.disassembly.maps.custom">
+          <column name="sequence">20</column>
+            <column name="name">ui.menu.mm.disassembly.maps.custom</column>
+            <column name="label">Disassembly map</column>
+          <column name="parent_id">ui.menu.mm.custom</column>
+          <column name="sequence">200</column>
+          <column name="action_id">action.mm.disassembly.maps.custom</column>
+          </record>
       </records>
       <records model="bc.actions">
         <record id="action.mm.pricing.group.levels.report">
@@ -417,6 +545,38 @@
         </record>
         <record id="action.mm.route.report">
           <column name="name">action.mm.route.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.mm.map.op.category.report">
+          <column name="name">action.mm.map.op.category.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.mm.map.ops.report">
+          <column name="name">action.mm.map.ops.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.mm.production.map.category.report">
+          <column name="name">action.mm.production.map.category.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.mm.production.maps.report">
+          <column name="name">action.mm.production.maps.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.mm.technologic.map.category.report">
+          <column name="name">action.mm.technologic.map.category.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.mm.technologic.maps.report">
+          <column name="name">action.mm.technologic.maps.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.mm.disassembly.map.category.report">
+          <column name="name">action.mm.disassembly.map.category.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.mm.disassembly.maps.report">
+          <column name="name">action.mm.disassembly.maps.report</column>
           <column name="ta">Report</column>
         </record>
       </records>
@@ -512,6 +672,62 @@
           <column name="infile">infile_mm_route.docx</column>
           <column name="outfile">outfile_mm_route.docx</column>
         </record>
+        <record id="bc.ui.report.docx.mm.map.op.category">
+          <column name="name">bc.ui.report.docx.mm.map.op.category</column>
+          <column name="label">Category Technologic Operations</column>
+          <column name="report">report_mm_map_op_category</column>
+          <column name="infile">infile_mm_map_op_category.docx</column>
+          <column name="outfile">outfile_mm_map_op_category.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.mm.map.ops">
+          <column name="name">bc.ui.report.docx.mm.map.ops</column>
+          <column name="label">Route</column>
+          <column name="report">report_mm_map_ops</column>
+          <column name="infile">infile_mm_map_ops.docx</column>
+          <column name="outfile">outfile_mm_map_ops.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.mm.production.map.category">
+          <column name="name">bc.ui.report.docx.mm.production.map.category</column>
+          <column name="label">Category Production Map</column>
+          <column name="report">report_mm_production_map_category</column>
+          <column name="infile">infile_mm_production_map_category.docx</column>
+          <column name="outfile">outfile_mm_production_map_category.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.mm.production.maps">
+          <column name="name">bc.ui.report.docx.mm.production.maps</column>
+          <column name="label">Production Map</column>
+          <column name="report">report_mm_production_maps</column>
+          <column name="infile">infile_mm_production_maps.docx</column>
+          <column name="outfile">outfile_mm_production_maps.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.mm.technologic.map.category">
+          <column name="name">bc.ui.report.docx.mm.technologic.map.category</column>
+          <column name="label">Category Technologic Map</column>
+          <column name="report">report_mm_technologic_map_category</column>
+          <column name="infile">infile_mm_technologic_map_category.docx</column>
+          <column name="outfile">outfile_mm_technologic_map_category.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.mm.technologic.maps">
+          <column name="name">bc.ui.report.docx.mm.technologic.maps</column>
+          <column name="label">Technologic Map</column>
+          <column name="report">report_mm_technologic_maps</column>
+          <column name="infile">infile_mm_technologic_maps.docx</column>
+          <column name="outfile">outfile_mm_technologic_maps.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.mm.disassembly.map.category">
+          <column name="name">bc.ui.report.docx.mm.disassembly.map.category</column>
+          <column name="label">Category Technologic Map</column>
+          <column name="report">report_mm_disassembly_map_category</column>
+          <column name="infile">infile_mm_disassembly_map_category.docx</column>
+          <column name="outfile">outfile_mm_disassembly_map_category.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.mm.disassembly.maps">
+          <column name="name">bc.ui.report.docx.mm.disassembly.maps</column>
+          <column name="label">Disassembly map</column>
+          <column name="report">report_mm_disassembly_maps</column>
+          <column name="infile">infile_mm_disassembly_maps.docx</column>
+          <column name="outfile">outfile_mm_disassembly_maps.docx</column>
+        </record>
       </records>
       <records model="bc.report.actions">
         <record id="report.action.mm.pricing.group.levels.report">
@@ -565,6 +781,38 @@
         <record id="report.action.mm.route.report">
           <column name="action_id">action.mm.route.report</column>
           <column name="report_id">bc.ui.report.docx.mm.route</column>
+        </record>
+        <record id="report.action.mm.map.op.category.report">
+          <column name="action_id">action.mm.map.op.category.report</column>
+          <column name="report_id">bc.ui.report.docx.mm.map.op.category</column>
+        </record>
+        <record id="report.action.mm.map.ops.report">
+          <column name="action_id">action.mm.map.ops.report</column>
+          <column name="report_id">bc.ui.report.docx.mm.map.ops</column>
+        </record>
+        <record id="report.action.mm.production.map.category.report">
+          <column name="action_id">action.mm.production.map.category.report</column>
+          <column name="report_id">bc.ui.report.docx.mm.production.map.category</column>
+        </record>
+        <record id="report.action.mm.production.maps.report">
+          <column name="action_id">action.mm.production.maps.report</column>
+          <column name="report_id">bc.ui.report.docx.mm.production.maps</column>
+        </record>
+        <record id="report.action.mm.technologic.map.category.report">
+          <column name="action_id">action.mm.technologic.map.category.report</column>
+          <column name="report_id">bc.ui.report.docx.mm.technologic.map.category</column>
+        </record>
+        <record id="report.action.mm.technologic.maps.report">
+          <column name="action_id">action.mm.technologic.maps.report</column>
+          <column name="report_id">bc.ui.report.docx.mm.technologic.maps</column>
+        </record>
+        <record id="report.action.mm.disassembly.map.category.report">
+          <column name="action_id">action.mm.disassembly.map.category.report</column>
+          <column name="report_id">bc.ui.report.docx.mm.disassembly.map.category</column>
+        </record>
+        <record id="report.action.mm.disassembly.maps.report">
+          <column name="action_id">action.mm.disassembly.maps.report</column>
+          <column name="report_id">bc.ui.report.docx.mm.disassembly.maps</column>
         </record>
       </records>
       <records model="bc.ui.menus">
@@ -678,6 +926,70 @@
           <column name="parent_id">ui.menu.mm.report.custom</column>
           <column name="sequence">120</column>
           <column name="action_id">action.mm.route.report</column>
+          </record>
+          <record id="ui.menu.mm.map.op.category.report">
+          <column name="sequence">13</column>
+            <column name="name">ui.menu.mm.map.op.category.report</column>
+            <column name="label">Category Technologic Operations</column>
+          <column name="parent_id">ui.menu.mm.report.custom</column>
+          <column name="sequence">130</column>
+          <column name="action_id">action.mm.map.op.category.report</column>
+          </record>
+          <record id="ui.menu.mm.map.ops.report">
+          <column name="sequence">14</column>
+            <column name="name">ui.menu.mm.map.ops.report</column>
+            <column name="label">Route</column>
+          <column name="parent_id">ui.menu.mm.report.custom</column>
+          <column name="sequence">140</column>
+          <column name="action_id">action.mm.map.ops.report</column>
+          </record>
+          <record id="ui.menu.mm.production.map.category.report">
+          <column name="sequence">15</column>
+            <column name="name">ui.menu.mm.production.map.category.report</column>
+            <column name="label">Category Production Map</column>
+          <column name="parent_id">ui.menu.mm.report.custom</column>
+          <column name="sequence">150</column>
+          <column name="action_id">action.mm.production.map.category.report</column>
+          </record>
+          <record id="ui.menu.mm.production.maps.report">
+          <column name="sequence">16</column>
+            <column name="name">ui.menu.mm.production.maps.report</column>
+            <column name="label">Production Map</column>
+          <column name="parent_id">ui.menu.mm.report.custom</column>
+          <column name="sequence">160</column>
+          <column name="action_id">action.mm.production.maps.report</column>
+          </record>
+          <record id="ui.menu.mm.technologic.map.category.report">
+          <column name="sequence">17</column>
+            <column name="name">ui.menu.mm.technologic.map.category.report</column>
+            <column name="label">Category Technologic Map</column>
+          <column name="parent_id">ui.menu.mm.report.custom</column>
+          <column name="sequence">170</column>
+          <column name="action_id">action.mm.technologic.map.category.report</column>
+          </record>
+          <record id="ui.menu.mm.technologic.maps.report">
+          <column name="sequence">18</column>
+            <column name="name">ui.menu.mm.technologic.maps.report</column>
+            <column name="label">Technologic Map</column>
+          <column name="parent_id">ui.menu.mm.report.custom</column>
+          <column name="sequence">180</column>
+          <column name="action_id">action.mm.technologic.maps.report</column>
+          </record>
+          <record id="ui.menu.mm.disassembly.map.category.report">
+          <column name="sequence">19</column>
+            <column name="name">ui.menu.mm.disassembly.map.category.report</column>
+            <column name="label">Category Technologic Map</column>
+          <column name="parent_id">ui.menu.mm.report.custom</column>
+          <column name="sequence">190</column>
+          <column name="action_id">action.mm.disassembly.map.category.report</column>
+          </record>
+          <record id="ui.menu.mm.disassembly.maps.report">
+          <column name="sequence">20</column>
+            <column name="name">ui.menu.mm.disassembly.maps.report</column>
+            <column name="label">Disassembly map</column>
+          <column name="parent_id">ui.menu.mm.report.custom</column>
+          <column name="sequence">200</column>
+          <column name="action_id">action.mm.disassembly.maps.report</column>
           </record>
       </records>
     </data>

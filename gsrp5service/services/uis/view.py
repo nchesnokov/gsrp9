@@ -83,7 +83,7 @@ def get_view_by_name(cr,pool,uid,name):
 	
 	o = {'type':'','header':{},'columns':{},'viewname':w['name'],'webicon':action['webicon']}
 	for event,el in etree.iterparse(source=BytesIO(w['arch'].encode('utf-8')),events=('end','start')):
-		if el.tag in ('search','list','form','tree','kanban','graph','gantt','mdx','dashboard','calendar','schedule','geo'):
+		if el.tag in ('search','list','form','tree','kanban','graph','gantt','mdx','dashboard','calendar','schedule','geo','flow'):
 			if event == 'start':
 				o['type'] = el.tag
 				for a in el.attrib:
@@ -91,7 +91,7 @@ def get_view_by_name(cr,pool,uid,name):
 			else:
 				for inheritview in w['inherit_views']:
 					for event,el in etree.iterparse(source=BytesIO(inheritview['arch'].encode('utf-8')),events=('end','start')):
-						if el.tag in ('search','list','form','tree','kanban','graph','gantt','mdx','dashboard','calendar','schedule','geo'):
+						if el.tag in ('search','list','form','tree','kanban','graph','gantt','mdx','dashboard','calendar','schedule','geo','flow'):
 							if event == 'end':
 								pass
 								#o['type'] = el.tag
@@ -304,7 +304,7 @@ def parse_view_v2(w,info,context):
 	
 	o = {'type':'','header':{},'columns':{},'viewname':w['name'],'webicon':''}
 	for event,el in etree.iterparse(source=BytesIO(w['arch'].encode('utf-8')),events=('end','start')):
-		if el.tag in ('search','find','list','m2mlist','form','tree','kanban','graph','gantt','mdx','dashboard','calendar','schedule','geo'):
+		if el.tag in ('search','find','list','m2mlist','form','tree','kanban','graph','gantt','mdx','dashboard','calendar','schedule','geo','flow'):
 			if event == 'start':
 				o['type'] = el.tag
 				for a in el.attrib:
@@ -312,7 +312,7 @@ def parse_view_v2(w,info,context):
 			else:
 				for inheritview in w['inherit_views']:
 					for event,el in etree.iterparse(source=BytesIO(inheritview['arch'].encode('utf-8')),events=('end','start')):
-						if el.tag in ('search','find','list','m2mlist','form','tree','kanban','graph','gantt','mdx','dashboard','calendar','schedule','geo'):
+						if el.tag in ('search','find','list','m2mlist','form','tree','kanban','graph','gantt','mdx','dashboard','calendar','schedule','geo','flow'):
 							if event == 'end':
 								pass
 								#o['type'] = el.tag

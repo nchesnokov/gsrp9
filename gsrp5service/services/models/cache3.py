@@ -1400,12 +1400,19 @@ class MCache(object):
 		row = self._pool.get(model)._buildEmptyItem()
 		self._setDefault(model,row)
 		
+		hook = self._pool.get(model)._getHook('Before_o2m_Add')
+		if hook:
+			hook(row,context)
 		p = container.split('.')
 		path = p[1]
 		self._data._getAData(self._data._cnames[container]).append(row)
 		self._data._buildTree(row,model,p[1],p[0],'A')
 		
 		self._do_calculate(str(id(row)),context)
+
+		hook = self._pool.get(model)._getHook('After_o2m_Add')
+		if hook:
+			hook(row,context)
 		
 		res = {}
 
@@ -1425,10 +1432,20 @@ class MCache(object):
 			
 	def _o2m_remove(self,path,container,context):
 		c = container.split('.')
-		self._data._getAData(self._data._cnames[container]).remove(self._data._getCData(path))
+		model = self._data._cmodels[path]
+		row = self._data._getCData(path)
+		hook = self._pool.get(model)._getHook('Before_o2m_Remove')
+		if hook:
+			hook(row,context)
+		
+		self._data._getAData(self._data._cnames[container]).remove(row)
 		self._data._removeRecursive('o','c',path)
 		
 		self._do_calculate(c[1],context)
+		
+		hook = self._pool.get(model)._getHook('Afftre_o2m_Remove')
+		if hook:
+			hook(row,context)
 		
 		res = {}
 

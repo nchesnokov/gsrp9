@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: admin@gsrp5lab.com\n"
-"POT-Creation-Date: 2020-05-22 11:45:29+0300\n"
-"PO-Revision-Date: 2020-05-22 11:45:29+0300\n"
+"POT-Creation-Date: 2020-06-03 19:24:02+0300\n"
+"PO-Revision-Date: 2020-06-03 19:24:02+0300\n"
 "Last-Translator: you <translater@yandex.ru>\n"
 "Language-Team: English <translaterteam@yandex.ru>\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,9 @@ msgstr "Kodi"
 #: model@mm.pricing.group.levels|_columns@descr$label:1
 #: model@mm.texts|_columns@descr$label:1
 #: model@mm.schema.texts|_columns@descr$label:1
+#: model@mm.production.map.ops|_columns@description$label:1
+#: model@mm.technologic.map.ops|_columns@description$label:1
+#: model@mm.disassembly.map.ops|_columns@description$label:1
 msgid "Description"
 msgstr "Përshkrimi"
 
@@ -36,6 +39,7 @@ msgid "Schema Of Manufactured Texts"
 msgstr "Skema E Prodhuar Tekste"
 
 #: model@mm.schema.texts|_columns@usage$label:1
+#: model@mm.map.ops|_columns@usage$label:1
 msgid "Usage"
 msgstr "Përdorimi"
 
@@ -70,6 +74,9 @@ msgid "Schema"
 msgstr "Skema e"
 
 #: model@mm.schema.text.items|_columns@seq$label:1
+#: model@mm.production.map.ops|_columns@seq$label:1
+#: model@mm.technologic.map.ops|_columns@seq$label:1
+#: model@mm.disassembly.map.ops|_columns@seq$label:1
 #: model@mm.production.order.texts|_columns@seq$label:1
 #: model@mm.technologic.order.texts|_columns@seq$label:1
 #: model@mm.disassembly.order.texts|_columns@seq$label:1
@@ -161,6 +168,14 @@ msgstr "Kthim"
 #: model@mm.disassembly.order.category|_columns@name$label:1
 #: model@mm.workcenters|_columns@name$label:1
 #: model@mm.route|_columns@name$label:1
+#: model@mm.map.op.category|_columns@name$label:1
+#: model@mm.map.ops|_columns@name$label:1
+#: model@mm.production.map.category|_columns@name$label:1
+#: model@mm.production.maps|_columns@name$label:1
+#: model@mm.technologic.map.category|_columns@name$label:1
+#: model@mm.technologic.maps|_columns@name$label:1
+#: model@mm.disassembly.map.category|_columns@name$label:1
+#: model@mm.disassembly.maps|_columns@name$label:1
 #: model@mm.production.orders|_columns@name$label:1
 #: model@mm.technologic.orders|_columns@name$label:1
 #: model@mm.disassembly.orders|_columns@name$label:1
@@ -182,6 +197,9 @@ msgstr "Teksti Skemën E Sendit"
 #: model@mm.production.order.types|_columns@roles$label:1
 #: model@mm.technologic.order.types|_columns@roles$label:1
 #: model@mm.disassembly.order.types|_columns@roles$label:1
+#: model@mm.production.orders|_columns@roles$label:1
+#: model@mm.technologic.orders|_columns@roles$label:1
+#: model@mm.disassembly.orders|_columns@roles$label:1
 msgid "Roles"
 msgstr "Rolet"
 
@@ -201,6 +219,17 @@ msgstr "Rolet"
 #: model@mm.workcenter.product.prices|_columns@note$label:1
 #: model@mm.route|_columns@note$label:1
 #: model@mm.route.items|_columns@note$label:1
+#: model@mm.map.op.category|_columns@note$label:1
+#: model@mm.map.ops|_columns@note$label:1
+#: model@mm.production.map.category|_columns@note$label:1
+#: model@mm.production.maps|_columns@note$label:1
+#: model@mm.production.map.ops|_columns@note$label:1
+#: model@mm.technologic.map.category|_columns@note$label:1
+#: model@mm.technologic.maps|_columns@note$label:1
+#: model@mm.technologic.map.ops|_columns@note$label:1
+#: model@mm.disassembly.map.category|_columns@note$label:1
+#: model@mm.disassembly.maps|_columns@note$label:1
+#: model@mm.disassembly.map.ops|_columns@note$label:1
 #: model@mm.production.orders|_columns@note$label:1
 #: model@mm.production.order.items|_columns@note$label:1
 #: model@mm.production.order.schedules|_columns@note$label:1
@@ -257,6 +286,10 @@ msgstr "Kategoria Workcenter"
 #: model@mm.technologic.order.category|_columns@parent_id$label:1
 #: model@mm.disassembly.order.category|_columns@parent_id$label:1
 #: model@mm.route.items|_columns@parent_id$label:1
+#: model@mm.map.op.category|_columns@parent_id$label:1
+#: model@mm.production.map.category|_columns@parent_id$label:1
+#: model@mm.technologic.map.category|_columns@parent_id$label:1
+#: model@mm.disassembly.map.category|_columns@parent_id$label:1
 msgid "Parent"
 msgstr "Prindi"
 
@@ -266,8 +299,31 @@ msgstr "Prindi"
 #: model@mm.technologic.order.category|_columns@childs_id$label:1
 #: model@mm.disassembly.order.category|_columns@childs_id$label:1
 #: model@mm.route.items|_columns@childs_id$label:1
+#: model@mm.map.op.category|_columns@childs_id$label:1
+#: model@mm.production.map.category|_columns@childs_id$label:1
+#: model@mm.technologic.map.category|_columns@childs_id$label:1
+#: model@mm.disassembly.map.category|_columns@childs_id$label:1
 msgid "Childs"
 msgstr "Childs"
+
+#: model@mm.workcenter.category|_columns@fullname$label:1
+#: model@mm.route.category|_columns@fullname$label:1
+#: model@mm.production.order.category|_columns@fullname$label:1
+#: model@mm.technologic.order.category|_columns@fullname$label:1
+#: model@mm.disassembly.order.category|_columns@fullname$label:1
+#: model@mm.map.op.category|_columns@fullname$label:1
+#: model@mm.map.ops|_columns@fullname$label:1
+#: model@mm.production.map.category|_columns@fullname$label:1
+#: model@mm.production.maps|_columns@fullname$label:1
+#: model@mm.technologic.map.category|_columns@fullname$label:1
+#: model@mm.technologic.maps|_columns@fullname$label:1
+#: model@mm.disassembly.map.category|_columns@fullname$label:1
+#: model@mm.disassembly.maps|_columns@fullname$label:1
+#: model@mm.production.orders|_columns@fullname$label:1
+#: model@mm.technologic.orders|_columns@fullname$label:1
+#: model@mm.disassembly.orders|_columns@fullname$label:1
+msgid "Full Name"
+msgstr "Emri I Plotë"
 
 #: model@mm.workcenter.category|_columns@workcenters$label:1
 #: model@mm.route.category|_columns@routes$label:1
@@ -296,26 +352,45 @@ msgstr "Kategoria Disassembly Mënyrë Që"
 #: model@mm.workcenters|_description@:1
 #: model@mm.workcenter.products|_columns@workcenter_id$label:1
 #: model@mm.route.items|_columns@workcenter$label:1
+#: model@mm.production.map.ops|_columns@workcenter$label:1
+#: model@mm.technologic.map.ops|_columns@workcenter$label:1
+#: model@mm.disassembly.map.ops|_columns@workcenter$label:1
 msgid "Workcenter"
 msgstr "Workcenter"
 
+#: model@mm.workcenters|_columns@category_id$label:1
+#: model@mm.route|_columns@category_id$label:1
+#: model@mm.map.ops|_columns@category_id$label:1
+#: model@mm.production.maps|_columns@category_id$label:1
+#: model@mm.technologic.maps|_columns@category_id$label:1
+#: model@mm.disassembly.maps|_columns@category_id$label:1
+#: model@mm.production.orders|_columns@category_id$label:1
+#: model@mm.technologic.orders|_columns@category_id$label:1
+#: model@mm.disassembly.orders|_columns@category_id$label:1
+msgid "Category"
+msgstr "Kategoria"
+
 #: model@mm.workcenters|_columns@wctype$selections#p:1
 #: model@mm.route|_columns@rtype$selections#p:1
+#: model@mm.map.ops|_columns@usage$selections#p:1
 msgid "Production"
 msgstr "Prodhimi"
 
 #: model@mm.workcenters|_columns@wctype$selections#t:1
 #: model@mm.route|_columns@rtype$selections#t:1
+#: model@mm.map.ops|_columns@usage$selections#t:1
 msgid "Technology"
 msgstr "Teknologji"
 
 #: model@mm.workcenters|_columns@wctype$selections#d:1
 #: model@mm.route|_columns@rtype$selections#d:1
+#: model@mm.map.ops|_columns@usage$selections#d:1
 msgid "Disassembly"
 msgstr "Disassembly"
 
 #: model@mm.workcenters|_columns@wctype$selections#a:1
 #: model@mm.route|_columns@rtype$selections#a:1
+#: model@mm.map.ops|_columns@usage$selections#a:1
 msgid "All"
 msgstr "Të gjitha"
 
@@ -389,18 +464,12 @@ msgstr "Njësia E Çmimi Kolegëve Orë"
 
 #: model@mm.route|_description@:1
 #: model@mm.route.items|_columns@route_id$label:1
+#: model@mm.map.ops|_description@:1
 #: model@mm.production.orders|_columns@route$label:1
 #: model@mm.technologic.orders|_columns@route$label:1
 #: model@mm.disassembly.orders|_columns@route$label:1
 msgid "Route"
 msgstr "Rruga"
-
-#: model@mm.route|_columns@category_id$label:1
-#: model@mm.production.orders|_columns@category_id$label:1
-#: model@mm.technologic.orders|_columns@category_id$label:1
-#: model@mm.disassembly.orders|_columns@category_id$label:1
-msgid "Category"
-msgstr "Kategoria"
 
 #: model@mm.route|_columns@items$label:1
 #: model@mm.production.orders|_columns@items$label:1
@@ -412,26 +481,121 @@ msgstr "Artikuj"
 msgid "Route Items"
 msgstr "Rruga Artikuj"
 
-#: model@mm.production.orders|_description@:1
-#: model@mm.production.order.items|_columns@order_id$label:1
-msgid "Production Order"
-msgstr "Prodhimi Mënyrë Që"
+#: model@mm.map.op.category|_description@:1
+msgid "Category Technologic Operations"
+msgstr "Kategoria Technologic Operacionet"
 
+#: model@mm.map.op.category|_columns@ops$label:1
+#: model@mm.production.map.category|_columns@maps$label:1
+#: model@mm.technologic.map.category|_columns@maps$label:1
+#: model@mm.disassembly.map.category|_columns@maps$label:1
+msgid "Maps"
+msgstr "Harta"
+
+#: model@mm.map.ops|_columns@company$label:1
+#: model@mm.production.maps|_columns@company$label:1
+#: model@mm.technologic.maps|_columns@company$label:1
+#: model@mm.disassembly.maps|_columns@company$label:1
 #: model@mm.production.orders|_columns@company$label:1
 #: model@mm.technologic.orders|_columns@company$label:1
 #: model@mm.disassembly.orders|_columns@company$label:1
 msgid "Company"
 msgstr "Kompania"
 
-#: model@mm.production.orders|_columns@fullname$label:1
-#: model@mm.technologic.orders|_columns@fullname$label:1
-#: model@mm.disassembly.orders|_columns@fullname$label:1
-msgid "Full Name"
-msgstr "Emri I Plotë"
+#: model@mm.production.map.category|_description@:1
+msgid "Category Production Map"
+msgstr "Kategoria E Prodhimit Hartë"
 
+#: model@mm.production.maps|_description@:1
+msgid "Production Map"
+msgstr "Prodhimi I Hartës"
+
+#: model@mm.production.maps|_columns@bom$label:1
 #: model@mm.production.orders|_columns@bom$label:1
 msgid "BoM"
 msgstr "BoM"
+
+#: model@mm.production.maps|_columns@ops$label:1
+#: model@mm.technologic.maps|_columns@ops$label:1
+#: model@mm.disassembly.maps|_columns@ops$label:1
+msgid "Operations"
+msgstr "Operacionet"
+
+#: model@mm.production.map.ops|_description@:1
+msgid "Operations of production map"
+msgstr "Operacionet e prodhimit hartë"
+
+#: model@mm.production.map.ops|_columns@op_id$label:1
+#: model@mm.technologic.map.ops|_columns@op_id$label:1
+#: model@mm.disassembly.map.ops|_columns@op_id$label:1
+msgid "Operation"
+msgstr "Operacioni"
+
+#: model@mm.production.map.ops|_columns@prev$label:1
+#: model@mm.technologic.map.ops|_columns@prev$label:1
+#: model@mm.disassembly.map.ops|_columns@prev$label:1
+msgid "Prev"
+msgstr "Prev"
+
+#: model@mm.production.map.ops|_columns@next$label:1
+#: model@mm.technologic.map.ops|_columns@next$label:1
+#: model@mm.disassembly.map.ops|_columns@next$label:1
+msgid "Next"
+msgstr "Tjetër"
+
+#: model@mm.production.map.ops|_columns@duration$label:1
+#: model@mm.technologic.map.ops|_columns@duration$label:1
+#: model@mm.disassembly.map.ops|_columns@duration$label:1
+msgid "Duration"
+msgstr "Kohëzgjatja"
+
+#: model@mm.production.map.ops|_columns@uod$label:1
+#: model@mm.technologic.map.ops|_columns@uod$label:1
+#: model@mm.disassembly.map.ops|_columns@uod$label:1
+msgid "Unit of duration"
+msgstr "Njësia e kohëzgjatjes"
+
+#: model@mm.technologic.map.category|_description@:1
+#: model@mm.disassembly.map.category|_description@:1
+msgid "Category Technologic Map"
+msgstr "Kategoria Technologic Hartë"
+
+#: model@mm.technologic.maps|_description@:1
+msgid "Technologic Map"
+msgstr "Technologic Hartë"
+
+#: model@mm.technologic.maps|_columns@bob$label:1
+#: model@mm.technologic.orders|_columns@bob$label:1
+msgid "BoB"
+msgstr "BoB"
+
+#: model@mm.technologic.map.ops|_description@:1
+msgid "Operations of technology map"
+msgstr "Operacionet e teknologjisë hartë"
+
+#: model@mm.disassembly.maps|_description@:1
+msgid "Disassembly map"
+msgstr "Disassembly hartë"
+
+#: model@mm.disassembly.maps|_columns@mob$label:1
+#: model@mm.disassembly.orders|_columns@mob$label:1
+msgid "MoB"
+msgstr "MoB"
+
+#: model@mm.disassembly.map.ops|_description@:1
+msgid "Operations of disassembly map"
+msgstr "Operacionet e disassembly hartë"
+
+#: model@mm.production.orders|_description@:1
+#: model@mm.production.order.items|_columns@order_id$label:1
+msgid "Production Order"
+msgstr "Prodhimi Mënyrë Që"
+
+#: model@mm.production.orders|_columns@mm.production.mapsmap$label:1
+#: model@mm.technologic.orders|_columns@map$label:1
+#: model@mm.disassembly.orders|_columns@map$label:1
+msgid "Map"
+msgstr "Harta"
 
 #: model@mm.production.orders|_columns@product$label:1
 msgid "Production Product"
@@ -529,6 +693,12 @@ msgstr "Sasia"
 #: model@mm.disassembly.order.schedules|_columns@schedule$label:1
 msgid "Schedule"
 msgstr "Orari"
+
+#: model@mm.production.orders|_columns@pricing$label:1
+#: model@mm.technologic.orders|_columns@pricing$label:1
+#: model@mm.disassembly.orders|_columns@pricing$label:1
+msgid "Pricing"
+msgstr "Çmimi"
 
 #: model@mm.production.order.texts|_description@:1
 msgid "Production Order Texts"
@@ -639,10 +809,6 @@ msgstr "Pjesë"
 msgid "Technologic Order"
 msgstr "Technologic Mënyrë Që"
 
-#: model@mm.technologic.orders|_columns@bob$label:1
-msgid "BoB"
-msgstr "BoB"
-
 #: model@mm.technologic.orders|_columns@doto$label:1
 msgid "Date Of Technologic Order"
 msgstr "Data E Technologic Mënyrë Që"
@@ -656,8 +822,8 @@ msgid "End Date Of Technologic Order"
 msgstr "Data E Fundit E Technologic Mënyrë Që"
 
 #: model@mm.technologic.orders|_columns@oamount$label:1
-msgid "Ounput Amount"
-msgstr "Ounput Sasia"
+msgid "Output Amount"
+msgstr "Sasia E Prodhimit"
 
 #: model@mm.technologic.orders|_columns@iamount$label:1
 msgid "Input Amount"
@@ -698,10 +864,6 @@ msgstr "Technologic Mënyrë Që Sendet E OutBoB"
 #: model@mm.disassembly.orders|_description@:1
 msgid "Disassembly Order"
 msgstr "Disassembly Mënyrë Që"
-
-#: model@mm.disassembly.orders|_columns@mob$label:1
-msgid "MoB"
-msgstr "MoB"
 
 #: model@mm.disassembly.orders|_columns@product$label:1
 msgid "Disassembly Product"

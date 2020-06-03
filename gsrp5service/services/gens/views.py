@@ -466,7 +466,8 @@ def isAllow(view,info):
 	if view == 'geo' and (info['names']['from_latitude'] and info['names']['from_longitude'] or info['names']['to_latitude'] and info['names']['to_longitude'] or info['names']['latitude'] and info['names']['longitude']):
 		r = True
 
-	if view == 'flow' and  info['names']['prev'] and info['names']['next'] and info['names']['transitions'] :
+	if view == 'flow' and  info['names']['prev'] and info['names']['next']:
+		# and info['names']['transitions'] :
 		r = True
 	
 	return r

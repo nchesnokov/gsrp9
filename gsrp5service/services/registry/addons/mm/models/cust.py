@@ -180,7 +180,7 @@ class mm_route_category(Model):
 	'parent_id': fields.many2one(label='Parent',obj='mm.route.category'),
 	'childs_id': fields.one2many(obj = 'mm.route.category',rel = 'parent_id',label = 'Childs'),
 	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
-	'routes': fields.one2many(label='Orders',obj='mm.route',rel='category_id',limit = 80,readonly=True),
+	'routes': fields.one2many(label='Routes',obj='mm.route',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -313,3 +313,196 @@ class mm_route_items(Model):
 
 mm_route_items()
 
+# Operations
+class mm_map_op_category(Model):
+	_name = 'mm.map.op.category'
+	_description = 'Category Technologic Operations'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='mm.map.op.category'),
+	'childs_id': fields.one2many(obj = 'mm.map.op.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'ops': fields.one2many(label='Maps',obj='mm.map.ops',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_map_op_category()
+
+class mm_map_ops(Model):
+	_name = 'mm.map.ops'
+	_description = 'Operation of map'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='mm.map.op.category'),
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name', cols=['company','name'],translate = True,required = True, compute = '_compute_composite'),
+	'usage': fields.selection(label='Usage',selections=[('p','Production'),('t','Technology'),('d','Disassembly'),('a','All')]),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_map_ops()
+
+# Production map
+class mm_production_map_category(Model):
+	_name = 'mm.production.map.category'
+	_description = 'Category Production Map'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='mm.production.map.category'),
+	'childs_id': fields.one2many(obj = 'mm.production.map.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'maps': fields.one2many(label='Maps',obj='mm.production.maps',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_production_map_category()
+
+class mm_production_maps(Model):
+	_name = 'mm.production.maps'
+	_description = 'Production Map'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='mm.production.map.category'),
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name', cols=['company','name'],translate = True,required = True, compute = '_compute_composite'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',on_change='_on_change_bom'),
+	'ops': fields.one2many(obj = 'mm.production.map.ops',rel = 'op_id',label = 'Operations'),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_production_maps()
+
+class mm_production_map_ops(Model):
+	_name = 'mm.production.map.ops'
+	_description = 'Operations of production map'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'op_id': fields.many2one(label='Operation',obj='mm.production.maps'),
+	'seq':  fields.integer(label='Sequence',required=True),
+	'description': fields.varchar(label='Description',required=True),
+	'prev':  fields.many2one(label='Prev',obj='mm.map.ops'),
+	'next': fields.many2one(label='Next',obj='mm.map.ops'),
+	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
+	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
+	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_production_map_ops()
+
+# technology map
+
+class mm_technologic_map_category(Model):
+	_name = 'mm.technologic.map.category'
+	_description = 'Category Technologic Map'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='mm.technologic.map.category'),
+	'childs_id': fields.one2many(obj = 'mm.technologic.map.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'maps': fields.one2many(label='Maps',obj='mm.technologic.maps',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_technologic_map_category()
+
+class mm_technologic_maps(Model):
+	_name = 'mm.technologic.maps'
+	_description = 'Technologic Map'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='mm.technologic.map.category'),
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name', cols=['company','name'],translate = True,required = True, compute = '_compute_composite'),
+	'bob': fields.many2one(label='BoB',obj='md.bobs',on_change='_on_change_bob'),
+	'ops': fields.one2many(obj = 'mm.technologic.map.ops',rel = 'op_id',label = 'Operations'),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_technologic_maps()
+
+class mm_technologic_map_ops(Model):
+	_name = 'mm.technologic.map.ops'
+	_description = 'Operations of technology map'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'op_id': fields.many2one(label='Operation',obj='mm.technologic.maps'),
+	'seq':  fields.integer(label='Sequence',required=True),
+	'description': fields.varchar(label='Description',required=True),
+	'prev':  fields.many2one(label='Prev',obj='mm.map.ops'),
+	'next': fields.many2one(label='Next',obj='mm.map.ops'),
+	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
+	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
+	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_technologic_map_ops()
+
+# Disassembly map
+
+class mm_disassembly_map_category(Model):
+	_name = 'mm.disassembly.map.category'
+	_description = 'Category Technologic Map'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='mm.disassembly.map.category'),
+	'childs_id': fields.one2many(obj = 'mm.disassembly.map.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'maps': fields.one2many(label='Maps',obj='mm.disassembly.maps',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_disassembly_map_category()
+
+class mm_disassembly_maps(Model):
+	_name = 'mm.disassembly.maps'
+	_description = 'Disassembly map'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'category_id': fields.many2one(label='Category',obj='mm.disassembly.map.category'),
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name', cols=['company','name'],translate = True,required = True, compute = '_compute_composite'),
+	'mob': fields.many2one(label='MoB',obj='md.mobs',on_change='_on_change_mob'),
+	'ops': fields.one2many(obj = 'mm.disassembly.map.ops',rel = 'op_id',label = 'Operations'),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_disassembly_maps()
+
+class mm_disassembly_map_ops(Model):
+	_name = 'mm.disassembly.map.ops'
+	_description = 'Operations of disassembly map'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'op_id': fields.many2one(label='Operation',obj='mm.disassembly.maps'),
+	'seq':  fields.integer(label='Sequence',required=True),
+	'description': fields.varchar(label='Description',required=True),
+	'prev':  fields.many2one(label='Prev',obj='mm.map.ops'),
+	'next': fields.many2one(label='Next',obj='mm.map.ops'),
+	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
+	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
+	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_disassembly_map_ops()
