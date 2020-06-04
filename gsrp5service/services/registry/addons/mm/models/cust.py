@@ -316,7 +316,7 @@ mm_route_items()
 # Operations
 class mm_map_op_category(Model):
 	_name = 'mm.map.op.category'
-	_description = 'Category Technologic Operations'
+	_description = 'Category operation of map'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -388,9 +388,9 @@ class mm_production_map_ops(Model):
 	_columns = {
 	'op_id': fields.many2one(label='Operation',obj='mm.production.maps'),
 	'seq':  fields.integer(label='Sequence',required=True),
-	'description': fields.varchar(label='Description',required=True),
-	'prev':  fields.many2one(label='Prev',obj='mm.map.ops'),
-	'next': fields.many2one(label='Next',obj='mm.map.ops'),
+	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('p','a'))]),
+	'prev':  fields.many2one(label='Prev',obj='mm.map.ops',domain=[('usage','in',('p','a'))]),
+	'next': fields.many2one(label='Next',obj='mm.map.ops',domain=[('usage','in',('p','a'))]),
 	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
 	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
 	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
@@ -442,9 +442,9 @@ class mm_technologic_map_ops(Model):
 	_columns = {
 	'op_id': fields.many2one(label='Operation',obj='mm.technologic.maps'),
 	'seq':  fields.integer(label='Sequence',required=True),
-	'description': fields.varchar(label='Description',required=True),
-	'prev':  fields.many2one(label='Prev',obj='mm.map.ops'),
-	'next': fields.many2one(label='Next',obj='mm.map.ops'),
+	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('t','a'))]),
+	'prev':  fields.many2one(label='Prev',obj='mm.map.ops',domain=[('usage','in',('t','a'))]),
+	'next': fields.many2one(label='Next',obj='mm.map.ops',domain=[('usage','in',('t','a'))]),
 	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
 	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
 	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
@@ -457,7 +457,7 @@ mm_technologic_map_ops()
 
 class mm_disassembly_map_category(Model):
 	_name = 'mm.disassembly.map.category'
-	_description = 'Category Technologic Map'
+	_description = 'Category Disassembly Map'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -496,9 +496,9 @@ class mm_disassembly_map_ops(Model):
 	_columns = {
 	'op_id': fields.many2one(label='Operation',obj='mm.disassembly.maps'),
 	'seq':  fields.integer(label='Sequence',required=True),
-	'description': fields.varchar(label='Description',required=True),
-	'prev':  fields.many2one(label='Prev',obj='mm.map.ops'),
-	'next': fields.many2one(label='Next',obj='mm.map.ops'),
+	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'prev':  fields.many2one(label='Prev',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'next': fields.many2one(label='Next',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
 	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
 	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
 	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
