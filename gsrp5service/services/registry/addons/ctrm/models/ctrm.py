@@ -285,7 +285,7 @@ class ctrm_requests(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','s'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'mob': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','sale'),'|',('usage','=','all')],on_change='_on_change_mob'),
 	'items': fields.one2many(label='Items',obj='ctrm.request.items',rel='request_id'),
 	'roles': fields.one2many(label='Roles',obj='ctrm.request.roles',rel='request_id'),
 	'texts': fields.one2many(label='Texts',obj='ctrm.request.texts',rel='request_id'),
@@ -300,16 +300,20 @@ class ctrm_requests(Model):
 				for role in roles:
 					item[roles].append[role['role_id']]
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_mob(self,cr,pool,uid,item,context={}):		
+		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
+			p = pool.get('md.mob.output.items').select(cr,pool,uid,['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
 			for i in p:
-				r = {'delivery_schedules':[{'quantity':i['quantity'],'schedule':datetime.utcnow()+timedelta(3)}]}
+				ei = pool.get('sale.order.item.delivery.schedules')._buildEmptyItem()
+				ei['quantity'] = i['quantity']
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('sale.order.items')._buildEmptyItem()
+				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
-					r[f] = i[f]
-				r['price'] = 0.00
-				item['items'].append(r)
-				
+					item_items[f] = i[f]
+				item_items['price'] = 0.00
+				item['items'].append(item_items)
+
 		return None
 
 	_default = {
@@ -458,7 +462,7 @@ class ctrm_offers(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','s'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'mob': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','sale'),'|',('usage','=','all')],on_change='_on_change_mob'),
 	'items': fields.one2many(label='Items',obj='ctrm.offer.items',rel='offer_id'),
 	'roles': fields.one2many(label='Roles',obj='ctrm.offer.roles',rel='offer_id'),
 	'texts': fields.one2many(label='Texts',obj='ctrm.offer.texts',rel='offer_id'),
@@ -473,16 +477,20 @@ class ctrm_offers(Model):
 				for role in roles:
 					item[roles].append[role['role_id']]
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_mob(self,cr,pool,uid,item,context={}):		
+		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
+			p = pool.get('md.mob.output.items').select(cr,pool,uid,['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
 			for i in p:
-				r = {'delivery_schedules':[{'quantity':i['quantity'],'schedule':datetime.utcnow()+timedelta(3)}]}
+				ei = pool.get('sale.order.item.delivery.schedules')._buildEmptyItem()
+				ei['quantity'] = i['quantity']
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('sale.order.items')._buildEmptyItem()
+				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
-					r[f] = i[f]
-				r['price'] = 0.00
-				item['items'].append(r)
-				
+					item_items[f] = i[f]
+				item_items['price'] = 0.00
+				item['items'].append(item_items)
+
 		return None
 
 	_default = {
@@ -633,7 +641,7 @@ class ctrm_contracts(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','s'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'mob': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','sale'),'|',('usage','=','all')],on_change='_on_change_mob'),
 	'items': fields.one2many(label='Items',obj='ctrm.contract.items',rel='contract_id'),
 	'roles': fields.one2many(label='Roles',obj='ctrm.contract.roles',rel='contract_id'),
 	'texts': fields.one2many(label='Texts',obj='ctrm.contract.texts',rel='contract_id'),
@@ -648,16 +656,20 @@ class ctrm_contracts(Model):
 				for role in roles:
 					item[roles].append[role['role_id']]
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_mob(self,cr,pool,uid,item,context={}):		
+		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
+			p = pool.get('md.mob.output.items').select(cr,pool,uid,['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
 			for i in p:
-				r = {'delivery_schedules':[{'quantity':i['quantity'],'schedule':datetime.utcnow()+timedelta(3)}]}
+				ei = pool.get('sale.order.item.delivery.schedules')._buildEmptyItem()
+				ei['quantity'] = i['quantity']
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('sale.order.items')._buildEmptyItem()
+				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
-					r[f] = i[f]
-				r['price'] = 0.00
-				item['items'].append(r)
-				
+					item_items[f] = i[f]
+				item_items['price'] = 0.00
+				item['items'].append(item_items)
+
 		return None
 
 	_default = {

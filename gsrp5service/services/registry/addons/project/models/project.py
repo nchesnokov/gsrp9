@@ -789,10 +789,10 @@ md_prj_product()
 class md_prj_product_inherit(ModelInherit):
 	_name = 'md.prj.product.inherit'
 	_description = 'Genaral Model Inherit For project Product'
-	_inherit = {'md.product':{'_columns':['project']},'md.recepture':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['project']},'md.boms':{'_columns':['usage']}}
 	_columns = {
 		'project': fields.one2many(label='Project',obj='md.prj.product',rel='product_id'),
-		'usage': fields.iProperty(selections=[('j','Project')])
+		'usage': fields.iProperty(selections=[('prj','Project')])
 	}
 	
 md_prj_product_inherit()

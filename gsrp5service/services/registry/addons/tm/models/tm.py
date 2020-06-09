@@ -21,10 +21,10 @@ md_tm_product()
 class md_tm_product_inherit(ModelInherit):
 	_name = 'md.tm.product.inherit'
 	_description = 'Genaral Model Inherit For TM Product'
-	_inherit = {'md.product':{'_columns':['tm']},'md.recepture':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['tm']},'md.boms':{'_columns':['usage']}}
 	_columns = {
 		'tm': fields.one2many(label='TM',obj='md.tm.product',rel='product_id'),
-		'usage': fields.iProperty(selections=[('t','Technical')])
+		'usage': fields.iProperty(selections=[('tm','Technical')])
 	}
 	
 md_tm_product_inherit()
@@ -60,7 +60,7 @@ class tm_maps(Model):
 	'name': fields.varchar(label = 'Name'),
 	'otype': fields.selection(label='Type',selections=[('r','Repair'),('s','Service'),('d','Disassemkble')]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
-	'recepture_id': fields.many2one(label = 'Recepture',obj='md.recepture'),
+	'bom_id': fields.many2one(label = 'Bom',obj='md.boms'),
 	'note': fields.text('Note')}
 
 	_default = {
@@ -233,7 +233,7 @@ class tm_orders(Model):
 	'from_date': fields.datetime(label="Start date",timezone=True),
 	'to_date': fields.datetime(label="End date",timezone=True),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','t'),'|',('usage','=','a')]),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','t'),'|',('usage','=','a')]),
 	'items': fields.one2many(label='Items',obj='tm.order.items',rel='order_id'),
 	'note': fields.text('Note')
 	}

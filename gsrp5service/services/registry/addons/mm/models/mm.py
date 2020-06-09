@@ -74,11 +74,11 @@ class mm_production_orders(Model):
 	'dopo': fields.date(label='Date Of Production Order',required=True),
 	'from_date': fields.date(label='Start Date Of Production Order',required=True),
 	'to_date': fields.date(label='End Date Of Production Order',required=True),
-	'route': fields.many2one(label='Route',obj='mm.route',domain=[('rtype','in',('p','a'))]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
 	'parts': fields.numeric(label='Parts',size=(11,3),compute='_calculate_parts'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'schedules': fields.one2many(label='Schedule',obj='mm.production.order.schedules',rel='order_id'),
+	'ops': fields.one2many(label='Ops',obj='mm.production.order.ops',rel='order_id'),
 	'items': fields.one2many(label='Items',obj='mm.production.order.items',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='mm.production.order.roles',rel='order_id'),
 	'pricing': fields.one2many(label='Pricing',obj='mm.production.order.pricing',rel='order_id'),
@@ -109,6 +109,34 @@ class mm_production_orders(Model):
 				seq += 10
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
+
+	def _on_change_map(self,cr,pool,uid,item,context={}):
+		if  item['map'] and 'name' in item['map'] and item['map']['name']:
+			m = pool.get('mm.production.maps').select(cr,pool,uid,['fullname','bom',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
+			if len(m) > 0:
+				if m[0]['bom']:
+					item['bom'] = m[0]['bom']
+				if len(m[0]['ops']) > 0:
+					for op in m[0]['ops']:
+						ei_op = pool.get('mm.production.order.ops')._buildEmptyItem()
+						for k in filter(lambda x: x != 'id',op.keys()):
+							ei_op[k] = op[k]
+							
+						item['ops'].append(ei_op)
+
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			b = pool.get('md.boms').select(cr,pool,uid,['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['bom']['name'])],context)
+			if len(b) > 0:
+				item['product'] = b[0]['product']
+				item['part'] = b[0]['partition']
+				p = b[0]['items']
+				for i in p:
+					ei = pool.get('mm.production.order.items')._buildEmptyItem()
+					ei['product'] = i['product']
+					ei['quantity'] = i['quantity']
+					ei['uom'] = i['uom']
+					item['items'].append(ei)
+
 
 	def _on_change_bom(self,cr,pool,uid,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
@@ -211,6 +239,25 @@ class mm_production_order_delivery_schedules(Model):
 
 mm_production_order_delivery_schedules()
 
+class mm_production_order_ops(Model):
+	_name = 'mm.production.order.ops'
+	_description = 'Operations of production order'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'order_id': fields.many2one(label='Order',obj='mm.production.orders'),
+	'prev':  fields.many2one(label='Prev',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('d','a'))],required=True),
+	'next': fields.many2one(label='Next',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
+	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
+	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
+	'per_cicle': fields.boolean(label='Per Cicle'),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_production_order_ops()
+
 # Technologic
 class mm_technologic_orders(Model):
 	_name = 'mm.technologic.orders'
@@ -231,12 +278,12 @@ class mm_technologic_orders(Model):
 	'doto': fields.date(label='Date Of Technologic Order',required=True),
 	'from_date': fields.date(label='Start Date Of Technologic Order',required=True),
 	'to_date': fields.date(label='End Date Of Technologic Order',required=True),
-	'route': fields.many2one(label='Route',obj='mm.route',domain=[('rtype','in',('t','a'))]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
 	'parts': fields.numeric(label='Parts',size=(11,3),compute='_calculate_parts'),
 	'oamount': fields.numeric(label='Output Amount',size=(15,2),compute='_calculate_oamount_costs'),
 	'iamount': fields.numeric(label='Input Amount',size=(15,2),compute='_calculate_iamount_costs'),
 	'schedules': fields.one2many(label='Schedule',obj='mm.technologic.order.schedules',rel='order_id'),
+	'ops': fields.one2many(label='Ops',obj='mm.technologic.order.ops',rel='order_id'),
 	'ibobs': fields.one2many(label='InBoB',obj='mm.technologic.order.item.ibob',rel='order_id'),
 	'obobs': fields.one2many(label='OutBoB',obj='mm.technologic.order.item.obob',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='mm.technologic.order.roles',rel='order_id'),
@@ -264,6 +311,42 @@ class mm_technologic_orders(Model):
 				seq += 10
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
+
+	def _on_change_map(self,cr,pool,uid,item,context={}):
+		if  item['map'] and 'name' in item['map'] and item['map']['name']:
+			m = pool.get('mm.technologic.maps').select(cr,pool,uid,['fullname','bob',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
+			if len(m) > 0:
+				if m[0]['bob']:
+					item['bob'] = m[0]['bob']
+				if len(m[0]['ops']) > 0:
+					for op in m[0]['ops']:
+						ei_op = pool.get('mm.technologic.order.ops')._buildEmptyItem()
+						for k in filter(lambda x: x != 'id',op.keys()):
+							ei_op[k] = op[k]
+						
+						item['ops'].append(ei_op)
+
+		if item['bob'] and 'name' in item['bob'] and item['bob']['name']:
+			b = pool.get('md.bobs').select(cr,pool,uid,['fullname','partition',{'input_items':['product','quantity','uom']},{'output_items':['product','quantity','uom']}],[('fullname','=',item['bob']['name'])],context)
+			if len(b) > 0:
+				item['part'] = b[0]['partition']
+				p = b[0]['input_items']
+				for i in p:
+					ei = pool.get('mm.technologic.order.item.ibob')._buildEmptyItem()
+					ei['product'] = i['product']
+					ei['quantity'] = i['quantity']
+					ei['uom'] = i['uom']
+					item['ibobs'].append(ei)
+					
+				p = b[0]['output_items']
+				for i in p:
+					ei = pool.get('mm.technologic.order.item.obob')._buildEmptyItem()
+					ei['product'] = i['product']
+					ei['quantity'] = i['quantity']
+					ei['uom'] = i['uom']
+					item['obobs'].append(ei)
+
+
 
 	def _on_change_bob(self,cr,pool,uid,item,context={}):		
 		if item['bob'] and 'name' in item['bob'] and item['bob']['name']:
@@ -326,6 +409,25 @@ class mm_technologic_order_delivery_schedules(Model):
 	}
 
 mm_technologic_order_delivery_schedules()
+
+class mm_technologic_order_ops(Model):
+	_name = 'mm.technologic.order.ops'
+	_description = 'Operations of technologic order'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'order_id': fields.many2one(label='Order',obj='mm.technologic.orders'),
+	'prev':  fields.many2one(label='Prev',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('d','a'))],required=True),
+	'next': fields.many2one(label='Next',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
+	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
+	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
+	'per_cicle': fields.boolean(label='Per Cicle'),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_technologic_order_ops()
 
 class mm_technologic_order_texts(Model):
 	_name = 'mm.technologic.order.texts'
@@ -434,7 +536,7 @@ class mm_disassembly_orders(Model):
 	'company': fields.many2one(label='Company',obj='md.company'),
 	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True, compute = '_compute_composite'),
 	'map': fields.many2one(label='Map',obj= 'mm.disassembly.maps',on_change='_on_change_map'),
-	'mob': fields.many2one(label='MoB',obj='md.mobs',on_change='_on_change_mob'),
+	'mob': fields.many2one(label='MoB',obj='md.mobs',priority=1,on_change='_on_change_mob'),
 	'product': fields.many2one(label='Disassembly Product',obj='md.product',readonly=True),
 	'part': fields.numeric(label='Disassembly Part',size=(11,3), readonly=True),
 	'category_id': fields.many2one(label='Category',obj='mm.disassembly.order.category'),
@@ -443,11 +545,11 @@ class mm_disassembly_orders(Model):
 	'dodo': fields.date(label='Date Of Disassembly Order',required=True),
 	'from_date': fields.date(label='Start Date Of Disassembly Order',required=True),
 	'to_date': fields.date(label='End Date Of Disassembly Order',required=True),
-	'route': fields.many2one(label='Route',obj='mm.route',domain=[('rtype','in',('d','a'))]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
 	'parts': fields.numeric(label='Parts',size=(15,2),compute='_calculate_parts'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'schedules': fields.one2many(label='Schedule',obj='mm.disassembly.order.schedules',rel='order_id'),
+	'ops': fields.one2many(label='Ops',obj='mm.disassembly.order.ops',rel='order_id'),
 	'items': fields.one2many(label='Items',obj='mm.disassembly.order.items',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='mm.disassembly.order.roles',rel='order_id'),
 	'pricing': fields.one2many(label='Pricing',obj='mm.disassembly.order.pricing',rel='order_id'),
@@ -474,6 +576,35 @@ class mm_disassembly_orders(Model):
 				seq += 10
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
+
+	def _on_change_map(self,cr,pool,uid,item,context={}):
+		if  item['map'] and 'name' in item['map'] and item['map']['name']:
+			m = pool.get('mm.disassembly.maps').select(cr,pool,uid,['fullname','mob',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
+			if len(m) > 0:
+				if m[0]['mob']:
+					item['mob'] = m[0]['mob']
+				if len(m[0]['ops']) > 0:
+					for op in m[0]['ops']:
+						ei_op = pool.get('mm.disassembly.order.ops')._buildEmptyItem()
+						for k in filter(lambda x: x != 'id',op.keys()):
+							ei_op[k] = op[k]
+						
+						item['ops'].append(ei_op)
+									
+		# if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
+			# b = pool.get('md.mobs').select(cr,pool,uid,['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['mob']['name'])],context)
+			# if len(b) > 0:
+				# item['product'] = b[0]['product']
+				# item['part'] = b[0]['partition']
+				# p = b[0]['items']
+
+				# for i in p:
+					# ei = pool.get('mm.disassembly.order.items')._buildEmptyItem()
+					# ei['product'] = i['product']
+					# ei['quantity'] = i['quantity']
+					# ei['uom'] = i['uom']
+					# item['items'].append(ei)
+
 
 	def _on_change_mob(self,cr,pool,uid,item,context={}):		
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
@@ -545,7 +676,7 @@ class mm_disassembly_order_items(Model):
 	_description = 'Disassembly Order Items'
 	_inherits = {'mm.common.model':{'_methods':['_on_change_product','_calculate_item']}}
 	_columns = {
-	'order_id': fields.many2one(obj = 'mm.disassembly.orders',label = 'Technologic Order'),
+	'order_id': fields.many2one(obj = 'mm.disassembly.orders',label = 'Order'),
 	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
 	'quantity': fields.numeric(label='Quantity',size=(13,3)),
 	'uom': fields.many2one(label='UoM',obj='md.uom'),
@@ -570,7 +701,7 @@ class mm_disassembly_order_delivery_schedules(Model):
 	_name = 'mm.disassembly.order.schedules'
 	_description = 'Disassembly Order Delivery Schedule'
 	_columns = {
-	'order_id': fields.many2one(obj = 'mm.disassembly.orders',label = 'Item'),
+	'order_id': fields.many2one(obj = 'mm.disassembly.orders',label = 'Order'),
 	'part': fields.numeric(label='Part',size=(11,3),required=True,check='part > 0.000'),
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
@@ -581,6 +712,26 @@ class mm_disassembly_order_delivery_schedules(Model):
 	}
 
 mm_disassembly_order_delivery_schedules()
+
+class mm_disassembly_order_ops(Model):
+	_name = 'mm.disassembly.order.ops'
+	_description = 'Operations of disassembly order'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'order_id': fields.many2one(label='Order',obj='mm.disassembly.orders'),
+	'prev':  fields.many2one(label='Prev',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('d','a'))],required=True),
+	'next': fields.many2one(label='Next',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
+	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
+	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
+	'per_cicle': fields.boolean(label='Per Cicle'),
+	'note': fields.text(label = 'Note')
+	}
+
+mm_disassembly_order_ops()
+
 
 class md_mm_product(Model):
 	_name = 'md.mm.product'
@@ -600,7 +751,7 @@ md_mm_product()
 class md_mm_product_inherit(ModelInherit):
 	_name = 'md.mm.product.inherit'
 	_description = 'Inherit For Production Product'
-	_inherit = {'md.product':{'_columns':['production']},'md.recepture':{'_columns':['usage']},'md.boms':{'_columns':['usage']},'md.mobs':{'_columns':['usage']},'md.bobs':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}
+	_inherit = {'md.product':{'_columns':['production']},'md.boms':{'_columns':['usage']},'md.boms':{'_columns':['usage']},'md.mobs':{'_columns':['usage']},'md.bobs':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}
 	}
 	_columns = {
 		'production': fields.one2many(label='Production',obj='md.mm.product',rel='product_id'),

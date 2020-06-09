@@ -112,10 +112,6 @@
           <column name="name">action.md.banks.search</column>
           <column name="ta">View</column>
         </record>
-        <record id="action.md.recepture.search">
-          <column name="name">action.md.recepture.search</column>
-          <column name="ta">View</column>
-        </record>
         <record id="action.md.boms.search">
           <column name="name">action.md.boms.search</column>
           <column name="ta">View</column>
@@ -232,10 +228,6 @@
         </record>
         <record id="action.md.banks.report">
           <column name="name">action.md.banks.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.md.recepture.report">
-          <column name="name">action.md.recepture.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.md.boms.report">
@@ -355,10 +347,6 @@
         <record id="view.action.md.banks.search">
           <column name="action_id">action.md.banks.search</column>
           <column name="view_id">view.md.banks.search</column>
-        </record>
-        <record id="view.action.md.recepture.search">
-          <column name="action_id">action.md.recepture.search</column>
-          <column name="view_id">view.md.recepture.search</column>
         </record>
         <record id="view.action.md.boms.search">
           <column name="action_id">action.md.boms.search</column>
@@ -556,13 +544,6 @@
           <column name="infile">infile_md_banks.docx</column>
           <column name="outfile">outfile_md_banks.docx</column>
         </record>
-        <record id="bc.ui.report.docx.md.recepture">
-          <column name="name">bc.ui.report.docx.md.recepture</column>
-          <column name="label">Recipe</column>
-          <column name="report">report_md_recepture</column>
-          <column name="infile">infile_md_recepture.docx</column>
-          <column name="outfile">outfile_md_recepture.docx</column>
-        </record>
         <record id="bc.ui.report.docx.md.boms">
           <column name="name">bc.ui.report.docx.md.boms</column>
           <column name="label">Bill of Material</column>
@@ -689,10 +670,6 @@
         <record id="report.action.md.banks.report">
           <column name="action_id">action.md.banks.report</column>
           <column name="report_id">bc.ui.report.docx.md.banks</column>
-        </record>
-        <record id="report.action.md.recepture.report">
-          <column name="action_id">action.md.recepture.report</column>
-          <column name="report_id">bc.ui.report.docx.md.recepture</column>
         </record>
         <record id="report.action.md.boms.report">
           <column name="action_id">action.md.boms.report</column>
@@ -916,36 +893,28 @@
           <column name="sequence">250</column>
           <column name="action_id">action.md.banks.search</column>
           </record>
-          <record id="ui.menu.md.recepture.search">
-          <column name="sequence">26</column>
-            <column name="name">ui.menu.md.recepture.search</column>
-            <column name="label">Recipe</column>
-          <column name="parent_id">ui.menu.md</column>
-          <column name="sequence">260</column>
-          <column name="action_id">action.md.recepture.search</column>
-          </record>
           <record id="ui.menu.md.boms.search">
-          <column name="sequence">27</column>
+          <column name="sequence">26</column>
             <column name="name">ui.menu.md.boms.search</column>
             <column name="label">Bill of Material</column>
           <column name="parent_id">ui.menu.md</column>
-          <column name="sequence">270</column>
+          <column name="sequence">260</column>
           <column name="action_id">action.md.boms.search</column>
           </record>
           <record id="ui.menu.md.mobs.search">
-          <column name="sequence">28</column>
+          <column name="sequence">27</column>
             <column name="name">ui.menu.md.mobs.search</column>
             <column name="label">Material of Bills</column>
           <column name="parent_id">ui.menu.md</column>
-          <column name="sequence">280</column>
+          <column name="sequence">270</column>
           <column name="action_id">action.md.mobs.search</column>
           </record>
           <record id="ui.menu.md.bobs.search">
-          <column name="sequence">29</column>
+          <column name="sequence">28</column>
             <column name="name">ui.menu.md.bobs.search</column>
             <column name="label">Bill of Bills</column>
           <column name="parent_id">ui.menu.md</column>
-          <column name="sequence">290</column>
+          <column name="sequence">280</column>
           <column name="action_id">action.md.bobs.search</column>
           </record>
       </records>
@@ -1165,36 +1134,28 @@
           <column name="sequence">250</column>
           <column name="action_id">action.md.banks.report</column>
           </record>
-          <record id="ui.menu.md.recepture.report">
-          <column name="sequence">26</column>
-            <column name="name">ui.menu.md.recepture.report</column>
-            <column name="label">Recipe</column>
-          <column name="parent_id">ui.menu.md.report</column>
-          <column name="sequence">260</column>
-          <column name="action_id">action.md.recepture.report</column>
-          </record>
           <record id="ui.menu.md.boms.report">
-          <column name="sequence">27</column>
+          <column name="sequence">26</column>
             <column name="name">ui.menu.md.boms.report</column>
             <column name="label">Bill of Material</column>
           <column name="parent_id">ui.menu.md.report</column>
-          <column name="sequence">270</column>
+          <column name="sequence">260</column>
           <column name="action_id">action.md.boms.report</column>
           </record>
           <record id="ui.menu.md.mobs.report">
-          <column name="sequence">28</column>
+          <column name="sequence">27</column>
             <column name="name">ui.menu.md.mobs.report</column>
             <column name="label">Material of Bills</column>
           <column name="parent_id">ui.menu.md.report</column>
-          <column name="sequence">280</column>
+          <column name="sequence">270</column>
           <column name="action_id">action.md.mobs.report</column>
           </record>
           <record id="ui.menu.md.bobs.report">
-          <column name="sequence">29</column>
+          <column name="sequence">28</column>
             <column name="name">ui.menu.md.bobs.report</column>
             <column name="label">Bill of Bills</column>
           <column name="parent_id">ui.menu.md.report</column>
-          <column name="sequence">290</column>
+          <column name="sequence">280</column>
           <column name="action_id">action.md.bobs.report</column>
           </record>
       </records>

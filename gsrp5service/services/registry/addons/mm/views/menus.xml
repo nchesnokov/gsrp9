@@ -174,10 +174,6 @@
           <column name="name">action.mm.workcenter.category.custom</column>
           <column name="ta">View</column>
         </record>
-        <record id="action.mm.route.category.custom">
-          <column name="name">action.mm.route.category.custom</column>
-          <column name="ta">View</column>
-        </record>
         <record id="action.mm.production.order.category.custom">
           <column name="name">action.mm.production.order.category.custom</column>
           <column name="ta">View</column>
@@ -192,10 +188,6 @@
         </record>
         <record id="action.mm.workcenters.custom">
           <column name="name">action.mm.workcenters.custom</column>
-          <column name="ta">View</column>
-        </record>
-        <record id="action.mm.route.custom">
-          <column name="name">action.mm.route.custom</column>
           <column name="ta">View</column>
         </record>
         <record id="action.mm.map.op.category.custom">
@@ -260,10 +252,6 @@
           <column name="action_id">action.mm.workcenter.category.custom</column>
           <column name="view_id">view.mm.workcenter.category.search</column>
         </record>
-        <record id="view.action.mm.route.category.custom">
-          <column name="action_id">action.mm.route.category.custom</column>
-          <column name="view_id">view.mm.route.category.search</column>
-        </record>
         <record id="view.action.mm.production.order.category.custom">
           <column name="action_id">action.mm.production.order.category.custom</column>
           <column name="view_id">view.mm.production.order.category.search</column>
@@ -279,10 +267,6 @@
         <record id="view.action.mm.workcenters.custom">
           <column name="action_id">action.mm.workcenters.custom</column>
           <column name="view_id">view.mm.workcenters.search</column>
-        </record>
-        <record id="view.action.mm.route.custom">
-          <column name="action_id">action.mm.route.custom</column>
-          <column name="view_id">view.mm.route.search</column>
         </record>
         <record id="view.action.mm.map.op.category.custom">
           <column name="action_id">action.mm.map.op.category.custom</column>
@@ -381,116 +365,100 @@
           <column name="sequence">60</column>
           <column name="action_id">action.mm.workcenter.category.custom</column>
           </record>
-          <record id="ui.menu.mm.route.category.custom">
-          <column name="sequence">7</column>
-            <column name="name">ui.menu.mm.route.category.custom</column>
-            <column name="label">Category Route</column>
-          <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">70</column>
-          <column name="action_id">action.mm.route.category.custom</column>
-          </record>
           <record id="ui.menu.mm.production.order.category.custom">
-          <column name="sequence">8</column>
+          <column name="sequence">7</column>
             <column name="name">ui.menu.mm.production.order.category.custom</column>
             <column name="label">Category Production Order</column>
           <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">80</column>
+          <column name="sequence">70</column>
           <column name="action_id">action.mm.production.order.category.custom</column>
           </record>
           <record id="ui.menu.mm.technologic.order.category.custom">
-          <column name="sequence">9</column>
+          <column name="sequence">8</column>
             <column name="name">ui.menu.mm.technologic.order.category.custom</column>
             <column name="label">Category Technologic Order</column>
           <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">90</column>
+          <column name="sequence">80</column>
           <column name="action_id">action.mm.technologic.order.category.custom</column>
           </record>
           <record id="ui.menu.mm.disassembly.order.category.custom">
-          <column name="sequence">10</column>
+          <column name="sequence">9</column>
             <column name="name">ui.menu.mm.disassembly.order.category.custom</column>
             <column name="label">Category Disassembly Order</column>
           <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">100</column>
+          <column name="sequence">90</column>
           <column name="action_id">action.mm.disassembly.order.category.custom</column>
           </record>
           <record id="ui.menu.mm.workcenters.custom">
-          <column name="sequence">11</column>
+          <column name="sequence">10</column>
             <column name="name">ui.menu.mm.workcenters.custom</column>
             <column name="label">Workcenter</column>
           <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">110</column>
+          <column name="sequence">100</column>
           <column name="action_id">action.mm.workcenters.custom</column>
           </record>
-          <record id="ui.menu.mm.route.custom">
-          <column name="sequence">12</column>
-            <column name="name">ui.menu.mm.route.custom</column>
-            <column name="label">Route</column>
-          <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">120</column>
-          <column name="action_id">action.mm.route.custom</column>
-          </record>
           <record id="ui.menu.mm.map.op.category.custom">
-          <column name="sequence">13</column>
+          <column name="sequence">11</column>
             <column name="name">ui.menu.mm.map.op.category.custom</column>
             <column name="label">Category operation of map</column>
           <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">130</column>
+          <column name="sequence">110</column>
           <column name="action_id">action.mm.map.op.category.custom</column>
           </record>
           <record id="ui.menu.mm.map.ops.custom">
-          <column name="sequence">14</column>
+          <column name="sequence">12</column>
             <column name="name">ui.menu.mm.map.ops.custom</column>
             <column name="label">Operation of map</column>
           <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">140</column>
+          <column name="sequence">120</column>
           <column name="action_id">action.mm.map.ops.custom</column>
           </record>
           <record id="ui.menu.mm.production.map.category.custom">
-          <column name="sequence">15</column>
+          <column name="sequence">13</column>
             <column name="name">ui.menu.mm.production.map.category.custom</column>
             <column name="label">Category Production Map</column>
           <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">150</column>
+          <column name="sequence">130</column>
           <column name="action_id">action.mm.production.map.category.custom</column>
           </record>
           <record id="ui.menu.mm.production.maps.custom">
-          <column name="sequence">16</column>
+          <column name="sequence">14</column>
             <column name="name">ui.menu.mm.production.maps.custom</column>
             <column name="label">Production Map</column>
           <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">160</column>
+          <column name="sequence">140</column>
           <column name="action_id">action.mm.production.maps.custom</column>
           </record>
           <record id="ui.menu.mm.technologic.map.category.custom">
-          <column name="sequence">17</column>
+          <column name="sequence">15</column>
             <column name="name">ui.menu.mm.technologic.map.category.custom</column>
             <column name="label">Category Technologic Map</column>
           <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">170</column>
+          <column name="sequence">150</column>
           <column name="action_id">action.mm.technologic.map.category.custom</column>
           </record>
           <record id="ui.menu.mm.technologic.maps.custom">
-          <column name="sequence">18</column>
+          <column name="sequence">16</column>
             <column name="name">ui.menu.mm.technologic.maps.custom</column>
             <column name="label">Technologic Map</column>
           <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">180</column>
+          <column name="sequence">160</column>
           <column name="action_id">action.mm.technologic.maps.custom</column>
           </record>
           <record id="ui.menu.mm.disassembly.map.category.custom">
-          <column name="sequence">19</column>
+          <column name="sequence">17</column>
             <column name="name">ui.menu.mm.disassembly.map.category.custom</column>
             <column name="label">Category Disassembly Map</column>
           <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">190</column>
+          <column name="sequence">170</column>
           <column name="action_id">action.mm.disassembly.map.category.custom</column>
           </record>
           <record id="ui.menu.mm.disassembly.maps.custom">
-          <column name="sequence">20</column>
+          <column name="sequence">18</column>
             <column name="name">ui.menu.mm.disassembly.maps.custom</column>
             <column name="label">Disassembly map</column>
           <column name="parent_id">ui.menu.mm.custom</column>
-          <column name="sequence">200</column>
+          <column name="sequence">180</column>
           <column name="action_id">action.mm.disassembly.maps.custom</column>
           </record>
       </records>
@@ -523,10 +491,6 @@
           <column name="name">action.mm.workcenter.category.report</column>
           <column name="ta">Report</column>
         </record>
-        <record id="action.mm.route.category.report">
-          <column name="name">action.mm.route.category.report</column>
-          <column name="ta">Report</column>
-        </record>
         <record id="action.mm.production.order.category.report">
           <column name="name">action.mm.production.order.category.report</column>
           <column name="ta">Report</column>
@@ -541,10 +505,6 @@
         </record>
         <record id="action.mm.workcenters.report">
           <column name="name">action.mm.workcenters.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.mm.route.report">
-          <column name="name">action.mm.route.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.mm.map.op.category.report">
@@ -630,13 +590,6 @@
           <column name="infile">infile_mm_workcenter_category.docx</column>
           <column name="outfile">outfile_mm_workcenter_category.docx</column>
         </record>
-        <record id="bc.ui.report.docx.mm.route.category">
-          <column name="name">bc.ui.report.docx.mm.route.category</column>
-          <column name="label">Category Route</column>
-          <column name="report">report_mm_route_category</column>
-          <column name="infile">infile_mm_route_category.docx</column>
-          <column name="outfile">outfile_mm_route_category.docx</column>
-        </record>
         <record id="bc.ui.report.docx.mm.production.order.category">
           <column name="name">bc.ui.report.docx.mm.production.order.category</column>
           <column name="label">Category Production Order</column>
@@ -664,13 +617,6 @@
           <column name="report">report_mm_workcenters</column>
           <column name="infile">infile_mm_workcenters.docx</column>
           <column name="outfile">outfile_mm_workcenters.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.mm.route">
-          <column name="name">bc.ui.report.docx.mm.route</column>
-          <column name="label">Route</column>
-          <column name="report">report_mm_route</column>
-          <column name="infile">infile_mm_route.docx</column>
-          <column name="outfile">outfile_mm_route.docx</column>
         </record>
         <record id="bc.ui.report.docx.mm.map.op.category">
           <column name="name">bc.ui.report.docx.mm.map.op.category</column>
@@ -758,10 +704,6 @@
           <column name="action_id">action.mm.workcenter.category.report</column>
           <column name="report_id">bc.ui.report.docx.mm.workcenter.category</column>
         </record>
-        <record id="report.action.mm.route.category.report">
-          <column name="action_id">action.mm.route.category.report</column>
-          <column name="report_id">bc.ui.report.docx.mm.route.category</column>
-        </record>
         <record id="report.action.mm.production.order.category.report">
           <column name="action_id">action.mm.production.order.category.report</column>
           <column name="report_id">bc.ui.report.docx.mm.production.order.category</column>
@@ -777,10 +719,6 @@
         <record id="report.action.mm.workcenters.report">
           <column name="action_id">action.mm.workcenters.report</column>
           <column name="report_id">bc.ui.report.docx.mm.workcenters</column>
-        </record>
-        <record id="report.action.mm.route.report">
-          <column name="action_id">action.mm.route.report</column>
-          <column name="report_id">bc.ui.report.docx.mm.route</column>
         </record>
         <record id="report.action.mm.map.op.category.report">
           <column name="action_id">action.mm.map.op.category.report</column>
@@ -879,116 +817,100 @@
           <column name="sequence">60</column>
           <column name="action_id">action.mm.workcenter.category.report</column>
           </record>
-          <record id="ui.menu.mm.route.category.report">
-          <column name="sequence">7</column>
-            <column name="name">ui.menu.mm.route.category.report</column>
-            <column name="label">Category Route</column>
-          <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">70</column>
-          <column name="action_id">action.mm.route.category.report</column>
-          </record>
           <record id="ui.menu.mm.production.order.category.report">
-          <column name="sequence">8</column>
+          <column name="sequence">7</column>
             <column name="name">ui.menu.mm.production.order.category.report</column>
             <column name="label">Category Production Order</column>
           <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">80</column>
+          <column name="sequence">70</column>
           <column name="action_id">action.mm.production.order.category.report</column>
           </record>
           <record id="ui.menu.mm.technologic.order.category.report">
-          <column name="sequence">9</column>
+          <column name="sequence">8</column>
             <column name="name">ui.menu.mm.technologic.order.category.report</column>
             <column name="label">Category Technologic Order</column>
           <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">90</column>
+          <column name="sequence">80</column>
           <column name="action_id">action.mm.technologic.order.category.report</column>
           </record>
           <record id="ui.menu.mm.disassembly.order.category.report">
-          <column name="sequence">10</column>
+          <column name="sequence">9</column>
             <column name="name">ui.menu.mm.disassembly.order.category.report</column>
             <column name="label">Category Disassembly Order</column>
           <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">100</column>
+          <column name="sequence">90</column>
           <column name="action_id">action.mm.disassembly.order.category.report</column>
           </record>
           <record id="ui.menu.mm.workcenters.report">
-          <column name="sequence">11</column>
+          <column name="sequence">10</column>
             <column name="name">ui.menu.mm.workcenters.report</column>
             <column name="label">Workcenter</column>
           <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">110</column>
+          <column name="sequence">100</column>
           <column name="action_id">action.mm.workcenters.report</column>
           </record>
-          <record id="ui.menu.mm.route.report">
-          <column name="sequence">12</column>
-            <column name="name">ui.menu.mm.route.report</column>
-            <column name="label">Route</column>
-          <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">120</column>
-          <column name="action_id">action.mm.route.report</column>
-          </record>
           <record id="ui.menu.mm.map.op.category.report">
-          <column name="sequence">13</column>
+          <column name="sequence">11</column>
             <column name="name">ui.menu.mm.map.op.category.report</column>
             <column name="label">Category operation of map</column>
           <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">130</column>
+          <column name="sequence">110</column>
           <column name="action_id">action.mm.map.op.category.report</column>
           </record>
           <record id="ui.menu.mm.map.ops.report">
-          <column name="sequence">14</column>
+          <column name="sequence">12</column>
             <column name="name">ui.menu.mm.map.ops.report</column>
             <column name="label">Operation of map</column>
           <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">140</column>
+          <column name="sequence">120</column>
           <column name="action_id">action.mm.map.ops.report</column>
           </record>
           <record id="ui.menu.mm.production.map.category.report">
-          <column name="sequence">15</column>
+          <column name="sequence">13</column>
             <column name="name">ui.menu.mm.production.map.category.report</column>
             <column name="label">Category Production Map</column>
           <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">150</column>
+          <column name="sequence">130</column>
           <column name="action_id">action.mm.production.map.category.report</column>
           </record>
           <record id="ui.menu.mm.production.maps.report">
-          <column name="sequence">16</column>
+          <column name="sequence">14</column>
             <column name="name">ui.menu.mm.production.maps.report</column>
             <column name="label">Production Map</column>
           <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">160</column>
+          <column name="sequence">140</column>
           <column name="action_id">action.mm.production.maps.report</column>
           </record>
           <record id="ui.menu.mm.technologic.map.category.report">
-          <column name="sequence">17</column>
+          <column name="sequence">15</column>
             <column name="name">ui.menu.mm.technologic.map.category.report</column>
             <column name="label">Category Technologic Map</column>
           <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">170</column>
+          <column name="sequence">150</column>
           <column name="action_id">action.mm.technologic.map.category.report</column>
           </record>
           <record id="ui.menu.mm.technologic.maps.report">
-          <column name="sequence">18</column>
+          <column name="sequence">16</column>
             <column name="name">ui.menu.mm.technologic.maps.report</column>
             <column name="label">Technologic Map</column>
           <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">180</column>
+          <column name="sequence">160</column>
           <column name="action_id">action.mm.technologic.maps.report</column>
           </record>
           <record id="ui.menu.mm.disassembly.map.category.report">
-          <column name="sequence">19</column>
+          <column name="sequence">17</column>
             <column name="name">ui.menu.mm.disassembly.map.category.report</column>
             <column name="label">Category Disassembly Map</column>
           <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">190</column>
+          <column name="sequence">170</column>
           <column name="action_id">action.mm.disassembly.map.category.report</column>
           </record>
           <record id="ui.menu.mm.disassembly.maps.report">
-          <column name="sequence">20</column>
+          <column name="sequence">18</column>
             <column name="name">ui.menu.mm.disassembly.maps.report</column>
             <column name="label">Disassembly map</column>
           <column name="parent_id">ui.menu.mm.report.custom</column>
-          <column name="sequence">200</column>
+          <column name="sequence">180</column>
           <column name="action_id">action.mm.disassembly.maps.report</column>
           </record>
       </records>

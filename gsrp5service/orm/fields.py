@@ -456,8 +456,8 @@ class many2one(_column):
 	_symbol_f = lambda x: x or None
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
-	def __init__(self,label='unknown', obj = None, readonly = None, invisible = None, required = None, ext_fields = None, domain = None, context = {}, on_change = None, on_check = None, selectable = True, on_delete = None, on_update = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, icon = None):
-		super(many2one,self).__init__(label = label, obj = obj, readonly = readonly, invisible = invisible, required = required, ext_fields = ext_fields, domain = domain, context = context, on_change = on_change, on_check = on_check, selectable = selectable, on_delete = on_delete, on_update = on_update, manual = manual, help = help,family = family, compute = compute, store = store, state = state, icon = icon)
+	def __init__(self,label='unknown', obj = None, readonly = None, invisible = None, required = None,priority = 0, ext_fields = None, domain = None, context = {}, on_change = None, on_check = None, selectable = True, on_delete = None, on_update = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, icon = None):
+		super(many2one,self).__init__(label = label, obj = obj, readonly = readonly, invisible = invisible, required = required,priority = priority, ext_fields = ext_fields, domain = domain, context = context, on_change = on_change, on_check = on_check, selectable = selectable, on_delete = on_delete, on_update = on_update, manual = manual, help = help,family = family, compute = compute, store = store, state = state, icon = icon)
 
 class one2one(_column):
 	_type = 'one2one'
@@ -482,8 +482,8 @@ class related(_column):
 	_symbol_f = lambda x: x or None
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
-	def __init__(self,label='unknown', obj = None, relatedy=None, readonly = None, invisible = None, required = None, domain = None, context = {}, on_change = None, on_check = None, selectable = True, on_delete = None, on_update = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, icon = None):
-		super(related,self).__init__(label = label, obj = obj, relatedy=relatedy, readonly = readonly, invisible = invisible, required = required, domain = domain, context = context,on_change = on_change, on_check = on_check,selectable = selectable, on_delete = on_delete, on_update = on_update, manual = manual, help = help,family = family, compute = compute, store = store, state = state, icon = icon)
+	def __init__(self,label='unknown', obj = None, relatedy=None, readonly = None, invisible = None, required = None,priority = 0, domain = None, context = {}, on_change = None, on_check = None, selectable = True, on_delete = None, on_update = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, icon = None):
+		super(related,self).__init__(label = label, obj = obj, relatedy=relatedy, readonly = readonly, invisible = invisible, required = required,priority = priority, domain = domain, context = context,on_change = on_change, on_check = on_check,selectable = selectable, on_delete = on_delete, on_update = on_update, manual = manual, help = help,family = family, compute = compute, store = store, state = state, icon = icon)
 
 
 class referenced(_column):

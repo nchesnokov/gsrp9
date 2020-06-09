@@ -121,7 +121,7 @@ class srm_demands(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','srm'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='srm.demand.items',rel='demand_id'),
 	'pricing': fields.one2many(label='Pricing',obj='srm.demand.pricing',rel='demand_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.demand.roles',rel='demand_id'),
@@ -162,20 +162,20 @@ class srm_demands(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.demand.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
-				item_items = pool.get('srm.demand.items')._buildEmptyItem()
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
+
 		return None
 
 srm_demands()
@@ -519,7 +519,7 @@ class srm_parts(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','srm'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='srm.part.items',rel='part_id'),
 	'pricing': fields.one2many(label='Pricing',obj='srm.part.pricing',rel='part_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.part.roles',rel='part_id'),
@@ -558,20 +558,20 @@ class srm_parts(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.part.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
-				item_items = pool.get('srm.part.items')._buildEmptyItem()
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
+
 		return None
 
 srm_parts()
@@ -914,7 +914,7 @@ class srm_plans(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','srm'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='srm.plan.items',rel='plan_id'),
 	'pricing': fields.one2many(label='Pricing',obj='srm.plan.pricing',rel='plan_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.plan.roles',rel='plan_id'),
@@ -953,20 +953,20 @@ class srm_plans(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.plan.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
-				item_items = pool.get('srm.plan.items')._buildEmptyItem()
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
+
 		return None
 
 srm_plans()
@@ -1309,7 +1309,7 @@ class srm_requests(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','srm'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='srm.request.items',rel='request_id'),
 	'pricing': fields.one2many(label='Pricing',obj='srm.request.pricing',rel='request_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.request.roles',rel='request_id'),
@@ -1348,20 +1348,20 @@ class srm_requests(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.request.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
-				item_items = pool.get('srm.request.items')._buildEmptyItem()
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
+
 		return None
 
 srm_requests()
@@ -1704,7 +1704,7 @@ class srm_responses(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','srm'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='srm.response.items',rel='response_id'),
 	'pricing': fields.one2many(label='Pricing',obj='srm.response.pricing',rel='response_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.response.roles',rel='response_id'),
@@ -1743,20 +1743,20 @@ class srm_responses(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.response.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
-				item_items = pool.get('srm.response.items')._buildEmptyItem()
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
+
 		return None
 
 srm_responses()
@@ -2100,7 +2100,7 @@ class srm_rfxs(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','srm'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='srm.rfx.items',rel='rfx_id'),
 	'pricing': fields.one2many(label='Pricing',obj='srm.rfx.pricing',rel='rfx_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.rfx.roles',rel='rfx_id'),
@@ -2139,20 +2139,20 @@ class srm_rfxs(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.rfx.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
-				item_items = pool.get('srm.rfx.items')._buildEmptyItem()
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
+
 		return None
 
 srm_rfxs()
@@ -2495,7 +2495,7 @@ class srm_auctions(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','srm'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='srm.auction.items',rel='auction_id'),
 	'pricing': fields.one2many(label='Pricing',obj='srm.auction.pricing',rel='auction_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.auction.roles',rel='auction_id'),
@@ -2534,20 +2534,20 @@ class srm_auctions(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.auction.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
-				item_items = pool.get('srm.auction.items')._buildEmptyItem()
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
+
 		return None
 
 srm_auctions()
@@ -2890,7 +2890,7 @@ class srm_offers(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','srm'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='srm.offer.items',rel='offer_id'),
 	'pricing': fields.one2many(label='Pricing',obj='srm.offer.pricing',rel='offer_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.offer.roles',rel='offer_id'),
@@ -2929,20 +2929,20 @@ class srm_offers(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.offer.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
-				item_items = pool.get('srm.offer.items')._buildEmptyItem()
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
+
 		return None
 
 srm_offers()
@@ -3285,7 +3285,7 @@ class srm_evolutions(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','srm'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='srm.evolution.items',rel='evolution_id'),
 	'pricing': fields.one2many(label='Pricing',obj='srm.evolution.pricing',rel='evolution_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.evolution.roles',rel='evolution_id'),
@@ -3324,20 +3324,20 @@ class srm_evolutions(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.evolution.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
-				item_items = pool.get('srm.evolution.items')._buildEmptyItem()
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
+
 		return None
 
 srm_evolutions()
@@ -3680,7 +3680,7 @@ class srm_decisions(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','srm'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='srm.decision.items',rel='decision_id'),
 	'pricing': fields.one2many(label='Pricing',obj='srm.decision.pricing',rel='decision_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.decision.roles',rel='decision_id'),
@@ -3719,20 +3719,20 @@ class srm_decisions(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.decision.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
-				item_items = pool.get('srm.decision.items')._buildEmptyItem()
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
+
 		return None
 
 srm_decisions()
@@ -4075,7 +4075,7 @@ class srm_contracts(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','p'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'bom': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','srm'),'|',('usage','=','all')],on_change='_on_change_bom'),
 	'items': fields.one2many(label='Items',obj='srm.contract.items',rel='contract_id'),
 	'pricing': fields.one2many(label='Pricing',obj='srm.contract.pricing',rel='contract_id'),
 	'roles': fields.one2many(label='Roles',obj='srm.contract.roles',rel='contract_id'),
@@ -4114,20 +4114,20 @@ class srm_contracts(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
+			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.contract.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
-				item_items = pool.get('srm.contract.items')._buildEmptyItem()
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
+				item_items = pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
+
 		return None
 
 srm_contracts()
@@ -4457,7 +4457,7 @@ md_srm_product()
 class md_srm_product_inherit(ModelInherit):
 	_name = 'md.srm.product.inherit'
 	_description = 'Genaral Model Inherit For SRM Product'
-	_inherit = {'md.product':{'_columns':['srm']},'md.recepture':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'md.type.plates':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['srm']},'md.boms':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'md.type.plates':{'_columns':['usage']}}
 	_columns = {
 		'srm': fields.one2many(label='SRM',obj='md.srm.product',rel='product_id'),
 		'usage': fields.iProperty(selections=[('srm','SRM')])

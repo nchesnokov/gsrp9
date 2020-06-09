@@ -692,7 +692,7 @@ md_purchase_product()
 class md_purchase_product_inherit(ModelInherit):
 	_name = 'md.purchase.product.inherit'
 	_description = 'Genaral Model Inherit For Purchase Product'
-	_inherit = {'md.product':{'_columns':['purchase']},'md.recepture':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'md.type.plates':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['purchase']},'md.boms':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'md.type.plates':{'_columns':['usage']}}
 	_columns = {
 		'purchase': fields.one2many(label='Purchase',obj='md.purchase.product',rel='product_id'),
 		'usage': fields.iProperty(selections=[('pur','Purchase')])

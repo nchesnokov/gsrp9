@@ -170,22 +170,6 @@ class mm_workcenter_category(Model):
 
 mm_workcenter_category()
 
-class mm_route_category(Model):
-	_name = 'mm.route.category'
-	_description = 'Category Route'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='mm.route.category'),
-	'childs_id': fields.one2many(obj = 'mm.route.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
-	'routes': fields.one2many(label='Routes',obj='mm.route',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_route_category()
-
 class mm_production_order_category(Model):
 	_name = 'mm.production.order.category'
 	_description = 'Category Production Order'
@@ -243,8 +227,9 @@ class mm_workcenters(Model):
 	'category_id': fields.many2one(label='Category',obj='mm.workcenter.category'),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'wctype': fields.selection(label='Type',selections=[('p','Production'),('t','Technology'),('d','Disassembly'),('a','All')]),
-	'cost_peer_hour': fields.numeric(label='Cost Peer Hours',size=(15,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'cost_peer_hour': fields.numeric(label='Cost Peer Hours',size=(11,2)),
+	'cost_peer_cicle': fields.numeric(label='Cost Peer Cicles',size=(11,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
 	'products': fields.one2many(label='Products',obj='mm.workcenter.products',rel='workcenter_id',limit = 80),
 	'note': fields.text(label = 'Note')
 	}
@@ -282,36 +267,6 @@ class mm_workcenter_product_prices(Model):
 	}
 
 mm_workcenter_product_prices()
-#route
-class mm_route(Model):
-	_name = 'mm.route'
-	_description = 'Route'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'category_id': fields.many2one(label='Category',obj='mm.route.category'),
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'rtype': fields.selection(label='Type',selections=[('p','Production'),('t','Technology'),('d','Disassembly'),('a','All')]),
-	'items': fields.one2many(obj = 'mm.route.items',rel = 'route_id',label = 'Items'),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_route()
-
-class mm_route_items(Model):
-	_name = 'mm.route.items'
-	_description = 'Route Items'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'route_id': fields.many2one(label='Route',obj='mm.route'),
-	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters'),
-	'parent_id': fields.many2one(label='Parent',obj='mm.route.items'),
-	'childs_id': fields.one2many(obj = 'mm.route.items',rel = 'parent_id',label = 'Childs'),
-	'note': fields.text(label = 'Note')
-	}
-
-mm_route_items()
 
 # Operations
 class mm_map_op_category(Model):
@@ -387,13 +342,13 @@ class mm_production_map_ops(Model):
 	_class_category = 'order'
 	_columns = {
 	'op_id': fields.many2one(label='Operation',obj='mm.production.maps'),
-	'seq':  fields.integer(label='Sequence',required=True),
-	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('p','a'))]),
 	'prev':  fields.many2one(label='Prev',obj='mm.map.ops',domain=[('usage','in',('p','a'))]),
+	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('p','a'))],required=True),
 	'next': fields.many2one(label='Next',obj='mm.map.ops',domain=[('usage','in',('p','a'))]),
 	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
 	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
 	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
+	'per_cicle': fields.boolean(label='Per Cicle'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -441,13 +396,13 @@ class mm_technologic_map_ops(Model):
 	_class_category = 'order'
 	_columns = {
 	'op_id': fields.many2one(label='Operation',obj='mm.technologic.maps'),
-	'seq':  fields.integer(label='Sequence',required=True),
-	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('t','a'))]),
 	'prev':  fields.many2one(label='Prev',obj='mm.map.ops',domain=[('usage','in',('t','a'))]),
+	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('t','a'))],required=True),
 	'next': fields.many2one(label='Next',obj='mm.map.ops',domain=[('usage','in',('t','a'))]),
 	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
 	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
 	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
+	'per_cicle': fields.boolean(label='Per Cicle'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -495,13 +450,13 @@ class mm_disassembly_map_ops(Model):
 	_class_category = 'order'
 	_columns = {
 	'op_id': fields.many2one(label='Operation',obj='mm.disassembly.maps'),
-	'seq':  fields.integer(label='Sequence',required=True),
-	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
 	'prev':  fields.many2one(label='Prev',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('d','a'))],required=True),
 	'next': fields.many2one(label='Next',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
 	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
 	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
 	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
+	'per_cicle': fields.boolean(label='Per Cicle'),
 	'note': fields.text(label = 'Note')
 	}
 

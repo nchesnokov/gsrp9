@@ -1463,7 +1463,7 @@
           <column name="name">view.md.location.geo</column>
           <column name="model">md.location</column>
           <column name="arch" type="Xml">
-            <geo from_latitude="None" from_longitude="None" to_latitude="None" to_longitude="None">
+            <geo  from_latitude="None" from_longitude="None" to_latitude="None" to_longitude="None">
               <field name="category_id"/>
               <field name="usage"/>
               <field name="name"/>
@@ -1579,7 +1579,7 @@
           <column name="name">view.md.partner.geo</column>
           <column name="model">md.partner</column>
           <column name="arch" type="Xml">
-            <geo from_latitude="None" from_longitude="None" to_latitude="None" to_longitude="None">
+            <geo  from_latitude="None" from_longitude="None" to_latitude="None" to_longitude="None">
               <field name="category_id"/>
               <field name="country_id"/>
               <field name="name"/>
@@ -2239,149 +2239,6 @@
               <field name="sequence"/>
               <field name="currency_id"/>
               <field name="company_id"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.recepture.form">
-          <column name="name">view.md.recepture.form</column>
-          <column name="model">md.recepture</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="name"/>
-              <field name="type"/>
-              <field name="subtype"/>
-              <field name="usage"/>
-              <field name="partition"/>
-              <field name="input_items"/>
-              <field name="output_items"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.recepture.list">
-          <column name="name">view.md.recepture.list</column>
-          <column name="model">md.recepture</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="name"/>
-              <field name="type"/>
-              <field name="subtype"/>
-              <field name="usage"/>
-              <field name="partition"/>
-              <field name="input_items"/>
-              <field name="output_items"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.recepture.m2mlist">
-          <column name="name">view.md.recepture.m2mlist</column>
-          <column name="model">md.recepture</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="name"/>
-              <field name="type"/>
-              <field name="subtype"/>
-              <field name="usage"/>
-              <field name="partition"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.recepture.search">
-          <column name="name">view.md.recepture.search</column>
-          <column name="model">md.recepture</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="type"/>
-              <field name="subtype"/>
-              <field name="usage"/>
-              <field name="partition"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.recepture.find">
-          <column name="name">view.md.recepture.find</column>
-          <column name="model">md.recepture</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="type"/>
-              <field name="subtype"/>
-              <field name="usage"/>
-              <field name="partition"/>
-            </find>
-          </column>
-        </record>
-        <record id="view.md.recepture.input.form">
-          <column name="name">view.md.recepture.input.form</column>
-          <column name="model">md.recepture.input</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.recepture.input.list">
-          <column name="name">view.md.recepture.input.list</column>
-          <column name="model">md.recepture.input</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.recepture.input.m2mlist">
-          <column name="name">view.md.recepture.input.m2mlist</column>
-          <column name="model">md.recepture.input</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.recepture.output.form">
-          <column name="name">view.md.recepture.output.form</column>
-          <column name="model">md.recepture.output</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.recepture.output.list">
-          <column name="name">view.md.recepture.output.list</column>
-          <column name="model">md.recepture.output</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.recepture.output.m2mlist">
-          <column name="name">view.md.recepture.output.m2mlist</column>
-          <column name="model">md.recepture.output</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="recepture_id"/>
-              <field name="product"/>
-              <field name="quantity"/>
-              <field name="uom"/>
             </m2mlist>
           </column>
         </record>

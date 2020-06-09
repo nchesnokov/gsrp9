@@ -215,10 +215,10 @@ md_pack_product()
 class md_pack_product_inherit(ModelInherit):
 	_name = 'md.pack.product.inherit'
 	_description = 'Genaral Model Inherit For project Product'
-	_inherit = {'md.product':{'_columns':['pack']},'md.recepture':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['pack']},'md.boms':{'_columns':['usage']}}
 	_columns = {
 		'pack': fields.one2many(label='Pack',obj='md.pack.product',rel='product_id'),
-		'usage': fields.iProperty(selections=[('l','Pack')])
+		'usage': fields.iProperty(selections=[('pack','Pack')])
 	}
 	
 md_pack_product_inherit()

@@ -299,7 +299,7 @@ md_mrp_product()
 class md_mrp_product_inherit(ModelInherit):
 	_name = 'md.mrp.product.inherit'
 	_description = 'Genaral Model Inherit For MRP Product'
-	_inherit = {'md.product':{'_columns':['mrp']},'md.recepture':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['mrp']},'md.boms':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}}
 	_columns = {
 		'mrp': fields.one2many(label='MRP',obj='md.mrp.product',rel='product_id'),
 		'usage': fields.iProperty(selections=[('mrp',"Material Planning")])

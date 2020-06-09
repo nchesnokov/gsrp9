@@ -685,57 +685,7 @@ class md_partners_bank(Model):
 
 md_partners_bank()
 
-class md_recepture(Model):
-	_name = 'md.recepture'
-	_description = 'Recipe'
-	_columns = {
-	'name': fields.varchar(label="Name"),
-	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
-	'subtype': fields.selection(label='Subtype',selections=[('bom','BoM'),('mob','MoB'),('bob',"BoB")]),
-	'usage': fields.selection(label='Usage',selections=[('a','All')]),
-	'partition': fields.integer(label='Partition',required=True,check='partition > 0'),
-	'input_items': fields.one2many(label='Input',obj='md.recepture.input',rel='recepture_id'),
-	'output_items': fields.one2many(label='Output',obj='md.recepture.output',rel='recepture_id'),
-	}
-
-md_recepture()
-
-class md_recepture_input(Model):
-	_name = 'md.recepture.input'
-	_description = 'Input Recipe'
-	_columns = {
-	'recepture_id': fields.many2one(label="Recipe",obj='md.recepture'),
-	'product': fields.many2one(label='Product',obj='md.product'),
-	'quantity': fields.numeric(label='Quantity',size=(11,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
-	'note': fields.text(label = 'Note')
-	}
-
-	_default = {
-		'quantity': 1
-	}
-
-md_recepture_input()
-
-class md_recepture_output(Model):
-	_name = 'md.recepture.output'
-	_description = 'Output Recipe'
-	_columns = {
-	'recepture_id': fields.many2one(label="Recipe",obj='md.recepture'),
-	'product': fields.many2one(label='Product',obj='md.product'),
-	'quantity': fields.numeric(label='Quantity',size=(11,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
-	'note': fields.text(label = 'Note')
-	}
-
-	_default = {
-		'quantity': 1
-	}
-
-
-md_recepture_output()
-
-# bbb
+# bom
 class md_boms(Model):
 	_name = 'md.boms'
 	_description = 'Bill of Material'

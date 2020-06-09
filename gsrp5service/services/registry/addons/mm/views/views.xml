@@ -557,77 +557,6 @@
             </tree>
           </column>
         </record>
-        <record id="view.mm.route.category.form">
-          <column name="name">view.mm.route.category.form</column>
-          <column name="model">mm.route.category</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="name"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-              <field name="fullname"/>
-              <field name="routes"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.mm.route.category.list">
-          <column name="name">view.mm.route.category.list</column>
-          <column name="model">mm.route.category</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="name"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-              <field name="fullname"/>
-              <field name="routes"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.mm.route.category.m2mlist">
-          <column name="name">view.mm.route.category.m2mlist</column>
-          <column name="model">mm.route.category</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="name"/>
-              <field name="parent_id"/>
-              <field name="fullname"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.route.category.search">
-          <column name="name">view.mm.route.category.search</column>
-          <column name="model">mm.route.category</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="parent_id"/>
-              <field name="fullname"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.mm.route.category.find">
-          <column name="name">view.mm.route.category.find</column>
-          <column name="model">mm.route.category</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="parent_id"/>
-              <field name="fullname"/>
-            </find>
-          </column>
-        </record>
-        <record id="view.mm.route.category.tree">
-          <column name="name">view.mm.route.category.tree</column>
-          <column name="model">mm.route.category</column>
-          <column name="arch" type="Xml">
-            <tree>
-              <field name="name"/>
-              <field name="parent_id"/>
-              <field name="fullname"/>
-            </tree>
-          </column>
-        </record>
         <record id="view.mm.production.order.category.form">
           <column name="name">view.mm.production.order.category.form</column>
           <column name="model">mm.production.order.category</column>
@@ -850,6 +779,7 @@
               <field name="name"/>
               <field name="wctype"/>
               <field name="cost_peer_hour"/>
+              <field name="cost_peer_cicle"/>
               <field name="currency"/>
               <field name="products"/>
               <field name="note"/>
@@ -865,6 +795,7 @@
               <field name="name"/>
               <field name="wctype"/>
               <field name="cost_peer_hour"/>
+              <field name="cost_peer_cicle"/>
               <field name="currency"/>
               <field name="products"/>
             </list>
@@ -879,6 +810,7 @@
               <field name="name"/>
               <field name="wctype"/>
               <field name="cost_peer_hour"/>
+              <field name="cost_peer_cicle"/>
               <field name="currency"/>
             </m2mlist>
           </column>
@@ -892,6 +824,7 @@
               <field name="name"/>
               <field name="wctype"/>
               <field name="cost_peer_hour"/>
+              <field name="cost_peer_cicle"/>
               <field name="currency"/>
             </search>
           </column>
@@ -905,6 +838,7 @@
               <field name="name"/>
               <field name="wctype"/>
               <field name="cost_peer_hour"/>
+              <field name="cost_peer_cicle"/>
               <field name="currency"/>
             </find>
           </column>
@@ -1001,111 +935,6 @@
               <field name="unit"/>
               <field name="uop"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.route.form">
-          <column name="name">view.mm.route.form</column>
-          <column name="model">mm.route</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="category_id"/>
-              <field name="name"/>
-              <field name="rtype"/>
-              <field name="items"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.mm.route.list">
-          <column name="name">view.mm.route.list</column>
-          <column name="model">mm.route</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="category_id"/>
-              <field name="name"/>
-              <field name="rtype"/>
-              <field name="items"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.mm.route.m2mlist">
-          <column name="name">view.mm.route.m2mlist</column>
-          <column name="model">mm.route</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="category_id"/>
-              <field name="name"/>
-              <field name="rtype"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.route.search">
-          <column name="name">view.mm.route.search</column>
-          <column name="model">mm.route</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="category_id"/>
-              <field name="name"/>
-              <field name="rtype"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.mm.route.find">
-          <column name="name">view.mm.route.find</column>
-          <column name="model">mm.route</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="category_id"/>
-              <field name="name"/>
-              <field name="rtype"/>
-            </find>
-          </column>
-        </record>
-        <record id="view.mm.route.items.form">
-          <column name="name">view.mm.route.items.form</column>
-          <column name="model">mm.route.items</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="route_id"/>
-              <field name="workcenter"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.mm.route.items.list">
-          <column name="name">view.mm.route.items.list</column>
-          <column name="model">mm.route.items</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="route_id"/>
-              <field name="workcenter"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.mm.route.items.m2mlist">
-          <column name="name">view.mm.route.items.m2mlist</column>
-          <column name="model">mm.route.items</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="route_id"/>
-              <field name="workcenter"/>
-              <field name="parent_id"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.route.items.tree">
-          <column name="name">view.mm.route.items.tree</column>
-          <column name="model">mm.route.items</column>
-          <column name="arch" type="Xml">
-            <tree>
-              <field name="route_id"/>
-              <field name="workcenter"/>
-              <field name="parent_id"/>
-            </tree>
           </column>
         </record>
         <record id="view.mm.map.op.category.form">
@@ -1390,13 +1219,13 @@
           <column name="arch" type="Xml">
             <form>
               <field name="op_id"/>
-              <field name="seq"/>
-              <field name="op"/>
               <field name="prev"/>
+              <field name="op"/>
               <field name="next"/>
               <field name="workcenter"/>
               <field name="duration"/>
               <field name="uod"/>
+              <field name="per_cicle"/>
               <field name="note"/>
             </form>
           </column>
@@ -1407,13 +1236,13 @@
           <column name="arch" type="Xml">
             <list>
               <field name="op_id"/>
-              <field name="seq"/>
-              <field name="op"/>
               <field name="prev"/>
+              <field name="op"/>
               <field name="next"/>
               <field name="workcenter"/>
               <field name="duration"/>
               <field name="uod"/>
+              <field name="per_cicle"/>
             </list>
           </column>
         </record>
@@ -1423,13 +1252,13 @@
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="op_id"/>
-              <field name="seq"/>
-              <field name="op"/>
               <field name="prev"/>
+              <field name="op"/>
               <field name="next"/>
               <field name="workcenter"/>
               <field name="duration"/>
               <field name="uod"/>
+              <field name="per_cicle"/>
             </m2mlist>
           </column>
         </record>
@@ -1439,13 +1268,13 @@
           <column name="arch" type="Xml">
             <flow>
               <field name="op_id"/>
-              <field name="seq"/>
-              <field name="op"/>
               <field name="prev"/>
+              <field name="op"/>
               <field name="next"/>
               <field name="workcenter"/>
               <field name="duration"/>
               <field name="uod"/>
+              <field name="per_cicle"/>
             </flow>
           </column>
         </record>
@@ -1594,13 +1423,13 @@
           <column name="arch" type="Xml">
             <form>
               <field name="op_id"/>
-              <field name="seq"/>
-              <field name="op"/>
               <field name="prev"/>
+              <field name="op"/>
               <field name="next"/>
               <field name="workcenter"/>
               <field name="duration"/>
               <field name="uod"/>
+              <field name="per_cicle"/>
               <field name="note"/>
             </form>
           </column>
@@ -1611,13 +1440,13 @@
           <column name="arch" type="Xml">
             <list>
               <field name="op_id"/>
-              <field name="seq"/>
-              <field name="op"/>
               <field name="prev"/>
+              <field name="op"/>
               <field name="next"/>
               <field name="workcenter"/>
               <field name="duration"/>
               <field name="uod"/>
+              <field name="per_cicle"/>
             </list>
           </column>
         </record>
@@ -1627,13 +1456,13 @@
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="op_id"/>
-              <field name="seq"/>
-              <field name="op"/>
               <field name="prev"/>
+              <field name="op"/>
               <field name="next"/>
               <field name="workcenter"/>
               <field name="duration"/>
               <field name="uod"/>
+              <field name="per_cicle"/>
             </m2mlist>
           </column>
         </record>
@@ -1643,13 +1472,13 @@
           <column name="arch" type="Xml">
             <flow>
               <field name="op_id"/>
-              <field name="seq"/>
-              <field name="op"/>
               <field name="prev"/>
+              <field name="op"/>
               <field name="next"/>
               <field name="workcenter"/>
               <field name="duration"/>
               <field name="uod"/>
+              <field name="per_cicle"/>
             </flow>
           </column>
         </record>
@@ -1798,13 +1627,13 @@
           <column name="arch" type="Xml">
             <form>
               <field name="op_id"/>
-              <field name="seq"/>
-              <field name="op"/>
               <field name="prev"/>
+              <field name="op"/>
               <field name="next"/>
               <field name="workcenter"/>
               <field name="duration"/>
               <field name="uod"/>
+              <field name="per_cicle"/>
               <field name="note"/>
             </form>
           </column>
@@ -1815,13 +1644,13 @@
           <column name="arch" type="Xml">
             <list>
               <field name="op_id"/>
-              <field name="seq"/>
-              <field name="op"/>
               <field name="prev"/>
+              <field name="op"/>
               <field name="next"/>
               <field name="workcenter"/>
               <field name="duration"/>
               <field name="uod"/>
+              <field name="per_cicle"/>
             </list>
           </column>
         </record>
@@ -1831,13 +1660,13 @@
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="op_id"/>
-              <field name="seq"/>
-              <field name="op"/>
               <field name="prev"/>
+              <field name="op"/>
               <field name="next"/>
               <field name="workcenter"/>
               <field name="duration"/>
               <field name="uod"/>
+              <field name="per_cicle"/>
             </m2mlist>
           </column>
         </record>
@@ -1847,13 +1676,13 @@
           <column name="arch" type="Xml">
             <flow>
               <field name="op_id"/>
-              <field name="seq"/>
-              <field name="op"/>
               <field name="prev"/>
+              <field name="op"/>
               <field name="next"/>
               <field name="workcenter"/>
               <field name="duration"/>
               <field name="uod"/>
+              <field name="per_cicle"/>
             </flow>
           </column>
         </record>
@@ -1876,7 +1705,6 @@
               <field name="dopo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -1902,7 +1730,6 @@
               <field name="dopo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -1928,11 +1755,11 @@
               <field name="dopo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
               <field name="schedules"/>
+              <field name="ops"/>
               <field name="items"/>
               <field name="roles"/>
               <field name="pricing"/>
@@ -1960,7 +1787,6 @@
               <field name="dopo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -1986,7 +1812,6 @@
               <field name="dopo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -2013,11 +1838,11 @@
               <field name="dopo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
               <field name="schedules"/>
+              <field name="ops"/>
               <field name="items"/>
               <field name="roles"/>
               <field name="pricing"/>
@@ -2044,7 +1869,6 @@
               <field name="dopo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -2070,7 +1894,6 @@
               <field name="dopo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -2096,7 +1919,6 @@
               <field name="dopo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -2122,7 +1944,6 @@
               <field name="dopo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -2333,6 +2154,71 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.mm.production.order.ops.form">
+          <column name="name">view.mm.production.order.ops.form</column>
+          <column name="model">mm.production.order.ops</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="prev"/>
+              <field name="op"/>
+              <field name="next"/>
+              <field name="workcenter"/>
+              <field name="duration"/>
+              <field name="uod"/>
+              <field name="per_cicle"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.production.order.ops.list">
+          <column name="name">view.mm.production.order.ops.list</column>
+          <column name="model">mm.production.order.ops</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="prev"/>
+              <field name="op"/>
+              <field name="next"/>
+              <field name="workcenter"/>
+              <field name="duration"/>
+              <field name="uod"/>
+              <field name="per_cicle"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.production.order.ops.m2mlist">
+          <column name="name">view.mm.production.order.ops.m2mlist</column>
+          <column name="model">mm.production.order.ops</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="prev"/>
+              <field name="op"/>
+              <field name="next"/>
+              <field name="workcenter"/>
+              <field name="duration"/>
+              <field name="uod"/>
+              <field name="per_cicle"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.production.order.ops.flow">
+          <column name="name">view.mm.production.order.ops.flow</column>
+          <column name="model">mm.production.order.ops</column>
+          <column name="arch" type="Xml">
+            <flow>
+              <field name="order_id"/>
+              <field name="prev"/>
+              <field name="op"/>
+              <field name="next"/>
+              <field name="workcenter"/>
+              <field name="duration"/>
+              <field name="uod"/>
+              <field name="per_cicle"/>
+            </flow>
+          </column>
+        </record>
         <record id="view.mm.technologic.orders.calendar">
           <column name="name">view.mm.technologic.orders.calendar</column>
           <column name="model">mm.technologic.orders</column>
@@ -2351,7 +2237,6 @@
               <field name="doto"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="oamount"/>
@@ -2377,7 +2262,6 @@
               <field name="doto"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="oamount"/>
@@ -2403,12 +2287,12 @@
               <field name="doto"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="oamount"/>
               <field name="iamount"/>
               <field name="schedules"/>
+              <field name="ops"/>
               <field name="ibobs"/>
               <field name="obobs"/>
               <field name="roles"/>
@@ -2436,7 +2320,6 @@
               <field name="doto"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="oamount"/>
@@ -2462,7 +2345,6 @@
               <field name="doto"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="oamount"/>
@@ -2489,12 +2371,12 @@
               <field name="doto"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="oamount"/>
               <field name="iamount"/>
               <field name="schedules"/>
+              <field name="ops"/>
               <field name="ibobs"/>
               <field name="obobs"/>
               <field name="roles"/>
@@ -2521,7 +2403,6 @@
               <field name="doto"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="oamount"/>
@@ -2547,7 +2428,6 @@
               <field name="doto"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="oamount"/>
@@ -2573,7 +2453,6 @@
               <field name="doto"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="oamount"/>
@@ -2599,7 +2478,6 @@
               <field name="doto"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="oamount"/>
@@ -2639,6 +2517,71 @@
               <field name="part"/>
               <field name="schedule"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.ops.form">
+          <column name="name">view.mm.technologic.order.ops.form</column>
+          <column name="model">mm.technologic.order.ops</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="prev"/>
+              <field name="op"/>
+              <field name="next"/>
+              <field name="workcenter"/>
+              <field name="duration"/>
+              <field name="uod"/>
+              <field name="per_cicle"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.ops.list">
+          <column name="name">view.mm.technologic.order.ops.list</column>
+          <column name="model">mm.technologic.order.ops</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="prev"/>
+              <field name="op"/>
+              <field name="next"/>
+              <field name="workcenter"/>
+              <field name="duration"/>
+              <field name="uod"/>
+              <field name="per_cicle"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.ops.m2mlist">
+          <column name="name">view.mm.technologic.order.ops.m2mlist</column>
+          <column name="model">mm.technologic.order.ops</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="prev"/>
+              <field name="op"/>
+              <field name="next"/>
+              <field name="workcenter"/>
+              <field name="duration"/>
+              <field name="uod"/>
+              <field name="per_cicle"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.technologic.order.ops.flow">
+          <column name="name">view.mm.technologic.order.ops.flow</column>
+          <column name="model">mm.technologic.order.ops</column>
+          <column name="arch" type="Xml">
+            <flow>
+              <field name="order_id"/>
+              <field name="prev"/>
+              <field name="op"/>
+              <field name="next"/>
+              <field name="workcenter"/>
+              <field name="duration"/>
+              <field name="uod"/>
+              <field name="per_cicle"/>
+            </flow>
           </column>
         </record>
         <record id="view.mm.technologic.order.texts.form">
@@ -2882,7 +2825,6 @@
               <field name="dodo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -2908,7 +2850,6 @@
               <field name="dodo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -2934,11 +2875,11 @@
               <field name="dodo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
               <field name="schedules"/>
+              <field name="ops"/>
               <field name="items"/>
               <field name="roles"/>
               <field name="pricing"/>
@@ -2966,7 +2907,6 @@
               <field name="dodo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -2992,7 +2932,6 @@
               <field name="dodo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -3019,11 +2958,11 @@
               <field name="dodo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
               <field name="schedules"/>
+              <field name="ops"/>
               <field name="items"/>
               <field name="roles"/>
               <field name="pricing"/>
@@ -3050,7 +2989,6 @@
               <field name="dodo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -3076,7 +3014,6 @@
               <field name="dodo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -3102,7 +3039,6 @@
               <field name="dodo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -3128,7 +3064,6 @@
               <field name="dodo"/>
               <field name="from_date"/>
               <field name="to_date"/>
-              <field name="route"/>
               <field name="state"/>
               <field name="parts"/>
               <field name="amount"/>
@@ -3337,6 +3272,71 @@
               <field name="part"/>
               <field name="schedule"/>
             </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.ops.form">
+          <column name="name">view.mm.disassembly.order.ops.form</column>
+          <column name="model">mm.disassembly.order.ops</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="prev"/>
+              <field name="op"/>
+              <field name="next"/>
+              <field name="workcenter"/>
+              <field name="duration"/>
+              <field name="uod"/>
+              <field name="per_cicle"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.ops.list">
+          <column name="name">view.mm.disassembly.order.ops.list</column>
+          <column name="model">mm.disassembly.order.ops</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="prev"/>
+              <field name="op"/>
+              <field name="next"/>
+              <field name="workcenter"/>
+              <field name="duration"/>
+              <field name="uod"/>
+              <field name="per_cicle"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.ops.m2mlist">
+          <column name="name">view.mm.disassembly.order.ops.m2mlist</column>
+          <column name="model">mm.disassembly.order.ops</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="prev"/>
+              <field name="op"/>
+              <field name="next"/>
+              <field name="workcenter"/>
+              <field name="duration"/>
+              <field name="uod"/>
+              <field name="per_cicle"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.disassembly.order.ops.flow">
+          <column name="name">view.mm.disassembly.order.ops.flow</column>
+          <column name="model">mm.disassembly.order.ops</column>
+          <column name="arch" type="Xml">
+            <flow>
+              <field name="order_id"/>
+              <field name="prev"/>
+              <field name="op"/>
+              <field name="next"/>
+              <field name="workcenter"/>
+              <field name="duration"/>
+              <field name="uod"/>
+              <field name="per_cicle"/>
+            </flow>
           </column>
         </record>
         <record id="view.md.mm.product.form">

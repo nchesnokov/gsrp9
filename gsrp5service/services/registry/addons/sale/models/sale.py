@@ -62,7 +62,7 @@ class sale_orders(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'recepture': fields.many2one(label='Recepture',obj='md.recepture',domain=[('usage','=','s'),'|',('usage','=','a')],on_change='_on_change_recepture'),
+	'mob': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','sale'),'|',('usage','=','all')],on_change='_on_change_mob'),
 	'items': fields.one2many(label='Items',obj='sale.order.items',rel='order_id'),
 	'pricing': fields.one2many(label='Pricing',obj='sale.order.pricing',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='sale.order.roles',rel='order_id'),
@@ -94,20 +94,20 @@ class sale_orders(Model):
 				item_text['text_id'] = text['text_id']
 				item['texts'].append(item_text)
 
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture'] and 'name' in item['recepture'] and item['recepture']['name']:
-			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture']['name'])],context)
+	def _on_change_mob(self,cr,pool,uid,item,context={}):		
+		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
+			p = pool.get('md.mob.output.items').select(cr,pool,uid,['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
 			for i in p:
 				ei = pool.get('sale.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.utcnow()+timedelta(3)
+				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
 				item_items = pool.get('sale.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
-				
+
 		return None
 
 #
@@ -611,10 +611,10 @@ md_sale_product()
 class md_sale_product_inherit(ModelInherit):
 	_name = 'md.sale.product.inherit'
 	_description = 'Genaral Model Inherit For Sale Product'
-	_inherit = {'md.product':{'_columns':['sale']},'md.recepture':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['sale']},'md.mob':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}}
 	_columns = {
 		'sale': fields.one2many(label='Sales',obj='md.sale.product',rel='product_id'),
-		'usage': fields.iProperty(selections=[('s','Sale')])
+		'usage': fields.iProperty(selections=[('sale','Sale')])
 	}
 	
 md_sale_product_inherit()

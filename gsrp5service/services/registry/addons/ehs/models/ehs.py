@@ -165,29 +165,12 @@ class ehs_production_order_items(Model):
 	_description = 'Production Order Items'
 	_columns = {
 	'order_id': fields.many2one(obj = 'ehs.production.order',label = 'Production Order'),
-	'recepture_id': fields.many2one(label='Recepture',obj='md.recepture',domain=[('type','=','real'),('subtype','=','bom'),[('usage','=','m'),'|',('usage','=','a')]],on_change='_on_change_recepture'),
 	'product': fields.many2one(label='Product',obj='md.product',readonly=True),
 	'parent_id': fields.many2one(label='Parent',obj='ehs.production.order.items'),
 	'childs_id': fields.one2many(obj = 'ehs.production.order.items',rel = 'parent_id',label = 'Childs'),
 	'boms': fields.one2many(label='BoM',obj='ehs.production.order.item.bom',rel='item_id'),
 	'schedules': fields.one2many(label='Schedule',obj='ehs.production.order.delivery.schedules',rel='item_id'),
 	'note': fields.text(label = 'Note')}
-
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture_id'] and 'name' in item['recepture_id'] and item['recepture_id']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture_id']['name'])],context)
-			for i in p:
-				r = {'product':i['product'],'quantity':i['quantity'],'uom':i['uom']}
-				r['price'] = 0.00
-				r['amount'] = 0.00
-				item['boms'].append(r)
-				
-			b = pool.get('md.recepture.output').select(cr,pool,uid,['product'],[('recepture_id','=',item['recepture_id']['name'])],context)
-			if len(b) > 0:
-				item['product'] = b[0]['product']
-	
-		return None
-
 
 ehs_production_order_items()
 
@@ -279,31 +262,12 @@ class ehs_technologic_order_items(Model):
 	_description = 'Technologic Order Items'
 	_columns = {
 	'order_id': fields.many2one(obj = 'ehs.technologic.order',label = 'Technologic Order'),
-	'recepture_id': fields.many2one(label='Recepture',obj='md.recepture',domain=[('type','=','real'),('subtype','=','bob'),[('usage','=','m'),'|',('usage','=','a')]],on_change='_on_change_recepture'),
 	'parent_id': fields.many2one(label='Parent',obj='ehs.technologic.order.items'),
 	'childs_id': fields.one2many(obj = 'ehs.technologic.order.items',rel = 'parent_id',label = 'Childs'),
 	'ibobs': fields.one2many(label='InBoB',obj='ehs.technologic.order.item.ibob',rel='item_id'),
 	'obobs': fields.one2many(label='OutBoB',obj='ehs.technologic.order.item.obob',rel='item_id'),
 	'schedules': fields.one2many(label='Schedule',obj='ehs.technologic.order.delivery.schedules',rel='item_id'),
 	'note': fields.text(label = 'Note')}
-
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture_id'] and 'name' in item['recepture_id'] and item['recepture_id']['name']:
-			p = pool.get('md.recepture.input').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture_id']['name'])],context)
-			for i in p:
-				r = {'product':i['product'],'quantity':i['quantity'],'uom':i['uom']}
-				r['price'] = 0.00
-				r['amount'] = 0.00
-				item['ibobs'].append(r)
-				
-			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture_id']['name'])],context)
-			for i in p:
-				r = {'product':i['product'],'quantity':i['quantity'],'uom':i['uom']}
-				r['price'] = 0.00
-				r['amount'] = 0.00
-				item['obobs'].append(r)
-				
-		return None
 
 ehs_technologic_order_items()
 
@@ -386,28 +350,12 @@ class ehs_disassembly_order_items(Model):
 	_description = 'Disassembly Order Items'
 	_columns = {
 	'order_id': fields.many2one(obj = 'ehs.disassembly.order',label = 'Technologic Order'),
-	'recepture_id': fields.many2one(label='Recepture',obj='md.recepture',domain=[('type','=','real'),('subtype','=','mob'),[('usage','=','m'),'|',('usage','=','a')]],on_change='_on_change_recepture'),
 	'product': fields.many2one(label='Product',obj='md.product',readonly=True),
 	'parent_id': fields.many2one(label='Parent',obj='ehs.disassembly.order.items'),
 	'childs_id': fields.one2many(obj = 'ehs.disassembly.order.items',rel = 'parent_id',label = 'Childs'),
 	'mobs': fields.one2many(label='MoB',obj='ehs.disassembly.order.item.mob',rel='item_id'),
 	'schedules': fields.one2many(label='Schedule',obj='ehs.disassembly.order.delivery.schedules',rel='item_id'),
 	'note': fields.text(label = 'Note')}
-
-	def _on_change_recepture(self,cr,pool,uid,item,context={}):		
-		if item['recepture_id'] and 'name' in item['recepture_id'] and item['recepture_id']['name']:
-			p = pool.get('md.recepture.output').select(cr,pool,uid,['product','quantity','uom'],[('recepture_id','=',item['recepture_id']['name'])],context)
-			for i in p:
-				r = {'product':i['product'],'quantity':i['quantity'],'uom':i['uom']}
-				r['price'] = 0.00
-				r['amount'] = 0.00
-				item['mobs'].append(r)
-				
-			b = pool.get('md.recepture.input').select(cr,pool,uid,['product'],[('recepture_id','=',item['recepture_id']['name'])],context)
-			if len(b) > 0:
-				item['product'] = b[0]['product']
-
-		return None
 
 ehs_disassembly_order_items()
 
