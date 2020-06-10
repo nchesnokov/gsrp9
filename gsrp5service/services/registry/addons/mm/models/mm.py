@@ -3,7 +3,6 @@ from gsrp5service.orm.model import Model,ModelInherit
 
 import web_pdb
 
-
 class model_common(ModelInherit):
 	_name = 'mm.common.model'
 	_description = 'Manufsctured management Common'
@@ -29,6 +28,7 @@ class model_common(ModelInherit):
 					item['parts'] = r['part']
 				else:
 					item['parts'] += r['part']
+
 
 	def _on_change_product(self,cr,pool,uid,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
@@ -123,20 +123,6 @@ class mm_production_orders(Model):
 							ei_op[k] = op[k]
 							
 						item['ops'].append(ei_op)
-
-		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			b = pool.get('md.boms').select(cr,pool,uid,['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['bom']['name'])],context)
-			if len(b) > 0:
-				item['product'] = b[0]['product']
-				item['part'] = b[0]['partition']
-				p = b[0]['items']
-				for i in p:
-					ei = pool.get('mm.production.order.items')._buildEmptyItem()
-					ei['product'] = i['product']
-					ei['quantity'] = i['quantity']
-					ei['uom'] = i['uom']
-					item['items'].append(ei)
-
 
 	def _on_change_bom(self,cr,pool,uid,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
@@ -325,28 +311,6 @@ class mm_technologic_orders(Model):
 							ei_op[k] = op[k]
 						
 						item['ops'].append(ei_op)
-
-		if item['bob'] and 'name' in item['bob'] and item['bob']['name']:
-			b = pool.get('md.bobs').select(cr,pool,uid,['fullname','partition',{'input_items':['product','quantity','uom']},{'output_items':['product','quantity','uom']}],[('fullname','=',item['bob']['name'])],context)
-			if len(b) > 0:
-				item['part'] = b[0]['partition']
-				p = b[0]['input_items']
-				for i in p:
-					ei = pool.get('mm.technologic.order.item.ibob')._buildEmptyItem()
-					ei['product'] = i['product']
-					ei['quantity'] = i['quantity']
-					ei['uom'] = i['uom']
-					item['ibobs'].append(ei)
-					
-				p = b[0]['output_items']
-				for i in p:
-					ei = pool.get('mm.technologic.order.item.obob')._buildEmptyItem()
-					ei['product'] = i['product']
-					ei['quantity'] = i['quantity']
-					ei['uom'] = i['uom']
-					item['obobs'].append(ei)
-
-
 
 	def _on_change_bob(self,cr,pool,uid,item,context={}):		
 		if item['bob'] and 'name' in item['bob'] and item['bob']['name']:
@@ -590,21 +554,6 @@ class mm_disassembly_orders(Model):
 							ei_op[k] = op[k]
 						
 						item['ops'].append(ei_op)
-									
-		# if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
-			# b = pool.get('md.mobs').select(cr,pool,uid,['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['mob']['name'])],context)
-			# if len(b) > 0:
-				# item['product'] = b[0]['product']
-				# item['part'] = b[0]['partition']
-				# p = b[0]['items']
-
-				# for i in p:
-					# ei = pool.get('mm.disassembly.order.items')._buildEmptyItem()
-					# ei['product'] = i['product']
-					# ei['quantity'] = i['quantity']
-					# ei['uom'] = i['uom']
-					# item['items'].append(ei)
-
 
 	def _on_change_mob(self,cr,pool,uid,item,context={}):		
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:

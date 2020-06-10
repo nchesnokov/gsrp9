@@ -295,7 +295,7 @@ class DCacheDict(object):
 		self._primary = primary
 
 		for v in ('data','paths','r2c','containers','names','metas','models','rels','attrs'):
-			for a in ('p','o','c'):
+			for a in ('p','w','o','c'):
 				if not primary and a == 'p':
 					continue
 				setattr(self,'_%s%s' % (a,v),{})
@@ -313,13 +313,16 @@ class DCacheDict(object):
 	def _getAData(self,path):
 		return ctypes.cast(int(path), ctypes.py_object).value
 
-	def _updateTree(self,data,model):
+	def _clearTree(self,level='c'):
 		for v in ('data','paths','r2c','containers','names','metas','models','rels','attrs'):
-			getattr(self,'_c' + v).clear()
+			getattr(self,'_%s%s' % (level,v)).clear()
 
-		self._buildTree(data,model,parent=None,name=None, mode = 'N')
+
+	def _updateTree(self,data,model,level='c'):
+		self._clearTree(level)
+		self._buildTree(data,model,parent=None,name=None, mode = 'N',level=level)
 	
-	def _buildTree(self,data,model,parent=None,name=None, mode = 'N'):
+	def _buildTree(self,data,model,parent=None,name=None, mode = 'N',level='c'):
 		if type(data) != dict:
 			raise TypeError
 
@@ -327,72 +330,90 @@ class DCacheDict(object):
 		if mode == 'N1':
 			web_pdb.set_trace()
 
-		if model not in self._cmetas:
-			self._cmetas[model] = self._pool.get(model).columnsInfo(attributes=['type','obj','rel','id1','id2'])
+		cmetas = getattr(self,'_%smetas' % (level,))
+		cdata = getattr(self,'_%sdata' % (level,))
+		cmodels = getattr(self,'_%smodels' % (level,))
+		cpaths = getattr(self,'_%spaths' % (level,))
+		cr2c = getattr(self,'_%sr2c' % (level,))
+		ccontainers = getattr(self,'_%scontainers' % (level,))
+		cnames = getattr(self,'_%snames' % (level,))
+
+		if model not in cmetas:
+			cmetas[model] = self._pool.get(model).columnsInfo(attributes=['type','obj','rel','id1','id2'])
 		
-		ci = self._cmetas[model]
+		ci = cmetas[model]
 
 		if mode == 'N' and not hasattr(self,'_root'):
 			self._root = oid
 
-		self._cdata[oid] = oid
-		self._cmodels[oid] = model
+		cdata[oid] = oid
+		cmodels[oid] = model
 		self._set_meta(oid)
 		if parent and name:
-			self._cpaths.setdefault(oid,{})[name] = parent
-			self._cr2c[oid] = self._cnames[name + '.' + str(parent)]
-			self._cdata[self._cnames[name + '.' + str(parent)]].append(oid)
+			cpaths.setdefault(oid,{})[name] = parent
+			cr2c[oid] = self._cnames[name + '.' + str(parent)]
+			cdata[self._cnames[name + '.' + str(parent)]].append(oid)
 		else:
-			self._cpaths[oid] = None
+			cpaths[oid] = None
 
 		for m2mfield in self._pool.get(model)._m2mfields:
 			#web_pdb.set_trace()
 			if m2mfield in data: 
-				self._m2m_buildTree(data[m2mfield],ci[m2mfield]['rel'],oid,m2mfield,model)
+				self._m2m_buildTree(data[m2mfield],ci[m2mfield]['rel'],oid,m2mfield,model,level)
 	
 		for o2mfield in self._pool.get(model)._o2mfields:
 			cn = o2mfield + '.' + oid
 			coid = str(id(data[o2mfield]))
-			self._ccontainers[coid] = cn
-			self._cnames[cn] = coid
-			self._cdata[coid] = []
-			self._cmodels[coid] = ci[o2mfield]['obj']
+			ccontainers[coid] = cn
+			cnames[cn] = coid
+			cdata[coid] = []
+			cmodels[coid] = ci[o2mfield]['obj']
 
 			if mode != 'I':
 				for r1 in data[o2mfield]:
-					self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode)
+					self._buildTree(r1,ci[o2mfield]['obj'],oid,o2mfield,mode,level)
 
-	def _m2m_buildTree(self,data,rel,parent,name,model):
+	def _m2m_buildTree(self,data,rel,parent,name,model,level):
+
+		cmetas = getattr(self,'_%smetas' % (level,))
+		cdata = getattr(self,'_%sdata' % (level,))
+		cmodels = getattr(self,'_%smodels' % (level,))
+		cpaths = getattr(self,'_%spaths' % (level,))
+		cr2c = getattr(self,'_%sr2c' % (level,))
+		ccontainers = getattr(self,'_%scontainers' % (level,))
+		cnames = getattr(self,'_%snames' % (level,))
+		crels = getattr(self,'_%srels' % (level,))
+
 		if type(data) == dict:
 			cn = name + '.' + parent
-			coid = self._cnames[cn]
+			coid = cnames[cn]
 			
 			m2moid = str(id(data))
-			self._cdata[m2moid] = m2moid
-			self._cdata.setdefault(coid,[]).append(m2moid)
-			self._cmodels[m2moid] = model
-			self._crels[m2moid] = rel
-			self._cpaths.setdefault(m2moid,{})[name] = parent
-			self._cr2c[m2moid] = self._cnames[cn]
+			cdata[m2moid] = m2moid
+			cdata.setdefault(coid,[]).append(m2moid)
+			cmodels[m2moid] = model
+			crels[m2moid] = rel
+			cpaths.setdefault(m2moid,{})[name] = parent
+			cr2c[m2moid] = cnames[cn]
 
 		elif type(data) in (list,tuple):
 
 			cn = name + '.' + parent
 			coid = str(id(data))
-			if coid not in self._cdata: 
-				self._cdata[coid] = []
-			self._ccontainers[coid] = cn
-			self._cnames[cn] = coid
-			self._crels[coid] = rel
+			if coid not in cdata: 
+				cdata[coid] = []
+			ccontainers[coid] = cn
+			cnames[cn] = coid
+			crels[coid] = rel
 
 			for r in data:
 				m2moid = str(id(r))
-				self._cdata[m2moid] = m2moid
-				self._cdata[coid].append(m2moid)
-				self._cmodels[m2moid] = model
-				self._crels[m2moid] = rel
-				self._cpaths.setdefault(m2moid,{})[name] = parent
-				self._cr2c[m2moid] = self._cnames[cn]
+				cdata[m2moid] = m2moid
+				cdata[coid].append(m2moid)
+				cmodels[m2moid] = model
+				crels[m2moid] = rel
+				cpaths.setdefault(m2moid,{})[name] = parent
+				cr2c[m2moid] = cnames[cn]
 
 	def _copyData(self,o,c):
 		odata = getattr(self,'_%sdata' % (o,))
@@ -406,44 +427,41 @@ class DCacheDict(object):
 				odata[k] = []
 				for k2 in ka:
 					odata.setdefault(k,[]).append(copy.deepcopy(self._getCData(k2)))
+
+	def _copyBuildLevel(self,o,c):
+		opaths = getattr(self,'_%spaths' % (o,))
+		or2c = getattr(self,'_%sr2c' % (o,))
+		ocontainers = getattr(self,'_%scontainers' % (o,))
+		onames = getattr(self,'_%snames' % (o,))
+		ometas = getattr(self,'_%smetas' % (o,))
+		omodels = getattr(self,'_%smodels' % (o,))
+		orels = getattr(self,'_%srels' % (o,))
+		oattrs = getattr(self,'_%sattrs' % (o,))
+
+		cpaths = getattr(self,'_%spaths' % (c,))
+		cr2c = getattr(self,'_%sr2c' % (c,))
+		ccontainers = getattr(self,'_%scontainers' % (c,))
+		cnames = getattr(self,'_%snames' % (c,))
+		cmetas = getattr(self,'_%smetas' % (c,))
+		cmodels = getattr(self,'_%smodels' % (c,))
+		crels = getattr(self,'_%srels' % (c,))
+		cattrs = getattr(self,'_%sattrs' % (c,))
+
+		self._copyData(o,c)
+		opaths.update(copy.deepcopy(cpaths))
+		or2c.update(copy.deepcopy(cr2c))
+		ocontainers.update(copy.deepcopy(ccontainers))
+		onames.update(copy.deepcopy(cnames))
+		ometas.update(copy.deepcopy(cmetas))
+		omodels.update(copy.deepcopy(cmodels))
+		orels.update(copy.deepcopy(crels))
+		oattrs.update(copy.deepcopy(cattrs))
+
 		
 	def _copyBuild(self):
-		self._copyData('o','c')
-		self._opaths.update(copy.deepcopy(self._cpaths))
-		self._or2c.update(copy.deepcopy(self._cr2c))
-		self._ocontainers.update(copy.deepcopy(self._ccontainers))
-		self._onames.update(copy.deepcopy(self._cnames))
-		self._ometas.update(copy.deepcopy(self._cmetas))
-		self._omodels.update(copy.deepcopy(self._cmodels))
-		self._orels.update(copy.deepcopy(self._crels))
-		self._oattrs.update(copy.deepcopy(self._cattrs))
+		self._copyBuildLevel('o','c')
 		if self._primary:
-			self._copyData('p','c')
-			self._ppaths.update(copy.deepcopy(self._cpaths))
-			self._pr2c.update(copy.deepcopy(self._cr2c))
-			self._pcontainers.update(copy.deepcopy(self._ccontainers))
-			self._pnames.update(copy.deepcopy(self._cnames))
-			self._pmetas.update(copy.deepcopy(self._cmetas))
-			self._pmodels.update(copy.deepcopy(self._cmodels))		
-			self._prels.update(copy.deepcopy(self._crels))
-			self._pattrs.update(copy.deepcopy(self._cattrs))
-			
-	def _set_primary(self):
-		if not self._primary:
-			self._primary = True
-			for v in ('data','paths','r2c','containers','names','metas','models','rels','attrs'):
-				for a in ('p',):
-					setattr(self,'_%s%s' % (a,v),{})
-
-			self._copyData('p','c')
-			self._ppaths.update(copy.deepcopy(self._cpaths))
-			self._pr2c.update(copy.deepcopy(self._cr2c))
-			self._pcontainers.update(copy.deepcopy(self._ccontainers))
-			self._pnames.update(copy.deepcopy(self._cnames))
-			self._pmetas.update(copy.deepcopy(self._cmetas))
-			self._pmodels.update(copy.deepcopy(self._cmodels))		
-			self._prels.update(copy.deepcopy(self._crels))
-			self._pattrs.update(copy.deepcopy(self._cattrs))
+			self._copyBuildLevel('p','c')
 
 	def _diffs(self,o,c,commit):
 		res = {}
@@ -993,6 +1011,9 @@ class DCacheDict(object):
 		del cr2c[path] 
 		
 		return res
+
+	def _wdiffs(self,commit=True):
+		return self._diffs('w','c',commit)
 			
 	def _odiffs(self,commit=True):
 		return self._diffs('o','c',commit)
@@ -1307,13 +1328,25 @@ class MCache(object):
 	def _on_change(self,path,model,key,context):
 		if model not in self._meta:
 			self._getMeta(model)
-		name = self._meta[model][key]['on_change']
+		k1 = key
+		if type(key) in (list,tuple):
+			k1 = key[-1]
+		name = self._meta[model][k1]['on_change']
 		if name:
 			method = getattr(self._pool.get(model),name,None)
 			if method:
+				r1 = copy.deepcopy(self._data._getCData(path))
 				_on_change = method(self._cr,self._pool,self._uid,self._data._getCData(path),context)
 				if _on_change:
 					self._data._getCData(path).update(_on_change)
+				r2 = self._data._getCData(path)
+				for k in filter(lambda x: x != k1 and x not in key,self._pool.get(model)._on_change_fields):
+					if r2[k] != r1[k]:
+						if  type(key) in (list,tuple):
+							key.append(k)
+						else:
+							key = [key,k]
+						self._on_change(path,model,key,context)
 
 	def _on_check(self,path,model,key,context):
 		name = self._meta[model][key]['on_check']
@@ -1655,7 +1688,6 @@ class MCache(object):
 	
 	def _save(self,autocommit = False):
 		diffs = self._data._pdiffs(False)
-		print('SAVE-DIFFS:',diffs)
 		if len(diffs) == 0:
 			return ['no chache']
 		
@@ -2001,7 +2033,7 @@ class MCache(object):
 					for on_change_field in priority[pkey]:
 						self._on_change(apnd1['__path__'],apnd1['__model__'],on_change_field,context)
 						self._do_calculate(apnd1['__path__'],context)
-						diffs2 = data._odiffs()
+						diffs2 = data._wdiffs()
 						if len(diffs2) > 0 and '__o2m_append__' in diffs2:
 							self._post_diff_A(data,diffs2,context)
 
@@ -2012,13 +2044,6 @@ class MCache(object):
 						if len(diffs4) > 0:
 							self._post_diff_U(data,diffs4,context)
 	
-		diffs3 = {}
-		for k in filter(lambda x: x in ('__update__','__insert__','__delete__'),diffs.keys()):
-			diffs3[k] = diffs[k]
-			
-		if len(diffs3) > 0:
-			self._post_diff_U(data,diffs3,context)
-
 #
 	def _post_diff_U(self,data,diffs,context):
 			if '__insert__' in diffs:
@@ -2039,7 +2064,7 @@ class MCache(object):
 						for on_change_field in priority[pkey]:
 							self._on_change(inst,model,on_change_field,context)
 							self._do_calculate(inst,context)
-							diffs1 = data._odiffs()
+							diffs1 = data._wdiffs()
 							if len(diffs1) > 0 and '__o2m_append__' in diffs1:
 								self._post_diff_A(data,diffs1,context)
 	
@@ -2061,7 +2086,7 @@ class MCache(object):
 						for on_change_field in priority[pkey]:
 							self._on_change(upd,model,on_change_field,context)
 							self._do_calculate(upd,context)
-							diffs1 = data._odiffs()
+							diffs1 = data._wdiffs()
 							if len(diffs1) > 0 and '__o2m_append__' in diffs1:
 								self._post_diff_A(data,diffs1,context)
 	
@@ -2084,7 +2109,7 @@ class MCache(object):
 							for on_change_field in priority[pkey]:
 								self._on_change(unlk,model,on_change_field,context)
 								self._do_calculate(unlk,context)
-								diffs1 = data._odiffs()
+								diffs1 = data._wdiffs()
 								if len(diffs1) > 0 and '__o2m_append__' in diffs1:
 									self._post_diff_A(data,diffs1,context)
 
@@ -2109,29 +2134,29 @@ class MCache(object):
 				for on_change_field in priority[pkey]:
 					self._on_change(apnd1['__path__'],apnd1['__model__'],on_change_field,context)
 					self._do_calculate(apnd1['__path__'],context)
-					diffs2 = data._odiffs()
+					diffs2 = data._wdiffs()
 					if len(diffs2) > 0 and '__o2m_append__' in diffs2:
 						self._post_diff(data,diffs2['__o2m_append__'],context)
 
 #
 	def _post_diffs(self,context):
-		levels = {}
-		diffs1 = self._data._odiffs()
-		self._data._set_primary()
-		#ch1 = DCacheDict(self._data._getCData(self._data._root),self._data._model,self._cr,self._pool,self._uid,self._context)
-		ch1 = self._data
-
-		if  '__update__' in diffs1 or '__insert__' in diffs1 or '__delete__' in diffs1:
-			self._post_diff_U(ch1,diffs1,context)
-		elif  '__o2m_append__' in diffs1:
-			self._post_diff_A(ch1,diffs1,context)
-		
-		diffs2 = ch1._pdiffs()
-
-		web_pdb.set_trace()
-		_join_diffs(diffs1,diffs2)
-		
-		self._data._apply_from_diffs('o','c',diffs1)
+		diffs1 = self._data._odiffs(False)
+		if len(diffs1) > 0:
+			self._data._clearTree('w')
+			self._data._copyBuildLevel('w','c')
+			#ch1 = DCacheDict(self._data._getCData(self._data._root),self._data._model,self._cr,self._pool,self._uid,self._context)
+			ch1 = self._data
+	
+			if  '__o2m_append__' in diffs1:
+				self._post_diff_A(ch1,diffs1,context)
+			
+			#web_pdb.set_trace()
+			diffs2 = ch1._odiffs()
+	
+			#_join_diffs(diffs1,diffs2)
+			
+			self._data._apply_from_diffs('o','c',diffs2)
+			return eval(str(diffs2))
 
 		return eval(str(diffs1))
 
@@ -2152,7 +2177,6 @@ class MCache(object):
 			res['__checks__'] = copy.deepcopy(self._checks)
 			self._checks.clear()
 
-		print('MCHACHE:',res)
 		if len(res) > 0:
 			return [res]
 		
