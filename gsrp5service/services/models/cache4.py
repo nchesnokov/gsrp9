@@ -1028,6 +1028,9 @@ class DCacheDict(object):
 			
 			return res
 
+	def _wapply(self):
+		return self._diffs('w','c',True)
+
 	def _oapply(self):
 		return self._diffs('o','c',True)
 
@@ -2021,6 +2024,112 @@ class MCache(object):
 	
 				m = self._pool.get(apnd1['__model__'])
 				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,apnd1['__data__'].keys()))
+				if len(on_change_fields) > 0:
+					ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
+					priority = {}
+					for on_change_field in on_change_fields:
+						priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field)
+					
+					pkeys = list(priority.keys())
+					pkeys.sort()
+		
+					for pkey in pkeys:
+						for on_change_field in priority[pkey]:
+							self._on_change(apnd1['__path__'],apnd1['__model__'],on_change_field,context)
+							self._do_calculate(apnd1['__path__'],context)
+							diffs2 = data._wdiffs()
+							if len(diffs2) > 0 and '__o2m_append__' in diffs2:
+								self._post_diff_A(data,diffs2,context)
+	
+							diffs4 = {}
+							for k in filter(lambda x: x in ('__update__','__insert__','__delete__'),diffs2.keys()):
+								diffs4[k] = diffs2[k]
+								
+							if len(diffs4) > 0:
+								self._post_diff_U(data,diffs4,context)
+	
+#
+	def _post_diff_U(self,data,diffs,context):
+			if '__insert__' in diffs:
+				insts = diffs['__insert__']
+				for inst in insts.keys():
+					model = self._data._cmodels[inst]
+					m = self._pool.get(model)
+					on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,insts[inst].keys()))
+					if len(on_change_fields) > 0:
+						ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
+						priority = {}
+						for on_change_field in on_change_fields:
+							priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field2)
+						
+						pkeys = list(priority.keys())
+						pkeys.sort()
+		
+						for pkey in pkeys:
+							for on_change_field in priority[pkey]:
+								self._on_change(inst,model,on_change_field,context)
+								self._do_calculate(inst,context)
+								diffs1 = data._wdiffs()
+								if len(diffs1) > 0 and '__o2m_append__' in diffs1:
+									self._post_diff_A(data,diffs1,context)
+		
+			if '__update__' in diffs:
+				upds = diffs['__update__']
+				for upd in upds.keys():
+					model = self._data._cmodels[upd]
+					m = self._pool.get(model)
+					on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,upds[upd].keys()))
+					if len(on_change_fields) > 0:
+						ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
+						priority = {}
+						for on_change_field in on_change_fields:
+							priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field)
+						
+						pkeys = list(priority.keys())
+						pkeys.sort()
+		
+						for pkey in pkeys:
+							for on_change_field in priority[pkey]:
+								self._on_change(upd,model,on_change_field,context)
+								self._do_calculate(upd,context)
+								diffs1 = data._wdiffs()
+								if len(diffs1) > 0 and '__o2m_append__' in diffs1:
+									self._post_diff_A(data,diffs1,context)
+	
+	
+				if '__delete__' in diffs:
+					unlks = diffs['__delete__']
+					for unlk in unlks.keys():
+						model = self._data._cmodels[unlk]
+						m = self._pool.get(model)
+						on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,unlks[unlk].keys()))
+						if len(on_change_fields) > 0:
+							ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
+							priority = {}
+							for on_change_field in on_change_fields:
+								priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field)
+							
+							pkeys = list(priority.keys())
+							pkeys.sort()
+			
+							for pkey in pkeys:
+								for on_change_field in priority[pkey]:
+									self._on_change(unlk,model,on_change_field,context)
+									self._do_calculate(unlk,context)
+									diffs1 = data._wdiffs()
+									if len(diffs1) > 0 and '__o2m_append__' in diffs1:
+										self._post_diff_A(data,diffs1,context)
+
+#
+	def _post_diff_recursive(self,data,apnds1,context):
+		for apnd1 in apnds1:
+			if '__o2m_containers__' in apnd1:
+				for k1 in apnd1['__o2m_containers__'].keys():
+					self._post_diff_recursive(data,apnd1['__o2m_containers__'][k1],context)
+
+			m = self._pool.get(apnd1['__model__'])
+			on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,apnd1['__data__'].keys()))
+			if len(on_change_fields) > 0:
 				ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
 				priority = {}
 				for on_change_field in on_change_fields:
@@ -2035,108 +2144,7 @@ class MCache(object):
 						self._do_calculate(apnd1['__path__'],context)
 						diffs2 = data._wdiffs()
 						if len(diffs2) > 0 and '__o2m_append__' in diffs2:
-							self._post_diff_A(data,diffs2,context)
-
-						diffs4 = {}
-						for k in filter(lambda x: x in ('__update__','__insert__','__delete__'),diffs2.keys()):
-							diffs4[k] = diffs2[k]
-							
-						if len(diffs4) > 0:
-							self._post_diff_U(data,diffs4,context)
-	
-#
-	def _post_diff_U(self,data,diffs,context):
-			if '__insert__' in diffs:
-				insts = diffs['__insert__']
-				for inst in insts.keys():
-					model = self._data._cmodels[inst]
-					m = self._pool.get(model)
-					on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,insts[inst].keys()))
-					ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
-					priority = {}
-					for on_change_field in on_change_fields:
-						priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field2)
-					
-					pkeys = list(priority.keys())
-					pkeys.sort()
-	
-					for pkey in pkeys:
-						for on_change_field in priority[pkey]:
-							self._on_change(inst,model,on_change_field,context)
-							self._do_calculate(inst,context)
-							diffs1 = data._wdiffs()
-							if len(diffs1) > 0 and '__o2m_append__' in diffs1:
-								self._post_diff_A(data,diffs1,context)
-	
-			if '__update__' in diffs:
-				upds = diffs['__update__']
-				for upd in upds.keys():
-					model = self._data._cmodels[upd]
-					m = self._pool.get(model)
-					on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,upds[upd].keys()))
-					ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
-					priority = {}
-					for on_change_field in on_change_fields:
-						priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field)
-					
-					pkeys = list(priority.keys())
-					pkeys.sort()
-	
-					for pkey in pkeys:
-						for on_change_field in priority[pkey]:
-							self._on_change(upd,model,on_change_field,context)
-							self._do_calculate(upd,context)
-							diffs1 = data._wdiffs()
-							if len(diffs1) > 0 and '__o2m_append__' in diffs1:
-								self._post_diff_A(data,diffs1,context)
-	
-	
-				if '__delete__' in diffs:
-					unlks = diffs['__delete__']
-					for unlk in unlks.keys():
-						model = self._data._cmodels[unlk]
-						m = self._pool.get(model)
-						on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,unlks[unlk].keys()))
-						ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
-						priority = {}
-						for on_change_field in on_change_fields:
-							priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field)
-						
-						pkeys = list(priority.keys())
-						pkeys.sort()
-		
-						for pkey in pkeys:
-							for on_change_field in priority[pkey]:
-								self._on_change(unlk,model,on_change_field,context)
-								self._do_calculate(unlk,context)
-								diffs1 = data._wdiffs()
-								if len(diffs1) > 0 and '__o2m_append__' in diffs1:
-									self._post_diff_A(data,diffs1,context)
-
-#
-	def _post_diff_recursive(self,data,apnds1,context):
-		for apnd1 in apnds1:
-			if '__o2m_containers__' in apnd1:
-				for k1 in apnd1['__o2m_containers__'].keys():
-					self._post_diff_recursive(data,apnd1['__o2m_containers__'][k1],context)
-
-			m = self._pool.get(apnd1['__model__'])
-			on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,apnd1['__data__'].keys()))
-			ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
-			priority = {}
-			for on_change_field in on_change_fields:
-				priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field)
-			
-			pkeys = list(priority.keys())
-			pkeys.sort()
-
-			for pkey in pkeys:
-				for on_change_field in priority[pkey]:
-					self._on_change(apnd1['__path__'],apnd1['__model__'],on_change_field,context)
-					self._do_calculate(apnd1['__path__'],context)
-					diffs2 = data._wdiffs()
-					if len(diffs2) > 0 and '__o2m_append__' in diffs2:
-						self._post_diff(data,diffs2['__o2m_append__'],context)
+							self._post_diff(data,diffs2['__o2m_append__'],context)
 
 #
 	def _post_diffs(self,context):
