@@ -48,7 +48,7 @@ def _load(cr,pool,uid,registry,able=None, modules = None):
 		module = modules
 		if registry._modules[modules]['meta']['able'] in able and registry._modules[module]['state'] == 'I':
 			_modules.append(modules)
-			_chunks[modules] = ['module','depends','env','view','example','data','demo','test','i18n']
+			_chunks[modules] = ['module','depends','env','view','cust','example','data','demo','test','i18n']
 	elif type(modules) == dict:
 		mkeys = list(modules.keys())
 		for module in mkeys:
@@ -59,12 +59,12 @@ def _load(cr,pool,uid,registry,able=None, modules = None):
 		for module in modules:
 			if module in modules and registry._modules[module]['meta']['able'] in able and registry._modules[module]['state'] == 'I':
 				_modules.append(module)
-				_chunks[module] = ['module','depends','env','view','example','data','demo','test','i18n']
+				_chunks[module] = ['module','depends','env','view','cust','example','data','demo','test','i18n']
 	elif modules is None:
 		for module in registry._depends:
 			if registry._modules[module]['meta']['able'] in able and registry._modules[module]['state'] == 'I':
 				_modules.append(module)
-				_chunks[module] = ['module','depends','env','view','example','data','demo','test','i18n']
+				_chunks[module] = ['module','depends','env','view','cust','example','data','demo','test','i18n']
 
 	#web_pdb.set_trace()
 	if _modules:
@@ -95,6 +95,9 @@ def _load(cr,pool,uid,registry,able=None, modules = None):
 			
 			if 'view' in chunk and 'view' in info['meta']:
 				metas['view'] = info['meta']['view']
+
+			if 'cust' in chunk and 'cust' in info['meta']:
+				metas['cust'] = info['meta']['cust']
 			
 			if 'example' in chunk:
 				if 'data' in info['meta']:

@@ -108,7 +108,7 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 
 
 def _download(cr,pool,uid,path,module,imodules,models,imodels,registry,ext='csv'):
-	_remove_dirs([opj(path,module,'demo','data'),opj(path,module,'demo','examples')])
+	_remove_dirs([opj(path,module,'demo','data'),opj(path,module,'demo','examples'),opj(path,module,'demo','cust'),])
 	
 	a = open(opj(path,module,'demo','annotation-1.csv'),'w')
 	aw = csv.DictWriter(a,['model','file'])
@@ -122,15 +122,18 @@ def _download(cr,pool,uid,path,module,imodules,models,imodels,registry,ext='csv'
 		for sf in sfs:
 			sls = tuple(map(lambda x: x[0],registry._models[model._name]['attrs']['_columns'][sf].selections))
 			cond.append((sf,'in',sls))
-			print('COND:',model._name,cond)
+			#print('COND:',model._name,cond)
 			for k,v in columns_info[sf]['selections']:
 				mfs.setdefault(sf,{})[k] = v 
 		records = model.select(cr,pool,uid,fields,cond)
 		if len(records) >= 0:
-			if model._name[:3] == 'md.':
-				c = 'data'
+			if model._class_model == 'C':
+				c = 'cust'
 			else:
-				c = 'examples' 
+				if model._name[:3] == 'md.':
+					c = 'data'
+				else:
+					c = 'examples' 
 
 			_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,model._table+'.' + ext),));
 			am = open(opj(path,module,'demo',c,model._table+'.' + ext),'w')

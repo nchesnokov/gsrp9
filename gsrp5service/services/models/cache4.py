@@ -1776,7 +1776,7 @@ class MCache(object):
 				for key in m2m_containers.keys():
 					self._m2m_appendRows(m2m_containers[key],item['__data__']['id'])
 	
-			if '__o2m_containers__' in item:
+			if '__o2m_containers__' in item and not (m._getParentIdName and m._getChildsIdName):
 				o2m_containers = item['__o2m_containers__']
 				for key in o2m_containers.keys():
 					self._copyItems(o2m_containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])

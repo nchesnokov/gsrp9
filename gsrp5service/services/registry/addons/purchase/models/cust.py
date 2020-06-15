@@ -533,4 +533,38 @@ class purchase_invoice_type_roles(Model):
 
 purchase_invoice_type_roles()
 
+
+class purchase_order_categories(Model):
+	_name = 'purchase.order.categories'
+	_description = 'Categories Purchase Order'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='purchase.order.categories'),
+	'childs_id': fields.one2many(obj = 'purchase.order.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'orders': fields.one2many(label='Orders',obj='purchase.orders',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_order_categories()
+
+class purchase_invoce_categories(Model):
+	_name = 'purchase.invoce.categories'
+	_description = 'Categories Purchase Invoce'
+	_class_model = 'C'
+	_class_category = 'invoice'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='purchase.invoce.categories'),
+	'childs_id': fields.one2many(obj = 'purchase.invoce.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'invoices': fields.one2many(label='Orders',obj='purchase.invoices',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+purchase_invoce_categories()
+
+
 # end customize

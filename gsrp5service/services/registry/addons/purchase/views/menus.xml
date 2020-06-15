@@ -8,14 +8,6 @@
         </record>
       </records>
       <records model="bc.actions">
-        <record id="action.purchase.order.categories.search">
-          <column name="name">action.purchase.order.categories.search</column>
-          <column name="ta">View</column>
-        </record>
-        <record id="action.purchase.invoce.categories.search">
-          <column name="name">action.purchase.invoce.categories.search</column>
-          <column name="ta">View</column>
-        </record>
         <record id="action.purchase.orders.search">
           <column name="name">action.purchase.orders.search</column>
           <column name="ta">View</column>
@@ -26,14 +18,6 @@
         </record>
       </records>
       <records model="bc.actions">
-        <record id="action.purchase.order.categories.report">
-          <column name="name">action.purchase.order.categories.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.invoce.categories.report">
-          <column name="name">action.purchase.invoce.categories.report</column>
-          <column name="ta">Report</column>
-        </record>
         <record id="action.purchase.orders.report">
           <column name="name">action.purchase.orders.report</column>
           <column name="ta">Report</column>
@@ -44,14 +28,6 @@
         </record>
       </records>
       <records model="bc.view.actions">
-        <record id="view.action.purchase.order.categories.search">
-          <column name="action_id">action.purchase.order.categories.search</column>
-          <column name="view_id">view.purchase.order.categories.search</column>
-        </record>
-        <record id="view.action.purchase.invoce.categories.search">
-          <column name="action_id">action.purchase.invoce.categories.search</column>
-          <column name="view_id">view.purchase.invoce.categories.search</column>
-        </record>
         <record id="view.action.purchase.orders.search">
           <column name="action_id">action.purchase.orders.search</column>
           <column name="view_id">view.purchase.orders.search</column>
@@ -62,20 +38,6 @@
         </record>
       </records>
       <records model="bc.ui.reports">
-        <record id="bc.ui.report.docx.purchase.order.categories">
-          <column name="name">bc.ui.report.docx.purchase.order.categories</column>
-          <column name="label">Order</column>
-          <column name="report">report_purchase_order_categories</column>
-          <column name="infile">infile_purchase_order_categories.docx</column>
-          <column name="outfile">outfile_purchase_order_categories.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.invoce.categories">
-          <column name="name">bc.ui.report.docx.purchase.invoce.categories</column>
-          <column name="label">Invoce</column>
-          <column name="report">report_purchase_invoce_categories</column>
-          <column name="infile">infile_purchase_invoce_categories.docx</column>
-          <column name="outfile">outfile_purchase_invoce_categories.docx</column>
-        </record>
         <record id="bc.ui.report.docx.purchase.orders">
           <column name="name">bc.ui.report.docx.purchase.orders</column>
           <column name="label">Purchase Order</column>
@@ -92,14 +54,6 @@
         </record>
       </records>
       <records model="bc.report.actions">
-        <record id="report.action.purchase.order.categories.report">
-          <column name="action_id">action.purchase.order.categories.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.order.categories</column>
-        </record>
-        <record id="report.action.purchase.invoce.categories.report">
-          <column name="action_id">action.purchase.invoce.categories.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.invoce.categories</column>
-        </record>
         <record id="report.action.purchase.orders.report">
           <column name="action_id">action.purchase.orders.report</column>
           <column name="report_id">bc.ui.report.docx.purchase.orders</column>
@@ -110,36 +64,20 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.purchase.order.categories.search">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.purchase.order.categories.search</column>
-            <column name="label">Order</column>
-          <column name="parent_id">ui.menu.purchase</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.purchase.order.categories.search</column>
-          </record>
-          <record id="ui.menu.purchase.invoce.categories.search">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.purchase.invoce.categories.search</column>
-            <column name="label">Invoce</column>
-          <column name="parent_id">ui.menu.purchase</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.purchase.invoce.categories.search</column>
-          </record>
           <record id="ui.menu.purchase.orders.search">
-          <column name="sequence">2</column>
+          <column name="sequence">0</column>
             <column name="name">ui.menu.purchase.orders.search</column>
             <column name="label">Purchase Order</column>
           <column name="parent_id">ui.menu.purchase</column>
-          <column name="sequence">20</column>
+          <column name="sequence">0</column>
           <column name="action_id">action.purchase.orders.search</column>
           </record>
           <record id="ui.menu.purchase.invoices.search">
-          <column name="sequence">3</column>
+          <column name="sequence">1</column>
             <column name="name">ui.menu.purchase.invoices.search</column>
             <column name="label">Purchase Invoice</column>
           <column name="parent_id">ui.menu.purchase</column>
-          <column name="sequence">30</column>
+          <column name="sequence">10</column>
           <column name="action_id">action.purchase.invoices.search</column>
           </record>
       </records>
@@ -151,36 +89,20 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.purchase.order.categories.report">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.purchase.order.categories.report</column>
-            <column name="label">Order</column>
-          <column name="parent_id">ui.menu.purchase.report</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.purchase.order.categories.report</column>
-          </record>
-          <record id="ui.menu.purchase.invoce.categories.report">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.purchase.invoce.categories.report</column>
-            <column name="label">Invoce</column>
-          <column name="parent_id">ui.menu.purchase.report</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.purchase.invoce.categories.report</column>
-          </record>
           <record id="ui.menu.purchase.orders.report">
-          <column name="sequence">2</column>
+          <column name="sequence">0</column>
             <column name="name">ui.menu.purchase.orders.report</column>
             <column name="label">Purchase Order</column>
           <column name="parent_id">ui.menu.purchase.report</column>
-          <column name="sequence">20</column>
+          <column name="sequence">0</column>
           <column name="action_id">action.purchase.orders.report</column>
           </record>
           <record id="ui.menu.purchase.invoices.report">
-          <column name="sequence">3</column>
+          <column name="sequence">1</column>
             <column name="name">ui.menu.purchase.invoices.report</column>
             <column name="label">Purchase Invoice</column>
           <column name="parent_id">ui.menu.purchase.report</column>
-          <column name="sequence">30</column>
+          <column name="sequence">10</column>
           <column name="action_id">action.purchase.invoices.report</column>
           </record>
       </records>
@@ -289,6 +211,14 @@
           <column name="name">action.purchase.invoice.types.custom</column>
           <column name="ta">View</column>
         </record>
+        <record id="action.purchase.order.categories.custom">
+          <column name="name">action.purchase.order.categories.custom</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.purchase.invoce.categories.custom">
+          <column name="name">action.purchase.invoce.categories.custom</column>
+          <column name="ta">View</column>
+        </record>
       </records>
       <records model="bc.view.actions">
         <record id="view.action.purchase.unit.categories.custom">
@@ -395,6 +325,14 @@
           <column name="action_id">action.purchase.invoice.types.custom</column>
           <column name="view_id">view.purchase.invoice.types.search</column>
         </record>
+        <record id="view.action.purchase.order.categories.custom">
+          <column name="action_id">action.purchase.order.categories.custom</column>
+          <column name="view_id">view.purchase.order.categories.search</column>
+        </record>
+        <record id="view.action.purchase.invoce.categories.custom">
+          <column name="action_id">action.purchase.invoce.categories.custom</column>
+          <column name="view_id">view.purchase.invoce.categories.search</column>
+        </record>
       </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.purchase.custom">
@@ -407,7 +345,7 @@
           <record id="ui.menu.purchase.unit.categories.custom">
           <column name="sequence">0</column>
             <column name="name">ui.menu.purchase.unit.categories.custom</column>
-            <column name="label">Unit</column>
+            <column name="label">Categories Purchase Unit</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">0</column>
           <column name="action_id">action.purchase.unit.categories.custom</column>
@@ -423,7 +361,7 @@
           <record id="ui.menu.purchase.channel.categories.custom">
           <column name="sequence">2</column>
             <column name="name">ui.menu.purchase.channel.categories.custom</column>
-            <column name="label">Chanel</column>
+            <column name="label">Categories Purchase Chanel</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">20</column>
           <column name="action_id">action.purchase.channel.categories.custom</column>
@@ -439,7 +377,7 @@
           <record id="ui.menu.purchase.segment.categories.custom">
           <column name="sequence">4</column>
             <column name="name">ui.menu.purchase.segment.categories.custom</column>
-            <column name="label">Segment</column>
+            <column name="label">Categories Purchase Segment</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">40</column>
           <column name="action_id">action.purchase.segment.categories.custom</column>
@@ -455,7 +393,7 @@
           <record id="ui.menu.purchase.area.categories.custom">
           <column name="sequence">6</column>
             <column name="name">ui.menu.purchase.area.categories.custom</column>
-            <column name="label">Area</column>
+            <column name="label">Categories Purchase Area</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">60</column>
           <column name="action_id">action.purchase.area.categories.custom</column>
@@ -471,7 +409,7 @@
           <record id="ui.menu.purchase.region.categories.custom">
           <column name="sequence">8</column>
             <column name="name">ui.menu.purchase.region.categories.custom</column>
-            <column name="label">Region</column>
+            <column name="label">Categories Purchase Region</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">80</column>
           <column name="action_id">action.purchase.region.categories.custom</column>
@@ -487,7 +425,7 @@
           <record id="ui.menu.purchase.division.categories.custom">
           <column name="sequence">10</column>
             <column name="name">ui.menu.purchase.division.categories.custom</column>
-            <column name="label">Division</column>
+            <column name="label">Categories Purchase Division</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">100</column>
           <column name="action_id">action.purchase.division.categories.custom</column>
@@ -503,7 +441,7 @@
           <record id="ui.menu.purchase.subdivision.categories.custom">
           <column name="sequence">12</column>
             <column name="name">ui.menu.purchase.subdivision.categories.custom</column>
-            <column name="label">Subdivision</column>
+            <column name="label">Categories Purchase Subdivision</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">120</column>
           <column name="action_id">action.purchase.subdivision.categories.custom</column>
@@ -519,7 +457,7 @@
           <record id="ui.menu.purchase.unit.channel.assigments.custom">
           <column name="sequence">14</column>
             <column name="name">ui.menu.purchase.unit.channel.assigments.custom</column>
-            <column name="label">Of Channel Assigment</column>
+            <column name="label">Purchase Unit Of Channel Assigment</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">140</column>
           <column name="action_id">action.purchase.unit.channel.assigments.custom</column>
@@ -527,7 +465,7 @@
           <record id="ui.menu.purchase.unit.segment.assigments.custom">
           <column name="sequence">15</column>
             <column name="name">ui.menu.purchase.unit.segment.assigments.custom</column>
-            <column name="label">Of Segment Assigment</column>
+            <column name="label">Purchase Unit Of Segment Assigment</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">150</column>
           <column name="action_id">action.purchase.unit.segment.assigments.custom</column>
@@ -535,7 +473,7 @@
           <record id="ui.menu.purchase.unit.area.assigments.custom">
           <column name="sequence">16</column>
             <column name="name">ui.menu.purchase.unit.area.assigments.custom</column>
-            <column name="label">Of Area Assigment</column>
+            <column name="label">Purchase Unit Of Area Assigment</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">160</column>
           <column name="action_id">action.purchase.unit.area.assigments.custom</column>
@@ -543,7 +481,7 @@
           <record id="ui.menu.purchase.unit.region.assigments.custom">
           <column name="sequence">17</column>
             <column name="name">ui.menu.purchase.unit.region.assigments.custom</column>
-            <column name="label">Of Region Assigment</column>
+            <column name="label">Purchase Unit Of Region Assigment</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">170</column>
           <column name="action_id">action.purchase.unit.region.assigments.custom</column>
@@ -551,7 +489,7 @@
           <record id="ui.menu.purchase.division.subdivision.assigments.custom">
           <column name="sequence">18</column>
             <column name="name">ui.menu.purchase.division.subdivision.assigments.custom</column>
-            <column name="label">Of Subdivision Assigment</column>
+            <column name="label">Purchase Division Of Subdivision Assigment</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">180</column>
           <column name="action_id">action.purchase.division.subdivision.assigments.custom</column>
@@ -575,7 +513,7 @@
           <record id="ui.menu.purchase.pricing.group.levels.custom">
           <column name="sequence">21</column>
             <column name="name">ui.menu.purchase.pricing.group.levels.custom</column>
-            <column name="label">Group Levels</column>
+            <column name="label">Purchase Pricing Group Levels</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">210</column>
           <column name="action_id">action.purchase.pricing.group.levels.custom</column>
@@ -591,7 +529,7 @@
           <record id="ui.menu.purchase.schema.texts.custom">
           <column name="sequence">23</column>
             <column name="name">ui.menu.purchase.schema.texts.custom</column>
-            <column name="label">Purchase Texts</column>
+            <column name="label">Schema Of Purchase Texts</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">230</column>
           <column name="action_id">action.purchase.schema.texts.custom</column>
@@ -599,7 +537,7 @@
           <record id="ui.menu.purchase.order.types.custom">
           <column name="sequence">24</column>
             <column name="name">ui.menu.purchase.order.types.custom</column>
-            <column name="label">Order</column>
+            <column name="label">Types Purchase Order</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">240</column>
           <column name="action_id">action.purchase.order.types.custom</column>
@@ -607,10 +545,26 @@
           <record id="ui.menu.purchase.invoice.types.custom">
           <column name="sequence">25</column>
             <column name="name">ui.menu.purchase.invoice.types.custom</column>
-            <column name="label">Invoice</column>
+            <column name="label">Types Purchase Invoice</column>
           <column name="parent_id">ui.menu.purchase.custom</column>
           <column name="sequence">250</column>
           <column name="action_id">action.purchase.invoice.types.custom</column>
+          </record>
+          <record id="ui.menu.purchase.order.categories.custom">
+          <column name="sequence">26</column>
+            <column name="name">ui.menu.purchase.order.categories.custom</column>
+            <column name="label">Categories Purchase Order</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">260</column>
+          <column name="action_id">action.purchase.order.categories.custom</column>
+          </record>
+          <record id="ui.menu.purchase.invoce.categories.custom">
+          <column name="sequence">27</column>
+            <column name="name">ui.menu.purchase.invoce.categories.custom</column>
+            <column name="label">Categories Purchase Invoce</column>
+          <column name="parent_id">ui.menu.purchase.custom</column>
+          <column name="sequence">270</column>
+          <column name="action_id">action.purchase.invoce.categories.custom</column>
           </record>
       </records>
       <records model="bc.actions">
@@ -718,11 +672,19 @@
           <column name="name">action.purchase.invoice.types.report</column>
           <column name="ta">Report</column>
         </record>
+        <record id="action.purchase.order.categories.report">
+          <column name="name">action.purchase.order.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.purchase.invoce.categories.report">
+          <column name="name">action.purchase.invoce.categories.report</column>
+          <column name="ta">Report</column>
+        </record>
       </records>
       <records model="bc.ui.reports">
         <record id="bc.ui.report.docx.purchase.unit.categories">
           <column name="name">bc.ui.report.docx.purchase.unit.categories</column>
-          <column name="label">Unit</column>
+          <column name="label">Categories Purchase Unit</column>
           <column name="report">report_purchase_unit_categories</column>
           <column name="infile">infile_purchase_unit_categories.docx</column>
           <column name="outfile">outfile_purchase_unit_categories.docx</column>
@@ -736,7 +698,7 @@
         </record>
         <record id="bc.ui.report.docx.purchase.channel.categories">
           <column name="name">bc.ui.report.docx.purchase.channel.categories</column>
-          <column name="label">Chanel</column>
+          <column name="label">Categories Purchase Chanel</column>
           <column name="report">report_purchase_channel_categories</column>
           <column name="infile">infile_purchase_channel_categories.docx</column>
           <column name="outfile">outfile_purchase_channel_categories.docx</column>
@@ -750,7 +712,7 @@
         </record>
         <record id="bc.ui.report.docx.purchase.segment.categories">
           <column name="name">bc.ui.report.docx.purchase.segment.categories</column>
-          <column name="label">Segment</column>
+          <column name="label">Categories Purchase Segment</column>
           <column name="report">report_purchase_segment_categories</column>
           <column name="infile">infile_purchase_segment_categories.docx</column>
           <column name="outfile">outfile_purchase_segment_categories.docx</column>
@@ -764,7 +726,7 @@
         </record>
         <record id="bc.ui.report.docx.purchase.area.categories">
           <column name="name">bc.ui.report.docx.purchase.area.categories</column>
-          <column name="label">Area</column>
+          <column name="label">Categories Purchase Area</column>
           <column name="report">report_purchase_area_categories</column>
           <column name="infile">infile_purchase_area_categories.docx</column>
           <column name="outfile">outfile_purchase_area_categories.docx</column>
@@ -778,7 +740,7 @@
         </record>
         <record id="bc.ui.report.docx.purchase.region.categories">
           <column name="name">bc.ui.report.docx.purchase.region.categories</column>
-          <column name="label">Region</column>
+          <column name="label">Categories Purchase Region</column>
           <column name="report">report_purchase_region_categories</column>
           <column name="infile">infile_purchase_region_categories.docx</column>
           <column name="outfile">outfile_purchase_region_categories.docx</column>
@@ -792,7 +754,7 @@
         </record>
         <record id="bc.ui.report.docx.purchase.division.categories">
           <column name="name">bc.ui.report.docx.purchase.division.categories</column>
-          <column name="label">Division</column>
+          <column name="label">Categories Purchase Division</column>
           <column name="report">report_purchase_division_categories</column>
           <column name="infile">infile_purchase_division_categories.docx</column>
           <column name="outfile">outfile_purchase_division_categories.docx</column>
@@ -806,7 +768,7 @@
         </record>
         <record id="bc.ui.report.docx.purchase.subdivision.categories">
           <column name="name">bc.ui.report.docx.purchase.subdivision.categories</column>
-          <column name="label">Subdivision</column>
+          <column name="label">Categories Purchase Subdivision</column>
           <column name="report">report_purchase_subdivision_categories</column>
           <column name="infile">infile_purchase_subdivision_categories.docx</column>
           <column name="outfile">outfile_purchase_subdivision_categories.docx</column>
@@ -820,35 +782,35 @@
         </record>
         <record id="bc.ui.report.docx.purchase.unit.channel.assigments">
           <column name="name">bc.ui.report.docx.purchase.unit.channel.assigments</column>
-          <column name="label">Of Channel Assigment</column>
+          <column name="label">Purchase Unit Of Channel Assigment</column>
           <column name="report">report_purchase_unit_channel_assigments</column>
           <column name="infile">infile_purchase_unit_channel_assigments.docx</column>
           <column name="outfile">outfile_purchase_unit_channel_assigments.docx</column>
         </record>
         <record id="bc.ui.report.docx.purchase.unit.segment.assigments">
           <column name="name">bc.ui.report.docx.purchase.unit.segment.assigments</column>
-          <column name="label">Of Segment Assigment</column>
+          <column name="label">Purchase Unit Of Segment Assigment</column>
           <column name="report">report_purchase_unit_segment_assigments</column>
           <column name="infile">infile_purchase_unit_segment_assigments.docx</column>
           <column name="outfile">outfile_purchase_unit_segment_assigments.docx</column>
         </record>
         <record id="bc.ui.report.docx.purchase.unit.area.assigments">
           <column name="name">bc.ui.report.docx.purchase.unit.area.assigments</column>
-          <column name="label">Of Area Assigment</column>
+          <column name="label">Purchase Unit Of Area Assigment</column>
           <column name="report">report_purchase_unit_area_assigments</column>
           <column name="infile">infile_purchase_unit_area_assigments.docx</column>
           <column name="outfile">outfile_purchase_unit_area_assigments.docx</column>
         </record>
         <record id="bc.ui.report.docx.purchase.unit.region.assigments">
           <column name="name">bc.ui.report.docx.purchase.unit.region.assigments</column>
-          <column name="label">Of Region Assigment</column>
+          <column name="label">Purchase Unit Of Region Assigment</column>
           <column name="report">report_purchase_unit_region_assigments</column>
           <column name="infile">infile_purchase_unit_region_assigments.docx</column>
           <column name="outfile">outfile_purchase_unit_region_assigments.docx</column>
         </record>
         <record id="bc.ui.report.docx.purchase.division.subdivision.assigments">
           <column name="name">bc.ui.report.docx.purchase.division.subdivision.assigments</column>
-          <column name="label">Of Subdivision Assigment</column>
+          <column name="label">Purchase Division Of Subdivision Assigment</column>
           <column name="report">report_purchase_division_subdivision_assigments</column>
           <column name="infile">infile_purchase_division_subdivision_assigments.docx</column>
           <column name="outfile">outfile_purchase_division_subdivision_assigments.docx</column>
@@ -869,7 +831,7 @@
         </record>
         <record id="bc.ui.report.docx.purchase.pricing.group.levels">
           <column name="name">bc.ui.report.docx.purchase.pricing.group.levels</column>
-          <column name="label">Group Levels</column>
+          <column name="label">Purchase Pricing Group Levels</column>
           <column name="report">report_purchase_pricing_group_levels</column>
           <column name="infile">infile_purchase_pricing_group_levels.docx</column>
           <column name="outfile">outfile_purchase_pricing_group_levels.docx</column>
@@ -883,24 +845,38 @@
         </record>
         <record id="bc.ui.report.docx.purchase.schema.texts">
           <column name="name">bc.ui.report.docx.purchase.schema.texts</column>
-          <column name="label">Purchase Texts</column>
+          <column name="label">Schema Of Purchase Texts</column>
           <column name="report">report_purchase_schema_texts</column>
           <column name="infile">infile_purchase_schema_texts.docx</column>
           <column name="outfile">outfile_purchase_schema_texts.docx</column>
         </record>
         <record id="bc.ui.report.docx.purchase.order.types">
           <column name="name">bc.ui.report.docx.purchase.order.types</column>
-          <column name="label">Order</column>
+          <column name="label">Types Purchase Order</column>
           <column name="report">report_purchase_order_types</column>
           <column name="infile">infile_purchase_order_types.docx</column>
           <column name="outfile">outfile_purchase_order_types.docx</column>
         </record>
         <record id="bc.ui.report.docx.purchase.invoice.types">
           <column name="name">bc.ui.report.docx.purchase.invoice.types</column>
-          <column name="label">Invoice</column>
+          <column name="label">Types Purchase Invoice</column>
           <column name="report">report_purchase_invoice_types</column>
           <column name="infile">infile_purchase_invoice_types.docx</column>
           <column name="outfile">outfile_purchase_invoice_types.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.order.categories">
+          <column name="name">bc.ui.report.docx.purchase.order.categories</column>
+          <column name="label">Categories Purchase Order</column>
+          <column name="report">report_purchase_order_categories</column>
+          <column name="infile">infile_purchase_order_categories.docx</column>
+          <column name="outfile">outfile_purchase_order_categories.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.purchase.invoce.categories">
+          <column name="name">bc.ui.report.docx.purchase.invoce.categories</column>
+          <column name="label">Categories Purchase Invoce</column>
+          <column name="report">report_purchase_invoce_categories</column>
+          <column name="infile">infile_purchase_invoce_categories.docx</column>
+          <column name="outfile">outfile_purchase_invoce_categories.docx</column>
         </record>
       </records>
       <records model="bc.report.actions">
@@ -1008,6 +984,14 @@
           <column name="action_id">action.purchase.invoice.types.report</column>
           <column name="report_id">bc.ui.report.docx.purchase.invoice.types</column>
         </record>
+        <record id="report.action.purchase.order.categories.report">
+          <column name="action_id">action.purchase.order.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.order.categories</column>
+        </record>
+        <record id="report.action.purchase.invoce.categories.report">
+          <column name="action_id">action.purchase.invoce.categories.report</column>
+          <column name="report_id">bc.ui.report.docx.purchase.invoce.categories</column>
+        </record>
       </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.purchase.report.custom">
@@ -1020,7 +1004,7 @@
           <record id="ui.menu.purchase.unit.categories.report">
           <column name="sequence">0</column>
             <column name="name">ui.menu.purchase.unit.categories.report</column>
-            <column name="label">Unit</column>
+            <column name="label">Categories Purchase Unit</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">0</column>
           <column name="action_id">action.purchase.unit.categories.report</column>
@@ -1036,7 +1020,7 @@
           <record id="ui.menu.purchase.channel.categories.report">
           <column name="sequence">2</column>
             <column name="name">ui.menu.purchase.channel.categories.report</column>
-            <column name="label">Chanel</column>
+            <column name="label">Categories Purchase Chanel</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">20</column>
           <column name="action_id">action.purchase.channel.categories.report</column>
@@ -1052,7 +1036,7 @@
           <record id="ui.menu.purchase.segment.categories.report">
           <column name="sequence">4</column>
             <column name="name">ui.menu.purchase.segment.categories.report</column>
-            <column name="label">Segment</column>
+            <column name="label">Categories Purchase Segment</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">40</column>
           <column name="action_id">action.purchase.segment.categories.report</column>
@@ -1068,7 +1052,7 @@
           <record id="ui.menu.purchase.area.categories.report">
           <column name="sequence">6</column>
             <column name="name">ui.menu.purchase.area.categories.report</column>
-            <column name="label">Area</column>
+            <column name="label">Categories Purchase Area</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">60</column>
           <column name="action_id">action.purchase.area.categories.report</column>
@@ -1084,7 +1068,7 @@
           <record id="ui.menu.purchase.region.categories.report">
           <column name="sequence">8</column>
             <column name="name">ui.menu.purchase.region.categories.report</column>
-            <column name="label">Region</column>
+            <column name="label">Categories Purchase Region</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">80</column>
           <column name="action_id">action.purchase.region.categories.report</column>
@@ -1100,7 +1084,7 @@
           <record id="ui.menu.purchase.division.categories.report">
           <column name="sequence">10</column>
             <column name="name">ui.menu.purchase.division.categories.report</column>
-            <column name="label">Division</column>
+            <column name="label">Categories Purchase Division</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">100</column>
           <column name="action_id">action.purchase.division.categories.report</column>
@@ -1116,7 +1100,7 @@
           <record id="ui.menu.purchase.subdivision.categories.report">
           <column name="sequence">12</column>
             <column name="name">ui.menu.purchase.subdivision.categories.report</column>
-            <column name="label">Subdivision</column>
+            <column name="label">Categories Purchase Subdivision</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">120</column>
           <column name="action_id">action.purchase.subdivision.categories.report</column>
@@ -1132,7 +1116,7 @@
           <record id="ui.menu.purchase.unit.channel.assigments.report">
           <column name="sequence">14</column>
             <column name="name">ui.menu.purchase.unit.channel.assigments.report</column>
-            <column name="label">Of Channel Assigment</column>
+            <column name="label">Purchase Unit Of Channel Assigment</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">140</column>
           <column name="action_id">action.purchase.unit.channel.assigments.report</column>
@@ -1140,7 +1124,7 @@
           <record id="ui.menu.purchase.unit.segment.assigments.report">
           <column name="sequence">15</column>
             <column name="name">ui.menu.purchase.unit.segment.assigments.report</column>
-            <column name="label">Of Segment Assigment</column>
+            <column name="label">Purchase Unit Of Segment Assigment</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">150</column>
           <column name="action_id">action.purchase.unit.segment.assigments.report</column>
@@ -1148,7 +1132,7 @@
           <record id="ui.menu.purchase.unit.area.assigments.report">
           <column name="sequence">16</column>
             <column name="name">ui.menu.purchase.unit.area.assigments.report</column>
-            <column name="label">Of Area Assigment</column>
+            <column name="label">Purchase Unit Of Area Assigment</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">160</column>
           <column name="action_id">action.purchase.unit.area.assigments.report</column>
@@ -1156,7 +1140,7 @@
           <record id="ui.menu.purchase.unit.region.assigments.report">
           <column name="sequence">17</column>
             <column name="name">ui.menu.purchase.unit.region.assigments.report</column>
-            <column name="label">Of Region Assigment</column>
+            <column name="label">Purchase Unit Of Region Assigment</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">170</column>
           <column name="action_id">action.purchase.unit.region.assigments.report</column>
@@ -1164,7 +1148,7 @@
           <record id="ui.menu.purchase.division.subdivision.assigments.report">
           <column name="sequence">18</column>
             <column name="name">ui.menu.purchase.division.subdivision.assigments.report</column>
-            <column name="label">Of Subdivision Assigment</column>
+            <column name="label">Purchase Division Of Subdivision Assigment</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">180</column>
           <column name="action_id">action.purchase.division.subdivision.assigments.report</column>
@@ -1188,7 +1172,7 @@
           <record id="ui.menu.purchase.pricing.group.levels.report">
           <column name="sequence">21</column>
             <column name="name">ui.menu.purchase.pricing.group.levels.report</column>
-            <column name="label">Group Levels</column>
+            <column name="label">Purchase Pricing Group Levels</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">210</column>
           <column name="action_id">action.purchase.pricing.group.levels.report</column>
@@ -1204,7 +1188,7 @@
           <record id="ui.menu.purchase.schema.texts.report">
           <column name="sequence">23</column>
             <column name="name">ui.menu.purchase.schema.texts.report</column>
-            <column name="label">Purchase Texts</column>
+            <column name="label">Schema Of Purchase Texts</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">230</column>
           <column name="action_id">action.purchase.schema.texts.report</column>
@@ -1212,7 +1196,7 @@
           <record id="ui.menu.purchase.order.types.report">
           <column name="sequence">24</column>
             <column name="name">ui.menu.purchase.order.types.report</column>
-            <column name="label">Order</column>
+            <column name="label">Types Purchase Order</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">240</column>
           <column name="action_id">action.purchase.order.types.report</column>
@@ -1220,10 +1204,26 @@
           <record id="ui.menu.purchase.invoice.types.report">
           <column name="sequence">25</column>
             <column name="name">ui.menu.purchase.invoice.types.report</column>
-            <column name="label">Invoice</column>
+            <column name="label">Types Purchase Invoice</column>
           <column name="parent_id">ui.menu.purchase.report.custom</column>
           <column name="sequence">250</column>
           <column name="action_id">action.purchase.invoice.types.report</column>
+          </record>
+          <record id="ui.menu.purchase.order.categories.report">
+          <column name="sequence">26</column>
+            <column name="name">ui.menu.purchase.order.categories.report</column>
+            <column name="label">Categories Purchase Order</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">260</column>
+          <column name="action_id">action.purchase.order.categories.report</column>
+          </record>
+          <record id="ui.menu.purchase.invoce.categories.report">
+          <column name="sequence">27</column>
+            <column name="name">ui.menu.purchase.invoce.categories.report</column>
+            <column name="label">Categories Purchase Invoce</column>
+          <column name="parent_id">ui.menu.purchase.report.custom</column>
+          <column name="sequence">270</column>
+          <column name="action_id">action.purchase.invoce.categories.report</column>
           </record>
       </records>
     </data>
