@@ -10,11 +10,11 @@ from .mm import Access
 
 _logger = logging.getLogger(__name__)
 
-class MetaQuery(type):
+class MetaDialog(type):
 	__modules__ = {}
 
 	def __new__(cls, name, bases, attrs):
-		if '__module__' in attrs and not attrs['__module__'] in ('gsrp5service.orm.query.MetaQuery','orm.query.MetaQuery','query.MetaQuery','gsrp5service.orm.query','gsrp5service.orm'):
+		if '__module__' in attrs and not attrs['__module__'] in ('gsrp5service.orm.dialog.MetaDialog','orm.dialog.MetaDialog','dialog.MetaDialog','gsrp5service.orm.dialog','gsrp5service.orm'):
 			_m = attrs['__module__'].split('.')
 			_module = attrs['__module__']
 
@@ -23,9 +23,9 @@ class MetaQuery(type):
 			else:	
 				_module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[:2])	
 
-			MetaQuery.__modules__.setdefault(_module,{})[attrs['_name']] = {'name':name,'bases':bases,'attrs':attrs}
+			MetaDialog.__modules__.setdefault(_module,{})[attrs['_name']] = {'name':name,'bases':bases,'attrs':attrs}
 
-		return super(MetaQuery, cls).__new__(cls, name, bases, attrs)
+		return super(MetaDialog, cls).__new__(cls, name, bases, attrs)
 
 	def __init__(self, name, bases, attrs):
 		if not hasattr(self, '_register'):
@@ -34,8 +34,8 @@ class MetaQuery(type):
 			self._register = True
 			super(MetaModel, self).__init__(name, bases, attrs)
 
-class Query(object, metaclass = MetaQuery):
+class Dialog(object, metaclass = MetaDialog):
 	_name = None
 	
-class QueryInherit(object, metaclass = MetaQuery):
+class DialogInherit(object, metaclass = MetaDialog):
 	_name = None

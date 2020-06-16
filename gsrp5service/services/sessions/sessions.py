@@ -28,6 +28,10 @@ class User(object):
 	_uid = 0
 	_srvs = {}
 	_models = {}
+	_reports = {}
+	_dialogs = {}
+	_wizards = {}
+	_queries = {}
 	_cache = {}
 	_cache_attrs = {}
 
@@ -87,6 +91,10 @@ class User(object):
 		if self._cursor.open():
 			self._components['registry']._load_module('bc')
 			self._models = self._components['registry']._create_loaded_models()
+			self._reports = self._components['registry']._create_loaded_reports()
+			self._dialogs = self._components['registry']._create_loaded_dialogs()
+			self._wizards = self._components['registry']._create_loaded_wizards()
+			self._queries = self._components['registry']._create_loaded_queries()
 			self._components['models']._setup(self._cursor,self._models,self._uid,self)
 			self._components['uis']._setup(self._cursor,self._models,self._uid)
 			return self
@@ -268,6 +276,10 @@ class System(object):
 	_uid = None
 	_srvs = {}
 	_models = {}
+	_reports = {}
+	_dialogs = {}
+	_wizards = {}
+	_queries = {}
 	
 	def __init__(self,config_file):
 		cf = ConfigParser()
