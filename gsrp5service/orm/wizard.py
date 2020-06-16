@@ -32,7 +32,7 @@ class MetaWizard(type):
 			setattr(self,'_register',True)
 		else:
 			self._register = True
-			super(MetaModel, self).__init__(name, bases, attrs)
+			super(MetaWizard, self).__init__(name, bases, attrs)
 
 class Wizard(object, metaclass = MetaWizard):
 	_name = None

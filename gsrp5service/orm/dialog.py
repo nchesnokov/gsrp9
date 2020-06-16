@@ -32,7 +32,7 @@ class MetaDialog(type):
 			setattr(self,'_register',True)
 		else:
 			self._register = True
-			super(MetaModel, self).__init__(name, bases, attrs)
+			super(MetaDialog, self).__init__(name, bases, attrs)
 
 class Dialog(object, metaclass = MetaDialog):
 	_name = None

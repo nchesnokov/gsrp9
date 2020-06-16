@@ -2060,7 +2060,7 @@ class MCache(object):
 						ci = m.columnsInfo(columns=on_change_fields,attributes=['on_change','priority'])
 						priority = {}
 						for on_change_field in on_change_fields:
-							priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field2)
+							priority.setdefault(ci[on_change_field]['on_change'],set()).add(on_change_field)
 						
 						pkeys = list(priority.keys())
 						pkeys.sort()
