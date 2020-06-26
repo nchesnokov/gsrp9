@@ -1471,7 +1471,7 @@ class DCacheDict(object):
 			if k != 'id' and ci[k]['type'] == 'one2many':
 				o2m_containers[k] = self._get_o2mDataContainers(k + '.' + path)
 			elif k != 'id' and ci[k]['type'] == 'many2many':	
-				m2m_containers[k] = self._get_m2mDataContainers(k + '.' + path,oid)
+				m2m_containers[k] = self._get_m2mDataContainers(model,k + '.' + path,oid)
 			else:
 				data[k] = cdata[k]
 
@@ -1500,11 +1500,11 @@ class DCacheDict(object):
 			
 		return res
 
-	def _get_m2mDataContainers(self,container,oid):
+	def _get_m2mDataContainers(self,model,container,oid):
 		res = []
 		
 		for r in self._cdata[self._cnames[container]]:
-			res.append({'__container__':container,'__path__':r,'__parent__':container.split('.')[1],'__data__':self._getCData(r)})
+			res.append({'__container__':container,'__path__':r,'__parent__':container.split('.')[1],'__model':model,'__data__':self._getCData(r)})
 			
 		return res
 
@@ -2261,7 +2261,7 @@ class MCache(object):
 			if '__m2m_containers__' in item:
 				m2m_containers = item['__m2m_containers__']
 				for key in m2m_containers.keys():
-					self._m2m_appendRows(m2m_containers[key],item['__data__']['id'])
+					self._m2m_appendRows(m2m_containers[key])
 	
 			if '__o2m_containers__' in item and not (m._getParentIdName and m._getChildsIdName):
 				o2m_containers = item['__o2m_containers__']
@@ -2316,7 +2316,7 @@ class MCache(object):
 			if '__m2m_containers__' in item:
 				m2m_containers = item['__m2m_containers__']
 				for key in m2m_containers.keys():
-					self._m2m_appendRows(m2m_containers[key],item['__model__'])
+					self._m2m_appendRows(m2m_containers[key])
 	
 			if '__o2m_containers__' in item:
 				o2m_containers = item['__o2m_containers__']
@@ -2417,10 +2417,10 @@ class MCache(object):
 			m = self._pool.get(item['__model__'])
 			r = _unlinkRecord(m,self._cr,self._pool,self._uid,data,self._context)
 
-	def _m2m_appendRows(self,rows,model):
+	def _m2m_appendRows(self,rows):
 		rels = {}
 		for row in rows:
-			m = self._pool.get(model)
+			m = self._pool.get(row['__model__'])
 			cn,parent = row['__container__'].split('.')
 			oid = self._data._getCData(parent)['id']
 			rel = m._columns[cn].rel
