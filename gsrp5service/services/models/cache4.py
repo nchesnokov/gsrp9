@@ -1,5 +1,6 @@
 import os
 import copy
+from functools import reduce
 import uuid
 from decimal import Decimal
 import datetime
@@ -557,9 +558,12 @@ def _m2mread(self, cr, pool, uid, oid, field, fields, context):
 def _m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 	res = []
 	values = []
+
+	if 'FETCH' not in context:
+		context['FETCH'] = 'DICT'
+
 	for r in rels:
 		values.append((oid,r))
-	print('VALUES:',values)
 	sql = "insert into %s (%s,%s) values " % (rel,id1,id2)
 	if len(values) == 1:
 		sql += str(values[0])
@@ -1504,7 +1508,7 @@ class DCacheDict(object):
 		res = []
 		
 		for r in self._cdata[self._cnames[container]]:
-			res.append({'__container__':container,'__path__':r,'__parent__':container.split('.')[1],'__model':model,'__data__':self._getCData(r)})
+			res.append({'__container__':container,'__path__':r,'__parent__':container.split('.')[1],'__model__':model,'__data__':self._getCData(r)})
 			
 		return res
 
