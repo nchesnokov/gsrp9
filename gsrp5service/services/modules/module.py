@@ -414,8 +414,8 @@ def _installModule(cr,pool,uid,name,registry,chunk):
 			if len(sqls) == 1:
 				cr.execute(sqls[0])
 			else:
-				#cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
-				cr.execute(sqls)
+				cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
+				#cr.execute(sqls)
 
 			cr.commit()
 	
@@ -552,7 +552,8 @@ def _uninstallModule(cr,pool,uid,name,registry):
 		cr.commit()
 		_logger.info("Drop tables")
 
-		cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
+		#cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
+		cr.execute(sqls)
 
 		_logger.info("Tables dropped")
 

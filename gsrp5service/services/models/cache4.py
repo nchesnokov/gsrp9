@@ -271,6 +271,8 @@ def _unlinkRecord(self, cr, pool, uid, record, context = {}):
 
 	return oid
 
+class DCacheList(list): pass
+
 class DCacheDict(object):
 	
 	__doc__ ="""
@@ -1237,8 +1239,23 @@ class MCache(object):
 		return res
 
 	def _do_create(self,model,kwargs):
-		row = self._pool.get(model).create(**kwargs)
-		return row
+		res = []
+		records = kwargs['records']
+		if type(records) in (list,tuple):
+			self._data = DCacheList()
+			for record in records:
+				self._data.append(DCacheDict(record,model,self._cr,self._pool,self._uid,self._context,False))
+			rc = self._save()
+			if rc[0] == 'commit' and len(rc) == 2:
+					res.extend(rc[1])
+		elif type(records) == dict:
+				self._data = DCacheDict(records,model,self._cr,self._pool,self._uid,self._context,False)
+				rc = self._save()
+				if rc[0] == 'commit' and len(rc) == 2:
+					res.append(rc[1])
+		
+		self._data = None	
+		return res
 
 	def _do_read(self,model,kwargs):
 		self._clear()
@@ -1688,16 +1705,16 @@ class MCache(object):
 		data = self._data._getData(self._data._root)
 		self._copyItem(data)
 		return ['commit',data['__data__']['id']]
-	
-	def _save(self,autocommit = False):
-		diffs = self._data._pdiffs(False)
+
+	def _save_one(self,data):
+		diffs = data._pdiffs(False)
 		if len(diffs) == 0:
-			return ['no chache']
+			return 'no chache'
 		
 		if '__create__' in diffs:
 			self._createItem(diffs['__create__'])
 			if 'id' in diffs['__create__']['__data__'] and diffs['__create__']['__data__']['id']:
-				return ['commit',diffs['__create__']['__data__']['id']]
+				return diffs['__create__']['__data__']['id']
 
 		else:
 			for k in diffs.keys():
@@ -1716,14 +1733,64 @@ class MCache(object):
 				elif k == '__m2m_remove__':
 					self._m2m_removeRows(diffs['__m2m_remove__'])
 		
-			self._commit_diffs = diffs
+			if type(self._commit_diffs) == dict:
+				self._commit_diffs = diffs
+			elif type(self._commit_diffs) == list:	
+				self._commit_diffs.append(diffs)
+
+	def _save_many(self,data,autocommit):
+		pass
+
+	def _save_all(self,datas):
+		res = []
+
+		for data in datas:
+			res.append(self._save_one(data))
 		
+		return res
+
+	def _save_commit_one(self,data,diffs):
+		return data._apply_from_diffs('p','c',diffs)
+
+	def _save_commit_many(self,data,diffs):
+		pass
+
+	def _save_commit_all(self,datas,diffs):
+		for data,diff in zip(datas,diffs):
+			self._save_commit_one(data,diff)
+
+		return ['commited']
+
+	def _save_commit(self,datas,diffs):
+		if type(self._commit_diffs) == dict:
+			rc = self._save_commit_one(datas,diffs)
+			self._commit_diffs = {}
+		elif type(self._commit_diffs) == list:	
+			self._save_commit_all(data,diff)
+			self._commit_diffs = []
+
+		return ['commited']
+
+	def _save(self,autocommit = False):
+		res = []
+		if type(self._data) == DCacheDict:
+			self._commit_diffs = {}
+			v = self._save_one(self._data)
+			if v == 'no chache':
+				res.append(v)
+			else:
+				res.extend(['commit',v])
 			if autocommit:
-				if self._data._apply_from_diffs('p','c',diffs):
-					self._commit_diffs = {}
-					return self._commit()
+				return self._commit()
+
+		elif type(self._data) == DCacheList:
+			self._commit_diffs = []
+			res.extend(self._save_all(self._data))
+			if autocommit:
+				return self._commit()
+		
+		return res
 			
-			return ['commit']
 #
 	def _copyItems(self,items,rel=None,oid = None):
 		if len(items) > 0:
@@ -1898,7 +1965,6 @@ class MCache(object):
 				if '__o2m_append__' in o2m_containers[key]:
 					self._o2m_appendItems(o2m_containers[key]['__o2m_append__'])
 
-
 	def _o2m_removeItems(self,items):
 		if len(items) > 0:
 			parents = {}
@@ -1994,16 +2060,17 @@ class MCache(object):
 
 	def _commit(self,action='commit work'):
 		
-		self._cr.commit()
-		
-		if self._data._apply_from_diffs('p','c',self._commit_diffs):
-			self._commit_diffs = {}
+		try:
+			self._cr.commit()
+			
+			res = self._save_commit(self._data,self._commit_diffs)
 			if self._mode in ('new',):
 				self._clear()
+	
+			return res
+		except:
+			raise
 
-			return ['commited']
-		
-		return ['not commited']
 
 	def _rollback(self):
 		if self._mode in ('new',):

@@ -4,7 +4,7 @@ from .common import MAGIC_COLUMNS
 
 BOOLEAN_OPERATOR = {'|':' OR ','&': ' AND ','!':' NOT '}
 IS_OPERATOR = {'?': ' IS NULL','!?':' IS NOT NULL'}
-WHERE_OPERATOR = ['=','!=','>','>=','<','<=','like','ilike','~','~*','in','between']
+WHERE_OPERATOR = ['=','!=','>','>=','<','<=','like','ilike','~','~*','in','between','r=','r!=','r>','r>=','r<','r<=','rlike','rilike','r~','r~*','rin','rbetween']
 
 class gensql_exception(Exception): pass
 
@@ -236,7 +236,11 @@ def parse_cond(self,pool,aliases,models,cond = None):
 						if  parent_id and c[0] == parent_id: 
 							c0 = 'b.' + recname
 						else:
-							c0 = aliases[m][c[0]] + '.' + recname
+							if len(c) == 3 and c[1][0]  == 'r':
+								c0 = 'a.' + c[0]
+								c = (c[0],c[1][1:],c[2])
+							else:
+								c0 = aliases[m][c[0]] + '.' + recname
 					else:
 						c0 = 'a.' +c[0]
 				else:

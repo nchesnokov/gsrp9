@@ -56,10 +56,13 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 			#print('COND:',cond)
 			records = m.select(cr,pool,uid,fields,cond)
 			if len(records) > 0:
-				if m._name[:3] == 'md.':
-					c = 'data'
-				else:
-					c = 'examples' 
+				if model._class_model == 'A':
+					if m._name[:3] == 'md.':
+						c = 'data'
+					else:
+						c = 'examples' 
+				elif model._class_model == 'C':
+					c = 'cust'
 	
 				_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,m._table+'_'+k+'.' + ext),));
 				am = open(opj(path,module,'demo',c,m._table+'_'+k+'.' + ext),'w')
@@ -127,13 +130,13 @@ def _download(cr,pool,uid,path,module,imodules,models,imodels,registry,ext='csv'
 				mfs.setdefault(sf,{})[k] = v 
 		records = model.select(cr,pool,uid,fields,cond)
 		if len(records) >= 0:
-			if model._class_model == 'C':
-				c = 'cust'
-			else:
-				if model._name[:3] == 'md.':
+			if model._class_model == 'A':
+				if m._name[:3] == 'md.':
 					c = 'data'
 				else:
 					c = 'examples' 
+			elif model._class_model == 'C':
+				c = 'cust'
 
 			_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,model._table+'.' + ext),));
 			am = open(opj(path,module,'demo',c,model._table+'.' + ext),'w')

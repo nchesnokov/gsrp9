@@ -614,9 +614,9 @@ class md_currency_rate(Model):
 	'currency_id': fields.many2one(label = 'From Currency',obj='md.currency'),
 	'currency_id1': fields.many2one(label = 'To Currency',obj='md.currency'),
 	'company_id': fields.many2one(label = 'Company',obj='md.company'),
+	'key_id': fields.many2one(label = 'Key',obj='md.key.currencies'),
 	'date': fields.date(label = 'Date'),
-	'account': fields.integer(label='Accout',check='account > 0'),
-	'type': fields.selection(label='Type',selections=[('m','Monthly'),('d','Day'),('w','Week')]),
+	'account': fields.integer(label='Account',check='account > 0'),
 	'rate': fields.numeric(label = 'Currency Rate',size=(9,5), required = True,check='rate > 0.00000')
 	}
 

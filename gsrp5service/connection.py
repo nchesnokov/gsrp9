@@ -91,6 +91,7 @@ class Cursor(object):
 				for q1 in query:
 					#print('QUERY:',q1,vals)
 					self.cr.execute(query = q1, vars = vals)
+			return True
 		except:
 			self._rollback()
 			_logger.error('SQL Query: %s\n VALS: % s' % (query,vals))
@@ -99,7 +100,7 @@ class Cursor(object):
 	
 	def executemany(self, query, vars_list):
 		try:
-			self.cr.execute(query = query, vars_list = vars_list)
+			self.cr.executemany(query = query, vars_list = vars_list)
 		except:
 			self._rollback()
 			raise

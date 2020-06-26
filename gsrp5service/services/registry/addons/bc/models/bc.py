@@ -275,9 +275,10 @@ class bc_model_columns(Model):
 	_columns = {
 	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
 	'col_name': fields.varchar(label = 'Name', size = 64,readonly=True),
+	'fullname': fields.composite(label='Full Name', cols = ['model_id','col_name'], translate = True,required = True, compute = '_compute_composite'),
 	'col_type':  fields.varchar(label = 'Type', size = 64,readonly=True),
 	'label': fields.varchar(label = 'label', size = 64,readonly=True),
-	'readanly': fields.boolean(label = 'Readonly',readonly=True),
+	'readonly': fields.boolean(label = 'Readonly',readonly=True),
 	'priority': fields.integer(label = 'Prority',readonly=True),
 	'domain': fields.text(label = 'Domain',readonly=True),
 	'required': fields.boolean(label = 'Required',readonly=True),
@@ -302,6 +303,17 @@ class bc_model_columns(Model):
 	'id1': fields.varchar(label = 'Id1', size = 64,readonly=True),
 	'id2': fields.varchar(label = 'Id2', size = 64,readonly=True),
 	}
+	def create(self,cr,pool,uid,records,context={}):
+		if type(records) in (list,tuple):
+			model_name = pool.get('bc.models').read(cr,pool,uid,records[0]['model_id'],['name'],context)[0]['name']
+			for record in records:
+				record['fullname'] = model_name + '/' +  record['col_name']
+		elif type(records) == dict:
+			model_name = pool.get('bc.models').read(cr,pool,uid,records['model_id'],['name'],context)
+			records['fullname'] = model_name + '/' +  records['col_name']
+
+		return super(Model,self).create(cr, pool, uid, records, context)
+
 
 bc_model_columns()
 
@@ -314,7 +326,7 @@ class bc_inherit_columns(Model):
 	'col_name': fields.varchar(label = 'Name', size = 64,readonly=True),
 	'col_type':  fields.varchar(label = 'Type', size = 64,readonly=True),
 	'label': fields.varchar(label = 'label', size = 64,readonly=True),
-	'readanly': fields.boolean(label = 'Readonly',readonly=True),
+	'readonly': fields.boolean(label = 'Readonly',readonly=True),
 	'priority': fields.integer(label = 'Prority',readonly=True),
 	'domain': fields.text(label = 'Domain',readonly=True),
 	'required': fields.boolean(label = 'Required',readonly=True),

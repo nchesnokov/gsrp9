@@ -1160,12 +1160,20 @@
           </record>
       </records>
       <records model="bc.actions">
+        <record id="action.md.key.currencies.custom">
+          <column name="name">action.md.key.currencies.custom</column>
+          <column name="ta">View</column>
+        </record>
         <record id="action.md.type.plates.custom">
           <column name="name">action.md.type.plates.custom</column>
           <column name="ta">View</column>
         </record>
       </records>
       <records model="bc.view.actions">
+        <record id="view.action.md.key.currencies.custom">
+          <column name="action_id">action.md.key.currencies.custom</column>
+          <column name="view_id">view.md.key.currencies.search</column>
+        </record>
         <record id="view.action.md.type.plates.custom">
           <column name="action_id">action.md.type.plates.custom</column>
           <column name="view_id">view.md.type.plates.search</column>
@@ -1179,22 +1187,41 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.md.type.plates.custom">
+          <record id="ui.menu.md.key.currencies.custom">
           <column name="sequence">0</column>
+            <column name="name">ui.menu.md.key.currencies.custom</column>
+            <column name="label">Currencies Key</column>
+          <column name="parent_id">ui.menu.md.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.md.key.currencies.custom</column>
+          </record>
+          <record id="ui.menu.md.type.plates.custom">
+          <column name="sequence">1</column>
             <column name="name">ui.menu.md.type.plates.custom</column>
             <column name="label">Type Of Plates</column>
           <column name="parent_id">ui.menu.md.custom</column>
-          <column name="sequence">0</column>
+          <column name="sequence">10</column>
           <column name="action_id">action.md.type.plates.custom</column>
           </record>
       </records>
       <records model="bc.actions">
+        <record id="action.md.key.currencies.report">
+          <column name="name">action.md.key.currencies.report</column>
+          <column name="ta">Report</column>
+        </record>
         <record id="action.md.type.plates.report">
           <column name="name">action.md.type.plates.report</column>
           <column name="ta">Report</column>
         </record>
       </records>
       <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.md.key.currencies">
+          <column name="name">bc.ui.report.docx.md.key.currencies</column>
+          <column name="label">Currencies Key</column>
+          <column name="report">report_md_key_currencies</column>
+          <column name="infile">infile_md_key_currencies.docx</column>
+          <column name="outfile">outfile_md_key_currencies.docx</column>
+        </record>
         <record id="bc.ui.report.docx.md.type.plates">
           <column name="name">bc.ui.report.docx.md.type.plates</column>
           <column name="label">Type Of Plates</column>
@@ -1204,6 +1231,10 @@
         </record>
       </records>
       <records model="bc.report.actions">
+        <record id="report.action.md.key.currencies.report">
+          <column name="action_id">action.md.key.currencies.report</column>
+          <column name="report_id">bc.ui.report.docx.md.key.currencies</column>
+        </record>
         <record id="report.action.md.type.plates.report">
           <column name="action_id">action.md.type.plates.report</column>
           <column name="report_id">bc.ui.report.docx.md.type.plates</column>
@@ -1217,12 +1248,20 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.md.type.plates.report">
+          <record id="ui.menu.md.key.currencies.report">
           <column name="sequence">0</column>
+            <column name="name">ui.menu.md.key.currencies.report</column>
+            <column name="label">Currencies Key</column>
+          <column name="parent_id">ui.menu.md.report.custom</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.md.key.currencies.report</column>
+          </record>
+          <record id="ui.menu.md.type.plates.report">
+          <column name="sequence">1</column>
             <column name="name">ui.menu.md.type.plates.report</column>
             <column name="label">Type Of Plates</column>
           <column name="parent_id">ui.menu.md.report.custom</column>
-          <column name="sequence">0</column>
+          <column name="sequence">10</column>
           <column name="action_id">action.md.type.plates.report</column>
           </record>
       </records>

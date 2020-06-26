@@ -52,6 +52,10 @@
           <column name="name">action.bc.inherits.search</column>
           <column name="ta">View</column>
         </record>
+        <record id="action.bc.model.columns.search">
+          <column name="name">action.bc.model.columns.search</column>
+          <column name="ta">View</column>
+        </record>
         <record id="action.bc.group.access.search">
           <column name="name">action.bc.group.access.search</column>
           <column name="ta">View</column>
@@ -136,6 +140,10 @@
         </record>
         <record id="action.bc.inherits.report">
           <column name="name">action.bc.inherits.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.bc.model.columns.report">
+          <column name="name">action.bc.model.columns.report</column>
           <column name="ta">Report</column>
         </record>
         <record id="action.bc.group.access.report">
@@ -223,6 +231,10 @@
         <record id="view.action.bc.inherits.search">
           <column name="action_id">action.bc.inherits.search</column>
           <column name="view_id">view.bc.inherits.search</column>
+        </record>
+        <record id="view.action.bc.model.columns.search">
+          <column name="action_id">action.bc.model.columns.search</column>
+          <column name="view_id">view.bc.model.columns.search</column>
         </record>
         <record id="view.action.bc.group.access.search">
           <column name="action_id">action.bc.group.access.search</column>
@@ -343,6 +355,13 @@
           <column name="infile">infile_bc_inherits.docx</column>
           <column name="outfile">outfile_bc_inherits.docx</column>
         </record>
+        <record id="bc.ui.report.docx.bc.model.columns">
+          <column name="name">bc.ui.report.docx.bc.model.columns</column>
+          <column name="label">Model Columns</column>
+          <column name="report">report_bc_model_columns</column>
+          <column name="infile">infile_bc_model_columns.docx</column>
+          <column name="outfile">outfile_bc_model_columns.docx</column>
+        </record>
         <record id="bc.ui.report.docx.bc.group.access">
           <column name="name">bc.ui.report.docx.bc.group.access</column>
           <column name="label">Group Access</column>
@@ -458,6 +477,10 @@
         <record id="report.action.bc.inherits.report">
           <column name="action_id">action.bc.inherits.report</column>
           <column name="report_id">bc.ui.report.docx.bc.inherits</column>
+        </record>
+        <record id="report.action.bc.model.columns.report">
+          <column name="action_id">action.bc.model.columns.report</column>
+          <column name="report_id">bc.ui.report.docx.bc.model.columns</column>
         </record>
         <record id="report.action.bc.group.access.report">
           <column name="action_id">action.bc.group.access.report</column>
@@ -589,84 +612,92 @@
           <column name="sequence">100</column>
           <column name="action_id">action.bc.inherits.search</column>
           </record>
-          <record id="ui.menu.bc.group.access.search">
+          <record id="ui.menu.bc.model.columns.search">
           <column name="sequence">11</column>
+            <column name="name">ui.menu.bc.model.columns.search</column>
+            <column name="label">Model Columns</column>
+          <column name="parent_id">ui.menu.bc</column>
+          <column name="sequence">110</column>
+          <column name="action_id">action.bc.model.columns.search</column>
+          </record>
+          <record id="ui.menu.bc.group.access.search">
+          <column name="sequence">12</column>
             <column name="name">ui.menu.bc.group.access.search</column>
             <column name="label">Group Access</column>
           <column name="parent_id">ui.menu.bc</column>
-          <column name="sequence">110</column>
+          <column name="sequence">120</column>
           <column name="action_id">action.bc.group.access.search</column>
           </record>
           <record id="ui.menu.bc.access.search">
-          <column name="sequence">12</column>
+          <column name="sequence">13</column>
             <column name="name">ui.menu.bc.access.search</column>
             <column name="label">Access</column>
           <column name="parent_id">ui.menu.bc</column>
-          <column name="sequence">120</column>
+          <column name="sequence">130</column>
           <column name="action_id">action.bc.access.search</column>
           </record>
           <record id="ui.menu.bc.model.data.search">
-          <column name="sequence">13</column>
+          <column name="sequence">14</column>
             <column name="name">ui.menu.bc.model.data.search</column>
             <column name="label">Loading Model XML Data</column>
           <column name="parent_id">ui.menu.bc</column>
-          <column name="sequence">130</column>
+          <column name="sequence">140</column>
           <column name="action_id">action.bc.model.data.search</column>
           </record>
           <record id="ui.menu.bc.ui.views.search">
-          <column name="sequence">14</column>
+          <column name="sequence">15</column>
             <column name="name">ui.menu.bc.ui.views.search</column>
             <column name="label">Models views</column>
           <column name="parent_id">ui.menu.bc</column>
-          <column name="sequence">140</column>
+          <column name="sequence">150</column>
           <column name="action_id">action.bc.ui.views.search</column>
           </record>
           <record id="ui.menu.bc.ui.views.inherit.search">
-          <column name="sequence">15</column>
+          <column name="sequence">16</column>
             <column name="name">ui.menu.bc.ui.views.inherit.search</column>
             <column name="label">Models Views Inherit</column>
           <column name="parent_id">ui.menu.bc</column>
-          <column name="sequence">150</column>
+          <column name="sequence">160</column>
           <column name="action_id">action.bc.ui.views.inherit.search</column>
           </record>
           <record id="ui.menu.bc.tuning.ui.views.search">
-          <column name="sequence">16</column>
+          <column name="sequence">17</column>
             <column name="name">ui.menu.bc.tuning.ui.views.search</column>
             <column name="label">Tunning Models Views</column>
           <column name="parent_id">ui.menu.bc</column>
-          <column name="sequence">160</column>
+          <column name="sequence">170</column>
           <column name="action_id">action.bc.tuning.ui.views.search</column>
           </record>
           <record id="ui.menu.bc.general.tuning.ui.views.search">
-          <column name="sequence">17</column>
+          <column name="sequence">18</column>
             <column name="name">ui.menu.bc.general.tuning.ui.views.search</column>
             <column name="label">General Tunning Models Views</column>
           <column name="parent_id">ui.menu.bc</column>
-          <column name="sequence">170</column>
+          <column name="sequence">180</column>
           <column name="action_id">action.bc.general.tuning.ui.views.search</column>
           </record>
           <record id="ui.menu.bc.ui.reports.search">
-          <column name="sequence">18</column>
+          <column name="sequence">19</column>
             <column name="name">ui.menu.bc.ui.reports.search</column>
             <column name="label">Reports</column>
           <column name="parent_id">ui.menu.bc</column>
-          <column name="sequence">180</column>
+          <column name="sequence">190</column>
           <column name="action_id">action.bc.ui.reports.search</column>
           </record>
           <record id="ui.menu.bc.actions.search">
-          <column name="sequence">19</column>
+          <column name="sequence">20</column>
             <column name="name">ui.menu.bc.actions.search</column>
             <column name="label">Actions</column>
           <column name="parent_id">ui.menu.bc</column>
-          <column name="sequence">190</column>
+          <column name="sequence">200</column>
           <column name="action_id">action.bc.actions.search</column>
           </record>
           <record id="ui.menu.bc.ui.menus.search">
-          <column name="sequence">20</column>
+          <column name="sequence">21</column>
             <column name="name">ui.menu.bc.ui.menus.search</column>
             <column name="label">Application Menus</column>
           <column name="parent_id">ui.menu.bc</column>
-          <column name="sequence">200</column>
+          <column name="sequence">210</column>
           <column name="action_id">action.bc.ui.menus.search</column>
           </record>
       </records>
@@ -766,84 +797,92 @@
           <column name="sequence">100</column>
           <column name="action_id">action.bc.inherits.report</column>
           </record>
-          <record id="ui.menu.bc.group.access.report">
+          <record id="ui.menu.bc.model.columns.report">
           <column name="sequence">11</column>
+            <column name="name">ui.menu.bc.model.columns.report</column>
+            <column name="label">Model Columns</column>
+          <column name="parent_id">ui.menu.bc.report</column>
+          <column name="sequence">110</column>
+          <column name="action_id">action.bc.model.columns.report</column>
+          </record>
+          <record id="ui.menu.bc.group.access.report">
+          <column name="sequence">12</column>
             <column name="name">ui.menu.bc.group.access.report</column>
             <column name="label">Group Access</column>
           <column name="parent_id">ui.menu.bc.report</column>
-          <column name="sequence">110</column>
+          <column name="sequence">120</column>
           <column name="action_id">action.bc.group.access.report</column>
           </record>
           <record id="ui.menu.bc.access.report">
-          <column name="sequence">12</column>
+          <column name="sequence">13</column>
             <column name="name">ui.menu.bc.access.report</column>
             <column name="label">Access</column>
           <column name="parent_id">ui.menu.bc.report</column>
-          <column name="sequence">120</column>
+          <column name="sequence">130</column>
           <column name="action_id">action.bc.access.report</column>
           </record>
           <record id="ui.menu.bc.model.data.report">
-          <column name="sequence">13</column>
+          <column name="sequence">14</column>
             <column name="name">ui.menu.bc.model.data.report</column>
             <column name="label">Loading Model XML Data</column>
           <column name="parent_id">ui.menu.bc.report</column>
-          <column name="sequence">130</column>
+          <column name="sequence">140</column>
           <column name="action_id">action.bc.model.data.report</column>
           </record>
           <record id="ui.menu.bc.ui.views.report">
-          <column name="sequence">14</column>
+          <column name="sequence">15</column>
             <column name="name">ui.menu.bc.ui.views.report</column>
             <column name="label">Models views</column>
           <column name="parent_id">ui.menu.bc.report</column>
-          <column name="sequence">140</column>
+          <column name="sequence">150</column>
           <column name="action_id">action.bc.ui.views.report</column>
           </record>
           <record id="ui.menu.bc.ui.views.inherit.report">
-          <column name="sequence">15</column>
+          <column name="sequence">16</column>
             <column name="name">ui.menu.bc.ui.views.inherit.report</column>
             <column name="label">Models Views Inherit</column>
           <column name="parent_id">ui.menu.bc.report</column>
-          <column name="sequence">150</column>
+          <column name="sequence">160</column>
           <column name="action_id">action.bc.ui.views.inherit.report</column>
           </record>
           <record id="ui.menu.bc.tuning.ui.views.report">
-          <column name="sequence">16</column>
+          <column name="sequence">17</column>
             <column name="name">ui.menu.bc.tuning.ui.views.report</column>
             <column name="label">Tunning Models Views</column>
           <column name="parent_id">ui.menu.bc.report</column>
-          <column name="sequence">160</column>
+          <column name="sequence">170</column>
           <column name="action_id">action.bc.tuning.ui.views.report</column>
           </record>
           <record id="ui.menu.bc.general.tuning.ui.views.report">
-          <column name="sequence">17</column>
+          <column name="sequence">18</column>
             <column name="name">ui.menu.bc.general.tuning.ui.views.report</column>
             <column name="label">General Tunning Models Views</column>
           <column name="parent_id">ui.menu.bc.report</column>
-          <column name="sequence">170</column>
+          <column name="sequence">180</column>
           <column name="action_id">action.bc.general.tuning.ui.views.report</column>
           </record>
           <record id="ui.menu.bc.ui.reports.report">
-          <column name="sequence">18</column>
+          <column name="sequence">19</column>
             <column name="name">ui.menu.bc.ui.reports.report</column>
             <column name="label">Reports</column>
           <column name="parent_id">ui.menu.bc.report</column>
-          <column name="sequence">180</column>
+          <column name="sequence">190</column>
           <column name="action_id">action.bc.ui.reports.report</column>
           </record>
           <record id="ui.menu.bc.actions.report">
-          <column name="sequence">19</column>
+          <column name="sequence">20</column>
             <column name="name">ui.menu.bc.actions.report</column>
             <column name="label">Actions</column>
           <column name="parent_id">ui.menu.bc.report</column>
-          <column name="sequence">190</column>
+          <column name="sequence">200</column>
           <column name="action_id">action.bc.actions.report</column>
           </record>
           <record id="ui.menu.bc.ui.menus.report">
-          <column name="sequence">20</column>
+          <column name="sequence">21</column>
             <column name="name">ui.menu.bc.ui.menus.report</column>
             <column name="label">Application Menus</column>
           <column name="parent_id">ui.menu.bc.report</column>
-          <column name="sequence">200</column>
+          <column name="sequence">210</column>
           <column name="action_id">action.bc.ui.menus.report</column>
           </record>
       </records>

@@ -50,6 +50,12 @@ class Models(Component):
 			# else:
 				# rmsg.append(method(**kwargs))
 
+			if 'context' in kwargs and 'cache' in kwargs['context'] and kwargs['context']['cache']:
+				oid = kwargs['context']['cache']
+			else:
+				if 'context' not in kwargs:
+					kwargs['context'] = {}
+				oid = self._session._mcache(['open',{'mode':args[1],'context':kwargs['context']}])
 			if args[1] == 'read':
 				if 'context' in kwargs and 'cache' in kwargs['context'] and kwargs['context']['cache']:
 					oid = kwargs['context']['cache']
@@ -60,38 +66,68 @@ class Models(Component):
 						rmsg.extend(v)
 					else:
 						rmsg.append(v)
-			elif args[1] == 'create-1':
-				oid = kwargs['context']['cache']
-				rmsg[0] = self._session._cache[oid]._do_create(args[0],kwargs)
+			elif args[1] == 'create':
+				v = self._session._cache[oid]._do_create(args[0],kwargs)
+				self._session._mcache['close',oid]
+				if type(v[1]) in (list,tuple):
+					rmsg.extend(v[1])
+				else:
+					rmsg.append(v)
 			elif args[1] == 'write-1':
-				oid = kwargs['context']['cache']
-				rmsg[0] = self._session._cache[oid]._do_write(args[0],kwargs)
+				oid = self._session._mcache['open',{'context':kwargs['context']}]
+				v = self._session._cache[oid]._do_write(args[0],kwargs)
+				if type(v) in (list,tuple):
+					rmsg.extend(v)
+				else:
+					rmsg.append(v)
 			elif args[1] == 'modify-1':
-				print('modify:')
-				oid = kwargs['context']['cache']
-				rmsg[0] = self._session._cache[oid]._do_modify(args[0],kwargs)
+				oid = self._session._mcache['open',{'context':kwargs['context']}]
+				v = self._session._cache[oid]._do_modify(args[0],kwargs)
+				if type(v) in (list,tuple):
+					rmsg.extend(v)
+				else:
+					rmsg.append(v)
 			elif args[1] == 'unlink-1':
-				oid = kwargs['context']['cache']
-				rmsg[0] = self._session._cache[oid]._do_unlink(args[0],kwargs)
+				oid = self._session._mcache['open',{'context':kwargs['context']}]
+				v = self._session._cache[oid]._do_unlink(args[0],kwargs)
+				if type(v) in (list,tuple):
+					rmsg.extend(v)
+				else:
+					rmsg.append(v)
 			elif args[1] == 'insert-1':
-				oid = kwargs['context']['cache']
-				rmsg[0] = self._session._cache[oid]._do_insert(args[0],kwargs)
+				oid = self._session._mcache['open',{'context':kwargs['context']}]
+				v = self._session._cache[oid]._do_insert(args[0],kwargs)
+				if type(v) in (list,tuple):
+					rmsg.extend(v)
+				else:
+					rmsg.append(v)
 			elif args[1] == 'select-1':
 				oid = kwargs['context']['cache']
-				rmsg[0] = self._session._cache[oid]._do_select(args[0],kwargs)
+				v = self._session._cache[oid]._do_select(args[0],kwargs)
 			elif args[1] == 'update-1':
-				oid = kwargs['context']['cache']
-				rmsg[0] = self._session._cache[oid]._do_update(args[0],kwargs)
+				oid = self._session._mcache['open',{'context':kwargs['context']}]
+				v = self._session._cache[oid]._do_update(args[0],kwargs)
+				if type(v) in (list,tuple):
+					rmsg.extend(v)
+				else:
+					rmsg.append(v)
 			elif args[1] == 'upsert-1':
-				oid = kwargs['context']['cache']
-				rmsg[0] = self._session._cache[oid]._do_upsert(args[0],kwargs)
+				oid = self._session._mcache['open',{'context':kwargs['context']}]
+				v = self._session._cache[oid]._do_upsert(args[0],kwargs)
+				if type(v) in (list,tuple):
+					rmsg.extend(v)
+				else:
+					rmsg.append(v)
 			elif args[1] == 'delete-1':
-				oid = kwargs['context']['cache']
-				rmsg[0] = self._session._cache[oid]._do_delete(args[0],kwargs)
+				oid = self._session._mcache['open',{'context':kwargs['context']}]
+				v = self._session._cache[oid]._do_delete(args[0],kwargs)
+				if type(v) in (list,tuple):
+					rmsg.extend(v)
+				else:
+					rmsg.append(v)
 			elif args[1] == 'tree-1':
 				oid = kwargs['context']['cache']
 				rmsg[0] = self._session._cache[oid]._do_tree(args[0],kwargs)
-
 			else:
 				v = method(**kwargs)
 				if type(v) in (list,tuple):

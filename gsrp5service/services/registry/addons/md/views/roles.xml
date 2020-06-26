@@ -20,6 +20,26 @@
         </record>
       </records>
       <records model="bc.access">
+        <record id="md.key.currencies.readonly">
+          <column name="name">md.key.currencies.readonly</column>
+          <column name="note">Model md.key.currencies grant readonly</column>
+          <column name="group_id">md.readonly</column>
+        </record>
+        <record id="md.key.currencies.nodrop">
+          <column name="name">md.key.currencies.nodrop</column>
+          <column name="note">Model md.key.currencies grant nodrop</column>
+          <column name="group_id">md.nodrop</column>
+        </record>
+        <record id="md.key.currencies.full">
+          <column name="name">md.key.currencies.full</column>
+          <column name="note">Model md.key.currencies grant full</column>
+          <column name="group_id">md.full</column>
+        </record>
+        <record id="md.key.currencies.crw">
+          <column name="name">md.key.currencies.crw</column>
+          <column name="note">Model md.key.currencies grant crw</column>
+          <column name="group_id">md.crw</column>
+        </record>
         <record id="md.category.country.readonly">
           <column name="name">md.category.country.readonly</column>
           <column name="note">Model md.category.country grant readonly</column>
@@ -822,6 +842,56 @@
         </record>
       </records>
       <records model="bc.model.access">
+        <record id="md.md.key.currencies.readonly">
+          <column name="access_id">md.key.currencies.readonly</column>
+          <column name="model_id">md.key.currencies</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="md.md.key.currencies.nodrop">
+          <column name="access_id">md.key.currencies.nodrop</column>
+          <column name="model_id">md.key.currencies</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="md.md.key.currencies.full">
+          <column name="access_id">md.key.currencies.full</column>
+          <column name="model_id">md.key.currencies</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="md.md.key.currencies.crw">
+          <column name="access_id">md.key.currencies.crw</column>
+          <column name="model_id">md.key.currencies</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
         <record id="md.md.category.country.readonly">
           <column name="access_id">md.category.country.readonly</column>
           <column name="model_id">md.category.country</column>

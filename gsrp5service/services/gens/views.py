@@ -335,7 +335,7 @@ def iRecordView(level,module,model,modelinfo,columns,view,registry):
 	indent = TAB * level
 	columnsinfo = modelinfo['columns']
 	for key in modelinfo['inherit'].keys():
-		ki = registry._create_module_model(key,registry._getFirstModule(key)).modelInfo()
+		ki = registry._create_module_model(key,registry._getFirstModuleModel(key)).modelInfo()
 		if not isAllow(view,ki) or len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE[view] and columnsinfo[x]['type'] != 'iProperty' ,modelinfo['inherit'][key]['_columns']))) == 0:
 			continue
 		b.write((indent + '<record id="%s">\n' % ('view.' + model._name + '.' + view + '.inherit.' + key,)).encode('utf-8'))

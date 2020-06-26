@@ -2,6 +2,52 @@
   <gsrp>
     <data>
       <records model="bc.ui.views">
+        <record id="view.md.key.currencies.form">
+          <column name="name">view.md.key.currencies.form</column>
+          <column name="model">md.key.currencies</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.key.currencies.list">
+          <column name="name">view.md.key.currencies.list</column>
+          <column name="model">md.key.currencies</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.key.currencies.m2mlist">
+          <column name="name">view.md.key.currencies.m2mlist</column>
+          <column name="model">md.key.currencies</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.key.currencies.search">
+          <column name="name">view.md.key.currencies.search</column>
+          <column name="model">md.key.currencies</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.key.currencies.find">
+          <column name="name">view.md.key.currencies.find</column>
+          <column name="model">md.key.currencies</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+            </find>
+          </column>
+        </record>
         <record id="view.md.category.country.form">
           <column name="name">view.md.category.country.form</column>
           <column name="model">md.category.country</column>
@@ -2007,9 +2053,9 @@
               <field name="currency_id"/>
               <field name="currency_id1"/>
               <field name="company_id"/>
+              <field name="key_id"/>
               <field name="date"/>
               <field name="account"/>
-              <field name="type"/>
               <field name="rate"/>
             </calendar>
           </column>
@@ -2022,9 +2068,9 @@
               <field name="currency_id"/>
               <field name="currency_id1"/>
               <field name="company_id"/>
+              <field name="key_id"/>
               <field name="date"/>
               <field name="account"/>
-              <field name="type"/>
               <field name="rate"/>
             </form>
           </column>
@@ -2037,9 +2083,9 @@
               <field name="currency_id"/>
               <field name="currency_id1"/>
               <field name="company_id"/>
+              <field name="key_id"/>
               <field name="date"/>
               <field name="account"/>
-              <field name="type"/>
               <field name="rate"/>
             </graph>
           </column>
@@ -2052,9 +2098,9 @@
               <field name="currency_id"/>
               <field name="currency_id1"/>
               <field name="company_id"/>
+              <field name="key_id"/>
               <field name="date"/>
               <field name="account"/>
-              <field name="type"/>
               <field name="rate"/>
             </list>
           </column>
@@ -2067,9 +2113,9 @@
               <field name="currency_id"/>
               <field name="currency_id1"/>
               <field name="company_id"/>
+              <field name="key_id"/>
               <field name="date"/>
               <field name="account"/>
-              <field name="type"/>
               <field name="rate"/>
             </m2mlist>
           </column>
@@ -2082,9 +2128,9 @@
               <field name="currency_id"/>
               <field name="currency_id1"/>
               <field name="company_id"/>
+              <field name="key_id"/>
               <field name="date"/>
               <field name="account"/>
-              <field name="type"/>
               <field name="rate"/>
             </mdx>
           </column>

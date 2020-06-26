@@ -1040,7 +1040,7 @@ class Registry(Service):
 		if module in self._omomm and model in self._omomm[module]: 
 			return self._omomm[module][model]
 
-		return self._getMetaOfModulesModel(model,self._getFirstModule(model))
+		return self._getMetaOfModulesModel(model,self._getFirstModuleModel(model))
 		
 	def _setMetaOfOnlyModulesModel(self,model,module,meta):
 		if module not in self._omomm or model not in self._omomm[module]:

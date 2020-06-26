@@ -237,8 +237,10 @@ def get_views_of_model_v2(cr,pool,uid,model,info,context):
 	o = {}
 	views = pool.get('bc.ui.views').select(cr,pool,uid,fields=['name','model','arch',{'inherit_views':['name','type','arch']}],cond=[('model','=',model)],context=context)
 	for view in views:
+		confs = pool.get('bc.tuning.ui.views').select(cr,pool,uid,fields=['name','tuser','values'],cond=[('view','=',view['name']),('tuser','r=',uid)],context=context)
 		v = parse_view_v2(view,info,context)
 		v['id'] = view['id']
+		v['confs'] = confs
 		o[v['type']] = v
 
 	return {model:o}

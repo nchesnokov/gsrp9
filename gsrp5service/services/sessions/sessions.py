@@ -113,13 +113,14 @@ class User(object):
 					self._connected =True
 					self._uid = res[0]
 					self._components['models']._setupUID(self._uid)
+					self._components['uis']._setupUID(self._uid)
 					for key in self._models.keys():
 						if res[2]:
 							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
 							
-					db_infos = self._components['models']._call(['bc.modules','select',{'fields':['code','state'],'cond':[]}])
+					db_infos = self._components['models']._call(['bc.modules','select',{'fields':['code','state'],'cond':[],'context':{}}])
 					for db_info in db_infos:
 						self._components['registry']._modules[db_info['code']]['db_id'] = db_info['id']
 						self._components['registry']._modules[db_info['code']]['state'] = db_info['state']

@@ -22,6 +22,9 @@ class Uis(Component):
 		self._pool = pool
 		self._uid = uid
 
+	def _setupUID(self,uid):
+		self._uid = uid
+
 	def _call(self, args):
 		if args[0][0] == '_':
 			raise serviceui_exception("The method <%s> of service <%s> is private. You can not call it remotely." % (args[1],self._name))
