@@ -1,3 +1,4 @@
+import os
 import copy
 import uuid
 from decimal import Decimal
@@ -8,9 +9,14 @@ import json
 from deepdiff.diff import DeepDiff
 from gsrp5service.orm import gensql
 from gsrp5service.orm.common import MAGIC_COLUMNS
+from datetime import datetime,date,time
+import time as tm
 import web_pdb
 
 from gsrp5service.orm.mm import _m2mfieldid2
+
+MAX_CHUNK_READ = 5000
+MAX_CHUNK_DELETE = 5000
 
 class orm_exception(Exception):
 	def __init__(self, *args, **kwargs):
@@ -54,6 +60,101 @@ def _join_diffs(d1,d2):
 		elif k2 in ('__update__','__insert__','__delete__'):
 			for k21 in d2[k2].keys():
 				d1.setdefault(k2,{})[k21].update(d2[k2][k21])
+
+def _conv_dict_to_list_records(self,fields,records,context):
+	rows = []
+	for record in records:
+		row = []
+		if 'id' in record:
+			row.append(record['id'])
+		for field in filter(lambda x: x != 'id',fields):
+			#print('CONV-FIELDS:',field,fields,record)
+			if type(field) == str:
+				row.append(record[field])
+			elif  type(field) == dict:
+				for key in field.keys():
+					if key in record:
+						#print('_conv_dict_to_list_records:',field,fields,key,record)
+						if type(record[key]) == dict:
+							row.append(_conv_dict_to_list_records(self,field[key],record[key]))
+						elif type(record[key]) in (list,tuple):
+							row.append(record[key])
+		
+		#print('CONV-RECORD:',row,record)
+		#if 'cache' in context:
+			#row.append({'path':uuid.uuid4().hex,'model':self._name})
+		rows.append(row)
+		
+	return rows
+
+def _conv_dict_to_raw_records(self,fields,records,context):
+	for record in records:
+		for field in filter(lambda x: x != 'id',fields):
+			#print('CONV-FIELDS:',field,fields,record)
+			if type(field) == str:
+				if type(record[field]) == dict and 'id' in record[field]:
+					record[field] = record[field]['id']
+			elif  type(field) == dict:
+				for key in field.keys():
+					if key in record:
+						#print('_conv_dict_to_list_records:',field,fields,key,record)
+						if type(record[key]) == dict:
+							record[key] = _conv_dict_to_raw_records(self,field[key],record[key])
+						elif type(record[key]) in (list,tuple):
+							record[key] = _conv_dict_to_raw_records(self,field[key],record[key])
+		
+	print('RECORDS:',records)	
+		
+	return records
+
+def _fetch_results(self,cr,pool,uid,fields,context):
+	
+	res = []
+
+	if 'FETCH' not in context:
+		context['FETCH'] = 'DICT'
+
+	fetch = context['FETCH']
+
+	selectablefields = list(filter(lambda x: x in fields,self._selectablefields))
+	nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))
+	
+	records = cr.dictfetchall(selectablefields, self._columnsmeta)
+	for record in records:
+		for field in fields:
+			if type(field) == dict:
+				recname = self._getRecNameName()
+				if recname in record:
+					oid = record[recname]
+				else:
+					if context['FETCH'] == 'LIST':
+						oid = self.read(cr,pool,uid,record['id'],[recname],context)[0][0]
+					elif context['FETCH'] == 'DICT':
+						oid = self.read(cr,pool,uid,record['id'],[recname],context)[0]['id']
+					elif context['FETCH'] == 'RAW':
+						oid = self.read(cr,pool,uid,record['id'],[recname],context)[0]['id']
+				for key in filter(lambda x: x in self._o2mfields,field.keys()):
+					columninfo = self.columnsInfo(columns=[key],attributes=['obj','rel','limit','offset'])
+					obj = columninfo[key]['obj']
+					rel = columninfo[key]['rel']
+					record[key] = _o2mread(self = pool.get(obj),cr = cr, pool = pool, uid = uid, oid = oid, field = rel, fields = field[key], context = context,limit = columninfo[key]['limit'],offset = columninfo[key]['offset'])
+
+		for field in fields:
+			if type(field) == dict:
+				for key in filter(lambda x: x in self._m2mfields,field.keys()):
+					record[key] = _m2mread(self = self,cr = cr, pool = pool, uid = uid, oid = record['id'], field = key, fields = field[key], context = context)
+
+		_computes = self._compute(cr,pool,uid,nostorecomputefields,record)
+		if _computes is not None:
+			record.update(_computes)
+	if fetch == 'DICT':		
+		res.extend(records)
+	elif fetch == 'LIST':
+		res.extend(_conv_dict_to_list_records(self,fields,records,context))
+	elif fetch == 'RAW':
+		res.extend(_conv_dict_to_raw_records(self,fields,records,context))
+
+	return res
 
 def _createRecord(self, cr, pool, uid, record, context):
 	oid = None
@@ -270,6 +371,318 @@ def _unlinkRecord(self, cr, pool, uid, record, context = {}):
 		trg22(**kwargs)
 
 	return oid
+
+def count(self, cr, pool, uid, cond = None, context = {}):
+	if not self._access._checkRead():
+		orm_exception("Read:access dennied of model % s" % (self._name,))
+
+	res = []
+	if 'LANG' not in context:
+		context['LANG'] = os.environ['LANG']
+	if 'TZ' not in context:
+		context['TZ'] = tm.tzname[1]
+	if cond is None:
+		cond = []
+
+	if 'FETCH' not in context:
+		context['FETCH'] = 'DICT'
+
+	fetch = context['FETCH']
+
+	if not fetch in ('LIST','DICT'):
+		orm_exception('Invalid fetch mode: %s' % (fetch,))
+
+	sql,vals = gensql.Count(self,pool,uid, self.modelInfo(), cond, context)
+	cr.execute(sql,vals)
+	if cr.cr.rowcount > 0:
+		if fetch == "LIST":
+			res.extend(cr.fetchone(['count'], {'count':'integer'})) 
+		elif fetch == "DICT":
+			res.extend(cr.dictfetchone(['count'], {'count':'integer'})) 
+	return res
+	
+#tested
+def search(self, cr, pool, uid, cond = None, context = {}, limit = None, offset = None):
+	if not self._access._checkRead():
+		orm_exception("Read:access dennied of model % s" % (self._name,))
+
+	res = []
+
+	if 'LANG' not in context:
+		context['LANG'] = os.environ['LANG']
+
+	if 'TZ' not in context:
+		context['TZ'] = tm.tzname[1]
+
+	if cond is None:
+		cond = []
+
+	if 'FETCH' not in context:
+		context['FETCH'] = 'DICT'
+
+	fetch = context['FETCH']
+
+	if not fetch in ('LIST','DICT'):
+		orm_exception('Invalid fetch mode: %s' % (fetch,))
+
+	sql,vals = gensql.Search(self,pool,uid, self.modelInfo(), cond, context, limit, offset)
+	cr.execute(sql,vals)
+	if cr.cr.rowcount > 0:
+		if fetch == "LIST":
+			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+		elif fetch == "DICT":
+			res.extend(list(map(lambda x: x['id'],cr.dictfetchall()))) 
+	return res
+
+def _read(self, cr, pool, uid, ids, fields = None, context = {}):
+
+	res = []
+
+	if 'LANG' not in context:
+		context['LANG'] = os.environ['LANG']
+
+	if 'TZ' not in context:
+		context['TZ'] = tm.tzname[1]
+
+	if 'FETCH' not in context:
+		context['FETCH'] = 'DICT'
+
+	fetch = context['FETCH']
+
+	if not fetch.upper() in ('LIST','DICT','RAW'):
+		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
+
+	length = 1
+	if type(ids) in (list,tuple):
+		length = len(ids)		
+	count = int(length/MAX_CHUNK_READ)
+	chunk = int(length % MAX_CHUNK_READ)
+	if fields is None:
+		fields = self._selectablefields
+	for i in range(count):
+		j = i * MAX_CHUNK_READ
+		chunk_ids = ids[j:j + MAX_CHUNK_READ]
+		sql,vals = gensql.Read(self,pool,uid,self.modelInfo(),chunk_ids,fields,context)
+		cr.execute(sql,vals)
+		if cr.cr.rowcount > 0:
+			if context['FETCH'] == 'DICT':
+				res.extend(_fetch_results(self,cr,pool,uid,fields,context))
+			elif context['FETCH'] == 'LIST':
+				records = cr.dictfetchall(fields,self._columnsmeta)
+				res.extend(_conv_dict_to_list_records(self,fields,records,context))
+			elif context['FETCH'] == 'RAW':
+				records = cr.dictfetchall(fields,self._columnsmeta)
+				res.extend(_conv_dict_to_raw_records(self,fields,records,context))
+
+
+	if chunk > 0:
+		if length == 1:
+			chunk_ids = ids
+		else:
+			j = count * MAX_CHUNK_READ			
+			chunk_ids = ids[j:]
+		sql,vals = gensql.Read(self,pool,uid,self.modelInfo(),chunk_ids,fields,context)
+		cr.execute(sql,vals)
+		if cr.cr.rowcount > 0:
+			if context['FETCH'] == 'DICT':
+				res.extend(_fetch_results(self,cr,pool,uid,fields,context))
+			elif context['FETCH'] == 'LIST':
+				res.extend(_conv_dict_to_list_records(self,fields,records,context))
+			elif context['FETCH'] == 'RAW':
+				records = cr.dictfetchall(fields,self._columnsmeta)
+				res.extend(_conv_dict_to_raw_records(self,fields,records,context))
+	
+	return res
+	
+def read(self, cr, pool, uid, ids, fields = None, context = {}):
+	if not self._access._checkRead():
+		orm_exception("Read:access dennied of model % s" % (self._name,))
+	return _read(self, cr, pool, uid, ids, fields, context)
+
+def _o2mread(self, cr, pool, uid, oid, field, fields, context,limit,offset):
+	res = []
+	modelinfo = self.modelInfo()
+	columnsinfo = self.columnsInfo()
+	#columninfo = columnsinfo[field]
+	
+	sql,vals = gensql.Select(self = self,pool = pool,uid = uid, info = self.modelInfo(), fields = fields, cond = [(field,'=',oid)], context = context, limit = limit, offset=offset)
+	cr.execute(sql,vals)
+	if cr.cr.rowcount > 0:
+		if context['FETCH'] == 'DICT':
+			res.extend(_fetch_results(self,cr,pool,uid,fields,context))
+			#res.extend(cr.fetchall(fields,self._columnsmeta))
+		elif context['FETCH'] == 'LIST':
+			records = cr.dictfetchall(fields,self._columnsmeta)
+			res.extend(_conv_dict_to_list_records(self,fields,records,context))
+			#res.extend(cr.dictfetchall(fields,self._columnsmeta))
+
+	for o2mfield in filter(lambda x:self._columnsmeta[x] == 'one2many',self._columnsmeta.keys()):
+		for r in res:
+			obj = columnsinfo[o2mfield]['obj']
+			rel = columnsinfo[o2mfield]['rel']
+			if modelinfo['names']['rec_name']:
+				rec_name = modelinfo['names']['rec_name']
+			else:
+				rec_name = 'id'
+			for f in fields:
+				if type(f) == dict and o2mfield in f:
+					r[o2mfield] = _select(pool.get(obj), cr, pool, uid, f[o2mfield] ,[(rel,'=',r[rec_name])], context, limit, offset)
+
+	return res
+
+def _m2mread(self, cr, pool, uid, oid, field, fields, context):
+	res = []
+	ids = []
+
+	columnsinfo = self.columnsInfo()
+	columninfo = columnsinfo[field]
+	rel = columninfo['rel']
+	obj = columninfo['obj']
+
+	id1 = columninfo['id1']
+	id2 = columninfo['id2']
+	if not id2:
+		id2 = self._m2mfieldid2(pool,obj,rel)
+	cr.execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
+	if cr.cr.rowcount > 0:
+		if len(fields) > 0:
+			ids.extend(list(map(lambda x: x[2],cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})))) 
+			if len(ids) > 0:
+				res.extend(pool.get(obj).read(cr=cr,pool=pool,uid=uid, ids = ids,fields = fields, context=context))
+		else:
+			res.extend(cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})) 
+
+	return res
+
+def _m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+	res = []
+	values = []
+	for r in rels:
+		values.append((oid,r))
+	print('VALUES:',values)
+	sql = "insert into %s (%s,%s) values " % (rel,id1,id2)
+	if len(values) == 1:
+		sql += str(values[0])
+	else:
+		sql += reduce(lambda x,y: str(x) + ',' + str(y),values)
+		
+	sql += ' returning id'
+	cr.execute(sql)
+	if cr.cr.rowcount > 0:
+		if context['FETCH'] == 'LIST':
+			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+		elif context['FETCH'] == 'DICT':
+			res.extend(list(map(lambda x: x['id'],cr.dictfetchall()))) 
+	
+	return res
+
+def _m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+	res = []
+	iValues = []
+	toInsert = rels
+	toUnlink = []
+	sqls = []
+	ids2 = []
+	cr.execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
+	if cr.cr.rowcount > 0:
+		ids2 = list(map(lambda x: x[2],cr.fetchall(fields = ['id',id1,id2], columnsmeta = {'id':'uuid',id1:'uuid',id2:'uuid'})))
+		toInsert = list(filter(lambda x: not x in ids2,rels))
+		toUnlink = list(filter(lambda x: not x in rels,ids2))
+	
+	for i in toInsert:
+		iValues.append((oid,i))
+	if len(iValues) > 0:
+		sql = "insert into %s (%s,%s) values " % (rel,id1,id2)
+		if len(iValues) > 1:
+			sql += '(' + reduce(lambda x,y: str(x)+','+str(y),iValues) + ')'
+		else:
+			sql += str(iValues[0])
+		
+		sql += " returning id"
+		sqls.append(sql)
+
+	if len(toUnlink) > 0:
+		t = []
+		for u in toUnlink:
+			t.append("'%s'" % (u,))
+		sql = "delete from %s where %s = '%s' and %s in %s" % (rel,id1,oid,id2,tuple(list(map(lambda x: "'%s'" % (x,),toUnlink))))
+		sql += " returning id"
+		sqls.append(sql)
+
+	if len(sqls) > 0:
+		sql = sqls[0]
+		if len(sqls) == 2:
+			sql += ';' + sqls[1]
+		cr.execute(sql)
+	if cr.cr.rowcount > 0:
+		res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+	
+	res.extend(filter(lambda x: not x in toUnlink,ids2))
+	res.extend(toInsert)
+
+	return res
+
+def _m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+	res = []
+	iValues = []
+	toInsert = rels
+	toUnlink = []
+	sqls = []
+	ids2 = []
+	cr.execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
+	if cr.cr.rowcount > 0:
+		ids2 = list(map(lambda x: x[2],cr.fetchall(fields = ['id',id1,id2], columnsmeta = {'id':'uuid',id1:'uuid',id2:'uuid'})))
+		toInsert = list(filter(lambda x: not x in ids2,rels))
+		toUnlink = list(filter(lambda x: not x in rels,ids2))
+	
+	for i in toInsert:
+		iValues.append((oid,i))
+	if len(iValues) > 0:
+		sql = "insert into %s (%s,%s) values " % (rel,id1,id2)
+		if len(iValues) > 1:
+			sql += '(' + reduce(lambda x,y: str(x)+','+str(y),iValues) + ')'
+		else:
+			sql += str(iValues[0])
+		
+		sql += " returning id"
+		sqls.append(sql)
+
+	if len(toUnlink) > 0:
+		if len(toUnlink) == 1:
+			sql = "delete from %s where %s = '%s' and %s = '%s'" % (rel,id1,oid,id2,toUnlink[0])
+		else:
+			sql = "delete from %s where %s = '%s' and %s in (%s)" % (rel,id1,oid,id2,reduce(lambda x,y: x+','+"'"+y+"'",toUnlink))
+		sql += " returning id"
+		sqls.append(sql)
+
+	if len(sqls) > 0:
+		sql = sqls[0]
+		if len(sqls) == 2:
+			sql += ';' + sqls[1]
+		cr.execute(sql)
+	if cr.cr.rowcount > 0:
+		res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+	
+	res.extend(filter(lambda x: not x in toUnlink,ids2))
+	res.extend(toInsert)
+
+	return res
+
+def _m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+	res = []
+	if rels and len(rels) > 0:
+		if len(rels) == 1:
+			sql = "delete from %s where %s = '%s' and %s = '%s'" % (rel,id1,oid,id2,rels[0])
+		else:
+			sql = "delete from %s where %s = '%s' and %s in (%s)" % (rel,id1,oid,id2,reduce(lambda x,y:x+','+y,rels))
+	else:
+		sql = "delete from %s where %s = '%s'" % (rel,id1,oid)
+	sql += ' returning id'
+	cr.execute(sql)
+	if cr.cr.rowcount > 0:
+		res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+	
+	return res
 
 class DCacheList(list): pass
 
@@ -1253,14 +1666,14 @@ class MCache(object):
 				rc = self._save()
 				if rc[0] == 'commit' and len(rc) == 2:
 					res.append(rc[1])
-		
-		self._data = None	
+	
 		return res
 
 	def _do_read(self,model,kwargs):
 		self._clear()
 		self._model = model
-		row = self._pool.get(model).read(**kwargs)
+		kwargs['self'] = self._pool.get(model)
+		row = read(**kwargs)
 		if len(row) > 0:
 			self._data = DCacheDict(row[0],model,self._cr,self._pool,self._uid,self._context)
 			self._getMeta()
@@ -1275,14 +1688,22 @@ class MCache(object):
 		return row
 
 	def _do_modify(self,model,kwargs):
+		res = []
 		records = kwargs['records']
 		if type(records) in (list,tuple):
+			self._data = DCacheList()
 			for record in records:
-				self._data = DCacheDict(record,model,self._cr,self._pool,self._uid,self._context,False)
-				self._save(True)
+				self._data.append(DCacheDict(record,model,self._cr,self._pool,self._uid,self._context,False))
+			rc = self._save()
+			if rc[0] == 'commit' and len(rc) == 2:
+					res.extend(rc[1])
 		elif type(records) == dict:
-			self._data = DCacheDict(records,model,self._cr,self._pool,self._uid,self._context,False)
-			self._save(True)
+				self._data = DCacheDict(records,model,self._cr,self._pool,self._uid,self._context,False)
+				rc = self._save()
+				if rc[0] == 'commit' and len(rc) == 2:
+					res.append(rc[1])
+	
+		return res
 
 	def _do_unlink(self,model,kwargs):
 		row = self._pool.get(model).unlink(**kwargs)
@@ -1566,7 +1987,7 @@ class MCache(object):
 		if len(rows) > 0:
 			for row in rows:
 				self._data._getAData(parent)[cn].append(row)
-				self._data._m2m_buildTree(row,rel,parent,cn,model)
+				self._data._m2m_buildTree(row,rel,parent,cn,model,'c')
 				
 		res = {}
 
@@ -1790,8 +2211,7 @@ class MCache(object):
 				return self._commit()
 		
 		return res
-			
-#
+
 	def _copyItems(self,items,rel=None,oid = None):
 		if len(items) > 0:
 			m = self._pool.get(items[0]['__model__'])
@@ -1848,7 +2268,6 @@ class MCache(object):
 				for key in o2m_containers.keys():
 					self._copyItems(o2m_containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
 
-#
 	def _createItems(self,items,rel=None,oid = None):
 		if len(items) > 0:
 			m = self._pool.get(items[0]['__model__'])
@@ -1897,7 +2316,7 @@ class MCache(object):
 			if '__m2m_containers__' in item:
 				m2m_containers = item['__m2m_containers__']
 				for key in m2m_containers.keys():
-					self._m2m_appendRows(m2m_containers[key],item['__data__']['id'])
+					self._m2m_appendRows(m2m_containers[key],item['__model__'])
 	
 			if '__o2m_containers__' in item:
 				o2m_containers = item['__o2m_containers__']
@@ -1998,10 +2417,10 @@ class MCache(object):
 			m = self._pool.get(item['__model__'])
 			r = _unlinkRecord(m,self._cr,self._pool,self._uid,data,self._context)
 
-	def _m2m_appendRows(self,rows):
+	def _m2m_appendRows(self,rows,model):
 		rels = {}
 		for row in rows:
-			m = self._pool.get(row['__model__'])
+			m = self._pool.get(model)
 			cn,parent = row['__container__'].split('.')
 			oid = self._data._getCData(parent)['id']
 			rel = m._columns[cn].rel
@@ -2010,7 +2429,7 @@ class MCache(object):
 			rels.setdefault(oid,[]).append(row['__data__']['id'])
 
 		for oid in rels.keys():
-			m._m2mcreate(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels[oid],self._context)
+			_m2mcreate(m,self._cr,self._pool,self._uid,rel,id1,id2,oid,rels[oid],self._context)
 
 	def _m2m_removeRows(self,rows):
 		rels = {}
@@ -2024,7 +2443,7 @@ class MCache(object):
 			rels.setdefault(oid,[]).append(row['__data__']['id'])
 
 		for oid in rels.keys():
-			m._m2munlink(self._cr,self._pool,self._uid,rel,id1,id2,oid,rels[oid],self._context)
+			_m2munlink(m,self._cr,self._pool,self._uid,rel,id1,id2,oid,rels[oid],self._context)
 
 	def _updateItems(self,items):
 		models = {}
