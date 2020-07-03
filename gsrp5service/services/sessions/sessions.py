@@ -4,6 +4,7 @@ import uuid
 import copy
 import pdb
 import pytz
+import web_pdb
 from passlib.hash import pbkdf2_sha256
 from decimal import Decimal
 from configparser import ConfigParser
@@ -47,6 +48,14 @@ class User(object):
 			rc = self._mcache(args[1:])
 		elif args0 == 'models':
 			rc = self._components['models']._call(args[1:])
+		elif args0 == 'reports':
+			rc = self._components['reports']._call(args[1:])
+		elif args0 == 'queries':
+			rc = self._components['queries']._call(args[1:])
+		elif args0 == 'dialogs':
+			rc = self._components['dialogs']._call(args[1:])
+		elif args0 == 'wizards':
+			rc = self._components['wizards']._call(args[1:])
 		elif args0 == 'uis':
 			rc = self._components['uis']._call(args[1:])
 		elif args0 == 'modules':
@@ -92,10 +101,14 @@ class User(object):
 			self._components['registry']._load_module('bc')
 			self._models = self._components['registry']._create_loaded_models()
 			self._reports = self._components['registry']._create_loaded_reports()
+			self._queries = self._components['registry']._create_loaded_queries()
 			self._dialogs = self._components['registry']._create_loaded_dialogs()
 			self._wizards = self._components['registry']._create_loaded_wizards()
-			self._queries = self._components['registry']._create_loaded_queries()
 			self._components['models']._setup(self._cursor,self._models,self._uid,self)
+			self._components['reports']._setup(self._cursor,self._models,self._uid,self)
+			self._components['queries']._setup(self._cursor,self._models,self._uid,self)
+			self._components['dialogs']._setup(self._cursor,self._models,self._uid,self)
+			self._components['wizards']._setup(self._cursor,self._models,self._uid,self)
 			self._components['uis']._setup(self._cursor,self._models,self._uid)
 			return self
 
@@ -135,6 +148,22 @@ class User(object):
 							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
+
+					reports = self._components['registry']._create_loaded_reports()
+					for key in reports:
+						self._reports[key] = reports[key]  
+
+					queries = self._components['registry']._create_loaded_queries()
+					for key in queries:
+						self._queries[key] = queries[key]  
+
+					dialogs = self._components['registry']._create_loaded_dialogs()
+					for key in dialogs:
+						self._dialogs[key] = dialogs[key]  
+
+					wizards = self._components['registry']._create_loaded_wizards()
+					for key in wizards:
+						self._wizards[key] = wizards[key]  
 	
 					return [self._connected,self._uid,{'country_timezones':dict(pytz.country_timezones),'country_names':dict(pytz.country_names),'langs':self._models.get('bc.langs').select(self._cursor,self._models,self._uid,['code','description']),'preferences':self._models.get('bc.user.preferences').select(self._cursor,self._models,self._uid,['user_id','lang','country','timezone'])}]
 				else:

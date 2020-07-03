@@ -131,7 +131,7 @@ def _download(cr,pool,uid,path,module,imodules,models,imodels,registry,ext='csv'
 		records = model.select(cr,pool,uid,fields,cond)
 		if len(records) >= 0:
 			if model._class_model == 'A':
-				if m._name[:3] == 'md.':
+				if model._name[:3] == 'md.':
 					c = 'data'
 				else:
 					c = 'examples' 

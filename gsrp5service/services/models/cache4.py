@@ -500,6 +500,48 @@ def read(self, cr, pool, uid, ids, fields = None, context = {}):
 		orm_exception("Read:access dennied of model % s" % (self._name,))
 	return _read(self, cr, pool, uid, ids, fields, context)
 
+def _select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
+
+	res = []
+
+	if 'LANG' not in context:
+		context['LANG'] = os.environ['LANG']
+
+	if 'TZ' not in context:
+		context['TZ'] = tm.tzname[1]
+
+	if 'FETCH' not in context:
+		context['FETCH'] = 'DICT'
+
+	fetch = context['FETCH']
+
+	if not fetch.upper() in ('LIST','DICT','RAW'):
+		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
+
+	if cond is None:
+		cond = []
+
+	sql,vals = gensql.Select(self,pool,uid,self.modelInfo(), fields, cond, context, limit, offset)
+	cr.execute(sql,vals)
+
+	if cr.cr.rowcount > 0:
+		if context['FETCH'] == 'DICT':
+			res.extend(_fetch_results(self,cr,pool,uid,fields,context))
+		elif context['FETCH'] == 'LIST':
+			records = cr.dictfetchall(fields,self._columnsmeta)
+			res.extend(_conv_dict_to_list_records(self,fields,records,context))
+		elif context['FETCH'] == 'RAW':
+			records = cr.dictfetchall(fields,self._columnsmeta)
+			res.extend(_conv_dict_to_raw_records(self,fields,records,context))
+	
+	return res
+
+def select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
+	if not self._access._checkSelect():
+		orm_exception("Select:access dennied of model % s" % (self._name,))
+	
+	return _select(self, cr, pool, uid, fields, cond, context, limit, offset)
+
 def _o2mread(self, cr, pool, uid, oid, field, fields, context,limit,offset):
 	res = []
 	modelinfo = self.modelInfo()
@@ -2191,7 +2233,7 @@ class MCache(object):
 			rc = self._save_commit_one(datas,diffs)
 			self._commit_diffs = {}
 		elif type(self._commit_diffs) == list:	
-			self._save_commit_all(data,diff)
+			self._save_commit_all(datas,diffs)
 			self._commit_diffs = []
 
 		return ['commited']
