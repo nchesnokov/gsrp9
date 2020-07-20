@@ -521,6 +521,18 @@ class bc_ui_reports(Model):
 
 bc_ui_reports()
 
+class bc_ui_links(Model):
+	_name ='bc.ui.links'
+	_description = 'Links'
+	_columns = {
+	'name': fields.varchar(label = 'Name',readonly=True),
+	'label': fields.varchar(label = 'Label',readonly=True),
+	'ltype':fields.selection(label='Type',selections=[('m','Menu'),('r','Report')]),
+	'link': fields.varchar(label = 'Link',readonly=True),
+	}
+
+bc_ui_links()
+
 class bc_actions(Model):
 	_name = 'bc.actions'
 	_description = 'Actions'
@@ -528,7 +540,8 @@ class bc_actions(Model):
 	'name': fields.varchar(label = 'Action',readonly=True),
 	'ta': fields.selection(label='Type Action',selections=[('view','View'),('report','Report'),('wkf','Worlflow'),('server','Server')],readonly=True),
 	'va': fields.one2many(label='View action',obj='bc.view.actions',rel='action_id'),
-	'ra': fields.one2many(label='Report action',obj='bc.report.actions',rel='action_id')
+	'ra': fields.one2many(label='Report action',obj='bc.report.actions',rel='action_id'),
+	'la': fields.one2many(label='Link action',obj='bc.link.actions',rel='action_id')
 	}
 
 bc_actions()
@@ -552,6 +565,17 @@ class bc_report_actions(Model):
 	}
 
 bc_report_actions()
+
+class bc_link_actions(Model):
+	_name = 'bc.link.actions'
+	_description = 'Link Actions'
+	_columns = {
+	'action_id': fields.many2one(label = 'Action',obj='bc.actions',readonly=True, on_delete = 'c'),
+	'link_id': fields.many2one(label='Link',obj='bc.ui.links',readonly=True, on_delete = 'c')
+	}
+
+bc_link_actions()
+
 
 
 class bc_ui_menus(Model):

@@ -23,6 +23,8 @@ from gsrp5service.orm.wizard import Wizard,WizardInherit
 import gsrp5service.orm.query
 from gsrp5service.orm.query import Query,QueryInherit
 
+import gsrp5service.orm.link
+
 from serviceloader.tools.common import Service, configManagerFixed
 
 from configparser import ConfigParser
@@ -54,6 +56,9 @@ class Registry(Service):
 	_qomm = {}
 	_oqomm = {}
 
+	_lom = {}
+	_lomm = {}
+	_olomm = {}
 	
 	_graph = None
 	_pwd = None
@@ -81,6 +86,8 @@ class Registry(Service):
 	_queries = {}
 	_inheritsQuery = {}
 	_inheritQuery = {}
+	
+	_links = {}
 
 	def __init__(self, config_file=None):
 		cf = ConfigParser()
@@ -118,21 +125,25 @@ class Registry(Service):
 		self._dialogs = {}
 		self._wizards = {}
 		self._queries = {}
+		self._links = {}
 		self._mom = {}
 		self._rom = {}
 		self._dom = {}
 		self._wom = {}
-		self._wom = {}
+		self._qom = {}
+		self._lom = {}
 		self._momm = {}
 		self._romm = {}
 		self._domm = {}
 		self._womm = {}
 		self._qomm = {}
+		self._lomm = {}
 		self._omomm = {}
 		self._oromm = {}
 		self._odomm = {}
 		self._owomm = {}
-		self._owomm = {}
+		self._oqomm = {}
+		self._olomm = {}
 		self._graph = Graph()
 		self._pwd = os.path.dirname(os.path.abspath(__file__))
 		self._depends = None
@@ -199,6 +210,7 @@ class Registry(Service):
 			metaDialog = gsrp5service.orm.dialog.MetaDialog.__modules__
 			metaWizard = gsrp5service.orm.wizard.MetaWizard.__modules__
 			metaQuery = gsrp5service.orm.query.MetaQuery.__modules__
+			metaLink = gsrp5service.orm.link.MetaLink.__modules__
 
 			self._modules[module]['class'] = []
 			self._modules[module]['lom'] = []
@@ -214,6 +226,10 @@ class Registry(Service):
 
 			self._modules[module]['query'] = []
 			self._modules[module]['loq'] = []
+
+			self._modules[module]['link'] = []
+			self._modules[module]['lol'] = []
+
 
 			if self._modules[module]['import'] in metaModel:
 				self._modules[module]['class'] =  metaModel[self._modules[module]['import']]
@@ -234,6 +250,11 @@ class Registry(Service):
 			if self._modules[module]['import'] in metaQuery:
 				self._modules[module]['query'] =  metaQuery[self._modules[module]['import']]
 				self._modules[module]['loq'] = list(metaQuery[self._modules[module]['import']].keys())
+
+			if self._modules[module]['import'] in metaLink:
+				self._modules[module]['link'] =  metaLink[self._modules[module]['import']]
+				self._modules[module]['lol'] = list(metaLink[self._modules[module]['import']].keys())
+
 					
 			self._modules[module]['loaded'] = True
 			
@@ -266,9 +287,61 @@ class Registry(Service):
 					inherit = meta['attrs']['_inherit']
 					for key in inherit.keys():
 						self._inherit.setdefault(module,{}).setdefault(report,{})[key] = inherit[key]
-			
+
 			self._metaReport_with_inherits(module)
 
+			for dialog in self._modules[module]['lod']:
+				self._dialogs[dialog] = self._copyMeta(self._modules[module]['dialog'][dialog])
+				meta = self._dialogs[dialog]
+				self._setModuleOfDialog(dialog,module)
+				if '_inherits' in meta['attrs'] and meta['attrs']['_inherits'] and len(meta['attrs']['_inherits']) > 0:
+					inherits = meta['attrs']['_inherits']
+					for key in inherits.keys():
+						self._inherits.setdefault(module,{}).setdefault(dialog,{})[key] = inherits[key]
+					
+				if '_inherit' in meta['attrs'] and meta['attrs']['_inherit'] and len(meta['attrs']['_inherit']) > 0:
+					inherit = meta['attrs']['_inherit']
+					for key in inherit.keys():
+						self._inherit.setdefault(module,{}).setdefault(dialog,{})[key] = inherit[key]
+
+			self._metaDialog_with_inherits(module)
+
+			for wizard in self._modules[module]['low']:
+				self._wizards[wizard] = self._copyMeta(self._modules[module]['wizard'][wizard])
+				meta = self._wizards[wizard]
+				self._setModuleOfWizard(wizard,module)
+				if '_inherits' in meta['attrs'] and meta['attrs']['_inherits'] and len(meta['attrs']['_inherits']) > 0:
+					inherits = meta['attrs']['_inherits']
+					for key in inherits.keys():
+						self._inherits.setdefault(module,{}).setdefault(wizard,{})[key] = inherits[key]
+					
+				if '_inherit' in meta['attrs'] and meta['attrs']['_inherit'] and len(meta['attrs']['_inherit']) > 0:
+					inherit = meta['attrs']['_inherit']
+					for key in inherit.keys():
+						self._inherit.setdefault(module,{}).setdefault(wizard,{})[key] = inherit[key]
+			
+			self._metaWizard_with_inherits(module)
+
+			for query in self._modules[module]['loq']:
+				self._queries[query] = self._copyMeta(self._modules[module]['query'][query])
+				meta = self._queries[query]
+				self._setModuleOfQuery(query,module)
+				if '_inherits' in meta['attrs'] and meta['attrs']['_inherits'] and len(meta['attrs']['_inherits']) > 0:
+					inherits = meta['attrs']['_inherits']
+					for key in inherits.keys():
+						self._inherits.setdefault(module,{}).setdefault(query,{})[key] = inherits[key]
+					
+				if '_inherit' in meta['attrs'] and meta['attrs']['_inherit'] and len(meta['attrs']['_inherit']) > 0:
+					inherit = meta['attrs']['_inherit']
+					for key in inherit.keys():
+						self._inherit.setdefault(module,{}).setdefault(query,{})[key] = inherit[key]
+			
+			self._metaQuery_with_inherits(module)
+
+			for link in self._modules[module]['lol']:
+				self._links[link] = self._copyMeta(self._modules[module]['link'][link])
+				meta = self._links[link]
+				self._setModuleOfLink(link,module)
 
 	def _load_inheritables(self):
 		modules = [node.name for node in self._graph]
@@ -285,7 +358,6 @@ class Registry(Service):
 			self._metaWizard_with_inherit(module)
 			self._metaQuery_with_inherit(module)
 
-	
 	def _create_module_model(self,model,module):
 		#print('_create_module_model:'.upper(),model,module)
 		meta = self._modules[module]['class'][model]
@@ -330,6 +402,16 @@ class Registry(Service):
 		obj = cls()
 		obj.__init__()				
 		return obj
+
+	def _create_module_link(self,link,module):
+		#print('_create_module_model:'.upper(),model,module)
+		meta = self._modules[module]['link'][link]
+		cls = type(meta['name'],meta['bases'],meta['attrs'])
+		type.__init__(cls, meta['name'],meta['bases'],meta['attrs'])
+		obj = cls()
+		obj.__init__()				
+		return obj
+
 
 	def _create_first_module_model(self,model):
 		meta = self._modules[self._getFirstModuleModel(model)]['class'][model]
@@ -1121,6 +1203,11 @@ class Registry(Service):
 	def _setMetaOfOnlyModulesquery(self,query,module,meta):
 		if module not in self._oqomm or query not in self._oqomm[module]:
 			self._oqomm.setdefault(module,{})[query] = meta
+
+	def _setMetaOfModulesLink(self,link,module,meta):
+		if module not in self._lomm or link not in self._lomm[module]:
+			self._lomm.setdefault(module,{})[link] = meta
+			self._setModuleOfLink(link,module)
 #
 	def _copyMeta(self,meta):
 		m ={}
@@ -1177,6 +1264,17 @@ class Registry(Service):
 		else:
 			if module not in self._mom[model]:
 				self._mom[model].append(module)
+
+
+	def _getModulesOfLink(self,link):
+		return self._lom[link]
+
+	def _setModuleOfLink(self,link,module):
+		if link not in self._lom:
+			self._lom.setdefault(link,[]).append(module)
+		else:
+			if module not in self._lom[link]:
+				self._lom[link].append(module)
 
 #
 	def _create_all_models(self):
@@ -1301,5 +1399,13 @@ class Registry(Service):
 		r = {}
 		for query in self._modules[module]['loq']:
 			r[query] = self._create_module_query(query,module)
+		
+		return r
+
+	def _create_module_links(self,module):
+		
+		r = {}
+		for link in self._modules[module]['lol']:
+			r[link] = self._create_module_link(link,module)
 		
 		return r

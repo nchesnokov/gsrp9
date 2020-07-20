@@ -6,6 +6,8 @@ from decimal import Decimal
 from datetime import datetime
 from datetime import timedelta
 
+import web_pdb
+
 class purchase_orders(Model):
 	_name = 'purchase.orders'
 	_description = 'Purchase Order'
@@ -67,8 +69,9 @@ class purchase_orders(Model):
 			item['texts'].append(item_text)
 
 	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+		web_pdb.set_trace()
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = pool.get('md.bom.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
 				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']

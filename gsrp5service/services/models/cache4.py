@@ -2552,7 +2552,7 @@ class MCache(object):
 				if '__o2m_containers__' in apnd1:
 					for k1 in apnd1['__o2m_containers__'].keys():
 						if len(apnd1['__o2m_containers__'][k1]) > 0:
-							self._post_diff_recursive(apnd1['__o2m_containers__'][k1],context)
+							self._post_diff_recursive(data,apnd1['__o2m_containers__'][k1],context)
 	
 				m = self._pool.get(apnd1['__model__'])
 				on_change_fields = list(filter(lambda x: x in m._on_change_fields and x is not None,apnd1['__data__'].keys()))
