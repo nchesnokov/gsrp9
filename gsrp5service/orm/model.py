@@ -12,6 +12,8 @@ from .mm import Access
 
 _logger = logging.getLogger(__name__)
 
+import web_pdb
+
 class MetaModel(type):
 	__modules__ = {}
 
@@ -196,6 +198,120 @@ class BaseModel(object, metaclass = MetaModel):
 
 	def __init__(self,access = None):
 		mm.model__init__(self,access)
+
+	def _execute(self, sql,vals=None):
+		self._session._cursor.cr.execute(sql,vals)
+		return self._session._cursor.cr.rowcount
+
+	@property
+	def _cr(self):
+		return self._session._cursor
+
+	@property
+	def _pool(self):
+		return self._session._models
+
+	@property
+	def _reports(self):
+		return self._session._reports
+
+	@property
+	def _dialogs(self):
+		return self._session._dialogs
+
+	@property
+	def _wizards(self):
+		return self._session._wizards
+
+	@property
+	def _pool(self):
+		return self._session._models
+
+	@property
+	def _queries(self):
+		return self._session._queries
+
+	@property
+	def _uid(self):
+		return self._session._uid
+		
+	def _compute(self,item,context):
+		res = {}
+		# ci = self.columnsInfo(columns=fields,attributes=['compute','priority'])
+		# priority = {}
+		# for compute_field in filter(lambda x: x in fields,self._computefields):
+			# priority.setdefault(ci[compute_field]['compute'],set()).add(compute_field)
+		
+		# pkeys = list(priority.keys())
+		# pkeys.sort()
+		# for pkey in pkeys:
+			# for compute_field in priority[pkey]:
+				# method = getattr(self,ci[compute_field]['compute'],None)
+				# if method and callable(method):
+					# r = method(cr,pool,uid,record,context)
+					# if r is not None: 
+						# res.update(r)
+	
+		return res
+		
+
+	def read(self,uid,ids,fields=None,context={}):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_read')(self,ids,fields,context)
+
+	def write(self,uid,records,context={}):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_write')(self,records,context)
+
+	def modify(self,uid,records,context={}):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_modify')(self,records,context)
+
+	def create(self,uid,records,context={}):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_create')(self,records,context)
+
+	def unlink(self,uid,ids,context={}):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_unlink')(self,ids,context)
+
+	def select(self,uid,fields = None ,cond = None, context = {}, limit = None, offset = None):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_select')(self,fields, cond, context, limit, offset)
+			#rc = method(self,fields, cond, context, limit, offset)
+			#return rc
+
+	def update(self,uid,record, cond = None,context = {}):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_update')(self,record,cond,context)
+
+	def upsert(self,uid,fields, values,context = {}):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_upsert')(self,fields, values,context )
+
+	def insert(self,uid,fields, values,context = {}):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_insert')(self,fields, values,context )
+
+	def delete(self,uid,cond,context = {}):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_delete')(self,cond,context )
+
+	def count(self,uid,cond = None, context = {}):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_count')(self,cond, context)
+
+	def search(self,uid, cond = None, context = {}, limit = None, offset = None):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_search')(self,cond, context, limit, offset)
+
+	def tree(self,uid,fields = None ,parent = None, context = {}):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_tree')(self,fields,parent, context)
+
+	def browse(self,uid,ids,fields=None,context={}):
+		if hasattr(self,'_session'):
+			return getattr(self._session._cache[uid],'_browse')(self,ids,fields,context)
 
 	@property
 	def _columnsmeta(self):
@@ -446,94 +562,95 @@ class BaseModel(object, metaclass = MetaModel):
 	def do_action(self, cr, pool, uid, action, column, record, context = {}):
 		return mm.do_action(self, cr, pool, uid, action, column, record, context)
 #tested
-	def count(self, cr, pool, uid, cond = None, context = {}):
-		return mm.count(self, cr, pool, uid, cond, context)
+	# def count(self, cr, pool, uid, cond = None, context = {}):
+		# self._session[cr]
+		# return mm.count(self, cr, pool, uid, cond, context)
 		
-#tested
-	def search(self, cr, pool, uid, cond = None, context = {}, limit = None, offset = None):
-		return mm.search(self, cr, pool, uid, cond, context, limit, offset)
+# #tested
+	# def search(self, cr, pool, uid, cond = None, context = {}, limit = None, offset = None):
+		# return mm.search(self, cr, pool, uid, cond, context, limit, offset)
 		
-# tested	
-	def read(self, cr, pool, uid, ids, fields = None, context = {}):
-		return mm.read(self, cr, pool, uid, ids, fields, context)
+# # tested	
+	# def read(self, cr, pool, uid, ids, fields = None, context = {}):
+		# return mm.read(self, cr, pool, uid, ids, fields, context)
 
-# to be tested
-	def browse(self, cr, pool, uid, ids, fields = None, context = {}):
-		return mm.browse(self, cr, pool, uid, ids, fields, context)
+# # to be tested
+	# def browse(self, cr, pool, uid, ids, fields = None, context = {}):
+		# return mm.browse(self, cr, pool, uid, ids, fields, context)
 
-#testing
-	def tree(self, cr, pool, uid, fields = None ,parent = None, context = {}):
-		return mm.tree(self, cr, pool, uid, fields, parent, context)
+# #testing
+	# def tree(self, cr, pool, uid, fields = None ,parent = None, context = {}):
+		# return mm.tree(self, cr, pool, uid, fields, parent, context)
 
-#tested
-	def select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
-		return mm.select(self, cr, pool, uid, fields, cond, context, limit, offset)
+# #tested
+	# def select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		# return mm.select(self, cr, pool, uid, fields, cond, context, limit, offset)
 
-#to be testing
-	def selectbrowse(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
-		return mm.selectbrowse(self, cr, pool, uid, fields, cond, context, limit, offset)
+# #to be testing
+	# def selectbrowse(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		# return mm.selectbrowse(self, cr, pool, uid, fields, cond, context, limit, offset)
 
-#tested
-	def unlink(self, cr, pool, uid, ids, context = {}):
-		return mm.unlink(self, cr, pool, uid, ids, context)
+# #tested
+	# def unlink(self, cr, pool, uid, ids, context = {}):
+		# return mm.unlink(self, cr, pool, uid, ids, context)
 
-#tested
-	def delete(self, cr, pool, uid, cond, context = {}):
-		return mm.delete(self, cr, pool, uid, cond, context)
+# #tested
+	# def delete(self, cr, pool, uid, cond, context = {}):
+		# return mm.delete(self, cr, pool, uid, cond, context)
 
-	def _createRecords(self, cr, pool, uid, records, context):
-		return mm._createRecords(self, cr, pool, uid, records, context)
+	# def _createRecords(self, cr, pool, uid, records, context):
+		# return mm._createRecords(self, cr, pool, uid, records, context)
 
-	def _createRecord(self, cr, pool, uid, record, context):
-		return mm._createRecord(self, cr, pool, uid, record, context)
+	# def _createRecord(self, cr, pool, uid, record, context):
+		# return mm._createRecord(self, cr, pool, uid, record, context)
 
-#tested
-	def create(self, cr, pool, uid, records, context = {}):
-		return mm.create(self, cr, pool, uid, records, context)
+# #tested
+	# def create(self, cr, pool, uid, records, context = {}):
+		# return mm.create(self, cr, pool, uid, records, context)
 
-	def _writeRecords(self, cr, pool, uid, records, context):
-		return mm._writeRecords(self, cr, pool, uid, records, context)
+	# def _writeRecords(self, cr, pool, uid, records, context):
+		# return mm._writeRecords(self, cr, pool, uid, records, context)
 
-	def _writeRecord(self, cr, pool, uid, record, context):
-		return mm._writeRecord(self, cr, pool, uid, record, context)
+	# def _writeRecord(self, cr, pool, uid, record, context):
+		# return mm._writeRecord(self, cr, pool, uid, record, context)
 
-#tested
-	def write(self, cr, pool, uid, records, context = {}):
-		return mm.write(self, cr, pool, uid, records, context)
+# #tested
+	# def write(self, cr, pool, uid, records, context = {}):
+		# return mm.write(self, cr, pool, uid, records, context)
 
-#testing
-	def update(self, cr, pool, uid, record, cond = None,context = {}):
-		return mm.update(self, cr, pool, uid, record, cond,context)
+# #testing
+	# def update(self, cr, pool, uid, record, cond = None,context = {}):
+		# return mm.update(self, cr, pool, uid, record, cond,context)
 
-#testing
-	def insert(self, cr, pool, uid, fields, values,context = {}):
-		return mm.insert(self, cr, pool, uid, fields, values,context)
+# #testing
+	# def insert(self, cr, pool, uid, fields, values,context = {}):
+		# return mm.insert(self, cr, pool, uid, fields, values,context)
 
-#testing
-	def upsert(self, cr, pool, uid, fields, values,context = {}):
-		return mm.upsert(self, cr, pool, uid, fields, values,context)
+# #testing
+	# def upsert(self, cr, pool, uid, fields, values,context = {}):
+		# return mm.upsert(self, cr, pool, uid, fields, values,context)
 
-	def _modifyRecords(self, cr, pool, uid, records, context):
-		return mm._modifyRecords(self, cr, pool, uid, records, context)
+	# def _modifyRecords(self, cr, pool, uid, records, context):
+		# return mm._modifyRecords(self, cr, pool, uid, records, context)
 
-	def _modifyRecord(self, cr, pool, uid, record, context):
-		return mm._modifyRecord(self, cr, pool, uid, record, context)
+	# def _modifyRecord(self, cr, pool, uid, record, context):
+		# return mm._modifyRecord(self, cr, pool, uid, record, context)
 
-#tested
-	def modify(self, cr, pool, uid, records, context = {}):
-		return mm.modify(self, cr, pool, uid, records, context)
+# #tested
+	# def modify(self, cr, pool, uid, records, context = {}):
+		# return mm.modify(self, cr, pool, uid, records, context)
 
-	def m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context={}):		
-		return mm._m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+	# def m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context={}):		
+		# return mm._m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
 
-	def do_compute(self, cr, pool, uid, fields, record, context = {}):
-		return [self._compute(cr, pool, uid, fields, record, context)]
+	# def do_compute(self, cr, pool, uid, fields, record, context = {}):
+		# return [self._compute(cr, pool, uid, fields, record, context)]
 
-	def _compute(self, cr, pool, uid, fields, record, context = {}):
-		return mm.do_compute(self, cr, pool, uid, fields, record, context)
+	# def _compute(self, cr, pool, uid, fields, record, context = {}):
+		# return mm.do_compute(self, cr, pool, uid, fields, record, context)
 
-	def do_checks(self, cr, pool, uid, fields, record, context = {}):
-		return [self._do_checks(cr, pool, uid, fields, record, context)]
+	# def do_checks(self, cr, pool, uid, fields, record, context = {}):
+		# return [self._do_checks(cr, pool, uid, fields, record, context)]
 
 	def _mcache(self,cr,pool,uid,key,value,idx=-1,context={}):
 		return mm._mcache(self,cr,pool,uid,key,value,idx,context)

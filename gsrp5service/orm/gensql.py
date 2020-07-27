@@ -559,8 +559,10 @@ def Upsert(self,pool,uid,info,fields,values,context):
 
 
 #tested
-def Read(self,pool,uid,info,ids,fields,context):
+def Read(self,ids,fields,context):
 	_fields = ['id']
+	info = self.modelInfo()
+	pool = self._pool
 	if fields is None:
 		_fields.extend(list(info['columns'].keys()))
 	else:
@@ -587,8 +589,10 @@ def Read(self,pool,uid,info,ids,fields,context):
 		_values = [tuple(ids)]
 	return _sql,_values
 #tested
-def Select(self, pool, uid, info, fields, cond, context, limit, offset):
+def Select(self, fields, cond, context, limit, offset):
 	_fields = ['id']
+	info = self.modelInfo()
+	pool = self._pool
 	if fields is None:
 		_fields.extend(list(info['columns'].keys()))
 	else:

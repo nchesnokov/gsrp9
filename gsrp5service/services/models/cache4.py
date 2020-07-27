@@ -108,7 +108,7 @@ def _conv_dict_to_raw_records(self,fields,records,context):
 		
 	return records
 
-def _fetch_results(self,cr,pool,uid,fields,context):
+def _fetch_results(self,fields,context):
 	
 	res = []
 
@@ -119,8 +119,8 @@ def _fetch_results(self,cr,pool,uid,fields,context):
 
 	selectablefields = list(filter(lambda x: x in fields,self._selectablefields))
 	nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))
-	
-	records = cr.dictfetchall(selectablefields, self._columnsmeta)
+
+	records = self._cr.dictfetchall(selectablefields, self._columnsmeta)
 	for record in records:
 		for field in fields:
 			if type(field) == dict:
@@ -129,23 +129,23 @@ def _fetch_results(self,cr,pool,uid,fields,context):
 					oid = record[recname]
 				else:
 					if context['FETCH'] == 'LIST':
-						oid = self.read(cr,pool,uid,record['id'],[recname],context)[0][0]
+						oid = self.read(record['id'],[recname],context)[0][0]
 					elif context['FETCH'] == 'DICT':
-						oid = self.read(cr,pool,uid,record['id'],[recname],context)[0]['id']
+						oid = self.read(record['id'],[recname],context)[0]['id']
 					elif context['FETCH'] == 'RAW':
-						oid = self.read(cr,pool,uid,record['id'],[recname],context)[0]['id']
+						oid = self.read(record['id'],[recname],context)[0]['id']
 				for key in filter(lambda x: x in self._o2mfields,field.keys()):
 					columninfo = self.columnsInfo(columns=[key],attributes=['obj','rel','limit','offset'])
 					obj = columninfo[key]['obj']
 					rel = columninfo[key]['rel']
-					record[key] = _o2mread(self = pool.get(obj),cr = cr, pool = pool, uid = uid, oid = oid, field = rel, fields = field[key], context = context,limit = columninfo[key]['limit'],offset = columninfo[key]['offset'])
+					record[key] = _o2mread(self = self._pool.get(obj),oid = oid, field = rel, fields = field[key], context = context,limit = columninfo[key]['limit'],offset = columninfo[key]['offset'])
 
 		for field in fields:
 			if type(field) == dict:
 				for key in filter(lambda x: x in self._m2mfields,field.keys()):
-					record[key] = _m2mread(self = self,cr = cr, pool = pool, uid = uid, oid = record['id'], field = key, fields = field[key], context = context)
+					record[key] = _m2mread(self = self,oid = record['id'], field = key, fields = field[key], context = context)
 
-		_computes = self._compute(cr,pool,uid,nostorecomputefields,record)
+		_computes = self._compute(record,context)
 		if _computes is not None:
 			record.update(_computes)
 	if fetch == 'DICT':		
@@ -435,7 +435,7 @@ def search(self, cr, pool, uid, cond = None, context = {}, limit = None, offset 
 			res.extend(list(map(lambda x: x['id'],cr.dictfetchall()))) 
 	return res
 
-def _read(self, cr, pool, uid, ids, fields = None, context = {}):
+def _read(self, oids, fields = None, context = {}):
 
 	res = []
 
@@ -453,28 +453,27 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 	if not fetch.upper() in ('LIST','DICT','RAW'):
 		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
 
+	if fields is None:
+		fields = self._selectablefields
+
+	rowfields = list(filter(lambda x: x in fields,self._rowfields)) 
 	length = 1
 	if type(ids) in (list,tuple):
 		length = len(ids)		
 	count = int(length/MAX_CHUNK_READ)
 	chunk = int(length % MAX_CHUNK_READ)
-	if fields is None:
-		fields = self._selectablefields
 	for i in range(count):
 		j = i * MAX_CHUNK_READ
 		chunk_ids = ids[j:j + MAX_CHUNK_READ]
-		sql,vals = gensql.Read(self,pool,uid,self.modelInfo(),chunk_ids,fields,context)
+		sql,vals = gensql.Read(self,chunk_oids,rowfields,context)
 		cr.execute(sql,vals)
-		if cr.cr.rowcount > 0:
-			if context['FETCH'] == 'DICT':
-				res.extend(_fetch_results(self,cr,pool,uid,fields,context))
-			elif context['FETCH'] == 'LIST':
-				records = cr.dictfetchall(fields,self._columnsmeta)
-				res.extend(_conv_dict_to_list_records(self,fields,records,context))
-			elif context['FETCH'] == 'RAW':
-				records = cr.dictfetchall(fields,self._columnsmeta)
-				res.extend(_conv_dict_to_raw_records(self,fields,records,context))
-
+		if self._cr.cr.rowcount > 0:
+			records = self._cr.dictfetchall()
+			for record in records:
+				record.update(_o2m_read(self,oid,context))
+				record.update(_m2m_read(self,oid,context))
+			
+			res.extend(records)
 
 	if chunk > 0:
 		if length == 1:
@@ -482,16 +481,31 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 		else:
 			j = count * MAX_CHUNK_READ			
 			chunk_ids = ids[j:]
-		sql,vals = gensql.Read(self,pool,uid,self.modelInfo(),chunk_ids,fields,context)
+		sql,vals = gensql.Read(self,chunk_ids,fields,context)
 		cr.execute(sql,vals)
-		if cr.cr.rowcount > 0:
-			if context['FETCH'] == 'DICT':
-				res.extend(_fetch_results(self,cr,pool,uid,fields,context))
-			elif context['FETCH'] == 'LIST':
-				res.extend(_conv_dict_to_list_records(self,fields,records,context))
-			elif context['FETCH'] == 'RAW':
-				records = cr.dictfetchall(fields,self._columnsmeta)
-				res.extend(_conv_dict_to_raw_records(self,fields,records,context))
+		if self._cr.cr.rowcount > 0:
+			records = self._cr.dictfetchall()
+			for record in records:
+				o2mfields = {}
+				m2mfields = {}
+				fd = list(filter(lambda x: type(x) == dict,fields))
+				dictfields = {}
+				if len(fd) == 1:
+						dictfields = fd[0]
+
+				for o2mfield in self._o2mfields:
+					if o2mfield in dictfields:
+						o2mfields[o2mfield] = fields[o2mfield]
+
+				for m2mfield in self._m2mfields:
+					if m2mfield in dictfields:
+						m2mfields[m2mfield] = fields[m2mfield]
+
+				record.update(_o2m_read(self,oid,o2mfields,context))
+				
+				record.update(_m2m_read(self,oid,m2mfields,context))
+			
+			res.extend(records)
 	
 	return res
 	
@@ -500,7 +514,7 @@ def read(self, cr, pool, uid, ids, fields = None, context = {}):
 		orm_exception("Read:access dennied of model % s" % (self._name,))
 	return _read(self, cr, pool, uid, ids, fields, context)
 
-def _select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
+def _select(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
 
 	res = []
 
@@ -521,28 +535,42 @@ def _select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit
 	if cond is None:
 		cond = []
 
-	sql,vals = gensql.Select(self,pool,uid,self.modelInfo(), fields, cond, context, limit, offset)
-	cr.execute(sql,vals)
+	sql,vals = gensql.Select(self, fields, cond, context, limit, offset)
 
-	if cr.cr.rowcount > 0:
-		if context['FETCH'] == 'DICT':
-			res.extend(_fetch_results(self,cr,pool,uid,fields,context))
-		elif context['FETCH'] == 'LIST':
-			records = cr.dictfetchall(fields,self._columnsmeta)
-			res.extend(_conv_dict_to_list_records(self,fields,records,context))
-		elif context['FETCH'] == 'RAW':
-			records = cr.dictfetchall(fields,self._columnsmeta)
-			res.extend(_conv_dict_to_raw_records(self,fields,records,context))
-	
+	rowcount = self._execute(sql,vals)
+	if rowcount > 0:
+			if context['FETCH'] == 'DICT':
+				res.extend(_fetch_results(self,fields,context))
+			elif context['FETCH'] == 'LIST':
+				records = self._cr.dictfetchall(fields,self._columnsmeta)
+				res.extend(_conv_dict_to_list_records(self,fields,records,context))
+			elif context['FETCH'] == 'RAW':
+				records = self._cr.dictfetchall(fields,self._columnsmeta)
+				res.extend(mm._conv_dict_to_raw_records(self,fields,records,context))
+
 	return res
 
-def select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
+def select(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
 	if not self._access._checkSelect():
 		orm_exception("Select:access dennied of model % s" % (self._name,))
 	
-	return _select(self, cr, pool, uid, fields, cond, context, limit, offset)
+	return _select(self,  fields, cond, context, limit, offset)
 
-def _o2mread(self, cr, pool, uid, oid, field, fields, context,limit,offset):
+def _o2mread(self, oid, fields, context, limit, offset):
+	res = []
+	modelinfo = self.modelInfo()
+	columnsinfo = self.columnsInfo()
+	
+	sql,vals = gensql.Select(self,fields, [(field,'=',oid)], context, limit, offset)
+	self._cr.execute(sql,vals)
+	if cr.cr.rowcount > 0:
+		if context['FETCH'] == 'DICT':
+			res.extend(_fetch_results(self,fields,context))
+		elif context['FETCH'] == 'LIST':
+			records = cr.dictfetchall(fields,self._columnsmeta)
+			res.extend(_conv_dict_to_list_records(self,fields,records,context))
+
+def _o2mread_1(self, cr, pool, uid, oid, field, fields, context,limit,offset):
 	res = []
 	modelinfo = self.modelInfo()
 	columnsinfo = self.columnsInfo()
@@ -729,6 +757,47 @@ def _m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 		res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
 	
 	return res
+
+def _tree(self, cr, pool, uid, fields = None ,parent = None, context = {}):
+
+	res = []
+
+	if 'LANG' not in context:
+		context['LANG'] = os.environ['LANG']
+
+	if 'TZ' not in context:
+		context['TZ'] = tm.tzname[1]
+
+	if 'FETCH' not in context:
+		context['FETCH'] = 'DICT'
+
+	fetch = context['FETCH']
+
+	if not fetch.upper() in ('LIST','DICT','RAW'):
+		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
+
+	if parent is None:
+		cond = [(self._getName('parent_id'),'?')]
+	else:
+		cond = [(self._getName('parent_id'),'=', parent)]
+
+	sql,vals = gensql.Select(self,fields, cond, context,None,None)
+	rowcount = self._execute(sql,vals)
+
+	if rowcount > 0:
+		res.extend(_fetch_results(self,fields,context))
+		web_pdb.set_trace()
+		for r in res:
+			r[self._getName('childs_id')].extend(_tree(self, fields, r[self._getName('rec_name')], context))
+
+	return res
+
+def tree(self, fields = None ,parent = None, context = {}):
+	if not self._access._checkSelect():
+		orm_exception("Tree:access dennied of model % s" % (self._name,))
+	
+	return _tree(self, fields, parent, context)
+
 
 class DCacheList(list): pass
 
@@ -1696,6 +1765,63 @@ class MCache(object):
 			res[model] = d
 		
 		return res
+
+#model method
+	def _read(self,model,ids,fields=None,context={}):
+		row = read(model,ids,fields,context)
+		if len(row) > 0:
+			if  'read' in context and context['read'] == 'raw':
+				return row
+			else:
+				self._data = DCacheDict(row[0],model,self._cr,self._pool,self._uid,self._context)
+				self._getMeta()
+				m = self._data._getData(self._data._root)
+				m['__checks__'] = []
+				return m
+		else:
+			return row
+
+
+	def _write(self,model,records,context={}):
+		return write(model,records,context)
+
+	def _modify(self,model,records,context={}):
+		return modify(model,records,context)
+
+	def _create(self,model,records,context={}):
+		return create(model,records,context)
+
+	def _unlink(self,model,ids,context={}):
+		return unlink(model,ids,context)
+
+	def _select(self,model,fields = None ,cond = None, context = {}, limit = None, offset = None):
+		return select(model,fields, cond, context, limit, offset)
+
+	def _update(self,model,record, cond = None,context = {}):
+		return update(model,record,cond,context)
+
+	def _upsert(self,model,fields, values,context = {}):
+		return upsert(model,fields, values,context )
+
+	def _insert(self,model,fields, values,context = {}):
+		return insert(model,fields, values,context )
+
+	def _delete(self,model,cond,context = {}):
+		return _delete(model,cond,context )
+
+	def _count(self,model,cond = None, context = {}):
+			return count(model,cond, context)
+
+	def _search(self,model, cond = None, context = {}, limit = None, offset = None):
+		return search(model,cond, context, limit, offset)
+
+	def _tree(self,model,fields = None ,parent = None, context = {}):
+		return tree(model,fields,parent, context)
+
+	def _browse(self,model,ids,fields=None,context={}):
+			return browse(model,ids,fields,context)
+
+# model method
 
 	def _do_create(self,model,kwargs):
 		res = []

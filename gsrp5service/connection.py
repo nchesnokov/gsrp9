@@ -5,6 +5,7 @@ import psycopg2.extras
 import uuid
 from functools import reduce
 import logging
+import web_pdb
 
 from psycopg2.extras import register_json
 register_json(oid=3802, array_oid=0)

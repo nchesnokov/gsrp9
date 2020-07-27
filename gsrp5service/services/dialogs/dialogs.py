@@ -22,10 +22,19 @@ class Dialogs(Component):
 		cf.read(config_file)
 		self._config = cf
 
-	def _setup(self,cr,pool,uid,session):
-		self._cr = cr
-		self._pool = pool
-		self._uid = uid
+	@property
+	def _cr(self):
+		return self._session._cursor
+
+	@property
+	def _pool(self):
+		return self._session._models
+
+	@property
+	def _uid(self):
+		return self._session._uid
+
+	def _setup(self,session):
 		self._session = session
 	
 	def _setupUID(self,uid):

@@ -17,10 +17,20 @@ class Uis(Component):
 		cf.read(config_file)
 		self._config = cf
 
-	def _setup(self,cr,pool,uid):
-		self._cr = cr
-		self._pool = pool
-		self._uid = uid
+	@property
+	def _cr(self):
+		return self._session._cursor
+
+	@property
+	def _pool(self):
+		return self._session._models
+
+	@property
+	def _uid(self):
+		return self._session._uid
+
+	def _setup(self,session):
+		self._session = session
 
 	def _setupUID(self,uid):
 		self._uid = uid
@@ -53,32 +63,13 @@ class Uis(Component):
 	def action(self,cr,pool,uid,action_id,context):
 		return run(cr,pool,uid,action_id,context)
 	
-	# def get_viewname_by_window_action_id(self,session,cr,pool,uid,registry,action_id):
-		# return  get_viewname_by_window_action_id(session,cr,pool,uid,registry,action_id)
-
-	# def get_view_by_window_action_id(self,session,cr,pool,uid,registry,action_id):
-		# return get_view_by_window_action_id(session,cr,pool,uid,registry,action_id)
-
-	# def get_view_by_window_action_id_v2(self,session,cr,pool,uid,registry,action_id):
-		# return get_view_by_window_action_id_v2(session,cr,pool,uid,registry,action_id)
-
-	# def get_meta_by_window_action_id_v2(self,session,cr,pool,uid,registry,action_id):
-		# return get_meta_by_window_action_id_v2(session,cr,pool,uid,registry,action_id)
-
-	# def get_view_by_name(self,session,cr,pool,uid,registry,name):
-		# return get_view_by_name(session,cr,pool,uid,registry,name)
-
 	def get_view_by_name_v2(self,cr,pool,uid,name,):
 		return get_view_by_name_v2(cr,pool,uid,name)
 	
 	def get_meta_of_models_v2(self,cr,pool,uid,model,context):
 		return [get_meta_of_models_v2(cr,pool,uid,model,context)]
-
-	# def get_views_of_model_v2(self,session,cr,pool,uid,registry,model):
-		# return get_views_of_model_v2(session,cr,pool,uid,registry,model)
-
-	# def view(self,session,cr,pool,uid,registry,action_id = None, name = None):
-		# return view(session,cr,pool,uid,registry,action_id,name)
 		
 	def menu(self,cr,pool,uid,context={}):
-		return menu(cr,pool,uid,context)
+		model = pool.get('bc.ui.menus')
+		tuid = self._session._mcache(['open',{'mode':'select','context':{}}])[0]
+		return menu(model,tuid,context)

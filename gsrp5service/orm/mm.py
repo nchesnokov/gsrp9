@@ -1339,21 +1339,16 @@ def _conv_dict_to_list_records(self,fields,records,context):
 		if 'id' in record:
 			row.append(record['id'])
 		for field in filter(lambda x: x != 'id',fields):
-			#print('CONV-FIELDS:',field,fields,record)
 			if type(field) == str:
 				row.append(record[field])
 			elif  type(field) == dict:
 				for key in field.keys():
 					if key in record:
-						#print('_conv_dict_to_list_records:',field,fields,key,record)
 						if type(record[key]) == dict:
 							row.append(_conv_dict_to_list_records(self,field[key],record[key]))
 						elif type(record[key]) in (list,tuple):
 							row.append(record[key])
 		
-		#print('CONV-RECORD:',row,record)
-		#if 'cache' in context:
-			#row.append({'path':uuid.uuid4().hex,'model':self._name})
 		rows.append(row)
 		
 	return rows
@@ -1361,24 +1356,20 @@ def _conv_dict_to_list_records(self,fields,records,context):
 def _conv_dict_to_raw_records(self,fields,records,context):
 	for record in records:
 		for field in filter(lambda x: x != 'id',fields):
-			#print('CONV-FIELDS:',field,fields,record)
 			if type(field) == str:
 				if type(record[field]) == dict and 'id' in record[field]:
 					record[field] = record[field]['id']
 			elif  type(field) == dict:
 				for key in field.keys():
 					if key in record:
-						#print('_conv_dict_to_list_records:',field,fields,key,record)
 						if type(record[key]) == dict:
 							record[key] = _conv_dict_to_raw_records(self,field[key],record[key])
 						elif type(record[key]) in (list,tuple):
 							record[key] = _conv_dict_to_raw_records(self,field[key],record[key])
 		
-	print('RECORDS:',records)	
-		
 	return records
 
-def _fetch_results(self,cr,pool,uid,fields,context):
+def _fetch_results(self,fields,context):
 	
 	res = []
 	#print('FETCH-FIELDS:',fields)
