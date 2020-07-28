@@ -494,19 +494,21 @@ def domain_clause(info):
 		return va
 	return []
 #tested
-def Create(self,pool,uid,info,record,context):
+def Create(self,record,context):
+	info = self.modelInfo()
 	fields = list(record.keys())
 	values = list(record.values())
 
 	if info['log_access']:
 		fields.extend(['create_uid','create_timestamp'])
-		values.extend([uid,datetime.utcnow()])
+		values.extend([self._uid,datetime.utcnow()])
 
 	_sql = insert_clause() + into_clause(info['table']) + fields_clause_insert(fields) + values_clause(len(values))+returning_clause()
 
 	return _sql, values
 
-def Insert(self,pool,uid,info,fields,values,context):
+def Insert(self,fields,values,context):
+	info  = self.modelInfo()
 	if id in fields:
 		raise gensql_exception('Fields: id not be present to be insert into database')
 
@@ -528,13 +530,14 @@ def Insert(self,pool,uid,info,fields,values,context):
 			fields.extend(['create_uid','create_timestamp'])
 		utcnow = datetime.utcnow()
 		for value in values:
-			value.extend([uid,utcnow])
+			value.extend([self._uid,utcnow])
 	
 	_sql = insert_clause() + into_clause(info['table']) + fields_clause_insert(fields) + array_insert_clause(len(fields),len(values)) + returning_clause()
 
 	return _sql, values_insert_clause(values)
 
-def Upsert(self,pool,uid,info,fields,values,context):
+def Upsert(self,fields,values,context):
+	info  = self.modelInfo()
 	columns = info['columns']
 	requiredFields = self._requiredfields
 	for field in fields:
@@ -551,7 +554,7 @@ def Upsert(self,pool,uid,info,fields,values,context):
 			fields.extend(['write_uid','write_timestamp'])
 		utcnow = datetime.utcnow()
 		for value in values:
-			value.extend([uid,utcnow])
+			value.extend([self._uid,utcnow])
 
 	_sql = upsert_clause() + into_clause(info['table']) + fields_clause_upsert(fields) + array_upsert_clause(len(fields),len(values)) + returning_clause()
 
@@ -624,8 +627,8 @@ def Select(self, fields, cond, context, limit = None, offset = None):
 	_sql = select_clause() + fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
 	return _sql,_values
 #tested
-def Search(self,pool, uid, info, cond, context, limit, offset):
-	
+def Search(self, cond, context, limit, offset):
+	info  = self.modelInfo()
 	_f = fields_from_order_by(self)
 	
 	_fields = fields_clause_select(_f).split(',')
@@ -647,14 +650,14 @@ def Search(self,pool, uid, info, cond, context, limit, offset):
 	_values = _where._values
 	if limit:
 		_values.append(limit)
-	if offset:
+	if offset:	
 		_values.append(offset)
 	_sql = select_clause() +fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
 	return _sql, tuple(_values)
 
 #tested
-def Count(self,pool,uid,info,cond,context):
-	
+def Count(self,cond,context):
+	info  = self.modelInfo()
 	_fields = fields_clause_select().split(',')
 
 # Parses
@@ -668,7 +671,6 @@ def Count(self,pool,uid,info,cond,context):
 	cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
 # Parses
 
-
 	_where = WhereParse(cond)
 
 	_cond = _where._cond
@@ -677,8 +679,8 @@ def Count(self,pool,uid,info,cond,context):
 	_sql = count_clause() + from_clause(join) + where_clause(_cond)
 	return _sql,_values
 #tested
-def Delete(self,pool,uid, info, cond, context):
-	
+def Delete(self,cond, context):
+	info  = self.modelInfo()	
 	_where = WhereParse(cond)
 	_cond = _where._cond
 	_values = _where._values
@@ -686,7 +688,8 @@ def Delete(self,pool,uid, info, cond, context):
 	_sql = delete_clause() + from_clause(info['table']) + where_clause(_cond) + returning_clause()
 	return _sql,_values
 #tested
-def Unlink(self,pool,uid,info, ids, context):
+def Unlink(self, ids, context):
+	info  = self.modelInfo()
 	_sql = delete_clause() + from_clause(info['table']) + where_clause_unlink_ids(ids) + returning_clause()
 	if type(ids) == int:
 		_values = [ids]
@@ -694,7 +697,8 @@ def Unlink(self,pool,uid,info, ids, context):
 		_values = [tuple(ids)]
 	return _sql,_values
 #tested
-def Write(self,pool,uid,info,record,context):
+def Write(self,record,context):
+	info  = self.modelInfo()
 	oid = record['id']
 	del record['id']
 	fields = list(record.keys())
@@ -702,14 +706,15 @@ def Write(self,pool,uid,info,record,context):
 
 	if info['log_access']:
 		fields.extend(['create_uid','create_timestamp'])
-		values.extend([uid,datetime.utcnow()])
+		values.extend([self._uid,datetime.utcnow()])
 		values.append(oid)
 	
 	_sql = update_clause() + info['table']+ set_clause(fields) + ' WHERE id = %s' + returning_clause(list(filter(lambda x: x != 'id',fields)))
 
 	return _sql, values
 #testing
-def Update(sef,pool,uid,info,cond,record,context):
+def Update(self,cond,record,context):
+	info  = self.modelInfo()
 	fields = list(record.keys())
 	values = list(record.values())
 	columns = info['columns']
@@ -723,7 +728,7 @@ def Update(sef,pool,uid,info,cond,record,context):
 
 	if info['log_access']:
 		fields.extend(['write_uid','write_timestamp'])
-		values.extend([uid,datetime.utcnow()])
+		values.extend([self._uid,datetime.utcnow()])
 
 	_where = WhereParse(cond)
 	_cond = _where._cond
@@ -732,13 +737,14 @@ def Update(sef,pool,uid,info,cond,record,context):
 	_sql = update_clause() + info['table']+ set_clause(fields) + where_clause(_cond) + returning_clause(list(filter(lambda x: x != 'id',fields)))
 	return _sql, values
 
-def Modify(self,pool,uid,info,record,context):
+def Modify(self,record,context):
+	info  = self.modelInfo()
 	fields = list(record.keys())
 	values = list(record.values())
 
 	if info['log_access']:
 		fields.extend(['create_uid','create_timestamp'])
-		values.extend([uid,datetime.utcnow()])
+		values.extend([self._uid,datetime.utcnow()])
 
 	_sql = upsert_clause() + into_clause(info['table']) + fields_clause_insert(fields) + values_clause(len(values)) + returning_clause()
 	return _sql, values

@@ -157,7 +157,7 @@ def _fetch_results(self,fields,context):
 
 	return res
 
-def _createRecord(self, cr, pool, uid, record, context):
+def _createRecord(self, record, context):
 	oid = None
 
 	fields = list(record.keys())
@@ -181,22 +181,22 @@ def _createRecord(self, cr, pool, uid, record, context):
 
 	trg1 = self._getTriger('bir')
 	for trg11 in trg1:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'context':context}
+		kwargs = {'r1':record,'context':context}
 		trg11(**kwargs)
 
-	sql,vals = gensql.Create(self,pool,uid,self.modelInfo(), record, context)
+	sql,vals = gensql.Create(self, record, context)
 	cr.execute(sql,vals)
 	if cr.cr.rowcount > 0:
 		oid = cr.fetchone()[0]
 
 	trg2 = self._getTriger('air')
 	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'context':context}
+		kwargs = {'r1':record,'context':context}
 		trg22(**kwargs)
 
 	return oid
 
-def _writeRecord(self, cr, pool, uid, record, context):
+def _writeRecord(self, record, context):
 	oid = None
 	fields = list(record.keys())
 	modelfields = list(self._columns.keys())
@@ -220,7 +220,7 @@ def _writeRecord(self, cr, pool, uid, record, context):
 	if trg1 and len(trg1) > 0:
 		ctx = context.copy()
 		ctx['FETCH'] = 'RAW'
-		record21 = self.read(cr, pool, uid, record['id'], self._selectablefields, ctx)
+		record21 = self.read(record['id'], self._selectablefields, ctx)
 
 		if len(record21) > 0:
 			record2 = record21[0]
@@ -247,24 +247,24 @@ def _writeRecord(self, cr, pool, uid, record, context):
 			if len(upd_cols) > 0:
 		
 				for trg11 in trg1:
-					kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record,'context':context}
+					kwargs = {'r1':record,'r2':record,'context':context}
 					trg11(**kwargs)
 
-	sql,vals = gensql.Write(self,pool,uid,self.modelInfo(), record, context)
-	cr.execute(sql,vals)
-	if cr.cr.rowcount > 0:
-		oid = cr.fetchone()[0]
+	sql,vals = gensql.Write(self, record, context)
+	rowcount = self._execute(sql,vals)
+	if rowcount > 0:
+		oid = self._cr.fetchone()[0]
 
 	if len(upd_cols) > 0:
 		trg2 = self._getTriger('aur')
 		if trg2 and len(trg2) > 0:
 			for trg22 in trg2:
-				kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record,'context':context}
+				kwargs = {'r1':record,'r2':record,'context':context}
 				trg22(**kwargs)
 
 	return oid
 
-def _modifyRecord(self, cr, pool, uid, record, context):
+def _modifyRecord(self, record, context):
 	oid = None
 	fields = list(record.keys())
 	modelfields = list(self._columns.keys())
@@ -337,7 +337,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 
 	return oid
 
-def _unlinkRecord(self, cr, pool, uid, record, context = {}):
+def _unlinkRecord(self, record, context = {}):
 	oid = None
 	if not self._access._checkUnlink():
 		orm_exception("Unlink:access dennied of model % s" % (self._name,))
@@ -358,22 +358,22 @@ def _unlinkRecord(self, cr, pool, uid, record, context = {}):
 
 	trg1 = self._getTriger('bdr')
 	for trg11 in trg1:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r2':record,'context':context}
+		kwargs = {'r2':record,'context':context}
 		trg11(**kwargs)
 
-	sql,vals = gensql.Unlink(self,pool,uid,self.modelInfo(),[record['id']],context)
-	cr.execute(sql,vals)
-	if cr.cr.rowcount > 0:
+	sql,vals = gensql.Unlink(self,[record['id']],context)
+	rowcount = self._execute(sql,vals)
+	if rowcount > 0:
 		oid = cr.fetchone()[0]
 
 	trg2 = self._getTriger('adr')
 	for trg22 in trg2:
-		kwargs = {'cr':cr,'pool':pool,'uid':uid,'r2':record,'context':context}
+		kwargs = {'r2':record,'context':context}
 		trg22(**kwargs)
 
 	return oid
 
-def count(self, cr, pool, uid, cond = None, context = {}):
+def count(self, cond = None, context = {}):
 	if not self._access._checkRead():
 		orm_exception("Read:access dennied of model % s" % (self._name,))
 
@@ -393,9 +393,9 @@ def count(self, cr, pool, uid, cond = None, context = {}):
 	if not fetch in ('LIST','DICT'):
 		orm_exception('Invalid fetch mode: %s' % (fetch,))
 
-	sql,vals = gensql.Count(self,pool,uid, self.modelInfo(), cond, context)
-	cr.execute(sql,vals)
-	if cr.cr.rowcount > 0:
+	sql,vals = gensql.Count(self, cond, context)
+	rowcount = self._execute(sql,vals)
+	if rowcount > 0:
 		if fetch == "LIST":
 			res.extend(cr.fetchone(['count'], {'count':'integer'})) 
 		elif fetch == "DICT":
@@ -403,7 +403,7 @@ def count(self, cr, pool, uid, cond = None, context = {}):
 	return res
 	
 #tested
-def search(self, cr, pool, uid, cond = None, context = {}, limit = None, offset = None):
+def search(self, cond = None, context = {}, limit = None, offset = None):
 	if not self._access._checkRead():
 		orm_exception("Read:access dennied of model % s" % (self._name,))
 
@@ -426,9 +426,9 @@ def search(self, cr, pool, uid, cond = None, context = {}, limit = None, offset 
 	if not fetch in ('LIST','DICT'):
 		orm_exception('Invalid fetch mode: %s' % (fetch,))
 
-	sql,vals = gensql.Search(self,pool,uid, self.modelInfo(), cond, context, limit, offset)
-	cr.execute(sql,vals)
-	if cr.cr.rowcount > 0:
+	sql,vals = gensql.Search(self,cond, context, limit, offset)
+	rowcount = self._execute(sql,vals)
+	if rowcount > 0:
 		if fetch == "LIST":
 			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
 		elif fetch == "DICT":
@@ -1891,7 +1891,7 @@ class MCache(object):
 				self._getMeta()
 				m = self._data._getData(self._data._root)
 				m['__checks__'] = []
-				return m
+				return [m]
 		else:
 			return row
 
@@ -1936,105 +1936,6 @@ class MCache(object):
 			return browse(model,ids,fields,context)
 
 # model method
-
-	def _do_create(self,model,kwargs):
-		res = []
-		records = kwargs['records']
-		if type(records) in (list,tuple):
-			self._data = DCacheList()
-			for record in records:
-				self._data.append(DCacheDict(record,model,self._cr,self._pool,self._uid,self._context,False))
-			rc = self._save()
-			if rc[0] == 'commit' and len(rc) == 2:
-					res.extend(rc[1])
-		elif type(records) == dict:
-				self._data = DCacheDict(records,model,self._cr,self._pool,self._uid,self._context,False)
-				rc = self._save()
-				if rc[0] == 'commit' and len(rc) == 2:
-					res.append(rc[1])
-	
-		return res
-
-	def _do_read(self,model,kwargs):
-		self._clear()
-		self._model = model
-		kwargs['self'] = self._pool.get(model)
-		row = read(**kwargs)
-		if len(row) > 0:
-			self._data = DCacheDict(row[0],model,self._cr,self._pool,self._uid,self._context)
-			self._getMeta()
-			m = self._data._getData(self._data._root)
-			m['__checks__'] = []
-			return m
-		else:
-			return []
-
-	def _do_write(self,model,kwargs):
-		row = self._pool.get(model).write(**kwargs)
-		return row
-
-	def _do_modify(self,model,kwargs):
-		res = []
-		records = kwargs['records']
-		if type(records) in (list,tuple):
-			self._data = DCacheList()
-			for record in records:
-				self._data.append(DCacheDict(record,model,self._cr,self._pool,self._uid,self._context,False))
-			rc = self._save()
-			if rc[0] == 'commit' and len(rc) == 2:
-					res.extend(rc[1])
-		elif type(records) == dict:
-				self._data = DCacheDict(records,model,self._cr,self._pool,self._uid,self._context,False)
-				rc = self._save()
-				if rc[0] == 'commit' and len(rc) == 2:
-					res.append(rc[1])
-	
-		return res
-
-	def _do_unlink(self,model,kwargs):
-		row = self._pool.get(model).unlink(**kwargs)
-		return row
-
-	def _do_insert(self,model,kwargs):
-		row = self._pool.get(model).insert(**kwargs)
-		return row
-
-	def _do_select(self,model,kwargs):
-		row = self._pool.get(model).select(**kwargs)
-		return row
-
-	def _do_upsert(self,model,kwargs):
-		self._clear()
-		self._model = model
-		row = self._pool.get(model).upsert(**kwargs)
-		self._data = DCacheDict(row,model,self._pool)
-		self._getMeta()
-		m = self._data._getData(self._data._root)
-		m['__meta__'] = self._do_meta(str(self._data._root))
-		m['__checks__'] = []
-		return m
-
-	def _do_update(self,model,kwargs):
-		self._clear()
-		self._model = model
-		row = self._pool.get(model).update(**kwargs)
-		self._data = DCacheDict(row,model,self._pool)
-		self._getMeta()
-		m = self._data._getData(self._data._root)
-		m['__meta__'] = self._do_meta(str(self._data._root))
-		m['__checks__'] = []
-		return m
-
-	def _do_delete(self,model,kwargs):
-		self._clear()
-		self._model = model
-		row = self._pool.get(model).delete(**kwargs)
-		self._data = DCacheDict(row,model,self._pool)
-		self._getMeta()
-		m = self._data._getData(self._data._root)
-		m['__meta__'] = self._do_meta(str(self._data._root))
-		m['__checks__'] = []
-		return m
 
 	def _getMeta(self,models = None):
 		if models is None:
@@ -2751,9 +2652,9 @@ class MCache(object):
 				cdata = self._data._getCData(self._data._cdata[mkey])
 				if 'id' in cdata:
 					data['id'] = cdata['id']
-					r = _writeRecord(m,self._cr,self._pool,self._uid,data,self._context)
+					r = _writeRecord(m, data, self._context)
 				else:
-					r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
+					r = _createRecord(m,data,self._context)
 					if r:
 						models[model][mkey]['id'] = r
 
