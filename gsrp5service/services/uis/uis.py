@@ -42,15 +42,9 @@ class Uis(Component):
 		rmsg = []
 		if hasattr(self,args[0]):
 			method = getattr(self,args[0],None)
-			if callable(method):
-				kwargs = {}
-				kwargs['cr'] = self._cr
-				kwargs['pool'] = self._pool
-				kwargs['uid'] = self._uid
-				
+			if callable(method):				
 				if len(args) > 1 and type(args[1]) == dict:
-					for key in args[1].keys():
-						kwargs[key] = args[1][key]
+					kwargs = args[1]
 		
 				rmsg.extend(method(**kwargs))
 			else:
@@ -60,16 +54,15 @@ class Uis(Component):
 
 		return rmsg
 
-	def action(self,cr,pool,uid,action_id,context):
-		return run(cr,pool,uid,action_id,context)
+	def action(self,action_id,context):
+		self._cr.rollback()
+		return run(self._pool,action_id,context)
 	
-	def get_view_by_name_v2(self,cr,pool,uid,name,):
-		return get_view_by_name_v2(cr,pool,uid,name)
+	def get_view_by_name_v2(self,name,context):
+		return get_view_by_name_v2(self._pool,name)
 	
-	def get_meta_of_models_v2(self,cr,pool,uid,model,context):
-		return [get_meta_of_models_v2(cr,pool,uid,model,context)]
+	def get_meta_of_models_v2(self,model,context):
+		return [get_meta_of_models_v2(self._pool,model,context)]
 		
-	def menu(self,cr,pool,uid,context={}):
-		model = pool.get('bc.ui.menus')
-		tuid = self._session._mcache(['open',{'mode':'select','context':{}}])[0]
-		return menu(model,tuid,context)
+	def menu(self,context={}):
+		return menu(self._pool,context)

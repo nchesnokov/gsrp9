@@ -48,18 +48,11 @@ class Models(Component):
 		model = self._pool.get(args[0])
 		method = getattr(model,args[1])
 		if callable(method):
-	
 			if len(args) > 2 and type(args[2]) == dict:
 				kwargs = args[2]
-				context = {}
+				if  'context' not in kwargs:
+					kwargs['context'] = {}
 				
-				if  'context' in kwargs:
-					context = kwargs['context']
-				
-				if 'cache' in context:
-					kwargs['uid'] = kwargs['context']['cache']
-				else:
-					kwargs['uid'] = self._session._mcache(['open',{'mode':args[1],'context':kwargs['context']}])[0]
 				rmsg.extend(method(**kwargs))
 
 		return rmsg 

@@ -172,8 +172,7 @@ class User(object):
 						self._wizards[key] = wizards[key]  
 						self._wizards[key]._session = self  
 	
-					tuid = self._mcache(['open',{'mode':'select','context':{}}])[0]
-					return [self._connected,self._uid,{'country_timezones':dict(pytz.country_timezones),'country_names':dict(pytz.country_names),'langs':self._models.get('bc.langs').select(tuid,['code','description']),'preferences':self._models.get('bc.user.preferences').select(tuid,['user_id','lang','country','timezone'])}]
+					return [self._connected,self._uid,{'country_timezones':dict(pytz.country_timezones),'country_names':dict(pytz.country_names),'langs':self._models.get('bc.langs').select(['code','description']),'preferences':self._models.get('bc.user.preferences').select(['user_id','lang','country','timezone'])}]
 				else:
 					return [False,'Invalid username or password']
 		

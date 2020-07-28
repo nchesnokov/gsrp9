@@ -589,7 +589,7 @@ def Read(self,ids,fields,context):
 		_values = [tuple(ids)]
 	return _sql,_values
 #tested
-def Select(self, fields, cond, context, limit, offset):
+def Select(self, fields, cond, context, limit = None, offset = None):
 	_fields = ['id']
 	info = self.modelInfo()
 	pool = self._pool

@@ -253,64 +253,82 @@ class BaseModel(object, metaclass = MetaModel):
 						# res.update(r)
 	
 		return res
+
+	def _getCacheID(self,mode,context):
+				if 'cache' in context:
+					return context['cache']
+				else:
+					return self._session._mcache(['open',{'mode':mode,'context':context}])[0]
 		
 
-	def read(self,uid,ids,fields=None,context={}):
+	def read(self,ids,fields=None,context={}):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('read',context)
 			return getattr(self._session._cache[uid],'_read')(self,ids,fields,context)
 
-	def write(self,uid,records,context={}):
+	def write(self,records,context={}):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('write',context)
 			return getattr(self._session._cache[uid],'_write')(self,records,context)
 
-	def modify(self,uid,records,context={}):
+	def modify(self,records,context={}):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('modify',context)
 			return getattr(self._session._cache[uid],'_modify')(self,records,context)
 
-	def create(self,uid,records,context={}):
+	def create(self,records,context={}):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('create',context)
 			return getattr(self._session._cache[uid],'_create')(self,records,context)
 
-	def unlink(self,uid,ids,context={}):
+	def unlink(self,ids,context={}):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('unlink',context)
 			return getattr(self._session._cache[uid],'_unlink')(self,ids,context)
 
-	def select(self,uid,fields = None ,cond = None, context = {}, limit = None, offset = None):
+	def select(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('select',context)
 			return getattr(self._session._cache[uid],'_select')(self,fields, cond, context, limit, offset)
-			#rc = method(self,fields, cond, context, limit, offset)
-			#return rc
 
-	def update(self,uid,record, cond = None,context = {}):
+	def update(self,record, cond = None,context = {}):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('update',context)
 			return getattr(self._session._cache[uid],'_update')(self,record,cond,context)
 
-	def upsert(self,uid,fields, values,context = {}):
+	def upsert(self,fields, values,context = {}):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('upsert',context)
 			return getattr(self._session._cache[uid],'_upsert')(self,fields, values,context )
 
-	def insert(self,uid,fields, values,context = {}):
+	def insert(self,fields, values,context = {}):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('insert',context)
 			return getattr(self._session._cache[uid],'_insert')(self,fields, values,context )
 
-	def delete(self,uid,cond,context = {}):
+	def delete(self,cond,context = {}):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('delete',context)
 			return getattr(self._session._cache[uid],'_delete')(self,cond,context )
 
-	def count(self,uid,cond = None, context = {}):
+	def count(self,cond = None, context = {}):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('count',context)
 			return getattr(self._session._cache[uid],'_count')(self,cond, context)
 
-	def search(self,uid, cond = None, context = {}, limit = None, offset = None):
+	def search(self,cond = None, context = {}, limit = None, offset = None):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('search',context)
 			return getattr(self._session._cache[uid],'_search')(self,cond, context, limit, offset)
 
-	def tree(self,uid,fields = None ,parent = None, context = {}):
+	def tree(self,fields = None ,parent = None, context = {}):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('tree',context)
 			return getattr(self._session._cache[uid],'_tree')(self,fields,parent, context)
 
-	def browse(self,uid,ids,fields=None,context={}):
+	def browse(self,ids,fields=None,context={}):
 		if hasattr(self,'_session'):
+			uid = self._getCacheID('browse',context)
 			return getattr(self._session._cache[uid],'_browse')(self,ids,fields,context)
 
 	@property
