@@ -9,6 +9,7 @@ import ctypes
 import json
 from deepdiff.diff import DeepDiff
 from gsrp5service.orm import gensql
+from gsrp5service.orm.mm import browse_record, browse_record_list,browse_null
 from gsrp5service.orm.common import MAGIC_COLUMNS
 from datetime import datetime,date,time
 import time as tm
@@ -83,7 +84,7 @@ def _do_checks(self, record, context = {}):
 		for check in self._checks:
 			method = getattr(self,check,None)
 			if method and callable(method):
-				res[check] = method(cr,record,context)
+				res[check] = method(record,context)
 				results.append(res)
 	elif type(record) in (list,tuple):
 		result = []
@@ -239,9 +240,9 @@ def _createRecord(self, record, context):
 		trg11(**kwargs)
 
 	sql,vals = gensql.Create(self, record, context)
-	cr.execute(sql,vals)
-	if cr.cr.rowcount > 0:
-		oid = cr.fetchone()[0]
+	rowcount = self._execute(sql,vals)
+	if rowcount > 0:
+		oid = self._cr.fetchone()[0]
 
 	trg2 = self._getTriger('air')
 	for trg22 in trg2:
@@ -386,7 +387,7 @@ def _modifyRecord(self, record, context):
 		if 'id' in record and record['id']:
 			ctx = context.copy()
 			ctx['FETCH'] = 'RAW'
-			record21 = self.read(cr, pool, uid, record['id'], self._selectablefields, ctx)
+			record21 = self.read(record['id'], self._selectablefields, ctx)
 
 			if len(record21) > 0:
 				record2 = record21[0]
@@ -412,18 +413,18 @@ def _modifyRecord(self, record, context):
 	
 		if record2 is None or len(upd_cols) > 0:
 			for trg11 in trg1:
-				kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record2,'context':context}
+				kwargs = {'r1':record,'r2':record2,'context':context}
 				trg11(**kwargs)
 		
-	sql,vals = gensql.Modify(self,pool,uid,self.modelInfo(), record, context)
-	cr.execute(sql,vals)
-	if cr.cr.rowcount > 0:
-		oid = cr.fetchone()[0]
+	sql,vals = gensql.Modify(self, record, context)
+	rowcount = self._execute(sql,vals)
+	if rowcount > 0:
+		oid = self._cr.fetchone()[0]
 
 	if record2 is None or len(upd_cols) > 0:
 		trg2 = self._getTriger('aur')
 		for trg22 in trg2:
-			kwargs = {'cr':cr,'pool':pool,'uid':uid,'r1':record,'r2':record2,'context':context}
+			kwargs = {'r1':record,'r2':record2,'context':context}
 			trg22(**kwargs)
 
 	return oid
@@ -443,7 +444,7 @@ def _unlinkRecord(self, record, context = {}):
 		id2 = columns_info[m2mfield]['id2']
 
 		if not id2:
-			id2 = _m2mfieldid2(pool,obj,rel)
+			id2 = _m2mfieldid2(self._pool,obj,rel)
 
 		rels = []
 
@@ -455,7 +456,7 @@ def _unlinkRecord(self, record, context = {}):
 	sql,vals = gensql.Unlink(self,[record['id']],context)
 	rowcount = self._execute(sql,vals)
 	if rowcount > 0:
-		oid = cr.fetchone()[0]
+		oid = self._cr.fetchone()[0]
 
 	trg2 = self._getTriger('adr')
 	for trg22 in trg2:
@@ -488,9 +489,9 @@ def count(self, cond = None, context = {}):
 	rowcount = self._execute(sql,vals)
 	if rowcount > 0:
 		if fetch == "LIST":
-			res.extend(cr.fetchone(['count'], {'count':'integer'})) 
+			res.extend(self._cr.fetchone(['count'], {'count':'integer'})) 
 		elif fetch == "DICT":
-			res.extend(cr.dictfetchone(['count'], {'count':'integer'})) 
+			res.extend(self._cr.dictfetchone(['count'], {'count':'integer'})) 
 	return res
 	
 #tested
@@ -521,9 +522,9 @@ def search(self, cond = None, context = {}, limit = None, offset = None):
 	rowcount = self._execute(sql,vals)
 	if rowcount > 0:
 		if fetch == "LIST":
-			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+			res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
 		elif fetch == "DICT":
-			res.extend(list(map(lambda x: x['id'],cr.dictfetchall()))) 
+			res.extend(list(map(lambda x: x['id'],self._cr.dictfetchall()))) 
 	return res
 
 def _read(self, ids, fields = None, context = {}):
@@ -556,7 +557,7 @@ def _read(self, ids, fields = None, context = {}):
 	for i in range(count):
 		j = i * MAX_CHUNK_READ
 		chunk_ids = ids[j:j + MAX_CHUNK_READ]
-		sql,vals = gensql.Read(self,chunk_oids,rowfields,context)
+		sql,vals = gensql.Read(self,chunk_ids,rowfields,context)
 		rowcount = self._execute(sql,vals)
 		if rowcount > 0:
 			selectablefields = list(filter(lambda x: x in fields,self._selectablefields))
@@ -568,7 +569,7 @@ def _read(self, ids, fields = None, context = {}):
 				fds = list(filter(lambda x: type(x) == dict,fields))
 				dictfields = {}
 				for fd in fds:
-					 dictfields.update(fd)
+					dictfields.update(fd)
 
 				recname = self._getRecNameName()
 				if recname and recname in record:
@@ -585,7 +586,7 @@ def _read(self, ids, fields = None, context = {}):
 						m2mfields[m2mfield] = dictfields[m2mfield]
 
 				for o2mfield in o2mfields:
-					record[o2mfield] = _o2m_read(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
+					record[o2mfield] = _o2mread(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
 	
 				for m2mfield in m2mfields:
 					record[m2mfield] = _m2m_read(self,record['id'],m2mfields[m2mfield],context)
@@ -610,7 +611,7 @@ def _read(self, ids, fields = None, context = {}):
 				fds = list(filter(lambda x: type(x) == dict,fields))
 				dictfields = {}
 				for fd in fds:
-					 dictfields.update(fd)
+					dictfields.update(fd)
 
 				recname = self._getRecNameName()
 				if recname and recname in record:
@@ -627,7 +628,7 @@ def _read(self, ids, fields = None, context = {}):
 						m2mfields[m2mfield] = dictfields[m2mfield]
 
 				for o2mfield in o2mfields:
-					record[o2mfield] = _o2m_read(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
+					record[o2mfield] = _o2mread(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
 	
 				#for m2mfield in m2mfields:
 					#record[m2mfield] = _m2m_read(self,record['id'],m2mfields[m2mfield],context)
@@ -676,7 +677,7 @@ def _select(self, fields = None ,cond = None, context = {}, limit = None, offset
 			fds = list(filter(lambda x: type(x) == dict,fields))
 			dictfields = {}
 			for fd in fds:
-				 dictfields.update(fd)
+				dictfields.update(fd)
 
 			recname = self._getRecNameName()
 			if recname and recname in record:
@@ -693,7 +694,7 @@ def _select(self, fields = None ,cond = None, context = {}, limit = None, offset
 					m2mfields[m2mfield] = dictfields[m2mfield]
 
 			for o2mfield in o2mfields:
-				record[o2mfield] = _o2m_read(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
+				record[o2mfield] = _o2mread(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
 
 			for m2mfield in m2mfields:
 				record[m2mfield] = _m2m_read(self._pool[self._columns[o2mfield].obj],oid,m2mfields[m2mfield],context)
@@ -731,7 +732,7 @@ def unlink(self, ids, context = {}):
 		id2 = columns_info[m2mfield]['id2']
 
 		if not id2:
-			id2 = _m2mfieldid2(pool,obj,rel)
+			id2 = _m2mfieldid2(self._pool,obj,rel)
 
 		rels = []
 		#for oid in ids:
@@ -739,12 +740,12 @@ def unlink(self, ids, context = {}):
 
 	trg1 = self._getTriger('bdr')
 	for trg11 in trg1:
-		kwargs = {'oid':oid,'context':context}
+		kwargs = {'oid':ids,'context':context}
 		trg11(**kwargs)
 
 	trg2 = self._getTriger('bd')
 	for trg22 in trg2:
-		kwargs = {'oid':oid,'context':context}
+		kwargs = {'oid':ids,'context':context}
 		trg22(**kwargs)
 
 	length = len(ids)
@@ -753,27 +754,27 @@ def unlink(self, ids, context = {}):
 	for i in range(count):
 		j = i * MAX_CHUNK_DELETE
 		chunk_ids = ids[j:j + MAX_CHUNK_DELETE]
-		sql,vals = gensql.Unlink(self,pool,uid,self.modelInfo(),chunk_ids,context)
-		cr.execute(sql,vals)
-		if cr.cr.rowcount > 0:
-			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+		sql,vals = gensql.Unlink(self,chunk_ids,context)
+		rowcount = self._execute(sql,vals)
+		if rowcount > 0:
+			res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
 	if chunk > 0:
 		j = count * MAX_CHUNK_DELETE
 		chunk_ids = ids[j:]
-		sql,vals = gensql.Unlink(self,pool,uid,self.modelInfo(),chunk_ids,context)
-		cr.execute(sql,vals)
-		if cr.cr.rowcount > 0:
-			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+		sql,vals = gensql.Unlink(self,chunk_ids,context)
+		rowcount = self._execute(sql,vals)
+		if rowcount > 0:
+			res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
 
 
 	trg3 = self._getTriger('adr')
 	for trg33 in trg3:
-		kwargs = {'oid':oid,'context':context}
+		kwargs = {'oid':ids,'context':context}
 		trg33(**kwargs)
 
 	trg4 = self._getTriger('ad')
 	for trg44 in trg4:
-		kwargs = {'oid':oid,'context':context}
+		kwargs = {'oid':ids,'context':context}
 		trg44(**kwargs)
 
 	return res
@@ -865,7 +866,7 @@ def modify(self, records, context = {}):
 		return _modifyRecords(self, records, context)
 
 	elif type(records) == dict:
-		return [_modifyRecord(self, record, context)]
+		return [_modifyRecord(self, records, context)]
 	
 def update(self, record, cond = None,context = {}):
 	if not self._access._checkUpdate():
@@ -985,18 +986,18 @@ def insert(self, fields, values,context = {}):
 						for _o2mvalue in _o2mvalues:
 							_o2mvalue[_idx] = r[0]
 						if len(_o2mvalues) > 0:
-							pool.get(obj).insert(_o2mfields, _o2mvalues,context)
+							self._pool.get(obj).insert(_o2mfields, _o2mvalues,context)
 
 			for m2mfield in m2mfields:
 				columninfo = columnsinfo[m2mfield]
 				obj = columninfo['obj']
-				rel = getName(columninfo['rel'])
+				rel = self._getName(columninfo['rel'])
 				rels = values[fm[key]]
-				id1 = getName(columninfo['id1'])
+				id1 = self._getName(columninfo['id1'])
 				if columninfo['id2']:
-					id2 = getName(columninfo['id2'])
+					id2 = self._getName(columninfo['id2'])
 				else:
-					id2 = _m2mfieldid2(pool,obj,rel)
+					id2 = _m2mfieldid2(self._pool,obj,rel)
 		
 				oid = r[0]
 				if len(rels) > 0:
@@ -1101,18 +1102,18 @@ def upsert(self, fields, values,context = {}):
 						for _o2mvalue in _o2mvalues:
 							_o2mvalue[_o2mfield] = r[0]
 						if len(_o2mvalues) > 0:
-							pool.get(obj).upsert(_o2mfields, _o2mvalues,context)
+							self._pool.get(obj).upsert(_o2mfields, _o2mvalues,context)
 
 			for m2mfield in m2mfields:
 				columninfo = columnsinfo[m2mfield]
 				obj = columninfo['obj']
-				rel = getName(columninfo['rel'])
+				rel = self._getName(columninfo['rel'])
 				rels = values[fm[key]]
-				id1 = getName(columninfo['id1'])
+				id1 = self._getName(columninfo['id1'])
 				if columninfo['id2']:
-					id2 = getName(columninfo['id2'])
+					id2 = self._getName(columninfo['id2'])
 				else:
-					id2 = _m2mfieldid2(pool,obj,rel)
+					id2 = _m2mfieldid2(self._pool,obj,rel)
 		
 				oid = r[0]
 				_m2mmodify(self,rel,id1,id2,oid,rels,context)
@@ -1138,7 +1139,7 @@ def browse(self, ids, fields = None, context = {}):
 	brl = browse_record_list()
 	
 	for r in _read(self, ids, fields, context):
-		brl.append(browse_record(uid,r))
+		brl.append(browse_record(self._uid,r))
 
 	if len(brl) == 0:
 		return browse_null()
@@ -1152,7 +1153,7 @@ def selectbrowse(self, fields = None ,cond = None, context = {}, limit = None, o
 	brl = browse_record_list()
 
 	for r in _select(self, fields, cond, context, limit, offset):
-		brl.append(browse_record(uid,r))
+		brl.append(browse_record(self._uid,r))
 
 	if len(brl) == 0:
 		return browse_null()
@@ -1161,7 +1162,7 @@ def selectbrowse(self, fields = None ,cond = None, context = {}, limit = None, o
 
 # Other end
 
-def _o2m_read(self, oid, field,fields, context):
+def _o2mread(self, oid, field,fields, context):
 	res = []
 	#web_pdb.set_trace()
 	modelinfo = self.modelInfo()
@@ -1196,7 +1197,7 @@ def _o2m_read(self, oid, field,fields, context):
 					m2mfields[m2mfield] = fields[m2mfield]
 
 			for o2mfield in o2mfields:
-				record[o2mfield] = _o2m_read(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,dictfields[o2mfield],context)
+				record[o2mfield] = _o2mread(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,dictfields[o2mfield],context)
 
 			for m2mfield in m2mfields:
 				record[m2mfield] = _m2m_read(self._pool[self._columns[o2mfield].obj],oid,m2mfield,dictfields[m2mfield],context)
@@ -1235,7 +1236,7 @@ def _o2mread_1(self, cr, pool, uid, oid, field, fields, context,limit,offset):
 
 	return res
 
-def _m2m_read(self, oid, fields, context):
+def _m2m_read(self, oid, field, fields, context):
 	res = []
 	ids = []
 
@@ -1247,11 +1248,11 @@ def _m2m_read(self, oid, fields, context):
 	id1 = columninfo['id1']
 	id2 = columninfo['id2']
 	if not id2:
-		id2 = self._m2mfieldid2(pool,obj,rel)
-	rowcount = self_.execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
+		id2 = self._m2mfieldid2(self._pool,obj,rel)
+	rowcount = self._execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
 	if rowcount > 0:
 		if len(fields) > 0:
-			ids.extend(list(map(lambda x: x[2],cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})))) 
+			ids.extend(list(map(lambda x: x[2],self._cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})))) 
 			if len(ids) > 0:
 				res.extend(self._pool.get(obj).read(ids, fields, context))
 		else:
@@ -2463,7 +2464,7 @@ class MCache(object):
 		return insert(model,fields, values,context )
 
 	def _delete(self,model,cond,context = {}):
-		return _delete(model,cond,context )
+		return delete(model,cond,context )
 
 	def _count(self,model,cond = None, context = {}):
 			return count(model,cond, context)
@@ -2478,7 +2479,7 @@ class MCache(object):
 			return browse(model,ids,fields,context)
 
 	def _selectbrowse(self,model, fields = None ,cond = None, context = {}, limit = None, offset = None):
-			return browse(model,fields,cond,context,limit,offset)
+			return selectbrowse(model,fields,cond,context,limit,offset)
 
 # model method
 
@@ -2613,7 +2614,7 @@ class MCache(object):
 					item[k] = Decimal(_default[k])
 				elif m1[k]['type'] in ('many2one','related'):
 					item[k]['name'] = _default[k]
-					oids = self._pool.get(m1[k]['obj']).search(self._cr,self._pool,self._uid,[(self._pool.get(m1[k]['obj'])._getRecNameName(),'=',_default[k])],self._context)
+					oids = self._pool.get(m1[k]['obj']).search([(self._pool.get(m1[k]['obj'])._getRecNameName(),'=',_default[k])],self._context)
 					if len(oids) > 0:
 						item[k]['id'] = oids[0] 
 				else:

@@ -629,6 +629,7 @@ def Select(self, fields, cond, context, limit = None, offset = None):
 #tested
 def Search(self, cond, context, limit, offset):
 	info  = self.modelInfo()
+	pool = self._pool
 	_f = fields_from_order_by(self)
 	
 	_fields = fields_clause_select(_f).split(',')
@@ -658,6 +659,7 @@ def Search(self, cond, context, limit, offset):
 #tested
 def Count(self,cond,context):
 	info  = self.modelInfo()
+	pool = self._pool
 	_fields = fields_clause_select().split(',')
 
 # Parses
