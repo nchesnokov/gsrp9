@@ -331,6 +331,11 @@ class BaseModel(object, metaclass = MetaModel):
 			uid = self._getCacheID('browse',context)
 			return getattr(self._session._cache[uid],'_browse')(self,ids,fields,context)
 
+	def selectbrowse(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		if hasattr(self,'_session'):
+			uid = self._getCacheID('selectbrowse',context)
+			return getattr(self._session._cache[uid],'_selectbrowse')(self, fields ,cond, context , limit, offset )
+
 	@property
 	def _columnsmeta(self):
 		r = {}

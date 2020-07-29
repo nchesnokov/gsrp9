@@ -62,6 +62,41 @@ def _join_diffs(d1,d2):
 			for k21 in d2[k2].keys():
 				d1.setdefault(k2,{})[k21].update(d2[k2][k21])
 
+def _gen_record(fields,value):
+	record = {}
+	for idx,field in enumerate(fields):
+		record[field] = value[idx]
+
+	return record
+
+def _gen_records(fields,values):
+	records = []
+	for value in values:
+		records.append(_gen_record(fields,value))
+
+	return records
+
+def _do_checks(self, record, context = {}):
+	results = []
+	if type(record) == dict:
+		res = {} 			
+		for check in self._checks:
+			method = getattr(self,check,None)
+			if method and callable(method):
+				res[check] = method(cr,record,context)
+				results.append(res)
+	elif type(record) in (list,tuple):
+		result = []
+		for r in record:
+			res = {}
+			for check in self._checks:
+				method = getattr(self,check,None)
+				if method and callable(method):
+					res[check] = method(r,context)
+					result.append(res)
+			results.append(result)
+	return results
+
 def _conv_dict_to_list_records(self,fields,records,context):
 	rows = []
 	for record in records:
@@ -157,6 +192,25 @@ def _fetch_results(self,fields,context):
 
 	return res
 
+def _createRecords(self, records, context):
+	res = []
+
+	trg1 = self._getTriger('bi')
+	for trg11 in trg1:
+		kwargs = {'r1':records,'context':context}
+		trg11(**kwargs)
+
+	for record in records:
+		oid = _createRecord(self, record, context)		
+		res.append(oid)
+
+	trg2 = self._getTriger('ai')
+	for trg22 in trg2:
+		kwargs = {'r1':records,'context':context}
+		trg22(**kwargs)
+
+	return res
+
 def _createRecord(self, record, context):
 	oid = None
 
@@ -195,6 +249,24 @@ def _createRecord(self, record, context):
 		trg22(**kwargs)
 
 	return oid
+
+def _writeRecords(self, records, context):
+	res = []
+
+	trg1 = self._getTriger('bu')
+	for trg11 in trg1:
+		kwargs = {'r1':records,'r2':records,'context':context}
+		trg11(**kwargs)
+
+	for record in records:
+		res.append(_writeRecord(self, record, context))		
+
+	trg2 = self._getTriger('au')
+	for trg22 in trg2:
+		kwargs = {'r1':records,'r2':records,'context':context}
+		trg22(**kwargs)
+
+	return res
 
 def _writeRecord(self, record, context):
 	oid = None
@@ -263,6 +335,25 @@ def _writeRecord(self, record, context):
 				trg22(**kwargs)
 
 	return oid
+
+def _modifyRecords(self, records, context):
+	res = []
+
+	trg1 = self._getTriger('bu')
+	for trg11 in trg1:
+		kwargs = {'r1':records,'r2':records,'context':context}
+		trg11(**kwargs)
+
+	for record in records:
+		oid = _modifyRecord(self, record, context)
+		res.append(oid)
+
+	trg2 = self._getTriger('au')
+	for trg22 in trg2:
+		kwargs = {'r1':records,'r2':records,'context':context}
+		trg22(**kwargs)
+
+	return res
 
 def _modifyRecord(self, record, context):
 	oid = None
@@ -617,6 +708,459 @@ def select(self,fields = None ,cond = None, context = {}, limit = None, offset =
 	
 	return _select(self,  fields, cond, context, limit, offset)
 
+# Other start
+def unlink(self, ids, context = {}):
+	if not self._access._checkUnlink():
+		orm_exception("Unlink:access dennied of model % s" % (self._name,))
+
+	res = []
+	if 'LANG' not in context:
+		context['LANG'] = os.environ['LANG']
+	if 'TZ' not in context:
+		context['TZ'] = tm.tzname[1]
+	if type(ids)  == str:
+		ids = [ids]
+
+	model_info = self.modelInfo(attributes=['type','rel','obj','id1','id2'])
+	columns_info = model_info['columns']
+	m2mfields = list(filter(lambda x: columns_info[x]['type'] == 'many2many',self._columns.keys()))
+	for m2mfield in m2mfields:
+		rel = columns_info[m2mfield]['rel']
+		obj = columns_info[m2mfield]['obj']
+		id1 = columns_info[m2mfield]['id1']
+		id2 = columns_info[m2mfield]['id2']
+
+		if not id2:
+			id2 = _m2mfieldid2(pool,obj,rel)
+
+		rels = []
+		#for oid in ids:
+			#_m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+
+	trg1 = self._getTriger('bdr')
+	for trg11 in trg1:
+		kwargs = {'oid':oid,'context':context}
+		trg11(**kwargs)
+
+	trg2 = self._getTriger('bd')
+	for trg22 in trg2:
+		kwargs = {'oid':oid,'context':context}
+		trg22(**kwargs)
+
+	length = len(ids)
+	count = int(length/MAX_CHUNK_DELETE)
+	chunk = length % MAX_CHUNK_DELETE
+	for i in range(count):
+		j = i * MAX_CHUNK_DELETE
+		chunk_ids = ids[j:j + MAX_CHUNK_DELETE]
+		sql,vals = gensql.Unlink(self,pool,uid,self.modelInfo(),chunk_ids,context)
+		cr.execute(sql,vals)
+		if cr.cr.rowcount > 0:
+			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+	if chunk > 0:
+		j = count * MAX_CHUNK_DELETE
+		chunk_ids = ids[j:]
+		sql,vals = gensql.Unlink(self,pool,uid,self.modelInfo(),chunk_ids,context)
+		cr.execute(sql,vals)
+		if cr.cr.rowcount > 0:
+			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+
+
+	trg3 = self._getTriger('adr')
+	for trg33 in trg3:
+		kwargs = {'oid':oid,'context':context}
+		trg33(**kwargs)
+
+	trg4 = self._getTriger('ad')
+	for trg44 in trg4:
+		kwargs = {'oid':oid,'context':context}
+		trg44(**kwargs)
+
+	return res
+
+def delete(self, cond, context = {}):
+	if not self._access._checkDelete():
+		orm_exception("Delete:access dennied of model % s" % (self._name,))
+
+	res = []
+	oids = search(self, cond, context)
+	if len(oids) > 0:
+		res = unlink(self, oids, context)
+	
+	return res
+
+def create(self, records, context = {}):
+	if not self._access._checkCreate():
+		orm_exception("Create:access dennied of model % s" % (self._name,))
+
+	checks = _do_checks(self,  records, context)
+	if type(records) == dict:
+		for check in checks:
+			for key in check.keys():
+				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+					orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
+	elif type(records) in (list,tuple):
+		for ch in checks:
+			for check in ch:
+				for key in check.keys():
+					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+						orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
+
+	if 'LANG' not in context:
+		context['LANG'] = os.environ['LANG']
+	if 'TZ' not in context:
+		context['TZ'] = tm.tzname[1]
+
+	if type(records) in (list,tuple):
+		return _createRecords(self, records, context)
+
+	elif type(records) == dict:
+		return [_createRecord(self, records, context)]
+
+def write(self, records, context = {}):
+	if not self._access._checkWrite():
+		orm_exception("Write:access dennied of model % s" % (self._name,))
+
+	checks = _do_checks(self, records, context)
+	for ch in checks:
+		for check in ch:
+			for key in check.keys():
+				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+					orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
+
+	if 'LANG' not in context:
+		context['LANG'] = os.environ['LANG']
+	if 'TZ' not in context:
+		context['TZ'] = tm.tzname[1]
+
+	if type(records) in (list,tuple):
+		return _writeRecords(self, records,context)
+
+	elif type(records) == dict:
+		return [_writeRecord(self, records, context)]
+
+def modify(self, records, context = {}):
+	if not self._access._checkModify():
+		orm_exception("Modify:access dennied of model % s" % (self._name,))
+
+	checks = _do_checks(self, records, context)
+	if type(records) == dict:
+		for check in checks:
+			for key in check.keys():
+				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+					orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
+	elif type(records) in (list,tuple):
+		for ch in checks:
+			for check in ch:
+				for key in check.keys():
+					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+						orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
+
+	if 'LANG' not in context:
+		context['LANG'] = os.environ['LANG']
+	if 'TZ' not in context:
+		context['TZ'] = tm.tzname[1]
+
+	if type(records) in (list,tuple):
+		return _modifyRecords(self, records, context)
+
+	elif type(records) == dict:
+		return [_modifyRecord(self, record, context)]
+	
+def update(self, record, cond = None,context = {}):
+	if not self._access._checkUpdate():
+		orm_exception("Update:access dennied of model % s" % (self._name,))
+
+	res = []
+	fields = list(record.keys())
+	if 'LANG' not in context:
+		context['LANG'] = os.environ['LANG']
+	if 'TZ' not in context:
+		context['TZ'] = tm.tzname[1]
+	if cond is None:
+		cond = []
+	
+	fields = list(record.keys())
+	recs = search(self, cond, context)
+	_fields =[]
+	_fields.extend(fields)
+	_fields.append('id')
+	
+	values = []
+	_value = []
+	for idx,field in enumerate(fields):
+		_value.append(record[field])
+
+	for rec in recs:
+		value = []
+		value.extend(_value)
+		#value.append(rec['id'])
+		value.append(rec)
+		values.append(value)
+		
+	res = upsert(self,  _fields, values,context)
+	return res
+
+#testing
+def insert(self, fields, values,context = {}):
+	if not self._access._checkInsert():
+		orm_exception("Insert:access dennied of model % s" % (self._name,))
+
+	checks = _do_checks(self, _gen_records(fields,values), context)
+	if type(checks) == dict:
+		for check in checks:
+			for key in check.keys():
+				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+					orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
+	elif type(checks) in (list,tuple):
+		for ch in checks:
+			for check in ch:
+				for key in check.keys():
+					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+						orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
+
+
+	storecomputefields = list(filter(lambda x: x in fields, self._storecomputefields))
+	if len(storecomputefields) > 0:
+		for value in values:
+			_computes = self._compute(storecomputefields,_gen_record(fields,value))
+			for f in enumerate(fields):
+				if f[1] in _computes:
+					value[f[0]] = _computes[f[1]]
+	
+	nosavedfields = list(filter(lambda x: x in fields, self._nosavedfields))
+	if len(nosavedfields) > 0:	
+		for v in values:
+			_v = []
+			for idx,f in enumerate(fields):
+				if f in nosavedfields:
+					continue
+				_v.append(v[1][idx])
+			v[1] = []
+			v[1].extend(_v)
+			
+	_fields = list(filter(lambda x: not x in nosavedfields,fields))
+
+	res = []
+	if 'LANG' not in context:
+		context['LANG'] = os.environ['LANG']
+	if 'TZ' not in context:
+		context['TZ'] = tm.tzname[1]
+
+	trg1 = self._getTriger('bir')
+	for trg11 in trg1:
+		for value in values:
+			kwargs = {'r1':_gen_record(fields,value),'context':context}
+			trg11(**kwargs)
+
+
+	trg2 = self._getTriger('bi')
+	for trg22 in trg2:
+		kwargs = {'r1':_gen_records(fields,values),'context':context}
+		trg22(**kwargs)
+
+	sql,vals = gensql.Insert(self, _fields, values, context)
+	rowcount = self._execute(sql,vals)
+	if rowcount > 0:
+		res.extend(self._cr.fetchall()) 
+		info = self.modelInfo()
+		columnsinfo = info['columns']
+		fm = {}
+		o2mfields = list(filter(lambda x: x in fields,self._o2mfields))
+		m2mfields = list(filter(lambda x: x in fields,self._m2mfields))
+		computefields = self._computefields
+		for idx,field in enumerate(fields):
+			if not field in MAGIC_COLUMNS and columnsinfo[field]['type'] in ('one2many','one2related','many2many'):
+				fm[field] = idx
+		for r in res:
+			for o2mfield in o2mfields:
+				columninfo = columnsinfo[o2mfield]
+				_o2mfields = values[fm[o2mfield]]['fields'] 
+				_o2mvalues = values[fm[o2mfield]]['values'] 
+				obj = columninfo['obj']
+				rel = columninfo['rel']
+				
+				for _idx,_o2mfield in enumerate(_o2mfields):
+					if _o2mfield == rel:
+						for _o2mvalue in _o2mvalues:
+							_o2mvalue[_idx] = r[0]
+						if len(_o2mvalues) > 0:
+							pool.get(obj).insert(_o2mfields, _o2mvalues,context)
+
+			for m2mfield in m2mfields:
+				columninfo = columnsinfo[m2mfield]
+				obj = columninfo['obj']
+				rel = getName(columninfo['rel'])
+				rels = values[fm[key]]
+				id1 = getName(columninfo['id1'])
+				if columninfo['id2']:
+					id2 = getName(columninfo['id2'])
+				else:
+					id2 = _m2mfieldid2(pool,obj,rel)
+		
+				oid = r[0]
+				if len(rels) > 0:
+					_m2mcreate(self,rel,id1,id2,oid,rels,context)
+
+
+	trg3 = self._getTriger('air')
+	for trg33 in trg3:
+		for value in values:
+			kwargs = {'r1':_gen_records(fields,values),'context':context}
+			trg33(**kwargs)
+
+
+	trg4 = self._getTriger('ai')
+	for trg44 in trg4:
+		kwargs = {'r1':_gen_records(fields,values),'context':context}
+		trg44(**kwargs)
+
+	return res
+
+#testing
+def upsert(self, fields, values,context = {}):
+	if not self._access._checkUpsert():
+		orm_exception("Upsert:access dennied of model % s" % (self._name,))
+
+	checks = _do_checks(self, _gen_records(fields,values), context)
+	if type(checks) == dict:
+		for check in checks:
+			for key in check.keys():
+				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+					orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
+	elif type(checks) in (list,tuple):
+		for ch in checks:
+			for check in ch:
+				for key in check.keys():
+					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+						orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
+
+	storecomputefields = list(filter(lambda x: x in fields, self._storecomputefields))
+	if len(storecomputefields) > 0:
+		for value in values:
+			_computes = self._compute(storecomputefields,_gen_record(fields,value))
+			for f in enumerate(fields):
+				if f[1] in _computes:
+					value[f[0]] = _computes[f[1]]
+	
+	nosavedfields = list(filter(lambda x: x in fields, self._nosavedfields))
+	if len(nosavedfields) > 0:	
+		for v in values:
+			_v = []
+			for idx,f in enumerate(fields):
+				if f in nosavedfields:
+					continue
+				_v.append(v[1][idx])
+			v[1] = []
+			v[1].extend(_v)
+			
+		fields = list(filter(lambda x: not x in nosavedfields,fields))
+
+	res = []
+	if 'LANG' not in context:
+		context['LANG'] = os.environ['LANG']
+	if 'TZ' not in context:
+		context['TZ'] = tm.tzname[1]
+
+
+	trg1 = self._getTriger('bir')
+	for trg11 in trg1:
+		for value in values:
+			kwargs = {'r1':_gen_record(fields,value),'context':context}
+			trg11(**kwargs)
+
+
+	trg2 = self._getTriger('bi')
+	for trg22 in trg2:
+		kwargs = {'r1':_gen_records(fields,values),'context':context}
+		trg22(**kwargs)
+
+	sql,vals = gensql.Upsert(self, fields, values, context)
+	rowcount = self._.execute(sql,vals)
+	if rowcount > 0:
+		res.extend(self._cr.fetchall()) 
+		info = self.modelInfo()
+		columnsinfo = info['columns']
+		fm = {}
+		o2mfields = list(filter(lambda x: x in fields,self._o2mfields))
+		m2mfields = list(filter(lambda x: x in fields,self._m2mfields))
+		computefields = self._computefields
+		for idx,field in enumerate(fields):
+			if not field in MAGIC_COLUMNS and columnsinfo[field]['type'] in ('one2many','one2related','many2many'):
+				fm[field] = idx
+		for r in res:
+			for o2mfield in o2mfields:
+				columninfo = columnsinfo[o2mfield]
+				_o2mfields = values[fm[o2mfield]]['fields'] 
+				_o2mvalues = values[fm[o2mfield]]['values'] 
+				obj = columninfo['obj']
+				rel = columninfo['rel']
+				
+				for _idx,_o2mfield in enumerate(_o2mfields):
+					if _o2mfield == rel:
+						for _o2mvalue in _o2mvalues:
+							_o2mvalue[_o2mfield] = r[0]
+						if len(_o2mvalues) > 0:
+							pool.get(obj).upsert(_o2mfields, _o2mvalues,context)
+
+			for m2mfield in m2mfields:
+				columninfo = columnsinfo[m2mfield]
+				obj = columninfo['obj']
+				rel = getName(columninfo['rel'])
+				rels = values[fm[key]]
+				id1 = getName(columninfo['id1'])
+				if columninfo['id2']:
+					id2 = getName(columninfo['id2'])
+				else:
+					id2 = _m2mfieldid2(pool,obj,rel)
+		
+				oid = r[0]
+				_m2mmodify(self,rel,id1,id2,oid,rels,context)
+
+	trg3 = self._getTriger('air')
+	for trg33 in trg3:
+		for value in values:
+			kwargs = {'r1':_gen_record(fields,value),'context':context}
+			trg33(**kwargs)
+
+
+	trg4 = self._getTriger('ai')
+	for trg44 in trg4:
+		kwargs = {'r1':_gen_records(fields,values),'context':context}
+		trg44(**kwargs)
+
+	return res
+
+def browse(self, ids, fields = None, context = {}):
+	if not self._access._checkBrowse():
+		orm_exception("Browse:access dennied of model % s" % (self._name,))
+
+	brl = browse_record_list()
+	
+	for r in _read(self, ids, fields, context):
+		brl.append(browse_record(uid,r))
+
+	if len(brl) == 0:
+		return browse_null()
+
+	return brl
+
+def selectbrowse(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
+	if not self._access._checkSelectBrowse():
+		orm_exception("SelectBrowse:access dennied of model % s" % (self._name,))
+
+	brl = browse_record_list()
+
+	for r in _select(self, fields, cond, context, limit, offset):
+		brl.append(browse_record(uid,r))
+
+	if len(brl) == 0:
+		return browse_null()
+
+	return brl
+
+# Other end
+
 def _o2m_read(self, oid, field,fields, context):
 	res = []
 	#web_pdb.set_trace()
@@ -714,7 +1258,6 @@ def _m2m_read(self, oid, fields, context):
 			res.extend(self._cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})) 
 
 	return res
-
 
 def _m2mread(self, cr, pool, uid, oid, field, fields, context):
 	res = []
@@ -1895,7 +2438,6 @@ class MCache(object):
 		else:
 			return row
 
-
 	def _write(self,model,records,context={}):
 		return write(model,records,context)
 
@@ -1934,6 +2476,9 @@ class MCache(object):
 
 	def _browse(self,model,ids,fields=None,context={}):
 			return browse(model,ids,fields,context)
+
+	def _selectbrowse(self,model, fields = None ,cond = None, context = {}, limit = None, offset = None):
+			return browse(model,fields,cond,context,limit,offset)
 
 # model method
 
