@@ -433,7 +433,7 @@ class BaseModel(object, metaclass = MetaModel):
 	def _selectablefields(self):
 		return list(filter(lambda x: hasattr(self._columns[x],'store') and self._columns[x].store or self._columns[x]._type in ('one2many','many2many','text','xml','binary','referenced'),self._columns.keys())) 
 
-	def _getMessage(self,cr,pool,uid,area,code,context={}):
+	def _getMessage(self ,area,code,context={}):
 		r = pool.get('bc.messages').select(cr,pool,uid,['area','code','descr'],[('area','=',area),('code','=',code)],context,limit=1)
 		if len(r) > 0:
 			return r[0]
@@ -555,11 +555,11 @@ class BaseModel(object, metaclass = MetaModel):
 	def _buildSchemaColumns(self,pool):
 		return mm._buildSchemaColumns(self,pool)
 
-	def _compute_composite(self,cr,pool,uid,item,context):
-		return mm._compute_composite(self,cr,pool,uid,item,context)
+	def _compute_composite(self ,item,context):
+		return mm._compute_composite(self ,item,context)
 
-	def _compute_composite_tree(self,cr,pool,uid,item,context):
-		return mm._compute_composite_tree(self,cr,pool,uid,item,context)
+	def _compute_composite_tree(self ,item,context):
+		return mm._compute_composite_tree(self ,item,context)
 
 	# def _getAccess(self):
 		# return mm._getAccess(self)
@@ -579,122 +579,16 @@ class BaseModel(object, metaclass = MetaModel):
 	def familyInfo(self,columns):
 		return mm.familyInfo(self,columns)
 
-	def do_upload_csv(self, cr, pool, uid, fields, values,context = {}):
-		return mm.do_upload_csv(self, cr, pool, uid, fields, values,context)
+	def do_upload_csv(self, fields, values,context = {}):
+		return mm.do_upload_csv(self, fields, values,context)
 
-	def do_action(self, cr, pool, uid, action, column, record, context = {}):
-		return mm.do_action(self, cr, pool, uid, action, column, record, context)
-#tested
-	# def count(self, cr, pool, uid, cond = None, context = {}):
-		# self._session[cr]
-		# return mm.count(self, cr, pool, uid, cond, context)
-		
-# #tested
-	# def search(self, cr, pool, uid, cond = None, context = {}, limit = None, offset = None):
-		# return mm.search(self, cr, pool, uid, cond, context, limit, offset)
-		
-# # tested	
-	# def read(self, cr, pool, uid, ids, fields = None, context = {}):
-		# return mm.read(self, cr, pool, uid, ids, fields, context)
-
-# # to be tested
-	# def browse(self, cr, pool, uid, ids, fields = None, context = {}):
-		# return mm.browse(self, cr, pool, uid, ids, fields, context)
-
-# #testing
-	# def tree(self, cr, pool, uid, fields = None ,parent = None, context = {}):
-		# return mm.tree(self, cr, pool, uid, fields, parent, context)
-
-# #tested
-	# def select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
-		# return mm.select(self, cr, pool, uid, fields, cond, context, limit, offset)
-
-# #to be testing
-	# def selectbrowse(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
-		# return mm.selectbrowse(self, cr, pool, uid, fields, cond, context, limit, offset)
-
-# #tested
-	# def unlink(self, cr, pool, uid, ids, context = {}):
-		# return mm.unlink(self, cr, pool, uid, ids, context)
-
-# #tested
-	# def delete(self, cr, pool, uid, cond, context = {}):
-		# return mm.delete(self, cr, pool, uid, cond, context)
-
-	# def _createRecords(self, cr, pool, uid, records, context):
-		# return mm._createRecords(self, cr, pool, uid, records, context)
-
-	# def _createRecord(self, cr, pool, uid, record, context):
-		# return mm._createRecord(self, cr, pool, uid, record, context)
-
-# #tested
-	# def create(self, cr, pool, uid, records, context = {}):
-		# return mm.create(self, cr, pool, uid, records, context)
-
-	# def _writeRecords(self, cr, pool, uid, records, context):
-		# return mm._writeRecords(self, cr, pool, uid, records, context)
-
-	# def _writeRecord(self, cr, pool, uid, record, context):
-		# return mm._writeRecord(self, cr, pool, uid, record, context)
-
-# #tested
-	# def write(self, cr, pool, uid, records, context = {}):
-		# return mm.write(self, cr, pool, uid, records, context)
-
-# #testing
-	# def update(self, cr, pool, uid, record, cond = None,context = {}):
-		# return mm.update(self, cr, pool, uid, record, cond,context)
-
-# #testing
-	# def insert(self, cr, pool, uid, fields, values,context = {}):
-		# return mm.insert(self, cr, pool, uid, fields, values,context)
-
-# #testing
-	# def upsert(self, cr, pool, uid, fields, values,context = {}):
-		# return mm.upsert(self, cr, pool, uid, fields, values,context)
-
-	# def _modifyRecords(self, cr, pool, uid, records, context):
-		# return mm._modifyRecords(self, cr, pool, uid, records, context)
-
-	# def _modifyRecord(self, cr, pool, uid, record, context):
-		# return mm._modifyRecord(self, cr, pool, uid, record, context)
-
-# #tested
-	# def modify(self, cr, pool, uid, records, context = {}):
-		# return mm.modify(self, cr, pool, uid, records, context)
-
-	# def m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context={}):		
-		# return mm._m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
-
-	# def do_compute(self, cr, pool, uid, fields, record, context = {}):
-		# return [self._compute(cr, pool, uid, fields, record, context)]
-
-	# def _compute(self, cr, pool, uid, fields, record, context = {}):
-		# return mm.do_compute(self, cr, pool, uid, fields, record, context)
-
-	# def do_checks(self, cr, pool, uid, fields, record, context = {}):
-		# return [self._do_checks(cr, pool, uid, fields, record, context)]
-
-	def _mcache(self,cr,pool,uid,key,value,idx=-1,context={}):
-		return mm._mcache(self,cr,pool,uid,key,value,idx,context)
+	def do_action(self, action, column, record, context = {}):
+		return mm.do_action(self, action, column, record, context)
+	def _mcache(self ,key,value,idx=-1,context={}):
+		return mm._mcache(self ,key,value,idx,context)
 	
-	def compute_columns_values(self,cr,pool,uid,columns,item,context):
-		return mm._compute_columns_values(self,cr,pool,uid,columns,item,context)
-
-	def _m2mread(self, cr, pool, uid, oid, field, fields, context):
-		return mm._m2mread(self, cr, pool, uid, oid, field, fields, context)
-
-	def _m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
-		return mm._m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
-
-	def _m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
-		return mm._m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
-
-	def _m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
-		mm._m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
-
-	def _m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
-		return mm._m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+	def compute_columns_values(self ,columns,item,context):
+		return mm._compute_columns_values(self ,columns,item,context)
 
 class Model(BaseModel):
 	_transient = None

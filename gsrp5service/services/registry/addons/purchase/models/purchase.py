@@ -47,19 +47,19 @@ class purchase_orders(Model):
 	'note': fields.text('Note')
 	}
 
-	def _on_change_otype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('purchase.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+	def _on_change_otype(self, item,context={}):		
+		roles = self._pool.get('purchase.order.type.roles').select( ['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('purchase.order.roles')._buildEmptyItem()
+			item_role = self._pool.get('purchase.order.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = pool.get('purchase.order.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = pool.get('purchase.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('purchase.order.types').select( ['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = self._pool.get('purchase.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = pool.get('purchase.order.texts')._buildEmptyItem()
+			item_text = self._pool.get('purchase.order.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -68,15 +68,15 @@ class purchase_orders(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self, item,context={}):		
 		web_pdb.set_trace()
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.items').select( ['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = self._pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -85,13 +85,13 @@ class purchase_orders(Model):
 
 		return None
 
-	def _act_copy_to(self,cr,pool,uid,column,record,context={}):				
+	def _act_copy_to(self, column,record,context={}):				
 		return 'Copy to'
 
-	def _act_copy_from(self,cr,pool,uid,column,record,context={}):				
+	def _act_copy_from(self, column,record,context={}):				
 		return 'Copy from'
 
-	def _act_create_invoice(self,cr,pool,uid,column,record,context={}):				
+	def _act_create_invoice(self, column,record,context={}):				
 		return 'Create invoice'
 
 
@@ -220,19 +220,19 @@ class purchase_order_items(Model):
 	'payments': fields.one2many(label='Payments',obj='purchase.order.item.payment.schedules',rel='item_id'),
 	'note': fields.text(label = 'Note')}
 
-	def _attrs_model_invisible(self,cr,pool,uid,item,context={}):
+	def _attrs_model_invisible(self, item,context={}):
 		if 'pm' in item and item['pm'] == 'c':
 			return {'iv':{'price':True,'unit':True,'uop':True}}
 
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self, item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			i = pool.get('purchase.order.type.items').select(cr,pool,uid,['gti_id','itype_id'],[],context)
+			i = self._pool.get('purchase.order.type.items').select( ['gti_id','itype_id'],[],context)
 			gti = {}
 			if len(i) > 0:
 				for r in i:
 					gti[r['gti_id']['name']] = r['itype_id']
-			p = pool.get('md.product').select(cr,pool,uid,['name','gti','volume','volume_uom','weight','weight_uom',{'purchase':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
+			p = self._pool.get('md.product').select( ['name','gti','volume','volume_uom','weight','weight_uom',{'purchase':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
 			if len(p) > 0:
 				for f in ('gti','volume','volume_uom','weight','weight_uom','purchase'):
 					if f == 'purchase':
@@ -281,41 +281,41 @@ class purchase_order_items(Model):
 		'ad': '_trgAfterDeleteDA1',
 		}
 
-	def _trgForEachRowBeforeInsertIB1(self,cr,pool,uid,r1,context):
+	def _trgForEachRowBeforeInsertIB1(self, r1,context):
 		print('Triger For Each Row Before Insert')
 
-	def _trgForEachRowAfterInsertIA1(self,cr,pool,uid,r1,context):
+	def _trgForEachRowAfterInsertIA1(self, r1,context):
 		print('Triger For Each Row After Insert')
 
-	def _trgBeforeInsertIBA1(self,cr,pool,uid,r1,context):
+	def _trgBeforeInsertIBA1(self, r1,context):
 		print('Triger Before Insert')
 
-	def _trgAfterInsertIAA1(self,cr,pool,uid,r1,context):
+	def _trgAfterInsertIAA1(self, r1,context):
 		print('Triger After Insert')
 
 #
-	def _trgForEachRowBeforeUpdateUB1(self,cr,pool,uid,r1,r2,context):
+	def _trgForEachRowBeforeUpdateUB1(self, r1,r2,context):
 		print('Triger For Each Row Before Update')
 
-	def _trgForEachRowAfterUpdateUA1(self,cr,pool,uid,r1,r2,context):
+	def _trgForEachRowAfterUpdateUA1(self, r1,r2,context):
 		print('Triger For Each Row After Update')
 
-	def _trgBeforeUpdateUBA1(self,cr,pool,uid,r1,r2,context):
+	def _trgBeforeUpdateUBA1(self, r1,r2,context):
 		print('Triger Before Update')
 
-	def _trgAfterUpdateIUA1(self,cr,pool,uid,r1,r2,context):
+	def _trgAfterUpdateIUA1(self, r1,r2,context):
 		print('Triger After Update')
 #
-	def _trgForEachRowBeforeDeleteDB1(self,cr,pool,uid,r2,context):
+	def _trgForEachRowBeforeDeleteDB1(self, r2,context):
 		print('Triger For Each Row Before Delete')
 
-	def _trgForEachRowAfterDeleteDA1(self,cr,pool,uid,r2,context):
+	def _trgForEachRowAfterDeleteDA1(self, r2,context):
 		print('Triger For Each Row After Delete')
 
-	def _trgBeforeDeleteDBA1(self,cr,pool,uid,r2,context):
+	def _trgBeforeDeleteDBA1(self, r2,context):
 		print('Triger Before Delete')
 
-	def _trgAfterDeleteDA1(self,cr,pool,uid,r2,context):
+	def _trgAfterDeleteDA1(self, r2,context):
 		print('Triger After Delete')
 
 
@@ -458,22 +458,22 @@ class purchase_invoices(Model):
 	'note': fields.text('Note')
 	}
 
-	def _on_change_itype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('purchase.invoice.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['otype'])],context)
+	def _on_change_itype(self, item,context={}):		
+			roles = self._pool.get('purchase.invoice.type.roles').select(['role_id'],[('type_id','=',item['otype'])],context)
 			if len(roles) > 0:
 				if 'roles' not in item:
 					item['roles'] = []
 				for role in roles:
 					item[roles].append[role['role_id']]
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self, item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.input.items').select( ['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = self._pool.get('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -560,9 +560,9 @@ class purchase_invoice_items(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self, item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.purchase.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.purchase.product').select( ['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				

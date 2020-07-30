@@ -539,7 +539,7 @@ def _getHook(self,name):
 		
 		return getattr(self,hook,None)
 
-def _compute_composite(self,cr,pool,uid,item,context):
+def _compute_composite(self ,item,context):
 	v=''
 	fullname = self._getFullNameName()
 	if fullname and self._columns[fullname]._type == 'composite':
@@ -565,7 +565,7 @@ def _compute_composite(self,cr,pool,uid,item,context):
 		if len(v) > 0:
 			item[fullname] = v
 
-def _compute_composite_tree(self,cr,pool,uid,item,context):
+def _compute_composite_tree(self ,item,context):
 	v=''
 	recname = self._getRecNameName()
 	rowname = self._getRowNameName()
@@ -575,7 +575,7 @@ def _compute_composite_tree(self,cr,pool,uid,item,context):
 
 	if fullname and self._columns[fullname]._type == 'composite' and parent_id and self._getChildsIdName():
 		if item[parent_id]['id']:
-			v += self.read(cr,pool,uid,item[parent_id]['id'],[fullname],context)[0][fullname]
+			v += self.read(item[parent_id]['id'],[fullname],context)[0][fullname]
 			if item[rowname]:
 				v += delimiter + item[rowname]
 
@@ -893,7 +893,7 @@ def _m2mfieldid2(pool,obj,rel):
 		
 
 # Testing
-def _o2mread(self, cr, pool, uid, oid, field, fields, context,limit,offset):
+def _o2mread(self , oid, field, fields, context,limit,offset):
 	res = []
 	modelinfo = self.modelInfo()
 	columnsinfo = self.columnsInfo()
@@ -903,7 +903,7 @@ def _o2mread(self, cr, pool, uid, oid, field, fields, context,limit,offset):
 	cr.execute(sql,vals)
 	if cr.cr.rowcount > 0:
 		if context['FETCH'] == 'DICT':
-			res.extend(_fetch_results(self,cr,pool,uid,fields,context))
+			res.extend(_fetch_results(self ,fields,context))
 			#res.extend(cr.fetchall(fields,self._columnsmeta))
 		elif context['FETCH'] == 'LIST':
 			records = cr.dictfetchall(fields,self._columnsmeta)
@@ -920,34 +920,34 @@ def _o2mread(self, cr, pool, uid, oid, field, fields, context,limit,offset):
 				rec_name = 'id'
 			for f in fields:
 				if type(f) == dict and o2mfield in f:
-					r[o2mfield] = _select(pool.get(obj), cr, pool, uid, f[o2mfield] ,[(rel,'=',r[rec_name])], context, limit, offset)
+					r[o2mfield] = _select(pool.get(obj) , f[o2mfield] ,[(rel,'=',r[rec_name])], context, limit, offset)
 
 	return res
 
 # Testing
-def _funcread(self, cr, pool, uid, oid, field, record, context):
+def _funcread(self , oid, field, record, context):
 	columnsinfo = self.columnsInfo(columns = [field], attributes = ['compute','store'])
 	store = columnsinfo[field]['store']
 	if store == False:
 		compute = columnsinfo[field]['compute']
 		method = getattr(self,compute,None)
 		if method and callable(method):
-			return method(self,cr,pool,uid,record,context)
+			return method(self ,record,context)
 	return None
 
 # Testing
-def _referencedread(self, cr, pool, uid, oid, field, record, context):
+def _referencedread(self , oid, field, record, context):
 	columnsinfo = self.columnsInfo(columns = [field], attributes = ['compute','store'])
 	store = columnsinfo[field]['store']
 	if store == False:
 		compute = columnsinfo[field]['compute']
 		method = getattr(self,compute,None)
 		if method and callable(method):
-			return method(self,cr,pool,uid,record,context)
+			return method(self ,record,context)
 	return None
 
 # Testing
-def _m2mread(self, cr, pool, uid, oid, field, fields, context):
+def _m2mread(self , oid, field, fields, context):
 	res = []
 	ids = []
 
@@ -972,7 +972,7 @@ def _m2mread(self, cr, pool, uid, oid, field, fields, context):
 	return res
 		
 #testing
-def _m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+def _m2mcreate(self ,rel,id1,id2,oid,rels,context):
 	res = []
 	values = []
 	for r in rels:
@@ -995,7 +995,7 @@ def _m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 	return res
 
 #testing
-def _m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+def _m2mwrite(self ,rel,id1,id2,oid,rels,context):
 	res = []
 	iValues = []
 	toInsert = rels
@@ -1042,7 +1042,7 @@ def _m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 	return res
 
 #testing
-def _m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+def _m2mmodify(self ,rel,id1,id2,oid,rels,context):
 	res = []
 	iValues = []
 	toInsert = rels
@@ -1089,7 +1089,7 @@ def _m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 	return res
 
 #testing
-def _m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+def _m2munlink(self ,rel,id1,id2,oid,rels,context):
 	res = []
 	if rels and len(rels) > 0:
 		if len(rels) == 1:
@@ -1105,7 +1105,7 @@ def _m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 	
 	return res
 
-def _do_upload_csv_tree(self, cr, pool, uid, fields, values,context,buf,recname_idx,parent_id_idx,parent_id_value):
+def _do_upload_csv_tree(self , fields, values,context,buf,recname_idx,parent_id_idx,parent_id_value):
 	res = []
 	if parent_id_value is None:
 		_values = list(filter(lambda x: x[parent_id_idx] is None, values))
@@ -1128,12 +1128,12 @@ def _do_upload_csv_tree(self, cr, pool, uid, fields, values,context,buf,recname_
 
 		for _value in _values:
 			_parent_id_value = _value[recname_idx]
-			res.extend(_do_upload_csv_tree(self, cr, pool, uid, fields, values,context,buf,recname_idx,parent_id_idx,_parent_id_value))
+			res.extend(_do_upload_csv_tree(self , fields, values,context,buf,recname_idx,parent_id_idx,_parent_id_value))
 	
 	return res
 
 	
-def do_upload_csv(self, cr, pool, uid, fields, values,context = {}):
+def do_upload_csv(self , fields, values,context = {}):
 	ir = []
 
 	if len(values) > 0:
@@ -1232,7 +1232,7 @@ def do_upload_csv(self, cr, pool, uid, fields, values,context = {}):
 			if rec_name in fm:
 				recname_idx = fm[rec_name]
 			parent_id_idx = fm[self._getParentIdName()]
-			ir.extend(_do_upload_csv_tree(self, cr, pool, uid, fields, values,context,buf,recname_idx,parent_id_idx,None))
+			ir.extend(_do_upload_csv_tree(self , fields, values,context,buf,recname_idx,parent_id_idx,None))
 		else:
 			ichunk = len(ivalues)
 			uchunk = len(uvalues)
@@ -1276,7 +1276,7 @@ def do_upload_csv(self, cr, pool, uid, fields, values,context = {}):
 		
 	return ir
 
-def _compute_columns_values(self,cr,pool,uid,columns,item,context):
+def _compute_columns_values(self ,columns,item,context):
 	res = {}
 	for col in columns.keys():
 		columnsinfo = self.columnsInfo(columns=[col],attributes=columns[col])
@@ -1289,10 +1289,10 @@ def _compute_columns_values(self,cr,pool,uid,columns,item,context):
 	
 	return res
 			
-def do_action(self, cr, pool, uid, action, column, record, context = {}):
+def do_action(self , action, column, record, context = {}):
 	return getattr(self,self._actions[action]['method'],None)(cr,pool,uid,column,record,context)
 
-def do_compute(self, cr, pool, uid, fields, record, context = {}):
+def do_compute(self , fields, record, context = {}):
 	res = {}
 	# ci = self.columnsInfo(columns=fields,attributes=['compute','priority'])
 	# priority = {}
@@ -1311,7 +1311,7 @@ def do_compute(self, cr, pool, uid, fields, record, context = {}):
 
 	return res
 
-def _do_checks(self, cr, pool, uid, record, context = {}):
+def _do_checks(self , record, context = {}):
 	results = []
 	if type(record) == dict:
 		res = {} 			
@@ -1438,7 +1438,7 @@ def _gen_records(fields,values):
 	return records
 
 #tested
-def count(self, cr, pool, uid, cond = None, context = {}):
+def count(self , cond = None, context = {}):
 	if not self._access._checkRead():
 		orm_exception("Read:access dennied of model % s" % (self._name,))
 
@@ -1468,7 +1468,7 @@ def count(self, cr, pool, uid, cond = None, context = {}):
 	return res
 	
 #tested
-def search(self, cr, pool, uid, cond = None, context = {}, limit = None, offset = None):
+def search(self , cond = None, context = {}, limit = None, offset = None):
 	if not self._access._checkRead():
 		orm_exception("Read:access dennied of model % s" % (self._name,))
 
@@ -1501,7 +1501,7 @@ def search(self, cr, pool, uid, cond = None, context = {}, limit = None, offset 
 	return res
 	
 # tested
-def _read(self, cr, pool, uid, ids, fields = None, context = {}):
+def _read(self , ids, fields = None, context = {}):
 
 	res = []
 
@@ -1534,7 +1534,7 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 		cr.execute(sql,vals)
 		if cr.cr.rowcount > 0:
 			if context['FETCH'] == 'DICT':
-				res.extend(_fetch_results(self,cr,pool,uid,fields,context))
+				res.extend(_fetch_results(self ,fields,context))
 			elif context['FETCH'] == 'LIST':
 				records = cr.dictfetchall(fields,self._columnsmeta)
 				res.extend(_conv_dict_to_list_records(self,fields,records,context))
@@ -1553,7 +1553,7 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 		cr.execute(sql,vals)
 		if cr.cr.rowcount > 0:
 			if context['FETCH'] == 'DICT':
-				res.extend(_fetch_results(self,cr,pool,uid,fields,context))
+				res.extend(_fetch_results(self ,fields,context))
 			elif context['FETCH'] == 'LIST':
 				res.extend(_conv_dict_to_list_records(self,fields,records,context))
 			elif context['FETCH'] == 'RAW':
@@ -1562,19 +1562,19 @@ def _read(self, cr, pool, uid, ids, fields = None, context = {}):
 	
 	return res
 	
-def read(self, cr, pool, uid, ids, fields = None, context = {}):
+def read(self , ids, fields = None, context = {}):
 	if not self._access._checkRead():
 		orm_exception("Read:access dennied of model % s" % (self._name,))
-	return _read(self, cr, pool, uid, ids, fields, context)
+	return _read(self , ids, fields, context)
 
 # to be tested
-def browse(self, cr, pool, uid, ids, fields = None, context = {}):
+def browse(self , ids, fields = None, context = {}):
 	if not self._access._checkBrowse():
 		orm_exception("Browse:access dennied of model % s" % (self._name,))
 
 	brl = browse_record_list()
 	
-	for r in _read(self, cr, pool, uid, ids, fields, context):
+	for r in _read(self , ids, fields, context):
 		brl.append(browse_record(uid,r))
 
 	if len(brl) == 0:
@@ -1583,7 +1583,7 @@ def browse(self, cr, pool, uid, ids, fields = None, context = {}):
 	return brl
 
 #tested
-def _tree(self, cr, pool, uid, fields = None ,parent = None, context = {}):
+def _tree(self , fields = None ,parent = None, context = {}):
 
 	res = []
 
@@ -1610,21 +1610,21 @@ def _tree(self, cr, pool, uid, fields = None ,parent = None, context = {}):
 	cr.execute(sql,vals)
 
 	if cr.cr.rowcount > 0:
-		res.extend(_fetch_results(self,cr,pool,uid,fields,context))
+		res.extend(_fetch_results(self ,fields,context))
 		for r in res:
-			r[self._getName('childs_id')].extend(_tree(self, cr, pool, uid, fields, r[self._getName('rec_name')], context))
+			r[self._getName('childs_id')].extend(_tree(self , fields, r[self._getName('rec_name')], context))
 
 	return res
 
-def tree(self, cr, pool, uid, fields = None ,parent = None, context = {}):
+def tree(self , fields = None ,parent = None, context = {}):
 	if not self._access._checkSelect():
 		orm_exception("Tree:access dennied of model % s" % (self._name,))
 	
-	return _tree(self, cr, pool, uid, fields, parent, context)
+	return _tree(self , fields, parent, context)
 
 
 #tested
-def _select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
+def _select(self , fields = None ,cond = None, context = {}, limit = None, offset = None):
 
 	res = []
 
@@ -1650,7 +1650,7 @@ def _select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit
 
 	if cr.cr.rowcount > 0:
 		if context['FETCH'] == 'DICT':
-			res.extend(_fetch_results(self,cr,pool,uid,fields,context))
+			res.extend(_fetch_results(self ,fields,context))
 		elif context['FETCH'] == 'LIST':
 			records = cr.dictfetchall(fields,self._columnsmeta)
 			res.extend(_conv_dict_to_list_records(self,fields,records,context))
@@ -1660,20 +1660,20 @@ def _select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit
 	
 	return res
 
-def select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
+def select(self , fields = None ,cond = None, context = {}, limit = None, offset = None):
 	if not self._access._checkSelect():
 		orm_exception("Select:access dennied of model % s" % (self._name,))
 	
-	return _select(self, cr, pool, uid, fields, cond, context, limit, offset)
+	return _select(self , fields, cond, context, limit, offset)
 
 #testing
-def selectbrowse(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
+def selectbrowse(self , fields = None ,cond = None, context = {}, limit = None, offset = None):
 	if not self._access._checkSelectBrowse():
 		orm_exception("SelectBrowse:access dennied of model % s" % (self._name,))
 
 	brl = browse_record_list()
 
-	for r in _select(self, cr, pool, uid, fields, cond, context, limit, offset):
+	for r in _select(self , fields, cond, context, limit, offset):
 		brl.append(browse_record(uid,r))
 
 	if len(brl) == 0:
@@ -1682,7 +1682,7 @@ def selectbrowse(self, cr, pool, uid, fields = None ,cond = None, context = {}, 
 	return brl
 
 #tested
-def unlink(self, cr, pool, uid, ids, context = {}):
+def unlink(self , ids, context = {}):
 	if not self._access._checkUnlink():
 		orm_exception("Unlink:access dennied of model % s" % (self._name,))
 
@@ -1708,7 +1708,7 @@ def unlink(self, cr, pool, uid, ids, context = {}):
 
 		rels = []
 		#for oid in ids:
-			#_m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+			#_m2munlink(self ,rel,id1,id2,oid,rels,context)
 
 	trg1 = self._getTriger('bdr')
 	for trg11 in trg1:
@@ -1752,18 +1752,18 @@ def unlink(self, cr, pool, uid, ids, context = {}):
 	return res
 
 #tested
-def delete(self, cr, pool, uid, cond, context = {}):
+def delete(self , cond, context = {}):
 	if not self._access._checkDelete():
 		orm_exception("Delete:access dennied of model % s" % (self._name,))
 
 	res = []
-	oids = search(self, cr, pool, uid, cond, context)
+	oids = search(self , cond, context)
 	if len(oids) > 0:
-		res = unlink(self, cr, pool, uid, oids, context)
+		res = unlink(self , oids, context)
 	
 	return res
 
-def _createRecords(self, cr, pool, uid, records, context):
+def _createRecords(self , records, context):
 	res = []
 
 	trg1 = self._getTriger('bi')
@@ -1782,7 +1782,7 @@ def _createRecords(self, cr, pool, uid, records, context):
 
 	return res
 
-def _createRecord(self, cr, pool, uid, record, context):
+def _createRecord(self , record, context):
 	oid = None
 
 	fields = list(record.keys())
@@ -1901,7 +1901,7 @@ def _createRecord(self, cr, pool, uid, record, context):
 			else:
 				id2 = _m2mfieldid2(pool,obj,rel)
 	
-			_m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+			_m2mcreate(self ,rel,id1,id2,oid,rels,context)
 
 	trg2 = self._getTriger('air')
 	for trg22 in trg2:
@@ -1911,11 +1911,11 @@ def _createRecord(self, cr, pool, uid, record, context):
 	return oid
 
 #tested
-def create(self, cr, pool, uid, records, context = {}):
+def create(self , records, context = {}):
 	if not self._access._checkCreate():
 		orm_exception("Create:access dennied of model % s" % (self._name,))
 
-	checks = _do_checks(self, cr, pool, uid, records, context)
+	checks = _do_checks(self , records, context)
 	if type(records) == dict:
 		for check in checks:
 			for key in check.keys():
@@ -1939,7 +1939,7 @@ def create(self, cr, pool, uid, records, context = {}):
 	elif type(records) == dict:
 		return [self._createRecord(cr=cr, pool=pool, uid=uid, record=records, context = context)]
 
-def _writeRecords(self, cr, pool, uid, records, context):
+def _writeRecords(self , records, context):
 	res = []
 
 	trg1 = self._getTriger('bu')
@@ -1957,7 +1957,7 @@ def _writeRecords(self, cr, pool, uid, records, context):
 
 	return res
 
-def _writeRecord(self, cr, pool, uid, record, context):
+def _writeRecord(self , record, context):
 	oid = None
 	#print('WRITE RECORD:',record)
 	fields = list(record.keys())
@@ -2065,7 +2065,7 @@ def _writeRecord(self, cr, pool, uid, record, context):
 				else:
 					id2 = _m2mfieldid2(pool,obj,rel)
 
-				_m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+				_m2mwrite(self ,rel,id1,id2,oid,rels,context)
 
 	trg2 = self._getTriger('aur')
 	#print('TRG2:',trg2)
@@ -2076,11 +2076,11 @@ def _writeRecord(self, cr, pool, uid, record, context):
 	return oid
 
 #tested
-def write(self, cr, pool, uid, records, context = {}):
+def write(self , records, context = {}):
 	if not self._access._checkWrite():
 		orm_exception("Write:access dennied of model % s" % (self._name,))
 
-	checks = _do_checks(self, cr, pool, uid, records, context)
+	checks = _do_checks(self , records, context)
 	for ch in checks:
 		for check in ch:
 			for key in check.keys():
@@ -2099,7 +2099,7 @@ def write(self, cr, pool, uid, records, context = {}):
 		return [self._writeRecord(cr=cr, pool=pool, uid=uid, record=records, context = context)]
 
 #testing
-def update(self, cr, pool, uid, record, cond = None,context = {}):
+def update(self , record, cond = None,context = {}):
 	if not self._access._checkUpdate():
 		orm_exception("Update:access dennied of model % s" % (self._name,))
 
@@ -2113,8 +2113,8 @@ def update(self, cr, pool, uid, record, cond = None,context = {}):
 		cond = []
 	
 	fields = list(record.keys())
-	#recs = _select(self, cr, pool, uid, fields, cond, context)
-	recs = search(self, cr, pool, uid, cond, context)
+	#recs = _select(self , fields, cond, context)
+	recs = search(self , cond, context)
 	_fields =[]
 	_fields.extend(fields)
 	_fields.append('id')
@@ -2131,15 +2131,15 @@ def update(self, cr, pool, uid, record, cond = None,context = {}):
 		value.append(rec)
 		values.append(value)
 		
-	res = upsert(self, cr, pool, uid, _fields, values,context)
+	res = upsert(self , _fields, values,context)
 	return res
 
 #testing
-def insert(self, cr, pool, uid, fields, values,context = {}):
+def insert(self , fields, values,context = {}):
 	if not self._access._checkInsert():
 		orm_exception("Insert:access dennied of model % s" % (self._name,))
 
-	checks = _do_checks(self, cr, pool, uid, _gen_records(fields,values), context)
+	checks = _do_checks(self , _gen_records(fields,values), context)
 	if type(checks) == dict:
 		for check in checks:
 			for key in check.keys():
@@ -2233,7 +2233,7 @@ def insert(self, cr, pool, uid, fields, values,context = {}):
 		
 				oid = r[0]
 				if len(rels) > 0:
-					_m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+					_m2mcreate(self ,rel,id1,id2,oid,rels,context)
 
 
 	trg3 = self._getTriger('air')
@@ -2251,11 +2251,11 @@ def insert(self, cr, pool, uid, fields, values,context = {}):
 	return res
 
 #testing
-def upsert(self, cr, pool, uid, fields, values,context = {}):
+def upsert(self , fields, values,context = {}):
 	if not self._access._checkUpsert():
 		orm_exception("Upsert:access dennied of model % s" % (self._name,))
 
-	checks = _do_checks(self, cr, pool, uid, _gen_records(fields,values), context)
+	checks = _do_checks(self , _gen_records(fields,values), context)
 	if type(checks) == dict:
 		for check in checks:
 			for key in check.keys():
@@ -2348,7 +2348,7 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 					id2 = _m2mfieldid2(pool,obj,rel)
 		
 				oid = r[0]
-				_m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+				_m2mmodify(self ,rel,id1,id2,oid,rels,context)
 
 	trg3 = self._getTriger('air')
 	for trg33 in trg3:
@@ -2365,7 +2365,7 @@ def upsert(self, cr, pool, uid, fields, values,context = {}):
 	return res
 
 
-def _modifyRecords(self, cr, pool, uid, records, context):
+def _modifyRecords(self , records, context):
 	res = []
 
 	trg1 = self._getTriger('bu')
@@ -2384,7 +2384,7 @@ def _modifyRecords(self, cr, pool, uid, records, context):
 
 	return res
 
-def _modifyRecord(self, cr, pool, uid, record, context):
+def _modifyRecord(self , record, context):
 	oid = None
 	#print('MODIFY-RECORD:',record)
 	fields = list(record.keys())
@@ -2458,7 +2458,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			ctx = context.copy()
 			ctx['FETCH'] = 'RAW'
 			record2 = None
-			record21 = read(self, cr, pool, uid, record['id'], self._selectablefields, ctx)
+			record21 = read(self , record['id'], self._selectablefields, ctx)
 			if len(record21) > 0:
 				record2 = record21[0]
 	
@@ -2530,7 +2530,7 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 			else:
 				id2 = _m2mfieldid2(pool,obj,rel)
 
-			_m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+			_m2mmodify(self ,rel,id1,id2,oid,rels,context)
 
 	
 	if record2 is None or len(upd_cols) > 0:
@@ -2542,11 +2542,11 @@ def _modifyRecord(self, cr, pool, uid, record, context):
 	return oid
 
 #tested
-def modify(self, cr, pool, uid, records, context = {}):
+def modify(self , records, context = {}):
 	if not self._access._checkModify():
 		orm_exception("Modify:access dennied of model % s" % (self._name,))
 
-	checks = _do_checks(self, cr, pool, uid, records, context)
+	checks = _do_checks(self , records, context)
 	if type(records) == dict:
 		for check in checks:
 			for key in check.keys():

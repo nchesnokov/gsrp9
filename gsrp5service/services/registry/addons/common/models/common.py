@@ -6,7 +6,7 @@ from decimal import Decimal
 class model_common(ModelInherit):
 	_name = 'common.model'
 	_description = 'Common'
-	def _calculate_amount_costs(self,cr,pool,uid,record,context={}):
+	def _calculate_amount_costs(self ,record,context={}):
 		fields = ['amount','vat_amount','total_amount']
 		for field in fields:
 			if field in record:
@@ -22,7 +22,7 @@ class model_common(ModelInherit):
 
 		return None
 
-	def _calculate_items(self,cr,pool,uid,item,context={}):		
+	def _calculate_items(self ,item,context={}):		
 		if 'delivery_schedules' in item:
 			item['quantity'] = None
 			for d in item['delivery_schedules']:
@@ -50,7 +50,7 @@ class model_common(ModelInherit):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = pool.get('md.vat.code').read(cr,pool,uid,ids,['value','subtype_vat'],context)[0]
+				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -70,7 +70,7 @@ class model_common(ModelInherit):
 
 		return None
 
-	def _calculate_items_amount_costs(self,cr,pool,uid,record,context={}):
+	def _calculate_items_amount_costs(self ,record,context={}):
 		if 'amount' in record and record['amount']:
 			record['total_amount'] = record['amount']
 			if 'vat_amount' in record:
@@ -79,14 +79,14 @@ class model_common(ModelInherit):
 				
 		return None
 
-	def _calculate_vat_amount_costs(self,cr,pool,uid,record,context={}):
+	def _calculate_vat_amount_costs(self ,record,context={}):
 		if 'amount' in record and record['amount'] and 'vat_code' in record and record['vat_code']:
 			if type(record['vat_code']) == dict:
 				ids = record['vat_code']['id']
 			else:
 				ids = record['vat_code']
 			if ids:
-				r = pool.get('md.vat.code').read(cr,pool,uid,ids,['value'],context)[0]['value']
+				r = self._pool.get('md.vat.code').read(ids,['value'],context)[0]['value']
 				record['vat_amount'] = record['amount'] * Decimal('0.%s' % (r,)) 
 				
 		return None

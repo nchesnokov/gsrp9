@@ -545,6 +545,8 @@ def _read(self, ids, fields = None, context = {}):
 	if not fetch.upper() in ('LIST','DICT','RAW'):
 		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
 
+	if self._name == 'md.company':
+		web_pdb.set_trace()
 	if fields is None:
 		fields = self._selectablefields
 
@@ -589,7 +591,7 @@ def _read(self, ids, fields = None, context = {}):
 					record[o2mfield] = _o2mread(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
 	
 				for m2mfield in m2mfields:
-					record[m2mfield] = _m2m_read(self,record['id'],m2mfields[m2mfield],context)
+					record[m2mfield] = _m2mread(self,record['id'],m2mfields[m2mfield],context)
 			
 			res.extend(records)
 
@@ -630,8 +632,8 @@ def _read(self, ids, fields = None, context = {}):
 				for o2mfield in o2mfields:
 					record[o2mfield] = _o2mread(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
 	
-				#for m2mfield in m2mfields:
-					#record[m2mfield] = _m2m_read(self,record['id'],m2mfields[m2mfield],context)
+				for m2mfield in m2mfields:
+					record[m2mfield] = _m2mread(self,record['id'],m2mfield,m2mfields[m2mfield],context)
 			
 			res.extend(records)
 	
@@ -660,11 +662,15 @@ def _select(self, fields = None ,cond = None, context = {}, limit = None, offset
 	if not fetch.upper() in ('LIST','DICT','RAW'):
 		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
 
+	if fields is None:
+		fields = self._selectablefields
+
+	rowfields = list(filter(lambda x: x in fields,self._rowfields)) 
 	if cond is None:
 		cond = []
 
 	#web_pdb.set_trace()
-	sql,vals = gensql.Select(self, fields, cond, context, limit, offset)
+	sql,vals = gensql.Select(self, rowfields, cond, context, limit, offset)
 
 	rowcount = self._execute(sql,vals)
 	if rowcount > 0:
@@ -697,7 +703,7 @@ def _select(self, fields = None ,cond = None, context = {}, limit = None, offset
 				record[o2mfield] = _o2mread(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
 
 			for m2mfield in m2mfields:
-				record[m2mfield] = _m2m_read(self._pool[self._columns[o2mfield].obj],oid,m2mfields[m2mfield],context)
+				record[m2mfield] = _m2mread(self._pool[self._columns[o2mfield].obj],oid,m2mfield,m2mfields[m2mfield],context)
 		
 		res.extend(records)
 
@@ -1190,53 +1196,23 @@ def _o2mread(self, oid, field,fields, context):
 
 			for o2mfield in self._o2mfields:
 				if o2mfield in dictfields:
-					o2mfields[o2mfield] = fields[o2mfield]
+					o2mfields[o2mfield] = dictfields[o2mfield]
 
 			for m2mfield in self._m2mfields:
 				if m2mfield in dictfields:
-					m2mfields[m2mfield] = fields[m2mfield]
+					m2mfields[m2mfield] = dictfields[m2mfield]
 
 			for o2mfield in o2mfields:
 				record[o2mfield] = _o2mread(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,dictfields[o2mfield],context)
 
 			for m2mfield in m2mfields:
-				record[m2mfield] = _m2m_read(self._pool[self._columns[o2mfield].obj],oid,m2mfield,dictfields[m2mfield],context)
+				record[m2mfield] = _m2mread(self._pool[self._columns[o2mfield].obj],oid,m2mfield,dictfields[m2mfield],context)
 
 		res.extend(records)
 	
 	return res
-def _o2mread_1(self, cr, pool, uid, oid, field, fields, context,limit,offset):
-	res = []
-	modelinfo = self.modelInfo()
-	columnsinfo = self.columnsInfo()
-	#columninfo = columnsinfo[field]
-	
-	sql,vals = gensql.Select(self = self,pool = pool,uid = uid, info = self.modelInfo(), fields = fields, cond = [(field,'=',oid)], context = context, limit = limit, offset=offset)
-	cr.execute(sql,vals)
-	if cr.cr.rowcount > 0:
-		if context['FETCH'] == 'DICT':
-			res.extend(_fetch_results(self,cr,pool,uid,fields,context))
-			#res.extend(cr.fetchall(fields,self._columnsmeta))
-		elif context['FETCH'] == 'LIST':
-			records = cr.dictfetchall(fields,self._columnsmeta)
-			res.extend(_conv_dict_to_list_records(self,fields,records,context))
-			#res.extend(cr.dictfetchall(fields,self._columnsmeta))
 
-	for o2mfield in filter(lambda x:self._columnsmeta[x] == 'one2many',self._columnsmeta.keys()):
-		for r in res:
-			obj = columnsinfo[o2mfield]['obj']
-			rel = columnsinfo[o2mfield]['rel']
-			if modelinfo['names']['rec_name']:
-				rec_name = modelinfo['names']['rec_name']
-			else:
-				rec_name = 'id'
-			for f in fields:
-				if type(f) == dict and o2mfield in f:
-					r[o2mfield] = _select(pool.get(obj), cr, pool, uid, f[o2mfield] ,[(rel,'=',r[rec_name])], context, limit, offset)
-
-	return res
-
-def _m2m_read(self, oid, field, fields, context):
+def _m2mread(self, oid, field, fields, context):
 	res = []
 	ids = []
 
@@ -1254,33 +1230,9 @@ def _m2m_read(self, oid, field, fields, context):
 		if len(fields) > 0:
 			ids.extend(list(map(lambda x: x[2],self._cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})))) 
 			if len(ids) > 0:
-				res.extend(self._pool.get(obj).read(ids, fields, context))
+				res.extend(self._pool.get(obj).read(ids ,fields , context))
 		else:
 			res.extend(self._cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})) 
-
-	return res
-
-def _m2mread(self, cr, pool, uid, oid, field, fields, context):
-	res = []
-	ids = []
-
-	columnsinfo = self.columnsInfo()
-	columninfo = columnsinfo[field]
-	rel = columninfo['rel']
-	obj = columninfo['obj']
-
-	id1 = columninfo['id1']
-	id2 = columninfo['id2']
-	if not id2:
-		id2 = self._m2mfieldid2(pool,obj,rel)
-	cr.execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
-	if cr.cr.rowcount > 0:
-		if len(fields) > 0:
-			ids.extend(list(map(lambda x: x[2],cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})))) 
-			if len(ids) > 0:
-				res.extend(pool.get(obj).read(cr=cr,pool=pool,uid=uid, ids = ids,fields = fields, context=context))
-		else:
-			res.extend(cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})) 
 
 	return res
 
@@ -2297,7 +2249,7 @@ class DCacheDict(object):
 		elif type(m._attrs) == str:
 			method = getattr(m,m._attrs,None)
 			if method and callable(method):
-				rc = method(self._cr,self._pool,self._uid,self._getCData(path),self._context)
+				rc = method(self._getCData(path),self._context)
 				if rc and len(rc) > 0:
 					self._cattrs.setdefault(path,{}).update(rc)
 
@@ -2335,7 +2287,7 @@ class DCacheDict(object):
 			for k1 in cm[k].keys():
 				method = getattr(m,k1,None)
 				if method and callable(method):
-					rc = method(self._cr,self._pool,self._uid,cm[k][k1],self._getCData(path),self._context)
+					rc = method(cm[k][k1],self._getCData(path),self._context)
 					if type(rc) == dict and len(rc)> 0:
 						self._cattrs.setdefault(path,{}).setdefault(ca[k],{}).update(rc)
 					elif type(rc) == bool:
@@ -2405,7 +2357,7 @@ class MCache(object):
 			m = self._pool.get(parent)
 			oid = row[k]['id']
 			if oid:
-				d = m.select(self._cr,self._pool,self._uid,[m._m2ofields],[('id','=',oid)],self._context,limit=1)
+				d = m.select([m._m2ofields],[('id','=',oid)],self._context,limit=1)
 				if len(d) > 0:
 					q.extend(self._readNodes(parent,d[0]))
 			else:
@@ -2419,7 +2371,7 @@ class MCache(object):
 		for oid,model in nodes:
 			m = self._pool.get(model)
 			cols = m._buildSchemaColumns(self._pool)
-			d = m.read(self._cr,self._pool,self._uid,oid,cols,self._context)
+			d = m.read(oid,cols,self._context)
 			res[model] = d
 		
 		return res
@@ -2510,7 +2462,7 @@ class MCache(object):
 			method = getattr(self._pool.get(model),name,None)
 			if method:
 				r1 = copy.deepcopy(self._data._getCData(path))
-				_on_change = method(self._cr,self._pool,self._uid,self._data._getCData(path),context)
+				_on_change = method(self._data._getCData(path),context)
 				if _on_change:
 					self._data._getCData(path).update(_on_change)
 				r2 = self._data._getCData(path)
@@ -2527,7 +2479,7 @@ class MCache(object):
 		if name:
 			method = getattr(self._pool.get(model),name,None)
 			if method:
-				self._checks.setdefault(path,{})[key] = method(self._cr,self._pool,self._uid,key,self._data._getCData(path),context)
+				self._checks.setdefault(path,{})[key] = method(key,self._data._getCData(path),context)
 	
 	def _do_diff(self,path,key,value,context):
 		res = {}
@@ -2582,7 +2534,7 @@ class MCache(object):
 			for compute_method in priority[pkey]:			
 				method = getattr(m,compute_method,None)
 				if method and callable(method):
-					r = method(self._cr,self._pool,self._uid,record,self._context)
+					r = method(record,self._context)
 					if r is not None: 
 						res.update(r)
 	
@@ -2714,7 +2666,7 @@ class MCache(object):
 
 	def _m2m_add(self,model,container,fields,obj,rel,id2,context={}):
 		
-		rows = self._pool.get(obj).read(self._cr,self._pool,self._uid,id2,fields,self._context)
+		rows = self._pool.get(obj).read(id2,fields,self._context)
 		
 		cn,parent = container.split('.')
 		if len(rows) > 0:
@@ -2789,7 +2741,7 @@ class MCache(object):
 			if value['id']:
 				cond.append((key,'like',value['id']))
 
-		r = self._pool.get(self._meta[model][key]['obj']).select(self._cr,self._pool,self._uid,fields,cond=cond)
+		r = self._pool.get(self._meta[model][key]['obj']).select(fields,cond=cond,context=context)
 		
 		if len(r) > 1:
 			res = {'path':path,'key':key,'v':list(map(lambda x: x['id'],r))}
@@ -2819,7 +2771,7 @@ class MCache(object):
 				r1 = d
 			cond.append((rel,'=',r1))
 
-		r = self._pool.get(self._meta[model][key]['obj']).select(self._cr,self._pool,self._uid,fields,cond=cond)
+		r = self._pool.get(self._meta[model][key]['obj']).select(fields,cond=cond,context=context)
 		if len(r) > 1:
 			res = {'path':path,'key':key,'v':list(map(lambda x: x['id'],r))}
 		elif len(r) == 1:

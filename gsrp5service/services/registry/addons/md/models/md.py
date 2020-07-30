@@ -296,25 +296,25 @@ class md_product(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _excise_invisible(self,cr,pool,uid,fields,record,context):
+	def _excise_invisible(self, fields,record,context):
 		res = {}
 		for field in fields:
 			res[field] = record['isexcise']
 
 		return res
 
-	def _service_invisible(self,cr,pool,uid,fields,record,context):
+	def _service_invisible(self, fields,record,context):
 		res = {}
 		if 'template_id' in record and record['template_id']:
 			if record['template_id']['name']:
-				r = pool.get('md.products.template').select(['mtype'],[('name','=',record['template_id']['name'])])
+				r = self._pool.get.get('md.products.template').select(['mtype'],[('name','=',record['template_id']['name'])])
 				if len(r) > 0 and r[0]['mtype'] == 's':
 					for field in fields:
 						res[field] = True
 		
 		return res
 
-	def create(self,cr,pool,uid,records,context={}):
+	def create(self, records,context={}):
 		if type(records) in (list,tuple):
 			for record in records:
 				if 'code' in record and 'name' in record:
@@ -330,9 +330,9 @@ class md_product(Model):
 				q.save(b,'jpeg')
 				records['qrcode'] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
 
-		return super(Model,self).create(cr, pool, uid, records, context)
+		return super(Model,self).create(  records, context)
 
-	def write(self, cr, pool, uid, records, context = {}):
+	def write(self,   records, context = {}):
 		if type(records) in (list,tuple):
 			for record in records:
 				if 'code' in record and 'name' in record:
@@ -348,9 +348,9 @@ class md_product(Model):
 				q.save(b,'jpeg')
 				records['qrcode'] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
 
-		return super(Model,self).write(cr, pool, uid, records, context)
+		return super(Model,self).write(  records, context)
 
-	def modify(self, cr, pool, uid, records, context = {}):
+	def modify(self,   records, context = {}):
 		if type(records) in (list,tuple):
 			for record in records:
 				if 'code' in record and 'name' in record:
@@ -366,9 +366,9 @@ class md_product(Model):
 				q.save(b,'jpeg')
 				records['qrcode'] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
 
-		return super(Model,self).modify(cr, pool, uid, records, context)
+		return super(Model,self).modify(  records, context)
 
-	def insert(self, cr, pool, uid, fields, values,context = {}):
+	def insert(self,   fields, values,context = {}):
 		fm = {}
 		for idx,f in enumerate(fields):
 			fm[f] = idx
@@ -381,9 +381,9 @@ class md_product(Model):
 						q.save(b,'jpeg')
 						value[idx] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
 
-		return super(Model,self).insert(cr, pool, uid, fields, values,context)
+		return super(Model,self).insert(  fields, values,context)
 
-	def upsert(self, cr, pool, uid, fields, values,context = {}):
+	def upsert(self,   fields, values,context = {}):
 		fm = {}
 		for idx,f in enumerate(fields):
 			fm[f] = idx
@@ -396,7 +396,7 @@ class md_product(Model):
 						q.save(b,'jpeg')
 						value[idx] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
 
-		return super(Model,self).upsert(cr, pool, uid, fields, values,context)
+		return super(Model,self).upsert(  fields, values,context)
 
 	_default = {
 		'state':'draft'
@@ -670,11 +670,11 @@ class md_partners_bank(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _compute_acc_type(self,cr,pool,uid,record,context = {}):
+	def _compute_acc_type(self, record,context = {}):
 		return {'acc_type':'bank'}
 
 
-	def _compute_sanitized_acc_number(self,cr,pool,uid,record,context = {}):
+	def _compute_sanitized_acc_number(self, record,context = {}):
 		if 'acc_number' in record:
 			return {'sanitized_acc_number':re.sub(r'\W+', '', record['acc_number']).upper()}
 		return  {'sanitized_acc_number':''}

@@ -21,7 +21,7 @@ class bc_users(Model):
 
 	_sql_constraints = [('full_name_unique','unique (firstname, lastname)', 'Login unique fullname of user')]
 	
-	def create(self,cr,pool,uid,records,context={}):
+	def create(self, records,context={}):
 		if type(records) in (list,tuple):
 			for record in records:
 				if 'password' in record:
@@ -31,9 +31,9 @@ class bc_users(Model):
 			if 'password' in records:
 				records['password'] = pbkdf2_sha256.hash(records['password'])
 
-		return super(Model,self).create(cr, pool, uid, records, context)
+		return super(Model,self).create(records, context)
 
-	def write(self, cr, pool, uid, records, context = {}):
+	def write(self, records, context = {}):
 		if type(records) in (list,tuple):
 			for record in records:
 				if 'password' in record:
@@ -43,9 +43,9 @@ class bc_users(Model):
 			if 'password' in records:
 				records['password'] = pbkdf2_sha256.hash(records['password'])
 
-		return super(Model,self).write(cr, pool, uid, records, context)
+		return super(Model,self).write(records, context)
 
-	def modify(self, cr, pool, uid, records, context = {}):
+	def modify(self, records, context = {}):
 		if type(records) in (list,tuple):
 			for record in records:
 				if 'password' in record:
@@ -55,31 +55,31 @@ class bc_users(Model):
 			if 'password' in records:
 				records['password'] = pbkdf2_sha256.hash(records['password'])
 
-		return super(Model,self).modify(cr, pool, uid, records, context)
+		return super(Model,self).modify(records, context)
 
-	def insert(self, cr, pool, uid, fields, values,context = {}):
+	def insert(self, fields, values,context = {}):
 		for f in enumerate(fields):
 			if f[1] == 'password':
 				for value in values:
 					value[f[0]] = pbkdf2_sha256.hash(value[f[0]])
-		return super(Model,self).insert(cr, pool, uid, fields, values,context)
+		return super(Model,self).insert(fields, values,context)
 
-	def upsert(self, cr, pool, uid, fields, values,context = {}):
+	def upsert(self, fields, values,context = {}):
 		for f in enumerate(fields):
 			if f[1] == 'password':
 				for value in values:
 					value[f[0]] = pbkdf2_sha256.hash(value[f[0]])
-		return super(Model,self).upsert(cr, pool, uid, fields, values,context)
+		return super(Model,self).upsert(fields, values,context)
 
 
-	def update(self, cr, pool, uid, record, cond = None,context = {}):
+	def update(self, record, cond = None,context = {}):
 		if 'password' in record:
 			record['password'] = pbkdf2_sha256.hash(record['password'])
 
-		return super(Model,self).update(cr, pool, uid, record, cond,context)
+		return super(Model,self).update(record, cond,context)
 
-	def read(self, cr, pool, uid, ids, fields = None, context = {}):
-		records = super(Model,self).read(cr, pool, uid, ids, fields, context)
+	def read(self, ids, fields = None, context = {}):
+		records = super(Model,self).read(ids,fields, context)
 		if type(records) == dict:
 			if 'password' in records:
 				records['password'] = '******'
@@ -90,8 +90,8 @@ class bc_users(Model):
 		
 		return records
 				
-	def select(self, cr, pool, uid, fields = None ,cond = None, context = {}, limit = None, offset = None):
-		records = super(Model,self).select(cr, pool, uid, fields, cond, context, limit, offset)
+	def select(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		records = super(Model,self).select(fields, cond, context, limit, offset)
 		if type(records) == dict:
 			if 'password' in records:
 				records['password'] = '******'
@@ -303,16 +303,16 @@ class bc_model_columns(Model):
 	'id1': fields.varchar(label = 'Id1', size = 64,readonly=True),
 	'id2': fields.varchar(label = 'Id2', size = 64,readonly=True),
 	}
-	def create(self,cr,pool,uid,records,context={}):
+	def create(self, records,context={}):
 		if type(records) in (list,tuple):
-			model_name = pool.get('bc.models').read(cr,pool,uid,records[0]['model_id'],['name'],context)[0]['name']
+			model_name = self._pool.get('bc.models').read(records[0]['model_id'],['name'],context)[0]['name']
 			for record in records:
 				record['fullname'] = model_name + '/' +  record['col_name']
 		elif type(records) == dict:
-			model_name = pool.get('bc.models').read(cr,pool,uid,records['model_id'],['name'],context)
+			model_name = self._pool.get('bc.models').read(records['model_id'],['name'],context)
 			records['fullname'] = model_name + '/' +  records['col_name']
 
-		return super(Model,self).create(cr, pool, uid, records, context)
+		return super(Model,self).create(records, context)
 
 
 bc_model_columns()
