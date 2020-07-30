@@ -259,7 +259,6 @@ class BaseModel(object, metaclass = MetaModel):
 					return context['cache']
 				else:
 					return self._session._mcache(['open',{'mode':mode,'context':context}])[0]
-		
 
 	def read(self,ids,fields=None,context={}):
 		if hasattr(self,'_session'):
@@ -335,6 +334,37 @@ class BaseModel(object, metaclass = MetaModel):
 		if hasattr(self,'_session'):
 			uid = self._getCacheID('selectbrowse',context)
 			return getattr(self._session._cache[uid],'_selectbrowse')(self, fields ,cond, context , limit, offset )
+
+	def o2mread(self, oid, field,fields, context):
+		if hasattr(self,'_session'):
+			uid = self._getCacheID('_02mread',context)
+			return getattr(self._session._cache[uid],'o2mread')(self, oid, field,fields, context)
+	
+		def m2mread(self, oid, field, fields, context):
+			if hasattr(self,'_session'):
+				uid = self._getCacheID('m2mread',context)
+				return getattr(self._session._cache[uid],'_m2mread')(self, oid, field, fields, context)
+		
+		def m2mcreate(self,rel,id1,id2,oid,rels,context):
+			if hasattr(self,'_session'):
+				uid = self._getCacheID('m2mcreate',context)
+				return getattr(self._session._cache[uid],'_m2mcreate')(self,rel,id1,id2,oid,rels,context)
+		
+		def m2mwrite(self,rel,id1,id2,oid,rels,context):
+			if hasattr(self,'_session'):
+				uid = self._getCacheID('m2mwrite',context)
+				return  getattr(self._session._cache[uid],'_m2mwrite')(self,rel,id1,id2,oid,rels,context)
+		
+		def m2mmodify(self,rel,id1,id2,oid,rels,context):
+			if hasattr(self,'_session'):
+				uid = self._getCacheID('m2mmodify',context)
+				return getattr(self._session._cache[uid],'_m2mmodify')(self,rel,id1,id2,oid,rels,context)
+		
+		def _m2munlink(self,rel,id1,id2,oid,rels,context):
+			if hasattr(self,'_session'):
+				uid = self._getCacheID('m2munlink',context)
+				return getattr(self._session._cache[uid],'_m2munlink')(self,rel,id1,id2,oid,rels,context)
+
 
 	@property
 	def _columnsmeta(self):
@@ -434,13 +464,13 @@ class BaseModel(object, metaclass = MetaModel):
 		return list(filter(lambda x: hasattr(self._columns[x],'store') and self._columns[x].store or self._columns[x]._type in ('one2many','many2many','text','xml','binary','referenced'),self._columns.keys())) 
 
 	def _getMessage(self ,area,code,context={}):
-		r = pool.get('bc.messages').select(cr,pool,uid,['area','code','descr'],[('area','=',area),('code','=',code)],context,limit=1)
+		r = self._pool.get('bc.messages').select(['area','code','descr'],[('area','=',area),('code','=',code)],context,limit=1)
 		if len(r) > 0:
 			return r[0]
 	
 	def _getUid(self,cr):
-		cr.execute('select uuid_v4()::UUID as id')
-		if cr.rowcount > 0:
+		rowcount = self._.execute('select uuid_v4()::UUID as id')
+		if rowcount > 0:
 			return cr.fetchone(['id'],{'id':'UUID'})[0]
 
 	def _is(self,n,t):
@@ -455,7 +485,6 @@ class BaseModel(object, metaclass = MetaModel):
 	def _iso2related(self,n):
 		return self._is(n,'one2related')
 
-
 	def _ism2mfield(self,n):
 		return self._is(n,'many2many')
 
@@ -465,11 +494,11 @@ class BaseModel(object, metaclass = MetaModel):
 	def _isreferencedfield(self,n):
 		return self._is(n,'referenced')
 
-	def _getParentIdName(self):
-		return mm. _getParentIdName(self)
-
 	def checkAccess(self,mode = None):
 		return mm.checkAccess(self,mode = None)
+
+	def _getParentIdName(self):
+		return mm. _getParentIdName(self)
 	
 	def _getChildsIdName(self):
 		return mm._getChildsIdName(self)

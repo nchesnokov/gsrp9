@@ -742,7 +742,7 @@ def unlink(self, ids, context = {}):
 
 		rels = []
 		#for oid in ids:
-			#_m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context)
+			#_m2munlink(self,rel,id1,id2,oid,rels,context)
 
 	trg1 = self._getTriger('bdr')
 	for trg11 in trg1:
@@ -1236,7 +1236,7 @@ def _m2mread(self, oid, field, fields, context):
 
 	return res
 
-def _m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+def _m2mcreate(self,rel,id1,id2,oid,rels,context):
 	res = []
 	values = []
 
@@ -1255,13 +1255,13 @@ def _m2mcreate(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 	cr.execute(sql)
 	if cr.cr.rowcount > 0:
 		if context['FETCH'] == 'LIST':
-			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+			res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
 		elif context['FETCH'] == 'DICT':
-			res.extend(list(map(lambda x: x['id'],cr.dictfetchall()))) 
+			res.extend(list(map(lambda x: x['id'],self._cr.dictfetchall()))) 
 	
 	return res
 
-def _m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+def _m2mwrite(self,rel,id1,id2,oid,rels,context):
 	res = []
 	iValues = []
 	toInsert = rels
@@ -1307,7 +1307,7 @@ def _m2mwrite(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 
 	return res
 
-def _m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+def _m2mmodify(self,rel,id1,id2,oid,rels,context):
 	res = []
 	iValues = []
 	toInsert = rels
@@ -1353,7 +1353,7 @@ def _m2mmodify(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
 
 	return res
 
-def _m2munlink(self,cr,pool,uid,rel,id1,id2,oid,rels,context):
+def _m2munlink(self,rel,id1,id2,oid,rels,context):
 	res = []
 	if rels and len(rels) > 0:
 		if len(rels) == 1:
@@ -2433,6 +2433,24 @@ class MCache(object):
 	def _selectbrowse(self,model, fields = None ,cond = None, context = {}, limit = None, offset = None):
 			return selectbrowse(model,fields,cond,context,limit,offset)
 
+	def _o2mread(self, oid, field,fields, context):
+		return _o2mread(self, oid, field,fields, context)
+
+	def _m2mread(self, oid, field, fields, context):
+		return _m2mread(self, oid, field, fields, context)
+	
+	def _m2mcreate(self,rel,id1,id2,oid,rels,context):
+		return _m2mcreate(self,rel,id1,id2,oid,rels,context)
+	
+	def _m2mwrite(self,rel,id1,id2,oid,rels,context):
+		return  _m2mwrite(self,rel,id1,id2,oid,rels,context)
+	
+	def _m2mmodify(self,rel,id1,id2,oid,rels,context):
+		return _m2mmodify(self,rel,id1,id2,oid,rels,context)
+	
+	def _m2munlink(self,rel,id1,id2,oid,rels,context):
+		return _m2munlink(self,rel,id1,id2,oid,rels,context)
+
 # model method
 
 	def _getMeta(self,models = None):
@@ -2931,9 +2949,9 @@ class MCache(object):
 				data[k] = item['__data__'][k]
 
 		if 'id' in data:
-			r = _modifyRecord(m,self._cr,self._pool,self._uid,data,self._context)
+			r = _modifyRecord(m,data,self._context)
 		else:
-			r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
+			r = _createRecord(m,data,self._context)
 
 		if r:
 			item['__data__']['id'] = r
@@ -2986,9 +3004,9 @@ class MCache(object):
 				data[k] = item['__data__'][k]
 
 		if 'id' in data:
-			r = _modifyRecord(m,self._cr,self._pool,self._uid,data,self._context)
+			r = _modifyRecord(m,data,self._context)
 		else:
-			r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
+			r = _createRecord(m,data,self._context)
 
 		if r:
 			item['__data__']['id'] = r
@@ -3052,7 +3070,7 @@ class MCache(object):
 			else:
 				data[k] = item['__data__'][k]
 
-		r = _createRecord(m,self._cr,self._pool,self._uid,data,self._context)
+		r = _createRecord(m,data,self._context)
 		if r:
 			item['__data__']['id'] = r
 			self._data._getCData(path)['id'] = r
@@ -3100,7 +3118,7 @@ class MCache(object):
 						self._o2m_removeItem(r)
 			data = item['__data__']
 			m = self._pool.get(item['__model__'])
-			r = _unlinkRecord(m,self._cr,self._pool,self._uid,data,self._context)
+			r = _unlinkRecord(m,data,self._context)
 
 	def _m2m_appendRows(self,rows):
 		rels = {}
@@ -3114,7 +3132,7 @@ class MCache(object):
 			rels.setdefault(oid,[]).append(row['__data__']['id'])
 
 		for oid in rels.keys():
-			_m2mcreate(m,self._cr,self._pool,self._uid,rel,id1,id2,oid,rels[oid],self._context)
+			_m2mcreate(m,rel,id1,id2,oid,rels[oid],self._context)
 
 	def _m2m_removeRows(self,rows):
 		rels = {}
@@ -3128,7 +3146,7 @@ class MCache(object):
 			rels.setdefault(oid,[]).append(row['__data__']['id'])
 
 		for oid in rels.keys():
-			_m2munlink(m,self._cr,self._pool,self._uid,rel,id1,id2,oid,rels[oid],self._context)
+			_m2munlink(m,rel,id1,id2,oid,rels[oid],self._context)
 
 	def _updateItems(self,items):
 		models = {}
