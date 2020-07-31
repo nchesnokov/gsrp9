@@ -207,6 +207,28 @@ def iViewMdx(level,modelinfo,columns):
 	ColumnsView(level+1,modelinfo['columns'],columns,'mdx')
 	b.write((indent + '</mdx>\n').encode('utf-8'))
 
+def ViewMatrix(level,modelinfo,columns):
+
+	indent = TAB * level
+	
+	addparm = ''
+
+	if modelinfo['names']['matrix_names'] != DMN['matrix_names']:
+		addparm += ' matrix_name="%s"' % (modelinfo['names']['matrix_names'],)
+
+	b.write((indent + '<matrix%s>\n' % (addparm,)).encode('utf-8'))
+	ColumnsView(level+1,modelinfo['columns'],columns,'matrix')
+	b.write((indent + '</matrix>\n').encode('utf-8'))
+
+def iViewMatrix(level,modelinfo,columns):
+
+	indent = TAB * level
+	
+	b.write((indent + '<mdx>\n').encode('utf-8'))
+	ColumnsView(level+1,modelinfo['columns'],columns,'mdx')
+	b.write((indent + '</mdx>\n').encode('utf-8'))
+
+
 def ViewSearch(level,modelinfo,columns):
 
 	indent = TAB * level
@@ -389,8 +411,9 @@ def iRecords(level,pool,registry,module,models):
 
 
 
-def Area(cr, pool, uid, registry, modules = None,context={}):
+def Area(registry, modules = None,context={}):
 	pwd = os.getcwd()
+	pool = registry._models
 	if not modules:
 		modules = registry._depends
 	else:
@@ -463,6 +486,10 @@ def isAllow(view,info):
 	if view == 'mdx' and info['names']['date']:
 		r = True
 
+	if view == 'matrix' and ('matrix_names' in info['names'] and info['names']['matrix_names']['matrix_col_name']  and info['names']['matrix_names']['matrix_val_name'] or (info['names']['matrix_col_name']  and info['names']['matrix_val_name'])):
+		r = True
+
+
 	if view == 'geo' and (info['names']['from_latitude'] and info['names']['from_longitude'] or info['names']['to_latitude'] and info['names']['to_longitude'] or info['names']['latitude'] and info['names']['longitude']):
 		r = True
 
@@ -473,10 +500,10 @@ def isAllow(view,info):
 	return r
 
 			
-VIEWSGEN  = {'calendar':ViewCalendar,'schedule':ViewSchedule,'form': ViewForm, 'gantt':ViewGantt, 'graph':ViewGraph, 'kanban':ViewKanban,'list':ViewList,'m2mlist':ViewM2MList,'mdx':ViewMdx,'search':ViewSearch,'find':ViewFind,'tree':ViewTree,'geo':ViewGeo,'flow':ViewFlow}		
+VIEWSGEN  = {'calendar':ViewCalendar,'schedule':ViewSchedule,'form': ViewForm, 'gantt':ViewGantt, 'graph':ViewGraph, 'kanban':ViewKanban,'list':ViewList,'m2mlist':ViewM2MList,'mdx':ViewMdx,'matrix':ViewMatrix,'search':ViewSearch,'find':ViewFind,'tree':ViewTree,'geo':ViewGeo,'flow':ViewFlow}		
 
-IVIEWSGEN  = {'calendar':iViewCalendar,'schedule':iViewSchedule,'form': iViewForm, 'gantt':iViewGantt, 'graph':iViewGraph, 'kanban':iViewKanban,'list':iViewList,'m2mlist':iViewM2MList,'mdx':iViewMdx,'search':iViewSearch,'find':iViewFind,'tree':iViewTree,'geo':iViewGeo,'flow':iViewFlow}		
+IVIEWSGEN  = {'calendar':iViewCalendar,'schedule':iViewSchedule,'form': iViewForm, 'gantt':iViewGantt, 'graph':iViewGraph, 'kanban':iViewKanban,'list':iViewList,'m2mlist':iViewM2MList,'mdx':iViewMdx,'matrix':iViewMatrix,'search':iViewSearch,'find':iViewFind,'tree':iViewTree,'geo':iViewGeo,'flow':iViewFlow}		
 
-EXCLUDE = {'calendar':['one2many','one2related','many2many','text','binary','xml','json'],'form':[],'schedule':['one2many','one2related','many2many','text','binary','xml','json'],'gantt':['one2many','one2related','many2many','text','binary','xml','json'],'graph':['one2many','one2related','many2many','text','binary','xml','json'],'kanban':['one2many','one2related','many2many','xml','json'],'list':['many2many','text','binary','xml','json'],'m2mlist':['one2many','one2related','many2many','text','binary','xml','json'],'mdx':['one2many','one2related','many2many','text','binary','xml','json'],'search':['one2many','one2related','many2many','text','binary','xml','json'],'find':['one2many','one2related','many2many','text','binary','xml','json'],'tree':['one2many','one2related','many2many','text','binary','xml','json'],'geo':['one2many','one2related','many2many','text','binary','xml','json'],'flow':['integer','float','real','decimal','numeric','date','time','datetime','one2related','many2many','text','binary','xml','json']}
+EXCLUDE = {'calendar':['one2many','one2related','many2many','text','binary','xml','json'],'form':[],'schedule':['one2many','one2related','many2many','text','binary','xml','json'],'gantt':['one2many','one2related','many2many','text','binary','xml','json'],'graph':['one2many','one2related','many2many','text','binary','xml','json'],'kanban':['one2many','one2related','many2many','xml','json'],'list':['many2many','text','binary','xml','json'],'m2mlist':['one2many','one2related','many2many','text','binary','xml','json'],'mdx':['one2many','one2related','many2many','text','binary','xml','json'],'matrix':['one2many','one2related','many2many','text','binary','xml','json'],'search':['one2many','one2related','many2many','text','binary','xml','json'],'find':['one2many','one2related','many2many','text','binary','xml','json'],'tree':['one2many','one2related','many2many','text','binary','xml','json'],'geo':['one2many','one2related','many2many','text','binary','xml','json'],'flow':['integer','float','real','decimal','numeric','date','time','datetime','one2related','many2many','text','binary','xml','json']}
 
 

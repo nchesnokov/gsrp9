@@ -202,8 +202,9 @@ def ViewActions(level,pool,module,models,key,cat):
 
 	b.write((indent + '</records>\n').encode('utf-8'))
 
-def Area(cr, pool, uid, registry, modules = None, context={}):
+def Area(registry, modules = None, context={}):
 	pwd = os.getcwd()
+	pool = registry._models
 	log = []
 	if 	not modules:
 		modules = registry._depends

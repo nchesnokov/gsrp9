@@ -379,12 +379,12 @@ class System(object):
 			
 			self._getUid()
 			self._components['modules']._setup(cr=self._cursor,pool=self._models,uid=self._uid,registry=self._components['registry'])
-			self._components['models']._setup(self._cursor,self._models,self._uid,self)
-			self._components['reports']._setup(self._cursor,self._models,self._uid,self)
-			self._components['queries']._setup(self._cursor,self._models,self._uid,self)
-			self._components['dialogs']._setup(self._cursor,self._models,self._uid,self)
-			self._components['wizards']._setup(self._cursor,self._models,self._uid,self)
-			self._components['gens']._setup(self._cursor,self._models,self._uid,self._components['registry'])
+			self._components['models']._setup(self)
+			self._components['reports']._setup(self)
+			self._components['queries']._setup(self)
+			self._components['dialogs']._setup(self)
+			self._components['wizards']._setup(self)
+			self._components['gens']._setup(self._components['registry'])
 			self._components['slots']._setup(self)		
 			return self
 

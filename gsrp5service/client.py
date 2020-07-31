@@ -73,7 +73,7 @@ async def hello():
 		#async with websockets.connect('ws://www.gsrp5labs.com:8170') as ws:
 		#async with websockets.connect('ws://localhost:8170/ws') as ws:
 		async with websockets.connect('ws://localhost:8170') as ws:
-			if   not True:
+			if   True:
 				Uuid = await _execute([ws, '_open','gsrp5.system',{'profile':'system'}])
 				#msg = await _execute([ws,'modules','upgrademoduleslist',{'db':'test001'}])
 				#return
@@ -86,7 +86,7 @@ async def hello():
 				#msg = await _execute([ws, 'modules','load',{'modules': {'md':['i18n']}}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','cm','crm','fa','hcm','md1','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ctrm']}])				
 				#msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
-				#msg = await _execute([ws, 'gens','ui',{'modules': ['bc','md']}])
+				msg = await _execute([ws, 'gens','ui',{'modules': ['purchase']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','purchase','sale']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['sale']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['sale']}])

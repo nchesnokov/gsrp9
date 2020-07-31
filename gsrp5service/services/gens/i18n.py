@@ -10,7 +10,7 @@ from gsrp5service.orm.model import Model, ModelInherit
 
 _logger = logging.getLogger('listener.' + __name__)
 
-def _download_i18n(cr,pool,uid,path,module,models):
+def _download_i18n(path,module,models):
 	import polib
 
 	po = polib.POFile()
@@ -70,8 +70,9 @@ def _download_i18n(cr,pool,uid,path,module,models):
 	
 	po.save(opj(path,module,'i18n','po.pot'))
 
-def Area(cr, pool, uid, registry, modules = None,context={}):
+def Area(registry, modules = None,context={}):
 	pwd = os.getcwd()
+	pool = registry._models
 	if not modules:
 		modules = registry._depends
 	else:
@@ -92,7 +93,7 @@ def Area(cr, pool, uid, registry, modules = None,context={}):
 		
 		if len(models) > 0:
 			# + len(imodels) > 0:
-			_download_i18n(cr,pool,uid,path,module,models)
+			_download_i18n(path,module,models)
 			logmodules.append(module)
 
 	_logger.info('Download i18ns of modules %s' % (logmodules,))
@@ -100,7 +101,7 @@ def Area(cr, pool, uid, registry, modules = None,context={}):
 	return ['Download i18ns of modules %s' % (logmodules,)]
 
 
-def Area2(cr, pool, uid, registry, modules = None):
+def Area2(registry, modules = None):
 	pwd = os.getcwd()
 	if not modules:
 		modules = registry._depends
@@ -116,7 +117,7 @@ def Area2(cr, pool, uid, registry, modules = None):
 
 
 		if len(models) > 0:
-			_download_i18n(cr,pool,uid,path,module,models)
+			_download_i18n(path,module,models)
 			logmodules.append(module)
 	_logger.info('Download i18ns of modules %s' % (logmodules,))
 	

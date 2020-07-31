@@ -378,6 +378,7 @@ purchase_order_item_roles()
 class purchase_order_item_delivery_schedules(Model):
 	_name = 'purchase.order.item.delivery.schedules'
 	_description = 'Purchase Order Item Delivery Schedules'
+	_matrix_names = ('schedule','quantity')
 	_columns = {
 	'item_id': fields.many2one(obj = 'purchase.order.items',label = 'Order Item'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),

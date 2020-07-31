@@ -28,7 +28,7 @@ def _remove_dirs(folders):
 				print('Failed to delete %s. Reason: %s' % (file_path, e))
 # download
 
-def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
+def _download_imodules(pool,path,module,imodules,registry,ext='csv'):
 	for k in imodules.keys():
 		a = open(opj(path,module,'demo','annotation-1.csv'),'w')
 		aw = csv.DictWriter(a,['model','file'])
@@ -110,7 +110,7 @@ def _download_imodules(cr,pool,uid,path,module,imodules,registry,ext='csv'):
 		a.close()
 
 
-def _download(cr,pool,uid,path,module,imodules,models,imodels,registry,ext='csv'):
+def _download(pool,path,module,imodules,models,imodels,registry,ext='csv'):
 	_remove_dirs([opj(path,module,'demo','data'),opj(path,module,'demo','examples'),opj(path,module,'demo','cust'),])
 	
 	a = open(opj(path,module,'demo','annotation-1.csv'),'w')
@@ -184,8 +184,9 @@ def _download(cr,pool,uid,path,module,imodules,models,imodels,registry,ext='csv'
 	#_download_imodules(cr,pool,uid,path,module,imodules,registry,ext)
 # download
 
-def Area(cr, pool, uid, registry, modules = None, context={}):
+def Area(registry, modules = None, context={}):
 	pwd = os.getcwd()
+	pool = registry._models
 	if not modules:
 		modules = registry._depends
 	else:
@@ -223,7 +224,7 @@ def Area(cr, pool, uid, registry, modules = None, context={}):
 		if len(models) > 0 or len(imodules) > 0:
 			#print('MODELS:',module,imodules,models,imodels)
 			#_download_imodules(cr,pool,uid,path,module,imodules,registry,ext=context['ext'])
-			_download(cr,pool,uid,path,module,imodules,models,imodels,registry,ext=context['ext'])
+			_download(pool,path,module,imodules,models,imodels,registry,ext=context['ext'])
 			logmodules.append(module)
 
 	_logger.info('Download examples of modules %s' % (logmodules,))

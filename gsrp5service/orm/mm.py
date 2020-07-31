@@ -467,6 +467,34 @@ def _getTransitionsName(self):
 
 	return n
 
+def _getMatrixNamesName(self):
+	n = _getName(self,'matrix_names')
+	col_name = None
+	val_name = None
+	if n:
+		col_name,val_name = n[0],n[1]
+	else:
+		col_name = _getMatrixColNameName(self)
+		val_name = _getMatrixValNameName(self)
+	
+	return {'matrix_col_name':col_name,'matrix_val_name':val_name}
+
+def _getMatrixColNameName(self):
+	n = _getName(self,'matrix_col_name')
+	if n:
+		if not self._columns[n]._type in ('one2many','one2related,','many2many','integer','float','double','real','decimal','numeric'):
+			n = None
+
+	return n
+
+def _getMatrixValNameName(self):
+	n = _getName(self,'matrix_val_name')
+	if n:
+		if self._columns[n]._type in ('integer','float','double','real','decimal','numeric'):
+			n = None
+
+	return n
+
 
 #wkf end
 def _getName(self,name):
@@ -474,7 +502,7 @@ def _getName(self,name):
 	fname = '_' + name
 	if hasattr(self,fname):
 		n = getattr(self,fname,None)
-		if n:
+		if n and type(n) == str:
 			if not n in self._columns:
 				n=None
 	else:
@@ -486,13 +514,19 @@ def _getName(self,name):
 def _getNames(self,names):
 	n = {}
 	if not names:
-		names = ('parent_id','childs_id','row_name','full_name','rec_name','date','start_date','end_date','from_date','to_date','from_time','to_time','progress','project_type','sequence','state','inactive','prev','next','transitions','latitude','longitude','from_latitude','from_longitude','to_latitude','to_longitude')
+		names = ('parent_id','childs_id','row_name','full_name','rec_name','date','start_date','end_date','from_date','to_date','from_time','to_time','progress','project_type','sequence','state','inactive','prev','next','transitions','latitude','longitude','from_latitude','from_longitude','to_latitude','to_longitude','matrix_names','matrix_col_name','matrix_val_name')
 	for name in names:
+		if self._name == 'purchase.order.item.delivery.schedules' and name in ('matrix_names','matrix_col_name','matrix_val_name'):
+			pass
+			web_pdb.set_trace()
 		ns = name.split('_')
 		if len(ns) == 1:
 			nf = ns[0].title()
 		else:
-			nf = reduce(lambda x,y: x.title()+y.title(),ns)
+			nf = ''
+			for ns0 in ns:
+				nf += ns0.title()
+			#nf = reduce(lambda x,y: x.title()+y.title(),ns)
 		_f = '_get' + nf + 'Name'
 		#f = getattr(self,_f,None)
 		f = None

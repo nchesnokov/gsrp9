@@ -81,8 +81,9 @@ def Role(level,module,models):
 def Access(level,module,models):
 	RecordsAccess(level,module,models)
 
-def Area(cr, pool, uid, registry, modules = None, context={}):
+def Area(registry, modules = None, context={}):
 	pwd = os.getcwd()
+	pool = registry._models
 	log = []
 	if not modules:
 		modules = registry._depends

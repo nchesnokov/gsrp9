@@ -20,10 +20,7 @@ class Gens(Service):
 		self._config = cf
 
 	
-	def _setup(self,cr,pool,uid,registry):
-		self._cr = cr
-		self._pool = pool
-		self._uid = uid
+	def _setup(self,registry):
 		self._registry = registry
 
 	def _call(self,args):
@@ -43,46 +40,46 @@ class Gens(Service):
 
 
 	def role(self,modules=None, context={}):
-		return roles.Area(self._cr,self._pool,self._uid,self._registry,modules,context)
+		return roles.Area(self._registry,modules,context)
 
 	def menu(self,modules=None, context={}):
-		return menus.Area(self._cr,self._pool,self._uid,self._registry,modules,context)
+		return menus.Area(self._registry,modules,context)
 
 	def view(self,modules = None, context={}):
-		return views.Area(self._cr,self._pool,self._uid,self._registry,modules,context)
+		return views.Area(self._registry,modules,context)
 
 	def ui(self,modules=None, context={}):
 		log = []
 
-		log.append(views.Area(self._cr,self._pool,self._uid,self._registry,modules,context))
-		log.append(roles.Area(self._cr,self._pool,self._uid,self._registry,modules, context))
-		log.append(menus.Area(self._cr,self._pool,self._uid,self._registry,modules, context))
+		log.append(views.Area(self._registry,modules,context))
+		log.append(roles.Area(self._registry,modules, context))
+		log.append(menus.Area(self._registry,modules, context))
 
 		return log
 
 	def examples(self,modules = None, context={}):
-		return examples.Area(self._cr,self._pool,self._uid,self._registry,modules, context)
+		return examples.Area(self._registry,modules, context)
 
 	def tests(self,modules = None, context={}):
-		return tests.Area(self._cr,self._pool,self._uid,self._registry,modules, context)
+		return tests.Area(self._registry,modules, context)
 
 	def i18n(self,modules = None, context={}):
-		return i18n.Area(self._cr,self._pool,self._uid,self._registry,modules, context)
+		return i18n.Area(self._registry,modules, context)
 
 	def tr(self,modules = None, context={}):
 		log = []
-		return tr.Area(self._cr,self._pool,self._uid,self._registry,modules, context)
+		return tr.Area(self._registry,modules, context)
 	
 	def all(self,modules = None, context={}):
 		log = []
 
-		log.append(views.Area(self._cr,self._pool,self._uid,self._registry,modules, context))
-		log.append(roles.Area(self._cr,self._pool,self._uid,self._registry,modules, context))
-		log.append(menus.Area(self._cr,self._pool,self._uid,self._registry,modules, context))
+		log.append(views.Area(self._registry,modules, context))
+		log.append(roles.Area(self._registry,modules, context))
+		log.append(menus.Area(self._registry,modules, context))
 
-		log.append(examples.Area(self._cr,self._pool,self._uid,self._registry,modules, context))
-		log.append(tests.Area(self._cr,self._pool,self._uid,self._registry,modules, context))
-		log.append(i18n.Area(self._cr,self._pool,self._uid,self._registry,modules, context))
-		log.append(tr.Area(self._cr,self._pool,self._uid,self._registry,modules, context))
+		log.append(examples.Area(self._registry,modules, context))
+		log.append(tests.Area(self._registry,modules, context))
+		log.append(i18n.Area(self._registry,modules, context))
+		log.append(tr.Area(self._registry,modules, context))
 
 		return log

@@ -2694,6 +2694,17 @@
             </m2mlist>
           </column>
         </record>
+        <record id="view.purchase.order.item.delivery.schedules.matrix">
+          <column name="name">view.purchase.order.item.delivery.schedules.matrix</column>
+          <column name="model">purchase.order.item.delivery.schedules</column>
+          <column name="arch" type="Xml">
+            <matrix matrix_name="{'matrix_col_name': 'schedule', 'matrix_val_name': 'quantity'}">
+              <field name="item_id"/>
+              <field name="quantity"/>
+              <field name="schedule"/>
+            </matrix>
+          </column>
+        </record>
         <record id="view.purchase.order.item.output.plates.form">
           <column name="name">view.purchase.order.item.output.plates.form</column>
           <column name="model">purchase.order.item.output.plates</column>
