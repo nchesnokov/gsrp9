@@ -244,7 +244,7 @@ class sale_unit_channel_assigments(Model):
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
 	}
 
-	def _compute_fullname(self,cr,pool,uid,item,context):
+	def _compute_fullname(self ,item,context):
 		v=''
 
 		if 'channel_id' in item and 'name' in item['channel_id'] and item['channel_id']['name']:
@@ -267,7 +267,7 @@ class sale_unit_segment_assigments(Model):
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
 	}
 
-	def _compute_fullname(self,cr,pool,uid,item,context):
+	def _compute_fullname(self ,item,context):
 		v=''
 
 		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
@@ -290,7 +290,7 @@ class sale_unit_area_assigments(Model):
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
 	}
 
-	def _compute_fullname(self,cr,pool,uid,item,context):
+	def _compute_fullname(self ,item,context):
 		v=''
 
 		if 'area_id' in item and 'name' in item['area_id'] and item['area_id']['name']:
@@ -313,7 +313,7 @@ class sale_unit_region_assigments(Model):
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname')
 	}
 
-	def _compute_fullname(self,cr,pool,uid,item,context):
+	def _compute_fullname(self ,item,context):
 		v=''
 
 		if 'region_id' in item and 'name' in item['region_id'] and item['region_id']['name']:
@@ -338,7 +338,7 @@ class sale_division_subdivision_assigments(Model):
 	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
 	}
 
-	def _compute_fullname(self,cr,pool,uid,item,context):
+	def _compute_fullname(self ,item,context):
 		v=''
 
 		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:

@@ -72,15 +72,15 @@ class sale_orders(Model):
 	'note': fields.text('Note')
 	}
 
-	def _on_change_otype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('sale.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+	def _on_change_otype(self ,item,context={}):		
+		roles = pool.get('sale.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
 			item_role = pool.get('sale.order.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = pool.get('sale.order.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = pool.get('sale.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = pool.get('sale.order.types').select( ['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = pool.get('sale.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		if len(texts1) > 0:
 			texts = texts1[0]['texts']
 			seq = 0
@@ -94,9 +94,9 @@ class sale_orders(Model):
 				item_text['text_id'] = text['text_id']
 				item['texts'].append(item_text)
 
-	def _on_change_mob(self,cr,pool,uid,item,context={}):		
+	def _on_change_mob(self ,item,context={}):		
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
-			p = pool.get('md.mob.output.items').select(cr,pool,uid,['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
+			p = pool.get('md.mob.output.items').select( ['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
 			for i in p:
 				ei = pool.get('sale.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
@@ -231,14 +231,14 @@ class sale_order_items(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self ,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			i = pool.get('sale.order.type.items').select(cr,pool,uid,['gti_id','itype_id'],[],context)
+			i = pool.get('sale.order.type.items').select( ['gti_id','itype_id'],[],context)
 			gti = {}
 			if len(i) > 0:
 				for r in i:
 					gti[r['gti_id']['name']] = r['itype_id']
-			p = pool.get('md.product').select(cr,pool,uid,['name','gti','volume','volume_uom','weight','weight_uom',{'sale':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
+			p = pool.get('md.product').select( ['name','gti','volume','volume_uom','weight','weight_uom',{'sale':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
 			if len(p) > 0:
 				for f in ('gti','volume','volume_uom','weight','weight_uom','sale'):
 					if f == 'sale':
@@ -287,41 +287,41 @@ class sale_order_items(Model):
 		'ad': '_trgAfterDeleteDA1',
 		}
 
-	def _trgForEachRowBeforeInsertIB1(self,cr,pool,uid,r1,context):
+	def _trgForEachRowBeforeInsertIB1(self ,r1,context):
 		print('Triger For Each Row Before Insert')
 
-	def _trgForEachRowAfterInsertIA1(self,cr,pool,uid,r1,context):
+	def _trgForEachRowAfterInsertIA1(self ,r1,context):
 		print('Triger For Each Row After Insert')
 
-	def _trgBeforeInsertIBA1(self,cr,pool,uid,r1,context):
+	def _trgBeforeInsertIBA1(self ,r1,context):
 		print('Triger Before Insert')
 
-	def _trgAfterInsertIAA1(self,cr,pool,uid,r1,context):
+	def _trgAfterInsertIAA1(self ,r1,context):
 		print('Triger After Insert')
 
 #
-	def _trgForEachRowBeforeUpdateUB1(self,cr,pool,uid,r1,r2,context):
+	def _trgForEachRowBeforeUpdateUB1(self ,r1,r2,context):
 		print('Triger For Each Row Before Update')
 
-	def _trgForEachRowAfterUpdateUA1(self,cr,pool,uid,r1,r2,context):
+	def _trgForEachRowAfterUpdateUA1(self ,r1,r2,context):
 		print('Triger For Each Row After Update')
 
-	def _trgBeforeUpdateUBA1(self,cr,pool,uid,r1,r2,context):
+	def _trgBeforeUpdateUBA1(self ,r1,r2,context):
 		print('Triger Before Update')
 
-	def _trgAfterUpdateIUA1(self,cr,pool,uid,r1,r2,context):
+	def _trgAfterUpdateIUA1(self ,r1,r2,context):
 		print('Triger After Update')
 #
-	def _trgForEachRowBeforeDeleteDB1(self,cr,pool,uid,r2,context):
+	def _trgForEachRowBeforeDeleteDB1(self ,r2,context):
 		print('Triger For Each Row Before Delete')
 
-	def _trgForEachRowAfterDeleteDA1(self,cr,pool,uid,r2,context):
+	def _trgForEachRowAfterDeleteDA1(self ,r2,context):
 		print('Triger For Each Row After Delete')
 
-	def _trgBeforeDeleteDBA1(self,cr,pool,uid,r2,context):
+	def _trgBeforeDeleteDBA1(self ,r2,context):
 		print('Triger Before Delete')
 
-	def _trgAfterDeleteDA1(self,cr,pool,uid,r2,context):
+	def _trgAfterDeleteDA1(self ,r2,context):
 		print('Triger After Delete')
 
 	_default = {
@@ -461,8 +461,8 @@ class sale_invoices(Model):
 	'note': fields.text('Note')
 	}
 
-	def _on_change_itype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('sale.invoice.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['otype'])],context)
+	def _on_change_itype(self ,item,context={}):		
+			roles = pool.get('sale.invoice.type.roles').select(['role_id'],[('type_id','=',item['otype'])],context)
 			if len(roles) > 0:
 				if 'roles' not in item:
 					item['roles'] = []
@@ -527,9 +527,9 @@ class sales_invoice_items(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self ,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.sale.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = pool.get('md.sale.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -611,7 +611,7 @@ md_sale_product()
 class md_sale_product_inherit(ModelInherit):
 	_name = 'md.sale.product.inherit'
 	_description = 'Genaral Model Inherit For Sale Product'
-	_inherit = {'md.product':{'_columns':['sale']},'md.mob':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['sale']},'md.mobs':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}}
 	_columns = {
 		'sale': fields.one2many(label='Sales',obj='md.sale.product',rel='product_id'),
 		'usage': fields.iProperty(selections=[('sale','Sale')])

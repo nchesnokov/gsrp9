@@ -487,32 +487,32 @@ def _uninstallModule(cr,pool,uid,name,registry):
 	#mom = registry._momm[name]
 	mom = registry._modules[name]['class']
 
-	xmldatas = pool.get('bc.model.data').select(cr,pool,uid,['name','module','model','rec_id'],[('module','=',name)])
+	xmldatas = pool.get('bc.model.data').select(['name','module','model','rec_id'],[('module','=',name)])
 	xmlmodels = {}
 	for xmldata in xmldatas:
 		xmlmodels.setdefault(xmldata['model'],[]).append(xmldata['rec_id'])
 	
 	for key in xmlmodels.keys():
-		r = pool.get(key).unlink(cr,pool,uid,xmlmodels[key])
+		r = pool.get(key).unlink(xmlmodels[key])
 		_logger.info(" Unlink from model: %s records: %s" % (key,len(xmlmodels[key])))
 
-	pool.get('bc.model.data').unlink(cr,pool,uid,list(map(lambda x: x['id'],xmldatas)))
+	pool.get('bc.model.data').unlink(list(map(lambda x: x['id'],xmldatas)))
 
-	f = pool.get('bc.module.files').delete(cr,pool,uid,[('module_id','=',name)])
+	f = pool.get('bc.module.files').delete([('module_id','=',name)])
 	_logger.info(" Unlink module files: %s records: %s" % (name,len(f)))
 
-	mm = pool.get('bc.models').select(cr,pool,uid,['module_id','name','db_table',{'columns':['model_id']}],[('module_id','=',name)])
+	mm = pool.get('bc.models').select(['module_id','name','db_table',{'columns':['model_id']}],[('module_id','=',name)])
 	db_models = list(map(lambda x: x['name'],mm))
 	for m in mm:
-		pool.get('bc.model.columns').unlink(cr,pool,uid,list(map(lambda x: x['id'],m['columns']))) 
+		pool.get('bc.model.columns').unlink(list(map(lambda x: x['id'],m['columns']))) 
 	
-	pool.get('bc.models').unlink(cr,pool,uid,list(map(lambda x: x['id'],mm))) 
+	pool.get('bc.models').unlink(list(map(lambda x: x['id'],mm))) 
 
-	mmi = pool.get('bc.inherits').select(cr,pool,uid,['module_id',{'columns':['inherit_id']}],[('module_id','=',name)])
+	mmi = pool.get('bc.inherits').select(['module_id',{'columns':['inherit_id']}],[('module_id','=',name)])
 	for m in mmi:
-		pool.get('bc.bc.inherit.columns').unlink(cr,pool,uid,list(map(lambda x: x['id'],m['columns']))) 
+		pool.get('bc.bc.inherit.columns').unlink(list(map(lambda x: x['id'],m['columns']))) 
 	
-	pool.get('bc.inherits').unlink(cr,pool,uid,list(map(lambda x: x['id'],mm))) 
+	pool.get('bc.inherits').unlink(list(map(lambda x: x['id'],mm))) 
 
 	
 	sqls = []
@@ -536,8 +536,8 @@ def _uninstallModule(cr,pool,uid,name,registry):
 							for icolkey in inherit[ikey]['_columns']:
 								sqls.append("ALTER TABLE IF EXISTS %s DROP COLUMN IF EXISTS %s CASCADE" % (ikey,icolkey))
 							
-							mmiv = pool.get('bc.ui.views').select(cr,pool,uid,[{'inherit_views':['name']}],[('model','=',ikey)])
-							pool.get('bc.ui.views.inherit').unlink(cr,pool,uid,list(map(lambda x: x['id'],mmiv))) 				
+							mmiv = pool.get('bc.ui.views').select([{'inherit_views':['name']}],[('model','=',ikey)])
+							pool.get('bc.ui.views.inherit').unlink(list(map(lambda x: x['id'],mmiv))) 				
 							
 					else:
 						if model in pool:
@@ -558,7 +558,7 @@ def _uninstallModule(cr,pool,uid,name,registry):
 		_logger.info("Tables dropped")
 
 	module_id = registry._modules[name]['db_id']
-	pool.get('bc.modules').write(cr=cr,pool=pool,uid=uid,records={'id':module_id,'state':'N'})
+	pool.get('bc.modules').write({'id':module_id,'state':'N'},{})
 	registry._modules[name]['state'] = 'N'
 
 	cr.commit()
@@ -569,7 +569,7 @@ def _upgradeModule(cr,pool,uid,name,registry):
 	log = []
 	_logger.info(" Module: %s Upgrade" % (name,))
 
-	mm = pool.get('bc.models').select(cr,pool,uid,['module_id','name','db_table',{'columns':['model_id']}],[('module_id','=',name)])
+	mm = pool.get('bc.models').select(['module_id','name','db_table',{'columns':['model_id']}],[('module_id','=',name)])
 	db_models = list(map(lambda x: x['name'],mm))
 	db_tables = {}
 	for m in mm:
@@ -624,7 +624,7 @@ def _upgradeModule(cr,pool,uid,name,registry):
 	for model in models_to_check_upgrade:
 		if isinstance(pool.get(model),ModelInherit):
 			continue
-		db_cols = pool.get('bc.models').select(cr,pool,uid,[{'columns':columns}],[('name','=',model)])[0]['columns']
+		db_cols = pool.get('bc.models').select([{'columns':columns}],[('name','=',model)])[0]['columns']
 		model_cols = list(pool.get(model)._columns.keys())
 		cd = list(filter(lambda x:x not in model_cols,db_cols))
 		if len(cd) > 0:
@@ -706,8 +706,8 @@ def _load_list_allmodules(cr,pool,uid,registry):
 
 		records.append(record)
 
-	ids = pool.get('bc.modules').create(cr, pool, uid, records)
-	records = pool.get('bc.modules').read(cr, pool, uid,ids, ['code'])
+	ids = pool.get('bc.modules').create(records,{})
+	records = pool.get('bc.modules').read(ids, ['code'])
 	#print('MODULES:',records)
 
 	for record in records:
@@ -717,8 +717,8 @@ def _load_list_allmodules(cr,pool,uid,registry):
 def _load_list_modules(cr,pool,uid,registry,db):
 	records = []
 	cr.execute('SET DATABASE = %s' % (db,))
-	_uid = pool.get('bc.users').select(cr,pool,uid,fields=[],cond=[('login','=','admin')])[0]['id'] 
-	db_modules = list(map(lambda x: x[1],pool.get('bc.modules').select(cr,pool,uid,fields=['code'],context={'FETCH':'LIST'})))
+	_uid = pool.get('bc.users').select(fields=[],cond=[('login','=','admin')],context={})[0]['id'] 
+	db_modules = list(map(lambda x: x[1],pool.get('bc.modules').select(fields=['code'],context={'FETCH':'LIST'})))
 	#print('db_modules:',db_modules)
 	modules = list(filter(lambda x: not x in db_modules,registry._modules.keys()))
 	#print('modules:',)
@@ -736,8 +736,8 @@ def _load_list_modules(cr,pool,uid,registry,db):
 
 		records.append(record)
 	if len(modules) > 0:
-		ids = pool.get('bc.modules').create(cr, pool, _uid, records)
-		records = pool.get('bc.modules').read(cr, pool, _uid,ids, ['code'])
+		ids = pool.get('bc.modules').create(records,{})
+		records = pool.get('bc.modules').read(ids, ['code'],{})
 		cr.commit()
 		cr.execute('SET DATABASE = %s' % ('system',))
 		#print('MODULES:',records)
@@ -759,7 +759,7 @@ def _loadMetaModule(cr,pool,uid,name,registry):
 	for file_record in file_records:
 		file_record['module_id'] = module_id
 	#print('FILE-RECORDS:',file_records)
-	pool.get('bc.module.files').create(cr,pool,uid,file_records)
+	pool.get('bc.module.files').create(file_records,{})
 
 	model_records = []
 	imodel_records = []
@@ -776,12 +776,12 @@ def _loadMetaModule(cr,pool,uid,name,registry):
 				imodel_records.append(im)
 
 	if len(model_records) > 0:
-			pool.get('bc.models').create(cr,pool,uid,model_records)
+			pool.get('bc.models').create(model_records,{})
 
 	if len(imodel_records) > 0:
-			pool.get('bc.inherits').create(cr,pool,uid,imodel_records)
+			pool.get('bc.inherits').create(imodel_records,{})
 	
-	pool.get('bc.modules').write(cr,pool,uid,{'id':module_id,'state':'I'})
+	pool.get('bc.modules').write({'id':module_id,'state':'I'},{})
 	registry._modules[name]['state'] = 'I'
 
 def _loadModuleFile(path,name,ext=['py','xml','csv','yaml','yml','so']):
@@ -911,7 +911,7 @@ def _loadMetaData(cr,pool,uid,name,registry):
 	meta = registry._modules[name]['meta']
 
 	record = _loadMetaModule(cr,pool,uid,name,registry)
-	return pool.get('bc.modules').create(cr,pool,uid,record)
+	return pool.get('bc.modules').create(record,{})
 
 
 def _load_env_column(cr,pool,uid,model,column):
@@ -919,7 +919,7 @@ def _load_env_column(cr,pool,uid,model,column):
 	m = pool.get(model)
 	obj = pool.get(m.columnsInfo([column],['obj'])[column]['obj'])
 	recname = obj._getRecNameName()
-	r = obj.select(cr,pool,uid,[recname])
+	r = obj.select([recname],{})
 	#print('R:',model,column,obj,r)
 	for k in r:
 		v[k[recname]] = k['id']
@@ -927,8 +927,8 @@ def _load_env_column(cr,pool,uid,model,column):
 	return v
 
 def _load_class_bc(cr,pool,uid,name):
-	bc_models = pool.get('bc.models').select(cr,pool,uid,['name','module_id'],[('module_id','=','bc'),[('name','=','bc.models')]])
-	models = pool.get('bc.models').select(cr,pool,uid,['name','module_id'],[('module_id','=',name)])
+	bc_models = pool.get('bc.models').select(['name','module_id'],[('module_id','=','bc'),[('name','=','bc.models')]],{})
+	models = pool.get('bc.models').select(['name','module_id'],[('module_id','=',name)],{})
 	mt = {}
 	bcm = pool.get('bc.models')
 	mod_records = []
@@ -949,10 +949,10 @@ def _load_class_bc(cr,pool,uid,name):
 			
 			mod_records.append(mod_record)
 	
-	bcm.write(cr,pool,uid,mod_records)
+	bcm.write(mod_records,{})
 			
 def _load_env(cr,pool,uid,name):
-	models = pool.get('bc.models').select(cr,pool,uid,['name','module_id'],[('module_id','=',name)])
+	models = pool.get('bc.models').select(['name','module_id'],[('module_id','=',name)],{})
 	mt = {}
 	for model in models:
 		m = pool.get(model['name'])
@@ -963,7 +963,7 @@ def _load_env(cr,pool,uid,name):
 			for envfield in envfields:
 				mt[envfield] = _load_env_column(cr,pool,uid,m._name,envfield)
 
-			r1 = m.select(cr,pool,uid,[m._getRecNameName()])
+			r1 = m.select([m._getRecNameName()],{})
 			mod_records = []
 			for k1 in r1:
 				mod_record = {'id':k1['id']}
@@ -973,7 +973,7 @@ def _load_env(cr,pool,uid,name):
 						mod_record[envfield] = mt[envfield][ef]
 				mod_records.append(mod_record)
 			
-			m.write(cr,pool,uid,mod_records)
+			m.write(mod_records,{})
 
 	_load_class_bc(cr,pool,uid,name)
 
@@ -1005,14 +1005,14 @@ def _loadFiles(cr,pool,uid,name,info,metas):
 					_logger.info("loading file: %s" % (opj(path,name,f),))
 					res = _load_i18n(path,name,f)
 					for lang in res.keys():
-						r = pool.get('bc.langs').search(cr,pool,uid,[('code','=',lang)])
+						r = pool.get('bc.langs').search([('code','=',lang)],{})
 						if len(r) > 0:
 							for model in res[lang].keys():
-								r1 = pool.get('bc.models').search(cr,pool,uid,[('name','=',model)])
+								r1 = pool.get('bc.models').search([('name','=',model)],{})
 								if len(r1) > 0:
 									v = res[lang][model]
 									#pool.get('bc.record.translations').modify(cr,pool,uid,{'lang':r[0],'model':r1[0],'record':r1[0],'tr':json.dumps(v)},{})
-									pool.get('bc.model.translations').modify(cr,pool,uid,{'lang':r[0],'model':r1[0],'tr':json.dumps(v)},{})
+									pool.get('bc.model.translations').modify({'lang':r[0],'model':r1[0],'tr':json.dumps(v)},{})
 							
 						
 					_logger.info("Loaded  file: %s" % (opj(path,name,f),))
@@ -1039,7 +1039,7 @@ def _convertFromYAML(cr,pool,uid,model,records):
 				if recname is None:
 					recname = 'id'	
 				if record[key] is not None:
-					oid = pool.get(columns_info[key]['obj']).search(cr,pool,uid,[(recname,'=',record[key]),{},1])
+					oid = pool.get(columns_info[key]['obj']).search([(recname,'=',record[key],{}),{},1])
 					#print('oid:',model,recname,key,record[key],oid)
 					if len(oid) > 0:
 						record[key] = oid[0]
@@ -1098,7 +1098,7 @@ def _loadCSVFile(cr,pool,uid,info,path,name,fl):
 						_convertFromYAML(cr,pool,uid,model,rows)
 						while len(rows) > 0:
 							#print('RECORDS-0:',model,records)
-							ir = pool.get(model).modify(cr,pool,uid,rows,{})
+							ir = pool.get(model).modify(rows,{})
 							cr.commit()
 							parents = list(map(lambda x:x[rec_name],rows))
 							rows = list(filter(lambda x:parent_id in x and x[parent_id] in parents,records))
@@ -1106,7 +1106,7 @@ def _loadCSVFile(cr,pool,uid,info,path,name,fl):
 					else:
 						_convertFromYAML(cr,pool,uid,model,records)
 						#print('RECORDS-1:',model,records)
-						ir = pool.get(model).modify(cr,pool,uid,records,{})
+						ir = pool.get(model).modify(records,{})
 						#cr.commit()
 					_logger.info("    Loaded annotation file: %s - records:%s" % (opj(path,name,f),len(ir)))
 
@@ -1115,7 +1115,7 @@ def _loadXMLFile(cr,pool,uid,info,path,name,fl):
 	fk = {}
 	rng=etree.RelaxNG(etree=etree.parse(opj(os.path.dirname(os.path.abspath(__file__)),'views.rng')))
 	obj = 'bc.module.files'
-	file_id = pool.get(obj).search(cr=cr,pool=pool,uid=uid,cond=[(pool.get(obj)._getRecNameName(),'=',opj(name,fl))],limit=1)[0]
+	file_id = pool.get(obj).search(cond=[(pool.get(obj)._getRecNameName(),'=',opj(name,fl))],context={},limit=1)[0]
 	for event,el in etree.iterparse(source=opj(path,name,fl),events=('end','start')):
 		if el.tag == 'records':
 			if event == 'start':
@@ -1132,10 +1132,10 @@ def _loadXMLFile(cr,pool,uid,info,path,name,fl):
 							fkk[v] = k
 						fk[column] = fkk 
 			else:
-				ids = pool.get(model).create(cr,pool,uid,records)
+				ids = pool.get(model).create(records,{})
 				for i in range(len(ids)):
 					datarecords[i]['rec_id'] = ids[i]
-				pool.get('bc.model.data').create(cr,pool,uid,datarecords)
+				pool.get('bc.model.data').create(datarecords,{})
 		elif el.tag == 'record':
 			if event == 'start':
 				record = {}
@@ -1150,11 +1150,11 @@ def _loadXMLFile(cr,pool,uid,info,path,name,fl):
 							oid = _buffer.key(key,obj,record[key])
 							if not oid:
 								if 'ref' in el.attrib:
-									oid = pool.get('bc.model.data').select(cr=cr,pool=pool,uid=uid,fields=['rec_id'],cond=[('name','=',el.attrib['ref'])],context= {'FETCH':'LIST'},limit=1)[0]
+									oid = pool.get('bc.model.data').select(fields=['rec_id'],cond=[('name','=',el.attrib['ref'])],context= {'FETCH':'LIST'},limit=1)[0]
 								else:
 									#oid = pool.get(obj).search(cr=cr,pool=pool,uid=uid,cond=[(recname,'=',record[key])],context= {'FETCH':'LIST'},limit=1)[0]
 									try:
-										oid = pool.get(obj).search(cr=cr,pool=pool,uid=uid,cond=[(recname,'=',record[key])],context= {'FETCH':'LIST'},limit=1)[0]
+										oid = pool.get(obj).search(cond=[(recname,'=',record[key])],context= {'FETCH':'LIST'},limit=1)[0]
 									except:
 										print('RECORD-KEY:',obj,record[key])
 									

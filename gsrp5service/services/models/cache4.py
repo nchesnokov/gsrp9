@@ -3185,11 +3185,14 @@ class MCache(object):
 		try:
 			self._cr.commit()
 			
-			res = self._save_commit(self._data,self._commit_diffs)
-			if self._mode in ('new',):
-				self._clear()
+			if hasattr(self,'_data'):
+				res = self._save_commit(self._data,self._commit_diffs)
+				if self._mode in ('new',):
+					self._clear()
 	
-			return res
+				return res
+			
+			return ['commited']			
 		except:
 			raise
 

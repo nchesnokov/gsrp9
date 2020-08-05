@@ -19,6 +19,7 @@ MAX_CHUNK_DELETE = 5000
 _logger = logging.getLogger(__name__)
 
 _TRIGGERS_KEYS_ = ('bir',	'bur', 'bdr', 'air', 'aur', 'adr', 'bi', 'bu', 'bd', 'ai', 'au', 'ad')
+_HOOKS_KEYS_ = ('bai',	'aai', 'bri', 'ari','bui','aui')
 
 
 class orm_exception(Exception):
@@ -516,9 +517,9 @@ def _getNames(self,names):
 	if not names:
 		names = ('parent_id','childs_id','row_name','full_name','rec_name','date','start_date','end_date','from_date','to_date','from_time','to_time','progress','project_type','sequence','state','inactive','prev','next','transitions','latitude','longitude','from_latitude','from_longitude','to_latitude','to_longitude','matrix_names','matrix_col_name','matrix_val_name')
 	for name in names:
-		if self._name == 'purchase.order.item.delivery.schedules' and name in ('matrix_names','matrix_col_name','matrix_val_name'):
-			pass
-			web_pdb.set_trace()
+		#if self._name == 'purchase.order.item.delivery.schedules' and name in ('matrix_names','matrix_col_name','matrix_val_name'):
+			#pass
+			#web_pdb.set_trace()
 		ns = name.split('_')
 		if len(ns) == 1:
 			nf = ns[0].title()
