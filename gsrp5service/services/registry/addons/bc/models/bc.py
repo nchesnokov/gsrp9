@@ -275,7 +275,7 @@ class bc_model_columns(Model):
 	_columns = {
 	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
 	'col_name': fields.varchar(label = 'Name', size = 64,readonly=True),
-	'fullname': fields.composite(label='Full Name', cols = ['model_id','col_name'], translate = True,required = True, compute = '_compute_composite'),
+	#'fullname': fields.composite(label='Full Name', cols = ['model_id','col_name'], translate = True,required = True, compute = '_compute_composite'),
 	'col_type':  fields.varchar(label = 'Type', size = 64,readonly=True),
 	'label': fields.varchar(label = 'label', size = 64,readonly=True),
 	'readonly': fields.boolean(label = 'Readonly',readonly=True),

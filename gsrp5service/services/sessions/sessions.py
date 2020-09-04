@@ -17,7 +17,87 @@ _logger = logging.getLogger('listener.' + __name__)
 
 class interface_exception(Exception): pass
 
-class User(object):
+class Session(object):
+	def _mcache(self,args):
+		if args[0] == 'cache':
+			return self._cache[args[1]]._mcache(**(args[2]))
+		elif args[0] == 'm2ofind':			
+			return self._cache[args[1]]._m2o_find(**(args[2]))
+		elif args[0] == 'relatedfind':			
+			return self._cache[args[1]]._related_find(**(args[2]))
+		elif args[0] == 'action':			
+			return self._cache[args[1]]._action(**(args[2]))
+		elif args[0] == 'add':			
+			return self._cache[args[1]]._o2m_add(**(args[2]))
+		elif args[0] == 'm2madd':			
+			return self._cache[args[1]]._m2m_add(**(args[2]))
+		elif args[0] == 'remove':
+			return self._cache[args[1]]._o2m_remove(**(args[2]))
+		elif args[0] == 'removes':
+			return self._cache[args[1]]._o2m_removes(**(args[2]))
+		elif args[0] == 'm2mremove':
+			return self._cache[args[1]]._m2m_remove(**(args[2]))
+		elif args[0] == 'm2mremoves':
+			return self._cache[args[1]]._m2m_removes(**(args[2]))
+		elif args[0] == 'initialize':
+			return self._cache[args[1]]._initialize(**(args[2]))
+		elif args[0] == 'copy':
+			return self._cache[args[1]]._do_copy(**(args[2]))
+		elif args[0] == 'read':
+			return self._cache[args[1]]._do_read(**(args[2]))
+		elif args[0] == 'create':
+			return self._cache[args[1]]._do_create(**(args[2]))
+		elif args[0] == 'write':
+			return self._cache[args[1]]._do_write(**(args[2]))
+		elif args[0] == 'modify':
+			return self._cache[args[1]]._do_mmfify(**(args[2]))
+		elif args[0] == 'unlink':
+			return self._cache[args[1]]._do_unlink(**(args[2]))
+		elif args[0] == 'select':
+			return self._cache[args[1]]._do_select(**(args[2]))
+		elif args[0] == 'insert':
+			return self._cache[args[1]]._do_insert(**(args[2]))
+		elif args[0] == 'update':
+			return self._cache[args[1]]._do_update(**(args[2]))
+		elif args[0] == 'upsert':
+			return self._cache[args[1]]._do_upsert(**(args[2]))
+		elif args[0] == 'delete':
+			return self._cache[args[1]]._do_delete(**(args[2]))
+		elif args[0] == 'call':
+			return self._cache[args[1]]._do_call(**(args[2]))
+		elif args[0] == 'save':
+			return self._cache[args[1]]._save(**(args[2]))
+		elif args[0] == 'reset':
+			return self._cache[args[1]]._reset(**(args[2]))
+		elif args[0] == 'commit':
+			return self._cache[args[1]]._commit(**(args[2]))
+		elif args[0] == 'rollback':
+			return self._cache[args[1]]._rollback(**(args[2]))
+		elif args[0] == 'open':
+			oid = str(uuid.uuid4())
+			kwargs = {'cr':self._cursor,'pool':self._models,'uid':self._uid}
+			for k in args[1].keys():
+				kwargs[k] = args[1][k]
+			self._cache[oid] = MCache(**kwargs)
+			return [oid]
+		elif args[0] == 'getmode':
+			return self._cache[args[1]]._getMode()
+		elif args[0] == 'setmode':
+			return self._cache[args[1]]._setMode(**(args[2]))
+		elif args[0] == 'getcontext':
+			return self._cache[args[1]]._getContext()
+		elif args[0] == 'setcontext':
+			return self._cache[args[1]]._setContext(**(args[2]))
+		elif args[0] == 'ischange':
+			return self._cache[args[1]]._is_change(**(args[2]))
+		elif args[0] == 'close':
+			del self._cache[args[1]]
+			return [True]
+		
+		return Exception('No defined method of mcache: <%s>' % (args[0],))
+
+
+class User(Session):
 
 	_closed = False
 	_shutdown = False
@@ -98,12 +178,13 @@ class User(object):
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'])
 
 		if self._cursor.open():
-			self._components['registry']._load_module('bc')
-			self._models = self._components['registry']._create_loaded_models()
-			self._reports = self._components['registry']._create_loaded_reports()
-			self._queries = self._components['registry']._create_loaded_queries()
-			self._dialogs = self._components['registry']._create_loaded_dialogs()
-			self._wizards = self._components['registry']._create_loaded_wizards()
+			self._registry = self._components['registry']
+			self._registry._load_module('bc')
+			self._models = self._components['registry']._create_loaded_models(self)
+			self._reports = self._components['registry']._create_loaded_reports(self)
+			self._queries = self._components['registry']._create_loaded_queries(self)
+			self._dialogs = self._components['registry']._create_loaded_dialogs(self)
+			self._wizards = self._components['registry']._create_loaded_wizards(self)
 			self._components['models']._setup(self)
 			self._components['reports']._setup(self)
 			self._components['queries']._setup(self)
@@ -128,7 +209,7 @@ class User(object):
 					#self._components['models']._setupUID(self._uid)
 					#self._components['uis']._setupUID(self._uid)
 					for key in self._models.keys():
-						self._models[key]._session = self
+						#self._models[key]._session = self
 						if res[2]:
 							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 						else:
@@ -203,83 +284,6 @@ class User(object):
 		return ['Shutdown']
 
 # new cache
-	def _mcache(self,args):
-		if args[0] == 'cache':
-			return self._cache[args[1]]._mcache(**(args[2]))
-		elif args[0] == 'm2ofind':			
-			return self._cache[args[1]]._m2o_find(**(args[2]))
-		elif args[0] == 'relatedfind':			
-			return self._cache[args[1]]._related_find(**(args[2]))
-		elif args[0] == 'action':			
-			return self._cache[args[1]]._action(**(args[2]))
-		elif args[0] == 'add':			
-			return self._cache[args[1]]._o2m_add(**(args[2]))
-		elif args[0] == 'm2madd':			
-			return self._cache[args[1]]._m2m_add(**(args[2]))
-		elif args[0] == 'remove':
-			return self._cache[args[1]]._o2m_remove(**(args[2]))
-		elif args[0] == 'removes':
-			return self._cache[args[1]]._o2m_removes(**(args[2]))
-		elif args[0] == 'm2mremove':
-			return self._cache[args[1]]._m2m_remove(**(args[2]))
-		elif args[0] == 'm2mremoves':
-			return self._cache[args[1]]._m2m_removes(**(args[2]))
-		elif args[0] == 'initialize':
-			return self._cache[args[1]]._initialize(**(args[2]))
-		elif args[0] == 'copy':
-			return self._cache[args[1]]._do_copy(**(args[2]))
-		elif args[0] == 'read':
-			return self._cache[args[1]]._do_read(**(args[2]))
-		elif args[0] == 'create':
-			return self._cache[args[1]]._do_create(**(args[2]))
-		elif args[0] == 'write':
-			return self._cache[args[1]]._do_write(**(args[2]))
-		elif args[0] == 'modify':
-			return self._cache[args[1]]._do_mmfify(**(args[2]))
-		elif args[0] == 'unlink':
-			return self._cache[args[1]]._do_unlink(**(args[2]))
-		elif args[0] == 'select':
-			return self._cache[args[1]]._do_select(**(args[2]))
-		elif args[0] == 'insert':
-			return self._cache[args[1]]._do_insert(**(args[2]))
-		elif args[0] == 'update':
-			return self._cache[args[1]]._do_update(**(args[2]))
-		elif args[0] == 'upsert':
-			return self._cache[args[1]]._do_upsert(**(args[2]))
-		elif args[0] == 'delete':
-			return self._cache[args[1]]._do_delete(**(args[2]))
-		elif args[0] == 'call':
-			return self._cache[args[1]]._do_call(**(args[2]))
-		elif args[0] == 'save':
-			return self._cache[args[1]]._save(**(args[2]))
-		elif args[0] == 'reset':
-			return self._cache[args[1]]._reset(**(args[2]))
-		elif args[0] == 'commit':
-			return self._cache[args[1]]._commit(**(args[2]))
-		elif args[0] == 'rollback':
-			return self._cache[args[1]]._rollback(**(args[2]))
-		elif args[0] == 'open':
-			oid = str(uuid.uuid4())
-			kwargs = {'cr':self._cursor,'pool':self._models,'uid':self._uid}
-			for k in args[1].keys():
-				kwargs[k] = args[1][k]
-			self._cache[oid] = MCache(**kwargs)
-			return [oid]
-		elif args[0] == 'getmode':
-			return self._cache[args[1]]._getMode()
-		elif args[0] == 'setmode':
-			return self._cache[args[1]]._setMode(**(args[2]))
-		elif args[0] == 'getcontext':
-			return self._cache[args[1]]._getContext()
-		elif args[0] == 'setcontext':
-			return self._cache[args[1]]._setContext(**(args[2]))
-		elif args[0] == 'ischange':
-			return self._cache[args[1]]._is_change(**(args[2]))
-		elif args[0] == 'close':
-			del self._cache[args[1]]
-			return [True]
-		
-		return Exception('No defined method of mcache: <%s>' % (args[0],))
 
 # new cache
 		
@@ -301,7 +305,7 @@ class User(object):
 
 		return [0 , 'Rollback Work']
 
-class System(object):
+class System(Session):
 
 	_closed = False
 	_shutdown = False
@@ -317,6 +321,8 @@ class System(object):
 	_dialogs = {}
 	_wizards = {}
 	_queries = {}
+	_cache = {}
+	_cache_attrs = {}
 	
 	def __init__(self,config_file):
 		cf = ConfigParser()
@@ -333,9 +339,9 @@ class System(object):
 			rc = self._components['models']._call(args[1:])
 		elif args0 == 'gens':
 			rc = self._components['gens']._call(args[1:])
-		elif args0 == 'slots':
-			rc = self._components['slots']._call(args[1:])
-		elif args0 in ('login','logout','commit','rollback'):
+		#elif args0 == 'slots':
+			#rc = self._components['slots']._call(args[1:])
+		elif args0 in ('login','logout','commit','rollback','createSlot','dropSlot','initializeSlot'):
 			rc = getattr(self,args0)(**(args[1]))
 		elif args0 == '_commit':
 			rc = self.commit()
@@ -366,19 +372,20 @@ class System(object):
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'])
 
 		if self._cursor.open():
-			self._components['registry']._load_modules()
-			self._models = self._components['registry']._create_loaded_models()
-			self._reports = self._components['registry']._create_loaded_reports()
-			self._queries = self._components['registry']._create_loaded_queries()
-			self._dialogs = self._components['registry']._create_loaded_dialogs()
-			self._wizards = self._components['registry']._create_loaded_wizards()
+			self._registry = self._components['registry']
+			self._registry._load_modules()
+			self._models = self._components['registry']._create_loaded_models(self)
+			self._reports = self._components['registry']._create_loaded_reports(self)
+			self._queries = self._components['registry']._create_loaded_queries(self)
+			self._dialogs = self._components['registry']._create_loaded_dialogs(self)
+			self._wizards = self._components['registry']._create_loaded_wizards(self)
 
 
 			for key in self._models.keys():
 				self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 			
 			self._getUid()
-			self._components['modules']._setup(cr=self._cursor,pool=self._models,uid=self._uid,registry=self._components['registry'])
+			self._components['modules']._setup(self)
 			self._components['models']._setup(self)
 			self._components['reports']._setup(self)
 			self._components['queries']._setup(self)
@@ -390,6 +397,54 @@ class System(object):
 
 		#self._cursor = None
 
+	def createSlot(self,name,db_user):
+		rmsg = []
+		if name !='system':
+			self._cursor.cr.execute("select count(*) from pg_catalog.pg_database where datname=%s" ,(name,))
+			if self._cursor.cr.fetchone()[0] == 0:
+				_logger.info("Creating Slot: %s" % (name,))
+				self.commit()
+				if self._cursor.conn.autocommit:
+					autocommit = True
+				else:
+					autocommit = False
+				
+				self._cursor.conn.autocommit=True
+				_logger.info("Create Slot: %s" % (name,))
+				self._cursor.execute("CREATE DATABASE IF NOT EXISTS %s ENCODING='UTF-8';SET DATABASE=%s;GRANT ALL ON DATABASE %s TO %s" % (name,name,name,db_user))
+				self._cursor.conn.autocommit = autocommit
+
+				rmsg.append(self._cursor.cr.statusmessage)
+				rmsg.extend(self._components['modules']._call(['sysinstall']))
+				_logger.info("Slot: %s Created" % (name,))
+			else:
+				_logger.info("Slot: %s are created" % (name,))
+				rmsg.append("Slot: %s are created" % (name,))
+		else:
+			rmsg.append(Exception("Can`t create system sid. Name <system> is reserved."))
+
+		#print('RMSG:',rmsg)
+		return rmsg
+	
+	def dropSlot(self,sid):
+		res = []
+		if sid != 'system':
+			self.commit()
+			if self._cursor.conn.autocommit:
+				autocommit = True
+			else:
+				autocommit = False
+				
+			self._cursor.conn.autocommit=True
+			_logger.info("Drop Slot: %s" % (sid,))
+			self._cursor.execute("DROP DATABASE IF EXISTS %s CASCADE" % (sid,))
+			self._cursor.conn.autocommit = autocommit
+			_logger.info("Slot: %s Dropped" % (sid,))
+			res.append(self._cursor.cr.statusmessage)
+			return res
+		else:
+			_logger.info("Can`t drop Slot: %s" % (sid,))
+			return [Exception("Can`t drop Slot: %s" % (sid,))]
 	
 	def login(self,user,password,slot=None):
 		return self._login(user,password,slot)
@@ -411,6 +466,7 @@ class System(object):
 					self._connected =True
 					self._uid = res[0]
 					for key in self._models.keys():
+						self._models[key]._session = self
 						self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 
 					db_infos = self._components['models']._call(['bc.modules','select',{'fields':['code','state'],'cond':[]}])

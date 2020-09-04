@@ -73,19 +73,19 @@ class sale_orders(Model):
 	}
 
 	def _on_change_otype(self ,item,context={}):		
-		roles = pool.get('sale.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
+		roles = self._pool.get('sale.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('sale.order.roles')._buildEmptyItem()
+			item_role = self._pool.get('sale.order.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = pool.get('sale.order.types').select( ['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = pool.get('sale.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('sale.order.types').select( ['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = self._pool.get('sale.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		if len(texts1) > 0:
 			texts = texts1[0]['texts']
 			seq = 0
 			for text in texts:
-				item_text = pool.get('sale.order.texts')._buildEmptyItem()
+				item_text = self._pool.get('sale.order.texts')._buildEmptyItem()
 				if text['seq']:
 					item_text['seq'] = text['seq']
 				else:
@@ -96,12 +96,12 @@ class sale_orders(Model):
 
 	def _on_change_mob(self ,item,context={}):		
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
-			p = pool.get('md.mob.output.items').select( ['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
+			p = self._pool.get('md.mob.output.items').select( ['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
 			for i in p:
-				ei = pool.get('sale.order.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('sale.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('sale.order.items')._buildEmptyItem()
+				item_items = self._pool.get('sale.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -233,12 +233,12 @@ class sale_order_items(Model):
 
 	def _on_change_product(self ,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			i = pool.get('sale.order.type.items').select( ['gti_id','itype_id'],[],context)
+			i = self._pool.get('sale.order.type.items').select( ['gti_id','itype_id'],[],context)
 			gti = {}
 			if len(i) > 0:
 				for r in i:
 					gti[r['gti_id']['name']] = r['itype_id']
-			p = pool.get('md.product').select( ['name','gti','volume','volume_uom','weight','weight_uom',{'sale':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
+			p = self._pool.get('md.product').select( ['name','gti','volume','volume_uom','weight','weight_uom',{'sale':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
 			if len(p) > 0:
 				for f in ('gti','volume','volume_uom','weight','weight_uom','sale'):
 					if f == 'sale':
@@ -462,7 +462,7 @@ class sale_invoices(Model):
 	}
 
 	def _on_change_itype(self ,item,context={}):		
-			roles = pool.get('sale.invoice.type.roles').select(['role_id'],[('type_id','=',item['otype'])],context)
+			roles = self._pool.get('sale.invoice.type.roles').select(['role_id'],[('type_id','=',item['otype'])],context)
 			if len(roles) > 0:
 				if 'roles' not in item:
 					item['roles'] = []
@@ -529,7 +529,7 @@ class sales_invoice_items(Model):
 
 	def _on_change_product(self ,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.sale.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.sale.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				

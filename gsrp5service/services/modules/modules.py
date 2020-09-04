@@ -15,11 +15,25 @@ class Modules(Component):
 		cf.read(config_file)
 		self._config = cf
 
-	def _setup(self,cr,pool,uid,registry):
-		self._cr = cr
-		self._pool = pool
-		self._uid = uid
-		self._registry = registry
+	def _setup(self,session):
+		self._session = session
+
+	@property
+	def _cr(self):
+		return self._session._cursor
+
+	@property
+	def _pool(self):
+		return self._session._models
+
+	@property
+	def _uid(self):
+		return self._session._uid
+
+	@property
+	def _registry(self):
+		return self._session._registry
+
 
 	def _call(self,args):
 		if args[0][0] == '_':
@@ -39,23 +53,22 @@ class Modules(Component):
 		return rmsg 
 
 	def load(self,modules):
-		return load(self._cr,self._pool,self._uid,self._registry,modules)
+		return load(self,modules)
 
 	def install(self,modules):
-		return install(self._cr,self._pool,self._uid,self._registry,modules)
+		return install(self,modules)
 		
 	def uninstall(self,modules):
-		return uninstall(self._cr,self._pool,self._uid,self._registry,modules)
+		return uninstall(self,modules)
 
 	def upgrade(self,modules):
-		return upgrade(self._cr,self._pool,self._uid,self._registry,modules)
+		return upgrade(self,modules)
 	
 	def sysinstall(self):
-		self._registry._load_modules()
-		return sysinstall(self._cr,self._pool,self._uid,self._registry)
+		return sysinstall(self)
 
 	def sysupgrade(self):
-		return sysupgrade(self._cr,self._pool,self._uid,self._registry)
+		return sysupgrade(self)
 
 	def upgrademoduleslist(self,db):
-		return upgrademoduleslist(self._cr,self._pool,self._uid,self._registry,db)
+		return upgrademoduleslist(self,db)

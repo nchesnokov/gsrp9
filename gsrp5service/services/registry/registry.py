@@ -1,6 +1,7 @@
 # --*-- coding: utf-8 --*--	
 import sys
 import os
+import web_pdb
 from copy import deepcopy
 from functools import reduce
 from os.path import join as opj
@@ -1075,8 +1076,6 @@ class Registry(Service):
 			
 			if len(model._schema[0]) == 0 and len(model._schema[1]) > 0:
 				root_models.append(key)
-			#if key[:9] == 'purchase.':
-				#print('MODEL:',model._name,model._schema)
 		
 		return models
 
@@ -1320,45 +1319,50 @@ class Registry(Service):
 		return r
 
 #
-	def _create_loaded_models(self):
+	def _create_loaded_models(self,session):
 		r = {}
 		for model in self._models.keys():
 			if Model in self._models[model]['bases']:
 				r[model] = self._create_model(model)
+				r[model]._session = session
 				
 		r = self._load_schema(r)
-		
+
 		return r
 
-	def _create_loaded_reports(self):
+	def _create_loaded_reports(self,session):
 		r = {}
 		for report in self._reports.keys():
 			if Report in self._reports[report]['bases']:
 				r[report] = self._create_report(report)
-	
+				r[report]._session = session
+
 		return r
 
-	def _create_loaded_dialogs(self):
+	def _create_loaded_dialogs(self,session):
 		r = {}
 		for dialog in self._dialogs.keys():
 			if Dialog in self._dialogs[dialog]['bases']:
 				r[dialog] = self._create_dialog(dialog)
+				r[dialog]._session = session
 
 		return r
 
-	def _create_loaded_wizards(self):
+	def _create_loaded_wizards(self,session):
 		r = {}
 		for wizard in self._wizards.keys():
 			if Wizard in self._wizards[wizard]['bases']:
 				r[wizard] = self._create_wizard(wizard)
+				r[wizard]._session = session
 				
 		return r
 
-	def _create_loaded_queries(self):
+	def _create_loaded_queries(self,session):
 		r = {}
 		for query in self._queries.keys():
 			if Query in self._queries[query]['bases']:
 				r[query] = self._create_query(query)
+				r[query]._session = session
 				
 		return r
 #

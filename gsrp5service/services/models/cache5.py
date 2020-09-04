@@ -11,7 +11,7 @@ from deepdiff.diff import DeepDiff
 from gsrp5service.orm import gensql
 from gsrp5service.orm.mm import browse_record, browse_record_list,browse_null
 from gsrp5service.orm.common import MAGIC_COLUMNS
-#from datetime import datetime,date,time
+from datetime import datetime,date,time
 import time as tm
 import web_pdb
 
@@ -545,6 +545,8 @@ def _read(self, ids, fields = None, context = {}):
 	if not fetch.upper() in ('LIST','DICT','RAW'):
 		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
 
+	if self._name == 'md.company':
+		web_pdb.set_trace()
 	if fields is None:
 		fields = self._selectablefields
 
@@ -667,6 +669,7 @@ def _select(self, fields = None ,cond = None, context = {}, limit = None, offset
 	if cond is None:
 		cond = []
 
+	#web_pdb.set_trace()
 	sql,vals = gensql.Select(self, rowfields, cond, context, limit, offset)
 
 	rowcount = self._execute(sql,vals)
@@ -1167,6 +1170,7 @@ def selectbrowse(self, fields = None ,cond = None, context = {}, limit = None, o
 
 def _o2mread(self, oid, field,fields, context):
 	res = []
+	#web_pdb.set_trace()
 	modelinfo = self.modelInfo()
 	columnsinfo = self.columnsInfo()
 	
@@ -1179,10 +1183,10 @@ def _o2mread(self, oid, field,fields, context):
 		for record in records:
 			o2mfields = {}
 			m2mfields = {}
-			fds = list(filter(lambda x: type(x) == dict,fields))
+			fd = list(filter(lambda x: type(x) == dict,fields))
 			dictfields = {}
-			for fd in fds:
-				dictfields.update(fd)
+			if len(fd) == 1:
+					dictfields = fd[0]
 
 			recname = self._getRecNameName()
 			if recname and recname in record:
@@ -1405,9 +1409,183 @@ def tree(self, fields = None ,parent = None, context = {}):
 	return _tree(self, fields, parent, context)
 
 
-class DCacheList(list): pass
+class DCache(object):
+	__doc__ = """
+	{__path__:{__model__,__m2o_containers__,__o2m_containers__,__m2m__containers__,__data__}}'
+	__path__ - id(записи)
+	__model__  - имя модели
+	__m2o_containers__ = {имя поля: __path__ вышестояшей записи}
+	__o2m_containers__ = {имя поля: [__path__:{__model__,__m2o_containers__,__o2m_containers__,__m2m__containers__}]}
+	__m2m_containers__ = {имя поля:[__path__]}
+	"""
+	_entry=None
+	
+	def __init__(self,pool,primary=True):
+		self._pool = pool
 
-class DCacheDict(object):
+		for v in ('entries','items','containers','ids'):
+			for a in ('p','w','o','c'):
+				if not primary and a == 'p':
+					continue
+				setattr(self,'_%s%s' % (a,v),{})
+
+	def _buildEntries(self,model,data):
+		oid = id(data)
+
+		if not self._entry: 
+			self._entry = oid
+
+		if 'id' in data:
+			self._cids[data['id']] = oid
+
+		self._citems.setdefault(id(data),{})['__model__'] = model._name
+		for m2ofield in model._m2ofields:
+			if  m2ofield in data:
+				if data[m2ofield] is not None:
+					if  data[m2ofield] not in self._cids:
+						self._citems.setdefault(id(data),{}).setdefault('__m2o_containers__',{})[o2mfield] = self._build_m2o_entry(self._pool.get(model._columns[m2ofield].obj),data[m2ofield])
+
+		for o2mfield in model._o2mfields:
+			if  o2mfield in data:
+				if data[o2mfield] is not None:
+					self._citems.setdefault(id(data),{}).setdefault('__o2m_containers__',{}).setdefault(o2mfield,[]).extend(self._build_o2m_entry(self._pool.get(model._columns[o2mfield].obj),data[o2mfield]))
+
+		for m2mfield in model._m2mfields:
+			if  m2mfield in data:
+				if data[m2mfield] is not None:
+					self._citems.setdefault(id(data),{}).setdefault('__m2m_containers__',{}).setdefault(m2mfield,[]).extend(self._build_m2m_entry(self._pool.get(model._columns[m2mfield].obj),data[m2mfield]))
+
+		return oid
+
+	def _build_m2o_entry(self,model,data):
+		rows = model.read(data['id'],[model._rowfields])
+		if len(rows) > 0:
+			self._cids[data['id']] = id(rows[0])
+			self._buildEntries(model,rows[0])
+
+	def _build_o2m_entry(self,model,datas):
+		res = []
+		
+		for data in datas:
+			oid = id(data)
+			if 'id' in data and data['id'] not in self._cids:
+				self._cids[data['id']] = oid
+				res.append(oid)
+				self._buildEntries(model,data)
+		
+		return res
+
+	def _build_m2m_entry(self,model,datas):
+		res = []
+		
+		for data in datas:
+			oid = id(data)
+			if 'id' in data and data['id'] not in self._cids:
+				self._cids[data['id']] = oid
+				res.append(oid)
+				self._buildEntries(model,data)
+		
+		return res
+
+
+	def add(self, model, data, primary=True):
+		if type(data) == dict:
+			self._entry[model._name] = DCacheList(self._pool.get(model),[data],context,primary=True)
+		elif type(data) in (list,tuple):
+			self._entry[model._name] = DCacheList(self._pool.get(model),data,context,primary=True)
+			
+	def _diffs(self):
+		for d in self._data:
+			d._diffs()
+	
+	def clear(self):
+		self._data.clear()
+		self._diffs.clear()
+
+class DCacheList(list): 
+	def __init__(self, datas):
+		self.extend(map(lambda x: str(id(x)),datas))
+	
+	def  _diffs(self, datas):
+		oids = set(map(lambda x: str(id(x)),datas))
+		r = set(self)-oids
+		a = oids - set(self)
+		v = {}
+		if len(r) > 0:
+			v['__remove__'] = r
+		if len(a) > 0:
+			v['__append__'] = a
+
+		return v 
+	
+	def _update(self,datas):
+		self.clear()
+		self.extend(map(lambda x: str(id(x)),datas))
+
+class DCacheListValue(dict): 
+	def __init__(self, datas):
+		for data in datas:
+			self[str(id(data))] = copy.deepcopy(data)
+	
+	def  _diffs(self, datas):
+		oids = set(map(lambda x: str(id(x)),datas))
+		keys = self.keys()
+		r = set(keys)-oids
+		a = oids - set(keys)
+		v = {}
+		if len(r) > 0:
+			v['__remove__'] = r
+		if len(a) > 0:
+			v['__append__'] = a
+
+		return v 
+	
+	def _update(self,datas):
+		self.clear()
+		for data in datas:
+			v = self[str(id(data))]
+
+				
+class DCacheDict(dict): 
+	def __init__(self, data):
+		self.update(data.copy())
+	
+	def  _diffs(self, data):
+		v = {}
+		k1 = set(self.keys())
+		k2 = set(data.keys())
+		i = k2-k1
+		d = k1-k2
+		u = set(filter(lambda x: self[x] != data[x],k1.intersection(k2)))
+		if len(i) > 0:
+			v['__insert__'] = i
+		if len(d) > 0:
+			v['__delete__'] = d
+		if len(u) > 0:
+			v['__update__'] = u
+
+		return v 
+	
+	def _update(self,data):
+		self.clear()
+		self.update(data)
+
+
+
+class DCacheList1(list): 
+
+	def __init__(self,model,datas,context,primary=True):
+		for data in datas:
+			self.append(DCacheDict(model,data,context,primary))
+
+		if primary:
+			self._pdata = copy.deepcopy(self)
+		
+		self._odata = copy.deepcopy(self)
+		self._cdata = list(map(lambda x: id(x),self))
+	
+
+class DCacheDict1(object):
 	
 	__doc__ ="""
 	X c - current, o - old, p - primary values
@@ -1463,6 +1641,8 @@ class DCacheDict(object):
 			raise TypeError
 
 		oid = str(id(data))
+		if mode == 'N1':
+			web_pdb.set_trace()
 
 		cmetas = getattr(self,'_%smetas' % (level,))
 		cdata = getattr(self,'_%sdata' % (level,))
@@ -1490,11 +1670,12 @@ class DCacheDict(object):
 		else:
 			cpaths[oid] = None
 
-		for m2mfield in filter(lambda x: x in data,self._pool.get(model)._m2mfields):
+		for m2mfield in self._pool.get(model)._m2mfields:
+			#web_pdb.set_trace()
 			if m2mfield in data: 
 				self._m2m_buildTree(data[m2mfield],ci[m2mfield]['rel'],oid,m2mfield,model,level)
 	
-		for o2mfield in filter(lambda x: x in data ,self._pool.get(model)._o2mfields):
+		for o2mfield in self._pool.get(model)._o2mfields:
 			cn = o2mfield + '.' + oid
 			coid = str(id(data[o2mfield]))
 			ccontainers[coid] = cn
@@ -1627,6 +1808,7 @@ class DCacheDict(object):
 
 		def _meta_update(self,o,c,diffs):
 			if ('__meta_update__' in diffs ):
+				#web_pdb.set_trace()
 				for k in diffs['__meta_update__'].keys():
 					for k1 in diffs['__meta_update__'][k]:
 						getattr(self,'_%sattrs' % (o,))[k][k1].update(copy.deepcopy(diffs['__meta_update__'][k][k1]))
@@ -1790,6 +1972,7 @@ class DCacheDict(object):
 							_apply_diffs(self,o,c,r['__m2m_containers__'][ck])
 					
 					if '__o2m_containers__' in r:
+						#web_pdb.set_trace()
 						for ck in r['__o2m_containers__'].keys():
 							_apply_diffs(self,o,c,r['__o2m_containers__'][ck])
 	
@@ -1931,7 +2114,7 @@ class DCacheDict(object):
 					else:
 						res.setdefault('__update__',{}).setdefault(path,{})[k] = d1[k]
 				elif k in ik:
-					if type(self._getCData(getattr(self,'_%sdata' % (c,))[path])[k]) == memoryview:
+					if type(getattr(self,'_%sdata' % (c,))[path][k]) == memoryview:
 						res.setdefault('__insert__',{}).setdefault(path,{})[k] = d1[k].tobytes()
 					else:
 						res.setdefault('__insert__',{}).setdefault(path,{})[k] = d1[k]
@@ -1962,6 +2145,8 @@ class DCacheDict(object):
 		
 		ck = []
 		ok = []
+		
+		#web_pdb.set_trace()
 		
 		if container in onames:
 			ooid = onames[container]
@@ -2369,7 +2554,7 @@ class MCache(object):
 	def _read(self,model,ids,fields=None,context={}):
 		row = read(model,ids,fields,context)
 		if len(row) > 0:
-			if  'read' in context and context['read'] == 'raw' or 'cache' not in context:
+			if  'read' in context and context['read'] == 'raw':
 				return row
 			else:
 				self._data = DCacheDict(row[0],model._name,model._cr,model._pool,model._uid,self._context)
@@ -2381,57 +2566,18 @@ class MCache(object):
 			return row
 
 	def _write(self,model,records,context={}):
-		res = []
-		if type(records) == dict:
-			self._data = DCacheDict(records,model._name,model._cr,model._pool,model._uid,self._context,False)
-			self._do_calculate_all(context)
-			res.extend(self._save())
-		elif  type(records) in (list,tuple):
-			res = []
-			for record in records:
-				self._data = DCacheDict(record,model._name,model._cr,model._pool,model._uid,self._context,False)
-				self._do_calculate_all(context)
-				self._data._papply()
-				res.append(self._save()[1])
-		
-		return res
-
-		#return write(model,records,context)
+		return write(model,records,context)
 
 	def _modify(self,model,records,context={}):
-		res = []
-		if type(records) == dict:
-			self._data = DCacheDict(records,model._name,model._cr,model._pool,model._uid,self._context,False)
-			self._do_calculate_all(context)
-			res.extend(self._save())
-		elif  type(records) in (list,tuple):
-			res = []
-			for record in records:
-				self._data = DCacheDict(record,model._name,model._cr,model._pool,model._uid,self._context,False)
-				self._do_calculate_all(context)
-				self._data._papply()
-				res.append(self._save()[1])
-		
-		return res
-
-		#return modify(model,records,context)
+		return modify(model,records,context)
 
 	def _create(self,model,records,context={}):
-		res = []
 		if type(records) == dict:
-			self._data = DCacheDict(records,model._name,model._cr,model._pool,model._uid,self._context,False)
-			self._do_calculate_all(context)
-			res.extend(self._save())
+			self._data=DCacheList([records],model._name,model._cr,model._pool,model._uid,self._context,False)
 		elif  type(records) in (list,tuple):
-			res = []
-			for record in records:
-				self._data = DCacheDict(record,model._name,model._cr,model._pool,model._uid,self._context,False)
-				self._do_calculate_all(context)
-				self._data._papply()
-				res.append(self._save()[1])
+			self._data = DCacheList(records,model._name,model._cr,model._pool,model._uid,self._context,False)
 		
-		#self._commit()
-		return res
+		return self._save()
 
 	def _unlink(self,model,ids,context={}):
 		return unlink(model,ids,context)
@@ -2576,8 +2722,7 @@ class MCache(object):
 		fields = list(record.keys())
 		ci = m.columnsInfo(columns=m._computefields,attributes=['compute','priority'])
 		priority = {}
-		#for compute_field in filter(lambda x: x in fields,m._computefields):
-		for compute_field in m._computefields:
+		for compute_field in filter(lambda x: x in fields,m._computefields):
 			priority.setdefault(ci[compute_field]['priority'],set()).add(ci[compute_field]['compute'])
 		
 		pkeys = list(priority.keys())
@@ -2605,46 +2750,13 @@ class MCache(object):
 				parent = parents[key]
 				self._do_calculate(parent,context)
 
-	def _do_calculate_all(self,context):
-		def _calculate_from_array(vpaths,context):
-			for vpath in vpaths:
-				if type(vpath) in (list,tuple):
-					_calculate_from_array(vpath,context)
-				else:
-					self._do_compute(vpath,self._data._cmodels[vpath])
-		vpaths = []
-		for k in filter(lambda x: self._data._cpaths[x] is None,self._data._cpaths.keys()):
-			vpaths.append(k)
-			childs = self._calculate_paths(k,context)
-			if len(childs) > 0:
-				vpaths.append(childs)
-
-		for vpath in reversed(vpaths):
-			if type(vpath) in (list,tuple):
-				_calculate_from_array(vpath,context)
-			else:
-				self._do_compute(vpath,self._data._cmodels[vpath])
-				
-			
-	def _calculate_paths(self,parent,context):
-		vpaths = []
-		for k in list(filter(lambda x: not self._data._cpaths[x] is None , self._data._cpaths.keys())):
-			for k1 in self._data._cpaths[k].keys():
-				if self._data._cpaths[k][k1] == parent:
-					vpaths.append(k)
-					childs = self._calculate_paths(k,context)
-					if len(childs) > 0:
-						vpaths.append(childs)
-
-		return vpaths
-
-
 	def _setDefault(self,model,item):
 		m = self._pool.get(model)
 		_default = m._default
 		if model not in self._meta:
 			self._getMeta([model])
 		m1 = self._meta[model]
+		#web_pdb.set_trace()
 		for k in _default.keys():
 			if k in item:
 				if m1[k]['type'] in ('numeric','decimal'):
@@ -2897,8 +3009,8 @@ class MCache(object):
 		self._copyItem(data)
 		return ['commit',data['__data__']['id']]
 
-	def _save_one(self,data):
-		diffs = data._pdiffs(False)
+	def _save_one(self,index):
+		diffs = self._data[index]._pdiffs(False)
 		if len(diffs) == 0:
 			return 'no chache'
 		
@@ -2929,35 +3041,43 @@ class MCache(object):
 			elif type(self._commit_diffs) == list:	
 				self._commit_diffs.append(diffs)
 
-	def _save_many(self,data,autocommit):
-		pass
-
-	def _save_all(self,datas):
+	def _save_many(self,start,end,autocommit):
 		res = []
 
-		for data in datas:
-			res.append(self._save_one(data))
+		for idx in range(len(self._data[start:end])):
+			res.append(self._save_one(idx))
 		
 		return res
 
-	def _save_commit_one(self,data,diffs):
-		return data._apply_from_diffs('p','c',diffs)
+	def _save_all(self):
+		res = []
 
-	def _save_commit_many(self,data,diffs):
-		pass
+		for idx in range(len(self._data)):
+			res.append(self._save_one(idx))
+		
+		return res
 
-	def _save_commit_all(self,datas,diffs):
-		for data,diff in zip(datas,diffs):
-			self._save_commit_one(data,diff)
+	def _save_commit_one(self,index,diffs):
+		return self._data[index]._apply_from_diffs('p','c',diffs)
+
+	def _save_commit_many(self,start,end,diffs):
+		for index,diff in zip(range(len(self._data[start:end])),diffs[start:end]):
+			self._save_commit_one(index,diff)
 
 		return ['commited']
 
-	def _save_commit(self,datas,diffs):
+	def _save_commit_all(self,diffs):
+		for data,diff in zip(self._data,diffs):
+			self._save_commit_one(index,diff)
+
+		return ['commited']
+
+	def _save_commit(self,diffs):
 		if type(self._commit_diffs) == dict:
 			rc = self._save_commit_one(datas,diffs)
 			self._commit_diffs = {}
 		elif type(self._commit_diffs) == list:	
-			self._save_commit_all(datas,diffs)
+			self._save_commit_all(diffs)
 			self._commit_diffs = []
 
 		return ['commited']
@@ -2966,19 +3086,19 @@ class MCache(object):
 		res = []
 		if type(self._data) == DCacheDict:
 			self._commit_diffs = {}
-			v = self._save_one(self._data)
+			v = self._save_one(None)
 			if v == 'no chache':
 				res.append(v)
 			else:
 				res.extend(['commit',v])
 			if autocommit:
-				self._commit()
+				return self._commit()
 
 		elif type(self._data) == DCacheList:
 			self._commit_diffs = []
-			res.extend(self._save_all(self._data))
+			res.extend(self._save_all())
 			if autocommit:
-				self._commit()
+				return self._commit()
 		
 		return res
 
@@ -2987,7 +3107,7 @@ class MCache(object):
 			m = self._pool.get(items[0]['__model__'])
 			trg1 = m._getTriger('bi')
 			for trg11 in trg1:
-				kwargs = {'r1':items,'context':self._context}
+				kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':items,'context':self._context}
 				trg11(**kwargs)
 	
 			for item in items:
@@ -2995,10 +3115,11 @@ class MCache(object):
 	
 			trg2 = m._getTriger('ai')
 			for trg22 in trg2:
-				kwargs = {'r1':items,'context':self._context}
+				kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':items,'context':self._context}
 				trg22(**kwargs)
 
 	def _copyItem(self,item,rel = None, oid = None):
+		#web_pdb.set_trace()
 		if rel and oid:
 			item['__data__'][rel]['id'] = oid
 		data = {}
@@ -3032,7 +3153,7 @@ class MCache(object):
 				for key in m2m_containers.keys():
 					self._m2m_appendRows(m2m_containers[key])
 	
-			if '__o2m_containers__' in item and not (m._ParentIdName and m._ChildsIdName):
+			if '__o2m_containers__' in item and not (m._getParentIdName and m._getChildsIdName):
 				o2m_containers = item['__o2m_containers__']
 				for key in o2m_containers.keys():
 					self._copyItems(o2m_containers[key],self._pool.get(model)._columns[key].rel,item['__data__']['id'])
@@ -3055,10 +3176,7 @@ class MCache(object):
 
 	def _createItem(self,item,rel = None, oid = None):
 		if rel and oid:
-			if rel in item['__data__'] and type(item['__data__'][rel]) == dict:
-				item['__data__'][rel]['id'] = oid
-			else:
-				item['__data__'][rel] = oid
+			item['__data__'][rel]['id'] = oid
 		data = {}
 		model = item ['__model__']
 		m = self._pool.get(model)
@@ -3066,9 +3184,9 @@ class MCache(object):
 		for k in filter(lambda x: x not in excl_fields,item['__data__'].keys()):
 			if k in m._columns and m._columns[k]._type in ('many2one','related'):
 				#	if rel and k != rel or not rel:
-				if type(item['__data__'][k]) == dict:
+				if type(item['__data__'][k]) ==dict:
 					data[k] = item['__data__'][k]['id']
-				else:
+				elif type(item['__data__'][k]) ==str:
 					data[k] = item['__data__'][k]
 			elif k in m._columns and m._columns[k]._type == 'json':
 				data[k] = json.dumps(item['__data__'][k])
@@ -3076,7 +3194,7 @@ class MCache(object):
 				data[k] = item['__data__'][k]
 
 		if 'id' in data:
-			r = _writeRecord(m,data,self._context)
+			r = _modifyRecord(m,data,self._context)
 		else:
 			r = _createRecord(m,data,self._context)
 
@@ -3110,7 +3228,7 @@ class MCache(object):
 					rows = list(map(lambda x:x['__data__'],parents[pkey][mkey]))
 					trg1 = m._getTriger('bi')
 					for trg11 in trg1:
-						kwargs = {'r1':rows,'context':self._context}
+						kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':rows,'context':self._context}
 						trg11(**kwargs)
 
 					for item in parents[pkey][mkey]:
@@ -3118,7 +3236,7 @@ class MCache(object):
 
 					trg2 = m._getTriger('ai')
 					for trg22 in trg2:
-						kwargs = {'r1':rows,'context':self._context}
+						kwargs = {'cr':self._cr,'pool':self._pool,'uid':self._uid,'r1':rows,'context':self._context}
 						trg22(**kwargs)
 
 	def _o2m_appendItem(self,item):
@@ -3136,7 +3254,10 @@ class MCache(object):
 		for k in filter(lambda x: x not in excl_fields,item['__data__'].keys()):
 			if m._columns[k]._type in ('many2one','related'):
 				if k != rel:
-					data[k] = item['__data__'][k]['id']
+					if type( item['__data__'][k]) == dict:
+						data[k] = item['__data__'][k]['id']
+					elif type( item['__data__'][k]) == str:
+						data[k] = item['__data__'][k]
 			elif k in m._columns and m._columns[k]._type == 'json':
 				data[k] = json.dumps(item['__data__'][k])
 			else:
@@ -3231,7 +3352,10 @@ class MCache(object):
 				data = {}
 				for k in models[model][mkey].keys():
 					if m._columns[k]._type in ('many2one','related'):
-						data[k] = models[model][mkey][k]['id']
+						if type(models[model][mkey][k]) == dict:
+							data[k] = models[model][mkey][k]['id']
+						elif type(models[model][mkey][k]) == str:
+							data[k] = models[model][mkey][k]	
 					elif k in m._columns and m._columns[k]._type == 'json':
 						data[k] = json.dumps(models[model][mkey][k])
 					else:
@@ -3422,8 +3546,11 @@ class MCache(object):
 			if  '__o2m_append__' in diffs1:
 				self._post_diff_A(ch1,diffs1,context)
 			
+			#web_pdb.set_trace()
 			diffs2 = ch1._odiffs()
 	
+			#_join_diffs(diffs1,diffs2)
+			
 			self._data._apply_from_diffs('o','c',diffs2)
 			return eval(str(diffs2))
 
@@ -3451,3 +3578,31 @@ class MCache(object):
 		
 		return []
 
+if __name__ == '__main__':
+	a=['a','b','c']
+	a1 = {'a':1,'b':'b'}
+	d = DCacheList(a)
+	d1 = DCacheDict(a1)
+	print(d)
+	print(d1)
+	a.remove('b')
+	del a1['b']
+	print(d._diffs(a))
+	print(d1._diffs(a1))
+	d._update(a)
+	d1._update(a1)
+	print(d)
+	print(a)
+	print(d._diffs(a))
+	print(d1._diffs(a1))
+	a.extend('ef')
+	a1['k'] = "K"
+	a1['a'] = '13'
+	print(d)
+	print(d._diffs(a))
+	print(d1._diffs(a1))
+	d._update(a)
+	d1._update(a1)
+	print(a,d)
+	print(a1,d1)
+	

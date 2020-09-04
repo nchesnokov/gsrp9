@@ -139,17 +139,25 @@
      <define name="geo">
 		<element name="geo">
 		<text/>
-		<attribute name="name"/>
-		<attribute name="model"/>
-			<interleave>
-				<optional>
+		<interleave>
+			<optional>
+				<attribute name="name"/>
+			</optional>
+			<optional>
+				<attribute name="model"/>
+			</optional>
+			<optional>
 					<attribute name="sortable"/>
-				</optional>
-				<choice>
+			</optional>
+			<choice>
+				<optional>
 					<ref name="geo_point"/>
+				</optional>
+				<optional>
 					<ref name="geo_path"/>
-				</choice>
-			</interleave>
+				</optional>
+			</choice>
+		</interleave>
 		<oneOrMore>
 			<ref name="field"/>
 		</oneOrMore>

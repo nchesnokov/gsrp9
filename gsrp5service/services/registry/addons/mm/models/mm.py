@@ -6,7 +6,7 @@ import web_pdb
 class model_common(ModelInherit):
 	_name = 'mm.common.model'
 	_description = 'Manufsctured management Common'
-	def _calculate_amount_costs(self,cr,pool,uid,record,context={}):
+	def _calculate_amount_costs(self,record,context={}):
 		fields = ['amount']
 		for field in fields:
 			if field in record:
@@ -20,7 +20,7 @@ class model_common(ModelInherit):
 							else:
 								record[field] += rec[field]
 
-	def _calculate_parts(self,cr,pool,uid,item,context={}):		
+	def _calculate_parts(self,item,context={}):		
 		if 'schedules' in item and item['schedules']:
 			item['parts'] = None
 			for r in item['schedules']:
@@ -30,9 +30,9 @@ class model_common(ModelInherit):
 					item['parts'] += r['part']
 
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.mm.product').select(cr,pool,uid,['uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.mm.product').select(['uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				for f in ('uom','price','currency','unit','uop'):
 					if f not in item or item[f] != p[0][f]:
@@ -47,7 +47,7 @@ class model_common(ModelInherit):
 					else:
 						item[f] = {'id':None,'name':None}
 
-	def _calculate_item(self,cr,pool,uid,item,context={}):
+	def _calculate_item(self,item,context={}):
 		if 'quantity' in item and item['quantity'] and 'uom' in item and item['uom'] and 'price' in item and item['price'] and 'currency' in item and item['currency'] and 'unit' in item and item['unit'] and 'uop' in item and item['uop']:
 			item['amount'] = item['price'] / item['unit'] * item['quantity']
 
@@ -89,19 +89,22 @@ class mm_production_orders(Model):
 		'state':'draft'
 	}
 
-	def _on_change_otype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('mm.production.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+	def _on_change_otype(self,item,context={}):		
+		roles = self._pool.get('mm.production.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('mm.production.order.roles')._buildEmptyItem()
+			item_role = self._pool.get('mm.production.order.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = pool.get('mm.production.order.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = pool.get('mm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
-		texts = texts1[0]['texts']
+		types = self._pool.get('mm.production.order.types').select(['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = self._pool.get('mm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		if len(texts1) > 0:
+			texts = texts1[0]['texts']
+		else:
+			texts = texts1
 		seq = 0
 		for text in texts:
-			item_text = pool.get('mm.production.order.texts')._buildEmptyItem()
+			item_text = self._pool.get('mm.production.order.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -110,29 +113,29 @@ class mm_production_orders(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_map(self,cr,pool,uid,item,context={}):
+	def _on_change_map(self,item,context={}):
 		if  item['map'] and 'name' in item['map'] and item['map']['name']:
-			m = pool.get('mm.production.maps').select(cr,pool,uid,['fullname','bom',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
+			m = self._pool.get('mm.production.maps').select(['fullname','bom',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
 			if len(m) > 0:
 				if m[0]['bom']:
 					item['bom'] = m[0]['bom']
 				if len(m[0]['ops']) > 0:
 					for op in m[0]['ops']:
-						ei_op = pool.get('mm.production.order.ops')._buildEmptyItem()
+						ei_op = self._pool.get('mm.production.order.ops')._buildEmptyItem()
 						for k in filter(lambda x: x != 'id',op.keys()):
 							ei_op[k] = op[k]
 							
 						item['ops'].append(ei_op)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			b = pool.get('md.boms').select(cr,pool,uid,['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['bom']['name'])],context)
+			b = self._pool.get('md.boms').select(['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['bom']['name'])],context)
 			if len(b) > 0:
 				item['product'] = b[0]['product']
 				item['part'] = b[0]['partition']
 				p = b[0]['items']
 				for i in p:
-					ei = pool.get('mm.production.order.items')._buildEmptyItem()
+					ei = self._pool.get('mm.production.order.items')._buildEmptyItem()
 					ei['product'] = i['product']
 					ei['quantity'] = i['quantity']
 					ei['uom'] = i['uom']
@@ -277,19 +280,22 @@ class mm_technologic_orders(Model):
 	'texts': fields.one2many(label='Texts',obj='mm.technologic.order.texts',rel='order_id'),
 	'note': fields.text(label='Note')}
 
-	def _on_change_otype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('mm.technologic.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+	def _on_change_otype(self,item,context={}):		
+		roles = self._pool.get('mm.technologic.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('mm.technologic.order.roles')._buildEmptyItem()
+			item_role = self._pool.get('mm.technologic.order.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = pool.get('mm.technologic.order.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = pool.get('mm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
-		texts = texts1[0]['texts']
+		types = self._pool.get('mm.technologic.order.types').select(['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = self._pool.get('mm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		if len(texts1) > 0:
+			texts = texts1[0]['texts']
+		else:
+			texts = texts1
 		seq = 0
 		for text in texts:
-			item_text = pool.get('mm.technologic.order.texts')._buildEmptyItem()
+			item_text = self._pool.get('mm.technologic.order.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -298,28 +304,28 @@ class mm_technologic_orders(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_map(self,cr,pool,uid,item,context={}):
+	def _on_change_map(self,item,context={}):
 		if  item['map'] and 'name' in item['map'] and item['map']['name']:
-			m = pool.get('mm.technologic.maps').select(cr,pool,uid,['fullname','bob',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
+			m = self._pool.get('mm.technologic.maps').select(['fullname','bob',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
 			if len(m) > 0:
 				if m[0]['bob']:
 					item['bob'] = m[0]['bob']
 				if len(m[0]['ops']) > 0:
 					for op in m[0]['ops']:
-						ei_op = pool.get('mm.technologic.order.ops')._buildEmptyItem()
+						ei_op = self._pool.get('mm.technologic.order.ops')._buildEmptyItem()
 						for k in filter(lambda x: x != 'id',op.keys()):
 							ei_op[k] = op[k]
 						
 						item['ops'].append(ei_op)
 
-	def _on_change_bob(self,cr,pool,uid,item,context={}):		
+	def _on_change_bob(self,item,context={}):		
 		if item['bob'] and 'name' in item['bob'] and item['bob']['name']:
-			b = pool.get('md.bobs').select(cr,pool,uid,['fullname','partition',{'input_items':['product','quantity','uom']},{'output_items':['product','quantity','uom']}],[('fullname','=',item['bob']['name'])],context)
+			b = self._pool.get('md.bobs').select(['fullname','partition',{'input_items':['product','quantity','uom']},{'output_items':['product','quantity','uom']}],[('fullname','=',item['bob']['name'])],context)
 			if len(b) > 0:
 				item['part'] = b[0]['partition']
 				p = b[0]['input_items']
 				for i in p:
-					ei = pool.get('mm.technologic.order.item.ibob')._buildEmptyItem()
+					ei = self._pool.get('mm.technologic.order.item.ibob')._buildEmptyItem()
 					ei['product'] = i['product']
 					ei['quantity'] = i['quantity']
 					ei['uom'] = i['uom']
@@ -327,13 +333,13 @@ class mm_technologic_orders(Model):
 					
 				p = b[0]['output_items']
 				for i in p:
-					ei = pool.get('mm.technologic.order.item.obob')._buildEmptyItem()
+					ei = self._pool.get('mm.technologic.order.item.obob')._buildEmptyItem()
 					ei['product'] = i['product']
 					ei['quantity'] = i['quantity']
 					ei['uom'] = i['uom']
 					item['obobs'].append(ei)
 
-	def _calculate_oamount_costs(self,cr,pool,uid,item,context={}):		
+	def _calculate_oamount_costs(self,item,context={}):		
 		if 'obobs' in item and item['obobs']:
 			item['oamount'] = None
 			for r in item['obobs']:
@@ -342,7 +348,7 @@ class mm_technologic_orders(Model):
 				else:
 					item['oamount'] += r['amount']
 
-	def _calculate_iamount_costs(self,cr,pool,uid,item,context={}):		
+	def _calculate_iamount_costs(self,item,context={}):		
 		if 'ibobs' in item and item['ibobs']:
 			item['iamount'] = None
 			for r in item['ibobs']:
@@ -520,19 +526,22 @@ class mm_disassembly_orders(Model):
 	'texts': fields.one2many(label='Texts',obj='mm.disassembly.order.texts',rel='order_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_otype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('mm.disassembly.order.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+	def _on_change_otype(self,item,context={}):		
+		roles = self._pool.get('mm.disassembly.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('mm.disassembly.order.roles')._buildEmptyItem()
+			item_role = self._pool.get('mm.disassembly.order.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = pool.get('mm.disassembly.order.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = pool.get('mm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
-		texts = texts1[0]['texts']
+		types = self._pool.get('mm.disassembly.order.types').select(['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = self._pool.get('mm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		if len(texts1) > 0:
+			texts = texts1[0]['texts']
+		else:
+			texts = texts1
 		seq = 0
 		for text in texts:
-			item_text = pool.get('mm.disassembly.order.texts')._buildEmptyItem()
+			item_text = self._pool.get('mm.disassembly.order.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -541,30 +550,30 @@ class mm_disassembly_orders(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_map(self,cr,pool,uid,item,context={}):
+	def _on_change_map(self,item,context={}):
 		if  item['map'] and 'name' in item['map'] and item['map']['name']:
-			m = pool.get('mm.disassembly.maps').select(cr,pool,uid,['fullname','mob',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
+			m = self._pool.get('mm.disassembly.maps').select(['fullname','mob',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
 			if len(m) > 0:
 				if m[0]['mob']:
 					item['mob'] = m[0]['mob']
 				if len(m[0]['ops']) > 0:
 					for op in m[0]['ops']:
-						ei_op = pool.get('mm.disassembly.order.ops')._buildEmptyItem()
+						ei_op = self._pool.get('mm.disassembly.order.ops')._buildEmptyItem()
 						for k in filter(lambda x: x != 'id',op.keys()):
 							ei_op[k] = op[k]
 						
 						item['ops'].append(ei_op)
 
-	def _on_change_mob(self,cr,pool,uid,item,context={}):		
+	def _on_change_mob(self,item,context={}):		
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
-			b = pool.get('md.mobs').select(cr,pool,uid,['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['mob']['name'])],context)
+			b = self._pool.get('md.mobs').select(['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['mob']['name'])],context)
 			if len(b) > 0:
 				item['product'] = b[0]['product']
 				item['part'] = b[0]['partition']
 				p = b[0]['items']
 
 				for i in p:
-					ei = pool.get('mm.disassembly.order.items')._buildEmptyItem()
+					ei = self._pool.get('mm.disassembly.order.items')._buildEmptyItem()
 					ei['product'] = i['product']
 					ei['quantity'] = i['quantity']
 					ei['uom'] = i['uom']

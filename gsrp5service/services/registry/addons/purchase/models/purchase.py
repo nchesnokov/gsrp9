@@ -69,7 +69,7 @@ class purchase_orders(Model):
 			item['texts'].append(item_text)
 
 	def _on_change_bom(self, item,context={}):		
-		web_pdb.set_trace()
+		#web_pdb.set_trace()
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
 			p = self._pool.get('md.bom.items').select( ['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:

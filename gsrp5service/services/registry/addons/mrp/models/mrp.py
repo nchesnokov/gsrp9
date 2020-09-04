@@ -50,8 +50,8 @@ class mrp_demand(Model):
 		'state':'draft'
 	}
 
-	def _on_change_dtype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('mrp.demand.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['dtype'])],context)
+	def _on_change_dtype(self,item,context={}):		
+			roles = pool.get('mrp.demand.type.roles').select(['role_id'],[('type_id','=',item['dtype'])],context)
 			if len(roles) > 0:
 				if 'roles' not in item:
 					item['roles'] = []
@@ -174,8 +174,8 @@ class mrp_request(Model):
 	'texts': fields.one2many(label='Texts',obj='mrp.request.texts',rel='request_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_rtype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('mrp.request.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['rtype'])],context)
+	def _on_change_rtype(self,item,context={}):		
+			roles = pool.get('mrp.request.type.roles').select(['role_id'],[('type_id','=',item['rtype'])],context)
 			if len(roles) > 0:
 				if 'roles' not in item:
 					item['roles'] = []
