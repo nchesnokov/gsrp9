@@ -2385,49 +2385,42 @@ class MCache(object):
 		if type(records) == dict:
 			self._data = DCacheDict(records,model._name,model._cr,model._pool,model._uid,self._context,False)
 			self._do_calculate_all(context)
-			res.extend(self._save())
+			res.append(self._save()[1])
 		elif  type(records) in (list,tuple):
 			res = []
 			for record in records:
 				self._data = DCacheDict(record,model._name,model._cr,model._pool,model._uid,self._context,False)
 				self._do_calculate_all(context)
-				self._data._papply()
 				res.append(self._save()[1])
 		
 		return res
-
-		#return write(model,records,context)
 
 	def _modify(self,model,records,context={}):
 		res = []
 		if type(records) == dict:
 			self._data = DCacheDict(records,model._name,model._cr,model._pool,model._uid,self._context,False)
 			self._do_calculate_all(context)
-			res.extend(self._save())
+			res.append(self._save()[1])
 		elif  type(records) in (list,tuple):
 			res = []
 			for record in records:
 				self._data = DCacheDict(record,model._name,model._cr,model._pool,model._uid,self._context,False)
 				self._do_calculate_all(context)
-				self._data._papply()
 				res.append(self._save()[1])
 		
 		return res
-
-		#return modify(model,records,context)
 
 	def _create(self,model,records,context={}):
 		res = []
 		if type(records) == dict:
 			self._data = DCacheDict(records,model._name,model._cr,model._pool,model._uid,self._context,False)
 			self._do_calculate_all(context)
-			res.extend(self._save())
+			res.append(self._save()[1])
 		elif  type(records) in (list,tuple):
 			res = []
 			for record in records:
 				self._data = DCacheDict(record,model._name,model._cr,model._pool,model._uid,self._context,False)
 				self._do_calculate_all(context)
-				self._data._papply()
 				res.append(self._save()[1])
 		
 		#self._commit()
@@ -3065,11 +3058,11 @@ class MCache(object):
 		excl_fields = m._o2mfields + m._m2mfields
 		for k in filter(lambda x: x not in excl_fields,item['__data__'].keys()):
 			if k in m._columns and m._columns[k]._type in ('many2one','related'):
-				#	if rel and k != rel or not rel:
-				if type(item['__data__'][k]) == dict:
-					data[k] = item['__data__'][k]['id']
-				else:
-					data[k] = item['__data__'][k]
+				if rel and k != rel or not rel:
+					if type(item['__data__'][k]) == dict:
+						data[k] = item['__data__'][k]['id']
+					else:
+						data[k] = item['__data__'][k]
 			elif k in m._columns and m._columns[k]._type == 'json':
 				data[k] = json.dumps(item['__data__'][k])
 			else:

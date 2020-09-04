@@ -222,7 +222,7 @@ class User(Session):
 	
 					self._components['registry']._load_installed_modules()
 					self._components['registry']._load_inheritables()
-					models = self._components['registry']._create_loaded_models()
+					models = self._components['registry']._create_loaded_models(self)
 					for key in models:
 						self._models[key] = models[key]
 						self._models[key]._session = self
@@ -233,22 +233,22 @@ class User(Session):
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
 
-					reports = self._components['registry']._create_loaded_reports()
+					reports = self._components['registry']._create_loaded_reports(self)
 					for key in reports:
 						self._reports[key] = reports[key]
 						self._reports[key]._session = self    
 
-					queries = self._components['registry']._create_loaded_queries()
+					queries = self._components['registry']._create_loaded_queries(self)
 					for key in queries:
 						self._queries[key] = queries[key]  
 						self._queries[key]._session = self 
 
-					dialogs = self._components['registry']._create_loaded_dialogs()
+					dialogs = self._components['registry']._create_loaded_dialogs(self)
 					for key in dialogs:
 						self._dialogs[key] = dialogs[key]  
 						self._dialogs[key]._session = self
 
-					wizards = self._components['registry']._create_loaded_wizards()
+					wizards = self._components['registry']._create_loaded_wizards(self)
 					for key in wizards:
 						self._wizards[key] = wizards[key]  
 						self._wizards[key]._session = self  
