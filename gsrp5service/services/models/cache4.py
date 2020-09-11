@@ -1554,7 +1554,12 @@ class DCacheDict(object):
 	
 		for k in cdata.keys():
 			if type(cdata[k]) == str:
-				odata[k] = copy.deepcopy(self._getCData(cdata[k]))
+				cdatak = self._getCData(cdata[k])
+				for k1 in cdatak.keys():
+					if type(cdatak[k1]) == psycopg2.extensions.Binary:
+						cdatak[k1] = cdatak[k1].getquoted()
+
+				odata[k] = copy.deepcopy(cdatak)
 			elif type(cdata[k]) == list:
 				ka = cdata[k]
 				odata[k] = []
@@ -3069,7 +3074,7 @@ class MCache(object):
 				data[k] = item['__data__'][k]
 
 		if 'id' in data:
-			r = _writeRecord(m,data,self._context)
+			r = _modifyRecord(m,data,self._context)
 		else:
 			r = _createRecord(m,data,self._context)
 

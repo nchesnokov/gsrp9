@@ -1068,9 +1068,9 @@ def _loadCSVFile(self,info,path,name,fl):
 							rows = list(filter(lambda x:parent_id in x and x[parent_id] in parents,records))
 							_convertFromYAML(self,model,rows)
 					else:
+						_convertFromYAML(self,model,records)
 						if model == 'md.country':
 							web_pdb.set_trace()
-						_convertFromYAML(self,model,records)
 						ir = self._pool.get(model).modify(records,{})
 					_logger.info("    Loaded annotation file: %s - records:%s" % (opj(path,name,f),len(ir)))
 

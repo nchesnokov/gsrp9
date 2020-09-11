@@ -140,7 +140,7 @@ class User(Session):
 			rc = self._components['uis']._call(args[1:])
 		elif args0 == 'modules':
 			if self._connected:
-				self._components['modules']._setup(cr=self._cursor,pool=self._models,uid=self._uid,registry=self._components['registry'])
+				self._components['modules']._setup(self)
 				rc = self._components['modules']._call(args[1:])
 			else:
 				rc = [False,'Not logged']

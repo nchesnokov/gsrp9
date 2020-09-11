@@ -306,11 +306,14 @@ class md_product(Model):
 	def _service_invisible(self, fields,record,context):
 		res = {}
 		if 'template_id' in record and record['template_id']:
-			if record['template_id']['name']:
+			if type(record['template_id']) == dict and record['template_id']['name']:
 				r = self._pool.get('md.products.template').select(['mtype'],[('name','=',record['template_id']['name'])])
-				if len(r) > 0 and r[0]['mtype'] == 's':
-					for field in fields:
-						res[field] = True
+			elif type(record['template_id']) == str :
+				r = self._pool.get('md.products.template').read(record['template_id'],['mtype'])
+
+			if len(r) > 0 and r[0]['mtype'] == 's':
+				for field in fields:
+					res[field] = True
 		
 		return res
 
