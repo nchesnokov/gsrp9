@@ -9,6 +9,8 @@ import datetime
 from datetime import date,time,datetime
 from gsrp5service.orm.model import Model, ModelInherit
 
+import web_pdb
+
 _logger = logging.getLogger('listener.' + __name__)
 
 
@@ -28,14 +30,26 @@ def _remove_dirs(folders):
 				print('Failed to delete %s. Reason: %s' % (file_path, e))
 # download
 
-def _download_imodules(pool,path,module,imodules,registry,ext='csv'):
+def _download_imodules(self,path,module,imodules,models,imodels,registry,ext='csv'):
+	pool = self._pool
+	#pool = models
+	#web_pdb.set_trace()
 	for k in imodules.keys():
 		a = open(opj(path,module,'demo','annotation-1.csv'),'w')
 		aw = csv.DictWriter(a,['model','file'])
 		aw.writeheader()
 		aw = csv.DictWriter(a,['model','file'])
 		for model in imodules[k].keys():	
-			fields = imodules[k][model]['fields']
+			fields = imodules[k][model]['_columns']
+			imodules[k][model]['sf'] = []
+			imodules[k][model]['vcl'] = []
+			for field in fields:
+				imodel = imodules[k][model]['_imodel']
+				im = imodels[imodel]
+				if  im._columns[field]._type == 'iProperty' and hasattr(im._columns[field],'selections'):
+					for ks,kn in im._columns[field].selections:
+						imodules[k][model]['sf'].append(ks)
+						imodules[k][model]['vcl'].append(ks)
 			c2 = imodules[k][model]['sf']
 			vcl = imodules[k][model]['vcl']
 			m = pool.get(model)
@@ -54,14 +68,14 @@ def _download_imodules(pool,path,module,imodules,registry,ext='csv'):
 					mfs.setdefault(sf2,{})[k2] = v2 
 
 			#print('COND:',cond)
-			records = m.select(cr,pool,uid,fields,cond)
+			records = m.select(fields,cond)
 			if len(records) > 0:
-				if model._class_model == 'A':
+				if m._class_model == 'A':
 					if m._name[:3] == 'md.':
 						c = 'data'
 					else:
 						c = 'examples' 
-				elif model._class_model == 'C':
+				elif m._class_model == 'C':
 					c = 'cust'
 	
 				_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,m._table+'_'+k+'.' + ext),));
@@ -110,14 +124,16 @@ def _download_imodules(pool,path,module,imodules,registry,ext='csv'):
 		a.close()
 
 
-def _download(pool,path,module,imodules,models,imodels,registry,ext='csv'):
+def _download(self,path,module,imodules,models,imodels,registry,ext='csv'):
+	pool = self._pool
+	#pool = models
 	_remove_dirs([opj(path,module,'demo','data'),opj(path,module,'demo','examples'),opj(path,module,'demo','cust'),])
 	
 	a = open(opj(path,module,'demo','annotation-1.csv'),'w')
 	aw = csv.DictWriter(a,['model','file'])
 	aw.writeheader()
 	for model in models:
-		fields = list(model._columns.keys())
+		fields = model._rowfields
 		columns_info = model.columnsInfo(attributes=['type','selections','timezone'])
 		sfs = list(filter(lambda x: x in fields,model._selectionfields))
 		mfs = {}
@@ -128,7 +144,7 @@ def _download(pool,path,module,imodules,models,imodels,registry,ext='csv'):
 			#print('COND:',model._name,cond)
 			for k,v in columns_info[sf]['selections']:
 				mfs.setdefault(sf,{})[k] = v 
-		records = model.select(cr,pool,uid,fields,cond)
+		records = model.select(fields,cond)
 		if len(records) >= 0:
 			if model._class_model == 'A':
 				if model._name[:3] == 'md.':
@@ -138,7 +154,7 @@ def _download(pool,path,module,imodules,models,imodels,registry,ext='csv'):
 			elif model._class_model == 'C':
 				c = 'cust'
 
-			_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,model._table+'.' + ext),));
+			_logger.info('GenExamples write file: %s - records:%s'  % (opj(path,module,'demo',c,model._table+'.' + ext),len(records)));
 			am = open(opj(path,module,'demo',c,model._table+'.' + ext),'w')
 			for row in records:
 				for key in row.keys():
@@ -181,50 +197,51 @@ def _download(pool,path,module,imodules,models,imodels,registry,ext='csv'):
 			
 			aw.writerow({'model':model._name,'file':opj('demo',c,model._table+'.' + ext)})
 	a.close()
-	#_download_imodules(cr,pool,uid,path,module,imodules,registry,ext)
-# download
 
-def Area(registry, modules = None, context={}):
+def Area(self, modules = None, context={}):
 	pwd = os.getcwd()
-	pool = registry._models
+	pool = self._pool
+	registry = self._registry
 	if not modules:
 		modules = registry._depends
 	else:
 		modules = list(filter(lambda x: x in modules,registry._depends))
 	logmodules = []
-	#print('MODULES:',modules)
 	if 'ext' not in context:
 		context['ext'] = 'yaml'
 	for module in filter(lambda x: not x in ('bc','system') and 'state' in registry._modules[x] and registry._modules[x]['state'] == 'I',modules):
 		path = registry._modules[module]['path']
 		imodules = {}
-		models = []
-		imodels = []
+		models = {}
+		imodels = {}
 		module_models = registry._modules[module]['lom']
-		#print('MODULE-MODELS:',module_models)
 		for model in module_models:
 			if model in pool:
-				mm = pool[model]
+				if type(pool[model]) == dict:
+					mm = registry._create_model(model)
+				else:
+					mm = pool[model]
+				if isinstance(mm,Model):
+					models[model] = mm
 			else:
-				mm = registry._create_model(model)
-			if isinstance(mm,Model):
-				models.append(mm)
-			elif isinstance(mm,ModelInherit):
-				if hasattr(mm,'_inherit') and getattr(mm,'_inherit',None):
-					imodels.append(mm)
-					if hasattr(mm,'_inherit'):
-						inherit = getattr(mm,'_inherit',None)
-						if inherit:
-							for k in inherit.keys():
-								if '_columns' in inherit[k]:
-									first_module = registry._getFirstModule(k)
-									imodules.setdefault(first_module,{})[k] = inherit[k]['_columns']
-
+				if module in self._registry._inherit:
+					imodels_module = self._registry._inherit[module]
+					for imodel_module in imodels_module.keys():
+						for mkey in imodels_module[imodel_module].keys():
+							if '_columns' in imodels_module[imodel_module][mkey]:
+								for col in imodels_module[imodel_module][mkey]['_columns']:
+									first_module = registry._getFirstModuleModel(mkey)
+									imodules.setdefault(first_module,{}).setdefault(mkey,{})['_columns'] = imodels_module[imodel_module][mkey]['_columns']
+									imodules.setdefault(first_module,{}).setdefault(mkey,{})['_imodel'] = model
+									imm = registry._create_model(model)
+									if isinstance(imm,ModelInherit):
+										imodels[model] = imm
+									
 
 		if len(models) > 0 or len(imodules) > 0:
-			#print('MODELS:',module,imodules,models,imodels)
-			#_download_imodules(cr,pool,uid,path,module,imodules,registry,ext=context['ext'])
-			_download(pool,path,module,imodules,models,imodels,registry,ext=context['ext'])
+			print('MODELS:',module,imodules,models,imodels)
+			_download_imodules(self,path,module,imodules,models,imodels,registry,ext=context['ext'])
+			_download(self,path,module,imodules,models,imodels,registry,ext=context['ext'])
 			logmodules.append(module)
 
 	_logger.info('Download examples of modules %s' % (logmodules,))

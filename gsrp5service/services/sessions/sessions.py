@@ -21,6 +21,8 @@ class Session(object):
 	def _mcache(self,args):
 		if args[0] == 'cache':
 			return self._cache[args[1]]._mcache(**(args[2]))
+		elif args[0] == 'on_selected':
+			return self._cache[args[1]]._on_selected(**(args[2]))
 		elif args[0] == 'm2ofind':			
 			return self._cache[args[1]]._m2o_find(**(args[2]))
 		elif args[0] == 'relatedfind':			
@@ -28,7 +30,7 @@ class Session(object):
 		elif args[0] == 'action':			
 			return self._cache[args[1]]._action(**(args[2]))
 		elif args[0] == 'add':			
-			return self._cache[args[1]]._o2m_add(**(args[2]))
+			return self._cache[args[1]]._call('_o2m_add',args[2])
 		elif args[0] == 'm2madd':			
 			return self._cache[args[1]]._m2m_add(**(args[2]))
 		elif args[0] == 'remove':
@@ -391,7 +393,7 @@ class System(Session):
 			self._components['queries']._setup(self)
 			self._components['dialogs']._setup(self)
 			self._components['wizards']._setup(self)
-			self._components['gens']._setup(self._components['registry'])
+			self._components['gens']._setup(self)
 			self._components['slots']._setup(self)		
 			return self
 
@@ -438,6 +440,7 @@ class System(Session):
 			self._cursor.conn.autocommit=True
 			_logger.info("Drop Slot: %s" % (sid,))
 			self._cursor.execute("DROP DATABASE IF EXISTS %s CASCADE" % (sid,))
+			self._cursor.commit()
 			self._cursor.conn.autocommit = autocommit
 			_logger.info("Slot: %s Dropped" % (sid,))
 			res.append(self._cursor.cr.statusmessage)

@@ -265,6 +265,11 @@ class BaseModel(object, metaclass = MetaModel):
 			uid = self._getCacheID('read',context)
 			return getattr(self._session._cache[uid],'_read')(self,ids,fields,context)
 
+	def readforupdate(self,ids,fields=None,context={}):
+		if hasattr(self,'_session'):
+			uid = self._getCacheID('readforupdate',context)
+			return getattr(self._session._cache[uid],'_readforupdate')(self,ids,fields,context)
+
 	def write(self,records,context={}):
 		if hasattr(self,'_session'):
 			uid = self._getCacheID('write',context)
@@ -289,6 +294,11 @@ class BaseModel(object, metaclass = MetaModel):
 		if hasattr(self,'_session'):
 			uid = self._getCacheID('select',context)
 			return getattr(self._session._cache[uid],'_select')(self,fields, cond, context, limit, offset)
+
+	def selectforupdate(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
+		if hasattr(self,'_session'):
+			uid = self._getCacheID('selectforupdate',context)
+			return getattr(self._session._cache[uid],'_selectforupdate')(self,fields, cond, context, limit, offset)
 
 	def update(self,record, cond = None,context = {}):
 		if hasattr(self,'_session'):
@@ -324,6 +334,11 @@ class BaseModel(object, metaclass = MetaModel):
 		if hasattr(self,'_session'):
 			uid = self._getCacheID('tree',context)
 			return getattr(self._session._cache[uid],'_tree')(self,fields,parent, context)
+
+	def treeforupdate(self,fields = None ,parent = None, context = {}):
+		if hasattr(self,'_session'):
+			uid = self._getCacheID('treeforupdate',context)
+			return getattr(self._session._cache[uid],'_treeforupdate')(self,fields,parent, context)
 
 	def browse(self,ids,fields=None,context={}):
 		if hasattr(self,'_session'):
@@ -377,7 +392,7 @@ class BaseModel(object, metaclass = MetaModel):
 
 	@property
 	def _rowfields(self):
-		return list(filter(lambda x: self._columns[x]._type not in ('one2many','many2many'),self._columns.keys())) 
+		return list(filter(lambda x: self._columns[x]._type not in ('one2many','many2many','one2related'),self._columns.keys())) 
 
 	@property
 	def _m2ofields(self):

@@ -208,14 +208,10 @@ class Cursor(object):
 		if self.cr.rowcount > 0:
 			descfields = list(map(lambda x: x.name,self.cr.description))
 			row =  self._convertRecord(self.cr.fetchone(),fields,columnsmeta,descfields)
-			for i in range(fields.__len__()):
-				#print('DICTFETCHONE:',i,fields,row)
-				if type(fields[i]) == str:
-					record[fields[i]] = row[i]
-				elif type(fields[i]) == dict:
-					for k in fields[i]:
-						record[k] = row[i]
-		#print('DICTFETCHONE:',record)
+			record = {}
+			for idx,field in enumerate(fields):
+					record[field] = row[idx]
+
 		return [record]
 
 	def fetchmany(self, fields = ['id'], columnsmeta = {'id':'uuid'}, size = None):
@@ -238,14 +234,11 @@ class Cursor(object):
 			for row in self.cr.fetchmany(size = size):
 				rec = self._convertRecord(row,fields,columnsmeta,descfields)
 				record = {}
-				for i in range(fields.__len__()):
-					if type(fields[i]) == str:
-						record[fields[i]] = rec[i]
-					elif type(fields[i]) == dict:
-						for k in fields[i]:
-							record[k] = rec[i]
+				for idx,field in enumerate(fields):
+						record[field] = rec[idx]
+
 				records.append(record) 
-		#print('DICTFETCHMANY:',record)
+
 		return tuple(records)
 
 	def fetchall(self, fields = ['id'], columnsmeta = {'id':'uuid'}):
@@ -254,7 +247,6 @@ class Cursor(object):
 			descfields = list(map(lambda x: x.name,self.cr.description))
 			for record in self.cr.fetchall():
 				records.append(tuple(self._convertRecord(record,fields,columnsmeta,descfields)))
-		#print('FETCHALL:',record)
 		return tuple(records)
 
 	def dictfetchall(self, fields = ['id'], columnsmeta = {'id':'uuid'}):
@@ -264,17 +256,11 @@ class Cursor(object):
 			for row in self.cr.fetchall():
 				rec = self._convertRecord(row,fields,columnsmeta,descfields)
 				record = {}
-				for i in range(fields.__len__()):
-					if type(fields[i]) == str:
-						record[fields[i]] = rec[i]
-					elif type(fields[i]) == dict:
-						for k in fields[i].keys():
-							if columnsmeta[k] in ('many2one','related'):
-								record[k] = rec[i]
+				for idx,field in enumerate(fields):
+						record[field] = rec[idx]
 
 				records.append(record) 
-		
-		#print('DICTFETCHALL:',records,tuple(records))
+
 		return tuple(records)
 
 	def close(self):

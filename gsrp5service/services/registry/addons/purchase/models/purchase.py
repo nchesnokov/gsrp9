@@ -96,7 +96,7 @@ class purchase_orders(Model):
 
 
 	_actions = {
-	'copy_to':{'label':'Copy To Model','tooltip':'Copy to other model','method':'_act_copy_to','icon':'add'},
+	'copy_to':{'label':'Copy To Model','tooltip':'Copy to other model','method':'_act_copy_to','icon':'add','view':['form']},
 	'copy_from':{'label':'Copy From Model','tooltip':'Copy from other model','method':'_act_copy_from','icon':'list'},
 	'create_invoice': {'label':'Creare Invice','tooltip':'Create Invoce From Order','method':'_act_create_invoice','icon':'shopping_cart'}
 	}
@@ -192,6 +192,7 @@ class purchase_order_items(Model):
 	_name = 'purchase.order.items'
 	_description = 'Purchase Order Items'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
+	_hooks = {'aar':'_on_add_row'}
 	_columns = {
 	'order_id': fields.many2one(obj = 'purchase.orders',label = 'Purchase Order'),
 	'itype_id': fields.many2one(label='Group Of Type Items', obj='md.type.items',domain=[('usage','in',('p','a'))]),
@@ -218,7 +219,12 @@ class purchase_order_items(Model):
 	'texts': fields.one2many(label='Texts',obj='purchase.order.item.texts',rel='item_id'),
 	'plates': fields.one2many(label='Plates',obj='purchase.order.item.output.plates',rel='item_id'),
 	'payments': fields.one2many(label='Payments',obj='purchase.order.item.payment.schedules',rel='item_id'),
-	'note': fields.text(label = 'Note')}
+	'note': fields.text(label = 'Note')
+	}
+
+	def _on_add_row(self,item,context={}):
+		print('on_add_row:',item)
+		pass
 
 	def _attrs_model_invisible(self, item,context={}):
 		if 'pm' in item and item['pm'] == 'c':

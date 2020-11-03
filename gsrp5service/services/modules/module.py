@@ -263,7 +263,7 @@ def _uninstall(self,able=None, modules = None):
 	else:
 		for depend in depends:
 			self._registry._load_module(depend)
-			_uninstallModule(self,depend,self._registry)
+			_uninstallModule(self,depend)
 
 			log.append([0,'module: <%s> successfull uninstalled' % (depend,)])
 	
@@ -1069,8 +1069,6 @@ def _loadCSVFile(self,info,path,name,fl):
 							_convertFromYAML(self,model,rows)
 					else:
 						_convertFromYAML(self,model,records)
-						if model == 'md.country':
-							web_pdb.set_trace()
 						ir = self._pool.get(model).modify(records,{})
 					_logger.info("    Loaded annotation file: %s - records:%s" % (opj(path,name,f),len(ir)))
 

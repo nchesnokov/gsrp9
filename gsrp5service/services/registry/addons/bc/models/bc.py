@@ -5,6 +5,8 @@ from passlib.hash import pbkdf2_sha256
 
 import pytz
 
+import web_pdb
+
 class bc_users(Model):
 	_name = 'bc.users'
 	_description = 'Users'
@@ -304,12 +306,13 @@ class bc_model_columns(Model):
 	'id2': fields.varchar(label = 'Id2', size = 64,readonly=True),
 	}
 	def create(self, records,context={}):
+		web_pdb.set_trace()
 		if type(records) in (list,tuple):
 			model_name = self._pool.get('bc.models').read(records[0]['model_id'],['name'],context)[0]['name']
 			for record in records:
 				record['fullname'] = model_name + '/' +  record['col_name']
 		elif type(records) == dict:
-			model_name = self._pool.get('bc.models').read(records['model_id'],['name'],context)
+			model_name = self._pool.get('bc.models').read(records['model_id'],['name'],context)[0]['name']
 			records['fullname'] = model_name + '/' +  records['col_name']
 
 		return super(Model,self).create(records, context)

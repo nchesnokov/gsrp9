@@ -7,6 +7,7 @@ import datetime
 import psycopg2
 import ctypes
 import json
+import toposort
 from deepdiff.diff import DeepDiff
 from gsrp5service.orm import gensql
 from gsrp5service.orm.mm import browse_record, browse_record_list,browse_null
@@ -62,6 +63,30 @@ def _join_diffs(d1,d2):
 		elif k2 in ('__update__','__insert__','__delete__'):
 			for k21 in d2[k2].keys():
 				d1.setdefault(k2,{})[k21].update(d2[k2][k21])
+
+def _conv_record_to_ext(self,record,context):
+	for key in filter(lambda x: x != 'id',record.keys()):
+		if self._columns[key]._type in ('many2one','related'):
+			if type(record[key]) == str:
+				try:
+					uuid.UUID(record[key])
+					m = self._pool.get(self._columns[key].obj)
+					recname = m._RecNameName
+					ctx = context.copy()
+					ctx['read'] = 'raw'
+					v = m.read(record[key],[recname],ctx)
+					if len(v) > 0:
+						record[key] = {'id':record[key],'name': v[0][recname]}
+				except ValueError:
+					m = self._pool.get(self._columns[key].obj)
+					recname = m._RecNameName
+					ctx = context.copy()
+					ctx['read'] = 'raw'
+					v = m.search([(recname,'=',record[key])])
+					if len(v) > 0:
+						record[key] = {'id':v[0],'name':record[key]}
+	
+	return record
 
 def _gen_record(fields,value):
 	record = {}
@@ -1248,8 +1273,8 @@ def _m2mcreate(self,rel,id1,id2,oid,rels,context):
 		sql += reduce(lambda x,y: str(x) + ',' + str(y),values)
 		
 	sql += ' returning id'
-	cr.execute(sql)
-	if cr.cr.rowcount > 0:
+	self._execute(sql)
+	if self._cr.rowcount > 0:
 		if context['FETCH'] == 'LIST':
 			res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
 		elif context['FETCH'] == 'DICT':
@@ -1264,9 +1289,9 @@ def _m2mwrite(self,rel,id1,id2,oid,rels,context):
 	toUnlink = []
 	sqls = []
 	ids2 = []
-	cr.execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
-	if cr.cr.rowcount > 0:
-		ids2 = list(map(lambda x: x[2],cr.fetchall(fields = ['id',id1,id2], columnsmeta = {'id':'uuid',id1:'uuid',id2:'uuid'})))
+	self._execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
+	if self._cr.rowcount > 0:
+		ids2 = list(map(lambda x: x[2],self._cr.fetchall(fields = ['id',id1,id2], columnsmeta = {'id':'uuid',id1:'uuid',id2:'uuid'})))
 		toInsert = list(filter(lambda x: not x in ids2,rels))
 		toUnlink = list(filter(lambda x: not x in rels,ids2))
 	
@@ -1294,9 +1319,9 @@ def _m2mwrite(self,rel,id1,id2,oid,rels,context):
 		sql = sqls[0]
 		if len(sqls) == 2:
 			sql += ';' + sqls[1]
-		cr.execute(sql)
-	if cr.cr.rowcount > 0:
-		res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+		self._execute(sql)
+	if self._cr.rowcount > 0:
+		res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
 	
 	res.extend(filter(lambda x: not x in toUnlink,ids2))
 	res.extend(toInsert)
@@ -1310,9 +1335,9 @@ def _m2mmodify(self,rel,id1,id2,oid,rels,context):
 	toUnlink = []
 	sqls = []
 	ids2 = []
-	cr.execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
-	if cr.cr.rowcount > 0:
-		ids2 = list(map(lambda x: x[2],cr.fetchall(fields = ['id',id1,id2], columnsmeta = {'id':'uuid',id1:'uuid',id2:'uuid'})))
+	self._execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
+	if self._cr.rowcount > 0:
+		ids2 = list(map(lambda x: x[2],self._cr.fetchall(fields = ['id',id1,id2], columnsmeta = {'id':'uuid',id1:'uuid',id2:'uuid'})))
 		toInsert = list(filter(lambda x: not x in ids2,rels))
 		toUnlink = list(filter(lambda x: not x in rels,ids2))
 	
@@ -1340,9 +1365,9 @@ def _m2mmodify(self,rel,id1,id2,oid,rels,context):
 		sql = sqls[0]
 		if len(sqls) == 2:
 			sql += ';' + sqls[1]
-		cr.execute(sql)
-	if cr.cr.rowcount > 0:
-		res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+		self._execute(sql)
+	if self._cr.rowcount > 0:
+		res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
 	
 	res.extend(filter(lambda x: not x in toUnlink,ids2))
 	res.extend(toInsert)
@@ -1359,9 +1384,9 @@ def _m2munlink(self,rel,id1,id2,oid,rels,context):
 	else:
 		sql = "delete from %s where %s = '%s'" % (rel,id1,oid)
 	sql += ' returning id'
-	cr.execute(sql)
-	if cr.cr.rowcount > 0:
-		res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+	self._execute(sql)
+	if self._cr.rowcount > 0:
+		res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
 	
 	return res
 
@@ -1429,6 +1454,7 @@ class DCacheDict(object):
 		self._uid = uid
 		self._context = context
 		self._primary = primary
+		self._selected = []
 
 		for v in ('data','paths','r2c','containers','names','metas','models','rels','attrs'):
 			for a in ('p','w','o','c'):
@@ -2298,7 +2324,20 @@ class DCacheDict(object):
 			
 	def _get_meta(self,path):
 		return self._cattrs[path]
-	
+
+	def _set_selected(self, newselected,oldselected):
+		for old  in oldselected:
+			if old in self._selected:
+				self._selected.remove(old)
+				
+		if len(newselected) > 0:
+			self._selected.extend(newselected)
+
+		return self._selected
+
+	def _get_selected(self):
+		return self._selected
+		
 class MCache(object):
 	
 	def __init__(self,cr,pool,uid,mode,context):
@@ -2314,6 +2353,13 @@ class MCache(object):
 		self._cache_attrs = {}
 		self._diffs = {}
 		self._commit_diffs = {}
+
+	def _call(self,method,kwargs):
+		m = getattr(self,method,None)
+		if m:
+			if 'context' in kwargs:
+				kwargs['context']['data'] = copy.deepcopy(self._rawdata)
+			return m(**kwargs)
 
 	def _getMode(self):
 		return [self._mode]
@@ -2333,6 +2379,7 @@ class MCache(object):
 		self._clear()
 		self._model = model
 		row = self._pool.get(model)._buildEmptyItem()
+		self._rawdata = row
 		self._data = DCacheDict(row,model,self._cr,self._pool,self._uid,self._context,False)
 		
 		self._setDefault(model,row)
@@ -2372,29 +2419,31 @@ class MCache(object):
 
 #model method
 	def _read(self,model,ids,fields=None,context={}):
+		return read(model,ids,fields,context)
+
+	def _readforupdate(self,model,ids,fields=None,context={}):
 		row = read(model,ids,fields,context)
 		if len(row) > 0:
-			if  'read' in context and context['read'] == 'raw' or 'cache' not in context:
-				return row
-			else:
-				self._data = DCacheDict(row[0],model._name,model._cr,model._pool,model._uid,self._context)
-				self._getMeta()
-				m = self._data._getData(self._data._root)
-				m['__checks__'] = []
-				return [m]
+			self._rawdata = row[0]
+			self._data = DCacheDict(row[0],model._name,model._cr,model._pool,model._uid,context)
+			self._getMeta()
+			m = self._data._getData(self._data._root)
+			m['__checks__'] = []
+			return [m]
 		else:
 			return row
+
 
 	def _write(self,model,records,context={}):
 		res = []
 		if type(records) == dict:
-			self._data = DCacheDict(records,model._name,model._cr,model._pool,model._uid,self._context,False)
+			self._data = DCacheDict(_conv_record_to_ext(model,records,context),model._name,model._cr,model._pool,model._uid,context,False)
 			self._do_calculate_all(context)
 			res.append(self._save()[1])
 		elif  type(records) in (list,tuple):
 			res = []
 			for record in records:
-				self._data = DCacheDict(record,model._name,model._cr,model._pool,model._uid,self._context,False)
+				self._data = DCacheDict(_conv_record_to_ext(model,record,context),model._name,model._cr,model._pool,model._uid,context,False)
 				self._do_calculate_all(context)
 				res.append(self._save()[1])
 		
@@ -2403,13 +2452,13 @@ class MCache(object):
 	def _modify(self,model,records,context={}):
 		res = []
 		if type(records) == dict:
-			self._data = DCacheDict(records,model._name,model._cr,model._pool,model._uid,self._context,False)
+			self._data = DCacheDict(_conv_record_to_ext(model,records,context),model._name,model._cr,model._pool,model._uid,context,False)
 			self._do_calculate_all(context)
 			res.append(self._save()[1])
 		elif  type(records) in (list,tuple):
 			res = []
 			for record in records:
-				self._data = DCacheDict(record,model._name,model._cr,model._pool,model._uid,self._context,False)
+				self._data = DCacheDict(_conv_record_to_ext(model,record,context),model._name,model._cr,model._pool,model._uid,context,False)
 				self._do_calculate_all(context)
 				res.append(self._save()[1])
 		
@@ -2418,13 +2467,13 @@ class MCache(object):
 	def _create(self,model,records,context={}):
 		res = []
 		if type(records) == dict:
-			self._data = DCacheDict(records,model._name,model._cr,model._pool,model._uid,self._context,False)
+			self._data = DCacheDict(_conv_record_to_ext(model,records,context),model._name,model._cr,model._pool,model._uid,context,False)
 			self._do_calculate_all(context)
 			res.append(self._save()[1])
 		elif  type(records) in (list,tuple):
 			res = []
 			for record in records:
-				self._data = DCacheDict(record,model._name,model._cr,model._pool,model._uid,self._context,False)
+				self._data = DCacheDict(_conv_record_to_ext(model,record,context),model._name,model._cr,model._pool,model._uid,context,False)
 				self._do_calculate_all(context)
 				res.append(self._save()[1])
 		
@@ -2436,6 +2485,18 @@ class MCache(object):
 
 	def _select(self,model,fields = None ,cond = None, context = {}, limit = None, offset = None):
 		return select(model,fields, cond, context, limit, offset)
+
+	def _selectforupdate(self,model,fields = None ,cond = None, context = {}, limit = None, offset = None):
+		res = []
+		records = select(model,fields, cond, context, limit, offset)
+		if len(records) > 0:
+			self._data = DCacheList()
+		for record in records:
+			data = DCacheDict(record,model._name,model._cr,model._pool,model._uid,context)
+			self._data.append(data)
+			res.append(data._getData(data._root))
+		
+		return res 
 
 	def _update(self,model,record, cond = None,context = {}):
 		return update(model,record,cond,context)
@@ -2456,6 +2517,9 @@ class MCache(object):
 		return search(model,cond, context, limit, offset)
 
 	def _tree(self,model,fields = None ,parent = None, context = {}):
+		return tree(model,fields,parent, context)
+
+	def _treeforupdate(self,model,fields = None ,parent = None, context = {}):
 		return tree(model,fields,parent, context)
 
 	def _browse(self,model,ids,fields=None,context={}):
@@ -2500,6 +2564,9 @@ class MCache(object):
 		self._m.clear()
 		return True
 
+	def _on_selected(self,newselected,oldselected,context):
+		return self._data._set_selected(newselected,oldselected)
+	
 	def _on_change(self,path,model,key,context):
 		if model not in self._meta:
 			self._getMeta(model)
@@ -2659,7 +2726,7 @@ class MCache(object):
 		row = self._pool.get(model)._buildEmptyItem()
 		self._setDefault(model,row)
 		
-		hook = self._pool.get(model)._getHook('Before_o2m_Add')
+		hook = self._pool.get(model)._getHook('bar')
 		if hook:
 			hook(row,context)
 		p = container.split('.')
@@ -2669,7 +2736,7 @@ class MCache(object):
 		
 		self._do_calculate(str(id(row)),context)
 
-		hook = self._pool.get(model)._getHook('After_o2m_Add')
+		hook = self._pool.get(model)._getHook('aar')
 		if hook:
 			hook(row,context)
 		
@@ -2693,7 +2760,7 @@ class MCache(object):
 		c = container.split('.')
 		model = self._data._cmodels[path]
 		row = self._data._getCData(path)
-		hook = self._pool.get(model)._getHook('Before_o2m_Remove')
+		hook = self._pool.get(model)._getHook('brr')
 		if hook:
 			hook(row,context)
 		
@@ -2702,7 +2769,7 @@ class MCache(object):
 		
 		self._do_calculate(c[1],context)
 		
-		hook = self._pool.get(model)._getHook('Afftre_o2m_Remove')
+		hook = self._pool.get(model)._getHook('arr')
 		if hook:
 			hook(row,context)
 		
@@ -3013,7 +3080,12 @@ class MCache(object):
 				data[k] = item['__data__'][k]
 
 		if 'id' in data:
-			r = _modifyRecord(m,data,self._context)
+			if self._mode == 'write':
+				r = _writeRecord(m,data,self._context)
+			elif self._mode in ('modify','new','create'):
+				r = _modifyRecord(m,data,self._context)
+
+			#r = _modifyRecord(m,data,self._context)
 		else:
 			r = _createRecord(m,data,self._context)
 
@@ -3074,7 +3146,10 @@ class MCache(object):
 				data[k] = item['__data__'][k]
 
 		if 'id' in data:
-			r = _modifyRecord(m,data,self._context)
+			if self._mode == 'write':
+				r = _writeRecord(m,data,self._context)
+			elif self._mode in ('modify','new','create'):
+				r = _modifyRecord(m,data,self._context)
 		else:
 			r = _createRecord(m,data,self._context)
 

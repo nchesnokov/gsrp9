@@ -14,14 +14,30 @@ class Gens(Service):
 		if config_file:
 			self.configure(config_file)
 	
+	@property
+	def _cr(self):
+		return self._session._cursor
+
+	@property
+	def _pool(self):
+		return self._session._models
+
+	@property
+	def _uid(self):
+		return self._session._uid
+
+	@property
+	def _registry(self):
+		return self._session._registry
+
 	def configure(self,config_file):
 		cf = ConfigParser()
 		cf.read(config_file)
 		self._config = cf
 
 	
-	def _setup(self,registry):
-		self._registry = registry
+	def _setup(self,session):
+		self._session = session
 
 	def _call(self,args):
 		if args[0][0] == '_':
@@ -43,43 +59,43 @@ class Gens(Service):
 		return roles.Area(self._registry,modules,context)
 
 	def menu(self,modules=None, context={}):
-		return menus.Area(self._registry,modules,context)
+		return menus.Area(self,modules,context)
 
 	def view(self,modules = None, context={}):
-		return views.Area(self._registry,modules,context)
+		return views.Area(self,modules,context)
 
 	def ui(self,modules=None, context={}):
 		log = []
 
-		log.append(views.Area(self._registry,modules,context))
-		log.append(roles.Area(self._registry,modules, context))
-		log.append(menus.Area(self._registry,modules, context))
+		log.append(views.Area(self,modules,context))
+		log.append(roles.Area(self,modules, context))
+		log.append(menus.Area(self,modules, context))
 
 		return log
 
 	def examples(self,modules = None, context={}):
-		return examples.Area(self._registry,modules, context)
+		return examples.Area(self,modules, context)
 
 	def tests(self,modules = None, context={}):
-		return tests.Area(self._registry,modules, context)
+		return tests.Area(self,modules, context)
 
 	def i18n(self,modules = None, context={}):
-		return i18n.Area(self._registry,modules, context)
+		return i18n.Area(self,modules, context)
 
 	def tr(self,modules = None, context={}):
 		log = []
-		return tr.Area(self._registry,modules, context)
+		return tr.Area(self,modules, context)
 	
 	def all(self,modules = None, context={}):
 		log = []
 
-		log.append(views.Area(self._registry,modules, context))
-		log.append(roles.Area(self._registry,modules, context))
+		log.append(views.Area(self,modules, context))
+		log.append(roles.Area(self,modules, context))
 		log.append(menus.Area(self._registry,modules, context))
 
-		log.append(examples.Area(self._registry,modules, context))
-		log.append(tests.Area(self._registry,modules, context))
-		log.append(i18n.Area(self._registry,modules, context))
-		log.append(tr.Area(self._registry,modules, context))
+		log.append(examples.Area(self,modules, context))
+		log.append(tests.Area(self,modules, context))
+		log.append(i18n.Area(self,modules, context))
+		log.append(tr.Area(self,modules, context))
 
 		return log

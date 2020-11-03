@@ -192,7 +192,7 @@ class Registry(Service):
 		return tuple(_fl)
 
 	def _load_installed_modules(self):
-		modules = filter(lambda x: self._modules[x]['state'] == 'I',[node.name for node in self._graph])
+		modules = filter(lambda x: 'state' in self._modules[x] and self._modules[x]['state'] == 'I',[node.name for node in self._graph])
 		
 		for module in modules:
 			self._load_module(module)
@@ -736,7 +736,7 @@ class Registry(Service):
 													if hasattr(meta['attrs'][c][column],attr):
 														getattr(meta['attrs'][c][column],attr).update(getattr(imeta['attrs'][c][column],attr))
 									else:
-										Exception_Registry("Column: %s of model: %s if exists\n" % (column,key))
+										Exception_Registry("Column: %s of model: %s if exists\n" % (column,dst))
 						elif c == '_actions':
 							for action in inherit[c]:
 								meta['attrs'].setdefault(c,{})[action] = imeta['attrs']['_actions'][action]

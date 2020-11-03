@@ -29,12 +29,13 @@ mrp_request_category()
 
 class mrp_demand(Model):
 	_name = 'mrp.demand'
-	_description = 'GeneralModel MRP Demand'
+	_description = 'MRP Demand'
 	_date = 'dod'
 	_columns = {
-	'dtype': fields.many2one(label='Type',obj='mrp.demand.types',on_change='on_change_dtype'),
+	'dtype': fields.many2one(label='Type',obj='mrp.demand.types',on_change='_on_change_dtype'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name', cols = ['company','dtype','name'], translate = True,required = True, compute = '_compute_composite'),
 	'category_id': fields.many2one(label='Category',obj='mrp.demand.category'),
 	'origin': fields.varchar(label = 'Origin'),
 	'dod': fields.date(label='Date Of Demand',required=True),
@@ -51,13 +52,25 @@ class mrp_demand(Model):
 	}
 
 	def _on_change_dtype(self,item,context={}):		
-			roles = pool.get('mrp.demand.type.roles').select(['role_id'],[('type_id','=',item['dtype'])],context)
-			if len(roles) > 0:
-				if 'roles' not in item:
-					item['roles'] = []
-				for role in roles:
-					item[roles].append[role['role_id']]
-
+		roles = self._pool.get('mrp.demand.type.roles').select( ['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		for role in roles:
+			item_role = self._pool.get('mrp.demand.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = self._pool.get('mrp.demand.types').select( ['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('mrp.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = self._pool.get('mrp.demand.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 
 mrp_demand()
@@ -70,7 +83,7 @@ class mrp_demand_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'demand_id': fields.many2one(label='Demand',obj='mrp.demand'),
+	'demand_id': fields.many2one(label='Demand',obj='mrp.demand', on_delete='c'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='mrp.texts'),
 	'descr': fields.referenced(ref='text_id.descr'),
@@ -84,7 +97,7 @@ class mrp_demand_roles(Model):
 	_name = 'mrp.demand.roles'
 	_description = 'MRP Demand Roles'
 	_columns = {
-	'demand_id': fields.many2one(label = 'Demand',obj='mrp.demand'),
+	'demand_id': fields.many2one(label = 'Demand',obj='mrp.demand', on_delete='c'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
 	'patner_id': fields.many2one(label = 'Parther',obj='md.partner',domain=[('ispeople',)])
 	}
@@ -96,13 +109,30 @@ class mrp_demand_items(Model):
 	_name = 'mrp.demand.items'
 	_description = 'MRP Demand Item'
 	_rec_name = None
+	_hooks = {'aar':'_on_add_row'}
 	_columns = {
-	'demand_id': fields.many2one(obj = 'mrp.demand',label = 'Demand'),
+	'demand_id': fields.many2one(obj = 'mrp.demand',label = 'Demand', on_delete='c'),
 	'product': fields.many2one(label='Product',obj='md.product'),
 	'schedules': fields.one2many(label='Schedule',obj='mrp.demand.delivery.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='mrp.demand.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='mrp.demand.item.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')}
+
+	def _on_add_row(self,item,context={}):
+		data = context['data']
+		types = self._pool.get('mrp.demand.types').select( ['itschema'],[('name','=',data['dtype']['name'])],context)
+		texts1 = self._pool.get('mrp.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['itschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = self._pool.get('mrp.demand.item.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+			seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 mrp_demand_items()
 
@@ -114,7 +144,7 @@ class mrp_demand_item_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'item_id': fields.many2one(label='Item',obj='mrp.demand.items'),
+	'item_id': fields.many2one(label='Item',obj='mrp.demand.items', on_delete='c'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='mrp.texts'),
 	'descr': fields.referenced(ref='text_id.descr'),
@@ -128,7 +158,7 @@ class mrp_demand_item_roles(Model):
 	_name = 'mrp.demand.item.roles'
 	_description = 'MRP Demand Roles'
 	_columns = {
-	'item_id': fields.many2one(label = 'Item',obj='mrp.demand.items'),
+	'item_id': fields.many2one(label = 'Item',obj='mrp.demand.items', on_delete='c'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
 	'patner_id': fields.many2one(label = 'Parther',obj='md.partner',domain=[('ispeople',)])
 	}
@@ -141,7 +171,7 @@ class mrp_demand_delivery_schedules(Model):
 	_description = 'MRP Demand Delivery Schedule'
 	_rec_name = None
 	_columns = {
-	'item_id': fields.many2one(obj = 'mrp.demand.items',label = 'Item'),
+	'item_id': fields.many2one(obj = 'mrp.demand.items',label = 'Item', on_delete='c'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
 	'uom': fields.many2one(label='UoM',obj='md.uom'),
 	'schedule': fields.datetime(label='Schedule'),
@@ -157,12 +187,13 @@ mrp_demand_delivery_schedules()
 ####
 class mrp_request(Model):
 	_name = 'mrp.request'
-	_description = 'GeneralModel MRP Request'
+	_description = 'MRP Request'
 	_date = 'dor'
 	_columns = {
 	'rtype': fields.many2one(label='Type',obj='mrp.request.types',on_change='on_change_rtype'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name', cols = ['company','rtype','name'], translate = True,required = True, compute = '_compute_composite'),
 	'category_id': fields.many2one(label='Category',obj='mrp.request.category'),
 	'origin': fields.varchar(label = 'Origin'),
 	'dor': fields.date(label='Date Of Request',required=True),
@@ -175,12 +206,25 @@ class mrp_request(Model):
 	'note': fields.text('Note')}
 
 	def _on_change_rtype(self,item,context={}):		
-			roles = pool.get('mrp.request.type.roles').select(['role_id'],[('type_id','=',item['rtype'])],context)
-			if len(roles) > 0:
-				if 'roles' not in item:
-					item['roles'] = []
-				for role in roles:
-					item[roles].append[role['role_id']]
+		roles = self._pool.get('mrp.request.type.roles').select( ['role_id'],[('type_id','=',item['rtype']['name'])],context)
+		for role in roles:
+			item_role = self._pool.get('mrp.request.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = self._pool.get('mrp.request.types').select( ['htschema'],[('name','=',item['rtype']['name'])],context)	
+		texts1 = self._pool.get('mrp.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = self._pool.get('mrp.request.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 	_default = {
 		'state':'draft'
@@ -196,7 +240,7 @@ class mrp_request_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'request_id': fields.many2one(label='Request',obj='mrp.request'),
+	'request_id': fields.many2one(label='Request',obj='mrp.request', on_delete='c'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='mrp.texts'),
 	'descr': fields.referenced(ref='text_id.descr'),
@@ -210,7 +254,7 @@ class mrp_request_roles(Model):
 	_name = 'mrp.request.roles'
 	_description = 'Purchase Invoice Roles'
 	_columns = {
-	'invoice_id': fields.many2one(label = 'Request',obj='mrp.request'),
+	'invoice_id': fields.many2one(label = 'Request',obj='mrp.request', on_delete='c'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
 	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
 	}
@@ -222,13 +266,30 @@ class mrp_request_items(Model):
 	_name = 'mrp.request.items'
 	_description = 'MRP Request Item'
 	_rec_name = None
+	_hooks = {'aar':'_on_add_row'}
 	_columns = {
-	'request_id': fields.many2one(obj = 'mrp.request',label = 'Request'),
+	'request_id': fields.many2one(obj = 'mrp.request',label = 'Request', on_delete='c'),
 	'product': fields.many2one(label='Product',obj='md.product'),
 	'schedules': fields.one2many(label='Schedule',obj='mrp.request.delivery.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='mrp.request.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='mrp.request.item.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')}
+
+	def _on_add_row(self,item,context={}):
+		data = context['data']
+		types = self._pool.get('mrp.request.types').select( ['itschema'],[('name','=',data['rtype']['name'])],context)
+		texts1 = self._pool.get('mrp.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['itschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = self._pool.get('mrp.request.item.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+			seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 mrp_request_items()
 
@@ -240,7 +301,7 @@ class mrp_request_item_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'item_id': fields.many2one(label='Item',obj='mrp.request.items'),
+	'item_id': fields.many2one(label='Item',obj='mrp.request.items', on_delete='c'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='mrp.texts'),
 	'descr': fields.referenced(ref='text_id.descr'),
@@ -254,7 +315,7 @@ class mrp_request_item_roles(Model):
 	_name = 'mrp.request.item.roles'
 	_description = 'MRP Request Item Roles'
 	_columns = {
-	'item_id': fields.many2one(label = 'Item',obj='mrp.request.items'),
+	'item_id': fields.many2one(label = 'Item',obj='mrp.request.items', on_delete='c'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('S','B'))]),
 	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
 	}
@@ -267,7 +328,7 @@ class mrp_request_delivery_schedules(Model):
 	_description = 'MRP Request Delivery Schedule'
 	_rec_name = None
 	_columns = {
-	'item_id': fields.many2one(obj = 'mrp.request.items',label = 'Item'),
+	'item_id': fields.many2one(obj = 'mrp.request.items',label = 'Item', on_delete='c'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
 	'uom': fields.many2one(label='UoM',obj='md.uom'),
 	'schedule': fields.datetime(label='Schedule'),

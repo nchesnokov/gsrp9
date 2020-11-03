@@ -609,8 +609,11 @@ def _compute_composite_tree(self ,item,context):
 	delimiter = self._columns[fullname].delimiter
 
 	if fullname and self._columns[fullname]._type == 'composite' and parent_id and self._getChildsIdName():
-		if item[parent_id]['id']:
-			v += self.read(item[parent_id]['id'],[fullname],context)[0][fullname]
+		if item[parent_id]:
+			if type(item[parent_id]) == dict and item[parent_id]['id']:
+				v += self.read(item[parent_id]['id'],[fullname],context)[0][fullname]
+			elif type(item[parent_id]) == str:
+				v += self.read(item[parent_id],[fullname],context)[0][fullname]
 			if item[rowname]:
 				v += delimiter + item[rowname]
 
