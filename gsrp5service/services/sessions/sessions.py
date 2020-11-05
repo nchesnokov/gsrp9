@@ -182,16 +182,10 @@ class User(Session):
 		if self._cursor.open():
 			self._registry = self._components['registry']
 			self._registry._load_module('bc')
-			self._models = self._components['registry']._create_loaded_models(self)
-			self._reports = self._components['registry']._create_loaded_reports(self)
-			self._queries = self._components['registry']._create_loaded_queries(self)
-			self._dialogs = self._components['registry']._create_loaded_dialogs(self)
-			self._wizards = self._components['registry']._create_loaded_wizards(self)
-			self._components['models']._setup(self)
-			self._components['reports']._setup(self)
-			self._components['queries']._setup(self)
-			self._components['dialogs']._setup(self)
-			self._components['wizards']._setup(self)
+			self._objects = self._components['registry']._create_loaded_objects(self)
+			for key in self._componets.keys():
+				self._components[key]._setup(self)
+
 			self._components['uis']._setup(self)
 			return self
 

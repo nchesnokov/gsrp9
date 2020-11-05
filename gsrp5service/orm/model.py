@@ -5,6 +5,7 @@ import sys
 import time
 import logging
 from functools import reduce
+from .metaobjects import MetaObjects
 from tools.translations import trlocal as _
 from . import mm
 from .mm import orm_exception
@@ -13,6 +14,7 @@ from .mm import Access
 _logger = logging.getLogger(__name__)
 
 import web_pdb
+
 
 class MetaModel(type):
 	__modules__ = {}
@@ -38,7 +40,8 @@ class MetaModel(type):
 			self._register = True
 			super(MetaModel, self).__init__(name, bases, attrs)
 
-class BaseModelInherit(object, metaclass = MetaModel):
+#class BaseModelInherit(object, metaclass = MetaModel):
+class BaseModelInherit(object, metaclass = MetaObjects):
 	_name = None
 	_description = None
 	_register = False
@@ -162,7 +165,8 @@ class BaseModelInherit(object, metaclass = MetaModel):
 		return mm.ifamilyInfo(self,columns)
 
 
-class BaseModel(object, metaclass = MetaModel):
+#class BaseModel(object, metaclass = MetaModel):
+class BaseModel(object, metaclass = MetaObjects):
 	_name = None
 	_table = None
 	_class_model = 'A'
