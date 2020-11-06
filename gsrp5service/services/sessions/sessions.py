@@ -109,12 +109,6 @@ class User(Session):
 	_connected = None
 	_sid = None
 	_uid = 0
-	_srvs = {}
-	_models = {}
-	_reports = {}
-	_dialogs = {}
-	_wizards = {}
-	_queries = {}
 	_cache = {}
 	_cache_attrs = {}
 
@@ -166,6 +160,32 @@ class User(Session):
 		
 		return res
 
+	@property
+	def _models(self):
+		if 'models' in self._objects:
+			return	self._objects['models']
+		return {}
+	@property
+	def _reports(self):
+		if 'reports' in self._objects:
+			return	self._objects['reports']
+		return {}
+	@property
+	def _dialogs(self):
+		if 'dialogs' in self._objects:
+			return	self._objects['dialog']
+		return {}
+	@property
+	def _wizards(self):
+		if 'wizards' in self._objects:
+			return	self._objects['wizards']
+		return {}
+	@property
+	def _queries(self):
+		if 'queries' in self._objects:
+			return	self._objects['queries']
+		return {}
+
 	def open(self,profile):
 
 		if profile not in self._conf:
@@ -183,8 +203,9 @@ class User(Session):
 			self._registry = self._components['registry']
 			self._registry._load_module('bc')
 			self._objects = self._components['registry']._create_loaded_objects(self)
-			for key in self._componets.keys():
-				self._components[key]._setup(self)
+			for key in self._components.keys():
+				if hasattr(self._components[key],'_setup'):
+					self._components[key]._setup(self)
 
 			self._components['uis']._setup(self)
 			return self
@@ -216,38 +237,21 @@ class User(Session):
 						self._components['registry']._modules[db_info['code']]['db_id'] = db_info['id']
 						self._components['registry']._modules[db_info['code']]['state'] = db_info['state']
 	
+					#web_pdb.set_trace()
 					self._components['registry']._load_installed_modules()
-					self._components['registry']._load_inheritables()
-					models = self._components['registry']._create_loaded_models(self)
-					for key in models:
-						self._models[key] = models[key]
-						self._models[key]._session = self
+					self._objects = self._components['registry']._create_loaded_objects(self)
+					# self._components['registry']._load_inheritables()
+					# models = self._components['registry']._create_loaded_models(self)
+					# for key in models:
+						# self._models[key] = models[key]
+						# self._models[key]._session = self
 						  
 
+					for key in self._models.keys():
 						if res[2]:
 							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
-
-					reports = self._components['registry']._create_loaded_reports(self)
-					for key in reports:
-						self._reports[key] = reports[key]
-						self._reports[key]._session = self    
-
-					queries = self._components['registry']._create_loaded_queries(self)
-					for key in queries:
-						self._queries[key] = queries[key]  
-						self._queries[key]._session = self 
-
-					dialogs = self._components['registry']._create_loaded_dialogs(self)
-					for key in dialogs:
-						self._dialogs[key] = dialogs[key]  
-						self._dialogs[key]._session = self
-
-					wizards = self._components['registry']._create_loaded_wizards(self)
-					for key in wizards:
-						self._wizards[key] = wizards[key]  
-						self._wizards[key]._session = self  
 	
 					return [self._connected,self._uid,{'country_timezones':dict(pytz.country_timezones),'country_names':dict(pytz.country_names),'langs':self._models.get('bc.langs').select(['code','description']),'preferences':self._models.get('bc.user.preferences').select(['user_id','lang','country','timezone'])}]
 				else:

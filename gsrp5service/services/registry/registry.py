@@ -159,7 +159,6 @@ class Registry(Service):
 				self._modules[module][k] = list(self._metas[module][k].keys())
 					
 			self._modules[module]['loaded'] = True
-			
 			for obj in self._metas[module].keys():
 				for nm in self._metas[module][obj].keys():
 					self._objs.setdefault(module,{}).setdefault(obj,{})[nm] = self._copyMeta(self._metas[module][obj][nm])
@@ -185,7 +184,8 @@ class Registry(Service):
 
 	def _load_inheritable(self,module):
 		if 'state' in self._modules[module] and self._modules[module]['state'] == 'I':
-			self._metaObject_with_inherit(module)
+			for obj in self._objs[module].keys():
+				self._metaObject_with_inherit(obj,module)
 
 	def _create_module_object(self,obj,name,module):
 		return self._create_object(self._objs[module][obj][name])
@@ -210,7 +210,8 @@ class Registry(Service):
 			for dst in inherits.keys():
 				meta = objs[dst]
 				for src in inherits[dst].keys():
-					imeta = self._objs[module][obj][src]
+					last_module = self._getLastModuleObjectLoaded(obj,src)
+					imeta = self._objs[last_module][obj][src]
 					inherit = inherits[dst][src]
 					for c in inherit.keys():
 						if c == '_methods':
@@ -253,7 +254,8 @@ class Registry(Service):
 			for src in inherits.keys():
 				imeta = objs[src]
 				for dst in inherits[src].keys():
-					meta = self._objs[module][obj][dst]
+					last_module = self._getLastModuleObjectLoaded(obj,dst)
+					meta = self._objs[last_module][obj][dst]
 					inherit = inherits[src][dst]
 					for c in inherit.keys():
 						if c == '_methods':
@@ -328,7 +330,7 @@ class Registry(Service):
 			obj = model._columns[o2mfield].obj
 			if obj not in inodes:
 				inodes |= self._get_inodes(inodes,obj)
-		web_pdb.set_trace()
+		#web_pdb.set_trace()
 		
 		return inodes
 
@@ -338,8 +340,9 @@ class Registry(Service):
 			if isinstance(models[key],ModelInherit):
 				continue
 			inodes = {}
-			models[key]._schema = self._get_inodes(inodes,models[key]._name)
-			print('SCHEMA:',key,models[key]._schema)
+			inodes = self._get_inodes(inodes,models[key]._name)
+			models[key]._schema = (list(toposort.toposort(inodes)),toposort.toposort_flatten(inodes, sort=True))
+			#print('SCHEMA:',key,models[key]._schema)
 
 	def _reload_modules(self,modules):
 		for module in filter(lambda x: x in modules,[node.name for node in self._graph]):
@@ -404,16 +407,16 @@ class Registry(Service):
 		modules = self._getModulesOfObjects(obj,name)
 		if modules:
 			for module in reversed(modules):
-				if module in self._momm and model in self._momm[module]: 
+				if module in self._moo and model in self._moo[module]: 
 					return module
 
-			mom = self._mom[model]
-			if len(mom) > 0:
-				return mom[-1]
+			moo = self._moo[obj][name]
+			if len(moo) > 0:
+				return moo[-1]
 
 
 	def _getModulesOfObjects(self,obj,name):
-		return self._moo[obj]
+		return self._moo[obj][name]
 
 	def _setModuleOfObjects(self,obj,name,module):
 		self._moo.setdefault(obj,{}).setdefault(name,[]).append(module)
