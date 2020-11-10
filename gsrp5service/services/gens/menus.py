@@ -217,16 +217,17 @@ def Area(self, modules = None, context={}):
 		label = registry._modules[module]['meta']['name']
 		models = []
 		cust_models = []
-		module_models = registry._create_module_models(module)
-		for model in module_models.keys():
-			mm = module_models[model]
-			if isinstance(mm,Model):
-				info = mm.modelInfo()	
-				if len(list(filter(lambda x: 'selectable' in info['columns'][x] and info['columns'][x]['selectable'] and 'rec_name' in info['names'] and info['names']['rec_name'],info['columns'].keys()))) > 0:
-					if 'class_model' in info and info['class_model'] == 'A':
-						models.append(mm)
-					elif 'class_model' in info and info['class_model'] == 'C':
-						cust_models.append(mm)
+		if module in registry._metas and 'models' in registry._metas[module]:
+			for model in registry._metas[module]['models'].keys():
+				mm = registry._create_module_object('models',model,module)
+				if isinstance(mm,Model):
+					info = mm.modelInfo()	
+					if len(list(filter(lambda x: 'selectable' in info['columns'][x] and info['columns'][x]['selectable'] and 'rec_name' in info['names'] and info['names']['rec_name'],info['columns'].keys()))) > 0:
+						if 'class_model' in info and info['class_model'] == 'A':
+							models.append(mm)
+						elif 'class_model' in info and info['class_model'] == 'C':
+							cust_models.append(mm)
+
 		if len(models) > 0 or len(cust_models) > 0:
 			b.write('<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n'.encode('utf-8'))
 			b.write((TAB+'<gsrp>\n').encode('utf-8'))

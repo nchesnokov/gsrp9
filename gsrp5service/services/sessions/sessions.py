@@ -223,10 +223,7 @@ class User(Session):
 				if pbkdf2_sha256.verify(password, res[1]):
 					self._connected =True
 					self._uid = res[0]
-					#self._components['models']._setupUID(self._uid)
-					#self._components['uis']._setupUID(self._uid)
 					for key in self._models.keys():
-						#self._models[key]._session = self
 						if res[2]:
 							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 						else:
@@ -240,12 +237,7 @@ class User(Session):
 					#web_pdb.set_trace()
 					self._components['registry']._load_installed_modules()
 					self._objects = self._components['registry']._create_loaded_objects(self)
-					# self._components['registry']._load_inheritables()
-					# models = self._components['registry']._create_loaded_models(self)
-					# for key in models:
-						# self._models[key] = models[key]
-						# self._models[key]._session = self
-						  
+					self._components['registry']._load_inheritables()					  
 
 					for key in self._models.keys():
 						if res[2]:
@@ -316,11 +308,7 @@ class System(Session):
 	_sid = None
 	_uid = None
 	_srvs = {}
-	_models = {}
-	_reports = {}
-	_dialogs = {}
-	_wizards = {}
-	_queries = {}
+	_objects = {}
 	_cache = {}
 	_cache_attrs = {}
 	
@@ -357,6 +345,33 @@ class System(Session):
 		
 		return res
 
+	@property
+	def _models(self):
+		if 'models' in self._objects:
+			return	self._objects['models']
+		return {}
+	@property
+	def _reports(self):
+		if 'reports' in self._objects:
+			return	self._objects['reports']
+		return {}
+	@property
+	def _dialogs(self):
+		if 'dialogs' in self._objects:
+			return	self._objects['dialog']
+		return {}
+	@property
+	def _wizards(self):
+		if 'wizards' in self._objects:
+			return	self._objects['wizards']
+		return {}
+	@property
+	def _queries(self):
+		if 'queries' in self._objects:
+			return	self._objects['queries']
+		return {}
+
+
 	def open(self,profile):
 
 		if profile not in self._conf:
@@ -373,26 +388,17 @@ class System(Session):
 
 		if self._cursor.open():
 			self._registry = self._components['registry']
-			self._registry._load_modules()
-			self._models = self._components['registry']._create_loaded_models(self)
-			self._reports = self._components['registry']._create_loaded_reports(self)
-			self._queries = self._components['registry']._create_loaded_queries(self)
-			self._dialogs = self._components['registry']._create_loaded_dialogs(self)
-			self._wizards = self._components['registry']._create_loaded_wizards(self)
+			self._components['registry']._load_modules()
+			self._objects = self._components['registry']._create_loaded_objects(self)
 
 
 			for key in self._models.keys():
 				self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 			
 			self._getUid()
-			self._components['modules']._setup(self)
-			self._components['models']._setup(self)
-			self._components['reports']._setup(self)
-			self._components['queries']._setup(self)
-			self._components['dialogs']._setup(self)
-			self._components['wizards']._setup(self)
-			self._components['gens']._setup(self)
-			self._components['slots']._setup(self)		
+			for key in self._components.keys():
+				if hasattr(self._components[key],'_setup'):
+					self._components[key]._setup(self)
 			return self
 
 		#self._cursor = None
@@ -466,8 +472,15 @@ class System(Session):
 				if pbkdf2_sha256.verify(password, res[1]):
 					self._connected =True
 					self._uid = res[0]
+
+					self._components['registry']._load_installed_modules()
+					self._objects = self._components['registry']._create_loaded_objects(self)
+
+					for key in self._components.keys():
+						if hasattr(self._components[key],'_setup'):
+							self._components[key]._setup(self)
+
 					for key in self._models.keys():
-						self._models[key]._session = self
 						self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 
 					db_infos = self._components['models']._call(['bc.modules','select',{'fields':['code','state'],'cond':[]}])

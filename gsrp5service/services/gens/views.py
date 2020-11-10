@@ -357,7 +357,7 @@ def iRecordView(level,module,model,modelinfo,columns,view,registry):
 	indent = TAB * level
 	columnsinfo = modelinfo['columns']
 	for key in modelinfo['inherit'].keys():
-		ki = registry._create_module_model(key,registry._getFirstModuleModel(key)).modelInfo()
+		ki = registry._create_module_object('models',key,registry._getFirstModuleObject('models',key)).modelInfo()
 		if not isAllow(view,ki) or len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE[view] and columnsinfo[x]['type'] != 'iProperty' ,modelinfo['inherit'][key]['_columns']))) == 0:
 			continue
 		b.write((indent + '<record id="%s">\n' % ('view.' + model._name + '.' + view + '.inherit.' + key,)).encode('utf-8'))
@@ -424,14 +424,14 @@ def Area(self, modules = None,context={}):
 		path = registry._modules[module]['path']
 		models = []
 		imodels = []
-		module_models = registry._create_module_models(module)
-		for model in module_models.keys():
-			mm = module_models[model]
-			if isinstance(mm,Model):
-				models.append(mm)
-			elif isinstance(mm,ModelInherit):
-				if hasattr(mm,'_inherit') and getattr(mm,'_inherit',None):
-					imodels.append(mm)
+		if module in registry._metas and 'models' in registry._metas[module]:
+			for model in registry._metas[module]['models'].keys():
+				mm = registry._create_module_object('models',model,module)
+				if isinstance(mm,Model):
+					models.append(mm)
+				elif isinstance(mm,ModelInherit):
+					if hasattr(mm,'_inherit') and getattr(mm,'_inherit',None):
+						imodels.append(mm)
 		
 		if len(models) + len(imodels) > 0:
 			#print('models:',module,len(models),models)

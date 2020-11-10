@@ -19,7 +19,7 @@ class Gens(Service):
 		return self._session._cursor
 
 	@property
-	def _pool(self):
+	def _models(self):
 		return self._session._models
 
 	@property

@@ -94,12 +94,12 @@ def Area(self, modules = None, context={}):
 	for module in modules:
 		path = registry._modules[module]['path']
 		models = []
-		module_models = registry._create_module_models(module)
-		for model in module_models.keys():
-			mm = module_models[model]
-			if isinstance(mm,Model):
-				if hasattr(mm,'_inherit') and not getattr(mm,'_inherit',None):
-					models.append(mm)
+		if module in registry._metas and 'models' in registry._metas[module]:
+			for model in registry._metas[module]['models'].keys():
+				mm = registry._create_module_object('models',model,module)
+				if isinstance(mm,Model):
+					if hasattr(mm,'_inherit') and not getattr(mm,'_inherit',None):
+						models.append(mm)
 
 		if len(models) > 0:
 			b.write('<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n'.encode('utf-8'))

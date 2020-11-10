@@ -155,26 +155,27 @@ class Registry(Service):
 		if not 'loaded' in self._modules[module] or not self._modules[module]['loaded']:
 			load_module(self._modules[module]['import'],self._fromlist(module))
 			self._metas = gsrp5service.orm.metaobjects.MetaObjects.__objects__
-			for k in self._metas[module].keys():
-				self._modules[module][k] = list(self._metas[module][k].keys())
-					
-			self._modules[module]['loaded'] = True
-			for obj in self._metas[module].keys():
-				for nm in self._metas[module][obj].keys():
-					self._objs.setdefault(module,{}).setdefault(obj,{})[nm] = self._copyMeta(self._metas[module][obj][nm])
-					meta = self._objs[module][obj][nm]
-					self._setModuleOfObjects(obj,nm,module)
-					if '_inherits' in meta['attrs'] and meta['attrs']['_inherits'] and len(meta['attrs']['_inherits']) > 0:
-						inherits = meta['attrs']['_inherits']
-						for key in inherits.keys():
-							self._inherits.setdefault(module,{}).setdefault(obj,{}).setdefault(nm,{})[key] = inherits[key]
-					
-					if '_inherit' in meta['attrs'] and meta['attrs']['_inherit'] and len(meta['attrs']['_inherit']) > 0:
-						inherit = meta['attrs']['_inherit']
-						for key in inherit.keys():
-							self._inherit.setdefault(module,{}).setdefault(obj,{}).setdefault(nm,{})[key] = inherit[key]
-			
-				self._metaObject_with_inherits(obj,module)
+			if module in self._metas:
+				for k in self._metas[module].keys():
+					self._modules[module][k] = list(self._metas[module][k].keys())
+						
+				self._modules[module]['loaded'] = True
+				for obj in self._metas[module].keys():
+					for nm in self._metas[module][obj].keys():
+						self._objs.setdefault(module,{}).setdefault(obj,{})[nm] = self._copyMeta(self._metas[module][obj][nm])
+						meta = self._objs[module][obj][nm]
+						self._setModuleOfObjects(obj,nm,module)
+						if '_inherits' in meta['attrs'] and meta['attrs']['_inherits'] and len(meta['attrs']['_inherits']) > 0:
+							inherits = meta['attrs']['_inherits']
+							for key in inherits.keys():
+								self._inherits.setdefault(module,{}).setdefault(obj,{}).setdefault(nm,{})[key] = inherits[key]
+						
+						if '_inherit' in meta['attrs'] and meta['attrs']['_inherit'] and len(meta['attrs']['_inherit']) > 0:
+							inherit = meta['attrs']['_inherit']
+							for key in inherit.keys():
+								self._inherit.setdefault(module,{}).setdefault(obj,{}).setdefault(nm,{})[key] = inherit[key]
+				
+					self._metaObject_with_inherits(obj,module)
 
 	def _load_inheritables(self):
 		modules = [node.name for node in self._graph]
@@ -334,15 +335,79 @@ class Registry(Service):
 		
 		return inodes
 
-	
 	def _load_schema(self,models):
+		root_models = []
+		for key in models.keys():
+			if isinstance(models[key],ModelInherit):
+				continue
+			model = models[key]
+			m2ofields = model._m2orelatedfields
+			o2mfields = model._o2mfields
+
+			ci = model.columnsInfo(m2ofields + o2mfields,['obj','rel'])
+			childs_name = model._getChildsIdName()
+			parent_name = model._getParentIdName()
+
+			m2oremove = []
+			o2mremove = [] 
+			
+			if childs_name and childs_name in o2mfields and ci[childs_name]['obj'] == model._name:
+				o2mfields.remove(childs_name)
+			
+			if parent_name and parent_name in m2ofields and ci[parent_name]['obj'] == model._name:
+				m2ofields.remove(parent_name)
+			
+			for m2ofield in m2ofields:
+				obj = ci[m2ofield]['obj']
+				rel = m2ofield
+				mobj = models[obj]
+				if len(mobj._o2mfields) > 0:
+					cim = mobj.columnsInfo(mobj._o2mfields,['obj','rel'])
+					if len(list(filter(lambda x: cim[x]['obj'] == model._name and cim[x]['rel'] == rel,cim.keys()))) == 0:
+						m2oremove.append(m2ofield)
+
+			for o2mfield in o2mfields:
+				obj = ci[o2mfield]['obj']
+				rel = ci[o2mfield]['rel']
+				mobj = models[obj]
+				if rel in mobj._columns:
+					cim = mobj.columnsInfo([rel],['obj'])
+					if rel not in cim or cim[rel]['obj'] != model._name:
+						o2mremove.append(o2mfield)
+				else:
+					pass
+					#print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
+
+
+			for f in m2oremove:
+				m2ofields.remove(f)
+
+			for f in o2mremove:
+				o2mfields.remove(f)
+			parents = {}
+			childs = {}
+
+			for m2ofield in m2ofields:
+				parents[m2ofield] = ci[m2ofield]['obj']
+
+			for o2mfield in o2mfields:
+				childs[o2mfield] = ci[o2mfield]['obj']
+		
+			model._schema = [parents,childs]
+			
+			if len(model._schema[0]) == 0 and len(model._schema[1]) > 0:
+				root_models.append(key)
+		
+		return models
+	
+	def _load_schema_1(self,models):
 		for key in models.keys():
 			if isinstance(models[key],ModelInherit):
 				continue
 			inodes = {}
 			inodes = self._get_inodes(inodes,models[key]._name)
 			models[key]._schema = (list(toposort.toposort(inodes)),toposort.toposort_flatten(inodes, sort=True))
-			#print('SCHEMA:',key,models[key]._schema)
+			print('SCHEMA:',key,models[key]._schema)
 
 	def _reload_modules(self,modules):
 		for module in filter(lambda x: x in modules,[node.name for node in self._graph]):
