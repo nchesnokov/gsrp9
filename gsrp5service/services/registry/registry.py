@@ -85,6 +85,9 @@ class Registry(Service):
 		self._graph = Graph()
 		self._load_modules_info()
 
+	def _setup(self,session):
+		self._session = session
+	
 	def _reload(self):
 		_module_paths = {}
 		_modules = {}
@@ -449,13 +452,13 @@ class Registry(Service):
 
 
 	def _getModuleObjects(self,module):
-		if module in self._objs: 
-			return self._objs[module]
+		if module in self._session._objs: 
+			return self._session._objs[module]
 
 	def _getKeysModuleObjects(self,module):
 		res = {}
 		if module in self._objs: 
-			for key in self.objs[module].keys():
+			for key in self._objs[module].keys():
 				res[key] = list(self._objs[module][key].keys())
 			
 			return res

@@ -83,7 +83,7 @@ def Access(level,module,models):
 
 def Area(self, modules = None, context={}):
 	pwd = os.getcwd()
-	pool = self._pool
+	pool = self._models
 	registry = self._registry
 	log = []
 	if not modules:

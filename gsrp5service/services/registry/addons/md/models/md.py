@@ -52,7 +52,7 @@ class md_country(Model):
 md_country()
 
 class md_country_states(Model):
-	_description = "General Model Country States"
+	_description = "Country States"
 	_name = 'md.country.states'
 	_order = 'code'
 	_columns = {

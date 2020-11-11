@@ -204,8 +204,8 @@ def Area(self, modules = None, context={}):
 			for imodel_module in imodels_module.keys():
 				im = registry._create_module_object('models',imodel_module,module)
 				for mkey in imodels_module[imodel_module].keys():
-					first_module = registry._getFirstModuleObject('models',mkey)
-					imm = registry._create_module_object('models',mkey,first_module)
+					last_module = registry._getLastModuleObject('models',mkey)
+					imm = registry._create_module_object('models',mkey,last_module)
 					for col in imodels_module[imodel_module][mkey]['_columns']:
 						if  im._columns[col]._type not in ('one2many','many2many','iProperty') :
 							imodels.setdefault(mkey,{}).setdefault('columns',[]).append(col)

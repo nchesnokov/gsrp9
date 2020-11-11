@@ -211,22 +211,22 @@ def _install(self,able=None, modules = None):
 
 			log.append([0,'module: <%s> successfull installed' % (depend,)])
 
-		dep_modules = set()
-		for depend in depends:
-			keys = list(self._registry._modules[depend]['lom'])
-			for key in keys:
-				if 'inherit' in self._registry._modules[depend]['class'][key]['attrs'] and ModelInherit in self._registry._modules[depend]['class'][key]['bases']:
-					inherit = self._registry._modules[depend]['class'][key]['attrs']['inherit']
-					for ikey in inherit.keys():
-						m1 = self._registry._getLastModule(key)
-						if m1:
-							dep_modules.add(key)
+		# dep_modules = set()
+		# for depend in depends:
+			# keys = list(self._registry._metas[depend]['models'].keys())
+			# for key in keys:
+				# if 'inherit' in self._registry._modules[depend]['class'][key]['attrs'] and ModelInherit in self._registry._modules[depend]['class'][key]['bases']:
+					# inherit = self._registry._modules[depend]['class'][key]['attrs']['inherit']
+					# for ikey in inherit.keys():
+						# m1 = self._registry._getLastModule(key)
+						# if m1:
+							# dep_modules.add(key)
 
-		all_modules = list(filter(lambda x:x != 'bc',depends+list(dep_modules)))
+		# all_modules = list(filter(lambda x:x != 'bc',depends+list(dep_modules)))
 	
-		for all_module in filter(lambda x: x in all_modules,[node.name for node in self._registry._graph]):
+		# for all_module in filter(lambda x: x in all_modules,[node.name for node in self._registry._graph]):
 			
-			log.append([0,'module: <%s> successfull reloaded' % (all_module,)])
+			# log.append([0,'module: <%s> successfull reloaded' % (all_module,)])
 	
 	return log
 
@@ -360,34 +360,25 @@ def _upgrade(self,able=None, modules = None):
 def _installModule(self,name,chunk):
 	_logger.info(" Module: %s Install" % (name,))
 
-	models = self._registry._modules[name]['lom']
-	meta = self._registry._modules[name]['meta']
+	self._registry._load_module(name)
+	web_pdb.set_trace()
+	self._session._objects = self._registry._create_loaded_objects(self)
 	sqls = []
 	if 'module' in chunk:
+		models = self._registry._getKeysModuleObjects(name)['models']
 		for model in models:
-			mm_class_meta = self._registry._modules[name]['class'][model]
-			if Model in mm_class_meta['bases']:	
-				mm_class = type(mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
-				type.__init__(mm_class,mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
-				m = mm_class()
-				if isinstance(m,Model):
-					sql=genddl.createTable(self._pool,m.modelInfo())
-					if len(sql) > 0:
-						sqls.append(sql)
-			elif ModelInherit in mm_class_meta['bases']:
-				mm_class = type(mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
-				type.__init__(mm_class,mm_class_meta['name'],mm_class_meta['bases'],mm_class_meta['attrs'])
-				mm = mm_class()
-				imodelinfo = mm_class().modelInfo()
-				if imodelinfo['inherit']:
-					sql=genddl.AlterTable(self._pool,imodelinfo)
+			m = self._session._models[model]
+			if isinstance(m,Model):
+				sql=genddl.createTable(self._pool,m.modelInfo())
+				if len(sql) > 0:
+					sqls.append(sql)
+			elif isinstance(m,ModelInherit):
+				if  m._inherit:
+					sql=genddl.AlterTable(self._pool,m.imodelInfo())
 					if len(sql) > 0:
 						sqls.append(sql)
 	
 		for model in models:
-			m = self._registry._create_module_model(model,name)
-			if model not in self._pool:
-				self._pool[model] = m
 			if isinstance(m,ModelInherit):	
 				continue
 			at = genddl.getReferencedConstraints(self._pool,model)
@@ -406,13 +397,9 @@ def _installModule(self,name,chunk):
 			_logger.info("Tables created")
 	
 			self._registry._load_inheritable(name)
-			mm = self._registry._create_module_models(name)
 	
-			for k in mm.keys():
-				self._pool[k] = mm[k]
-				self._pool[k]._session = self._session
-				self._pool[k]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
-				self._registry._models[k] = self._pool[k]
+			for k in self._session._models.keys():
+				self._session._models[k]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 				
 	
 			if name == 'bc':
@@ -675,7 +662,8 @@ def _load_list_allmodules(self):
 	for module in self._registry._depends:
 		record = {}
 		meta = self._registry._modules[module]['meta']
-		columns = self._registry._create_module_model('bc.modules','bc').modelInfo()['columns']
+		#columns = self._registry._create_module_model('bc.modules','bc').modelInfo()['columns']
+		columns = self._pool.get('bc.modules').columnsInfo()
 		record['code'] = module
 		record['state'] = 'N'
 		for key in  columns.keys():
@@ -701,7 +689,8 @@ def _load_list_modules(self,db):
 			continue
 		record = {}
 		meta = self._registry._modules[module]['meta']
-		columns = self._registry._create_module_model('bc.modules','bc').modelInfo()['columns']
+		#columns = self._registry._create_module_model('bc.modules','bc').modelInfo()['columns']
+		columns = self._pool.get('bc.modules').columnsInfo()
 		record['code'] = module
 		record['state'] = 'N'
 		for key in  columns.keys():
@@ -723,9 +712,10 @@ def _load_list_modules(self,db):
 	return ['No modules for upgrade']
 
 def _loadMetaModule(self,name):
-	models = self._registry._modules[name]['lom']
-	meta = self._registry._modules[name]['meta']
-	columns = self._registry._create_module_model('bc.modules','bc').modelInfo()['columns']
+	models = list(self._registry._metas[name]['models'].keys())
+	#meta = self._registry._modules[name]['meta']
+	#columns = self._registry._create_module_model('bc.modules','bc').modelInfo()['columns']
+	columns = self._pool.get('bc.modules').columnsInfo()
 	module_id = self._registry._modules[name]['db_id']
 	file_records = _loadModuleFile(self._registry._modules[name]['path'],name)
 	for file_record in file_records:
@@ -779,8 +769,10 @@ def _loadModuleFile(path,name,ext=['py','xml','csv','yaml','yml','so']):
 def _loadMetaModel(self,model,module):
 	record = {}
 	ref_fields = {'db_table':'table'}
-	columns = self._registry._create_module_model('bc.models','bc').modelInfo()['columns']
-	info_class = self._registry._create_module_model(model,module)
+	#columns = self._registry._create_module_model('bc.models','bc').modelInfo()['columns']
+	#info_class = self._registry._create_module_model(model,module)
+	columns = self._pool.get('bc.modules').columnsInfo()
+	info_class = self._registry._create_module_object('models',model,module)
 	if not info_class:
 		return record
 	info = info_class.modelInfo()
@@ -803,9 +795,11 @@ def _loadMetaModel(self,model,module):
 def _loadMetaInherit(self,model,module):
 	record = {}
 
-	columns = self._registry._create_module_model('bc.inherits','bc').modelInfo()['columns']
+	#columns = self._registry._create_module_model('bc.inherits','bc').modelInfo()['columns']
+	columns = self._pool.get('bc.modules').columnsInfo()
 	
-	info_class_meta = self._registry._getMetaOfModules(model,module)
+	#info_class_meta = self._registry._getMetaOfModules(model,module)
+	info_class_meta = self._registry._getMetaOfModulesObject('models',model,module)
 	if info_class_meta:
 		info_class = type.__new__(info_class_meta['cls'],info_class_meta['name'],info_class_meta['bases'],info_class_meta['attrs'])
 		type.__init__(info_class,info_class_meta['name'],info_class_meta['bases'],info_class_meta['attrs'])
@@ -878,8 +872,8 @@ def _loadMetaInheritColumns(self,name,column):
 	
 def _loadMetaData(self,name):
 	
-	models = self._registry._modules[name]['lom']
-	meta = self._registry._modules[name]['meta']
+	#models = self._registry._metas[name]['models'].keys()
+	#meta = self._registry._modules[name]['meta']
 
 	record = _loadMetaModule(self,name)
 	return self._pool.get('bc.modules').create(record,{})

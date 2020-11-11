@@ -69,108 +69,6 @@
             </find>
           </column>
         </record>
-        <record id="view.bc.area.messages.form">
-          <column name="name">view.bc.area.messages.form</column>
-          <column name="model">bc.area.messages</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="name"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.bc.area.messages.list">
-          <column name="name">view.bc.area.messages.list</column>
-          <column name="model">bc.area.messages</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="name"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.bc.area.messages.m2mlist">
-          <column name="name">view.bc.area.messages.m2mlist</column>
-          <column name="model">bc.area.messages</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="name"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.bc.area.messages.search">
-          <column name="name">view.bc.area.messages.search</column>
-          <column name="model">bc.area.messages</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.bc.area.messages.find">
-          <column name="name">view.bc.area.messages.find</column>
-          <column name="model">bc.area.messages</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
-          </column>
-        </record>
-        <record id="view.bc.messages.form">
-          <column name="name">view.bc.messages.form</column>
-          <column name="model">bc.messages</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="area"/>
-              <field name="code"/>
-              <field name="descr"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.bc.messages.list">
-          <column name="name">view.bc.messages.list</column>
-          <column name="model">bc.messages</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="area"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.bc.messages.m2mlist">
-          <column name="name">view.bc.messages.m2mlist</column>
-          <column name="model">bc.messages</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="area"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.bc.messages.search">
-          <column name="name">view.bc.messages.search</column>
-          <column name="model">bc.messages</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="area"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.bc.messages.find">
-          <column name="name">view.bc.messages.find</column>
-          <column name="model">bc.messages</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="area"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.bc.langs.form">
           <column name="name">view.bc.langs.form</column>
           <column name="model">bc.langs</column>
@@ -797,6 +695,7 @@
               <field name="rel"/>
               <field name="id1"/>
               <field name="id2"/>
+              <field name="inherits"/>
             </form>
           </column>
         </record>
@@ -826,6 +725,7 @@
               <field name="rel"/>
               <field name="id1"/>
               <field name="id2"/>
+              <field name="inherits"/>
             </list>
           </column>
         </record>
@@ -994,6 +894,7 @@
               <field name="lang"/>
               <field name="model"/>
               <field name="tr"/>
+              <field name="inherits"/>
             </form>
           </column>
         </record>
@@ -1004,6 +905,7 @@
             <list>
               <field name="lang"/>
               <field name="model"/>
+              <field name="inherits"/>
             </list>
           </column>
         </record>
@@ -1014,6 +916,34 @@
             <m2mlist>
               <field name="lang"/>
               <field name="model"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.model.translation.inherits.form">
+          <column name="name">view.bc.model.translation.inherits.form</column>
+          <column name="model">bc.model.translation.inherits</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="translation_id"/>
+              <field name="tr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.model.translation.inherits.list">
+          <column name="name">view.bc.model.translation.inherits.list</column>
+          <column name="model">bc.model.translation.inherits</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="translation_id"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.model.translation.inherits.m2mlist">
+          <column name="name">view.bc.model.translation.inherits.m2mlist</column>
+          <column name="model">bc.model.translation.inherits</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="translation_id"/>
             </m2mlist>
           </column>
         </record>

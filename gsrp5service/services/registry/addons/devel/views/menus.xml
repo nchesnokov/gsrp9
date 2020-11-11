@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.devel">
+          <column name="name">ui.menu.devel</column>
+          <column name="label">Developer</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.devel.area.messages.search">
+          <column name="name">action.devel.area.messages.search</column>
+          <column name="ta">View</column>
+        </record>
+        <record id="action.devel.messages.search">
+          <column name="name">action.devel.messages.search</column>
+          <column name="ta">View</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.devel.area.messages.report">
+          <column name="name">action.devel.area.messages.report</column>
+          <column name="ta">Report</column>
+        </record>
+        <record id="action.devel.messages.report">
+          <column name="name">action.devel.messages.report</column>
+          <column name="ta">Report</column>
+        </record>
+      </records>
+      <records model="bc.view.actions">
+        <record id="view.action.devel.area.messages.search">
+          <column name="action_id">action.devel.area.messages.search</column>
+          <column name="view_id">view.devel.area.messages.search</column>
+        </record>
+        <record id="view.action.devel.messages.search">
+          <column name="action_id">action.devel.messages.search</column>
+          <column name="view_id">view.devel.messages.search</column>
+        </record>
+      </records>
+      <records model="bc.ui.reports">
+        <record id="bc.ui.report.docx.devel.area.messages">
+          <column name="name">bc.ui.report.docx.devel.area.messages</column>
+          <column name="label">Area Messages</column>
+          <column name="report">report_devel_area_messages</column>
+          <column name="infile">infile_devel_area_messages.docx</column>
+          <column name="outfile">outfile_devel_area_messages.docx</column>
+        </record>
+        <record id="bc.ui.report.docx.devel.messages">
+          <column name="name">bc.ui.report.docx.devel.messages</column>
+          <column name="label">Messages</column>
+          <column name="report">report_devel_messages</column>
+          <column name="infile">infile_devel_messages.docx</column>
+          <column name="outfile">outfile_devel_messages.docx</column>
+        </record>
+      </records>
+      <records model="bc.report.actions">
+        <record id="report.action.devel.area.messages.report">
+          <column name="action_id">action.devel.area.messages.report</column>
+          <column name="report_id">bc.ui.report.docx.devel.area.messages</column>
+        </record>
+        <record id="report.action.devel.messages.report">
+          <column name="action_id">action.devel.messages.report</column>
+          <column name="report_id">bc.ui.report.docx.devel.messages</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.devel.area.messages.search">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.devel.area.messages.search</column>
+            <column name="label">Area Messages</column>
+          <column name="parent_id">ui.menu.devel</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.devel.area.messages.search</column>
+          </record>
+          <record id="ui.menu.devel.messages.search">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.devel.messages.search</column>
+            <column name="label">Messages</column>
+          <column name="parent_id">ui.menu.devel</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.devel.messages.search</column>
+          </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.devel.report">
+          <column name="name">ui.menu.devel.report</column>
+          <column name="label">Reports</column>
+        <column name="parent_id">ui.menu.devel</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.devel.area.messages.report">
+          <column name="sequence">0</column>
+            <column name="name">ui.menu.devel.area.messages.report</column>
+            <column name="label">Area Messages</column>
+          <column name="parent_id">ui.menu.devel.report</column>
+          <column name="sequence">0</column>
+          <column name="action_id">action.devel.area.messages.report</column>
+          </record>
+          <record id="ui.menu.devel.messages.report">
+          <column name="sequence">1</column>
+            <column name="name">ui.menu.devel.messages.report</column>
+            <column name="label">Messages</column>
+          <column name="parent_id">ui.menu.devel.report</column>
+          <column name="sequence">10</column>
+          <column name="action_id">action.devel.messages.report</column>
+          </record>
+      </records>
+    </data>
+  </gsrp>

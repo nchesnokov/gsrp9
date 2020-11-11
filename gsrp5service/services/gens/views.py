@@ -413,7 +413,7 @@ def iRecords(level,pool,registry,module,models):
 
 def Area(self, modules = None,context={}):
 	pwd = os.getcwd()
-	pool = self._pool
+	pool = self._models
 	registry = self._registry
 	if not modules:
 		modules = registry._depends

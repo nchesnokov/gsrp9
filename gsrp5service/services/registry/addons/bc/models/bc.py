@@ -106,29 +106,6 @@ class bc_users(Model):
 
 bc_users()
 
-class bc_area_messages(Model):
-	_name = 'bc.area.messages'
-	_description = 'Area Messages'
-	_columns = {
-	'name': fields.varchar(label='Area', size = 64,readonly=True),
-	'note': fields.text(label='Note',readonly=True)
-	}
-
-bc_area_messages()
-
-class bc_messages(Model):
-	_name = 'bc.messages'
-	_description = 'Messages'
-	_rec_name='code'
-	_columns = {
-	'area': fields.many2one(label='Area', obj='bc.area.messages', readonly=True, required=True),
-	'code': fields.varchar(label='Message', size = 64,readonly=True),
-	'descr': fields.varchar(label='Description', readonly=True ,required=True),
-	'note': fields.text(label='Note',readonly=True)
-	}
-
-bc_messages()
-
 class bc_langs(Model):
 	_name = 'bc.langs'
 	_description = 'Langs'
@@ -304,18 +281,19 @@ class bc_model_columns(Model):
 	'rel': fields.varchar(label = 'Relation', size = 64,readonly=True),
 	'id1': fields.varchar(label = 'Id1', size = 64,readonly=True),
 	'id2': fields.varchar(label = 'Id2', size = 64,readonly=True),
+	'inherits': fields.one2many(label='Inherits',obj='bc.inherit.columns',rel='inherit_id')
 	}
-	def create(self, records,context={}):
-		web_pdb.set_trace()
-		if type(records) in (list,tuple):
-			model_name = self._pool.get('bc.models').read(records[0]['model_id'],['name'],context)[0]['name']
-			for record in records:
-				record['fullname'] = model_name + '/' +  record['col_name']
-		elif type(records) == dict:
-			model_name = self._pool.get('bc.models').read(records['model_id'],['name'],context)[0]['name']
-			records['fullname'] = model_name + '/' +  records['col_name']
 
-		return super(Model,self).create(records, context)
+	# def create(self, records,context={}):
+		# if type(records) in (list,tuple):
+			# model_name = self._pool.get('bc.models').read(records[0]['model_id'],['name'],context)[0]['name']
+			# for record in records:
+				# record['fullname'] = model_name + '/' +  record['col_name']
+		# elif type(records) == dict:
+			# model_name = self._pool.get('bc.models').read(records['model_id'],['name'],context)[0]['name']
+			# records['fullname'] = model_name + '/' +  records['col_name']
+
+		# return super(Model,self).create(records, context)
 
 
 bc_model_columns()
@@ -378,10 +356,21 @@ class bc_model_translations(Model):
 	_columns = {
 	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
 	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
-	'tr': fields.json(label='Translations',readonly=True)
+	'tr': fields.json(label='Translations',readonly=True),
+	'inherits': fields.one2many(label='Inherits',obj='bc.inherit.columns',rel='inherit_id')
 	}
 
 bc_model_translations()
+
+class bc_model_translation_inherits(Model):
+	_name = 'bc.model.translation.inherits'
+	_description = 'Model Translations Inherits'
+	_columns = {
+	'translation_id': fields.many2one(label='Model Translation',obj='bc.model.translations',readonly=True, on_delete = 'c'),
+	'tr': fields.json(label='Translations',readonly=True)
+	}
+
+bc_model_translation_inherits()
 	
 
 class bc_group_access(Model):

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.group.access">
+        <record id="devel.readonly">
+          <column name="name">devel.readonly</column>
+          <column name="note">Module devel grant readonly</column>
+        </record>
+        <record id="devel.nodrop">
+          <column name="name">devel.nodrop</column>
+          <column name="note">Module devel grant nodrop</column>
+        </record>
+        <record id="devel.full">
+          <column name="name">devel.full</column>
+          <column name="note">Module devel grant full</column>
+        </record>
+        <record id="devel.crw">
+          <column name="name">devel.crw</column>
+          <column name="note">Module devel grant crw</column>
+        </record>
+      </records>
+      <records model="bc.access">
+        <record id="devel.area.messages.readonly">
+          <column name="name">devel.area.messages.readonly</column>
+          <column name="note">Model devel.area.messages grant readonly</column>
+          <column name="group_id">devel.readonly</column>
+        </record>
+        <record id="devel.area.messages.nodrop">
+          <column name="name">devel.area.messages.nodrop</column>
+          <column name="note">Model devel.area.messages grant nodrop</column>
+          <column name="group_id">devel.nodrop</column>
+        </record>
+        <record id="devel.area.messages.full">
+          <column name="name">devel.area.messages.full</column>
+          <column name="note">Model devel.area.messages grant full</column>
+          <column name="group_id">devel.full</column>
+        </record>
+        <record id="devel.area.messages.crw">
+          <column name="name">devel.area.messages.crw</column>
+          <column name="note">Model devel.area.messages grant crw</column>
+          <column name="group_id">devel.crw</column>
+        </record>
+        <record id="devel.messages.readonly">
+          <column name="name">devel.messages.readonly</column>
+          <column name="note">Model devel.messages grant readonly</column>
+          <column name="group_id">devel.readonly</column>
+        </record>
+        <record id="devel.messages.nodrop">
+          <column name="name">devel.messages.nodrop</column>
+          <column name="note">Model devel.messages grant nodrop</column>
+          <column name="group_id">devel.nodrop</column>
+        </record>
+        <record id="devel.messages.full">
+          <column name="name">devel.messages.full</column>
+          <column name="note">Model devel.messages grant full</column>
+          <column name="group_id">devel.full</column>
+        </record>
+        <record id="devel.messages.crw">
+          <column name="name">devel.messages.crw</column>
+          <column name="note">Model devel.messages grant crw</column>
+          <column name="group_id">devel.crw</column>
+        </record>
+      </records>
+      <records model="bc.model.access">
+        <record id="devel.devel.area.messages.readonly">
+          <column name="access_id">devel.area.messages.readonly</column>
+          <column name="model_id">devel.area.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="devel.devel.area.messages.nodrop">
+          <column name="access_id">devel.area.messages.nodrop</column>
+          <column name="model_id">devel.area.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="devel.devel.area.messages.full">
+          <column name="access_id">devel.area.messages.full</column>
+          <column name="model_id">devel.area.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="devel.devel.area.messages.crw">
+          <column name="access_id">devel.area.messages.crw</column>
+          <column name="model_id">devel.area.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="devel.devel.messages.readonly">
+          <column name="access_id">devel.messages.readonly</column>
+          <column name="model_id">devel.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="devel.devel.messages.nodrop">
+          <column name="access_id">devel.messages.nodrop</column>
+          <column name="model_id">devel.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="devel.devel.messages.full">
+          <column name="access_id">devel.messages.full</column>
+          <column name="model_id">devel.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="devel.devel.messages.crw">
+          <column name="access_id">devel.messages.crw</column>
+          <column name="model_id">devel.messages</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+      </records>
+    </data>
+  </gsrp>
