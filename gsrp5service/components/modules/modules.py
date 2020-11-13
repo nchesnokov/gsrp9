@@ -2,6 +2,8 @@ from .module import *
 from serviceloader.tools.common import Component
 from configparser import ConfigParser
 
+import web_pdb
+
 class moduless_exception(Exception): pass
 
 class Modules(Component):

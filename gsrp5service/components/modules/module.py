@@ -335,13 +335,13 @@ def _upgrade(self,able=None, modules = None):
 						if m1:
 							dep_modules.add(key)
 	
-		self._registry._reload_modules(all_modules)
+		# self._registry._reload_modules(all_modules)
 	
-		for all_module in filter(lambda x: x in all_modules,[node.name for node in self._registry._graph]):
-			for mkey in self._registry. _getModuleModels(all_module).keys():
-				self._session._models[mkey] = self._registry._create_module_object('models',mkey,self._registry._getLastModuleLoaded(mkey))
+		# for all_module in filter(lambda x: x in all_modules,[node.name for node in self._registry._graph]):
+			# for mkey in self._registry. _getModuleModels(all_module).keys():
+				# self._session._models[mkey] = self._registry._create_module_object('models',mkey,self._registry._getLastModuleLoaded(mkey))
 			
-			log.append([0,'module: <%s> successfull reloaded' % (all_module,)])
+			# log.append([0,'module: <%s> successfull reloaded' % (all_module,)])
 	
 	return log
 

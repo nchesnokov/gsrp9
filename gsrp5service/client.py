@@ -9,7 +9,7 @@ import time
 
 uid = None
 
-from orm.model import Model,ModelInherit
+#from orm.model import Model,ModelInherit
 
 secure = False
 

@@ -317,7 +317,12 @@ class System(Session):
 		res = []
 		args0 = args[0]
 		if args0 == 'modules':
-			rc = self._components['modules']._call(args[1:])
+			if self._connected:
+				self._components['modules']._setup(self)
+				rc = self._components['modules']._call(args[1:])
+			else:
+				rc = [False,'Not logged']
+			#rc = self._components['modules']._call(args[1:])
 		elif args0 in ('models','reports','queries','dialogs','wizards'):
 			rc = self._components['objs']._call(args[1:])
 		elif args0 == 'gens':

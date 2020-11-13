@@ -59,8 +59,10 @@ def _download_imodules(self,path,module,imodels,registry,ext='csv'):
 			elif m._class_model == 'C':
 				c = 'cust'
 
-			_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,m._table+'_'+k+'.' + ext),));
-			am = open(opj(path,module,'demo',c,m._table+'_'+k+'.' + ext),'w')
+			#_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,m._table+'_'+k+'.' + ext),));
+			#_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,m._table+'_'+'.' + ext),));
+			#am = open(opj(path,module,'demo',c,m._table+'_'+k+'.' + ext),'w')
+			am = open(opj(path,module,'demo',c,m._table+'_'+'.' + ext),'w')
 			#print('MFS:',mfs)
 			for row in records:
 				for key in row.keys():
@@ -98,10 +100,12 @@ def _download_imodules(self,path,module,imodels,registry,ext='csv'):
 				amw.writerows(records)
 				am.close()
 			elif ext == 'yaml':
-				with open(opj(path,module,'demo',c,m._table+'_'+k+'.yaml'),'w') as outfile:
+				#with open(opj(path,module,'demo',c,m._table+'_'+k+'.yaml'),'w') as outfile:
+				with open(opj(path,module,'demo',c,m._table+'_'+'.yaml'),'w') as outfile:
 					yaml.dump(records, outfile, Dumper, default_flow_style=False)
 			
-			aw.writerow({'model':m._name,'file':opj('demo',c,m._table+'_'+k+'.' + ext)})
+			#aw.writerow({'model':m._name,'file':opj('demo',c,m._table+'_'+k+'.' + ext)})
+			aw.writerow({'model':m._name,'file':opj('demo',c,m._table+'_'+'.' + ext)})
 	a.close()
 
 
