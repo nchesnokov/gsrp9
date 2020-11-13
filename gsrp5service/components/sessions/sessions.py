@@ -11,7 +11,7 @@ from configparser import ConfigParser
 from serviceloader.tools.common import configManagerDynamic
 from gsrp5service.connection import Cursor
 from gsrp5service.orm.model import Access
-from gsrp5service.services.models.cache4 import MCache
+from gsrp5service.components.objs.cache4 import MCache
 
 _logger = logging.getLogger('listener.' + __name__)
 
@@ -109,6 +109,8 @@ class User(Session):
 	_connected = None
 	_sid = None
 	_uid = 0
+	_objects = {}
+	_auths = {}
 	_cache = {}
 	_cache_attrs = {}
 
@@ -118,20 +120,12 @@ class User(Session):
 		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':None,'password':None,'sslmode':None,'sslrootcert':None,'sslrootkey':None,'sslcert':None,'sslkey':None},ikey=['port'])
 
 	def _call(self,args):
-		res = []
+		rmsg = []
 		args0 = args[0]
 		if args0 in ('_cache',):
 			rc = self._mcache(args[1:])
-		elif args0 == 'models':
-			rc = self._components['models']._call(args[1:])
-		elif args0 == 'reports':
-			rc = self._components['reports']._call(args[1:])
-		elif args0 == 'queries':
-			rc = self._components['queries']._call(args[1:])
-		elif args0 == 'dialogs':
-			rc = self._components['dialogs']._call(args[1:])
-		elif args0 == 'wizards':
-			rc = self._components['wizards']._call(args[1:])
+		elif args0 in ('models','reports','queries','dialogs','wizards'):
+			rc = self._components['objs']._call(args[1:])
 		elif args0 == 'uis':
 			rc = self._components['uis']._call(args[1:])
 		elif args0 == 'modules':
@@ -154,11 +148,11 @@ class User(Session):
 			rc = [False,'NOT CALLED']
 		
 		if type(rc) in (list,tuple):
-			res.extend(rc)
+			rmsg.extend(rc)
 		else:
-			res.append(rc)
+			rmsg.append(rc)
 		
-		return res
+		return rmsg
 
 	@property
 	def _models(self):
@@ -229,7 +223,7 @@ class User(Session):
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
 
-					db_infos = self._components['models']._call(['bc.modules','select',{'fields':['code','state'],'cond':[],'context':{}}])
+					db_infos = self._models.get('bc.modules').select(fields=['code','state'],cond=[],context={})
 					for db_info in db_infos:
 						self._components['registry']._modules[db_info['code']]['db_id'] = db_info['id']
 						self._components['registry']._modules[db_info['code']]['state'] = db_info['state']
@@ -309,6 +303,7 @@ class System(Session):
 	_uid = None
 	_srvs = {}
 	_objects = {}
+	_auths = {}
 	_cache = {}
 	_cache_attrs = {}
 	
@@ -323,8 +318,8 @@ class System(Session):
 		args0 = args[0]
 		if args0 == 'modules':
 			rc = self._components['modules']._call(args[1:])
-		elif args0 == 'models':
-			rc = self._components['models']._call(args[1:])
+		elif args0 in ('models','reports','queries','dialogs','wizards'):
+			rc = self._components['objs']._call(args[1:])
 		elif args0 == 'gens':
 			rc = self._components['gens']._call(args[1:])
 		#elif args0 == 'slots':
@@ -350,27 +345,30 @@ class System(Session):
 		if 'models' in self._objects:
 			return	self._objects['models']
 		return {}
+
 	@property
 	def _reports(self):
 		if 'reports' in self._objects:
 			return	self._objects['reports']
 		return {}
+
 	@property
 	def _dialogs(self):
 		if 'dialogs' in self._objects:
 			return	self._objects['dialog']
 		return {}
+
 	@property
 	def _wizards(self):
 		if 'wizards' in self._objects:
 			return	self._objects['wizards']
 		return {}
+
 	@property
 	def _queries(self):
 		if 'queries' in self._objects:
 			return	self._objects['queries']
 		return {}
-
 
 	def open(self,profile):
 
@@ -483,7 +481,7 @@ class System(Session):
 					for key in self._models.keys():
 						self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 
-					db_infos = self._components['models']._call(['bc.modules','select',{'fields':['code','state'],'cond':[]}])
+					db_infos = self._models.get('bc.modules').select(field=['code','state'],cond=[])
 					for db_info in db_infos:
 						self._components['registry']._modules[db_info['code']]['db_id'] = db_info['id']
 						self._components['registry']._modules[db_info['code']]['state'] = db_info['state']

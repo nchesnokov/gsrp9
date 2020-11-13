@@ -113,6 +113,7 @@ class mrp_demand_items(Model):
 	_columns = {
 	'demand_id': fields.many2one(obj = 'mrp.demand',label = 'Demand', on_delete='c'),
 	'product': fields.many2one(label='Product',obj='md.product'),
+	'uom': fields.many2one(label='UoM',obj='md.uom'),
 	'schedules': fields.one2many(label='Schedule',obj='mrp.demand.delivery.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='mrp.demand.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='mrp.demand.item.texts',rel='item_id'),
@@ -270,6 +271,7 @@ class mrp_request_items(Model):
 	_columns = {
 	'request_id': fields.many2one(obj = 'mrp.request',label = 'Request', on_delete='c'),
 	'product': fields.many2one(label='Product',obj='md.product'),
+	'uom': fields.many2one(label='UoM',obj='md.uom'),
 	'schedules': fields.one2many(label='Schedule',obj='mrp.request.delivery.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='mrp.request.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='mrp.request.item.texts',rel='item_id'),

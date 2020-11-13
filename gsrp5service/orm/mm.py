@@ -7,7 +7,7 @@ from functools import reduce
 from .common import *
 from .common import DEFAULT_MODEL_NAMES as DMN
 from . import gensql
-from gsrp5service.services.modules.genddl import getName
+from gsrp5service.components.modules.genddl import getName
 from io import StringIO
 from datetime import datetime,date,time
 import time as tm
