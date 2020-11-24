@@ -8,6 +8,7 @@ class moduless_exception(Exception): pass
 
 class Modules(Component):
 	_name = 'modules'
+
 	def __init__(self,config_file=None):
 		if config_file:
 			self.configure(config_file)

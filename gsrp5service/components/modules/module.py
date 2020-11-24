@@ -350,7 +350,7 @@ def _installModule(self,name,chunk):
 
 	self._registry._load_module(name)
 	#web_pdb.set_trace()
-	self._session._objects = self._registry._create_loaded_objects(self)
+	self._session._objects = self._registry._create_loaded_objects(self._session)
 	sqls = []
 	if 'module' in chunk:
 		models = self._registry._getKeysModuleObjects(name)['models']
@@ -704,7 +704,7 @@ def _loadMetaModule(self,name):
 	for file_record in file_records:
 		file_record['module_id'] = module_id
 
-	web_pdb.set_trace()
+	#web_pdb.set_trace()
 	self._session._models.get('bc.module.files').create(file_records,{})
 
 	model_records = []

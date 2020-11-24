@@ -56,7 +56,6 @@ class Objs(Component):
 		return self._session._queries
 
 	def _setup(self,session):
-		web_pdb.set_trace()
 		self._session = session
 	
 	def _setupUID(self,uid):
