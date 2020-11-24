@@ -755,7 +755,7 @@ def _loadMetaModel(self,model,module):
 	ref_fields = {'db_table':'table'}
 	#columns = self._registry._create_module_model('bc.models','bc').modelInfo()['columns']
 	#info_class = self._registry._create_module_model(model,module)
-	columns = self._session._models.get('bc.modules').columnsInfo()
+	#columns = self._session._models.get('bc.modules').columnsInfo()
 	info_class = self._registry._create_module_object('models',model,module)
 	if not info_class:
 		return record
@@ -771,7 +771,7 @@ def _loadMetaModel(self,model,module):
 				record[key] = info[key]
 	for key in info['columns'].keys():
 		column = info['columns'][key]
-		c = _loadMetaModelColumns(self,key,column)	
+		c = _loadMetaModelColumn(self,key,column)	
 		record.setdefault('columns',[]).append(c)
 
 	return record		
@@ -804,7 +804,7 @@ def _loadMetaInherit(self,model,module):
 	return record		
 
 
-def _loadMetaModelColumns(self,name,column):
+def _loadMetaModelColumn(self,name,column):
 	record = {}
 	ref_fields = {'col_name':'name','col_check':'check','col_unique':'unique','col_default':'default','col_family':'family'}
 	keys = self._session._models.get('bc.model.columns').modelInfo()['columns'].keys()

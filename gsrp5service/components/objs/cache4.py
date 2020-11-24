@@ -3125,10 +3125,14 @@ class MCache(object):
 
 	def _createItem(self,item,rel = None, oid = None):
 		if rel and oid:
-			if rel in item['__data__'] and type(item['__data__'][rel]) == dict:
-				item['__data__'][rel]['id'] = oid
+			if rel in item['__data__']:
+				if type(item['__data__'][rel]) == dict:
+					item['__data__'][rel]['id'] = oid
+				else:
+					item['__data__'][rel] = oid
 			else:
 				item['__data__'][rel] = oid
+				
 		data = {}
 		model = item ['__model__']
 		m = self._pool.get(model)
@@ -3154,7 +3158,8 @@ class MCache(object):
 			r = _createRecord(m,data,self._context)
 
 		if r:
-			item['__data__']['id'] = r
+			if 'id' not in item['__data__']:
+				item['__data__']['id'] = r
 			path = item['__path__']
 			self._data._getCData(path)['id'] = r
 			self._data._odata[path]['id'] = copy.deepcopy(r)
