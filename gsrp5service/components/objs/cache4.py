@@ -3070,9 +3070,11 @@ class MCache(object):
 				trg22(**kwargs)
 
 	def _copyItem(self,item,rel = None, oid = None):
+		data = {}
 		if rel and oid:
 			item['__data__'][rel]['id'] = oid
-		data = {}
+			data[rel] = item['__data__'][rel]
+
 		model = item ['__model__']
 		m = self._pool.get(model)
 		excl_fields = m._o2mfields + m._m2mfields + ['id']
@@ -3130,6 +3132,7 @@ class MCache(object):
 				trg22(**kwargs)
 
 	def _createItem(self,item,rel = None, oid = None):
+		data = {}
 		if rel and oid:
 			if rel in item['__data__']:
 				if type(item['__data__'][rel]) == dict:
@@ -3138,8 +3141,9 @@ class MCache(object):
 					item['__data__'][rel] = oid
 			else:
 				item['__data__'][rel] = oid
-				
-		data = {}
+			
+			data[rel] = item['__data__'][rel]
+
 		model = item ['__model__']
 		m = self._pool.get(model)
 		excl_fields = m._o2mfields + m._m2mfields
