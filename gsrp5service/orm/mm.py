@@ -864,7 +864,7 @@ def imodelInfo(self, columns = None, attributes = None):
 		views = self._views,
 		description = self._description,
 		trigers = self._trigers,
-		columns = self.columnsInfo(columns,attributes),
+		columns = self.icolumnsInfo(columns,attributes),
 		family = {},
 		default = self._default,
 		register = self._register,
@@ -873,7 +873,7 @@ def imodelInfo(self, columns = None, attributes = None):
 		actions = self._actions,
 		states = self._states,
 	)
-	mi['family']= self.familyInfo(mi['columns'])
+	mi['family']= self.ifamilyInfo(mi['columns'])
 	return mi
 
 def icolumnsInfo(self, columns = None, attributes = None):

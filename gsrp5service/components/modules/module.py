@@ -208,8 +208,27 @@ def _install(self,able=None, modules = None):
 		for depend in depends:
 			self._registry._load_module(depend)
 			_installModule(self,depend,_chunks[depend])
-
 			log.append([0,'module: <%s> successfull installed' % (depend,)])
+
+	
+		for depend in depends:
+			chunk = _chunks[depend]
+			info = self._registry._modules[depend]
+			metas ={}
+			if 'example' in chunk:
+				if 'data' in info['meta']:
+					metas['data'] = info['meta']['data']
+				if 'demo' in info['meta']:
+					metas['demo'] = info['meta']['demo']
+			else:
+				if 'data' in chunk and 'data' in info['meta']:
+					metas['data'] = info['meta']['data']
+				if 'demo' in chunk and 'demo' in info['meta']:
+					metas['demo'] = info['meta']['demo']
+
+			_loadFiles(self,depend,self._registry._modules[depend],metas)
+			self._cr.commit()
+			log.append([0,'module: <%s> data successfull loaded' % (depend,)])
 
 		# dep_modules = set()
 		# for depend in depends:
@@ -367,6 +386,7 @@ def _installModule(self,name,chunk):
 						sqls.append(sql)
 	
 		for model in models:
+			m = self._session._models[model]
 			if isinstance(m,ModelInherit):	
 				continue
 			at = genddl.getReferencedConstraints(self._session._models,model)
@@ -374,6 +394,7 @@ def _installModule(self,name,chunk):
 				sqls.extend(at)
 		
 		if len(sqls) > 0:
+			self._cr.commit()
 			_logger.info("Creating tables")
 			if len(sqls) == 1:
 				self._cr.execute(sqls[0])
@@ -394,7 +415,7 @@ def _installModule(self,name,chunk):
 				self._cr.execute('insert into ' + self._session._models.get('bc.users')._table + ' (id,login,password,firstname,lastname,issuperuser) values(%s,%s,%s,%s,%s,%s)',(self._uid,'admin',pbkdf2_sha256.hash('admin'),'Administartor','System Administarator',True))
 				_load_list_allmodules(self)
 	
-			_loadMetaData(self,name)
+			_loadMetaData(self,chunk,name)
 			self._cr.commit()
 	else:
 		self._session._objects[name] = self._registry._create_module_objects(name)
@@ -406,22 +427,22 @@ def _installModule(self,name,chunk):
 
 	metas = {}
 
-	if 'env' in chunk and 'env' in info['meta']:
-		metas['env'] = info['meta']['env']
+	# if 'env' in chunk and 'env' in info['meta']:
+		# metas['env'] = info['meta']['env']
 	
 	if 'view' in chunk and 'view' in info['meta']:
 		metas['view'] = info['meta']['view']
 	
-	if 'example' in chunk:
-		if 'data' in info['meta']:
-			metas['data'] = info['meta']['data']
-		if 'demo' in info['meta']:
-			metas['demo'] = info['meta']['demo']
-	else:
-		if 'data' in chunk and 'data' in info['meta']:
-			metas['data'] = info['meta']['data']
-		if 'demo' in chunk and 'demo' in info['meta']:
-			metas['demo'] = info['meta']['demo']
+	# if 'example' in chunk:
+		# if 'data' in info['meta']:
+			# metas['data'] = info['meta']['data']
+		# if 'demo' in info['meta']:
+			# metas['demo'] = info['meta']['demo']
+	# else:
+		# if 'data' in chunk and 'data' in info['meta']:
+			# metas['data'] = info['meta']['data']
+		# if 'demo' in chunk and 'demo' in info['meta']:
+			# metas['demo'] = info['meta']['demo']
 	
 	if 'test' in chunk and 'test' in info['meta']:
 		metas['test'] = info['meta']['test']
@@ -489,17 +510,20 @@ def _uninstallModule(self,name):
 					if inherit:
 						for ikey in inherit.keys():
 							for icolkey in inherit[ikey]['_columns']:
-								sqls.append("ALTER TABLE IF EXISTS %s DROP COLUMN IF EXISTS %s CASCADE" % (ikey,icolkey))
+								if mods['attrs']['_columns'][icolkey]._type not in ('iProperty','referenced'):
+									sqls.append("ALTER TABLE IF EXISTS %s DROP COLUMN IF EXISTS %s CASCADE" % (ikey,icolkey))
 							
 							mmiv = self._session._models.get('bc.ui.views').select([{'inherit_views':['name']}],[('model','=',ikey)])
 							self._session._models.get('bc.ui.views.inherit').unlink(list(map(lambda x: x['id'],mmiv))) 				
 							
 					else:
 						if model in self._session._models:
-							columns = self._session._models.get(model).modelInfo()['columns']
-							for key in filter(lambda x: columns[x]['type'] == 'many2many',columns.keys()):
-								rel = genddl.getName(columns[key]['rel'])
-								sqls.append("DROP TABLE IF EXISTS %s " % (genddl.getName(rel),))
+							m = self._session._models.get(model)
+							if isinstance(m,Model):
+								columns = m.modelInfo()['columns']
+								for key in filter(lambda x: columns[x]['type'] == 'many2many',columns.keys()):
+									rel = genddl.getName(columns[key]['rel'])
+									sqls.append("DROP TABLE IF EXISTS %s " % (genddl.getName(rel),))
 			
 						sqls.append("DROP TABLE IF EXISTS "+table)
 	
@@ -700,12 +724,11 @@ def _loadMetaModule(self,name):
 	models = list(self._registry._metas[name]['models'].keys())
 	columns = self._session._models.get('bc.modules').columnsInfo()
 	module_id = self._registry._modules[name]['db_id']
-	file_records = _loadModuleFile(self._registry._modules[name]['path'],name)
-	for file_record in file_records:
-		file_record['module_id'] = module_id
+	# file_records = _loadModuleFile(self._registry._modules[name]['path'],name)
+	# for file_record in file_records:
+		# file_record['module_id'] = module_id
 
-	#web_pdb.set_trace()
-	self._session._models.get('bc.module.files').create(file_records,{})
+	# self._session._models.get('bc.module.files').create(file_records,{})
 
 	model_records = []
 	imodel_records = []
@@ -730,6 +753,16 @@ def _loadMetaModule(self,name):
 	self._session._models.get('bc.modules').write({'id':module_id,'state':'I'},{})
 	self._registry._modules[name]['state'] = 'I'
 
+def _loadModuleFiles(self,name):
+	module_id = self._registry._modules[name]['db_id']
+	file_records = _loadModuleFile(self._registry._modules[name]['path'],name)
+
+	for file_record in file_records:
+		file_record['module_id'] = module_id
+
+	self._session._models.get('bc.module.files').create(file_records,{})
+
+
 def _loadModuleFile(path,name,ext=['py','xml','csv','yaml','yml','so']):
 	records = []
 	pwd = opj(reduce(lambda x,y: x + os.path.sep + y ,os.path.dirname(os.path.abspath(__file__)).split(os.path.sep)[:-1]),'self._registry')
@@ -753,26 +786,29 @@ def _loadModuleFile(path,name,ext=['py','xml','csv','yaml','yml','so']):
 def _loadMetaModel(self,model,module):
 	record = {}
 	ref_fields = {'db_table':'table'}
-	#columns = self._registry._create_module_model('bc.models','bc').modelInfo()['columns']
-	#info_class = self._registry._create_module_model(model,module)
-	#columns = self._session._models.get('bc.modules').columnsInfo()
 	info_class = self._registry._create_module_object('models',model,module)
-	if not info_class:
+	if not info_class or isinstance(info_class,ModelInherit):
 		return record
-	info = info_class.modelInfo()
-	columns = self._session._models.get('bc.models').modelInfo()['columns']
+	info_model = info_class.modelInfo()
+	bm = self._session._models.get('bc.models')
+	env_fields = []
+	if bm._extra and 'env-fields' in bm._extra:
+		env_fields = bm._extra['env-fields']
+	info = bm.modelInfo()['columns']
 
-	for key in columns.keys():
-		if not columns[key]['type'] in ('one2many','many2one','many2many') and key in info or key in ref_fields:
-			if key  in ref_fields:
-				if ref_fields[key] in info:
-					record[key] = info[ref_fields[key]]
-			else:
-				record[key] = info[key]
-	for key in info['columns'].keys():
-		column = info['columns'][key]
-		c = _loadMetaModelColumn(self,key,column)	
-		record.setdefault('columns',[]).append(c)
+	for key in filter(lambda x: x not in env_fields,info.keys()):
+		if key == 'columns':
+			for mkey in info_model['columns'].keys():
+				column = info_model['columns'][mkey]
+				c = _loadMetaModelColumn(self,mkey,column)	
+				record.setdefault('columns',[]).append(c)
+			
+		elif key  in ref_fields:
+			if ref_fields[key] in info:
+				record[key] = info_model[ref_fields[key]]
+		else:
+			if key in info_model:
+				record[key] = info_model[key]
 
 	return record		
 
@@ -854,13 +890,18 @@ def _loadMetaInheritColumns(self,name,column):
 
 
 	
-def _loadMetaData(self,name):
-	
-	#models = self._registry._metas[name]['models'].keys()
-	#meta = self._registry._modules[name]['meta']
-
+def _loadMetaData(self,chunk,name):
+	_loadModuleFiles(self,name)
+	_loadEnvModule(self,chunk,name)
 	record = _loadMetaModule(self,name)
 	return self._session._models.get('bc.modules').create(record,{})
+
+def _loadEnvModule(self,chunk,name):
+	info = self._registry._modules[name]
+	metas = {}
+	if 'env' in chunk and 'env' in info['meta']:
+		metas['env'] = info['meta']['env']
+		_loadFiles(self,name,self._registry._modules[name],metas)
 
 
 def _load_env_column(self,model,column):

@@ -73,7 +73,7 @@ async def hello():
 		#async with websockets.connect('ws://www.gsrp5labs.com:8170') as ws:
 		#async with websockets.connect('ws://localhost:8170/ws') as ws:
 		async with websockets.connect('ws://localhost:8170') as ws:
-			if  not True:
+			if not True:
 				Uuid = await _execute([ws, '_open','gsrp5.system',{'profile':'system'}])
 				#msg = await _execute([ws,'modules','upgrademoduleslist',{'db':'test001'}])
 				#return
@@ -106,7 +106,7 @@ async def hello():
 				#msg = await _execute([ws, 'modules','install',{'modules':['wkf_srm']}])
 				
 				#return
-				msg = await _execute([ws, 'slots','drop',{'sid':'test001'}])
+				msg = await _execute([ws, 'dropSlot',{'sid':'test001'}])
 				#msg = await _execute([ws, 'dropSlot',{'sid':'test002'}])
 				#msg = await _execute([ws, 'slots','dropSlot',{'sid':'test003'}])
 				#msg = await _execute([ws, '_reload'])
@@ -129,7 +129,7 @@ async def hello():
 				#msg = await _execute([ws, 'modules','install',{'modules':['crm','purchase','sale','le','cf','ai','fa','hcm']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['ehs','scm','hcm','wm']}])
 				msg = await _execute([ws, 'modules','install',{'modules':['mm']}])
-				#msg = await _execute([ws, 'modules','load',{'modules':['common']}])
+				#msg = await _execute([ws, 'modules','load',{'modules':{'common':['example']}}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['sale']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':{'srm':['env','view','example','data','demo','test','i18n']}}])
 				#msg = await _execute([ws, 'modules','install',{'modules':{'sale':['example']}}])

@@ -76,7 +76,12 @@ def _conv_record_to_ext(self,record,context):
 					ctx['read'] = 'raw'
 					v = m.read(record[key],[recname],ctx)
 					if len(v) > 0:
-						record[key] = {'id':record[key],'name': v[0][recname]}
+						if type(v[0]) == dict:
+							try:
+								record[key] = {'id':record[key],'name': v[0][recname]}
+							except:
+								web_pdb.set_trace()
+							
 				except ValueError:
 					m = self._pool.get(self._columns[key].obj)
 					recname = m._RecNameName
@@ -84,7 +89,8 @@ def _conv_record_to_ext(self,record,context):
 					ctx['read'] = 'raw'
 					v = m.search([(recname,'=',record[key])])
 					if len(v) > 0:
-						record[key] = {'id':v[0],'name':record[key]}
+						if type(v[0]) == dict:
+							record[key] = {'id':v[0],'name':record[key]}
 	
 	return record
 

@@ -5,7 +5,7 @@ import web_pdb
 
 class model_common(ModelInherit):
 	_name = 'mm.common.model'
-	_description = 'Manufsctured management Common'
+	_description = 'Manufactured management Common'
 	def _calculate_amount_costs(self,record,context={}):
 		fields = ['amount']
 		for field in fields:
