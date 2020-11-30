@@ -76,10 +76,10 @@ class srm_demands(Model):
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
 			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('srm.demand.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = pool.get('srm.demand.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -472,10 +472,10 @@ class srm_parts(Model):
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
 			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('srm.part.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = pool.get('srm.part.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -867,10 +867,10 @@ class srm_plans(Model):
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
 			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('srm.plan.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = pool.get('srm.plan.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -1262,10 +1262,10 @@ class srm_requests(Model):
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
 			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('srm.request.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = pool.get('srm.request.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -1657,10 +1657,10 @@ class srm_responses(Model):
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
 			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('srm.response.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = pool.get('srm.response.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -2053,10 +2053,10 @@ class srm_rfxs(Model):
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
 			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('srm.rfx.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = pool.get('srm.rfx.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -2448,10 +2448,10 @@ class srm_auctions(Model):
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
 			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('srm.auction.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = pool.get('srm.auction.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -2843,10 +2843,10 @@ class srm_offers(Model):
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
 			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('srm.offer.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = pool.get('srm.offer.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -3238,10 +3238,10 @@ class srm_evolutions(Model):
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
 			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('srm.evolution.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = pool.get('srm.evolution.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -3633,10 +3633,10 @@ class srm_decisions(Model):
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
 			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('srm.decision.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = pool.get('srm.decision.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -4028,10 +4028,10 @@ class srm_contracts(Model):
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
 			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = pool.get('srm.contract.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('purchase.order.items')._buildEmptyItem()
+				item_items = pool.get('srm.contract.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]

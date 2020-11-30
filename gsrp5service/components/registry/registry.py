@@ -27,13 +27,13 @@ from gsrp5service.orm.query import Query,QueryInherit
 
 import gsrp5service.orm.link
 
-from serviceloader.tools.common import Service, configManagerFixed
+from serviceloader.tools.common import Service, Component, configManagerFixed
 
 from configparser import ConfigParser
 
 class Exception_Registry(Exception): pass
 
-class Registry(Service):
+class Registry(Component):
 
 	_module_paths = {}
 	_modules = {}

@@ -9,6 +9,7 @@ from passlib.hash import pbkdf2_sha256
 from decimal import Decimal
 from configparser import ConfigParser
 from serviceloader.tools.common import configManagerDynamic
+from serviceloader.tools.common import Component
 from gsrp5service.connection import Cursor
 from gsrp5service.orm.model import Access
 from gsrp5service.components.objs.cache4 import MCache
@@ -17,7 +18,7 @@ _logger = logging.getLogger('listener.' + __name__)
 
 class interface_exception(Exception): pass
 
-class Session(object):
+class Session(Component):
 	def _mcache(self,args):
 		if args[0] == 'cache':
 			return self._cache[args[1]]._mcache(**(args[2]))

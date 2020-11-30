@@ -459,7 +459,8 @@ def _installModule(self,name,chunk):
 
 def _uninstallModule(self,name):
 	_logger.info(" Module: %s Uninstall" % (name,))
-	module_models = self._registry._objs[name]['models'].keys()
+	#module_models = self._registry._objs[name]['models'].keys()
+	module_models = self._registry._metas[name]['models'].keys()
 	meta = self._registry._modules[name]['meta']
 	mom = self._registry._objs[name]['models']
 

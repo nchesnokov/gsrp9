@@ -1,14 +1,14 @@
 import logging
 from . import roles,menus,views,examples,tests,i18n,tr
 
-from serviceloader.tools.common import Service
+from serviceloader.tools.common import Service, Component
 from configparser import ConfigParser
 
 class servicegens_exception(Exception): pass
 
 _logger = logging.getLogger('listener.' + __name__)
 
-class Gens(Service):
+class Gens(Component):
 
 	def __init__(self,config_file=None):
 		if config_file:
