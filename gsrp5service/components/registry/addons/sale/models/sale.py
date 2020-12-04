@@ -182,8 +182,8 @@ class sale_order_output_plates(Model):
 	'order_id': fields.many2one(label = 'Order',obj='sale.orders'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
 	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
-	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
-	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('iscustomer',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('c','i','p','a'))]),
 	'language': fields.many2one(label = 'language',obj='md.language',required=True),
 	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
 	'schedule': fields.datetime(label='Schedule'),
@@ -195,8 +195,6 @@ class sale_order_output_plates(Model):
 	}
 
 sale_order_output_plates()
-
-
 
 class sale_order_items(Model):
 	_name = 'sale.order.items'

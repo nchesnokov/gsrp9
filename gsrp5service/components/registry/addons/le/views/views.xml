@@ -275,6 +275,7 @@
           <column name="arch" type="Xml">
             <form>
               <field name="schema_id"/>
+              <field name="seq"/>
               <field name="text_id"/>
               <field name="descr"/>
             </form>
@@ -286,6 +287,7 @@
           <column name="arch" type="Xml">
             <list>
               <field name="schema_id"/>
+              <field name="seq"/>
               <field name="text_id"/>
               <field name="descr"/>
             </list>
@@ -297,6 +299,7 @@
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="schema_id"/>
+              <field name="seq"/>
               <field name="text_id"/>
               <field name="descr"/>
             </m2mlist>
@@ -584,52 +587,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.pack.product.form">
-          <column name="name">view.md.pack.product.form</column>
-          <column name="model">md.pack.product</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="product_id"/>
-              <field name="vat"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.pack.product.list">
-          <column name="name">view.md.pack.product.list</column>
-          <column name="model">md.pack.product</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="product_id"/>
-              <field name="vat"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.pack.product.m2mlist">
-          <column name="name">view.md.pack.product.m2mlist</column>
-          <column name="model">md.pack.product</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="product_id"/>
-              <field name="vat"/>
-              <field name="uom"/>
-              <field name="price"/>
-              <field name="currency"/>
-              <field name="unit"/>
-              <field name="uop"/>
-            </m2mlist>
-          </column>
-        </record>
         <record id="view.le.inbound.delivery.category.form">
           <column name="name">view.le.inbound.delivery.category.form</column>
           <column name="model">le.inbound.delivery.category</column>
@@ -823,6 +780,52 @@
               <field name="name"/>
               <field name="parent_id"/>
             </tree>
+          </column>
+        </record>
+        <record id="view.md.pack.product.form">
+          <column name="name">view.md.pack.product.form</column>
+          <column name="model">md.pack.product</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="product_id"/>
+              <field name="vat"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.pack.product.list">
+          <column name="name">view.md.pack.product.list</column>
+          <column name="model">md.pack.product</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="product_id"/>
+              <field name="vat"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.pack.product.m2mlist">
+          <column name="name">view.md.pack.product.m2mlist</column>
+          <column name="model">md.pack.product</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="product_id"/>
+              <field name="vat"/>
+              <field name="uom"/>
+              <field name="price"/>
+              <field name="currency"/>
+              <field name="unit"/>
+              <field name="uop"/>
+            </m2mlist>
           </column>
         </record>
         <record id="view.le.inbound.delivery.calendar">

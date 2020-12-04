@@ -82,8 +82,9 @@
           <column name="model">st.stock</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
+              <field name="fullname"/>
               <field name="location"/>
               <field name="products"/>
               <field name="note"/>
@@ -95,8 +96,9 @@
           <column name="model">st.stock</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
+              <field name="fullname"/>
               <field name="location"/>
               <field name="products"/>
             </list>
@@ -107,8 +109,9 @@
           <column name="model">st.stock</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
+              <field name="fullname"/>
               <field name="location"/>
             </m2mlist>
           </column>
@@ -118,8 +121,9 @@
           <column name="model">st.stock</column>
           <column name="arch" type="Xml">
             <search>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
+              <field name="fullname"/>
               <field name="location"/>
             </search>
           </column>
@@ -129,45 +133,100 @@
           <column name="model">st.stock</column>
           <column name="arch" type="Xml">
             <find>
-              <field name="company_id"/>
+              <field name="company"/>
               <field name="name"/>
+              <field name="fullname"/>
               <field name="location"/>
             </find>
           </column>
         </record>
-        <record id="view.st.products.form">
-          <column name="name">view.st.products.form</column>
-          <column name="model">st.products</column>
+        <record id="view.st.company.product.quantites.form">
+          <column name="name">view.st.company.product.quantites.form</column>
+          <column name="model">st.company.product.quantites</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="stock_id"/>
+              <field name="company_id"/>
+              <field name="stoсk_type"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
+              <field name="amount"/>
+              <field name="currency"/>
             </form>
           </column>
         </record>
-        <record id="view.st.products.list">
-          <column name="name">view.st.products.list</column>
-          <column name="model">st.products</column>
+        <record id="view.st.company.product.quantites.list">
+          <column name="name">view.st.company.product.quantites.list</column>
+          <column name="model">st.company.product.quantites</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="stock_id"/>
+              <field name="company_id"/>
+              <field name="stoсk_type"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
+              <field name="amount"/>
+              <field name="currency"/>
             </list>
           </column>
         </record>
-        <record id="view.st.products.m2mlist">
-          <column name="name">view.st.products.m2mlist</column>
-          <column name="model">st.products</column>
+        <record id="view.st.company.product.quantites.m2mlist">
+          <column name="name">view.st.company.product.quantites.m2mlist</column>
+          <column name="model">st.company.product.quantites</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="stock_id"/>
+              <field name="company_id"/>
+              <field name="stoсk_type"/>
               <field name="product"/>
               <field name="quantity"/>
               <field name="uom"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.st.stock.product.quantites.form">
+          <column name="name">view.st.stock.product.quantites.form</column>
+          <column name="model">st.stock.product.quantites</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="stock_id"/>
+              <field name="stoсk_type"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.st.stock.product.quantites.list">
+          <column name="name">view.st.stock.product.quantites.list</column>
+          <column name="model">st.stock.product.quantites</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="stock_id"/>
+              <field name="stoсk_type"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.st.stock.product.quantites.m2mlist">
+          <column name="name">view.st.stock.product.quantites.m2mlist</column>
+          <column name="model">st.stock.product.quantites</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="stock_id"/>
+              <field name="stoсk_type"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="amount"/>
+              <field name="currency"/>
             </m2mlist>
           </column>
         </record>

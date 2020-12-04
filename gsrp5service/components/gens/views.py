@@ -402,7 +402,7 @@ def iRecords(level,pool,registry,module,models):
 	b.write((indent + '<records model="%s">\n' % ('bc.ui.views.inherit',)).encode('utf-8'))
 
 	for model in models:
-		modelinfo = model.modelInfo()
+		modelinfo = model.imodelInfo()
 
 		columns = modelinfo['columns']
 		iViews(level+1,module,model,modelinfo,columns,registry)

@@ -260,26 +260,6 @@
           <column name="note">Model le.internal.delivery.type.roles grant crw</column>
           <column name="group_id">le.crw</column>
         </record>
-        <record id="md.pack.product.readonly">
-          <column name="name">md.pack.product.readonly</column>
-          <column name="note">Model md.pack.product grant readonly</column>
-          <column name="group_id">le.readonly</column>
-        </record>
-        <record id="md.pack.product.nodrop">
-          <column name="name">md.pack.product.nodrop</column>
-          <column name="note">Model md.pack.product grant nodrop</column>
-          <column name="group_id">le.nodrop</column>
-        </record>
-        <record id="md.pack.product.full">
-          <column name="name">md.pack.product.full</column>
-          <column name="note">Model md.pack.product grant full</column>
-          <column name="group_id">le.full</column>
-        </record>
-        <record id="md.pack.product.crw">
-          <column name="name">md.pack.product.crw</column>
-          <column name="note">Model md.pack.product grant crw</column>
-          <column name="group_id">le.crw</column>
-        </record>
         <record id="le.inbound.delivery.category.readonly">
           <column name="name">le.inbound.delivery.category.readonly</column>
           <column name="note">Model le.inbound.delivery.category grant readonly</column>
@@ -338,6 +318,26 @@
         <record id="le.internal.delivery.category.crw">
           <column name="name">le.internal.delivery.category.crw</column>
           <column name="note">Model le.internal.delivery.category grant crw</column>
+          <column name="group_id">le.crw</column>
+        </record>
+        <record id="md.pack.product.readonly">
+          <column name="name">md.pack.product.readonly</column>
+          <column name="note">Model md.pack.product grant readonly</column>
+          <column name="group_id">le.readonly</column>
+        </record>
+        <record id="md.pack.product.nodrop">
+          <column name="name">md.pack.product.nodrop</column>
+          <column name="note">Model md.pack.product grant nodrop</column>
+          <column name="group_id">le.nodrop</column>
+        </record>
+        <record id="md.pack.product.full">
+          <column name="name">md.pack.product.full</column>
+          <column name="note">Model md.pack.product grant full</column>
+          <column name="group_id">le.full</column>
+        </record>
+        <record id="md.pack.product.crw">
+          <column name="name">md.pack.product.crw</column>
+          <column name="note">Model md.pack.product grant crw</column>
           <column name="group_id">le.crw</column>
         </record>
         <record id="le.inbound.delivery.readonly">
@@ -1322,56 +1322,6 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="le.md.pack.product.readonly">
-          <column name="access_id">md.pack.product.readonly</column>
-          <column name="model_id">md.pack.product</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-        </record>
-        <record id="le.md.pack.product.nodrop">
-          <column name="access_id">md.pack.product.nodrop</column>
-          <column name="model_id">md.pack.product</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="le.md.pack.product.full">
-          <column name="access_id">md.pack.product.full</column>
-          <column name="model_id">md.pack.product</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
-        <record id="le.md.pack.product.crw">
-          <column name="access_id">md.pack.product.crw</column>
-          <column name="model_id">md.pack.product</column>
-          <column name="aread">True</column>
-          <column name="aselect">True</column>
-          <column name="acreate">True</column>
-          <column name="ainsert">True</column>
-          <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
-        </record>
         <record id="le.le.inbound.delivery.category.readonly">
           <column name="access_id">le.inbound.delivery.category.readonly</column>
           <column name="model_id">le.inbound.delivery.category</column>
@@ -1511,6 +1461,56 @@
         <record id="le.le.internal.delivery.category.crw">
           <column name="access_id">le.internal.delivery.category.crw</column>
           <column name="model_id">le.internal.delivery.category</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="le.md.pack.product.readonly">
+          <column name="access_id">md.pack.product.readonly</column>
+          <column name="model_id">md.pack.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="le.md.pack.product.nodrop">
+          <column name="access_id">md.pack.product.nodrop</column>
+          <column name="model_id">md.pack.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="le.md.pack.product.full">
+          <column name="access_id">md.pack.product.full</column>
+          <column name="model_id">md.pack.product</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="le.md.pack.product.crw">
+          <column name="access_id">md.pack.product.crw</column>
+          <column name="model_id">md.pack.product</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>

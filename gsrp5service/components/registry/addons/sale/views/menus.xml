@@ -64,14 +64,14 @@
       <records model="bc.ui.reports">
         <record id="bc.ui.report.docx.sale.order.categories">
           <column name="name">bc.ui.report.docx.sale.order.categories</column>
-          <column name="label">Order</column>
+          <column name="label">Category Sale Order</column>
           <column name="report">report_sale_order_categories</column>
           <column name="infile">infile_sale_order_categories.docx</column>
           <column name="outfile">outfile_sale_order_categories.docx</column>
         </record>
         <record id="bc.ui.report.docx.sale.invoice.categories">
           <column name="name">bc.ui.report.docx.sale.invoice.categories</column>
-          <column name="label">Invoice</column>
+          <column name="label">Category Sale Invoice</column>
           <column name="report">report_sale_invoice_categories</column>
           <column name="infile">infile_sale_invoice_categories.docx</column>
           <column name="outfile">outfile_sale_invoice_categories.docx</column>
@@ -113,7 +113,7 @@
           <record id="ui.menu.sale.order.categories.search">
           <column name="sequence">0</column>
             <column name="name">ui.menu.sale.order.categories.search</column>
-            <column name="label">Order</column>
+            <column name="label">Category Sale Order</column>
           <column name="parent_id">ui.menu.sale</column>
           <column name="sequence">0</column>
           <column name="action_id">action.sale.order.categories.search</column>
@@ -121,7 +121,7 @@
           <record id="ui.menu.sale.invoice.categories.search">
           <column name="sequence">1</column>
             <column name="name">ui.menu.sale.invoice.categories.search</column>
-            <column name="label">Invoice</column>
+            <column name="label">Category Sale Invoice</column>
           <column name="parent_id">ui.menu.sale</column>
           <column name="sequence">10</column>
           <column name="action_id">action.sale.invoice.categories.search</column>
@@ -154,7 +154,7 @@
           <record id="ui.menu.sale.order.categories.report">
           <column name="sequence">0</column>
             <column name="name">ui.menu.sale.order.categories.report</column>
-            <column name="label">Order</column>
+            <column name="label">Category Sale Order</column>
           <column name="parent_id">ui.menu.sale.report</column>
           <column name="sequence">0</column>
           <column name="action_id">action.sale.order.categories.report</column>
@@ -162,7 +162,7 @@
           <record id="ui.menu.sale.invoice.categories.report">
           <column name="sequence">1</column>
             <column name="name">ui.menu.sale.invoice.categories.report</column>
-            <column name="label">Invoice</column>
+            <column name="label">Category Sale Invoice</column>
           <column name="parent_id">ui.menu.sale.report</column>
           <column name="sequence">10</column>
           <column name="action_id">action.sale.invoice.categories.report</column>
@@ -407,7 +407,7 @@
           <record id="ui.menu.sale.unit.categories.custom">
           <column name="sequence">0</column>
             <column name="name">ui.menu.sale.unit.categories.custom</column>
-            <column name="label">Unit</column>
+            <column name="label">Categories Sale Unit</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">0</column>
           <column name="action_id">action.sale.unit.categories.custom</column>
@@ -423,7 +423,7 @@
           <record id="ui.menu.sale.channel.categories.custom">
           <column name="sequence">2</column>
             <column name="name">ui.menu.sale.channel.categories.custom</column>
-            <column name="label">Chanel</column>
+            <column name="label">Categories Sale Chanel</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">20</column>
           <column name="action_id">action.sale.channel.categories.custom</column>
@@ -439,7 +439,7 @@
           <record id="ui.menu.sale.segment.categories.custom">
           <column name="sequence">4</column>
             <column name="name">ui.menu.sale.segment.categories.custom</column>
-            <column name="label">Segment</column>
+            <column name="label">Categories Sale Segment</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">40</column>
           <column name="action_id">action.sale.segment.categories.custom</column>
@@ -455,7 +455,7 @@
           <record id="ui.menu.sale.area.categories.custom">
           <column name="sequence">6</column>
             <column name="name">ui.menu.sale.area.categories.custom</column>
-            <column name="label">Area</column>
+            <column name="label">Categories Sale Area</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">60</column>
           <column name="action_id">action.sale.area.categories.custom</column>
@@ -471,7 +471,7 @@
           <record id="ui.menu.sale.region.categories.custom">
           <column name="sequence">8</column>
             <column name="name">ui.menu.sale.region.categories.custom</column>
-            <column name="label">Region</column>
+            <column name="label">Categories Sale Region</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">80</column>
           <column name="action_id">action.sale.region.categories.custom</column>
@@ -487,7 +487,7 @@
           <record id="ui.menu.sale.division.categories.custom">
           <column name="sequence">10</column>
             <column name="name">ui.menu.sale.division.categories.custom</column>
-            <column name="label">Division</column>
+            <column name="label">Categories Sale Division</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">100</column>
           <column name="action_id">action.sale.division.categories.custom</column>
@@ -503,7 +503,7 @@
           <record id="ui.menu.sale.subdivision.categories.custom">
           <column name="sequence">12</column>
             <column name="name">ui.menu.sale.subdivision.categories.custom</column>
-            <column name="label">Subdivision</column>
+            <column name="label">Categories Sale Subdivision</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">120</column>
           <column name="action_id">action.sale.subdivision.categories.custom</column>
@@ -519,7 +519,7 @@
           <record id="ui.menu.sale.unit.channel.assigments.custom">
           <column name="sequence">14</column>
             <column name="name">ui.menu.sale.unit.channel.assigments.custom</column>
-            <column name="label">Of Channel Assigment</column>
+            <column name="label">Sale Unit Of Channel Assigment</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">140</column>
           <column name="action_id">action.sale.unit.channel.assigments.custom</column>
@@ -527,7 +527,7 @@
           <record id="ui.menu.sale.unit.segment.assigments.custom">
           <column name="sequence">15</column>
             <column name="name">ui.menu.sale.unit.segment.assigments.custom</column>
-            <column name="label">Of Segment Assigment</column>
+            <column name="label">Sale Unit Of Segment Assigment</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">150</column>
           <column name="action_id">action.sale.unit.segment.assigments.custom</column>
@@ -535,7 +535,7 @@
           <record id="ui.menu.sale.unit.area.assigments.custom">
           <column name="sequence">16</column>
             <column name="name">ui.menu.sale.unit.area.assigments.custom</column>
-            <column name="label">Of Area Assigment</column>
+            <column name="label">Sale Unit Of Area Assigment</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">160</column>
           <column name="action_id">action.sale.unit.area.assigments.custom</column>
@@ -543,7 +543,7 @@
           <record id="ui.menu.sale.unit.region.assigments.custom">
           <column name="sequence">17</column>
             <column name="name">ui.menu.sale.unit.region.assigments.custom</column>
-            <column name="label">Of Region Assigment</column>
+            <column name="label">Sale Unit Of Region Assigment</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">170</column>
           <column name="action_id">action.sale.unit.region.assigments.custom</column>
@@ -551,7 +551,7 @@
           <record id="ui.menu.sale.division.subdivision.assigments.custom">
           <column name="sequence">18</column>
             <column name="name">ui.menu.sale.division.subdivision.assigments.custom</column>
-            <column name="label">Of Subdivision Assigment</column>
+            <column name="label">Sale Division Of Subdivision Assigment</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">180</column>
           <column name="action_id">action.sale.division.subdivision.assigments.custom</column>
@@ -575,7 +575,7 @@
           <record id="ui.menu.sale.pricing.group.levels.custom">
           <column name="sequence">21</column>
             <column name="name">ui.menu.sale.pricing.group.levels.custom</column>
-            <column name="label">Group Levels</column>
+            <column name="label">Sale Pricing Group Levels</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">210</column>
           <column name="action_id">action.sale.pricing.group.levels.custom</column>
@@ -591,7 +591,7 @@
           <record id="ui.menu.sale.schema.texts.custom">
           <column name="sequence">23</column>
             <column name="name">ui.menu.sale.schema.texts.custom</column>
-            <column name="label">Sale Texts</column>
+            <column name="label">Schema Of Sale Texts</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">230</column>
           <column name="action_id">action.sale.schema.texts.custom</column>
@@ -599,7 +599,7 @@
           <record id="ui.menu.sale.order.types.custom">
           <column name="sequence">24</column>
             <column name="name">ui.menu.sale.order.types.custom</column>
-            <column name="label">Order</column>
+            <column name="label">Types Sale Order</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">240</column>
           <column name="action_id">action.sale.order.types.custom</column>
@@ -607,7 +607,7 @@
           <record id="ui.menu.sale.invoice.types.custom">
           <column name="sequence">25</column>
             <column name="name">ui.menu.sale.invoice.types.custom</column>
-            <column name="label">Invoice</column>
+            <column name="label">Types Sale Invoice</column>
           <column name="parent_id">ui.menu.sale.custom</column>
           <column name="sequence">250</column>
           <column name="action_id">action.sale.invoice.types.custom</column>
@@ -722,7 +722,7 @@
       <records model="bc.ui.reports">
         <record id="bc.ui.report.docx.sale.unit.categories">
           <column name="name">bc.ui.report.docx.sale.unit.categories</column>
-          <column name="label">Unit</column>
+          <column name="label">Categories Sale Unit</column>
           <column name="report">report_sale_unit_categories</column>
           <column name="infile">infile_sale_unit_categories.docx</column>
           <column name="outfile">outfile_sale_unit_categories.docx</column>
@@ -736,7 +736,7 @@
         </record>
         <record id="bc.ui.report.docx.sale.channel.categories">
           <column name="name">bc.ui.report.docx.sale.channel.categories</column>
-          <column name="label">Chanel</column>
+          <column name="label">Categories Sale Chanel</column>
           <column name="report">report_sale_channel_categories</column>
           <column name="infile">infile_sale_channel_categories.docx</column>
           <column name="outfile">outfile_sale_channel_categories.docx</column>
@@ -750,7 +750,7 @@
         </record>
         <record id="bc.ui.report.docx.sale.segment.categories">
           <column name="name">bc.ui.report.docx.sale.segment.categories</column>
-          <column name="label">Segment</column>
+          <column name="label">Categories Sale Segment</column>
           <column name="report">report_sale_segment_categories</column>
           <column name="infile">infile_sale_segment_categories.docx</column>
           <column name="outfile">outfile_sale_segment_categories.docx</column>
@@ -764,7 +764,7 @@
         </record>
         <record id="bc.ui.report.docx.sale.area.categories">
           <column name="name">bc.ui.report.docx.sale.area.categories</column>
-          <column name="label">Area</column>
+          <column name="label">Categories Sale Area</column>
           <column name="report">report_sale_area_categories</column>
           <column name="infile">infile_sale_area_categories.docx</column>
           <column name="outfile">outfile_sale_area_categories.docx</column>
@@ -778,7 +778,7 @@
         </record>
         <record id="bc.ui.report.docx.sale.region.categories">
           <column name="name">bc.ui.report.docx.sale.region.categories</column>
-          <column name="label">Region</column>
+          <column name="label">Categories Sale Region</column>
           <column name="report">report_sale_region_categories</column>
           <column name="infile">infile_sale_region_categories.docx</column>
           <column name="outfile">outfile_sale_region_categories.docx</column>
@@ -792,7 +792,7 @@
         </record>
         <record id="bc.ui.report.docx.sale.division.categories">
           <column name="name">bc.ui.report.docx.sale.division.categories</column>
-          <column name="label">Division</column>
+          <column name="label">Categories Sale Division</column>
           <column name="report">report_sale_division_categories</column>
           <column name="infile">infile_sale_division_categories.docx</column>
           <column name="outfile">outfile_sale_division_categories.docx</column>
@@ -806,7 +806,7 @@
         </record>
         <record id="bc.ui.report.docx.sale.subdivision.categories">
           <column name="name">bc.ui.report.docx.sale.subdivision.categories</column>
-          <column name="label">Subdivision</column>
+          <column name="label">Categories Sale Subdivision</column>
           <column name="report">report_sale_subdivision_categories</column>
           <column name="infile">infile_sale_subdivision_categories.docx</column>
           <column name="outfile">outfile_sale_subdivision_categories.docx</column>
@@ -820,35 +820,35 @@
         </record>
         <record id="bc.ui.report.docx.sale.unit.channel.assigments">
           <column name="name">bc.ui.report.docx.sale.unit.channel.assigments</column>
-          <column name="label">Of Channel Assigment</column>
+          <column name="label">Sale Unit Of Channel Assigment</column>
           <column name="report">report_sale_unit_channel_assigments</column>
           <column name="infile">infile_sale_unit_channel_assigments.docx</column>
           <column name="outfile">outfile_sale_unit_channel_assigments.docx</column>
         </record>
         <record id="bc.ui.report.docx.sale.unit.segment.assigments">
           <column name="name">bc.ui.report.docx.sale.unit.segment.assigments</column>
-          <column name="label">Of Segment Assigment</column>
+          <column name="label">Sale Unit Of Segment Assigment</column>
           <column name="report">report_sale_unit_segment_assigments</column>
           <column name="infile">infile_sale_unit_segment_assigments.docx</column>
           <column name="outfile">outfile_sale_unit_segment_assigments.docx</column>
         </record>
         <record id="bc.ui.report.docx.sale.unit.area.assigments">
           <column name="name">bc.ui.report.docx.sale.unit.area.assigments</column>
-          <column name="label">Of Area Assigment</column>
+          <column name="label">Sale Unit Of Area Assigment</column>
           <column name="report">report_sale_unit_area_assigments</column>
           <column name="infile">infile_sale_unit_area_assigments.docx</column>
           <column name="outfile">outfile_sale_unit_area_assigments.docx</column>
         </record>
         <record id="bc.ui.report.docx.sale.unit.region.assigments">
           <column name="name">bc.ui.report.docx.sale.unit.region.assigments</column>
-          <column name="label">Of Region Assigment</column>
+          <column name="label">Sale Unit Of Region Assigment</column>
           <column name="report">report_sale_unit_region_assigments</column>
           <column name="infile">infile_sale_unit_region_assigments.docx</column>
           <column name="outfile">outfile_sale_unit_region_assigments.docx</column>
         </record>
         <record id="bc.ui.report.docx.sale.division.subdivision.assigments">
           <column name="name">bc.ui.report.docx.sale.division.subdivision.assigments</column>
-          <column name="label">Of Subdivision Assigment</column>
+          <column name="label">Sale Division Of Subdivision Assigment</column>
           <column name="report">report_sale_division_subdivision_assigments</column>
           <column name="infile">infile_sale_division_subdivision_assigments.docx</column>
           <column name="outfile">outfile_sale_division_subdivision_assigments.docx</column>
@@ -869,7 +869,7 @@
         </record>
         <record id="bc.ui.report.docx.sale.pricing.group.levels">
           <column name="name">bc.ui.report.docx.sale.pricing.group.levels</column>
-          <column name="label">Group Levels</column>
+          <column name="label">Sale Pricing Group Levels</column>
           <column name="report">report_sale_pricing_group_levels</column>
           <column name="infile">infile_sale_pricing_group_levels.docx</column>
           <column name="outfile">outfile_sale_pricing_group_levels.docx</column>
@@ -883,21 +883,21 @@
         </record>
         <record id="bc.ui.report.docx.sale.schema.texts">
           <column name="name">bc.ui.report.docx.sale.schema.texts</column>
-          <column name="label">Sale Texts</column>
+          <column name="label">Schema Of Sale Texts</column>
           <column name="report">report_sale_schema_texts</column>
           <column name="infile">infile_sale_schema_texts.docx</column>
           <column name="outfile">outfile_sale_schema_texts.docx</column>
         </record>
         <record id="bc.ui.report.docx.sale.order.types">
           <column name="name">bc.ui.report.docx.sale.order.types</column>
-          <column name="label">Order</column>
+          <column name="label">Types Sale Order</column>
           <column name="report">report_sale_order_types</column>
           <column name="infile">infile_sale_order_types.docx</column>
           <column name="outfile">outfile_sale_order_types.docx</column>
         </record>
         <record id="bc.ui.report.docx.sale.invoice.types">
           <column name="name">bc.ui.report.docx.sale.invoice.types</column>
-          <column name="label">Invoice</column>
+          <column name="label">Types Sale Invoice</column>
           <column name="report">report_sale_invoice_types</column>
           <column name="infile">infile_sale_invoice_types.docx</column>
           <column name="outfile">outfile_sale_invoice_types.docx</column>
@@ -1020,7 +1020,7 @@
           <record id="ui.menu.sale.unit.categories.report">
           <column name="sequence">0</column>
             <column name="name">ui.menu.sale.unit.categories.report</column>
-            <column name="label">Unit</column>
+            <column name="label">Categories Sale Unit</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">0</column>
           <column name="action_id">action.sale.unit.categories.report</column>
@@ -1036,7 +1036,7 @@
           <record id="ui.menu.sale.channel.categories.report">
           <column name="sequence">2</column>
             <column name="name">ui.menu.sale.channel.categories.report</column>
-            <column name="label">Chanel</column>
+            <column name="label">Categories Sale Chanel</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">20</column>
           <column name="action_id">action.sale.channel.categories.report</column>
@@ -1052,7 +1052,7 @@
           <record id="ui.menu.sale.segment.categories.report">
           <column name="sequence">4</column>
             <column name="name">ui.menu.sale.segment.categories.report</column>
-            <column name="label">Segment</column>
+            <column name="label">Categories Sale Segment</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">40</column>
           <column name="action_id">action.sale.segment.categories.report</column>
@@ -1068,7 +1068,7 @@
           <record id="ui.menu.sale.area.categories.report">
           <column name="sequence">6</column>
             <column name="name">ui.menu.sale.area.categories.report</column>
-            <column name="label">Area</column>
+            <column name="label">Categories Sale Area</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">60</column>
           <column name="action_id">action.sale.area.categories.report</column>
@@ -1084,7 +1084,7 @@
           <record id="ui.menu.sale.region.categories.report">
           <column name="sequence">8</column>
             <column name="name">ui.menu.sale.region.categories.report</column>
-            <column name="label">Region</column>
+            <column name="label">Categories Sale Region</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">80</column>
           <column name="action_id">action.sale.region.categories.report</column>
@@ -1100,7 +1100,7 @@
           <record id="ui.menu.sale.division.categories.report">
           <column name="sequence">10</column>
             <column name="name">ui.menu.sale.division.categories.report</column>
-            <column name="label">Division</column>
+            <column name="label">Categories Sale Division</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">100</column>
           <column name="action_id">action.sale.division.categories.report</column>
@@ -1116,7 +1116,7 @@
           <record id="ui.menu.sale.subdivision.categories.report">
           <column name="sequence">12</column>
             <column name="name">ui.menu.sale.subdivision.categories.report</column>
-            <column name="label">Subdivision</column>
+            <column name="label">Categories Sale Subdivision</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">120</column>
           <column name="action_id">action.sale.subdivision.categories.report</column>
@@ -1132,7 +1132,7 @@
           <record id="ui.menu.sale.unit.channel.assigments.report">
           <column name="sequence">14</column>
             <column name="name">ui.menu.sale.unit.channel.assigments.report</column>
-            <column name="label">Of Channel Assigment</column>
+            <column name="label">Sale Unit Of Channel Assigment</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">140</column>
           <column name="action_id">action.sale.unit.channel.assigments.report</column>
@@ -1140,7 +1140,7 @@
           <record id="ui.menu.sale.unit.segment.assigments.report">
           <column name="sequence">15</column>
             <column name="name">ui.menu.sale.unit.segment.assigments.report</column>
-            <column name="label">Of Segment Assigment</column>
+            <column name="label">Sale Unit Of Segment Assigment</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">150</column>
           <column name="action_id">action.sale.unit.segment.assigments.report</column>
@@ -1148,7 +1148,7 @@
           <record id="ui.menu.sale.unit.area.assigments.report">
           <column name="sequence">16</column>
             <column name="name">ui.menu.sale.unit.area.assigments.report</column>
-            <column name="label">Of Area Assigment</column>
+            <column name="label">Sale Unit Of Area Assigment</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">160</column>
           <column name="action_id">action.sale.unit.area.assigments.report</column>
@@ -1156,7 +1156,7 @@
           <record id="ui.menu.sale.unit.region.assigments.report">
           <column name="sequence">17</column>
             <column name="name">ui.menu.sale.unit.region.assigments.report</column>
-            <column name="label">Of Region Assigment</column>
+            <column name="label">Sale Unit Of Region Assigment</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">170</column>
           <column name="action_id">action.sale.unit.region.assigments.report</column>
@@ -1164,7 +1164,7 @@
           <record id="ui.menu.sale.division.subdivision.assigments.report">
           <column name="sequence">18</column>
             <column name="name">ui.menu.sale.division.subdivision.assigments.report</column>
-            <column name="label">Of Subdivision Assigment</column>
+            <column name="label">Sale Division Of Subdivision Assigment</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">180</column>
           <column name="action_id">action.sale.division.subdivision.assigments.report</column>
@@ -1188,7 +1188,7 @@
           <record id="ui.menu.sale.pricing.group.levels.report">
           <column name="sequence">21</column>
             <column name="name">ui.menu.sale.pricing.group.levels.report</column>
-            <column name="label">Group Levels</column>
+            <column name="label">Sale Pricing Group Levels</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">210</column>
           <column name="action_id">action.sale.pricing.group.levels.report</column>
@@ -1204,7 +1204,7 @@
           <record id="ui.menu.sale.schema.texts.report">
           <column name="sequence">23</column>
             <column name="name">ui.menu.sale.schema.texts.report</column>
-            <column name="label">Sale Texts</column>
+            <column name="label">Schema Of Sale Texts</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">230</column>
           <column name="action_id">action.sale.schema.texts.report</column>
@@ -1212,7 +1212,7 @@
           <record id="ui.menu.sale.order.types.report">
           <column name="sequence">24</column>
             <column name="name">ui.menu.sale.order.types.report</column>
-            <column name="label">Order</column>
+            <column name="label">Types Sale Order</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">240</column>
           <column name="action_id">action.sale.order.types.report</column>
@@ -1220,7 +1220,7 @@
           <record id="ui.menu.sale.invoice.types.report">
           <column name="sequence">25</column>
             <column name="name">ui.menu.sale.invoice.types.report</column>
-            <column name="label">Invoice</column>
+            <column name="label">Types Sale Invoice</column>
           <column name="parent_id">ui.menu.sale.report.custom</column>
           <column name="sequence">250</column>
           <column name="action_id">action.sale.invoice.types.report</column>

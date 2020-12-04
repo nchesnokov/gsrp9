@@ -3,197 +3,6 @@ from gsrp5service.orm.model import Model,ModelInherit
 
 from decimal import Decimal
 
-#customize
-
-class le_shipping_points(Model):
-	_name = 'le.shipping.points'
-	_description = 'Shipping Points'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'company_id': fields.many2one(label='Company',obj='md.company'),
-	'ptype': fields.selection(label='Usage',selections=[('i','Inbound'),('o','Outbound'),('b','Both')]),
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'places': fields.one2many(label='Loading Place',obj='le.loading.places',rel='point_id'),
-	'note': fields.text(label = 'Note')
-	}
-
-le_shipping_points()
-
-class le_shipping_point_company_inherit(ModelInherit):
-	_name = 'le.shipping.point.company.inherit'
-	_description = 'Genaral Model Inherit For Shipping Point Company'
-	_inherit = {'md.company':{'_columns':['points']}}
-	_columns = {
-		'points': fields.one2many(label='Shipping Points',obj='le.shipping.points',rel='company_id'),
-	}
-	
-le_shipping_point_company_inherit()
-
-class le_loading_places(Model):
-	_name = 'le.loading.places'
-	_description = 'Loading Places'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'point_id': fields.many2one(label='Shiping Point',obj='le.shipping.points'	),
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'note': fields.text(label = 'Note')
-	}
-
-le_loading_places()
-
-class le_md_group_freight_cargo(Model):
-	_name = 'le.md.group.freight.cargo'
-	_description = 'Fleight Cargo Group'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'descr': fields.varchar(label = 'Description',size=64,translate=True),
-	'note': fields.text(label = 'Note')
-	}
-	
-
-le_md_group_freight_cargo()
-
-#Text
-class le_delivery_texts(Model):
-	_name = 'le.delivery.texts'
-	_description = 'Delivery Texts'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	}
-
-le_delivery_texts()
-
-class le_delivery_schema_texts(Model):
-	_name = 'le.delivery.schema.texts'
-	_description = 'Schema Of Delivery Texts'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'usage': fields.selection(label='Usage',selections=[('h','Header'),('i','Item'),('b','Both')]),
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	'texts': fields.one2many(label='Texts',obj='le.delivery.schema.text.items',rel='schema_id')
-	}
-	
-	_default = {
-		'usage':'b'
-	}
-
-le_delivery_schema_texts()
-
-class le_delivery_schema_text_items(Model):
-	_name = 'le.delivery.schema.text.items'
-	_description = 'Items Of Schema Delivery Texts'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'schema_id': fields.many2one(label = 'Schema',obj='le.delivery.schema.texts'),
-	'text_id': fields.many2one(label = 'Text',obj='le.delivery.texts'),
-	'descr': fields.referenced(ref='text_id.descr')
-	}
-
-le_delivery_schema_text_items()
-
-# Text end
-
-class le_inbound_delivery_types(Model):
-	_name = 'le.inbound.delivery.types'
-	_description = 'Types Inbound Delivery'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'htschema': fields.many2one(label='Text Schema Of Head',obj='le.delivery.schema.texts',domain=[('usage','in',('h','b'))]),
-	'itschema': fields.many2one(label='Text Schema Of Item',obj='le.delivery.schema.texts',domain=[('usage','in',('i','b'))]),
-	'roles': fields.one2many(label='Roles',obj='le.inbound.delivery.type.roles',rel='type_id'),
-	'required': fields.boolean(label='Required'),
-	'note': fields.text(label = 'Note')
-	}
-
-le_inbound_delivery_types()
-
-class le_inbound_delivery_type_roles(Model):
-	_name = 'le.inbound.delivery.type.roles'
-	_description = 'Role Inbound Delivery Types'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'type_id': fields.many2one(label = 'Type',obj='le.inbound.delivery.types', on_delete='c'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
-	'note': fields.text(label = 'Note')
-	}
-
-le_inbound_delivery_type_roles()
-
-class le_outbound_delivery_types(Model):
-	_name = 'le.outbound.delivery.types'
-	_description = 'Types Outbound Delivery'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'htschema': fields.many2one(label='Text Schema Of Head',obj='le.delivery.schema.texts',domain=[('usage','in',('h','b'))]),
-	'itschema': fields.many2one(label='Text Schema Of Item',obj='le.delivery.schema.texts',domain=[('usage','in',('i','b'))]),
-	'roles': fields.one2many(label='Roles',obj='le.outbound.delivery.type.roles',rel='type_id'),
-	'required': fields.boolean(label='Required'),
-	'note': fields.text(label = 'Note')
-	}
-
-le_outbound_delivery_types()
-
-class le_outbound_delivery_type_roles(Model):
-	_name = 'le.outbound.delivery.type.roles'
-	_description = 'Role Outbound Delivery Types'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'type_id': fields.many2one(label = 'Type',obj='le.outbound.delivery.types', on_delete='c'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','a'))]),
-	'note': fields.text(label = 'Note')
-	}
-
-le_outbound_delivery_type_roles()
-
-class le_internal_delivery_types(Model):
-	_name = 'le.internal.delivery.types'
-	_description = 'Types Internal Delivery'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'htschema': fields.many2one(label='Text Schema Of Head',obj='le.delivery.schema.texts',domain=[('usage','in',('h','b'))]),
-	'itschema': fields.many2one(label='Text Schema Of Item',obj='le.delivery.schema.texts',domain=[('usage','in',('i','b'))]),
-	'roles': fields.one2many(label='Roles',obj='le.internal.delivery.type.roles',rel='type_id'),
-	'required': fields.boolean(label='Required'),
-	'note': fields.text(label = 'Note')
-	}
-
-le_internal_delivery_types()
-
-class le_internal_delivery_type_roles(Model):
-	_name = 'le.internal.delivery.type.roles'
-	_description = 'Role Internal Delivery Types'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'type_id': fields.many2one(label = 'Type',obj='le.internal.delivery.types', on_delete='c'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('i','a'))]),
-	'note': fields.text(label = 'Note')
-	}
-
-le_outbound_delivery_type_roles()
-
-# end customize
-
 
 class md_pack_product(Model):
 	_name = 'md.pack.product'
@@ -223,44 +32,6 @@ class md_pack_product_inherit(ModelInherit):
 	
 md_pack_product_inherit()
 
-class le_inbound_delivery_category(Model):
-	_name = 'le.inbound.delivery.category'
-	_description = 'Category Inbound Delivery'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='le.inbound.delivery.category'),
-	'childs_id': fields.one2many(obj = 'le.inbound.delivery.category',rel = 'parent_id',label = 'Childs'),
-	'deliveries': fields.one2many(label='Deliveries',obj='le.inbound.delivery',rel='category_id',limit = 80),
-	'note': fields.text(label = 'Note')
-	}
-
-le_inbound_delivery_category()
-
-class le_outbound_delivery_category(Model):
-	_name = 'le.outbound.delivery.category'
-	_description = 'Category Outbound Delivery'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='le.outbound.delivery.category'),
-	'childs_id': fields.one2many(obj = 'le.outbound.delivery.category',rel = 'parent_id',label = 'Childs'),
-	'deliveries': fields.one2many(label='Deliveries',obj='le.outbound.delivery',rel='category_id',limit = 80),
-	'note': fields.text(label = 'Note')
-	}
-
-le_outbound_delivery_category()
-
-class le_internal_delivery_category(Model):
-	_name = 'le.internal.delivery.category'
-	_description = 'Category Internal Delivery'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='le.internal.delivery.category'),
-	'childs_id': fields.one2many(obj = 'le.internal.delivery.category',rel = 'parent_id',label = 'Childs'),
-	'deliveries': fields.one2many(label='Deliveries',obj='le.internal.delivery',rel='category_id',limit = 80),
-	'note': fields.text(label = 'Note')
-	}
-
-le_internal_delivery_category()
 # Inbound Delivery
 class le_inbound_delivery(Model):
 	_name = 'le.inbound.delivery'
@@ -268,7 +39,7 @@ class le_inbound_delivery(Model):
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'dod'
 	_columns = {
-	'dtype': fields.many2one(label='Type',required = True,obj='le.inbound.delivery.types',on_change='on_change_dtype'),
+	'dtype': fields.many2one(label='Type',required = True,obj='le.inbound.delivery.types',on_change='_on_change_dtype'),
 	'company_id': fields.many2one(label='Company',obj='md.company'),
 	'point_id': fields.related(label='Shipping Point',obj='le.shipping.points',relatedy=['company_id'],domain=[('ptype','in',('i','b'))]),
 	'place_id': fields.related(label='Loading Place',obj='le.loading.places',relatedy=['point_id']),
@@ -284,19 +55,35 @@ class le_inbound_delivery(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
+	#'pricing': fields.one2many(label='Pricing',obj='le.inbound.delivery.pricing',rel='order_id'),
 	'items': fields.one2many(label='Items',obj='le.inbound.delivery.items',rel='delivery_id'),
 	'roles': fields.one2many(label='Roles',obj='le.inbound.delivery.roles',rel='delivery_id'),
 	'texts': fields.one2many(label='Texts',obj='le.inbound.delivery.texts',rel='delivery_id'),
+	#'payments': fields.one2many(label='Payments',obj='le.inbound.delivery.payment.schedules',rel='delivery_id'),
+	#'plates': fields.one2many(label='Plates',obj='le.inbound.delivery.output.plates',rel='delivery_id'),
 	'note': fields.text('Note')
 	}
 
-	def _on_change_dtype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('le.inbound.delivery.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['dtype'])],context)
-			if len(roles) > 0:
-				if 'roles' not in item:
-					item['roles'] = []
-				for role in roles:
-					item[roles].append[role['role_id']]
+	def _on_change_dtype(self,item,context={}):		
+		roles = self._pool.get('le.inbound.delivery.type.roles').select( ['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		for role in roles:
+			item_role = self._pool.get('le.inbound.delivery.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = self._pool.get('le.inbound.delivery.types').select( ['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('le.delivery.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = self._pool.get('le.inbound.delivery.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 	_default = {
 		'state':'draft'
@@ -332,6 +119,35 @@ class le_inbound_delivery_roles(Model):
 
 le_inbound_delivery_roles()
 
+class le_inbound_delivery_pricing(Model):
+	_name = 'le.inbound.delivery.pricing'
+	_description = 'Inbound Delivery Pricing'
+	_columns = {
+	'delivery_id': fields.many2one(label = 'Delivery',obj='le.inbound.delivery'),
+	'level': fields.integer(label = 'Level'),
+	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','s')],required=True),
+	'from_level': fields.integer(label = 'From Level'),
+	'to_level': fields.integer(label = 'To Level'),
+	'group_level': fields.many2one(label = 'Group Level',obj='le.pricing.group.levels'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
+	}
+
+le_inbound_delivery_pricing()
+
+class le_inbound_delivery_payment_schedules(Model):
+	_name = 'le.inbound.delivery.payment.schedules'
+	_description = 'Inbound Delivery Payment Schedules'
+	_columns = {
+	'delivery_id': fields.many2one(label = 'Delivery',obj='le.inbound.delivery'),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+
+le_inbound_delivery_payment_schedules()
+
 class le_inbound_delivery_items(Model):
 	_name = 'le.inbound.delivery.items'
 	_description = 'Inbound Delivery Items'
@@ -351,11 +167,12 @@ class le_inbound_delivery_items(Model):
 	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
 	'packlist': fields.one2many(label='Pack List',obj='le.inbound.delivery.packlist',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='le.inbound.delivery.item.texts',rel='item_id'),
+	#'plates': fields.one2many(label='Plates',obj='le.inbound.delivery.item.output.plates',rel='item_id'),
 	'note': fields.text(label = 'Note')
 	}
 
-	def _calculate_items(self,cr,pool,uid,item,context={}):		
-		if item['quantity']:
+	def _calculate_items(self,item,context={}):		
+		if item['quantity'] and item['price'] and item['unit']:
 			item['amount'] = item['quantity'] * item['price'] / item['unit'] 
 		
 		if 'amount' in item and item['amount'] and 'vat_code' in item and item['vat_code']:
@@ -364,7 +181,7 @@ class le_inbound_delivery_items(Model):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = pool.get('md.vat.code').read(cr,pool,uid,ids,['value','subtype_vat'],context)[0]
+				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -380,9 +197,9 @@ class le_inbound_delivery_items(Model):
 
 		return None
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.purchase.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -399,6 +216,28 @@ class le_inbound_delivery_items(Model):
 
 le_inbound_delivery_items()
 
+class le_inbound_delivery_output_plates(Model):
+	_name = 'le.inbound.delivery.output.plates'
+	_description = 'Inbound Delivery Output Plates'
+	_columns = {
+	'delivery_id': fields.many2one(label = 'Delivery',obj='le.inbound.delivery'),
+	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
+	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
+	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+le_inbound_delivery_output_plates()
+
+
 class le_inbound_delivery_item_texts(Model):
 	_name = 'le.inbound.delivery.item.texts'
 	_description = 'Inbound Delivery Texts'
@@ -414,7 +253,28 @@ class le_inbound_delivery_item_texts(Model):
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
-le_inbound_delivery_texts()
+le_inbound_delivery_item_texts()
+
+class le_inbound_delivery_item_output_plates(Model):
+	_name = 'le.inbound.delivery.item.output.plates'
+	_description = 'Inbound Delivery Item Output Plates'
+	_columns = {
+	'item_id': fields.many2one(label = 'Item',obj='le.inbound.delivery.items'),
+	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
+	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
+	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+le_inbound_delivery_item_output_plates()
 
 
 
@@ -437,7 +297,7 @@ class le_inbound_delivery_packlist(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _calculate_items(self,cr,pool,uid,item,context={}):		
+	def _calculate_items(self,item,context={}):		
 		if item['quantity']:
 			item['amount'] = item['quantity'] * item['price'] / item['unit'] 
 		
@@ -447,7 +307,7 @@ class le_inbound_delivery_packlist(Model):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = pool.get('md.vat.code').read(cr,pool,uid,ids,['value','subtype_vat'],context)[0]
+				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -463,9 +323,9 @@ class le_inbound_delivery_packlist(Model):
 
 		return None
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.purchase.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -489,7 +349,7 @@ class le_outbound_delivery(Model):
 	_date = 'dod'
 	_columns = {
 
-	'dtype': fields.many2one(label='Type',required = True,obj='le.inbound.delivery.types',on_change='on_change_dtype'),
+	'dtype': fields.many2one(label='Type',required = True,obj='le.inbound.delivery.types',on_change='_on_change_dtype'),
 	'company_id': fields.many2one(label='Company',obj='md.company'),
 	'point_id': fields.related(label='Shipping Point',obj='le.shipping.points',relatedy=['company_id'],domain=[('ptype','in',('o','b'))]),
 	'place_id': fields.related(label='Loading Place',obj='le.loading.places',relatedy=['point_id'],domain=[('ptype','in',('o','b'))]),
@@ -515,17 +375,30 @@ class le_outbound_delivery(Model):
 	'note': fields.text('Note')
 	}
 
-	def _itrade_ivisible(self,cr,pool,uid,item,context={}):
-		we_country = pool.get('md.patner').select(cr,pool,uid,['country_id'],[(pool.get('md.partner')._getRecNameName(),'=',item['partner']['name'])],context)[0]['country_id']['name']
-		return pool.get('md.company').count(cr,pool,uid,[(pool.get('md.company')._getRecNameName(),'=',item['company_id']['name']),('country_id','=',we_country)],context) > 0
+	def _itrade_ivisible(self,item,context={}):
+		we_country = self._pool.get('md.patner').select(['country_id'],[(self._pool.get('md.partner')._getRecNameName(),'=',item['partner']['name'])],context)[0]['country_id']['name']
+		return self._pool.get('md.company').count([(self._pool.get('md.company')._getRecNameName(),'=',item['company_id']['name']),('country_id','=',we_country)],context) > 0
 	
-	def _on_change_dtype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('le.outbound.delivery.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['dtype'])],context)
-			if len(roles) > 0:
-				if 'roles' not in item:
-					item['roles'] = []
-				for role in roles:
-					item[roles].append[role['role_id']]
+	def _on_change_dtype(self,item,context={}):		
+		roles = self._pool.get('le.outbound.delivery.type.roles').select( ['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		for role in roles:
+			item_role = self._pool.get('le.outbound.delivery.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = self._pool.get('le.outbound.delivery.types').select( ['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('le.delivery.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = self._pool.get('le.outbound.delivery.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 	_default = {
 		'state':'draft'
@@ -583,8 +456,8 @@ class le_outbound_delivery_items(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _calculate_items(self,cr,pool,uid,item,context={}):		
-		if item['quantity']:
+	def _calculate_items(self,item,context={}):		
+		if item['quantity'] and item['price'] and item['unit']:
 			item['amount'] = item['quantity'] * item['price'] / item['unit'] 
 		
 		if 'amount' in item and item['amount'] and 'vat_code' in item and item['vat_code']:
@@ -593,7 +466,7 @@ class le_outbound_delivery_items(Model):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = pool.get('md.vat.code').read(cr,pool,uid,ids,['value','subtype_vat'],context)[0]
+				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -609,9 +482,9 @@ class le_outbound_delivery_items(Model):
 
 		return None
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.sale.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.sale.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -664,7 +537,7 @@ class le_outbound_delivery_packlist(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _calculate_items(self,cr,pool,uid,item,context={}):		
+	def _calculate_items(self,item,context={}):		
 		if item['quantity']:
 			item['amount'] = item['quantity'] * item['price'] / item['unit'] 
 		
@@ -674,7 +547,7 @@ class le_outbound_delivery_packlist(Model):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = pool.get('md.vat.code').read(cr,pool,uid,ids,['value','subtype_vat'],context)[0]
+				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -690,9 +563,9 @@ class le_outbound_delivery_packlist(Model):
 
 		return None
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.purchase.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -716,7 +589,7 @@ class le_internal_delivery(Model):
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_date = 'dod'
 	_columns = {
-	'dtype': fields.many2one(label='Type',required = True,obj='le.internal.delivery.types',on_change='on_change_dtype'),
+	'dtype': fields.many2one(label='Type',required = True,obj='le.internal.delivery.types',on_change='_on_change_dtype'),
 	'company_id': fields.many2one(label='Company',obj='md.company'),
 	'point_id': fields.related(label='Shipping Point',obj='le.shipping.points',relatedy=['company_id'],domain=[('ptype','in',('i','b'))]),
 	'place_id': fields.related(label='Loading Place',obj='le.loading.places',relatedy=['point_id'],domain=[('ptype','in',('i','b'))]),
@@ -738,13 +611,26 @@ class le_internal_delivery(Model):
 	'note': fields.text('Note')
 	}
 
-	def _on_change_dtype(self,cr,pool,uid,item,context={}):		
-			roles = pool.get('le.internal.delivery.type.roles').select(cr,pool.uid,['role_id'],[('type_id','=',item['dtype'])],context)
-			if len(roles) > 0:
-				if 'roles' not in item:
-					item['roles'] = []
-				for role in roles:
-					item[roles].append[role['role_id']]
+	def _on_change_dtype(self,item,context={}):		
+		roles = self._pool.get('le.internal.delivery.type.roles').select( ['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		for role in roles:
+			item_role = self._pool.get('le.internal.delivery.roles')._buildEmptyItem()
+			item_role['role_id'] = role['role_id']
+			item['roles'].append(item_role)
+		
+		types = self._pool.get('le.internal.delivery.types').select( ['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('le.delivery.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		texts = texts1[0]['texts']
+		seq = 0
+		for text in texts:
+			item_text = self._pool.get('le.internal.delivery.texts')._buildEmptyItem()
+			if text['seq']:
+				item_text['seq'] = text['seq']
+			else:
+				item_text['seq'] = seq
+				seq += 10
+			item_text['text_id'] = text['text_id']
+			item['texts'].append(item_text)
 
 	_default = {
 		'state':'draft'
@@ -754,7 +640,7 @@ le_internal_delivery()
 
 class le_internal_delivery_texts(Model):
 	_name = 'le.internal.delivery.texts'
-	_description = 'Inbound Delivery Texts'
+	_description = 'Internal Delivery Texts'
 	_class_model = 'C'
 	_class_category = 'delivery'
 	_order_by = "seq asc"
@@ -803,8 +689,8 @@ class le_internal_delivery_items(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _calculate_items(self,cr,pool,uid,item,context={}):		
-		if item['quantity']:
+	def _calculate_items(self,item,context={}):		
+		if item['quantity'] and item['price'] and item['unit']:
 			item['amount'] = item['quantity'] * item['price'] / item['unit'] 
 		
 		if 'amount' in item and item['amount'] and 'vat_code' in item and item['vat_code']:
@@ -813,7 +699,7 @@ class le_internal_delivery_items(Model):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = pool.get('md.vat.code').read(cr,pool,uid,ids,['value','subtype_vat'],context)[0]
+				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -829,9 +715,9 @@ class le_internal_delivery_items(Model):
 
 		return None
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.purchase.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -885,7 +771,7 @@ class le_internal_delivery_packlist(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _calculate_items(self,cr,pool,uid,item,context={}):		
+	def _calculate_items(self,item,context={}):		
 		if item['quantity']:
 			item['amount'] = item['quantity'] * item['price'] / item['unit'] 
 		
@@ -895,7 +781,7 @@ class le_internal_delivery_packlist(Model):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = pool.get('md.vat.code').read(cr,pool,uid,ids,['value','subtype_vat'],context)[0]
+				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -911,9 +797,9 @@ class le_internal_delivery_packlist(Model):
 
 		return None
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.purchase.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				

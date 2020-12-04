@@ -60,24 +60,44 @@
           <column name="note">Model st.stock grant crw</column>
           <column name="group_id">stock.crw</column>
         </record>
-        <record id="st.products.readonly">
-          <column name="name">st.products.readonly</column>
-          <column name="note">Model st.products grant readonly</column>
+        <record id="st.company.product.quantites.readonly">
+          <column name="name">st.company.product.quantites.readonly</column>
+          <column name="note">Model st.company.product.quantites grant readonly</column>
           <column name="group_id">stock.readonly</column>
         </record>
-        <record id="st.products.nodrop">
-          <column name="name">st.products.nodrop</column>
-          <column name="note">Model st.products grant nodrop</column>
+        <record id="st.company.product.quantites.nodrop">
+          <column name="name">st.company.product.quantites.nodrop</column>
+          <column name="note">Model st.company.product.quantites grant nodrop</column>
           <column name="group_id">stock.nodrop</column>
         </record>
-        <record id="st.products.full">
-          <column name="name">st.products.full</column>
-          <column name="note">Model st.products grant full</column>
+        <record id="st.company.product.quantites.full">
+          <column name="name">st.company.product.quantites.full</column>
+          <column name="note">Model st.company.product.quantites grant full</column>
           <column name="group_id">stock.full</column>
         </record>
-        <record id="st.products.crw">
-          <column name="name">st.products.crw</column>
-          <column name="note">Model st.products grant crw</column>
+        <record id="st.company.product.quantites.crw">
+          <column name="name">st.company.product.quantites.crw</column>
+          <column name="note">Model st.company.product.quantites grant crw</column>
+          <column name="group_id">stock.crw</column>
+        </record>
+        <record id="st.stock.product.quantites.readonly">
+          <column name="name">st.stock.product.quantites.readonly</column>
+          <column name="note">Model st.stock.product.quantites grant readonly</column>
+          <column name="group_id">stock.readonly</column>
+        </record>
+        <record id="st.stock.product.quantites.nodrop">
+          <column name="name">st.stock.product.quantites.nodrop</column>
+          <column name="note">Model st.stock.product.quantites grant nodrop</column>
+          <column name="group_id">stock.nodrop</column>
+        </record>
+        <record id="st.stock.product.quantites.full">
+          <column name="name">st.stock.product.quantites.full</column>
+          <column name="note">Model st.stock.product.quantites grant full</column>
+          <column name="group_id">stock.full</column>
+        </record>
+        <record id="st.stock.product.quantites.crw">
+          <column name="name">st.stock.product.quantites.crw</column>
+          <column name="note">Model st.stock.product.quantites grant crw</column>
           <column name="group_id">stock.crw</column>
         </record>
         <record id="md.stock.product.readonly">
@@ -202,15 +222,15 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="stock.st.products.readonly">
-          <column name="access_id">st.products.readonly</column>
-          <column name="model_id">st.products</column>
+        <record id="stock.st.company.product.quantites.readonly">
+          <column name="access_id">st.company.product.quantites.readonly</column>
+          <column name="model_id">st.company.product.quantites</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
         </record>
-        <record id="stock.st.products.nodrop">
-          <column name="access_id">st.products.nodrop</column>
-          <column name="model_id">st.products</column>
+        <record id="stock.st.company.product.quantites.nodrop">
+          <column name="access_id">st.company.product.quantites.nodrop</column>
+          <column name="model_id">st.company.product.quantites</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -222,9 +242,9 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="stock.st.products.full">
-          <column name="access_id">st.products.full</column>
-          <column name="model_id">st.products</column>
+        <record id="stock.st.company.product.quantites.full">
+          <column name="access_id">st.company.product.quantites.full</column>
+          <column name="model_id">st.company.product.quantites</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
@@ -238,9 +258,59 @@
           <column name="abrowse">True</column>
           <column name="aselectbrowse">True</column>
         </record>
-        <record id="stock.st.products.crw">
-          <column name="access_id">st.products.crw</column>
-          <column name="model_id">st.products</column>
+        <record id="stock.st.company.product.quantites.crw">
+          <column name="access_id">st.company.product.quantites.crw</column>
+          <column name="model_id">st.company.product.quantites</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="stock.st.stock.product.quantites.readonly">
+          <column name="access_id">st.stock.product.quantites.readonly</column>
+          <column name="model_id">st.stock.product.quantites</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+        </record>
+        <record id="stock.st.stock.product.quantites.nodrop">
+          <column name="access_id">st.stock.product.quantites.nodrop</column>
+          <column name="model_id">st.stock.product.quantites</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="stock.st.stock.product.quantites.full">
+          <column name="access_id">st.stock.product.quantites.full</column>
+          <column name="model_id">st.stock.product.quantites</column>
+          <column name="aread">True</column>
+          <column name="aselect">True</column>
+          <column name="acreate">True</column>
+          <column name="ainsert">True</column>
+          <column name="awrite">True</column>
+          <column name="aupdate">True</column>
+          <column name="amodify">True</column>
+          <column name="aupsert">True</column>
+          <column name="aunlink">True</column>
+          <column name="adelete">True</column>
+          <column name="abrowse">True</column>
+          <column name="aselectbrowse">True</column>
+        </record>
+        <record id="stock.st.stock.product.quantites.crw">
+          <column name="access_id">st.stock.product.quantites.crw</column>
+          <column name="model_id">st.stock.product.quantites</column>
           <column name="aread">True</column>
           <column name="aselect">True</column>
           <column name="acreate">True</column>
