@@ -2,1228 +2,1885 @@
   <gsrp>
     <data>
       <records model="bc.ui.menus">
-        <record id="ui.menu.purchase">
-          <column name="name">ui.menu.purchase</column>
+        <record id="ui.menu.module.purchase">
+          <column name="name">ui.menu.module.purchase</column>
           <column name="label">Purchase Managament</column>
         </record>
       </records>
       <records model="bc.actions">
-        <record id="action.purchase.orders.search">
-          <column name="name">action.purchase.orders.search</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.orders.calendar">
+          <column name="name">action.purchase.models.purchase.orders.calendar</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.invoices.search">
-          <column name="name">action.purchase.invoices.search</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.orders.schedule">
+          <column name="name">action.purchase.models.purchase.orders.schedule</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.actions">
-        <record id="action.purchase.orders.report">
-          <column name="name">action.purchase.orders.report</column>
-          <column name="ta">Report</column>
+        <record id="action.purchase.models.purchase.orders.form">
+          <column name="name">action.purchase.models.purchase.orders.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.invoices.report">
-          <column name="name">action.purchase.invoices.report</column>
-          <column name="ta">Report</column>
+        <record id="action.purchase.models.purchase.orders.graph">
+          <column name="name">action.purchase.models.purchase.orders.graph</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.view.actions">
-        <record id="view.action.purchase.orders.search">
-          <column name="action_id">action.purchase.orders.search</column>
-          <column name="view_id">view.purchase.orders.search</column>
+        <record id="action.purchase.models.purchase.orders.kanban">
+          <column name="name">action.purchase.models.purchase.orders.kanban</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.invoices.search">
-          <column name="action_id">action.purchase.invoices.search</column>
-          <column name="view_id">view.purchase.invoices.search</column>
+        <record id="action.purchase.models.purchase.orders.list">
+          <column name="name">action.purchase.models.purchase.orders.list</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.ui.reports">
-        <record id="bc.ui.report.docx.purchase.orders">
-          <column name="name">bc.ui.report.docx.purchase.orders</column>
-          <column name="label">Purchase Order</column>
-          <column name="report">report_purchase_orders</column>
-          <column name="infile">infile_purchase_orders.docx</column>
-          <column name="outfile">outfile_purchase_orders.docx</column>
+        <record id="action.purchase.models.purchase.orders.m2mlist">
+          <column name="name">action.purchase.models.purchase.orders.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="bc.ui.report.docx.purchase.invoices">
-          <column name="name">bc.ui.report.docx.purchase.invoices</column>
-          <column name="label">Purchase Invoice</column>
-          <column name="report">report_purchase_invoices</column>
-          <column name="infile">infile_purchase_invoices.docx</column>
-          <column name="outfile">outfile_purchase_invoices.docx</column>
+        <record id="action.purchase.models.purchase.orders.mdx">
+          <column name="name">action.purchase.models.purchase.orders.mdx</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.report.actions">
-        <record id="report.action.purchase.orders.report">
-          <column name="action_id">action.purchase.orders.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.orders</column>
+        <record id="action.purchase.models.purchase.orders.search">
+          <column name="name">action.purchase.models.purchase.orders.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="report.action.purchase.invoices.report">
-          <column name="action_id">action.purchase.invoices.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.invoices</column>
+        <record id="action.purchase.models.purchase.orders.find">
+          <column name="name">action.purchase.models.purchase.orders.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoices.calendar">
+          <column name="name">action.purchase.models.purchase.invoices.calendar</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoices.form">
+          <column name="name">action.purchase.models.purchase.invoices.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoices.graph">
+          <column name="name">action.purchase.models.purchase.invoices.graph</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoices.kanban">
+          <column name="name">action.purchase.models.purchase.invoices.kanban</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoices.list">
+          <column name="name">action.purchase.models.purchase.invoices.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoices.m2mlist">
+          <column name="name">action.purchase.models.purchase.invoices.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoices.mdx">
+          <column name="name">action.purchase.models.purchase.invoices.mdx</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoices.search">
+          <column name="name">action.purchase.models.purchase.invoices.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoices.find">
+          <column name="name">action.purchase.models.purchase.invoices.find</column>
+          <column name="ta">Model</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.purchase.orders.search">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.purchase.orders.search</column>
+        <record id="ui.menu.module.purchase.models">
+          <column name="name">ui.menu.module.purchase.models</column>
+          <column name="label">Models</column>
+        <column name="parent_id">ui.menu.module.purchase</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.models.purchase.orders.calendar">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.orders.calendar</column>
             <column name="label">Purchase Order</column>
-          <column name="parent_id">ui.menu.purchase</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.purchase.orders.search</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.orders.calendar</column>
           </record>
-          <record id="ui.menu.purchase.invoices.search">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.purchase.invoices.search</column>
-            <column name="label">Purchase Invoice</column>
-          <column name="parent_id">ui.menu.purchase</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.purchase.invoices.search</column>
-          </record>
-      </records>
-      <records model="bc.ui.menus">
-        <record id="ui.menu.purchase.report">
-          <column name="name">ui.menu.purchase.report</column>
-          <column name="label">Reports</column>
-        <column name="parent_id">ui.menu.purchase</column>
-        </record>
-      </records>
-      <records model="bc.ui.menus">
-          <record id="ui.menu.purchase.orders.report">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.purchase.orders.report</column>
+          <record id="ui.menu.models.purchase.orders.schedule">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.orders.schedule</column>
             <column name="label">Purchase Order</column>
-          <column name="parent_id">ui.menu.purchase.report</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.purchase.orders.report</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.orders.schedule</column>
           </record>
-          <record id="ui.menu.purchase.invoices.report">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.purchase.invoices.report</column>
+          <record id="ui.menu.models.purchase.orders.form">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.orders.form</column>
+            <column name="label">Purchase Order</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.orders.form</column>
+          </record>
+          <record id="ui.menu.models.purchase.orders.graph">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.orders.graph</column>
+            <column name="label">Purchase Order</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.orders.graph</column>
+          </record>
+          <record id="ui.menu.models.purchase.orders.kanban">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.orders.kanban</column>
+            <column name="label">Purchase Order</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.orders.kanban</column>
+          </record>
+          <record id="ui.menu.models.purchase.orders.list">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.orders.list</column>
+            <column name="label">Purchase Order</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.orders.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.orders.m2mlist">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.orders.m2mlist</column>
+            <column name="label">Purchase Order</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.orders.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.orders.mdx">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.orders.mdx</column>
+            <column name="label">Purchase Order</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.orders.mdx</column>
+          </record>
+          <record id="ui.menu.models.purchase.orders.search">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.orders.search</column>
+            <column name="label">Purchase Order</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.orders.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.orders.find">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.orders.find</column>
+            <column name="label">Purchase Order</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.orders.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoices.calendar">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.invoices.calendar</column>
             <column name="label">Purchase Invoice</column>
-          <column name="parent_id">ui.menu.purchase.report</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.purchase.invoices.report</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoices.calendar</column>
           </record>
+          <record id="ui.menu.models.purchase.invoices.form">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.invoices.form</column>
+            <column name="label">Purchase Invoice</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoices.form</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoices.graph">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.invoices.graph</column>
+            <column name="label">Purchase Invoice</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoices.graph</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoices.kanban">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.invoices.kanban</column>
+            <column name="label">Purchase Invoice</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoices.kanban</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoices.list">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.invoices.list</column>
+            <column name="label">Purchase Invoice</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoices.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoices.m2mlist">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.invoices.m2mlist</column>
+            <column name="label">Purchase Invoice</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoices.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoices.mdx">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.invoices.mdx</column>
+            <column name="label">Purchase Invoice</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoices.mdx</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoices.search">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.invoices.search</column>
+            <column name="label">Purchase Invoice</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoices.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoices.find">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.invoices.find</column>
+            <column name="label">Purchase Invoice</column>
+            <column name="parent_id">ui.menu.module.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoices.find</column>
+          </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.customize.purchase">
+          <column name="name">ui.menu.customize.purchase</column>
+          <column name="label">Purchase Managament</column>
+        </record>
       </records>
       <records model="bc.actions">
-        <record id="action.purchase.unit.categories.custom">
-          <column name="name">action.purchase.unit.categories.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.unit.categories.form">
+          <column name="name">action.purchase.models.purchase.unit.categories.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.units.custom">
-          <column name="name">action.purchase.units.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.unit.categories.list">
+          <column name="name">action.purchase.models.purchase.unit.categories.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.channel.categories.custom">
-          <column name="name">action.purchase.channel.categories.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.unit.categories.m2mlist">
+          <column name="name">action.purchase.models.purchase.unit.categories.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.channels.custom">
-          <column name="name">action.purchase.channels.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.unit.categories.search">
+          <column name="name">action.purchase.models.purchase.unit.categories.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.segment.categories.custom">
-          <column name="name">action.purchase.segment.categories.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.unit.categories.find">
+          <column name="name">action.purchase.models.purchase.unit.categories.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.segments.custom">
-          <column name="name">action.purchase.segments.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.unit.categories.tree">
+          <column name="name">action.purchase.models.purchase.unit.categories.tree</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.area.categories.custom">
-          <column name="name">action.purchase.area.categories.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.units.form">
+          <column name="name">action.purchase.models.purchase.units.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.areas.custom">
-          <column name="name">action.purchase.areas.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.units.list">
+          <column name="name">action.purchase.models.purchase.units.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.region.categories.custom">
-          <column name="name">action.purchase.region.categories.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.units.m2mlist">
+          <column name="name">action.purchase.models.purchase.units.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.regions.custom">
-          <column name="name">action.purchase.regions.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.units.search">
+          <column name="name">action.purchase.models.purchase.units.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.division.categories.custom">
-          <column name="name">action.purchase.division.categories.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.units.find">
+          <column name="name">action.purchase.models.purchase.units.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.divisions.custom">
-          <column name="name">action.purchase.divisions.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.channel.categories.form">
+          <column name="name">action.purchase.models.purchase.channel.categories.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.subdivision.categories.custom">
-          <column name="name">action.purchase.subdivision.categories.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.channel.categories.list">
+          <column name="name">action.purchase.models.purchase.channel.categories.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.subdivisions.custom">
-          <column name="name">action.purchase.subdivisions.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.channel.categories.m2mlist">
+          <column name="name">action.purchase.models.purchase.channel.categories.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.unit.channel.assigments.custom">
-          <column name="name">action.purchase.unit.channel.assigments.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.channel.categories.search">
+          <column name="name">action.purchase.models.purchase.channel.categories.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.unit.segment.assigments.custom">
-          <column name="name">action.purchase.unit.segment.assigments.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.channel.categories.find">
+          <column name="name">action.purchase.models.purchase.channel.categories.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.unit.area.assigments.custom">
-          <column name="name">action.purchase.unit.area.assigments.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.channel.categories.tree">
+          <column name="name">action.purchase.models.purchase.channel.categories.tree</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.unit.region.assigments.custom">
-          <column name="name">action.purchase.unit.region.assigments.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.channels.form">
+          <column name="name">action.purchase.models.purchase.channels.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.division.subdivision.assigments.custom">
-          <column name="name">action.purchase.division.subdivision.assigments.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.channels.list">
+          <column name="name">action.purchase.models.purchase.channels.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.markets.custom">
-          <column name="name">action.purchase.markets.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.channels.m2mlist">
+          <column name="name">action.purchase.models.purchase.channels.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.teams.custom">
-          <column name="name">action.purchase.teams.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.channels.search">
+          <column name="name">action.purchase.models.purchase.channels.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.pricing.group.levels.custom">
-          <column name="name">action.purchase.pricing.group.levels.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.channels.find">
+          <column name="name">action.purchase.models.purchase.channels.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.texts.custom">
-          <column name="name">action.purchase.texts.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.segment.categories.form">
+          <column name="name">action.purchase.models.purchase.segment.categories.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.schema.texts.custom">
-          <column name="name">action.purchase.schema.texts.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.segment.categories.list">
+          <column name="name">action.purchase.models.purchase.segment.categories.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.order.types.custom">
-          <column name="name">action.purchase.order.types.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.segment.categories.m2mlist">
+          <column name="name">action.purchase.models.purchase.segment.categories.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.invoice.types.custom">
-          <column name="name">action.purchase.invoice.types.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.segment.categories.search">
+          <column name="name">action.purchase.models.purchase.segment.categories.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.order.categories.custom">
-          <column name="name">action.purchase.order.categories.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.segment.categories.find">
+          <column name="name">action.purchase.models.purchase.segment.categories.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.purchase.invoce.categories.custom">
-          <column name="name">action.purchase.invoce.categories.custom</column>
-          <column name="ta">View</column>
+        <record id="action.purchase.models.purchase.segment.categories.tree">
+          <column name="name">action.purchase.models.purchase.segment.categories.tree</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.view.actions">
-        <record id="view.action.purchase.unit.categories.custom">
-          <column name="action_id">action.purchase.unit.categories.custom</column>
-          <column name="view_id">view.purchase.unit.categories.search</column>
+        <record id="action.purchase.models.purchase.segments.form">
+          <column name="name">action.purchase.models.purchase.segments.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.units.custom">
-          <column name="action_id">action.purchase.units.custom</column>
-          <column name="view_id">view.purchase.units.search</column>
+        <record id="action.purchase.models.purchase.segments.list">
+          <column name="name">action.purchase.models.purchase.segments.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.channel.categories.custom">
-          <column name="action_id">action.purchase.channel.categories.custom</column>
-          <column name="view_id">view.purchase.channel.categories.search</column>
+        <record id="action.purchase.models.purchase.segments.m2mlist">
+          <column name="name">action.purchase.models.purchase.segments.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.channels.custom">
-          <column name="action_id">action.purchase.channels.custom</column>
-          <column name="view_id">view.purchase.channels.search</column>
+        <record id="action.purchase.models.purchase.segments.search">
+          <column name="name">action.purchase.models.purchase.segments.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.segment.categories.custom">
-          <column name="action_id">action.purchase.segment.categories.custom</column>
-          <column name="view_id">view.purchase.segment.categories.search</column>
+        <record id="action.purchase.models.purchase.segments.find">
+          <column name="name">action.purchase.models.purchase.segments.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.segments.custom">
-          <column name="action_id">action.purchase.segments.custom</column>
-          <column name="view_id">view.purchase.segments.search</column>
+        <record id="action.purchase.models.purchase.area.categories.form">
+          <column name="name">action.purchase.models.purchase.area.categories.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.area.categories.custom">
-          <column name="action_id">action.purchase.area.categories.custom</column>
-          <column name="view_id">view.purchase.area.categories.search</column>
+        <record id="action.purchase.models.purchase.area.categories.list">
+          <column name="name">action.purchase.models.purchase.area.categories.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.areas.custom">
-          <column name="action_id">action.purchase.areas.custom</column>
-          <column name="view_id">view.purchase.areas.search</column>
+        <record id="action.purchase.models.purchase.area.categories.m2mlist">
+          <column name="name">action.purchase.models.purchase.area.categories.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.region.categories.custom">
-          <column name="action_id">action.purchase.region.categories.custom</column>
-          <column name="view_id">view.purchase.region.categories.search</column>
+        <record id="action.purchase.models.purchase.area.categories.search">
+          <column name="name">action.purchase.models.purchase.area.categories.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.regions.custom">
-          <column name="action_id">action.purchase.regions.custom</column>
-          <column name="view_id">view.purchase.regions.search</column>
+        <record id="action.purchase.models.purchase.area.categories.find">
+          <column name="name">action.purchase.models.purchase.area.categories.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.division.categories.custom">
-          <column name="action_id">action.purchase.division.categories.custom</column>
-          <column name="view_id">view.purchase.division.categories.search</column>
+        <record id="action.purchase.models.purchase.area.categories.tree">
+          <column name="name">action.purchase.models.purchase.area.categories.tree</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.divisions.custom">
-          <column name="action_id">action.purchase.divisions.custom</column>
-          <column name="view_id">view.purchase.divisions.search</column>
+        <record id="action.purchase.models.purchase.areas.form">
+          <column name="name">action.purchase.models.purchase.areas.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.subdivision.categories.custom">
-          <column name="action_id">action.purchase.subdivision.categories.custom</column>
-          <column name="view_id">view.purchase.subdivision.categories.search</column>
+        <record id="action.purchase.models.purchase.areas.list">
+          <column name="name">action.purchase.models.purchase.areas.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.subdivisions.custom">
-          <column name="action_id">action.purchase.subdivisions.custom</column>
-          <column name="view_id">view.purchase.subdivisions.search</column>
+        <record id="action.purchase.models.purchase.areas.m2mlist">
+          <column name="name">action.purchase.models.purchase.areas.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.unit.channel.assigments.custom">
-          <column name="action_id">action.purchase.unit.channel.assigments.custom</column>
-          <column name="view_id">view.purchase.unit.channel.assigments.search</column>
+        <record id="action.purchase.models.purchase.areas.search">
+          <column name="name">action.purchase.models.purchase.areas.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.unit.segment.assigments.custom">
-          <column name="action_id">action.purchase.unit.segment.assigments.custom</column>
-          <column name="view_id">view.purchase.unit.segment.assigments.search</column>
+        <record id="action.purchase.models.purchase.areas.find">
+          <column name="name">action.purchase.models.purchase.areas.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.unit.area.assigments.custom">
-          <column name="action_id">action.purchase.unit.area.assigments.custom</column>
-          <column name="view_id">view.purchase.unit.area.assigments.search</column>
+        <record id="action.purchase.models.purchase.region.categories.form">
+          <column name="name">action.purchase.models.purchase.region.categories.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.unit.region.assigments.custom">
-          <column name="action_id">action.purchase.unit.region.assigments.custom</column>
-          <column name="view_id">view.purchase.unit.region.assigments.search</column>
+        <record id="action.purchase.models.purchase.region.categories.list">
+          <column name="name">action.purchase.models.purchase.region.categories.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.division.subdivision.assigments.custom">
-          <column name="action_id">action.purchase.division.subdivision.assigments.custom</column>
-          <column name="view_id">view.purchase.division.subdivision.assigments.search</column>
+        <record id="action.purchase.models.purchase.region.categories.m2mlist">
+          <column name="name">action.purchase.models.purchase.region.categories.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.markets.custom">
-          <column name="action_id">action.purchase.markets.custom</column>
-          <column name="view_id">view.purchase.markets.search</column>
+        <record id="action.purchase.models.purchase.region.categories.search">
+          <column name="name">action.purchase.models.purchase.region.categories.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.teams.custom">
-          <column name="action_id">action.purchase.teams.custom</column>
-          <column name="view_id">view.purchase.teams.search</column>
+        <record id="action.purchase.models.purchase.region.categories.find">
+          <column name="name">action.purchase.models.purchase.region.categories.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.pricing.group.levels.custom">
-          <column name="action_id">action.purchase.pricing.group.levels.custom</column>
-          <column name="view_id">view.purchase.pricing.group.levels.search</column>
+        <record id="action.purchase.models.purchase.region.categories.tree">
+          <column name="name">action.purchase.models.purchase.region.categories.tree</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.texts.custom">
-          <column name="action_id">action.purchase.texts.custom</column>
-          <column name="view_id">view.purchase.texts.search</column>
+        <record id="action.purchase.models.purchase.regions.form">
+          <column name="name">action.purchase.models.purchase.regions.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.schema.texts.custom">
-          <column name="action_id">action.purchase.schema.texts.custom</column>
-          <column name="view_id">view.purchase.schema.texts.search</column>
+        <record id="action.purchase.models.purchase.regions.list">
+          <column name="name">action.purchase.models.purchase.regions.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.order.types.custom">
-          <column name="action_id">action.purchase.order.types.custom</column>
-          <column name="view_id">view.purchase.order.types.search</column>
+        <record id="action.purchase.models.purchase.regions.m2mlist">
+          <column name="name">action.purchase.models.purchase.regions.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.invoice.types.custom">
-          <column name="action_id">action.purchase.invoice.types.custom</column>
-          <column name="view_id">view.purchase.invoice.types.search</column>
+        <record id="action.purchase.models.purchase.regions.search">
+          <column name="name">action.purchase.models.purchase.regions.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.order.categories.custom">
-          <column name="action_id">action.purchase.order.categories.custom</column>
-          <column name="view_id">view.purchase.order.categories.search</column>
+        <record id="action.purchase.models.purchase.regions.find">
+          <column name="name">action.purchase.models.purchase.regions.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.purchase.invoce.categories.custom">
-          <column name="action_id">action.purchase.invoce.categories.custom</column>
-          <column name="view_id">view.purchase.invoce.categories.search</column>
+        <record id="action.purchase.models.purchase.division.categories.form">
+          <column name="name">action.purchase.models.purchase.division.categories.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.division.categories.list">
+          <column name="name">action.purchase.models.purchase.division.categories.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.division.categories.m2mlist">
+          <column name="name">action.purchase.models.purchase.division.categories.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.division.categories.search">
+          <column name="name">action.purchase.models.purchase.division.categories.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.division.categories.find">
+          <column name="name">action.purchase.models.purchase.division.categories.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.division.categories.tree">
+          <column name="name">action.purchase.models.purchase.division.categories.tree</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.divisions.form">
+          <column name="name">action.purchase.models.purchase.divisions.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.divisions.list">
+          <column name="name">action.purchase.models.purchase.divisions.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.divisions.m2mlist">
+          <column name="name">action.purchase.models.purchase.divisions.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.divisions.search">
+          <column name="name">action.purchase.models.purchase.divisions.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.divisions.find">
+          <column name="name">action.purchase.models.purchase.divisions.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.subdivision.categories.form">
+          <column name="name">action.purchase.models.purchase.subdivision.categories.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.subdivision.categories.list">
+          <column name="name">action.purchase.models.purchase.subdivision.categories.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.subdivision.categories.m2mlist">
+          <column name="name">action.purchase.models.purchase.subdivision.categories.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.subdivision.categories.search">
+          <column name="name">action.purchase.models.purchase.subdivision.categories.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.subdivision.categories.find">
+          <column name="name">action.purchase.models.purchase.subdivision.categories.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.subdivision.categories.tree">
+          <column name="name">action.purchase.models.purchase.subdivision.categories.tree</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.subdivisions.form">
+          <column name="name">action.purchase.models.purchase.subdivisions.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.subdivisions.list">
+          <column name="name">action.purchase.models.purchase.subdivisions.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.subdivisions.m2mlist">
+          <column name="name">action.purchase.models.purchase.subdivisions.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.subdivisions.search">
+          <column name="name">action.purchase.models.purchase.subdivisions.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.subdivisions.find">
+          <column name="name">action.purchase.models.purchase.subdivisions.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.channel.assigments.form">
+          <column name="name">action.purchase.models.purchase.unit.channel.assigments.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.channel.assigments.list">
+          <column name="name">action.purchase.models.purchase.unit.channel.assigments.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.channel.assigments.m2mlist">
+          <column name="name">action.purchase.models.purchase.unit.channel.assigments.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.channel.assigments.search">
+          <column name="name">action.purchase.models.purchase.unit.channel.assigments.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.channel.assigments.find">
+          <column name="name">action.purchase.models.purchase.unit.channel.assigments.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.segment.assigments.form">
+          <column name="name">action.purchase.models.purchase.unit.segment.assigments.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.segment.assigments.list">
+          <column name="name">action.purchase.models.purchase.unit.segment.assigments.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.segment.assigments.m2mlist">
+          <column name="name">action.purchase.models.purchase.unit.segment.assigments.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.segment.assigments.search">
+          <column name="name">action.purchase.models.purchase.unit.segment.assigments.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.segment.assigments.find">
+          <column name="name">action.purchase.models.purchase.unit.segment.assigments.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.area.assigments.form">
+          <column name="name">action.purchase.models.purchase.unit.area.assigments.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.area.assigments.list">
+          <column name="name">action.purchase.models.purchase.unit.area.assigments.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.area.assigments.m2mlist">
+          <column name="name">action.purchase.models.purchase.unit.area.assigments.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.area.assigments.search">
+          <column name="name">action.purchase.models.purchase.unit.area.assigments.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.area.assigments.find">
+          <column name="name">action.purchase.models.purchase.unit.area.assigments.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.region.assigments.form">
+          <column name="name">action.purchase.models.purchase.unit.region.assigments.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.region.assigments.list">
+          <column name="name">action.purchase.models.purchase.unit.region.assigments.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.region.assigments.m2mlist">
+          <column name="name">action.purchase.models.purchase.unit.region.assigments.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.region.assigments.search">
+          <column name="name">action.purchase.models.purchase.unit.region.assigments.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.unit.region.assigments.find">
+          <column name="name">action.purchase.models.purchase.unit.region.assigments.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.division.subdivision.assigments.form">
+          <column name="name">action.purchase.models.purchase.division.subdivision.assigments.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.division.subdivision.assigments.list">
+          <column name="name">action.purchase.models.purchase.division.subdivision.assigments.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.division.subdivision.assigments.m2mlist">
+          <column name="name">action.purchase.models.purchase.division.subdivision.assigments.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.division.subdivision.assigments.search">
+          <column name="name">action.purchase.models.purchase.division.subdivision.assigments.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.division.subdivision.assigments.find">
+          <column name="name">action.purchase.models.purchase.division.subdivision.assigments.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.markets.form">
+          <column name="name">action.purchase.models.purchase.markets.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.markets.list">
+          <column name="name">action.purchase.models.purchase.markets.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.markets.m2mlist">
+          <column name="name">action.purchase.models.purchase.markets.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.markets.search">
+          <column name="name">action.purchase.models.purchase.markets.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.markets.find">
+          <column name="name">action.purchase.models.purchase.markets.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.teams.form">
+          <column name="name">action.purchase.models.purchase.teams.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.teams.list">
+          <column name="name">action.purchase.models.purchase.teams.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.teams.m2mlist">
+          <column name="name">action.purchase.models.purchase.teams.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.teams.search">
+          <column name="name">action.purchase.models.purchase.teams.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.teams.find">
+          <column name="name">action.purchase.models.purchase.teams.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.pricing.group.levels.form">
+          <column name="name">action.purchase.models.purchase.pricing.group.levels.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.pricing.group.levels.list">
+          <column name="name">action.purchase.models.purchase.pricing.group.levels.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.pricing.group.levels.m2mlist">
+          <column name="name">action.purchase.models.purchase.pricing.group.levels.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.pricing.group.levels.search">
+          <column name="name">action.purchase.models.purchase.pricing.group.levels.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.pricing.group.levels.find">
+          <column name="name">action.purchase.models.purchase.pricing.group.levels.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.texts.form">
+          <column name="name">action.purchase.models.purchase.texts.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.texts.list">
+          <column name="name">action.purchase.models.purchase.texts.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.texts.m2mlist">
+          <column name="name">action.purchase.models.purchase.texts.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.texts.search">
+          <column name="name">action.purchase.models.purchase.texts.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.texts.find">
+          <column name="name">action.purchase.models.purchase.texts.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.schema.texts.form">
+          <column name="name">action.purchase.models.purchase.schema.texts.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.schema.texts.list">
+          <column name="name">action.purchase.models.purchase.schema.texts.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.schema.texts.m2mlist">
+          <column name="name">action.purchase.models.purchase.schema.texts.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.schema.texts.search">
+          <column name="name">action.purchase.models.purchase.schema.texts.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.schema.texts.find">
+          <column name="name">action.purchase.models.purchase.schema.texts.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.order.types.form">
+          <column name="name">action.purchase.models.purchase.order.types.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.order.types.list">
+          <column name="name">action.purchase.models.purchase.order.types.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.order.types.m2mlist">
+          <column name="name">action.purchase.models.purchase.order.types.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.order.types.search">
+          <column name="name">action.purchase.models.purchase.order.types.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.order.types.find">
+          <column name="name">action.purchase.models.purchase.order.types.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoice.types.form">
+          <column name="name">action.purchase.models.purchase.invoice.types.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoice.types.list">
+          <column name="name">action.purchase.models.purchase.invoice.types.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoice.types.m2mlist">
+          <column name="name">action.purchase.models.purchase.invoice.types.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoice.types.search">
+          <column name="name">action.purchase.models.purchase.invoice.types.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoice.types.find">
+          <column name="name">action.purchase.models.purchase.invoice.types.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.order.categories.form">
+          <column name="name">action.purchase.models.purchase.order.categories.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.order.categories.list">
+          <column name="name">action.purchase.models.purchase.order.categories.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.order.categories.m2mlist">
+          <column name="name">action.purchase.models.purchase.order.categories.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.order.categories.search">
+          <column name="name">action.purchase.models.purchase.order.categories.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.order.categories.find">
+          <column name="name">action.purchase.models.purchase.order.categories.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.order.categories.tree">
+          <column name="name">action.purchase.models.purchase.order.categories.tree</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoce.categories.form">
+          <column name="name">action.purchase.models.purchase.invoce.categories.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoce.categories.list">
+          <column name="name">action.purchase.models.purchase.invoce.categories.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoce.categories.m2mlist">
+          <column name="name">action.purchase.models.purchase.invoce.categories.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoce.categories.search">
+          <column name="name">action.purchase.models.purchase.invoce.categories.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoce.categories.find">
+          <column name="name">action.purchase.models.purchase.invoce.categories.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.purchase.models.purchase.invoce.categories.tree">
+          <column name="name">action.purchase.models.purchase.invoce.categories.tree</column>
+          <column name="ta">Model</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-        <record id="ui.menu.purchase.custom">
-          <column name="name">ui.menu.purchase.custom</column>
-          <column name="label">Customs</column>
-        <column name="parent_id">ui.menu.purchase</column>
+        <record id="ui.menu.customize.purchase.models">
+          <column name="name">ui.menu.customize.purchase.models</column>
+          <column name="label">Models</column>
+        <column name="parent_id">ui.menu.customize</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.purchase.unit.categories.custom">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.purchase.unit.categories.custom</column>
+          <record id="ui.menu.models.purchase.unit.categories.form">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.unit.categories.form</column>
             <column name="label">Categories Purchase Unit</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.purchase.unit.categories.custom</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.categories.form</column>
           </record>
-          <record id="ui.menu.purchase.units.custom">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.purchase.units.custom</column>
-            <column name="label">Purchase Units</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.purchase.units.custom</column>
-          </record>
-          <record id="ui.menu.purchase.channel.categories.custom">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.purchase.channel.categories.custom</column>
-            <column name="label">Categories Purchase Chanel</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.purchase.channel.categories.custom</column>
-          </record>
-          <record id="ui.menu.purchase.channels.custom">
-          <column name="sequence">3</column>
-            <column name="name">ui.menu.purchase.channels.custom</column>
-            <column name="label">Purchase Channels</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">30</column>
-          <column name="action_id">action.purchase.channels.custom</column>
-          </record>
-          <record id="ui.menu.purchase.segment.categories.custom">
-          <column name="sequence">4</column>
-            <column name="name">ui.menu.purchase.segment.categories.custom</column>
-            <column name="label">Categories Purchase Segment</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">40</column>
-          <column name="action_id">action.purchase.segment.categories.custom</column>
-          </record>
-          <record id="ui.menu.purchase.segments.custom">
-          <column name="sequence">5</column>
-            <column name="name">ui.menu.purchase.segments.custom</column>
-            <column name="label">Purchase Segments</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">50</column>
-          <column name="action_id">action.purchase.segments.custom</column>
-          </record>
-          <record id="ui.menu.purchase.area.categories.custom">
-          <column name="sequence">6</column>
-            <column name="name">ui.menu.purchase.area.categories.custom</column>
-            <column name="label">Categories Purchase Area</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">60</column>
-          <column name="action_id">action.purchase.area.categories.custom</column>
-          </record>
-          <record id="ui.menu.purchase.areas.custom">
-          <column name="sequence">7</column>
-            <column name="name">ui.menu.purchase.areas.custom</column>
-            <column name="label">Purchase Areas</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">70</column>
-          <column name="action_id">action.purchase.areas.custom</column>
-          </record>
-          <record id="ui.menu.purchase.region.categories.custom">
-          <column name="sequence">8</column>
-            <column name="name">ui.menu.purchase.region.categories.custom</column>
-            <column name="label">Categories Purchase Region</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">80</column>
-          <column name="action_id">action.purchase.region.categories.custom</column>
-          </record>
-          <record id="ui.menu.purchase.regions.custom">
-          <column name="sequence">9</column>
-            <column name="name">ui.menu.purchase.regions.custom</column>
-            <column name="label">Purchase Regions</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">90</column>
-          <column name="action_id">action.purchase.regions.custom</column>
-          </record>
-          <record id="ui.menu.purchase.division.categories.custom">
-          <column name="sequence">10</column>
-            <column name="name">ui.menu.purchase.division.categories.custom</column>
-            <column name="label">Categories Purchase Division</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">100</column>
-          <column name="action_id">action.purchase.division.categories.custom</column>
-          </record>
-          <record id="ui.menu.purchase.divisions.custom">
-          <column name="sequence">11</column>
-            <column name="name">ui.menu.purchase.divisions.custom</column>
-            <column name="label">Purchase Divisions</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">110</column>
-          <column name="action_id">action.purchase.divisions.custom</column>
-          </record>
-          <record id="ui.menu.purchase.subdivision.categories.custom">
-          <column name="sequence">12</column>
-            <column name="name">ui.menu.purchase.subdivision.categories.custom</column>
-            <column name="label">Categories Purchase Subdivision</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">120</column>
-          <column name="action_id">action.purchase.subdivision.categories.custom</column>
-          </record>
-          <record id="ui.menu.purchase.subdivisions.custom">
-          <column name="sequence">13</column>
-            <column name="name">ui.menu.purchase.subdivisions.custom</column>
-            <column name="label">Purchase Subdivisions</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">130</column>
-          <column name="action_id">action.purchase.subdivisions.custom</column>
-          </record>
-          <record id="ui.menu.purchase.unit.channel.assigments.custom">
-          <column name="sequence">14</column>
-            <column name="name">ui.menu.purchase.unit.channel.assigments.custom</column>
-            <column name="label">Purchase Unit Of Channel Assigment</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">140</column>
-          <column name="action_id">action.purchase.unit.channel.assigments.custom</column>
-          </record>
-          <record id="ui.menu.purchase.unit.segment.assigments.custom">
-          <column name="sequence">15</column>
-            <column name="name">ui.menu.purchase.unit.segment.assigments.custom</column>
-            <column name="label">Purchase Unit Of Segment Assigment</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">150</column>
-          <column name="action_id">action.purchase.unit.segment.assigments.custom</column>
-          </record>
-          <record id="ui.menu.purchase.unit.area.assigments.custom">
-          <column name="sequence">16</column>
-            <column name="name">ui.menu.purchase.unit.area.assigments.custom</column>
-            <column name="label">Purchase Unit Of Area Assigment</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">160</column>
-          <column name="action_id">action.purchase.unit.area.assigments.custom</column>
-          </record>
-          <record id="ui.menu.purchase.unit.region.assigments.custom">
-          <column name="sequence">17</column>
-            <column name="name">ui.menu.purchase.unit.region.assigments.custom</column>
-            <column name="label">Purchase Unit Of Region Assigment</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">170</column>
-          <column name="action_id">action.purchase.unit.region.assigments.custom</column>
-          </record>
-          <record id="ui.menu.purchase.division.subdivision.assigments.custom">
-          <column name="sequence">18</column>
-            <column name="name">ui.menu.purchase.division.subdivision.assigments.custom</column>
-            <column name="label">Purchase Division Of Subdivision Assigment</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">180</column>
-          <column name="action_id">action.purchase.division.subdivision.assigments.custom</column>
-          </record>
-          <record id="ui.menu.purchase.markets.custom">
-          <column name="sequence">19</column>
-            <column name="name">ui.menu.purchase.markets.custom</column>
-            <column name="label">Purchase Market</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">190</column>
-          <column name="action_id">action.purchase.markets.custom</column>
-          </record>
-          <record id="ui.menu.purchase.teams.custom">
-          <column name="sequence">20</column>
-            <column name="name">ui.menu.purchase.teams.custom</column>
-            <column name="label">Purchase Teams</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">200</column>
-          <column name="action_id">action.purchase.teams.custom</column>
-          </record>
-          <record id="ui.menu.purchase.pricing.group.levels.custom">
-          <column name="sequence">21</column>
-            <column name="name">ui.menu.purchase.pricing.group.levels.custom</column>
-            <column name="label">Purchase Pricing Group Levels</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">210</column>
-          <column name="action_id">action.purchase.pricing.group.levels.custom</column>
-          </record>
-          <record id="ui.menu.purchase.texts.custom">
-          <column name="sequence">22</column>
-            <column name="name">ui.menu.purchase.texts.custom</column>
-            <column name="label">Purchase Texts</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">220</column>
-          <column name="action_id">action.purchase.texts.custom</column>
-          </record>
-          <record id="ui.menu.purchase.schema.texts.custom">
-          <column name="sequence">23</column>
-            <column name="name">ui.menu.purchase.schema.texts.custom</column>
-            <column name="label">Schema Of Purchase Texts</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">230</column>
-          <column name="action_id">action.purchase.schema.texts.custom</column>
-          </record>
-          <record id="ui.menu.purchase.order.types.custom">
-          <column name="sequence">24</column>
-            <column name="name">ui.menu.purchase.order.types.custom</column>
-            <column name="label">Types Purchase Order</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">240</column>
-          <column name="action_id">action.purchase.order.types.custom</column>
-          </record>
-          <record id="ui.menu.purchase.invoice.types.custom">
-          <column name="sequence">25</column>
-            <column name="name">ui.menu.purchase.invoice.types.custom</column>
-            <column name="label">Types Purchase Invoice</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">250</column>
-          <column name="action_id">action.purchase.invoice.types.custom</column>
-          </record>
-          <record id="ui.menu.purchase.order.categories.custom">
-          <column name="sequence">26</column>
-            <column name="name">ui.menu.purchase.order.categories.custom</column>
-            <column name="label">Categories Purchase Order</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">260</column>
-          <column name="action_id">action.purchase.order.categories.custom</column>
-          </record>
-          <record id="ui.menu.purchase.invoce.categories.custom">
-          <column name="sequence">27</column>
-            <column name="name">ui.menu.purchase.invoce.categories.custom</column>
-            <column name="label">Categories Purchase Invoce</column>
-          <column name="parent_id">ui.menu.purchase.custom</column>
-          <column name="sequence">270</column>
-          <column name="action_id">action.purchase.invoce.categories.custom</column>
-          </record>
-      </records>
-      <records model="bc.actions">
-        <record id="action.purchase.unit.categories.report">
-          <column name="name">action.purchase.unit.categories.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.units.report">
-          <column name="name">action.purchase.units.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.channel.categories.report">
-          <column name="name">action.purchase.channel.categories.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.channels.report">
-          <column name="name">action.purchase.channels.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.segment.categories.report">
-          <column name="name">action.purchase.segment.categories.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.segments.report">
-          <column name="name">action.purchase.segments.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.area.categories.report">
-          <column name="name">action.purchase.area.categories.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.areas.report">
-          <column name="name">action.purchase.areas.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.region.categories.report">
-          <column name="name">action.purchase.region.categories.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.regions.report">
-          <column name="name">action.purchase.regions.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.division.categories.report">
-          <column name="name">action.purchase.division.categories.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.divisions.report">
-          <column name="name">action.purchase.divisions.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.subdivision.categories.report">
-          <column name="name">action.purchase.subdivision.categories.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.subdivisions.report">
-          <column name="name">action.purchase.subdivisions.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.unit.channel.assigments.report">
-          <column name="name">action.purchase.unit.channel.assigments.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.unit.segment.assigments.report">
-          <column name="name">action.purchase.unit.segment.assigments.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.unit.area.assigments.report">
-          <column name="name">action.purchase.unit.area.assigments.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.unit.region.assigments.report">
-          <column name="name">action.purchase.unit.region.assigments.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.division.subdivision.assigments.report">
-          <column name="name">action.purchase.division.subdivision.assigments.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.markets.report">
-          <column name="name">action.purchase.markets.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.teams.report">
-          <column name="name">action.purchase.teams.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.pricing.group.levels.report">
-          <column name="name">action.purchase.pricing.group.levels.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.texts.report">
-          <column name="name">action.purchase.texts.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.schema.texts.report">
-          <column name="name">action.purchase.schema.texts.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.order.types.report">
-          <column name="name">action.purchase.order.types.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.invoice.types.report">
-          <column name="name">action.purchase.invoice.types.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.order.categories.report">
-          <column name="name">action.purchase.order.categories.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.purchase.invoce.categories.report">
-          <column name="name">action.purchase.invoce.categories.report</column>
-          <column name="ta">Report</column>
-        </record>
-      </records>
-      <records model="bc.ui.reports">
-        <record id="bc.ui.report.docx.purchase.unit.categories">
-          <column name="name">bc.ui.report.docx.purchase.unit.categories</column>
-          <column name="label">Categories Purchase Unit</column>
-          <column name="report">report_purchase_unit_categories</column>
-          <column name="infile">infile_purchase_unit_categories.docx</column>
-          <column name="outfile">outfile_purchase_unit_categories.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.units">
-          <column name="name">bc.ui.report.docx.purchase.units</column>
-          <column name="label">Purchase Units</column>
-          <column name="report">report_purchase_units</column>
-          <column name="infile">infile_purchase_units.docx</column>
-          <column name="outfile">outfile_purchase_units.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.channel.categories">
-          <column name="name">bc.ui.report.docx.purchase.channel.categories</column>
-          <column name="label">Categories Purchase Chanel</column>
-          <column name="report">report_purchase_channel_categories</column>
-          <column name="infile">infile_purchase_channel_categories.docx</column>
-          <column name="outfile">outfile_purchase_channel_categories.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.channels">
-          <column name="name">bc.ui.report.docx.purchase.channels</column>
-          <column name="label">Purchase Channels</column>
-          <column name="report">report_purchase_channels</column>
-          <column name="infile">infile_purchase_channels.docx</column>
-          <column name="outfile">outfile_purchase_channels.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.segment.categories">
-          <column name="name">bc.ui.report.docx.purchase.segment.categories</column>
-          <column name="label">Categories Purchase Segment</column>
-          <column name="report">report_purchase_segment_categories</column>
-          <column name="infile">infile_purchase_segment_categories.docx</column>
-          <column name="outfile">outfile_purchase_segment_categories.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.segments">
-          <column name="name">bc.ui.report.docx.purchase.segments</column>
-          <column name="label">Purchase Segments</column>
-          <column name="report">report_purchase_segments</column>
-          <column name="infile">infile_purchase_segments.docx</column>
-          <column name="outfile">outfile_purchase_segments.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.area.categories">
-          <column name="name">bc.ui.report.docx.purchase.area.categories</column>
-          <column name="label">Categories Purchase Area</column>
-          <column name="report">report_purchase_area_categories</column>
-          <column name="infile">infile_purchase_area_categories.docx</column>
-          <column name="outfile">outfile_purchase_area_categories.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.areas">
-          <column name="name">bc.ui.report.docx.purchase.areas</column>
-          <column name="label">Purchase Areas</column>
-          <column name="report">report_purchase_areas</column>
-          <column name="infile">infile_purchase_areas.docx</column>
-          <column name="outfile">outfile_purchase_areas.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.region.categories">
-          <column name="name">bc.ui.report.docx.purchase.region.categories</column>
-          <column name="label">Categories Purchase Region</column>
-          <column name="report">report_purchase_region_categories</column>
-          <column name="infile">infile_purchase_region_categories.docx</column>
-          <column name="outfile">outfile_purchase_region_categories.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.regions">
-          <column name="name">bc.ui.report.docx.purchase.regions</column>
-          <column name="label">Purchase Regions</column>
-          <column name="report">report_purchase_regions</column>
-          <column name="infile">infile_purchase_regions.docx</column>
-          <column name="outfile">outfile_purchase_regions.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.division.categories">
-          <column name="name">bc.ui.report.docx.purchase.division.categories</column>
-          <column name="label">Categories Purchase Division</column>
-          <column name="report">report_purchase_division_categories</column>
-          <column name="infile">infile_purchase_division_categories.docx</column>
-          <column name="outfile">outfile_purchase_division_categories.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.divisions">
-          <column name="name">bc.ui.report.docx.purchase.divisions</column>
-          <column name="label">Purchase Divisions</column>
-          <column name="report">report_purchase_divisions</column>
-          <column name="infile">infile_purchase_divisions.docx</column>
-          <column name="outfile">outfile_purchase_divisions.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.subdivision.categories">
-          <column name="name">bc.ui.report.docx.purchase.subdivision.categories</column>
-          <column name="label">Categories Purchase Subdivision</column>
-          <column name="report">report_purchase_subdivision_categories</column>
-          <column name="infile">infile_purchase_subdivision_categories.docx</column>
-          <column name="outfile">outfile_purchase_subdivision_categories.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.subdivisions">
-          <column name="name">bc.ui.report.docx.purchase.subdivisions</column>
-          <column name="label">Purchase Subdivisions</column>
-          <column name="report">report_purchase_subdivisions</column>
-          <column name="infile">infile_purchase_subdivisions.docx</column>
-          <column name="outfile">outfile_purchase_subdivisions.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.unit.channel.assigments">
-          <column name="name">bc.ui.report.docx.purchase.unit.channel.assigments</column>
-          <column name="label">Purchase Unit Of Channel Assigment</column>
-          <column name="report">report_purchase_unit_channel_assigments</column>
-          <column name="infile">infile_purchase_unit_channel_assigments.docx</column>
-          <column name="outfile">outfile_purchase_unit_channel_assigments.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.unit.segment.assigments">
-          <column name="name">bc.ui.report.docx.purchase.unit.segment.assigments</column>
-          <column name="label">Purchase Unit Of Segment Assigment</column>
-          <column name="report">report_purchase_unit_segment_assigments</column>
-          <column name="infile">infile_purchase_unit_segment_assigments.docx</column>
-          <column name="outfile">outfile_purchase_unit_segment_assigments.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.unit.area.assigments">
-          <column name="name">bc.ui.report.docx.purchase.unit.area.assigments</column>
-          <column name="label">Purchase Unit Of Area Assigment</column>
-          <column name="report">report_purchase_unit_area_assigments</column>
-          <column name="infile">infile_purchase_unit_area_assigments.docx</column>
-          <column name="outfile">outfile_purchase_unit_area_assigments.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.unit.region.assigments">
-          <column name="name">bc.ui.report.docx.purchase.unit.region.assigments</column>
-          <column name="label">Purchase Unit Of Region Assigment</column>
-          <column name="report">report_purchase_unit_region_assigments</column>
-          <column name="infile">infile_purchase_unit_region_assigments.docx</column>
-          <column name="outfile">outfile_purchase_unit_region_assigments.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.division.subdivision.assigments">
-          <column name="name">bc.ui.report.docx.purchase.division.subdivision.assigments</column>
-          <column name="label">Purchase Division Of Subdivision Assigment</column>
-          <column name="report">report_purchase_division_subdivision_assigments</column>
-          <column name="infile">infile_purchase_division_subdivision_assigments.docx</column>
-          <column name="outfile">outfile_purchase_division_subdivision_assigments.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.markets">
-          <column name="name">bc.ui.report.docx.purchase.markets</column>
-          <column name="label">Purchase Market</column>
-          <column name="report">report_purchase_markets</column>
-          <column name="infile">infile_purchase_markets.docx</column>
-          <column name="outfile">outfile_purchase_markets.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.teams">
-          <column name="name">bc.ui.report.docx.purchase.teams</column>
-          <column name="label">Purchase Teams</column>
-          <column name="report">report_purchase_teams</column>
-          <column name="infile">infile_purchase_teams.docx</column>
-          <column name="outfile">outfile_purchase_teams.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.pricing.group.levels">
-          <column name="name">bc.ui.report.docx.purchase.pricing.group.levels</column>
-          <column name="label">Purchase Pricing Group Levels</column>
-          <column name="report">report_purchase_pricing_group_levels</column>
-          <column name="infile">infile_purchase_pricing_group_levels.docx</column>
-          <column name="outfile">outfile_purchase_pricing_group_levels.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.texts">
-          <column name="name">bc.ui.report.docx.purchase.texts</column>
-          <column name="label">Purchase Texts</column>
-          <column name="report">report_purchase_texts</column>
-          <column name="infile">infile_purchase_texts.docx</column>
-          <column name="outfile">outfile_purchase_texts.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.schema.texts">
-          <column name="name">bc.ui.report.docx.purchase.schema.texts</column>
-          <column name="label">Schema Of Purchase Texts</column>
-          <column name="report">report_purchase_schema_texts</column>
-          <column name="infile">infile_purchase_schema_texts.docx</column>
-          <column name="outfile">outfile_purchase_schema_texts.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.order.types">
-          <column name="name">bc.ui.report.docx.purchase.order.types</column>
-          <column name="label">Types Purchase Order</column>
-          <column name="report">report_purchase_order_types</column>
-          <column name="infile">infile_purchase_order_types.docx</column>
-          <column name="outfile">outfile_purchase_order_types.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.invoice.types">
-          <column name="name">bc.ui.report.docx.purchase.invoice.types</column>
-          <column name="label">Types Purchase Invoice</column>
-          <column name="report">report_purchase_invoice_types</column>
-          <column name="infile">infile_purchase_invoice_types.docx</column>
-          <column name="outfile">outfile_purchase_invoice_types.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.order.categories">
-          <column name="name">bc.ui.report.docx.purchase.order.categories</column>
-          <column name="label">Categories Purchase Order</column>
-          <column name="report">report_purchase_order_categories</column>
-          <column name="infile">infile_purchase_order_categories.docx</column>
-          <column name="outfile">outfile_purchase_order_categories.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.purchase.invoce.categories">
-          <column name="name">bc.ui.report.docx.purchase.invoce.categories</column>
-          <column name="label">Categories Purchase Invoce</column>
-          <column name="report">report_purchase_invoce_categories</column>
-          <column name="infile">infile_purchase_invoce_categories.docx</column>
-          <column name="outfile">outfile_purchase_invoce_categories.docx</column>
-        </record>
-      </records>
-      <records model="bc.report.actions">
-        <record id="report.action.purchase.unit.categories.report">
-          <column name="action_id">action.purchase.unit.categories.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.unit.categories</column>
-        </record>
-        <record id="report.action.purchase.units.report">
-          <column name="action_id">action.purchase.units.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.units</column>
-        </record>
-        <record id="report.action.purchase.channel.categories.report">
-          <column name="action_id">action.purchase.channel.categories.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.channel.categories</column>
-        </record>
-        <record id="report.action.purchase.channels.report">
-          <column name="action_id">action.purchase.channels.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.channels</column>
-        </record>
-        <record id="report.action.purchase.segment.categories.report">
-          <column name="action_id">action.purchase.segment.categories.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.segment.categories</column>
-        </record>
-        <record id="report.action.purchase.segments.report">
-          <column name="action_id">action.purchase.segments.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.segments</column>
-        </record>
-        <record id="report.action.purchase.area.categories.report">
-          <column name="action_id">action.purchase.area.categories.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.area.categories</column>
-        </record>
-        <record id="report.action.purchase.areas.report">
-          <column name="action_id">action.purchase.areas.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.areas</column>
-        </record>
-        <record id="report.action.purchase.region.categories.report">
-          <column name="action_id">action.purchase.region.categories.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.region.categories</column>
-        </record>
-        <record id="report.action.purchase.regions.report">
-          <column name="action_id">action.purchase.regions.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.regions</column>
-        </record>
-        <record id="report.action.purchase.division.categories.report">
-          <column name="action_id">action.purchase.division.categories.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.division.categories</column>
-        </record>
-        <record id="report.action.purchase.divisions.report">
-          <column name="action_id">action.purchase.divisions.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.divisions</column>
-        </record>
-        <record id="report.action.purchase.subdivision.categories.report">
-          <column name="action_id">action.purchase.subdivision.categories.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.subdivision.categories</column>
-        </record>
-        <record id="report.action.purchase.subdivisions.report">
-          <column name="action_id">action.purchase.subdivisions.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.subdivisions</column>
-        </record>
-        <record id="report.action.purchase.unit.channel.assigments.report">
-          <column name="action_id">action.purchase.unit.channel.assigments.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.unit.channel.assigments</column>
-        </record>
-        <record id="report.action.purchase.unit.segment.assigments.report">
-          <column name="action_id">action.purchase.unit.segment.assigments.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.unit.segment.assigments</column>
-        </record>
-        <record id="report.action.purchase.unit.area.assigments.report">
-          <column name="action_id">action.purchase.unit.area.assigments.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.unit.area.assigments</column>
-        </record>
-        <record id="report.action.purchase.unit.region.assigments.report">
-          <column name="action_id">action.purchase.unit.region.assigments.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.unit.region.assigments</column>
-        </record>
-        <record id="report.action.purchase.division.subdivision.assigments.report">
-          <column name="action_id">action.purchase.division.subdivision.assigments.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.division.subdivision.assigments</column>
-        </record>
-        <record id="report.action.purchase.markets.report">
-          <column name="action_id">action.purchase.markets.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.markets</column>
-        </record>
-        <record id="report.action.purchase.teams.report">
-          <column name="action_id">action.purchase.teams.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.teams</column>
-        </record>
-        <record id="report.action.purchase.pricing.group.levels.report">
-          <column name="action_id">action.purchase.pricing.group.levels.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.pricing.group.levels</column>
-        </record>
-        <record id="report.action.purchase.texts.report">
-          <column name="action_id">action.purchase.texts.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.texts</column>
-        </record>
-        <record id="report.action.purchase.schema.texts.report">
-          <column name="action_id">action.purchase.schema.texts.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.schema.texts</column>
-        </record>
-        <record id="report.action.purchase.order.types.report">
-          <column name="action_id">action.purchase.order.types.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.order.types</column>
-        </record>
-        <record id="report.action.purchase.invoice.types.report">
-          <column name="action_id">action.purchase.invoice.types.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.invoice.types</column>
-        </record>
-        <record id="report.action.purchase.order.categories.report">
-          <column name="action_id">action.purchase.order.categories.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.order.categories</column>
-        </record>
-        <record id="report.action.purchase.invoce.categories.report">
-          <column name="action_id">action.purchase.invoce.categories.report</column>
-          <column name="report_id">bc.ui.report.docx.purchase.invoce.categories</column>
-        </record>
-      </records>
-      <records model="bc.ui.menus">
-        <record id="ui.menu.purchase.report.custom">
-          <column name="name">ui.menu.purchase.report.custom</column>
-          <column name="label">Customs</column>
-        <column name="parent_id">ui.menu.purchase.report</column>
-        </record>
-      </records>
-      <records model="bc.ui.menus">
-          <record id="ui.menu.purchase.unit.categories.report">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.purchase.unit.categories.report</column>
+          <record id="ui.menu.models.purchase.unit.categories.list">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.unit.categories.list</column>
             <column name="label">Categories Purchase Unit</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.purchase.unit.categories.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.categories.list</column>
           </record>
-          <record id="ui.menu.purchase.units.report">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.purchase.units.report</column>
+          <record id="ui.menu.models.purchase.unit.categories.m2mlist">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.unit.categories.m2mlist</column>
+            <column name="label">Categories Purchase Unit</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.categories.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.categories.search">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.unit.categories.search</column>
+            <column name="label">Categories Purchase Unit</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.categories.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.categories.find">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.unit.categories.find</column>
+            <column name="label">Categories Purchase Unit</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.categories.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.categories.tree">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.purchase.unit.categories.tree</column>
+            <column name="label">Categories Purchase Unit</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.categories.tree</column>
+          </record>
+          <record id="ui.menu.models.purchase.units.form">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.units.form</column>
             <column name="label">Purchase Units</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.purchase.units.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.units.form</column>
           </record>
-          <record id="ui.menu.purchase.channel.categories.report">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.purchase.channel.categories.report</column>
+          <record id="ui.menu.models.purchase.units.list">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.units.list</column>
+            <column name="label">Purchase Units</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.units.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.units.m2mlist">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.units.m2mlist</column>
+            <column name="label">Purchase Units</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.units.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.units.search">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.units.search</column>
+            <column name="label">Purchase Units</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.units.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.units.find">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.purchase.units.find</column>
+            <column name="label">Purchase Units</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.units.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.channel.categories.form">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.purchase.channel.categories.form</column>
             <column name="label">Categories Purchase Chanel</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.purchase.channel.categories.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.channel.categories.form</column>
           </record>
-          <record id="ui.menu.purchase.channels.report">
-          <column name="sequence">3</column>
-            <column name="name">ui.menu.purchase.channels.report</column>
+          <record id="ui.menu.models.purchase.channel.categories.list">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.purchase.channel.categories.list</column>
+            <column name="label">Categories Purchase Chanel</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.channel.categories.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.channel.categories.m2mlist">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.purchase.channel.categories.m2mlist</column>
+            <column name="label">Categories Purchase Chanel</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.channel.categories.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.channel.categories.search">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.purchase.channel.categories.search</column>
+            <column name="label">Categories Purchase Chanel</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.channel.categories.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.channel.categories.find">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.purchase.channel.categories.find</column>
+            <column name="label">Categories Purchase Chanel</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.channel.categories.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.channel.categories.tree">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.purchase.channel.categories.tree</column>
+            <column name="label">Categories Purchase Chanel</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.channel.categories.tree</column>
+          </record>
+          <record id="ui.menu.models.purchase.channels.form">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.purchase.channels.form</column>
             <column name="label">Purchase Channels</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">30</column>
-          <column name="action_id">action.purchase.channels.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.channels.form</column>
           </record>
-          <record id="ui.menu.purchase.segment.categories.report">
-          <column name="sequence">4</column>
-            <column name="name">ui.menu.purchase.segment.categories.report</column>
+          <record id="ui.menu.models.purchase.channels.list">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.purchase.channels.list</column>
+            <column name="label">Purchase Channels</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.channels.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.channels.m2mlist">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.purchase.channels.m2mlist</column>
+            <column name="label">Purchase Channels</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.channels.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.channels.search">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.purchase.channels.search</column>
+            <column name="label">Purchase Channels</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.channels.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.channels.find">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.purchase.channels.find</column>
+            <column name="label">Purchase Channels</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.channels.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.segment.categories.form">
+            <column name="sequence">4</column>
+            <column name="name">ui.menu.models.purchase.segment.categories.form</column>
             <column name="label">Categories Purchase Segment</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">40</column>
-          <column name="action_id">action.purchase.segment.categories.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.segment.categories.form</column>
           </record>
-          <record id="ui.menu.purchase.segments.report">
-          <column name="sequence">5</column>
-            <column name="name">ui.menu.purchase.segments.report</column>
+          <record id="ui.menu.models.purchase.segment.categories.list">
+            <column name="sequence">4</column>
+            <column name="name">ui.menu.models.purchase.segment.categories.list</column>
+            <column name="label">Categories Purchase Segment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.segment.categories.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.segment.categories.m2mlist">
+            <column name="sequence">4</column>
+            <column name="name">ui.menu.models.purchase.segment.categories.m2mlist</column>
+            <column name="label">Categories Purchase Segment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.segment.categories.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.segment.categories.search">
+            <column name="sequence">4</column>
+            <column name="name">ui.menu.models.purchase.segment.categories.search</column>
+            <column name="label">Categories Purchase Segment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.segment.categories.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.segment.categories.find">
+            <column name="sequence">4</column>
+            <column name="name">ui.menu.models.purchase.segment.categories.find</column>
+            <column name="label">Categories Purchase Segment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.segment.categories.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.segment.categories.tree">
+            <column name="sequence">4</column>
+            <column name="name">ui.menu.models.purchase.segment.categories.tree</column>
+            <column name="label">Categories Purchase Segment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.segment.categories.tree</column>
+          </record>
+          <record id="ui.menu.models.purchase.segments.form">
+            <column name="sequence">5</column>
+            <column name="name">ui.menu.models.purchase.segments.form</column>
             <column name="label">Purchase Segments</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">50</column>
-          <column name="action_id">action.purchase.segments.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.segments.form</column>
           </record>
-          <record id="ui.menu.purchase.area.categories.report">
-          <column name="sequence">6</column>
-            <column name="name">ui.menu.purchase.area.categories.report</column>
+          <record id="ui.menu.models.purchase.segments.list">
+            <column name="sequence">5</column>
+            <column name="name">ui.menu.models.purchase.segments.list</column>
+            <column name="label">Purchase Segments</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.segments.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.segments.m2mlist">
+            <column name="sequence">5</column>
+            <column name="name">ui.menu.models.purchase.segments.m2mlist</column>
+            <column name="label">Purchase Segments</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.segments.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.segments.search">
+            <column name="sequence">5</column>
+            <column name="name">ui.menu.models.purchase.segments.search</column>
+            <column name="label">Purchase Segments</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.segments.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.segments.find">
+            <column name="sequence">5</column>
+            <column name="name">ui.menu.models.purchase.segments.find</column>
+            <column name="label">Purchase Segments</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.segments.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.area.categories.form">
+            <column name="sequence">6</column>
+            <column name="name">ui.menu.models.purchase.area.categories.form</column>
             <column name="label">Categories Purchase Area</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">60</column>
-          <column name="action_id">action.purchase.area.categories.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.area.categories.form</column>
           </record>
-          <record id="ui.menu.purchase.areas.report">
-          <column name="sequence">7</column>
-            <column name="name">ui.menu.purchase.areas.report</column>
+          <record id="ui.menu.models.purchase.area.categories.list">
+            <column name="sequence">6</column>
+            <column name="name">ui.menu.models.purchase.area.categories.list</column>
+            <column name="label">Categories Purchase Area</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.area.categories.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.area.categories.m2mlist">
+            <column name="sequence">6</column>
+            <column name="name">ui.menu.models.purchase.area.categories.m2mlist</column>
+            <column name="label">Categories Purchase Area</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.area.categories.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.area.categories.search">
+            <column name="sequence">6</column>
+            <column name="name">ui.menu.models.purchase.area.categories.search</column>
+            <column name="label">Categories Purchase Area</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.area.categories.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.area.categories.find">
+            <column name="sequence">6</column>
+            <column name="name">ui.menu.models.purchase.area.categories.find</column>
+            <column name="label">Categories Purchase Area</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.area.categories.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.area.categories.tree">
+            <column name="sequence">6</column>
+            <column name="name">ui.menu.models.purchase.area.categories.tree</column>
+            <column name="label">Categories Purchase Area</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.area.categories.tree</column>
+          </record>
+          <record id="ui.menu.models.purchase.areas.form">
+            <column name="sequence">7</column>
+            <column name="name">ui.menu.models.purchase.areas.form</column>
             <column name="label">Purchase Areas</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">70</column>
-          <column name="action_id">action.purchase.areas.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.areas.form</column>
           </record>
-          <record id="ui.menu.purchase.region.categories.report">
-          <column name="sequence">8</column>
-            <column name="name">ui.menu.purchase.region.categories.report</column>
+          <record id="ui.menu.models.purchase.areas.list">
+            <column name="sequence">7</column>
+            <column name="name">ui.menu.models.purchase.areas.list</column>
+            <column name="label">Purchase Areas</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.areas.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.areas.m2mlist">
+            <column name="sequence">7</column>
+            <column name="name">ui.menu.models.purchase.areas.m2mlist</column>
+            <column name="label">Purchase Areas</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.areas.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.areas.search">
+            <column name="sequence">7</column>
+            <column name="name">ui.menu.models.purchase.areas.search</column>
+            <column name="label">Purchase Areas</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.areas.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.areas.find">
+            <column name="sequence">7</column>
+            <column name="name">ui.menu.models.purchase.areas.find</column>
+            <column name="label">Purchase Areas</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.areas.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.region.categories.form">
+            <column name="sequence">8</column>
+            <column name="name">ui.menu.models.purchase.region.categories.form</column>
             <column name="label">Categories Purchase Region</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">80</column>
-          <column name="action_id">action.purchase.region.categories.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.region.categories.form</column>
           </record>
-          <record id="ui.menu.purchase.regions.report">
-          <column name="sequence">9</column>
-            <column name="name">ui.menu.purchase.regions.report</column>
+          <record id="ui.menu.models.purchase.region.categories.list">
+            <column name="sequence">8</column>
+            <column name="name">ui.menu.models.purchase.region.categories.list</column>
+            <column name="label">Categories Purchase Region</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.region.categories.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.region.categories.m2mlist">
+            <column name="sequence">8</column>
+            <column name="name">ui.menu.models.purchase.region.categories.m2mlist</column>
+            <column name="label">Categories Purchase Region</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.region.categories.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.region.categories.search">
+            <column name="sequence">8</column>
+            <column name="name">ui.menu.models.purchase.region.categories.search</column>
+            <column name="label">Categories Purchase Region</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.region.categories.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.region.categories.find">
+            <column name="sequence">8</column>
+            <column name="name">ui.menu.models.purchase.region.categories.find</column>
+            <column name="label">Categories Purchase Region</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.region.categories.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.region.categories.tree">
+            <column name="sequence">8</column>
+            <column name="name">ui.menu.models.purchase.region.categories.tree</column>
+            <column name="label">Categories Purchase Region</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.region.categories.tree</column>
+          </record>
+          <record id="ui.menu.models.purchase.regions.form">
+            <column name="sequence">9</column>
+            <column name="name">ui.menu.models.purchase.regions.form</column>
             <column name="label">Purchase Regions</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">90</column>
-          <column name="action_id">action.purchase.regions.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.regions.form</column>
           </record>
-          <record id="ui.menu.purchase.division.categories.report">
-          <column name="sequence">10</column>
-            <column name="name">ui.menu.purchase.division.categories.report</column>
+          <record id="ui.menu.models.purchase.regions.list">
+            <column name="sequence">9</column>
+            <column name="name">ui.menu.models.purchase.regions.list</column>
+            <column name="label">Purchase Regions</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.regions.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.regions.m2mlist">
+            <column name="sequence">9</column>
+            <column name="name">ui.menu.models.purchase.regions.m2mlist</column>
+            <column name="label">Purchase Regions</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.regions.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.regions.search">
+            <column name="sequence">9</column>
+            <column name="name">ui.menu.models.purchase.regions.search</column>
+            <column name="label">Purchase Regions</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.regions.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.regions.find">
+            <column name="sequence">9</column>
+            <column name="name">ui.menu.models.purchase.regions.find</column>
+            <column name="label">Purchase Regions</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.regions.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.division.categories.form">
+            <column name="sequence">10</column>
+            <column name="name">ui.menu.models.purchase.division.categories.form</column>
             <column name="label">Categories Purchase Division</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">100</column>
-          <column name="action_id">action.purchase.division.categories.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.division.categories.form</column>
           </record>
-          <record id="ui.menu.purchase.divisions.report">
-          <column name="sequence">11</column>
-            <column name="name">ui.menu.purchase.divisions.report</column>
+          <record id="ui.menu.models.purchase.division.categories.list">
+            <column name="sequence">10</column>
+            <column name="name">ui.menu.models.purchase.division.categories.list</column>
+            <column name="label">Categories Purchase Division</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.division.categories.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.division.categories.m2mlist">
+            <column name="sequence">10</column>
+            <column name="name">ui.menu.models.purchase.division.categories.m2mlist</column>
+            <column name="label">Categories Purchase Division</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.division.categories.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.division.categories.search">
+            <column name="sequence">10</column>
+            <column name="name">ui.menu.models.purchase.division.categories.search</column>
+            <column name="label">Categories Purchase Division</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.division.categories.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.division.categories.find">
+            <column name="sequence">10</column>
+            <column name="name">ui.menu.models.purchase.division.categories.find</column>
+            <column name="label">Categories Purchase Division</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.division.categories.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.division.categories.tree">
+            <column name="sequence">10</column>
+            <column name="name">ui.menu.models.purchase.division.categories.tree</column>
+            <column name="label">Categories Purchase Division</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.division.categories.tree</column>
+          </record>
+          <record id="ui.menu.models.purchase.divisions.form">
+            <column name="sequence">11</column>
+            <column name="name">ui.menu.models.purchase.divisions.form</column>
             <column name="label">Purchase Divisions</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">110</column>
-          <column name="action_id">action.purchase.divisions.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.divisions.form</column>
           </record>
-          <record id="ui.menu.purchase.subdivision.categories.report">
-          <column name="sequence">12</column>
-            <column name="name">ui.menu.purchase.subdivision.categories.report</column>
+          <record id="ui.menu.models.purchase.divisions.list">
+            <column name="sequence">11</column>
+            <column name="name">ui.menu.models.purchase.divisions.list</column>
+            <column name="label">Purchase Divisions</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.divisions.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.divisions.m2mlist">
+            <column name="sequence">11</column>
+            <column name="name">ui.menu.models.purchase.divisions.m2mlist</column>
+            <column name="label">Purchase Divisions</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.divisions.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.divisions.search">
+            <column name="sequence">11</column>
+            <column name="name">ui.menu.models.purchase.divisions.search</column>
+            <column name="label">Purchase Divisions</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.divisions.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.divisions.find">
+            <column name="sequence">11</column>
+            <column name="name">ui.menu.models.purchase.divisions.find</column>
+            <column name="label">Purchase Divisions</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.divisions.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.subdivision.categories.form">
+            <column name="sequence">12</column>
+            <column name="name">ui.menu.models.purchase.subdivision.categories.form</column>
             <column name="label">Categories Purchase Subdivision</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">120</column>
-          <column name="action_id">action.purchase.subdivision.categories.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.subdivision.categories.form</column>
           </record>
-          <record id="ui.menu.purchase.subdivisions.report">
-          <column name="sequence">13</column>
-            <column name="name">ui.menu.purchase.subdivisions.report</column>
+          <record id="ui.menu.models.purchase.subdivision.categories.list">
+            <column name="sequence">12</column>
+            <column name="name">ui.menu.models.purchase.subdivision.categories.list</column>
+            <column name="label">Categories Purchase Subdivision</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.subdivision.categories.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.subdivision.categories.m2mlist">
+            <column name="sequence">12</column>
+            <column name="name">ui.menu.models.purchase.subdivision.categories.m2mlist</column>
+            <column name="label">Categories Purchase Subdivision</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.subdivision.categories.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.subdivision.categories.search">
+            <column name="sequence">12</column>
+            <column name="name">ui.menu.models.purchase.subdivision.categories.search</column>
+            <column name="label">Categories Purchase Subdivision</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.subdivision.categories.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.subdivision.categories.find">
+            <column name="sequence">12</column>
+            <column name="name">ui.menu.models.purchase.subdivision.categories.find</column>
+            <column name="label">Categories Purchase Subdivision</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.subdivision.categories.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.subdivision.categories.tree">
+            <column name="sequence">12</column>
+            <column name="name">ui.menu.models.purchase.subdivision.categories.tree</column>
+            <column name="label">Categories Purchase Subdivision</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.subdivision.categories.tree</column>
+          </record>
+          <record id="ui.menu.models.purchase.subdivisions.form">
+            <column name="sequence">13</column>
+            <column name="name">ui.menu.models.purchase.subdivisions.form</column>
             <column name="label">Purchase Subdivisions</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">130</column>
-          <column name="action_id">action.purchase.subdivisions.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.subdivisions.form</column>
           </record>
-          <record id="ui.menu.purchase.unit.channel.assigments.report">
-          <column name="sequence">14</column>
-            <column name="name">ui.menu.purchase.unit.channel.assigments.report</column>
+          <record id="ui.menu.models.purchase.subdivisions.list">
+            <column name="sequence">13</column>
+            <column name="name">ui.menu.models.purchase.subdivisions.list</column>
+            <column name="label">Purchase Subdivisions</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.subdivisions.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.subdivisions.m2mlist">
+            <column name="sequence">13</column>
+            <column name="name">ui.menu.models.purchase.subdivisions.m2mlist</column>
+            <column name="label">Purchase Subdivisions</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.subdivisions.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.subdivisions.search">
+            <column name="sequence">13</column>
+            <column name="name">ui.menu.models.purchase.subdivisions.search</column>
+            <column name="label">Purchase Subdivisions</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.subdivisions.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.subdivisions.find">
+            <column name="sequence">13</column>
+            <column name="name">ui.menu.models.purchase.subdivisions.find</column>
+            <column name="label">Purchase Subdivisions</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.subdivisions.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.channel.assigments.form">
+            <column name="sequence">14</column>
+            <column name="name">ui.menu.models.purchase.unit.channel.assigments.form</column>
             <column name="label">Purchase Unit Of Channel Assigment</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">140</column>
-          <column name="action_id">action.purchase.unit.channel.assigments.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.channel.assigments.form</column>
           </record>
-          <record id="ui.menu.purchase.unit.segment.assigments.report">
-          <column name="sequence">15</column>
-            <column name="name">ui.menu.purchase.unit.segment.assigments.report</column>
+          <record id="ui.menu.models.purchase.unit.channel.assigments.list">
+            <column name="sequence">14</column>
+            <column name="name">ui.menu.models.purchase.unit.channel.assigments.list</column>
+            <column name="label">Purchase Unit Of Channel Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.channel.assigments.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.channel.assigments.m2mlist">
+            <column name="sequence">14</column>
+            <column name="name">ui.menu.models.purchase.unit.channel.assigments.m2mlist</column>
+            <column name="label">Purchase Unit Of Channel Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.channel.assigments.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.channel.assigments.search">
+            <column name="sequence">14</column>
+            <column name="name">ui.menu.models.purchase.unit.channel.assigments.search</column>
+            <column name="label">Purchase Unit Of Channel Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.channel.assigments.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.channel.assigments.find">
+            <column name="sequence">14</column>
+            <column name="name">ui.menu.models.purchase.unit.channel.assigments.find</column>
+            <column name="label">Purchase Unit Of Channel Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.channel.assigments.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.segment.assigments.form">
+            <column name="sequence">15</column>
+            <column name="name">ui.menu.models.purchase.unit.segment.assigments.form</column>
             <column name="label">Purchase Unit Of Segment Assigment</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">150</column>
-          <column name="action_id">action.purchase.unit.segment.assigments.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.segment.assigments.form</column>
           </record>
-          <record id="ui.menu.purchase.unit.area.assigments.report">
-          <column name="sequence">16</column>
-            <column name="name">ui.menu.purchase.unit.area.assigments.report</column>
+          <record id="ui.menu.models.purchase.unit.segment.assigments.list">
+            <column name="sequence">15</column>
+            <column name="name">ui.menu.models.purchase.unit.segment.assigments.list</column>
+            <column name="label">Purchase Unit Of Segment Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.segment.assigments.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.segment.assigments.m2mlist">
+            <column name="sequence">15</column>
+            <column name="name">ui.menu.models.purchase.unit.segment.assigments.m2mlist</column>
+            <column name="label">Purchase Unit Of Segment Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.segment.assigments.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.segment.assigments.search">
+            <column name="sequence">15</column>
+            <column name="name">ui.menu.models.purchase.unit.segment.assigments.search</column>
+            <column name="label">Purchase Unit Of Segment Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.segment.assigments.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.segment.assigments.find">
+            <column name="sequence">15</column>
+            <column name="name">ui.menu.models.purchase.unit.segment.assigments.find</column>
+            <column name="label">Purchase Unit Of Segment Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.segment.assigments.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.area.assigments.form">
+            <column name="sequence">16</column>
+            <column name="name">ui.menu.models.purchase.unit.area.assigments.form</column>
             <column name="label">Purchase Unit Of Area Assigment</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">160</column>
-          <column name="action_id">action.purchase.unit.area.assigments.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.area.assigments.form</column>
           </record>
-          <record id="ui.menu.purchase.unit.region.assigments.report">
-          <column name="sequence">17</column>
-            <column name="name">ui.menu.purchase.unit.region.assigments.report</column>
+          <record id="ui.menu.models.purchase.unit.area.assigments.list">
+            <column name="sequence">16</column>
+            <column name="name">ui.menu.models.purchase.unit.area.assigments.list</column>
+            <column name="label">Purchase Unit Of Area Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.area.assigments.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.area.assigments.m2mlist">
+            <column name="sequence">16</column>
+            <column name="name">ui.menu.models.purchase.unit.area.assigments.m2mlist</column>
+            <column name="label">Purchase Unit Of Area Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.area.assigments.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.area.assigments.search">
+            <column name="sequence">16</column>
+            <column name="name">ui.menu.models.purchase.unit.area.assigments.search</column>
+            <column name="label">Purchase Unit Of Area Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.area.assigments.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.area.assigments.find">
+            <column name="sequence">16</column>
+            <column name="name">ui.menu.models.purchase.unit.area.assigments.find</column>
+            <column name="label">Purchase Unit Of Area Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.area.assigments.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.region.assigments.form">
+            <column name="sequence">17</column>
+            <column name="name">ui.menu.models.purchase.unit.region.assigments.form</column>
             <column name="label">Purchase Unit Of Region Assigment</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">170</column>
-          <column name="action_id">action.purchase.unit.region.assigments.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.region.assigments.form</column>
           </record>
-          <record id="ui.menu.purchase.division.subdivision.assigments.report">
-          <column name="sequence">18</column>
-            <column name="name">ui.menu.purchase.division.subdivision.assigments.report</column>
+          <record id="ui.menu.models.purchase.unit.region.assigments.list">
+            <column name="sequence">17</column>
+            <column name="name">ui.menu.models.purchase.unit.region.assigments.list</column>
+            <column name="label">Purchase Unit Of Region Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.region.assigments.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.region.assigments.m2mlist">
+            <column name="sequence">17</column>
+            <column name="name">ui.menu.models.purchase.unit.region.assigments.m2mlist</column>
+            <column name="label">Purchase Unit Of Region Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.region.assigments.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.region.assigments.search">
+            <column name="sequence">17</column>
+            <column name="name">ui.menu.models.purchase.unit.region.assigments.search</column>
+            <column name="label">Purchase Unit Of Region Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.region.assigments.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.unit.region.assigments.find">
+            <column name="sequence">17</column>
+            <column name="name">ui.menu.models.purchase.unit.region.assigments.find</column>
+            <column name="label">Purchase Unit Of Region Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.unit.region.assigments.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.division.subdivision.assigments.form">
+            <column name="sequence">18</column>
+            <column name="name">ui.menu.models.purchase.division.subdivision.assigments.form</column>
             <column name="label">Purchase Division Of Subdivision Assigment</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">180</column>
-          <column name="action_id">action.purchase.division.subdivision.assigments.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.division.subdivision.assigments.form</column>
           </record>
-          <record id="ui.menu.purchase.markets.report">
-          <column name="sequence">19</column>
-            <column name="name">ui.menu.purchase.markets.report</column>
+          <record id="ui.menu.models.purchase.division.subdivision.assigments.list">
+            <column name="sequence">18</column>
+            <column name="name">ui.menu.models.purchase.division.subdivision.assigments.list</column>
+            <column name="label">Purchase Division Of Subdivision Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.division.subdivision.assigments.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.division.subdivision.assigments.m2mlist">
+            <column name="sequence">18</column>
+            <column name="name">ui.menu.models.purchase.division.subdivision.assigments.m2mlist</column>
+            <column name="label">Purchase Division Of Subdivision Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.division.subdivision.assigments.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.division.subdivision.assigments.search">
+            <column name="sequence">18</column>
+            <column name="name">ui.menu.models.purchase.division.subdivision.assigments.search</column>
+            <column name="label">Purchase Division Of Subdivision Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.division.subdivision.assigments.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.division.subdivision.assigments.find">
+            <column name="sequence">18</column>
+            <column name="name">ui.menu.models.purchase.division.subdivision.assigments.find</column>
+            <column name="label">Purchase Division Of Subdivision Assigment</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.division.subdivision.assigments.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.markets.form">
+            <column name="sequence">19</column>
+            <column name="name">ui.menu.models.purchase.markets.form</column>
             <column name="label">Purchase Market</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">190</column>
-          <column name="action_id">action.purchase.markets.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.markets.form</column>
           </record>
-          <record id="ui.menu.purchase.teams.report">
-          <column name="sequence">20</column>
-            <column name="name">ui.menu.purchase.teams.report</column>
+          <record id="ui.menu.models.purchase.markets.list">
+            <column name="sequence">19</column>
+            <column name="name">ui.menu.models.purchase.markets.list</column>
+            <column name="label">Purchase Market</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.markets.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.markets.m2mlist">
+            <column name="sequence">19</column>
+            <column name="name">ui.menu.models.purchase.markets.m2mlist</column>
+            <column name="label">Purchase Market</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.markets.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.markets.search">
+            <column name="sequence">19</column>
+            <column name="name">ui.menu.models.purchase.markets.search</column>
+            <column name="label">Purchase Market</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.markets.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.markets.find">
+            <column name="sequence">19</column>
+            <column name="name">ui.menu.models.purchase.markets.find</column>
+            <column name="label">Purchase Market</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.markets.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.teams.form">
+            <column name="sequence">20</column>
+            <column name="name">ui.menu.models.purchase.teams.form</column>
             <column name="label">Purchase Teams</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">200</column>
-          <column name="action_id">action.purchase.teams.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.teams.form</column>
           </record>
-          <record id="ui.menu.purchase.pricing.group.levels.report">
-          <column name="sequence">21</column>
-            <column name="name">ui.menu.purchase.pricing.group.levels.report</column>
+          <record id="ui.menu.models.purchase.teams.list">
+            <column name="sequence">20</column>
+            <column name="name">ui.menu.models.purchase.teams.list</column>
+            <column name="label">Purchase Teams</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.teams.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.teams.m2mlist">
+            <column name="sequence">20</column>
+            <column name="name">ui.menu.models.purchase.teams.m2mlist</column>
+            <column name="label">Purchase Teams</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.teams.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.teams.search">
+            <column name="sequence">20</column>
+            <column name="name">ui.menu.models.purchase.teams.search</column>
+            <column name="label">Purchase Teams</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.teams.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.teams.find">
+            <column name="sequence">20</column>
+            <column name="name">ui.menu.models.purchase.teams.find</column>
+            <column name="label">Purchase Teams</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.teams.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.pricing.group.levels.form">
+            <column name="sequence">21</column>
+            <column name="name">ui.menu.models.purchase.pricing.group.levels.form</column>
             <column name="label">Purchase Pricing Group Levels</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">210</column>
-          <column name="action_id">action.purchase.pricing.group.levels.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.pricing.group.levels.form</column>
           </record>
-          <record id="ui.menu.purchase.texts.report">
-          <column name="sequence">22</column>
-            <column name="name">ui.menu.purchase.texts.report</column>
+          <record id="ui.menu.models.purchase.pricing.group.levels.list">
+            <column name="sequence">21</column>
+            <column name="name">ui.menu.models.purchase.pricing.group.levels.list</column>
+            <column name="label">Purchase Pricing Group Levels</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.pricing.group.levels.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.pricing.group.levels.m2mlist">
+            <column name="sequence">21</column>
+            <column name="name">ui.menu.models.purchase.pricing.group.levels.m2mlist</column>
+            <column name="label">Purchase Pricing Group Levels</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.pricing.group.levels.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.pricing.group.levels.search">
+            <column name="sequence">21</column>
+            <column name="name">ui.menu.models.purchase.pricing.group.levels.search</column>
+            <column name="label">Purchase Pricing Group Levels</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.pricing.group.levels.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.pricing.group.levels.find">
+            <column name="sequence">21</column>
+            <column name="name">ui.menu.models.purchase.pricing.group.levels.find</column>
+            <column name="label">Purchase Pricing Group Levels</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.pricing.group.levels.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.texts.form">
+            <column name="sequence">22</column>
+            <column name="name">ui.menu.models.purchase.texts.form</column>
             <column name="label">Purchase Texts</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">220</column>
-          <column name="action_id">action.purchase.texts.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.texts.form</column>
           </record>
-          <record id="ui.menu.purchase.schema.texts.report">
-          <column name="sequence">23</column>
-            <column name="name">ui.menu.purchase.schema.texts.report</column>
+          <record id="ui.menu.models.purchase.texts.list">
+            <column name="sequence">22</column>
+            <column name="name">ui.menu.models.purchase.texts.list</column>
+            <column name="label">Purchase Texts</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.texts.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.texts.m2mlist">
+            <column name="sequence">22</column>
+            <column name="name">ui.menu.models.purchase.texts.m2mlist</column>
+            <column name="label">Purchase Texts</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.texts.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.texts.search">
+            <column name="sequence">22</column>
+            <column name="name">ui.menu.models.purchase.texts.search</column>
+            <column name="label">Purchase Texts</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.texts.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.texts.find">
+            <column name="sequence">22</column>
+            <column name="name">ui.menu.models.purchase.texts.find</column>
+            <column name="label">Purchase Texts</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.texts.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.schema.texts.form">
+            <column name="sequence">23</column>
+            <column name="name">ui.menu.models.purchase.schema.texts.form</column>
             <column name="label">Schema Of Purchase Texts</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">230</column>
-          <column name="action_id">action.purchase.schema.texts.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.schema.texts.form</column>
           </record>
-          <record id="ui.menu.purchase.order.types.report">
-          <column name="sequence">24</column>
-            <column name="name">ui.menu.purchase.order.types.report</column>
+          <record id="ui.menu.models.purchase.schema.texts.list">
+            <column name="sequence">23</column>
+            <column name="name">ui.menu.models.purchase.schema.texts.list</column>
+            <column name="label">Schema Of Purchase Texts</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.schema.texts.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.schema.texts.m2mlist">
+            <column name="sequence">23</column>
+            <column name="name">ui.menu.models.purchase.schema.texts.m2mlist</column>
+            <column name="label">Schema Of Purchase Texts</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.schema.texts.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.schema.texts.search">
+            <column name="sequence">23</column>
+            <column name="name">ui.menu.models.purchase.schema.texts.search</column>
+            <column name="label">Schema Of Purchase Texts</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.schema.texts.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.schema.texts.find">
+            <column name="sequence">23</column>
+            <column name="name">ui.menu.models.purchase.schema.texts.find</column>
+            <column name="label">Schema Of Purchase Texts</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.schema.texts.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.order.types.form">
+            <column name="sequence">24</column>
+            <column name="name">ui.menu.models.purchase.order.types.form</column>
             <column name="label">Types Purchase Order</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">240</column>
-          <column name="action_id">action.purchase.order.types.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.order.types.form</column>
           </record>
-          <record id="ui.menu.purchase.invoice.types.report">
-          <column name="sequence">25</column>
-            <column name="name">ui.menu.purchase.invoice.types.report</column>
+          <record id="ui.menu.models.purchase.order.types.list">
+            <column name="sequence">24</column>
+            <column name="name">ui.menu.models.purchase.order.types.list</column>
+            <column name="label">Types Purchase Order</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.order.types.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.order.types.m2mlist">
+            <column name="sequence">24</column>
+            <column name="name">ui.menu.models.purchase.order.types.m2mlist</column>
+            <column name="label">Types Purchase Order</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.order.types.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.order.types.search">
+            <column name="sequence">24</column>
+            <column name="name">ui.menu.models.purchase.order.types.search</column>
+            <column name="label">Types Purchase Order</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.order.types.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.order.types.find">
+            <column name="sequence">24</column>
+            <column name="name">ui.menu.models.purchase.order.types.find</column>
+            <column name="label">Types Purchase Order</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.order.types.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoice.types.form">
+            <column name="sequence">25</column>
+            <column name="name">ui.menu.models.purchase.invoice.types.form</column>
             <column name="label">Types Purchase Invoice</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">250</column>
-          <column name="action_id">action.purchase.invoice.types.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoice.types.form</column>
           </record>
-          <record id="ui.menu.purchase.order.categories.report">
-          <column name="sequence">26</column>
-            <column name="name">ui.menu.purchase.order.categories.report</column>
+          <record id="ui.menu.models.purchase.invoice.types.list">
+            <column name="sequence">25</column>
+            <column name="name">ui.menu.models.purchase.invoice.types.list</column>
+            <column name="label">Types Purchase Invoice</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoice.types.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoice.types.m2mlist">
+            <column name="sequence">25</column>
+            <column name="name">ui.menu.models.purchase.invoice.types.m2mlist</column>
+            <column name="label">Types Purchase Invoice</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoice.types.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoice.types.search">
+            <column name="sequence">25</column>
+            <column name="name">ui.menu.models.purchase.invoice.types.search</column>
+            <column name="label">Types Purchase Invoice</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoice.types.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoice.types.find">
+            <column name="sequence">25</column>
+            <column name="name">ui.menu.models.purchase.invoice.types.find</column>
+            <column name="label">Types Purchase Invoice</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoice.types.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.order.categories.form">
+            <column name="sequence">26</column>
+            <column name="name">ui.menu.models.purchase.order.categories.form</column>
             <column name="label">Categories Purchase Order</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">260</column>
-          <column name="action_id">action.purchase.order.categories.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.order.categories.form</column>
           </record>
-          <record id="ui.menu.purchase.invoce.categories.report">
-          <column name="sequence">27</column>
-            <column name="name">ui.menu.purchase.invoce.categories.report</column>
+          <record id="ui.menu.models.purchase.order.categories.list">
+            <column name="sequence">26</column>
+            <column name="name">ui.menu.models.purchase.order.categories.list</column>
+            <column name="label">Categories Purchase Order</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.order.categories.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.order.categories.m2mlist">
+            <column name="sequence">26</column>
+            <column name="name">ui.menu.models.purchase.order.categories.m2mlist</column>
+            <column name="label">Categories Purchase Order</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.order.categories.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.order.categories.search">
+            <column name="sequence">26</column>
+            <column name="name">ui.menu.models.purchase.order.categories.search</column>
+            <column name="label">Categories Purchase Order</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.order.categories.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.order.categories.find">
+            <column name="sequence">26</column>
+            <column name="name">ui.menu.models.purchase.order.categories.find</column>
+            <column name="label">Categories Purchase Order</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.order.categories.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.order.categories.tree">
+            <column name="sequence">26</column>
+            <column name="name">ui.menu.models.purchase.order.categories.tree</column>
+            <column name="label">Categories Purchase Order</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.order.categories.tree</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoce.categories.form">
+            <column name="sequence">27</column>
+            <column name="name">ui.menu.models.purchase.invoce.categories.form</column>
             <column name="label">Categories Purchase Invoce</column>
-          <column name="parent_id">ui.menu.purchase.report.custom</column>
-          <column name="sequence">270</column>
-          <column name="action_id">action.purchase.invoce.categories.report</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoce.categories.form</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoce.categories.list">
+            <column name="sequence">27</column>
+            <column name="name">ui.menu.models.purchase.invoce.categories.list</column>
+            <column name="label">Categories Purchase Invoce</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoce.categories.list</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoce.categories.m2mlist">
+            <column name="sequence">27</column>
+            <column name="name">ui.menu.models.purchase.invoce.categories.m2mlist</column>
+            <column name="label">Categories Purchase Invoce</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoce.categories.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoce.categories.search">
+            <column name="sequence">27</column>
+            <column name="name">ui.menu.models.purchase.invoce.categories.search</column>
+            <column name="label">Categories Purchase Invoce</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoce.categories.search</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoce.categories.find">
+            <column name="sequence">27</column>
+            <column name="name">ui.menu.models.purchase.invoce.categories.find</column>
+            <column name="label">Categories Purchase Invoce</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoce.categories.find</column>
+          </record>
+          <record id="ui.menu.models.purchase.invoce.categories.tree">
+            <column name="sequence">27</column>
+            <column name="name">ui.menu.models.purchase.invoce.categories.tree</column>
+            <column name="label">Categories Purchase Invoce</column>
+            <column name="parent_id">ui.menu.customize.purchase.models</column>
+          <column name="action_id">action.purchase.models.purchase.invoce.categories.tree</column>
           </record>
       </records>
     </data>

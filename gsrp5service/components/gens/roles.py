@@ -2,88 +2,91 @@ import os
 import logging
 from os.path import join as opj
 from io import BytesIO
+from .common import concat
 from gsrp5service.orm.model import Model
+import web_pdb
 
 b = BytesIO()
 TAB = '  '
 
 GRANTS = ('readonly','nodrop','full','crw')
-ACCESS = {'readonly':['aread','aselect'],'nodrop':['aread','aselect','acreate','ainsert','awrite','aupdate','amodify','aupsert','abrowse','aselectbrowse'],'full':['aread','aselect','acreate','ainsert','awrite','aupdate','amodify','aupsert','aunlink','adelete','abrowse','aselectbrowse'],'crw':['aread','aselect','acreate','ainsert','awrite','aupdate','amodify','aupsert','abrowse','aselectbrowse']}
+ACCESS = {'readonly':['aread'],'nodrop':['aread','acreate','awrite',],'full':['aread','acreate','awrite','aunlink','aexecute'],'crw':['aread','acreate','awrite','aexecute']}
 
 _logger = logging.getLogger('listener.' + __name__)
 
-def RecordGroup(level,module,grant):
+def RecordGroup(level,module,grant,cat):
 
 	indent = TAB * level
-	b.write((indent + '<record id="%s">\n' % (module + '.' + grant,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="name">%s</column>\n' % (module + '.' + grant,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="note">Module %s grant %s</column>\n' % (module,grant)).encode('utf-8'))
+	nm = concat([module,cat,grant])
+	b.write((indent + '<record id="%s">\n' % (nm,)).encode('utf-8'))
+	b.write((indent + TAB + '<column name="name">%s</column>\n' % (nm,)).encode('utf-8'))
+	b.write((indent + TAB + '<column name="note">Module %s Type Object %s grant %s</column>\n' % (module,cat,grant)).encode('utf-8'))
 	b.write((indent + '</record>\n').encode('utf-8'))
 
-def RecordRole(level,module,model,grant):
+def RecordRole(level,module,obj,grant,cat):
 
 	indent = TAB * level
 
-	b.write((indent + '<record id="%s">\n' % (model + '.' + grant,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="name">%s</column>\n' % (model + '.' + grant,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="note">Model %s grant %s</column>\n' % (model,grant)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="group_id">%s</column>\n' % (module + '.' + grant,)).encode('utf-8'))
+	nm = concat(['role',module,cat,obj,grant])
+	b.write((indent + '<record id="%s">\n' % (nm,)).encode('utf-8'))
+	b.write((indent + TAB + '<column name="name">%s</column>\n' % (nm,)).encode('utf-8'))
+	b.write((indent + TAB + '<column name="note">Module: %s Type: %s Object: %s grant: %s</column>\n' % (module,cat,obj,grant)).encode('utf-8'))
+	b.write((indent + TAB + '<column name="group_id">%s</column>\n' % (concat([module,cat,grant]),)).encode('utf-8'))
 	b.write((indent + '</record>\n').encode('utf-8'))
 
-def RecordsRole(level,module,models):
+def RecordsRole(level,module,objs,cat):
 
 	indent = TAB * level
 
 	b.write((indent + '<records model="%s">\n' % ('bc.access',)).encode('utf-8'))
-	for model in models:
+	for obj in objs:
 		for grant in GRANTS:
-			RecordRole(level+1,module,model._name,grant)
+			RecordRole(level+1,module,obj._name,grant,cat)
 	b.write((indent + '</records>\n').encode('utf-8'))
 
-def RecordAccess(level,module,model,grant):
+def RecordAccess(level,module,obj,grant, cat):
 
 	indent = TAB * level
-
-	b.write((indent + '<record id="%s">\n' % (module + '.' + model + '.' + grant,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="access_id">%s</column>\n' % (model + '.' + grant,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="model_id">%s</column>\n' % (model,)).encode('utf-8'))
+	nm = concat(['access',module,cat,obj,grant])
+	b.write((indent + '<record id="%s">\n' % (nm,)).encode('utf-8'))
+	b.write((indent + TAB + '<column name="access_id">%s</column>\n' % (nm,)).encode('utf-8'))
+	b.write((indent + TAB + '<column name="object_id">%s</column>\n' % (obj,)).encode('utf-8'))
 	for column in ACCESS[grant]:
 		b.write((indent + TAB + '<column name="%s">True</column>\n' % (column,)).encode('utf-8'))
 		
 	b.write((indent + '</record>\n').encode('utf-8'))
 
 
-def RecordsAccess(level,module,models):
+def RecordsAccess(level,module,objs,cat):
 
 	indent = TAB * level
 
-	b.write((indent + '<records model="%s">\n' % ('bc.model.access',)).encode('utf-8'))
-	for model in models:
+	b.write((indent + '<records model="%s">\n' % ('bc.obj.access',)).encode('utf-8'))
+	for obj in objs:
 		for grant in GRANTS:
-			RecordAccess(level+1,module,model._name,grant)
+			RecordAccess(level+1,module,obj._name,grant,cat)
 	b.write((indent + '</records>\n').encode('utf-8'))
 
 
-def Group(level,module):
+def Group(level,module,cat):
 	
 	indent = TAB * level
 	
 	b.write((indent + '<records model="%s">\n' % ('bc.group.access',)).encode('utf-8'))
 	for grant in GRANTS:
-		RecordGroup(level+1,module,grant)
+		RecordGroup(level+1,module,grant,cat)
 
 	b.write((indent + '</records>\n').encode('utf-8'))
 
 
-def Role(level,module,models):
-	RecordsRole(level,module,models)
+def Role(level,module,objs,cat):
+	RecordsRole(level,module,objs,cat)
 
-def Access(level,module,models):
-	RecordsAccess(level,module,models)
+def Access(level,module,objs,cat):
+	RecordsAccess(level,module,objs,cat)
 
 def Area(self, modules = None, context={}):
 	pwd = os.getcwd()
-	pool = self._models
 	registry = self._registry
 	log = []
 	if not modules:
@@ -93,21 +96,23 @@ def Area(self, modules = None, context={}):
 	logmodules = []
 	for module in modules:
 		path = registry._modules[module]['path']
-		models = []
-		if module in registry._metas and 'models' in registry._metas[module]:
-			for model in registry._metas[module]['models'].keys():
-				mm = registry._create_module_object('models',model,module)
-				if isinstance(mm,Model):
-					if hasattr(mm,'_inherit') and not getattr(mm,'_inherit',None):
-						models.append(mm)
+		objs = {}
+		if module in registry._metas:
+			for cat in filter(lambda x: x in ('dashboards','models','views','reports','wizards'),registry._metas[module].keys()):
+				for key in registry._metas[module][cat]:
+					obj = registry._create_module_object(cat,key,module)
+					if isinstance(obj,Model):
+						if hasattr(obj,'_inherit') and not getattr(obj,'_inherit',None):
+							objs.setdefault(cat,[]).append(obj)
 
-		if len(models) > 0:
+		if len(objs) > 0:
 			b.write('<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n'.encode('utf-8'))
 			b.write((TAB+'<gsrp>\n').encode('utf-8'))
 			b.write((TAB * 2 + '<data>\n').encode('utf-8'))
-			Group(3, module)
-			Role(3,module,models)
-			Access(3,module,models)
+			Group(3, module,cat)
+			for cat in objs.keys():
+				Role(3,module,objs[cat],cat)
+				Access(3,module,objs[cat],cat)
 			b.write((TAB * 2 + '</data>\n').encode('utf-8'))
 			b.write((TAB + '</gsrp>\n').encode('utf-8'))
 			f=open(opj(path,module,'views','roles.xml'),'wb')

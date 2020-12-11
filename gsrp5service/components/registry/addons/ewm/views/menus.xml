@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.module.ewm">
+          <column name="name">ui.menu.module.ewm</column>
+          <column name="label">Extended Warehouse Management</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.customize.ewm">
+          <column name="name">ui.menu.customize.ewm</column>
+          <column name="label">Extended Warehouse Management</column>
+        </record>
+      </records>
+      <records model="bc.actions">
+        <record id="action.ewm.models.ewm.warehouse.form">
+          <column name="name">action.ewm.models.ewm.warehouse.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.ewm.models.ewm.warehouse.list">
+          <column name="name">action.ewm.models.ewm.warehouse.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.ewm.models.ewm.warehouse.m2mlist">
+          <column name="name">action.ewm.models.ewm.warehouse.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.ewm.models.ewm.warehouse.search">
+          <column name="name">action.ewm.models.ewm.warehouse.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.ewm.models.ewm.warehouse.find">
+          <column name="name">action.ewm.models.ewm.warehouse.find</column>
+          <column name="ta">Model</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.customize.ewm.models">
+          <column name="name">ui.menu.customize.ewm.models</column>
+          <column name="label">Models</column>
+        <column name="parent_id">ui.menu.customize</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.models.ewm.warehouse.form">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.ewm.warehouse.form</column>
+            <column name="label">Warehouse</column>
+            <column name="parent_id">ui.menu.customize.ewm.models</column>
+          <column name="action_id">action.ewm.models.ewm.warehouse.form</column>
+          </record>
+          <record id="ui.menu.models.ewm.warehouse.list">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.ewm.warehouse.list</column>
+            <column name="label">Warehouse</column>
+            <column name="parent_id">ui.menu.customize.ewm.models</column>
+          <column name="action_id">action.ewm.models.ewm.warehouse.list</column>
+          </record>
+          <record id="ui.menu.models.ewm.warehouse.m2mlist">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.ewm.warehouse.m2mlist</column>
+            <column name="label">Warehouse</column>
+            <column name="parent_id">ui.menu.customize.ewm.models</column>
+          <column name="action_id">action.ewm.models.ewm.warehouse.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.ewm.warehouse.search">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.ewm.warehouse.search</column>
+            <column name="label">Warehouse</column>
+            <column name="parent_id">ui.menu.customize.ewm.models</column>
+          <column name="action_id">action.ewm.models.ewm.warehouse.search</column>
+          </record>
+          <record id="ui.menu.models.ewm.warehouse.find">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.ewm.warehouse.find</column>
+            <column name="label">Warehouse</column>
+            <column name="parent_id">ui.menu.customize.ewm.models</column>
+          <column name="action_id">action.ewm.models.ewm.warehouse.find</column>
+          </record>
+      </records>
+    </data>
+  </gsrp>

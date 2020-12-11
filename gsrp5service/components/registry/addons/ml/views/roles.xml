@@ -2,95 +2,74 @@
   <gsrp>
     <data>
       <records model="bc.group.access">
-        <record id="ml.readonly">
-          <column name="name">ml.readonly</column>
-          <column name="note">Module ml grant readonly</column>
+        <record id="ml.models.readonly">
+          <column name="name">ml.models.readonly</column>
+          <column name="note">Module ml Type Object models grant readonly</column>
         </record>
-        <record id="ml.nodrop">
-          <column name="name">ml.nodrop</column>
-          <column name="note">Module ml grant nodrop</column>
+        <record id="ml.models.nodrop">
+          <column name="name">ml.models.nodrop</column>
+          <column name="note">Module ml Type Object models grant nodrop</column>
         </record>
-        <record id="ml.full">
-          <column name="name">ml.full</column>
-          <column name="note">Module ml grant full</column>
+        <record id="ml.models.full">
+          <column name="name">ml.models.full</column>
+          <column name="note">Module ml Type Object models grant full</column>
         </record>
-        <record id="ml.crw">
-          <column name="name">ml.crw</column>
-          <column name="note">Module ml grant crw</column>
+        <record id="ml.models.crw">
+          <column name="name">ml.models.crw</column>
+          <column name="note">Module ml Type Object models grant crw</column>
         </record>
       </records>
       <records model="bc.access">
-        <record id="ml.category.readonly">
-          <column name="name">ml.category.readonly</column>
-          <column name="note">Model ml.category grant readonly</column>
-          <column name="group_id">ml.readonly</column>
+        <record id="role.ml.models.ml.category.readonly">
+          <column name="name">role.ml.models.ml.category.readonly</column>
+          <column name="note">Module: ml Type: models Object: ml.category grant: readonly</column>
+          <column name="group_id">ml.models.readonly</column>
         </record>
-        <record id="ml.category.nodrop">
-          <column name="name">ml.category.nodrop</column>
-          <column name="note">Model ml.category grant nodrop</column>
-          <column name="group_id">ml.nodrop</column>
+        <record id="role.ml.models.ml.category.nodrop">
+          <column name="name">role.ml.models.ml.category.nodrop</column>
+          <column name="note">Module: ml Type: models Object: ml.category grant: nodrop</column>
+          <column name="group_id">ml.models.nodrop</column>
         </record>
-        <record id="ml.category.full">
-          <column name="name">ml.category.full</column>
-          <column name="note">Model ml.category grant full</column>
-          <column name="group_id">ml.full</column>
+        <record id="role.ml.models.ml.category.full">
+          <column name="name">role.ml.models.ml.category.full</column>
+          <column name="note">Module: ml Type: models Object: ml.category grant: full</column>
+          <column name="group_id">ml.models.full</column>
         </record>
-        <record id="ml.category.crw">
-          <column name="name">ml.category.crw</column>
-          <column name="note">Model ml.category grant crw</column>
-          <column name="group_id">ml.crw</column>
+        <record id="role.ml.models.ml.category.crw">
+          <column name="name">role.ml.models.ml.category.crw</column>
+          <column name="note">Module: ml Type: models Object: ml.category grant: crw</column>
+          <column name="group_id">ml.models.crw</column>
         </record>
       </records>
-      <records model="bc.model.access">
-        <record id="ml.ml.category.readonly">
-          <column name="access_id">ml.category.readonly</column>
-          <column name="model_id">ml.category</column>
+      <records model="bc.obj.access">
+        <record id="access.ml.models.ml.category.readonly">
+          <column name="access_id">access.ml.models.ml.category.readonly</column>
+          <column name="object_id">ml.category</column>
           <column name="aread">True</column>
-          <column name="aselect">True</column>
         </record>
-        <record id="ml.ml.category.nodrop">
-          <column name="access_id">ml.category.nodrop</column>
-          <column name="model_id">ml.category</column>
+        <record id="access.ml.models.ml.category.nodrop">
+          <column name="access_id">access.ml.models.ml.category.nodrop</column>
+          <column name="object_id">ml.category</column>
           <column name="aread">True</column>
-          <column name="aselect">True</column>
           <column name="acreate">True</column>
-          <column name="ainsert">True</column>
           <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
         </record>
-        <record id="ml.ml.category.full">
-          <column name="access_id">ml.category.full</column>
-          <column name="model_id">ml.category</column>
+        <record id="access.ml.models.ml.category.full">
+          <column name="access_id">access.ml.models.ml.category.full</column>
+          <column name="object_id">ml.category</column>
           <column name="aread">True</column>
-          <column name="aselect">True</column>
           <column name="acreate">True</column>
-          <column name="ainsert">True</column>
           <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
           <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
+          <column name="aexecute">True</column>
         </record>
-        <record id="ml.ml.category.crw">
-          <column name="access_id">ml.category.crw</column>
-          <column name="model_id">ml.category</column>
+        <record id="access.ml.models.ml.category.crw">
+          <column name="access_id">access.ml.models.ml.category.crw</column>
+          <column name="object_id">ml.category</column>
           <column name="aread">True</column>
-          <column name="aselect">True</column>
           <column name="acreate">True</column>
-          <column name="ainsert">True</column>
           <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
+          <column name="aexecute">True</column>
         </record>
       </records>
     </data>

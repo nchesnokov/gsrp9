@@ -2,604 +2,1027 @@
   <gsrp>
     <data>
       <records model="bc.ui.menus">
-        <record id="ui.menu.le">
-          <column name="name">ui.menu.le</column>
+        <record id="ui.menu.module.le">
+          <column name="name">ui.menu.module.le</column>
           <column name="label">Logistic Execution</column>
         </record>
       </records>
       <records model="bc.actions">
-        <record id="action.le.inbound.delivery.search">
-          <column name="name">action.le.inbound.delivery.search</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.inbound.delivery.calendar">
+          <column name="name">action.le.models.le.inbound.delivery.calendar</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.outbound.delivery.search">
-          <column name="name">action.le.outbound.delivery.search</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.inbound.delivery.form">
+          <column name="name">action.le.models.le.inbound.delivery.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.internal.delivery.search">
-          <column name="name">action.le.internal.delivery.search</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.inbound.delivery.graph">
+          <column name="name">action.le.models.le.inbound.delivery.graph</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.actions">
-        <record id="action.le.inbound.delivery.report">
-          <column name="name">action.le.inbound.delivery.report</column>
-          <column name="ta">Report</column>
+        <record id="action.le.models.le.inbound.delivery.kanban">
+          <column name="name">action.le.models.le.inbound.delivery.kanban</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.outbound.delivery.report">
-          <column name="name">action.le.outbound.delivery.report</column>
-          <column name="ta">Report</column>
+        <record id="action.le.models.le.inbound.delivery.list">
+          <column name="name">action.le.models.le.inbound.delivery.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.internal.delivery.report">
-          <column name="name">action.le.internal.delivery.report</column>
-          <column name="ta">Report</column>
+        <record id="action.le.models.le.inbound.delivery.m2mlist">
+          <column name="name">action.le.models.le.inbound.delivery.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.view.actions">
-        <record id="view.action.le.inbound.delivery.search">
-          <column name="action_id">action.le.inbound.delivery.search</column>
-          <column name="view_id">view.le.inbound.delivery.search</column>
+        <record id="action.le.models.le.inbound.delivery.mdx">
+          <column name="name">action.le.models.le.inbound.delivery.mdx</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.le.outbound.delivery.search">
-          <column name="action_id">action.le.outbound.delivery.search</column>
-          <column name="view_id">view.le.outbound.delivery.search</column>
+        <record id="action.le.models.le.inbound.delivery.search">
+          <column name="name">action.le.models.le.inbound.delivery.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.le.internal.delivery.search">
-          <column name="action_id">action.le.internal.delivery.search</column>
-          <column name="view_id">view.le.internal.delivery.search</column>
+        <record id="action.le.models.le.inbound.delivery.find">
+          <column name="name">action.le.models.le.inbound.delivery.find</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.ui.reports">
-        <record id="bc.ui.report.docx.le.inbound.delivery">
-          <column name="name">bc.ui.report.docx.le.inbound.delivery</column>
-          <column name="label">Inbound Delivery</column>
-          <column name="report">report_le_inbound_delivery</column>
-          <column name="infile">infile_le_inbound_delivery.docx</column>
-          <column name="outfile">outfile_le_inbound_delivery.docx</column>
+        <record id="action.le.models.le.outbound.delivery.calendar">
+          <column name="name">action.le.models.le.outbound.delivery.calendar</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="bc.ui.report.docx.le.outbound.delivery">
-          <column name="name">bc.ui.report.docx.le.outbound.delivery</column>
-          <column name="label">Outbound Delivery</column>
-          <column name="report">report_le_outbound_delivery</column>
-          <column name="infile">infile_le_outbound_delivery.docx</column>
-          <column name="outfile">outfile_le_outbound_delivery.docx</column>
+        <record id="action.le.models.le.outbound.delivery.form">
+          <column name="name">action.le.models.le.outbound.delivery.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="bc.ui.report.docx.le.internal.delivery">
-          <column name="name">bc.ui.report.docx.le.internal.delivery</column>
-          <column name="label">Internal Delivery</column>
-          <column name="report">report_le_internal_delivery</column>
-          <column name="infile">infile_le_internal_delivery.docx</column>
-          <column name="outfile">outfile_le_internal_delivery.docx</column>
+        <record id="action.le.models.le.outbound.delivery.graph">
+          <column name="name">action.le.models.le.outbound.delivery.graph</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.report.actions">
-        <record id="report.action.le.inbound.delivery.report">
-          <column name="action_id">action.le.inbound.delivery.report</column>
-          <column name="report_id">bc.ui.report.docx.le.inbound.delivery</column>
+        <record id="action.le.models.le.outbound.delivery.kanban">
+          <column name="name">action.le.models.le.outbound.delivery.kanban</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="report.action.le.outbound.delivery.report">
-          <column name="action_id">action.le.outbound.delivery.report</column>
-          <column name="report_id">bc.ui.report.docx.le.outbound.delivery</column>
+        <record id="action.le.models.le.outbound.delivery.list">
+          <column name="name">action.le.models.le.outbound.delivery.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="report.action.le.internal.delivery.report">
-          <column name="action_id">action.le.internal.delivery.report</column>
-          <column name="report_id">bc.ui.report.docx.le.internal.delivery</column>
+        <record id="action.le.models.le.outbound.delivery.m2mlist">
+          <column name="name">action.le.models.le.outbound.delivery.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.mdx">
+          <column name="name">action.le.models.le.outbound.delivery.mdx</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.search">
+          <column name="name">action.le.models.le.outbound.delivery.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.find">
+          <column name="name">action.le.models.le.outbound.delivery.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.calendar">
+          <column name="name">action.le.models.le.internal.delivery.calendar</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.form">
+          <column name="name">action.le.models.le.internal.delivery.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.graph">
+          <column name="name">action.le.models.le.internal.delivery.graph</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.kanban">
+          <column name="name">action.le.models.le.internal.delivery.kanban</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.list">
+          <column name="name">action.le.models.le.internal.delivery.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.m2mlist">
+          <column name="name">action.le.models.le.internal.delivery.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.mdx">
+          <column name="name">action.le.models.le.internal.delivery.mdx</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.search">
+          <column name="name">action.le.models.le.internal.delivery.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.find">
+          <column name="name">action.le.models.le.internal.delivery.find</column>
+          <column name="ta">Model</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.le.inbound.delivery.search">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.le.inbound.delivery.search</column>
+        <record id="ui.menu.module.le.models">
+          <column name="name">ui.menu.module.le.models</column>
+          <column name="label">Models</column>
+        <column name="parent_id">ui.menu.module.le</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.models.le.inbound.delivery.calendar">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.calendar</column>
             <column name="label">Inbound Delivery</column>
-          <column name="parent_id">ui.menu.le</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.le.inbound.delivery.search</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.calendar</column>
           </record>
-          <record id="ui.menu.le.outbound.delivery.search">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.le.outbound.delivery.search</column>
-            <column name="label">Outbound Delivery</column>
-          <column name="parent_id">ui.menu.le</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.le.outbound.delivery.search</column>
-          </record>
-          <record id="ui.menu.le.internal.delivery.search">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.le.internal.delivery.search</column>
-            <column name="label">Internal Delivery</column>
-          <column name="parent_id">ui.menu.le</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.le.internal.delivery.search</column>
-          </record>
-      </records>
-      <records model="bc.ui.menus">
-        <record id="ui.menu.le.report">
-          <column name="name">ui.menu.le.report</column>
-          <column name="label">Reports</column>
-        <column name="parent_id">ui.menu.le</column>
-        </record>
-      </records>
-      <records model="bc.ui.menus">
-          <record id="ui.menu.le.inbound.delivery.report">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.le.inbound.delivery.report</column>
+          <record id="ui.menu.models.le.inbound.delivery.form">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.form</column>
             <column name="label">Inbound Delivery</column>
-          <column name="parent_id">ui.menu.le.report</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.le.inbound.delivery.report</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.form</column>
           </record>
-          <record id="ui.menu.le.outbound.delivery.report">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.le.outbound.delivery.report</column>
+          <record id="ui.menu.models.le.inbound.delivery.graph">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.graph</column>
+            <column name="label">Inbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.graph</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.kanban">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.kanban</column>
+            <column name="label">Inbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.kanban</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.list">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.list</column>
+            <column name="label">Inbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.list</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.m2mlist">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.m2mlist</column>
+            <column name="label">Inbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.mdx">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.mdx</column>
+            <column name="label">Inbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.mdx</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.search">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.search</column>
+            <column name="label">Inbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.search</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.find">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.find</column>
+            <column name="label">Inbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.find</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.calendar">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.calendar</column>
             <column name="label">Outbound Delivery</column>
-          <column name="parent_id">ui.menu.le.report</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.le.outbound.delivery.report</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.calendar</column>
           </record>
-          <record id="ui.menu.le.internal.delivery.report">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.le.internal.delivery.report</column>
+          <record id="ui.menu.models.le.outbound.delivery.form">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.form</column>
+            <column name="label">Outbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.form</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.graph">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.graph</column>
+            <column name="label">Outbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.graph</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.kanban">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.kanban</column>
+            <column name="label">Outbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.kanban</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.list">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.list</column>
+            <column name="label">Outbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.list</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.m2mlist">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.m2mlist</column>
+            <column name="label">Outbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.mdx">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.mdx</column>
+            <column name="label">Outbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.mdx</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.search">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.search</column>
+            <column name="label">Outbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.search</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.find">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.find</column>
+            <column name="label">Outbound Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.find</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.calendar">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.internal.delivery.calendar</column>
             <column name="label">Internal Delivery</column>
-          <column name="parent_id">ui.menu.le.report</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.le.internal.delivery.report</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.calendar</column>
           </record>
+          <record id="ui.menu.models.le.internal.delivery.form">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.internal.delivery.form</column>
+            <column name="label">Internal Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.form</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.graph">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.internal.delivery.graph</column>
+            <column name="label">Internal Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.graph</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.kanban">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.internal.delivery.kanban</column>
+            <column name="label">Internal Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.kanban</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.list">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.internal.delivery.list</column>
+            <column name="label">Internal Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.list</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.m2mlist">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.internal.delivery.m2mlist</column>
+            <column name="label">Internal Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.mdx">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.internal.delivery.mdx</column>
+            <column name="label">Internal Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.mdx</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.search">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.internal.delivery.search</column>
+            <column name="label">Internal Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.search</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.find">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.internal.delivery.find</column>
+            <column name="label">Internal Delivery</column>
+            <column name="parent_id">ui.menu.module.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.find</column>
+          </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.customize.le">
+          <column name="name">ui.menu.customize.le</column>
+          <column name="label">Logistic Execution</column>
+        </record>
       </records>
       <records model="bc.actions">
-        <record id="action.le.shipping.points.custom">
-          <column name="name">action.le.shipping.points.custom</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.shipping.points.form">
+          <column name="name">action.le.models.le.shipping.points.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.loading.places.custom">
-          <column name="name">action.le.loading.places.custom</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.shipping.points.list">
+          <column name="name">action.le.models.le.shipping.points.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.md.group.freight.cargo.custom">
-          <column name="name">action.le.md.group.freight.cargo.custom</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.shipping.points.m2mlist">
+          <column name="name">action.le.models.le.shipping.points.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.delivery.texts.custom">
-          <column name="name">action.le.delivery.texts.custom</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.shipping.points.search">
+          <column name="name">action.le.models.le.shipping.points.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.delivery.schema.texts.custom">
-          <column name="name">action.le.delivery.schema.texts.custom</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.shipping.points.find">
+          <column name="name">action.le.models.le.shipping.points.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.inbound.delivery.types.custom">
-          <column name="name">action.le.inbound.delivery.types.custom</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.loading.places.form">
+          <column name="name">action.le.models.le.loading.places.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.outbound.delivery.types.custom">
-          <column name="name">action.le.outbound.delivery.types.custom</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.loading.places.list">
+          <column name="name">action.le.models.le.loading.places.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.internal.delivery.types.custom">
-          <column name="name">action.le.internal.delivery.types.custom</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.loading.places.m2mlist">
+          <column name="name">action.le.models.le.loading.places.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.inbound.delivery.category.custom">
-          <column name="name">action.le.inbound.delivery.category.custom</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.loading.places.search">
+          <column name="name">action.le.models.le.loading.places.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.outbound.delivery.category.custom">
-          <column name="name">action.le.outbound.delivery.category.custom</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.loading.places.find">
+          <column name="name">action.le.models.le.loading.places.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.le.internal.delivery.category.custom">
-          <column name="name">action.le.internal.delivery.category.custom</column>
-          <column name="ta">View</column>
+        <record id="action.le.models.le.md.group.freight.cargo.form">
+          <column name="name">action.le.models.le.md.group.freight.cargo.form</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.view.actions">
-        <record id="view.action.le.shipping.points.custom">
-          <column name="action_id">action.le.shipping.points.custom</column>
-          <column name="view_id">view.le.shipping.points.search</column>
+        <record id="action.le.models.le.md.group.freight.cargo.list">
+          <column name="name">action.le.models.le.md.group.freight.cargo.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.le.loading.places.custom">
-          <column name="action_id">action.le.loading.places.custom</column>
-          <column name="view_id">view.le.loading.places.search</column>
+        <record id="action.le.models.le.md.group.freight.cargo.m2mlist">
+          <column name="name">action.le.models.le.md.group.freight.cargo.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.le.md.group.freight.cargo.custom">
-          <column name="action_id">action.le.md.group.freight.cargo.custom</column>
-          <column name="view_id">view.le.md.group.freight.cargo.search</column>
+        <record id="action.le.models.le.md.group.freight.cargo.search">
+          <column name="name">action.le.models.le.md.group.freight.cargo.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.le.delivery.texts.custom">
-          <column name="action_id">action.le.delivery.texts.custom</column>
-          <column name="view_id">view.le.delivery.texts.search</column>
+        <record id="action.le.models.le.md.group.freight.cargo.find">
+          <column name="name">action.le.models.le.md.group.freight.cargo.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.le.delivery.schema.texts.custom">
-          <column name="action_id">action.le.delivery.schema.texts.custom</column>
-          <column name="view_id">view.le.delivery.schema.texts.search</column>
+        <record id="action.le.models.le.delivery.texts.form">
+          <column name="name">action.le.models.le.delivery.texts.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.le.inbound.delivery.types.custom">
-          <column name="action_id">action.le.inbound.delivery.types.custom</column>
-          <column name="view_id">view.le.inbound.delivery.types.search</column>
+        <record id="action.le.models.le.delivery.texts.list">
+          <column name="name">action.le.models.le.delivery.texts.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.le.outbound.delivery.types.custom">
-          <column name="action_id">action.le.outbound.delivery.types.custom</column>
-          <column name="view_id">view.le.outbound.delivery.types.search</column>
+        <record id="action.le.models.le.delivery.texts.m2mlist">
+          <column name="name">action.le.models.le.delivery.texts.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.le.internal.delivery.types.custom">
-          <column name="action_id">action.le.internal.delivery.types.custom</column>
-          <column name="view_id">view.le.internal.delivery.types.search</column>
+        <record id="action.le.models.le.delivery.texts.search">
+          <column name="name">action.le.models.le.delivery.texts.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.le.inbound.delivery.category.custom">
-          <column name="action_id">action.le.inbound.delivery.category.custom</column>
-          <column name="view_id">view.le.inbound.delivery.category.search</column>
+        <record id="action.le.models.le.delivery.texts.find">
+          <column name="name">action.le.models.le.delivery.texts.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.le.outbound.delivery.category.custom">
-          <column name="action_id">action.le.outbound.delivery.category.custom</column>
-          <column name="view_id">view.le.outbound.delivery.category.search</column>
+        <record id="action.le.models.le.delivery.schema.texts.form">
+          <column name="name">action.le.models.le.delivery.schema.texts.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.le.internal.delivery.category.custom">
-          <column name="action_id">action.le.internal.delivery.category.custom</column>
-          <column name="view_id">view.le.internal.delivery.category.search</column>
+        <record id="action.le.models.le.delivery.schema.texts.list">
+          <column name="name">action.le.models.le.delivery.schema.texts.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.delivery.schema.texts.m2mlist">
+          <column name="name">action.le.models.le.delivery.schema.texts.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.delivery.schema.texts.search">
+          <column name="name">action.le.models.le.delivery.schema.texts.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.delivery.schema.texts.find">
+          <column name="name">action.le.models.le.delivery.schema.texts.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.inbound.delivery.types.form">
+          <column name="name">action.le.models.le.inbound.delivery.types.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.inbound.delivery.types.list">
+          <column name="name">action.le.models.le.inbound.delivery.types.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.inbound.delivery.types.m2mlist">
+          <column name="name">action.le.models.le.inbound.delivery.types.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.inbound.delivery.types.search">
+          <column name="name">action.le.models.le.inbound.delivery.types.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.inbound.delivery.types.find">
+          <column name="name">action.le.models.le.inbound.delivery.types.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.types.form">
+          <column name="name">action.le.models.le.outbound.delivery.types.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.types.list">
+          <column name="name">action.le.models.le.outbound.delivery.types.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.types.m2mlist">
+          <column name="name">action.le.models.le.outbound.delivery.types.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.types.search">
+          <column name="name">action.le.models.le.outbound.delivery.types.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.types.find">
+          <column name="name">action.le.models.le.outbound.delivery.types.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.types.form">
+          <column name="name">action.le.models.le.internal.delivery.types.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.types.list">
+          <column name="name">action.le.models.le.internal.delivery.types.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.types.m2mlist">
+          <column name="name">action.le.models.le.internal.delivery.types.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.types.search">
+          <column name="name">action.le.models.le.internal.delivery.types.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.types.find">
+          <column name="name">action.le.models.le.internal.delivery.types.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.inbound.delivery.category.form">
+          <column name="name">action.le.models.le.inbound.delivery.category.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.inbound.delivery.category.list">
+          <column name="name">action.le.models.le.inbound.delivery.category.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.inbound.delivery.category.m2mlist">
+          <column name="name">action.le.models.le.inbound.delivery.category.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.inbound.delivery.category.search">
+          <column name="name">action.le.models.le.inbound.delivery.category.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.inbound.delivery.category.find">
+          <column name="name">action.le.models.le.inbound.delivery.category.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.inbound.delivery.category.tree">
+          <column name="name">action.le.models.le.inbound.delivery.category.tree</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.category.form">
+          <column name="name">action.le.models.le.outbound.delivery.category.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.category.list">
+          <column name="name">action.le.models.le.outbound.delivery.category.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.category.m2mlist">
+          <column name="name">action.le.models.le.outbound.delivery.category.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.category.search">
+          <column name="name">action.le.models.le.outbound.delivery.category.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.category.find">
+          <column name="name">action.le.models.le.outbound.delivery.category.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.outbound.delivery.category.tree">
+          <column name="name">action.le.models.le.outbound.delivery.category.tree</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.category.form">
+          <column name="name">action.le.models.le.internal.delivery.category.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.category.list">
+          <column name="name">action.le.models.le.internal.delivery.category.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.category.m2mlist">
+          <column name="name">action.le.models.le.internal.delivery.category.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.category.search">
+          <column name="name">action.le.models.le.internal.delivery.category.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.category.find">
+          <column name="name">action.le.models.le.internal.delivery.category.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.internal.delivery.category.tree">
+          <column name="name">action.le.models.le.internal.delivery.category.tree</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.pricing.group.levels.form">
+          <column name="name">action.le.models.le.pricing.group.levels.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.pricing.group.levels.list">
+          <column name="name">action.le.models.le.pricing.group.levels.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.pricing.group.levels.m2mlist">
+          <column name="name">action.le.models.le.pricing.group.levels.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.pricing.group.levels.search">
+          <column name="name">action.le.models.le.pricing.group.levels.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.le.models.le.pricing.group.levels.find">
+          <column name="name">action.le.models.le.pricing.group.levels.find</column>
+          <column name="ta">Model</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-        <record id="ui.menu.le.custom">
-          <column name="name">ui.menu.le.custom</column>
-          <column name="label">Customs</column>
-        <column name="parent_id">ui.menu.le</column>
+        <record id="ui.menu.customize.le.models">
+          <column name="name">ui.menu.customize.le.models</column>
+          <column name="label">Models</column>
+        <column name="parent_id">ui.menu.customize</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.le.shipping.points.custom">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.le.shipping.points.custom</column>
+          <record id="ui.menu.models.le.shipping.points.form">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.shipping.points.form</column>
             <column name="label">Shipping Points</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.le.shipping.points.custom</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.shipping.points.form</column>
           </record>
-          <record id="ui.menu.le.loading.places.custom">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.le.loading.places.custom</column>
-            <column name="label">Loading Places</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.le.loading.places.custom</column>
-          </record>
-          <record id="ui.menu.le.md.group.freight.cargo.custom">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.le.md.group.freight.cargo.custom</column>
-            <column name="label">Fleight Cargo Group</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.le.md.group.freight.cargo.custom</column>
-          </record>
-          <record id="ui.menu.le.delivery.texts.custom">
-          <column name="sequence">3</column>
-            <column name="name">ui.menu.le.delivery.texts.custom</column>
-            <column name="label">Delivery Texts</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">30</column>
-          <column name="action_id">action.le.delivery.texts.custom</column>
-          </record>
-          <record id="ui.menu.le.delivery.schema.texts.custom">
-          <column name="sequence">4</column>
-            <column name="name">ui.menu.le.delivery.schema.texts.custom</column>
-            <column name="label">Schema Of Delivery Texts</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">40</column>
-          <column name="action_id">action.le.delivery.schema.texts.custom</column>
-          </record>
-          <record id="ui.menu.le.inbound.delivery.types.custom">
-          <column name="sequence">5</column>
-            <column name="name">ui.menu.le.inbound.delivery.types.custom</column>
-            <column name="label">Types Inbound Delivery</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">50</column>
-          <column name="action_id">action.le.inbound.delivery.types.custom</column>
-          </record>
-          <record id="ui.menu.le.outbound.delivery.types.custom">
-          <column name="sequence">6</column>
-            <column name="name">ui.menu.le.outbound.delivery.types.custom</column>
-            <column name="label">Types Outbound Delivery</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">60</column>
-          <column name="action_id">action.le.outbound.delivery.types.custom</column>
-          </record>
-          <record id="ui.menu.le.internal.delivery.types.custom">
-          <column name="sequence">7</column>
-            <column name="name">ui.menu.le.internal.delivery.types.custom</column>
-            <column name="label">Types Internal Delivery</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">70</column>
-          <column name="action_id">action.le.internal.delivery.types.custom</column>
-          </record>
-          <record id="ui.menu.le.inbound.delivery.category.custom">
-          <column name="sequence">8</column>
-            <column name="name">ui.menu.le.inbound.delivery.category.custom</column>
-            <column name="label">Category Inbound Delivery</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">80</column>
-          <column name="action_id">action.le.inbound.delivery.category.custom</column>
-          </record>
-          <record id="ui.menu.le.outbound.delivery.category.custom">
-          <column name="sequence">9</column>
-            <column name="name">ui.menu.le.outbound.delivery.category.custom</column>
-            <column name="label">Category Outbound Delivery</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">90</column>
-          <column name="action_id">action.le.outbound.delivery.category.custom</column>
-          </record>
-          <record id="ui.menu.le.internal.delivery.category.custom">
-          <column name="sequence">10</column>
-            <column name="name">ui.menu.le.internal.delivery.category.custom</column>
-            <column name="label">Category Internal Delivery</column>
-          <column name="parent_id">ui.menu.le.custom</column>
-          <column name="sequence">100</column>
-          <column name="action_id">action.le.internal.delivery.category.custom</column>
-          </record>
-      </records>
-      <records model="bc.actions">
-        <record id="action.le.shipping.points.report">
-          <column name="name">action.le.shipping.points.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.loading.places.report">
-          <column name="name">action.le.loading.places.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.md.group.freight.cargo.report">
-          <column name="name">action.le.md.group.freight.cargo.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.delivery.texts.report">
-          <column name="name">action.le.delivery.texts.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.delivery.schema.texts.report">
-          <column name="name">action.le.delivery.schema.texts.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.inbound.delivery.types.report">
-          <column name="name">action.le.inbound.delivery.types.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.outbound.delivery.types.report">
-          <column name="name">action.le.outbound.delivery.types.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.internal.delivery.types.report">
-          <column name="name">action.le.internal.delivery.types.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.inbound.delivery.category.report">
-          <column name="name">action.le.inbound.delivery.category.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.outbound.delivery.category.report">
-          <column name="name">action.le.outbound.delivery.category.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.le.internal.delivery.category.report">
-          <column name="name">action.le.internal.delivery.category.report</column>
-          <column name="ta">Report</column>
-        </record>
-      </records>
-      <records model="bc.ui.reports">
-        <record id="bc.ui.report.docx.le.shipping.points">
-          <column name="name">bc.ui.report.docx.le.shipping.points</column>
-          <column name="label">Shipping Points</column>
-          <column name="report">report_le_shipping_points</column>
-          <column name="infile">infile_le_shipping_points.docx</column>
-          <column name="outfile">outfile_le_shipping_points.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.loading.places">
-          <column name="name">bc.ui.report.docx.le.loading.places</column>
-          <column name="label">Loading Places</column>
-          <column name="report">report_le_loading_places</column>
-          <column name="infile">infile_le_loading_places.docx</column>
-          <column name="outfile">outfile_le_loading_places.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.md.group.freight.cargo">
-          <column name="name">bc.ui.report.docx.le.md.group.freight.cargo</column>
-          <column name="label">Fleight Cargo Group</column>
-          <column name="report">report_le_md_group_freight_cargo</column>
-          <column name="infile">infile_le_md_group_freight_cargo.docx</column>
-          <column name="outfile">outfile_le_md_group_freight_cargo.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.delivery.texts">
-          <column name="name">bc.ui.report.docx.le.delivery.texts</column>
-          <column name="label">Delivery Texts</column>
-          <column name="report">report_le_delivery_texts</column>
-          <column name="infile">infile_le_delivery_texts.docx</column>
-          <column name="outfile">outfile_le_delivery_texts.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.delivery.schema.texts">
-          <column name="name">bc.ui.report.docx.le.delivery.schema.texts</column>
-          <column name="label">Schema Of Delivery Texts</column>
-          <column name="report">report_le_delivery_schema_texts</column>
-          <column name="infile">infile_le_delivery_schema_texts.docx</column>
-          <column name="outfile">outfile_le_delivery_schema_texts.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.inbound.delivery.types">
-          <column name="name">bc.ui.report.docx.le.inbound.delivery.types</column>
-          <column name="label">Types Inbound Delivery</column>
-          <column name="report">report_le_inbound_delivery_types</column>
-          <column name="infile">infile_le_inbound_delivery_types.docx</column>
-          <column name="outfile">outfile_le_inbound_delivery_types.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.outbound.delivery.types">
-          <column name="name">bc.ui.report.docx.le.outbound.delivery.types</column>
-          <column name="label">Types Outbound Delivery</column>
-          <column name="report">report_le_outbound_delivery_types</column>
-          <column name="infile">infile_le_outbound_delivery_types.docx</column>
-          <column name="outfile">outfile_le_outbound_delivery_types.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.internal.delivery.types">
-          <column name="name">bc.ui.report.docx.le.internal.delivery.types</column>
-          <column name="label">Types Internal Delivery</column>
-          <column name="report">report_le_internal_delivery_types</column>
-          <column name="infile">infile_le_internal_delivery_types.docx</column>
-          <column name="outfile">outfile_le_internal_delivery_types.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.inbound.delivery.category">
-          <column name="name">bc.ui.report.docx.le.inbound.delivery.category</column>
-          <column name="label">Category Inbound Delivery</column>
-          <column name="report">report_le_inbound_delivery_category</column>
-          <column name="infile">infile_le_inbound_delivery_category.docx</column>
-          <column name="outfile">outfile_le_inbound_delivery_category.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.outbound.delivery.category">
-          <column name="name">bc.ui.report.docx.le.outbound.delivery.category</column>
-          <column name="label">Category Outbound Delivery</column>
-          <column name="report">report_le_outbound_delivery_category</column>
-          <column name="infile">infile_le_outbound_delivery_category.docx</column>
-          <column name="outfile">outfile_le_outbound_delivery_category.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.le.internal.delivery.category">
-          <column name="name">bc.ui.report.docx.le.internal.delivery.category</column>
-          <column name="label">Category Internal Delivery</column>
-          <column name="report">report_le_internal_delivery_category</column>
-          <column name="infile">infile_le_internal_delivery_category.docx</column>
-          <column name="outfile">outfile_le_internal_delivery_category.docx</column>
-        </record>
-      </records>
-      <records model="bc.report.actions">
-        <record id="report.action.le.shipping.points.report">
-          <column name="action_id">action.le.shipping.points.report</column>
-          <column name="report_id">bc.ui.report.docx.le.shipping.points</column>
-        </record>
-        <record id="report.action.le.loading.places.report">
-          <column name="action_id">action.le.loading.places.report</column>
-          <column name="report_id">bc.ui.report.docx.le.loading.places</column>
-        </record>
-        <record id="report.action.le.md.group.freight.cargo.report">
-          <column name="action_id">action.le.md.group.freight.cargo.report</column>
-          <column name="report_id">bc.ui.report.docx.le.md.group.freight.cargo</column>
-        </record>
-        <record id="report.action.le.delivery.texts.report">
-          <column name="action_id">action.le.delivery.texts.report</column>
-          <column name="report_id">bc.ui.report.docx.le.delivery.texts</column>
-        </record>
-        <record id="report.action.le.delivery.schema.texts.report">
-          <column name="action_id">action.le.delivery.schema.texts.report</column>
-          <column name="report_id">bc.ui.report.docx.le.delivery.schema.texts</column>
-        </record>
-        <record id="report.action.le.inbound.delivery.types.report">
-          <column name="action_id">action.le.inbound.delivery.types.report</column>
-          <column name="report_id">bc.ui.report.docx.le.inbound.delivery.types</column>
-        </record>
-        <record id="report.action.le.outbound.delivery.types.report">
-          <column name="action_id">action.le.outbound.delivery.types.report</column>
-          <column name="report_id">bc.ui.report.docx.le.outbound.delivery.types</column>
-        </record>
-        <record id="report.action.le.internal.delivery.types.report">
-          <column name="action_id">action.le.internal.delivery.types.report</column>
-          <column name="report_id">bc.ui.report.docx.le.internal.delivery.types</column>
-        </record>
-        <record id="report.action.le.inbound.delivery.category.report">
-          <column name="action_id">action.le.inbound.delivery.category.report</column>
-          <column name="report_id">bc.ui.report.docx.le.inbound.delivery.category</column>
-        </record>
-        <record id="report.action.le.outbound.delivery.category.report">
-          <column name="action_id">action.le.outbound.delivery.category.report</column>
-          <column name="report_id">bc.ui.report.docx.le.outbound.delivery.category</column>
-        </record>
-        <record id="report.action.le.internal.delivery.category.report">
-          <column name="action_id">action.le.internal.delivery.category.report</column>
-          <column name="report_id">bc.ui.report.docx.le.internal.delivery.category</column>
-        </record>
-      </records>
-      <records model="bc.ui.menus">
-        <record id="ui.menu.le.report.custom">
-          <column name="name">ui.menu.le.report.custom</column>
-          <column name="label">Customs</column>
-        <column name="parent_id">ui.menu.le.report</column>
-        </record>
-      </records>
-      <records model="bc.ui.menus">
-          <record id="ui.menu.le.shipping.points.report">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.le.shipping.points.report</column>
+          <record id="ui.menu.models.le.shipping.points.list">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.shipping.points.list</column>
             <column name="label">Shipping Points</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.le.shipping.points.report</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.shipping.points.list</column>
           </record>
-          <record id="ui.menu.le.loading.places.report">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.le.loading.places.report</column>
+          <record id="ui.menu.models.le.shipping.points.m2mlist">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.shipping.points.m2mlist</column>
+            <column name="label">Shipping Points</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.shipping.points.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.shipping.points.search">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.shipping.points.search</column>
+            <column name="label">Shipping Points</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.shipping.points.search</column>
+          </record>
+          <record id="ui.menu.models.le.shipping.points.find">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.le.shipping.points.find</column>
+            <column name="label">Shipping Points</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.shipping.points.find</column>
+          </record>
+          <record id="ui.menu.models.le.loading.places.form">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.loading.places.form</column>
             <column name="label">Loading Places</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.le.loading.places.report</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.loading.places.form</column>
           </record>
-          <record id="ui.menu.le.md.group.freight.cargo.report">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.le.md.group.freight.cargo.report</column>
+          <record id="ui.menu.models.le.loading.places.list">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.loading.places.list</column>
+            <column name="label">Loading Places</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.loading.places.list</column>
+          </record>
+          <record id="ui.menu.models.le.loading.places.m2mlist">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.loading.places.m2mlist</column>
+            <column name="label">Loading Places</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.loading.places.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.loading.places.search">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.loading.places.search</column>
+            <column name="label">Loading Places</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.loading.places.search</column>
+          </record>
+          <record id="ui.menu.models.le.loading.places.find">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.le.loading.places.find</column>
+            <column name="label">Loading Places</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.loading.places.find</column>
+          </record>
+          <record id="ui.menu.models.le.md.group.freight.cargo.form">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.md.group.freight.cargo.form</column>
             <column name="label">Fleight Cargo Group</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.le.md.group.freight.cargo.report</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.md.group.freight.cargo.form</column>
           </record>
-          <record id="ui.menu.le.delivery.texts.report">
-          <column name="sequence">3</column>
-            <column name="name">ui.menu.le.delivery.texts.report</column>
+          <record id="ui.menu.models.le.md.group.freight.cargo.list">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.md.group.freight.cargo.list</column>
+            <column name="label">Fleight Cargo Group</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.md.group.freight.cargo.list</column>
+          </record>
+          <record id="ui.menu.models.le.md.group.freight.cargo.m2mlist">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.md.group.freight.cargo.m2mlist</column>
+            <column name="label">Fleight Cargo Group</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.md.group.freight.cargo.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.md.group.freight.cargo.search">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.md.group.freight.cargo.search</column>
+            <column name="label">Fleight Cargo Group</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.md.group.freight.cargo.search</column>
+          </record>
+          <record id="ui.menu.models.le.md.group.freight.cargo.find">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.le.md.group.freight.cargo.find</column>
+            <column name="label">Fleight Cargo Group</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.md.group.freight.cargo.find</column>
+          </record>
+          <record id="ui.menu.models.le.delivery.texts.form">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.le.delivery.texts.form</column>
             <column name="label">Delivery Texts</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">30</column>
-          <column name="action_id">action.le.delivery.texts.report</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.delivery.texts.form</column>
           </record>
-          <record id="ui.menu.le.delivery.schema.texts.report">
-          <column name="sequence">4</column>
-            <column name="name">ui.menu.le.delivery.schema.texts.report</column>
+          <record id="ui.menu.models.le.delivery.texts.list">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.le.delivery.texts.list</column>
+            <column name="label">Delivery Texts</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.delivery.texts.list</column>
+          </record>
+          <record id="ui.menu.models.le.delivery.texts.m2mlist">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.le.delivery.texts.m2mlist</column>
+            <column name="label">Delivery Texts</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.delivery.texts.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.delivery.texts.search">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.le.delivery.texts.search</column>
+            <column name="label">Delivery Texts</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.delivery.texts.search</column>
+          </record>
+          <record id="ui.menu.models.le.delivery.texts.find">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.le.delivery.texts.find</column>
+            <column name="label">Delivery Texts</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.delivery.texts.find</column>
+          </record>
+          <record id="ui.menu.models.le.delivery.schema.texts.form">
+            <column name="sequence">4</column>
+            <column name="name">ui.menu.models.le.delivery.schema.texts.form</column>
             <column name="label">Schema Of Delivery Texts</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">40</column>
-          <column name="action_id">action.le.delivery.schema.texts.report</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.delivery.schema.texts.form</column>
           </record>
-          <record id="ui.menu.le.inbound.delivery.types.report">
-          <column name="sequence">5</column>
-            <column name="name">ui.menu.le.inbound.delivery.types.report</column>
+          <record id="ui.menu.models.le.delivery.schema.texts.list">
+            <column name="sequence">4</column>
+            <column name="name">ui.menu.models.le.delivery.schema.texts.list</column>
+            <column name="label">Schema Of Delivery Texts</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.delivery.schema.texts.list</column>
+          </record>
+          <record id="ui.menu.models.le.delivery.schema.texts.m2mlist">
+            <column name="sequence">4</column>
+            <column name="name">ui.menu.models.le.delivery.schema.texts.m2mlist</column>
+            <column name="label">Schema Of Delivery Texts</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.delivery.schema.texts.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.delivery.schema.texts.search">
+            <column name="sequence">4</column>
+            <column name="name">ui.menu.models.le.delivery.schema.texts.search</column>
+            <column name="label">Schema Of Delivery Texts</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.delivery.schema.texts.search</column>
+          </record>
+          <record id="ui.menu.models.le.delivery.schema.texts.find">
+            <column name="sequence">4</column>
+            <column name="name">ui.menu.models.le.delivery.schema.texts.find</column>
+            <column name="label">Schema Of Delivery Texts</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.delivery.schema.texts.find</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.types.form">
+            <column name="sequence">5</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.types.form</column>
             <column name="label">Types Inbound Delivery</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">50</column>
-          <column name="action_id">action.le.inbound.delivery.types.report</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.types.form</column>
           </record>
-          <record id="ui.menu.le.outbound.delivery.types.report">
-          <column name="sequence">6</column>
-            <column name="name">ui.menu.le.outbound.delivery.types.report</column>
+          <record id="ui.menu.models.le.inbound.delivery.types.list">
+            <column name="sequence">5</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.types.list</column>
+            <column name="label">Types Inbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.types.list</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.types.m2mlist">
+            <column name="sequence">5</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.types.m2mlist</column>
+            <column name="label">Types Inbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.types.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.types.search">
+            <column name="sequence">5</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.types.search</column>
+            <column name="label">Types Inbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.types.search</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.types.find">
+            <column name="sequence">5</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.types.find</column>
+            <column name="label">Types Inbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.types.find</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.types.form">
+            <column name="sequence">6</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.types.form</column>
             <column name="label">Types Outbound Delivery</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">60</column>
-          <column name="action_id">action.le.outbound.delivery.types.report</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.types.form</column>
           </record>
-          <record id="ui.menu.le.internal.delivery.types.report">
-          <column name="sequence">7</column>
-            <column name="name">ui.menu.le.internal.delivery.types.report</column>
+          <record id="ui.menu.models.le.outbound.delivery.types.list">
+            <column name="sequence">6</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.types.list</column>
+            <column name="label">Types Outbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.types.list</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.types.m2mlist">
+            <column name="sequence">6</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.types.m2mlist</column>
+            <column name="label">Types Outbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.types.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.types.search">
+            <column name="sequence">6</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.types.search</column>
+            <column name="label">Types Outbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.types.search</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.types.find">
+            <column name="sequence">6</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.types.find</column>
+            <column name="label">Types Outbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.types.find</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.types.form">
+            <column name="sequence">7</column>
+            <column name="name">ui.menu.models.le.internal.delivery.types.form</column>
             <column name="label">Types Internal Delivery</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">70</column>
-          <column name="action_id">action.le.internal.delivery.types.report</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.types.form</column>
           </record>
-          <record id="ui.menu.le.inbound.delivery.category.report">
-          <column name="sequence">8</column>
-            <column name="name">ui.menu.le.inbound.delivery.category.report</column>
+          <record id="ui.menu.models.le.internal.delivery.types.list">
+            <column name="sequence">7</column>
+            <column name="name">ui.menu.models.le.internal.delivery.types.list</column>
+            <column name="label">Types Internal Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.types.list</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.types.m2mlist">
+            <column name="sequence">7</column>
+            <column name="name">ui.menu.models.le.internal.delivery.types.m2mlist</column>
+            <column name="label">Types Internal Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.types.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.types.search">
+            <column name="sequence">7</column>
+            <column name="name">ui.menu.models.le.internal.delivery.types.search</column>
+            <column name="label">Types Internal Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.types.search</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.types.find">
+            <column name="sequence">7</column>
+            <column name="name">ui.menu.models.le.internal.delivery.types.find</column>
+            <column name="label">Types Internal Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.types.find</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.category.form">
+            <column name="sequence">8</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.category.form</column>
             <column name="label">Category Inbound Delivery</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">80</column>
-          <column name="action_id">action.le.inbound.delivery.category.report</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.category.form</column>
           </record>
-          <record id="ui.menu.le.outbound.delivery.category.report">
-          <column name="sequence">9</column>
-            <column name="name">ui.menu.le.outbound.delivery.category.report</column>
+          <record id="ui.menu.models.le.inbound.delivery.category.list">
+            <column name="sequence">8</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.category.list</column>
+            <column name="label">Category Inbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.category.list</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.category.m2mlist">
+            <column name="sequence">8</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.category.m2mlist</column>
+            <column name="label">Category Inbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.category.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.category.search">
+            <column name="sequence">8</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.category.search</column>
+            <column name="label">Category Inbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.category.search</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.category.find">
+            <column name="sequence">8</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.category.find</column>
+            <column name="label">Category Inbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.category.find</column>
+          </record>
+          <record id="ui.menu.models.le.inbound.delivery.category.tree">
+            <column name="sequence">8</column>
+            <column name="name">ui.menu.models.le.inbound.delivery.category.tree</column>
+            <column name="label">Category Inbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.inbound.delivery.category.tree</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.category.form">
+            <column name="sequence">9</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.category.form</column>
             <column name="label">Category Outbound Delivery</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">90</column>
-          <column name="action_id">action.le.outbound.delivery.category.report</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.category.form</column>
           </record>
-          <record id="ui.menu.le.internal.delivery.category.report">
-          <column name="sequence">10</column>
-            <column name="name">ui.menu.le.internal.delivery.category.report</column>
+          <record id="ui.menu.models.le.outbound.delivery.category.list">
+            <column name="sequence">9</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.category.list</column>
+            <column name="label">Category Outbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.category.list</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.category.m2mlist">
+            <column name="sequence">9</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.category.m2mlist</column>
+            <column name="label">Category Outbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.category.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.category.search">
+            <column name="sequence">9</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.category.search</column>
+            <column name="label">Category Outbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.category.search</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.category.find">
+            <column name="sequence">9</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.category.find</column>
+            <column name="label">Category Outbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.category.find</column>
+          </record>
+          <record id="ui.menu.models.le.outbound.delivery.category.tree">
+            <column name="sequence">9</column>
+            <column name="name">ui.menu.models.le.outbound.delivery.category.tree</column>
+            <column name="label">Category Outbound Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.outbound.delivery.category.tree</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.category.form">
+            <column name="sequence">10</column>
+            <column name="name">ui.menu.models.le.internal.delivery.category.form</column>
             <column name="label">Category Internal Delivery</column>
-          <column name="parent_id">ui.menu.le.report.custom</column>
-          <column name="sequence">100</column>
-          <column name="action_id">action.le.internal.delivery.category.report</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.category.form</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.category.list">
+            <column name="sequence">10</column>
+            <column name="name">ui.menu.models.le.internal.delivery.category.list</column>
+            <column name="label">Category Internal Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.category.list</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.category.m2mlist">
+            <column name="sequence">10</column>
+            <column name="name">ui.menu.models.le.internal.delivery.category.m2mlist</column>
+            <column name="label">Category Internal Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.category.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.category.search">
+            <column name="sequence">10</column>
+            <column name="name">ui.menu.models.le.internal.delivery.category.search</column>
+            <column name="label">Category Internal Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.category.search</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.category.find">
+            <column name="sequence">10</column>
+            <column name="name">ui.menu.models.le.internal.delivery.category.find</column>
+            <column name="label">Category Internal Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.category.find</column>
+          </record>
+          <record id="ui.menu.models.le.internal.delivery.category.tree">
+            <column name="sequence">10</column>
+            <column name="name">ui.menu.models.le.internal.delivery.category.tree</column>
+            <column name="label">Category Internal Delivery</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.internal.delivery.category.tree</column>
+          </record>
+          <record id="ui.menu.models.le.pricing.group.levels.form">
+            <column name="sequence">11</column>
+            <column name="name">ui.menu.models.le.pricing.group.levels.form</column>
+            <column name="label">Sale Pricing Group Levels</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.pricing.group.levels.form</column>
+          </record>
+          <record id="ui.menu.models.le.pricing.group.levels.list">
+            <column name="sequence">11</column>
+            <column name="name">ui.menu.models.le.pricing.group.levels.list</column>
+            <column name="label">Sale Pricing Group Levels</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.pricing.group.levels.list</column>
+          </record>
+          <record id="ui.menu.models.le.pricing.group.levels.m2mlist">
+            <column name="sequence">11</column>
+            <column name="name">ui.menu.models.le.pricing.group.levels.m2mlist</column>
+            <column name="label">Sale Pricing Group Levels</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.pricing.group.levels.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.le.pricing.group.levels.search">
+            <column name="sequence">11</column>
+            <column name="name">ui.menu.models.le.pricing.group.levels.search</column>
+            <column name="label">Sale Pricing Group Levels</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.pricing.group.levels.search</column>
+          </record>
+          <record id="ui.menu.models.le.pricing.group.levels.find">
+            <column name="sequence">11</column>
+            <column name="name">ui.menu.models.le.pricing.group.levels.find</column>
+            <column name="label">Sale Pricing Group Levels</column>
+            <column name="parent_id">ui.menu.customize.le.models</column>
+          <column name="action_id">action.le.models.le.pricing.group.levels.find</column>
           </record>
       </records>
     </data>

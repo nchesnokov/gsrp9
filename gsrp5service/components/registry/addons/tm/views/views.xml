@@ -2,8 +2,8 @@
   <gsrp>
     <data>
       <records model="bc.ui.views">
-        <record id="view.md.tm.product.form">
-          <column name="name">view.md.tm.product.form</column>
+        <record id="view.tm.models.md.tm.product.form">
+          <column name="name">view.tm.models.md.tm.product.form</column>
           <column name="model">md.tm.product</column>
           <column name="arch" type="Xml">
             <form>
@@ -18,8 +18,8 @@
             </form>
           </column>
         </record>
-        <record id="view.md.tm.product.list">
-          <column name="name">view.md.tm.product.list</column>
+        <record id="view.tm.models.md.tm.product.list">
+          <column name="name">view.tm.models.md.tm.product.list</column>
           <column name="model">md.tm.product</column>
           <column name="arch" type="Xml">
             <list>
@@ -33,8 +33,8 @@
             </list>
           </column>
         </record>
-        <record id="view.md.tm.product.m2mlist">
-          <column name="name">view.md.tm.product.m2mlist</column>
+        <record id="view.tm.models.md.tm.product.m2mlist">
+          <column name="name">view.tm.models.md.tm.product.m2mlist</column>
           <column name="model">md.tm.product</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -48,8 +48,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.locations.form">
-          <column name="name">view.tm.locations.form</column>
+        <record id="view.tm.models.tm.locations.form">
+          <column name="name">view.tm.models.tm.locations.form</column>
           <column name="model">tm.locations</column>
           <column name="arch" type="Xml">
             <form>
@@ -61,8 +61,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.locations.list">
-          <column name="name">view.tm.locations.list</column>
+        <record id="view.tm.models.tm.locations.list">
+          <column name="name">view.tm.models.tm.locations.list</column>
           <column name="model">tm.locations</column>
           <column name="arch" type="Xml">
             <list>
@@ -73,8 +73,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.locations.m2mlist">
-          <column name="name">view.tm.locations.m2mlist</column>
+        <record id="view.tm.models.tm.locations.m2mlist">
+          <column name="name">view.tm.models.tm.locations.m2mlist</column>
           <column name="model">tm.locations</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -84,8 +84,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.locations.search">
-          <column name="name">view.tm.locations.search</column>
+        <record id="view.tm.models.tm.locations.search">
+          <column name="name">view.tm.models.tm.locations.search</column>
           <column name="model">tm.locations</column>
           <column name="arch" type="Xml">
             <search>
@@ -95,8 +95,8 @@
             </search>
           </column>
         </record>
-        <record id="view.tm.locations.find">
-          <column name="name">view.tm.locations.find</column>
+        <record id="view.tm.models.tm.locations.find">
+          <column name="name">view.tm.models.tm.locations.find</column>
           <column name="model">tm.locations</column>
           <column name="arch" type="Xml">
             <find>
@@ -106,8 +106,8 @@
             </find>
           </column>
         </record>
-        <record id="view.tm.locations.tree">
-          <column name="name">view.tm.locations.tree</column>
+        <record id="view.tm.models.tm.locations.tree">
+          <column name="name">view.tm.models.tm.locations.tree</column>
           <column name="model">tm.locations</column>
           <column name="arch" type="Xml">
             <tree>
@@ -117,82 +117,82 @@
             </tree>
           </column>
         </record>
-        <record id="view.tm.maps.form">
-          <column name="name">view.tm.maps.form</column>
+        <record id="view.tm.models.tm.maps.form">
+          <column name="name">view.tm.models.tm.maps.form</column>
           <column name="model">tm.maps</column>
           <column name="arch" type="Xml">
             <form>
               <field name="name"/>
               <field name="otype"/>
               <field name="state"/>
-              <field name="recepture_id"/>
+              <field name="bom_id"/>
               <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.tm.maps.kanban">
-          <column name="name">view.tm.maps.kanban</column>
+        <record id="view.tm.models.tm.maps.kanban">
+          <column name="name">view.tm.models.tm.maps.kanban</column>
           <column name="model">tm.maps</column>
           <column name="arch" type="Xml">
             <kanban>
               <field name="name"/>
               <field name="otype"/>
               <field name="state"/>
-              <field name="recepture_id"/>
+              <field name="bom_id"/>
               <field name="note"/>
             </kanban>
           </column>
         </record>
-        <record id="view.tm.maps.list">
-          <column name="name">view.tm.maps.list</column>
+        <record id="view.tm.models.tm.maps.list">
+          <column name="name">view.tm.models.tm.maps.list</column>
           <column name="model">tm.maps</column>
           <column name="arch" type="Xml">
             <list>
               <field name="name"/>
               <field name="otype"/>
               <field name="state"/>
-              <field name="recepture_id"/>
+              <field name="bom_id"/>
             </list>
           </column>
         </record>
-        <record id="view.tm.maps.m2mlist">
-          <column name="name">view.tm.maps.m2mlist</column>
+        <record id="view.tm.models.tm.maps.m2mlist">
+          <column name="name">view.tm.models.tm.maps.m2mlist</column>
           <column name="model">tm.maps</column>
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="name"/>
               <field name="otype"/>
               <field name="state"/>
-              <field name="recepture_id"/>
+              <field name="bom_id"/>
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.maps.search">
-          <column name="name">view.tm.maps.search</column>
+        <record id="view.tm.models.tm.maps.search">
+          <column name="name">view.tm.models.tm.maps.search</column>
           <column name="model">tm.maps</column>
           <column name="arch" type="Xml">
             <search>
               <field name="name"/>
               <field name="otype"/>
               <field name="state"/>
-              <field name="recepture_id"/>
+              <field name="bom_id"/>
             </search>
           </column>
         </record>
-        <record id="view.tm.maps.find">
-          <column name="name">view.tm.maps.find</column>
+        <record id="view.tm.models.tm.maps.find">
+          <column name="name">view.tm.models.tm.maps.find</column>
           <column name="model">tm.maps</column>
           <column name="arch" type="Xml">
             <find>
               <field name="name"/>
               <field name="otype"/>
               <field name="state"/>
-              <field name="recepture_id"/>
+              <field name="bom_id"/>
             </find>
           </column>
         </record>
-        <record id="view.tm.handlings.form">
-          <column name="name">view.tm.handlings.form</column>
+        <record id="view.tm.models.tm.handlings.form">
+          <column name="name">view.tm.models.tm.handlings.form</column>
           <column name="model">tm.handlings</column>
           <column name="arch" type="Xml">
             <form>
@@ -203,8 +203,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.handlings.kanban">
-          <column name="name">view.tm.handlings.kanban</column>
+        <record id="view.tm.models.tm.handlings.kanban">
+          <column name="name">view.tm.models.tm.handlings.kanban</column>
           <column name="model">tm.handlings</column>
           <column name="arch" type="Xml">
             <kanban>
@@ -215,8 +215,8 @@
             </kanban>
           </column>
         </record>
-        <record id="view.tm.handlings.list">
-          <column name="name">view.tm.handlings.list</column>
+        <record id="view.tm.models.tm.handlings.list">
+          <column name="name">view.tm.models.tm.handlings.list</column>
           <column name="model">tm.handlings</column>
           <column name="arch" type="Xml">
             <list>
@@ -226,8 +226,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.handlings.m2mlist">
-          <column name="name">view.tm.handlings.m2mlist</column>
+        <record id="view.tm.models.tm.handlings.m2mlist">
+          <column name="name">view.tm.models.tm.handlings.m2mlist</column>
           <column name="model">tm.handlings</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -237,8 +237,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.handlings.search">
-          <column name="name">view.tm.handlings.search</column>
+        <record id="view.tm.models.tm.handlings.search">
+          <column name="name">view.tm.models.tm.handlings.search</column>
           <column name="model">tm.handlings</column>
           <column name="arch" type="Xml">
             <search>
@@ -248,8 +248,8 @@
             </search>
           </column>
         </record>
-        <record id="view.tm.handlings.find">
-          <column name="name">view.tm.handlings.find</column>
+        <record id="view.tm.models.tm.handlings.find">
+          <column name="name">view.tm.models.tm.handlings.find</column>
           <column name="model">tm.handlings</column>
           <column name="arch" type="Xml">
             <find>
@@ -259,8 +259,8 @@
             </find>
           </column>
         </record>
-        <record id="view.tm.category.node.form">
-          <column name="name">view.tm.category.node.form</column>
+        <record id="view.tm.models.tm.category.node.form">
+          <column name="name">view.tm.models.tm.category.node.form</column>
           <column name="model">tm.category.node</column>
           <column name="arch" type="Xml">
             <form>
@@ -271,8 +271,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.category.node.list">
-          <column name="name">view.tm.category.node.list</column>
+        <record id="view.tm.models.tm.category.node.list">
+          <column name="name">view.tm.models.tm.category.node.list</column>
           <column name="model">tm.category.node</column>
           <column name="arch" type="Xml">
             <list>
@@ -282,8 +282,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.category.node.m2mlist">
-          <column name="name">view.tm.category.node.m2mlist</column>
+        <record id="view.tm.models.tm.category.node.m2mlist">
+          <column name="name">view.tm.models.tm.category.node.m2mlist</column>
           <column name="model">tm.category.node</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -292,8 +292,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.category.node.search">
-          <column name="name">view.tm.category.node.search</column>
+        <record id="view.tm.models.tm.category.node.search">
+          <column name="name">view.tm.models.tm.category.node.search</column>
           <column name="model">tm.category.node</column>
           <column name="arch" type="Xml">
             <search>
@@ -302,8 +302,8 @@
             </search>
           </column>
         </record>
-        <record id="view.tm.category.node.find">
-          <column name="name">view.tm.category.node.find</column>
+        <record id="view.tm.models.tm.category.node.find">
+          <column name="name">view.tm.models.tm.category.node.find</column>
           <column name="model">tm.category.node</column>
           <column name="arch" type="Xml">
             <find>
@@ -312,8 +312,8 @@
             </find>
           </column>
         </record>
-        <record id="view.tm.category.node.tree">
-          <column name="name">view.tm.category.node.tree</column>
+        <record id="view.tm.models.tm.category.node.tree">
+          <column name="name">view.tm.models.tm.category.node.tree</column>
           <column name="model">tm.category.node</column>
           <column name="arch" type="Xml">
             <tree>
@@ -322,8 +322,8 @@
             </tree>
           </column>
         </record>
-        <record id="view.tm.nodes.form">
-          <column name="name">view.tm.nodes.form</column>
+        <record id="view.tm.models.tm.nodes.form">
+          <column name="name">view.tm.models.tm.nodes.form</column>
           <column name="model">tm.nodes</column>
           <column name="arch" type="Xml">
             <form>
@@ -337,8 +337,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.nodes.list">
-          <column name="name">view.tm.nodes.list</column>
+        <record id="view.tm.models.tm.nodes.list">
+          <column name="name">view.tm.models.tm.nodes.list</column>
           <column name="model">tm.nodes</column>
           <column name="arch" type="Xml">
             <list>
@@ -351,8 +351,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.nodes.m2mlist">
-          <column name="name">view.tm.nodes.m2mlist</column>
+        <record id="view.tm.models.tm.nodes.m2mlist">
+          <column name="name">view.tm.models.tm.nodes.m2mlist</column>
           <column name="model">tm.nodes</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -363,8 +363,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.nodes.search">
-          <column name="name">view.tm.nodes.search</column>
+        <record id="view.tm.models.tm.nodes.search">
+          <column name="name">view.tm.models.tm.nodes.search</column>
           <column name="model">tm.nodes</column>
           <column name="arch" type="Xml">
             <search>
@@ -375,8 +375,8 @@
             </search>
           </column>
         </record>
-        <record id="view.tm.nodes.find">
-          <column name="name">view.tm.nodes.find</column>
+        <record id="view.tm.models.tm.nodes.find">
+          <column name="name">view.tm.models.tm.nodes.find</column>
           <column name="model">tm.nodes</column>
           <column name="arch" type="Xml">
             <find>
@@ -387,8 +387,8 @@
             </find>
           </column>
         </record>
-        <record id="view.tm.nodes.tree">
-          <column name="name">view.tm.nodes.tree</column>
+        <record id="view.tm.models.tm.nodes.tree">
+          <column name="name">view.tm.models.tm.nodes.tree</column>
           <column name="model">tm.nodes</column>
           <column name="arch" type="Xml">
             <tree>
@@ -399,8 +399,8 @@
             </tree>
           </column>
         </record>
-        <record id="view.tm.node.items.form">
-          <column name="name">view.tm.node.items.form</column>
+        <record id="view.tm.models.tm.node.items.form">
+          <column name="name">view.tm.models.tm.node.items.form</column>
           <column name="model">tm.node.items</column>
           <column name="arch" type="Xml">
             <form>
@@ -412,8 +412,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.node.items.list">
-          <column name="name">view.tm.node.items.list</column>
+        <record id="view.tm.models.tm.node.items.list">
+          <column name="name">view.tm.models.tm.node.items.list</column>
           <column name="model">tm.node.items</column>
           <column name="arch" type="Xml">
             <list>
@@ -424,8 +424,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.node.items.m2mlist">
-          <column name="name">view.tm.node.items.m2mlist</column>
+        <record id="view.tm.models.tm.node.items.m2mlist">
+          <column name="name">view.tm.models.tm.node.items.m2mlist</column>
           <column name="model">tm.node.items</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -435,8 +435,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.node.items.search">
-          <column name="name">view.tm.node.items.search</column>
+        <record id="view.tm.models.tm.node.items.search">
+          <column name="name">view.tm.models.tm.node.items.search</column>
           <column name="model">tm.node.items</column>
           <column name="arch" type="Xml">
             <search>
@@ -446,8 +446,8 @@
             </search>
           </column>
         </record>
-        <record id="view.tm.node.items.find">
-          <column name="name">view.tm.node.items.find</column>
+        <record id="view.tm.models.tm.node.items.find">
+          <column name="name">view.tm.models.tm.node.items.find</column>
           <column name="model">tm.node.items</column>
           <column name="arch" type="Xml">
             <find>
@@ -457,8 +457,8 @@
             </find>
           </column>
         </record>
-        <record id="view.tm.node.items.tree">
-          <column name="name">view.tm.node.items.tree</column>
+        <record id="view.tm.models.tm.node.items.tree">
+          <column name="name">view.tm.models.tm.node.items.tree</column>
           <column name="model">tm.node.items</column>
           <column name="arch" type="Xml">
             <tree>
@@ -468,8 +468,8 @@
             </tree>
           </column>
         </record>
-        <record id="view.tm.category.equipment.form">
-          <column name="name">view.tm.category.equipment.form</column>
+        <record id="view.tm.models.tm.category.equipment.form">
+          <column name="name">view.tm.models.tm.category.equipment.form</column>
           <column name="model">tm.category.equipment</column>
           <column name="arch" type="Xml">
             <form>
@@ -480,8 +480,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.category.equipment.list">
-          <column name="name">view.tm.category.equipment.list</column>
+        <record id="view.tm.models.tm.category.equipment.list">
+          <column name="name">view.tm.models.tm.category.equipment.list</column>
           <column name="model">tm.category.equipment</column>
           <column name="arch" type="Xml">
             <list>
@@ -491,8 +491,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.category.equipment.m2mlist">
-          <column name="name">view.tm.category.equipment.m2mlist</column>
+        <record id="view.tm.models.tm.category.equipment.m2mlist">
+          <column name="name">view.tm.models.tm.category.equipment.m2mlist</column>
           <column name="model">tm.category.equipment</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -501,8 +501,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.category.equipment.search">
-          <column name="name">view.tm.category.equipment.search</column>
+        <record id="view.tm.models.tm.category.equipment.search">
+          <column name="name">view.tm.models.tm.category.equipment.search</column>
           <column name="model">tm.category.equipment</column>
           <column name="arch" type="Xml">
             <search>
@@ -511,8 +511,8 @@
             </search>
           </column>
         </record>
-        <record id="view.tm.category.equipment.find">
-          <column name="name">view.tm.category.equipment.find</column>
+        <record id="view.tm.models.tm.category.equipment.find">
+          <column name="name">view.tm.models.tm.category.equipment.find</column>
           <column name="model">tm.category.equipment</column>
           <column name="arch" type="Xml">
             <find>
@@ -521,8 +521,8 @@
             </find>
           </column>
         </record>
-        <record id="view.tm.category.equipment.tree">
-          <column name="name">view.tm.category.equipment.tree</column>
+        <record id="view.tm.models.tm.category.equipment.tree">
+          <column name="name">view.tm.models.tm.category.equipment.tree</column>
           <column name="model">tm.category.equipment</column>
           <column name="arch" type="Xml">
             <tree>
@@ -531,8 +531,8 @@
             </tree>
           </column>
         </record>
-        <record id="view.tm.template.equipment.form">
-          <column name="name">view.tm.template.equipment.form</column>
+        <record id="view.tm.models.tm.template.equipment.form">
+          <column name="name">view.tm.models.tm.template.equipment.form</column>
           <column name="model">tm.template.equipment</column>
           <column name="arch" type="Xml">
             <form>
@@ -546,8 +546,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.template.equipment.kanban">
-          <column name="name">view.tm.template.equipment.kanban</column>
+        <record id="view.tm.models.tm.template.equipment.kanban">
+          <column name="name">view.tm.models.tm.template.equipment.kanban</column>
           <column name="model">tm.template.equipment</column>
           <column name="arch" type="Xml">
             <kanban>
@@ -558,8 +558,8 @@
             </kanban>
           </column>
         </record>
-        <record id="view.tm.template.equipment.list">
-          <column name="name">view.tm.template.equipment.list</column>
+        <record id="view.tm.models.tm.template.equipment.list">
+          <column name="name">view.tm.models.tm.template.equipment.list</column>
           <column name="model">tm.template.equipment</column>
           <column name="arch" type="Xml">
             <list>
@@ -572,8 +572,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.template.equipment.m2mlist">
-          <column name="name">view.tm.template.equipment.m2mlist</column>
+        <record id="view.tm.models.tm.template.equipment.m2mlist">
+          <column name="name">view.tm.models.tm.template.equipment.m2mlist</column>
           <column name="model">tm.template.equipment</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -583,8 +583,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.template.equipment.search">
-          <column name="name">view.tm.template.equipment.search</column>
+        <record id="view.tm.models.tm.template.equipment.search">
+          <column name="name">view.tm.models.tm.template.equipment.search</column>
           <column name="model">tm.template.equipment</column>
           <column name="arch" type="Xml">
             <search>
@@ -594,8 +594,8 @@
             </search>
           </column>
         </record>
-        <record id="view.tm.template.equipment.find">
-          <column name="name">view.tm.template.equipment.find</column>
+        <record id="view.tm.models.tm.template.equipment.find">
+          <column name="name">view.tm.models.tm.template.equipment.find</column>
           <column name="model">tm.template.equipment</column>
           <column name="arch" type="Xml">
             <find>
@@ -605,8 +605,8 @@
             </find>
           </column>
         </record>
-        <record id="view.tm.template.nodes.form">
-          <column name="name">view.tm.template.nodes.form</column>
+        <record id="view.tm.models.tm.template.nodes.form">
+          <column name="name">view.tm.models.tm.template.nodes.form</column>
           <column name="model">tm.template.nodes</column>
           <column name="arch" type="Xml">
             <form>
@@ -616,8 +616,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.template.nodes.list">
-          <column name="name">view.tm.template.nodes.list</column>
+        <record id="view.tm.models.tm.template.nodes.list">
+          <column name="name">view.tm.models.tm.template.nodes.list</column>
           <column name="model">tm.template.nodes</column>
           <column name="arch" type="Xml">
             <list>
@@ -626,8 +626,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.template.nodes.m2mlist">
-          <column name="name">view.tm.template.nodes.m2mlist</column>
+        <record id="view.tm.models.tm.template.nodes.m2mlist">
+          <column name="name">view.tm.models.tm.template.nodes.m2mlist</column>
           <column name="model">tm.template.nodes</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -636,8 +636,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.template.maps.form">
-          <column name="name">view.tm.template.maps.form</column>
+        <record id="view.tm.models.tm.template.maps.form">
+          <column name="name">view.tm.models.tm.template.maps.form</column>
           <column name="model">tm.template.maps</column>
           <column name="arch" type="Xml">
             <form>
@@ -647,8 +647,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.template.maps.list">
-          <column name="name">view.tm.template.maps.list</column>
+        <record id="view.tm.models.tm.template.maps.list">
+          <column name="name">view.tm.models.tm.template.maps.list</column>
           <column name="model">tm.template.maps</column>
           <column name="arch" type="Xml">
             <list>
@@ -657,8 +657,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.template.maps.m2mlist">
-          <column name="name">view.tm.template.maps.m2mlist</column>
+        <record id="view.tm.models.tm.template.maps.m2mlist">
+          <column name="name">view.tm.models.tm.template.maps.m2mlist</column>
           <column name="model">tm.template.maps</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -667,8 +667,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.template.handlings.form">
-          <column name="name">view.tm.template.handlings.form</column>
+        <record id="view.tm.models.tm.template.handlings.form">
+          <column name="name">view.tm.models.tm.template.handlings.form</column>
           <column name="model">tm.template.handlings</column>
           <column name="arch" type="Xml">
             <form>
@@ -681,8 +681,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.template.handlings.list">
-          <column name="name">view.tm.template.handlings.list</column>
+        <record id="view.tm.models.tm.template.handlings.list">
+          <column name="name">view.tm.models.tm.template.handlings.list</column>
           <column name="model">tm.template.handlings</column>
           <column name="arch" type="Xml">
             <list>
@@ -694,8 +694,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.template.handlings.m2mlist">
-          <column name="name">view.tm.template.handlings.m2mlist</column>
+        <record id="view.tm.models.tm.template.handlings.m2mlist">
+          <column name="name">view.tm.models.tm.template.handlings.m2mlist</column>
           <column name="model">tm.template.handlings</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -707,8 +707,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.unit.equipments.form">
-          <column name="name">view.tm.unit.equipments.form</column>
+        <record id="view.tm.models.tm.unit.equipments.form">
+          <column name="name">view.tm.models.tm.unit.equipments.form</column>
           <column name="model">tm.unit.equipments</column>
           <column name="arch" type="Xml">
             <form>
@@ -724,8 +724,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.unit.equipments.kanban">
-          <column name="name">view.tm.unit.equipments.kanban</column>
+        <record id="view.tm.models.tm.unit.equipments.kanban">
+          <column name="name">view.tm.models.tm.unit.equipments.kanban</column>
           <column name="model">tm.unit.equipments</column>
           <column name="arch" type="Xml">
             <kanban>
@@ -740,8 +740,8 @@
             </kanban>
           </column>
         </record>
-        <record id="view.tm.unit.equipments.list">
-          <column name="name">view.tm.unit.equipments.list</column>
+        <record id="view.tm.models.tm.unit.equipments.list">
+          <column name="name">view.tm.models.tm.unit.equipments.list</column>
           <column name="model">tm.unit.equipments</column>
           <column name="arch" type="Xml">
             <list>
@@ -756,8 +756,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.unit.equipments.m2mlist">
-          <column name="name">view.tm.unit.equipments.m2mlist</column>
+        <record id="view.tm.models.tm.unit.equipments.m2mlist">
+          <column name="name">view.tm.models.tm.unit.equipments.m2mlist</column>
           <column name="model">tm.unit.equipments</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -771,8 +771,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.unit.equipments.search">
-          <column name="name">view.tm.unit.equipments.search</column>
+        <record id="view.tm.models.tm.unit.equipments.search">
+          <column name="name">view.tm.models.tm.unit.equipments.search</column>
           <column name="model">tm.unit.equipments</column>
           <column name="arch" type="Xml">
             <search>
@@ -786,8 +786,8 @@
             </search>
           </column>
         </record>
-        <record id="view.tm.unit.equipments.find">
-          <column name="name">view.tm.unit.equipments.find</column>
+        <record id="view.tm.models.tm.unit.equipments.find">
+          <column name="name">view.tm.models.tm.unit.equipments.find</column>
           <column name="model">tm.unit.equipments</column>
           <column name="arch" type="Xml">
             <find>
@@ -801,8 +801,8 @@
             </find>
           </column>
         </record>
-        <record id="view.tm.orders.calendar">
-          <column name="name">view.tm.orders.calendar</column>
+        <record id="view.tm.models.tm.orders.calendar">
+          <column name="name">view.tm.models.tm.orders.calendar</column>
           <column name="model">tm.orders</column>
           <column name="arch" type="Xml">
             <calendar date="doo">
@@ -814,12 +814,12 @@
               <field name="from_date"/>
               <field name="to_date"/>
               <field name="state"/>
-              <field name="recepture"/>
+              <field name="bom"/>
             </calendar>
           </column>
         </record>
-        <record id="view.tm.orders.schedule">
-          <column name="name">view.tm.orders.schedule</column>
+        <record id="view.tm.models.tm.orders.schedule">
+          <column name="name">view.tm.models.tm.orders.schedule</column>
           <column name="model">tm.orders</column>
           <column name="arch" type="Xml">
             <schedule>
@@ -831,12 +831,12 @@
               <field name="from_date"/>
               <field name="to_date"/>
               <field name="state"/>
-              <field name="recepture"/>
+              <field name="bom"/>
             </schedule>
           </column>
         </record>
-        <record id="view.tm.orders.form">
-          <column name="name">view.tm.orders.form</column>
+        <record id="view.tm.models.tm.orders.form">
+          <column name="name">view.tm.models.tm.orders.form</column>
           <column name="model">tm.orders</column>
           <column name="arch" type="Xml">
             <form>
@@ -848,14 +848,14 @@
               <field name="from_date"/>
               <field name="to_date"/>
               <field name="state"/>
-              <field name="recepture"/>
+              <field name="bom"/>
               <field name="items"/>
               <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.tm.orders.graph">
-          <column name="name">view.tm.orders.graph</column>
+        <record id="view.tm.models.tm.orders.graph">
+          <column name="name">view.tm.models.tm.orders.graph</column>
           <column name="model">tm.orders</column>
           <column name="arch" type="Xml">
             <graph date="doo">
@@ -867,12 +867,12 @@
               <field name="from_date"/>
               <field name="to_date"/>
               <field name="state"/>
-              <field name="recepture"/>
+              <field name="bom"/>
             </graph>
           </column>
         </record>
-        <record id="view.tm.orders.kanban">
-          <column name="name">view.tm.orders.kanban</column>
+        <record id="view.tm.models.tm.orders.kanban">
+          <column name="name">view.tm.models.tm.orders.kanban</column>
           <column name="model">tm.orders</column>
           <column name="arch" type="Xml">
             <kanban>
@@ -884,13 +884,13 @@
               <field name="from_date"/>
               <field name="to_date"/>
               <field name="state"/>
-              <field name="recepture"/>
+              <field name="bom"/>
               <field name="note"/>
             </kanban>
           </column>
         </record>
-        <record id="view.tm.orders.list">
-          <column name="name">view.tm.orders.list</column>
+        <record id="view.tm.models.tm.orders.list">
+          <column name="name">view.tm.models.tm.orders.list</column>
           <column name="model">tm.orders</column>
           <column name="arch" type="Xml">
             <list>
@@ -902,13 +902,13 @@
               <field name="from_date"/>
               <field name="to_date"/>
               <field name="state"/>
-              <field name="recepture"/>
+              <field name="bom"/>
               <field name="items"/>
             </list>
           </column>
         </record>
-        <record id="view.tm.orders.m2mlist">
-          <column name="name">view.tm.orders.m2mlist</column>
+        <record id="view.tm.models.tm.orders.m2mlist">
+          <column name="name">view.tm.models.tm.orders.m2mlist</column>
           <column name="model">tm.orders</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -920,12 +920,12 @@
               <field name="from_date"/>
               <field name="to_date"/>
               <field name="state"/>
-              <field name="recepture"/>
+              <field name="bom"/>
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.orders.mdx">
-          <column name="name">view.tm.orders.mdx</column>
+        <record id="view.tm.models.tm.orders.mdx">
+          <column name="name">view.tm.models.tm.orders.mdx</column>
           <column name="model">tm.orders</column>
           <column name="arch" type="Xml">
             <mdx date="doo">
@@ -937,12 +937,12 @@
               <field name="from_date"/>
               <field name="to_date"/>
               <field name="state"/>
-              <field name="recepture"/>
+              <field name="bom"/>
             </mdx>
           </column>
         </record>
-        <record id="view.tm.orders.search">
-          <column name="name">view.tm.orders.search</column>
+        <record id="view.tm.models.tm.orders.search">
+          <column name="name">view.tm.models.tm.orders.search</column>
           <column name="model">tm.orders</column>
           <column name="arch" type="Xml">
             <search>
@@ -954,12 +954,12 @@
               <field name="from_date"/>
               <field name="to_date"/>
               <field name="state"/>
-              <field name="recepture"/>
+              <field name="bom"/>
             </search>
           </column>
         </record>
-        <record id="view.tm.orders.find">
-          <column name="name">view.tm.orders.find</column>
+        <record id="view.tm.models.tm.orders.find">
+          <column name="name">view.tm.models.tm.orders.find</column>
           <column name="model">tm.orders</column>
           <column name="arch" type="Xml">
             <find>
@@ -971,12 +971,12 @@
               <field name="from_date"/>
               <field name="to_date"/>
               <field name="state"/>
-              <field name="recepture"/>
+              <field name="bom"/>
             </find>
           </column>
         </record>
-        <record id="view.tm.order.items.form">
-          <column name="name">view.tm.order.items.form</column>
+        <record id="view.tm.models.tm.order.items.form">
+          <column name="name">view.tm.models.tm.order.items.form</column>
           <column name="model">tm.order.items</column>
           <column name="arch" type="Xml">
             <form>
@@ -988,8 +988,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.order.items.list">
-          <column name="name">view.tm.order.items.list</column>
+        <record id="view.tm.models.tm.order.items.list">
+          <column name="name">view.tm.models.tm.order.items.list</column>
           <column name="model">tm.order.items</column>
           <column name="arch" type="Xml">
             <list>
@@ -1000,8 +1000,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.order.items.m2mlist">
-          <column name="name">view.tm.order.items.m2mlist</column>
+        <record id="view.tm.models.tm.order.items.m2mlist">
+          <column name="name">view.tm.models.tm.order.items.m2mlist</column>
           <column name="model">tm.order.items</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -1012,8 +1012,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.tm.unit.equipment.orders.form">
-          <column name="name">view.tm.unit.equipment.orders.form</column>
+        <record id="view.tm.models.tm.unit.equipment.orders.form">
+          <column name="name">view.tm.models.tm.unit.equipment.orders.form</column>
           <column name="model">tm.unit.equipment.orders</column>
           <column name="arch" type="Xml">
             <form>
@@ -1027,8 +1027,8 @@
             </form>
           </column>
         </record>
-        <record id="view.tm.unit.equipment.orders.list">
-          <column name="name">view.tm.unit.equipment.orders.list</column>
+        <record id="view.tm.models.tm.unit.equipment.orders.list">
+          <column name="name">view.tm.models.tm.unit.equipment.orders.list</column>
           <column name="model">tm.unit.equipment.orders</column>
           <column name="arch" type="Xml">
             <list>
@@ -1041,8 +1041,8 @@
             </list>
           </column>
         </record>
-        <record id="view.tm.unit.equipment.orders.m2mlist">
-          <column name="name">view.tm.unit.equipment.orders.m2mlist</column>
+        <record id="view.tm.models.tm.unit.equipment.orders.m2mlist">
+          <column name="name">view.tm.models.tm.unit.equipment.orders.m2mlist</column>
           <column name="model">tm.unit.equipment.orders</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -1057,18 +1057,18 @@
         </record>
       </records>
       <records model="bc.ui.views.inherit">
-        <record id="view.md.tm.product.inherit.form.inherit.md.product">
-          <column name="view_id">view.md.product.form</column>
-          <column name="name">view.md.tm.product.inherit.form.inherit.md.product</column>
+        <record id="view.tm.models.md.tm.product.inherit.form.inherit.md.product">
+          <column name="view_id">view.tm.models.md.tm.product.inherit.form</column>
+          <column name="name">view.tm.models.md.tm.product.inherit.form.inherit.md.product</column>
           <column name="arch" type="Xml">
             <form>
               <field name="tm"/>
             </form>
           </column>
         </record>
-        <record id="view.md.tm.product.inherit.list.inherit.md.product">
-          <column name="view_id">view.md.product.list</column>
-          <column name="name">view.md.tm.product.inherit.list.inherit.md.product</column>
+        <record id="view.tm.models.md.tm.product.inherit.list.inherit.md.product">
+          <column name="view_id">view.tm.models.md.tm.product.inherit.list</column>
+          <column name="name">view.tm.models.md.tm.product.inherit.list.inherit.md.product</column>
           <column name="arch" type="Xml">
             <list>
               <field name="tm"/>

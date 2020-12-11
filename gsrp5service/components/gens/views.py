@@ -2,6 +2,7 @@ import os
 import logging
 from os.path import join as opj
 from io import BytesIO
+from .common import concat
 from gsrp5service.orm.model import Model,ModelInherit
 
 b = BytesIO()
@@ -14,7 +15,7 @@ _logger = logging.getLogger('listener.' + __name__)
 def ColumnsView(level, info, columns, view):
 
 	indent = TAB * level
-	exclude = EXCLUDE[view]
+	exclude = EXCLUDE['models'][view]
 	for column in columns:
 		if info[column]['type'] in exclude or info[column]['type'] == 'iProperty':
 			continue
@@ -342,13 +343,14 @@ def iViewFlow(level,modelinfo,columns):
 def RecordView(level,module,model,modelinfo,columns,view):
 
 	indent = TAB * level
-	b.write((indent + '<record id="%s">\n' % ('view.' + model._name + '.' + view,)).encode('utf-8'))
+	nm = concat(['view',module,'models',model._name,view])
+	b.write((indent + '<record id="%s">\n' % (nm,)).encode('utf-8'))
 
-	b.write((indent + TAB + '<column name="name">%s</column>\n' % ('view.' + model._name+'.' + view,)).encode('utf-8'))
+	b.write((indent + TAB + '<column name="name">%s</column>\n' % (nm,)).encode('utf-8'))
 
 	b.write((indent + TAB + '<column name="model">%s</column>\n' % (model._name,)).encode('utf-8'))
 	b.write((indent + TAB + '<column name="arch" type="Xml">\n').encode('utf-8'))
-	VIEWSGEN[view](level+2,modelinfo,columns)
+	VIEWSGEN['models'][view](level+2,modelinfo,columns)
 	b.write((indent + TAB + '</column>\n').encode('utf-8'))
 	b.write((indent + '</record>\n').encode('utf-8'))
 
@@ -358,26 +360,28 @@ def iRecordView(level,module,model,modelinfo,columns,view,registry):
 	columnsinfo = modelinfo['columns']
 	for key in modelinfo['inherit'].keys():
 		ki = registry._create_module_object('models',key,registry._getFirstModuleObject('models',key)).modelInfo()
-		if not isAllow(view,ki) or len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE[view] and columnsinfo[x]['type'] != 'iProperty' ,modelinfo['inherit'][key]['_columns']))) == 0:
+		if not isAllow(view,'models',ki) or len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE['models'][view] and columnsinfo[x]['type'] != 'iProperty' ,modelinfo['inherit'][key]['_columns']))) == 0:
 			continue
-		b.write((indent + '<record id="%s">\n' % ('view.' + model._name + '.' + view + '.inherit.' + key,)).encode('utf-8'))
-		b.write((indent + TAB + '<column name="view_id">%s</column>\n' % ('view.' + key + '.' + view,)).encode('utf-8'))
-		b.write((indent + TAB + '<column name="name">%s</column>\n' % ('view.' + model._name + '.' + view + '.inherit.' + key ,)).encode('utf-8'))
+		nm = concat(['view',module,'models',model._name,view,'inherit',key])
+		b.write((indent + '<record id="%s">\n' % (nm,)).encode('utf-8'))
+		nm1 = concat(['view',module,'models',model._name,view])
+		b.write((indent + TAB + '<column name="view_id">%s</column>\n' % (nm1,)).encode('utf-8'))
+		b.write((indent + TAB + '<column name="name">%s</column>\n' % (nm ,)).encode('utf-8'))
 
 		b.write((indent + TAB + '<column name="arch" type="Xml">\n').encode('utf-8'))
 
-		IVIEWSGEN[view](level+2,modelinfo,modelinfo['inherit'][key]['_columns'])
+		IVIEWSGEN['models'][view](level+2,modelinfo,modelinfo['inherit'][key]['_columns'])
 		b.write((indent + TAB + '</column>\n').encode('utf-8'))
 		b.write((indent + '</record>\n').encode('utf-8'))
 
 def Views(level,module,model,modelinfo,columns):
 	columnsinfo = modelinfo['columns']
-	for view in VIEWSGEN.keys():
-		if isAllow(view,modelinfo) and len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE[view] and columnsinfo[x]['type'] != 'iProperty',columns))) > 0:
+	for view in VIEWSGEN['models'].keys():
+		if isAllow(view,'models',modelinfo) and len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE['models'][view] and columnsinfo[x]['type'] != 'iProperty',columns))) > 0:
 			RecordView(level,module,model,modelinfo,columns,view)
 
 def iViews(level,module,model,modelinfo,columns,registry):
-	for view in IVIEWSGEN.keys():
+	for view in IVIEWSGEN['models'].keys():
 		if view in modelinfo['views']:
 			iRecordView(level,module,model,modelinfo,columns,view,registry)
 
@@ -422,28 +426,28 @@ def Area(self, modules = None,context={}):
 	logmodules = []
 	for module in modules:
 		path = registry._modules[module]['path']
-		models = []
-		imodels = []
-		if module in registry._metas and 'models' in registry._metas[module]:
-			for model in registry._metas[module]['models'].keys():
-				mm = registry._create_module_object('models',model,module)
-				if isinstance(mm,Model):
-					models.append(mm)
-				elif isinstance(mm,ModelInherit):
-					if hasattr(mm,'_inherit') and getattr(mm,'_inherit',None):
-						imodels.append(mm)
+		objs = {}
+		iobjs = {}
+		if module in registry._metas:
+			for cat in filter(lambda x: x in ('dashboards','models','views','reports','wizards'),registry._metas[module].keys()):
+				for key in registry._metas[module][cat]:
+					obj = registry._create_module_object(cat,key,module)
+					if isinstance(obj,Model):
+						objs.setdefault(cat,[]).append(obj)
+					elif isinstance(obj,ModelInherit):
+						if hasattr(obj,'_inherit') and getattr(obj,'_inherit',None):
+							iobjs.setdefault(cat,[]).append(obj)
 		
-		if len(models) + len(imodels) > 0:
-			#print('models:',module,len(models),models)
-			#print('imodels:',module,len(imodels),imodels)
-			#return
+		if len(objs) + len(iobjs) > 0:
 			b.write('<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n'.encode('utf-8'))
 			b.write((TAB+'<gsrp>\n').encode('utf-8'))
 			b.write((TAB * 2 + '<data>\n').encode('utf-8'))
-			if len(models) > 0:
-				Records(3,pool, registry, module, models)
-			if len(imodels) > 0:
-				iRecords(3, pool, registry, module, imodels)
+			for cat in objs.keys():
+				if cat == 'models':
+					if len(objs) > 0:
+						Records(3,pool, registry, module, objs[cat])
+					if len(iobjs) > 0:
+						iRecords(3, pool, registry, module, iobjs[cat])
 			b.write((TAB * 2 + '</data>\n').encode('utf-8'))
 			b.write((TAB + '</gsrp>\n').encode('utf-8'))
 			f=open(opj(path,module,'views','views.xml'),'wb')
@@ -455,8 +459,11 @@ def Area(self, modules = None,context={}):
 	_logger.info('Gen views of modules %s' % (logmodules,))
 	return ['Gen views of modules %s' % (logmodules,)]
 
+def isAllowDashboards(view,info):
+	r = False
+	return r
 
-def isAllow(view,info):
+def isAllowModels(view,info):
 
 	r = False
 
@@ -497,14 +504,38 @@ def isAllow(view,info):
 	if view == 'flow' and  info['names']['prev'] and info['names']['next']:
 		# and info['names']['transitions'] :
 		r = True
+
+	return r
+
+def isAllowViews(view,info):
+	r = False
+	return r
+
+def isAllowReports(view,info):
+	r = False
+	return r
+
+def isAllowWizards(view,info):
+	r = False
+	return r
+
+ISALLOW_OBJS = {'dashboards':isAllowDashboards,'models': isAllowModels,'views':isAllowViews,'reports':isAllowReports,'wizards':isAllowWizards}
+
+def isAllow(view,cat,info):
+	r = False
+	if cat in ISALLOW_OBJS:
+		r = ISALLOW_OBJS[cat](view,info)
 	
 	return r
 
-			
-VIEWSGEN  = {'calendar':ViewCalendar,'schedule':ViewSchedule,'form': ViewForm, 'gantt':ViewGantt, 'graph':ViewGraph, 'kanban':ViewKanban,'list':ViewList,'m2mlist':ViewM2MList,'mdx':ViewMdx,'matrix':ViewMatrix,'search':ViewSearch,'find':ViewFind,'tree':ViewTree,'geo':ViewGeo,'flow':ViewFlow}		
 
-IVIEWSGEN  = {'calendar':iViewCalendar,'schedule':iViewSchedule,'form': iViewForm, 'gantt':iViewGantt, 'graph':iViewGraph, 'kanban':iViewKanban,'list':iViewList,'m2mlist':iViewM2MList,'mdx':iViewMdx,'matrix':iViewMatrix,'search':iViewSearch,'find':iViewFind,'tree':iViewTree,'geo':iViewGeo,'flow':iViewFlow}		
+VIEWSGEN = {}			
+VIEWSGEN['models']  = {'calendar':ViewCalendar,'schedule':ViewSchedule,'form': ViewForm, 'gantt':ViewGantt, 'graph':ViewGraph, 'kanban':ViewKanban,'list':ViewList,'m2mlist':ViewM2MList,'mdx':ViewMdx,'matrix':ViewMatrix,'search':ViewSearch,'find':ViewFind,'tree':ViewTree,'geo':ViewGeo,'flow':ViewFlow}		
 
-EXCLUDE = {'calendar':['one2many','one2related','many2many','text','binary','xml','json'],'form':[],'schedule':['one2many','one2related','many2many','text','binary','xml','json'],'gantt':['one2many','one2related','many2many','text','binary','xml','json'],'graph':['one2many','one2related','many2many','text','binary','xml','json'],'kanban':['one2many','one2related','many2many','xml','json'],'list':['many2many','text','binary','xml','json'],'m2mlist':['one2many','one2related','many2many','text','binary','xml','json'],'mdx':['one2many','one2related','many2many','text','binary','xml','json'],'matrix':['one2many','one2related','many2many','text','binary','xml','json'],'search':['one2many','one2related','many2many','text','binary','xml','json'],'find':['one2many','one2related','many2many','text','binary','xml','json'],'tree':['one2many','one2related','many2many','text','binary','xml','json'],'geo':['one2many','one2related','many2many','text','binary','xml','json'],'flow':['integer','float','real','decimal','numeric','date','time','datetime','one2related','many2many','text','binary','xml','json']}
+IVIEWSGEN = {}
+IVIEWSGEN['models']  = {'calendar':iViewCalendar,'schedule':iViewSchedule,'form': iViewForm, 'gantt':iViewGantt, 'graph':iViewGraph, 'kanban':iViewKanban,'list':iViewList,'m2mlist':iViewM2MList,'mdx':iViewMdx,'matrix':iViewMatrix,'search':iViewSearch,'find':iViewFind,'tree':iViewTree,'geo':iViewGeo,'flow':iViewFlow}		
+
+EXCLUDE = {}
+EXCLUDE['models'] = {'calendar':['one2many','one2related','many2many','text','binary','xml','json'],'form':[],'schedule':['one2many','one2related','many2many','text','binary','xml','json'],'gantt':['one2many','one2related','many2many','text','binary','xml','json'],'graph':['one2many','one2related','many2many','text','binary','xml','json'],'kanban':['one2many','one2related','many2many','xml','json'],'list':['many2many','text','binary','xml','json'],'m2mlist':['one2many','one2related','many2many','text','binary','xml','json'],'mdx':['one2many','one2related','many2many','text','binary','xml','json'],'matrix':['one2many','one2related','many2many','text','binary','xml','json'],'search':['one2many','one2related','many2many','text','binary','xml','json'],'find':['one2many','one2related','many2many','text','binary','xml','json'],'tree':['one2many','one2related','many2many','text','binary','xml','json'],'geo':['one2many','one2related','many2many','text','binary','xml','json'],'flow':['integer','float','real','decimal','numeric','date','time','datetime','one2related','many2many','text','binary','xml','json']}
 
 

@@ -125,7 +125,7 @@ class User(Session):
 		args0 = args[0]
 		if args0 in ('_cache',):
 			rc = self._mcache(args[1:])
-		elif args0 in ('models','reports','queries','dialogs','wizards'):
+		elif args0 in ('dashboards','models','reports','queries','dialogs','wizards'):
 			rc = self._components['objs']._call(args[1:])
 		elif args0 == 'uis':
 			rc = self._components['uis']._call(args[1:])
@@ -156,25 +156,35 @@ class User(Session):
 		return rmsg
 
 	@property
+	def _dashboards(self):
+		if 'dashboards' in self._objects:
+			return	self._objects['dashboards']
+		return {}
+
+	@property
 	def _models(self):
 		if 'models' in self._objects:
 			return	self._objects['models']
 		return {}
+
 	@property
 	def _reports(self):
 		if 'reports' in self._objects:
 			return	self._objects['reports']
 		return {}
+
 	@property
 	def _dialogs(self):
 		if 'dialogs' in self._objects:
 			return	self._objects['dialog']
 		return {}
+
 	@property
 	def _wizards(self):
 		if 'wizards' in self._objects:
 			return	self._objects['wizards']
 		return {}
+
 	@property
 	def _queries(self):
 		if 'queries' in self._objects:
@@ -324,7 +334,7 @@ class System(Session):
 			else:
 				rc = [False,'Not logged']
 			#rc = self._components['modules']._call(args[1:])
-		elif args0 in ('models','reports','queries','dialogs','wizards'):
+		elif args0 in ('dashboards','models','reports','queries','dialogs','wizards'):
 			rc = self._components['objs']._call(args[1:])
 		elif args0 == 'gens':
 			rc = self._components['gens']._call(args[1:])
@@ -345,6 +355,12 @@ class System(Session):
 			res.append(rc)
 		
 		return res
+
+	@property
+	def _dashboards(self):
+		if 'dashboards' in self._objects:
+			return	self._objects['dashboards']
+		return {}
 
 	@property
 	def _models(self):

@@ -16,29 +16,29 @@ _logger = logging.getLogger(__name__)
 import web_pdb
 
 
-class MetaModel(type):
-	__modules__ = {}
+# class MetaModel(type):
+	# __modules__ = {}
 
-	def __new__(cls, name, bases, attrs):
-		if '__module__' in attrs and not attrs['__module__'] in ('gsrp5service.orm.model.MetaModel','orm.model.MetaModel','model.MetaModel','gsrp5service.orm.model','orm.model'):
-			_m = attrs['__module__'].split('.')
-			_module = attrs['__module__']
+	# def __new__(cls, name, bases, attrs):
+		# if '__module__' in attrs and not attrs['__module__'] in ('gsrp5service.orm.model.MetaModel','orm.model.MetaModel','model.MetaModel','gsrp5service.orm.model','orm.model'):
+			# _m = attrs['__module__'].split('.')
+			# _module = attrs['__module__']
 
-			if _m[0] == 'gsrp5service':
-				_module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[3:5])	
-			else:	
-				_module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[:2])	
+			# if _m[0] == 'gsrp5service':
+				# _module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[3:5])	
+			# else:	
+				# _module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[:2])	
 
-			MetaModel.__modules__.setdefault(_module,{})[attrs['_name']] = {'name':name,'bases':bases,'attrs':attrs}
+			# MetaModel.__modules__.setdefault(_module,{})[attrs['_name']] = {'name':name,'bases':bases,'attrs':attrs}
 
-		return super(MetaModel, cls).__new__(cls, name, bases, attrs)
+		# return super(MetaModel, cls).__new__(cls, name, bases, attrs)
 
-	def __init__(self, name, bases, attrs):
-		if not hasattr(self, '_register'):
-			setattr(self,'_register',True)
-		else:
-			self._register = True
-			super(MetaModel, self).__init__(name, bases, attrs)
+	# def __init__(self, name, bases, attrs):
+		# if not hasattr(self, '_register'):
+			# setattr(self,'_register',True)
+		# else:
+			# self._register = True
+			# super(MetaModel, self).__init__(name, bases, attrs)
 
 #class BaseModelInherit(object, metaclass = MetaModel):
 class BaseModelInherit(object, metaclass = MetaObjects):

@@ -2,165 +2,123 @@
   <gsrp>
     <data>
       <records model="bc.group.access">
-        <record id="qm.readonly">
-          <column name="name">qm.readonly</column>
-          <column name="note">Module qm grant readonly</column>
+        <record id="qm.models.readonly">
+          <column name="name">qm.models.readonly</column>
+          <column name="note">Module qm Type Object models grant readonly</column>
         </record>
-        <record id="qm.nodrop">
-          <column name="name">qm.nodrop</column>
-          <column name="note">Module qm grant nodrop</column>
+        <record id="qm.models.nodrop">
+          <column name="name">qm.models.nodrop</column>
+          <column name="note">Module qm Type Object models grant nodrop</column>
         </record>
-        <record id="qm.full">
-          <column name="name">qm.full</column>
-          <column name="note">Module qm grant full</column>
+        <record id="qm.models.full">
+          <column name="name">qm.models.full</column>
+          <column name="note">Module qm Type Object models grant full</column>
         </record>
-        <record id="qm.crw">
-          <column name="name">qm.crw</column>
-          <column name="note">Module qm grant crw</column>
+        <record id="qm.models.crw">
+          <column name="name">qm.models.crw</column>
+          <column name="note">Module qm Type Object models grant crw</column>
         </record>
       </records>
       <records model="bc.access">
-        <record id="md.quality.product.readonly">
-          <column name="name">md.quality.product.readonly</column>
-          <column name="note">Model md.quality.product grant readonly</column>
-          <column name="group_id">qm.readonly</column>
+        <record id="role.qm.models.md.quality.product.readonly">
+          <column name="name">role.qm.models.md.quality.product.readonly</column>
+          <column name="note">Module: qm Type: models Object: md.quality.product grant: readonly</column>
+          <column name="group_id">qm.models.readonly</column>
         </record>
-        <record id="md.quality.product.nodrop">
-          <column name="name">md.quality.product.nodrop</column>
-          <column name="note">Model md.quality.product grant nodrop</column>
-          <column name="group_id">qm.nodrop</column>
+        <record id="role.qm.models.md.quality.product.nodrop">
+          <column name="name">role.qm.models.md.quality.product.nodrop</column>
+          <column name="note">Module: qm Type: models Object: md.quality.product grant: nodrop</column>
+          <column name="group_id">qm.models.nodrop</column>
         </record>
-        <record id="md.quality.product.full">
-          <column name="name">md.quality.product.full</column>
-          <column name="note">Model md.quality.product grant full</column>
-          <column name="group_id">qm.full</column>
+        <record id="role.qm.models.md.quality.product.full">
+          <column name="name">role.qm.models.md.quality.product.full</column>
+          <column name="note">Module: qm Type: models Object: md.quality.product grant: full</column>
+          <column name="group_id">qm.models.full</column>
         </record>
-        <record id="md.quality.product.crw">
-          <column name="name">md.quality.product.crw</column>
-          <column name="note">Model md.quality.product grant crw</column>
-          <column name="group_id">qm.crw</column>
+        <record id="role.qm.models.md.quality.product.crw">
+          <column name="name">role.qm.models.md.quality.product.crw</column>
+          <column name="note">Module: qm Type: models Object: md.quality.product grant: crw</column>
+          <column name="group_id">qm.models.crw</column>
         </record>
-        <record id="qm.category.readonly">
-          <column name="name">qm.category.readonly</column>
-          <column name="note">Model qm.category grant readonly</column>
-          <column name="group_id">qm.readonly</column>
+        <record id="role.qm.models.qm.category.readonly">
+          <column name="name">role.qm.models.qm.category.readonly</column>
+          <column name="note">Module: qm Type: models Object: qm.category grant: readonly</column>
+          <column name="group_id">qm.models.readonly</column>
         </record>
-        <record id="qm.category.nodrop">
-          <column name="name">qm.category.nodrop</column>
-          <column name="note">Model qm.category grant nodrop</column>
-          <column name="group_id">qm.nodrop</column>
+        <record id="role.qm.models.qm.category.nodrop">
+          <column name="name">role.qm.models.qm.category.nodrop</column>
+          <column name="note">Module: qm Type: models Object: qm.category grant: nodrop</column>
+          <column name="group_id">qm.models.nodrop</column>
         </record>
-        <record id="qm.category.full">
-          <column name="name">qm.category.full</column>
-          <column name="note">Model qm.category grant full</column>
-          <column name="group_id">qm.full</column>
+        <record id="role.qm.models.qm.category.full">
+          <column name="name">role.qm.models.qm.category.full</column>
+          <column name="note">Module: qm Type: models Object: qm.category grant: full</column>
+          <column name="group_id">qm.models.full</column>
         </record>
-        <record id="qm.category.crw">
-          <column name="name">qm.category.crw</column>
-          <column name="note">Model qm.category grant crw</column>
-          <column name="group_id">qm.crw</column>
+        <record id="role.qm.models.qm.category.crw">
+          <column name="name">role.qm.models.qm.category.crw</column>
+          <column name="note">Module: qm Type: models Object: qm.category grant: crw</column>
+          <column name="group_id">qm.models.crw</column>
         </record>
       </records>
-      <records model="bc.model.access">
-        <record id="qm.md.quality.product.readonly">
-          <column name="access_id">md.quality.product.readonly</column>
-          <column name="model_id">md.quality.product</column>
+      <records model="bc.obj.access">
+        <record id="access.qm.models.md.quality.product.readonly">
+          <column name="access_id">access.qm.models.md.quality.product.readonly</column>
+          <column name="object_id">md.quality.product</column>
           <column name="aread">True</column>
-          <column name="aselect">True</column>
         </record>
-        <record id="qm.md.quality.product.nodrop">
-          <column name="access_id">md.quality.product.nodrop</column>
-          <column name="model_id">md.quality.product</column>
+        <record id="access.qm.models.md.quality.product.nodrop">
+          <column name="access_id">access.qm.models.md.quality.product.nodrop</column>
+          <column name="object_id">md.quality.product</column>
           <column name="aread">True</column>
-          <column name="aselect">True</column>
           <column name="acreate">True</column>
-          <column name="ainsert">True</column>
           <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
         </record>
-        <record id="qm.md.quality.product.full">
-          <column name="access_id">md.quality.product.full</column>
-          <column name="model_id">md.quality.product</column>
+        <record id="access.qm.models.md.quality.product.full">
+          <column name="access_id">access.qm.models.md.quality.product.full</column>
+          <column name="object_id">md.quality.product</column>
           <column name="aread">True</column>
-          <column name="aselect">True</column>
           <column name="acreate">True</column>
-          <column name="ainsert">True</column>
           <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
           <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
+          <column name="aexecute">True</column>
         </record>
-        <record id="qm.md.quality.product.crw">
-          <column name="access_id">md.quality.product.crw</column>
-          <column name="model_id">md.quality.product</column>
+        <record id="access.qm.models.md.quality.product.crw">
+          <column name="access_id">access.qm.models.md.quality.product.crw</column>
+          <column name="object_id">md.quality.product</column>
           <column name="aread">True</column>
-          <column name="aselect">True</column>
           <column name="acreate">True</column>
-          <column name="ainsert">True</column>
           <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
+          <column name="aexecute">True</column>
         </record>
-        <record id="qm.qm.category.readonly">
-          <column name="access_id">qm.category.readonly</column>
-          <column name="model_id">qm.category</column>
+        <record id="access.qm.models.qm.category.readonly">
+          <column name="access_id">access.qm.models.qm.category.readonly</column>
+          <column name="object_id">qm.category</column>
           <column name="aread">True</column>
-          <column name="aselect">True</column>
         </record>
-        <record id="qm.qm.category.nodrop">
-          <column name="access_id">qm.category.nodrop</column>
-          <column name="model_id">qm.category</column>
+        <record id="access.qm.models.qm.category.nodrop">
+          <column name="access_id">access.qm.models.qm.category.nodrop</column>
+          <column name="object_id">qm.category</column>
           <column name="aread">True</column>
-          <column name="aselect">True</column>
           <column name="acreate">True</column>
-          <column name="ainsert">True</column>
           <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
         </record>
-        <record id="qm.qm.category.full">
-          <column name="access_id">qm.category.full</column>
-          <column name="model_id">qm.category</column>
+        <record id="access.qm.models.qm.category.full">
+          <column name="access_id">access.qm.models.qm.category.full</column>
+          <column name="object_id">qm.category</column>
           <column name="aread">True</column>
-          <column name="aselect">True</column>
           <column name="acreate">True</column>
-          <column name="ainsert">True</column>
           <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
           <column name="aunlink">True</column>
-          <column name="adelete">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
+          <column name="aexecute">True</column>
         </record>
-        <record id="qm.qm.category.crw">
-          <column name="access_id">qm.category.crw</column>
-          <column name="model_id">qm.category</column>
+        <record id="access.qm.models.qm.category.crw">
+          <column name="access_id">access.qm.models.qm.category.crw</column>
+          <column name="object_id">qm.category</column>
           <column name="aread">True</column>
-          <column name="aselect">True</column>
           <column name="acreate">True</column>
-          <column name="ainsert">True</column>
           <column name="awrite">True</column>
-          <column name="aupdate">True</column>
-          <column name="amodify">True</column>
-          <column name="aupsert">True</column>
-          <column name="abrowse">True</column>
-          <column name="aselectbrowse">True</column>
+          <column name="aexecute">True</column>
         </record>
       </records>
     </data>

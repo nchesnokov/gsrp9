@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <gsrp>
+    <data>
+      <records model="bc.ui.views">
+        <record id="view.ewm.models.ewm.warehouse.form">
+          <column name="name">view.ewm.models.ewm.warehouse.form</column>
+          <column name="model">ewm.warehouse</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="stock"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="products"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ewm.models.ewm.warehouse.list">
+          <column name="name">view.ewm.models.ewm.warehouse.list</column>
+          <column name="model">ewm.warehouse</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="stock"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="products"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ewm.models.ewm.warehouse.m2mlist">
+          <column name="name">view.ewm.models.ewm.warehouse.m2mlist</column>
+          <column name="model">ewm.warehouse</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="stock"/>
+              <field name="name"/>
+              <field name="fullname"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ewm.models.ewm.warehouse.search">
+          <column name="name">view.ewm.models.ewm.warehouse.search</column>
+          <column name="model">ewm.warehouse</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="stock"/>
+              <field name="name"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.ewm.models.ewm.warehouse.find">
+          <column name="name">view.ewm.models.ewm.warehouse.find</column>
+          <column name="model">ewm.warehouse</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="stock"/>
+              <field name="name"/>
+              <field name="fullname"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.ewm.models.st.company.product.quantites.form">
+          <column name="name">view.ewm.models.st.company.product.quantites.form</column>
+          <column name="model">st.company.product.quantites</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="company_id"/>
+              <field name="stoсk_type"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ewm.models.st.company.product.quantites.list">
+          <column name="name">view.ewm.models.st.company.product.quantites.list</column>
+          <column name="model">st.company.product.quantites</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="company_id"/>
+              <field name="stoсk_type"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ewm.models.st.company.product.quantites.m2mlist">
+          <column name="name">view.ewm.models.st.company.product.quantites.m2mlist</column>
+          <column name="model">st.company.product.quantites</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="company_id"/>
+              <field name="stoсk_type"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ewm.models.st.stock.product.quantites.form">
+          <column name="name">view.ewm.models.st.stock.product.quantites.form</column>
+          <column name="model">st.stock.product.quantites</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="stock_id"/>
+              <field name="stoсk_type"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ewm.models.st.stock.product.quantites.list">
+          <column name="name">view.ewm.models.st.stock.product.quantites.list</column>
+          <column name="model">st.stock.product.quantites</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="stock_id"/>
+              <field name="stoсk_type"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ewm.models.st.stock.product.quantites.m2mlist">
+          <column name="name">view.ewm.models.st.stock.product.quantites.m2mlist</column>
+          <column name="model">st.stock.product.quantites</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="stock_id"/>
+              <field name="stoсk_type"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="uom"/>
+              <field name="amount"/>
+              <field name="currency"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.ewm.models.md.ewm.product.form">
+          <column name="name">view.ewm.models.md.ewm.product.form</column>
+          <column name="model">md.ewm.product</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="product_id"/>
+              <field name="uom"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ewm.models.md.ewm.product.list">
+          <column name="name">view.ewm.models.md.ewm.product.list</column>
+          <column name="model">md.ewm.product</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="product_id"/>
+              <field name="uom"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ewm.models.md.ewm.product.m2mlist">
+          <column name="name">view.ewm.models.md.ewm.product.m2mlist</column>
+          <column name="model">md.ewm.product</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="product_id"/>
+              <field name="uom"/>
+            </m2mlist>
+          </column>
+        </record>
+      </records>
+      <records model="bc.ui.views.inherit">
+        <record id="view.ewm.models.md.ewm.product.inherit.form.inherit.md.product">
+          <column name="view_id">view.ewm.models.md.ewm.product.inherit.form</column>
+          <column name="name">view.ewm.models.md.ewm.product.inherit.form.inherit.md.product</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="ewms"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ewm.models.md.ewm.product.inherit.list.inherit.md.product">
+          <column name="view_id">view.ewm.models.md.ewm.product.inherit.list</column>
+          <column name="name">view.ewm.models.md.ewm.product.inherit.list.inherit.md.product</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="ewms"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.ewm.models.md.stock.company.inherit.form.inherit.md.company">
+          <column name="view_id">view.ewm.models.md.stock.company.inherit.form</column>
+          <column name="name">view.ewm.models.md.stock.company.inherit.form.inherit.md.company</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="stocks"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.ewm.models.md.stock.company.inherit.list.inherit.md.company">
+          <column name="view_id">view.ewm.models.md.stock.company.inherit.list</column>
+          <column name="name">view.ewm.models.md.stock.company.inherit.list.inherit.md.company</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="stocks"/>
+            </list>
+          </column>
+        </record>
+      </records>
+    </data>
+  </gsrp>

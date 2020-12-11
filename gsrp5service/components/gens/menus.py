@@ -1,10 +1,11 @@
 import os
 import logging
-from functools import reduce
 from os.path import join as opj
 from io import BytesIO
 from .views import isAllow,VIEWSGEN
+from .common import concat
 from gsrp5service.orm.model import Model
+import web_pdb
 
 import html
 
@@ -13,14 +14,20 @@ TAB = '  '
 
 _logger = logging.getLogger('listener.' + __name__)
 
-def RecordActions(level,module,model,modinfo,key,cat):
+_info_objs = {'dashbords':'dashboardInfo','models':'modelInfo','views':'viewInfo'}
+
+_action_cat = {'dashboards':'Dashboard','models':'Model','views':'View','reports':'Report','izards':'Wizard','links':'Link'}
+
+def RecordActions(level,module,obj,key,cat):
 
 	indent = TAB * level
-	if isAllow(key,modinfo):
-		b.write((indent + '<record id="%s">\n' % ('action.' + model + '.' + key,)).encode('utf-8'))
-		b.write((indent + TAB + '<column name="name">%s</column>\n' % ('action.' + model + '.' + key,)).encode('utf-8'))
-		b.write((indent + TAB + '<column name="ta">%s</column>\n' % (cat,)).encode('utf-8'))		
-		b.write((indent + '</record>\n').encode('utf-8'))
+	for view in VIEWSGEN[cat].keys():
+		if isAllow(view,cat,getattr(obj,_info_objs[cat],None)()):
+			nm = concat(['action',module,cat,key,view])
+			b.write((indent + '<record id="%s">\n' % (nm,)).encode('utf-8'))
+			b.write((indent + TAB + '<column name="name">%s</column>\n' % (nm,)).encode('utf-8'))
+			b.write((indent + TAB + '<column name="ta">%s</column>\n' % (_action_cat[cat],)).encode('utf-8'))		
+			b.write((indent + '</record>\n').encode('utf-8'))
 
 
 def RecordMenu(level,name,label,parent=None):
@@ -37,168 +44,43 @@ def RecordMenu(level,name,label,parent=None):
 	b.write((indent + '</records>\n').encode('utf-8'))
 
 
-def RecordMenuItems(level,pool,models,key,menu):
+def RecordMenuItems(level,module,objs,cat,menu):
 
 	indent = TAB * level
 
 	b.write((indent + '<records model="%s">\n' % ('bc.ui.menus',)).encode('utf-8'))
-	for idx,model in enumerate(models):
-		label = model._description
-		# d = model._description.split(' ')
-		# if len(d) == 1:
-			# label = d[0]
-		# elif len(d) == 2:
-			# label = d[0] + ' ' + d[1]
-		# else:
-			# label = reduce(lambda x,y:x + ' ' + y,d[2:])
-
-		if isAllow(key,model.modelInfo()):
-			RecordMenuItem(level + 1,idx,model._name,key,label,menu)
+	for idx,obj in enumerate(objs):
+		label = obj._description
+		for view in VIEWSGEN[cat].keys():
+			if isAllow(view,cat,getattr(obj,_info_objs[cat],None)()):
+				RecordMenuItem(level + 1,idx,module,concat([obj._name,view]),cat,label,menu)
 	b.write((indent + '</records>\n').encode('utf-8'))
 
-def RecordMenuItem(level,idx,model,key,label,menu):
+def RecordMenuItem(level,idx,module,key,cat,label,menu):
 
 	indent = TAB * level
-
-	b.write((indent + TAB + '<record id="%s">\n' % ('ui.menu.' + model + '.' + key,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="sequence">%s</column>\n' % (idx,)).encode('utf-8'))
-	b.write((indent + TAB * 2 + '<column name="name">%s</column>\n' % ('ui.menu.' + model + '.' + key,)).encode('utf-8'))
-	b.write((indent + TAB * 2 + '<column name="label">%s</column>\n' % (label,)).encode('utf-8'))
+	nm = concat(['ui.menu',cat,key])
+	b.write((indent + TAB + '<record id="%s">\n' % (nm,)).encode('utf-8'))
+	b.write((indent + TAB * 2 + '<column name="sequence">%s</column>\n' % (idx,)).encode('utf-8'))
+	b.write((indent + TAB * 2 + '<column name="name">%s</column>\n' % (nm,)).encode('utf-8'))
+	b.write((indent + TAB * 2 + '<column name="label">%s</column>\n' % (html.escape(label),)).encode('utf-8'))
 	if menu:
-		b.write((indent + TAB + '<column name="parent_id">%s</column>\n' % (menu,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="sequence">%s</column>\n' % (idx * 10,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="action_id">%s</column>\n' % ('action.' + model + '.' + key,)).encode('utf-8'))
+		b.write((indent + TAB * 2 + '<column name="parent_id">%s</column>\n' % (menu,)).encode('utf-8'))
+	nma = concat(['action',module,cat,key])
+	b.write((indent + TAB + '<column name="action_id">%s</column>\n' % (nma,)).encode('utf-8'))
 
 	b.write((indent + TAB + '</record>\n').encode('utf-8'))
 
-def RecordReport(level,idx,module,model,label):
-
-	indent = TAB * level
-
-	b.write((indent + '<record id="%s">\n' % ('bc.ui.report.docx.' + model,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="name">%s</column>\n' % ('bc.ui.report.docx.' + model,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="label">%s</column>\n' % (label,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="report">%s</column>\n' % ('report.' + model,)).replace('.','_').encode('utf-8'))
-	b.write((indent + TAB + '<column name="infile">%s</column>\n' % (('infile.' + model).replace('.','_') + '.docx',)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="outfile">%s</column>\n' % (('outfile.' + model).replace('.','_') + '.docx',)).encode('utf-8'))
-	b.write((indent + '</record>\n').encode('utf-8'))
-
-def RecordsReport(level,pool,module,models):
-
-	indent = TAB * level
-
-	b.write((indent + '<records model="%s">\n' % ('bc.ui.reports',)).encode('utf-8'))
-	for idx,model in enumerate(models):
-		description = model._description
-		# d = model._description.split(' ')
-		# if len(d) == 1:
-			# description = d[0]
-		# elif len(d) == 2:
-			# description = d[0] + ' ' + d[1]
-		# else:
-			# description = reduce(lambda x,y:x + ' ' + y,d[2:])
-
-		if isAllow('report',model.modelInfo()):
-			RecordReport(level + 1,idx,module,model._name,description)
-	b.write((indent + '</records>\n').encode('utf-8'))
-
-
-def View(level,idx,module,model,label,key):
-
-	indent = TAB * level
-
-	#key = 'search'
-	b.write((indent + '<record id="%s">\n' % ('view.action.' + model + '.' + key,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="action_id">%s</column>\n' % ('action.' + model + '.' + key,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="view_id">%s</column>\n' % ('view.' + model + '.' + key,)).encode('utf-8'))
-	b.write((indent + '</record>\n').encode('utf-8'))
-
-def Views(level,pool,module,models,key):
-
-	indent = TAB * level
-
-	b.write((indent + '<records model="%s">\n' % ('bc.view.actions',)).encode('utf-8'))
-	for idx,model in enumerate(models):
-		description = model._description
-		# d = model._description.split(' ')
-		# if len(d) == 1:
-			# description = d[0]
-		# elif len(d) == 2:
-			# description = d[0] + ' ' + d[1]
-		# else:
-			# description = reduce(lambda x,y:x + ' ' + y,d[2:])
-
-		if isAllow(key,model.modelInfo()):
-			View(level + 1,idx,module,model._name,description,key)
-	b.write((indent + '</records>\n').encode('utf-8'))
-
-def Report(level,idx,module,model,label):
-
-	indent = TAB * level
-
-	key = 'report'
-	b.write((indent + '<record id="%s">\n' % ('report.action.' + model + '.' + key,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="action_id">%s</column>\n' % ('action.' + model + '.' + key,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="report_id">%s</column>\n' % ('bc.ui.report.docx.' + model,)).encode('utf-8'))
-	b.write((indent + '</record>\n').encode('utf-8'))
-
-def Reports(level,pool,module,models):
-
-	indent = TAB * level
-
-	b.write((indent + '<records model="%s">\n' % ('bc.report.actions',)).encode('utf-8'))
-	for idx,model in enumerate(models):
-		description = model._description
-		# d = model._description.split(' ')
-		# if len(d) == 1:
-			# description = d[0]
-		# elif len(d) == 2:
-			# description = d[0] + ' ' + d[1]
-		# else:
-			# description = reduce(lambda x,y:x + ' ' + y,d[2:])
-
-		if isAllow('report',model.modelInfo()):
-			Report(level + 1,idx,module,model._name,description)
-	b.write((indent + '</records>\n').encode('utf-8'))
-
 #
-def Custom(level,idx,module,model,label,key):
 
-	indent = TAB * level
-
-	#key = 'search'
-	b.write((indent + '<record id="%s">\n' % ('view.action.' + model + '.' + key,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="action_id">%s</column>\n' % ('action.' + model + '.' + key,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="view_id">%s</column>\n' % ('view.' + model + '.' + 'search',)).encode('utf-8'))
-	b.write((indent + '</record>\n').encode('utf-8'))
-
-def Customs(level,pool,module,models,key):
-
-	indent = TAB * level
-
-	b.write((indent + '<records model="%s">\n' % ('bc.view.actions',)).encode('utf-8'))
-	for idx,model in enumerate(models):
-		description = model._description
-		# d = model._description.split(' ')
-		# if len(d) == 1:
-			# description = d[0]
-		# elif len(d) == 2:
-			# description = d[0] + ' ' + d[1]
-		# else:
-			# description = reduce(lambda x,y:x + ' ' + y,d[2:])
-
-		if isAllow(key,model.modelInfo()):
-			Custom(level + 1,idx,module,model._name,description,key)
-	b.write((indent + '</records>\n').encode('utf-8'))
-
-#
-def ViewActions(level,pool,module,models,key,cat):
+def Actions(level,module,objs):
 	
 	indent = TAB * level
 	
 	b.write((indent + '<records model="%s">\n' % ('bc.actions',)).encode('utf-8'))
-	for model in models:
-		RecordActions(level+1,module,model._name,model.modelInfo(),key,cat)
+	for cat in objs.keys():
+		for obj in objs[cat]:
+			RecordActions(level+1,module,obj,obj._name,cat)
 
 	b.write((indent + '</records>\n').encode('utf-8'))
 
@@ -215,45 +97,38 @@ def Area(self, modules = None, context={}):
 	for module in modules:
 		path = registry._modules[module]['path']
 		label = registry._modules[module]['meta']['name']
-		models = []
-		cust_models = []
-		if module in registry._metas and 'models' in registry._metas[module]:
-			for model in registry._metas[module]['models'].keys():
-				mm = registry._create_module_object('models',model,module)
-				if isinstance(mm,Model):
-					info = mm.modelInfo()	
-					if len(list(filter(lambda x: 'selectable' in info['columns'][x] and info['columns'][x]['selectable'] and 'rec_name' in info['names'] and info['names']['rec_name'],info['columns'].keys()))) > 0:
-						if 'class_model' in info and info['class_model'] == 'A':
-							models.append(mm)
-						elif 'class_model' in info and info['class_model'] == 'C':
-							cust_models.append(mm)
+		objs = {}
+		cust_objs = {}
+		if module in registry._metas:
+			for cat in filter(lambda x: x in ('dashboards','models','views','reports','wizards'),registry._metas[module].keys()):
+				for key in registry._metas[module][cat].keys():
+					obj = registry._create_module_object(cat,key,module)
+					if isinstance(obj,Model):
+						info = obj.modelInfo()	
+						if len(list(filter(lambda x: 'selectable' in info['columns'][x] and info['columns'][x]['selectable'] and 'rec_name' in info['names'] and info['names']['rec_name'],info['columns'].keys()))) > 0:
+							if 'class_model' in info and info['class_model'] == 'A':
+								objs.setdefault(cat,[]).append(obj)
+							elif 'class_model' in info and info['class_model'] == 'C':
+								cust_objs.setdefault(cat,[]).append(obj)
 
-		if len(models) > 0 or len(cust_models) > 0:
+		if len(objs) > 0 or len(cust_objs) > 0:
 			b.write('<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n'.encode('utf-8'))
 			b.write((TAB+'<gsrp>\n').encode('utf-8'))
 			b.write((TAB * 2 + '<data>\n').encode('utf-8'))
-			RecordMenu(3,'ui.menu.'+module,label)
-			if len(models) > 0:
-				ViewActions(3, pool,module,models,'search','View')
-				ViewActions(3, pool,module,models,'report','Report')
-				Views(3,pool,module,models,'search')
-				RecordsReport(3,pool,module,models)
-				Reports(3,pool,module,models)
-				RecordMenuItems(3,pool,models,'search','ui.menu.'+module)			
-				RecordMenu(3,'ui.menu.'+module+'.report','Reports','ui.menu.'+module)
-				RecordMenuItems(3,pool,models,'report','ui.menu.'+module+'.report')
-			if len(cust_models) > 0:
-				#print('CUST_MODELS:',cust_models)
-				ViewActions(3, pool,module,cust_models,'custom','View')
-				Customs(3,pool,module,cust_models,'custom')
-				RecordMenu(3,'ui.menu.'+module+'.custom','Customs','ui.menu.'+module)
-				RecordMenuItems(3,pool,cust_models,'custom','ui.menu.'+module+'.custom')		
-
-				ViewActions(3, pool,module,cust_models,'report','Report')
-				RecordsReport(3,pool,module,cust_models)
-				Reports(3,pool,module,cust_models)
-				RecordMenu(3,'ui.menu.'+module+'.report.custom','Customs','ui.menu.'+module+'.report')
-				RecordMenuItems(3,pool,cust_models,'report','ui.menu.'+module+'.report.custom')
+			RecordMenu(3,concat(['ui.menu.module',module]),label)
+			if module == 'bc':
+				RecordMenu(3,concat(['ui.menu','customize']),'Customizing')
+			if len(objs) > 0:
+				Actions(3, module,objs)				
+				for cat in objs.keys():
+					RecordMenu(3,concat(['ui.menu.module',module,cat]),cat.title(),concat(['ui.menu.module',module]))
+					RecordMenuItems(3,module,objs[cat],cat,concat(['ui.menu.module',module,cat]))
+			if len(cust_objs) > 0:
+				RecordMenu(3,concat(['ui.menu.customize',module]),label)
+				Actions(3, module,cust_objs)				
+				for cat in cust_objs.keys():
+					RecordMenu(3,concat(['ui.menu.customize',module,cat]),cat.title(),concat(['ui.menu','customize']))
+					RecordMenuItems(3,module,cust_objs[cat],cat,concat(['ui.menu.customize',module,cat]))
 
 			b.write((TAB * 2 + '</data>\n').encode('utf-8'))
 			b.write((TAB + '</gsrp>\n').encode('utf-8'))

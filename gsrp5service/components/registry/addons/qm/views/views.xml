@@ -2,8 +2,8 @@
   <gsrp>
     <data>
       <records model="bc.ui.views">
-        <record id="view.md.quality.product.form">
-          <column name="name">view.md.quality.product.form</column>
+        <record id="view.qm.models.md.quality.product.form">
+          <column name="name">view.qm.models.md.quality.product.form</column>
           <column name="model">md.quality.product</column>
           <column name="arch" type="Xml">
             <form>
@@ -13,8 +13,8 @@
             </form>
           </column>
         </record>
-        <record id="view.md.quality.product.list">
-          <column name="name">view.md.quality.product.list</column>
+        <record id="view.qm.models.md.quality.product.list">
+          <column name="name">view.qm.models.md.quality.product.list</column>
           <column name="model">md.quality.product</column>
           <column name="arch" type="Xml">
             <list>
@@ -23,8 +23,8 @@
             </list>
           </column>
         </record>
-        <record id="view.md.quality.product.m2mlist">
-          <column name="name">view.md.quality.product.m2mlist</column>
+        <record id="view.qm.models.md.quality.product.m2mlist">
+          <column name="name">view.qm.models.md.quality.product.m2mlist</column>
           <column name="model">md.quality.product</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -33,8 +33,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.qm.category.form">
-          <column name="name">view.qm.category.form</column>
+        <record id="view.qm.models.qm.category.form">
+          <column name="name">view.qm.models.qm.category.form</column>
           <column name="model">qm.category</column>
           <column name="arch" type="Xml">
             <form>
@@ -42,8 +42,8 @@
             </form>
           </column>
         </record>
-        <record id="view.qm.category.list">
-          <column name="name">view.qm.category.list</column>
+        <record id="view.qm.models.qm.category.list">
+          <column name="name">view.qm.models.qm.category.list</column>
           <column name="model">qm.category</column>
           <column name="arch" type="Xml">
             <list>
@@ -51,8 +51,8 @@
             </list>
           </column>
         </record>
-        <record id="view.qm.category.m2mlist">
-          <column name="name">view.qm.category.m2mlist</column>
+        <record id="view.qm.models.qm.category.m2mlist">
+          <column name="name">view.qm.models.qm.category.m2mlist</column>
           <column name="model">qm.category</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -60,8 +60,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.qm.category.search">
-          <column name="name">view.qm.category.search</column>
+        <record id="view.qm.models.qm.category.search">
+          <column name="name">view.qm.models.qm.category.search</column>
           <column name="model">qm.category</column>
           <column name="arch" type="Xml">
             <search>
@@ -69,8 +69,8 @@
             </search>
           </column>
         </record>
-        <record id="view.qm.category.find">
-          <column name="name">view.qm.category.find</column>
+        <record id="view.qm.models.qm.category.find">
+          <column name="name">view.qm.models.qm.category.find</column>
           <column name="model">qm.category</column>
           <column name="arch" type="Xml">
             <find>
@@ -80,18 +80,18 @@
         </record>
       </records>
       <records model="bc.ui.views.inherit">
-        <record id="view.md.quality.product.inherit.form.inherit.md.product">
-          <column name="view_id">view.md.product.form</column>
-          <column name="name">view.md.quality.product.inherit.form.inherit.md.product</column>
+        <record id="view.qm.models.md.quality.product.inherit.form.inherit.md.product">
+          <column name="view_id">view.qm.models.md.quality.product.inherit.form</column>
+          <column name="name">view.qm.models.md.quality.product.inherit.form.inherit.md.product</column>
           <column name="arch" type="Xml">
             <form>
               <field name="qm"/>
             </form>
           </column>
         </record>
-        <record id="view.md.quality.product.inherit.list.inherit.md.product">
-          <column name="view_id">view.md.product.list</column>
-          <column name="name">view.md.quality.product.inherit.list.inherit.md.product</column>
+        <record id="view.qm.models.md.quality.product.inherit.list.inherit.md.product">
+          <column name="view_id">view.qm.models.md.quality.product.inherit.list</column>
+          <column name="name">view.qm.models.md.quality.product.inherit.list.inherit.md.product</column>
           <column name="arch" type="Xml">
             <list>
               <field name="qm"/>

@@ -2,8 +2,8 @@
   <gsrp>
     <data>
       <records model="bc.ui.views">
-        <record id="view.md.warehouse.product.form">
-          <column name="name">view.md.warehouse.product.form</column>
+        <record id="view.wm.models.md.warehouse.product.form">
+          <column name="name">view.wm.models.md.warehouse.product.form</column>
           <column name="model">md.warehouse.product</column>
           <column name="arch" type="Xml">
             <form>
@@ -14,8 +14,8 @@
             </form>
           </column>
         </record>
-        <record id="view.md.warehouse.product.list">
-          <column name="name">view.md.warehouse.product.list</column>
+        <record id="view.wm.models.md.warehouse.product.list">
+          <column name="name">view.wm.models.md.warehouse.product.list</column>
           <column name="model">md.warehouse.product</column>
           <column name="arch" type="Xml">
             <list>
@@ -25,8 +25,8 @@
             </list>
           </column>
         </record>
-        <record id="view.md.warehouse.product.m2mlist">
-          <column name="name">view.md.warehouse.product.m2mlist</column>
+        <record id="view.wm.models.md.warehouse.product.m2mlist">
+          <column name="name">view.wm.models.md.warehouse.product.m2mlist</column>
           <column name="model">md.warehouse.product</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -36,8 +36,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.wm.category.form">
-          <column name="name">view.wm.category.form</column>
+        <record id="view.wm.models.wm.category.form">
+          <column name="name">view.wm.models.wm.category.form</column>
           <column name="model">wm.category</column>
           <column name="arch" type="Xml">
             <form>
@@ -45,8 +45,8 @@
             </form>
           </column>
         </record>
-        <record id="view.wm.category.list">
-          <column name="name">view.wm.category.list</column>
+        <record id="view.wm.models.wm.category.list">
+          <column name="name">view.wm.models.wm.category.list</column>
           <column name="model">wm.category</column>
           <column name="arch" type="Xml">
             <list>
@@ -54,8 +54,8 @@
             </list>
           </column>
         </record>
-        <record id="view.wm.category.m2mlist">
-          <column name="name">view.wm.category.m2mlist</column>
+        <record id="view.wm.models.wm.category.m2mlist">
+          <column name="name">view.wm.models.wm.category.m2mlist</column>
           <column name="model">wm.category</column>
           <column name="arch" type="Xml">
             <m2mlist>
@@ -63,8 +63,8 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.wm.category.search">
-          <column name="name">view.wm.category.search</column>
+        <record id="view.wm.models.wm.category.search">
+          <column name="name">view.wm.models.wm.category.search</column>
           <column name="model">wm.category</column>
           <column name="arch" type="Xml">
             <search>
@@ -72,8 +72,8 @@
             </search>
           </column>
         </record>
-        <record id="view.wm.category.find">
-          <column name="name">view.wm.category.find</column>
+        <record id="view.wm.models.wm.category.find">
+          <column name="name">view.wm.models.wm.category.find</column>
           <column name="model">wm.category</column>
           <column name="arch" type="Xml">
             <find>
@@ -83,18 +83,18 @@
         </record>
       </records>
       <records model="bc.ui.views.inherit">
-        <record id="view.md.warehouse.product.inherit.form.inherit.md.product">
-          <column name="view_id">view.md.product.form</column>
-          <column name="name">view.md.warehouse.product.inherit.form.inherit.md.product</column>
+        <record id="view.wm.models.md.warehouse.product.inherit.form.inherit.md.product">
+          <column name="view_id">view.wm.models.md.warehouse.product.inherit.form</column>
+          <column name="name">view.wm.models.md.warehouse.product.inherit.form.inherit.md.product</column>
           <column name="arch" type="Xml">
             <form>
               <field name="warehouse"/>
             </form>
           </column>
         </record>
-        <record id="view.md.warehouse.product.inherit.list.inherit.md.product">
-          <column name="view_id">view.md.product.list</column>
-          <column name="name">view.md.warehouse.product.inherit.list.inherit.md.product</column>
+        <record id="view.wm.models.md.warehouse.product.inherit.list.inherit.md.product">
+          <column name="view_id">view.wm.models.md.warehouse.product.inherit.list</column>
+          <column name="name">view.wm.models.md.warehouse.product.inherit.list.inherit.md.product</column>
           <column name="arch" type="Xml">
             <list>
               <field name="warehouse"/>

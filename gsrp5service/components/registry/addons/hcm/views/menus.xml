@@ -2,186 +2,273 @@
   <gsrp>
     <data>
       <records model="bc.ui.menus">
-        <record id="ui.menu.hcm">
-          <column name="name">ui.menu.hcm</column>
+        <record id="ui.menu.module.hcm">
+          <column name="name">ui.menu.module.hcm</column>
           <column name="label">Human Capital Managanent</column>
         </record>
       </records>
       <records model="bc.actions">
-        <record id="action.hcm.employee.categories.search">
-          <column name="name">action.hcm.employee.categories.search</column>
-          <column name="ta">View</column>
+        <record id="action.hcm.models.hcm.employee.categories.form">
+          <column name="name">action.hcm.models.hcm.employee.categories.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.hcm.department.search">
-          <column name="name">action.hcm.department.search</column>
-          <column name="ta">View</column>
+        <record id="action.hcm.models.hcm.employee.categories.list">
+          <column name="name">action.hcm.models.hcm.employee.categories.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.hcm.job.search">
-          <column name="name">action.hcm.job.search</column>
-          <column name="ta">View</column>
+        <record id="action.hcm.models.hcm.employee.categories.m2mlist">
+          <column name="name">action.hcm.models.hcm.employee.categories.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.hcm.employees.search">
-          <column name="name">action.hcm.employees.search</column>
-          <column name="ta">View</column>
+        <record id="action.hcm.models.hcm.employee.categories.search">
+          <column name="name">action.hcm.models.hcm.employee.categories.search</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.actions">
-        <record id="action.hcm.employee.categories.report">
-          <column name="name">action.hcm.employee.categories.report</column>
-          <column name="ta">Report</column>
+        <record id="action.hcm.models.hcm.employee.categories.find">
+          <column name="name">action.hcm.models.hcm.employee.categories.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.hcm.department.report">
-          <column name="name">action.hcm.department.report</column>
-          <column name="ta">Report</column>
+        <record id="action.hcm.models.hcm.department.form">
+          <column name="name">action.hcm.models.hcm.department.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.hcm.job.report">
-          <column name="name">action.hcm.job.report</column>
-          <column name="ta">Report</column>
+        <record id="action.hcm.models.hcm.department.list">
+          <column name="name">action.hcm.models.hcm.department.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.hcm.employees.report">
-          <column name="name">action.hcm.employees.report</column>
-          <column name="ta">Report</column>
+        <record id="action.hcm.models.hcm.department.m2mlist">
+          <column name="name">action.hcm.models.hcm.department.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.view.actions">
-        <record id="view.action.hcm.employee.categories.search">
-          <column name="action_id">action.hcm.employee.categories.search</column>
-          <column name="view_id">view.hcm.employee.categories.search</column>
+        <record id="action.hcm.models.hcm.department.search">
+          <column name="name">action.hcm.models.hcm.department.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.hcm.department.search">
-          <column name="action_id">action.hcm.department.search</column>
-          <column name="view_id">view.hcm.department.search</column>
+        <record id="action.hcm.models.hcm.department.find">
+          <column name="name">action.hcm.models.hcm.department.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.hcm.job.search">
-          <column name="action_id">action.hcm.job.search</column>
-          <column name="view_id">view.hcm.job.search</column>
+        <record id="action.hcm.models.hcm.department.tree">
+          <column name="name">action.hcm.models.hcm.department.tree</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.hcm.employees.search">
-          <column name="action_id">action.hcm.employees.search</column>
-          <column name="view_id">view.hcm.employees.search</column>
+        <record id="action.hcm.models.hcm.job.form">
+          <column name="name">action.hcm.models.hcm.job.form</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.ui.reports">
-        <record id="bc.ui.report.docx.hcm.employee.categories">
-          <column name="name">bc.ui.report.docx.hcm.employee.categories</column>
-          <column name="label">Employee Category</column>
-          <column name="report">report_hcm_employee_categories</column>
-          <column name="infile">infile_hcm_employee_categories.docx</column>
-          <column name="outfile">outfile_hcm_employee_categories.docx</column>
+        <record id="action.hcm.models.hcm.job.kanban">
+          <column name="name">action.hcm.models.hcm.job.kanban</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="bc.ui.report.docx.hcm.department">
-          <column name="name">bc.ui.report.docx.hcm.department</column>
-          <column name="label">HR Department</column>
-          <column name="report">report_hcm_department</column>
-          <column name="infile">infile_hcm_department.docx</column>
-          <column name="outfile">outfile_hcm_department.docx</column>
+        <record id="action.hcm.models.hcm.job.list">
+          <column name="name">action.hcm.models.hcm.job.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="bc.ui.report.docx.hcm.job">
-          <column name="name">bc.ui.report.docx.hcm.job</column>
-          <column name="label">Job Position</column>
-          <column name="report">report_hcm_job</column>
-          <column name="infile">infile_hcm_job.docx</column>
-          <column name="outfile">outfile_hcm_job.docx</column>
+        <record id="action.hcm.models.hcm.job.m2mlist">
+          <column name="name">action.hcm.models.hcm.job.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="bc.ui.report.docx.hcm.employees">
-          <column name="name">bc.ui.report.docx.hcm.employees</column>
-          <column name="label">Capital Managament</column>
-          <column name="report">report_hcm_employees</column>
-          <column name="infile">infile_hcm_employees.docx</column>
-          <column name="outfile">outfile_hcm_employees.docx</column>
+        <record id="action.hcm.models.hcm.job.search">
+          <column name="name">action.hcm.models.hcm.job.search</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.report.actions">
-        <record id="report.action.hcm.employee.categories.report">
-          <column name="action_id">action.hcm.employee.categories.report</column>
-          <column name="report_id">bc.ui.report.docx.hcm.employee.categories</column>
+        <record id="action.hcm.models.hcm.job.find">
+          <column name="name">action.hcm.models.hcm.job.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="report.action.hcm.department.report">
-          <column name="action_id">action.hcm.department.report</column>
-          <column name="report_id">bc.ui.report.docx.hcm.department</column>
+        <record id="action.hcm.models.hcm.employees.form">
+          <column name="name">action.hcm.models.hcm.employees.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="report.action.hcm.job.report">
-          <column name="action_id">action.hcm.job.report</column>
-          <column name="report_id">bc.ui.report.docx.hcm.job</column>
+        <record id="action.hcm.models.hcm.employees.list">
+          <column name="name">action.hcm.models.hcm.employees.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="report.action.hcm.employees.report">
-          <column name="action_id">action.hcm.employees.report</column>
-          <column name="report_id">bc.ui.report.docx.hcm.employees</column>
+        <record id="action.hcm.models.hcm.employees.m2mlist">
+          <column name="name">action.hcm.models.hcm.employees.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.hcm.models.hcm.employees.search">
+          <column name="name">action.hcm.models.hcm.employees.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.hcm.models.hcm.employees.find">
+          <column name="name">action.hcm.models.hcm.employees.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.hcm.models.hcm.employees.tree">
+          <column name="name">action.hcm.models.hcm.employees.tree</column>
+          <column name="ta">Model</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.hcm.employee.categories.search">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.hcm.employee.categories.search</column>
+        <record id="ui.menu.module.hcm.models">
+          <column name="name">ui.menu.module.hcm.models</column>
+          <column name="label">Models</column>
+        <column name="parent_id">ui.menu.module.hcm</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.models.hcm.employee.categories.form">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.hcm.employee.categories.form</column>
             <column name="label">Employee Category</column>
-          <column name="parent_id">ui.menu.hcm</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.hcm.employee.categories.search</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.employee.categories.form</column>
           </record>
-          <record id="ui.menu.hcm.department.search">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.hcm.department.search</column>
-            <column name="label">HR Department</column>
-          <column name="parent_id">ui.menu.hcm</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.hcm.department.search</column>
-          </record>
-          <record id="ui.menu.hcm.job.search">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.hcm.job.search</column>
-            <column name="label">Job Position</column>
-          <column name="parent_id">ui.menu.hcm</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.hcm.job.search</column>
-          </record>
-          <record id="ui.menu.hcm.employees.search">
-          <column name="sequence">3</column>
-            <column name="name">ui.menu.hcm.employees.search</column>
-            <column name="label">Capital Managament</column>
-          <column name="parent_id">ui.menu.hcm</column>
-          <column name="sequence">30</column>
-          <column name="action_id">action.hcm.employees.search</column>
-          </record>
-      </records>
-      <records model="bc.ui.menus">
-        <record id="ui.menu.hcm.report">
-          <column name="name">ui.menu.hcm.report</column>
-          <column name="label">Reports</column>
-        <column name="parent_id">ui.menu.hcm</column>
-        </record>
-      </records>
-      <records model="bc.ui.menus">
-          <record id="ui.menu.hcm.employee.categories.report">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.hcm.employee.categories.report</column>
+          <record id="ui.menu.models.hcm.employee.categories.list">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.hcm.employee.categories.list</column>
             <column name="label">Employee Category</column>
-          <column name="parent_id">ui.menu.hcm.report</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.hcm.employee.categories.report</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.employee.categories.list</column>
           </record>
-          <record id="ui.menu.hcm.department.report">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.hcm.department.report</column>
+          <record id="ui.menu.models.hcm.employee.categories.m2mlist">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.hcm.employee.categories.m2mlist</column>
+            <column name="label">Employee Category</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.employee.categories.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.hcm.employee.categories.search">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.hcm.employee.categories.search</column>
+            <column name="label">Employee Category</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.employee.categories.search</column>
+          </record>
+          <record id="ui.menu.models.hcm.employee.categories.find">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.hcm.employee.categories.find</column>
+            <column name="label">Employee Category</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.employee.categories.find</column>
+          </record>
+          <record id="ui.menu.models.hcm.department.form">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.hcm.department.form</column>
             <column name="label">HR Department</column>
-          <column name="parent_id">ui.menu.hcm.report</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.hcm.department.report</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.department.form</column>
           </record>
-          <record id="ui.menu.hcm.job.report">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.hcm.job.report</column>
+          <record id="ui.menu.models.hcm.department.list">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.hcm.department.list</column>
+            <column name="label">HR Department</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.department.list</column>
+          </record>
+          <record id="ui.menu.models.hcm.department.m2mlist">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.hcm.department.m2mlist</column>
+            <column name="label">HR Department</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.department.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.hcm.department.search">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.hcm.department.search</column>
+            <column name="label">HR Department</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.department.search</column>
+          </record>
+          <record id="ui.menu.models.hcm.department.find">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.hcm.department.find</column>
+            <column name="label">HR Department</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.department.find</column>
+          </record>
+          <record id="ui.menu.models.hcm.department.tree">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.hcm.department.tree</column>
+            <column name="label">HR Department</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.department.tree</column>
+          </record>
+          <record id="ui.menu.models.hcm.job.form">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.hcm.job.form</column>
             <column name="label">Job Position</column>
-          <column name="parent_id">ui.menu.hcm.report</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.hcm.job.report</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.job.form</column>
           </record>
-          <record id="ui.menu.hcm.employees.report">
-          <column name="sequence">3</column>
-            <column name="name">ui.menu.hcm.employees.report</column>
-            <column name="label">Capital Managament</column>
-          <column name="parent_id">ui.menu.hcm.report</column>
-          <column name="sequence">30</column>
-          <column name="action_id">action.hcm.employees.report</column>
+          <record id="ui.menu.models.hcm.job.kanban">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.hcm.job.kanban</column>
+            <column name="label">Job Position</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.job.kanban</column>
+          </record>
+          <record id="ui.menu.models.hcm.job.list">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.hcm.job.list</column>
+            <column name="label">Job Position</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.job.list</column>
+          </record>
+          <record id="ui.menu.models.hcm.job.m2mlist">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.hcm.job.m2mlist</column>
+            <column name="label">Job Position</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.job.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.hcm.job.search">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.hcm.job.search</column>
+            <column name="label">Job Position</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.job.search</column>
+          </record>
+          <record id="ui.menu.models.hcm.job.find">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.hcm.job.find</column>
+            <column name="label">Job Position</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.job.find</column>
+          </record>
+          <record id="ui.menu.models.hcm.employees.form">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.hcm.employees.form</column>
+            <column name="label">Employees Humam Capital Managament</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.employees.form</column>
+          </record>
+          <record id="ui.menu.models.hcm.employees.list">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.hcm.employees.list</column>
+            <column name="label">Employees Humam Capital Managament</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.employees.list</column>
+          </record>
+          <record id="ui.menu.models.hcm.employees.m2mlist">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.hcm.employees.m2mlist</column>
+            <column name="label">Employees Humam Capital Managament</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.employees.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.hcm.employees.search">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.hcm.employees.search</column>
+            <column name="label">Employees Humam Capital Managament</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.employees.search</column>
+          </record>
+          <record id="ui.menu.models.hcm.employees.find">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.hcm.employees.find</column>
+            <column name="label">Employees Humam Capital Managament</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.employees.find</column>
+          </record>
+          <record id="ui.menu.models.hcm.employees.tree">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.hcm.employees.tree</column>
+            <column name="label">Employees Humam Capital Managament</column>
+            <column name="parent_id">ui.menu.module.hcm.models</column>
+          <column name="action_id">action.hcm.models.hcm.employees.tree</column>
           </record>
       </records>
     </data>

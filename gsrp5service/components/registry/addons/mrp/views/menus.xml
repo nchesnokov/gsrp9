@@ -2,370 +2,609 @@
   <gsrp>
     <data>
       <records model="bc.ui.menus">
-        <record id="ui.menu.mrp">
-          <column name="name">ui.menu.mrp</column>
+        <record id="ui.menu.module.mrp">
+          <column name="name">ui.menu.module.mrp</column>
           <column name="label">Material Resource Planning</column>
         </record>
       </records>
       <records model="bc.actions">
-        <record id="action.mrp.demand.category.search">
-          <column name="name">action.mrp.demand.category.search</column>
-          <column name="ta">View</column>
+        <record id="action.mrp.models.mrp.demand.category.form">
+          <column name="name">action.mrp.models.mrp.demand.category.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.mrp.request.category.search">
-          <column name="name">action.mrp.request.category.search</column>
-          <column name="ta">View</column>
+        <record id="action.mrp.models.mrp.demand.category.list">
+          <column name="name">action.mrp.models.mrp.demand.category.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.mrp.demand.search">
-          <column name="name">action.mrp.demand.search</column>
-          <column name="ta">View</column>
+        <record id="action.mrp.models.mrp.demand.category.m2mlist">
+          <column name="name">action.mrp.models.mrp.demand.category.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.mrp.request.search">
-          <column name="name">action.mrp.request.search</column>
-          <column name="ta">View</column>
+        <record id="action.mrp.models.mrp.demand.category.search">
+          <column name="name">action.mrp.models.mrp.demand.category.search</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.actions">
-        <record id="action.mrp.demand.category.report">
-          <column name="name">action.mrp.demand.category.report</column>
-          <column name="ta">Report</column>
+        <record id="action.mrp.models.mrp.demand.category.find">
+          <column name="name">action.mrp.models.mrp.demand.category.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.mrp.request.category.report">
-          <column name="name">action.mrp.request.category.report</column>
-          <column name="ta">Report</column>
+        <record id="action.mrp.models.mrp.demand.category.tree">
+          <column name="name">action.mrp.models.mrp.demand.category.tree</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.mrp.demand.report">
-          <column name="name">action.mrp.demand.report</column>
-          <column name="ta">Report</column>
+        <record id="action.mrp.models.mrp.request.category.form">
+          <column name="name">action.mrp.models.mrp.request.category.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.mrp.request.report">
-          <column name="name">action.mrp.request.report</column>
-          <column name="ta">Report</column>
+        <record id="action.mrp.models.mrp.request.category.list">
+          <column name="name">action.mrp.models.mrp.request.category.list</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.view.actions">
-        <record id="view.action.mrp.demand.category.search">
-          <column name="action_id">action.mrp.demand.category.search</column>
-          <column name="view_id">view.mrp.demand.category.search</column>
+        <record id="action.mrp.models.mrp.request.category.m2mlist">
+          <column name="name">action.mrp.models.mrp.request.category.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.mrp.request.category.search">
-          <column name="action_id">action.mrp.request.category.search</column>
-          <column name="view_id">view.mrp.request.category.search</column>
+        <record id="action.mrp.models.mrp.request.category.search">
+          <column name="name">action.mrp.models.mrp.request.category.search</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.mrp.demand.search">
-          <column name="action_id">action.mrp.demand.search</column>
-          <column name="view_id">view.mrp.demand.search</column>
+        <record id="action.mrp.models.mrp.request.category.find">
+          <column name="name">action.mrp.models.mrp.request.category.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.mrp.request.search">
-          <column name="action_id">action.mrp.request.search</column>
-          <column name="view_id">view.mrp.request.search</column>
+        <record id="action.mrp.models.mrp.request.category.tree">
+          <column name="name">action.mrp.models.mrp.request.category.tree</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.ui.reports">
-        <record id="bc.ui.report.docx.mrp.demand.category">
-          <column name="name">bc.ui.report.docx.mrp.demand.category</column>
-          <column name="label">Category MRP Demand</column>
-          <column name="report">report_mrp_demand_category</column>
-          <column name="infile">infile_mrp_demand_category.docx</column>
-          <column name="outfile">outfile_mrp_demand_category.docx</column>
+        <record id="action.mrp.models.mrp.demand.calendar">
+          <column name="name">action.mrp.models.mrp.demand.calendar</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="bc.ui.report.docx.mrp.request.category">
-          <column name="name">bc.ui.report.docx.mrp.request.category</column>
-          <column name="label">Category MRP Request</column>
-          <column name="report">report_mrp_request_category</column>
-          <column name="infile">infile_mrp_request_category.docx</column>
-          <column name="outfile">outfile_mrp_request_category.docx</column>
+        <record id="action.mrp.models.mrp.demand.schedule">
+          <column name="name">action.mrp.models.mrp.demand.schedule</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="bc.ui.report.docx.mrp.demand">
-          <column name="name">bc.ui.report.docx.mrp.demand</column>
-          <column name="label">MRP Demand</column>
-          <column name="report">report_mrp_demand</column>
-          <column name="infile">infile_mrp_demand.docx</column>
-          <column name="outfile">outfile_mrp_demand.docx</column>
+        <record id="action.mrp.models.mrp.demand.form">
+          <column name="name">action.mrp.models.mrp.demand.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="bc.ui.report.docx.mrp.request">
-          <column name="name">bc.ui.report.docx.mrp.request</column>
-          <column name="label">MRP Request</column>
-          <column name="report">report_mrp_request</column>
-          <column name="infile">infile_mrp_request.docx</column>
-          <column name="outfile">outfile_mrp_request.docx</column>
+        <record id="action.mrp.models.mrp.demand.graph">
+          <column name="name">action.mrp.models.mrp.demand.graph</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.report.actions">
-        <record id="report.action.mrp.demand.category.report">
-          <column name="action_id">action.mrp.demand.category.report</column>
-          <column name="report_id">bc.ui.report.docx.mrp.demand.category</column>
+        <record id="action.mrp.models.mrp.demand.kanban">
+          <column name="name">action.mrp.models.mrp.demand.kanban</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="report.action.mrp.request.category.report">
-          <column name="action_id">action.mrp.request.category.report</column>
-          <column name="report_id">bc.ui.report.docx.mrp.request.category</column>
+        <record id="action.mrp.models.mrp.demand.list">
+          <column name="name">action.mrp.models.mrp.demand.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="report.action.mrp.demand.report">
-          <column name="action_id">action.mrp.demand.report</column>
-          <column name="report_id">bc.ui.report.docx.mrp.demand</column>
+        <record id="action.mrp.models.mrp.demand.m2mlist">
+          <column name="name">action.mrp.models.mrp.demand.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="report.action.mrp.request.report">
-          <column name="action_id">action.mrp.request.report</column>
-          <column name="report_id">bc.ui.report.docx.mrp.request</column>
+        <record id="action.mrp.models.mrp.demand.mdx">
+          <column name="name">action.mrp.models.mrp.demand.mdx</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.demand.search">
+          <column name="name">action.mrp.models.mrp.demand.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.demand.find">
+          <column name="name">action.mrp.models.mrp.demand.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.calendar">
+          <column name="name">action.mrp.models.mrp.request.calendar</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.schedule">
+          <column name="name">action.mrp.models.mrp.request.schedule</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.form">
+          <column name="name">action.mrp.models.mrp.request.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.graph">
+          <column name="name">action.mrp.models.mrp.request.graph</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.kanban">
+          <column name="name">action.mrp.models.mrp.request.kanban</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.list">
+          <column name="name">action.mrp.models.mrp.request.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.m2mlist">
+          <column name="name">action.mrp.models.mrp.request.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.mdx">
+          <column name="name">action.mrp.models.mrp.request.mdx</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.search">
+          <column name="name">action.mrp.models.mrp.request.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.find">
+          <column name="name">action.mrp.models.mrp.request.find</column>
+          <column name="ta">Model</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.mrp.demand.category.search">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.mrp.demand.category.search</column>
+        <record id="ui.menu.module.mrp.models">
+          <column name="name">ui.menu.module.mrp.models</column>
+          <column name="label">Models</column>
+        <column name="parent_id">ui.menu.module.mrp</column>
+        </record>
+      </records>
+      <records model="bc.ui.menus">
+          <record id="ui.menu.models.mrp.demand.category.form">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.mrp.demand.category.form</column>
             <column name="label">Category MRP Demand</column>
-          <column name="parent_id">ui.menu.mrp</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.mrp.demand.category.search</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.category.form</column>
           </record>
-          <record id="ui.menu.mrp.request.category.search">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.mrp.request.category.search</column>
-            <column name="label">Category MRP Request</column>
-          <column name="parent_id">ui.menu.mrp</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.mrp.request.category.search</column>
-          </record>
-          <record id="ui.menu.mrp.demand.search">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.mrp.demand.search</column>
-            <column name="label">MRP Demand</column>
-          <column name="parent_id">ui.menu.mrp</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.mrp.demand.search</column>
-          </record>
-          <record id="ui.menu.mrp.request.search">
-          <column name="sequence">3</column>
-            <column name="name">ui.menu.mrp.request.search</column>
-            <column name="label">MRP Request</column>
-          <column name="parent_id">ui.menu.mrp</column>
-          <column name="sequence">30</column>
-          <column name="action_id">action.mrp.request.search</column>
-          </record>
-      </records>
-      <records model="bc.ui.menus">
-        <record id="ui.menu.mrp.report">
-          <column name="name">ui.menu.mrp.report</column>
-          <column name="label">Reports</column>
-        <column name="parent_id">ui.menu.mrp</column>
-        </record>
-      </records>
-      <records model="bc.ui.menus">
-          <record id="ui.menu.mrp.demand.category.report">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.mrp.demand.category.report</column>
+          <record id="ui.menu.models.mrp.demand.category.list">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.mrp.demand.category.list</column>
             <column name="label">Category MRP Demand</column>
-          <column name="parent_id">ui.menu.mrp.report</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.mrp.demand.category.report</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.category.list</column>
           </record>
-          <record id="ui.menu.mrp.request.category.report">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.mrp.request.category.report</column>
+          <record id="ui.menu.models.mrp.demand.category.m2mlist">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.mrp.demand.category.m2mlist</column>
+            <column name="label">Category MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.category.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.category.search">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.mrp.demand.category.search</column>
+            <column name="label">Category MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.category.search</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.category.find">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.mrp.demand.category.find</column>
+            <column name="label">Category MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.category.find</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.category.tree">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.mrp.demand.category.tree</column>
+            <column name="label">Category MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.category.tree</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.category.form">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.mrp.request.category.form</column>
             <column name="label">Category MRP Request</column>
-          <column name="parent_id">ui.menu.mrp.report</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.mrp.request.category.report</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.category.form</column>
           </record>
-          <record id="ui.menu.mrp.demand.report">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.mrp.demand.report</column>
+          <record id="ui.menu.models.mrp.request.category.list">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.mrp.request.category.list</column>
+            <column name="label">Category MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.category.list</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.category.m2mlist">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.mrp.request.category.m2mlist</column>
+            <column name="label">Category MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.category.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.category.search">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.mrp.request.category.search</column>
+            <column name="label">Category MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.category.search</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.category.find">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.mrp.request.category.find</column>
+            <column name="label">Category MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.category.find</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.category.tree">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.mrp.request.category.tree</column>
+            <column name="label">Category MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.category.tree</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.calendar">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.calendar</column>
             <column name="label">MRP Demand</column>
-          <column name="parent_id">ui.menu.mrp.report</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.mrp.demand.report</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.calendar</column>
           </record>
-          <record id="ui.menu.mrp.request.report">
-          <column name="sequence">3</column>
-            <column name="name">ui.menu.mrp.request.report</column>
+          <record id="ui.menu.models.mrp.demand.schedule">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.schedule</column>
+            <column name="label">MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.schedule</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.form">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.form</column>
+            <column name="label">MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.form</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.graph">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.graph</column>
+            <column name="label">MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.graph</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.kanban">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.kanban</column>
+            <column name="label">MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.kanban</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.list">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.list</column>
+            <column name="label">MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.list</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.m2mlist">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.m2mlist</column>
+            <column name="label">MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.mdx">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.mdx</column>
+            <column name="label">MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.mdx</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.search">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.search</column>
+            <column name="label">MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.search</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.find">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.find</column>
+            <column name="label">MRP Demand</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.find</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.calendar">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.calendar</column>
             <column name="label">MRP Request</column>
-          <column name="parent_id">ui.menu.mrp.report</column>
-          <column name="sequence">30</column>
-          <column name="action_id">action.mrp.request.report</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.calendar</column>
           </record>
+          <record id="ui.menu.models.mrp.request.schedule">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.schedule</column>
+            <column name="label">MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.schedule</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.form">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.form</column>
+            <column name="label">MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.form</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.graph">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.graph</column>
+            <column name="label">MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.graph</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.kanban">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.kanban</column>
+            <column name="label">MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.kanban</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.list">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.list</column>
+            <column name="label">MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.list</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.m2mlist">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.m2mlist</column>
+            <column name="label">MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.mdx">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.mdx</column>
+            <column name="label">MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.mdx</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.search">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.search</column>
+            <column name="label">MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.search</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.find">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.find</column>
+            <column name="label">MRP Request</column>
+            <column name="parent_id">ui.menu.module.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.find</column>
+          </record>
+      </records>
+      <records model="bc.ui.menus">
+        <record id="ui.menu.customize.mrp">
+          <column name="name">ui.menu.customize.mrp</column>
+          <column name="label">Material Resource Planning</column>
+        </record>
       </records>
       <records model="bc.actions">
-        <record id="action.mrp.texts.custom">
-          <column name="name">action.mrp.texts.custom</column>
-          <column name="ta">View</column>
+        <record id="action.mrp.models.mrp.texts.form">
+          <column name="name">action.mrp.models.mrp.texts.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.mrp.schema.texts.custom">
-          <column name="name">action.mrp.schema.texts.custom</column>
-          <column name="ta">View</column>
+        <record id="action.mrp.models.mrp.texts.list">
+          <column name="name">action.mrp.models.mrp.texts.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.mrp.demand.types.custom">
-          <column name="name">action.mrp.demand.types.custom</column>
-          <column name="ta">View</column>
+        <record id="action.mrp.models.mrp.texts.m2mlist">
+          <column name="name">action.mrp.models.mrp.texts.m2mlist</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="action.mrp.request.types.custom">
-          <column name="name">action.mrp.request.types.custom</column>
-          <column name="ta">View</column>
+        <record id="action.mrp.models.mrp.texts.search">
+          <column name="name">action.mrp.models.mrp.texts.search</column>
+          <column name="ta">Model</column>
         </record>
-      </records>
-      <records model="bc.view.actions">
-        <record id="view.action.mrp.texts.custom">
-          <column name="action_id">action.mrp.texts.custom</column>
-          <column name="view_id">view.mrp.texts.search</column>
+        <record id="action.mrp.models.mrp.texts.find">
+          <column name="name">action.mrp.models.mrp.texts.find</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.mrp.schema.texts.custom">
-          <column name="action_id">action.mrp.schema.texts.custom</column>
-          <column name="view_id">view.mrp.schema.texts.search</column>
+        <record id="action.mrp.models.mrp.schema.texts.form">
+          <column name="name">action.mrp.models.mrp.schema.texts.form</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.mrp.demand.types.custom">
-          <column name="action_id">action.mrp.demand.types.custom</column>
-          <column name="view_id">view.mrp.demand.types.search</column>
+        <record id="action.mrp.models.mrp.schema.texts.list">
+          <column name="name">action.mrp.models.mrp.schema.texts.list</column>
+          <column name="ta">Model</column>
         </record>
-        <record id="view.action.mrp.request.types.custom">
-          <column name="action_id">action.mrp.request.types.custom</column>
-          <column name="view_id">view.mrp.request.types.search</column>
+        <record id="action.mrp.models.mrp.schema.texts.m2mlist">
+          <column name="name">action.mrp.models.mrp.schema.texts.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.schema.texts.search">
+          <column name="name">action.mrp.models.mrp.schema.texts.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.schema.texts.find">
+          <column name="name">action.mrp.models.mrp.schema.texts.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.demand.types.form">
+          <column name="name">action.mrp.models.mrp.demand.types.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.demand.types.list">
+          <column name="name">action.mrp.models.mrp.demand.types.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.demand.types.m2mlist">
+          <column name="name">action.mrp.models.mrp.demand.types.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.demand.types.search">
+          <column name="name">action.mrp.models.mrp.demand.types.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.demand.types.find">
+          <column name="name">action.mrp.models.mrp.demand.types.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.types.form">
+          <column name="name">action.mrp.models.mrp.request.types.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.types.list">
+          <column name="name">action.mrp.models.mrp.request.types.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.types.m2mlist">
+          <column name="name">action.mrp.models.mrp.request.types.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.types.search">
+          <column name="name">action.mrp.models.mrp.request.types.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.types.find">
+          <column name="name">action.mrp.models.mrp.request.types.find</column>
+          <column name="ta">Model</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-        <record id="ui.menu.mrp.custom">
-          <column name="name">ui.menu.mrp.custom</column>
-          <column name="label">Customs</column>
-        <column name="parent_id">ui.menu.mrp</column>
+        <record id="ui.menu.customize.mrp.models">
+          <column name="name">ui.menu.customize.mrp.models</column>
+          <column name="label">Models</column>
+        <column name="parent_id">ui.menu.customize</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.mrp.texts.custom">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.mrp.texts.custom</column>
+          <record id="ui.menu.models.mrp.texts.form">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.mrp.texts.form</column>
             <column name="label">MRP Texts</column>
-          <column name="parent_id">ui.menu.mrp.custom</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.mrp.texts.custom</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.texts.form</column>
           </record>
-          <record id="ui.menu.mrp.schema.texts.custom">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.mrp.schema.texts.custom</column>
-            <column name="label">Schema Of MRP Texts</column>
-          <column name="parent_id">ui.menu.mrp.custom</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.mrp.schema.texts.custom</column>
-          </record>
-          <record id="ui.menu.mrp.demand.types.custom">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.mrp.demand.types.custom</column>
-            <column name="label">Types MRP Demand</column>
-          <column name="parent_id">ui.menu.mrp.custom</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.mrp.demand.types.custom</column>
-          </record>
-          <record id="ui.menu.mrp.request.types.custom">
-          <column name="sequence">3</column>
-            <column name="name">ui.menu.mrp.request.types.custom</column>
-            <column name="label">Types MRP Request</column>
-          <column name="parent_id">ui.menu.mrp.custom</column>
-          <column name="sequence">30</column>
-          <column name="action_id">action.mrp.request.types.custom</column>
-          </record>
-      </records>
-      <records model="bc.actions">
-        <record id="action.mrp.texts.report">
-          <column name="name">action.mrp.texts.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.mrp.schema.texts.report">
-          <column name="name">action.mrp.schema.texts.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.mrp.demand.types.report">
-          <column name="name">action.mrp.demand.types.report</column>
-          <column name="ta">Report</column>
-        </record>
-        <record id="action.mrp.request.types.report">
-          <column name="name">action.mrp.request.types.report</column>
-          <column name="ta">Report</column>
-        </record>
-      </records>
-      <records model="bc.ui.reports">
-        <record id="bc.ui.report.docx.mrp.texts">
-          <column name="name">bc.ui.report.docx.mrp.texts</column>
-          <column name="label">MRP Texts</column>
-          <column name="report">report_mrp_texts</column>
-          <column name="infile">infile_mrp_texts.docx</column>
-          <column name="outfile">outfile_mrp_texts.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.mrp.schema.texts">
-          <column name="name">bc.ui.report.docx.mrp.schema.texts</column>
-          <column name="label">Schema Of MRP Texts</column>
-          <column name="report">report_mrp_schema_texts</column>
-          <column name="infile">infile_mrp_schema_texts.docx</column>
-          <column name="outfile">outfile_mrp_schema_texts.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.mrp.demand.types">
-          <column name="name">bc.ui.report.docx.mrp.demand.types</column>
-          <column name="label">Types MRP Demand</column>
-          <column name="report">report_mrp_demand_types</column>
-          <column name="infile">infile_mrp_demand_types.docx</column>
-          <column name="outfile">outfile_mrp_demand_types.docx</column>
-        </record>
-        <record id="bc.ui.report.docx.mrp.request.types">
-          <column name="name">bc.ui.report.docx.mrp.request.types</column>
-          <column name="label">Types MRP Request</column>
-          <column name="report">report_mrp_request_types</column>
-          <column name="infile">infile_mrp_request_types.docx</column>
-          <column name="outfile">outfile_mrp_request_types.docx</column>
-        </record>
-      </records>
-      <records model="bc.report.actions">
-        <record id="report.action.mrp.texts.report">
-          <column name="action_id">action.mrp.texts.report</column>
-          <column name="report_id">bc.ui.report.docx.mrp.texts</column>
-        </record>
-        <record id="report.action.mrp.schema.texts.report">
-          <column name="action_id">action.mrp.schema.texts.report</column>
-          <column name="report_id">bc.ui.report.docx.mrp.schema.texts</column>
-        </record>
-        <record id="report.action.mrp.demand.types.report">
-          <column name="action_id">action.mrp.demand.types.report</column>
-          <column name="report_id">bc.ui.report.docx.mrp.demand.types</column>
-        </record>
-        <record id="report.action.mrp.request.types.report">
-          <column name="action_id">action.mrp.request.types.report</column>
-          <column name="report_id">bc.ui.report.docx.mrp.request.types</column>
-        </record>
-      </records>
-      <records model="bc.ui.menus">
-        <record id="ui.menu.mrp.report.custom">
-          <column name="name">ui.menu.mrp.report.custom</column>
-          <column name="label">Customs</column>
-        <column name="parent_id">ui.menu.mrp.report</column>
-        </record>
-      </records>
-      <records model="bc.ui.menus">
-          <record id="ui.menu.mrp.texts.report">
-          <column name="sequence">0</column>
-            <column name="name">ui.menu.mrp.texts.report</column>
+          <record id="ui.menu.models.mrp.texts.list">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.mrp.texts.list</column>
             <column name="label">MRP Texts</column>
-          <column name="parent_id">ui.menu.mrp.report.custom</column>
-          <column name="sequence">0</column>
-          <column name="action_id">action.mrp.texts.report</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.texts.list</column>
           </record>
-          <record id="ui.menu.mrp.schema.texts.report">
-          <column name="sequence">1</column>
-            <column name="name">ui.menu.mrp.schema.texts.report</column>
+          <record id="ui.menu.models.mrp.texts.m2mlist">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.mrp.texts.m2mlist</column>
+            <column name="label">MRP Texts</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.texts.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.mrp.texts.search">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.mrp.texts.search</column>
+            <column name="label">MRP Texts</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.texts.search</column>
+          </record>
+          <record id="ui.menu.models.mrp.texts.find">
+            <column name="sequence">0</column>
+            <column name="name">ui.menu.models.mrp.texts.find</column>
+            <column name="label">MRP Texts</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.texts.find</column>
+          </record>
+          <record id="ui.menu.models.mrp.schema.texts.form">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.mrp.schema.texts.form</column>
             <column name="label">Schema Of MRP Texts</column>
-          <column name="parent_id">ui.menu.mrp.report.custom</column>
-          <column name="sequence">10</column>
-          <column name="action_id">action.mrp.schema.texts.report</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.schema.texts.form</column>
           </record>
-          <record id="ui.menu.mrp.demand.types.report">
-          <column name="sequence">2</column>
-            <column name="name">ui.menu.mrp.demand.types.report</column>
+          <record id="ui.menu.models.mrp.schema.texts.list">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.mrp.schema.texts.list</column>
+            <column name="label">Schema Of MRP Texts</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.schema.texts.list</column>
+          </record>
+          <record id="ui.menu.models.mrp.schema.texts.m2mlist">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.mrp.schema.texts.m2mlist</column>
+            <column name="label">Schema Of MRP Texts</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.schema.texts.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.mrp.schema.texts.search">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.mrp.schema.texts.search</column>
+            <column name="label">Schema Of MRP Texts</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.schema.texts.search</column>
+          </record>
+          <record id="ui.menu.models.mrp.schema.texts.find">
+            <column name="sequence">1</column>
+            <column name="name">ui.menu.models.mrp.schema.texts.find</column>
+            <column name="label">Schema Of MRP Texts</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.schema.texts.find</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.types.form">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.types.form</column>
             <column name="label">Types MRP Demand</column>
-          <column name="parent_id">ui.menu.mrp.report.custom</column>
-          <column name="sequence">20</column>
-          <column name="action_id">action.mrp.demand.types.report</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.types.form</column>
           </record>
-          <record id="ui.menu.mrp.request.types.report">
-          <column name="sequence">3</column>
-            <column name="name">ui.menu.mrp.request.types.report</column>
+          <record id="ui.menu.models.mrp.demand.types.list">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.types.list</column>
+            <column name="label">Types MRP Demand</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.types.list</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.types.m2mlist">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.types.m2mlist</column>
+            <column name="label">Types MRP Demand</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.types.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.types.search">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.types.search</column>
+            <column name="label">Types MRP Demand</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.types.search</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.types.find">
+            <column name="sequence">2</column>
+            <column name="name">ui.menu.models.mrp.demand.types.find</column>
+            <column name="label">Types MRP Demand</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.demand.types.find</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.types.form">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.types.form</column>
             <column name="label">Types MRP Request</column>
-          <column name="parent_id">ui.menu.mrp.report.custom</column>
-          <column name="sequence">30</column>
-          <column name="action_id">action.mrp.request.types.report</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.types.form</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.types.list">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.types.list</column>
+            <column name="label">Types MRP Request</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.types.list</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.types.m2mlist">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.types.m2mlist</column>
+            <column name="label">Types MRP Request</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.types.m2mlist</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.types.search">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.types.search</column>
+            <column name="label">Types MRP Request</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.types.search</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.types.find">
+            <column name="sequence">3</column>
+            <column name="name">ui.menu.models.mrp.request.types.find</column>
+            <column name="label">Types MRP Request</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+          <column name="action_id">action.mrp.models.mrp.request.types.find</column>
           </record>
       </records>
     </data>

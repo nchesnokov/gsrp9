@@ -36,6 +36,10 @@ class Objs(Component):
 		return self._session._uid
 
 	@property
+	def _dashboards(self):
+		return self._session._dashboards
+
+	@property
 	def _models(self):
 		return self._session._models
 

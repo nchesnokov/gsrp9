@@ -393,7 +393,7 @@ class bc_access(Model):
 	_columns = {
 	'name': fields.varchar(label="Access",readonly=True),
 	'group_id': fields.many2one(label='Group',obj='bc.group.access',readonly=True, on_delete = 'c'),
-	'models': fields.one2many(label='Models',obj='bc.model.access',rel='access_id',readonly=True),
+	'objs': fields.one2many(label='Models',obj='bc.obj.access',rel='access_id',readonly=True),
 	'inactive': fields.boolean('Inactive',readonly=True),
 	'note': fields.text(label='Note',readonly=True)
 	}
@@ -401,33 +401,26 @@ class bc_access(Model):
 bc_access()
 
 
-class bc_model_access(Model):
-	_name = 'bc.model.access'
-	_description = 'Model Access'
-	_order_by='model_id,access_id'
+class bc_obj_access(Model):
+	_name = 'bc.obj.access'
+	_description = 'Objects Access'
+	_order_by='object_id,access_id'
 	_columns = {
 	'access_id': fields.many2one(label='Access',obj='bc.access',readonly=True, on_delete = 'c'),
-	'model_id': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
+	'object_id': fields.many2one(label='Object',obj='bc.models',readonly=True, on_delete = 'c'),
 	'acreate': fields.boolean('Create',readonly=True),
 	'awrite': fields.boolean('Write',readonly=True),
-	'amodify': fields.boolean('Modify',readonly=True),
 	'aread': fields.boolean('Read',readonly=True),
 	'aunlink': fields.boolean('Unlink',readonly=True),
-	'aselect': fields.boolean('Select',readonly=True),
-	'aupdate': fields.boolean('Update',readonly=True),
-	'adelete': fields.boolean('Delete',readonly=True),
-	'ainsert': fields.boolean('Insert',readonly=True),
-	'aupsert': fields.boolean('Upsert',readonly=True),
-	'abrowse': fields.boolean('Browse',readonly=True),
-	'aselectbrowse': fields.boolean('Browse Select',readonly=True),
+	'aexecute': fields.boolean('Select',readonly=True),
 	'inactive': fields.boolean('Inactive',readonly=True),
 	'auth': fields.json(label='Auth'),
 	'note': fields.text(label='Note',readonly=True)
 	}
 	
-	_sql_constraints = [('model_unique','unique (access_id, model_id)', 'Model to be  unique in access')]
+	_sql_constraints = [('model_unique','unique (access_id, object_id)', 'Model to be  unique in access')]
 
-bc_model_access()
+bc_obj_access()
 
 class bc_model_data(Model):
 	_name = 'bc.model.data'
@@ -530,10 +523,8 @@ class bc_actions(Model):
 	_description = 'Actions'
 	_columns = {
 	'name': fields.varchar(label = 'Action',readonly=True),
-	'ta': fields.selection(label='Type Action',selections=[('view','View'),('report','Report'),('wkf','Worlflow'),('server','Server')],readonly=True),
+	'ta': fields.selection(label='Type Action',selections=[('dashboard','Dashboard'),('model','Model'),('view','View'),('report','Report'),('wizard','Wizard'),('link','Link'),('wkf','Worlflow'),('server','Server')],readonly=True),
 	'va': fields.one2many(label='View action',obj='bc.view.actions',rel='action_id'),
-	'ra': fields.one2many(label='Report action',obj='bc.report.actions',rel='action_id'),
-	'la': fields.one2many(label='Link action',obj='bc.link.actions',rel='action_id')
 	}
 
 bc_actions()
@@ -547,28 +538,6 @@ class bc_view_actions(Model):
 	}
 
 bc_view_actions()
-
-class bc_report_actions(Model):
-	_name = 'bc.report.actions'
-	_description = 'Report Actions'
-	_columns = {
-	'action_id': fields.many2one(label = 'Action',obj='bc.actions',readonly=True, on_delete = 'c'),
-	'report_id': fields.many2one(label='Report',obj='bc.ui.reports',readonly=True, on_delete = 'c')
-	}
-
-bc_report_actions()
-
-class bc_link_actions(Model):
-	_name = 'bc.link.actions'
-	_description = 'Link Actions'
-	_columns = {
-	'action_id': fields.many2one(label = 'Action',obj='bc.actions',readonly=True, on_delete = 'c'),
-	'link_id': fields.many2one(label='Link',obj='bc.ui.links',readonly=True, on_delete = 'c')
-	}
-
-bc_link_actions()
-
-
 
 class bc_ui_menus(Model):
 	_name ='bc.ui.menus'

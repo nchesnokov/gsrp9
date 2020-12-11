@@ -56,7 +56,7 @@ class Gens(Component):
 
 
 	def role(self,modules=None, context={}):
-		return roles.Area(self._registry,modules,context)
+		return roles.Area(self,modules,context)
 
 	def menu(self,modules=None, context={}):
 		return menus.Area(self,modules,context)
