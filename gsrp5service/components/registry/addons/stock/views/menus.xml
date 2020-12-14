@@ -53,6 +53,16 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.stock.models.st.location.search">
+          <column name="action_id">action.stock.models.st.location.search</column>
+          <column name="view_id">view.stock.models.st.location.search</column>
+        </record>
+        <record id="view.action.stock.models.st.stock.search">
+          <column name="action_id">action.stock.models.st.stock.search</column>
+          <column name="view_id">view.stock.models.st.stock.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.module.stock.models">
           <column name="name">ui.menu.module.stock.models</column>
@@ -61,82 +71,19 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.st.location.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.st.location.form</column>
-            <column name="label">Stock Location</column>
-            <column name="parent_id">ui.menu.module.stock.models</column>
-          <column name="action_id">action.stock.models.st.location.form</column>
-          </record>
-          <record id="ui.menu.models.st.location.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.st.location.list</column>
-            <column name="label">Stock Location</column>
-            <column name="parent_id">ui.menu.module.stock.models</column>
-          <column name="action_id">action.stock.models.st.location.list</column>
-          </record>
-          <record id="ui.menu.models.st.location.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.st.location.m2mlist</column>
-            <column name="label">Stock Location</column>
-            <column name="parent_id">ui.menu.module.stock.models</column>
-          <column name="action_id">action.stock.models.st.location.m2mlist</column>
-          </record>
           <record id="ui.menu.models.st.location.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.st.location.search</column>
             <column name="label">Stock Location</column>
             <column name="parent_id">ui.menu.module.stock.models</column>
-          <column name="action_id">action.stock.models.st.location.search</column>
-          </record>
-          <record id="ui.menu.models.st.location.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.st.location.find</column>
-            <column name="label">Stock Location</column>
-            <column name="parent_id">ui.menu.module.stock.models</column>
-          <column name="action_id">action.stock.models.st.location.find</column>
-          </record>
-          <record id="ui.menu.models.st.location.tree">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.st.location.tree</column>
-            <column name="label">Stock Location</column>
-            <column name="parent_id">ui.menu.module.stock.models</column>
-          <column name="action_id">action.stock.models.st.location.tree</column>
-          </record>
-          <record id="ui.menu.models.st.stock.form">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.st.stock.form</column>
-            <column name="label">General Stock</column>
-            <column name="parent_id">ui.menu.module.stock.models</column>
-          <column name="action_id">action.stock.models.st.stock.form</column>
-          </record>
-          <record id="ui.menu.models.st.stock.list">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.st.stock.list</column>
-            <column name="label">General Stock</column>
-            <column name="parent_id">ui.menu.module.stock.models</column>
-          <column name="action_id">action.stock.models.st.stock.list</column>
-          </record>
-          <record id="ui.menu.models.st.stock.m2mlist">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.st.stock.m2mlist</column>
-            <column name="label">General Stock</column>
-            <column name="parent_id">ui.menu.module.stock.models</column>
-          <column name="action_id">action.stock.models.st.stock.m2mlist</column>
+            <column name="action_id">action.stock.models.st.location.search</column>
           </record>
           <record id="ui.menu.models.st.stock.search">
             <column name="sequence">1</column>
             <column name="name">ui.menu.models.st.stock.search</column>
             <column name="label">General Stock</column>
             <column name="parent_id">ui.menu.module.stock.models</column>
-          <column name="action_id">action.stock.models.st.stock.search</column>
-          </record>
-          <record id="ui.menu.models.st.stock.find">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.st.stock.find</column>
-            <column name="label">General Stock</column>
-            <column name="parent_id">ui.menu.module.stock.models</column>
-          <column name="action_id">action.stock.models.st.stock.find</column>
+            <column name="action_id">action.stock.models.st.stock.search</column>
           </record>
       </records>
     </data>

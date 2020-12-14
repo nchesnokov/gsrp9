@@ -29,6 +29,12 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.wkf_srm.models.wkf1.workplace.search">
+          <column name="action_id">action.wkf_srm.models.wkf1.workplace.search</column>
+          <column name="view_id">view.wkf_srm.models.wkf1.workplace.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.module.wkf_srm.models">
           <column name="name">ui.menu.module.wkf_srm.models</column>
@@ -37,40 +43,12 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.wkf1.workplace.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.wkf1.workplace.form</column>
-            <column name="label">Workflow Workplaces</column>
-            <column name="parent_id">ui.menu.module.wkf_srm.models</column>
-          <column name="action_id">action.wkf_srm.models.wkf1.workplace.form</column>
-          </record>
-          <record id="ui.menu.models.wkf1.workplace.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.wkf1.workplace.list</column>
-            <column name="label">Workflow Workplaces</column>
-            <column name="parent_id">ui.menu.module.wkf_srm.models</column>
-          <column name="action_id">action.wkf_srm.models.wkf1.workplace.list</column>
-          </record>
-          <record id="ui.menu.models.wkf1.workplace.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.wkf1.workplace.m2mlist</column>
-            <column name="label">Workflow Workplaces</column>
-            <column name="parent_id">ui.menu.module.wkf_srm.models</column>
-          <column name="action_id">action.wkf_srm.models.wkf1.workplace.m2mlist</column>
-          </record>
           <record id="ui.menu.models.wkf1.workplace.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.wkf1.workplace.search</column>
             <column name="label">Workflow Workplaces</column>
             <column name="parent_id">ui.menu.module.wkf_srm.models</column>
-          <column name="action_id">action.wkf_srm.models.wkf1.workplace.search</column>
-          </record>
-          <record id="ui.menu.models.wkf1.workplace.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.wkf1.workplace.find</column>
-            <column name="label">Workflow Workplaces</column>
-            <column name="parent_id">ui.menu.module.wkf_srm.models</column>
-          <column name="action_id">action.wkf_srm.models.wkf1.workplace.find</column>
+            <column name="action_id">action.wkf_srm.models.wkf1.workplace.search</column>
           </record>
       </records>
     </data>

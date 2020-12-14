@@ -49,6 +49,16 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.ai.models.ai.category.search">
+          <column name="action_id">action.ai.models.ai.category.search</column>
+          <column name="view_id">view.ai.models.ai.category.search</column>
+        </record>
+        <record id="view.action.ai.models.ai.model.search">
+          <column name="action_id">action.ai.models.ai.model.search</column>
+          <column name="view_id">view.ai.models.ai.model.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.module.ai.models">
           <column name="name">ui.menu.module.ai.models</column>
@@ -57,75 +67,19 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.ai.category.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.ai.category.form</column>
-            <column name="label">Artificial Intelligence Category</column>
-            <column name="parent_id">ui.menu.module.ai.models</column>
-          <column name="action_id">action.ai.models.ai.category.form</column>
-          </record>
-          <record id="ui.menu.models.ai.category.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.ai.category.list</column>
-            <column name="label">Artificial Intelligence Category</column>
-            <column name="parent_id">ui.menu.module.ai.models</column>
-          <column name="action_id">action.ai.models.ai.category.list</column>
-          </record>
-          <record id="ui.menu.models.ai.category.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.ai.category.m2mlist</column>
-            <column name="label">Artificial Intelligence Category</column>
-            <column name="parent_id">ui.menu.module.ai.models</column>
-          <column name="action_id">action.ai.models.ai.category.m2mlist</column>
-          </record>
           <record id="ui.menu.models.ai.category.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.ai.category.search</column>
             <column name="label">Artificial Intelligence Category</column>
             <column name="parent_id">ui.menu.module.ai.models</column>
-          <column name="action_id">action.ai.models.ai.category.search</column>
-          </record>
-          <record id="ui.menu.models.ai.category.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.ai.category.find</column>
-            <column name="label">Artificial Intelligence Category</column>
-            <column name="parent_id">ui.menu.module.ai.models</column>
-          <column name="action_id">action.ai.models.ai.category.find</column>
-          </record>
-          <record id="ui.menu.models.ai.model.form">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.ai.model.form</column>
-            <column name="label">Artificial Intelligence Model</column>
-            <column name="parent_id">ui.menu.module.ai.models</column>
-          <column name="action_id">action.ai.models.ai.model.form</column>
-          </record>
-          <record id="ui.menu.models.ai.model.list">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.ai.model.list</column>
-            <column name="label">Artificial Intelligence Model</column>
-            <column name="parent_id">ui.menu.module.ai.models</column>
-          <column name="action_id">action.ai.models.ai.model.list</column>
-          </record>
-          <record id="ui.menu.models.ai.model.m2mlist">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.ai.model.m2mlist</column>
-            <column name="label">Artificial Intelligence Model</column>
-            <column name="parent_id">ui.menu.module.ai.models</column>
-          <column name="action_id">action.ai.models.ai.model.m2mlist</column>
+            <column name="action_id">action.ai.models.ai.category.search</column>
           </record>
           <record id="ui.menu.models.ai.model.search">
             <column name="sequence">1</column>
             <column name="name">ui.menu.models.ai.model.search</column>
             <column name="label">Artificial Intelligence Model</column>
             <column name="parent_id">ui.menu.module.ai.models</column>
-          <column name="action_id">action.ai.models.ai.model.search</column>
-          </record>
-          <record id="ui.menu.models.ai.model.find">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.ai.model.find</column>
-            <column name="label">Artificial Intelligence Model</column>
-            <column name="parent_id">ui.menu.module.ai.models</column>
-          <column name="action_id">action.ai.models.ai.model.find</column>
+            <column name="action_id">action.ai.models.ai.model.search</column>
           </record>
       </records>
     </data>

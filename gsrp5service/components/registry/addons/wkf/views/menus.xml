@@ -181,6 +181,36 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.wkf.models.wkf.locations.search">
+          <column name="action_id">action.wkf.models.wkf.locations.search</column>
+          <column name="view_id">view.wkf.models.wkf.locations.search</column>
+        </record>
+        <record id="view.action.wkf.models.wkf.workplice.categories.search">
+          <column name="action_id">action.wkf.models.wkf.workplice.categories.search</column>
+          <column name="view_id">view.wkf.models.wkf.workplice.categories.search</column>
+        </record>
+        <record id="view.action.wkf.models.wkf.workplace.search">
+          <column name="action_id">action.wkf.models.wkf.workplace.search</column>
+          <column name="view_id">view.wkf.models.wkf.workplace.search</column>
+        </record>
+        <record id="view.action.wkf.models.wkf.element.categories.search">
+          <column name="action_id">action.wkf.models.wkf.element.categories.search</column>
+          <column name="view_id">view.wkf.models.wkf.element.categories.search</column>
+        </record>
+        <record id="view.action.wkf.models.wkf.elements.search">
+          <column name="action_id">action.wkf.models.wkf.elements.search</column>
+          <column name="view_id">view.wkf.models.wkf.elements.search</column>
+        </record>
+        <record id="view.action.wkf.models.wkf.routes.search">
+          <column name="action_id">action.wkf.models.wkf.routes.search</column>
+          <column name="view_id">view.wkf.models.wkf.routes.search</column>
+        </record>
+        <record id="view.action.wkf.models.wkf.jobs.search">
+          <column name="action_id">action.wkf.models.wkf.jobs.search</column>
+          <column name="view_id">view.wkf.models.wkf.jobs.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.module.wkf.models">
           <column name="name">ui.menu.module.wkf.models</column>
@@ -189,306 +219,54 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.wkf.locations.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.wkf.locations.form</column>
-            <column name="label">WKF Location</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.locations.form</column>
-          </record>
-          <record id="ui.menu.models.wkf.locations.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.wkf.locations.list</column>
-            <column name="label">WKF Location</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.locations.list</column>
-          </record>
-          <record id="ui.menu.models.wkf.locations.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.wkf.locations.m2mlist</column>
-            <column name="label">WKF Location</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.locations.m2mlist</column>
-          </record>
           <record id="ui.menu.models.wkf.locations.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.wkf.locations.search</column>
             <column name="label">WKF Location</column>
             <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.locations.search</column>
-          </record>
-          <record id="ui.menu.models.wkf.locations.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.wkf.locations.find</column>
-            <column name="label">WKF Location</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.locations.find</column>
-          </record>
-          <record id="ui.menu.models.wkf.locations.tree">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.wkf.locations.tree</column>
-            <column name="label">WKF Location</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.locations.tree</column>
-          </record>
-          <record id="ui.menu.models.wkf.workplice.categories.form">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.wkf.workplice.categories.form</column>
-            <column name="label">Workflow Workplice Category</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.workplice.categories.form</column>
-          </record>
-          <record id="ui.menu.models.wkf.workplice.categories.list">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.wkf.workplice.categories.list</column>
-            <column name="label">Workflow Workplice Category</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.workplice.categories.list</column>
-          </record>
-          <record id="ui.menu.models.wkf.workplice.categories.m2mlist">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.wkf.workplice.categories.m2mlist</column>
-            <column name="label">Workflow Workplice Category</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.workplice.categories.m2mlist</column>
+            <column name="action_id">action.wkf.models.wkf.locations.search</column>
           </record>
           <record id="ui.menu.models.wkf.workplice.categories.search">
             <column name="sequence">1</column>
             <column name="name">ui.menu.models.wkf.workplice.categories.search</column>
             <column name="label">Workflow Workplice Category</column>
             <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.workplice.categories.search</column>
-          </record>
-          <record id="ui.menu.models.wkf.workplice.categories.find">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.wkf.workplice.categories.find</column>
-            <column name="label">Workflow Workplice Category</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.workplice.categories.find</column>
-          </record>
-          <record id="ui.menu.models.wkf.workplice.categories.tree">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.wkf.workplice.categories.tree</column>
-            <column name="label">Workflow Workplice Category</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.workplice.categories.tree</column>
-          </record>
-          <record id="ui.menu.models.wkf.workplace.form">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.wkf.workplace.form</column>
-            <column name="label">Workflow Workplaces</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.workplace.form</column>
-          </record>
-          <record id="ui.menu.models.wkf.workplace.list">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.wkf.workplace.list</column>
-            <column name="label">Workflow Workplaces</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.workplace.list</column>
-          </record>
-          <record id="ui.menu.models.wkf.workplace.m2mlist">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.wkf.workplace.m2mlist</column>
-            <column name="label">Workflow Workplaces</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.workplace.m2mlist</column>
+            <column name="action_id">action.wkf.models.wkf.workplice.categories.search</column>
           </record>
           <record id="ui.menu.models.wkf.workplace.search">
             <column name="sequence">2</column>
             <column name="name">ui.menu.models.wkf.workplace.search</column>
             <column name="label">Workflow Workplaces</column>
             <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.workplace.search</column>
-          </record>
-          <record id="ui.menu.models.wkf.workplace.find">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.wkf.workplace.find</column>
-            <column name="label">Workflow Workplaces</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.workplace.find</column>
-          </record>
-          <record id="ui.menu.models.wkf.element.categories.form">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.wkf.element.categories.form</column>
-            <column name="label">Workflow Element Category</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.element.categories.form</column>
-          </record>
-          <record id="ui.menu.models.wkf.element.categories.list">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.wkf.element.categories.list</column>
-            <column name="label">Workflow Element Category</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.element.categories.list</column>
-          </record>
-          <record id="ui.menu.models.wkf.element.categories.m2mlist">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.wkf.element.categories.m2mlist</column>
-            <column name="label">Workflow Element Category</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.element.categories.m2mlist</column>
+            <column name="action_id">action.wkf.models.wkf.workplace.search</column>
           </record>
           <record id="ui.menu.models.wkf.element.categories.search">
             <column name="sequence">3</column>
             <column name="name">ui.menu.models.wkf.element.categories.search</column>
             <column name="label">Workflow Element Category</column>
             <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.element.categories.search</column>
-          </record>
-          <record id="ui.menu.models.wkf.element.categories.find">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.wkf.element.categories.find</column>
-            <column name="label">Workflow Element Category</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.element.categories.find</column>
-          </record>
-          <record id="ui.menu.models.wkf.element.categories.tree">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.wkf.element.categories.tree</column>
-            <column name="label">Workflow Element Category</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.element.categories.tree</column>
-          </record>
-          <record id="ui.menu.models.wkf.elements.form">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.wkf.elements.form</column>
-            <column name="label">Workflow Element</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.elements.form</column>
-          </record>
-          <record id="ui.menu.models.wkf.elements.list">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.wkf.elements.list</column>
-            <column name="label">Workflow Element</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.elements.list</column>
-          </record>
-          <record id="ui.menu.models.wkf.elements.m2mlist">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.wkf.elements.m2mlist</column>
-            <column name="label">Workflow Element</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.elements.m2mlist</column>
+            <column name="action_id">action.wkf.models.wkf.element.categories.search</column>
           </record>
           <record id="ui.menu.models.wkf.elements.search">
             <column name="sequence">4</column>
             <column name="name">ui.menu.models.wkf.elements.search</column>
             <column name="label">Workflow Element</column>
             <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.elements.search</column>
-          </record>
-          <record id="ui.menu.models.wkf.elements.find">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.wkf.elements.find</column>
-            <column name="label">Workflow Element</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.elements.find</column>
-          </record>
-          <record id="ui.menu.models.wkf.elements.tree">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.wkf.elements.tree</column>
-            <column name="label">Workflow Element</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.elements.tree</column>
-          </record>
-          <record id="ui.menu.models.wkf.routes.form">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.wkf.routes.form</column>
-            <column name="label">Workflow Routes</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.routes.form</column>
-          </record>
-          <record id="ui.menu.models.wkf.routes.list">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.wkf.routes.list</column>
-            <column name="label">Workflow Routes</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.routes.list</column>
-          </record>
-          <record id="ui.menu.models.wkf.routes.m2mlist">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.wkf.routes.m2mlist</column>
-            <column name="label">Workflow Routes</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.routes.m2mlist</column>
+            <column name="action_id">action.wkf.models.wkf.elements.search</column>
           </record>
           <record id="ui.menu.models.wkf.routes.search">
             <column name="sequence">5</column>
             <column name="name">ui.menu.models.wkf.routes.search</column>
             <column name="label">Workflow Routes</column>
             <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.routes.search</column>
-          </record>
-          <record id="ui.menu.models.wkf.routes.find">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.wkf.routes.find</column>
-            <column name="label">Workflow Routes</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.routes.find</column>
-          </record>
-          <record id="ui.menu.models.wkf.jobs.schedule">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.wkf.jobs.schedule</column>
-            <column name="label">Workflow Jobs</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.jobs.schedule</column>
-          </record>
-          <record id="ui.menu.models.wkf.jobs.form">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.wkf.jobs.form</column>
-            <column name="label">Workflow Jobs</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.jobs.form</column>
-          </record>
-          <record id="ui.menu.models.wkf.jobs.gantt">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.wkf.jobs.gantt</column>
-            <column name="label">Workflow Jobs</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.jobs.gantt</column>
-          </record>
-          <record id="ui.menu.models.wkf.jobs.kanban">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.wkf.jobs.kanban</column>
-            <column name="label">Workflow Jobs</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.jobs.kanban</column>
-          </record>
-          <record id="ui.menu.models.wkf.jobs.list">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.wkf.jobs.list</column>
-            <column name="label">Workflow Jobs</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.jobs.list</column>
-          </record>
-          <record id="ui.menu.models.wkf.jobs.m2mlist">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.wkf.jobs.m2mlist</column>
-            <column name="label">Workflow Jobs</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.jobs.m2mlist</column>
+            <column name="action_id">action.wkf.models.wkf.routes.search</column>
           </record>
           <record id="ui.menu.models.wkf.jobs.search">
             <column name="sequence">6</column>
             <column name="name">ui.menu.models.wkf.jobs.search</column>
             <column name="label">Workflow Jobs</column>
             <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.jobs.search</column>
-          </record>
-          <record id="ui.menu.models.wkf.jobs.find">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.wkf.jobs.find</column>
-            <column name="label">Workflow Jobs</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.jobs.find</column>
-          </record>
-          <record id="ui.menu.models.wkf.jobs.tree">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.wkf.jobs.tree</column>
-            <column name="label">Workflow Jobs</column>
-            <column name="parent_id">ui.menu.module.wkf.models</column>
-          <column name="action_id">action.wkf.models.wkf.jobs.tree</column>
+            <column name="action_id">action.wkf.models.wkf.jobs.search</column>
           </record>
       </records>
     </data>

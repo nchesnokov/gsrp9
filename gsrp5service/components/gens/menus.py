@@ -18,6 +18,8 @@ _info_objs = {'dashbords':'dashboardInfo','models':'modelInfo','views':'viewInfo
 
 _action_cat = {'dashboards':'Dashboard','models':'Model','views':'View','reports':'Report','izards':'Wizard','links':'Link'}
 
+_view_cat = {'models':'search'}
+
 def RecordActions(level,module,obj,key,cat):
 
 	indent = TAB * level
@@ -51,9 +53,10 @@ def RecordMenuItems(level,module,objs,cat,menu):
 	b.write((indent + '<records model="%s">\n' % ('bc.ui.menus',)).encode('utf-8'))
 	for idx,obj in enumerate(objs):
 		label = obj._description
-		for view in VIEWSGEN[cat].keys():
-			if isAllow(view,cat,getattr(obj,_info_objs[cat],None)()):
-				RecordMenuItem(level + 1,idx,module,concat([obj._name,view]),cat,label,menu)
+		_view_cat = {'models':'search'}
+		#for view in VIEWSGEN[cat].keys():
+		if isAllow(_view_cat[cat],cat,getattr(obj,_info_objs[cat],None)()):
+			RecordMenuItem(level + 1,idx,module,concat([obj._name,_view_cat[cat]]),cat,label,menu)
 	b.write((indent + '</records>\n').encode('utf-8'))
 
 def RecordMenuItem(level,idx,module,key,cat,label,menu):
@@ -67,7 +70,7 @@ def RecordMenuItem(level,idx,module,key,cat,label,menu):
 	if menu:
 		b.write((indent + TAB * 2 + '<column name="parent_id">%s</column>\n' % (menu,)).encode('utf-8'))
 	nma = concat(['action',module,cat,key])
-	b.write((indent + TAB + '<column name="action_id">%s</column>\n' % (nma,)).encode('utf-8'))
+	b.write((indent + TAB * 2 + '<column name="action_id">%s</column>\n' % (nma,)).encode('utf-8'))
 
 	b.write((indent + TAB + '</record>\n').encode('utf-8'))
 
@@ -82,6 +85,28 @@ def Actions(level,module,objs):
 		for obj in objs[cat]:
 			RecordActions(level+1,module,obj,obj._name,cat)
 
+	b.write((indent + '</records>\n').encode('utf-8'))
+
+def RecordObj(level,module,obj,cat,view):
+
+	indent = TAB * level
+	
+	nm = concat(['action',module,cat,obj._name,view])
+	nmv = concat(['view',module,cat,obj._name,view])
+	b.write((indent + '<record id="%s">\n' % (concat(['view.action',module,cat,obj._name,view]),)).encode('utf-8'))
+	b.write((indent + TAB + '<column name="action_id">%s</column>\n' % (nm,)).encode('utf-8'))
+	b.write((indent + TAB + '<column name="view_id">%s</column>\n' % (nmv,)).encode('utf-8'))
+	b.write((indent + '</record>\n').encode('utf-8'))
+
+def Objs(level,module,objs):
+	indent = TAB * level
+
+	b.write((indent + '<records model="%s">\n' % ('bc.view.actions',)).encode('utf-8'))
+	for cat in objs.keys():
+		for obj in objs[cat]:
+			view = _view_cat[cat]
+			if isAllow(view,cat,getattr(obj,_info_objs[cat],None)()):
+				RecordObj(level + 1,module,obj,cat,view)
 	b.write((indent + '</records>\n').encode('utf-8'))
 
 def Area(self, modules = None, context={}):
@@ -115,20 +140,22 @@ def Area(self, modules = None, context={}):
 			b.write('<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n'.encode('utf-8'))
 			b.write((TAB+'<gsrp>\n').encode('utf-8'))
 			b.write((TAB * 2 + '<data>\n').encode('utf-8'))
-			RecordMenu(3,concat(['ui.menu.module',module]),label)
 			if module == 'bc':
-				RecordMenu(3,concat(['ui.menu','customize']),'Customizing')
+				RecordMenu(3,concat(['ui','menu','customize']),'Customizing')
 			if len(objs) > 0:
-				Actions(3, module,objs)				
+				RecordMenu(3,concat(['ui','menu','module',module]),label)
+				Actions(3, module,objs)
+				Objs(3,module,objs)				
 				for cat in objs.keys():
-					RecordMenu(3,concat(['ui.menu.module',module,cat]),cat.title(),concat(['ui.menu.module',module]))
-					RecordMenuItems(3,module,objs[cat],cat,concat(['ui.menu.module',module,cat]))
+					RecordMenu(3,concat(['ui','menu','module',module,cat]),cat.title(),concat(['ui','menu','module',module]))
+					RecordMenuItems(3,module,objs[cat],cat,concat(['ui','menu','module',module,cat]))
 			if len(cust_objs) > 0:
-				RecordMenu(3,concat(['ui.menu.customize',module]),label)
+				RecordMenu(3,concat(['ui','menu','customize',module]),label,concat(['ui','menu','customize']))
 				Actions(3, module,cust_objs)				
+				Objs(3,module,cust_objs)
 				for cat in cust_objs.keys():
-					RecordMenu(3,concat(['ui.menu.customize',module,cat]),cat.title(),concat(['ui.menu','customize']))
-					RecordMenuItems(3,module,cust_objs[cat],cat,concat(['ui.menu.customize',module,cat]))
+					RecordMenu(3,concat(['ui','menu','customize',module,cat]),cat.title(),concat(['ui','menu','customize',module]))
+					RecordMenuItems(3,module,cust_objs[cat],cat,concat(['ui','menu','customize',module,cat]))
 
 			b.write((TAB * 2 + '</data>\n').encode('utf-8'))
 			b.write((TAB + '</gsrp>\n').encode('utf-8'))

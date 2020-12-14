@@ -503,7 +503,7 @@ class System(Session):
 					for key in self._models.keys():
 						self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 
-					db_infos = self._models.get('bc.modules').select(field=['code','state'],cond=[])
+					db_infos = self._models.get('bc.modules').select(fields=['code','state'],cond=[])
 					for db_info in db_infos:
 						self._components['registry']._modules[db_info['code']]['db_id'] = db_info['id']
 						self._components['registry']._modules[db_info['code']]['state'] = db_info['state']

@@ -19,8 +19,8 @@ def RecordGroup(level,module,grant,cat):
 	indent = TAB * level
 	nm = concat([module,cat,grant])
 	b.write((indent + '<record id="%s">\n' % (nm,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="name">%s</column>\n' % (nm,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="note">Module %s Type Object %s grant %s</column>\n' % (module,cat,grant)).encode('utf-8'))
+	b.write((indent + TAB * 2 + '<column name="name">%s</column>\n' % (nm,)).encode('utf-8'))
+	b.write((indent + TAB * 2 + '<column name="note">Module %s Type Object %s grant %s</column>\n' % (module,cat,grant)).encode('utf-8'))
 	b.write((indent + '</record>\n').encode('utf-8'))
 
 def RecordRole(level,module,obj,grant,cat):
@@ -29,9 +29,9 @@ def RecordRole(level,module,obj,grant,cat):
 
 	nm = concat(['role',module,cat,obj,grant])
 	b.write((indent + '<record id="%s">\n' % (nm,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="name">%s</column>\n' % (nm,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="note">Module: %s Type: %s Object: %s grant: %s</column>\n' % (module,cat,obj,grant)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="group_id">%s</column>\n' % (concat([module,cat,grant]),)).encode('utf-8'))
+	b.write((indent + TAB * 2 + '<column name="name">%s</column>\n' % (nm,)).encode('utf-8'))
+	b.write((indent + TAB * 2 + '<column name="note">Module: %s Type: %s Object: %s grant: %s</column>\n' % (module,cat,obj,grant)).encode('utf-8'))
+	b.write((indent + TAB * 2 + '<column name="group_id">%s</column>\n' % (concat([module,cat,grant]),)).encode('utf-8'))
 	b.write((indent + '</record>\n').encode('utf-8'))
 
 def RecordsRole(level,module,objs,cat):
@@ -47,10 +47,10 @@ def RecordsRole(level,module,objs,cat):
 def RecordAccess(level,module,obj,grant, cat):
 
 	indent = TAB * level
-	nm = concat(['access',module,cat,obj,grant])
-	b.write((indent + '<record id="%s">\n' % (nm,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="access_id">%s</column>\n' % (nm,)).encode('utf-8'))
-	b.write((indent + TAB + '<column name="object_id">%s</column>\n' % (obj,)).encode('utf-8'))
+	nm = concat(['role',module,cat,obj,grant])
+	b.write((indent + '<record id="%s">\n' % (concat(['access','role',module,cat,obj,grant]),)).encode('utf-8'))
+	b.write((indent + TAB * 2 + '<column name="access_id">%s</column>\n' % (nm,)).encode('utf-8'))
+	b.write((indent + TAB * 2 + '<column name="object_id">%s</column>\n' % (obj,)).encode('utf-8'))
 	for column in ACCESS[grant]:
 		b.write((indent + TAB + '<column name="%s">True</column>\n' % (column,)).encode('utf-8'))
 		

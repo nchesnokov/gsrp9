@@ -3,118 +3,118 @@
     <data>
       <records model="bc.group.access">
         <record id="ai.models.readonly">
-          <column name="name">ai.models.readonly</column>
-          <column name="note">Module ai Type Object models grant readonly</column>
+            <column name="name">ai.models.readonly</column>
+            <column name="note">Module ai Type Object models grant readonly</column>
         </record>
         <record id="ai.models.nodrop">
-          <column name="name">ai.models.nodrop</column>
-          <column name="note">Module ai Type Object models grant nodrop</column>
+            <column name="name">ai.models.nodrop</column>
+            <column name="note">Module ai Type Object models grant nodrop</column>
         </record>
         <record id="ai.models.full">
-          <column name="name">ai.models.full</column>
-          <column name="note">Module ai Type Object models grant full</column>
+            <column name="name">ai.models.full</column>
+            <column name="note">Module ai Type Object models grant full</column>
         </record>
         <record id="ai.models.crw">
-          <column name="name">ai.models.crw</column>
-          <column name="note">Module ai Type Object models grant crw</column>
+            <column name="name">ai.models.crw</column>
+            <column name="note">Module ai Type Object models grant crw</column>
         </record>
       </records>
       <records model="bc.access">
         <record id="role.ai.models.ai.category.readonly">
-          <column name="name">role.ai.models.ai.category.readonly</column>
-          <column name="note">Module: ai Type: models Object: ai.category grant: readonly</column>
-          <column name="group_id">ai.models.readonly</column>
+            <column name="name">role.ai.models.ai.category.readonly</column>
+            <column name="note">Module: ai Type: models Object: ai.category grant: readonly</column>
+            <column name="group_id">ai.models.readonly</column>
         </record>
         <record id="role.ai.models.ai.category.nodrop">
-          <column name="name">role.ai.models.ai.category.nodrop</column>
-          <column name="note">Module: ai Type: models Object: ai.category grant: nodrop</column>
-          <column name="group_id">ai.models.nodrop</column>
+            <column name="name">role.ai.models.ai.category.nodrop</column>
+            <column name="note">Module: ai Type: models Object: ai.category grant: nodrop</column>
+            <column name="group_id">ai.models.nodrop</column>
         </record>
         <record id="role.ai.models.ai.category.full">
-          <column name="name">role.ai.models.ai.category.full</column>
-          <column name="note">Module: ai Type: models Object: ai.category grant: full</column>
-          <column name="group_id">ai.models.full</column>
+            <column name="name">role.ai.models.ai.category.full</column>
+            <column name="note">Module: ai Type: models Object: ai.category grant: full</column>
+            <column name="group_id">ai.models.full</column>
         </record>
         <record id="role.ai.models.ai.category.crw">
-          <column name="name">role.ai.models.ai.category.crw</column>
-          <column name="note">Module: ai Type: models Object: ai.category grant: crw</column>
-          <column name="group_id">ai.models.crw</column>
+            <column name="name">role.ai.models.ai.category.crw</column>
+            <column name="note">Module: ai Type: models Object: ai.category grant: crw</column>
+            <column name="group_id">ai.models.crw</column>
         </record>
         <record id="role.ai.models.ai.model.readonly">
-          <column name="name">role.ai.models.ai.model.readonly</column>
-          <column name="note">Module: ai Type: models Object: ai.model grant: readonly</column>
-          <column name="group_id">ai.models.readonly</column>
+            <column name="name">role.ai.models.ai.model.readonly</column>
+            <column name="note">Module: ai Type: models Object: ai.model grant: readonly</column>
+            <column name="group_id">ai.models.readonly</column>
         </record>
         <record id="role.ai.models.ai.model.nodrop">
-          <column name="name">role.ai.models.ai.model.nodrop</column>
-          <column name="note">Module: ai Type: models Object: ai.model grant: nodrop</column>
-          <column name="group_id">ai.models.nodrop</column>
+            <column name="name">role.ai.models.ai.model.nodrop</column>
+            <column name="note">Module: ai Type: models Object: ai.model grant: nodrop</column>
+            <column name="group_id">ai.models.nodrop</column>
         </record>
         <record id="role.ai.models.ai.model.full">
-          <column name="name">role.ai.models.ai.model.full</column>
-          <column name="note">Module: ai Type: models Object: ai.model grant: full</column>
-          <column name="group_id">ai.models.full</column>
+            <column name="name">role.ai.models.ai.model.full</column>
+            <column name="note">Module: ai Type: models Object: ai.model grant: full</column>
+            <column name="group_id">ai.models.full</column>
         </record>
         <record id="role.ai.models.ai.model.crw">
-          <column name="name">role.ai.models.ai.model.crw</column>
-          <column name="note">Module: ai Type: models Object: ai.model grant: crw</column>
-          <column name="group_id">ai.models.crw</column>
+            <column name="name">role.ai.models.ai.model.crw</column>
+            <column name="note">Module: ai Type: models Object: ai.model grant: crw</column>
+            <column name="group_id">ai.models.crw</column>
         </record>
       </records>
       <records model="bc.obj.access">
-        <record id="access.ai.models.ai.category.readonly">
-          <column name="access_id">access.ai.models.ai.category.readonly</column>
-          <column name="object_id">ai.category</column>
+        <record id="access.role.ai.models.ai.category.readonly">
+            <column name="access_id">role.ai.models.ai.category.readonly</column>
+            <column name="object_id">ai.category</column>
           <column name="aread">True</column>
         </record>
-        <record id="access.ai.models.ai.category.nodrop">
-          <column name="access_id">access.ai.models.ai.category.nodrop</column>
-          <column name="object_id">ai.category</column>
-          <column name="aread">True</column>
-          <column name="acreate">True</column>
-          <column name="awrite">True</column>
-        </record>
-        <record id="access.ai.models.ai.category.full">
-          <column name="access_id">access.ai.models.ai.category.full</column>
-          <column name="object_id">ai.category</column>
-          <column name="aread">True</column>
-          <column name="acreate">True</column>
-          <column name="awrite">True</column>
-          <column name="aunlink">True</column>
-          <column name="aexecute">True</column>
-        </record>
-        <record id="access.ai.models.ai.category.crw">
-          <column name="access_id">access.ai.models.ai.category.crw</column>
-          <column name="object_id">ai.category</column>
-          <column name="aread">True</column>
-          <column name="acreate">True</column>
-          <column name="awrite">True</column>
-          <column name="aexecute">True</column>
-        </record>
-        <record id="access.ai.models.ai.model.readonly">
-          <column name="access_id">access.ai.models.ai.model.readonly</column>
-          <column name="object_id">ai.model</column>
-          <column name="aread">True</column>
-        </record>
-        <record id="access.ai.models.ai.model.nodrop">
-          <column name="access_id">access.ai.models.ai.model.nodrop</column>
-          <column name="object_id">ai.model</column>
+        <record id="access.role.ai.models.ai.category.nodrop">
+            <column name="access_id">role.ai.models.ai.category.nodrop</column>
+            <column name="object_id">ai.category</column>
           <column name="aread">True</column>
           <column name="acreate">True</column>
           <column name="awrite">True</column>
         </record>
-        <record id="access.ai.models.ai.model.full">
-          <column name="access_id">access.ai.models.ai.model.full</column>
-          <column name="object_id">ai.model</column>
+        <record id="access.role.ai.models.ai.category.full">
+            <column name="access_id">role.ai.models.ai.category.full</column>
+            <column name="object_id">ai.category</column>
           <column name="aread">True</column>
           <column name="acreate">True</column>
           <column name="awrite">True</column>
           <column name="aunlink">True</column>
           <column name="aexecute">True</column>
         </record>
-        <record id="access.ai.models.ai.model.crw">
-          <column name="access_id">access.ai.models.ai.model.crw</column>
-          <column name="object_id">ai.model</column>
+        <record id="access.role.ai.models.ai.category.crw">
+            <column name="access_id">role.ai.models.ai.category.crw</column>
+            <column name="object_id">ai.category</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.ai.models.ai.model.readonly">
+            <column name="access_id">role.ai.models.ai.model.readonly</column>
+            <column name="object_id">ai.model</column>
+          <column name="aread">True</column>
+        </record>
+        <record id="access.role.ai.models.ai.model.nodrop">
+            <column name="access_id">role.ai.models.ai.model.nodrop</column>
+            <column name="object_id">ai.model</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+        </record>
+        <record id="access.role.ai.models.ai.model.full">
+            <column name="access_id">role.ai.models.ai.model.full</column>
+            <column name="object_id">ai.model</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aunlink">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.ai.models.ai.model.crw">
+            <column name="access_id">role.ai.models.ai.model.crw</column>
+            <column name="object_id">ai.model</column>
           <column name="aread">True</column>
           <column name="acreate">True</column>
           <column name="awrite">True</column>

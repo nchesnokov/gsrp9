@@ -28,7 +28,7 @@ def get_model_by_window_action_id_v2(pool,action_id):
 	ba = pool.get('bc.actions').select(fields=['name','ta',{'va':['view_id']},{'ra':['report_id']}],cond=[('name','=',action_id)])
 	if len(ba) > 0:
 		ta = ba[0]['ta']
-		if ta == 'view':
+		if ta == 'model':
 			name = ba[0]['va'][0]['view_id']['name']
 			action = pool.get('bc.ui.views').select(fields=['model'],cond=[('name','=',name)],limit=1)
 			if len(action) > 0:
@@ -79,7 +79,7 @@ def get_view_by_name(cr,pool,uid,name):
 					m['columns'][column]['size'] = reffieldInfo[reffield]['size']			
 	
 	mi = pool.get(w['model']).modelInfo()
-	allow = list(filter(lambda x: isAllow(x,mi),VIEWSGEN.keys()))
+	allow = list(filter(lambda x: isAllow(x,'models',mi),VIEWSGEN['models'].keys()))
 	
 	o = {'type':'','header':{},'columns':{},'viewname':w['name'],'webicon':action['webicon']}
 	for event,el in etree.iterparse(source=BytesIO(w['arch'].encode('utf-8')),events=('end','start')):
@@ -154,7 +154,7 @@ def get_views_of_model_v2(cr,pool,uid,model):
 		o = parse_view_v2(view,info)
 		v.setdefault('models',{}).setdefault(model,{}).setdefault('views',{})[o['type']] = o
 
-	v['allow'] = list(filter(lambda x: isAllow(x,info),VIEWSGEN.keys()))	
+	v['allow'] = list(filter(lambda x: isAllow(x,'models',info),VIEWSGEN['models'].keys()))	
 	
 	return [v]
 
@@ -198,7 +198,7 @@ def get_meta_of_models_v2(pool,model,context):
 	
 	v.setdefault(model,{})['meta'] = info
 	v.setdefault(model,{})['views'] = views[model]  
-	v.setdefault(model,{})['allow'] = list(filter(lambda x: isAllow(x,info),VIEWSGEN.keys()))
+	v.setdefault(model,{})['allow'] = list(filter(lambda x: isAllow(x,'models',info),VIEWSGEN['models'].keys()))
 
 	for m2o in m2omodels:
 		if m2o in v:
@@ -208,7 +208,7 @@ def get_meta_of_models_v2(pool,model,context):
 		m2oinfo = get_referenced_attrs_v2(pool,m2oinfo,context)
 		v.setdefault(m2o,{})['meta'] = m2oinfo
 		v.setdefault(m2o,{})['views'] = m2oviews[m2o]  
-		v.setdefault(m2o,{})['allow'] = list(filter(lambda x: isAllow(x,m2oinfo),VIEWSGEN.keys()))
+		v.setdefault(m2o,{})['allow'] = list(filter(lambda x: isAllow(x,'models',m2oinfo),VIEWSGEN['models'].keys()))
 
 	for m2m in m2mmodels:
 		if m2m in v:
@@ -218,7 +218,7 @@ def get_meta_of_models_v2(pool,model,context):
 		m2minfo = get_referenced_attrs_v2(pool,m2minfo,context)
 		v.setdefault(m2m,{})['meta'] = m2minfo
 		v.setdefault(m2m,{})['views'] = m2mviews[m2m]
-		v.setdefault(m2m,{})['allow'] = list(filter(lambda x: isAllow(x,m2minfo),VIEWSGEN.keys())) 
+		v.setdefault(m2m,{})['allow'] = list(filter(lambda x: isAllow(x,'models',m2minfo),VIEWSGEN['models'].keys())) 
 
 	for m in models:
 		if m == model or m in v:
@@ -252,6 +252,7 @@ def get_view_by_window_action_id_v2(cr,pool,uid,action_id):
 	return [None]
 
 def get_meta_by_window_action_id_v2(pool,action_id,context):
+	#web_pdb.set_trace()
 	model = get_model_by_window_action_id_v2(pool,action_id)
 	mof = get_meta_of_models_v2(pool,model,context)
 	return [{'root':model,'models':mof}]
@@ -298,7 +299,7 @@ def get_view_by_name_v2(cr,pool,uid,name):
 			o = parse_view_v2(view,info)
 			v.setdefault('models',{}).setdefault(model,{}).setdefault('views',{})[o['type']] = o
 
-	v['allow'] = list(filter(lambda x: isAllow(x,iobj),VIEWSGEN.keys()))	
+	v['allow'] = list(filter(lambda x: isAllow(x,'models',iobj),VIEWSGEN['models'].keys()))	
 	
 	return [v]
 
@@ -393,7 +394,7 @@ def view(cr,pool,uid,action_id = None, name = None):
 					m['columns'][column]['size'] = reffieldInfo[reffield]['size']			
 	
 	mi = pool.get(w['model']).modelInfo()
-	allow = list(filter(lambda x: isAllow(x,mi),VIEWSGEN.keys()))
+	allow = list(filter(lambda x: isAllow(x,'models',mi),VIEWSGEN['models'].keys()))
 	
 	o = {'type':'','header':{},'columns':{},'viewname':w['name'],'webicon':action['webicon']}
 	for event,el in etree.iterparse(source=BytesIO(w['arch'].encode('utf-8')),events=('end','start')):

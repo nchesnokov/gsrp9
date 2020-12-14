@@ -133,6 +133,24 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.sale.models.sale.order.categories.search">
+          <column name="action_id">action.sale.models.sale.order.categories.search</column>
+          <column name="view_id">view.sale.models.sale.order.categories.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.invoice.categories.search">
+          <column name="action_id">action.sale.models.sale.invoice.categories.search</column>
+          <column name="view_id">view.sale.models.sale.invoice.categories.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.orders.search">
+          <column name="action_id">action.sale.models.sale.orders.search</column>
+          <column name="view_id">view.sale.models.sale.orders.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.invoices.search">
+          <column name="action_id">action.sale.models.sale.invoices.search</column>
+          <column name="view_id">view.sale.models.sale.invoices.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.module.sale.models">
           <column name="name">ui.menu.module.sale.models</column>
@@ -141,228 +159,40 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.sale.order.categories.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.sale.order.categories.form</column>
-            <column name="label">Category Sale Order</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.order.categories.form</column>
-          </record>
-          <record id="ui.menu.models.sale.order.categories.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.sale.order.categories.list</column>
-            <column name="label">Category Sale Order</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.order.categories.list</column>
-          </record>
-          <record id="ui.menu.models.sale.order.categories.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.sale.order.categories.m2mlist</column>
-            <column name="label">Category Sale Order</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.order.categories.m2mlist</column>
-          </record>
           <record id="ui.menu.models.sale.order.categories.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.sale.order.categories.search</column>
             <column name="label">Category Sale Order</column>
             <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.order.categories.search</column>
-          </record>
-          <record id="ui.menu.models.sale.order.categories.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.sale.order.categories.find</column>
-            <column name="label">Category Sale Order</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.order.categories.find</column>
-          </record>
-          <record id="ui.menu.models.sale.order.categories.tree">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.sale.order.categories.tree</column>
-            <column name="label">Category Sale Order</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.order.categories.tree</column>
-          </record>
-          <record id="ui.menu.models.sale.invoice.categories.form">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.sale.invoice.categories.form</column>
-            <column name="label">Category Sale Invoice</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoice.categories.form</column>
-          </record>
-          <record id="ui.menu.models.sale.invoice.categories.list">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.sale.invoice.categories.list</column>
-            <column name="label">Category Sale Invoice</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoice.categories.list</column>
-          </record>
-          <record id="ui.menu.models.sale.invoice.categories.m2mlist">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.sale.invoice.categories.m2mlist</column>
-            <column name="label">Category Sale Invoice</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoice.categories.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.order.categories.search</column>
           </record>
           <record id="ui.menu.models.sale.invoice.categories.search">
             <column name="sequence">1</column>
             <column name="name">ui.menu.models.sale.invoice.categories.search</column>
             <column name="label">Category Sale Invoice</column>
             <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoice.categories.search</column>
-          </record>
-          <record id="ui.menu.models.sale.invoice.categories.find">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.sale.invoice.categories.find</column>
-            <column name="label">Category Sale Invoice</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoice.categories.find</column>
-          </record>
-          <record id="ui.menu.models.sale.invoice.categories.tree">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.sale.invoice.categories.tree</column>
-            <column name="label">Category Sale Invoice</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoice.categories.tree</column>
-          </record>
-          <record id="ui.menu.models.sale.orders.calendar">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.orders.calendar</column>
-            <column name="label">Sale Orders</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.orders.calendar</column>
-          </record>
-          <record id="ui.menu.models.sale.orders.schedule">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.orders.schedule</column>
-            <column name="label">Sale Orders</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.orders.schedule</column>
-          </record>
-          <record id="ui.menu.models.sale.orders.form">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.orders.form</column>
-            <column name="label">Sale Orders</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.orders.form</column>
-          </record>
-          <record id="ui.menu.models.sale.orders.graph">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.orders.graph</column>
-            <column name="label">Sale Orders</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.orders.graph</column>
-          </record>
-          <record id="ui.menu.models.sale.orders.kanban">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.orders.kanban</column>
-            <column name="label">Sale Orders</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.orders.kanban</column>
-          </record>
-          <record id="ui.menu.models.sale.orders.list">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.orders.list</column>
-            <column name="label">Sale Orders</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.orders.list</column>
-          </record>
-          <record id="ui.menu.models.sale.orders.m2mlist">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.orders.m2mlist</column>
-            <column name="label">Sale Orders</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.orders.m2mlist</column>
-          </record>
-          <record id="ui.menu.models.sale.orders.mdx">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.orders.mdx</column>
-            <column name="label">Sale Orders</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.orders.mdx</column>
+            <column name="action_id">action.sale.models.sale.invoice.categories.search</column>
           </record>
           <record id="ui.menu.models.sale.orders.search">
             <column name="sequence">2</column>
             <column name="name">ui.menu.models.sale.orders.search</column>
             <column name="label">Sale Orders</column>
             <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.orders.search</column>
-          </record>
-          <record id="ui.menu.models.sale.orders.find">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.orders.find</column>
-            <column name="label">Sale Orders</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.orders.find</column>
-          </record>
-          <record id="ui.menu.models.sale.invoices.calendar">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.sale.invoices.calendar</column>
-            <column name="label">Sale Invoices</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoices.calendar</column>
-          </record>
-          <record id="ui.menu.models.sale.invoices.form">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.sale.invoices.form</column>
-            <column name="label">Sale Invoices</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoices.form</column>
-          </record>
-          <record id="ui.menu.models.sale.invoices.graph">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.sale.invoices.graph</column>
-            <column name="label">Sale Invoices</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoices.graph</column>
-          </record>
-          <record id="ui.menu.models.sale.invoices.kanban">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.sale.invoices.kanban</column>
-            <column name="label">Sale Invoices</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoices.kanban</column>
-          </record>
-          <record id="ui.menu.models.sale.invoices.list">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.sale.invoices.list</column>
-            <column name="label">Sale Invoices</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoices.list</column>
-          </record>
-          <record id="ui.menu.models.sale.invoices.m2mlist">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.sale.invoices.m2mlist</column>
-            <column name="label">Sale Invoices</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoices.m2mlist</column>
-          </record>
-          <record id="ui.menu.models.sale.invoices.mdx">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.sale.invoices.mdx</column>
-            <column name="label">Sale Invoices</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoices.mdx</column>
+            <column name="action_id">action.sale.models.sale.orders.search</column>
           </record>
           <record id="ui.menu.models.sale.invoices.search">
             <column name="sequence">3</column>
             <column name="name">ui.menu.models.sale.invoices.search</column>
             <column name="label">Sale Invoices</column>
             <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoices.search</column>
-          </record>
-          <record id="ui.menu.models.sale.invoices.find">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.sale.invoices.find</column>
-            <column name="label">Sale Invoices</column>
-            <column name="parent_id">ui.menu.module.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoices.find</column>
+            <column name="action_id">action.sale.models.sale.invoices.search</column>
           </record>
       </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.customize.sale">
           <column name="name">ui.menu.customize.sale</column>
           <column name="label">Sales Managament</column>
+        <column name="parent_id">ui.menu.customize</column>
         </record>
       </records>
       <records model="bc.actions">
@@ -915,972 +745,301 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.sale.models.sale.unit.categories.search">
+          <column name="action_id">action.sale.models.sale.unit.categories.search</column>
+          <column name="view_id">view.sale.models.sale.unit.categories.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.units.search">
+          <column name="action_id">action.sale.models.sale.units.search</column>
+          <column name="view_id">view.sale.models.sale.units.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.channel.categories.search">
+          <column name="action_id">action.sale.models.sale.channel.categories.search</column>
+          <column name="view_id">view.sale.models.sale.channel.categories.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.channels.search">
+          <column name="action_id">action.sale.models.sale.channels.search</column>
+          <column name="view_id">view.sale.models.sale.channels.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.segment.categories.search">
+          <column name="action_id">action.sale.models.sale.segment.categories.search</column>
+          <column name="view_id">view.sale.models.sale.segment.categories.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.segments.search">
+          <column name="action_id">action.sale.models.sale.segments.search</column>
+          <column name="view_id">view.sale.models.sale.segments.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.area.categories.search">
+          <column name="action_id">action.sale.models.sale.area.categories.search</column>
+          <column name="view_id">view.sale.models.sale.area.categories.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.areas.search">
+          <column name="action_id">action.sale.models.sale.areas.search</column>
+          <column name="view_id">view.sale.models.sale.areas.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.region.categories.search">
+          <column name="action_id">action.sale.models.sale.region.categories.search</column>
+          <column name="view_id">view.sale.models.sale.region.categories.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.regions.search">
+          <column name="action_id">action.sale.models.sale.regions.search</column>
+          <column name="view_id">view.sale.models.sale.regions.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.division.categories.search">
+          <column name="action_id">action.sale.models.sale.division.categories.search</column>
+          <column name="view_id">view.sale.models.sale.division.categories.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.divisions.search">
+          <column name="action_id">action.sale.models.sale.divisions.search</column>
+          <column name="view_id">view.sale.models.sale.divisions.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.subdivision.categories.search">
+          <column name="action_id">action.sale.models.sale.subdivision.categories.search</column>
+          <column name="view_id">view.sale.models.sale.subdivision.categories.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.subdivisions.search">
+          <column name="action_id">action.sale.models.sale.subdivisions.search</column>
+          <column name="view_id">view.sale.models.sale.subdivisions.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.unit.channel.assigments.search">
+          <column name="action_id">action.sale.models.sale.unit.channel.assigments.search</column>
+          <column name="view_id">view.sale.models.sale.unit.channel.assigments.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.unit.segment.assigments.search">
+          <column name="action_id">action.sale.models.sale.unit.segment.assigments.search</column>
+          <column name="view_id">view.sale.models.sale.unit.segment.assigments.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.unit.area.assigments.search">
+          <column name="action_id">action.sale.models.sale.unit.area.assigments.search</column>
+          <column name="view_id">view.sale.models.sale.unit.area.assigments.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.unit.region.assigments.search">
+          <column name="action_id">action.sale.models.sale.unit.region.assigments.search</column>
+          <column name="view_id">view.sale.models.sale.unit.region.assigments.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.division.subdivision.assigments.search">
+          <column name="action_id">action.sale.models.sale.division.subdivision.assigments.search</column>
+          <column name="view_id">view.sale.models.sale.division.subdivision.assigments.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.markets.search">
+          <column name="action_id">action.sale.models.sale.markets.search</column>
+          <column name="view_id">view.sale.models.sale.markets.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.teams.search">
+          <column name="action_id">action.sale.models.sale.teams.search</column>
+          <column name="view_id">view.sale.models.sale.teams.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.pricing.group.levels.search">
+          <column name="action_id">action.sale.models.sale.pricing.group.levels.search</column>
+          <column name="view_id">view.sale.models.sale.pricing.group.levels.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.texts.search">
+          <column name="action_id">action.sale.models.sale.texts.search</column>
+          <column name="view_id">view.sale.models.sale.texts.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.schema.texts.search">
+          <column name="action_id">action.sale.models.sale.schema.texts.search</column>
+          <column name="view_id">view.sale.models.sale.schema.texts.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.order.types.search">
+          <column name="action_id">action.sale.models.sale.order.types.search</column>
+          <column name="view_id">view.sale.models.sale.order.types.search</column>
+        </record>
+        <record id="view.action.sale.models.sale.invoice.types.search">
+          <column name="action_id">action.sale.models.sale.invoice.types.search</column>
+          <column name="view_id">view.sale.models.sale.invoice.types.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.customize.sale.models">
           <column name="name">ui.menu.customize.sale.models</column>
           <column name="label">Models</column>
-        <column name="parent_id">ui.menu.customize</column>
+        <column name="parent_id">ui.menu.customize.sale</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.sale.unit.categories.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.sale.unit.categories.form</column>
-            <column name="label">Categories Sale Unit</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.categories.form</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.categories.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.sale.unit.categories.list</column>
-            <column name="label">Categories Sale Unit</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.categories.list</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.categories.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.sale.unit.categories.m2mlist</column>
-            <column name="label">Categories Sale Unit</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.categories.m2mlist</column>
-          </record>
           <record id="ui.menu.models.sale.unit.categories.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.sale.unit.categories.search</column>
             <column name="label">Categories Sale Unit</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.categories.search</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.categories.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.sale.unit.categories.find</column>
-            <column name="label">Categories Sale Unit</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.categories.find</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.categories.tree">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.sale.unit.categories.tree</column>
-            <column name="label">Categories Sale Unit</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.categories.tree</column>
-          </record>
-          <record id="ui.menu.models.sale.units.form">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.sale.units.form</column>
-            <column name="label">Sale Units</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.units.form</column>
-          </record>
-          <record id="ui.menu.models.sale.units.list">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.sale.units.list</column>
-            <column name="label">Sale Units</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.units.list</column>
-          </record>
-          <record id="ui.menu.models.sale.units.m2mlist">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.sale.units.m2mlist</column>
-            <column name="label">Sale Units</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.units.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.unit.categories.search</column>
           </record>
           <record id="ui.menu.models.sale.units.search">
             <column name="sequence">1</column>
             <column name="name">ui.menu.models.sale.units.search</column>
             <column name="label">Sale Units</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.units.search</column>
-          </record>
-          <record id="ui.menu.models.sale.units.find">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.sale.units.find</column>
-            <column name="label">Sale Units</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.units.find</column>
-          </record>
-          <record id="ui.menu.models.sale.channel.categories.form">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.channel.categories.form</column>
-            <column name="label">Categories Sale Chanel</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.channel.categories.form</column>
-          </record>
-          <record id="ui.menu.models.sale.channel.categories.list">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.channel.categories.list</column>
-            <column name="label">Categories Sale Chanel</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.channel.categories.list</column>
-          </record>
-          <record id="ui.menu.models.sale.channel.categories.m2mlist">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.channel.categories.m2mlist</column>
-            <column name="label">Categories Sale Chanel</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.channel.categories.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.units.search</column>
           </record>
           <record id="ui.menu.models.sale.channel.categories.search">
             <column name="sequence">2</column>
             <column name="name">ui.menu.models.sale.channel.categories.search</column>
             <column name="label">Categories Sale Chanel</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.channel.categories.search</column>
-          </record>
-          <record id="ui.menu.models.sale.channel.categories.find">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.channel.categories.find</column>
-            <column name="label">Categories Sale Chanel</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.channel.categories.find</column>
-          </record>
-          <record id="ui.menu.models.sale.channel.categories.tree">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.sale.channel.categories.tree</column>
-            <column name="label">Categories Sale Chanel</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.channel.categories.tree</column>
-          </record>
-          <record id="ui.menu.models.sale.channels.form">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.sale.channels.form</column>
-            <column name="label">Sale Channels</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.channels.form</column>
-          </record>
-          <record id="ui.menu.models.sale.channels.list">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.sale.channels.list</column>
-            <column name="label">Sale Channels</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.channels.list</column>
-          </record>
-          <record id="ui.menu.models.sale.channels.m2mlist">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.sale.channels.m2mlist</column>
-            <column name="label">Sale Channels</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.channels.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.channel.categories.search</column>
           </record>
           <record id="ui.menu.models.sale.channels.search">
             <column name="sequence">3</column>
             <column name="name">ui.menu.models.sale.channels.search</column>
             <column name="label">Sale Channels</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.channels.search</column>
-          </record>
-          <record id="ui.menu.models.sale.channels.find">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.sale.channels.find</column>
-            <column name="label">Sale Channels</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.channels.find</column>
-          </record>
-          <record id="ui.menu.models.sale.segment.categories.form">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.sale.segment.categories.form</column>
-            <column name="label">Categories Sale Segment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.segment.categories.form</column>
-          </record>
-          <record id="ui.menu.models.sale.segment.categories.list">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.sale.segment.categories.list</column>
-            <column name="label">Categories Sale Segment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.segment.categories.list</column>
-          </record>
-          <record id="ui.menu.models.sale.segment.categories.m2mlist">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.sale.segment.categories.m2mlist</column>
-            <column name="label">Categories Sale Segment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.segment.categories.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.channels.search</column>
           </record>
           <record id="ui.menu.models.sale.segment.categories.search">
             <column name="sequence">4</column>
             <column name="name">ui.menu.models.sale.segment.categories.search</column>
             <column name="label">Categories Sale Segment</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.segment.categories.search</column>
-          </record>
-          <record id="ui.menu.models.sale.segment.categories.find">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.sale.segment.categories.find</column>
-            <column name="label">Categories Sale Segment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.segment.categories.find</column>
-          </record>
-          <record id="ui.menu.models.sale.segment.categories.tree">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.sale.segment.categories.tree</column>
-            <column name="label">Categories Sale Segment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.segment.categories.tree</column>
-          </record>
-          <record id="ui.menu.models.sale.segments.form">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.sale.segments.form</column>
-            <column name="label">Sale Segments</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.segments.form</column>
-          </record>
-          <record id="ui.menu.models.sale.segments.list">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.sale.segments.list</column>
-            <column name="label">Sale Segments</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.segments.list</column>
-          </record>
-          <record id="ui.menu.models.sale.segments.m2mlist">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.sale.segments.m2mlist</column>
-            <column name="label">Sale Segments</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.segments.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.segment.categories.search</column>
           </record>
           <record id="ui.menu.models.sale.segments.search">
             <column name="sequence">5</column>
             <column name="name">ui.menu.models.sale.segments.search</column>
             <column name="label">Sale Segments</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.segments.search</column>
-          </record>
-          <record id="ui.menu.models.sale.segments.find">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.sale.segments.find</column>
-            <column name="label">Sale Segments</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.segments.find</column>
-          </record>
-          <record id="ui.menu.models.sale.area.categories.form">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.sale.area.categories.form</column>
-            <column name="label">Categories Sale Area</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.area.categories.form</column>
-          </record>
-          <record id="ui.menu.models.sale.area.categories.list">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.sale.area.categories.list</column>
-            <column name="label">Categories Sale Area</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.area.categories.list</column>
-          </record>
-          <record id="ui.menu.models.sale.area.categories.m2mlist">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.sale.area.categories.m2mlist</column>
-            <column name="label">Categories Sale Area</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.area.categories.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.segments.search</column>
           </record>
           <record id="ui.menu.models.sale.area.categories.search">
             <column name="sequence">6</column>
             <column name="name">ui.menu.models.sale.area.categories.search</column>
             <column name="label">Categories Sale Area</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.area.categories.search</column>
-          </record>
-          <record id="ui.menu.models.sale.area.categories.find">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.sale.area.categories.find</column>
-            <column name="label">Categories Sale Area</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.area.categories.find</column>
-          </record>
-          <record id="ui.menu.models.sale.area.categories.tree">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.sale.area.categories.tree</column>
-            <column name="label">Categories Sale Area</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.area.categories.tree</column>
-          </record>
-          <record id="ui.menu.models.sale.areas.form">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.sale.areas.form</column>
-            <column name="label">Sale Areas</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.areas.form</column>
-          </record>
-          <record id="ui.menu.models.sale.areas.list">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.sale.areas.list</column>
-            <column name="label">Sale Areas</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.areas.list</column>
-          </record>
-          <record id="ui.menu.models.sale.areas.m2mlist">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.sale.areas.m2mlist</column>
-            <column name="label">Sale Areas</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.areas.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.area.categories.search</column>
           </record>
           <record id="ui.menu.models.sale.areas.search">
             <column name="sequence">7</column>
             <column name="name">ui.menu.models.sale.areas.search</column>
             <column name="label">Sale Areas</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.areas.search</column>
-          </record>
-          <record id="ui.menu.models.sale.areas.find">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.sale.areas.find</column>
-            <column name="label">Sale Areas</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.areas.find</column>
-          </record>
-          <record id="ui.menu.models.sale.region.categories.form">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.sale.region.categories.form</column>
-            <column name="label">Categories Sale Region</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.region.categories.form</column>
-          </record>
-          <record id="ui.menu.models.sale.region.categories.list">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.sale.region.categories.list</column>
-            <column name="label">Categories Sale Region</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.region.categories.list</column>
-          </record>
-          <record id="ui.menu.models.sale.region.categories.m2mlist">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.sale.region.categories.m2mlist</column>
-            <column name="label">Categories Sale Region</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.region.categories.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.areas.search</column>
           </record>
           <record id="ui.menu.models.sale.region.categories.search">
             <column name="sequence">8</column>
             <column name="name">ui.menu.models.sale.region.categories.search</column>
             <column name="label">Categories Sale Region</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.region.categories.search</column>
-          </record>
-          <record id="ui.menu.models.sale.region.categories.find">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.sale.region.categories.find</column>
-            <column name="label">Categories Sale Region</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.region.categories.find</column>
-          </record>
-          <record id="ui.menu.models.sale.region.categories.tree">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.sale.region.categories.tree</column>
-            <column name="label">Categories Sale Region</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.region.categories.tree</column>
-          </record>
-          <record id="ui.menu.models.sale.regions.form">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.sale.regions.form</column>
-            <column name="label">Sale Regions</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.regions.form</column>
-          </record>
-          <record id="ui.menu.models.sale.regions.list">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.sale.regions.list</column>
-            <column name="label">Sale Regions</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.regions.list</column>
-          </record>
-          <record id="ui.menu.models.sale.regions.m2mlist">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.sale.regions.m2mlist</column>
-            <column name="label">Sale Regions</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.regions.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.region.categories.search</column>
           </record>
           <record id="ui.menu.models.sale.regions.search">
             <column name="sequence">9</column>
             <column name="name">ui.menu.models.sale.regions.search</column>
             <column name="label">Sale Regions</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.regions.search</column>
-          </record>
-          <record id="ui.menu.models.sale.regions.find">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.sale.regions.find</column>
-            <column name="label">Sale Regions</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.regions.find</column>
-          </record>
-          <record id="ui.menu.models.sale.division.categories.form">
-            <column name="sequence">10</column>
-            <column name="name">ui.menu.models.sale.division.categories.form</column>
-            <column name="label">Categories Sale Division</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.division.categories.form</column>
-          </record>
-          <record id="ui.menu.models.sale.division.categories.list">
-            <column name="sequence">10</column>
-            <column name="name">ui.menu.models.sale.division.categories.list</column>
-            <column name="label">Categories Sale Division</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.division.categories.list</column>
-          </record>
-          <record id="ui.menu.models.sale.division.categories.m2mlist">
-            <column name="sequence">10</column>
-            <column name="name">ui.menu.models.sale.division.categories.m2mlist</column>
-            <column name="label">Categories Sale Division</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.division.categories.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.regions.search</column>
           </record>
           <record id="ui.menu.models.sale.division.categories.search">
             <column name="sequence">10</column>
             <column name="name">ui.menu.models.sale.division.categories.search</column>
             <column name="label">Categories Sale Division</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.division.categories.search</column>
-          </record>
-          <record id="ui.menu.models.sale.division.categories.find">
-            <column name="sequence">10</column>
-            <column name="name">ui.menu.models.sale.division.categories.find</column>
-            <column name="label">Categories Sale Division</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.division.categories.find</column>
-          </record>
-          <record id="ui.menu.models.sale.division.categories.tree">
-            <column name="sequence">10</column>
-            <column name="name">ui.menu.models.sale.division.categories.tree</column>
-            <column name="label">Categories Sale Division</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.division.categories.tree</column>
-          </record>
-          <record id="ui.menu.models.sale.divisions.form">
-            <column name="sequence">11</column>
-            <column name="name">ui.menu.models.sale.divisions.form</column>
-            <column name="label">Sale Divisions</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.divisions.form</column>
-          </record>
-          <record id="ui.menu.models.sale.divisions.list">
-            <column name="sequence">11</column>
-            <column name="name">ui.menu.models.sale.divisions.list</column>
-            <column name="label">Sale Divisions</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.divisions.list</column>
-          </record>
-          <record id="ui.menu.models.sale.divisions.m2mlist">
-            <column name="sequence">11</column>
-            <column name="name">ui.menu.models.sale.divisions.m2mlist</column>
-            <column name="label">Sale Divisions</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.divisions.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.division.categories.search</column>
           </record>
           <record id="ui.menu.models.sale.divisions.search">
             <column name="sequence">11</column>
             <column name="name">ui.menu.models.sale.divisions.search</column>
             <column name="label">Sale Divisions</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.divisions.search</column>
-          </record>
-          <record id="ui.menu.models.sale.divisions.find">
-            <column name="sequence">11</column>
-            <column name="name">ui.menu.models.sale.divisions.find</column>
-            <column name="label">Sale Divisions</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.divisions.find</column>
-          </record>
-          <record id="ui.menu.models.sale.subdivision.categories.form">
-            <column name="sequence">12</column>
-            <column name="name">ui.menu.models.sale.subdivision.categories.form</column>
-            <column name="label">Categories Sale Subdivision</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.subdivision.categories.form</column>
-          </record>
-          <record id="ui.menu.models.sale.subdivision.categories.list">
-            <column name="sequence">12</column>
-            <column name="name">ui.menu.models.sale.subdivision.categories.list</column>
-            <column name="label">Categories Sale Subdivision</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.subdivision.categories.list</column>
-          </record>
-          <record id="ui.menu.models.sale.subdivision.categories.m2mlist">
-            <column name="sequence">12</column>
-            <column name="name">ui.menu.models.sale.subdivision.categories.m2mlist</column>
-            <column name="label">Categories Sale Subdivision</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.subdivision.categories.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.divisions.search</column>
           </record>
           <record id="ui.menu.models.sale.subdivision.categories.search">
             <column name="sequence">12</column>
             <column name="name">ui.menu.models.sale.subdivision.categories.search</column>
             <column name="label">Categories Sale Subdivision</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.subdivision.categories.search</column>
-          </record>
-          <record id="ui.menu.models.sale.subdivision.categories.find">
-            <column name="sequence">12</column>
-            <column name="name">ui.menu.models.sale.subdivision.categories.find</column>
-            <column name="label">Categories Sale Subdivision</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.subdivision.categories.find</column>
-          </record>
-          <record id="ui.menu.models.sale.subdivision.categories.tree">
-            <column name="sequence">12</column>
-            <column name="name">ui.menu.models.sale.subdivision.categories.tree</column>
-            <column name="label">Categories Sale Subdivision</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.subdivision.categories.tree</column>
-          </record>
-          <record id="ui.menu.models.sale.subdivisions.form">
-            <column name="sequence">13</column>
-            <column name="name">ui.menu.models.sale.subdivisions.form</column>
-            <column name="label">Sale Subdivisions</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.subdivisions.form</column>
-          </record>
-          <record id="ui.menu.models.sale.subdivisions.list">
-            <column name="sequence">13</column>
-            <column name="name">ui.menu.models.sale.subdivisions.list</column>
-            <column name="label">Sale Subdivisions</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.subdivisions.list</column>
-          </record>
-          <record id="ui.menu.models.sale.subdivisions.m2mlist">
-            <column name="sequence">13</column>
-            <column name="name">ui.menu.models.sale.subdivisions.m2mlist</column>
-            <column name="label">Sale Subdivisions</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.subdivisions.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.subdivision.categories.search</column>
           </record>
           <record id="ui.menu.models.sale.subdivisions.search">
             <column name="sequence">13</column>
             <column name="name">ui.menu.models.sale.subdivisions.search</column>
             <column name="label">Sale Subdivisions</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.subdivisions.search</column>
-          </record>
-          <record id="ui.menu.models.sale.subdivisions.find">
-            <column name="sequence">13</column>
-            <column name="name">ui.menu.models.sale.subdivisions.find</column>
-            <column name="label">Sale Subdivisions</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.subdivisions.find</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.channel.assigments.form">
-            <column name="sequence">14</column>
-            <column name="name">ui.menu.models.sale.unit.channel.assigments.form</column>
-            <column name="label">Sale Unit Of Channel Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.channel.assigments.form</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.channel.assigments.list">
-            <column name="sequence">14</column>
-            <column name="name">ui.menu.models.sale.unit.channel.assigments.list</column>
-            <column name="label">Sale Unit Of Channel Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.channel.assigments.list</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.channel.assigments.m2mlist">
-            <column name="sequence">14</column>
-            <column name="name">ui.menu.models.sale.unit.channel.assigments.m2mlist</column>
-            <column name="label">Sale Unit Of Channel Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.channel.assigments.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.subdivisions.search</column>
           </record>
           <record id="ui.menu.models.sale.unit.channel.assigments.search">
             <column name="sequence">14</column>
             <column name="name">ui.menu.models.sale.unit.channel.assigments.search</column>
             <column name="label">Sale Unit Of Channel Assigment</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.channel.assigments.search</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.channel.assigments.find">
-            <column name="sequence">14</column>
-            <column name="name">ui.menu.models.sale.unit.channel.assigments.find</column>
-            <column name="label">Sale Unit Of Channel Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.channel.assigments.find</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.segment.assigments.form">
-            <column name="sequence">15</column>
-            <column name="name">ui.menu.models.sale.unit.segment.assigments.form</column>
-            <column name="label">Sale Unit Of Segment Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.segment.assigments.form</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.segment.assigments.list">
-            <column name="sequence">15</column>
-            <column name="name">ui.menu.models.sale.unit.segment.assigments.list</column>
-            <column name="label">Sale Unit Of Segment Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.segment.assigments.list</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.segment.assigments.m2mlist">
-            <column name="sequence">15</column>
-            <column name="name">ui.menu.models.sale.unit.segment.assigments.m2mlist</column>
-            <column name="label">Sale Unit Of Segment Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.segment.assigments.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.unit.channel.assigments.search</column>
           </record>
           <record id="ui.menu.models.sale.unit.segment.assigments.search">
             <column name="sequence">15</column>
             <column name="name">ui.menu.models.sale.unit.segment.assigments.search</column>
             <column name="label">Sale Unit Of Segment Assigment</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.segment.assigments.search</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.segment.assigments.find">
-            <column name="sequence">15</column>
-            <column name="name">ui.menu.models.sale.unit.segment.assigments.find</column>
-            <column name="label">Sale Unit Of Segment Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.segment.assigments.find</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.area.assigments.form">
-            <column name="sequence">16</column>
-            <column name="name">ui.menu.models.sale.unit.area.assigments.form</column>
-            <column name="label">Sale Unit Of Area Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.area.assigments.form</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.area.assigments.list">
-            <column name="sequence">16</column>
-            <column name="name">ui.menu.models.sale.unit.area.assigments.list</column>
-            <column name="label">Sale Unit Of Area Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.area.assigments.list</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.area.assigments.m2mlist">
-            <column name="sequence">16</column>
-            <column name="name">ui.menu.models.sale.unit.area.assigments.m2mlist</column>
-            <column name="label">Sale Unit Of Area Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.area.assigments.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.unit.segment.assigments.search</column>
           </record>
           <record id="ui.menu.models.sale.unit.area.assigments.search">
             <column name="sequence">16</column>
             <column name="name">ui.menu.models.sale.unit.area.assigments.search</column>
             <column name="label">Sale Unit Of Area Assigment</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.area.assigments.search</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.area.assigments.find">
-            <column name="sequence">16</column>
-            <column name="name">ui.menu.models.sale.unit.area.assigments.find</column>
-            <column name="label">Sale Unit Of Area Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.area.assigments.find</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.region.assigments.form">
-            <column name="sequence">17</column>
-            <column name="name">ui.menu.models.sale.unit.region.assigments.form</column>
-            <column name="label">Sale Unit Of Region Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.region.assigments.form</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.region.assigments.list">
-            <column name="sequence">17</column>
-            <column name="name">ui.menu.models.sale.unit.region.assigments.list</column>
-            <column name="label">Sale Unit Of Region Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.region.assigments.list</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.region.assigments.m2mlist">
-            <column name="sequence">17</column>
-            <column name="name">ui.menu.models.sale.unit.region.assigments.m2mlist</column>
-            <column name="label">Sale Unit Of Region Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.region.assigments.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.unit.area.assigments.search</column>
           </record>
           <record id="ui.menu.models.sale.unit.region.assigments.search">
             <column name="sequence">17</column>
             <column name="name">ui.menu.models.sale.unit.region.assigments.search</column>
             <column name="label">Sale Unit Of Region Assigment</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.region.assigments.search</column>
-          </record>
-          <record id="ui.menu.models.sale.unit.region.assigments.find">
-            <column name="sequence">17</column>
-            <column name="name">ui.menu.models.sale.unit.region.assigments.find</column>
-            <column name="label">Sale Unit Of Region Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.unit.region.assigments.find</column>
-          </record>
-          <record id="ui.menu.models.sale.division.subdivision.assigments.form">
-            <column name="sequence">18</column>
-            <column name="name">ui.menu.models.sale.division.subdivision.assigments.form</column>
-            <column name="label">Sale Division Of Subdivision Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.division.subdivision.assigments.form</column>
-          </record>
-          <record id="ui.menu.models.sale.division.subdivision.assigments.list">
-            <column name="sequence">18</column>
-            <column name="name">ui.menu.models.sale.division.subdivision.assigments.list</column>
-            <column name="label">Sale Division Of Subdivision Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.division.subdivision.assigments.list</column>
-          </record>
-          <record id="ui.menu.models.sale.division.subdivision.assigments.m2mlist">
-            <column name="sequence">18</column>
-            <column name="name">ui.menu.models.sale.division.subdivision.assigments.m2mlist</column>
-            <column name="label">Sale Division Of Subdivision Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.division.subdivision.assigments.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.unit.region.assigments.search</column>
           </record>
           <record id="ui.menu.models.sale.division.subdivision.assigments.search">
             <column name="sequence">18</column>
             <column name="name">ui.menu.models.sale.division.subdivision.assigments.search</column>
             <column name="label">Sale Division Of Subdivision Assigment</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.division.subdivision.assigments.search</column>
-          </record>
-          <record id="ui.menu.models.sale.division.subdivision.assigments.find">
-            <column name="sequence">18</column>
-            <column name="name">ui.menu.models.sale.division.subdivision.assigments.find</column>
-            <column name="label">Sale Division Of Subdivision Assigment</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.division.subdivision.assigments.find</column>
-          </record>
-          <record id="ui.menu.models.sale.markets.form">
-            <column name="sequence">19</column>
-            <column name="name">ui.menu.models.sale.markets.form</column>
-            <column name="label">Sale Market</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.markets.form</column>
-          </record>
-          <record id="ui.menu.models.sale.markets.list">
-            <column name="sequence">19</column>
-            <column name="name">ui.menu.models.sale.markets.list</column>
-            <column name="label">Sale Market</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.markets.list</column>
-          </record>
-          <record id="ui.menu.models.sale.markets.m2mlist">
-            <column name="sequence">19</column>
-            <column name="name">ui.menu.models.sale.markets.m2mlist</column>
-            <column name="label">Sale Market</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.markets.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.division.subdivision.assigments.search</column>
           </record>
           <record id="ui.menu.models.sale.markets.search">
             <column name="sequence">19</column>
             <column name="name">ui.menu.models.sale.markets.search</column>
             <column name="label">Sale Market</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.markets.search</column>
-          </record>
-          <record id="ui.menu.models.sale.markets.find">
-            <column name="sequence">19</column>
-            <column name="name">ui.menu.models.sale.markets.find</column>
-            <column name="label">Sale Market</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.markets.find</column>
-          </record>
-          <record id="ui.menu.models.sale.teams.form">
-            <column name="sequence">20</column>
-            <column name="name">ui.menu.models.sale.teams.form</column>
-            <column name="label">Sale Teams</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.teams.form</column>
-          </record>
-          <record id="ui.menu.models.sale.teams.list">
-            <column name="sequence">20</column>
-            <column name="name">ui.menu.models.sale.teams.list</column>
-            <column name="label">Sale Teams</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.teams.list</column>
-          </record>
-          <record id="ui.menu.models.sale.teams.m2mlist">
-            <column name="sequence">20</column>
-            <column name="name">ui.menu.models.sale.teams.m2mlist</column>
-            <column name="label">Sale Teams</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.teams.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.markets.search</column>
           </record>
           <record id="ui.menu.models.sale.teams.search">
             <column name="sequence">20</column>
             <column name="name">ui.menu.models.sale.teams.search</column>
             <column name="label">Sale Teams</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.teams.search</column>
-          </record>
-          <record id="ui.menu.models.sale.teams.find">
-            <column name="sequence">20</column>
-            <column name="name">ui.menu.models.sale.teams.find</column>
-            <column name="label">Sale Teams</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.teams.find</column>
-          </record>
-          <record id="ui.menu.models.sale.pricing.group.levels.form">
-            <column name="sequence">21</column>
-            <column name="name">ui.menu.models.sale.pricing.group.levels.form</column>
-            <column name="label">Sale Pricing Group Levels</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.pricing.group.levels.form</column>
-          </record>
-          <record id="ui.menu.models.sale.pricing.group.levels.list">
-            <column name="sequence">21</column>
-            <column name="name">ui.menu.models.sale.pricing.group.levels.list</column>
-            <column name="label">Sale Pricing Group Levels</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.pricing.group.levels.list</column>
-          </record>
-          <record id="ui.menu.models.sale.pricing.group.levels.m2mlist">
-            <column name="sequence">21</column>
-            <column name="name">ui.menu.models.sale.pricing.group.levels.m2mlist</column>
-            <column name="label">Sale Pricing Group Levels</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.pricing.group.levels.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.teams.search</column>
           </record>
           <record id="ui.menu.models.sale.pricing.group.levels.search">
             <column name="sequence">21</column>
             <column name="name">ui.menu.models.sale.pricing.group.levels.search</column>
             <column name="label">Sale Pricing Group Levels</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.pricing.group.levels.search</column>
-          </record>
-          <record id="ui.menu.models.sale.pricing.group.levels.find">
-            <column name="sequence">21</column>
-            <column name="name">ui.menu.models.sale.pricing.group.levels.find</column>
-            <column name="label">Sale Pricing Group Levels</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.pricing.group.levels.find</column>
-          </record>
-          <record id="ui.menu.models.sale.texts.form">
-            <column name="sequence">22</column>
-            <column name="name">ui.menu.models.sale.texts.form</column>
-            <column name="label">Sale Texts</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.texts.form</column>
-          </record>
-          <record id="ui.menu.models.sale.texts.list">
-            <column name="sequence">22</column>
-            <column name="name">ui.menu.models.sale.texts.list</column>
-            <column name="label">Sale Texts</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.texts.list</column>
-          </record>
-          <record id="ui.menu.models.sale.texts.m2mlist">
-            <column name="sequence">22</column>
-            <column name="name">ui.menu.models.sale.texts.m2mlist</column>
-            <column name="label">Sale Texts</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.texts.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.pricing.group.levels.search</column>
           </record>
           <record id="ui.menu.models.sale.texts.search">
             <column name="sequence">22</column>
             <column name="name">ui.menu.models.sale.texts.search</column>
             <column name="label">Sale Texts</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.texts.search</column>
-          </record>
-          <record id="ui.menu.models.sale.texts.find">
-            <column name="sequence">22</column>
-            <column name="name">ui.menu.models.sale.texts.find</column>
-            <column name="label">Sale Texts</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.texts.find</column>
-          </record>
-          <record id="ui.menu.models.sale.schema.texts.form">
-            <column name="sequence">23</column>
-            <column name="name">ui.menu.models.sale.schema.texts.form</column>
-            <column name="label">Schema Of Sale Texts</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.schema.texts.form</column>
-          </record>
-          <record id="ui.menu.models.sale.schema.texts.list">
-            <column name="sequence">23</column>
-            <column name="name">ui.menu.models.sale.schema.texts.list</column>
-            <column name="label">Schema Of Sale Texts</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.schema.texts.list</column>
-          </record>
-          <record id="ui.menu.models.sale.schema.texts.m2mlist">
-            <column name="sequence">23</column>
-            <column name="name">ui.menu.models.sale.schema.texts.m2mlist</column>
-            <column name="label">Schema Of Sale Texts</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.schema.texts.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.texts.search</column>
           </record>
           <record id="ui.menu.models.sale.schema.texts.search">
             <column name="sequence">23</column>
             <column name="name">ui.menu.models.sale.schema.texts.search</column>
             <column name="label">Schema Of Sale Texts</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.schema.texts.search</column>
-          </record>
-          <record id="ui.menu.models.sale.schema.texts.find">
-            <column name="sequence">23</column>
-            <column name="name">ui.menu.models.sale.schema.texts.find</column>
-            <column name="label">Schema Of Sale Texts</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.schema.texts.find</column>
-          </record>
-          <record id="ui.menu.models.sale.order.types.form">
-            <column name="sequence">24</column>
-            <column name="name">ui.menu.models.sale.order.types.form</column>
-            <column name="label">Types Sale Order</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.order.types.form</column>
-          </record>
-          <record id="ui.menu.models.sale.order.types.list">
-            <column name="sequence">24</column>
-            <column name="name">ui.menu.models.sale.order.types.list</column>
-            <column name="label">Types Sale Order</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.order.types.list</column>
-          </record>
-          <record id="ui.menu.models.sale.order.types.m2mlist">
-            <column name="sequence">24</column>
-            <column name="name">ui.menu.models.sale.order.types.m2mlist</column>
-            <column name="label">Types Sale Order</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.order.types.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.schema.texts.search</column>
           </record>
           <record id="ui.menu.models.sale.order.types.search">
             <column name="sequence">24</column>
             <column name="name">ui.menu.models.sale.order.types.search</column>
             <column name="label">Types Sale Order</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.order.types.search</column>
-          </record>
-          <record id="ui.menu.models.sale.order.types.find">
-            <column name="sequence">24</column>
-            <column name="name">ui.menu.models.sale.order.types.find</column>
-            <column name="label">Types Sale Order</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.order.types.find</column>
-          </record>
-          <record id="ui.menu.models.sale.invoice.types.form">
-            <column name="sequence">25</column>
-            <column name="name">ui.menu.models.sale.invoice.types.form</column>
-            <column name="label">Types Sale Invoice</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoice.types.form</column>
-          </record>
-          <record id="ui.menu.models.sale.invoice.types.list">
-            <column name="sequence">25</column>
-            <column name="name">ui.menu.models.sale.invoice.types.list</column>
-            <column name="label">Types Sale Invoice</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoice.types.list</column>
-          </record>
-          <record id="ui.menu.models.sale.invoice.types.m2mlist">
-            <column name="sequence">25</column>
-            <column name="name">ui.menu.models.sale.invoice.types.m2mlist</column>
-            <column name="label">Types Sale Invoice</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoice.types.m2mlist</column>
+            <column name="action_id">action.sale.models.sale.order.types.search</column>
           </record>
           <record id="ui.menu.models.sale.invoice.types.search">
             <column name="sequence">25</column>
             <column name="name">ui.menu.models.sale.invoice.types.search</column>
             <column name="label">Types Sale Invoice</column>
             <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoice.types.search</column>
-          </record>
-          <record id="ui.menu.models.sale.invoice.types.find">
-            <column name="sequence">25</column>
-            <column name="name">ui.menu.models.sale.invoice.types.find</column>
-            <column name="label">Types Sale Invoice</column>
-            <column name="parent_id">ui.menu.customize.sale.models</column>
-          <column name="action_id">action.sale.models.sale.invoice.types.find</column>
+            <column name="action_id">action.sale.models.sale.invoice.types.search</column>
           </record>
       </records>
     </data>

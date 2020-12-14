@@ -161,6 +161,36 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.cm.models.cm.cost.center.category.search">
+          <column name="action_id">action.cm.models.cm.cost.center.category.search</column>
+          <column name="view_id">view.cm.models.cm.cost.center.category.search</column>
+        </record>
+        <record id="view.action.cm.models.cm.cost.order.category.search">
+          <column name="action_id">action.cm.models.cm.cost.order.category.search</column>
+          <column name="view_id">view.cm.models.cm.cost.order.category.search</column>
+        </record>
+        <record id="view.action.cm.models.cm.cost.collector.category.search">
+          <column name="action_id">action.cm.models.cm.cost.collector.category.search</column>
+          <column name="view_id">view.cm.models.cm.cost.collector.category.search</column>
+        </record>
+        <record id="view.action.cm.models.cm.cost.center.search">
+          <column name="action_id">action.cm.models.cm.cost.center.search</column>
+          <column name="view_id">view.cm.models.cm.cost.center.search</column>
+        </record>
+        <record id="view.action.cm.models.cm.cost.order.search">
+          <column name="action_id">action.cm.models.cm.cost.order.search</column>
+          <column name="view_id">view.cm.models.cm.cost.order.search</column>
+        </record>
+        <record id="view.action.cm.models.cm.cost.collector.search">
+          <column name="action_id">action.cm.models.cm.cost.collector.search</column>
+          <column name="view_id">view.cm.models.cm.cost.collector.search</column>
+        </record>
+        <record id="view.action.cm.models.cm.corporations.search">
+          <column name="action_id">action.cm.models.cm.corporations.search</column>
+          <column name="view_id">view.cm.models.cm.corporations.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.module.cm.models">
           <column name="name">ui.menu.module.cm.models</column>
@@ -169,271 +199,54 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.cm.cost.center.category.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.cm.cost.center.category.form</column>
-            <column name="label">Cost Center Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.center.category.form</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.center.category.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.cm.cost.center.category.list</column>
-            <column name="label">Cost Center Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.center.category.list</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.center.category.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.cm.cost.center.category.m2mlist</column>
-            <column name="label">Cost Center Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.center.category.m2mlist</column>
-          </record>
           <record id="ui.menu.models.cm.cost.center.category.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.cm.cost.center.category.search</column>
             <column name="label">Cost Center Category</column>
             <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.center.category.search</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.center.category.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.cm.cost.center.category.find</column>
-            <column name="label">Cost Center Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.center.category.find</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.center.category.tree">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.cm.cost.center.category.tree</column>
-            <column name="label">Cost Center Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.center.category.tree</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.order.category.form">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.cm.cost.order.category.form</column>
-            <column name="label">Cost Order Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.order.category.form</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.order.category.list">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.cm.cost.order.category.list</column>
-            <column name="label">Cost Order Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.order.category.list</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.order.category.m2mlist">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.cm.cost.order.category.m2mlist</column>
-            <column name="label">Cost Order Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.order.category.m2mlist</column>
+            <column name="action_id">action.cm.models.cm.cost.center.category.search</column>
           </record>
           <record id="ui.menu.models.cm.cost.order.category.search">
             <column name="sequence">1</column>
             <column name="name">ui.menu.models.cm.cost.order.category.search</column>
             <column name="label">Cost Order Category</column>
             <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.order.category.search</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.order.category.find">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.cm.cost.order.category.find</column>
-            <column name="label">Cost Order Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.order.category.find</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.order.category.tree">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.cm.cost.order.category.tree</column>
-            <column name="label">Cost Order Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.order.category.tree</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.collector.category.form">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.cm.cost.collector.category.form</column>
-            <column name="label">Cost Collector Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.collector.category.form</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.collector.category.list">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.cm.cost.collector.category.list</column>
-            <column name="label">Cost Collector Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.collector.category.list</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.collector.category.m2mlist">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.cm.cost.collector.category.m2mlist</column>
-            <column name="label">Cost Collector Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.collector.category.m2mlist</column>
+            <column name="action_id">action.cm.models.cm.cost.order.category.search</column>
           </record>
           <record id="ui.menu.models.cm.cost.collector.category.search">
             <column name="sequence">2</column>
             <column name="name">ui.menu.models.cm.cost.collector.category.search</column>
             <column name="label">Cost Collector Category</column>
             <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.collector.category.search</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.collector.category.find">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.cm.cost.collector.category.find</column>
-            <column name="label">Cost Collector Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.collector.category.find</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.collector.category.tree">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.cm.cost.collector.category.tree</column>
-            <column name="label">Cost Collector Category</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.collector.category.tree</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.center.form">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.cm.cost.center.form</column>
-            <column name="label">Cost Center</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.center.form</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.center.list">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.cm.cost.center.list</column>
-            <column name="label">Cost Center</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.center.list</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.center.m2mlist">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.cm.cost.center.m2mlist</column>
-            <column name="label">Cost Center</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.center.m2mlist</column>
+            <column name="action_id">action.cm.models.cm.cost.collector.category.search</column>
           </record>
           <record id="ui.menu.models.cm.cost.center.search">
             <column name="sequence">3</column>
             <column name="name">ui.menu.models.cm.cost.center.search</column>
             <column name="label">Cost Center</column>
             <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.center.search</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.center.find">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.cm.cost.center.find</column>
-            <column name="label">Cost Center</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.center.find</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.order.form">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.cm.cost.order.form</column>
-            <column name="label">Cost Order</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.order.form</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.order.list">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.cm.cost.order.list</column>
-            <column name="label">Cost Order</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.order.list</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.order.m2mlist">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.cm.cost.order.m2mlist</column>
-            <column name="label">Cost Order</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.order.m2mlist</column>
+            <column name="action_id">action.cm.models.cm.cost.center.search</column>
           </record>
           <record id="ui.menu.models.cm.cost.order.search">
             <column name="sequence">4</column>
             <column name="name">ui.menu.models.cm.cost.order.search</column>
             <column name="label">Cost Order</column>
             <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.order.search</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.order.find">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.cm.cost.order.find</column>
-            <column name="label">Cost Order</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.order.find</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.collector.form">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.cm.cost.collector.form</column>
-            <column name="label">Cost Collector</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.collector.form</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.collector.list">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.cm.cost.collector.list</column>
-            <column name="label">Cost Collector</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.collector.list</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.collector.m2mlist">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.cm.cost.collector.m2mlist</column>
-            <column name="label">Cost Collector</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.collector.m2mlist</column>
+            <column name="action_id">action.cm.models.cm.cost.order.search</column>
           </record>
           <record id="ui.menu.models.cm.cost.collector.search">
             <column name="sequence">5</column>
             <column name="name">ui.menu.models.cm.cost.collector.search</column>
             <column name="label">Cost Collector</column>
             <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.collector.search</column>
-          </record>
-          <record id="ui.menu.models.cm.cost.collector.find">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.cm.cost.collector.find</column>
-            <column name="label">Cost Collector</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.cost.collector.find</column>
-          </record>
-          <record id="ui.menu.models.cm.corporations.form">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.cm.corporations.form</column>
-            <column name="label">Corporations</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.corporations.form</column>
-          </record>
-          <record id="ui.menu.models.cm.corporations.list">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.cm.corporations.list</column>
-            <column name="label">Corporations</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.corporations.list</column>
-          </record>
-          <record id="ui.menu.models.cm.corporations.m2mlist">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.cm.corporations.m2mlist</column>
-            <column name="label">Corporations</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.corporations.m2mlist</column>
+            <column name="action_id">action.cm.models.cm.cost.collector.search</column>
           </record>
           <record id="ui.menu.models.cm.corporations.search">
             <column name="sequence">6</column>
             <column name="name">ui.menu.models.cm.corporations.search</column>
             <column name="label">Corporations</column>
             <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.corporations.search</column>
-          </record>
-          <record id="ui.menu.models.cm.corporations.find">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.cm.corporations.find</column>
-            <column name="label">Corporations</column>
-            <column name="parent_id">ui.menu.module.cm.models</column>
-          <column name="action_id">action.cm.models.cm.corporations.find</column>
+            <column name="action_id">action.cm.models.cm.corporations.search</column>
           </record>
       </records>
     </data>

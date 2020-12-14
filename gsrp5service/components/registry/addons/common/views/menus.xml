@@ -29,6 +29,12 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.common.models.seq.access.schemas.search">
+          <column name="action_id">action.common.models.seq.access.schemas.search</column>
+          <column name="view_id">view.common.models.seq.access.schemas.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.module.common.models">
           <column name="name">ui.menu.module.common.models</column>
@@ -37,46 +43,19 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.seq.access.schemas.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.seq.access.schemas.form</column>
-            <column name="label">Sequence Access Schema</column>
-            <column name="parent_id">ui.menu.module.common.models</column>
-          <column name="action_id">action.common.models.seq.access.schemas.form</column>
-          </record>
-          <record id="ui.menu.models.seq.access.schemas.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.seq.access.schemas.list</column>
-            <column name="label">Sequence Access Schema</column>
-            <column name="parent_id">ui.menu.module.common.models</column>
-          <column name="action_id">action.common.models.seq.access.schemas.list</column>
-          </record>
-          <record id="ui.menu.models.seq.access.schemas.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.seq.access.schemas.m2mlist</column>
-            <column name="label">Sequence Access Schema</column>
-            <column name="parent_id">ui.menu.module.common.models</column>
-          <column name="action_id">action.common.models.seq.access.schemas.m2mlist</column>
-          </record>
           <record id="ui.menu.models.seq.access.schemas.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.seq.access.schemas.search</column>
             <column name="label">Sequence Access Schema</column>
             <column name="parent_id">ui.menu.module.common.models</column>
-          <column name="action_id">action.common.models.seq.access.schemas.search</column>
-          </record>
-          <record id="ui.menu.models.seq.access.schemas.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.seq.access.schemas.find</column>
-            <column name="label">Sequence Access Schema</column>
-            <column name="parent_id">ui.menu.module.common.models</column>
-          <column name="action_id">action.common.models.seq.access.schemas.find</column>
+            <column name="action_id">action.common.models.seq.access.schemas.search</column>
           </record>
       </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.customize.common">
           <column name="name">ui.menu.customize.common</column>
           <column name="label">Common properties &amp; methods</column>
+        <column name="parent_id">ui.menu.customize</column>
         </record>
       </records>
       <records model="bc.actions">
@@ -161,153 +140,59 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.common.models.seq.areas.search">
+          <column name="action_id">action.common.models.seq.areas.search</column>
+          <column name="view_id">view.common.models.seq.areas.search</column>
+        </record>
+        <record id="view.action.common.models.seq.segments.search">
+          <column name="action_id">action.common.models.seq.segments.search</column>
+          <column name="view_id">view.common.models.seq.segments.search</column>
+        </record>
+        <record id="view.action.common.models.seq.access.search">
+          <column name="action_id">action.common.models.seq.access.search</column>
+          <column name="view_id">view.common.models.seq.access.search</column>
+        </record>
+        <record id="view.action.common.models.seq.conditions.search">
+          <column name="action_id">action.common.models.seq.conditions.search</column>
+          <column name="view_id">view.common.models.seq.conditions.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.customize.common.models">
           <column name="name">ui.menu.customize.common.models</column>
           <column name="label">Models</column>
-        <column name="parent_id">ui.menu.customize</column>
+        <column name="parent_id">ui.menu.customize.common</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.seq.areas.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.seq.areas.form</column>
-            <column name="label">Sequense Area</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.areas.form</column>
-          </record>
-          <record id="ui.menu.models.seq.areas.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.seq.areas.list</column>
-            <column name="label">Sequense Area</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.areas.list</column>
-          </record>
-          <record id="ui.menu.models.seq.areas.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.seq.areas.m2mlist</column>
-            <column name="label">Sequense Area</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.areas.m2mlist</column>
-          </record>
           <record id="ui.menu.models.seq.areas.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.seq.areas.search</column>
             <column name="label">Sequense Area</column>
             <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.areas.search</column>
-          </record>
-          <record id="ui.menu.models.seq.areas.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.seq.areas.find</column>
-            <column name="label">Sequense Area</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.areas.find</column>
-          </record>
-          <record id="ui.menu.models.seq.segments.form">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.seq.segments.form</column>
-            <column name="label">Sequense Segment</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.segments.form</column>
-          </record>
-          <record id="ui.menu.models.seq.segments.list">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.seq.segments.list</column>
-            <column name="label">Sequense Segment</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.segments.list</column>
-          </record>
-          <record id="ui.menu.models.seq.segments.m2mlist">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.seq.segments.m2mlist</column>
-            <column name="label">Sequense Segment</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.segments.m2mlist</column>
+            <column name="action_id">action.common.models.seq.areas.search</column>
           </record>
           <record id="ui.menu.models.seq.segments.search">
             <column name="sequence">1</column>
             <column name="name">ui.menu.models.seq.segments.search</column>
             <column name="label">Sequense Segment</column>
             <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.segments.search</column>
-          </record>
-          <record id="ui.menu.models.seq.segments.find">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.seq.segments.find</column>
-            <column name="label">Sequense Segment</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.segments.find</column>
-          </record>
-          <record id="ui.menu.models.seq.access.form">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.seq.access.form</column>
-            <column name="label">Sequence Access</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.access.form</column>
-          </record>
-          <record id="ui.menu.models.seq.access.list">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.seq.access.list</column>
-            <column name="label">Sequence Access</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.access.list</column>
-          </record>
-          <record id="ui.menu.models.seq.access.m2mlist">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.seq.access.m2mlist</column>
-            <column name="label">Sequence Access</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.access.m2mlist</column>
+            <column name="action_id">action.common.models.seq.segments.search</column>
           </record>
           <record id="ui.menu.models.seq.access.search">
             <column name="sequence">2</column>
             <column name="name">ui.menu.models.seq.access.search</column>
             <column name="label">Sequence Access</column>
             <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.access.search</column>
-          </record>
-          <record id="ui.menu.models.seq.access.find">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.seq.access.find</column>
-            <column name="label">Sequence Access</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.access.find</column>
-          </record>
-          <record id="ui.menu.models.seq.conditions.form">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.seq.conditions.form</column>
-            <column name="label">Sequence Condition</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.conditions.form</column>
-          </record>
-          <record id="ui.menu.models.seq.conditions.list">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.seq.conditions.list</column>
-            <column name="label">Sequence Condition</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.conditions.list</column>
-          </record>
-          <record id="ui.menu.models.seq.conditions.m2mlist">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.seq.conditions.m2mlist</column>
-            <column name="label">Sequence Condition</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.conditions.m2mlist</column>
+            <column name="action_id">action.common.models.seq.access.search</column>
           </record>
           <record id="ui.menu.models.seq.conditions.search">
             <column name="sequence">3</column>
             <column name="name">ui.menu.models.seq.conditions.search</column>
             <column name="label">Sequence Condition</column>
             <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.conditions.search</column>
-          </record>
-          <record id="ui.menu.models.seq.conditions.find">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.seq.conditions.find</column>
-            <column name="label">Sequence Condition</column>
-            <column name="parent_id">ui.menu.customize.common.models</column>
-          <column name="action_id">action.common.models.seq.conditions.find</column>
+            <column name="action_id">action.common.models.seq.conditions.search</column>
           </record>
       </records>
     </data>

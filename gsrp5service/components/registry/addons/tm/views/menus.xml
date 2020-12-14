@@ -265,6 +265,48 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.tm.models.tm.locations.search">
+          <column name="action_id">action.tm.models.tm.locations.search</column>
+          <column name="view_id">view.tm.models.tm.locations.search</column>
+        </record>
+        <record id="view.action.tm.models.tm.maps.search">
+          <column name="action_id">action.tm.models.tm.maps.search</column>
+          <column name="view_id">view.tm.models.tm.maps.search</column>
+        </record>
+        <record id="view.action.tm.models.tm.handlings.search">
+          <column name="action_id">action.tm.models.tm.handlings.search</column>
+          <column name="view_id">view.tm.models.tm.handlings.search</column>
+        </record>
+        <record id="view.action.tm.models.tm.category.node.search">
+          <column name="action_id">action.tm.models.tm.category.node.search</column>
+          <column name="view_id">view.tm.models.tm.category.node.search</column>
+        </record>
+        <record id="view.action.tm.models.tm.nodes.search">
+          <column name="action_id">action.tm.models.tm.nodes.search</column>
+          <column name="view_id">view.tm.models.tm.nodes.search</column>
+        </record>
+        <record id="view.action.tm.models.tm.node.items.search">
+          <column name="action_id">action.tm.models.tm.node.items.search</column>
+          <column name="view_id">view.tm.models.tm.node.items.search</column>
+        </record>
+        <record id="view.action.tm.models.tm.category.equipment.search">
+          <column name="action_id">action.tm.models.tm.category.equipment.search</column>
+          <column name="view_id">view.tm.models.tm.category.equipment.search</column>
+        </record>
+        <record id="view.action.tm.models.tm.template.equipment.search">
+          <column name="action_id">action.tm.models.tm.template.equipment.search</column>
+          <column name="view_id">view.tm.models.tm.template.equipment.search</column>
+        </record>
+        <record id="view.action.tm.models.tm.unit.equipments.search">
+          <column name="action_id">action.tm.models.tm.unit.equipments.search</column>
+          <column name="view_id">view.tm.models.tm.unit.equipments.search</column>
+        </record>
+        <record id="view.action.tm.models.tm.orders.search">
+          <column name="action_id">action.tm.models.tm.orders.search</column>
+          <column name="view_id">view.tm.models.tm.orders.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.module.tm.models">
           <column name="name">ui.menu.module.tm.models</column>
@@ -273,453 +315,75 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.tm.locations.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.tm.locations.form</column>
-            <column name="label">Locations</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.locations.form</column>
-          </record>
-          <record id="ui.menu.models.tm.locations.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.tm.locations.list</column>
-            <column name="label">Locations</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.locations.list</column>
-          </record>
-          <record id="ui.menu.models.tm.locations.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.tm.locations.m2mlist</column>
-            <column name="label">Locations</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.locations.m2mlist</column>
-          </record>
           <record id="ui.menu.models.tm.locations.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.tm.locations.search</column>
             <column name="label">Locations</column>
             <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.locations.search</column>
-          </record>
-          <record id="ui.menu.models.tm.locations.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.tm.locations.find</column>
-            <column name="label">Locations</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.locations.find</column>
-          </record>
-          <record id="ui.menu.models.tm.locations.tree">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.tm.locations.tree</column>
-            <column name="label">Locations</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.locations.tree</column>
-          </record>
-          <record id="ui.menu.models.tm.maps.form">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.tm.maps.form</column>
-            <column name="label">Maps</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.maps.form</column>
-          </record>
-          <record id="ui.menu.models.tm.maps.kanban">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.tm.maps.kanban</column>
-            <column name="label">Maps</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.maps.kanban</column>
-          </record>
-          <record id="ui.menu.models.tm.maps.list">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.tm.maps.list</column>
-            <column name="label">Maps</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.maps.list</column>
-          </record>
-          <record id="ui.menu.models.tm.maps.m2mlist">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.tm.maps.m2mlist</column>
-            <column name="label">Maps</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.maps.m2mlist</column>
+            <column name="action_id">action.tm.models.tm.locations.search</column>
           </record>
           <record id="ui.menu.models.tm.maps.search">
             <column name="sequence">1</column>
             <column name="name">ui.menu.models.tm.maps.search</column>
             <column name="label">Maps</column>
             <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.maps.search</column>
-          </record>
-          <record id="ui.menu.models.tm.maps.find">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.tm.maps.find</column>
-            <column name="label">Maps</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.maps.find</column>
-          </record>
-          <record id="ui.menu.models.tm.handlings.form">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.tm.handlings.form</column>
-            <column name="label">Handlings</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.handlings.form</column>
-          </record>
-          <record id="ui.menu.models.tm.handlings.kanban">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.tm.handlings.kanban</column>
-            <column name="label">Handlings</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.handlings.kanban</column>
-          </record>
-          <record id="ui.menu.models.tm.handlings.list">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.tm.handlings.list</column>
-            <column name="label">Handlings</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.handlings.list</column>
-          </record>
-          <record id="ui.menu.models.tm.handlings.m2mlist">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.tm.handlings.m2mlist</column>
-            <column name="label">Handlings</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.handlings.m2mlist</column>
+            <column name="action_id">action.tm.models.tm.maps.search</column>
           </record>
           <record id="ui.menu.models.tm.handlings.search">
             <column name="sequence">2</column>
             <column name="name">ui.menu.models.tm.handlings.search</column>
             <column name="label">Handlings</column>
             <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.handlings.search</column>
-          </record>
-          <record id="ui.menu.models.tm.handlings.find">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.tm.handlings.find</column>
-            <column name="label">Handlings</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.handlings.find</column>
-          </record>
-          <record id="ui.menu.models.tm.category.node.form">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.tm.category.node.form</column>
-            <column name="label">Category Node</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.category.node.form</column>
-          </record>
-          <record id="ui.menu.models.tm.category.node.list">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.tm.category.node.list</column>
-            <column name="label">Category Node</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.category.node.list</column>
-          </record>
-          <record id="ui.menu.models.tm.category.node.m2mlist">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.tm.category.node.m2mlist</column>
-            <column name="label">Category Node</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.category.node.m2mlist</column>
+            <column name="action_id">action.tm.models.tm.handlings.search</column>
           </record>
           <record id="ui.menu.models.tm.category.node.search">
             <column name="sequence">3</column>
             <column name="name">ui.menu.models.tm.category.node.search</column>
             <column name="label">Category Node</column>
             <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.category.node.search</column>
-          </record>
-          <record id="ui.menu.models.tm.category.node.find">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.tm.category.node.find</column>
-            <column name="label">Category Node</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.category.node.find</column>
-          </record>
-          <record id="ui.menu.models.tm.category.node.tree">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.tm.category.node.tree</column>
-            <column name="label">Category Node</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.category.node.tree</column>
-          </record>
-          <record id="ui.menu.models.tm.nodes.form">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.tm.nodes.form</column>
-            <column name="label">Nodes</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.nodes.form</column>
-          </record>
-          <record id="ui.menu.models.tm.nodes.list">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.tm.nodes.list</column>
-            <column name="label">Nodes</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.nodes.list</column>
-          </record>
-          <record id="ui.menu.models.tm.nodes.m2mlist">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.tm.nodes.m2mlist</column>
-            <column name="label">Nodes</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.nodes.m2mlist</column>
+            <column name="action_id">action.tm.models.tm.category.node.search</column>
           </record>
           <record id="ui.menu.models.tm.nodes.search">
             <column name="sequence">4</column>
             <column name="name">ui.menu.models.tm.nodes.search</column>
             <column name="label">Nodes</column>
             <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.nodes.search</column>
-          </record>
-          <record id="ui.menu.models.tm.nodes.find">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.tm.nodes.find</column>
-            <column name="label">Nodes</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.nodes.find</column>
-          </record>
-          <record id="ui.menu.models.tm.nodes.tree">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.tm.nodes.tree</column>
-            <column name="label">Nodes</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.nodes.tree</column>
-          </record>
-          <record id="ui.menu.models.tm.node.items.form">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.tm.node.items.form</column>
-            <column name="label">Node Items</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.node.items.form</column>
-          </record>
-          <record id="ui.menu.models.tm.node.items.list">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.tm.node.items.list</column>
-            <column name="label">Node Items</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.node.items.list</column>
-          </record>
-          <record id="ui.menu.models.tm.node.items.m2mlist">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.tm.node.items.m2mlist</column>
-            <column name="label">Node Items</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.node.items.m2mlist</column>
+            <column name="action_id">action.tm.models.tm.nodes.search</column>
           </record>
           <record id="ui.menu.models.tm.node.items.search">
             <column name="sequence">5</column>
             <column name="name">ui.menu.models.tm.node.items.search</column>
             <column name="label">Node Items</column>
             <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.node.items.search</column>
-          </record>
-          <record id="ui.menu.models.tm.node.items.find">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.tm.node.items.find</column>
-            <column name="label">Node Items</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.node.items.find</column>
-          </record>
-          <record id="ui.menu.models.tm.node.items.tree">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.tm.node.items.tree</column>
-            <column name="label">Node Items</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.node.items.tree</column>
-          </record>
-          <record id="ui.menu.models.tm.category.equipment.form">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.tm.category.equipment.form</column>
-            <column name="label">Category Equipment</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.category.equipment.form</column>
-          </record>
-          <record id="ui.menu.models.tm.category.equipment.list">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.tm.category.equipment.list</column>
-            <column name="label">Category Equipment</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.category.equipment.list</column>
-          </record>
-          <record id="ui.menu.models.tm.category.equipment.m2mlist">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.tm.category.equipment.m2mlist</column>
-            <column name="label">Category Equipment</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.category.equipment.m2mlist</column>
+            <column name="action_id">action.tm.models.tm.node.items.search</column>
           </record>
           <record id="ui.menu.models.tm.category.equipment.search">
             <column name="sequence">6</column>
             <column name="name">ui.menu.models.tm.category.equipment.search</column>
             <column name="label">Category Equipment</column>
             <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.category.equipment.search</column>
-          </record>
-          <record id="ui.menu.models.tm.category.equipment.find">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.tm.category.equipment.find</column>
-            <column name="label">Category Equipment</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.category.equipment.find</column>
-          </record>
-          <record id="ui.menu.models.tm.category.equipment.tree">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.tm.category.equipment.tree</column>
-            <column name="label">Category Equipment</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.category.equipment.tree</column>
-          </record>
-          <record id="ui.menu.models.tm.template.equipment.form">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.tm.template.equipment.form</column>
-            <column name="label">Template Equipment</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.template.equipment.form</column>
-          </record>
-          <record id="ui.menu.models.tm.template.equipment.kanban">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.tm.template.equipment.kanban</column>
-            <column name="label">Template Equipment</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.template.equipment.kanban</column>
-          </record>
-          <record id="ui.menu.models.tm.template.equipment.list">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.tm.template.equipment.list</column>
-            <column name="label">Template Equipment</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.template.equipment.list</column>
-          </record>
-          <record id="ui.menu.models.tm.template.equipment.m2mlist">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.tm.template.equipment.m2mlist</column>
-            <column name="label">Template Equipment</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.template.equipment.m2mlist</column>
+            <column name="action_id">action.tm.models.tm.category.equipment.search</column>
           </record>
           <record id="ui.menu.models.tm.template.equipment.search">
             <column name="sequence">7</column>
             <column name="name">ui.menu.models.tm.template.equipment.search</column>
             <column name="label">Template Equipment</column>
             <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.template.equipment.search</column>
-          </record>
-          <record id="ui.menu.models.tm.template.equipment.find">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.tm.template.equipment.find</column>
-            <column name="label">Template Equipment</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.template.equipment.find</column>
-          </record>
-          <record id="ui.menu.models.tm.unit.equipments.form">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.tm.unit.equipments.form</column>
-            <column name="label">Unit Equipments</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.unit.equipments.form</column>
-          </record>
-          <record id="ui.menu.models.tm.unit.equipments.kanban">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.tm.unit.equipments.kanban</column>
-            <column name="label">Unit Equipments</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.unit.equipments.kanban</column>
-          </record>
-          <record id="ui.menu.models.tm.unit.equipments.list">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.tm.unit.equipments.list</column>
-            <column name="label">Unit Equipments</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.unit.equipments.list</column>
-          </record>
-          <record id="ui.menu.models.tm.unit.equipments.m2mlist">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.tm.unit.equipments.m2mlist</column>
-            <column name="label">Unit Equipments</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.unit.equipments.m2mlist</column>
+            <column name="action_id">action.tm.models.tm.template.equipment.search</column>
           </record>
           <record id="ui.menu.models.tm.unit.equipments.search">
             <column name="sequence">8</column>
             <column name="name">ui.menu.models.tm.unit.equipments.search</column>
             <column name="label">Unit Equipments</column>
             <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.unit.equipments.search</column>
-          </record>
-          <record id="ui.menu.models.tm.unit.equipments.find">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.tm.unit.equipments.find</column>
-            <column name="label">Unit Equipments</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.unit.equipments.find</column>
-          </record>
-          <record id="ui.menu.models.tm.orders.calendar">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.tm.orders.calendar</column>
-            <column name="label">Order</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.orders.calendar</column>
-          </record>
-          <record id="ui.menu.models.tm.orders.schedule">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.tm.orders.schedule</column>
-            <column name="label">Order</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.orders.schedule</column>
-          </record>
-          <record id="ui.menu.models.tm.orders.form">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.tm.orders.form</column>
-            <column name="label">Order</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.orders.form</column>
-          </record>
-          <record id="ui.menu.models.tm.orders.graph">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.tm.orders.graph</column>
-            <column name="label">Order</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.orders.graph</column>
-          </record>
-          <record id="ui.menu.models.tm.orders.kanban">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.tm.orders.kanban</column>
-            <column name="label">Order</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.orders.kanban</column>
-          </record>
-          <record id="ui.menu.models.tm.orders.list">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.tm.orders.list</column>
-            <column name="label">Order</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.orders.list</column>
-          </record>
-          <record id="ui.menu.models.tm.orders.m2mlist">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.tm.orders.m2mlist</column>
-            <column name="label">Order</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.orders.m2mlist</column>
-          </record>
-          <record id="ui.menu.models.tm.orders.mdx">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.tm.orders.mdx</column>
-            <column name="label">Order</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.orders.mdx</column>
+            <column name="action_id">action.tm.models.tm.unit.equipments.search</column>
           </record>
           <record id="ui.menu.models.tm.orders.search">
             <column name="sequence">9</column>
             <column name="name">ui.menu.models.tm.orders.search</column>
             <column name="label">Order</column>
             <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.orders.search</column>
-          </record>
-          <record id="ui.menu.models.tm.orders.find">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.tm.orders.find</column>
-            <column name="label">Order</column>
-            <column name="parent_id">ui.menu.module.tm.models</column>
-          <column name="action_id">action.tm.models.tm.orders.find</column>
+            <column name="action_id">action.tm.models.tm.orders.search</column>
           </record>
       </records>
     </data>

@@ -5,6 +5,8 @@ from io import BytesIO
 from .common import concat
 from gsrp5service.orm.model import Model,ModelInherit
 
+import web_pdb
+
 b = BytesIO()
 TAB = '  '
 
@@ -364,7 +366,7 @@ def iRecordView(level,module,model,modelinfo,columns,view,registry):
 			continue
 		nm = concat(['view',module,'models',model._name,view,'inherit',key])
 		b.write((indent + '<record id="%s">\n' % (nm,)).encode('utf-8'))
-		nm1 = concat(['view',module,'models',model._name,view])
+		nm1 = concat(['view',registry._getFirstModuleObject('models',key),'models',key,view])
 		b.write((indent + TAB + '<column name="view_id">%s</column>\n' % (nm1,)).encode('utf-8'))
 		b.write((indent + TAB + '<column name="name">%s</column>\n' % (nm ,)).encode('utf-8'))
 
@@ -442,6 +444,7 @@ def Area(self, modules = None,context={}):
 			b.write('<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n'.encode('utf-8'))
 			b.write((TAB+'<gsrp>\n').encode('utf-8'))
 			b.write((TAB * 2 + '<data>\n').encode('utf-8'))
+			#web_pdb.set_trace()
 			for cat in objs.keys():
 				if cat == 'models':
 					if len(objs) > 0:

@@ -129,6 +129,20 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.mm.models.mm.production.orders.search">
+          <column name="action_id">action.mm.models.mm.production.orders.search</column>
+          <column name="view_id">view.mm.models.mm.production.orders.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.technologic.orders.search">
+          <column name="action_id">action.mm.models.mm.technologic.orders.search</column>
+          <column name="view_id">view.mm.models.mm.technologic.orders.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.disassembly.orders.search">
+          <column name="action_id">action.mm.models.mm.disassembly.orders.search</column>
+          <column name="view_id">view.mm.models.mm.disassembly.orders.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.module.mm.models">
           <column name="name">ui.menu.module.mm.models</column>
@@ -137,221 +151,33 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.mm.production.orders.calendar">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.production.orders.calendar</column>
-            <column name="label">Production Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.orders.calendar</column>
-          </record>
-          <record id="ui.menu.models.mm.production.orders.schedule">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.production.orders.schedule</column>
-            <column name="label">Production Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.orders.schedule</column>
-          </record>
-          <record id="ui.menu.models.mm.production.orders.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.production.orders.form</column>
-            <column name="label">Production Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.orders.form</column>
-          </record>
-          <record id="ui.menu.models.mm.production.orders.graph">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.production.orders.graph</column>
-            <column name="label">Production Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.orders.graph</column>
-          </record>
-          <record id="ui.menu.models.mm.production.orders.kanban">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.production.orders.kanban</column>
-            <column name="label">Production Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.orders.kanban</column>
-          </record>
-          <record id="ui.menu.models.mm.production.orders.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.production.orders.list</column>
-            <column name="label">Production Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.orders.list</column>
-          </record>
-          <record id="ui.menu.models.mm.production.orders.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.production.orders.m2mlist</column>
-            <column name="label">Production Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.orders.m2mlist</column>
-          </record>
-          <record id="ui.menu.models.mm.production.orders.mdx">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.production.orders.mdx</column>
-            <column name="label">Production Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.orders.mdx</column>
-          </record>
           <record id="ui.menu.models.mm.production.orders.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.mm.production.orders.search</column>
             <column name="label">Production Order</column>
             <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.orders.search</column>
-          </record>
-          <record id="ui.menu.models.mm.production.orders.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.production.orders.find</column>
-            <column name="label">Production Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.orders.find</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.orders.calendar">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.technologic.orders.calendar</column>
-            <column name="label">Technologic Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.orders.calendar</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.orders.schedule">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.technologic.orders.schedule</column>
-            <column name="label">Technologic Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.orders.schedule</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.orders.form">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.technologic.orders.form</column>
-            <column name="label">Technologic Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.orders.form</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.orders.graph">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.technologic.orders.graph</column>
-            <column name="label">Technologic Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.orders.graph</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.orders.kanban">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.technologic.orders.kanban</column>
-            <column name="label">Technologic Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.orders.kanban</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.orders.list">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.technologic.orders.list</column>
-            <column name="label">Technologic Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.orders.list</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.orders.m2mlist">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.technologic.orders.m2mlist</column>
-            <column name="label">Technologic Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.orders.m2mlist</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.orders.mdx">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.technologic.orders.mdx</column>
-            <column name="label">Technologic Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.orders.mdx</column>
+            <column name="action_id">action.mm.models.mm.production.orders.search</column>
           </record>
           <record id="ui.menu.models.mm.technologic.orders.search">
             <column name="sequence">1</column>
             <column name="name">ui.menu.models.mm.technologic.orders.search</column>
             <column name="label">Technologic Order</column>
             <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.orders.search</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.orders.find">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.technologic.orders.find</column>
-            <column name="label">Technologic Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.orders.find</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.orders.calendar">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.disassembly.orders.calendar</column>
-            <column name="label">Disassembly Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.orders.calendar</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.orders.schedule">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.disassembly.orders.schedule</column>
-            <column name="label">Disassembly Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.orders.schedule</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.orders.form">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.disassembly.orders.form</column>
-            <column name="label">Disassembly Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.orders.form</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.orders.graph">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.disassembly.orders.graph</column>
-            <column name="label">Disassembly Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.orders.graph</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.orders.kanban">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.disassembly.orders.kanban</column>
-            <column name="label">Disassembly Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.orders.kanban</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.orders.list">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.disassembly.orders.list</column>
-            <column name="label">Disassembly Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.orders.list</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.orders.m2mlist">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.disassembly.orders.m2mlist</column>
-            <column name="label">Disassembly Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.orders.m2mlist</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.orders.mdx">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.disassembly.orders.mdx</column>
-            <column name="label">Disassembly Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.orders.mdx</column>
+            <column name="action_id">action.mm.models.mm.technologic.orders.search</column>
           </record>
           <record id="ui.menu.models.mm.disassembly.orders.search">
             <column name="sequence">2</column>
             <column name="name">ui.menu.models.mm.disassembly.orders.search</column>
             <column name="label">Disassembly Order</column>
             <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.orders.search</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.orders.find">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.disassembly.orders.find</column>
-            <column name="label">Disassembly Order</column>
-            <column name="parent_id">ui.menu.module.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.orders.find</column>
+            <column name="action_id">action.mm.models.mm.disassembly.orders.search</column>
           </record>
       </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.customize.mm">
           <column name="name">ui.menu.customize.mm</column>
           <column name="label">Manufactured Managament</column>
+        <column name="parent_id">ui.menu.customize</column>
         </record>
       </records>
       <records model="bc.actions">
@@ -768,734 +594,224 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.mm.models.mm.pricing.group.levels.search">
+          <column name="action_id">action.mm.models.mm.pricing.group.levels.search</column>
+          <column name="view_id">view.mm.models.mm.pricing.group.levels.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.texts.search">
+          <column name="action_id">action.mm.models.mm.texts.search</column>
+          <column name="view_id">view.mm.models.mm.texts.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.schema.texts.search">
+          <column name="action_id">action.mm.models.mm.schema.texts.search</column>
+          <column name="view_id">view.mm.models.mm.schema.texts.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.production.order.types.search">
+          <column name="action_id">action.mm.models.mm.production.order.types.search</column>
+          <column name="view_id">view.mm.models.mm.production.order.types.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.technologic.order.types.search">
+          <column name="action_id">action.mm.models.mm.technologic.order.types.search</column>
+          <column name="view_id">view.mm.models.mm.technologic.order.types.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.disassembly.order.types.search">
+          <column name="action_id">action.mm.models.mm.disassembly.order.types.search</column>
+          <column name="view_id">view.mm.models.mm.disassembly.order.types.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.workcenter.category.search">
+          <column name="action_id">action.mm.models.mm.workcenter.category.search</column>
+          <column name="view_id">view.mm.models.mm.workcenter.category.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.production.order.category.search">
+          <column name="action_id">action.mm.models.mm.production.order.category.search</column>
+          <column name="view_id">view.mm.models.mm.production.order.category.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.technologic.order.category.search">
+          <column name="action_id">action.mm.models.mm.technologic.order.category.search</column>
+          <column name="view_id">view.mm.models.mm.technologic.order.category.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.disassembly.order.category.search">
+          <column name="action_id">action.mm.models.mm.disassembly.order.category.search</column>
+          <column name="view_id">view.mm.models.mm.disassembly.order.category.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.workcenters.search">
+          <column name="action_id">action.mm.models.mm.workcenters.search</column>
+          <column name="view_id">view.mm.models.mm.workcenters.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.map.op.category.search">
+          <column name="action_id">action.mm.models.mm.map.op.category.search</column>
+          <column name="view_id">view.mm.models.mm.map.op.category.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.map.ops.search">
+          <column name="action_id">action.mm.models.mm.map.ops.search</column>
+          <column name="view_id">view.mm.models.mm.map.ops.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.production.map.category.search">
+          <column name="action_id">action.mm.models.mm.production.map.category.search</column>
+          <column name="view_id">view.mm.models.mm.production.map.category.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.production.maps.search">
+          <column name="action_id">action.mm.models.mm.production.maps.search</column>
+          <column name="view_id">view.mm.models.mm.production.maps.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.technologic.map.category.search">
+          <column name="action_id">action.mm.models.mm.technologic.map.category.search</column>
+          <column name="view_id">view.mm.models.mm.technologic.map.category.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.technologic.maps.search">
+          <column name="action_id">action.mm.models.mm.technologic.maps.search</column>
+          <column name="view_id">view.mm.models.mm.technologic.maps.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.disassembly.map.category.search">
+          <column name="action_id">action.mm.models.mm.disassembly.map.category.search</column>
+          <column name="view_id">view.mm.models.mm.disassembly.map.category.search</column>
+        </record>
+        <record id="view.action.mm.models.mm.disassembly.maps.search">
+          <column name="action_id">action.mm.models.mm.disassembly.maps.search</column>
+          <column name="view_id">view.mm.models.mm.disassembly.maps.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.customize.mm.models">
           <column name="name">ui.menu.customize.mm.models</column>
           <column name="label">Models</column>
-        <column name="parent_id">ui.menu.customize</column>
+        <column name="parent_id">ui.menu.customize.mm</column>
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.mm.pricing.group.levels.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.pricing.group.levels.form</column>
-            <column name="label">Production Pricing Group Levels</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.pricing.group.levels.form</column>
-          </record>
-          <record id="ui.menu.models.mm.pricing.group.levels.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.pricing.group.levels.list</column>
-            <column name="label">Production Pricing Group Levels</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.pricing.group.levels.list</column>
-          </record>
-          <record id="ui.menu.models.mm.pricing.group.levels.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.pricing.group.levels.m2mlist</column>
-            <column name="label">Production Pricing Group Levels</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.pricing.group.levels.m2mlist</column>
-          </record>
           <record id="ui.menu.models.mm.pricing.group.levels.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.mm.pricing.group.levels.search</column>
             <column name="label">Production Pricing Group Levels</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.pricing.group.levels.search</column>
-          </record>
-          <record id="ui.menu.models.mm.pricing.group.levels.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mm.pricing.group.levels.find</column>
-            <column name="label">Production Pricing Group Levels</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.pricing.group.levels.find</column>
-          </record>
-          <record id="ui.menu.models.mm.texts.form">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.texts.form</column>
-            <column name="label">Manufactured Texts</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.texts.form</column>
-          </record>
-          <record id="ui.menu.models.mm.texts.list">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.texts.list</column>
-            <column name="label">Manufactured Texts</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.texts.list</column>
-          </record>
-          <record id="ui.menu.models.mm.texts.m2mlist">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.texts.m2mlist</column>
-            <column name="label">Manufactured Texts</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.texts.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.pricing.group.levels.search</column>
           </record>
           <record id="ui.menu.models.mm.texts.search">
             <column name="sequence">1</column>
             <column name="name">ui.menu.models.mm.texts.search</column>
             <column name="label">Manufactured Texts</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.texts.search</column>
-          </record>
-          <record id="ui.menu.models.mm.texts.find">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mm.texts.find</column>
-            <column name="label">Manufactured Texts</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.texts.find</column>
-          </record>
-          <record id="ui.menu.models.mm.schema.texts.form">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.schema.texts.form</column>
-            <column name="label">Schema Of Manufactured Texts</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.schema.texts.form</column>
-          </record>
-          <record id="ui.menu.models.mm.schema.texts.list">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.schema.texts.list</column>
-            <column name="label">Schema Of Manufactured Texts</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.schema.texts.list</column>
-          </record>
-          <record id="ui.menu.models.mm.schema.texts.m2mlist">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.schema.texts.m2mlist</column>
-            <column name="label">Schema Of Manufactured Texts</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.schema.texts.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.texts.search</column>
           </record>
           <record id="ui.menu.models.mm.schema.texts.search">
             <column name="sequence">2</column>
             <column name="name">ui.menu.models.mm.schema.texts.search</column>
             <column name="label">Schema Of Manufactured Texts</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.schema.texts.search</column>
-          </record>
-          <record id="ui.menu.models.mm.schema.texts.find">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.mm.schema.texts.find</column>
-            <column name="label">Schema Of Manufactured Texts</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.schema.texts.find</column>
-          </record>
-          <record id="ui.menu.models.mm.production.order.types.form">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.mm.production.order.types.form</column>
-            <column name="label">Types Production Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.order.types.form</column>
-          </record>
-          <record id="ui.menu.models.mm.production.order.types.list">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.mm.production.order.types.list</column>
-            <column name="label">Types Production Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.order.types.list</column>
-          </record>
-          <record id="ui.menu.models.mm.production.order.types.m2mlist">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.mm.production.order.types.m2mlist</column>
-            <column name="label">Types Production Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.order.types.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.schema.texts.search</column>
           </record>
           <record id="ui.menu.models.mm.production.order.types.search">
             <column name="sequence">3</column>
             <column name="name">ui.menu.models.mm.production.order.types.search</column>
             <column name="label">Types Production Order</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.order.types.search</column>
-          </record>
-          <record id="ui.menu.models.mm.production.order.types.find">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.mm.production.order.types.find</column>
-            <column name="label">Types Production Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.order.types.find</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.order.types.form">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.mm.technologic.order.types.form</column>
-            <column name="label">Types Technologic Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.order.types.form</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.order.types.list">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.mm.technologic.order.types.list</column>
-            <column name="label">Types Technologic Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.order.types.list</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.order.types.m2mlist">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.mm.technologic.order.types.m2mlist</column>
-            <column name="label">Types Technologic Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.order.types.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.production.order.types.search</column>
           </record>
           <record id="ui.menu.models.mm.technologic.order.types.search">
             <column name="sequence">4</column>
             <column name="name">ui.menu.models.mm.technologic.order.types.search</column>
             <column name="label">Types Technologic Order</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.order.types.search</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.order.types.find">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.mm.technologic.order.types.find</column>
-            <column name="label">Types Technologic Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.order.types.find</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.order.types.form">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.mm.disassembly.order.types.form</column>
-            <column name="label">Types Disassembly Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.order.types.form</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.order.types.list">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.mm.disassembly.order.types.list</column>
-            <column name="label">Types Disassembly Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.order.types.list</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.order.types.m2mlist">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.mm.disassembly.order.types.m2mlist</column>
-            <column name="label">Types Disassembly Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.order.types.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.technologic.order.types.search</column>
           </record>
           <record id="ui.menu.models.mm.disassembly.order.types.search">
             <column name="sequence">5</column>
             <column name="name">ui.menu.models.mm.disassembly.order.types.search</column>
             <column name="label">Types Disassembly Order</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.order.types.search</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.order.types.find">
-            <column name="sequence">5</column>
-            <column name="name">ui.menu.models.mm.disassembly.order.types.find</column>
-            <column name="label">Types Disassembly Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.order.types.find</column>
-          </record>
-          <record id="ui.menu.models.mm.workcenter.category.form">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.mm.workcenter.category.form</column>
-            <column name="label">Category Workcenter</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.workcenter.category.form</column>
-          </record>
-          <record id="ui.menu.models.mm.workcenter.category.list">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.mm.workcenter.category.list</column>
-            <column name="label">Category Workcenter</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.workcenter.category.list</column>
-          </record>
-          <record id="ui.menu.models.mm.workcenter.category.m2mlist">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.mm.workcenter.category.m2mlist</column>
-            <column name="label">Category Workcenter</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.workcenter.category.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.disassembly.order.types.search</column>
           </record>
           <record id="ui.menu.models.mm.workcenter.category.search">
             <column name="sequence">6</column>
             <column name="name">ui.menu.models.mm.workcenter.category.search</column>
             <column name="label">Category Workcenter</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.workcenter.category.search</column>
-          </record>
-          <record id="ui.menu.models.mm.workcenter.category.find">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.mm.workcenter.category.find</column>
-            <column name="label">Category Workcenter</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.workcenter.category.find</column>
-          </record>
-          <record id="ui.menu.models.mm.workcenter.category.tree">
-            <column name="sequence">6</column>
-            <column name="name">ui.menu.models.mm.workcenter.category.tree</column>
-            <column name="label">Category Workcenter</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.workcenter.category.tree</column>
-          </record>
-          <record id="ui.menu.models.mm.production.order.category.form">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.mm.production.order.category.form</column>
-            <column name="label">Category Production Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.order.category.form</column>
-          </record>
-          <record id="ui.menu.models.mm.production.order.category.list">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.mm.production.order.category.list</column>
-            <column name="label">Category Production Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.order.category.list</column>
-          </record>
-          <record id="ui.menu.models.mm.production.order.category.m2mlist">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.mm.production.order.category.m2mlist</column>
-            <column name="label">Category Production Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.order.category.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.workcenter.category.search</column>
           </record>
           <record id="ui.menu.models.mm.production.order.category.search">
             <column name="sequence">7</column>
             <column name="name">ui.menu.models.mm.production.order.category.search</column>
             <column name="label">Category Production Order</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.order.category.search</column>
-          </record>
-          <record id="ui.menu.models.mm.production.order.category.find">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.mm.production.order.category.find</column>
-            <column name="label">Category Production Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.order.category.find</column>
-          </record>
-          <record id="ui.menu.models.mm.production.order.category.tree">
-            <column name="sequence">7</column>
-            <column name="name">ui.menu.models.mm.production.order.category.tree</column>
-            <column name="label">Category Production Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.order.category.tree</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.order.category.form">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.mm.technologic.order.category.form</column>
-            <column name="label">Category Technologic Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.order.category.form</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.order.category.list">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.mm.technologic.order.category.list</column>
-            <column name="label">Category Technologic Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.order.category.list</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.order.category.m2mlist">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.mm.technologic.order.category.m2mlist</column>
-            <column name="label">Category Technologic Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.order.category.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.production.order.category.search</column>
           </record>
           <record id="ui.menu.models.mm.technologic.order.category.search">
             <column name="sequence">8</column>
             <column name="name">ui.menu.models.mm.technologic.order.category.search</column>
             <column name="label">Category Technologic Order</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.order.category.search</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.order.category.find">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.mm.technologic.order.category.find</column>
-            <column name="label">Category Technologic Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.order.category.find</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.order.category.tree">
-            <column name="sequence">8</column>
-            <column name="name">ui.menu.models.mm.technologic.order.category.tree</column>
-            <column name="label">Category Technologic Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.order.category.tree</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.order.category.form">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.mm.disassembly.order.category.form</column>
-            <column name="label">Category Disassembly Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.order.category.form</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.order.category.list">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.mm.disassembly.order.category.list</column>
-            <column name="label">Category Disassembly Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.order.category.list</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.order.category.m2mlist">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.mm.disassembly.order.category.m2mlist</column>
-            <column name="label">Category Disassembly Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.order.category.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.technologic.order.category.search</column>
           </record>
           <record id="ui.menu.models.mm.disassembly.order.category.search">
             <column name="sequence">9</column>
             <column name="name">ui.menu.models.mm.disassembly.order.category.search</column>
             <column name="label">Category Disassembly Order</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.order.category.search</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.order.category.find">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.mm.disassembly.order.category.find</column>
-            <column name="label">Category Disassembly Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.order.category.find</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.order.category.tree">
-            <column name="sequence">9</column>
-            <column name="name">ui.menu.models.mm.disassembly.order.category.tree</column>
-            <column name="label">Category Disassembly Order</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.order.category.tree</column>
-          </record>
-          <record id="ui.menu.models.mm.workcenters.form">
-            <column name="sequence">10</column>
-            <column name="name">ui.menu.models.mm.workcenters.form</column>
-            <column name="label">Workcenter</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.workcenters.form</column>
-          </record>
-          <record id="ui.menu.models.mm.workcenters.list">
-            <column name="sequence">10</column>
-            <column name="name">ui.menu.models.mm.workcenters.list</column>
-            <column name="label">Workcenter</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.workcenters.list</column>
-          </record>
-          <record id="ui.menu.models.mm.workcenters.m2mlist">
-            <column name="sequence">10</column>
-            <column name="name">ui.menu.models.mm.workcenters.m2mlist</column>
-            <column name="label">Workcenter</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.workcenters.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.disassembly.order.category.search</column>
           </record>
           <record id="ui.menu.models.mm.workcenters.search">
             <column name="sequence">10</column>
             <column name="name">ui.menu.models.mm.workcenters.search</column>
             <column name="label">Workcenter</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.workcenters.search</column>
-          </record>
-          <record id="ui.menu.models.mm.workcenters.find">
-            <column name="sequence">10</column>
-            <column name="name">ui.menu.models.mm.workcenters.find</column>
-            <column name="label">Workcenter</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.workcenters.find</column>
-          </record>
-          <record id="ui.menu.models.mm.map.op.category.form">
-            <column name="sequence">11</column>
-            <column name="name">ui.menu.models.mm.map.op.category.form</column>
-            <column name="label">Category operation of map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.map.op.category.form</column>
-          </record>
-          <record id="ui.menu.models.mm.map.op.category.list">
-            <column name="sequence">11</column>
-            <column name="name">ui.menu.models.mm.map.op.category.list</column>
-            <column name="label">Category operation of map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.map.op.category.list</column>
-          </record>
-          <record id="ui.menu.models.mm.map.op.category.m2mlist">
-            <column name="sequence">11</column>
-            <column name="name">ui.menu.models.mm.map.op.category.m2mlist</column>
-            <column name="label">Category operation of map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.map.op.category.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.workcenters.search</column>
           </record>
           <record id="ui.menu.models.mm.map.op.category.search">
             <column name="sequence">11</column>
             <column name="name">ui.menu.models.mm.map.op.category.search</column>
             <column name="label">Category operation of map</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.map.op.category.search</column>
-          </record>
-          <record id="ui.menu.models.mm.map.op.category.find">
-            <column name="sequence">11</column>
-            <column name="name">ui.menu.models.mm.map.op.category.find</column>
-            <column name="label">Category operation of map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.map.op.category.find</column>
-          </record>
-          <record id="ui.menu.models.mm.map.op.category.tree">
-            <column name="sequence">11</column>
-            <column name="name">ui.menu.models.mm.map.op.category.tree</column>
-            <column name="label">Category operation of map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.map.op.category.tree</column>
-          </record>
-          <record id="ui.menu.models.mm.map.ops.form">
-            <column name="sequence">12</column>
-            <column name="name">ui.menu.models.mm.map.ops.form</column>
-            <column name="label">Operation of map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.map.ops.form</column>
-          </record>
-          <record id="ui.menu.models.mm.map.ops.list">
-            <column name="sequence">12</column>
-            <column name="name">ui.menu.models.mm.map.ops.list</column>
-            <column name="label">Operation of map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.map.ops.list</column>
-          </record>
-          <record id="ui.menu.models.mm.map.ops.m2mlist">
-            <column name="sequence">12</column>
-            <column name="name">ui.menu.models.mm.map.ops.m2mlist</column>
-            <column name="label">Operation of map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.map.ops.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.map.op.category.search</column>
           </record>
           <record id="ui.menu.models.mm.map.ops.search">
             <column name="sequence">12</column>
             <column name="name">ui.menu.models.mm.map.ops.search</column>
             <column name="label">Operation of map</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.map.ops.search</column>
-          </record>
-          <record id="ui.menu.models.mm.map.ops.find">
-            <column name="sequence">12</column>
-            <column name="name">ui.menu.models.mm.map.ops.find</column>
-            <column name="label">Operation of map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.map.ops.find</column>
-          </record>
-          <record id="ui.menu.models.mm.production.map.category.form">
-            <column name="sequence">13</column>
-            <column name="name">ui.menu.models.mm.production.map.category.form</column>
-            <column name="label">Category Production Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.map.category.form</column>
-          </record>
-          <record id="ui.menu.models.mm.production.map.category.list">
-            <column name="sequence">13</column>
-            <column name="name">ui.menu.models.mm.production.map.category.list</column>
-            <column name="label">Category Production Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.map.category.list</column>
-          </record>
-          <record id="ui.menu.models.mm.production.map.category.m2mlist">
-            <column name="sequence">13</column>
-            <column name="name">ui.menu.models.mm.production.map.category.m2mlist</column>
-            <column name="label">Category Production Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.map.category.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.map.ops.search</column>
           </record>
           <record id="ui.menu.models.mm.production.map.category.search">
             <column name="sequence">13</column>
             <column name="name">ui.menu.models.mm.production.map.category.search</column>
             <column name="label">Category Production Map</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.map.category.search</column>
-          </record>
-          <record id="ui.menu.models.mm.production.map.category.find">
-            <column name="sequence">13</column>
-            <column name="name">ui.menu.models.mm.production.map.category.find</column>
-            <column name="label">Category Production Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.map.category.find</column>
-          </record>
-          <record id="ui.menu.models.mm.production.map.category.tree">
-            <column name="sequence">13</column>
-            <column name="name">ui.menu.models.mm.production.map.category.tree</column>
-            <column name="label">Category Production Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.map.category.tree</column>
-          </record>
-          <record id="ui.menu.models.mm.production.maps.form">
-            <column name="sequence">14</column>
-            <column name="name">ui.menu.models.mm.production.maps.form</column>
-            <column name="label">Production Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.maps.form</column>
-          </record>
-          <record id="ui.menu.models.mm.production.maps.list">
-            <column name="sequence">14</column>
-            <column name="name">ui.menu.models.mm.production.maps.list</column>
-            <column name="label">Production Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.maps.list</column>
-          </record>
-          <record id="ui.menu.models.mm.production.maps.m2mlist">
-            <column name="sequence">14</column>
-            <column name="name">ui.menu.models.mm.production.maps.m2mlist</column>
-            <column name="label">Production Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.maps.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.production.map.category.search</column>
           </record>
           <record id="ui.menu.models.mm.production.maps.search">
             <column name="sequence">14</column>
             <column name="name">ui.menu.models.mm.production.maps.search</column>
             <column name="label">Production Map</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.maps.search</column>
-          </record>
-          <record id="ui.menu.models.mm.production.maps.find">
-            <column name="sequence">14</column>
-            <column name="name">ui.menu.models.mm.production.maps.find</column>
-            <column name="label">Production Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.production.maps.find</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.map.category.form">
-            <column name="sequence">15</column>
-            <column name="name">ui.menu.models.mm.technologic.map.category.form</column>
-            <column name="label">Category Technologic Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.map.category.form</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.map.category.list">
-            <column name="sequence">15</column>
-            <column name="name">ui.menu.models.mm.technologic.map.category.list</column>
-            <column name="label">Category Technologic Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.map.category.list</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.map.category.m2mlist">
-            <column name="sequence">15</column>
-            <column name="name">ui.menu.models.mm.technologic.map.category.m2mlist</column>
-            <column name="label">Category Technologic Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.map.category.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.production.maps.search</column>
           </record>
           <record id="ui.menu.models.mm.technologic.map.category.search">
             <column name="sequence">15</column>
             <column name="name">ui.menu.models.mm.technologic.map.category.search</column>
             <column name="label">Category Technologic Map</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.map.category.search</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.map.category.find">
-            <column name="sequence">15</column>
-            <column name="name">ui.menu.models.mm.technologic.map.category.find</column>
-            <column name="label">Category Technologic Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.map.category.find</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.map.category.tree">
-            <column name="sequence">15</column>
-            <column name="name">ui.menu.models.mm.technologic.map.category.tree</column>
-            <column name="label">Category Technologic Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.map.category.tree</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.maps.form">
-            <column name="sequence">16</column>
-            <column name="name">ui.menu.models.mm.technologic.maps.form</column>
-            <column name="label">Technologic Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.maps.form</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.maps.list">
-            <column name="sequence">16</column>
-            <column name="name">ui.menu.models.mm.technologic.maps.list</column>
-            <column name="label">Technologic Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.maps.list</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.maps.m2mlist">
-            <column name="sequence">16</column>
-            <column name="name">ui.menu.models.mm.technologic.maps.m2mlist</column>
-            <column name="label">Technologic Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.maps.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.technologic.map.category.search</column>
           </record>
           <record id="ui.menu.models.mm.technologic.maps.search">
             <column name="sequence">16</column>
             <column name="name">ui.menu.models.mm.technologic.maps.search</column>
             <column name="label">Technologic Map</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.maps.search</column>
-          </record>
-          <record id="ui.menu.models.mm.technologic.maps.find">
-            <column name="sequence">16</column>
-            <column name="name">ui.menu.models.mm.technologic.maps.find</column>
-            <column name="label">Technologic Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.technologic.maps.find</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.map.category.form">
-            <column name="sequence">17</column>
-            <column name="name">ui.menu.models.mm.disassembly.map.category.form</column>
-            <column name="label">Category Disassembly Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.map.category.form</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.map.category.list">
-            <column name="sequence">17</column>
-            <column name="name">ui.menu.models.mm.disassembly.map.category.list</column>
-            <column name="label">Category Disassembly Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.map.category.list</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.map.category.m2mlist">
-            <column name="sequence">17</column>
-            <column name="name">ui.menu.models.mm.disassembly.map.category.m2mlist</column>
-            <column name="label">Category Disassembly Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.map.category.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.technologic.maps.search</column>
           </record>
           <record id="ui.menu.models.mm.disassembly.map.category.search">
             <column name="sequence">17</column>
             <column name="name">ui.menu.models.mm.disassembly.map.category.search</column>
             <column name="label">Category Disassembly Map</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.map.category.search</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.map.category.find">
-            <column name="sequence">17</column>
-            <column name="name">ui.menu.models.mm.disassembly.map.category.find</column>
-            <column name="label">Category Disassembly Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.map.category.find</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.map.category.tree">
-            <column name="sequence">17</column>
-            <column name="name">ui.menu.models.mm.disassembly.map.category.tree</column>
-            <column name="label">Category Disassembly Map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.map.category.tree</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.maps.form">
-            <column name="sequence">18</column>
-            <column name="name">ui.menu.models.mm.disassembly.maps.form</column>
-            <column name="label">Disassembly map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.maps.form</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.maps.list">
-            <column name="sequence">18</column>
-            <column name="name">ui.menu.models.mm.disassembly.maps.list</column>
-            <column name="label">Disassembly map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.maps.list</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.maps.m2mlist">
-            <column name="sequence">18</column>
-            <column name="name">ui.menu.models.mm.disassembly.maps.m2mlist</column>
-            <column name="label">Disassembly map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.maps.m2mlist</column>
+            <column name="action_id">action.mm.models.mm.disassembly.map.category.search</column>
           </record>
           <record id="ui.menu.models.mm.disassembly.maps.search">
             <column name="sequence">18</column>
             <column name="name">ui.menu.models.mm.disassembly.maps.search</column>
             <column name="label">Disassembly map</column>
             <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.maps.search</column>
-          </record>
-          <record id="ui.menu.models.mm.disassembly.maps.find">
-            <column name="sequence">18</column>
-            <column name="name">ui.menu.models.mm.disassembly.maps.find</column>
-            <column name="label">Disassembly map</column>
-            <column name="parent_id">ui.menu.customize.mm.models</column>
-          <column name="action_id">action.mm.models.mm.disassembly.maps.find</column>
+            <column name="action_id">action.mm.models.mm.disassembly.maps.search</column>
           </record>
       </records>
     </data>

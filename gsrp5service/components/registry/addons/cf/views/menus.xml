@@ -113,6 +113,28 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.cf.models.cf.groups.search">
+          <column name="action_id">action.cf.models.cf.groups.search</column>
+          <column name="view_id">view.cf.models.cf.groups.search</column>
+        </record>
+        <record id="view.action.cf.models.cf.tags.search">
+          <column name="action_id">action.cf.models.cf.tags.search</column>
+          <column name="view_id">view.cf.models.cf.tags.search</column>
+        </record>
+        <record id="view.action.cf.models.cf.files.search">
+          <column name="action_id">action.cf.models.cf.files.search</column>
+          <column name="view_id">view.cf.models.cf.files.search</column>
+        </record>
+        <record id="view.action.cf.models.cf.links.search">
+          <column name="action_id">action.cf.models.cf.links.search</column>
+          <column name="view_id">view.cf.models.cf.links.search</column>
+        </record>
+        <record id="view.action.cf.models.cf.folders.search">
+          <column name="action_id">action.cf.models.cf.folders.search</column>
+          <column name="view_id">view.cf.models.cf.folders.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.module.cf.models">
           <column name="name">ui.menu.module.cf.models</column>
@@ -121,187 +143,40 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.cf.groups.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.cf.groups.form</column>
-            <column name="label">Colobrative Groups</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.groups.form</column>
-          </record>
-          <record id="ui.menu.models.cf.groups.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.cf.groups.list</column>
-            <column name="label">Colobrative Groups</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.groups.list</column>
-          </record>
-          <record id="ui.menu.models.cf.groups.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.cf.groups.m2mlist</column>
-            <column name="label">Colobrative Groups</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.groups.m2mlist</column>
-          </record>
           <record id="ui.menu.models.cf.groups.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.cf.groups.search</column>
             <column name="label">Colobrative Groups</column>
             <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.groups.search</column>
-          </record>
-          <record id="ui.menu.models.cf.groups.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.cf.groups.find</column>
-            <column name="label">Colobrative Groups</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.groups.find</column>
-          </record>
-          <record id="ui.menu.models.cf.tags.form">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.cf.tags.form</column>
-            <column name="label">Colobrative Folders File Tags</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.tags.form</column>
-          </record>
-          <record id="ui.menu.models.cf.tags.list">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.cf.tags.list</column>
-            <column name="label">Colobrative Folders File Tags</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.tags.list</column>
-          </record>
-          <record id="ui.menu.models.cf.tags.m2mlist">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.cf.tags.m2mlist</column>
-            <column name="label">Colobrative Folders File Tags</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.tags.m2mlist</column>
+            <column name="action_id">action.cf.models.cf.groups.search</column>
           </record>
           <record id="ui.menu.models.cf.tags.search">
             <column name="sequence">1</column>
             <column name="name">ui.menu.models.cf.tags.search</column>
             <column name="label">Colobrative Folders File Tags</column>
             <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.tags.search</column>
-          </record>
-          <record id="ui.menu.models.cf.tags.find">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.cf.tags.find</column>
-            <column name="label">Colobrative Folders File Tags</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.tags.find</column>
-          </record>
-          <record id="ui.menu.models.cf.files.form">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.cf.files.form</column>
-            <column name="label">Colobrative Files</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.files.form</column>
-          </record>
-          <record id="ui.menu.models.cf.files.list">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.cf.files.list</column>
-            <column name="label">Colobrative Files</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.files.list</column>
-          </record>
-          <record id="ui.menu.models.cf.files.m2mlist">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.cf.files.m2mlist</column>
-            <column name="label">Colobrative Files</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.files.m2mlist</column>
+            <column name="action_id">action.cf.models.cf.tags.search</column>
           </record>
           <record id="ui.menu.models.cf.files.search">
             <column name="sequence">2</column>
             <column name="name">ui.menu.models.cf.files.search</column>
             <column name="label">Colobrative Files</column>
             <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.files.search</column>
-          </record>
-          <record id="ui.menu.models.cf.files.find">
-            <column name="sequence">2</column>
-            <column name="name">ui.menu.models.cf.files.find</column>
-            <column name="label">Colobrative Files</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.files.find</column>
-          </record>
-          <record id="ui.menu.models.cf.links.form">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.cf.links.form</column>
-            <column name="label">Colobrative Links</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.links.form</column>
-          </record>
-          <record id="ui.menu.models.cf.links.list">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.cf.links.list</column>
-            <column name="label">Colobrative Links</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.links.list</column>
-          </record>
-          <record id="ui.menu.models.cf.links.m2mlist">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.cf.links.m2mlist</column>
-            <column name="label">Colobrative Links</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.links.m2mlist</column>
+            <column name="action_id">action.cf.models.cf.files.search</column>
           </record>
           <record id="ui.menu.models.cf.links.search">
             <column name="sequence">3</column>
             <column name="name">ui.menu.models.cf.links.search</column>
             <column name="label">Colobrative Links</column>
             <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.links.search</column>
-          </record>
-          <record id="ui.menu.models.cf.links.find">
-            <column name="sequence">3</column>
-            <column name="name">ui.menu.models.cf.links.find</column>
-            <column name="label">Colobrative Links</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.links.find</column>
-          </record>
-          <record id="ui.menu.models.cf.folders.form">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.cf.folders.form</column>
-            <column name="label">Colobrative Folders</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.folders.form</column>
-          </record>
-          <record id="ui.menu.models.cf.folders.list">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.cf.folders.list</column>
-            <column name="label">Colobrative Folders</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.folders.list</column>
-          </record>
-          <record id="ui.menu.models.cf.folders.m2mlist">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.cf.folders.m2mlist</column>
-            <column name="label">Colobrative Folders</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.folders.m2mlist</column>
+            <column name="action_id">action.cf.models.cf.links.search</column>
           </record>
           <record id="ui.menu.models.cf.folders.search">
             <column name="sequence">4</column>
             <column name="name">ui.menu.models.cf.folders.search</column>
             <column name="label">Colobrative Folders</column>
             <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.folders.search</column>
-          </record>
-          <record id="ui.menu.models.cf.folders.find">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.cf.folders.find</column>
-            <column name="label">Colobrative Folders</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.folders.find</column>
-          </record>
-          <record id="ui.menu.models.cf.folders.tree">
-            <column name="sequence">4</column>
-            <column name="name">ui.menu.models.cf.folders.tree</column>
-            <column name="label">Colobrative Folders</column>
-            <column name="parent_id">ui.menu.module.cf.models</column>
-          <column name="action_id">action.cf.models.cf.folders.tree</column>
+            <column name="action_id">action.cf.models.cf.folders.search</column>
           </record>
       </records>
     </data>

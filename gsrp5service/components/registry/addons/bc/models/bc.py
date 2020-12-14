@@ -412,9 +412,9 @@ class bc_obj_access(Model):
 	'awrite': fields.boolean('Write',readonly=True),
 	'aread': fields.boolean('Read',readonly=True),
 	'aunlink': fields.boolean('Unlink',readonly=True),
-	'aexecute': fields.boolean('Select',readonly=True),
+	'aexecute': fields.boolean('Execute',readonly=True),
 	'inactive': fields.boolean('Inactive',readonly=True),
-	'auth': fields.json(label='Auth'),
+	'auth': fields.json(label='Auth',readonly=True),
 	'note': fields.text(label='Note',readonly=True)
 	}
 	
@@ -441,7 +441,7 @@ class bc_ui_views(Model):
 	_name = 'bc.ui.views'
 	_description = 'Models views'
 	_columns = {
-	'name':fields.varchar(label = 'View name', size = 64,readonly=True),
+	'name':fields.varchar(label = 'View name', size = 128,readonly=True),
 	'model': fields.varchar(label = 'Model Name', size = 64,selectable=True,readonly=True),
 	'type': fields.selection(label = 'Arch Type', selections = [('xml','Xml'),('html','Html')],readonly=True),
 	'arch': fields.xml(label = 'Arch Blob',readonly=True),

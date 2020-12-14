@@ -80,7 +80,8 @@ def _conv_record_to_ext(self,record,context):
 							try:
 								record[key] = {'id':record[key],'name': v[0][recname]}
 							except:
-								web_pdb.set_trace()
+								pass
+								#web_pdb.set_trace()
 							
 				except ValueError:
 					m = self._pool.get(self._columns[key].obj)
@@ -738,7 +739,7 @@ def _select(self, fields = None ,cond = None, context = {}, limit = None, offset
 	return res
 
 def select(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
-	if not self._access._checkSelect():
+	if not self._access._checkRead():
 		orm_exception("Select:access dennied of model % s" % (self._name,))
 	
 	return _select(self,  fields, cond, context, limit, offset)
@@ -814,7 +815,7 @@ def unlink(self, ids, context = {}):
 	return res
 
 def delete(self, cond, context = {}):
-	if not self._access._checkDelete():
+	if not self._access._checkUnlink():
 		orm_exception("Delete:access dennied of model % s" % (self._name,))
 
 	res = []
@@ -875,7 +876,7 @@ def write(self, records, context = {}):
 		return [_writeRecord(self, records, context)]
 
 def modify(self, records, context = {}):
-	if not self._access._checkModify():
+	if not self._access._checkWrite():
 		orm_exception("Modify:access dennied of model % s" % (self._name,))
 
 	checks = _do_checks(self, records, context)
@@ -903,7 +904,7 @@ def modify(self, records, context = {}):
 		return [_modifyRecord(self, records, context)]
 	
 def update(self, record, cond = None,context = {}):
-	if not self._access._checkUpdate():
+	if not self._access._checkWrite():
 		orm_exception("Update:access dennied of model % s" % (self._name,))
 
 	res = []
@@ -938,7 +939,7 @@ def update(self, record, cond = None,context = {}):
 
 #testing
 def insert(self, fields, values,context = {}):
-	if not self._access._checkInsert():
+	if not self._access._checkCreate():
 		orm_exception("Insert:access dennied of model % s" % (self._name,))
 
 	checks = _do_checks(self, _gen_records(fields,values), context)
@@ -1054,7 +1055,7 @@ def insert(self, fields, values,context = {}):
 
 #testing
 def upsert(self, fields, values,context = {}):
-	if not self._access._checkUpsert():
+	if not self._access._checkCreate():
 		orm_exception("Upsert:access dennied of model % s" % (self._name,))
 
 	checks = _do_checks(self, _gen_records(fields,values), context)
@@ -1167,7 +1168,7 @@ def upsert(self, fields, values,context = {}):
 	return res
 
 def browse(self, ids, fields = None, context = {}):
-	if not self._access._checkBrowse():
+	if not self._access._checkRead():
 		orm_exception("Browse:access dennied of model % s" % (self._name,))
 
 	brl = browse_record_list()
@@ -1181,7 +1182,7 @@ def browse(self, ids, fields = None, context = {}):
 	return brl
 
 def selectbrowse(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
-	if not self._access._checkSelectBrowse():
+	if not self._access._checkRead():
 		orm_exception("SelectBrowse:access dennied of model % s" % (self._name,))
 
 	brl = browse_record_list()
@@ -1430,7 +1431,7 @@ def _tree(self, fields = None ,parent = None, context = {}):
 	return res
 
 def tree(self, fields = None ,parent = None, context = {}):
-	if not self._access._checkSelect():
+	if not self._access._checkRead():
 		orm_exception("Tree:access dennied of model % s" % (self._name,))
 	
 	return _tree(self, fields, parent, context)

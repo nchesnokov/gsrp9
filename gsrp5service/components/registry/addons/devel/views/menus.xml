@@ -49,6 +49,16 @@
           <column name="ta">Model</column>
         </record>
       </records>
+      <records model="bc.view.actions">
+        <record id="view.action.devel.models.devel.area.messages.search">
+          <column name="action_id">action.devel.models.devel.area.messages.search</column>
+          <column name="view_id">view.devel.models.devel.area.messages.search</column>
+        </record>
+        <record id="view.action.devel.models.devel.messages.search">
+          <column name="action_id">action.devel.models.devel.messages.search</column>
+          <column name="view_id">view.devel.models.devel.messages.search</column>
+        </record>
+      </records>
       <records model="bc.ui.menus">
         <record id="ui.menu.module.devel.models">
           <column name="name">ui.menu.module.devel.models</column>
@@ -57,75 +67,19 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.devel.area.messages.form">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.devel.area.messages.form</column>
-            <column name="label">Area Messages</column>
-            <column name="parent_id">ui.menu.module.devel.models</column>
-          <column name="action_id">action.devel.models.devel.area.messages.form</column>
-          </record>
-          <record id="ui.menu.models.devel.area.messages.list">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.devel.area.messages.list</column>
-            <column name="label">Area Messages</column>
-            <column name="parent_id">ui.menu.module.devel.models</column>
-          <column name="action_id">action.devel.models.devel.area.messages.list</column>
-          </record>
-          <record id="ui.menu.models.devel.area.messages.m2mlist">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.devel.area.messages.m2mlist</column>
-            <column name="label">Area Messages</column>
-            <column name="parent_id">ui.menu.module.devel.models</column>
-          <column name="action_id">action.devel.models.devel.area.messages.m2mlist</column>
-          </record>
           <record id="ui.menu.models.devel.area.messages.search">
             <column name="sequence">0</column>
             <column name="name">ui.menu.models.devel.area.messages.search</column>
             <column name="label">Area Messages</column>
             <column name="parent_id">ui.menu.module.devel.models</column>
-          <column name="action_id">action.devel.models.devel.area.messages.search</column>
-          </record>
-          <record id="ui.menu.models.devel.area.messages.find">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.devel.area.messages.find</column>
-            <column name="label">Area Messages</column>
-            <column name="parent_id">ui.menu.module.devel.models</column>
-          <column name="action_id">action.devel.models.devel.area.messages.find</column>
-          </record>
-          <record id="ui.menu.models.devel.messages.form">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.devel.messages.form</column>
-            <column name="label">Messages</column>
-            <column name="parent_id">ui.menu.module.devel.models</column>
-          <column name="action_id">action.devel.models.devel.messages.form</column>
-          </record>
-          <record id="ui.menu.models.devel.messages.list">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.devel.messages.list</column>
-            <column name="label">Messages</column>
-            <column name="parent_id">ui.menu.module.devel.models</column>
-          <column name="action_id">action.devel.models.devel.messages.list</column>
-          </record>
-          <record id="ui.menu.models.devel.messages.m2mlist">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.devel.messages.m2mlist</column>
-            <column name="label">Messages</column>
-            <column name="parent_id">ui.menu.module.devel.models</column>
-          <column name="action_id">action.devel.models.devel.messages.m2mlist</column>
+            <column name="action_id">action.devel.models.devel.area.messages.search</column>
           </record>
           <record id="ui.menu.models.devel.messages.search">
             <column name="sequence">1</column>
             <column name="name">ui.menu.models.devel.messages.search</column>
             <column name="label">Messages</column>
             <column name="parent_id">ui.menu.module.devel.models</column>
-          <column name="action_id">action.devel.models.devel.messages.search</column>
-          </record>
-          <record id="ui.menu.models.devel.messages.find">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.devel.messages.find</column>
-            <column name="label">Messages</column>
-            <column name="parent_id">ui.menu.module.devel.models</column>
-          <column name="action_id">action.devel.models.devel.messages.find</column>
+            <column name="action_id">action.devel.models.devel.messages.search</column>
           </record>
       </records>
     </data>
