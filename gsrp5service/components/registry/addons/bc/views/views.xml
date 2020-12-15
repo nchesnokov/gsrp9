@@ -431,11 +431,65 @@
             </find>
           </column>
         </record>
+        <record id="view.bc.models.bc.class.model.categories.form">
+          <column name="name">view.bc.models.bc.class.model.categories.form</column>
+          <column name="model">bc.class.model.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="descr"/>
+              <field name="class_models"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.models.bc.class.model.categories.list">
+          <column name="name">view.bc.models.bc.class.model.categories.list</column>
+          <column name="model">bc.class.model.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="descr"/>
+              <field name="class_models"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.models.bc.class.model.categories.m2mlist">
+          <column name="name">view.bc.models.bc.class.model.categories.m2mlist</column>
+          <column name="model">bc.class.model.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.models.bc.class.model.categories.search">
+          <column name="name">view.bc.models.bc.class.model.categories.search</column>
+          <column name="model">bc.class.model.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.models.bc.class.model.categories.find">
+          <column name="name">view.bc.models.bc.class.model.categories.find</column>
+          <column name="model">bc.class.model.categories</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
         <record id="view.bc.models.bc.class.models.form">
           <column name="name">view.bc.models.bc.class.models.form</column>
           <column name="model">bc.class.models</column>
           <column name="arch" type="Xml">
             <form>
+              <field name="category_id"/>
               <field name="name"/>
               <field name="descr"/>
               <field name="note"/>
@@ -447,6 +501,7 @@
           <column name="model">bc.class.models</column>
           <column name="arch" type="Xml">
             <list>
+              <field name="category_id"/>
               <field name="name"/>
               <field name="descr"/>
             </list>
@@ -457,6 +512,7 @@
           <column name="model">bc.class.models</column>
           <column name="arch" type="Xml">
             <m2mlist>
+              <field name="category_id"/>
               <field name="name"/>
               <field name="descr"/>
             </m2mlist>
@@ -467,6 +523,7 @@
           <column name="model">bc.class.models</column>
           <column name="arch" type="Xml">
             <search>
+              <field name="category_id"/>
               <field name="name"/>
               <field name="descr"/>
             </search>
@@ -475,6 +532,60 @@
         <record id="view.bc.models.bc.class.models.find">
           <column name="name">view.bc.models.bc.class.models.find</column>
           <column name="model">bc.class.models</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="name"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.bc.models.bc.class.category.categories.form">
+          <column name="name">view.bc.models.bc.class.category.categories.form</column>
+          <column name="model">bc.class.category.categories</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="descr"/>
+              <field name="class_categories"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.bc.models.bc.class.category.categories.list">
+          <column name="name">view.bc.models.bc.class.category.categories.list</column>
+          <column name="model">bc.class.category.categories</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="descr"/>
+              <field name="class_categories"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.bc.models.bc.class.category.categories.m2mlist">
+          <column name="name">view.bc.models.bc.class.category.categories.m2mlist</column>
+          <column name="model">bc.class.category.categories</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.bc.models.bc.class.category.categories.search">
+          <column name="name">view.bc.models.bc.class.category.categories.search</column>
+          <column name="model">bc.class.category.categories</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.bc.models.bc.class.category.categories.find">
+          <column name="name">view.bc.models.bc.class.category.categories.find</column>
+          <column name="model">bc.class.category.categories</column>
           <column name="arch" type="Xml">
             <find>
               <field name="name"/>
@@ -487,6 +598,7 @@
           <column name="model">bc.class.categories</column>
           <column name="arch" type="Xml">
             <form>
+              <field name="category_id"/>
               <field name="name"/>
               <field name="descr"/>
               <field name="note"/>
@@ -498,6 +610,7 @@
           <column name="model">bc.class.categories</column>
           <column name="arch" type="Xml">
             <list>
+              <field name="category_id"/>
               <field name="name"/>
               <field name="descr"/>
             </list>
@@ -508,6 +621,7 @@
           <column name="model">bc.class.categories</column>
           <column name="arch" type="Xml">
             <m2mlist>
+              <field name="category_id"/>
               <field name="name"/>
               <field name="descr"/>
             </m2mlist>
@@ -518,6 +632,7 @@
           <column name="model">bc.class.categories</column>
           <column name="arch" type="Xml">
             <search>
+              <field name="category_id"/>
               <field name="name"/>
               <field name="descr"/>
             </search>
@@ -528,6 +643,7 @@
           <column name="model">bc.class.categories</column>
           <column name="arch" type="Xml">
             <find>
+              <field name="category_id"/>
               <field name="name"/>
               <field name="descr"/>
             </find>

@@ -51,13 +51,12 @@ def _download_imodules(self,path,module,imodels,registry,ext='csv'):
 
 		records = m.select(fields,[])
 		if len(records) > 0:
-			if m._class_model == 'A':
-				if m._name[:3] == 'md.':
-					c = 'data'
-				else:
-					c = 'examples' 
-			elif m._class_model == 'C':
+			if m._class_model == 'B' or m._name[:3] == 'md.':
+				c = 'data'
+			elif m._class_model in ('C','E'):
 				c = 'cust'
+			else:
+				c = 'examples' 
 
 			#_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,m._table+'_'+k+'.' + ext),));
 			#_logger.info('GenExamples write file: %s' % (opj(path,module,'demo',c,m._table+'_'+'.' + ext),));
@@ -217,7 +216,7 @@ def Area(self, modules = None, context={}):
 						imodels.setdefault(mkey,{})['model'] = imm				
 
 		if len(models) > 0 or len(imodels) > 0:
-			print('MODELS:',module,models,imodels)
+			#print('MODELS:',module,models,imodels)
 			_download(self,path,module,models,registry,ext=context['ext'])
 			_download_imodules(self,path,module,imodels,registry,ext=context['ext'])
 			logmodules.append(module)

@@ -2,52 +2,6 @@
   <gsrp>
     <data>
       <records model="bc.ui.views">
-        <record id="view.md.models.md.key.currencies.form">
-          <column name="name">view.md.models.md.key.currencies.form</column>
-          <column name="model">md.key.currencies</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="name"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.key.currencies.list">
-          <column name="name">view.md.models.md.key.currencies.list</column>
-          <column name="model">md.key.currencies</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="name"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.key.currencies.m2mlist">
-          <column name="name">view.md.models.md.key.currencies.m2mlist</column>
-          <column name="model">md.key.currencies</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="name"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.key.currencies.search">
-          <column name="name">view.md.models.md.key.currencies.search</column>
-          <column name="model">md.key.currencies</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.key.currencies.find">
-          <column name="name">view.md.models.md.key.currencies.find</column>
-          <column name="model">md.key.currencies</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.models.md.category.country.form">
           <column name="name">view.md.models.md.category.country.form</column>
           <column name="model">md.category.country</column>
@@ -56,6 +10,7 @@
               <field name="name"/>
               <field name="parent_id"/>
               <field name="childs_id"/>
+              <field name="fullname"/>
               <field name="note"/>
             </form>
           </column>
@@ -68,6 +23,7 @@
               <field name="name"/>
               <field name="parent_id"/>
               <field name="childs_id"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
@@ -78,6 +34,7 @@
             <m2mlist>
               <field name="name"/>
               <field name="parent_id"/>
+              <field name="fullname"/>
             </m2mlist>
           </column>
         </record>
@@ -88,6 +45,7 @@
             <search>
               <field name="name"/>
               <field name="parent_id"/>
+              <field name="fullname"/>
             </search>
           </column>
         </record>
@@ -98,6 +56,7 @@
             <find>
               <field name="name"/>
               <field name="parent_id"/>
+              <field name="fullname"/>
             </find>
           </column>
         </record>
@@ -108,176 +67,8 @@
             <tree>
               <field name="name"/>
               <field name="parent_id"/>
+              <field name="fullname"/>
             </tree>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.group.form">
-          <column name="name">view.md.models.md.country.group.form</column>
-          <column name="model">md.country.group</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="name"/>
-              <field name="country_ids"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.group.list">
-          <column name="name">view.md.models.md.country.group.list</column>
-          <column name="model">md.country.group</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="name"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.group.m2mlist">
-          <column name="name">view.md.models.md.country.group.m2mlist</column>
-          <column name="model">md.country.group</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="name"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.group.search">
-          <column name="name">view.md.models.md.country.group.search</column>
-          <column name="model">md.country.group</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.group.find">
-          <column name="name">view.md.models.md.country.group.find</column>
-          <column name="model">md.country.group</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-            </find>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.form">
-          <column name="name">view.md.models.md.country.form</column>
-          <column name="model">md.country</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="alpha2"/>
-              <field name="alpha3"/>
-              <field name="group_ids"/>
-              <field name="states"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.list">
-          <column name="name">view.md.models.md.country.list</column>
-          <column name="model">md.country</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="alpha2"/>
-              <field name="alpha3"/>
-              <field name="states"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.m2mlist">
-          <column name="name">view.md.models.md.country.m2mlist</column>
-          <column name="model">md.country</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="alpha2"/>
-              <field name="alpha3"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.search">
-          <column name="name">view.md.models.md.country.search</column>
-          <column name="model">md.country</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="alpha2"/>
-              <field name="alpha3"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.find">
-          <column name="name">view.md.models.md.country.find</column>
-          <column name="model">md.country</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="alpha2"/>
-              <field name="alpha3"/>
-            </find>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.states.form">
-          <column name="name">view.md.models.md.country.states.form</column>
-          <column name="model">md.country.states</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="country_id"/>
-              <field name="name"/>
-              <field name="code"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.states.list">
-          <column name="name">view.md.models.md.country.states.list</column>
-          <column name="model">md.country.states</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="country_id"/>
-              <field name="name"/>
-              <field name="code"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.states.m2mlist">
-          <column name="name">view.md.models.md.country.states.m2mlist</column>
-          <column name="model">md.country.states</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="country_id"/>
-              <field name="name"/>
-              <field name="code"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.states.search">
-          <column name="name">view.md.models.md.country.states.search</column>
-          <column name="model">md.country.states</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="country_id"/>
-              <field name="name"/>
-              <field name="code"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.country.states.find">
-          <column name="name">view.md.models.md.country.states.find</column>
-          <column name="model">md.country.states</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="country_id"/>
-              <field name="name"/>
-              <field name="code"/>
-            </find>
           </column>
         </record>
         <record id="view.md.models.md.category.language.form">
@@ -288,6 +79,7 @@
               <field name="name"/>
               <field name="parent_id"/>
               <field name="childs_id"/>
+              <field name="fullname"/>
               <field name="note"/>
             </form>
           </column>
@@ -300,6 +92,7 @@
               <field name="name"/>
               <field name="parent_id"/>
               <field name="childs_id"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
@@ -310,6 +103,7 @@
             <m2mlist>
               <field name="name"/>
               <field name="parent_id"/>
+              <field name="fullname"/>
             </m2mlist>
           </column>
         </record>
@@ -320,6 +114,7 @@
             <search>
               <field name="name"/>
               <field name="parent_id"/>
+              <field name="fullname"/>
             </search>
           </column>
         </record>
@@ -330,6 +125,7 @@
             <find>
               <field name="name"/>
               <field name="parent_id"/>
+              <field name="fullname"/>
             </find>
           </column>
         </record>
@@ -340,66 +136,560 @@
             <tree>
               <field name="name"/>
               <field name="parent_id"/>
+              <field name="fullname"/>
             </tree>
           </column>
         </record>
-        <record id="view.md.models.md.language.form">
-          <column name="name">view.md.models.md.language.form</column>
-          <column name="model">md.language</column>
+        <record id="view.md.models.md.category.product.form">
+          <column name="name">view.md.models.md.category.product.form</column>
+          <column name="model">md.category.product</column>
           <column name="arch" type="Xml">
             <form>
               <field name="name"/>
-              <field name="iso631_1"/>
-              <field name="iso631_2t"/>
-              <field name="iso631_2b"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="fullname"/>
+              <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.md.models.md.language.list">
-          <column name="name">view.md.models.md.language.list</column>
-          <column name="model">md.language</column>
+        <record id="view.md.models.md.category.product.list">
+          <column name="name">view.md.models.md.category.product.list</column>
+          <column name="model">md.category.product</column>
           <column name="arch" type="Xml">
             <list>
               <field name="name"/>
-              <field name="iso631_1"/>
-              <field name="iso631_2t"/>
-              <field name="iso631_2b"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="fullname"/>
             </list>
           </column>
         </record>
-        <record id="view.md.models.md.language.m2mlist">
-          <column name="name">view.md.models.md.language.m2mlist</column>
-          <column name="model">md.language</column>
+        <record id="view.md.models.md.category.product.m2mlist">
+          <column name="name">view.md.models.md.category.product.m2mlist</column>
+          <column name="model">md.category.product</column>
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="name"/>
-              <field name="iso631_1"/>
-              <field name="iso631_2t"/>
-              <field name="iso631_2b"/>
+              <field name="parent_id"/>
+              <field name="fullname"/>
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.models.md.language.search">
-          <column name="name">view.md.models.md.language.search</column>
-          <column name="model">md.language</column>
+        <record id="view.md.models.md.category.product.search">
+          <column name="name">view.md.models.md.category.product.search</column>
+          <column name="model">md.category.product</column>
           <column name="arch" type="Xml">
             <search>
               <field name="name"/>
-              <field name="iso631_1"/>
-              <field name="iso631_2t"/>
-              <field name="iso631_2b"/>
+              <field name="parent_id"/>
+              <field name="fullname"/>
             </search>
           </column>
         </record>
-        <record id="view.md.models.md.language.find">
-          <column name="name">view.md.models.md.language.find</column>
-          <column name="model">md.language</column>
+        <record id="view.md.models.md.category.product.find">
+          <column name="name">view.md.models.md.category.product.find</column>
+          <column name="model">md.category.product</column>
           <column name="arch" type="Xml">
             <find>
               <field name="name"/>
-              <field name="iso631_1"/>
-              <field name="iso631_2t"/>
-              <field name="iso631_2b"/>
+              <field name="parent_id"/>
+              <field name="fullname"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.product.tree">
+          <column name="name">view.md.models.md.category.product.tree</column>
+          <column name="model">md.category.product</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="fullname"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.md.models.md.gtis.form">
+          <column name="name">view.md.models.md.gtis.form</column>
+          <column name="model">md.gtis</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="code"/>
+              <field name="descr"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.gtis.list">
+          <column name="name">view.md.models.md.gtis.list</column>
+          <column name="model">md.gtis</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="code"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.gtis.m2mlist">
+          <column name="name">view.md.models.md.gtis.m2mlist</column>
+          <column name="model">md.gtis</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="code"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.gtis.search">
+          <column name="name">view.md.models.md.gtis.search</column>
+          <column name="model">md.gtis</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="code"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.gtis.find">
+          <column name="name">view.md.models.md.gtis.find</column>
+          <column name="model">md.gtis</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="code"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.type.items.form">
+          <column name="name">view.md.models.md.type.items.form</column>
+          <column name="model">md.type.items</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.type.items.list">
+          <column name="name">view.md.models.md.type.items.list</column>
+          <column name="model">md.type.items</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.type.items.m2mlist">
+          <column name="name">view.md.models.md.type.items.m2mlist</column>
+          <column name="model">md.type.items</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.type.items.search">
+          <column name="name">view.md.models.md.type.items.search</column>
+          <column name="model">md.type.items</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.type.items.find">
+          <column name="name">view.md.models.md.type.items.find</column>
+          <column name="model">md.type.items</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="usage"/>
+              <field name="code"/>
+              <field name="descr"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.type.plates.form">
+          <column name="name">view.md.models.md.type.plates.form</column>
+          <column name="model">md.type.plates</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="usage"/>
+              <field name="name"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.type.plates.list">
+          <column name="name">view.md.models.md.type.plates.list</column>
+          <column name="model">md.type.plates</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="usage"/>
+              <field name="name"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.type.plates.m2mlist">
+          <column name="name">view.md.models.md.type.plates.m2mlist</column>
+          <column name="model">md.type.plates</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="usage"/>
+              <field name="name"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.type.plates.search">
+          <column name="name">view.md.models.md.type.plates.search</column>
+          <column name="model">md.type.plates</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="usage"/>
+              <field name="name"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.type.plates.find">
+          <column name="name">view.md.models.md.type.plates.find</column>
+          <column name="model">md.type.plates</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="usage"/>
+              <field name="name"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.products.template.form">
+          <column name="name">view.md.models.md.products.template.form</column>
+          <column name="model">md.products.template</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="mtype"/>
+              <field name="products"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.products.template.list">
+          <column name="name">view.md.models.md.products.template.list</column>
+          <column name="model">md.products.template</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="mtype"/>
+              <field name="products"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.products.template.m2mlist">
+          <column name="name">view.md.models.md.products.template.m2mlist</column>
+          <column name="model">md.products.template</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="mtype"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.products.template.search">
+          <column name="name">view.md.models.md.products.template.search</column>
+          <column name="model">md.products.template</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="mtype"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.products.template.find">
+          <column name="name">view.md.models.md.products.template.find</column>
+          <column name="model">md.products.template</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="category_id"/>
+              <field name="mtype"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.partner.form">
+          <column name="name">view.md.models.md.category.partner.form</column>
+          <column name="model">md.category.partner</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="fullname"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.partner.list">
+          <column name="name">view.md.models.md.category.partner.list</column>
+          <column name="model">md.category.partner</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="fullname"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.partner.m2mlist">
+          <column name="name">view.md.models.md.category.partner.m2mlist</column>
+          <column name="model">md.category.partner</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="fullname"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.partner.search">
+          <column name="name">view.md.models.md.category.partner.search</column>
+          <column name="model">md.category.partner</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.partner.find">
+          <column name="name">view.md.models.md.category.partner.find</column>
+          <column name="model">md.category.partner</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="fullname"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.partner.tree">
+          <column name="name">view.md.models.md.category.partner.tree</column>
+          <column name="model">md.category.partner</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="fullname"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.location.form">
+          <column name="name">view.md.models.md.category.location.form</column>
+          <column name="model">md.category.location</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="fullname"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.location.list">
+          <column name="name">view.md.models.md.category.location.list</column>
+          <column name="model">md.category.location</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="childs_id"/>
+              <field name="fullname"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.location.m2mlist">
+          <column name="name">view.md.models.md.category.location.m2mlist</column>
+          <column name="model">md.category.location</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="fullname"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.location.search">
+          <column name="name">view.md.models.md.category.location.search</column>
+          <column name="model">md.category.location</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="fullname"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.location.find">
+          <column name="name">view.md.models.md.category.location.find</column>
+          <column name="model">md.category.location</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="fullname"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.category.location.tree">
+          <column name="name">view.md.models.md.category.location.tree</column>
+          <column name="model">md.category.location</column>
+          <column name="arch" type="Xml">
+            <tree>
+              <field name="name"/>
+              <field name="parent_id"/>
+              <field name="fullname"/>
+            </tree>
+          </column>
+        </record>
+        <record id="view.md.models.md.location.form">
+          <column name="name">view.md.models.md.location.form</column>
+          <column name="model">md.location</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="category_id"/>
+              <field name="usage"/>
+              <field name="name"/>
+              <field name="latitude"/>
+              <field name="longitude"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.location.list">
+          <column name="name">view.md.models.md.location.list</column>
+          <column name="model">md.location</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="category_id"/>
+              <field name="usage"/>
+              <field name="name"/>
+              <field name="latitude"/>
+              <field name="longitude"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.location.m2mlist">
+          <column name="name">view.md.models.md.location.m2mlist</column>
+          <column name="model">md.location</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="category_id"/>
+              <field name="usage"/>
+              <field name="name"/>
+              <field name="latitude"/>
+              <field name="longitude"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.location.search">
+          <column name="name">view.md.models.md.location.search</column>
+          <column name="model">md.location</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="category_id"/>
+              <field name="usage"/>
+              <field name="name"/>
+              <field name="latitude"/>
+              <field name="longitude"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.location.find">
+          <column name="name">view.md.models.md.location.find</column>
+          <column name="model">md.location</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="category_id"/>
+              <field name="usage"/>
+              <field name="name"/>
+              <field name="latitude"/>
+              <field name="longitude"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.location.geo">
+          <column name="name">view.md.models.md.location.geo</column>
+          <column name="model">md.location</column>
+          <column name="arch" type="Xml">
+            <geo  from_latitude="None" from_longitude="None" to_latitude="None" to_longitude="None">
+              <field name="category_id"/>
+              <field name="usage"/>
+              <field name="name"/>
+              <field name="latitude"/>
+              <field name="longitude"/>
+            </geo>
+          </column>
+        </record>
+        <record id="view.md.models.md.role.partners.form">
+          <column name="name">view.md.models.md.role.partners.form</column>
+          <column name="model">md.role.partners</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="trole"/>
+              <field name="name"/>
+              <field name="descr"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.role.partners.list">
+          <column name="name">view.md.models.md.role.partners.list</column>
+          <column name="model">md.role.partners</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="trole"/>
+              <field name="name"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.role.partners.m2mlist">
+          <column name="name">view.md.models.md.role.partners.m2mlist</column>
+          <column name="model">md.role.partners</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="trole"/>
+              <field name="name"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.role.partners.search">
+          <column name="name">view.md.models.md.role.partners.search</column>
+          <column name="model">md.role.partners</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="trole"/>
+              <field name="name"/>
+              <field name="descr"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.role.partners.find">
+          <column name="name">view.md.models.md.role.partners.find</column>
+          <column name="model">md.role.partners</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="trole"/>
+              <field name="name"/>
+              <field name="descr"/>
             </find>
           </column>
         </record>
@@ -656,69 +946,6 @@
             </find>
           </column>
         </record>
-        <record id="view.md.models.md.currency.form">
-          <column name="name">view.md.models.md.currency.form</column>
-          <column name="model">md.currency</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="isocode"/>
-              <field name="currency_rate"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.currency.list">
-          <column name="name">view.md.models.md.currency.list</column>
-          <column name="model">md.currency</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="isocode"/>
-              <field name="currency_rate"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.currency.m2mlist">
-          <column name="name">view.md.models.md.currency.m2mlist</column>
-          <column name="model">md.currency</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="isocode"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.currency.search">
-          <column name="name">view.md.models.md.currency.search</column>
-          <column name="model">md.currency</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="isocode"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.currency.find">
-          <column name="name">view.md.models.md.currency.find</column>
-          <column name="model">md.currency</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="shortname"/>
-              <field name="code"/>
-              <field name="isocode"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.models.md.vat.code.form">
           <column name="name">view.md.models.md.vat.code.form</column>
           <column name="model">md.vat.code</column>
@@ -849,277 +1076,465 @@
             </find>
           </column>
         </record>
-        <record id="view.md.models.md.category.product.form">
-          <column name="name">view.md.models.md.category.product.form</column>
-          <column name="model">md.category.product</column>
+        <record id="view.md.models.md.currency.form">
+          <column name="name">view.md.models.md.currency.form</column>
+          <column name="model">md.currency</column>
           <column name="arch" type="Xml">
             <form>
               <field name="name"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
+              <field name="shortname"/>
+              <field name="code"/>
+              <field name="isocode"/>
+              <field name="currency_rate"/>
               <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.md.models.md.category.product.list">
-          <column name="name">view.md.models.md.category.product.list</column>
-          <column name="model">md.category.product</column>
+        <record id="view.md.models.md.currency.list">
+          <column name="name">view.md.models.md.currency.list</column>
+          <column name="model">md.currency</column>
           <column name="arch" type="Xml">
             <list>
               <field name="name"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
+              <field name="shortname"/>
+              <field name="code"/>
+              <field name="isocode"/>
+              <field name="currency_rate"/>
             </list>
           </column>
         </record>
-        <record id="view.md.models.md.category.product.m2mlist">
-          <column name="name">view.md.models.md.category.product.m2mlist</column>
-          <column name="model">md.category.product</column>
+        <record id="view.md.models.md.currency.m2mlist">
+          <column name="name">view.md.models.md.currency.m2mlist</column>
+          <column name="model">md.currency</column>
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="name"/>
-              <field name="parent_id"/>
+              <field name="shortname"/>
+              <field name="code"/>
+              <field name="isocode"/>
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.models.md.category.product.search">
-          <column name="name">view.md.models.md.category.product.search</column>
-          <column name="model">md.category.product</column>
+        <record id="view.md.models.md.currency.search">
+          <column name="name">view.md.models.md.currency.search</column>
+          <column name="model">md.currency</column>
           <column name="arch" type="Xml">
             <search>
               <field name="name"/>
-              <field name="parent_id"/>
+              <field name="shortname"/>
+              <field name="code"/>
+              <field name="isocode"/>
             </search>
           </column>
         </record>
-        <record id="view.md.models.md.category.product.find">
-          <column name="name">view.md.models.md.category.product.find</column>
-          <column name="model">md.category.product</column>
+        <record id="view.md.models.md.currency.find">
+          <column name="name">view.md.models.md.currency.find</column>
+          <column name="model">md.currency</column>
           <column name="arch" type="Xml">
             <find>
               <field name="name"/>
-              <field name="parent_id"/>
+              <field name="shortname"/>
+              <field name="code"/>
+              <field name="isocode"/>
             </find>
           </column>
         </record>
-        <record id="view.md.models.md.category.product.tree">
-          <column name="name">view.md.models.md.category.product.tree</column>
-          <column name="model">md.category.product</column>
-          <column name="arch" type="Xml">
-            <tree>
-              <field name="name"/>
-              <field name="parent_id"/>
-            </tree>
-          </column>
-        </record>
-        <record id="view.md.models.md.gtis.form">
-          <column name="name">view.md.models.md.gtis.form</column>
-          <column name="model">md.gtis</column>
+        <record id="view.md.models.md.key.currencies.form">
+          <column name="name">view.md.models.md.key.currencies.form</column>
+          <column name="model">md.key.currencies</column>
           <column name="arch" type="Xml">
             <form>
-              <field name="code"/>
-              <field name="descr"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.gtis.list">
-          <column name="name">view.md.models.md.gtis.list</column>
-          <column name="model">md.gtis</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="code"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.gtis.m2mlist">
-          <column name="name">view.md.models.md.gtis.m2mlist</column>
-          <column name="model">md.gtis</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="code"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.gtis.search">
-          <column name="name">view.md.models.md.gtis.search</column>
-          <column name="model">md.gtis</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="code"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.gtis.find">
-          <column name="name">view.md.models.md.gtis.find</column>
-          <column name="model">md.gtis</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="code"/>
-            </find>
-          </column>
-        </record>
-        <record id="view.md.models.md.type.items.form">
-          <column name="name">view.md.models.md.type.items.form</column>
-          <column name="model">md.type.items</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="usage"/>
-              <field name="code"/>
-              <field name="descr"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.type.items.list">
-          <column name="name">view.md.models.md.type.items.list</column>
-          <column name="model">md.type.items</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="usage"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.type.items.m2mlist">
-          <column name="name">view.md.models.md.type.items.m2mlist</column>
-          <column name="model">md.type.items</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="usage"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.type.items.search">
-          <column name="name">view.md.models.md.type.items.search</column>
-          <column name="model">md.type.items</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="usage"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.type.items.find">
-          <column name="name">view.md.models.md.type.items.find</column>
-          <column name="model">md.type.items</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="usage"/>
-              <field name="code"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
-        <record id="view.md.models.md.type.plates.form">
-          <column name="name">view.md.models.md.type.plates.form</column>
-          <column name="model">md.type.plates</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="usage"/>
               <field name="name"/>
               <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.md.models.md.type.plates.list">
-          <column name="name">view.md.models.md.type.plates.list</column>
-          <column name="model">md.type.plates</column>
+        <record id="view.md.models.md.key.currencies.list">
+          <column name="name">view.md.models.md.key.currencies.list</column>
+          <column name="model">md.key.currencies</column>
           <column name="arch" type="Xml">
             <list>
-              <field name="usage"/>
               <field name="name"/>
             </list>
           </column>
         </record>
-        <record id="view.md.models.md.type.plates.m2mlist">
-          <column name="name">view.md.models.md.type.plates.m2mlist</column>
-          <column name="model">md.type.plates</column>
+        <record id="view.md.models.md.key.currencies.m2mlist">
+          <column name="name">view.md.models.md.key.currencies.m2mlist</column>
+          <column name="model">md.key.currencies</column>
           <column name="arch" type="Xml">
             <m2mlist>
-              <field name="usage"/>
               <field name="name"/>
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.models.md.type.plates.search">
-          <column name="name">view.md.models.md.type.plates.search</column>
-          <column name="model">md.type.plates</column>
+        <record id="view.md.models.md.key.currencies.search">
+          <column name="name">view.md.models.md.key.currencies.search</column>
+          <column name="model">md.key.currencies</column>
           <column name="arch" type="Xml">
             <search>
-              <field name="usage"/>
               <field name="name"/>
             </search>
           </column>
         </record>
-        <record id="view.md.models.md.type.plates.find">
-          <column name="name">view.md.models.md.type.plates.find</column>
-          <column name="model">md.type.plates</column>
+        <record id="view.md.models.md.key.currencies.find">
+          <column name="name">view.md.models.md.key.currencies.find</column>
+          <column name="model">md.key.currencies</column>
           <column name="arch" type="Xml">
             <find>
-              <field name="usage"/>
               <field name="name"/>
             </find>
           </column>
         </record>
-        <record id="view.md.models.md.products.template.form">
-          <column name="name">view.md.models.md.products.template.form</column>
-          <column name="model">md.products.template</column>
+        <record id="view.md.models.md.incoterms.form">
+          <column name="name">view.md.models.md.incoterms.form</column>
+          <column name="model">md.incoterms</column>
           <column name="arch" type="Xml">
             <form>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="mtype"/>
-              <field name="products"/>
+              <field name="descr"/>
+              <field name="mode"/>
+              <field name="grp"/>
+              <field name="mot"/>
               <field name="note"/>
             </form>
           </column>
         </record>
-        <record id="view.md.models.md.products.template.list">
-          <column name="name">view.md.models.md.products.template.list</column>
-          <column name="model">md.products.template</column>
+        <record id="view.md.models.md.incoterms.list">
+          <column name="name">view.md.models.md.incoterms.list</column>
+          <column name="model">md.incoterms</column>
           <column name="arch" type="Xml">
             <list>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="mtype"/>
-              <field name="products"/>
+              <field name="descr"/>
+              <field name="mode"/>
+              <field name="grp"/>
+              <field name="mot"/>
             </list>
           </column>
         </record>
-        <record id="view.md.models.md.products.template.m2mlist">
-          <column name="name">view.md.models.md.products.template.m2mlist</column>
-          <column name="model">md.products.template</column>
+        <record id="view.md.models.md.incoterms.m2mlist">
+          <column name="name">view.md.models.md.incoterms.m2mlist</column>
+          <column name="model">md.incoterms</column>
           <column name="arch" type="Xml">
             <m2mlist>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="mtype"/>
+              <field name="descr"/>
+              <field name="mode"/>
+              <field name="grp"/>
+              <field name="mot"/>
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.models.md.products.template.search">
-          <column name="name">view.md.models.md.products.template.search</column>
-          <column name="model">md.products.template</column>
+        <record id="view.md.models.md.incoterms.search">
+          <column name="name">view.md.models.md.incoterms.search</column>
+          <column name="model">md.incoterms</column>
           <column name="arch" type="Xml">
             <search>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="mtype"/>
+              <field name="descr"/>
+              <field name="mode"/>
+              <field name="grp"/>
+              <field name="mot"/>
             </search>
           </column>
         </record>
-        <record id="view.md.models.md.products.template.find">
-          <column name="name">view.md.models.md.products.template.find</column>
-          <column name="model">md.products.template</column>
+        <record id="view.md.models.md.incoterms.find">
+          <column name="name">view.md.models.md.incoterms.find</column>
+          <column name="model">md.incoterms</column>
           <column name="arch" type="Xml">
             <find>
               <field name="name"/>
-              <field name="category_id"/>
-              <field name="mtype"/>
+              <field name="descr"/>
+              <field name="mode"/>
+              <field name="grp"/>
+              <field name="mot"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.company.form">
+          <column name="name">view.md.models.md.company.form</column>
+          <column name="model">md.company</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="country_id"/>
+              <field name="currency_id"/>
+              <field name="currency_rate"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.company.list">
+          <column name="name">view.md.models.md.company.list</column>
+          <column name="model">md.company</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="country_id"/>
+              <field name="currency_id"/>
+              <field name="currency_rate"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.company.m2mlist">
+          <column name="name">view.md.models.md.company.m2mlist</column>
+          <column name="model">md.company</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="country_id"/>
+              <field name="currency_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.company.search">
+          <column name="name">view.md.models.md.company.search</column>
+          <column name="model">md.company</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="country_id"/>
+              <field name="currency_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.company.find">
+          <column name="name">view.md.models.md.company.find</column>
+          <column name="model">md.company</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="country_id"/>
+              <field name="currency_id"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.group.form">
+          <column name="name">view.md.models.md.country.group.form</column>
+          <column name="model">md.country.group</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="country_ids"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.group.list">
+          <column name="name">view.md.models.md.country.group.list</column>
+          <column name="model">md.country.group</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.group.m2mlist">
+          <column name="name">view.md.models.md.country.group.m2mlist</column>
+          <column name="model">md.country.group</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.group.search">
+          <column name="name">view.md.models.md.country.group.search</column>
+          <column name="model">md.country.group</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.group.find">
+          <column name="name">view.md.models.md.country.group.find</column>
+          <column name="model">md.country.group</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.form">
+          <column name="name">view.md.models.md.country.form</column>
+          <column name="model">md.country</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="shortname"/>
+              <field name="code"/>
+              <field name="alpha2"/>
+              <field name="alpha3"/>
+              <field name="group_ids"/>
+              <field name="states"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.list">
+          <column name="name">view.md.models.md.country.list</column>
+          <column name="model">md.country</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="shortname"/>
+              <field name="code"/>
+              <field name="alpha2"/>
+              <field name="alpha3"/>
+              <field name="states"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.m2mlist">
+          <column name="name">view.md.models.md.country.m2mlist</column>
+          <column name="model">md.country</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="shortname"/>
+              <field name="code"/>
+              <field name="alpha2"/>
+              <field name="alpha3"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.search">
+          <column name="name">view.md.models.md.country.search</column>
+          <column name="model">md.country</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="shortname"/>
+              <field name="code"/>
+              <field name="alpha2"/>
+              <field name="alpha3"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.find">
+          <column name="name">view.md.models.md.country.find</column>
+          <column name="model">md.country</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="shortname"/>
+              <field name="code"/>
+              <field name="alpha2"/>
+              <field name="alpha3"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.states.form">
+          <column name="name">view.md.models.md.country.states.form</column>
+          <column name="model">md.country.states</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="country_id"/>
+              <field name="name"/>
+              <field name="code"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.states.list">
+          <column name="name">view.md.models.md.country.states.list</column>
+          <column name="model">md.country.states</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="country_id"/>
+              <field name="name"/>
+              <field name="code"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.states.m2mlist">
+          <column name="name">view.md.models.md.country.states.m2mlist</column>
+          <column name="model">md.country.states</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="country_id"/>
+              <field name="name"/>
+              <field name="code"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.states.search">
+          <column name="name">view.md.models.md.country.states.search</column>
+          <column name="model">md.country.states</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="country_id"/>
+              <field name="name"/>
+              <field name="code"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.states.find">
+          <column name="name">view.md.models.md.country.states.find</column>
+          <column name="model">md.country.states</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="country_id"/>
+              <field name="name"/>
+              <field name="code"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.language.form">
+          <column name="name">view.md.models.md.language.form</column>
+          <column name="model">md.language</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="iso631_1"/>
+              <field name="iso631_2t"/>
+              <field name="iso631_2b"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.language.list">
+          <column name="name">view.md.models.md.language.list</column>
+          <column name="model">md.language</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="iso631_1"/>
+              <field name="iso631_2t"/>
+              <field name="iso631_2b"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.language.m2mlist">
+          <column name="name">view.md.models.md.language.m2mlist</column>
+          <column name="model">md.language</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="iso631_1"/>
+              <field name="iso631_2t"/>
+              <field name="iso631_2b"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.language.search">
+          <column name="name">view.md.models.md.language.search</column>
+          <column name="model">md.language</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="iso631_1"/>
+              <field name="iso631_2t"/>
+              <field name="iso631_2b"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.language.find">
+          <column name="name">view.md.models.md.language.find</column>
+          <column name="model">md.language</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="iso631_1"/>
+              <field name="iso631_2t"/>
+              <field name="iso631_2b"/>
             </find>
           </column>
         </record>
@@ -1245,277 +1660,6 @@
               <field name="state"/>
               <field name="link"/>
             </find>
-          </column>
-        </record>
-        <record id="view.md.models.md.incoterms.form">
-          <column name="name">view.md.models.md.incoterms.form</column>
-          <column name="model">md.incoterms</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="name"/>
-              <field name="descr"/>
-              <field name="mode"/>
-              <field name="grp"/>
-              <field name="mot"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.incoterms.list">
-          <column name="name">view.md.models.md.incoterms.list</column>
-          <column name="model">md.incoterms</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="name"/>
-              <field name="descr"/>
-              <field name="mode"/>
-              <field name="grp"/>
-              <field name="mot"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.incoterms.m2mlist">
-          <column name="name">view.md.models.md.incoterms.m2mlist</column>
-          <column name="model">md.incoterms</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="name"/>
-              <field name="descr"/>
-              <field name="mode"/>
-              <field name="grp"/>
-              <field name="mot"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.incoterms.search">
-          <column name="name">view.md.models.md.incoterms.search</column>
-          <column name="model">md.incoterms</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="descr"/>
-              <field name="mode"/>
-              <field name="grp"/>
-              <field name="mot"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.incoterms.find">
-          <column name="name">view.md.models.md.incoterms.find</column>
-          <column name="model">md.incoterms</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="descr"/>
-              <field name="mode"/>
-              <field name="grp"/>
-              <field name="mot"/>
-            </find>
-          </column>
-        </record>
-        <record id="view.md.models.md.category.partner.form">
-          <column name="name">view.md.models.md.category.partner.form</column>
-          <column name="model">md.category.partner</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="name"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.category.partner.list">
-          <column name="name">view.md.models.md.category.partner.list</column>
-          <column name="model">md.category.partner</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="name"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.category.partner.m2mlist">
-          <column name="name">view.md.models.md.category.partner.m2mlist</column>
-          <column name="model">md.category.partner</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="name"/>
-              <field name="parent_id"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.category.partner.search">
-          <column name="name">view.md.models.md.category.partner.search</column>
-          <column name="model">md.category.partner</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="parent_id"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.category.partner.find">
-          <column name="name">view.md.models.md.category.partner.find</column>
-          <column name="model">md.category.partner</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="parent_id"/>
-            </find>
-          </column>
-        </record>
-        <record id="view.md.models.md.category.partner.tree">
-          <column name="name">view.md.models.md.category.partner.tree</column>
-          <column name="model">md.category.partner</column>
-          <column name="arch" type="Xml">
-            <tree>
-              <field name="name"/>
-              <field name="parent_id"/>
-            </tree>
-          </column>
-        </record>
-        <record id="view.md.models.md.category.location.form">
-          <column name="name">view.md.models.md.category.location.form</column>
-          <column name="model">md.category.location</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="name"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.category.location.list">
-          <column name="name">view.md.models.md.category.location.list</column>
-          <column name="model">md.category.location</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="name"/>
-              <field name="parent_id"/>
-              <field name="childs_id"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.category.location.m2mlist">
-          <column name="name">view.md.models.md.category.location.m2mlist</column>
-          <column name="model">md.category.location</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="name"/>
-              <field name="parent_id"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.category.location.search">
-          <column name="name">view.md.models.md.category.location.search</column>
-          <column name="model">md.category.location</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="parent_id"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.category.location.find">
-          <column name="name">view.md.models.md.category.location.find</column>
-          <column name="model">md.category.location</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="parent_id"/>
-            </find>
-          </column>
-        </record>
-        <record id="view.md.models.md.category.location.tree">
-          <column name="name">view.md.models.md.category.location.tree</column>
-          <column name="model">md.category.location</column>
-          <column name="arch" type="Xml">
-            <tree>
-              <field name="name"/>
-              <field name="parent_id"/>
-            </tree>
-          </column>
-        </record>
-        <record id="view.md.models.md.location.form">
-          <column name="name">view.md.models.md.location.form</column>
-          <column name="model">md.location</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="category_id"/>
-              <field name="usage"/>
-              <field name="name"/>
-              <field name="latitude"/>
-              <field name="longitude"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.location.list">
-          <column name="name">view.md.models.md.location.list</column>
-          <column name="model">md.location</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="category_id"/>
-              <field name="usage"/>
-              <field name="name"/>
-              <field name="latitude"/>
-              <field name="longitude"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.location.m2mlist">
-          <column name="name">view.md.models.md.location.m2mlist</column>
-          <column name="model">md.location</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="category_id"/>
-              <field name="usage"/>
-              <field name="name"/>
-              <field name="latitude"/>
-              <field name="longitude"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.location.search">
-          <column name="name">view.md.models.md.location.search</column>
-          <column name="model">md.location</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="category_id"/>
-              <field name="usage"/>
-              <field name="name"/>
-              <field name="latitude"/>
-              <field name="longitude"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.location.find">
-          <column name="name">view.md.models.md.location.find</column>
-          <column name="model">md.location</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="category_id"/>
-              <field name="usage"/>
-              <field name="name"/>
-              <field name="latitude"/>
-              <field name="longitude"/>
-            </find>
-          </column>
-        </record>
-        <record id="view.md.models.md.location.geo">
-          <column name="name">view.md.models.md.location.geo</column>
-          <column name="model">md.location</column>
-          <column name="arch" type="Xml">
-            <geo  from_latitude="None" from_longitude="None" to_latitude="None" to_longitude="None">
-              <field name="category_id"/>
-              <field name="usage"/>
-              <field name="name"/>
-              <field name="latitude"/>
-              <field name="longitude"/>
-            </geo>
           </column>
         </record>
         <record id="view.md.models.md.partner.form">
@@ -1855,62 +1999,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.md.models.md.role.partners.form">
-          <column name="name">view.md.models.md.role.partners.form</column>
-          <column name="model">md.role.partners</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="trole"/>
-              <field name="name"/>
-              <field name="descr"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.role.partners.list">
-          <column name="name">view.md.models.md.role.partners.list</column>
-          <column name="model">md.role.partners</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="trole"/>
-              <field name="name"/>
-              <field name="descr"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.role.partners.m2mlist">
-          <column name="name">view.md.models.md.role.partners.m2mlist</column>
-          <column name="model">md.role.partners</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="trole"/>
-              <field name="name"/>
-              <field name="descr"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.role.partners.search">
-          <column name="name">view.md.models.md.role.partners.search</column>
-          <column name="model">md.role.partners</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="trole"/>
-              <field name="name"/>
-              <field name="descr"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.role.partners.find">
-          <column name="name">view.md.models.md.role.partners.find</column>
-          <column name="model">md.role.partners</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="trole"/>
-              <field name="name"/>
-              <field name="descr"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.models.md.partner.roles.form">
           <column name="name">view.md.models.md.partner.roles.form</column>
           <column name="model">md.partner.roles</column>
@@ -1985,64 +2073,6 @@
               <field name="qty"/>
               <field name="price"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.company.form">
-          <column name="name">view.md.models.md.company.form</column>
-          <column name="model">md.company</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="name"/>
-              <field name="country_id"/>
-              <field name="currency_id"/>
-              <field name="currency_rate"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.company.list">
-          <column name="name">view.md.models.md.company.list</column>
-          <column name="model">md.company</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="name"/>
-              <field name="country_id"/>
-              <field name="currency_id"/>
-              <field name="currency_rate"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.company.m2mlist">
-          <column name="name">view.md.models.md.company.m2mlist</column>
-          <column name="model">md.company</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="name"/>
-              <field name="country_id"/>
-              <field name="currency_id"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.company.search">
-          <column name="name">view.md.models.md.company.search</column>
-          <column name="model">md.company</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="country_id"/>
-              <field name="currency_id"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.company.find">
-          <column name="name">view.md.models.md.company.find</column>
-          <column name="model">md.company</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="country_id"/>
-              <field name="currency_id"/>
-            </find>
           </column>
         </record>
         <record id="view.md.models.md.currency.rate.calendar">

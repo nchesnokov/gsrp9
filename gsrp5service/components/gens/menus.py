@@ -131,9 +131,9 @@ def Area(self, modules = None, context={}):
 					if isinstance(obj,Model):
 						info = obj.modelInfo()	
 						if len(list(filter(lambda x: 'selectable' in info['columns'][x] and info['columns'][x]['selectable'] and 'rec_name' in info['names'] and info['names']['rec_name'],info['columns'].keys()))) > 0:
-							if 'class_model' in info and info['class_model'] == 'A':
+							if 'class_model' in info and info['class_model'] in ('A','B','K'):
 								objs.setdefault(cat,[]).append(obj)
-							elif 'class_model' in info and info['class_model'] == 'C':
+							elif 'class_model' in info and info['class_model'] in ('C','E'):
 								cust_objs.setdefault(cat,[]).append(obj)
 
 		if len(objs) > 0 or len(cust_objs) > 0:

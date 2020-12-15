@@ -12,6 +12,7 @@ class bc_users(Model):
 	_description = 'Users'
 	_log_access = False
 	_rec_name = 'login'
+	_class_model = 'K'
 	_columns = {
 	'login': fields.varchar('Login', required = True, size = 64,readonly=True),
 	'password': fields.varchar('Password', required = True,readonly=True),
@@ -110,6 +111,7 @@ class bc_langs(Model):
 	_name = 'bc.langs'
 	_description = 'Langs'
 	_rec_name = 'code'
+	_class_model = 'K'
 	_columns = {
 	'code': fields.varchar(label='Language',size = 3,readonly=True),
 	'description': fields.varchar(label='Description', size = 64,readonly=True)
@@ -120,6 +122,7 @@ bc_langs()
 class bc_user_preferences(Model):
 	_name = 'bc.user.preferences'
 	_description = 'User Preferncess'
+	_class_model = 'K'
 	_columns = {
 	'user_id':fields.many2one(label='User',obj='bc.users',readonly=True),
 	'lang':fields.many2one(label='Language',obj='bc.langs'),
@@ -141,6 +144,7 @@ bc_user_preferences()
 class bc_group_modules(Model):
 	_name = 'bc.group.modules'
 	_description = 'Module Groups'
+	_class_model = 'K'
 	_columns = {
 	'name': fields.varchar(label = 'Name',readonly=True),
 	'name2': fields.varchar(label = 'Name 2', selectable = True, required = True,readonly=True),
@@ -156,6 +160,7 @@ class bc_modules(Model):
 	_name = 'bc.modules'
 	_description = 'Modules'
 	_rec_name = 'code'
+	_class_model = 'K'
 	_columns = {
 	'bc_group_module_id': fields.many2one(label = 'Group', obj = 'bc.group.modules', required = False, on_delete = 'n',readonly=True),
 	'code': fields.varchar(label = 'Code',readonly=True),
@@ -182,6 +187,7 @@ class bc_module_files(Model):
 	_name = 'bc.module.files'
 	_description = 'Module File'
 	_rec_name = 'filename'
+	_class_model = 'K'
 	_order_by="module_id,id"
 	_columns = {
 	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules', required = False, on_delete = 'n',readonly=True),
@@ -193,10 +199,26 @@ class bc_module_files(Model):
 
 bc_module_files()
 
+class bc_class_model_categories(Model):
+	_name = 'bc.class.model.categories'
+	_description = 'Class Models'
+	_class_model = 'K'
+	_columns = {
+	'name': fields.varchar(label='Code', size = 64,readonly=True),
+	'descr': fields.varchar(label='Description', size = 64,readonly=True),
+	'class_models':fields.one2many(label='Class Models',obj='bc.class.models',rel='category_id'),
+	'note': fields.text(label='Note',readonly=True)
+	}
+
+bc_class_model_categories()
+
+
 class bc_class_models(Model):
 	_name = 'bc.class.models'
 	_description = 'Class Models'
+	_class_model = 'K'
 	_columns = {
+	'category_id': fields.many2one(label='Category',obj='bc.class.model.categories'),
 	'name': fields.varchar(label='Code', size = 64,readonly=True),
 	'descr': fields.varchar(label='Description', size = 64,readonly=True),
 	'note': fields.text(label='Note',readonly=True)
@@ -204,10 +226,26 @@ class bc_class_models(Model):
 
 bc_class_models()
 
+class bc_class_category_categories(Model):
+	_name = 'bc.class.category.categories'
+	_description = 'Category Class Models'
+	_class_model = 'K'
+	_columns = {
+	'name': fields.varchar(label='Code', size = 64,readonly=True),
+	'descr': fields.varchar(label='Description', size = 64,readonly=True),
+	'class_categories':fields.one2many(label='Class Categories',obj='bc.class.categories',rel='category_id'),
+	'note': fields.text(label='Note',readonly=True)
+	}
+
+bc_class_model_categories()
+
+
 class bc_class_categories(Model):
 	_name = 'bc.class.categories'
 	_description = 'Class Categories'
+	_class_model = 'K'
 	_columns = {
+	'category_id': fields.many2one(label='Category',obj='bc.class.category.categories'),
 	'name': fields.varchar(label='Code', size = 64,readonly=True),
 	'descr': fields.varchar(label='Description', size = 64,readonly=True),
 	'note': fields.text(label='Note',readonly=True)
@@ -219,6 +257,7 @@ bc_class_models()
 class bc_models(Model):
 	_name = 'bc.models'
 	_description = 'Models'
+	_class_model = 'K'
 	_order_by="module_id"
 	_extra = {'env-fields':['class_model','class_category']}
 	_columns = {
@@ -237,6 +276,7 @@ bc_models()
 class bc_inherits(Model):
 	_name = 'bc.inherits'
 	_description = 'Inherits'
+	_class_model = 'K'
 	_order_by="module_id"
 	_columns = {
 	'name': fields.varchar(label = 'Name', size = 64,readonly=True),
@@ -250,6 +290,7 @@ bc_inherits()
 class bc_model_columns(Model):
 	_name = 'bc.model.columns'
 	_description = 'Model Columns'
+	_class_model = 'K'
 	_order_by='model_id,col_name'
 	_columns = {
 	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
@@ -301,6 +342,7 @@ bc_model_columns()
 class bc_inherit_columns(Model):
 	_name = 'bc.inherit.columns'
 	_description = 'Inherit Columns'
+	_class_model = 'K'
 	_order_by='inherit_id,col_name'
 	_columns = {
 	'inherit_id': fields.many2one(label = 'Inherit', obj = 'bc.inherits',readonly=True, on_delete = 'c'),
@@ -338,6 +380,7 @@ bc_inherit_columns()
 class bc_record_translations(Model):
 	_name = 'bc.record.translations'
 	_description = 'Record Translations'
+	_class_model = 'K'
 	_columns = {
 	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
 	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
@@ -353,6 +396,7 @@ bc_record_translations()
 class bc_model_translations(Model):
 	_name = 'bc.model.translations'
 	_description = 'Model Translations'
+	_class_model = 'K'
 	_columns = {
 	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
 	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
@@ -365,6 +409,7 @@ bc_model_translations()
 class bc_model_translation_inherits(Model):
 	_name = 'bc.model.translation.inherits'
 	_description = 'Model Translations Inherits'
+	_class_model = 'K'
 	_columns = {
 	'translation_id': fields.many2one(label='Model Translation',obj='bc.model.translations',readonly=True, on_delete = 'c'),
 	'tr': fields.json(label='Translations',readonly=True)
@@ -376,6 +421,7 @@ bc_model_translation_inherits()
 class bc_group_access(Model):
 	_name = 'bc.group.access'
 	_description = 'Group Access'
+	_class_model = 'K'
 	_columns = {
 	'name': fields.varchar(label="Group Access",readonly=True),
 	'parent_id': fields.many2one(label='Parent',obj='bc.group.access',readonly=True),
@@ -390,6 +436,7 @@ bc_group_access()
 class bc_access(Model):
 	_name = 'bc.access'
 	_description = 'Access'
+	_class_model = 'K'
 	_columns = {
 	'name': fields.varchar(label="Access",readonly=True),
 	'group_id': fields.many2one(label='Group',obj='bc.group.access',readonly=True, on_delete = 'c'),
@@ -404,6 +451,7 @@ bc_access()
 class bc_obj_access(Model):
 	_name = 'bc.obj.access'
 	_description = 'Objects Access'
+	_class_model = 'K'
 	_order_by='object_id,access_id'
 	_columns = {
 	'access_id': fields.many2one(label='Access',obj='bc.access',readonly=True, on_delete = 'c'),
@@ -425,6 +473,7 @@ bc_obj_access()
 class bc_model_data(Model):
 	_name = 'bc.model.data'
 	_description = 'Loading Model XML Data'
+	_class_model = 'K'
 	_table = 'bc_model_data'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size = 256,readonly=True),
@@ -440,6 +489,7 @@ class bc_model_data(Model):
 class bc_ui_views(Model):
 	_name = 'bc.ui.views'
 	_description = 'Models views'
+	_class_model = 'K'
 	_columns = {
 	'name':fields.varchar(label = 'View name', size = 128,readonly=True),
 	'model': fields.varchar(label = 'Model Name', size = 64,selectable=True,readonly=True),
@@ -453,6 +503,7 @@ bc_ui_views()
 class bc_ui_views_inherit(Model):
 	_name = 'bc.ui.views.inherit'
 	_description = 'Models Views Inherit'
+	_class_model = 'K'
 	_columns = {
 	'view_id': fields.many2one(label='View',obj='bc.ui.views',readonly=True),
 	'name':fields.varchar(label = 'Inherit', size = 128,readonly=True),
@@ -465,6 +516,7 @@ bc_ui_views_inherit()
 class bc_tuning_ui_views(Model):
 	_name = 'bc.tuning.ui.views'
 	_description = 'Tunning Models Views'
+	_class_model = 'K'
 	_columns = {
 	'name':fields.varchar(label='Name',size=128,readonly=True),
 	'view':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
@@ -482,6 +534,7 @@ bc_tuning_ui_views()
 class bc_general_tuning_ui_views(Model):
 	_name = 'bc.general.tuning.ui.views'
 	_description = 'General Tunning Models Views'
+	_class_model = 'K'
 	_columns = {
 	'name':fields.varchar(label='Name',size=128,readonly=True),
 	'view':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
@@ -496,6 +549,7 @@ bc_general_tuning_ui_views()
 class bc_ui_reports(Model):
 	_name ='bc.ui.reports'
 	_description = 'Reports'
+	_class_model = 'K'
 	_columns = {
 	'name': fields.varchar(label = 'Name',readonly=True),
 	'label': fields.varchar(label = 'Label',readonly=True),
@@ -509,6 +563,7 @@ bc_ui_reports()
 class bc_ui_links(Model):
 	_name ='bc.ui.links'
 	_description = 'Links'
+	_class_model = 'K'
 	_columns = {
 	'name': fields.varchar(label = 'Name',readonly=True),
 	'label': fields.varchar(label = 'Label',readonly=True),
@@ -521,6 +576,7 @@ bc_ui_links()
 class bc_actions(Model):
 	_name = 'bc.actions'
 	_description = 'Actions'
+	_class_model = 'K'
 	_columns = {
 	'name': fields.varchar(label = 'Action',readonly=True),
 	'ta': fields.selection(label='Type Action',selections=[('dashboard','Dashboard'),('model','Model'),('view','View'),('report','Report'),('wizard','Wizard'),('link','Link'),('wkf','Worlflow'),('server','Server')],readonly=True),
@@ -532,6 +588,7 @@ bc_actions()
 class bc_view_actions(Model):
 	_name = 'bc.view.actions'
 	_description = 'View Actions'
+	_class_model = 'K'
 	_columns = {
 	'action_id': fields.many2one(label = 'Action',obj='bc.actions',readonly=True, on_delete = 'c'),
 	'view_id': fields.many2one(label='View',obj='bc.ui.views',readonly=True, on_delete = 'c')
@@ -542,6 +599,7 @@ bc_view_actions()
 class bc_ui_menus(Model):
 	_name ='bc.ui.menus'
 	_description = 'Application Menus'
+	_class_model = 'K'
 	_order_by = 'sequence,label'
 	_columns = {
 	'name': fields.varchar(label = 'Name',readonly=True),

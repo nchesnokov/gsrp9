@@ -140,6 +140,26 @@
             <column name="note">Module: bc Type: models Object: bc.module.files grant: crw</column>
             <column name="group_id">bc.models.crw</column>
         </record>
+        <record id="role.bc.models.bc.class.model.categories.readonly">
+            <column name="name">role.bc.models.bc.class.model.categories.readonly</column>
+            <column name="note">Module: bc Type: models Object: bc.class.model.categories grant: readonly</column>
+            <column name="group_id">bc.models.readonly</column>
+        </record>
+        <record id="role.bc.models.bc.class.model.categories.nodrop">
+            <column name="name">role.bc.models.bc.class.model.categories.nodrop</column>
+            <column name="note">Module: bc Type: models Object: bc.class.model.categories grant: nodrop</column>
+            <column name="group_id">bc.models.nodrop</column>
+        </record>
+        <record id="role.bc.models.bc.class.model.categories.full">
+            <column name="name">role.bc.models.bc.class.model.categories.full</column>
+            <column name="note">Module: bc Type: models Object: bc.class.model.categories grant: full</column>
+            <column name="group_id">bc.models.full</column>
+        </record>
+        <record id="role.bc.models.bc.class.model.categories.crw">
+            <column name="name">role.bc.models.bc.class.model.categories.crw</column>
+            <column name="note">Module: bc Type: models Object: bc.class.model.categories grant: crw</column>
+            <column name="group_id">bc.models.crw</column>
+        </record>
         <record id="role.bc.models.bc.class.models.readonly">
             <column name="name">role.bc.models.bc.class.models.readonly</column>
             <column name="note">Module: bc Type: models Object: bc.class.models grant: readonly</column>
@@ -158,6 +178,26 @@
         <record id="role.bc.models.bc.class.models.crw">
             <column name="name">role.bc.models.bc.class.models.crw</column>
             <column name="note">Module: bc Type: models Object: bc.class.models grant: crw</column>
+            <column name="group_id">bc.models.crw</column>
+        </record>
+        <record id="role.bc.models.bc.class.category.categories.readonly">
+            <column name="name">role.bc.models.bc.class.category.categories.readonly</column>
+            <column name="note">Module: bc Type: models Object: bc.class.category.categories grant: readonly</column>
+            <column name="group_id">bc.models.readonly</column>
+        </record>
+        <record id="role.bc.models.bc.class.category.categories.nodrop">
+            <column name="name">role.bc.models.bc.class.category.categories.nodrop</column>
+            <column name="note">Module: bc Type: models Object: bc.class.category.categories grant: nodrop</column>
+            <column name="group_id">bc.models.nodrop</column>
+        </record>
+        <record id="role.bc.models.bc.class.category.categories.full">
+            <column name="name">role.bc.models.bc.class.category.categories.full</column>
+            <column name="note">Module: bc Type: models Object: bc.class.category.categories grant: full</column>
+            <column name="group_id">bc.models.full</column>
+        </record>
+        <record id="role.bc.models.bc.class.category.categories.crw">
+            <column name="name">role.bc.models.bc.class.category.categories.crw</column>
+            <column name="note">Module: bc Type: models Object: bc.class.category.categories grant: crw</column>
             <column name="group_id">bc.models.crw</column>
         </record>
         <record id="role.bc.models.bc.class.categories.readonly">
@@ -756,6 +796,35 @@
           <column name="awrite">True</column>
           <column name="aexecute">True</column>
         </record>
+        <record id="access.role.bc.models.bc.class.model.categories.readonly">
+            <column name="access_id">role.bc.models.bc.class.model.categories.readonly</column>
+            <column name="object_id">bc.class.model.categories</column>
+          <column name="aread">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.class.model.categories.nodrop">
+            <column name="access_id">role.bc.models.bc.class.model.categories.nodrop</column>
+            <column name="object_id">bc.class.model.categories</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.class.model.categories.full">
+            <column name="access_id">role.bc.models.bc.class.model.categories.full</column>
+            <column name="object_id">bc.class.model.categories</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aunlink">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.class.model.categories.crw">
+            <column name="access_id">role.bc.models.bc.class.model.categories.crw</column>
+            <column name="object_id">bc.class.model.categories</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aexecute">True</column>
+        </record>
         <record id="access.role.bc.models.bc.class.models.readonly">
             <column name="access_id">role.bc.models.bc.class.models.readonly</column>
             <column name="object_id">bc.class.models</column>
@@ -780,6 +849,35 @@
         <record id="access.role.bc.models.bc.class.models.crw">
             <column name="access_id">role.bc.models.bc.class.models.crw</column>
             <column name="object_id">bc.class.models</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.class.category.categories.readonly">
+            <column name="access_id">role.bc.models.bc.class.category.categories.readonly</column>
+            <column name="object_id">bc.class.category.categories</column>
+          <column name="aread">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.class.category.categories.nodrop">
+            <column name="access_id">role.bc.models.bc.class.category.categories.nodrop</column>
+            <column name="object_id">bc.class.category.categories</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.class.category.categories.full">
+            <column name="access_id">role.bc.models.bc.class.category.categories.full</column>
+            <column name="object_id">bc.class.category.categories</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aunlink">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.class.category.categories.crw">
+            <column name="access_id">role.bc.models.bc.class.category.categories.crw</column>
+            <column name="object_id">bc.class.category.categories</column>
           <column name="aread">True</column>
           <column name="acreate">True</column>
           <column name="awrite">True</column>
