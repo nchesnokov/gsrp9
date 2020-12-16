@@ -400,26 +400,6 @@
             <column name="note">Module: md Type: models Object: md.incoterms grant: crw</column>
             <column name="group_id">md.models.crw</column>
         </record>
-        <record id="role.md.models.md.company.readonly">
-            <column name="name">role.md.models.md.company.readonly</column>
-            <column name="note">Module: md Type: models Object: md.company grant: readonly</column>
-            <column name="group_id">md.models.readonly</column>
-        </record>
-        <record id="role.md.models.md.company.nodrop">
-            <column name="name">role.md.models.md.company.nodrop</column>
-            <column name="note">Module: md Type: models Object: md.company grant: nodrop</column>
-            <column name="group_id">md.models.nodrop</column>
-        </record>
-        <record id="role.md.models.md.company.full">
-            <column name="name">role.md.models.md.company.full</column>
-            <column name="note">Module: md Type: models Object: md.company grant: full</column>
-            <column name="group_id">md.models.full</column>
-        </record>
-        <record id="role.md.models.md.company.crw">
-            <column name="name">role.md.models.md.company.crw</column>
-            <column name="note">Module: md Type: models Object: md.company grant: crw</column>
-            <column name="group_id">md.models.crw</column>
-        </record>
         <record id="role.md.models.md.country.group.readonly">
             <column name="name">role.md.models.md.country.group.readonly</column>
             <column name="note">Module: md Type: models Object: md.country.group grant: readonly</column>
@@ -480,6 +460,26 @@
             <column name="note">Module: md Type: models Object: md.country.states grant: crw</column>
             <column name="group_id">md.models.crw</column>
         </record>
+        <record id="role.md.models.md.country.state.sities.readonly">
+            <column name="name">role.md.models.md.country.state.sities.readonly</column>
+            <column name="note">Module: md Type: models Object: md.country.state.sities grant: readonly</column>
+            <column name="group_id">md.models.readonly</column>
+        </record>
+        <record id="role.md.models.md.country.state.sities.nodrop">
+            <column name="name">role.md.models.md.country.state.sities.nodrop</column>
+            <column name="note">Module: md Type: models Object: md.country.state.sities grant: nodrop</column>
+            <column name="group_id">md.models.nodrop</column>
+        </record>
+        <record id="role.md.models.md.country.state.sities.full">
+            <column name="name">role.md.models.md.country.state.sities.full</column>
+            <column name="note">Module: md Type: models Object: md.country.state.sities grant: full</column>
+            <column name="group_id">md.models.full</column>
+        </record>
+        <record id="role.md.models.md.country.state.sities.crw">
+            <column name="name">role.md.models.md.country.state.sities.crw</column>
+            <column name="note">Module: md Type: models Object: md.country.state.sities grant: crw</column>
+            <column name="group_id">md.models.crw</column>
+        </record>
         <record id="role.md.models.md.language.readonly">
             <column name="name">role.md.models.md.language.readonly</column>
             <column name="note">Module: md Type: models Object: md.language grant: readonly</column>
@@ -498,6 +498,26 @@
         <record id="role.md.models.md.language.crw">
             <column name="name">role.md.models.md.language.crw</column>
             <column name="note">Module: md Type: models Object: md.language grant: crw</column>
+            <column name="group_id">md.models.crw</column>
+        </record>
+        <record id="role.md.models.md.company.readonly">
+            <column name="name">role.md.models.md.company.readonly</column>
+            <column name="note">Module: md Type: models Object: md.company grant: readonly</column>
+            <column name="group_id">md.models.readonly</column>
+        </record>
+        <record id="role.md.models.md.company.nodrop">
+            <column name="name">role.md.models.md.company.nodrop</column>
+            <column name="note">Module: md Type: models Object: md.company grant: nodrop</column>
+            <column name="group_id">md.models.nodrop</column>
+        </record>
+        <record id="role.md.models.md.company.full">
+            <column name="name">role.md.models.md.company.full</column>
+            <column name="note">Module: md Type: models Object: md.company grant: full</column>
+            <column name="group_id">md.models.full</column>
+        </record>
+        <record id="role.md.models.md.company.crw">
+            <column name="name">role.md.models.md.company.crw</column>
+            <column name="note">Module: md Type: models Object: md.company grant: crw</column>
             <column name="group_id">md.models.crw</column>
         </record>
         <record id="role.md.models.md.product.readonly">
@@ -1393,35 +1413,6 @@
           <column name="awrite">True</column>
           <column name="aexecute">True</column>
         </record>
-        <record id="access.role.md.models.md.company.readonly">
-            <column name="access_id">role.md.models.md.company.readonly</column>
-            <column name="object_id">md.company</column>
-          <column name="aread">True</column>
-        </record>
-        <record id="access.role.md.models.md.company.nodrop">
-            <column name="access_id">role.md.models.md.company.nodrop</column>
-            <column name="object_id">md.company</column>
-          <column name="aread">True</column>
-          <column name="acreate">True</column>
-          <column name="awrite">True</column>
-        </record>
-        <record id="access.role.md.models.md.company.full">
-            <column name="access_id">role.md.models.md.company.full</column>
-            <column name="object_id">md.company</column>
-          <column name="aread">True</column>
-          <column name="acreate">True</column>
-          <column name="awrite">True</column>
-          <column name="aunlink">True</column>
-          <column name="aexecute">True</column>
-        </record>
-        <record id="access.role.md.models.md.company.crw">
-            <column name="access_id">role.md.models.md.company.crw</column>
-            <column name="object_id">md.company</column>
-          <column name="aread">True</column>
-          <column name="acreate">True</column>
-          <column name="awrite">True</column>
-          <column name="aexecute">True</column>
-        </record>
         <record id="access.role.md.models.md.country.group.readonly">
             <column name="access_id">role.md.models.md.country.group.readonly</column>
             <column name="object_id">md.country.group</column>
@@ -1509,6 +1500,35 @@
           <column name="awrite">True</column>
           <column name="aexecute">True</column>
         </record>
+        <record id="access.role.md.models.md.country.state.sities.readonly">
+            <column name="access_id">role.md.models.md.country.state.sities.readonly</column>
+            <column name="object_id">md.country.state.sities</column>
+          <column name="aread">True</column>
+        </record>
+        <record id="access.role.md.models.md.country.state.sities.nodrop">
+            <column name="access_id">role.md.models.md.country.state.sities.nodrop</column>
+            <column name="object_id">md.country.state.sities</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+        </record>
+        <record id="access.role.md.models.md.country.state.sities.full">
+            <column name="access_id">role.md.models.md.country.state.sities.full</column>
+            <column name="object_id">md.country.state.sities</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aunlink">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.md.models.md.country.state.sities.crw">
+            <column name="access_id">role.md.models.md.country.state.sities.crw</column>
+            <column name="object_id">md.country.state.sities</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aexecute">True</column>
+        </record>
         <record id="access.role.md.models.md.language.readonly">
             <column name="access_id">role.md.models.md.language.readonly</column>
             <column name="object_id">md.language</column>
@@ -1533,6 +1553,35 @@
         <record id="access.role.md.models.md.language.crw">
             <column name="access_id">role.md.models.md.language.crw</column>
             <column name="object_id">md.language</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.md.models.md.company.readonly">
+            <column name="access_id">role.md.models.md.company.readonly</column>
+            <column name="object_id">md.company</column>
+          <column name="aread">True</column>
+        </record>
+        <record id="access.role.md.models.md.company.nodrop">
+            <column name="access_id">role.md.models.md.company.nodrop</column>
+            <column name="object_id">md.company</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+        </record>
+        <record id="access.role.md.models.md.company.full">
+            <column name="access_id">role.md.models.md.company.full</column>
+            <column name="object_id">md.company</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aunlink">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.md.models.md.company.crw">
+            <column name="access_id">role.md.models.md.company.crw</column>
+            <column name="object_id">md.company</column>
           <column name="aread">True</column>
           <column name="acreate">True</column>
           <column name="awrite">True</column>

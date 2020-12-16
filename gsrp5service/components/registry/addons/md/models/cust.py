@@ -304,6 +304,87 @@ class md_incoterms(Model):
 
 md_incoterms()
 
+
+class md_country_group(Model):
+	_name = 'md.country.group'
+	_description = 'Country Group'
+	_class_model = 'C'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'country_ids': fields.many2many(label='Countries',obj='md.country',rel='md_country_md_country_group_rel',id1='group_pd',id2='country_id')
+	}
+
+md_country_group()
+
+class md_country(Model):
+	"""
+	Страны мира
+	"""
+	_name = 'md.country'
+	_description = 'Country'
+	_class_model = 'C'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'shortname': fields.varchar(label = 'Short Name',size=32),
+	'code': fields.varchar(label = 'Code',size=3),
+	'alpha2': fields.varchar(label = 'Alpha2',size=2),
+	'alpha3': fields.varchar(label = 'Alpha3',size=3),
+	'group_ids': fields.many2many(label='Group',obj='md.country.group',rel='md_country_md_country_group_rel',id2='group_pd',id1='country_id'),
+	'states': fields.one2many(label='States',obj='md.country.states',rel='country_id')
+	}
+
+md_country()
+
+class md_country_states(Model):
+	_description = "Country States"
+	_name = 'md.country.states'
+	_class_model = 'C'
+	_order = 'code'
+	_columns = {
+	'country_id': fields.many2one(obj='md.country', label='Country', required=True),
+	'name': fields.varchar(label='State Name', help='Administrative divisions of a country. E.g. Fed. State, Departement, Canton'),
+	'code': fields.varchar(label='State Code', help='The state code.', required=True),
+	'sities': fields.one2many(label='Sities',obj='md.country.state.sities',rel='state_id')
+	}
+
+	_sql_constraints = [
+		('name_code_uniq', 'unique(country_id, code)', 'The code of the state must be unique by country !')
+	]
+
+md_country_states()
+
+class md_country_state_cities(Model):
+	_description = "Sity Of Country States"
+	_name = 'md.country.state.sities'
+	_class_model = 'C'
+	_order = 'code'
+	_columns = {
+	'state_id': fields.many2one(obj='md.country.states', label='State', required=True),
+	'name': fields.varchar(label='City Name', help='Administrative divisions of a country. E.g. Fed. State, Departement, Canton'),
+	'code': fields.varchar(label='Sity Code', help='The sity code.', required=True)
+	}
+
+	_sql_constraints = [
+		('name_code_uniq', 'unique(state_id, code)', 'The code of the sity must be unique by state !')
+	]
+
+md_country_state_cities()
+
+
+class md_language(Model):
+	_name = 'md.language'
+	_description = 'Language'
+	_class_model = 'C'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'iso631_1': fields.varchar(label = 'Code ISO 639-1',size=2,selectable = True),
+	'iso631_2t': fields.varchar(label = 'Code ISO 639-2T',size=3,selectable = True),
+	'iso631_2b': fields.varchar(label = 'Code ISO 639-2B',size=3,selectable = True)
+	}
+
+md_language()
+
+
 class md_company(Model):
 	_name = 'md.company'
 	_description = 'Company'

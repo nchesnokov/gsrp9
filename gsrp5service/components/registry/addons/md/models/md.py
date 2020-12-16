@@ -11,66 +11,6 @@ import re
 
 from base64 import b64encode
 
-class md_country_group(Model):
-	_name = 'md.country.group'
-	_description = 'Country Group'
-	_class_model = 'B'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'country_ids': fields.many2many(label='Countries',obj='md.country',rel='md_country_md_country_group_rel',id1='group_pd',id2='country_id')
-	}
-
-md_country_group()
-
-class md_country(Model):
-	"""
-	Страны мира
-	"""
-	_name = 'md.country'
-	_description = 'Country'
-	_class_model = 'B'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'shortname': fields.varchar(label = 'Short Name',size=32),
-	'code': fields.varchar(label = 'Code',size=3),
-	'alpha2': fields.varchar(label = 'Alpha2',size=2),
-	'alpha3': fields.varchar(label = 'Alpha3',size=3),
-	'group_ids': fields.many2many(label='Group',obj='md.country.group',rel='md_country_md_country_group_rel',id2='group_pd',id1='country_id'),
-	'states': fields.one2many(label='States',obj='md.country.states',rel='country_id')
-	}
-
-md_country()
-
-class md_country_states(Model):
-	_description = "Country States"
-	_name = 'md.country.states'
-	_class_model = 'B'
-	_order = 'code'
-	_columns = {
-	'country_id': fields.many2one(obj='md.country', label='Country', required=True),
-	'name': fields.varchar(label='State Name', help='Administrative divisions of a country. E.g. Fed. State, Departement, Canton'),
-	'code': fields.varchar(label='State Code', help='The state code.', required=True)
-	}
-
-	_sql_constraints = [
-		('name_code_uniq', 'unique(country_id, code)', 'The code of the state must be unique by country !')
-	]
-
-md_country_states()
-
-class md_language(Model):
-	_name = 'md.language'
-	_description = 'Language'
-	_class_model = 'B'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'iso631_1': fields.varchar(label = 'Code ISO 639-1',size=2,selectable = True),
-	'iso631_2t': fields.varchar(label = 'Code ISO 639-2T',size=3,selectable = True),
-	'iso631_2b': fields.varchar(label = 'Code ISO 639-2B',size=3,selectable = True)
-	}
-
-md_language()
-
 class md_product(Model):
 	_name = 'md.product'
 	_description = 'Product'
@@ -243,8 +183,8 @@ class md_partner_addresses(Model):
 	'partner_id': fields.many2one(label='Partner',obj='md.partner'),
 	'taddr': fields.selection(label='Type Of Address',selections=[('l','Location'),('p','Postal'),('a','Situtation')]),
 	'country': fields.many2one(label='Country',obj='md.country'),
-	'state': fields.related(label = 'State Of Coutry',obj='md.country.states',relatedy=['country']),
-	'sity': fields.varchar(label = 'City',size=64,translate=True),
+	'state': fields.related(label = 'State Of Coutry',obj='md.country.states',relatedy=[('country','country_id')]),
+	'sity': fields.related(label = 'Sity',obj='md.country.state.sities',relatedy=[('state','state_id')]),
 	'street': fields.varchar(label = 'Street',size=64,translate=True),
 	'street2': fields.varchar(label = 'Street 2',size=64,translate=True),
 	'house': fields.varchar(label = 'House',size=64,translate=True),
@@ -412,7 +352,7 @@ class md_partners_bank(Model):
 
 
 	def _compute_sanitized_acc_number(self, record,context = {}):
-		if 'acc_number' in record:
+		if 'acc_number' in record and record['acc_number']:
 			return {'sanitized_acc_number':re.sub(r'\W+', '', record['acc_number']).upper()}
 		return  {'sanitized_acc_number':''}
 

@@ -2969,17 +2969,28 @@ class MCache(object):
 		self._copyItem(data)
 		return ['commit',data['__data__']['id']]
 
+	def _savepoint(self):
+		pass
+		#self._cr.execute('SAVEPOINT cockroach_restart')
+
+	def _restorepoint(self):
+		pass
+		#self._cr.execute('RELEASE SAVEPOINT cockroach_restart')
+
 	def _save_one(self,data):
 		diffs = data._pdiffs(False)
 		if len(diffs) == 0:
 			return 'no chache'
 		
 		if '__create__' in diffs:
+			self._savepoint()
 			self._createItem(diffs['__create__'])
+			self._restorepoint()
 			if 'id' in diffs['__create__']['__data__'] and diffs['__create__']['__data__']['id']:
 				return diffs['__create__']['__data__']['id']
 
 		else:
+			self._savepoint()
 			for k in diffs.keys():
 				if k == '__update__':
 					self._updateItems(diffs['__update__'])
@@ -2995,7 +3006,7 @@ class MCache(object):
 					self._m2m_appendRows(diffs['__m2m_append__'])
 				elif k == '__m2m_remove__':
 					self._m2m_removeRows(diffs['__m2m_remove__'])
-		
+			self._restorepoint()
 			if type(self._commit_diffs) == dict:
 				self._commit_diffs = diffs
 			elif type(self._commit_diffs) == list:	
@@ -3036,6 +3047,7 @@ class MCache(object):
 
 	def _save(self,autocommit = False):
 		res = []
+		
 		if type(self._data) == DCacheDict:
 			self._commit_diffs = {}
 			v = self._save_one(self._data)

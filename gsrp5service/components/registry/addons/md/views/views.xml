@@ -1251,64 +1251,6 @@
             </find>
           </column>
         </record>
-        <record id="view.md.models.md.company.form">
-          <column name="name">view.md.models.md.company.form</column>
-          <column name="model">md.company</column>
-          <column name="arch" type="Xml">
-            <form>
-              <field name="name"/>
-              <field name="country_id"/>
-              <field name="currency_id"/>
-              <field name="currency_rate"/>
-              <field name="note"/>
-            </form>
-          </column>
-        </record>
-        <record id="view.md.models.md.company.list">
-          <column name="name">view.md.models.md.company.list</column>
-          <column name="model">md.company</column>
-          <column name="arch" type="Xml">
-            <list>
-              <field name="name"/>
-              <field name="country_id"/>
-              <field name="currency_id"/>
-              <field name="currency_rate"/>
-            </list>
-          </column>
-        </record>
-        <record id="view.md.models.md.company.m2mlist">
-          <column name="name">view.md.models.md.company.m2mlist</column>
-          <column name="model">md.company</column>
-          <column name="arch" type="Xml">
-            <m2mlist>
-              <field name="name"/>
-              <field name="country_id"/>
-              <field name="currency_id"/>
-            </m2mlist>
-          </column>
-        </record>
-        <record id="view.md.models.md.company.search">
-          <column name="name">view.md.models.md.company.search</column>
-          <column name="model">md.company</column>
-          <column name="arch" type="Xml">
-            <search>
-              <field name="name"/>
-              <field name="country_id"/>
-              <field name="currency_id"/>
-            </search>
-          </column>
-        </record>
-        <record id="view.md.models.md.company.find">
-          <column name="name">view.md.models.md.company.find</column>
-          <column name="model">md.company</column>
-          <column name="arch" type="Xml">
-            <find>
-              <field name="name"/>
-              <field name="country_id"/>
-              <field name="currency_id"/>
-            </find>
-          </column>
-        </record>
         <record id="view.md.models.md.country.group.form">
           <column name="name">view.md.models.md.country.group.form</column>
           <column name="model">md.country.group</column>
@@ -1431,6 +1373,7 @@
               <field name="country_id"/>
               <field name="name"/>
               <field name="code"/>
+              <field name="sities"/>
             </form>
           </column>
         </record>
@@ -1442,6 +1385,7 @@
               <field name="country_id"/>
               <field name="name"/>
               <field name="code"/>
+              <field name="sities"/>
             </list>
           </column>
         </record>
@@ -1473,6 +1417,61 @@
           <column name="arch" type="Xml">
             <find>
               <field name="country_id"/>
+              <field name="name"/>
+              <field name="code"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.state.sities.form">
+          <column name="name">view.md.models.md.country.state.sities.form</column>
+          <column name="model">md.country.state.sities</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="state_id"/>
+              <field name="name"/>
+              <field name="code"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.state.sities.list">
+          <column name="name">view.md.models.md.country.state.sities.list</column>
+          <column name="model">md.country.state.sities</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="state_id"/>
+              <field name="name"/>
+              <field name="code"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.state.sities.m2mlist">
+          <column name="name">view.md.models.md.country.state.sities.m2mlist</column>
+          <column name="model">md.country.state.sities</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="state_id"/>
+              <field name="name"/>
+              <field name="code"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.state.sities.search">
+          <column name="name">view.md.models.md.country.state.sities.search</column>
+          <column name="model">md.country.state.sities</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="state_id"/>
+              <field name="name"/>
+              <field name="code"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.country.state.sities.find">
+          <column name="name">view.md.models.md.country.state.sities.find</column>
+          <column name="model">md.country.state.sities</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="state_id"/>
               <field name="name"/>
               <field name="code"/>
             </find>
@@ -1535,6 +1534,64 @@
               <field name="iso631_1"/>
               <field name="iso631_2t"/>
               <field name="iso631_2b"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.md.models.md.company.form">
+          <column name="name">view.md.models.md.company.form</column>
+          <column name="model">md.company</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="name"/>
+              <field name="country_id"/>
+              <field name="currency_id"/>
+              <field name="currency_rate"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.md.models.md.company.list">
+          <column name="name">view.md.models.md.company.list</column>
+          <column name="model">md.company</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="name"/>
+              <field name="country_id"/>
+              <field name="currency_id"/>
+              <field name="currency_rate"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.md.models.md.company.m2mlist">
+          <column name="name">view.md.models.md.company.m2mlist</column>
+          <column name="model">md.company</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="name"/>
+              <field name="country_id"/>
+              <field name="currency_id"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.md.models.md.company.search">
+          <column name="name">view.md.models.md.company.search</column>
+          <column name="model">md.company</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="name"/>
+              <field name="country_id"/>
+              <field name="currency_id"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.md.models.md.company.find">
+          <column name="name">view.md.models.md.company.find</column>
+          <column name="model">md.company</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="name"/>
+              <field name="country_id"/>
+              <field name="currency_id"/>
             </find>
           </column>
         </record>

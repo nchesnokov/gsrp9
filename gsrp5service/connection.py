@@ -94,6 +94,7 @@ class Cursor(object):
 					self.cr.execute(query = q1, vars = vals)
 			return True
 		except:
+			web_pdb.set_trace()
 			self._rollback()
 			_logger.error('SQL Query: %s\n VALS: % s' % (query,vals))
 			_logger.error('SQL Query mogrify: %s' % (self.mogrify(query,vals),))
