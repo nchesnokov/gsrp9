@@ -201,7 +201,7 @@ bc_module_files()
 
 class bc_class_model_categories(Model):
 	_name = 'bc.class.model.categories'
-	_description = 'Class Models'
+	_description = 'Category Class Models'
 	_class_model = 'K'
 	_columns = {
 	'name': fields.varchar(label='Code', size = 64,readonly=True),
@@ -228,7 +228,7 @@ bc_class_models()
 
 class bc_class_category_categories(Model):
 	_name = 'bc.class.category.categories'
-	_description = 'Category Class Models'
+	_description = 'Category Class Categories'
 	_class_model = 'K'
 	_columns = {
 	'name': fields.varchar(label='Code', size = 64,readonly=True),

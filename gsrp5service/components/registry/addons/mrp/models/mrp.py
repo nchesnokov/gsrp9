@@ -255,7 +255,7 @@ class mrp_request_roles(Model):
 	_name = 'mrp.request.roles'
 	_description = 'Purchase Invoice Roles'
 	_columns = {
-	'invoice_id': fields.many2one(label = 'Request',obj='mrp.request', on_delete='c'),
+	'request_id': fields.many2one(label = 'Request',obj='mrp.request', on_delete='c'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
 	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
 	}

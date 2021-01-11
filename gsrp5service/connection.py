@@ -2,9 +2,12 @@
 
 import psycopg2
 import psycopg2.extras
+from psycopg2.errors import SerializationFailure
 import uuid
 from functools import reduce
 import logging
+import time
+import random
 import web_pdb
 
 from psycopg2.extras import register_json
@@ -15,6 +18,7 @@ _logger = logging.getLogger(__name__)
 class Cursor(object):
 	conn =None
 	cr = None
+	query = None
 	def __init__(self, dsn = None, database = 'system', user = 'root', password = None, host = 'localhost', port=26257, sslmode = None, sslrootcert = None, sslrootkey = None, sslcert = None,sslkey = None):
 		self.dsn = dsn
 		self.database = database
@@ -27,6 +31,7 @@ class Cursor(object):
 		self.sslrootkey = sslrootkey
 		self.sslcert = sslcert
 		self.sslkey=sslkey
+		self.query = []
 		#print('cursor',self.sslmode,self.sslrootcert,self.sslcert,self.sslkey)
 
 	def __reduce__(self):
@@ -72,6 +77,50 @@ class Cursor(object):
 			return self.cr.closed == 0
 		return self.conn
 
+#	def run_commit(self, op, q, v, max_retries=3):
+	def run_commit(self, max_retries=3):
+		"""
+		Execute the operation *op(conn)* retrying serialization failure.
+	
+		If the database returns an error asking to retry the transaction, retry it
+		*max_retries* times before giving up (and propagate it).
+		"""
+		# leaving this block the transaction will commit or rollback
+		# (if leaving with an exception)
+		#with conn:
+		for retry in range(1, max_retries + 1):
+			try:
+				self.conn.commit()
+				self.query.clear()
+				return True
+
+
+			except SerializationFailure as e:
+				# This is a retry error, so we roll back the current
+				# transaction and sleep for a bit before retrying. The
+				# sleep time increases for each failed transaction.
+				logging.debug("got error: %s", e)
+				self._rollback()
+				logging.debug("EXECUTE SERIALIZATION_FAILURE BRANCH")
+				sleep_ms = (2 ** retry) * 0.1 * (random.random() + 0.5)
+				logging.debug("Sleeping %s seconds", sleep_ms)
+				time.sleep(sleep_ms)
+				for f,q,v in self.query:
+					if f in ('execute','executemany'):
+						fun = getattr(self,f,None)
+						fun(q,v)
+
+			except psycopg2.Error as e:
+				self._rollback()
+				loginng.error('query:%s vars:%s' % (q,v))
+				logging.debug("got error: %s", e)
+				logging.debug("EXECUTE NON-SERIALIZATION_FAILURE BRANCH")
+				raise e
+
+		self._rollback()
+		self.query.clear()
+		raise ValueError(f"Transaction did not succeed after {max_retries} retries")
+
 	def mogrify(self, query, vars):
 		if type(query) == str:
 			return self.cr.mogrify(query,vars)
@@ -84,33 +133,34 @@ class Cursor(object):
 
 	def execute(self, query, vals = None):
 		try:
-			#print('MOGRIFY:',self.mogrify(query,vals))
-			#print('QUERY:',query,vals)
 			if type(query) == str:
 				self.cr.execute(query = query, vars = vals)
+				self.query.append(('execute',query,vals))
 			elif type(query) in (tuple,list):
 				for q1 in query:
-					#print('QUERY:',q1,vals)
 					self.cr.execute(query = q1, vars = vals)
-			return True
+					self.query.append(('execute',q1,vals))
 		except:
-			web_pdb.set_trace()
 			self._rollback()
-			_logger.error('SQL Query: %s\n VALS: % s' % (query,vals))
-			_logger.error('SQL Query mogrify: %s' % (self.mogrify(query,vals),))
+			self.query.clear()
 			raise
+
+		return True
 	
 	def executemany(self, query, vars_list):
 		try:
 			self.cr.executemany(query = query, vars_list = vars_list)
+			self.query.append(('executemany',query,vals))
 		except:
 			self._rollback()
+			self.query.clear()
 			raise
 
 	def _commit(self):
 		if self.conn and not self.conn.closed:
-			self.conn.commit()
-			return True
+			return self.run_commit()
+			#self.conn.commit()
+			#return True
 		else:
 			return False
 

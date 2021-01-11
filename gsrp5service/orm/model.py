@@ -436,7 +436,7 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	@property
 	def _readonlyfields(self):
-		return list(filter(lambda x: hasattr(self._columns[x],'readonly') and self._columns[x].readonly or hasattr(self._columns[x],'compute') and self._columns[x].compute or self._columns[x]._type == 'referenced',self._columns.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'readonly') and self._columns[x].readonly or hasattr(self._columns[x],'compute') and self._columns[x].compute and hasattr(self._columns[x],'store') and self._columns[x].store or self._columns[x]._type == 'referenced',self._columns.keys())) 
 
 	@property
 	def _on_change_fields(self):
@@ -611,6 +611,10 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	def _compute_composite_tree(self ,item,context):
 		return mm._compute_composite_tree(self ,item,context)
+
+	def _compute_decomposite(self ,item,context):
+		return mm._compute_decomposite(self ,item,context)
+
 
 	# def _getAccess(self):
 		# return mm._getAccess(self)

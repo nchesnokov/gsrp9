@@ -2286,7 +2286,7 @@ class DCacheDict(object):
 				if m._columns[c]._type =='referenced':
 					continue
 				
-				if a in ('readonly',) and hasattr(m._columns[c],'compute') and m._columns[c].compute:
+				if a in ('readonly',) and hasattr(m._columns[c],'compute') and m._columns[c].compute and hasattr(m._columns[c],'store') and m._columns[c].store:
 					self._cattrs.setdefault(path,{}).setdefault(ca[a],{})[c] = True
 					continue
 				
@@ -3174,8 +3174,14 @@ class MCache(object):
 
 		if 'id' in data:
 			if self._mode == 'write':
+				#m.write(data,self._context)
 				r = _writeRecord(m,data,self._context)
 			elif self._mode in ('modify','new','create'):
+				#if self._mode in ('new','create'):
+					#m.create(data,self._context)
+
+				#elif self._mode == 'modify':
+					#m.modify(data,self._context)
 				r = _modifyRecord(m,data,self._context)
 		else:
 			r = _createRecord(m,data,self._context)
@@ -3341,8 +3347,10 @@ class MCache(object):
 				cdata = self._data._getCData(self._data._cdata[mkey])
 				if 'id' in cdata:
 					data['id'] = cdata['id']
+					#m.write(data, self._context)
 					r = _writeRecord(m, data, self._context)
 				else:
+					#m.create(data, self._context)
 					r = _createRecord(m,data,self._context)
 					if r:
 						models[model][mkey]['id'] = r

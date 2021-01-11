@@ -125,6 +125,19 @@ class composite(_column):
 	def __init__(self, label = 'unknown', cols = [], delimiter = '/',readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, on_check = None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = None, check = None,family = 'Primary',compute = None, store = True,state=None, actions=None, icon = None):
 		super(composite, self).__init__(label=label, cols = cols, delimiter = delimiter, readonly=readonly, invisible=invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = compute, store = store, state = state, actions = actions, icon = icon)
 
+class decomposite(_column):
+	_type = 'decomposite'
+	_db_type = 'STRING'
+	_symbol_c = "%s"
+	_symbol_f = _set_symbol
+	_symbol_set = (_symbol_c, _symbol_f)
+	_symbol_get = None
+
+	def __init__(self, label = 'unknown', column = None, delimiter = '/', part=None, readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, on_check = None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = None, check = None,family = 'Primary',compute = None, store = False, state=None, actions=None, icon = None):
+		super(composite, self).__init__(label=label, column = column, delimiter = delimiter, part=part, readonly=readonly, invisible=invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = compute, store = store, state = state, actions = actions, icon = icon)
+
+
+
 class text(_column):
 	_type = 'text'
 	_db_type = 'STRING'
@@ -291,6 +304,29 @@ class json(_column):
 
 	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None,family = 'Secondary', compute = None, store = True,state={'attrs':{'readonly':True}}, actions=None, icon = None):
 		super(json,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
+
+class geometry(_column):
+	_type = 'geometry'
+	_db_type = 'GEOMETRY'
+	_symbol_c = "%s"
+	_symbol_f = lambda symb: symb and str(symb) or None
+	_symbol_set = (_symbol_c, _symbol_f)
+	_symbol_get = lambda self, x: x and str(x)
+
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None,family = 'Secondary', compute = None, store = True,state={'attrs':{'readonly':True}}, actions=None, icon = None):
+		super(geometry,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
+
+class geography(_column):
+	_type = 'geography'
+	_db_type = 'GEOGRAPHY'
+	_symbol_c = "%s"
+	_symbol_f = lambda symb: symb and str(symb) or None
+	_symbol_set = (_symbol_c, _symbol_f)
+	_symbol_get = lambda self, x: x and str(x)
+
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, manual = None, help = None,family = 'Secondary', compute = None, store = True,state={'attrs':{'readonly':True}}, actions=None, icon = None):
+		super(geography,self).__init__(label = label, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, manual = manual, help = help,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
+
 
 class date(_column):
 	_type = 'date'

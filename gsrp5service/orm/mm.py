@@ -600,6 +600,23 @@ def _compute_composite(self ,item,context):
 		if len(v) > 0:
 			item[fullname] = v
 
+def _compute_decomposite(self ,item,context):
+	v=''
+	fullname = self._getFullNameName()
+	if fullname and self._columns[fullname]._type == 'composite':
+		cols = self._columns[fullname].cols
+		delimiter = self._columns[fullname].delimiter
+		parts = item[fullname].split(delimiter)
+		for col in cols:
+			idx = cols.index(col)
+			part = parts[idx] 
+			if self._columns[col]._type in ('many2one','related'):
+				obj = self._pool.get(self._columns[col].obj)
+				item[col] = {'id':obj.search([(obj._RecNameName,'=',part)])[0],'name':part}
+			else:
+				item[col] = part
+
+
 def _compute_composite_tree(self ,item,context):
 	v=''
 	recname = self._getRecNameName()
