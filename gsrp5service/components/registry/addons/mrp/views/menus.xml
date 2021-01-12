@@ -8,54 +8,6 @@
         </record>
       </records>
       <records model="bc.actions">
-        <record id="action.mrp.models.mrp.demand.category.form">
-          <column name="name">action.mrp.models.mrp.demand.category.form</column>
-          <column name="ta">Model</column>
-        </record>
-        <record id="action.mrp.models.mrp.demand.category.list">
-          <column name="name">action.mrp.models.mrp.demand.category.list</column>
-          <column name="ta">Model</column>
-        </record>
-        <record id="action.mrp.models.mrp.demand.category.m2mlist">
-          <column name="name">action.mrp.models.mrp.demand.category.m2mlist</column>
-          <column name="ta">Model</column>
-        </record>
-        <record id="action.mrp.models.mrp.demand.category.search">
-          <column name="name">action.mrp.models.mrp.demand.category.search</column>
-          <column name="ta">Model</column>
-        </record>
-        <record id="action.mrp.models.mrp.demand.category.find">
-          <column name="name">action.mrp.models.mrp.demand.category.find</column>
-          <column name="ta">Model</column>
-        </record>
-        <record id="action.mrp.models.mrp.demand.category.tree">
-          <column name="name">action.mrp.models.mrp.demand.category.tree</column>
-          <column name="ta">Model</column>
-        </record>
-        <record id="action.mrp.models.mrp.request.category.form">
-          <column name="name">action.mrp.models.mrp.request.category.form</column>
-          <column name="ta">Model</column>
-        </record>
-        <record id="action.mrp.models.mrp.request.category.list">
-          <column name="name">action.mrp.models.mrp.request.category.list</column>
-          <column name="ta">Model</column>
-        </record>
-        <record id="action.mrp.models.mrp.request.category.m2mlist">
-          <column name="name">action.mrp.models.mrp.request.category.m2mlist</column>
-          <column name="ta">Model</column>
-        </record>
-        <record id="action.mrp.models.mrp.request.category.search">
-          <column name="name">action.mrp.models.mrp.request.category.search</column>
-          <column name="ta">Model</column>
-        </record>
-        <record id="action.mrp.models.mrp.request.category.find">
-          <column name="name">action.mrp.models.mrp.request.category.find</column>
-          <column name="ta">Model</column>
-        </record>
-        <record id="action.mrp.models.mrp.request.category.tree">
-          <column name="name">action.mrp.models.mrp.request.category.tree</column>
-          <column name="ta">Model</column>
-        </record>
         <record id="action.mrp.models.mrp.demand.calendar">
           <column name="name">action.mrp.models.mrp.demand.calendar</column>
           <column name="ta">Model</column>
@@ -138,14 +90,6 @@
         </record>
       </records>
       <records model="bc.view.actions">
-        <record id="view.action.mrp.models.mrp.demand.category.search">
-          <column name="action_id">action.mrp.models.mrp.demand.category.search</column>
-          <column name="view_id">view.mrp.models.mrp.demand.category.search</column>
-        </record>
-        <record id="view.action.mrp.models.mrp.request.category.search">
-          <column name="action_id">action.mrp.models.mrp.request.category.search</column>
-          <column name="view_id">view.mrp.models.mrp.request.category.search</column>
-        </record>
         <record id="view.action.mrp.models.mrp.demand.search">
           <column name="action_id">action.mrp.models.mrp.demand.search</column>
           <column name="view_id">view.mrp.models.mrp.demand.search</column>
@@ -163,29 +107,15 @@
         </record>
       </records>
       <records model="bc.ui.menus">
-          <record id="ui.menu.models.mrp.demand.category.search">
-            <column name="sequence">0</column>
-            <column name="name">ui.menu.models.mrp.demand.category.search</column>
-            <column name="label">Category MRP Demand</column>
-            <column name="parent_id">ui.menu.module.mrp.models</column>
-            <column name="action_id">action.mrp.models.mrp.demand.category.search</column>
-          </record>
-          <record id="ui.menu.models.mrp.request.category.search">
-            <column name="sequence">1</column>
-            <column name="name">ui.menu.models.mrp.request.category.search</column>
-            <column name="label">Category MRP Request</column>
-            <column name="parent_id">ui.menu.module.mrp.models</column>
-            <column name="action_id">action.mrp.models.mrp.request.category.search</column>
-          </record>
           <record id="ui.menu.models.mrp.demand.search">
-            <column name="sequence">2</column>
+            <column name="sequence">0</column>
             <column name="name">ui.menu.models.mrp.demand.search</column>
             <column name="label">MRP Demand</column>
             <column name="parent_id">ui.menu.module.mrp.models</column>
             <column name="action_id">action.mrp.models.mrp.demand.search</column>
           </record>
           <record id="ui.menu.models.mrp.request.search">
-            <column name="sequence">3</column>
+            <column name="sequence">1</column>
             <column name="name">ui.menu.models.mrp.request.search</column>
             <column name="label">MRP Request</column>
             <column name="parent_id">ui.menu.module.mrp.models</column>
@@ -280,6 +210,54 @@
           <column name="name">action.mrp.models.mrp.request.types.find</column>
           <column name="ta">Model</column>
         </record>
+        <record id="action.mrp.models.mrp.demand.category.form">
+          <column name="name">action.mrp.models.mrp.demand.category.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.demand.category.list">
+          <column name="name">action.mrp.models.mrp.demand.category.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.demand.category.m2mlist">
+          <column name="name">action.mrp.models.mrp.demand.category.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.demand.category.search">
+          <column name="name">action.mrp.models.mrp.demand.category.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.demand.category.find">
+          <column name="name">action.mrp.models.mrp.demand.category.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.demand.category.tree">
+          <column name="name">action.mrp.models.mrp.demand.category.tree</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.category.form">
+          <column name="name">action.mrp.models.mrp.request.category.form</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.category.list">
+          <column name="name">action.mrp.models.mrp.request.category.list</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.category.m2mlist">
+          <column name="name">action.mrp.models.mrp.request.category.m2mlist</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.category.search">
+          <column name="name">action.mrp.models.mrp.request.category.search</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.category.find">
+          <column name="name">action.mrp.models.mrp.request.category.find</column>
+          <column name="ta">Model</column>
+        </record>
+        <record id="action.mrp.models.mrp.request.category.tree">
+          <column name="name">action.mrp.models.mrp.request.category.tree</column>
+          <column name="ta">Model</column>
+        </record>
       </records>
       <records model="bc.view.actions">
         <record id="view.action.mrp.models.mrp.texts.search">
@@ -297,6 +275,14 @@
         <record id="view.action.mrp.models.mrp.request.types.search">
           <column name="action_id">action.mrp.models.mrp.request.types.search</column>
           <column name="view_id">view.mrp.models.mrp.request.types.search</column>
+        </record>
+        <record id="view.action.mrp.models.mrp.demand.category.search">
+          <column name="action_id">action.mrp.models.mrp.demand.category.search</column>
+          <column name="view_id">view.mrp.models.mrp.demand.category.search</column>
+        </record>
+        <record id="view.action.mrp.models.mrp.request.category.search">
+          <column name="action_id">action.mrp.models.mrp.request.category.search</column>
+          <column name="view_id">view.mrp.models.mrp.request.category.search</column>
         </record>
       </records>
       <records model="bc.ui.menus">
@@ -334,6 +320,20 @@
             <column name="label">Types MRP Request</column>
             <column name="parent_id">ui.menu.customize.mrp.models</column>
             <column name="action_id">action.mrp.models.mrp.request.types.search</column>
+          </record>
+          <record id="ui.menu.models.mrp.demand.category.search">
+            <column name="sequence">4</column>
+            <column name="name">ui.menu.models.mrp.demand.category.search</column>
+            <column name="label">Category MRP Demand</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+            <column name="action_id">action.mrp.models.mrp.demand.category.search</column>
+          </record>
+          <record id="ui.menu.models.mrp.request.category.search">
+            <column name="sequence">5</column>
+            <column name="name">ui.menu.models.mrp.request.category.search</column>
+            <column name="label">Category MRP Request</column>
+            <column name="parent_id">ui.menu.customize.mrp.models</column>
+            <column name="action_id">action.mrp.models.mrp.request.category.search</column>
           </record>
       </records>
     </data>

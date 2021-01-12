@@ -15,25 +15,27 @@ hcm_employee_categories()
 class hcm_department(Model):
 	_name = "hcm.department"
 	_description = "HR Department"
-	_order = "name"
+	_order_by = "fullname"
 	_rec_name = 'complete_name'
+	_full_name = 'fullname'
 	_columns = {
+	'company': fields.many2one(obj='md.company', label='Company'),
 	'name': fields.varchar(label='Department Name', required=True),
-	'complete_name': fields.varchar(label='Complete Name', compute='_compute_complete_name', store=True),
-	'active': fields.boolean('Active'),
-	'company_id': fields.many2one(obj='md.company', label='Company'),
 	'parent_id': fields.many2one(obj='hcm.department', label='Parent Department'),
 	'childs_id': fields.one2many(obj='hcm.department', rel='parent_id', label='Child Departments'),
+	'fullname': fields.composite(label='Full Name', priority=1, translate = True,required = True, compute = '_compute_composite_tree'),
+	'complete_name': fields.varchar(label='Complete Name', priority=2, translate = True,required = True, compute = '_compute_complete_name'),
 	'manager_id':  fields.many2one(obj='hcm.employees', label='Manager'),
 	'member_ids': fields.one2many(obj='hcm.employees', rel='department_id', label='Members'),
 	'jobs_ids': fields.one2many(obj='hcm.job', rel='department_id', label='Jobs'),
 	'note': fields.text(label='Note'),
-	'color': fields.integer(label='Color Index')
+	'color': fields.integer(label='Color Index'),
+	'active': fields.boolean('Active')
 	}
 
-	def _compute_complete_name(self,cr,pool,uid,record,context={}):
-		if 'name' in record and record['name']:
-			return {'complete_name':record['name']}
+	def _compute_complete_name(self,item,context):
+		if item['fullname'] and item['company'] and item['company']['name']:
+			item['complete_name'] = item['company']['name'] + '/' + item['fullname']
 
 	_default ={'active':True,'color':1}
 
@@ -60,7 +62,7 @@ class hcm_job(Model):
 	'state': fields.selection(selections=[('recruit', 'Recruitment in Progress'),('open', 'Not Recruiting')], label='Status', readonly=True, required=True, help="Set whether the recruitment process is open or closed for this job position.")
 	}
 
-	def _compute_employees(self,cr,pool,uid,record,context = {}):
+	def _compute_employees(self, record,context = {}):
 		return {'expected_employees':15}
 
 	_sql_constraints = [('name_company_uniq', 'unique(name, company_id, department_id)', 'The name of the job position must be unique per department in company!'),]
@@ -77,14 +79,15 @@ class hcm_employees(Model):
 	_rec_name='fullname'
 	_order_by = 'fullname'
 	_childs_id = 'child_ids'
+	_class_model = 'B'
 	_columns = {
 	# resource and user
 	# required on the resource, make sure required="True" set in the view
 	'firstname': fields.varchar(label = 'First Name'),
 	'lastname': fields.varchar(label = 'Last Name'),
 	'middlename': fields.varchar(label = 'Middle Name'),
-	#'fullname': fields.varchar(label = 'Full Name',compute = '_computeFullName'),
-	'fullname': fields.varchar(label = 'Full Name',compute = ["(CONCAT(firstname,' ',lastname,' ',middlename,':',birthday::STRING))",True]),
+	'birthday': fields.date(label='Date of Birth'),
+	'fullname': fields.composite(label='Full Name', cols = ['lastname','firstname','middlename','birthday'], translate = True,required = True, compute = '_compute_composite'),
 	'user_id': fields.many2one(obj='bc.users', label = 'User'),
 	'active': fields.boolean(label = 'Active', store=True),
 	# private partner
@@ -103,7 +106,6 @@ class hcm_employees(Model):
 		('divorced', 'Divorced')
 	], label='Marital Status'),
 
-	'birthday': fields.date(label='Date of Birth'),
 	'ssnid': fields.varchar(label='SSN No', help='Social Security Number'),
 	'sinid':fields.varchar(label='SIN No', help='Social Insurance Number'),
 	'identification_id': fields.varchar(label='Identification No'),
@@ -139,22 +141,9 @@ class hcm_employees(Model):
 	'color': fields.integer('Color Index')
 	}
 
-	def _compute_is_address_home_a_company(self,cr,pool,uid,record,context={}):
+	def _compute_is_address_home_a_company(self,record,context={}):
 		return {'is_address_home_a_company':False}
 
-	def _computeFullName(self,cr,pool,uid,record,context = {}):
-		fullname = ''
-		if 'firstname' in record:
-			fullname += ' ' + record['firstname']
-		if 'lastname' in record:
-			fullname += ' ' + record['lastname']
-		if 'middlename' in record:
-			fullname += ' ' + record['middlename']
-
-		if 'birthday' in record:
-			fullname += ' ' + record['birthday'].isoformat()
-			
-		return {'fullname':fullname}
 
 	_default = {'active':True,'gender':'male','marital':'single','color':1}
 	_groups = {'employee':['gender','marital','birthday','ssnid','sinid','identification_id','passport_id','bank_account_id']}

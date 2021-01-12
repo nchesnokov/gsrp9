@@ -138,14 +138,17 @@ def indiciesIndex(pool,info):
 	columns = info['columns']
 	indicies = info['indicies']
 	for key in indicies.keys():
-		if len(indicies[key]) == 1:
-			idx = indicies[key][0]
-		else:
-			idx = reduce(lambda x,y: x + ',' + y,indicies[key])
-		# if columns[key]['type'] == 'json':
-			# res.append('INVERTED INDEX  '+ key + '_inverted_idx (' + indicies[key].join(',') +')' )
-		# else:
-			# res.append('INDEX ' + key + '_idx (' + indicies[key].join(',') +')' )
+		if type(indicies[key]) == str:
+			idx = indicies[key]
+		elif type(indicies[key]) in (list,tuple):
+			if len(indicies[key]) == 1:
+				idx = indicies[key][0]
+			else:
+				idx = reduce(lambda x,y: x + ',' + y,indicies[key])
+			# if columns[key]['type'] == 'json':
+				# res.append('INVERTED INDEX  '+ key + '_inverted_idx (' + indicies[key].join(',') +')' )
+			# else:
+				# res.append('INDEX ' + key + '_idx (' + indicies[key].join(',') +')' )
 		res.append('INDEX ' + key + '_idxi (' + idx + ')')
 
 	return res

@@ -143,6 +143,7 @@ class Cursor(object):
 		except:
 			self._rollback()
 			self.query.clear()
+			_logger.error('query: %s %s' % (query,vals))
 			raise
 
 		return True

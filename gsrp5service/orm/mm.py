@@ -592,10 +592,10 @@ def _compute_composite(self ,item,context):
 			else:
 				if len(v) == 0:
 					if item[col]:
-						v += item[col]
+						v += str(item[col])
 				else:
 					if item[col]:
-						v += delimiter + item[col]
+						v += delimiter + str(item[col])
 
 		if len(v) > 0:
 			item[fullname] = v
@@ -626,7 +626,7 @@ def _compute_composite_tree(self ,item,context):
 	delimiter = self._columns[fullname].delimiter
 
 	if fullname and self._columns[fullname]._type == 'composite' and parent_id and self._getChildsIdName():
-		if item[parent_id]:
+		if item[parent_id] and item[parent_id]['name']:
 			if type(item[parent_id]) == dict and item[parent_id]['id']:
 				v += self.read(item[parent_id]['id'],[fullname],context)[0][fullname]
 			elif type(item[parent_id]) == str:

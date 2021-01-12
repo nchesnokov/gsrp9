@@ -144,7 +144,7 @@ class seq_access_schemas(Model):
 	'name': fields.varchar(label='Name',translate = True,required = True),
 	'fullname': fields.composite(label='Full Name',cols=['area','segment','name'],translate = True,required = True, compute = '_compute_composite'),
 	'usage': fields.selection(label='Usage',selections=[('a','All')]),
-	'items': fields.many2one(label='Items',obj='seq.access.schema.items',rel='schema_id')
+	'items': fields.one2many(label='Items',obj='seq.access.schema.items',rel='schema_id')
 	}
 	
 	_default = {

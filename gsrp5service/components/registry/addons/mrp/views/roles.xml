@@ -260,6 +260,26 @@
             <column name="note">Module: mrp Type: models Object: mrp.demand.roles grant: crw</column>
             <column name="group_id">mrp.models.crw</column>
         </record>
+        <record id="role.mrp.models.mrp.demand.output.plates.readonly">
+            <column name="name">role.mrp.models.mrp.demand.output.plates.readonly</column>
+            <column name="note">Module: mrp Type: models Object: mrp.demand.output.plates grant: readonly</column>
+            <column name="group_id">mrp.models.readonly</column>
+        </record>
+        <record id="role.mrp.models.mrp.demand.output.plates.nodrop">
+            <column name="name">role.mrp.models.mrp.demand.output.plates.nodrop</column>
+            <column name="note">Module: mrp Type: models Object: mrp.demand.output.plates grant: nodrop</column>
+            <column name="group_id">mrp.models.nodrop</column>
+        </record>
+        <record id="role.mrp.models.mrp.demand.output.plates.full">
+            <column name="name">role.mrp.models.mrp.demand.output.plates.full</column>
+            <column name="note">Module: mrp Type: models Object: mrp.demand.output.plates grant: full</column>
+            <column name="group_id">mrp.models.full</column>
+        </record>
+        <record id="role.mrp.models.mrp.demand.output.plates.crw">
+            <column name="name">role.mrp.models.mrp.demand.output.plates.crw</column>
+            <column name="note">Module: mrp Type: models Object: mrp.demand.output.plates grant: crw</column>
+            <column name="group_id">mrp.models.crw</column>
+        </record>
         <record id="role.mrp.models.mrp.demand.items.readonly">
             <column name="name">role.mrp.models.mrp.demand.items.readonly</column>
             <column name="note">Module: mrp Type: models Object: mrp.demand.items grant: readonly</column>
@@ -398,6 +418,26 @@
         <record id="role.mrp.models.mrp.request.roles.crw">
             <column name="name">role.mrp.models.mrp.request.roles.crw</column>
             <column name="note">Module: mrp Type: models Object: mrp.request.roles grant: crw</column>
+            <column name="group_id">mrp.models.crw</column>
+        </record>
+        <record id="role.mrp.models.mrp.request.output.plates.readonly">
+            <column name="name">role.mrp.models.mrp.request.output.plates.readonly</column>
+            <column name="note">Module: mrp Type: models Object: mrp.request.output.plates grant: readonly</column>
+            <column name="group_id">mrp.models.readonly</column>
+        </record>
+        <record id="role.mrp.models.mrp.request.output.plates.nodrop">
+            <column name="name">role.mrp.models.mrp.request.output.plates.nodrop</column>
+            <column name="note">Module: mrp Type: models Object: mrp.request.output.plates grant: nodrop</column>
+            <column name="group_id">mrp.models.nodrop</column>
+        </record>
+        <record id="role.mrp.models.mrp.request.output.plates.full">
+            <column name="name">role.mrp.models.mrp.request.output.plates.full</column>
+            <column name="note">Module: mrp Type: models Object: mrp.request.output.plates grant: full</column>
+            <column name="group_id">mrp.models.full</column>
+        </record>
+        <record id="role.mrp.models.mrp.request.output.plates.crw">
+            <column name="name">role.mrp.models.mrp.request.output.plates.crw</column>
+            <column name="note">Module: mrp Type: models Object: mrp.request.output.plates grant: crw</column>
             <column name="group_id">mrp.models.crw</column>
         </record>
         <record id="role.mrp.models.mrp.request.items.readonly">
@@ -850,6 +890,35 @@
           <column name="awrite">True</column>
           <column name="aexecute">True</column>
         </record>
+        <record id="access.role.mrp.models.mrp.demand.output.plates.readonly">
+            <column name="access_id">role.mrp.models.mrp.demand.output.plates.readonly</column>
+            <column name="object_id">mrp.demand.output.plates</column>
+          <column name="aread">True</column>
+        </record>
+        <record id="access.role.mrp.models.mrp.demand.output.plates.nodrop">
+            <column name="access_id">role.mrp.models.mrp.demand.output.plates.nodrop</column>
+            <column name="object_id">mrp.demand.output.plates</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+        </record>
+        <record id="access.role.mrp.models.mrp.demand.output.plates.full">
+            <column name="access_id">role.mrp.models.mrp.demand.output.plates.full</column>
+            <column name="object_id">mrp.demand.output.plates</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aunlink">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.mrp.models.mrp.demand.output.plates.crw">
+            <column name="access_id">role.mrp.models.mrp.demand.output.plates.crw</column>
+            <column name="object_id">mrp.demand.output.plates</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aexecute">True</column>
+        </record>
         <record id="access.role.mrp.models.mrp.demand.items.readonly">
             <column name="access_id">role.mrp.models.mrp.demand.items.readonly</column>
             <column name="object_id">mrp.demand.items</column>
@@ -1048,6 +1117,35 @@
         <record id="access.role.mrp.models.mrp.request.roles.crw">
             <column name="access_id">role.mrp.models.mrp.request.roles.crw</column>
             <column name="object_id">mrp.request.roles</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.mrp.models.mrp.request.output.plates.readonly">
+            <column name="access_id">role.mrp.models.mrp.request.output.plates.readonly</column>
+            <column name="object_id">mrp.request.output.plates</column>
+          <column name="aread">True</column>
+        </record>
+        <record id="access.role.mrp.models.mrp.request.output.plates.nodrop">
+            <column name="access_id">role.mrp.models.mrp.request.output.plates.nodrop</column>
+            <column name="object_id">mrp.request.output.plates</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+        </record>
+        <record id="access.role.mrp.models.mrp.request.output.plates.full">
+            <column name="access_id">role.mrp.models.mrp.request.output.plates.full</column>
+            <column name="object_id">mrp.request.output.plates</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aunlink">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.mrp.models.mrp.request.output.plates.crw">
+            <column name="access_id">role.mrp.models.mrp.request.output.plates.crw</column>
+            <column name="object_id">mrp.request.output.plates</column>
           <column name="aread">True</column>
           <column name="acreate">True</column>
           <column name="awrite">True</column>

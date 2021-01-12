@@ -8,7 +8,7 @@ class mrp_texts(Model):
 	_description = 'MRP Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
-	_class_category = 'order'
+	_class_category = 'mrp'
 	_columns = {
 	'code': fields.varchar(label = 'Code',size=8,translate=True),
 	'descr':fields.varchar(label = 'Description',size=128,translate=True),
@@ -21,7 +21,7 @@ class mrp_schema_texts(Model):
 	_description = 'Schema Of MRP Texts'
 	_rec_name = 'code'
 	_class_model = 'C'
-	_class_category = 'order'
+	_class_category = 'mrp'
 	_columns = {
 	'usage': fields.selection(label='Usage',selections=[('h','Header'),('i','Item'),('b','Both')]),
 	'code': fields.varchar(label = 'Code',size=8,translate=True),
@@ -35,7 +35,7 @@ class mrp_schema_text_items(Model):
 	_name = 'mrp.schema.text.items'
 	_description = 'Items Of Schema MRP Texts'
 	_class_model = 'C'
-	_class_category = 'order'
+	_class_category = 'mrp'
 	_columns = {
 	'schema_id': fields.many2one(label = 'Schema',obj='mrp.schema.texts'),
 	'seq': fields.integer(label='Sequence'),
@@ -51,7 +51,7 @@ class mrp_demand_types(Model):
 	_name = 'mrp.demand.types'
 	_description = 'Types MRP Demand'
 	_class_model = 'C'
-	_class_category = 'order'
+	_class_category = 'mrp'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'htschema': fields.many2one(label='Text Schema Of Head',obj='mrp.schema.texts',domain=[('usage','in',('h','b'))]),
@@ -66,7 +66,7 @@ class mrp_demand_type_roles(Model):
 	_name = 'mrp.demand.type.roles'
 	_description = 'Role MRP Demand Types'
 	_class_model = 'C'
-	_class_category = 'order'
+	_class_category = 'mrp'
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='mrp.demand.types'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -80,7 +80,7 @@ class mrp_request_types(Model):
 	_name = 'mrp.request.types'
 	_description = 'Types MRP Request'
 	_class_model = 'C'
-	_class_category = 'invoice'
+	_class_category = 'mrp'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'htschema': fields.many2one(label='Text Schema Of Head',obj='mrp.schema.texts',domain=[('usage','in',('h','b'))]),
@@ -95,7 +95,7 @@ class mrp_request_type_roles(Model):
 	_name = 'mrp.request.type.roles'
 	_description = 'Role MRP Request Types'
 	_class_model = 'C'
-	_class_category = 'invoice'
+	_class_category = 'mrp'
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='mrp.request.types'),
 	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('p','a'))]),
@@ -104,6 +104,40 @@ class mrp_request_type_roles(Model):
 	}
 
 mrp_request_type_roles()
+
+
+class mrp_demand_category(Model):
+	_name = 'mrp.demand.category'
+	_description = 'Category MRP Demand'
+	_class_model = 'C'
+	_class_category = 'mrp'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='mrp.demand.category'),
+	'childs_id': fields.one2many(obj = 'mrp.demand.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'demands': fields.one2many(label='Demands',obj='mrp.demand',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+mrp_demand_category()
+
+class mrp_request_category(Model):
+	_name = 'mrp.request.category'
+	_description = 'Category MRP Request'
+	_class_model = 'C'
+	_class_category = 'mrp'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='mrp.request.category'),
+	'childs_id': fields.one2many(obj = 'mrp.request.category',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'requests': fields.one2many(label='Requests',obj='mrp.request',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+mrp_request_category()
+
 
 # end customize
 

@@ -1,32 +1,6 @@
 from gsrp5service.orm import fields
 from gsrp5service.orm.model import Model, ModelInherit
 
-class mrp_demand_category(Model):
-	_name = 'mrp.demand.category'
-	_description = 'Category MRP Demand'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='mrp.demand.category'),
-	'childs_id': fields.one2many(obj = 'mrp.demand.category',rel = 'parent_id',label = 'Childs'),
-	'demands': fields.one2many(label='Demands',obj='mrp.demand',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-mrp_demand_category()
-
-class mrp_request_category(Model):
-	_name = 'mrp.request.category'
-	_description = 'Category MRP Request'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='mrp.request.category'),
-	'childs_id': fields.one2many(obj = 'mrp.request.category',rel = 'parent_id',label = 'Childs'),
-	'requests': fields.one2many(label='Requests',obj='mrp.request',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-mrp_request_category()
-
 class mrp_demand(Model):
 	_name = 'mrp.demand'
 	_description = 'MRP Demand'
@@ -45,6 +19,7 @@ class mrp_demand(Model):
 	'items': fields.one2many(label='Items',obj='mrp.demand.items',rel='demand_id'),
 	'roles': fields.one2many(label='Roles',obj='mrp.demand.roles',rel='demand_id'),
 	'texts': fields.one2many(label='Texts',obj='mrp.demand.texts',rel='demand_id'),
+	'plates': fields.one2many(label='Plates',obj='mrp.demand.output.plates',rel='demand_id'),
 	'note': fields.text('Note')}
 
 	_default = {
@@ -78,8 +53,6 @@ mrp_demand()
 class mrp_demand_texts(Model):
 	_name = 'mrp.demand.texts'
 	_description = 'MRP Demand Texts'
-	_class_model = 'C'
-	_class_category = 'order'
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
@@ -103,6 +76,27 @@ class mrp_demand_roles(Model):
 	}
 
 mrp_demand_roles()
+
+class mrp_demand_output_plates(Model):
+	_name = 'mrp.demand.output.plates'
+	_description = 'MRP Demand Output Plates'
+	_columns = {
+	'demand_id': fields.many2one(label = 'Order',obj='mrp.demand'),
+	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
+	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
+	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+mrp_demand_output_plates()
 
 
 class mrp_demand_items(Model):
@@ -140,8 +134,6 @@ mrp_demand_items()
 class mrp_demand_item_texts(Model):
 	_name = 'mrp.demand.item.texts'
 	_description = 'MRP Demand Item Texts'
-	_class_model = 'C'
-	_class_category = 'order'
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
@@ -204,6 +196,7 @@ class mrp_request(Model):
 	'items': fields.one2many(label='Items',obj='mrp.request.items',rel='request_id'),
 	'roles': fields.one2many(label='Roles',obj='mrp.request.roles',rel='request_id'),
 	'texts': fields.one2many(label='Texts',obj='mrp.request.texts',rel='request_id'),
+	'plates': fields.one2many(label='Plates',obj='mrp.request.output.plates',rel='request_id'),
 	'note': fields.text('Note')}
 
 	def _on_change_rtype(self,item,context={}):		
@@ -236,8 +229,6 @@ mrp_request()
 class mrp_request_texts(Model):
 	_name = 'mrp.request.texts'
 	_description = 'MRP Request Texts'
-	_class_model = 'C'
-	_class_category = 'invoice'
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
@@ -261,6 +252,27 @@ class mrp_request_roles(Model):
 	}
 
 mrp_request_roles()
+
+class mrp_request_output_plates(Model):
+	_name = 'mrp.request.output.plates'
+	_description = 'MRP Request Output Plates'
+	_columns = {
+	'request_id': fields.many2one(label = 'Request',obj='mrp.request'),
+	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
+	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
+	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+mrp_demand_output_plates()
 
 
 class mrp_request_items(Model):
@@ -298,8 +310,6 @@ mrp_request_items()
 class mrp_request_item_texts(Model):
 	_name = 'mrp.request.item.texts'
 	_description = 'MRP Request Item Texts'
-	_class_model = 'C'
-	_class_category = 'invoice'
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {

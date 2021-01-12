@@ -79,8 +79,8 @@ class fa_accounts(Model):
 	_no_copy = ['last_time_entries_checked']
 	
 	_indicies = {
-		'code':'code',
-		'deprecated':'deprecated'
+		'code':['code'],
+		'deprecated':['deprecated']
 	}
 
 	def _compute_opening_debit_credit(self,cr,pool,uid,record,context={}):

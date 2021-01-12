@@ -464,19 +464,19 @@ def _uninstallModule(self,name):
 	meta = self._registry._modules[name]['meta']
 	mom = self._registry._objs[name]['models']
 
-	xmldatas = self._session._models.get('bc.model.data').select(['name','module','model','rec_id'],[('module','=',name)])
-	xmlmodels = {}
-	for xmldata in xmldatas:
-		xmlmodels.setdefault(xmldata['model'],[]).append(xmldata['rec_id'])
+	# xmldatas = self._session._models.get('bc.model.data').select(['name','module','model','rec_id'],[('module','=',name)])
+	# xmlmodels = {}
+	# for xmldata in xmldatas:
+		# xmlmodels.setdefault(xmldata['model'],[]).append(xmldata['rec_id'])
 	
-	for key in xmlmodels.keys():
-		r = self._session._models.get(key).unlink(xmlmodels[key])
-		_logger.info(" Unlink from model: %s records: %s" % (key,len(xmlmodels[key])))
+	# for key in xmlmodels.keys():
+		# r = self._session._models.get(key).unlink(xmlmodels[key])
+		# _logger.info(" Unlink from model: %s records: %s" % (key,len(xmlmodels[key])))
 
-	self._session._models.get('bc.model.data').unlink(list(map(lambda x: x['id'],xmldatas)))
+	# self._session._models.get('bc.model.data').unlink(list(map(lambda x: x['id'],xmldatas)))
 
-	f = self._session._models.get('bc.module.files').delete([('module_id','=',name)])
-	_logger.info(" Unlink module files: %s records: %s" % (name,len(f)))
+	# f = self._session._models.get('bc.module.files').delete([('module_id','=',name)])
+	# _logger.info(" Unlink module files: %s records: %s" % (name,len(f)))
 
 	mm = self._session._models.get('bc.models').select(['module_id','name','db_table',{'columns':['model_id']}],[('module_id','=',name)])
 	db_models = list(map(lambda x: x['name'],mm))
@@ -535,6 +535,24 @@ def _uninstallModule(self,name):
 		self._cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
 
 		_logger.info("Tables dropped")
+
+
+	xmldatas = self._session._models.get('bc.model.data').select(['name','module','model','rec_id'],[('module','=',name)])
+	xmlmodels = {}
+	for xmldata in xmldatas:
+		xmlmodels.setdefault(xmldata['model'],[]).append(xmldata['rec_id'])
+	
+	for key in xmlmodels.keys():
+		r = self._session._models.get(key).unlink(xmlmodels[key])
+		_logger.info(" Unlink from model: %s records: %s" % (key,len(xmlmodels[key])))
+
+	self._session._models.get('bc.model.data').unlink(list(map(lambda x: x['id'],xmldatas)))
+
+	f = self._session._models.get('bc.module.files').delete([('module_id','=',name)])
+	_logger.info(" Unlink module files: %s records: %s" % (name,len(f)))
+
+
+
 
 	module_id = self._registry._modules[name]['db_id']
 	self._session._models.get('bc.modules').write({'id':module_id,'state':'N'},{})

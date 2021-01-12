@@ -58,17 +58,18 @@
           <column name="model">hcm.department</column>
           <column name="arch" type="Xml">
             <form>
+              <field name="company"/>
               <field name="name"/>
-              <field name="complete_name"/>
-              <field name="active"/>
-              <field name="company_id"/>
               <field name="parent_id"/>
               <field name="childs_id"/>
+              <field name="complete_name"/>
+              <field name="fullname"/>
               <field name="manager_id"/>
               <field name="member_ids"/>
               <field name="jobs_ids"/>
               <field name="note"/>
               <field name="color"/>
+              <field name="active"/>
             </form>
           </column>
         </record>
@@ -77,16 +78,17 @@
           <column name="model">hcm.department</column>
           <column name="arch" type="Xml">
             <list>
+              <field name="company"/>
               <field name="name"/>
-              <field name="complete_name"/>
-              <field name="active"/>
-              <field name="company_id"/>
               <field name="parent_id"/>
               <field name="childs_id"/>
+              <field name="complete_name"/>
+              <field name="fullname"/>
               <field name="manager_id"/>
               <field name="member_ids"/>
               <field name="jobs_ids"/>
               <field name="color"/>
+              <field name="active"/>
             </list>
           </column>
         </record>
@@ -95,13 +97,14 @@
           <column name="model">hcm.department</column>
           <column name="arch" type="Xml">
             <m2mlist>
+              <field name="company"/>
               <field name="name"/>
-              <field name="complete_name"/>
-              <field name="active"/>
-              <field name="company_id"/>
               <field name="parent_id"/>
+              <field name="complete_name"/>
+              <field name="fullname"/>
               <field name="manager_id"/>
               <field name="color"/>
+              <field name="active"/>
             </m2mlist>
           </column>
         </record>
@@ -110,13 +113,14 @@
           <column name="model">hcm.department</column>
           <column name="arch" type="Xml">
             <search>
+              <field name="company"/>
               <field name="name"/>
-              <field name="complete_name"/>
-              <field name="active"/>
-              <field name="company_id"/>
               <field name="parent_id"/>
+              <field name="complete_name"/>
+              <field name="fullname"/>
               <field name="manager_id"/>
               <field name="color"/>
+              <field name="active"/>
             </search>
           </column>
         </record>
@@ -125,13 +129,14 @@
           <column name="model">hcm.department</column>
           <column name="arch" type="Xml">
             <find>
+              <field name="company"/>
               <field name="name"/>
-              <field name="complete_name"/>
-              <field name="active"/>
-              <field name="company_id"/>
               <field name="parent_id"/>
+              <field name="complete_name"/>
+              <field name="fullname"/>
               <field name="manager_id"/>
               <field name="color"/>
+              <field name="active"/>
             </find>
           </column>
         </record>
@@ -140,13 +145,14 @@
           <column name="model">hcm.department</column>
           <column name="arch" type="Xml">
             <tree>
+              <field name="company"/>
               <field name="name"/>
-              <field name="complete_name"/>
-              <field name="active"/>
-              <field name="company_id"/>
               <field name="parent_id"/>
+              <field name="complete_name"/>
+              <field name="fullname"/>
               <field name="manager_id"/>
               <field name="color"/>
+              <field name="active"/>
             </tree>
           </column>
         </record>
@@ -260,6 +266,7 @@
               <field name="firstname"/>
               <field name="lastname"/>
               <field name="middlename"/>
+              <field name="birthday"/>
               <field name="fullname"/>
               <field name="user_id"/>
               <field name="active"/>
@@ -268,7 +275,6 @@
               <field name="country_id"/>
               <field name="gender"/>
               <field name="marital"/>
-              <field name="birthday"/>
               <field name="ssnid"/>
               <field name="sinid"/>
               <field name="identification_id"/>
@@ -303,6 +309,7 @@
               <field name="firstname"/>
               <field name="lastname"/>
               <field name="middlename"/>
+              <field name="birthday"/>
               <field name="fullname"/>
               <field name="user_id"/>
               <field name="active"/>
@@ -311,7 +318,6 @@
               <field name="country_id"/>
               <field name="gender"/>
               <field name="marital"/>
-              <field name="birthday"/>
               <field name="ssnid"/>
               <field name="sinid"/>
               <field name="identification_id"/>
@@ -341,6 +347,7 @@
               <field name="firstname"/>
               <field name="lastname"/>
               <field name="middlename"/>
+              <field name="birthday"/>
               <field name="fullname"/>
               <field name="user_id"/>
               <field name="active"/>
@@ -349,7 +356,6 @@
               <field name="country_id"/>
               <field name="gender"/>
               <field name="marital"/>
-              <field name="birthday"/>
               <field name="ssnid"/>
               <field name="sinid"/>
               <field name="identification_id"/>
@@ -378,6 +384,7 @@
               <field name="firstname"/>
               <field name="lastname"/>
               <field name="middlename"/>
+              <field name="birthday"/>
               <field name="fullname"/>
               <field name="user_id"/>
               <field name="active"/>
@@ -386,7 +393,6 @@
               <field name="country_id"/>
               <field name="gender"/>
               <field name="marital"/>
-              <field name="birthday"/>
               <field name="ssnid"/>
               <field name="sinid"/>
               <field name="identification_id"/>
@@ -415,6 +421,7 @@
               <field name="firstname"/>
               <field name="lastname"/>
               <field name="middlename"/>
+              <field name="birthday"/>
               <field name="fullname"/>
               <field name="user_id"/>
               <field name="active"/>
@@ -423,7 +430,6 @@
               <field name="country_id"/>
               <field name="gender"/>
               <field name="marital"/>
-              <field name="birthday"/>
               <field name="ssnid"/>
               <field name="sinid"/>
               <field name="identification_id"/>
@@ -452,6 +458,7 @@
               <field name="firstname"/>
               <field name="lastname"/>
               <field name="middlename"/>
+              <field name="birthday"/>
               <field name="fullname"/>
               <field name="user_id"/>
               <field name="active"/>
@@ -460,7 +467,6 @@
               <field name="country_id"/>
               <field name="gender"/>
               <field name="marital"/>
-              <field name="birthday"/>
               <field name="ssnid"/>
               <field name="sinid"/>
               <field name="identification_id"/>
