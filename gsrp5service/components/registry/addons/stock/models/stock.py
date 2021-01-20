@@ -4,6 +4,7 @@ from gsrp5service.orm.model import Model, ModelInherit
 class st_location(Model):
 	_name = 'st.location'
 	_description = 'Stock Location'
+	_class_model = 'B'
 	_columns = {
 	'usage': fields.selection(label='Usage',selections=[('supplier', 'Vendor Location'),
         ('view', 'View'),
@@ -24,6 +25,7 @@ st_location()
 class st_stock(Model):
 	_name = 'st.stock'
 	_description = 'General Stock'
+	_class_model = 'C'
 	_columns = {
 	'company': fields.many2one(label='Company',obj='md.company'),
 	'name': fields.varchar(label = 'Name'),
@@ -107,7 +109,7 @@ md_stock_product()
 	# 'note': fields.text('Note')
 	# }
 
-# class purchase_order_items(Model):
+# class st_stock_document_items(Model):
 	# _name = 'st.stok.document.items'
 	# _description = 'Stock Document Items'
 	# _columns = {

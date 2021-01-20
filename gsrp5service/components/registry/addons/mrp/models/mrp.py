@@ -108,6 +108,7 @@ class mrp_demand_items(Model):
 	'demand_id': fields.many2one(obj = 'mrp.demand',label = 'Demand', on_delete='c'),
 	'product': fields.many2one(label='Product',obj='md.product'),
 	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'quantity': fields.numeric(label='Quantity',size=(13,3),compute='_compute_quantity'),
 	'schedules': fields.one2many(label='Schedule',obj='mrp.demand.delivery.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='mrp.demand.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='mrp.demand.item.texts',rel='item_id'),
@@ -128,6 +129,9 @@ class mrp_demand_items(Model):
 			seq += 10
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
+
+	def _compute_quantity(self,item,context):
+		return 0.0
 
 mrp_demand_items()
 

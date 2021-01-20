@@ -16,6 +16,7 @@ class hcm_department(Model):
 	_name = "hcm.department"
 	_description = "HR Department"
 	_order_by = "fullname"
+	_complete_name = 'complete_name'
 	_rec_name = 'complete_name'
 	_full_name = 'fullname'
 	_columns = {
@@ -24,7 +25,7 @@ class hcm_department(Model):
 	'parent_id': fields.many2one(obj='hcm.department', label='Parent Department'),
 	'childs_id': fields.one2many(obj='hcm.department', rel='parent_id', label='Child Departments'),
 	'fullname': fields.composite(label='Full Name', priority=1, translate = True,required = True, compute = '_compute_composite_tree'),
-	'complete_name': fields.varchar(label='Complete Name', priority=2, translate = True,required = True, compute = '_compute_complete_name'),
+	'complete_name': fields.composite(label='Complete Name',cols=['company','fullname'], priority=2, translate = True,required = True, compute = '_compute_complete_composite'),
 	'manager_id':  fields.many2one(obj='hcm.employees', label='Manager'),
 	'member_ids': fields.one2many(obj='hcm.employees', rel='department_id', label='Members'),
 	'jobs_ids': fields.one2many(obj='hcm.job', rel='department_id', label='Jobs'),
@@ -33,7 +34,7 @@ class hcm_department(Model):
 	'active': fields.boolean('Active')
 	}
 
-	def _compute_complete_name(self,item,context):
+	def _compute_complete_name1(self,item,context):
 		if item['fullname'] and item['company'] and item['company']['name']:
 			item['complete_name'] = item['company']['name'] + '/' + item['fullname']
 

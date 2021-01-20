@@ -528,6 +528,10 @@ class BaseModel(object, metaclass = MetaObjects):
 	def _getRowNameName(self):
 		return mm._getRowNameName(self)
 
+	def _getCompleteNameName(self):
+		return mm._getCompleteNameName(self)
+
+
 	def _getFullNameName(self):
 		return mm._getFullNameName(self)
 
@@ -609,6 +613,9 @@ class BaseModel(object, metaclass = MetaObjects):
 	def _compute_composite(self ,item,context):
 		return mm._compute_composite(self ,item,context)
 
+	def _compute_complete_composite(self ,item,context):
+		return mm._compute_complete_composite(self ,item,context)
+
 	def _compute_composite_tree(self ,item,context):
 		return mm._compute_composite_tree(self ,item,context)
 
@@ -660,6 +667,11 @@ class BaseModel(object, metaclass = MetaObjects):
 	@property 
 	def _RowNameName(self):
 		return mm._getRowNameName(self)
+
+	@property 
+	def _CompleteNameName(self):
+		return mm._getCompleteNameName(self)
+
 
 	@property 
 	def _FullNameName(self):

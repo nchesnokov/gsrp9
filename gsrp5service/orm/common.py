@@ -29,7 +29,7 @@ RESERVED_KYEWORD_POSTGRESQL = ['ALL', 'ANALYSE', 'ANALYZE', 'AND', 'ANY', 'ARRAY
 
 SQL_RESERVED_KEYWORDS = RESERVED_KYEWORD_POSTGRESQL
 
-DEFAULT_MODEL_NAMES = {'row_name':'name','full_name':'fullname', 'parent_id':'parent_id','childs_id':'childs_id','date':'date','from_date':'from_date','to_date':'to_date','from_time':'from_time','to_time':'to_time','start_date':'start_date','end_date':'end_date','sequence':'sequence','progress':'progress','project_type':'project_type','state':'state','inactive':'inactive','prev':'prev','next':'next','transitions':'transitions','latitude':'latitude','longitude':'longitude','from_latitude':'from_latitude','from_longitude':'from_longitude','to_latitude':'to_latitude','to_longitude':'to_longitude','matrix_names':'matrix_names','matrix_col_name':'matrix_col_name','matrix_val_name':'matrix_val_name'}
+DEFAULT_MODEL_NAMES = {'row_name':'name','complete_name':'complete_name','full_name':'fullname', 'parent_id':'parent_id','childs_id':'childs_id','date':'date','from_date':'from_date','to_date':'to_date','from_time':'from_time','to_time':'to_time','start_date':'start_date','end_date':'end_date','sequence':'sequence','progress':'progress','project_type':'project_type','state':'state','inactive':'inactive','prev_name':'prev_name','next_name':'next_name','transitions':'transitions','latitude':'latitude','longitude':'longitude','from_latitude':'from_latitude','from_longitude':'from_longitude','to_latitude':'to_latitude','to_longitude':'to_longitude','matrix_names':'matrix_names','matrix_col_name':'matrix_col_name','matrix_val_name':'matrix_val_name'}
 
 class TPath:
 

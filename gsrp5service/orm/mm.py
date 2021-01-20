@@ -198,12 +198,14 @@ def model__init__(self,access = None):
 
 	fullname = _getFullNameName(self)
 	rec_name = _getRecNameName(self)
+	row_name = _getRowNameName(self)
+	complete_name = _getCompleteNameName(self)
 	if not hasattr(self,'_rec_name'):
 		self._rec_name = rec_name
 	if not hasattr(self,'_full_name'):
 		self._full_name = fullname
 	if not hasattr(self,'_row_name'):
-		self._row_name = _getRowNameName(self)
+		self._row_name = row_name
 
 	if rec_name and rec_name in self._nostorecomputefields:
 		raise orm_exception(_('Recname: <%s> in model: %s must be store in database') % (rec_name, self._name))
@@ -281,6 +283,15 @@ def _getRowNameName(self):
 
 	return n
 
+def _getCompleteNameName(self):
+	n = _getName(self,'complete_name')
+	if n:
+		if not self._columns[n]._type in ('char','varchar','selection','composite'):
+			n = None
+
+	return n
+
+
 def _getFullNameName(self):
 	n = _getName(self,'full_name')
 	if n:
@@ -290,10 +301,10 @@ def _getFullNameName(self):
 	return n
 
 def _getRecNameName(self):
-	if hasattr(self,'_rec_name'):
+	if hasattr(self,'_rec_name') and self._rec_name:
 		return self._rec_name
 	else:
-		return _getFullNameName(self) or _getRowNameName(self)
+		return _getCompleteNameName(self) or _getFullNameName(self) or _getRowNameName(self)
 
 def _getSequenceName(self):
 	n = _getName(self,'sequence')
@@ -444,16 +455,16 @@ def _getToLongitudeName(self):
 
 # geo end
 
-def _getPrevName(self):
-	n = _getName(self,'prev')
+def _getPrevNameName(self):
+	n = _getName(self,'prev_name')
 	if n:
 		if not self._columns[n]._type in ('many2one','related'):
 			n = None
 
 	return n
 
-def _getNextName(self):
-	n = _getName(self,'next')
+def _getNextNameName(self):
+	n = _getName(self,'next_name')
 	if n:
 		if not self._columns[n]._type in ('many2one','related'):
 			n = None
@@ -515,7 +526,7 @@ def _getName(self,name):
 def _getNames(self,names):
 	n = {}
 	if not names:
-		names = ('parent_id','childs_id','row_name','full_name','rec_name','date','start_date','end_date','from_date','to_date','from_time','to_time','progress','project_type','sequence','state','inactive','prev','next','transitions','latitude','longitude','from_latitude','from_longitude','to_latitude','to_longitude','matrix_names','matrix_col_name','matrix_val_name')
+		names = ('parent_id','childs_id','row_name','full_name','rec_name','complete_name','date','date','start_date','end_date','from_date','to_date','from_time','to_time','progress','project_type','sequence','state','inactive','prev_name','next_name','transitions','latitude','longitude','from_latitude','from_longitude','to_latitude','to_longitude','matrix_names','matrix_col_name','matrix_val_name')
 	for name in names:
 		#if self._name == 'purchase.order.item.delivery.schedules' and name in ('matrix_names','matrix_col_name','matrix_val_name'):
 			#pass
@@ -599,6 +610,33 @@ def _compute_composite(self ,item,context):
 
 		if len(v) > 0:
 			item[fullname] = v
+
+def _compute_complete_composite(self ,item,context):
+	v=''
+	completename = self._getCompleteNameName()
+	if completename and self._columns[completename]._type == 'composite':
+		cols = self._columns[completename].cols
+		delimiter = self._columns[completename].delimiter
+		for col in cols:
+			if self._columns[col]._type in ('many2one','related'):
+				if col in item and item[col] and item[col]['name']:
+					if len(v) == 0:
+						if item[col]['name']:
+							v += item[col]['name']
+					else:
+						if item[col]['name']:
+							v += delimiter + item[col]['name']
+			else:
+				if len(v) == 0:
+					if item[col]:
+						v += str(item[col])
+				else:
+					if item[col]:
+						v += delimiter + str(item[col])
+
+		if len(v) > 0:
+			item[completename] = v
+
 
 def _compute_decomposite(self ,item,context):
 	v=''

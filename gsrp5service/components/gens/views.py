@@ -504,7 +504,7 @@ def isAllowModels(view,info):
 	if view == 'geo' and (info['names']['from_latitude'] and info['names']['from_longitude'] or info['names']['to_latitude'] and info['names']['to_longitude'] or info['names']['latitude'] and info['names']['longitude']):
 		r = True
 
-	if view == 'flow' and  info['names']['prev'] and info['names']['next']:
+	if view == 'flow' and  info['names']['prev_name'] and info['names']['next_name']:
 		# and info['names']['transitions'] :
 		r = True
 
