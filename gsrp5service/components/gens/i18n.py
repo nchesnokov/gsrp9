@@ -70,31 +70,56 @@ def _download_i18n(path,module,models):
 	
 	po.save(opj(path,module,'i18n','po.pot'))
 
-def Area(registry, modules = None,context={}):
+def Area(self, modules = None,context={}):
 	pwd = os.getcwd()
-	pool = registry._models
+	pool = self._models
+	registry = self._registry
 	if not modules:
 		modules = registry._depends
 	else:
 		modules = list(filter(lambda x: x in modules,registry._depends))
 	logmodules = []
+
 	for module in modules:
 		path = registry._modules[module]['path']
-		models = []
-		imodels = []
-		module_models = registry._create_module_models(module)
-		for model in module_models.keys():
-			mm = module_models[model]
-			if isinstance(mm,Model):
-				models.append(mm)
-			elif isinstance(mm,ModelInherit):
-				if hasattr(mm,'_inherit') and getattr(mm,'_inherit',None):
-					imodels.append(mm)
-		
-		if len(models) > 0:
-			# + len(imodels) > 0:
-			_download_i18n(path,module,models)
+		objs = {}
+		iobjs = {}
+		if module in registry._metas:
+			for cat in filter(lambda x: x in ('dashboards','models','views','reports','wizards'),registry._metas[module].keys()):
+				for key in registry._metas[module][cat]:
+					obj = registry._create_module_object(cat,key,module)
+					if isinstance(obj,Model):
+						objs.setdefault(cat,[]).append(obj)
+					elif isinstance(obj,ModelInherit):
+						if hasattr(obj,'_inherit') and getattr(obj,'_inherit',None):
+							iobjs.setdefault(cat,[]).append(obj)
+
+		if len(objs) + len(iobjs) > 0:
+			for cat in objs.keys():
+				if cat == 'models':
+					if len(objs[cat]) > 0:
+						_download_i18n(path,module,objs[cat])
 			logmodules.append(module)
+
+
+
+	# for module in modules:
+		# path = registry._modules[module]['path']
+		# models = []
+		# imodels = []
+		# module_models = registry._create_module_models(module)
+		# for model in module_models.keys():
+			# mm = module_models[model]
+			# if isinstance(mm,Model):
+				# models.append(mm)
+			# elif isinstance(mm,ModelInherit):
+				# if hasattr(mm,'_inherit') and getattr(mm,'_inherit',None):
+					# imodels.append(mm)
+		
+		# if len(models) > 0:
+			# # + len(imodels) > 0:
+			# _download_i18n(path,module,models)
+			# logmodules.append(module)
 
 	_logger.info('Download i18ns of modules %s' % (logmodules,))
 	

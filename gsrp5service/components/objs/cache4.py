@@ -596,6 +596,11 @@ def _read(self, ids, fields = None, context = {}):
 			nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))		
 			records = self._cr.dictfetchall(selectablefields,self._columnsmeta)
 			for record in records:
+
+				for jk in self._jsonfields:
+					if jk in record:
+						record[jk] = json.loads(record[jk])
+
 				o2mfields = {}
 				m2mfields = {}
 				fds = list(filter(lambda x: type(x) == dict,fields))
@@ -638,6 +643,11 @@ def _read(self, ids, fields = None, context = {}):
 			nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))		
 			records = self._cr.dictfetchall(selectablefields,self._columnsmeta)
 			for record in records:
+
+				for jk in self._jsonfields:
+					if jk in record:
+						record[jk] = json.loads(record[jk])
+
 				o2mfields = {}
 				m2mfields = {}
 				fds = list(filter(lambda x: type(x) == dict,fields))
@@ -707,6 +717,11 @@ def _select(self, fields = None ,cond = None, context = {}, limit = None, offset
 		nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))
 		records = self._cr.dictfetchall(selectablefields,self._columnsmeta)
 		for record in records:
+
+			for jk in self._jsonfields:
+				if jk in record:
+					record[jk] = json.loads(record[jk])
+				
 			o2mfields = {}
 			m2mfields = {}
 			fds = list(filter(lambda x: type(x) == dict,fields))

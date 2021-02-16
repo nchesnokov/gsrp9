@@ -9,7 +9,7 @@ from datetime import timedelta
 #
 class srm_demands(Model):
 	_name = 'srm.demands'
-	_description = 'General SRM Demand'
+	_description = 'SRM Demand'
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'dod'
@@ -41,29 +41,29 @@ class srm_demands(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.demand.payment.schedules',rel='demand_id'),
 	'note': fields.text('Note')}
 	
-	def _on_change_dtype(self,cr,pool,uid,item,context={}):		
+	def _on_change_dtype(self,item,context={}):		
 		#import web_pdb
 		#web_pdb.set_trace()
-		roles = pool.get('srm.demand.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		roles = self._pool.get('srm.demand.type.roles').select(['role_id'],[('type_id','=',item['dtype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('srm.demand.roles')._buildEmptyItem()
+			item_role = self._pool.get('srm.demand.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = pool.get('srm.demand.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['dtype']['name'])],context)
+		deadlines = self._pool.get('srm.demand.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['dtype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = pool.get('srm.demand.deadlines')._buildEmptyItem()
+			item_deadline = self._pool.get('srm.demand.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 	
-		types = pool.get('srm.demand.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('srm.demand.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = pool.get('srm.demand.texts')._buildEmptyItem()
+			item_text = self._pool.get('srm.demand.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -72,14 +72,14 @@ class srm_demands(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.demand.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('srm.demand.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('srm.demand.items')._buildEmptyItem()
+				item_items = self._pool.get('srm.demand.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -141,7 +141,7 @@ class srm_demand_output_plates(Model):
 
 class srm_demand_deadlines(Model):
 	_name = 'srm.demand.deadlines'
-	_description = 'General SRM Demand Deadlines'
+	_description = 'SRM Demand Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
 	'demand_id': fields.many2one(label = 'Demand',obj='srm.demands',on_delete='c',on_update='c'),
@@ -185,7 +185,7 @@ srm_demand_payment_schedules()
 
 class srm_demand_items(Model):
 	_name = 'srm.demand.items'
-	_description = 'General SRM Demant Item'
+	_description = 'SRM Demant Item'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'demand_id': fields.many2one(obj = 'srm.demands',label = 'Demand',on_delete='c',on_update='c'),
@@ -209,9 +209,9 @@ class srm_demand_items(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.demand.item.payment.schedules',rel='item_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.srm.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -279,7 +279,7 @@ srm_demand_item_roles()
 
 class srm_demand_item_delivery_schedules(Model):
 	_name = 'srm.demand.item.delivery.schedules'
-	_description = 'General SRM Demand Delivery Schedules'
+	_description = 'SRM Demand Delivery Schedules'
 	_date = "schedule"
 	_columns = {
 	'item_id': fields.many2one(obj = 'srm.demand.items',label = 'Item',on_delete='c',on_update='c'),
@@ -407,7 +407,7 @@ srm_part_type_items()
 #
 class srm_parts(Model):
 	_name = 'srm.parts'
-	_description = 'General SRM Part'
+	_description = 'SRM Part'
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'dop'
@@ -439,27 +439,27 @@ class srm_parts(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.part.payment.schedules',rel='part_id'),
 	'note': fields.text('Note')}
 	
-	def _on_change_ptype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('srm.part.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['ptype']['name'])],context)
+	def _on_change_ptype(self,item,context={}):		
+		roles = self._pool.get('srm.part.type.roles').select(['role_id'],[('type_id','=',item['ptype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('srm.part.roles')._buildEmptyItem()
+			item_role = self._pool.get('srm.part.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = pool.get('srm.part.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['ptype']['name'])],context)
+		deadlines = self._pool.get('srm.part.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['ptype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = pool.get('srm.part.deadlines')._buildEmptyItem()
+			item_deadline = self._pool.get('srm.part.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = pool.get('srm.part.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('srm.part.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = pool.get('srm.part.texts')._buildEmptyItem()
+			item_text = self._pool.get('srm.part.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -468,14 +468,14 @@ class srm_parts(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.part.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('srm.part.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('srm.part.items')._buildEmptyItem()
+				item_items = self._pool.get('srm.part.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -536,7 +536,7 @@ class srm_part_output_plates(Model):
 
 class srm_part_deadlines(Model):
 	_name = 'srm.part.deadlines'
-	_description = 'General SRM Part Deadlines'
+	_description = 'SRM Part Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
 	'part_id': fields.many2one(label = 'Part',obj='srm.parts',on_delete='c',on_update='c'),
@@ -580,7 +580,7 @@ srm_part_payment_schedules()
 
 class srm_part_items(Model):
 	_name = 'srm.part.items'
-	_description = 'General SRM Part Item'
+	_description = 'SRM Part Item'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'part_id': fields.many2one(obj = 'srm.parts',label = 'Part',on_delete='c',on_update='c'),
@@ -604,9 +604,9 @@ class srm_part_items(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.part.item.payment.schedules',rel='item_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.srm.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -674,7 +674,7 @@ srm_part_item_roles()
 
 class srm_part_item_delivery_schedules(Model):
 	_name = 'srm.part.item.delivery.schedules'
-	_description = 'General SRM Part Delivery Schedules'
+	_description = 'SRM Part Delivery Schedules'
 	_date = "schedule"
 	_columns = {
 	'item_id': fields.many2one(obj = 'srm.part.items',label = 'Item',on_delete='c',on_update='c'),
@@ -802,7 +802,7 @@ srm_plan_type_items()
 #
 class srm_plans(Model):
 	_name = 'srm.plans'
-	_description = 'General SRM Plan'
+	_description = 'SRM Plan'
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'dop'
@@ -834,27 +834,27 @@ class srm_plans(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.plan.payment.schedules',rel='plan_id'),
 	'note': fields.text('Note')}
 	
-	def _on_change_ptype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('srm.plan.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['ptype']['name'])],context)
+	def _on_change_ptype(self,item,context={}):		
+		roles = self._pool.get('srm.plan.type.roles').select(['role_id'],[('type_id','=',item['ptype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('srm.plan.roles')._buildEmptyItem()
+			item_role = self._pool.get('srm.plan.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = pool.get('srm.plan.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['ptype']['name'])],context)
+		deadlines = self._pool.get('srm.plan.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['ptype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = pool.get('srm.plan.deadlines')._buildEmptyItem()
+			item_deadline = self._pool.get('srm.plan.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = pool.get('srm.plan.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('srm.plan.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = pool.get('srm.plan.texts')._buildEmptyItem()
+			item_text = self._pool.get('srm.plan.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -863,14 +863,14 @@ class srm_plans(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.plan.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('srm.plan.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('srm.plan.items')._buildEmptyItem()
+				item_items = self._pool.get('srm.plan.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -931,7 +931,7 @@ class srm_plan_output_plates(Model):
 
 class srm_plan_deadlines(Model):
 	_name = 'srm.plan.deadlines'
-	_description = 'General SRM Plan Deadlines'
+	_description = 'SRM Plan Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
 	'plan_id': fields.many2one(label = 'Plan',obj='srm.plans',on_delete='c',on_update='c'),
@@ -975,7 +975,7 @@ srm_plan_payment_schedules()
 
 class srm_plan_items(Model):
 	_name = 'srm.plan.items'
-	_description = 'General SRM Plan Item'
+	_description = 'SRM Plan Item'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'plan_id': fields.many2one(obj = 'srm.plans',label = 'Plan',on_delete='c',on_update='c'),
@@ -999,9 +999,9 @@ class srm_plan_items(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.plan.item.payment.schedules',rel='item_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.srm.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -1069,7 +1069,7 @@ srm_plan_item_roles()
 
 class srm_plan_item_delivery_schedules(Model):
 	_name = 'srm.plan.item.delivery.schedules'
-	_description = 'General SRM Plan Delivery Schedules'
+	_description = 'SRM Plan Delivery Schedules'
 	_date = "schedule"
 	_columns = {
 	'item_id': fields.many2one(obj = 'srm.plan.items',label = 'Item',on_delete='c',on_update='c'),
@@ -1197,7 +1197,7 @@ srm_request_type_items()
 #
 class srm_requests(Model):
 	_name = 'srm.requests'
-	_description = 'General SRM Request'
+	_description = 'SRM Request'
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'dor'
@@ -1229,27 +1229,27 @@ class srm_requests(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.request.payment.schedules',rel='request_id'),
 	'note': fields.text('Note')}
 	
-	def _on_change_rtype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('srm.request.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['rtype']['name'])],context)
+	def _on_change_rtype(self,item,context={}):		
+		roles = self._pool.get('srm.request.type.roles').select(['role_id'],[('type_id','=',item['rtype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('srm.request.roles')._buildEmptyItem()
+			item_role = self._pool.get('srm.request.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = pool.get('srm.request.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
+		deadlines = self._pool.get('srm.request.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = pool.get('srm.request.deadlines')._buildEmptyItem()
+			item_deadline = self._pool.get('srm.request.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = pool.get('srm.request.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('srm.request.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = pool.get('srm.request.texts')._buildEmptyItem()
+			item_text = self._pool.get('srm.request.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -1258,14 +1258,14 @@ class srm_requests(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.request.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('srm.request.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('srm.request.items')._buildEmptyItem()
+				item_items = self._pool.get('srm.request.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -1326,7 +1326,7 @@ class srm_request_output_plates(Model):
 
 class srm_request_deadlines(Model):
 	_name = 'srm.request.deadlines'
-	_description = 'General SRM Request Deadlines'
+	_description = 'SRM Request Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
 	'request_id': fields.many2one(label = 'Request',obj='srm.requests',on_delete='c',on_update='c'),
@@ -1370,7 +1370,7 @@ srm_request_payment_schedules()
 
 class srm_request_items(Model):
 	_name = 'srm.request.items'
-	_description = 'General SRM Request Item'
+	_description = 'SRM Request Item'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'request_id': fields.many2one(obj = 'srm.requests',label = 'Request',on_delete='c',on_update='c'),
@@ -1394,9 +1394,9 @@ class srm_request_items(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.request.item.payment.schedules',rel='item_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.srm.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -1464,7 +1464,7 @@ srm_request_item_roles()
 
 class srm_request_item_delivery_schedules(Model):
 	_name = 'srm.request.item.delivery.schedules'
-	_description = 'General SRM Request Delivery Schedules'
+	_description = 'SRM Request Delivery Schedules'
 	_date = "schedule"
 	_columns = {
 	'item_id': fields.many2one(obj = 'srm.request.items',label = 'Item',on_delete='c',on_update='c'),
@@ -1592,7 +1592,7 @@ srm_response_type_items()
 #
 class srm_responses(Model):
 	_name = 'srm.responses'
-	_description = 'General SRM Response'
+	_description = 'SRM Response'
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'dor'
@@ -1624,27 +1624,27 @@ class srm_responses(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.response.payment.schedules',rel='response_id'),
 	'note': fields.text('Note')}
 	
-	def _on_change_rtype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('srm.response.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['rtype']['name'])],context)
+	def _on_change_rtype(self,item,context={}):		
+		roles = self._pool.get('srm.response.type.roles').select(['role_id'],[('type_id','=',item['rtype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('srm.response.roles')._buildEmptyItem()
+			item_role = self._pool.get('srm.response.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = pool.get('srm.response.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
+		deadlines = self._pool.get('srm.response.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = pool.get('srm.response.deadlines')._buildEmptyItem()
+			item_deadline = self._pool.get('srm.response.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = pool.get('srm.response.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('srm.response.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = pool.get('srm.response.texts')._buildEmptyItem()
+			item_text = self._pool.get('srm.response.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -1653,14 +1653,14 @@ class srm_responses(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.response.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('srm.response.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('srm.response.items')._buildEmptyItem()
+				item_items = self._pool.get('srm.response.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -1721,7 +1721,7 @@ class srm_response_output_plates(Model):
 
 class srm_response_deadlines(Model):
 	_name = 'srm.response.deadlines'
-	_description = 'General SRM Response Deadlines'
+	_description = 'SRM Response Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
 	'response_id': fields.many2one(label = 'Response',obj='srm.responses',on_delete='c',on_update='c'),
@@ -1765,7 +1765,7 @@ srm_response_payment_schedules()
 
 class srm_response_items(Model):
 	_name = 'srm.response.items'
-	_description = 'General SRM Response Item'
+	_description = 'SRM Response Item'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'response_id': fields.many2one(obj = 'srm.responses',label = 'Response',on_delete='c',on_update='c'),
@@ -1789,9 +1789,9 @@ class srm_response_items(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.response.item.payment.schedules',rel='item_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.srm.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -1859,7 +1859,7 @@ srm_response_item_roles()
 
 class srm_response_item_delivery_schedules(Model):
 	_name = 'srm.response.item.delivery.schedules'
-	_description = 'General SRM Response Delivery Schedules'
+	_description = 'SRM Response Delivery Schedules'
 	_date = "schedule"
 	_columns = {
 	'item_id': fields.many2one(obj = 'srm.response.items',label = 'Item',on_delete='c',on_update='c'),
@@ -1988,7 +1988,7 @@ srm_rfx_type_items()
 #
 class srm_rfxs(Model):
 	_name = 'srm.rfxs'
-	_description = 'General SRM RFX'
+	_description = 'SRM RFX'
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'dor'
@@ -2020,27 +2020,27 @@ class srm_rfxs(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.rfx.payment.schedules',rel='rfx_id'),
 	'note': fields.text('Note')}
 	
-	def _on_change_rtype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('srm.rfx.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['rtype']['name'])],context)
+	def _on_change_rtype(self,item,context={}):		
+		roles = self._pool.get('srm.rfx.type.roles').select(['role_id'],[('type_id','=',item['rtype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('srm.rfx.roles')._buildEmptyItem()
+			item_role = self._pool.get('srm.rfx.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = pool.get('srm.rfx.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
+		deadlines = self._pool.get('srm.rfx.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = pool.get('srm.rfx.deadlines')._buildEmptyItem()
+			item_deadline = self._pool.get('srm.rfx.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = pool.get('srm.rfx.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('srm.rfx.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = pool.get('srm.rfx.texts')._buildEmptyItem()
+			item_text = self._pool.get('srm.rfx.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -2049,14 +2049,14 @@ class srm_rfxs(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.rfx.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('srm.rfx.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('srm.rfx.items')._buildEmptyItem()
+				item_items = self._pool.get('srm.rfx.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -2117,7 +2117,7 @@ class srm_rfx_output_plates(Model):
 
 class srm_rfx_deadlines(Model):
 	_name = 'srm.rfx.deadlines'
-	_description = 'General SRM RFX Deadlines'
+	_description = 'SRM RFX Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
 	'rfx_id': fields.many2one(label = 'RFX',obj='srm.rfxs',on_delete='c',on_update='c'),
@@ -2161,7 +2161,7 @@ srm_rfx_payment_schedules()
 
 class srm_rfx_items(Model):
 	_name = 'srm.rfx.items'
-	_description = 'General SRM RFX Item'
+	_description = 'SRM RFX Item'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'rfx_id': fields.many2one(obj = 'srm.rfxs',label = 'RFX',on_delete='c',on_update='c'),
@@ -2185,9 +2185,9 @@ class srm_rfx_items(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.rfx.item.payment.schedules',rel='item_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.srm.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -2255,7 +2255,7 @@ srm_rfx_item_roles()
 
 class srm_rfx_item_delivery_schedules(Model):
 	_name = 'srm.rfx.item.delivery.schedules'
-	_description = 'General SRM RFX Delivery Schedules'
+	_description = 'SRM RFX Delivery Schedules'
 	_date = "schedule"
 	_columns = {
 	'item_id': fields.many2one(obj = 'srm.rfx.items',label = 'Item',on_delete='c',on_update='c'),
@@ -2383,7 +2383,7 @@ srm_auction_type_items()
 #
 class srm_auctions(Model):
 	_name = 'srm.auctions'
-	_description = 'General SRM Auction'
+	_description = 'SRM Auction'
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'doa'
@@ -2415,27 +2415,27 @@ class srm_auctions(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.auction.payment.schedules',rel='auction_id'),
 	'note': fields.text('Note')}
 	
-	def _on_change_atype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('srm.auction.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['atype']['name'])],context)
+	def _on_change_atype(self,item,context={}):		
+		roles = self._pool.get('srm.auction.type.roles').select(['role_id'],[('type_id','=',item['atype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('srm.auction.roles')._buildEmptyItem()
+			item_role = self._pool.get('srm.auction.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = pool.get('srm.auction.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['atype']['name'])],context)
+		deadlines = self._pool.get('srm.auction.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['atype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = pool.get('srm.auction.deadlines')._buildEmptyItem()
+			item_deadline = self._pool.get('srm.auction.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = pool.get('srm.auction.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('srm.auction.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = pool.get('srm.auction.texts')._buildEmptyItem()
+			item_text = self._pool.get('srm.auction.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -2444,14 +2444,14 @@ class srm_auctions(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.auction.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('srm.auction.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('srm.auction.items')._buildEmptyItem()
+				item_items = self._pool.get('srm.auction.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -2512,7 +2512,7 @@ class srm_auction_output_plates(Model):
 
 class srm_auction_deadlines(Model):
 	_name = 'srm.auction.deadlines'
-	_description = 'General SRM Auction Deadlines'
+	_description = 'SRM Auction Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
 	'auction_id': fields.many2one(label = 'Auction',obj='srm.auctions',on_delete='c',on_update='c'),
@@ -2556,7 +2556,7 @@ srm_auction_payment_schedules()
 
 class srm_auction_items(Model):
 	_name = 'srm.auction.items'
-	_description = 'General SRM Auction Item'
+	_description = 'SRM Auction Item'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'auction_id': fields.many2one(obj = 'srm.auctions',label = 'Auction',on_delete='c',on_update='c'),
@@ -2580,9 +2580,9 @@ class srm_auction_items(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.auction.item.payment.schedules',rel='item_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.srm.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -2650,7 +2650,7 @@ srm_auction_item_roles()
 
 class srm_auction_item_delivery_schedules(Model):
 	_name = 'srm.auction.item.delivery.schedules'
-	_description = 'General SRM Auction Delivery Schedules'
+	_description = 'SRM Auction Delivery Schedules'
 	_date = "schedule"
 	_columns = {
 	'item_id': fields.many2one(obj = 'srm.auction.items',label = 'Item',on_delete='c',on_update='c'),
@@ -2778,7 +2778,7 @@ srm_offer_type_items()
 #
 class srm_offers(Model):
 	_name = 'srm.offers'
-	_description = 'General SRM Offer'
+	_description = 'SRM Offer'
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'doo'
@@ -2810,27 +2810,27 @@ class srm_offers(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.offer.payment.schedules',rel='offer_id'),
 	'note': fields.text('Note')}
 	
-	def _on_change_otype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('srm.offer.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+	def _on_change_otype(self,item,context={}):		
+		roles = self._pool.get('srm.offer.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('srm.offer.roles')._buildEmptyItem()
+			item_role = self._pool.get('srm.offer.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = pool.get('srm.offer.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['otype']['name'])],context)
+		deadlines = self._pool.get('srm.offer.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['otype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = pool.get('srm.offer.deadlines')._buildEmptyItem()
+			item_deadline = self._pool.get('srm.offer.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = pool.get('srm.offer.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('srm.offer.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = pool.get('srm.offer.texts')._buildEmptyItem()
+			item_text = self._pool.get('srm.offer.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -2839,14 +2839,14 @@ class srm_offers(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.offer.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('srm.offer.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('srm.offer.items')._buildEmptyItem()
+				item_items = self._pool.get('srm.offer.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -2907,7 +2907,7 @@ class srm_offer_output_plates(Model):
 
 class srm_offer_deadlines(Model):
 	_name = 'srm.offer.deadlines'
-	_description = 'General SRM Offer Deadlines'
+	_description = 'SRM Offer Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
 	'offer_id': fields.many2one(label = 'Offer',obj='srm.offers',on_delete='c',on_update='c'),
@@ -2951,7 +2951,7 @@ srm_offer_payment_schedules()
 
 class srm_offer_items(Model):
 	_name = 'srm.offer.items'
-	_description = 'General SRM Offer Item'
+	_description = 'SRM Offer Item'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'offer_id': fields.many2one(obj = 'srm.offers',label = 'Offer',on_delete='c',on_update='c'),
@@ -2975,9 +2975,9 @@ class srm_offer_items(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.offer.item.payment.schedules',rel='item_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.srm.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -3045,7 +3045,7 @@ srm_offer_item_roles()
 
 class srm_offer_item_delivery_schedules(Model):
 	_name = 'srm.offer.item.delivery.schedules'
-	_description = 'General SRM Offer Delivery Schedules'
+	_description = 'SRM Offer Delivery Schedules'
 	_date = "schedule"
 	_columns = {
 	'item_id': fields.many2one(obj = 'srm.offer.items',label = 'Item',on_delete='c',on_update='c'),
@@ -3173,7 +3173,7 @@ srm_evolution_type_items()
 #
 class srm_evolutions(Model):
 	_name = 'srm.evolutions'
-	_description = 'General SRM Evolution'
+	_description = 'SRM Evolution'
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'doe'
@@ -3205,27 +3205,27 @@ class srm_evolutions(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.evolution.payment.schedules',rel='evolution_id'),
 	'note': fields.text('Note')}
 	
-	def _on_change_etype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('srm.evolution.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['etype']['name'])],context)
+	def _on_change_etype(self,item,context={}):		
+		roles = self._pool.get('srm.evolution.type.roles').select(['role_id'],[('type_id','=',item['etype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('srm.evolution.roles')._buildEmptyItem()
+			item_role = self._pool.get('srm.evolution.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = pool.get('srm.evolution.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['etype']['name'])],context)
+		deadlines = self._pool.get('srm.evolution.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['etype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = pool.get('srm.evolution.deadlines')._buildEmptyItem()
+			item_deadline = self._pool.get('srm.evolution.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = pool.get('srm.evolution.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('srm.evolution.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = pool.get('srm.evolution.texts')._buildEmptyItem()
+			item_text = self._pool.get('srm.evolution.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -3234,14 +3234,14 @@ class srm_evolutions(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.evolution.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('srm.evolution.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('srm.evolution.items')._buildEmptyItem()
+				item_items = self._pool.get('srm.evolution.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -3302,7 +3302,7 @@ class srm_evolution_output_plates(Model):
 
 class srm_evolution_deadlines(Model):
 	_name = 'srm.evolution.deadlines'
-	_description = 'General SRM Evolution Deadlines'
+	_description = 'SRM Evolution Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
 	'evolution_id': fields.many2one(label = 'Evolution',obj='srm.evolutions',on_delete='c',on_update='c'),
@@ -3346,7 +3346,7 @@ srm_evolution_payment_schedules()
 
 class srm_evolution_items(Model):
 	_name = 'srm.evolution.items'
-	_description = 'General SRM Evolution Item'
+	_description = 'SRM Evolution Item'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'evolution_id': fields.many2one(obj = 'srm.evolutions',label = 'Evolution',on_delete='c',on_update='c'),
@@ -3370,9 +3370,9 @@ class srm_evolution_items(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.evolution.item.payment.schedules',rel='item_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.srm.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -3440,7 +3440,7 @@ srm_evolution_item_roles()
 
 class srm_evolution_item_delivery_schedules(Model):
 	_name = 'srm.evolution.item.delivery.schedules'
-	_description = 'General SRM Evolution Delivery Schedules'
+	_description = 'SRM Evolution Delivery Schedules'
 	_date = "schedule"
 	_columns = {
 	'item_id': fields.many2one(obj = 'srm.evolution.items',label = 'Item',on_delete='c',on_update='c'),
@@ -3568,7 +3568,7 @@ srm_decision_type_items()
 #
 class srm_decisions(Model):
 	_name = 'srm.decisions'
-	_description = 'General SRM Decision'
+	_description = 'SRM Decision'
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'dod'
@@ -3600,27 +3600,27 @@ class srm_decisions(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.decision.payment.schedules',rel='decision_id'),
 	'note': fields.text('Note')}
 	
-	def _on_change_dtype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('srm.decision.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['dtype']['name'])],context)
+	def _on_change_dtype(self,item,context={}):		
+		roles = self._pool.get('srm.decision.type.roles').select(['role_id'],[('type_id','=',item['dtype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('srm.decision.roles')._buildEmptyItem()
+			item_role = self._pool.get('srm.decision.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = pool.get('srm.decision.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['dtype']['name'])],context)
+		deadlines = self._pool.get('srm.decision.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['dtype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = pool.get('srm.decision.deadlines')._buildEmptyItem()
+			item_deadline = self._pool.get('srm.decision.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = pool.get('srm.decision.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('srm.decision.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = pool.get('srm.decision.texts')._buildEmptyItem()
+			item_text = self._pool.get('srm.decision.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -3629,14 +3629,14 @@ class srm_decisions(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.decision.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('srm.decision.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('srm.decision.items')._buildEmptyItem()
+				item_items = self._pool.get('srm.decision.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -3697,7 +3697,7 @@ class srm_decision_output_plates(Model):
 
 class srm_decision_deadlines(Model):
 	_name = 'srm.decision.deadlines'
-	_description = 'General SRM Decision Deadlines'
+	_description = 'SRM Decision Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
 	'decision_id': fields.many2one(label = 'Decision',obj='srm.decisions',on_delete='c',on_update='c'),
@@ -3741,7 +3741,7 @@ srm_decision_payment_schedules()
 
 class srm_decision_items(Model):
 	_name = 'srm.decision.items'
-	_description = 'General SRM Decision Item'
+	_description = 'SRM Decision Item'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'decision_id': fields.many2one(obj = 'srm.decisions',label = 'Decision',on_delete='c',on_update='c'),
@@ -3765,9 +3765,9 @@ class srm_decision_items(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.decision.item.payment.schedules',rel='item_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.srm.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -3835,7 +3835,7 @@ srm_decision_item_roles()
 
 class srm_decision_item_delivery_schedules(Model):
 	_name = 'srm.decision.item.delivery.schedules'
-	_description = 'General SRM Decision Delivery Schedules'
+	_description = 'SRM Decision Delivery Schedules'
 	_date = "schedule"
 	_columns = {
 	'item_id': fields.many2one(obj = 'srm.decision.items',label = 'Item',on_delete='c',on_update='c'),
@@ -3963,7 +3963,7 @@ srm_contract_type_items()
 #
 class srm_contracts(Model):
 	_name = 'srm.contracts'
-	_description = 'General SRM Contract'
+	_description = 'SRM Contract'
 	_inherits = {'srm.common':{'_methods':['copy_into','copy_from','_compute_fullname'],'_actions':['merge']},'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'doc'
@@ -3995,27 +3995,27 @@ class srm_contracts(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.contract.payment.schedules',rel='contract_id'),
 	'note': fields.text('Note')}
 	
-	def _on_change_ctype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('srm.contract.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['ctype']['name'])],context)
+	def _on_change_ctype(self,item,context={}):		
+		roles = self._pool.get('srm.contract.type.roles').select(['role_id'],[('type_id','=',item['ctype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('srm.contract.roles')._buildEmptyItem()
+			item_role = self._pool.get('srm.contract.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = pool.get('srm.contract.type.deadlines').select(cr,pool,uid,['sequence','deadline_id','required'],[('type_id','=',item['ctype']['name'])],context)
+		deadlines = self._pool.get('srm.contract.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['ctype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = pool.get('srm.contract.deadlines')._buildEmptyItem()
+			item_deadline = self._pool.get('srm.contract.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = pool.get('srm.contract.types').select(cr,pool,uid,['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = pool.get('srm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._pool.get('srm.contract.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = pool.get('srm.contract.texts')._buildEmptyItem()
+			item_text = self._pool.get('srm.contract.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -4024,14 +4024,14 @@ class srm_contracts(Model):
 			item_text['text_id'] = text['text_id']
 			item['texts'].append(item_text)
 
-	def _on_change_bom(self,cr,pool,uid,item,context={}):		
+	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = pool.get('md.bom.input.items').select(cr,pool,uid,['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = pool.get('srm.contract.item.delivery.schedules')._buildEmptyItem()
+				ei = self._pool.get('srm.contract.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('srm.contract.items')._buildEmptyItem()
+				item_items = self._pool.get('srm.contract.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -4092,7 +4092,7 @@ class srm_contract_output_plates(Model):
 
 class srm_contract_deadlines(Model):
 	_name = 'srm.contract.deadlines'
-	_description = 'General SRM Contract Deadlines'
+	_description = 'SRM Contract Deadlines'
 	_order_by = 'start_date asc'
 	_columns = {
 	'contract_id': fields.many2one(label = 'Contract',obj='srm.contracts',on_delete='c',on_update='c'),
@@ -4136,7 +4136,7 @@ srm_contract_payment_schedules()
 
 class srm_contract_items(Model):
 	_name = 'srm.contract.items'
-	_description = 'General SRM Contract Item'
+	_description = 'SRM Contract Item'
 	_inherits = {'common.model':{'_methods':['_calculate_items']}}
 	_columns = {
 	'contract_id': fields.many2one(obj = 'srm.contracts',label = 'Contract',on_delete='c',on_update='c'),
@@ -4160,9 +4160,9 @@ class srm_contract_items(Model):
 	'payments': fields.one2many(label='Payments',obj='srm.contract.item.payment.schedules',rel='item_id'),
 	'note': fields.text('Note')}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.srm.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -4230,7 +4230,7 @@ srm_contract_item_roles()
 
 class srm_contract_item_delivery_schedules(Model):
 	_name = 'srm.contract.item.delivery.schedules'
-	_description = 'General SRM Contract Delivery Schedules'
+	_description = 'SRM Contract Delivery Schedules'
 	_date = "schedule"
 	_columns = {
 	'item_id': fields.many2one(obj = 'srm.contract.items',label = 'Item',on_delete='c',on_update='c'),
@@ -4278,7 +4278,7 @@ srm_contract_item_payment_schedules()
 # SRM Other
 class srm_blacklist_partner(Model):
 	_name = 'srm.blacklist.partner'
-	_description = 'General SRM Partner Blacklist'
+	_description = 'SRM Partner Blacklist'
 	_columns = {
 	'name': fields.varchar(label = 'Blacklist Parnter',domain=[('issuplier',)]),
 	'partner_id': fields.many2one(label='Partner',obj='md.partner'),
@@ -4289,7 +4289,7 @@ srm_blacklist_partner()
 
 class srm_partner_validation(Model):
 	_name = 'srm.partner.validation'
-	_description = 'General SRM Partner Validation'
+	_description = 'SRM Partner Validation'
 	_columns = {
 	'name': fields.varchar(label = 'Validation Partner'),
 	'partner_id': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),
@@ -4300,7 +4300,7 @@ srm_partner_validation()
 
 class srm_partner_validation_category(Model):
 	_name = 'srm.partner.validation.category'
-	_description = 'General SRM Partner Validation Category'
+	_description = 'SRM Partner Validation Category'
 	_columns = {
 	'partner_validation_id': fields.many2one(label='Partner',obj='srm.partner.validation'),
 	'category_product_id': fields.many2one(label='Product Category',obj='md.category.product'),
@@ -4313,7 +4313,7 @@ srm_partner_validation_category()
 
 class srm_partner_validation_product(Model):
 	_name = 'srm.partner.validation.product'
-	_description = 'General SRM Partner Validation Product'
+	_description = 'SRM Partner Validation Product'
 	_columns = {
 	'partner_validation_id': fields.many2one(label='Partner',obj='srm.partner.validation'),
 	'product_id': fields.many2one(label='Product',obj='md.product'),
@@ -4326,7 +4326,7 @@ srm_partner_validation_product()
 
 class srm_product_source_supply(Model):
 	_name = 'srm.product.source.supply'
-	_description = 'General SRM Partner Source Of Supply'
+	_description = 'SRM Partner Source Of Supply'
 	_columns = {
 	'name': fields.varchar(label = 'Product Source Supply'),
 	'partner_id': fields.many2one(label='Partner',obj='md.partner',domain=[('issuplier',)]),

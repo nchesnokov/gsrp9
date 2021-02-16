@@ -26,7 +26,7 @@ def _get_mt(p):
 
 	return res
 
-def _download_i18n_tr(cr,pool,uid,path,module):
+def _download_i18n_tr(path,module):
 	if os.path.exists(opj(path,module,'i18n','po.pot')):
 		po = polib.pofile(opj(path,module,'i18n','po.pot'))
 	
@@ -72,8 +72,10 @@ def _download_i18n_tr(cr,pool,uid,path,module):
 			_logger.info('Module: %s TR write file: %s' % (module,opj(path,module,'i18n','%s.po' % (lang,))));
 			#print('Translated module:%s lang:%s' % (module,lang))
 
-def Area(cr, pool, uid, registry, modules = None,context={}):
+def Area(self, modules = None,context={}):
 	pwd = os.getcwd()
+	pool = self._models
+	registry = self._registry
 	if not modules:
 		modules = registry._depends
 	else:
@@ -81,7 +83,7 @@ def Area(cr, pool, uid, registry, modules = None,context={}):
 	logmodules = []
 	for module in filter(lambda x:'state' in registry._modules[x] and registry._modules[x]['state'] in ('I','N'),modules):
 		path = registry._modules[module]['path']
-		_download_i18n_tr(cr,pool,uid,path,module)
+		_download_i18n_tr(path,module)
 		logmodules.append(module)
 	_logger.info('Download translate i18ns of modules %s' % (logmodules,))
 	

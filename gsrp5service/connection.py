@@ -112,9 +112,9 @@ class Cursor(object):
 
 			except psycopg2.Error as e:
 				self._rollback()
-				loginng.error('query:%s vars:%s' % (q,v))
-				logging.debug("got error: %s", e)
-				logging.debug("EXECUTE NON-SERIALIZATION_FAILURE BRANCH")
+				_logger.error('query:%s vars:%s' % (q,v))
+				_logger.debug("got error: %s", e)
+				_logger.debug("EXECUTE NON-SERIALIZATION_FAILURE BRANCH")
 				raise e
 
 		self._rollback()
@@ -151,7 +151,7 @@ class Cursor(object):
 	def executemany(self, query, vars_list):
 		try:
 			self.cr.executemany(query = query, vars_list = vars_list)
-			self.query.append(('executemany',query,vals))
+			self.query.append(('executemany',query,vars_list))
 		except:
 			self._rollback()
 			self.query.clear()

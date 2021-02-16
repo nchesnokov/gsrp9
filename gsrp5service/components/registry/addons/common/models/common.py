@@ -20,11 +20,11 @@ class common_schema_access_method(ModelInherit):
 		res = []
 		for item in items:
 			citem = item.copy()
-			citem['value'] = get_condition_value(area,segment,name,context)
+			citem['value'] = self._get_condition_value(area,segment,name,context)
 		
 		return res
 
-	def get_condition_value(self,area,segment,name,context={}):
+	def _get_condition_value(self,area,segment,name,context={}):
 		pass
 		
 

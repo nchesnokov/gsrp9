@@ -276,23 +276,35 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	def write(self,records,context={}):
 		if hasattr(self,'_session'):
-			uid = self._getCacheID('write',context)
-			return getattr(self._session._cache[uid],'_write')(self,records,context)
+			if 'cache' in context:
+				return records
+			else:
+				uid = self._getCacheID('write',context)
+				return getattr(self._session._cache[uid],'_write')(self,records,context)
 
 	def modify(self,records,context={}):
 		if hasattr(self,'_session'):
-			uid = self._getCacheID('modify',context)
-			return getattr(self._session._cache[uid],'_modify')(self,records,context)
+			if 'cache' in context:
+				return records
+			else:
+				uid = self._getCacheID('modify',context)
+				return getattr(self._session._cache[uid],'_modify')(self,records,context)
 
 	def create(self,records,context={}):
 		if hasattr(self,'_session'):
-			uid = self._getCacheID('create',context)
-			return getattr(self._session._cache[uid],'_create')(self,records,context)
+			if 'cache' in context:
+				return records
+			else:
+				uid = self._getCacheID('create',context)
+				return getattr(self._session._cache[uid],'_create')(self,records,context)
 
 	def unlink(self,ids,context={}):
 		if hasattr(self,'_session'):
-			uid = self._getCacheID('unlink',context)
-			return getattr(self._session._cache[uid],'_unlink')(self,ids,context)
+			if 'cache' in context:
+				return ids
+			else:
+				uid = self._getCacheID('unlink',context)
+				return getattr(self._session._cache[uid],'_unlink')(self,ids,context)
 
 	def select(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
 		if hasattr(self,'_session'):
@@ -306,18 +318,27 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	def update(self,record, cond = None,context = {}):
 		if hasattr(self,'_session'):
-			uid = self._getCacheID('update',context)
-			return getattr(self._session._cache[uid],'_update')(self,record,cond,context)
+			if 'cache' in context:
+				return record
+			else:
+				uid = self._getCacheID('update',context)
+				return getattr(self._session._cache[uid],'_update')(self,record,cond,context)
 
 	def upsert(self,fields, values,context = {}):
 		if hasattr(self,'_session'):
-			uid = self._getCacheID('upsert',context)
-			return getattr(self._session._cache[uid],'_upsert')(self,fields, values,context )
+			if 'cache' in context:
+				return values
+			else:
+				uid = self._getCacheID('upsert',context)
+				return getattr(self._session._cache[uid],'_upsert')(self,fields, values,context )
 
 	def insert(self,fields, values,context = {}):
 		if hasattr(self,'_session'):
-			uid = self._getCacheID('insert',context)
-			return getattr(self._session._cache[uid],'_insert')(self,fields, values,context )
+			if 'cache' in context:
+				return values
+			else:
+				uid = self._getCacheID('insert',context)
+				return getattr(self._session._cache[uid],'_insert')(self,fields, values,context )
 
 	def delete(self,cond,context = {}):
 		if hasattr(self,'_session'):
@@ -421,6 +442,11 @@ class BaseModel(object, metaclass = MetaObjects):
 	@property
 	def _m2mfields(self):
 		return list(filter(lambda x: self._columns[x]._type == 'many2many',self._columns.keys())) 
+
+	@property
+	def _jsonfields(self):
+		return list(filter(lambda x: self._columns[x]._type == 'json',self._columns.keys())) 
+
 
 	@property
 	def _relatedfields(self):

@@ -419,7 +419,9 @@ srm_common()
 
 class srm_routes(Model):
 	_name = 'srm.routes'
-	_description = 'General SRM Route'
+	_description = 'SRM Route'
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Route',selectable = True),
 	'items': fields.one2many(label='Items',obj='srm.route.items',rel='route_id'),
@@ -429,8 +431,10 @@ srm_routes()
 
 class srm_route_items(Model):
 	_name = 'srm.route.items'
-	_description = 'General SRM Route Items'
+	_description = 'SRM Route Items'
 	_order_by="route_id asc,sequence asc"
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'route_id': fields.many2one(label='Route',obj='srm.routes',on_delete='c',on_update='c'),
 	'sequence': fields.integer(label='Sequence'),
@@ -442,6 +446,8 @@ srm_route_items()
 class srm_demand_category(Model):
 	_name = 'srm.demand.category'
 	_description = 'Category SRM Demand'
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.demand.category'),
@@ -455,6 +461,8 @@ srm_demand_category()
 class srm_part_category(Model):
 	_name = 'srm.part.category'
 	_description = 'Category SRM Part'
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.part.category'),
@@ -468,6 +476,8 @@ srm_part_category()
 class srm_plan_category(Model):
 	_name = 'srm.plan.category'
 	_description = 'Category SRM Plan'
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.plan.category'),
@@ -482,6 +492,8 @@ srm_plan_category()
 class srm_request_category(Model):
 	_name = 'srm.request.category'
 	_description = 'Category SRM Request'
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.request.category'),
@@ -496,6 +508,8 @@ srm_request_category()
 class srm_response_category(Model):
 	_name = 'srm.response.category'
 	_description = 'Category SRM Response'
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.response.category'),
@@ -510,6 +524,8 @@ srm_response_category()
 class srm_rfx_category(Model):
 	_name = 'srm.rfx.category'
 	_description = 'Category SRM RFX'
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.rfx.category'),
@@ -524,6 +540,8 @@ srm_rfx_category()
 class srm_auction_category(Model):
 	_name = 'srm.auction.category'
 	_description = 'Category SRM Auction'
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.auction.category'),
@@ -538,6 +556,8 @@ srm_auction_category()
 class srm_offer_category(Model):
 	_name = 'srm.offer.category'
 	_description = 'Category SRM Offer'
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.offer.category'),
@@ -552,6 +572,8 @@ srm_offer_category()
 class srm_evolution_category(Model):
 	_name = 'srm.evolution.category'
 	_description = 'Category SRM Evolution'
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.evolution.category'),
@@ -566,6 +588,8 @@ srm_evolution_category()
 class srm_decision_category(Model):
 	_name = 'srm.decision.category'
 	_description = 'Category SRM Decision'
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.decision.category'),
@@ -580,6 +604,8 @@ srm_decision_category()
 class srm_contract_category(Model):
 	_name = 'srm.contract.category'
 	_description = 'Category SRM Contract'
+	_class_model = 'C'
+	_class_category = 'order'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.contract.category'),
@@ -653,7 +679,7 @@ srm_schema_text_items()
 # Deadlines
 class srm_deadlines(Model):
 	_name = 'srm.deadlines'
-	_description = 'General SRM Deadlines'
+	_description = 'SRM Deadlines'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {

@@ -163,6 +163,7 @@ def get_meta_of_model_v2(pool,model,context):
 	m = pool.get(model)
 	attrs = m.modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
 					
+	#web_pdb.set_trace()
 	if len(trs) > 0:
 		tr = trs[0]['tr']
 		attrs['description'] = tr['_description']
