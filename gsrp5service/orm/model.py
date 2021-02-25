@@ -241,20 +241,20 @@ class BaseModel(object, metaclass = MetaObjects):
 		
 	def _compute(self,item,context):
 		res = {}
-		# ci = self.columnsInfo(columns=fields,attributes=['compute','priority'])
-		# priority = {}
-		# for compute_field in filter(lambda x: x in fields,self._computefields):
-			# priority.setdefault(ci[compute_field]['compute'],set()).add(compute_field)
-		
-		# pkeys = list(priority.keys())
-		# pkeys.sort()
-		# for pkey in pkeys:
-			# for compute_field in priority[pkey]:
-				# method = getattr(self,ci[compute_field]['compute'],None)
-				# if method and callable(method):
-					# r = method(cr,pool,uid,record,context)
-					# if r is not None: 
-						# res.update(r)
+		nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))
+		if len(nostorecomputefields) > 0:
+			for compute_field in nostorecomputefields:
+				priority.setdefault(ci[compute_field]['priority'],set()).add(ci[compute_field]['compute'])
+			
+			pkeys = list(priority.keys())
+			pkeys.sort()
+			for pkey in pkeys:
+				for compute_method in priority[pkey]:			
+					method = getattr(m,compute_method,None)
+					if method and callable(method):
+						r = method(item,context)
+						if r is not None: 
+							res.update(r)
 	
 		return res
 

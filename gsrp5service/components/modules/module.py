@@ -365,7 +365,7 @@ def _upgrade(self,able=None, modules = None):
 	return log
 
 def _installModule(self,name,chunk):
-	_logger.info(" Module: %s Install" % (name,))
+	_logger.info("Module: %s Install" % (name,))
 
 	self._registry._load_module(name)
 	#web_pdb.set_trace()

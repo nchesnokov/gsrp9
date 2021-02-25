@@ -83,6 +83,7 @@ class mm_production_orders(Model):
 	'roles': fields.one2many(label='Roles',obj='mm.production.order.roles',rel='order_id'),
 	'pricing': fields.one2many(label='Pricing',obj='mm.production.order.pricing',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='mm.production.order.texts',rel='order_id'),
+	'plates': fields.one2many(label='Plates',obj='mm.production.order.output.plates',rel='order_id'),
 	'note': fields.text(label='Note')}
 
 	_default = {
@@ -191,6 +192,7 @@ class mm_production_order_items(Model):
 	_name = 'mm.production.order.items'
 	_description = 'Production Order Items'
 	_inherits = {'mm.common.model':{'_methods':['_on_change_product','_calculate_item']}}
+	_hooks = {'aar':'_on_add_row'}
 	_columns = {
 	'order_id': fields.many2one(obj = 'mm.production.orders',label = 'Production Order'),
 	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product',readonly=True),
@@ -201,8 +203,13 @@ class mm_production_order_items(Model):
 	'unit': fields.integer(label='Unit'),
 	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
 	'amount': fields.numeric(label='Amount',size=(15,2),priority=1,compute='_calculate_item'),
+	'texts': fields.one2many(label='Texts',obj='mm.production.order.item.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')
 	}
+
+	def _on_add_row(self,item,context={}):
+		print('on_add_row:',item)
+		pass
 
 	_default = {
 		'quantity': 1.000,
@@ -247,6 +254,44 @@ class mm_production_order_ops(Model):
 
 mm_production_order_ops()
 
+class mm_production_order_output_plates(Model):
+	_name = 'mm.production.order.output.plates'
+	_description = 'Production Order Output Plates'
+	_columns = {
+	'order_id': fields.many2one(label = 'Order',obj='mm.production.orders'),
+	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
+	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','mm'),'|',('usage','=','a')]),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('ispeople',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('p','a'))]),
+	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+mm_production_order_output_plates()
+
+class mm_production_order_item_texts(Model):
+	_name = 'mm.production.order.item.texts'
+	_description = 'Production Order Item Texts'
+	_class_model = 'C'
+	_class_category = 'order'
+	_order_by = "seq asc"
+	_sequence = 'seq'
+	_columns = {
+	'item_id': fields.many2one(label='Item',obj='mm.production.order.items'),
+	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
+	'text_id': fields.many2one(label='Text ID',obj='mm.texts'),
+	'descr': fields.referenced(ref='text_id.descr'),
+	'content':fields.text(label = 'Content',translate=True)
+	}
+
+mm_production_order_item_texts()
+
 # Technologic
 class mm_technologic_orders(Model):
 	_name = 'mm.technologic.orders'
@@ -278,6 +323,7 @@ class mm_technologic_orders(Model):
 	'roles': fields.one2many(label='Roles',obj='mm.technologic.order.roles',rel='order_id'),
 	'pricing': fields.one2many(label='Pricing',obj='mm.technologic.order.pricing',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='mm.technologic.order.texts',rel='order_id'),
+	'plates': fields.one2many(label='Plates',obj='mm.technologic.order.output.plates',rel='order_id'),
 	'note': fields.text(label='Note')}
 
 	def _on_change_otype(self,item,context={}):		
@@ -457,6 +503,7 @@ class mm_technologic_order_item_ibob(Model):
 	'unit': fields.integer(label='Unit'),
 	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_item'),
+	'texts': fields.one2many(label='Texts',obj='mm.technologic.order.item.ibob.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -483,6 +530,7 @@ class mm_technologic_order_item_obob(Model):
 	'unit': fields.integer(label='Unit'),
 	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_item'),
+	'texts': fields.one2many(label='Texts',obj='mm.technologic.order.item.obob.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -493,6 +541,61 @@ class mm_technologic_order_item_obob(Model):
 	}
 
 mm_technologic_order_item_obob()
+
+class mm_technologic_order_output_plates(Model):
+	_name = 'mm.technologic.order.output.plates'
+	_description = 'Technologic Order Output Plates'
+	_columns = {
+	'order_id': fields.many2one(label = 'Order',obj='mm.technologic.orders'),
+	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
+	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','mm'),'|',('usage','=','a')]),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('ispeople',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('p','a'))]),
+	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+mm_technologic_order_output_plates()
+
+class mm_technologic_order_item_ibob_texts(Model):
+	_name = 'mm.technologic.order.item.ibob.texts'
+	_description = 'Technologic Order Input Item Texts'
+	_class_model = 'C'
+	_class_category = 'order'
+	_order_by = "seq asc"
+	_sequence = 'seq'
+	_columns = {
+	'item_id': fields.many2one(label='Item',obj='mm.technologic.order.item.ibob'),
+	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
+	'text_id': fields.many2one(label='Text ID',obj='mm.texts'),
+	'descr': fields.referenced(ref='text_id.descr'),
+	'content':fields.text(label = 'Content',translate=True)
+	}
+
+mm_technologic_order_item_ibob_texts()
+
+class mm_technologic_order_item_obob_texts(Model):
+	_name = 'mm.technologic.order.item.obob.texts'
+	_description = 'Technologic Order Output Item Texts'
+	_class_model = 'C'
+	_class_category = 'order'
+	_order_by = "seq asc"
+	_sequence = 'seq'
+	_columns = {
+	'item_id': fields.many2one(label='Item',obj='mm.technologic.order.item.obob'),
+	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
+	'text_id': fields.many2one(label='Text ID',obj='mm.texts'),
+	'descr': fields.referenced(ref='text_id.descr'),
+	'content':fields.text(label = 'Content',translate=True)
+	}
+
+mm_technologic_order_item_ibob_texts()
 
 # Disassebly
 class mm_disassembly_orders(Model):
@@ -524,6 +627,7 @@ class mm_disassembly_orders(Model):
 	'roles': fields.one2many(label='Roles',obj='mm.disassembly.order.roles',rel='order_id'),
 	'pricing': fields.one2many(label='Pricing',obj='mm.disassembly.order.pricing',rel='order_id'),
 	'texts': fields.one2many(label='Texts',obj='mm.disassembly.order.texts',rel='order_id'),
+	'plates': fields.one2many(label='Plates',obj='mm.disassembly.order.output.plates',rel='order_id'),
 	'note': fields.text('Note')}
 
 	def _on_change_otype(self,item,context={}):		
@@ -643,6 +747,7 @@ class mm_disassembly_order_items(Model):
 	'unit': fields.integer(label='Unit'),
 	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
 	'amount': fields.numeric(label='Amount',size=(15,2),priority=1,compute='_calculate_item'),
+	'texts': fields.one2many(label='Texts',obj='mm.disassembly.order.item.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -690,6 +795,43 @@ class mm_disassembly_order_ops(Model):
 
 mm_disassembly_order_ops()
 
+class mm_disassembly_order_output_plates(Model):
+	_name = 'mm.disassembly.order.output.plates'
+	_description = 'Disassembly Order Output Plates'
+	_columns = {
+	'order_id': fields.many2one(label = 'Order',obj='mm.disassembly.orders'),
+	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
+	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','mm'),'|',('usage','=','a')]),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('ispeople',)]),
+	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('p','a'))]),
+	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
+	'schedule': fields.datetime(label='Schedule'),
+	'note': fields.text(label = 'Note')
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+mm_disassembly_order_output_plates()
+
+class mm_disassembly_order_item_texts(Model):
+	_name = 'mm.disassembly.order.item.texts'
+	_description = 'Disassembly Order Item Texts'
+	_class_model = 'C'
+	_class_category = 'order'
+	_order_by = "seq asc"
+	_sequence = 'seq'
+	_columns = {
+	'item_id': fields.many2one(label='Item',obj='mm.disassembly.order.items'),
+	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
+	'text_id': fields.many2one(label='Text ID',obj='mm.texts'),
+	'descr': fields.referenced(ref='text_id.descr'),
+	'content':fields.text(label = 'Content',translate=True)
+	}
+
+mm_disassembly_order_item_texts()
 
 class md_mm_product(Model):
 	_name = 'md.mm.product'
@@ -709,11 +851,10 @@ md_mm_product()
 class md_mm_product_inherit(ModelInherit):
 	_name = 'md.mm.product.inherit'
 	_description = 'Inherit For Production Product'
-	_inherit = {'md.product':{'_columns':['production']},'md.boms':{'_columns':['usage']},'md.boms':{'_columns':['usage']},'md.mobs':{'_columns':['usage']},'md.bobs':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}
-	}
+	_inherit = {'md.product':{'_columns':['production']},'md.boms':{'_columns':['usage']},'md.mobs':{'_columns':['usage']},'md.bobs':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']},'md.type.plates':{'_columns':['usage']}}
 	_columns = {
-		'production': fields.one2many(label='Production',obj='md.mm.product',rel='product_id'),
-		'usage': fields.iProperty(selections=[('mm','Production')])
+		'production': fields.one2many(label='Manufactured',obj='md.mm.product',rel='product_id'),
+		'usage': fields.iProperty(selections=[('mm','Manufactured')])
 	}
 	
 md_mm_product_inherit()

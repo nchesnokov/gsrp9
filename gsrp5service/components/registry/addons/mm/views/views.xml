@@ -1262,22 +1262,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.models.mm.production.map.ops.flow">
-          <column name="name">view.mm.models.mm.production.map.ops.flow</column>
-          <column name="model">mm.production.map.ops</column>
-          <column name="arch" type="Xml">
-            <flow>
-              <field name="op_id"/>
-              <field name="prev"/>
-              <field name="op"/>
-              <field name="next"/>
-              <field name="workcenter"/>
-              <field name="duration"/>
-              <field name="uod"/>
-              <field name="per_cicle"/>
-            </flow>
-          </column>
-        </record>
         <record id="view.mm.models.mm.technologic.map.category.form">
           <column name="name">view.mm.models.mm.technologic.map.category.form</column>
           <column name="model">mm.technologic.map.category</column>
@@ -1464,22 +1448,6 @@
               <field name="uod"/>
               <field name="per_cicle"/>
             </m2mlist>
-          </column>
-        </record>
-        <record id="view.mm.models.mm.technologic.map.ops.flow">
-          <column name="name">view.mm.models.mm.technologic.map.ops.flow</column>
-          <column name="model">mm.technologic.map.ops</column>
-          <column name="arch" type="Xml">
-            <flow>
-              <field name="op_id"/>
-              <field name="prev"/>
-              <field name="op"/>
-              <field name="next"/>
-              <field name="workcenter"/>
-              <field name="duration"/>
-              <field name="uod"/>
-              <field name="per_cicle"/>
-            </flow>
           </column>
         </record>
         <record id="view.mm.models.mm.disassembly.map.category.form">
@@ -1670,22 +1638,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.models.mm.disassembly.map.ops.flow">
-          <column name="name">view.mm.models.mm.disassembly.map.ops.flow</column>
-          <column name="model">mm.disassembly.map.ops</column>
-          <column name="arch" type="Xml">
-            <flow>
-              <field name="op_id"/>
-              <field name="prev"/>
-              <field name="op"/>
-              <field name="next"/>
-              <field name="workcenter"/>
-              <field name="duration"/>
-              <field name="uod"/>
-              <field name="per_cicle"/>
-            </flow>
-          </column>
-        </record>
         <record id="view.mm.models.mm.production.orders.calendar">
           <column name="name">view.mm.models.mm.production.orders.calendar</column>
           <column name="model">mm.production.orders</column>
@@ -1764,6 +1716,7 @@
               <field name="roles"/>
               <field name="pricing"/>
               <field name="texts"/>
+              <field name="plates"/>
               <field name="note"/>
             </form>
           </column>
@@ -1847,6 +1800,7 @@
               <field name="roles"/>
               <field name="pricing"/>
               <field name="texts"/>
+              <field name="plates"/>
             </list>
           </column>
         </record>
@@ -2082,6 +2036,7 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
+              <field name="texts"/>
               <field name="note"/>
             </form>
           </column>
@@ -2100,6 +2055,7 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
+              <field name="texts"/>
             </list>
           </column>
         </record>
@@ -2203,20 +2159,107 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.models.mm.production.order.ops.flow">
-          <column name="name">view.mm.models.mm.production.order.ops.flow</column>
-          <column name="model">mm.production.order.ops</column>
+        <record id="view.mm.models.mm.production.order.output.plates.form">
+          <column name="name">view.mm.models.mm.production.order.output.plates.form</column>
+          <column name="model">mm.production.order.output.plates</column>
           <column name="arch" type="Xml">
-            <flow>
+            <form>
               <field name="order_id"/>
-              <field name="prev"/>
-              <field name="op"/>
-              <field name="next"/>
-              <field name="workcenter"/>
-              <field name="duration"/>
-              <field name="uod"/>
-              <field name="per_cicle"/>
-            </flow>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.production.order.output.plates.kanban">
+          <column name="name">view.mm.models.mm.production.order.output.plates.kanban</column>
+          <column name="model">mm.production.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.production.order.output.plates.list">
+          <column name="name">view.mm.models.mm.production.order.output.plates.list</column>
+          <column name="model">mm.production.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.production.order.output.plates.m2mlist">
+          <column name="name">view.mm.models.mm.production.order.output.plates.m2mlist</column>
+          <column name="model">mm.production.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.production.order.item.texts.form">
+          <column name="name">view.mm.models.mm.production.order.item.texts.form</column>
+          <column name="model">mm.production.order.item.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.production.order.item.texts.list">
+          <column name="name">view.mm.models.mm.production.order.item.texts.list</column>
+          <column name="model">mm.production.order.item.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.production.order.item.texts.m2mlist">
+          <column name="name">view.mm.models.mm.production.order.item.texts.m2mlist</column>
+          <column name="model">mm.production.order.item.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
           </column>
         </record>
         <record id="view.mm.models.mm.technologic.orders.calendar">
@@ -2298,6 +2341,7 @@
               <field name="roles"/>
               <field name="pricing"/>
               <field name="texts"/>
+              <field name="plates"/>
               <field name="note"/>
             </form>
           </column>
@@ -2382,6 +2426,7 @@
               <field name="roles"/>
               <field name="pricing"/>
               <field name="texts"/>
+              <field name="plates"/>
             </list>
           </column>
         </record>
@@ -2568,22 +2613,6 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.models.mm.technologic.order.ops.flow">
-          <column name="name">view.mm.models.mm.technologic.order.ops.flow</column>
-          <column name="model">mm.technologic.order.ops</column>
-          <column name="arch" type="Xml">
-            <flow>
-              <field name="order_id"/>
-              <field name="prev"/>
-              <field name="op"/>
-              <field name="next"/>
-              <field name="workcenter"/>
-              <field name="duration"/>
-              <field name="uod"/>
-              <field name="per_cicle"/>
-            </flow>
-          </column>
-        </record>
         <record id="view.mm.models.mm.technologic.order.texts.form">
           <column name="name">view.mm.models.mm.technologic.order.texts.form</column>
           <column name="model">mm.technologic.order.texts</column>
@@ -2716,6 +2745,7 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
+              <field name="texts"/>
               <field name="note"/>
             </form>
           </column>
@@ -2734,6 +2764,7 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
+              <field name="texts"/>
             </list>
           </column>
         </record>
@@ -2768,6 +2799,7 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
+              <field name="texts"/>
               <field name="note"/>
             </form>
           </column>
@@ -2786,6 +2818,7 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
+              <field name="texts"/>
             </list>
           </column>
         </record>
@@ -2803,6 +2836,146 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.technologic.order.output.plates.form">
+          <column name="name">view.mm.models.mm.technologic.order.output.plates.form</column>
+          <column name="model">mm.technologic.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.technologic.order.output.plates.kanban">
+          <column name="name">view.mm.models.mm.technologic.order.output.plates.kanban</column>
+          <column name="model">mm.technologic.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.technologic.order.output.plates.list">
+          <column name="name">view.mm.models.mm.technologic.order.output.plates.list</column>
+          <column name="model">mm.technologic.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.technologic.order.output.plates.m2mlist">
+          <column name="name">view.mm.models.mm.technologic.order.output.plates.m2mlist</column>
+          <column name="model">mm.technologic.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.technologic.order.item.ibob.texts.form">
+          <column name="name">view.mm.models.mm.technologic.order.item.ibob.texts.form</column>
+          <column name="model">mm.technologic.order.item.ibob.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.technologic.order.item.ibob.texts.list">
+          <column name="name">view.mm.models.mm.technologic.order.item.ibob.texts.list</column>
+          <column name="model">mm.technologic.order.item.ibob.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.technologic.order.item.ibob.texts.m2mlist">
+          <column name="name">view.mm.models.mm.technologic.order.item.ibob.texts.m2mlist</column>
+          <column name="model">mm.technologic.order.item.ibob.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.technologic.order.item.obob.texts.form">
+          <column name="name">view.mm.models.mm.technologic.order.item.obob.texts.form</column>
+          <column name="model">mm.technologic.order.item.obob.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.technologic.order.item.obob.texts.list">
+          <column name="name">view.mm.models.mm.technologic.order.item.obob.texts.list</column>
+          <column name="model">mm.technologic.order.item.obob.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.technologic.order.item.obob.texts.m2mlist">
+          <column name="name">view.mm.models.mm.technologic.order.item.obob.texts.m2mlist</column>
+          <column name="model">mm.technologic.order.item.obob.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
             </m2mlist>
           </column>
         </record>
@@ -2884,6 +3057,7 @@
               <field name="roles"/>
               <field name="pricing"/>
               <field name="texts"/>
+              <field name="plates"/>
               <field name="note"/>
             </form>
           </column>
@@ -2967,6 +3141,7 @@
               <field name="roles"/>
               <field name="pricing"/>
               <field name="texts"/>
+              <field name="plates"/>
             </list>
           </column>
         </record>
@@ -3202,6 +3377,7 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
+              <field name="texts"/>
               <field name="note"/>
             </form>
           </column>
@@ -3220,6 +3396,7 @@
               <field name="unit"/>
               <field name="uop"/>
               <field name="amount"/>
+              <field name="texts"/>
             </list>
           </column>
         </record>
@@ -3323,20 +3500,107 @@
             </m2mlist>
           </column>
         </record>
-        <record id="view.mm.models.mm.disassembly.order.ops.flow">
-          <column name="name">view.mm.models.mm.disassembly.order.ops.flow</column>
-          <column name="model">mm.disassembly.order.ops</column>
+        <record id="view.mm.models.mm.disassembly.order.output.plates.form">
+          <column name="name">view.mm.models.mm.disassembly.order.output.plates.form</column>
+          <column name="model">mm.disassembly.order.output.plates</column>
           <column name="arch" type="Xml">
-            <flow>
+            <form>
               <field name="order_id"/>
-              <field name="prev"/>
-              <field name="op"/>
-              <field name="next"/>
-              <field name="workcenter"/>
-              <field name="duration"/>
-              <field name="uod"/>
-              <field name="per_cicle"/>
-            </flow>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.disassembly.order.output.plates.kanban">
+          <column name="name">view.mm.models.mm.disassembly.order.output.plates.kanban</column>
+          <column name="model">mm.disassembly.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <kanban>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+              <field name="note"/>
+            </kanban>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.disassembly.order.output.plates.list">
+          <column name="name">view.mm.models.mm.disassembly.order.output.plates.list</column>
+          <column name="model">mm.disassembly.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.disassembly.order.output.plates.m2mlist">
+          <column name="name">view.mm.models.mm.disassembly.order.output.plates.m2mlist</column>
+          <column name="model">mm.disassembly.order.output.plates</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="order_id"/>
+              <field name="state"/>
+              <field name="otype"/>
+              <field name="partner"/>
+              <field name="role"/>
+              <field name="language"/>
+              <field name="msm"/>
+              <field name="schedule"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.disassembly.order.item.texts.form">
+          <column name="name">view.mm.models.mm.disassembly.order.item.texts.form</column>
+          <column name="model">mm.disassembly.order.item.texts</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+              <field name="content"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.disassembly.order.item.texts.list">
+          <column name="name">view.mm.models.mm.disassembly.order.item.texts.list</column>
+          <column name="model">mm.disassembly.order.item.texts</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.mm.models.mm.disassembly.order.item.texts.m2mlist">
+          <column name="name">view.mm.models.mm.disassembly.order.item.texts.m2mlist</column>
+          <column name="model">mm.disassembly.order.item.texts</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="item_id"/>
+              <field name="seq"/>
+              <field name="text_id"/>
+              <field name="descr"/>
+            </m2mlist>
           </column>
         </record>
         <record id="view.mm.models.md.mm.product.form">

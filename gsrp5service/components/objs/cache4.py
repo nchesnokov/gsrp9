@@ -3163,10 +3163,11 @@ class MCache(object):
 		data = {}
 		if rel and oid:
 			if rel in item['__data__']:
-				if type(item['__data__'][rel]) == dict:
-					item['__data__'][rel]['id'] = oid
-				else:
-					item['__data__'][rel] = oid
+				item['__data__'][rel] = oid
+				# if type(item['__data__'][rel]) == dict:
+					# item['__data__'][rel]['id'] = oid
+				# else:
+					# item['__data__'][rel] = oid
 			else:
 				item['__data__'][rel] = oid
 			
