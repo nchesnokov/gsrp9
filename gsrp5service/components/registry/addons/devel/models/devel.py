@@ -26,3 +26,41 @@ class devel_messages(Model):
 
 devel_messages()
 
+class devel_ui_view_types(Model):
+	_name = 'devel.ui.view.types'
+	_description = 'UI Type Of View'
+	_class_model = 'C'
+	_columns = {
+	'framework': fields.many2one(label='Web Framework',obj='bc.frameworks',required=True),
+	'name': fields.varchar(label='Name', size = 64),
+	'fullname': fields.composite(label='Full Name', cols = ['framework','name'], translate = True,required = True, compute = '_compute_composite'),
+	'code': fields.varchar(label='Code', size = 32,required=True),
+	'note': fields.text(label='Note')
+	}
+
+devel_ui_view_types()
+
+class devel_ui_views(Model):
+	_name = 'devel.ui.models'
+	_description = 'UI Models'
+	_rec_name='fullname'
+	_columns = {
+	'fullname': fields.composite(label='Full Name', cols = ['framework','model','vtype'], translate = True,required = True, compute = '_compute_composite'),
+	'framework': fields.many2one(label='Web Framework',obj='bc.frameworks',required=True),
+	'model': fields.many2one(label='Model',obj='bc.models'),
+	'vtype': fields.related(label='View Type',obj='devel.ui.view.types',relatedy=['framework']),
+	'template': fields.text(label='Template'),
+	'script': fields.text(label='Script'),
+	'style': fields.text(label='Style'),
+	'scoped': fields.boolean(label='Scoped'),
+	'note': fields.text(label='Note')
+	}
+
+	_default = {
+		'framework':'Prime'
+	}
+
+
+devel_ui_views()
+
+

@@ -1,7 +1,7 @@
 from functools import reduce
 import web_pdb
 
-_objects = ['dashboard','model','report','view','query','dialog','wizard','link','metaobjects']
+_objects = ['dashboard','model','report','view','query','dialog','wizard','link','metaobjects','trigger']
 
 class MetaObjects(type):
 	__objects__ = {}

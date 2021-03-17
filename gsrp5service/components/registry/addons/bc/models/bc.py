@@ -107,6 +107,19 @@ class bc_users(Model):
 
 bc_users()
 
+class bc_web_frameworks(Model):
+	_name = 'bc.frameworks'
+	_description = 'Web Frameworks'
+	_rec_name = 'code'
+	_class_model = 'K'
+	_columns = {
+	'code': fields.varchar(label='Web Framework',size = 16,readonly=True),
+	'description': fields.varchar(label='Description', size = 64,readonly=True)
+	}
+
+bc_web_frameworks()
+
+
 class bc_langs(Model):
 	_name = 'bc.langs'
 	_description = 'Langs'
@@ -125,6 +138,7 @@ class bc_user_preferences(Model):
 	_class_model = 'K'
 	_columns = {
 	'user_id':fields.many2one(label='User',obj='bc.users',readonly=True),
+	'framework': fields.many2one(label='Web framework',obj='bc.frameworks',required=True,readonly=True),
 	'lang':fields.many2one(label='Language',obj='bc.langs'),
 	'country': fields.selection(label='Country',selections='_get_countries'),
 	'timezone': fields.selection(label='Timezone', selections='_get_timezones')

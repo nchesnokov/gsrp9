@@ -599,7 +599,8 @@ def _read(self, ids, fields = None, context = {}):
 
 				for jk in self._jsonfields:
 					if jk in record:
-						record[jk] = json.loads(record[jk])
+						if type(record[jk]) == str:
+							record[jk] = json.loads(record[jk])
 
 				o2mfields = {}
 				m2mfields = {}
@@ -646,7 +647,8 @@ def _read(self, ids, fields = None, context = {}):
 
 				for jk in self._jsonfields:
 					if jk in record:
-						record[jk] = json.loads(record[jk])
+						if type(record[jk]) == str:
+							record[jk] = json.loads(record[jk])
 
 				o2mfields = {}
 				m2mfields = {}
@@ -720,7 +722,8 @@ def _select(self, fields = None ,cond = None, context = {}, limit = None, offset
 
 			for jk in self._jsonfields:
 				if jk in record:
-					record[jk] = json.loads(record[jk])
+					if type(record[jk]) == str:
+						record[jk] = json.loads(record[jk])
 				
 			o2mfields = {}
 			m2mfields = {}

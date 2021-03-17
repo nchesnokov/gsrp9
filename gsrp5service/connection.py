@@ -1,5 +1,5 @@
 # --*-- coding: utf-8 --*--
-
+import json
 import psycopg2
 import psycopg2.extras
 from psycopg2.errors import SerializationFailure
@@ -112,9 +112,12 @@ class Cursor(object):
 
 			except psycopg2.Error as e:
 				self._rollback()
+				self.query.clear()
 				_logger.error('query:%s vars:%s' % (q,v))
 				_logger.debug("got error: %s", e)
 				_logger.debug("EXECUTE NON-SERIALIZATION_FAILURE BRANCH")
+				self._rollback()
+				self.query.clear()
 				raise e
 
 		self._rollback()
@@ -212,6 +215,8 @@ class Cursor(object):
 						row.append({'id':record[dm[field]]})
 					elif columnsmeta[field] in ('one2many','many2many'):
 						row.append([])
+					elif columnsmeta[field] in ('json','jsonb'):
+						row.append(json.dumps(record[dm[field]]))
 					else:
 						row.append(record[dm[field]])
 				elif type(field) == dict:
