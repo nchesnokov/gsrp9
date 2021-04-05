@@ -9,8 +9,6 @@ import toposort
 from .loading import *
 from .depmod import Graph,Node,DependsInstall,DependsRemove
 
-from gsrp5service.orm.orm import inherit,inherits
-
 import gsrp5service.orm.model
 from gsrp5service.orm.model import Model,ModelInherit
 from gsrp5service.orm.mm import _getRecNameName,_getChildsIdName
@@ -213,14 +211,114 @@ class Registry(Component):
 #
 	def _metaObject_with_inherits(self,obj,module):
 		if module in self._inherits and obj in self._inherits[module]:
-			for key in self._inherits[module][obj].keys():
-				inherits(self,module,obj,self._objs[module][obj][key])
-
-#		
+			inherits = self._inherits[module][obj]
+			objs = self._objs[module][obj]
+			for dst in inherits.keys():
+				meta = objs[dst]
+				for src in inherits[dst].keys():
+					last_module = self._getLastModuleObjectLoaded(obj,src)
+					imeta = self._objs[last_module][obj][src]
+					inherit = inherits[dst][src]
+					for c in inherit.keys():
+						if c == '_methods':
+							for method in inherit[c]:
+								meta['attrs'][method] = imeta['attrs'][method]
+						elif c == '_columns':
+							for column in inherit[c]:
+								if c not in meta['attrs'] or column not in meta['attrs'][c]:
+									meta['attrs'].setdefault(c,{})[column] = imeta['attrs'][c][column]
+								else:
+									if meta['attrs'][c][column]._type == 'selection':
+										meta['attrs'][c][column].selections.extend(imeta['attrs'][c][column].selections)
+									else:
+										Exception_Registry("Column: %s of model: %s if exists\n" % (column,key))
+	
+								meta['attrs'][c][column] = imeta['attrs'][c][column]
+						elif c == '_actions':
+							for action in inherit[c]:
+								meta['attrs'].setdefault(c,{})[action] = imeta['attrs'][c][action]
+								meta['attrs'][imeta['attrs'][c][action]['method']] = imeta['attrs'][imeta['attrs'][c][action]['method']]
+						elif c == '_states':
+							for state in inherit[c]:
+								meta['attrs'].setdefault(c,{})[state] = imeta['attrs'][state]
+						elif c == '_trigers':
+							for triger in inherit[c]:
+								meta['attrs'].setdefault(c,{})[triger] = imeta['attrs'][c][triger]
+						elif c == '_default':
+							for dkey in inherit[c]:
+								meta['attrs'].setdefault(c,{})[dkey] = imeta['attrs'][c][dkey]
+						elif c == '_constraints':
+							meta['attrs'][c].extend(imeta['attrs'][c])
+						elif c == '_sql_constraints':
+							meta['attrs'][c].extend(imeta['attrs'][c])
+			self._objs[module][obj][dst] = meta
+#	
+		def _metaObject_with_inherit2(self,inherit,obj,module):
+			pass
+	
 	def _metaObject_with_inherit(self,obj,module):
 		if module in self._inherit and obj in self._inherit[module]:
-			for key in self._inherit[module][obj].keys():
-				inherit(self,module,obj,self._objs[module][obj][key])
+			inherits = self._inherit[module][obj]
+			objs = self._objs[module][obj]
+			for src in inherits.keys():
+				imeta = objs[src]
+				for dst in inherits[src].keys():
+					last_module = self._getLastModuleObjectLoaded(obj,dst)
+					meta = self._objs[last_module][obj][dst]
+					inherit = inherits[src][dst]
+					for c in inherit.keys():
+						if c == '_methods':
+							for method in inherit[c]:
+								meta['attrs'][method] = imeta['attrs'][c][method]
+						elif c == '_columns':
+							for column in inherit[c]:
+								if c not in meta['attrs'] or column not in meta['attrs'][c]:
+									meta['attrs'].setdefault(c,{})[column] = imeta['attrs'][c][column]
+								else:
+									if imeta['attrs'][c][column]._type == 'iProperty':
+										for attr in ('accept','actions','label', 'readonly','invisible', 'priority', 'domain', 'context', 'pattern','required', 'size', 'on_delete', 'on_update','on_change','on_check', 'translate', 'selections', 'selectable', 'manual', 'help', 'unique','check','family','timezone','relatedy','obj','rel','id1','id2','ref','offset','limit','compute','store','state','icon','cols','delimiter'):
+											if attr in ('selections','domain','cols'):
+												if hasattr(imeta['attrs'][c][column],attr):
+													if hasattr(meta['attrs'][c][column],attr):
+														getattr(meta['attrs'][c][column],attr).extend(getattr(imeta['attrs'][c][column],attr))
+											elif attr in ('accept','label','priority','pattern','compute','readonly','on_change','on_check','invisible','on_delete','on_update','translate','selectable','manual','help','offset','limit','icon','delimiter'):
+												if hasattr(imeta['attrs'][c][column],attr):
+													if hasattr(meta['attrs'][c][column],attr):
+														setattr(getattr(meta['attrs'][c][column],attr),attr,getattr(imeta['attrs'][c][column],attr))
+											elif attr in ('actions','context','cols','state'):
+												if hasattr(imeta['attrs'][c][column],attr):
+													if hasattr(meta['attrs'][c][column],attr):
+														getattr(meta['attrs'][c][column],attr).update(getattr(imeta['attrs'][c][column],attr))
+									else:
+										Exception_Registry("Column: %s of model: %s if exists\n" % (column,dst))
+						elif c == '_actions':
+							for action in inherit[c]:
+								meta['attrs'].setdefault(c,{})[action] = imeta['attrs']['_actions'][action]
+						elif c == '_states':
+							for state in inherit[c]:
+								meta['attrs'].setdefault(c,{})[state] = imeta['attrs'][c][state]
+						elif c == '_trg_upd_cols':
+							meta['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
+						elif c == '_trigers':
+							for triger in inherit[c]:
+								for tk in triger.keys():
+									if not meta['attrs'][c]:
+										meta['attrs'][c] = []
+									if type(triger[tk]) in ('list','tuple'):
+										meta['attrs'].setdefault(c,{}).setdefault(triger,[]).extend(triger[tk])
+									else:
+										meta['attrs'].setdefault(c,{}).setdefault(triger,[]).append(triger[tk])
+						elif c == '_default':
+							for dkey in inherit[c]:
+								meta['attrs'].setdefault(c,{})[dkey] = imeta['attrs'][c][dkey]
+						elif c == '_constraints':
+							meta['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
+						elif c == '_sql_constraints':
+							meta['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
+						elif c == '_auth':
+							meta['attrs'].setdefault(c,[]).extend(imeta['attrs'][c])
+			
+			self._objs[module][obj][dst] = meta
 #	
 	
 	def _get_inodes(self,inodes,name):
