@@ -242,7 +242,11 @@ class BaseModel(object, metaclass = MetaObjects):
 	def _compute(self,item,context):
 		res = {}
 		nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))
+		m = self
+		fields = list(item.keys())
 		if len(nostorecomputefields) > 0:
+			ci = m.columnsInfo(columns=m._computefields,attributes=['compute','priority'])
+			priority = {}
 			for compute_field in nostorecomputefields:
 				priority.setdefault(ci[compute_field]['priority'],set()).add(ci[compute_field]['compute'])
 			
@@ -615,8 +619,8 @@ class BaseModel(object, metaclass = MetaObjects):
 	def _getToLongitudeName(self):
 		return mm._getToLongitudeName(self)
 
-		def _getMatrixNames(self):
-			return mm._getMatrixNames(self)
+	def _getMatrixNames(self):
+		return mm._getMatrixNames(self)
 
 	def _getName(self,name):
 		return mm._getName(self,name)

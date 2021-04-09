@@ -68,14 +68,14 @@ class md_product(Model):
 					b = BytesIO()
 					q = qrcode.make("UC: %s - UN: %s" % (record['code'],record['name'])) 
 					q.save(b,'jpeg')
-					record['qrcode'] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
+					record['qrcode'] = Binary(b64encode(b.getvalue()))
 
 		elif type(records) == dict:
 			if 'code' in records and 'name' in records:
 				b = BytesIO()
 				q  = qrcode.make("UC: %s - UN: %s" % (records['code'],records['name'])) 
 				q.save(b,'jpeg')
-				records['qrcode'] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
+				records['qrcode'] = Binary(b64encode(b.getvalue()))
 
 		return super(Model,self).create(  records, context)
 
@@ -86,14 +86,14 @@ class md_product(Model):
 					b = BytesIO()
 					q = qrcode.make("UC: %s - UN: %s" % (record['code'],record['name'])) 
 					q.save(b,'jpeg')
-					record['qrcode'] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
+					record['qrcode'] = Binary(b64encode(b.getvalue()))
 
 		elif type(records) == dict:
 			if 'code' in records and 'name' in records:
 				b = BytesIO()
 				q  = qrcode.make("UC: %s - UN: %s" % (records['code'],records['name'])) 
 				q.save(b,'jpeg')
-				records['qrcode'] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
+				records['qrcode'] = Binary( b64encode(b.getvalue()))
 
 		return super(Model,self).write(  records, context)
 
@@ -104,14 +104,14 @@ class md_product(Model):
 					b = BytesIO()
 					q = qrcode.make("UC: %s - UN: %s" % (record['code'],record['name'])) 
 					q.save(b,'jpeg')
-					record['qrcode'] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
+					record['qrcode'] = Binary(b64encode(b.getvalue()))
 
 		elif type(records) == dict:
 			if 'code' in records and 'name' in records:
 				b = BytesIO()
 				q  = qrcode.make("UC: %s - UN: %s" % (records['code'],records['name'])) 
 				q.save(b,'jpeg')
-				records['qrcode'] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
+				records['qrcode'] = Binary(b64encode(b.getvalue()))
 
 		return super(Model,self).modify(  records, context)
 
@@ -126,7 +126,7 @@ class md_product(Model):
 						b = BytesIO()
 						q = qrcode.make("UC: %s - UN: %s" % (value[fm['code']],value[fm['name']])) 
 						q.save(b,'jpeg')
-						value[idx] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
+						value[idx] = Binary(b64encode(b.getvalue()))
 
 		return super(Model,self).insert(  fields, values,context)
 
@@ -141,7 +141,7 @@ class md_product(Model):
 						b = BytesIO()
 						q = qrcode.make("UC: %s - UN: %s" % (value[fm['code']],value[fm['name']])) 
 						q.save(b,'jpeg')
-						value[idx] = Binary(b'data:image/jpeg;base64,'+b64encode(b.getvalue()))
+						value[idx] = Binary(b64encode(b.getvalue()))
 
 		return super(Model,self).upsert(  fields, values,context)
 

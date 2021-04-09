@@ -3,7 +3,7 @@ import logging
 from os.path import join as opj
 
 import polib
-#from yandex import Translater
+from yandex import Translater
 
 from deep_translator import GoogleTranslator
 
@@ -14,9 +14,9 @@ import web_pdb
 
 _logger = logging.getLogger('listener.' + __name__)
 
-#tr = Translater.Translater()
-#tr.set_key('trnsl.1.1.20181211T195911Z.dd221d8c2a232623.1e176c0b53c78e901d04472cdf7483c7c0f9a0b8') # Api key found on https://translate.yandex.com/developers/keys
-#tr.set_from_lang('en')
+tr = Translater.Translater()
+tr.set_key('trnsl.1.1.20181211T195911Z.dd221d8c2a232623.1e176c0b53c78e901d04472cdf7483c7c0f9a0b8') # Api key found on https://translate.yandex.com/developers/keys
+tr.set_from_lang('en')
 
 langs_list = dict(list(map(lambda x: list(reversed(x)),GoogleTranslator().get_supported_languages(as_dict=True).items())))
 
@@ -73,7 +73,7 @@ def _download_i18n_tr(path,module):
 					tr_batch.append(entry.msgid)
 
 
-			tr_list.extend(YandexTranslator(yandex_key).translate_batch(source='en',target=lang,batch=tr_batch))
+			#tr_list.extend(YandexTranslator(yandex_key).translate_batch(source='en',target=lang,batch=tr_batch))
 			for msgid,msgstr,occurrences in zip(tr_msgid,tr_list,tr_occurrences):
 				out_entry = polib.POEntry(
 				    msgid=msgid,

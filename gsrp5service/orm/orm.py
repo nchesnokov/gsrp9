@@ -81,7 +81,7 @@ class Model(object):
 								if hasattr(meta['attrs'][c][column],attr):
 									getattr(meta['attrs'][c][column],attr).update(getattr(imeta['attrs'][c][column],attr))
 				else:
-					Exception_Registry("Column: %s of model: %s if exists\n" % (column,dst))
+					Exception_Registry("Column: %s of model: %s if exists\n" % (column,meta['attrs']['_name']))
 			
 	@staticmethod
 	def __inherits_cls_actions__(meta, imeta, actions):
@@ -131,7 +131,7 @@ class ModelInherit(object):
 	def __inherit_cls_methods__(meta, imeta, methods):
 		for method in methods:
 			if callable(imeta['attrs'][method]):
-				meta['attrs'][action] = imeta['attrs'][method]
+				meta['attrs'][method] = imeta['attrs'][method]
 
 	@staticmethod
 	def __inherit_cls_columns__(meta, imeta, columns):
@@ -155,7 +155,7 @@ class ModelInherit(object):
 								if hasattr(meta['attrs'][c][column],attr):
 									getattr(meta['attrs'][c][column],attr).update(getattr(imeta['attrs'][c][column],attr))
 				else:
-					Exception_Registry("Column: %s of model: %s if exists\n" % (column,dst))
+					Exception_Registry("Column: %s of model: %s if exists\n" % (column,meta['attrs']['_name']))
 			
 	@staticmethod
 	def __inherit_cls_actions__(meta, imeta, actions):
