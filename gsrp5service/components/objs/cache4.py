@@ -468,7 +468,7 @@ def _modifyRecord(self, record, context):
 			if 'id' not in record_t:
 				record_t['id'] = oid
 			if 'lang' not in record_t:
-				lang = self._pool.get('bc.users').read([{'prederences':['lang']}],self._session._uid,{})
+				lang = self._pool.get('bc.users').read(self._session._uid,[{'prederences':['lang']}],{})
 				record_t['lang'] = lang[0]['prederences'][0]['lang']['id']
 			sql,vals = gensql.Modify(self, record_t, context)
 			rowcount = self._execute(sql,vals)
