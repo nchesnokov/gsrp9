@@ -1,3 +1,4 @@
+import web_pdb
 from functools import reduce
 from gsrp5service.orm.common import *
 
@@ -45,7 +46,7 @@ def getColumnConstraints(pool,column,name,rec_name):
 def getReferencedConstraints(pool,model):
 	_sqls = []
 	self = pool.get(model)
-	columns_info = pool.get(model).modelInfo()['columns']
+	columns_info = pool.get(model).columnsInfo()
 	for key in self._m2orelatedfields:
 		cn = 'fk_' + key + '_ref_' + columns_info[key]['obj'].replace('.','_')
 		ref = columns_info[key]['obj'].replace('.','_')
@@ -87,18 +88,41 @@ def constraintModel(pool,info):
 		res.append("CONSTRAINT "+ sql_constaraint[0] + ' ' + sql_constaraint[1])
 	return res
 
+def constraintI18NTable(pool,info):
+	res =[]
+	sql_constaraints = info['i18n_sql_constraints']
+	for sql_constaraint in sql_constaraints:
+		res.append("CONSTRAINT "+ sql_constaraint[0] + ' ' + sql_constaraint[1])
+	return res
+
+
 def columnsModel(pool,info):
 	res = []
 	columns = info['columns']
 	rec_name = info['names']['rec_name']
-	for key in columns.keys():
+	i18n_cols = info['i18nfields']
+	for key in filter(lambda x: x not in i18n_cols,columns.keys()):
 		column = columns[key]
 		#print('column:',column)
 		if 'db_type' in column and column['db_type']:
 			#print('column:',column)
-			res.append(getColumnName(key) + ' ' + getColumnType(column) + getColumnSize(column) + getColumnConstraints(pool,column,key,rec_name)+getColumnComputed(column))
+			res.append(getColumnName(key) + ' ' + getColumnType(column) + getColumnSize(column) + getColumnConstraints(pool,column,key,rec_name) + getColumnComputed(column))
 	return res
 
+def columnsI18NTable(pool,info):
+	res = []
+	columns = info['columns']
+	rec_name = info['names']['rec_name']
+	i18n_cols = info['i18nfields']
+	#web_pdb.set_trace()
+	for key in i18n_cols:
+		column = columns[key]
+		#print('column:',column)
+		if 'db_type' in column and column['db_type']:
+			#print('column:',column)
+			res.append(getColumnName(key) + ' ' + getColumnType(column) + getColumnSize(column) + getColumnConstraints(pool,column,key,rec_name) + getColumnComputed(column))
+
+	return res
 
 
 def columnsFamily(pool,info):
@@ -109,6 +133,15 @@ def columnsFamily(pool,info):
 		res.append('FAMILY '+ getName(table + '_' + key) + ' (' + reduce(lambda x, y: x + ',' + y, families[key]) + ')')
 	return res
 
+def columnsI18NFamily(pool,info):
+	res = []
+	i18n_families = info['i18n_family']
+	tr_table = info['tr_table']
+	for key in i18n_families.keys():
+		res.append('FAMILY '+ getName(tr_table + '_' + key) + ' (' + reduce(lambda x, y: x + ',' + y, i18n_families[key]) + ')')
+	return res
+
+
 def columnsMagic(pool,info):
 	res = []
 	res.append("id UUID PRIMARY KEY DEFAULT uuid_v4()::UUID")
@@ -118,14 +151,18 @@ def columnsMagic(pool,info):
 	#print('log_access:',res,info['log_access'])
 	return res
 
+def columnsI18NMagic(pool,info):
+	return ['id UUID PRIMARY KEY REFERENCES ' + info['table'] + ' (id) ON DELETE CASCADE ON UPDATE CASCADE ','lang UUID REFERENCES bc_langs (id) ON DELETE CASCADE ON UPDATE CASCADE ']
+
 def columnsIndex(pool,info):
 	res = []
 	columns = info['columns']
 	rec_name = info['names']['rec_name']
+	i18n_cols = info['i18nfields']
 	if info['log_access']:
 		res.append('INDEX create_uid_idx (create_uid)')
 		res.append('INDEX write_uid_idx (write_uid)')
-	for key in columns.keys():
+	for key in filter(lambda x: x not in i18n_cols,columns.keys()):
 		if ('selectable' in columns[key] and columns[key]['selectable'] or columns[key]['type'] in ('many2one','related','state','inactive')) and  key != rec_name:
 			res.append('INDEX '+ key + '_idx (' + key +')' )
 		if columns[key]['type'] == 'json':
@@ -133,25 +170,62 @@ def columnsIndex(pool,info):
 
 	return res
 
+def columnsI18NIndex(pool,info):
+	res = []
+	columns = info['columns']
+	rec_name = info['names']['rec_name']
+	i18n_cols = info['i18nfields']
+	for key in i18n_cols:
+		if ('selectable' in columns[key] and columns[key]['selectable'] or columns[key]['type'] in ('many2one','related','state','inactive')) and  key != rec_name:
+			res.append('INDEX '+ key + '_idx (' + key +')' )
+		if columns[key]['type'] == 'json':
+			res.append('INVERTED INDEX '+ key + '_inverted_idx (' + key +')' )
+
+	return res
+
+
 def indiciesIndex(pool,info):
 	res = []
 	columns = info['columns']
 	indicies = info['indicies']
+	i18n_cols = info['i18nfields']
 	for key in indicies.keys():
 		if type(indicies[key]) == str:
 			idx = indicies[key]
+			if idx in i18n_cols:
+				res.append('INDEX ' + key + '_idxi (' + idx + ')')
 		elif type(indicies[key]) in (list,tuple):
-			if len(indicies[key]) == 1:
-				idx = indicies[key][0]
-			else:
-				idx = reduce(lambda x,y: x + ',' + y,indicies[key])
-			# if columns[key]['type'] == 'json':
-				# res.append('INVERTED INDEX  '+ key + '_inverted_idx (' + indicies[key].join(',') +')' )
-			# else:
-				# res.append('INDEX ' + key + '_idx (' + indicies[key].join(',') +')' )
-		res.append('INDEX ' + key + '_idxi (' + idx + ')')
+			idx1  = []
+			for key1 in filter(lambda x: x not in i18n_cols,indicies[key]):
+				idx1.append(key1)
+			idx = reduce(lambda x,y: x + ',' + y,idx1)
+			res.append('INDEX ' + key + '_idxi (' + idx + ')')
 
 	return res
+
+def indiciesI18NIndex(pool,info):
+	res = []
+	columns = info['columns']
+	indicies = info['indicies']
+	i18n_cols = info['i18nfields']
+	for key in indicies.keys():
+		if type(indicies[key]) == str:
+			idx = indicies[key]
+			if idx in i18n_cols:
+				res.append('INDEX ' + key + '_idxi (' + idx + ')')
+		elif type(indicies[key]) in (list,tuple):
+			idx1  = []
+			for key1 in filter(lambda x: x in i18n_cols,indicies[key]):
+				idx1.append(key1)
+			if len(idx1) == 1:
+				res.append('INDEX ' + key + '_idxi (' + idx1[0] + ')')
+			elif len(idx1) > 1:
+				idx = reduce(lambda x,y: x + ',' + y,idx1)
+				res.append('INDEX ' + key + '_idxi (' + idx + ')')
+
+
+	return res
+
 
 def relationTable(pool,info):
 	res = []
@@ -188,7 +262,7 @@ def createTable(pool,info):
 	res.extend(columnsFamily(pool,info))
 	res.extend(columnsIndex(pool,info))
 	res.extend(indiciesIndex(pool,info))
-	sql = "CREATE TABLE IF NOT EXISTS "+info['table'] + ' ('+ reduce(lambda x,y: x + ',' + y,res) + ")"
+	sql = "CREATE TABLE IF NOT EXISTS "+info['table'] + ' (' + reduce(lambda x,y: x + ',' + y,res) + ")"
 	res = []
 	res.extend(relationTable(pool,info))
 	if len(res) > 0:
@@ -196,17 +270,41 @@ def createTable(pool,info):
 		if len(m2m) > 0:
 			sql += ';' + m2m
 	#print('sql:',sql)
+		
 	return sql
+
+def createI18NTable(pool,info):
+	res =[]
+	#print('table:',info['name'])
+	res.extend(columnsI18NMagic(pool,info))
+	res.extend(columnsI18NTable(pool,info))
+	res.extend(constraintI18NTable(pool,info))
+	res.extend(columnsI18NFamily(pool,info))
+	res.extend(columnsI18NIndex(pool,info))
+	res.extend(indiciesI18NIndex(pool,info))
+	sql = "CREATE TABLE IF NOT EXISTS "+info['tr_table'] + ' (' + reduce(lambda x,y: x + ',' + y,res) + ")"
+	#print('sql:',sql)
+		
+	return sql
+
 
 def AlterTable(pool,info):
 	res = []
 	for key in info['inherit'].keys():
-		for column in info['inherit'][key]['_columns']:
+		for col in info['inherit'][key]['_columns']:
 			modelinfo = pool.get(key).modelInfo() 
-			if info['columns'][column]['db_type']:
-				col = getColumnName(column) + ' ' + getColumnType(info['columns'][column]) + getColumnSize(info['columns'][column]) + getColumnConstraints(pool,info['columns'][column],column,None)
-				sql = "ALTER TABLE %s ADD COLUMN IF NOT EXISTS %s"  % (modelinfo['table'],col)
-				res.append(sql)
+			if info['columns'][col]['type'] == 'i18n':
+				column = info['columns'][col].column
+				if column['db_type']:
+					vcol = getColumnName(col) + ' ' + getColumnType(column) + getColumnSize(column) + getColumnConstraints(pool,column,col,None)
+					sql = "ALTER TABLE %s ADD COLUMN IF NOT EXISTS %s"  % (modelinfo['tr_table'],vcol)
+					res.append(sql)
+
+			else:
+				if info['columns'][col]['db_type']:
+					col = getColumnName(col) + ' ' + getColumnType(info['columns'][col]) + getColumnSize(info['columns'][col]) + getColumnConstraints(pool,info['columns'][col],col,None)
+					sql = "ALTER TABLE %s ADD COLUMN IF NOT EXISTS %s"  % (modelinfo['table'],col)
+					res.append(sql)
 	
 	sqls = ''
 	

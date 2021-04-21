@@ -497,7 +497,7 @@ def isAllowModels(view,info):
 	if view == 'mdx' and info['names']['date']:
 		r = True
 
-	if view == 'matrix' and ('matrix_names' in info['names'] and info['names']['matrix_names']['matrix_col_name']  and info['names']['matrix_names']['matrix_val_name'] or (info['names']['matrix_col_name']  and info['names']['matrix_val_name'])):
+	if view == 'matrix' and ('matrix_names' in info['names'] and info['names']['matrix_names'] and 'matrix_col_name' in info['names']['matrix_names'] and info['names']['matrix_names']['matrix_col_name']  and 'matrix_val_name' in info['names']['matrix_names'] and info['names']['matrix_names']['matrix_val_name'] or ('matrix_col_name' in info['names'] and info['names']['matrix_col_name']  and 'matrix_val_name' in info['names'] and info['names']['matrix_val_name'])):
 		r = True
 
 

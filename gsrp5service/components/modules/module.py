@@ -392,6 +392,15 @@ def _installModule(self,name,chunk):
 			at = genddl.getReferencedConstraints(self._session._models,model)
 			if len(at) > 0:
 				sqls.extend(at)
+
+		for model in models:
+			m = self._session._models[model]
+			if isinstance(m,ModelInherit):	
+				continue
+			if len(m._i18nfields) > 0:
+				sql = genddl.createI18NTable(self._session._models,m.modelInfo())
+				if len(sql) > 0:
+					sqls.append(sql)
 		
 		if len(sqls) > 0:
 			self._cr.commit()
@@ -521,7 +530,7 @@ def _uninstallModule(self,name):
 						if model in self._session._models:
 							m = self._session._models.get(model)
 							if isinstance(m,Model):
-								columns = m.modelInfo()['columns']
+								columns = m.modelInfo(['columns'])['columns']
 								for key in filter(lambda x: columns[x]['type'] == 'many2many',columns.keys()):
 									rel = genddl.getName(columns[key]['rel'])
 									sqls.append("DROP TABLE IF EXISTS %s " % (genddl.getName(rel),))
@@ -813,7 +822,7 @@ def _loadMetaModel(self,model,module):
 	env_fields = []
 	if bm._extra and 'env-fields' in bm._extra:
 		env_fields = bm._extra['env-fields']
-	info = bm.modelInfo()['columns']
+	info = bm.modelInfo(['columns'])['columns']
 
 	for key in filter(lambda x: x not in env_fields,info.keys()):
 		if key == 'columns':
@@ -843,7 +852,7 @@ def _loadMetaInherit(self,model,module):
 		info_class = type.__new__(info_class_meta['cls'],info_class_meta['name'],info_class_meta['bases'],info_class_meta['attrs'])
 		type.__init__(info_class,info_class_meta['name'],info_class_meta['bases'],info_class_meta['attrs'])
 		info = info_class().modelInfo()
-		columns = self._session._models.get('bc.inherits').modelInfo()['columns']
+		columns = self._session._models.get('bc.inherits').modelInfo(['columns'])['columns']
 	else:
 		return record
 
@@ -862,7 +871,7 @@ def _loadMetaInherit(self,model,module):
 def _loadMetaModelColumn(self,name,column):
 	record = {}
 	ref_fields = {'col_name':'name','col_check':'check','col_unique':'unique','col_default':'default','col_family':'family'}
-	keys = self._session._models.get('bc.model.columns').modelInfo()['columns'].keys()
+	keys = self._session._models.get('bc.model.columns').modelInfo(['columns'])['columns'].keys()
 	record['col_name'] = name
 	record['col_type'] = column['type']
 	for key in keys:
@@ -886,7 +895,7 @@ def _loadMetaModelColumn(self,name,column):
 def _loadMetaInheritColumns(self,name,column):
 	record = {}
 	ref_fields = {'col_name':'name','col_check':'check','col_unique':'unique','col_default':'default','col_family':'family'}
-	keys = self._session._models.get('bc.inherit.columns').modelInfo()['columns'].keys()
+	keys = self._session._models.get('bc.inherit.columns').modelInfo(['columns'])['columns'].keys()
 	record['col_name'] = name
 	record['col_type'] = column['type']
 	for key in keys:

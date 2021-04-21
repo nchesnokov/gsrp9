@@ -12,10 +12,10 @@ class ORM(object):
 				last_module = registry._getLastModuleObjectLoaded(cls._obj,src)
 				imeta = registry._objs[last_module][cls._obj][src]
 				for key in meta['attrs']['_inherits'][src].keys():
-					print('Mkey:',key,'__inherits_cls' + key + '__',hasattr(cls,'__inherits_cls' + key + '__'))
+					#print('Mkey:',key,'__inherits_cls' + key + '__',hasattr(cls,'__inherits_cls' + key + '__'))
 					if hasattr(cls,'__inherits_cls' + key + '__'):
 						m = getattr(cls,'__inherits_cls' + key + '__', None)
-						print('MM:','__inherits_cls' + key + '__',m)
+						#print('MM:','__inherits_cls' + key + '__',m)
 						if m:
 							if callable(m):
 								m(meta,imeta,meta['attrs']['_inherits'][src][key])
@@ -36,10 +36,10 @@ class INHERIT(object):
 				last_module = registry._getLastModuleObjectLoaded(cls._obj,dst)
 				meta = registry._objs[last_module][cls._obj][dst]
 				for key in imeta['attrs']['_inherit'][dst].keys():
-					print('key:',key,'__inherit_cls' + key + '__',hasattr(cls,'__inherit_cls' + key + '__'))
+					#print('key:',key,'__inherit_cls' + key + '__',hasattr(cls,'__inherit_cls' + key + '__'))
 					if hasattr(cls,'__inherit_cls' + key + '__'):
 						m = getattr(cls,'__inherit_cls' + key + '__', None)
-						print('M:','__inherit_cls' + key + '__',m)
+						#print('M:','__inherit_cls' + key + '__',m)
 						if m:
 							if callable(m):
 								m(meta,imeta,imeta['attrs']['_inherit'][dst][key])

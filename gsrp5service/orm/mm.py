@@ -186,6 +186,10 @@ def model__init__(self,access = None):
 		if hasattr(self,'_table') and not self._table:
 			self._table = self._name.replace('.', '_')
 
+		if len(self._i18nfields) > 0 and hasattr(self,'_tr_table') and not self._tr_table:
+			self._tr_table = self._name.replace('.', '_') + '_tr'
+
+
 	if self._table and self._table[:3].lower() == 'pg_':
 		raise orm_exception([_('Invalid table name'), self._table, self._name])
 
@@ -260,7 +264,7 @@ def checkAccess(self,mode = None):
 		return getattr(self._access,'_' + mode,None)
 
 def _getParentIdName(self):
-	n = _getName(self,'parent_id')
+	n = _getSpecName(self,'parent_id')
 	if n:
 		if self._columns[n]._type != 'many2one':
 			n = None
@@ -268,7 +272,7 @@ def _getParentIdName(self):
 	return n
 
 def _getChildsIdName(self):
-	n = _getName(self,'childs_id')
+	n = _getSpecName(self,'childs_id')
 	if n:
 		if self._columns[n]._type != 'one2many':
 			n = None
@@ -276,7 +280,7 @@ def _getChildsIdName(self):
 	return n
 
 def _getRowNameName(self):
-	n = _getName(self,'row_name')
+	n = _getSpecName(self,'row_name')
 	if n:
 		if not self._columns[n]._type in ('char','varchar','selection','composite'):
 			n = None
@@ -284,7 +288,7 @@ def _getRowNameName(self):
 	return n
 
 def _getCompleteNameName(self):
-	n = _getName(self,'complete_name')
+	n = _getSpecName(self,'complete_name')
 	if n:
 		if not self._columns[n]._type in ('char','varchar','selection','composite'):
 			n = None
@@ -293,7 +297,7 @@ def _getCompleteNameName(self):
 
 
 def _getFullNameName(self):
-	n = _getName(self,'full_name')
+	n = _getSpecName(self,'full_name')
 	if n:
 		if not self._columns[n]._type in ('char','varchar','composite'):
 			n = None
@@ -307,7 +311,7 @@ def _getRecNameName(self):
 		return _getCompleteNameName(self) or _getFullNameName(self) or _getRowNameName(self)
 
 def _getSequenceName(self):
-	n = _getName(self,'sequence')
+	n = _getSpecName(self,'sequence')
 	if n:
 		if self._columns[n]._type != 'integer':
 			n = None
@@ -315,7 +319,7 @@ def _getSequenceName(self):
 	return n
 
 def _getDateName(self):
-	n = _getName(self,'date')
+	n = _getSpecName(self,'date')
 	if n:
 		if not self._columns[n]._type in ('date','datetime'):
 			n = None
@@ -323,7 +327,7 @@ def _getDateName(self):
 	return n
 
 def _getStartDateName(self):
-	n = _getName(self,'start_date')
+	n = _getSpecName(self,'start_date')
 	if n:
 		if not self._columns[n]._type in ('date','datetime'):
 			n = None
@@ -331,7 +335,7 @@ def _getStartDateName(self):
 	return n
 
 def _getEndDateName(self):
-	n =  _getName(self,'end_date')
+	n =  _getSpecName(self,'end_date')
 	if n:
 		if not self._columns[n]._type in ('date','datetime'):
 			n = None
@@ -339,7 +343,7 @@ def _getEndDateName(self):
 	return n
 #
 def _getFromDateName(self):
-	n = _getName(self,'from_date')
+	n = _getSpecName(self,'from_date')
 	if n:
 		if not self._columns[n]._type in ('date','datetime'):
 			n = None
@@ -347,7 +351,7 @@ def _getFromDateName(self):
 	return n
 
 def _getToDateName(self):
-	n =  _getName(self,'to_date')
+	n =  _getSpecName(self,'to_date')
 	if n:
 		if not self._columns[n]._type in ('date','datetime'):
 			n = None
@@ -355,7 +359,7 @@ def _getToDateName(self):
 	return n
 
 def _getFromTimeName(self):
-	n = _getName(self,'from_time')
+	n = _getSpecName(self,'from_time')
 	if n:
 		if not self._columns[n]._type in ('time','datetime'):
 			n = None
@@ -363,7 +367,7 @@ def _getFromTimeName(self):
 	return n
 
 def _getToTimeName(self):
-	n =  _getName(self,'to_time')
+	n =  _getSpecName(self,'to_time')
 	if n:
 		if not self._columns[n]._type in ('time','datetime'):
 			n = None
@@ -371,7 +375,7 @@ def _getToTimeName(self):
 	return n
 
 def _getProgressName(self):
-	n = _getName(self,'progress')
+	n = _getSpecName(self,'progress')
 	if n:
 		if not self._columns[n]._type in ('integer','flot','double','real','decimal','numeric'):
 			n = None
@@ -379,7 +383,7 @@ def _getProgressName(self):
 	return n
 
 def _getProjectTypeName(self):
-	n = _getName(self,'project_type')
+	n = _getSpecName(self,'project_type')
 	if n:
 		if self._columns[n]._type != 'selection':
 			n = None
@@ -388,7 +392,7 @@ def _getProjectTypeName(self):
 
 #
 def _getStateName(self):
-	n = _getName(self,'state')
+	n = _getSpecName(self,'state')
 	if n:
 		if self._columns[n]._type != 'selection':
 			n = None
@@ -396,7 +400,7 @@ def _getStateName(self):
 	return n
 
 def _getInactiveName(self):
-	n = _getName(self,'inactive')
+	n = _getSpecName(self,'inactive')
 	if n:
 		if self._columns[n]._type != 'boolean':
 			n = None
@@ -405,7 +409,7 @@ def _getInactiveName(self):
 
 # geo start
 def _getLatitudeName(self):
-	n = _getName(self,'latitude')
+	n = _getSpecName(self,'latitude')
 	if n:
 		if not self._columns[n]._type in ('float','double','real','decimal','numeric'):
 			n = None
@@ -413,7 +417,7 @@ def _getLatitudeName(self):
 	return n
 
 def _getLongitudeName(self):
-	n = _getName(self,'longitude')
+	n = _getSpecName(self,'longitude')
 	if n:
 		if not self._columns[n]._type in ('float','double','real','decimal','numeric'):
 			n = None
@@ -421,7 +425,7 @@ def _getLongitudeName(self):
 	return n
 # from
 def _getFromLatitudeName(self):
-	n = _getName(self,'from_latitude')
+	n = _getSpecName(self,'from_latitude')
 	if n:
 		if not self._columns[n]._type in ('float','double','real','decimal','numeric'):
 			n = None
@@ -429,7 +433,7 @@ def _getFromLatitudeName(self):
 	return n
 
 def _getFromLongitudeName(self):
-	n = _getName(self,'from_longitude')
+	n = _getSpecName(self,'from_longitude')
 	if n:
 		if not self._columns[n]._type in ('float','double','real','decimal','numeric'):
 			n = None
@@ -438,7 +442,7 @@ def _getFromLongitudeName(self):
 
 # to
 def _getToLatitudeName(self):
-	n = _getName(self,'to_latitude')
+	n = _getSpecName(self,'to_latitude')
 	if n:
 		if not self._columns[n]._type in ('float','double','real','decimal','numeric'):
 			n = None
@@ -446,7 +450,7 @@ def _getToLatitudeName(self):
 	return n
 
 def _getToLongitudeName(self):
-	n = _getName(self,'to_longitude')
+	n = _getSpecName(self,'to_longitude')
 	if n:
 		if not self._columns[n]._type in ('float','double','real','decimal','numeric'):
 			n = None
@@ -456,7 +460,7 @@ def _getToLongitudeName(self):
 # geo end
 
 def _getPrevNameName(self):
-	n = _getName(self,'prev_name')
+	n = _getSpecName(self,'prev_name')
 	if n:
 		if not self._columns[n]._type in ('many2one','related'):
 			n = None
@@ -464,7 +468,7 @@ def _getPrevNameName(self):
 	return n
 
 def _getNextNameName(self):
-	n = _getName(self,'next_name')
+	n = _getSpecName(self,'next_name')
 	if n:
 		if not self._columns[n]._type in ('many2one','related'):
 			n = None
@@ -472,7 +476,7 @@ def _getNextNameName(self):
 	return n
 
 def _getTransitionsName(self):
-	n = _getName(self,'transitions')
+	n = _getSpecName(self,'transitions')
 	if n:
 		if not self._columns[n]._type in ('one2many','one2related'):
 			n = None
@@ -480,7 +484,7 @@ def _getTransitionsName(self):
 	return n
 
 def _getMatrixNamesName(self):
-	n = _getName(self,'matrix_names')
+	n = _getSpecName(self,'matrix_names')
 	col_name = None
 	val_name = None
 	if n:
@@ -492,7 +496,7 @@ def _getMatrixNamesName(self):
 	return {'matrix_col_name':col_name,'matrix_val_name':val_name}
 
 def _getMatrixColNameName(self):
-	n = _getName(self,'matrix_col_name')
+	n = _getSpecName(self,'matrix_col_name')
 	if n:
 		if not self._columns[n]._type in ('one2many','one2related,','many2many','integer','float','double','real','decimal','numeric'):
 			n = None
@@ -500,7 +504,7 @@ def _getMatrixColNameName(self):
 	return n
 
 def _getMatrixValNameName(self):
-	n = _getName(self,'matrix_val_name')
+	n = _getSpecName(self,'matrix_val_name')
 	if n:
 		if self._columns[n]._type in ('integer','float','double','real','decimal','numeric'):
 			n = None
@@ -509,7 +513,7 @@ def _getMatrixValNameName(self):
 
 
 #wkf end
-def _getName(self,name):
+def _getSpecName(self,name):
 	n = None
 	fname = '_' + name
 	if hasattr(self,fname):
@@ -523,30 +527,31 @@ def _getName(self,name):
 
 	return n
 
-def _getNames(self,names):
+def _getNames(self,names=None):
 	n = {}
 	if not names:
 		names = ('parent_id','childs_id','row_name','full_name','rec_name','complete_name','date','date','start_date','end_date','from_date','to_date','from_time','to_time','progress','project_type','sequence','state','inactive','prev_name','next_name','transitions','latitude','longitude','from_latitude','from_longitude','to_latitude','to_longitude','matrix_names','matrix_col_name','matrix_val_name')
 	for name in names:
-		#if self._name == 'purchase.order.item.delivery.schedules' and name in ('matrix_names','matrix_col_name','matrix_val_name'):
-			#pass
-			#web_pdb.set_trace()
-		ns = name.split('_')
-		if len(ns) == 1:
-			nf = ns[0].title()
-		else:
-			nf = ''
-			for ns0 in ns:
-				nf += ns0.title()
-			#nf = reduce(lambda x,y: x.title()+y.title(),ns)
-		_f = '_get' + nf + 'Name'
-		#f = getattr(self,_f,None)
-		f = None
-		if _f in __locals__:
-			f = __locals__[_f]
-		#print('get-names:',name,_f,f)
-		if f:
-			n[name] = f(self)
+		n[name] = _getSpecName(self,name)
+		# #if self._name == 'purchase.order.item.delivery.schedules' and name in ('matrix_names','matrix_col_name','matrix_val_name'):
+			# #pass
+			# #web_pdb.set_trace()
+		# ns = name.split('_')
+		# if len(ns) == 1:
+			# nf = ns[0].title()
+		# else:
+			# nf = ''
+			# for ns0 in ns:
+				# nf += ns0.title()
+			# #nf = reduce(lambda x,y: x.title()+y.title(),ns)
+		# _f = '_get' + nf + 'Name'
+		# #f = getattr(self,_f,None)
+		# f = None
+		# if _f in __locals__:
+			# f = __locals__[_f]
+		# #print('get-names:',name,_f,f)
+		# if f:
+			# n[name] = f(self)
 
 	return n
 
@@ -732,54 +737,67 @@ def _getAccess(self):
 	else:
 		return {'create':True,'read':True,'write':True,'unlink':True,'modify':True,'insert':True,'select':True,'update':True,'delete':True,'upsert':True,'browse':True,'selectbrowse':True}
 
-def _getAuth(self):
-	return self._auth
+# def _getAuth(self):
+	# return self._auth
 
-def _getTransient(self):
-	return self._transient
+# def _getTransient(self):
+	# return self._transient
 
-def _getModelName(self):
-	return self._name
+# def _getModelName(self):
+	# return self._name
 
-def _getSchema(self):
-	return self._schema
+# def _getSchema(self):
+	# return self._schema
 
-def _getTable(self):
-	return self._table
+# def _getTable(self):
+	# return self._table
 
-def _getClass_Model(self):
-	return self._class_model
+# def _getTr_Table(self):
+	# return self._tr_table
 
-def _getClass_Category(self):
-	return self._class_category
 
-def _getInherit(self):
-	return self._inherit
+# def _getClass_Model(self):
+	# return self._class_model
 
-def _getInherits(self):
-	return self._inherits
+# def _getClass_Category(self):
+	# return self._class_category
 
-def _getDescription(self):
-	return self._description
+# def _getInherit(self):
+	# return self._inherit
 
-def _getChecks(self):
-	return self._checks
+# def _getInherits(self):
+	# return self._inherits
 
-def _getTrgupdcols(self):
-	return self._trg_upd_cols
+# def _getDescription(self):
+	# return self._description
+
+# def _getChecks(self):
+	# return self._checks
+
+# def _getTrgupdcols(self):
+	# return self._trg_upd_cols
 
 def _getTrigers(self):
 	return str(self._trigers)
 
-def _getColumns_Attrs(self):
-	return self._columns_attrs
+# def _getColumns_Attrs(self):
+	# return self._columns_attrs
 
 def _getColumns(self,columns=None,attributes=None):
 	
 	return columnsInfo(self,columns,attributes)
+
+def _getI18NColumns(self,columns=None,attributes=None):
 	
-def _getFamily(self,columns):
+	return columnsI18NInfo(self,columns,attributes)
+
+	
+def _getFamily(self,columns = None):
 	return familyInfo(self,columns)
+
+def _getI18N_Family(self,columns = None):
+	return familyI18NInfo(self,columns)
+
 
 def _getDefault(self):
 	res = {}
@@ -793,57 +811,94 @@ def _getDefault(self):
 			
 	return res
 
-def _getRegister(self):
-	return self._register
+# def _getRegister(self):
+	# return self._register
 
-def _getConstraints(self):
-	return self._constraints
+# def _getConstraints(self):
+	# return self._constraints
 
-def _getSql_Constraints(self):
-	return self._sql_constraints
+# def _getSql_Constraints(self):
+	# return self._sql_constraints
 
-def _getOrder_By(self):
-	return self._order_by
+# def _getOrder_By(self):
+	# return self._order_by
 
-def _getGroup_By(self):
-	return self._group_by
+# def _getGroup_By(self):
+	# return self._group_by
 
-def _getAuto(self):
-	return self._auto
+# def _getAuto(self):
+	# return self._auto
 
-def _getActions(self):
-	return self._actions
+# def _getActions(self):
+	# return self._actions
 
-def _getStates(self):
-	return self._states
+# def _getStates(self):
+	# return self._states
 
-def _getAttrs(self):
-	return self._attrs
+# def _getAttrs(self):
+	# return self._attrs
 
-def _getNo_Copy(self):
-	return self._no_copy
+# def _getNo_Copy(self):
+	# return self._no_copy
 
-def _getGroups(self):
-	return self._groups
+# def _getGroups(self):
+	# return self._groups
 
-def _getPages(self):
-	return self._pages
+# def _getPages(self):
+	# return self._pages
 
-def _getIndicies(self):
-	return self._indicies
+# def _getIndicies(self):
+	# return self._indicies
 
-def _getLog_Access(self):
-	return self._log_access
+# def _getLog_Access(self):
+	# return self._log_access
 
-def _getExtra(self):
-	return self._extra
+# def _getExtra(self):
+	# return self._extra
 
 # modelinfo end
 
-def modelInfo(self, header = None, names = None, columns = None, attributes = None):
+def modelInfo(self,args=[],kwargs={}):
+	mi = {}
+
+	worklist = []
+	whitelist = ['__doc__','access','auth','transient','name','names','table','tr_table','schema','class_model','class_category','inherit','inherits','description','checks','trgupdcols','trigers','columns_attrs','columns','family','i18n_family','default','register','constraints','i18n_constraints','sql_constraints','i18n_sql_constraints','order_by','group_by','auto','actions','states','attrs','no_copy','groups','pages','indicies','log_access','extra','i18nfields']
+	lk = False
+	lka = False
+	
+	if len(args) > 0:
+		lka = True
+		worklist.extend(args)
+	
+	if len(kwargs) > 0:
+		lk = True
+		worklist.extend(list(kwargs.keys()))
+	
+	if len(worklist) == 0:
+		worklist.extend(whitelist)
+	
+	for k in filter(lambda x: x in worklist, whitelist):
+		kk = k
+		fname = '_get'+kk.title()
+		if fname in __locals__:
+			if lk and k in kwargs:
+				mi[k] = __locals__[fname](self,**(kwargs[k]))
+			else:
+				mi[k] = __locals__[fname](self)
+		else:
+			if hasattr(self,'_' + k):
+				mi[k] = getattr(self,'_' + k)
+			else:
+				mi[k]=None
+	
+	return mi
+				
+
+
+def modelInfo2(self, header = None, names = None, columns = None, attributes = None):
 	mi = {}
 	if header is None:
-		header = ['__doc__','access','auth','transient','name','names','table','schema','class_model','class_category','inherit','inherits','description','checks','trgupdcols','trigers','columns_attrs','columns','family','default','register','constraints','sql_constraints','order_by','group_by','auto','actions','states','attrs','no_copy','groups','pages','indicies','log_access','extra']
+		header = ['__doc__','access','auth','transient','name','names','table','tr_table','schema','class_model','class_category','inherit','inherits','description','checks','trgupdcols','trigers','columns_attrs','columns','family','tr_family','default','register','constraints','sql_constraints','order_by','group_by','auto','actions','states','attrs','no_copy','groups','pages','indicies','log_access','extra']
 	for h in header:
 		if h == 'family':
 			continue
@@ -890,7 +945,10 @@ def columnsInfo(self, columns = None, attributes = None):
 		if column in MAGIC_COLUMNS:
 			res[column] = MAGIC_COLUMNS_INFO[column]
 		else:
-			res[column] = self._columns[column]._get_attrs(attributes)
+			if self._columns[column]._type == 'i18n':
+				res[column] = self._columns[column].column._get_attrs(attributes)
+			else:
+				res[column] = self._columns[column]._get_attrs(attributes)
 
 	for s in self._selectioncomputefields:
 		if s in res and 'selections' in res[s]:
@@ -967,7 +1025,20 @@ def familyInfo(self,columns):
 	if self._log_access and not self._transient:
 		family['Primary'].extend(['create_uid','create_timestamp','write_uid','write_timestamp'])
 
-	for key in columns.keys():
+	for key in filter(lambda x: self._columns[x]._type != 'i18n',columns.keys()):
+		column = columns[key]
+		if 'family' in column:
+			f = column['family']
+			family.setdefault(f,[]).append(key)
+	return family
+
+
+def familyI18NInfo(self,columns):
+	family = {}
+	if columns is None:
+		columns = columnsInfo(self,list(self._columns.keys()))
+
+	for key in filter(lambda x: self._columns[x]._type == 'i18n',columns.keys()):
 		column = columns[key]
 		if 'family' in column:
 			f = column['family']
@@ -1695,9 +1766,9 @@ def _tree(self , fields = None ,parent = None, context = {}):
 		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
 
 	if parent is None:
-		cond = [(self._getName('parent_id'),'?')]
+		cond = [(self._getSpecName('parent_id'),'?')]
 	else:
-		cond = [(self._getName('parent_id'),'=', parent)]
+		cond = [(self._getSpecName('parent_id'),'=', parent)]
 
 	sql,vals = gensql.Select(self,pool,uid,self.modelInfo(), fields, cond, context,None,None)
 	cr.execute(sql,vals)
@@ -1705,7 +1776,7 @@ def _tree(self , fields = None ,parent = None, context = {}):
 	if cr.cr.rowcount > 0:
 		res.extend(_fetch_results(self ,fields,context))
 		for r in res:
-			r[self._getName('childs_id')].extend(_tree(self , fields, r[self._getName('rec_name')], context))
+			r[self._getSpecName('childs_id')].extend(_tree(self , fields, r[self._getSpecName('rec_name')], context))
 
 	return res
 
@@ -1787,7 +1858,7 @@ def unlink(self , ids, context = {}):
 	if type(ids)  == str:
 		ids = [ids]
 
-	model_info = self.modelInfo(attributes=['type','rel','obj','id1','id2'])
+	model_info = self.modelInfo() #attributes=['type','rel','obj','id1','id2'])
 	columns_info = model_info['columns']
 	m2mfields = list(filter(lambda x: columns_info[x]['type'] == 'many2many',self._columns.keys()))
 	for m2mfield in m2mfields:
@@ -1898,7 +1969,7 @@ def _createRecord(self , record, context):
 	
 	emptyfields = list(filter(lambda x: not x in record and not x in MAGIC_COLUMNS,self._requiredfields))		
 	if len(emptyfields) > 0:
-		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo()['name'], record))
+		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo(['name'])['name'], record))
 
 	o2mfieldsrecords = {}
 	o2rfieldsrecords = {} # o2related
@@ -2484,7 +2555,7 @@ def _modifyRecord(self , record, context):
 	modelfields = list(self._columns.keys())
 	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS, fields))
 	if len(nomodelfields) > 0:
-		raise orm_exception("Fields: %s not found in model: %s" % (nomodelfields, self.modelInfo()['name']))
+		raise orm_exception("Fields: %s not found in model: %s" % (nomodelfields, self.modelInfo(['name'])['name']))
 	
 	for nosavedfield in self._nosavedfields:
 		if nosavedfield in record:
@@ -2496,7 +2567,7 @@ def _modifyRecord(self , record, context):
 
 	emptyfields = list(filter(lambda x: x in fields and record[x] is None,self._requiredfields))		
 	if len(emptyfields) > 0:
-		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo()['name'], record))
+		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo(['name'])['name'], record))
 
 	o2mfieldsrecords = {}
 	o2rfieldsrecords = {} # o2related

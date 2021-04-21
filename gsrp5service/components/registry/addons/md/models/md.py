@@ -16,7 +16,7 @@ class md_product(Model):
 	_description = 'Product'
 	_class_model = 'B'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'template_id': fields.many2one(label='Template',obj='md.products.template'),
 	'code': fields.varchar(label = 'Code',size=16),
 	'uom': fields.many2one(label="Unit Of Measure",obj='md.uom'),
@@ -37,7 +37,7 @@ class md_product(Model):
 			 "resized as a 64x64px image, with aspect ratio preserved. "
 			 "Use this field anywhere a small image is required."),
 	'link': fields.varchar(label='Link',size=255),
-	'note': fields.text(label = 'Note')
+	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
 	def _excise_invisible(self, fields,record,context):
@@ -158,7 +158,7 @@ class md_partner(Model):
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='md.category.partner'),
 	'country_id': fields.many2one(label='Country',obj='md.country',required=True),
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'code': fields.varchar(label = 'Code',size=16),
 	'ispeople': fields.boolean(label = 'People'),
 	'iscustomer': fields.boolean(label = 'Customer'),
@@ -185,10 +185,10 @@ class md_partner_addresses(Model):
 	'country': fields.many2one(label='Country',obj='md.country'),
 	'state': fields.related(label = 'State Of Coutry',obj='md.country.states',relatedy=[('country','country_id')]),
 	'sity': fields.related(label = 'Sity',obj='md.country.state.sities',relatedy=[('state','state_id')]),
-	'street': fields.varchar(label = 'Street',size=64,translate=True),
-	'street2': fields.varchar(label = 'Street 2',size=64,translate=True),
-	'house': fields.varchar(label = 'House',size=64,translate=True),
-	'room': fields.varchar(label = 'Room',size=64,translate=True)
+	'street': fields.i18n(fields.varchar(label = 'Street',size=64)),
+	'street2': fields.i18n(fields.varchar(label = 'Street 2',size=64)),
+	'house': fields.i18n(fields.varchar(label = 'House',size=64)),
+	'room': fields.i18n(fields.varchar(label = 'Room',size=64))
 	}
 
 md_partner_addresses()
@@ -201,10 +201,11 @@ class md_partner_contacts(Model):
 	'partner_id': fields.many2one(label='Partner',obj='md.partner'),
 	'usage': fields.selection(label='Usage',selections=[('d','Dear')]),
 	'sequence': fields.integer(label='Sequence'),
-	'firstname': fields.varchar(label = 'First Name',size=64,translate=True),
-	'lastname': fields.varchar(label = 'Last Name',size=64,translate=True),
-	'middlename': fields.varchar(label = 'Middle Name',size=64,translate=True),
-	'fullname': fields.varchar(label = 'Full Name',compute = ["(CONCAT(firstname,' ',lastname,' ',middlename,':',birthday::STRING))",True]),
+	'firstname': fields.i18n(fields.varchar(label = 'First Name',size=64)),
+	'lastname': fields.i18n(fields.varchar(label = 'Last Name',size=64)),
+	'middlename': fields.i18n(fields.varchar(label = 'Middle Name',size=64)),
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['firstname','lastname','middlename','birthday'], translate = True,required = True, compute = '_compute_composite')),
+	#'fullname': fields.varchar(label = 'Full Name',compute = ["(CONCAT(firstname,' ',lastname,' ',middlename,':',birthday::STRING))",True]),
 	'gender': fields.selection(selections=[('male', 'Male'),('female', 'Female'),('other', 'Other')],label="Gender"),
 	'marital': fields.selection(selections=[('single', 'Single'),('married', 'Married'),('widower', 'Widower'),('divorced', 'Divorced')], label='Marital Status'),
 	'birthday': fields.date(label='Date of Birth'),
@@ -308,7 +309,7 @@ class md_banks(Model):
 	_description = 'Bank'
 	_class_model = 'B'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'street': fields.varchar(label='Street'),
 	'street2': fields.varchar(label='Street2'),
 	'zip': fields.varchar(label='ZIP'),
@@ -320,7 +321,7 @@ class md_banks(Model):
 	'bic': fields.varchar(label='Bank Identifier Code', help="Sometimes called BIC or Swift."),
 	'partners': fields.one2many(label='Partners',obj='md.partners.bank',rel='bank_id'),
 	'inactive': fields.boolean(label='Inactive'),
-	'note': fields.text(label = 'Note')
+	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
 	_indicies = {
@@ -370,7 +371,7 @@ class md_boms(Model):
 	_columns = {
 	'name': fields.varchar(label="Name"),
 	'company': fields.many2one(label='Company', obj='md.company'),
-	'fullname': fields.composite(label='Full Name', cols = ['company','name'], translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','name'], required = True, compute = '_compute_composite')),
 	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
 	'usage': fields.selection(label='Usage',selections=[('all','All')]),
 	'product': fields.many2one(label='Product',obj='md.product'),
@@ -405,7 +406,7 @@ class md_mobs(Model):
 	_columns = {
 	'name': fields.varchar(label="Name"),
 	'company': fields.many2one(label='Company', obj='md.company'),
-	'fullname': fields.composite(label='Full Name', cols = ['company','name'], translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','name'], required = True, compute = '_compute_composite')),
 	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
 	'usage': fields.selection(label='Usage',selections=[('all','All')]),
 	'product': fields.many2one(label='Product',obj='md.product'),
@@ -440,7 +441,7 @@ class md_bobs(Model):
 	_columns = {
 	'name': fields.varchar(label="Name"),
 	'company': fields.many2one(label='Company', obj='md.company'),
-	'fullname': fields.composite(label='Full Name', cols = ['company','name'], translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','name'], required = True, compute = '_compute_composite')),
 	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
 	'usage': fields.selection(label='Usage',selections=[('all','All')]),
 	'partition': fields.integer(label='Partition',required=True,check='partition > 0'),

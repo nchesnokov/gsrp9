@@ -44,7 +44,7 @@ class purchase_orders(Model):
 	'texts': fields.one2many(label='Texts',obj='purchase.order.texts',rel='order_id'),
 	'plates': fields.one2many(label='Plates',obj='purchase.order.output.plates',rel='order_id'),
 	'payments': fields.one2many(label='Payments',obj='purchase.order.payment.schedules',rel='order_id'),
-	'note': fields.text('Note')
+	'note': fields.text('Note',translate=True)
 	}
 
 	def _on_change_otype(self, item,context={}):		

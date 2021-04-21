@@ -16,7 +16,7 @@ def _set_symbol(self, symb):
 
 class _column(object):
 
-	__slots__ = ('__dict__','accept','actions','label', 'readonly','invisible', 'priority', 'domain', 'context', 'pattern','required', 'size', 'on_delete', 'on_update','on_change','on_check', 'translate', 'selections', 'selectable', 'manual', 'help', 'unique','check','family','timezone','relatedy','obj','rel','id1','id2','ref','offset','limit','compute','store','state','icon','cols','delimiter')
+	__slots__ = ('__dict__','accept','actions','label', 'column', 'readonly','invisible', 'priority', 'domain', 'context', 'pattern','required', 'size', 'on_delete', 'on_update','on_change','on_check', 'translate', 'selections', 'selectable', 'manual', 'help', 'unique','check','family','timezone','relatedy','obj','rel','id1','id2','ref','offset','limit','compute','store','state','icon','cols','delimiter')
 
 	def __init__(self, **kwargs):
 
@@ -66,7 +66,10 @@ class _column(object):
 
 		for attr in attrs:
 			if attr in self.__dict__:
-				result[attr] = self.__dict__[attr]
+				if attr == 'column':
+					result[attr] = self._get_attrs(attrs)
+				else:
+					result[attr] = self.__dict__[attr]
 			else:
 				prefix = ''
 				if attr in ('type','db_type','symbol_c','symbol_f','symbol_set','symbol_get'):
@@ -159,6 +162,13 @@ class xml(_column):
 
 	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None,translate = False, manual = None, help = None,family = 'Secondary',compute = None, store = True,state=None, actions=None, icon = None):
 		super(xml,self).__init__(label = label, readonly = readonly, invisible = invisible,priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, translate = translate, manual = manual, help= help,family = family,compute = compute, store = store, state = state, actions = actions,icon = icon)
+
+class i18n(_column):
+	_type = 'i18n'
+
+	def __init__(self, column):
+		super(i18n, self).__init__(column=column)
+	
 
 class boolean(_column):
 	_type = 'boolean'

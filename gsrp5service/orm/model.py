@@ -164,14 +164,15 @@ class BaseModelInherit(object, metaclass = MetaObjects):
 	def ifamilyInfo(self,columns):
 		return mm.ifamilyInfo(self,columns)
 
-
 #class BaseModel(object, metaclass = MetaModel):
 class BaseModel(object, metaclass = MetaObjects):
 	_name = None
 	_table = None
+	_tr_table = None
 	_class_model = 'A'
 	_class_category = None
 	_schema = None
+	_names = None
 	_inherit = None
 	_inherits = None
 	_description = None
@@ -184,7 +185,9 @@ class BaseModel(object, metaclass = MetaObjects):
 	_default = {}
 	_register = False
 	_constraints = []
+	_i18n_constraints = []
 	_sql_constraints = []
+	_i18n_sql_constraints = []
 	_order_by = "id asc"
 	_group_by = []
 	_access = None
@@ -197,6 +200,9 @@ class BaseModel(object, metaclass = MetaObjects):
 	_no_copy = []
 	_groups = {}
 	_pages = {}
+	_family = {}
+	_i18n_family ={}
+	_i18n_columns = {}
 	_indicies = {}
 	_extra = {}
 
@@ -424,6 +430,11 @@ class BaseModel(object, metaclass = MetaObjects):
 		return list(filter(lambda x: self._columns[x]._type not in ('one2many','many2many','one2related'),self._columns.keys())) 
 
 	@property
+	def _i18nfields(self):
+		return list(filter(lambda x: self._columns[x]._type == 'i18n',self._columns.keys())) 
+
+
+	@property
 	def _m2ofields(self):
 		return list(filter(lambda x: self._columns[x]._type == 'many2one',self._columns.keys())) 
 
@@ -622,8 +633,8 @@ class BaseModel(object, metaclass = MetaObjects):
 	def _getMatrixNames(self):
 		return mm._getMatrixNames(self)
 
-	def _getName(self,name):
-		return mm._getName(self,name)
+	def _getSpecName(self,name):
+		return mm._getSpecName(self,name)
 
 	def _getNames(self,names = None):
 		return mm._getNames(self,names)
@@ -662,11 +673,16 @@ class BaseModel(object, metaclass = MetaObjects):
 	# def _buildXMLForDynamicModel(self):
 		# return mm._buildXMLForDynamicModel(self)
 
-	def modelInfo(self, header = None, names = None, columns = None, attributes = None):
-		return mm.modelInfo(self, header = None, names = None, columns = None, attributes = None)
+	def modelInfo(self, args = [],kwargs = {}):
+		return mm.modelInfo(self, args, kwargs)
 
 	def columnsInfo(self, columns = None, attributes = None):
-		return mm.columnsInfo(self, columns, attributes)
+		#return mm.columnsInfo(self, columns, attributes)
+		v = mm.modelInfo(self, [],{'columns':{'columns':columns,'attributes':attributes}})
+		if 'columns' in v:
+			return v['columns']
+		
+		return v
 
 	def familyInfo(self,columns):
 		return mm.familyInfo(self,columns)
@@ -781,7 +797,7 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	@property 
 	def _MatrixNames(self):
-		return mm._getMatrixNames(self)
+		return mm._getMatrixNamesName(self)
 
 
 	@property 

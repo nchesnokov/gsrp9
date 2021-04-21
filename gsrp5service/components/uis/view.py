@@ -1,4 +1,5 @@
 from lxml import etree
+import json
 from io import BytesIO
 from gsrp5service.components.gens.views import isAllow,VIEWSGEN
 import web_pdb
@@ -48,7 +49,7 @@ def get_view_by_name(cr,pool,uid,name):
 	action['webicon'] = ''
 	v = {'root':None,'models':{}}
 	v['root'] = w['model']
-	i = pool.get(w['model']).modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
+	i = pool.get(w['model']).modelInfo() #[],{'columns':{'attributes':['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter']}})
 	v['models'][w['model']] = i
 
 	for column in i['columns'].keys():
@@ -64,7 +65,7 @@ def get_view_by_name(cr,pool,uid,name):
 
 	for m in filter(lambda x:'obj' in i['columns'][x] and i['columns'][x]['obj'],i['columns'].keys()):
 		obj = i['columns'][m]['obj']
-		v['models'][obj] = pool.get(obj).modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
+		v['models'][obj] = pool.get(obj).modelInfo() #[],{'columns':('attributes':['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter']}})
 
 		m = v['models'][obj]
 		for column in m['columns'].keys():
@@ -128,7 +129,7 @@ def get_view_by_name(cr,pool,uid,name):
 def get_views_of_model_v2(cr,pool,uid,model):
 	v = {}
 	v['root'] = 'view.' + model + '.search'
-	info = pool.get(model).modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
+	info = pool.get(model).modelInfo() #[],{'columns':{'attributes':['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter']}})
 
 	v.setdefault('models',{}).setdefault(model,{})['meta'] = info
 
@@ -161,15 +162,16 @@ def get_views_of_model_v2(cr,pool,uid,model):
 def get_meta_of_model_v2(pool,model,context):
 	trs = pool.get('bc.model.translations').select(['tr'],[('lang','=',context['lang']),('model','=',model)])
 	m = pool.get(model)
-	attrs = m.modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
+	attrs = m.modelInfo() #attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
 					
 	#web_pdb.set_trace()
 	if len(trs) > 0:
-		tr = trs[0]['tr']
+		tr = json.loads(trs[0]['tr'])
 		attrs['description'] = tr['_description']
 		for col in tr['_columns'].keys():
 			for attr in tr['_columns'][col]:
-				attrs['columns'][col][attr] = tr['_columns'][col][attr]
+				if col in attrs['columns'] and attr in attrs['columns'][col]:
+					attrs['columns'][col][attr] = tr['_columns'][col][attr]
 	
 	return attrs
 	
@@ -270,14 +272,14 @@ def get_view_by_name_v2(cr,pool,uid,name):
 	
 	models = [v['root']]
 
-	iobj = pool.get(w['model']).modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
+	iobj = pool.get(w['model']).modelInfo() #attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
 
 	
 	for m in filter(lambda x:'obj' in iobj['columns'][x] and iobj['columns'][x]['obj'],iobj['columns'].keys()):
 		models.append(iobj['columns'][m]['obj'])
 
 	for model in models:
-		info = pool.get(model).modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
+		info = pool.get(model).modelInfo() #attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
 
 		v['models'].setdefault(model,{})['meta'] = info
 
@@ -364,7 +366,7 @@ def view(cr,pool,uid,action_id = None, name = None):
 		action['webicon'] = ''
 	v = {'root':None,'models':{}}
 	v['root'] = w['model']
-	i = pool.get(w['model']).modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','relatedy','obj','rel','id1','id2','offset','limit','ref','accept','icon','cols','delimiter'])
+	i = pool.get(w['model']).modelInfo() #attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','relatedy','obj','rel','id1','id2','offset','limit','ref','accept','icon','cols','delimiter'])
 	v['models'][w['model']] = i
 
 	for column in i['columns'].keys():
@@ -380,7 +382,7 @@ def view(cr,pool,uid,action_id = None, name = None):
 
 	for m in filter(lambda x:'obj' in i['columns'][x] and i['columns'][x]['obj'],i['columns'].keys()):
 		obj = i['columns'][m]['obj']
-		v['models'][obj] = pool.get(obj).modelInfo(attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','relatedy','obj','rel','id1','id2','offset','limit','ref','icon','cols','delimiter'])
+		v['models'][obj] = pool.get(obj).modelInfo() #attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','relatedy','obj','rel','id1','id2','offset','limit','ref','icon','cols','delimiter'])
 
 		m = v['models'][obj]
 		for column in m['columns'].keys():

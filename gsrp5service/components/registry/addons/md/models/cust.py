@@ -12,7 +12,7 @@ class md_category_country(Model):
 	_description = 'Category Country'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.country'),
 	'childs_id': fields.one2many(obj = 'md.category.country',rel = 'parent_id',label = 'Childs'),
 	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
@@ -26,10 +26,10 @@ class md_category_language(Model):
 	_description = 'Category Language'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.language'),
 	'childs_id': fields.one2many(obj = 'md.category.language',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.i18n(fields.composite(label='Full Name', required = True, compute = '_compute_composite_tree')),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -40,10 +40,10 @@ class md_category_product(Model):
 	_description = 'Category Product'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.product'),
 	'childs_id': fields.one2many(obj = 'md.category.product',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.i18n(fields.composite(label='Full Name', required = True, compute = '_compute_composite_tree')),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -55,7 +55,7 @@ class md_gtis(Model):
 	_class_model = 'C'
 	_rec_name = 'code'
 	_columns = {
-	'code': fields.varchar(label = 'Code',size=64,translate=True),
+	'code': fields.i18n(fields.varchar(label = 'Code',size=64)),
 	'descr': fields.text(label = 'Description')
 	}
 
@@ -68,8 +68,8 @@ class md_type_items(Model):
 	_class_model = 'C'
 	_columns = {
 	'usage': fields.selection(label='Usage',selections=[('a','All')]),
-	'code': fields.varchar(label='Code',size=32,translate=True),
-	'descr': fields.varchar(label='Description',size=128,translate=True),
+	'code': fields.i18n(fields.varchar(label='Code',size=32)),
+	'descr': fields.i18n(fields.varchar(label='Description',size=128)),
 	'note': fields.text(label = 'Note')
 }
 
@@ -82,7 +82,7 @@ class md_type_plates(Model):
 	_class_category = 'order'
 	_columns = {
 	'usage': fields.selection(label='Usage',selections=[('a','All')]),
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -94,7 +94,7 @@ class md_products_template(Model):
 	_description = 'Product Template'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'category_id': fields.many2one(label='Category',obj='md.category.product'),
 	'mtype': fields.selection(label='Type',selections=[('p','Product'),('s','Service'),('w','Work'),('c','Consumable')]),
 	'products': fields.one2many(label = 'Products',obj='md.product',rel='template_id'),
@@ -108,10 +108,10 @@ class md_category_partner(Model):
 	_description = 'Category Partner'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.partner'),
 	'childs_id': fields.one2many(obj = 'md.category.partner',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.i18n(fields.composite(label='Full Name', required = True, compute = '_compute_composite_tree')),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -122,10 +122,10 @@ class md_category_location(Model):
 	_description = 'Category Location'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.location'),
 	'childs_id': fields.one2many(obj = 'md.category.location',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.i18n(fields.composite(label='Full Name', required = True, compute = '_compute_composite_tree')),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -138,7 +138,7 @@ class md_location(Model):
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='md.category.location'),
 	'usage': fields.selection(label='Usage',selections=[('partner', 'Partner'),('company', 'Company'),('stock', 'Stock'),('all','All')]),
-	'name': fields.varchar(label = 'Name'),
+	'name': fields.i18n(fields.varchar(label = 'Name')),
 	'latitude': fields.float(label='Latitude'),
 	'longitude': fields.float(label='Longitude'),
 	'note': fields.text('Note')}
@@ -151,8 +151,8 @@ class md_role_partners(Model):
 	_class_model = 'C'
 	_columns = {
 	'trole': fields.selection(label='Type Of Role',selections=[('c','Customer'),('s','Supplier'),('i','Internal'),('p','Person'),('a','All')]),
-	'name': fields.varchar(label='Role',size=32,translate=True),
-	'descr': fields.varchar(label='Description',size=128,translate=True),
+	'name': fields.i18n(fields.varchar(label='Role',size=32)),
+	'descr': fields.i18n(fields.varchar(label='Description',size=128)),
 	'note': fields.text(label = 'Note')
 }
 
@@ -163,7 +163,7 @@ class md_group_quantity(Model):
 	_description = 'Group Quantity'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'numerator': fields.integer(label='Numerator'),
 	'denominator': fields.integer(label='Denomerator'),
 	'parent_id': fields.many2one(label='Parent',obj='md.group.quantity'),
@@ -178,7 +178,7 @@ class md_quantity_uom(Model):
 	_description = 'Quantity Unit of Measure'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'group_id': fields.many2one(label='Group Quantity',obj='md.group.quantity'),
 	'meter': fields.integer(label='Meter',check='meter >= 0'),
 	'weight': fields.integer(label='Weight',check='weight >= 0'),
@@ -188,7 +188,7 @@ class md_quantity_uom(Model):
 	'mole': fields.integer(label='Mole',check='mole >= 0'),
 	'candelle': fields.integer(label = 'Candelle',check='candelle >= 0'),
 	'uoms': fields.one2many(label='UoM',obj='md.uom',rel='quantity_id'),
-	'note': fields.text(label = 'Note')
+	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
 	_sql_constraints = [('full_quantity_unique','unique (meter, tense, ampere, kelvin, mole, candelle,group_id)', 'Quantity unique')]
@@ -211,7 +211,7 @@ class md_uom(Model):
 	_class_model = 'C'
 	_columns = {
 	'quantity_id': fields.many2one(label='Quantity',obj='md.quantity.uom'),
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'shortname': fields.varchar(label = 'Short Name',size=32),
 	'code': fields.varchar(label = 'Code',size=3),
 	'isocode': fields.varchar(label = 'ISO Code',size=3), 
@@ -230,7 +230,7 @@ class md_vat_code(Model):
 	_description = 'Vat Code'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'subtype_vat': fields.selection(label='Subtype VAT',selections=[('i','Include'),('e','Exclude'),('n','None')]),
 	'code': fields.varchar(label = 'Code',size=16),
 	'value': fields.integer(label='Percent'),
@@ -249,7 +249,7 @@ class md_excise_code(Model):
 	_description = 'Excise Code'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'subtype_excise': fields.selection(label='Subtype Excise',selections=[('i','Include'),('e','Exclude'),('n','None')]),
 	'code': fields.varchar(label = 'Code',size=16),
 	'value': fields.integer(label='Percent'),
@@ -267,8 +267,8 @@ class md_currency(Model):
 	_description = 'Currency'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'shortname': fields.varchar(label = 'Short Name',size=32),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
+	'shortname': fields.i18n(fields.varchar(label = 'Short Name',size=32)),
 	'code': fields.varchar(label = 'Code',size=3),
 	'isocode': fields.varchar(label = 'ISO Code',size=3),
 	'currency_rate': fields.one2many(label='Currency Rate',obj='md.currency.rate',rel='currency_id'),
@@ -283,8 +283,8 @@ class md_key_currencies(Model):
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'note': fields.text(label = 'Note')
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
+	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
 md_key_currencies()
@@ -294,12 +294,12 @@ class md_incoterms(Model):
 	_description = 'Incoterms'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=4,translate=True),
-	'descr': fields.varchar(label = 'Description',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=4)),
+	'descr': fields.i18n(fields.varchar(label = 'Description',size=64)),
 	'mode': fields.selection(label='Mode Of Transport',selections=[('А','All Mode Of Transport'),('S','Sea & Water Mode oF Transport')],translate=True),
 	'grp': fields.selection(label='Group',selections=[('E','Departure'),('F','Main Carriage Unpaid'),('C','Main Carriage Paid'),('D','Arrival')],translate=True),
 	'mot': fields.selection(label='Momemt Of Transition',selections=[('se','Seller'),('sc','Customs Of Seller'),('ssh','Seller Shipping'),('ste','Seller Terminal'),('ld','Loading'),('dl','Delivery'),('ul','Unloading'),('bte','Buyer Terminal'),('bsh','Buyer Shipping'),('bc','Customs Of Buyer'),('ba','Buyer')],translate=True),
-	'note': fields.text(label = 'Note')
+	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
 md_incoterms()
@@ -310,7 +310,7 @@ class md_country_group(Model):
 	_description = 'Country Group'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'country_ids': fields.many2many(label='Countries',obj='md.country',rel='md_country_md_country_group_rel',id1='group_pd',id2='country_id')
 	}
 
@@ -324,8 +324,8 @@ class md_country(Model):
 	_description = 'Country'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'shortname': fields.varchar(label = 'Short Name',size=32),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
+	'shortname': fields.i18n(fields.varchar(label = 'Short Name',size=32)),
 	'code': fields.varchar(label = 'Code',size=3),
 	'alpha2': fields.varchar(label = 'Alpha2',size=2),
 	'alpha3': fields.varchar(label = 'Alpha3',size=3),
@@ -390,11 +390,11 @@ class md_company(Model):
 	_description = 'Company'
 	_class_model = 'C'
 	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'country_id': fields.many2one(label='Country',obj='md.country'),
 	'currency_id': fields.many2one(label='Currency',obj='md.currency'),
 	'currency_rate': fields.one2many(label='Currency Rate',obj='md.currency.rate',rel='company_id'),
-	'note': fields.text(label = 'Note')
+	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
 md_company()

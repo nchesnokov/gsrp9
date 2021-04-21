@@ -138,7 +138,7 @@ class bc_user_preferences(Model):
 	_class_model = 'K'
 	_columns = {
 	'user_id':fields.many2one(label='User',obj='bc.users',readonly=True),
-	'framework': fields.many2one(label='Web framework',obj='bc.frameworks',required=True,readonly=True),
+	#'framework': fields.many2one(label='Web framework',obj='bc.frameworks',required=True,readonly=True),
 	'lang':fields.many2one(label='Language',obj='bc.langs'),
 	'country': fields.selection(label='Country',selections='_get_countries'),
 	'timezone': fields.selection(label='Timezone', selections='_get_timezones')
@@ -309,7 +309,6 @@ class bc_model_columns(Model):
 	_columns = {
 	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
 	'col_name': fields.varchar(label = 'Name', size = 64,readonly=True),
-	#'fullname': fields.composite(label='Full Name', cols = ['model_id','col_name'], translate = True,required = True, compute = '_compute_composite'),
 	'col_type':  fields.varchar(label = 'Type', size = 64,readonly=True),
 	'label': fields.varchar(label = 'label', size = 64,readonly=True),
 	'readonly': fields.boolean(label = 'Readonly',readonly=True),
@@ -321,7 +320,6 @@ class bc_model_columns(Model):
 	'on_delete': fields.selection(label = 'On Delete',selections = [('a','No action'),('r','Restrict'),('n','Set Null'),('c','Cascade'),('d','Set default')], size = 1,readonly=True),
 	'on_update': fields.selection(label = 'On Update',selections = [('a','No action'),('r','Restrict'),('n','Set Null'),('c','Cascade'),('d','Set default')], size = 1,readonly=True),
 	'change_default': fields.boolean(label = 'Change default',readonly=True),
-	'translate': fields.boolean(label = 'Translate',readonly=True),
 	'selections': fields.text(label = 'Selections',readonly=True),
 	'selectable': fields.boolean(label = 'Selectable',readonly=True),
 	'relatedy': fields.text(label = 'Relatedy',readonly=True),
@@ -372,7 +370,6 @@ class bc_inherit_columns(Model):
 	'on_delete': fields.selection(label = 'On Delete',selections = [('a','No action'),('r','Restrict'),('n','Set Null'),('c','Cascade'),('d','Set default')], size = 1,readonly=True),
 	'on_update': fields.selection(label = 'On Update',selections = [('a','No action'),('r','Restrict'),('n','Set Null'),('c','Cascade'),('d','Set default')], size = 1,readonly=True),
 	'change_default': fields.boolean(label = 'Change default',readonly=True),
-	'translate': fields.boolean(label = 'Translate',readonly=True),
 	'selections': fields.text(label = 'Selections',readonly=True),
 	'selectable': fields.boolean(label = 'Selectable',readonly=True),
 	'filtering': fields.text(label = 'Filtering',readonly=True),
@@ -396,15 +393,32 @@ class bc_record_translations(Model):
 	_description = 'Record Translations'
 	_class_model = 'K'
 	_columns = {
-	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
-	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
 	'record': fields.uuid(label="Record ID",readonly=True),
+	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
+	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
 	'tr': fields.json(label='Translations',readonly=True)
 	}
 	
 	_indicies = {'idx_record':['record']}
 
 bc_record_translations()
+
+class bc_i18n_translations(Model):
+	_name = 'bc.i18n.translations'
+	_description = 'I18N Translations'
+	_class_model = 'K'
+	_columns = {
+	'record': fields.uuid(label="Record ID",readonly=True),
+	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
+	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
+	'col': fields.many2one(label='Column',obj='bc.model.columns',readonly=True, on_delete= 'c'),
+	'tr': fields.varchar(label='Translations',readonly=True)
+	}
+	
+	_indicies = {'idx_record':['record']}
+
+bc_i18n_translations()
+
 
 
 class bc_model_translations(Model):
@@ -535,8 +549,8 @@ class bc_tuning_ui_views(Model):
 	'name':fields.varchar(label='Name',size=128,readonly=True),
 	'view':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
 	'tuser': fields.many2one(label = 'User', obj='bc.users',readonly=True, on_delete = 'c'),
-	'fullname': fields.composite(label='Full Name', cols = ['tuser','view','name'], translate = True,required = True, compute = '_compute_composite'),
-	'values': fields.json(label='Translations',readonly=True)
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['tuser','view','name'], required = True, compute = '_compute_composite')),
+	'values': fields.json(label='Values',readonly=True)
 	}
 
 	_sql_constraints = [('view_id_seq_unique','unique (tuser,view, name)', 'Sequence unique of vies')]
@@ -552,8 +566,8 @@ class bc_general_tuning_ui_views(Model):
 	_columns = {
 	'name':fields.varchar(label='Name',size=128,readonly=True),
 	'view':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
-	'fullname': fields.composite(label='Full Name', cols = ['view','name'], translate = True,required = True, compute = '_compute_composite'),
-	'values': fields.json(label='Translations',readonly=True)
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['view','name'], required = True, compute = '_compute_composite')),
+	'values': fields.json(label='Values',readonly=True)
 	}
 
 	_sql_constraints = [('view_id_seq_unique','unique (view, name)', 'Sequence unique of vies')]

@@ -96,7 +96,7 @@ def on_conflict_clause(uf):
 
 def fields_from_order_by(self):
 	s = []
-	for s1 in self.modelInfo()['order_by'].split(','):
+	for s1 in self.modelInfo(['order_by'])['order_by'].split(','):
 		s2 = s1.split(' ')[0]
 		if s2 == 'id':
 			recname = self._getRecNameName()

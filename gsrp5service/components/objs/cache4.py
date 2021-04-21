@@ -264,7 +264,7 @@ def _createRecord(self, record, context):
 	
 	emptyfields = list(filter(lambda x: not x in record and not x in MAGIC_COLUMNS,self._requiredfields))		
 	if len(emptyfields) > 0:
-		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo()['name'], record))
+		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo(['name'])['name'], record))
 
 	trg1 = self._getTriger('bir')
 	for trg11 in trg1:
@@ -390,11 +390,12 @@ def _modifyRecords(self, records, context):
 
 def _modifyRecord(self, record, context):
 	oid = None
-	fields = list(record.keys())
-	modelfields = list(self._columns.keys())
+	i18nfields = self._i18nfields
+	fields = list(set(record.keys()) - set(i18nfields))
+	modelfields = list(set(self._columns.keys()) - set(i18nfields))
 	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS, fields))
 	if len(nomodelfields) > 0:
-		raise orm_exception("Fields: %s not found in model: %s" % (nomodelfields, self.modelInfo()['name']))
+		raise orm_exception("Fields: %s not found in model: %s" % (nomodelfields, self.modelInfo(['name'])['name']))
 	
 	for nosavedfield in self._nosavedfields:
 		if nosavedfield in record:
@@ -404,9 +405,9 @@ def _modifyRecord(self, record, context):
 	o2rfields = list(filter(lambda x: x in fields, self._o2rfields)) # o2related
 	m2mfields = list(filter(lambda x: x in fields, self._m2mfields))
 
-	emptyfields = list(filter(lambda x: x in fields and record[x] is None,self._requiredfields))		
+	emptyfields = list(filter(lambda x: x in fields and record[x] is None,list(set(self._requiredfields) - set(i18nfields))))		
 	if len(emptyfields) > 0:
-		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo()['name'], record))
+		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo(['name'])['name'], record))
 
 	o2mfieldsrecords = {}
 	o2rfieldsrecords = {} # o2related
@@ -447,11 +448,31 @@ def _modifyRecord(self, record, context):
 			for trg11 in trg1:
 				kwargs = {'r1':record,'r2':record2,'context':context}
 				trg11(**kwargs)
-		
-	sql,vals = gensql.Modify(self, record, context)
+	if 'id' in record:
+		record_m = {'id':record['id']}
+		record_t = {'id':record['id']}
+	else:
+		record_m = {}
+		record_t = {}
+			
+	for k in filter(lambda x: x != 'id',record.keys()):
+		if k in i18nfields:
+			record_t[k] = record[k]
+		else:
+			record_m[k] = record[k]
+	sql,vals = gensql.Modify(self, record_m, context)
 	rowcount = self._execute(sql,vals)
 	if rowcount > 0:
 		oid = self._cr.fetchone()[0]
+		if len(record_t) > 0:
+			if 'id' not in record_t:
+				record_t['id'] = oid
+			if 'lang' not in record_t:
+				lang = self._pool.get('bc.users').read([{'prederences':['lang']}],self._session._uid,{})
+				record_t['lang'] = lang[0]['prederences'][0]['lang']['id']
+			sql,vals = gensql.Modify(self, record_t, context)
+			rowcount = self._execute(sql,vals)
+			
 
 	if record2 is None or len(upd_cols) > 0:
 		trg2 = self._getTriger('aur')
@@ -466,7 +487,7 @@ def _unlinkRecord(self, record, context = {}):
 	if not self._access._checkUnlink():
 		orm_exception("Unlink:access dennied of model % s" % (self._name,))
 
-	model_info = self.modelInfo(attributes=['type','rel','obj','id1','id2'])
+	model_info = self.modelInfo() #attributes=['type','rel','obj','id1','id2'])
 	columns_info = model_info['columns']
 	m2mfields = list(filter(lambda x: columns_info[x]['type'] == 'many2many',self._columns.keys()))
 	for m2mfield in m2mfields:
@@ -775,7 +796,7 @@ def unlink(self, ids, context = {}):
 	if type(ids)  == str:
 		ids = [ids]
 
-	model_info = self.modelInfo(attributes=['type','rel','obj','id1','id2'])
+	model_info = self.modelInfo() #attributes=['type','rel','obj','id1','id2'])
 	columns_info = model_info['columns']
 	m2mfields = list(filter(lambda x: columns_info[x]['type'] == 'many2many',self._columns.keys()))
 	for m2mfield in m2mfields:
@@ -1044,11 +1065,11 @@ def insert(self, fields, values,context = {}):
 			for m2mfield in m2mfields:
 				columninfo = columnsinfo[m2mfield]
 				obj = columninfo['obj']
-				rel = self._getName(columninfo['rel'])
+				rel = self._getSpecName(columninfo['rel'])
 				rels = values[fm[key]]
-				id1 = self._getName(columninfo['id1'])
+				id1 = self._getSpecName(columninfo['id1'])
 				if columninfo['id2']:
-					id2 = self._getName(columninfo['id2'])
+					id2 = self._getSpecName(columninfo['id2'])
 				else:
 					id2 = _m2mfieldid2(self._pool,obj,rel)
 		
@@ -1160,11 +1181,11 @@ def upsert(self, fields, values,context = {}):
 			for m2mfield in m2mfields:
 				columninfo = columnsinfo[m2mfield]
 				obj = columninfo['obj']
-				rel = self._getName(columninfo['rel'])
+				rel = self._getSpecName(columninfo['rel'])
 				rels = values[fm[key]]
-				id1 = self._getName(columninfo['id1'])
+				id1 = self._getSpecName(columninfo['id1'])
 				if columninfo['id2']:
-					id2 = self._getName(columninfo['id2'])
+					id2 = self._getSpecName(columninfo['id2'])
 				else:
 					id2 = _m2mfieldid2(self._pool,obj,rel)
 		
@@ -1434,9 +1455,9 @@ def _tree(self, fields = None ,parent = None, context = {}):
 		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
 
 	if parent is None:
-		cond = [(self._getName('parent_id'),'?')]
+		cond = [(self._getSpecName('parent_id'),'?')]
 	else:
-		cond = [(self._getName('parent_id'),'=', parent)]
+		cond = [(self._getSpecName('parent_id'),'=', parent)]
 
 	sql,vals = gensql.Select(self,fields, cond, context,None,None)
 	rowcount = self._execute(sql,vals)
@@ -1444,7 +1465,7 @@ def _tree(self, fields = None ,parent = None, context = {}):
 	if rowcount > 0:
 		res.extend(_fetch_results(self,fields,context))
 		for r in res:
-			r[self._getName('childs_id')].extend(_tree(self, fields, r[self._getName('rec_name')], context))
+			r[self._getSpecName('childs_id')].extend(_tree(self, fields, r[self._getSpecName('rec_name')], context))
 
 	return res
 
