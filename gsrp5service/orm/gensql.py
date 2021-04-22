@@ -1,3 +1,4 @@
+import web_pdb
 from functools import reduce
 from datetime import datetime
 from .common import MAGIC_COLUMNS
@@ -170,7 +171,7 @@ def _build_aliases(self,joins=None):
 	joins = {'model1':['field1'],'model2':['field1','field2']}
 	"""
 	aliases ={}
-	curalias = 'c'
+	curalias = 'd'
 	if joins is None:
 		joins = {}
 	for key in joins.keys():
@@ -199,9 +200,18 @@ def parse_joins(self,pool, model, aliases,joins = None):
 		joins = {}
 
 	join = pool.get(model)._table + ' AS a' 
+	
+	i18nfields = pool.get(model)._i18nfields
+	if len(i18nfields) > 0:
+		join += ' LEFT OUTER JOIN ' + pool.get(model)._tr_table +' AS c ON (c.id = a.id)'	
+
+
 	parent_id = pool.get(model)._getParentIdName()
 	if parent_id and model in joins and parent_id in joins[model]:
-		join += ' LEFT OUTER JOIN ' + pool.get(model)._table +' AS b ON (b.id = a.' + parent_id + ')'
+		if len(i18nfields) > 0  and parent_id in i18nfields:
+			join += ' LEFT OUTER JOIN ' + pool.get(model)._table +' AS b ON (b.' + parent_id + ' = c.id )'
+		else:
+			join += ' LEFT OUTER JOIN ' + pool.get(model)._table +' AS b ON (b.id = a.' + parent_id + ')'
 	
 	for key in joins.keys():
 		for field in list(filter(lambda x: x in self._storefields,joins[key])):
@@ -224,6 +234,7 @@ def _build_joinmodels(self,joins = None):
 	return joinmodels
 
 def parse_cond(self,pool,aliases,models,cond = None):
+	i18nfields = self._i18nfields
 	def _cond_parse(self,pool,aliases,models,cond):
 		conds  = []
 		for c in cond:
@@ -234,17 +245,29 @@ def parse_cond(self,pool,aliases,models,cond = None):
 					parent_id = pool.get(m)._getParentIdName()
 					if recname:
 						if  parent_id and c[0] == parent_id: 
-							c0 = 'b.' + recname
+							if len(i18nfields) > 0 and recname in i18nfields:
+								c0 = 'c.' + recname
+							else:
+								c0 = 'b.' + recname
 						else:
 							if len(c) == 3 and c[1][0]  == 'r':
-								c0 = 'a.' + c[0]
+								if len(i18nfields) > 0 and c[0] in i18nfields:
+									c0 = 'c.' + c[0]
+								else:
+									c0 = 'a.' + c[0]
 								c = (c[0],c[1][1:],c[2])
 							else:
 								c0 = aliases[m][c[0]] + '.' + recname
 					else:
-						c0 = 'a.' +c[0]
+						if len(i18nfields) > 0 and c[0] in i18nfields:
+							c0 = 'c.' +c[0]
+						else:
+							c0 = 'a.' +c[0]
 				else:
-					c0 = 'a.' + c[0]
+					if len(i18nfields) > 0 and c[0] in i18nfields:
+						c0 = 'c.' + c[0]
+					else:
+						c0 = 'a.' + c[0]
 				lc = len(c)
 				if lc == 3:
 					conds.append((c0,c[1],c[2]))
@@ -288,6 +311,8 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 		if recname and type(recname) == str and recname not in fields:
 			fields.append(recname)
 
+	i18nfields = self._i18nfields
+	
 	for field in fields:
 		if type(field) == str:
 			if field in columnsmeta and columnsmeta[field] in ('one2many','many2many'):
@@ -299,13 +324,19 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 				f.append(aliases[models[field]][field] + '.' + fieldref + ' as ' + field)
 				
 			else:
-				f.append('a.' + field)
+				if len(i18nfields) == 0:
+					f.append('a.' + field)
+				else:
+					f.append('c.' + field)
 				if field in models:
 					recname = pool.get(models[field])._getRecNameName()
 					parent_id = pool.get(models[field])._getParentIdName()
 					if recname and type(recname) == str:
 						if field == parent_id:
-							f.append('b.' + recname + ' as "' + field + '-name"')
+							if len(i18nfields) == 0:
+								f.append('b.' + recname + ' as "' + field + '-name"')
+							else:
+								f.append('c.' + recname + ' as "' + field + '-name"')
 						else:
 							f.append(aliases[models[field]][field] + '.' + recname + ' as "' + field + '-name"')
 		elif type(field) == dict:
@@ -343,13 +374,22 @@ def parse_order_by(self,pool,aliases,models,order_by = None, columnsmeta=None):
 		if len(s2) == 1:
 			s2.append('asc')
 		s.append(s2)
+	
+	i18nfields = self._i18nfields
+	
 	for field,sort in s:
 		if field == 'id':
 			recname = self._getRecNameName()
 			if recname:
-				o.append(('a.'+recname,sort))
+				if len(i18nfields) > 0 and recname in i18nfields:
+					o.append(('c.'+recname,sort))
+				else:
+					o.append(('a.'+recname,sort))
 			else:
-				o.append(('a.'+field,sort))
+				if len(i18nfields) > 0 and field in i18nfields:
+					o.append(('c.'+field,sort))
+				else:
+					o.append(('a.'+field,sort))
 		elif field in columnsmeta and columnsmeta[field] in ('many2one','related'):
 			recname = pool.get(models[field])._getRecNameName()
 			if recname:
@@ -632,6 +672,7 @@ def Search(self, cond, context, limit, offset):
 	pool = self._pool
 	_f = fields_from_order_by(self)
 	
+	#web_pdb.set_trace()
 	_fields = fields_clause_select(_f).split(',')
  
 # Parses
@@ -750,6 +791,16 @@ def Modify(self,record,context):
 
 	_sql = upsert_clause() + into_clause(info['table']) + fields_clause_insert(fields) + values_clause(len(values)) + returning_clause()
 	return _sql, values
+
+def ModifyI18N(self,record,context):
+	info  = self.modelInfo()
+	fields = list(record.keys())
+	values = list(record.values())
+
+	_sql = upsert_clause() + into_clause(info['tr_table']) + fields_clause_insert(fields) + values_clause(len(values)) + returning_clause()
+	return _sql, values
+
+
 
 class WhereParse(list):
 	_cond = ""

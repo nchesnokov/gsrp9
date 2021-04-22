@@ -19,6 +19,7 @@ _logger = logging.getLogger('listener.' + __name__)
 class interface_exception(Exception): pass
 
 class Session(Component):
+	_lang2id = {}
 	def _mcache(self,args):
 		if args[0] == 'cache':
 			return self._cache[args[1]]._mcache(**(args[2]))
@@ -217,6 +218,10 @@ class User(Session):
 
 		self._cursor = None
 
+	def _setLangs(self):
+		for lang in self._models.get('bc.langs').select(['code','description']):
+			self._lang2id[lang['code']] = lang['id']
+	
 	def login(self,user,password):
 		return self._login(user,password)
 
@@ -250,6 +255,7 @@ class User(Session):
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
 	
+					self._setLangs()
 					return [self._connected,self._uid,{'country_timezones':dict(pytz.country_timezones),'country_names':dict(pytz.country_names),'langs':self._models.get('bc.langs').select(['code','description']),'preferences':self._models.get('bc.user.preferences').select(['user_id','lang','country','timezone'])}]
 				else:
 					return [False,'Invalid username or password']
@@ -392,6 +398,10 @@ class System(Session):
 			return	self._objects['queries']
 		return {}
 
+	def _setLangs(self):
+		for lang in self._models.get('bc.langs').select(['code','description']):
+			self._lang2id[lang['code']] = lang['id']
+
 	def open(self,profile):
 
 		if profile not in self._conf:
@@ -513,6 +523,8 @@ class System(Session):
 
 				for key in self._models.keys():
 					self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+		
+		self._setLangs()
 		
 		return [self._connected,self._uid]
 

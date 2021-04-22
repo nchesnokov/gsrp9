@@ -464,6 +464,7 @@ def _installModule(self,name,chunk):
 	_load_env(self,name)
 	
 	self._cr.commit()
+	self._session._setLangs()
 	_logger.info("Module: %s Installed:" % (name,))
 
 def _uninstallModule(self,name):

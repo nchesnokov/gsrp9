@@ -282,7 +282,7 @@ def _getChildsIdName(self):
 def _getRowNameName(self):
 	n = _getSpecName(self,'row_name')
 	if n:
-		if not self._columns[n]._type in ('char','varchar','selection','composite'):
+		if not self._columns[n]._type in ('char','varchar','selection','composite','i18n'):
 			n = None
 
 	return n
@@ -290,7 +290,7 @@ def _getRowNameName(self):
 def _getCompleteNameName(self):
 	n = _getSpecName(self,'complete_name')
 	if n:
-		if not self._columns[n]._type in ('char','varchar','selection','composite'):
+		if not self._columns[n]._type in ('char','varchar','selection','composite','i18n'):
 			n = None
 
 	return n
@@ -299,7 +299,7 @@ def _getCompleteNameName(self):
 def _getFullNameName(self):
 	n = _getSpecName(self,'full_name')
 	if n:
-		if not self._columns[n]._type in ('char','varchar','composite'):
+		if not self._columns[n]._type in ('char','varchar','composite','i18n'):
 			n = None
 
 	return n
@@ -1607,8 +1607,8 @@ def count(self , cond = None, context = {}):
 		orm_exception("Read:access dennied of model % s" % (self._name,))
 
 	res = []
-	if 'LANG' not in context:
-		context['LANG'] = os.environ['LANG']
+	if 'lang' not in context:
+		context['lang'] = os.environ['LANG']
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
 	if cond is None:
@@ -1638,8 +1638,8 @@ def search(self , cond = None, context = {}, limit = None, offset = None):
 
 	res = []
 
-	if 'LANG' not in context:
-		context['LANG'] = os.environ['LANG']
+	if 'lang' not in context:
+		context['lang'] = os.environ['LANG']
 
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
@@ -1669,8 +1669,8 @@ def _read(self , ids, fields = None, context = {}):
 
 	res = []
 
-	if 'LANG' not in context:
-		context['LANG'] = os.environ['LANG']
+	if 'lang' not in context:
+		context['lang'] = os.environ['LANG']
 
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
@@ -1751,8 +1751,8 @@ def _tree(self , fields = None ,parent = None, context = {}):
 
 	res = []
 
-	if 'LANG' not in context:
-		context['LANG'] = os.environ['LANG']
+	if 'lang' not in context:
+		context['lang'] = os.environ['LANG']
 
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
@@ -1792,8 +1792,8 @@ def _select(self , fields = None ,cond = None, context = {}, limit = None, offse
 
 	res = []
 
-	if 'LANG' not in context:
-		context['LANG'] = os.environ['LANG']
+	if 'lang' not in context:
+		context['lang'] = os.environ['LANG']
 
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
@@ -1851,8 +1851,8 @@ def unlink(self , ids, context = {}):
 		orm_exception("Unlink:access dennied of model % s" % (self._name,))
 
 	res = []
-	if 'LANG' not in context:
-		context['LANG'] = os.environ['LANG']
+	if 'lang' not in context:
+		context['lang'] = os.environ['LANG']
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
 	if type(ids)  == str:
@@ -2092,8 +2092,8 @@ def create(self , records, context = {}):
 					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
 						orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
 
-	if 'LANG' not in context:
-		context['LANG'] = os.environ['LANG']
+	if 'lang' not in context:
+		context['lang'] = os.environ['LANG']
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
 
@@ -2251,8 +2251,8 @@ def write(self , records, context = {}):
 				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
 					orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
 
-	if 'LANG' not in context:
-		context['LANG'] = os.environ['LANG']
+	if 'lang' not in context:
+		context['lang'] = os.environ['LANG']
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
 
@@ -2269,8 +2269,8 @@ def update(self , record, cond = None,context = {}):
 
 	res = []
 	fields = list(record.keys())
-	if 'LANG' not in context:
-		context['LANG'] = os.environ['LANG']
+	if 'lang' not in context:
+		context['lang'] = os.environ['LANG']
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
 	if cond is None:
@@ -2339,8 +2339,8 @@ def insert(self , fields, values,context = {}):
 	_fields = list(filter(lambda x: not x in nosavedfields,fields))
 
 	res = []
-	if 'LANG' not in context:
-		context['LANG'] = os.environ['LANG']
+	if 'lang' not in context:
+		context['lang'] = os.environ['LANG']
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
 
@@ -2454,8 +2454,8 @@ def upsert(self , fields, values,context = {}):
 		fields = list(filter(lambda x: not x in nosavedfields,fields))
 
 	res = []
-	if 'LANG' not in context:
-		context['LANG'] = os.environ['LANG']
+	if 'lang' not in context:
+		context['lang'] = os.environ['LANG']
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
 
@@ -2723,8 +2723,8 @@ def modify(self , records, context = {}):
 					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
 						orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
 
-	if 'LANG' not in context:
-		context['LANG'] = os.environ['LANG']
+	if 'lang' not in context:
+		context['lang'] = os.environ['LANG']
 	if 'TZ' not in context:
 		context['TZ'] = tm.tzname[1]
 

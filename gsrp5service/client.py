@@ -73,7 +73,7 @@ async def hello():
 		#async with websockets.connect('ws://www.gsrp5labs.com:8170') as ws:
 		#async with websockets.connect('ws://localhost:8170/ws') as ws:
 		async with websockets.connect('ws://localhost:8170') as ws:
-			if True:
+			if not True:
 				Uuid = await _execute([ws, '_open','gsrp5.system',{'profile':'system'}])
 				#msg = await _execute([ws,'modules','upgrademoduleslist',{'db':'test001'}])
 				#return
@@ -105,7 +105,7 @@ async def hello():
 				
 				#msg = await _execute([ws, 'modules','install',{'modules':['wkf_srm']}])
 				
-				#return
+				return
 				#msg = await _execute([ws, 'dropSlot',{'sid':'test001'}])
 				msg = await _execute([ws, 'dropSlot',{'sid':'test002'}])
 				#msg = await _execute([ws, 'slots','dropSlot',{'sid':'test003'}])
@@ -119,7 +119,7 @@ async def hello():
 			else:
 				#msg = await _execute([ws, '_slots'])
 				#return
-				msg = await _execute([ws, '_open','gsrp5.user',{'profile':'test001'}])
+				msg = await _execute([ws, '_open','gsrp5.user',{'profile':'test002'}])
 				msg = await _execute([ws, 'login',{'user':'admin','password':'admin'}])
 				#msg=await _execute([ws,'models','md.category.product','tree',{'fields':['name','parent_id','childs_id']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['hcm','wkf_srm','project']}])
@@ -129,9 +129,9 @@ async def hello():
 				#msg = await _execute([ws, 'modules','install',{'modules':['crm','purchase','sale','le','cf','ai','fa','hcm']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['ehs','scm','hcm','wm']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['le','mrp','mm','purchase']}])
-				msg = await _execute([ws, 'modеls','md.product','create',{'records': {'name':'Gasoline-100','code':'AI100'}}])
+				#msg = await _execute([ws, 'modеls','md.product','create',{'records': {'name':'Gasoline-100','code':'AI100'}}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['mm']}])
-				#msg = await _execute([ws, 'modules','load',{'modules':{'srm_ru':['view']}}])
+				msg = await _execute([ws, 'modules','load',{'modules':{'md':['example']}}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['sale']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':{'srm':['env','view','example','data','demo','test','i18n']}}])
 				#msg = await _execute([ws, 'modules','install',{'modules':{'sale':['example']}}])
