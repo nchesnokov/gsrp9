@@ -158,7 +158,15 @@ def _build_joins(self,modinfo,fields,condfields):
 	joins = {}
 	for field in filter(lambda x: x in fields or x in condfields,self._joinfields):
 		if 'obj' in modinfo['columns'][field]:
-			joins.setdefault(modinfo['columns'][field]['obj'],[]).append(field)
+			obj = modinfo['columns'][field]['obj']
+			m = self._pool.get(obj)
+			i18nfields = m._i18nfields
+			tr_table = m._tr_table
+			recname = m._RecNameName
+			if len(i18nfields) > 0 and recname in i18nfields:
+				joins.setdefault(tr_table,[]).append(field)
+			else:
+				joins.setdefault(modinfo['columns'][field]['obj'],[]).append(field)
 		else:
 			objref,fieldref = modinfo['columns'][field]['ref'].split('.')
 			obj = modinfo['columns'][objref]['obj']
@@ -192,7 +200,7 @@ def _build_aliases(self,joins=None):
 			
 	return aliases
 
-def parse_joins(self,pool, model, aliases,joins = None):
+def parse_joins(self,context,pool, model, aliases,joins = None):
 	"""
 	joins = {'model1':'field1','model2':'field2'}
 	"""
@@ -203,7 +211,7 @@ def parse_joins(self,pool, model, aliases,joins = None):
 	
 	i18nfields = pool.get(model)._i18nfields
 	if len(i18nfields) > 0:
-		join += ' LEFT OUTER JOIN ' + pool.get(model)._tr_table +' AS c ON (c.id = a.id)'	
+		join += ' LEFT OUTER JOIN ' + pool.get(model)._tr_table +" AS c ON (c.id = a.id and c.lang = '%s')" % (self._session._lang2id[context['lang'].upper()],)	
 
 
 	parent_id = pool.get(model)._getParentIdName()
@@ -215,7 +223,10 @@ def parse_joins(self,pool, model, aliases,joins = None):
 	
 	for key in joins.keys():
 		for field in list(filter(lambda x: x in self._storefields,joins[key])):
-			join += ' LEFT OUTER JOIN '+pool.get(key)._table + ' AS ' + aliases[key][field] + ' ON (' + aliases[key][field] + '.id = a.'  + field  + ')'
+			if key in pool:
+				join += ' LEFT OUTER JOIN ' + pool.get(key)._table + ' AS ' + aliases[key][field] + ' ON (' + aliases[key][field] + '.id = a.'  + field  + ')'
+			else:
+				join += ' LEFT OUTER JOIN ' + key + ' AS ' + aliases[key][field] + ' ON (' + aliases[key][field] + '.id = a.'  + field  + ')'
 		
 	return join
 
@@ -241,8 +252,13 @@ def parse_cond(self,pool,aliases,models,cond = None):
 			if type(c) == tuple:
 				if c[0] in models:
 					m = models[c[0]]
-					recname = pool.get(m)._getRecNameName()
-					parent_id = pool.get(m)._getParentIdName()
+					if m in pool:
+						recname = pool.get(m)._getRecNameName()
+						parent_id = pool.get(m)._getParentIdName()
+					else:
+						modinfo = pool.get(self._columns[tuple(aliases[m].keys())[0]].obj).modelInfo()
+						recname = modinfo['names']['rec_name']
+						parent_id = modinfo['names']['parent_id']
 					if recname:
 						if  parent_id and c[0] == parent_id: 
 							if len(i18nfields) > 0 and recname in i18nfields:
@@ -313,6 +329,7 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 
 	i18nfields = self._i18nfields
 	
+	#web_pdb.set_trace()
 	for field in fields:
 		if type(field) == str:
 			if field in columnsmeta and columnsmeta[field] in ('one2many','many2many'):
@@ -323,22 +340,48 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 				obj = self.columnsInfo(columns=[objref])[objref]['obj']
 				f.append(aliases[models[field]][field] + '.' + fieldref + ' as ' + field)
 				
-			else:
-				if len(i18nfields) == 0:
-					f.append('a.' + field)
-				else:
-					f.append('c.' + field)
-				if field in models:
-					recname = pool.get(models[field])._getRecNameName()
-					parent_id = pool.get(models[field])._getParentIdName()
+			elif field in columnsmeta and columnsmeta[field] in ('many2one','related'):
+				modinfo = self._pool.get(self.modelInfo()['columns'][field]['obj']).modelInfo()
+				parent_id = modinfo['names']['parent_id']
+				recname = modinfo['names']['rec_name']
+				if modinfo['name'] == models[field]:
+
+					if len(i18nfields) > 0 and field in i18nfields:
+						f.append('c.' + field)
+					else:
+						if parent_id and field == parent_id:
+							f.append('b.' + field)
+						else:
+							f.append('a.' + field)
+
+					#recname = pool.get(models[field])._getRecNameName()
+					#parent_id = pool.get(models[field])._getParentIdName()
 					if recname and type(recname) == str:
-						if field == parent_id:
-							if len(i18nfields) == 0:
-								f.append('b.' + recname + ' as "' + field + '-name"')
-							else:
+						if parent_id and field == parent_id:
+							if len(i18nfields) > 0 and recname in i18nfields:
 								f.append('c.' + recname + ' as "' + field + '-name"')
+							else:
+								f.append('b.' + recname + ' as "' + field + '-name"')
 						else:
 							f.append(aliases[models[field]][field] + '.' + recname + ' as "' + field + '-name"')
+				elif modinfo['tr_table'] == models[field]:
+					if parent_id and field == parent_id:
+						f.append('b.' + field)
+					else:
+						f.append('a.' + field)
+
+					#f.append(aliases[models[field]][field] + '.' + field )
+					#recname = pool.get(modinfo['name'])._getRecNameName()
+					#parent_id = pool.get(modinfo['name'])._getParentIdName()
+					#f.append(aliases[models[field]][field] + '.' + field )
+					if recname and type(recname) == str:
+						f.append(aliases[models[field]][field] + '.' + recname + ' as "' + field + '-name"')
+
+			else:
+				if len(i18nfields) > 0 and field in i18nfields:
+					f.append('c.' + field)
+				else:
+					f.append('a.' + field)
 		elif type(field) == dict:
 			for vf in field.keys():
 				if vf in columnsmeta and columnsmeta[vf] in ('one2many','many2many'):
@@ -620,7 +663,7 @@ def Read(self,ids,fields,context):
 	aliases = _build_aliases(self=self,joins=joins)
 	joinmodels = _build_joinmodels(self=self,joins = joins)
 	_fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
-	join = parse_joins(self=self,pool = pool, model = info['name'], aliases = aliases,joins = joins)
+	join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)
 	cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
 	order_by = parse_order_by(self = self,pool = pool,aliases = aliases,models=joinmodels,order_by = info['order_by'], columnsmeta = self._columnsmeta)
 # Parses
@@ -650,7 +693,7 @@ def Select(self, fields, cond, context, limit = None, offset = None):
 	aliases = _build_aliases(self=self,joins=joins)
 	joinmodels = _build_joinmodels(self=self,joins = joins)
 	_fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
-	join = parse_joins(self=self,pool = pool, model = info['name'], aliases = aliases,joins = joins)	
+	join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)	
 	cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
 	order_by = parse_order_by(self = self,pool = pool,aliases = aliases,models=joinmodels,order_by = info['order_by'], columnsmeta = self._columnsmeta)
 	
@@ -665,6 +708,7 @@ def Select(self, fields, cond, context, limit = None, offset = None):
 		_values.append(offset)
 
 	_sql = select_clause() + fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
+	#print('SQL:', _sql,_values)
 	return _sql,_values
 #tested
 def Search(self, cond, context, limit, offset):
@@ -682,7 +726,7 @@ def Search(self, cond, context, limit, offset):
 	aliases = _build_aliases(self=self,joins=joins)
 	joinmodels = _build_joinmodels(self=self,joins = joins)
 	_fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
-	join = parse_joins(self=self,pool = pool, model = info['name'], aliases = aliases,joins = joins)
+	join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)
 	cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
 	order_by = parse_order_by(self = self,pool = pool,aliases = aliases,models=joinmodels,order_by = info['order_by'], columnsmeta = self._columnsmeta)
 # Parses
@@ -710,7 +754,7 @@ def Count(self,cond,context):
 	aliases = _build_aliases(self=self,joins=joins)
 	joinmodels = _build_joinmodels(self=self,joins = joins)
 	_fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
-	join = parse_joins(self=self,pool = pool, model = info['name'], aliases = aliases,joins = joins)
+	join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)
 	cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
 # Parses
 

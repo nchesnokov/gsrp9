@@ -166,8 +166,8 @@ class xml(_column):
 class i18n(_column):
 	_type = 'i18n'
 
-	def __init__(self, column):
-		super(i18n, self).__init__(column=column)
+	def __init__(self, column, store = True):
+		super(i18n, self).__init__(column=column, store = store)
 	
 
 class boolean(_column):

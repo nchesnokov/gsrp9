@@ -1110,14 +1110,14 @@ def _loadCSVFile(self,info,path,name,fl):
 						rows = list(filter(lambda x:x[parent_id] is None,records))
 						_convertFromYAML(self,model,rows)
 						while len(rows) > 0:
-							ir = self._session._models.get(model).modify(rows,{})
+							ir = self._session._models.get(model).modify(rows,{'lang':'EN'})
 							self._cr.commit()
 							parents = list(map(lambda x:x[rec_name],rows))
 							rows = list(filter(lambda x:parent_id in x and x[parent_id] in parents,records))
 							_convertFromYAML(self,model,rows)
 					else:
 						_convertFromYAML(self,model,records)
-						ir = self._session._models.get(model).modify(records,{})
+						ir = self._session._models.get(model).modify(records,{'lang':'EN'})
 					_logger.info("    Loaded annotation file: %s - records:%s" % (opj(path,name,f),len(ir)))
 
 def _loadXMLFile(self,info,path,name,fl):
