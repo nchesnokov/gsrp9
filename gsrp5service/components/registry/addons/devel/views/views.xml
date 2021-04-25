@@ -104,6 +104,136 @@
             </find>
           </column>
         </record>
+        <record id="view.devel.models.devel.ui.view.types.form">
+          <column name="name">view.devel.models.devel.ui.view.types.form</column>
+          <column name="model">devel.ui.view.types</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="framework"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="code"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.devel.models.devel.ui.view.types.list">
+          <column name="name">view.devel.models.devel.ui.view.types.list</column>
+          <column name="model">devel.ui.view.types</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="framework"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="code"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.devel.models.devel.ui.view.types.m2mlist">
+          <column name="name">view.devel.models.devel.ui.view.types.m2mlist</column>
+          <column name="model">devel.ui.view.types</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="framework"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="code"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.devel.models.devel.ui.view.types.search">
+          <column name="name">view.devel.models.devel.ui.view.types.search</column>
+          <column name="model">devel.ui.view.types</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="framework"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="code"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.devel.models.devel.ui.view.types.find">
+          <column name="name">view.devel.models.devel.ui.view.types.find</column>
+          <column name="model">devel.ui.view.types</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="framework"/>
+              <field name="name"/>
+              <field name="fullname"/>
+              <field name="code"/>
+            </find>
+          </column>
+        </record>
+        <record id="view.devel.models.devel.ui.models.form">
+          <column name="name">view.devel.models.devel.ui.models.form</column>
+          <column name="model">devel.ui.models</column>
+          <column name="arch" type="Xml">
+            <form>
+              <field name="fullname"/>
+              <field name="framework"/>
+              <field name="model"/>
+              <field name="vtype"/>
+              <field name="template"/>
+              <field name="script"/>
+              <field name="style"/>
+              <field name="scoped"/>
+              <field name="note"/>
+            </form>
+          </column>
+        </record>
+        <record id="view.devel.models.devel.ui.models.list">
+          <column name="name">view.devel.models.devel.ui.models.list</column>
+          <column name="model">devel.ui.models</column>
+          <column name="arch" type="Xml">
+            <list>
+              <field name="fullname"/>
+              <field name="framework"/>
+              <field name="model"/>
+              <field name="vtype"/>
+              <field name="scoped"/>
+            </list>
+          </column>
+        </record>
+        <record id="view.devel.models.devel.ui.models.m2mlist">
+          <column name="name">view.devel.models.devel.ui.models.m2mlist</column>
+          <column name="model">devel.ui.models</column>
+          <column name="arch" type="Xml">
+            <m2mlist>
+              <field name="fullname"/>
+              <field name="framework"/>
+              <field name="model"/>
+              <field name="vtype"/>
+              <field name="scoped"/>
+            </m2mlist>
+          </column>
+        </record>
+        <record id="view.devel.models.devel.ui.models.search">
+          <column name="name">view.devel.models.devel.ui.models.search</column>
+          <column name="model">devel.ui.models</column>
+          <column name="arch" type="Xml">
+            <search>
+              <field name="fullname"/>
+              <field name="framework"/>
+              <field name="model"/>
+              <field name="vtype"/>
+              <field name="scoped"/>
+            </search>
+          </column>
+        </record>
+        <record id="view.devel.models.devel.ui.models.find">
+          <column name="name">view.devel.models.devel.ui.models.find</column>
+          <column name="model">devel.ui.models</column>
+          <column name="arch" type="Xml">
+            <find>
+              <field name="fullname"/>
+              <field name="framework"/>
+              <field name="model"/>
+              <field name="vtype"/>
+              <field name="scoped"/>
+            </find>
+          </column>
+        </record>
       </records>
     </data>
   </gsrp>

@@ -60,6 +60,46 @@
             <column name="note">Module: devel Type: models Object: devel.messages grant: crw</column>
             <column name="group_id">devel.models.crw</column>
         </record>
+        <record id="role.devel.models.devel.ui.view.types.readonly">
+            <column name="name">role.devel.models.devel.ui.view.types.readonly</column>
+            <column name="note">Module: devel Type: models Object: devel.ui.view.types grant: readonly</column>
+            <column name="group_id">devel.models.readonly</column>
+        </record>
+        <record id="role.devel.models.devel.ui.view.types.nodrop">
+            <column name="name">role.devel.models.devel.ui.view.types.nodrop</column>
+            <column name="note">Module: devel Type: models Object: devel.ui.view.types grant: nodrop</column>
+            <column name="group_id">devel.models.nodrop</column>
+        </record>
+        <record id="role.devel.models.devel.ui.view.types.full">
+            <column name="name">role.devel.models.devel.ui.view.types.full</column>
+            <column name="note">Module: devel Type: models Object: devel.ui.view.types grant: full</column>
+            <column name="group_id">devel.models.full</column>
+        </record>
+        <record id="role.devel.models.devel.ui.view.types.crw">
+            <column name="name">role.devel.models.devel.ui.view.types.crw</column>
+            <column name="note">Module: devel Type: models Object: devel.ui.view.types grant: crw</column>
+            <column name="group_id">devel.models.crw</column>
+        </record>
+        <record id="role.devel.models.devel.ui.models.readonly">
+            <column name="name">role.devel.models.devel.ui.models.readonly</column>
+            <column name="note">Module: devel Type: models Object: devel.ui.models grant: readonly</column>
+            <column name="group_id">devel.models.readonly</column>
+        </record>
+        <record id="role.devel.models.devel.ui.models.nodrop">
+            <column name="name">role.devel.models.devel.ui.models.nodrop</column>
+            <column name="note">Module: devel Type: models Object: devel.ui.models grant: nodrop</column>
+            <column name="group_id">devel.models.nodrop</column>
+        </record>
+        <record id="role.devel.models.devel.ui.models.full">
+            <column name="name">role.devel.models.devel.ui.models.full</column>
+            <column name="note">Module: devel Type: models Object: devel.ui.models grant: full</column>
+            <column name="group_id">devel.models.full</column>
+        </record>
+        <record id="role.devel.models.devel.ui.models.crw">
+            <column name="name">role.devel.models.devel.ui.models.crw</column>
+            <column name="note">Module: devel Type: models Object: devel.ui.models grant: crw</column>
+            <column name="group_id">devel.models.crw</column>
+        </record>
       </records>
       <records model="bc.obj.access">
         <record id="access.role.devel.models.devel.area.messages.readonly">
@@ -115,6 +155,64 @@
         <record id="access.role.devel.models.devel.messages.crw">
             <column name="access_id">role.devel.models.devel.messages.crw</column>
             <column name="object_id">devel.messages</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.devel.models.devel.ui.view.types.readonly">
+            <column name="access_id">role.devel.models.devel.ui.view.types.readonly</column>
+            <column name="object_id">devel.ui.view.types</column>
+          <column name="aread">True</column>
+        </record>
+        <record id="access.role.devel.models.devel.ui.view.types.nodrop">
+            <column name="access_id">role.devel.models.devel.ui.view.types.nodrop</column>
+            <column name="object_id">devel.ui.view.types</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+        </record>
+        <record id="access.role.devel.models.devel.ui.view.types.full">
+            <column name="access_id">role.devel.models.devel.ui.view.types.full</column>
+            <column name="object_id">devel.ui.view.types</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aunlink">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.devel.models.devel.ui.view.types.crw">
+            <column name="access_id">role.devel.models.devel.ui.view.types.crw</column>
+            <column name="object_id">devel.ui.view.types</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.devel.models.devel.ui.models.readonly">
+            <column name="access_id">role.devel.models.devel.ui.models.readonly</column>
+            <column name="object_id">devel.ui.models</column>
+          <column name="aread">True</column>
+        </record>
+        <record id="access.role.devel.models.devel.ui.models.nodrop">
+            <column name="access_id">role.devel.models.devel.ui.models.nodrop</column>
+            <column name="object_id">devel.ui.models</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+        </record>
+        <record id="access.role.devel.models.devel.ui.models.full">
+            <column name="access_id">role.devel.models.devel.ui.models.full</column>
+            <column name="object_id">devel.ui.models</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aunlink">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.devel.models.devel.ui.models.crw">
+            <column name="access_id">role.devel.models.devel.ui.models.crw</column>
+            <column name="object_id">devel.ui.models</column>
           <column name="aread">True</column>
           <column name="acreate">True</column>
           <column name="awrite">True</column>

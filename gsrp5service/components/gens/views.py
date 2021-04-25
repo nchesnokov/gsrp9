@@ -392,7 +392,7 @@ def Records(level,pool,registry,module,models):
 
 	indent = TAB * level
 
-	b.write((indent + '<records model="%s">\n' % ('bc.ui.views',)).encode('utf-8'))
+	b.write((indent + '<records model="%s">\n' % ('devel.meta.ui.views',)).encode('utf-8'))
 
 	for model in models:
 		modelinfo = model.modelInfo()
@@ -405,7 +405,7 @@ def iRecords(level,pool,registry,module,models):
 
 	indent = TAB * level
 
-	b.write((indent + '<records model="%s">\n' % ('bc.ui.views.inherit',)).encode('utf-8'))
+	b.write((indent + '<records model="%s">\n' % ('devel.meta.ui.view.inherits',)).encode('utf-8'))
 
 	for model in models:
 		modelinfo = model.imodelInfo()

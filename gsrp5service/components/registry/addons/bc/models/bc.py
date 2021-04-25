@@ -107,19 +107,6 @@ class bc_users(Model):
 
 bc_users()
 
-class bc_web_frameworks(Model):
-	_name = 'bc.frameworks'
-	_description = 'Web Frameworks'
-	_rec_name = 'code'
-	_class_model = 'K'
-	_columns = {
-	'code': fields.varchar(label='Web Framework',size = 16,readonly=True),
-	'description': fields.varchar(label='Description', size = 64,readonly=True)
-	}
-
-bc_web_frameworks()
-
-
 class bc_langs(Model):
 	_name = 'bc.langs'
 	_description = 'Langs'
@@ -138,7 +125,6 @@ class bc_user_preferences(Model):
 	_class_model = 'K'
 	_columns = {
 	'user_id':fields.many2one(label='User',obj='bc.users',readonly=True),
-	#'framework': fields.many2one(label='Web framework',obj='bc.frameworks',required=True,readonly=True),
 	'lang':fields.many2one(label='Language',obj='bc.langs'),
 	'country': fields.selection(label='Country',selections='_get_countries'),
 	'timezone': fields.selection(label='Timezone', selections='_get_timezones')
@@ -468,7 +454,7 @@ class bc_access(Model):
 	_columns = {
 	'name': fields.varchar(label="Access",readonly=True),
 	'group_id': fields.many2one(label='Group',obj='bc.group.access',readonly=True, on_delete = 'c'),
-	'objs': fields.one2many(label='Models',obj='bc.obj.access',rel='access_id',readonly=True),
+	'objs': fields.one2many(label='Objects',obj='bc.obj.access',rel='access_id',readonly=True),
 	'inactive': fields.boolean('Inactive',readonly=True),
 	'note': fields.text(label='Note',readonly=True)
 	}
@@ -498,81 +484,23 @@ class bc_obj_access(Model):
 
 bc_obj_access()
 
-class bc_model_data(Model):
-	_name = 'bc.model.data'
-	_description = 'Loading Model XML Data'
+class bc_objects_data(Model):
+	_name = 'bc.object.data'
+	_description = 'Loading Object XML Data'
 	_class_model = 'K'
-	_table = 'bc_model_data'
+	_table = 'bc_object_data'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size = 256,readonly=True),
 	'module': fields.varchar(label = 'Module',size = 64,selectable=True,readonly=True),
-	'model': fields.varchar(label = 'Model',size = 64,selectable=True,readonly=True),
+	'tobj': fields.selection(label = 'Type Object',selections=[('model','Model'),('imodel','Model Inherit')],selectable=True,readonly=True),
+	'obj': fields.varchar(label = 'Object',size = 64,selectable=True,readonly=True),
 	'rec_id': fields.uuid(label = 'ID record',readonly=True),
 	'file_id': fields.many2one(label='File',obj='bc.module.files',readonly=True),
 	'date_init': fields.datetime(label = 'Timestamp init', timezone = False,readonly=True),
 	'date_update': fields.datetime(label = 'Timestamp update', timezone = False,readonly=True)
 	}
 
-
-class bc_ui_views(Model):
-	_name = 'bc.ui.views'
-	_description = 'Models views'
-	_class_model = 'K'
-	_columns = {
-	'name':fields.varchar(label = 'View name', size = 128,readonly=True),
-	'model': fields.varchar(label = 'Model Name', size = 64,selectable=True,readonly=True),
-	'type': fields.selection(label = 'Arch Type', selections = [('xml','Xml'),('html','Html')],readonly=True),
-	'arch': fields.xml(label = 'Arch Blob',readonly=True),
-	'inherit_views': fields.one2many(label='Inherit Views',obj='bc.ui.views.inherit',rel='view_id',readonly=True)
-	}
-
-bc_ui_views()
-
-class bc_ui_views_inherit(Model):
-	_name = 'bc.ui.views.inherit'
-	_description = 'Models Views Inherit'
-	_class_model = 'K'
-	_columns = {
-	'view_id': fields.many2one(label='View',obj='bc.ui.views',readonly=True),
-	'name':fields.varchar(label = 'Inherit', size = 128,readonly=True),
-	'type': fields.selection(label = 'Arch Type', selections = [('xml','Xml'),('html','Html')],readonly=True),
-	'arch':fields.xml(label = 'Arch Blob',readonly=True)
-	}
-
-bc_ui_views_inherit()
-
-class bc_tuning_ui_views(Model):
-	_name = 'bc.tuning.ui.views'
-	_description = 'Tunning Models Views'
-	_class_model = 'K'
-	_columns = {
-	'name':fields.varchar(label='Name',size=128,readonly=True),
-	'view':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
-	'tuser': fields.many2one(label = 'User', obj='bc.users',readonly=True, on_delete = 'c'),
-	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['tuser','view','name'], required = True, compute = '_compute_composite')),
-	'values': fields.json(label='Values',readonly=True)
-	}
-
-	_sql_constraints = [('view_id_seq_unique','unique (tuser,view, name)', 'Sequence unique of vies')]
-
-bc_tuning_ui_views()
-
-
-
-class bc_general_tuning_ui_views(Model):
-	_name = 'bc.general.tuning.ui.views'
-	_description = 'General Tunning Models Views'
-	_class_model = 'K'
-	_columns = {
-	'name':fields.varchar(label='Name',size=128,readonly=True),
-	'view':fields.many2one(label = 'View', obj='bc.ui.views',readonly=True, on_delete = 'c'),
-	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['view','name'], required = True, compute = '_compute_composite')),
-	'values': fields.json(label='Values',readonly=True)
-	}
-
-	_sql_constraints = [('view_id_seq_unique','unique (view, name)', 'Sequence unique of vies')]
-
-bc_general_tuning_ui_views()
+bc_objects_data()
 
 class bc_ui_reports(Model):
 	_name ='bc.ui.reports'

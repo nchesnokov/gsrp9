@@ -40,6 +40,26 @@
             <column name="note">Module: bc Type: models Object: bc.users grant: crw</column>
             <column name="group_id">bc.models.crw</column>
         </record>
+        <record id="role.bc.models.bc.frameworks.readonly">
+            <column name="name">role.bc.models.bc.frameworks.readonly</column>
+            <column name="note">Module: bc Type: models Object: bc.frameworks grant: readonly</column>
+            <column name="group_id">bc.models.readonly</column>
+        </record>
+        <record id="role.bc.models.bc.frameworks.nodrop">
+            <column name="name">role.bc.models.bc.frameworks.nodrop</column>
+            <column name="note">Module: bc Type: models Object: bc.frameworks grant: nodrop</column>
+            <column name="group_id">bc.models.nodrop</column>
+        </record>
+        <record id="role.bc.models.bc.frameworks.full">
+            <column name="name">role.bc.models.bc.frameworks.full</column>
+            <column name="note">Module: bc Type: models Object: bc.frameworks grant: full</column>
+            <column name="group_id">bc.models.full</column>
+        </record>
+        <record id="role.bc.models.bc.frameworks.crw">
+            <column name="name">role.bc.models.bc.frameworks.crw</column>
+            <column name="note">Module: bc Type: models Object: bc.frameworks grant: crw</column>
+            <column name="group_id">bc.models.crw</column>
+        </record>
         <record id="role.bc.models.bc.langs.readonly">
             <column name="name">role.bc.models.bc.langs.readonly</column>
             <column name="note">Module: bc Type: models Object: bc.langs grant: readonly</column>
@@ -318,6 +338,26 @@
         <record id="role.bc.models.bc.record.translations.crw">
             <column name="name">role.bc.models.bc.record.translations.crw</column>
             <column name="note">Module: bc Type: models Object: bc.record.translations grant: crw</column>
+            <column name="group_id">bc.models.crw</column>
+        </record>
+        <record id="role.bc.models.bc.i18n.translations.readonly">
+            <column name="name">role.bc.models.bc.i18n.translations.readonly</column>
+            <column name="note">Module: bc Type: models Object: bc.i18n.translations grant: readonly</column>
+            <column name="group_id">bc.models.readonly</column>
+        </record>
+        <record id="role.bc.models.bc.i18n.translations.nodrop">
+            <column name="name">role.bc.models.bc.i18n.translations.nodrop</column>
+            <column name="note">Module: bc Type: models Object: bc.i18n.translations grant: nodrop</column>
+            <column name="group_id">bc.models.nodrop</column>
+        </record>
+        <record id="role.bc.models.bc.i18n.translations.full">
+            <column name="name">role.bc.models.bc.i18n.translations.full</column>
+            <column name="note">Module: bc Type: models Object: bc.i18n.translations grant: full</column>
+            <column name="group_id">bc.models.full</column>
+        </record>
+        <record id="role.bc.models.bc.i18n.translations.crw">
+            <column name="name">role.bc.models.bc.i18n.translations.crw</column>
+            <column name="note">Module: bc Type: models Object: bc.i18n.translations grant: crw</column>
             <column name="group_id">bc.models.crw</column>
         </record>
         <record id="role.bc.models.bc.model.translations.readonly">
@@ -646,6 +686,35 @@
         <record id="access.role.bc.models.bc.users.crw">
             <column name="access_id">role.bc.models.bc.users.crw</column>
             <column name="object_id">bc.users</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.frameworks.readonly">
+            <column name="access_id">role.bc.models.bc.frameworks.readonly</column>
+            <column name="object_id">bc.frameworks</column>
+          <column name="aread">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.frameworks.nodrop">
+            <column name="access_id">role.bc.models.bc.frameworks.nodrop</column>
+            <column name="object_id">bc.frameworks</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.frameworks.full">
+            <column name="access_id">role.bc.models.bc.frameworks.full</column>
+            <column name="object_id">bc.frameworks</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aunlink">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.frameworks.crw">
+            <column name="access_id">role.bc.models.bc.frameworks.crw</column>
+            <column name="object_id">bc.frameworks</column>
           <column name="aread">True</column>
           <column name="acreate">True</column>
           <column name="awrite">True</column>
@@ -1052,6 +1121,35 @@
         <record id="access.role.bc.models.bc.record.translations.crw">
             <column name="access_id">role.bc.models.bc.record.translations.crw</column>
             <column name="object_id">bc.record.translations</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.i18n.translations.readonly">
+            <column name="access_id">role.bc.models.bc.i18n.translations.readonly</column>
+            <column name="object_id">bc.i18n.translations</column>
+          <column name="aread">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.i18n.translations.nodrop">
+            <column name="access_id">role.bc.models.bc.i18n.translations.nodrop</column>
+            <column name="object_id">bc.i18n.translations</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.i18n.translations.full">
+            <column name="access_id">role.bc.models.bc.i18n.translations.full</column>
+            <column name="object_id">bc.i18n.translations</column>
+          <column name="aread">True</column>
+          <column name="acreate">True</column>
+          <column name="awrite">True</column>
+          <column name="aunlink">True</column>
+          <column name="aexecute">True</column>
+        </record>
+        <record id="access.role.bc.models.bc.i18n.translations.crw">
+            <column name="access_id">role.bc.models.bc.i18n.translations.crw</column>
+            <column name="object_id">bc.i18n.translations</column>
           <column name="aread">True</column>
           <column name="acreate">True</column>
           <column name="awrite">True</column>
