@@ -2,7 +2,7 @@ import os
 import logging
 from os.path import join as opj
 from io import BytesIO
-from .views import isAllow,VIEWSGEN
+from .views import isAllow
 from .common import concat
 from gsrp5service.orm.model import Model
 import web_pdb
@@ -125,7 +125,7 @@ def Area(self, modules = None, context={}):
 		objs = {}
 		cust_objs = {}
 		if module in registry._metas:
-			for cat in filter(lambda x: x in ('dashboards','models','views','reports','wizards'),registry._metas[module].keys()):
+			for cat in filter(lambda x: x in ('dashboards','models','views','reports','wizards','link','wkf'),registry._metas[module].keys()):
 				for key in registry._metas[module][cat].keys():
 					obj = registry._create_module_object(cat,key,module)
 					if isinstance(obj,Model):

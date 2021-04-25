@@ -1,7 +1,7 @@
 from lxml import etree
 import json
 from io import BytesIO
-from gsrp5service.components.gens.views import isAllow,VIEWSGEN
+from gsrp5service.components.gens.views import isAllow
 import web_pdb
 
 def get_viewname_by_window_action_id(cr,pool,uid,action_id):

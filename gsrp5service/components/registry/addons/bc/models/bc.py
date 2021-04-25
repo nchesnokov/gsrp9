@@ -12,7 +12,7 @@ class bc_users(Model):
 	_description = 'Users'
 	_log_access = False
 	_rec_name = 'login'
-	_class_model = 'K'
+	_class_object = 'K'
 	_columns = {
 	'login': fields.varchar('Login', required = True, size = 64,readonly=True),
 	'password': fields.varchar('Password', required = True,readonly=True),
@@ -111,7 +111,7 @@ class bc_langs(Model):
 	_name = 'bc.langs'
 	_description = 'Langs'
 	_rec_name = 'code'
-	_class_model = 'K'
+	_class_object = 'K'
 	_columns = {
 	'code': fields.varchar(label='Language',size = 3,readonly=True),
 	'description': fields.varchar(label='Description', size = 64,readonly=True)
@@ -122,17 +122,17 @@ bc_langs()
 class bc_user_preferences(Model):
 	_name = 'bc.user.preferences'
 	_description = 'User Preferncess'
-	_class_model = 'K'
+	_class_object = 'K'
 	_columns = {
 	'user_id':fields.many2one(label='User',obj='bc.users',readonly=True),
 	'lang':fields.many2one(label='Language',obj='bc.langs'),
 	'country': fields.selection(label='Country',selections='_get_countries'),
 	'timezone': fields.selection(label='Timezone', selections='_get_timezones')
 	}
-	def _get_countries(self):
+	def _get_countries(self, item = {}, context = {}):
 		return list(pytz.country_names.items())
 
-	def _get_timezones(self):
+	def _get_timezones(self, item = {}, context = {}):
 		res = []
 		for v in pytz.all_timezones:
 			res.append((v,v))
@@ -144,7 +144,7 @@ bc_user_preferences()
 class bc_group_modules(Model):
 	_name = 'bc.group.modules'
 	_description = 'Module Groups'
-	_class_model = 'K'
+	_class_object = 'K'
 	_columns = {
 	'name': fields.varchar(label = 'Name',readonly=True),
 	'name2': fields.varchar(label = 'Name 2', selectable = True, required = True,readonly=True),
@@ -160,7 +160,7 @@ class bc_modules(Model):
 	_name = 'bc.modules'
 	_description = 'Modules'
 	_rec_name = 'code'
-	_class_model = 'K'
+	_class_object = 'K'
 	_columns = {
 	'bc_group_module_id': fields.many2one(label = 'Group', obj = 'bc.group.modules', required = False, on_delete = 'n',readonly=True),
 	'code': fields.varchar(label = 'Code',readonly=True),
@@ -177,8 +177,8 @@ class bc_modules(Model):
 	'image': fields.varchar(label = 'Image ', size = 64,readonly=True),
 	'state': fields.selection(label = 'State', selections = [('N','Not installed'),('I','Installed'),('i','To be installed'),('u','To be upgrade'),('r','To be uninstalled')],readonly=True),
 	'description': fields.text(label = 'Long Description',readonly=True),
-	'models': fields.one2many(label ='Models', obj = 'bc.models', rel = 'module_id',readonly=True),
-	'inherits': fields.one2many(label ='Inherit', obj = 'bc.inherits', rel = 'module_id',readonly=True),
+	'models': fields.one2many(label ='Objects', obj = 'bc.models', rel = 'module_id',readonly=True),
+	'model_inherits': fields.one2many(label ='Inherit Objects', obj = 'bc.model.inherits', rel = 'module_id',readonly=True),
 	'files': fields.one2many(label ='Files', obj = 'bc.module.files', rel = 'module_id',readonly=True)}
 
 bc_modules()
@@ -187,7 +187,7 @@ class bc_module_files(Model):
 	_name = 'bc.module.files'
 	_description = 'Module File'
 	_rec_name = 'filename'
-	_class_model = 'K'
+	_class_object = 'K'
 	_order_by="module_id,id"
 	_columns = {
 	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules', required = False, on_delete = 'n',readonly=True),
@@ -199,243 +199,106 @@ class bc_module_files(Model):
 
 bc_module_files()
 
-class bc_class_model_categories(Model):
-	_name = 'bc.class.model.categories'
-	_description = 'Category Class Models'
-	_class_model = 'K'
+class bc_class_object_categories(Model):
+	_name = 'bc.class.object.categories'
+	_description = 'Category Class Objects'
+	_class_object = 'K'
 	_columns = {
-	'name': fields.varchar(label='Code', size = 64,readonly=True),
-	'descr': fields.varchar(label='Description', size = 64,readonly=True),
-	'class_models':fields.one2many(label='Class Models',obj='bc.class.models',rel='category_id'),
-	'note': fields.text(label='Note',readonly=True)
-	}
-
-bc_class_model_categories()
-
-
-class bc_class_models(Model):
-	_name = 'bc.class.models'
-	_description = 'Class Models'
-	_class_model = 'K'
-	_columns = {
-	'category_id': fields.many2one(label='Category',obj='bc.class.model.categories'),
-	'name': fields.varchar(label='Code', size = 64,readonly=True),
+	'fullname': fields.composite(label='Full Name', cols = ['otype','name'], required = True, compute = '_compute_composite'),
+	'otype': fields.selection(label='Object Type', selections = [('model','Model')]),
+	'code': fields.varchar(label='Code', size = 8,readonly=True),
 	'descr': fields.varchar(label='Description', size = 64,readonly=True),
 	'note': fields.text(label='Note',readonly=True)
 	}
 
-bc_class_models()
+bc_class_object_categories()
 
-class bc_class_category_categories(Model):
-	_name = 'bc.class.category.categories'
-	_description = 'Category Class Categories'
-	_class_model = 'K'
+
+class bc_class_objects(Model):
+	_name = 'bc.class.objects'
+	_description = 'Class Objects'
+	_class_object = 'K'
 	_columns = {
-	'name': fields.varchar(label='Code', size = 64,readonly=True),
-	'descr': fields.varchar(label='Description', size = 64,readonly=True),
-	'class_categories':fields.one2many(label='Class Categories',obj='bc.class.categories',rel='category_id'),
-	'note': fields.text(label='Note',readonly=True)
-	}
-
-bc_class_model_categories()
-
-
-class bc_class_categories(Model):
-	_name = 'bc.class.categories'
-	_description = 'Class Categories'
-	_class_model = 'K'
-	_columns = {
-	'category_id': fields.many2one(label='Category',obj='bc.class.category.categories'),
-	'name': fields.varchar(label='Code', size = 64,readonly=True),
+	'fullname': fields.composite(label='Full Name', cols = ['otype','name'], required = True, compute = '_compute_composite'),
+	'otype': fields.selection(label='Object Type', selections = [('model','Model')]),
+	'code': fields.varchar(label='Code', size = 8,readonly=True),
 	'descr': fields.varchar(label='Description', size = 64,readonly=True),
 	'note': fields.text(label='Note',readonly=True)
 	}
 
-bc_class_models()
+bc_class_objects()
 
 
 class bc_models(Model):
 	_name = 'bc.models'
 	_description = 'Models'
-	_class_model = 'K'
-	_order_by="module_id"
-	_extra = {'env-fields':['class_model','class_category']}
+	_class_object = 'K'
+	_order_by="module_id,code"
+	_extra = {'env-fields':['class_model','class_model_category']}
 	_columns = {
-	'name': fields.varchar(label = 'Name', size = 64,readonly=True),
-	'db_table': fields.varchar(label = 'Database table', size = 64,readonly=True),
-	'description': fields.varchar(label = 'Description', size = 256,readonly=True),
-	'class_model': fields.many2one(label = 'Class Model', obj = 'bc.class.models', readonly=True),
-	'class_category': fields.many2one(label = 'Class Categoty', obj = 'bc.class.categories', readonly=True),
+	'fullname': fields.composite(label='Full Name', cols = ['otype','code'], required = True, compute = '_compute_composite'),
 	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',readonly=True, on_delete = 'c'),
-	'columns':fields.one2many(label = 'Columns', obj = 'bc.model.columns', rel = 'model_id',readonly=True)
+	'otype': fields.selection(label='Object Type', selections = [('models','Models')]),
+	'code': fields.varchar(label = 'Name', size = 64,readonly=True),
+	'descr': fields.varchar(label = 'Description', size = 256,readonly=True),
+	'class_model': fields.many2one(label = 'Class Model', obj = 'bc.class.objects', readonly=True),
+	'class_model_category': fields.many2one(label = 'Class Model Category', obj = 'bc.class.object.categories', readonly=True),
+	'oom': fields.json(label='Meta Of Object', readonly = True),
+	'columns': fields.one2many(label='Columns',obj='bc.model.columns', readonly = True),
+	'inherits':fields.one2many(label = 'Inherits', obj = 'bc.model.inherits', rel = 'object_id',readonly=True)
 	}
 
 bc_models()
 
-
-class bc_inherits(Model):
-	_name = 'bc.inherits'
-	_description = 'Inherits'
-	_class_model = 'K'
-	_order_by="module_id"
-	_columns = {
-	'name': fields.varchar(label = 'Name', size = 64,readonly=True),
-	'description': fields.varchar(label = 'Description', size = 256,readonly=True),
-	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',readonly=True, on_delete = 'c'),
-	'columns':fields.one2many(label = 'Columns', obj = 'bc.inherit.columns', rel = 'inherit_id',readonly=True)
-	}
-
-bc_inherits()
-
 class bc_model_columns(Model):
 	_name = 'bc.model.columns'
-	_description = 'Model Columns'
-	_class_model = 'K'
-	_order_by='model_id,col_name'
+	_description = 'Models'
+	_class_object = 'K'
+	_order_by="col"
 	_columns = {
-	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
-	'col_name': fields.varchar(label = 'Name', size = 64,readonly=True),
-	'col_type':  fields.varchar(label = 'Type', size = 64,readonly=True),
-	'label': fields.varchar(label = 'label', size = 64,readonly=True),
-	'readonly': fields.boolean(label = 'Readonly',readonly=True),
-	'priority': fields.integer(label = 'Prority',readonly=True),
-	'domain': fields.text(label = 'Domain',readonly=True),
-	'required': fields.boolean(label = 'Required',readonly=True),
-	'size': fields.integer(label = 'Size',readonly=True),
-	'precision': fields.integer(label = 'Precesion',readonly=True),
-	'on_delete': fields.selection(label = 'On Delete',selections = [('a','No action'),('r','Restrict'),('n','Set Null'),('c','Cascade'),('d','Set default')], size = 1,readonly=True),
-	'on_update': fields.selection(label = 'On Update',selections = [('a','No action'),('r','Restrict'),('n','Set Null'),('c','Cascade'),('d','Set default')], size = 1,readonly=True),
-	'change_default': fields.boolean(label = 'Change default',readonly=True),
-	'selections': fields.text(label = 'Selections',readonly=True),
-	'selectable': fields.boolean(label = 'Selectable',readonly=True),
-	'relatedy': fields.text(label = 'Relatedy',readonly=True),
-	'manual': fields.text(label = 'Manual',readonly=True),
-	'help': fields.text(label = 'Help',readonly=True),
-	'col_unique': fields.boolean(label = 'Unique',readonly=True),
-	'col_check': fields.text(label = 'Check',readonly=True),	
-	'col_default': fields.text(label = 'Default',readonly=True),
-	'col_family': fields.varchar(label = 'Family',size=64,readonly=True),		
-	'timezone': fields.boolean(label = 'Timezone',readonly=True),
-	'obj': fields.varchar(label = 'Obj', size = 64,readonly=True),
-	'rel': fields.varchar(label = 'Relation', size = 64,readonly=True),
-	'id1': fields.varchar(label = 'Id1', size = 64,readonly=True),
-	'id2': fields.varchar(label = 'Id2', size = 64,readonly=True),
-	'inherits': fields.one2many(label='Inherits',obj='bc.inherit.columns',rel='inherit_id')
+	'model_id': fields.many2one(label = 'Model', obj = 'bc.models', readonly=True, on_delete = 'c'),
+	'col': fields.varchar(label='Column', readonly=True),
+	'moc': fields.json(label='Meta Of Column', readonly = True),
 	}
-
-	# def create(self, records,context={}):
-		# if type(records) in (list,tuple):
-			# model_name = self._pool.get('bc.models').read(records[0]['model_id'],['name'],context)[0]['name']
-			# for record in records:
-				# record['fullname'] = model_name + '/' +  record['col_name']
-		# elif type(records) == dict:
-			# model_name = self._pool.get('bc.models').read(records['model_id'],['name'],context)[0]['name']
-			# records['fullname'] = model_name + '/' +  records['col_name']
-
-		# return super(Model,self).create(records, context)
-
 
 bc_model_columns()
 
-class bc_inherit_columns(Model):
-	_name = 'bc.inherit.columns'
-	_description = 'Inherit Columns'
-	_class_model = 'K'
-	_order_by='inherit_id,col_name'
+
+
+class bc_model_inherits(Model):
+	_name = 'bc.model.inherits'
+	_description = 'Object Inherits'
+	_class_object = 'K'
+	_order_by="module_id,model_id"
 	_columns = {
-	'inherit_id': fields.many2one(label = 'Inherit', obj = 'bc.inherits',readonly=True, on_delete = 'c'),
-	'col_name': fields.varchar(label = 'Name', size = 64,readonly=True),
-	'col_type':  fields.varchar(label = 'Type', size = 64,readonly=True),
-	'label': fields.varchar(label = 'label', size = 64,readonly=True),
-	'readonly': fields.boolean(label = 'Readonly',readonly=True),
-	'priority': fields.integer(label = 'Prority',readonly=True),
-	'domain': fields.text(label = 'Domain',readonly=True),
-	'required': fields.boolean(label = 'Required',readonly=True),
-	'size': fields.integer(label = 'Size',readonly=True),
-	'precision': fields.integer(label = 'Precesion',readonly=True),
-	'on_delete': fields.selection(label = 'On Delete',selections = [('a','No action'),('r','Restrict'),('n','Set Null'),('c','Cascade'),('d','Set default')], size = 1,readonly=True),
-	'on_update': fields.selection(label = 'On Update',selections = [('a','No action'),('r','Restrict'),('n','Set Null'),('c','Cascade'),('d','Set default')], size = 1,readonly=True),
-	'change_default': fields.boolean(label = 'Change default',readonly=True),
-	'selections': fields.text(label = 'Selections',readonly=True),
-	'selectable': fields.boolean(label = 'Selectable',readonly=True),
-	'filtering': fields.text(label = 'Filtering',readonly=True),
-	'manual': fields.text(label = 'Manual',readonly=True),
-	'help': fields.text(label = 'Help',readonly=True),
-	'col_unique': fields.boolean(label = 'Unique',readonly=True),
-	'col_check': fields.text(label = 'Check',readonly=True),	
-	'col_default': fields.text(label = 'Default',readonly=True),
-	'col_family': fields.varchar(label = 'Family',size=64,readonly=True),		
-	'timezone': fields.boolean(label = 'Timezone',readonly=True),
-	'obj': fields.varchar(label = 'Obj', size = 64,readonly=True),
-	'rel': fields.varchar(label = 'Relation', size = 64,readonly=True),
-	'id1': fields.varchar(label = 'Id1', size = 64,readonly=True),
-	'id2': fields.varchar(label = 'Id2', size = 64,readonly=True)
+	'fullname': fields.composite(label='Full Name', cols = ['module_id','model_id','code'], required = True, compute = '_compute_composite'),
+	'model_id': fields.many2one(label = 'Object', obj = 'bc.models',readonly=True, on_delete = 'c'),
+	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',readonly=True, on_delete = 'c'),
+	'code': fields.varchar(label = 'Name', size = 64,readonly=True),
+	'descr': fields.varchar(label = 'Description', size = 256,readonly=True),
+	'momi': fields.json(label='Meta Of Model Inherit', readonly = True),
 	}
 
-bc_inherit_columns()
+bc_model_inherits()
 
-class bc_record_translations(Model):
-	_name = 'bc.record.translations'
-	_description = 'Record Translations'
-	_class_model = 'K'
+class bc_model_inherit_columns(Model):
+	_name = 'bc.model.inherit.columns'
+	_description = 'Models Inherits'
+	_class_object = 'K'
+	_order_by="col"
 	_columns = {
-	'record': fields.uuid(label="Record ID",readonly=True),
-	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
-	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
-	'tr': fields.json(label='Translations',readonly=True)
-	}
-	
-	_indicies = {'idx_record':['record']}
-
-bc_record_translations()
-
-class bc_i18n_translations(Model):
-	_name = 'bc.i18n.translations'
-	_description = 'I18N Translations'
-	_class_model = 'K'
-	_columns = {
-	'record': fields.uuid(label="Record ID",readonly=True),
-	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
-	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
-	'col': fields.many2one(label='Column',obj='bc.model.columns',readonly=True, on_delete= 'c'),
-	'tr': fields.varchar(label='Translations',readonly=True)
-	}
-	
-	_indicies = {'idx_record':['record']}
-
-bc_i18n_translations()
-
-
-
-class bc_model_translations(Model):
-	_name = 'bc.model.translations'
-	_description = 'Model Translations'
-	_class_model = 'K'
-	_columns = {
-	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
-	'model': fields.many2one(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
-	'tr': fields.json(label='Translations',readonly=True),
-	'inherits': fields.one2many(label='Inherits',obj='bc.inherit.columns',rel='inherit_id')
+	'inherit_id': fields.many2one(label = 'Inherit', obj = 'bc.model.inherits', readonly=True, on_delete = 'c'),
+	'col': fields.varchar(label='Column', readonly=True),
+	'moc': fields.json(label='Meta Of Column', readonly = True),
 	}
 
-bc_model_translations()
+bc_model_inherit_columns()
 
-class bc_model_translation_inherits(Model):
-	_name = 'bc.model.translation.inherits'
-	_description = 'Model Translations Inherits'
-	_class_model = 'K'
-	_columns = {
-	'translation_id': fields.many2one(label='Model Translation',obj='bc.model.translations',readonly=True, on_delete = 'c'),
-	'tr': fields.json(label='Translations',readonly=True)
-	}
-
-bc_model_translation_inherits()
-	
 
 class bc_group_access(Model):
 	_name = 'bc.group.access'
 	_description = 'Group Access'
-	_class_model = 'K'
+	_class_object = 'K'
 	_columns = {
 	'name': fields.varchar(label="Group Access",readonly=True),
 	'parent_id': fields.many2one(label='Parent',obj='bc.group.access',readonly=True),
@@ -450,11 +313,11 @@ bc_group_access()
 class bc_access(Model):
 	_name = 'bc.access'
 	_description = 'Access'
-	_class_model = 'K'
+	_class_object = 'K'
 	_columns = {
 	'name': fields.varchar(label="Access",readonly=True),
 	'group_id': fields.many2one(label='Group',obj='bc.group.access',readonly=True, on_delete = 'c'),
-	'objs': fields.one2many(label='Objects',obj='bc.obj.access',rel='access_id',readonly=True),
+	'models': fields.one2many(label='Objects',obj='bc.model.access',rel='access_id',readonly=True),
 	'inactive': fields.boolean('Inactive',readonly=True),
 	'note': fields.text(label='Note',readonly=True)
 	}
@@ -462,14 +325,14 @@ class bc_access(Model):
 bc_access()
 
 
-class bc_obj_access(Model):
-	_name = 'bc.obj.access'
-	_description = 'Objects Access'
-	_class_model = 'K'
-	_order_by='object_id,access_id'
+class bc_model_access(Model):
+	_name = 'bc.model.access'
+	_description = 'Models Access'
+	_class_object = 'K'
+	_order_by='model_id,access_id'
 	_columns = {
 	'access_id': fields.many2one(label='Access',obj='bc.access',readonly=True, on_delete = 'c'),
-	'object_id': fields.many2one(label='Object',obj='bc.models',readonly=True, on_delete = 'c'),
+	'model_id': fields.many2one(label='Object',obj='bc.models',readonly=True, on_delete = 'c'),
 	'acreate': fields.boolean('Create',readonly=True),
 	'awrite': fields.boolean('Write',readonly=True),
 	'aread': fields.boolean('Read',readonly=True),
@@ -480,14 +343,14 @@ class bc_obj_access(Model):
 	'note': fields.text(label='Note',readonly=True)
 	}
 	
-	_sql_constraints = [('model_unique','unique (access_id, object_id)', 'Model to be  unique in access')]
+	_sql_constraints = [('model_unique','unique (access_id, model_id)', 'Model to be  unique in access')]
 
-bc_obj_access()
+bc_model_access()
 
 class bc_objects_data(Model):
 	_name = 'bc.object.data'
 	_description = 'Loading Object XML Data'
-	_class_model = 'K'
+	_class_object = 'K'
 	_table = 'bc_object_data'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size = 256,readonly=True),
@@ -502,68 +365,3 @@ class bc_objects_data(Model):
 
 bc_objects_data()
 
-class bc_ui_reports(Model):
-	_name ='bc.ui.reports'
-	_description = 'Reports'
-	_class_model = 'K'
-	_columns = {
-	'name': fields.varchar(label = 'Name',readonly=True),
-	'label': fields.varchar(label = 'Label',readonly=True),
-	'report': fields.varchar(label = 'Report',readonly=True),
-	'infile': fields.varchar(label = 'Report Input File',readonly=True),
-	'outfile': fields.varchar(label = 'Report Output File',readonly=True),
-	}
-
-bc_ui_reports()
-
-class bc_ui_links(Model):
-	_name ='bc.ui.links'
-	_description = 'Links'
-	_class_model = 'K'
-	_columns = {
-	'name': fields.varchar(label = 'Name',readonly=True),
-	'label': fields.varchar(label = 'Label',readonly=True),
-	'ltype':fields.selection(label='Type',selections=[('m','Menu'),('r','Report')]),
-	'link': fields.varchar(label = 'Link',readonly=True),
-	}
-
-bc_ui_links()
-
-class bc_actions(Model):
-	_name = 'bc.actions'
-	_description = 'Actions'
-	_class_model = 'K'
-	_columns = {
-	'name': fields.varchar(label = 'Action',readonly=True),
-	'ta': fields.selection(label='Type Action',selections=[('dashboard','Dashboard'),('model','Model'),('view','View'),('report','Report'),('wizard','Wizard'),('link','Link'),('wkf','Worlflow'),('server','Server')],readonly=True),
-	'va': fields.one2many(label='View action',obj='bc.view.actions',rel='action_id'),
-	}
-
-bc_actions()
-
-class bc_view_actions(Model):
-	_name = 'bc.view.actions'
-	_description = 'View Actions'
-	_class_model = 'K'
-	_columns = {
-	'action_id': fields.many2one(label = 'Action',obj='bc.actions',readonly=True, on_delete = 'c'),
-	'view_id': fields.many2one(label='View',obj='bc.ui.views',readonly=True, on_delete = 'c')
-	}
-
-bc_view_actions()
-
-class bc_ui_menus(Model):
-	_name ='bc.ui.menus'
-	_description = 'Application Menus'
-	_class_model = 'K'
-	_order_by = 'sequence,label'
-	_columns = {
-	'name': fields.varchar(label = 'Name',readonly=True),
-	'label': fields.varchar(label = 'Label',readonly=True),
-	'parent_id': fields.many2one(label='Parent',obj='bc.ui.menus',readonly=True,on_delete='c'),
-	'childs_id': fields.one2many(label='Childs',obj='bc.ui.menus',rel='parent_id',readonly=True),
-	'sequence': fields.integer(label='Sequence'),
-	'action_id': fields.many2one(label='Action', obj='bc.actions',readonly=True, on_delete = 'c')
-	}
-
-bc_ui_menus()

@@ -56,7 +56,7 @@ class seq_models(Model):
 	'access_id': fields.many2one(label='Access Sequence',obj='seq.access'),
 	'sequence': fields.integer(label='Sequence'),
 	'model': fields.many2one(label='Model', obj = 'bc.models'),
-	'columns': fields.one2many(label='Columns',obj='seq.model.columns',rel='model_id'),
+	'columns': fields.one2many(label='Columns',obj='seq.model.columns',rel='object_id'),
 	'values': fields.one2many(label='Values',obj='seq.model.column.values',rel='model_id'),
 	
 	}
@@ -68,11 +68,11 @@ class seq_model_columns(Model):
 	_description = 'Sequence Model Columns'
 	_class_model = 'C'
 	_columns = {
-	'model_id': fields.many2one(label='Model',obj='seq.models'),
+	'object_id': fields.many2one(label='Model',obj='seq.models'),
 	'sequence': fields.integer(label='Sequence'),
-	'col': fields.related(label='Column', obj = 'bc.model.columns',relatedy=['model_id'])
+	'col': fields.many2one(label='Column', obj='bc.model.columns')
 	}
-
+	
 seq_model_columns()
 
 class seq_model_column_values(Model):
@@ -82,7 +82,7 @@ class seq_model_column_values(Model):
 	_columns = {
 	'model_id': fields.many2one(label='Model',obj='seq.models'),
 	'sequence': fields.integer(label='Sequence'),
-	'col': fields.related(label='Column', obj = 'bc.model.columns',relatedy=['model_id'])
+	'col': fields.many2one(label='Column', obj='bc.model.columns')
 	}
 
 seq_model_column_values()

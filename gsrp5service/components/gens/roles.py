@@ -15,37 +15,26 @@ ACCESS = {'readonly':['aread'],'nodrop':['aread','acreate','awrite',],'full':['a
 _logger = logging.getLogger('listener.' + __name__)
 
 def RecordGroup(level,module,grant,cat):
-
-	indent = TAB * level
-	nm = concat([module,cat,grant])
-	b.write((indent + '<record id="%s">\n' % (nm,)).encode('utf-8'))
-	b.write((indent + TAB * 2 + '<column name="name">%s</column>\n' % (nm,)).encode('utf-8'))
-	b.write((indent + TAB * 2 + '<column name="note">Module %s Type Object %s grant %s</column>\n' % (module,cat,grant)).encode('utf-8'))
-	b.write((indent + '</record>\n').encode('utf-8'))
+	return {'name': concat([module,cat,grant]),'note':"Module %s Type Object %s grant %s" % (module,cat,grant)}
 
 def RecordRole(level,module,obj,grant,cat):
-
-	indent = TAB * level
-
-	nm = concat(['role',module,cat,obj,grant])
-	b.write((indent + '<record id="%s">\n' % (nm,)).encode('utf-8'))
-	b.write((indent + TAB * 2 + '<column name="name">%s</column>\n' % (nm,)).encode('utf-8'))
-	b.write((indent + TAB * 2 + '<column name="note">Module: %s Type: %s Object: %s grant: %s</column>\n' % (module,cat,obj,grant)).encode('utf-8'))
-	b.write((indent + TAB * 2 + '<column name="group_id">%s</column>\n' % (concat([module,cat,grant]),)).encode('utf-8'))
-	b.write((indent + '</record>\n').encode('utf-8'))
+	return {'name':concat(['role',module,cat,obj,grant]),'note':"Module: %s Type: %s Object: %s grant: %s" % (module,cat,obj,grant),'group_id':concat([module,cat,grant])}
 
 def RecordsRole(level,module,objs,cat):
-
-	indent = TAB * level
-
-	b.write((indent + '<records model="%s">\n' % ('bc.access',)).encode('utf-8'))
+	res = []
 	for obj in objs:
 		for grant in GRANTS:
-			RecordRole(level+1,module,obj._name,grant,cat)
-	b.write((indent + '</records>\n').encode('utf-8'))
+			res.apend({obj:RecordRole(level+1,module,obj._name,grant,cat)}):
+	
+	return res
+	
 
 def RecordAccess(level,module,obj,grant, cat):
-
+	cols = {'access_id':concat(['role',module,cat,obj,grant]),'object_id': obj}
+	for column in ACCESS[grant]:
+		cols[column] = True
+	return cols
+	
 	indent = TAB * level
 	nm = concat(['role',module,cat,obj,grant])
 	b.write((indent + '<record id="%s">\n' % (concat(['access','role',module,cat,obj,grant]),)).encode('utf-8'))

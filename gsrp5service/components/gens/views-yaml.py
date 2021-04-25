@@ -8,7 +8,6 @@ from gsrp5service.orm.model import Model,ModelInherit
 import web_pdb
 
 import yaml
-from yaml import Dumper
 
 from gsrp5service.orm.common import DEFAULT_MODEL_NAMES as DMN
 
@@ -17,14 +16,14 @@ _logger = logging.getLogger('listener.' + __name__)
 def ModelsColumns( view, columns):
 
 	exclude = EXCLUDE['models'][view]
-	return list(filter(lambda x: not (columns[x]['type'] in exclude or columns[x]['type'] == 'iProperty'),columns.keys()))
+	return list(filter(lambda x: not (columns[x]['type'] in exclude or columns[x]['type'] == 'iProperty',columns.keys())))
 
 def Views(framework,model,info):
 	res = []
 	columnsinfo = info['columns']
-	for view in EXCLUDE['models'].keys():
-		if isAllow(view,'models',info) and len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE['models'][view] and columnsinfo[x]['type'] != 'iProperty',columnsinfo))) > 0:
-			res.append({'framework':framework,'model':info['name'],'vtype':view,'cols':ModelsColumns(view,info['columns'])})
+	for view in VIEWSGEN['models'].keys():
+		if isAllow(view,obj,info) and len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE[obj][view] and columnsinfo[x]['type'] != 'iProperty',columns))) > 0:
+			res.append({'framework':framework,'model':info['name'],'vtype':view,'cols':ModelsColumns(modelinfo['columns'])})
 
 	return res
 
@@ -60,8 +59,9 @@ def Area(self, modules = None,context={}):
 							iobjs.setdefault(cat,[]).append(obj)
 		
 		if len(objs) + len(iobjs) > 0:
-			with open(opj(path,module,'views','views.yaml'),'w') as outfile:
-				yaml.dump(Records('element-plus',objs['models']), outfile, Dumper, default_flow_style=False)
+			f=open(opj(path,module,'views','views.yaml'),'wb')
+			f.write(yaml.dumps(Records('element-plus',objs['models'])))
+			f.close()
 			logmodules.append(module)
 	_logger.info('Gen views of modules %s' % (logmodules,))
 	return ['Gen views of modules %s' % (logmodules,)]
@@ -134,6 +134,13 @@ def isAllow(view,cat,info):
 		r = ISALLOW_OBJS[cat](view,info)
 	
 	return r
+
+
+VIEWSGEN = {}			
+VIEWSGEN['models']  = {'calendar':ViewCalendar,'schedule':ViewSchedule,'form': ViewForm, 'gantt':ViewGantt, 'graph':ViewGraph, 'kanban':ViewKanban,'list':ViewList,'m2mlist':ViewM2MList,'mdx':ViewMdx,'matrix':ViewMatrix,'search':ViewSearch,'find':ViewFind,'tree':ViewTree,'geo':ViewGeo,'flow':ViewFlow}		
+
+IVIEWSGEN = {}
+IVIEWSGEN['models']  = {'calendar':iViewCalendar,'schedule':iViewSchedule,'form': iViewForm, 'gantt':iViewGantt, 'graph':iViewGraph, 'kanban':iViewKanban,'list':iViewList,'m2mlist':iViewM2MList,'mdx':iViewMdx,'matrix':iViewMatrix,'search':iViewSearch,'find':iViewFind,'tree':iViewTree,'geo':iViewGeo,'flow':iViewFlow}		
 
 EXCLUDE = {}
 EXCLUDE['models'] = {'calendar':['one2many','one2related','many2many','text','binary','xml','json'],'form':[],'schedule':['one2many','one2related','many2many','text','binary','xml','json'],'gantt':['one2many','one2related','many2many','text','binary','xml','json'],'graph':['one2many','one2related','many2many','text','binary','xml','json'],'kanban':['one2many','one2related','many2many','xml','json'],'list':['many2many','text','binary','xml','json'],'m2mlist':['one2many','one2related','many2many','text','binary','xml','json'],'mdx':['one2many','one2related','many2many','text','binary','xml','json'],'matrix':['one2many','one2related','many2many','text','binary','xml','json'],'search':['one2many','one2related','many2many','text','binary','xml','json'],'find':['one2many','one2related','many2many','text','binary','xml','json'],'tree':['one2many','one2related','many2many','text','binary','xml','json'],'geo':['one2many','one2related','many2many','text','binary','xml','json'],'flow':['integer','float','real','decimal','numeric','date','time','datetime','one2related','many2many','text','binary','xml','json']}
