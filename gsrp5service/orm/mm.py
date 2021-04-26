@@ -894,6 +894,41 @@ def modelInfo(self,args=[],kwargs={}):
 	return mi
 				
 
+def imodelInfo(self,args=[],kwargs={}):
+	mi = {}
+
+	worklist = []
+	whitelist = ['__doc__','name','inherit','inherits','description','columns']
+	lk = False
+	lka = False
+	
+	if len(args) > 0:
+		lka = True
+		worklist.extend(args)
+	
+	if len(kwargs) > 0:
+		lk = True
+		worklist.extend(list(kwargs.keys()))
+	
+	if len(worklist) == 0:
+		worklist.extend(whitelist)
+	
+	for k in filter(lambda x: x in worklist, whitelist):
+		kk = k
+		fname = '_get'+kk.title()
+		if fname in __locals__:
+			if lk and k in kwargs:
+				mi[k] = __locals__[fname](self,**(kwargs[k]))
+			else:
+				mi[k] = __locals__[fname](self)
+		else:
+			if hasattr(self,'_' + k):
+				mi[k] = getattr(self,'_' + k)
+			else:
+				mi[k]=None
+	
+	return mi
+				
 
 def modelInfo2(self, header = None, names = None, columns = None, attributes = None):
 	mi = {}
@@ -968,7 +1003,7 @@ def columnsInfo(self, columns = None, attributes = None):
 
 	return res
 
-def imodelInfo(self, columns = None, attributes = None):
+def imodelInfo2(self, columns = None, attributes = None):
 	mi = dict(
 		__doc__ = self.__doc__,
 		name = self._name,

@@ -50,6 +50,7 @@ class devel_ui_view_model_types(Model):
 	'fullname': fields.composite(label='Full Name', cols = ['framework','otype','code'], translate = True,required = True, compute = '_compute_composite'),
 	'framework': fields.many2one(label='Web Framework',obj='devel.web.frameworks',required=True),
 	'code': fields.varchar(label='Code', size = 32,required=True),
+	'exclude': fields.json(label='Exclude'),
 	'note': fields.text(label='Note')
 	}
 
@@ -65,12 +66,14 @@ class devel_ui_model_views(Model):
 	'framework': fields.many2one(label='Web Framework',obj='devel.web.frameworks',required=True),
 	'model': fields.many2one(label='Object',obj='bc.models'),
 	'vtype': fields.related(label='View Type',obj='devel.ui.view.model.types', relatedy=['framework']),
+	'standart': fields.boolean(label='Standart View'),
 	'template': fields.text(label='Template'),
 	'script': fields.text(label='Script'),
 	'style': fields.text(label='Style'),
 	'scoped': fields.boolean(label='Scoped'),
 	'sfc': fields.text(label='Single File Component'),
 	'cols': fields.one2many(label='Columns', obj = 'devel.ui.model.view.columns',rel = 'view_id'),
+	'inherit_cols': fields.one2many(label='Columns Inherit', obj = 'devel.ui.model.view.column.inherits',rel = 'view_id'),
 	'note': fields.text(label='Note')
 	}
 
@@ -83,6 +86,15 @@ devel_ui_model_views()
 
 class devel_ui_model_view_columns(Model):
 	_name = 'devel.ui.model.view.columns'
+	_description = 'UI View Columns'
+	_class_object = 'D'
+	_columns = {
+	'view_id': fields.many2one(label='Model View',obj='devel.ui.model.views',required=True),
+	'col': fields.many2one(label='Column',obj='bc.model.columns')
+	}
+
+class devel_ui_model_view_column_inherits(Model):
+	_name = 'devel.ui.model.view.column.inherits'
 	_description = 'UI View Columns'
 	_class_object = 'D'
 	_columns = {

@@ -238,6 +238,20 @@ def get_meta_of_models_v2(pool,model,context):
 			
 def get_views_of_model_v2(pool,model,info,context):
 	o = {}
+
+	views = pool.get('devel.ui.model.views').select(fields=['fullname','framework','model','vtype','standart','template','script','style','scoped','sfc',{'cols':['col']},{'inherit_cols':['col']}],cond=[('framework','=',context['framework']),('model','=',model)],context=context)
+	for view in views:
+		confs = pool.get('devel.tuning.ui.model.views').select(fields=['fullname','name','view','tuser','values'],cond=[('view','=',view['name']),('tuser','=', context['user'])],context=context)
+		v  = {'columns':[],'id':view['id'],'confs':confs}
+		v['columns'].extend(view['cols'])
+		v['columns'].extend(view['inherit_cols'])
+		
+		o[view['vtype']] = v
+
+	return {model:o}
+
+def get_views_of_model_v2_2(pool,model,info,context):
+	o = {}
 	views = pool.get('bc.ui.views').select(fields=['name','model','arch',{'inherit_views':['name','type','arch']}],cond=[('model','=',model)],context=context)
 	for view in views:
 		confs = pool.get('bc.tuning.ui.views').select(fields=['name','tuser','values'],cond=[('view','=',view['name']),('tuser','r=',pool.get('bc.tuning.ui.views')._uid)],context=context)
@@ -247,6 +261,8 @@ def get_views_of_model_v2(pool,model,info,context):
 		o[v['type']] = v
 
 	return {model:o}
+	
+
 	
 def get_view_by_window_action_id_v2(cr,pool,uid,action_id):
 	name = get_viewname_by_window_action_id2(cr,pool,uid,action_id)

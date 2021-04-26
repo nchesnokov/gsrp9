@@ -24,7 +24,7 @@ def RecordsRole(level,module,objs,cat):
 	res = []
 	for obj in objs:
 		for grant in GRANTS:
-			res.apend({obj:RecordRole(level+1,module,obj._name,grant,cat)}):
+			res.apend({obj:RecordRole(level+1,module,obj._name,grant,cat)})
 	
 	return res
 	
