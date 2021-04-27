@@ -78,7 +78,7 @@ async def hello():
 				#msg = await _execute([ws,'modules','upgrademoduleslist',{'db':'test001'}])
 				#return
 				#msg = await _execute([ws, 'slots','initialize'])
-				#msg = await _execute([ws, 'gens','ui',{'modules': ['ai','bc','devel','cm','crm','fa','hcm','md','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ctrm','ewm']}])
+				msg = await _execute([ws, 'gens','ui',{'modules': ['ai','bc','devel','cm','crm','fa','hcm','md','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ctrm','ewm']}])
 				
 				#msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
 
@@ -89,7 +89,7 @@ async def hello():
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['mm']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','purchase','sale']}])
 				#msg = await _execute([ws, 'gens','tests',{'modules': ['md']}])
-				msg = await _execute([ws, 'gens','view',{'modules': ['bc','devel']}])
+				#msg = await _execute([ws, 'gens','ui',{'modules': ['bc','devel','common','md']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': [',purchase']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','common','purchase','sale']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['md','purchase','sale','srm']}])

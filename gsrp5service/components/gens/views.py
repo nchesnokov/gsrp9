@@ -1,7 +1,6 @@
 import os
 import logging
 from os.path import join as opj
-from io import BytesIO
 from .common import concat, _remove_dirs
 from gsrp5service.orm.model import Model,ModelInherit
 
@@ -29,29 +28,40 @@ def ModelsColumns( view, columns):
 
 def Views(framework,model,info):
 	res = []
-	columnsinfo = info['columns']
+	ci = info['columns']
 	for view in EXCLUDE['models'].keys():
-		if isAllow(view,'models',info) and len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE['models'][view] and columnsinfo[x]['type'] != 'iProperty',columnsinfo))) > 0:
-			columns = list(filter(lambda x: x not in EXCLUDE['models'][view],columnsinfo.keys()))
-			template = GENTEMPLATES[framework][view](info,columns)
-			script = GENSRCIPTS[framework][view](info,columns)
-			style = GENSTYLES[framework][view](info,columns)
-			sfc = template +'\n' + script + '\n' + style
-			res.append({'framework':framework,'model':info['name'],'vtype':view,'template':template,'script':script,'style':style,'sfc':sfc,'cols':ModelsColumns(view,columnsinfo)})
+		columns = isAllow(view,'models',info,list(ci.keys()))
+		if len(columns) == 0:
+			continue
+		standalone = False
+		record = {'framework':framework,'model':info['name'],'vtype':view,'cols':columns}
+		if standalone:	
+			record['standalone'] = standalone
+			record['template'] = GENTEMPLATES[framework][view](info,columns)
+			record['script'] = GENSRCIPTS[framework][view](info,columns)
+			record['style'] = GENSTYLES[framework][view](info,columns)
+			record['sfc'] = template +'\n' + script + '\n' + style
+		
+		res.append(record)
 
 	return res
 
-def iViews(framework,imodel,info, columnsinfo):
+def iViews(framework,imodel,info, model, icolumns):
 	res = []
-	columnsinfo = info['columns']
+	ci = info['columns']
+	#web_pdb.set_trace()
 	for view in EXCLUDE['models'].keys():
-		if isAllow(view,'models',info) and len(list(filter(lambda x: not columnsinfo[x]['type'] in EXCLUDE['models'][view] and columnsinfo[x]['type'] != 'iProperty',columnsinfo))) > 0:
-			columns = list(filter(lambda x: x not in EXCLUDE['models'][view],columnsinfo.keys()))
-			template = GENTEMPLATES[framework][view](info,columns)
-			script = GENSRCIPTS[framework][view](info,columns)
-			style = GENSTYLES[framework][view](info,columns)
-			sfc = template +'\n' + script + '\n' + style
-			res.append({'framework':framework,'model':info['name'],'vtype':view,'template':template,'script':script,'style':style,'sfc':sfc,'cols':ModelsColumns(view,columnsinfo)})
+		columns = isAllow(view,'imodels',info,icolumns)
+		standalone = False
+		record = {'framework':framework,'model':model,'vtype':view,'inherit_cols':columns}
+		if standalone:	
+			record['standalone'] = standalone
+			record['template'] = GENTEMPLATES[framework][view](info,columns)
+			#script = GENSRCIPTS[framework][view](info,columns)
+			#style = GENSTYLES[framework][view](info,columns)
+			#sfc = template +'\n' + script + '\n' + style
+		
+		res.append(record)
 
 	return res
 
@@ -82,9 +92,12 @@ def Area(self, modules = None,context={}):
 		
 		if len(objs) + len(iobjs) > 0:
 			if len(objs) > 0:
-				_remove_dirs(opj(path,module,'views'))
+				#_remove_dirs(opj(path,module,'views'))
+				for framework in ('elemnt-plus','vuetify','devextrme'):
+					if os.path.exists(opj(path,module,'views',framework)):
+						_remove_dirs(opj(path,module,'views',framework))
 				
-				a = open(opj(path,module,'views','annotation.csv'),'w')
+				a = open(opj(path,module,'views','views.csv'),'w')
 				aw = csv.DictWriter(a,['model','file'])
 				aw.writeheader()
 				for framework in ('elemnt-plus','vuetify','devextrme'):
@@ -97,25 +110,31 @@ def Area(self, modules = None,context={}):
 						aw.writerow({'model': 'devel.ui.model.views','file':opj('views',framework,model._table+'.yaml' )})
 			if len(iobjs) > 0:
 				if len(objs) == 0:
-					a = open(opj(path,module,'views','annotation.csv'),'w')
-					_remove_dirs(opj(path,module,'views'))
+					a = open(opj(path,module,'views','views.csv'),'w')
+					aw = csv.DictWriter(a,['model','file'])
+					aw.writeheader()
+					for framework in ('elemnt-plus','vuetify','devextrme'):
+						_remove_dirs(opj(path,module,'inherits',framework))
+
 				else:
-					a = open(opj(path,module,'views','annotation.csv'),'a')
-				aw = csv.DictWriter(a,['model','file'])
-				aw.writeheader()
+					a = open(opj(path,module,'views','views.csv'),'a')
+
+				if not os.path.exists(opj(path,module,'views','inherits')):
+					os.mkdir(opj(path,module,'views','inherits'))
+				
 				for framework in ('elemnt-plus','vuetify','devextrme'):
-					if not os.path.exists(opj(path,module,'views',framework)):
-						os.mkdir(opj(path,module,'views',framework))
+					if not os.path.exists(opj(path,module,'views','inherits',framework)):
+						os.mkdir(opj(path,module,'views','inherits',framework))
 					for imodel in iobjs['models']:	
 						inherit = getattr(imodel,'_inherit')
 						for m in inherit.keys():
 							if '_columns' in inherit[m]:
 								cols =  inherit[m]['_columns']
-								
-								with open(opj(path,module,'views','inherits',framework,model._table+'.yaml'),'w') as outfile:
-									yaml.dump(iViews(framework,imodel._name,imodel.modelInfo()), outfile, Dumper, default_flow_style=False)
+								nm = m
+								with open(opj(path,module,'views','inherits',framework,nm.replace('.','_') + '.yaml'),'w') as outfile:
+									yaml.dump(iViews(framework,imodel._name,imodel.imodelInfo(),m,cols), outfile, Dumper, default_flow_style=False)
 					
-							aw.writerow({'model': 'devel.ui.model.view.column.inherits','file':opj('views','inherits',framework,model._table+'.yaml' )})
+							aw.writerow({'model': 'devel.ui.model.view.column.inherits','file':opj('views','inherits',framework,nm.replace('.','_') + '.yaml' )})
 				
 			logmodules.append(module)
 	_logger.info('Gen views of modules %s' % (logmodules,))
@@ -125,80 +144,47 @@ def isAllowDashboards(view,info):
 	r = False
 	return r
 
-def isAllowModels(view,info):
-
-	r = False
-
-	if view in ('form','list','m2mlist','form.modal'):
-		r = True
-
-	if view in ('search','find','report','custom') and len(list(filter(lambda x: 'selectable' in info['columns'][x] and info['columns'][x]['selectable'],info['columns'].keys()))) > 0 and ('full_name' in info['names'] and info['names']['full_name'] or 'rec_name' in info['names'] and info['names']['rec_name']):
-		r = True
-
-	if view == 'tree' and info['names']['parent_id'] and  info['names']['childs_id']:
-		r = True
-
-	if view == 'calendar' and info['names']['date']:
-			r = True
-
-	if view == 'schedule' and (info['names']['from_date'] and info['names']['to_date'] or info['names']['start_date'] and info['names']['end_date']):
-		r = True
-
-	if view == 'gantt' and info['names']['parent_id'] and info['names']['childs_id'] and info['names']['start_date'] and info['names']['end_date']:
-		r = True
-
-	if view == 'kanban' and info['names']['state']:
-		r = True
-
-	if view == 'graph' and info['names']['date']:
-		r = True
-
-	if view == 'mdx' and info['names']['date']:
-		r = True
-
-	if view == 'matrix' and ('matrix_names' in info['names'] and info['names']['matrix_names'] and 'matrix_col_name' in info['names']['matrix_names'] and info['names']['matrix_names']['matrix_col_name']  and 'matrix_val_name' in info['names']['matrix_names'] and info['names']['matrix_names']['matrix_val_name'] or ('matrix_col_name' in info['names'] and info['names']['matrix_col_name']  and 'matrix_val_name' in info['names'] and info['names']['matrix_val_name'])):
-		r = True
-
-
-	if view == 'geo' and (info['names']['from_latitude'] and info['names']['from_longitude'] or info['names']['to_latitude'] and info['names']['to_longitude'] or info['names']['latitude'] and info['names']['longitude']):
-		r = True
-
-	if view == 'flow' and  info['names']['prev_name'] and info['names']['next_name']:
-		# and info['names']['transitions'] :
-		r = True
-
-	return r
-
-def isAllowViews(view,info):
-	r = False
-	return r
-
-def isAllowReports(view,info):
-	r = False
-	return r
-
-def isAllowWizards(view,info):
-	r = False
-	return r
-
-def isAllowInheritModels(view,columninfo):
-
+def isAllowModels(view,info,columns):
 	res = []
-	exclcols = EXCLUDE['models'][view]
+	ci = info['columns']
+	if 	not ( view in ('search','find','form','list','m2mlist','form.modal') or view == 'tree' and info['names']['parent_id'] and  info['names']['childs_id'] or view in ('calendar','graph','mdx') and info['names']['date'] or view == 'schedule' and (info['names']['from_date'] and info['names']['to_date'] or info['names']['start_date'] and info['names']['end_date']) or view == 'kanban' and info['names']['state'] or view == 'geo' and (info['names']['from_latitude'] and info['names']['from_longitude'] or info['names']['to_latitude'] and info['names']['to_longitude'] or info['names']['latitude'] and info['names']['longitude']) or view == 'flow' and  info['names']['prev_name'] and info['names']['next_name']):
+		return res
+	
+	for col in columns:
+		if len(EXCLUDE['models'][view]) == 0 or ci[col]['type'] not in EXCLUDE['models'][view] and ci[col]['type'] not in ('iProperty',):
+				res.append(col)
+	
+	return res
 
-	for col in columnsinfo.keys():
-		if  columnsinfo[col]['type'] not in exclcols:
+def isAllowIModels(view,info,columns):
+	res = []
+	ci = info['columns']
+		
+	for col in columns:
+		if len(EXCLUDE['models'][view]) == 0 or ci[col]['type'] not in EXCLUDE['models'][view] and ci[col]['type'] not in ('iProperty',):
 			res.append(col)
 	
 	return res
-	
 
-ISALLOW_OBJS = {'dashboards':isAllowDashboards,'models': isAllowModels,'imodels': isAllowInheritModels,'views':isAllowViews,'reports':isAllowReports,'wizards':isAllowWizards}
 
-def isAllow(view,cat,info):
+def isAllowViews(view,info,columns):
+	r = False
+	return r
+
+def isAllowReports(view,info,columns):
+	r = False
+	return r
+
+def isAllowWizards(view,info,columns):
+	r = False
+	return r
+
+ISALLOW_OBJS = {'dashboards':isAllowDashboards,'models': isAllowModels,'imodels': isAllowIModels,'views':isAllowViews,'reports':isAllowReports,'wizards':isAllowWizards}
+
+def isAllow(view,cat,info,columns):
 	r = False
 	if cat in ISALLOW_OBJS:
-		r = ISALLOW_OBJS[cat](view,info)
+		r = ISALLOW_OBJS[cat](view,info,columns)
 	
 	return r
 

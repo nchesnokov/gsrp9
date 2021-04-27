@@ -66,7 +66,7 @@ class devel_ui_model_views(Model):
 	'framework': fields.many2one(label='Web Framework',obj='devel.web.frameworks',required=True),
 	'model': fields.many2one(label='Object',obj='bc.models'),
 	'vtype': fields.related(label='View Type',obj='devel.ui.view.model.types', relatedy=['framework']),
-	'standart': fields.boolean(label='Standart View'),
+	'standalone': fields.boolean(label='Standalone View'),
 	'template': fields.text(label='Template'),
 	'script': fields.text(label='Script'),
 	'style': fields.text(label='Style'),
@@ -174,10 +174,20 @@ class devel_ui_model_actions(Model):
 	_class_object = 'D'
 	_columns = {
 	'name': fields.varchar(label = 'Model Action',readonly=True),
+	}
+
+class devel_ui_framework_model_actions(Model):
+	_name = 'devel.ui.framework.model.actions'
+	_description = 'Model UI Actions'
+	_class_object = 'D'
+	_columns = {
+	'fullname': fields.composite(label='Full Name', cols = ['action_id','framework_id'], required = True, compute = '_compute_composite'),
+	'action_id': fields.many2one(label='Action',obj = 'devel.ui.model.actions'),
+	'framework_id': fields.many2one(label='Framework',obj = 'devel.web.frameworks'),
 	'view_id': fields.many2one(label='View',obj='devel.ui.model.views',readonly=True, on_delete = 'c')
 	}
 
-devel_ui_model_actions()
+devel_ui_framework_model_actions()
 
 class devel_ui_model_menus(Model):
 	_name ='devel.ui.model.menus'

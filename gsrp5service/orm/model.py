@@ -155,11 +155,11 @@ class BaseModelInherit(object, metaclass = MetaObjects):
 	def _selectablefields(self):
 		return list(filter(lambda x: hasattr(self._columns[x],'store') and self._columns[x].store or self._columns[x]._type in ('one2many','many2many','text','xml','binary','referenced'),self._columns.keys())) 
 
-	def imodelInfo(self, columns = None, attributes = None):
-		return mm.imodelInfo(self, columns = None, attributes = None)
+	def imodelInfo(self, args = [], kwargs = {}):
+		return mm.imodelInfo(self, args, kwargs)
 
 	def icolumnsInfo(self, columns = None, attributes = None):
-		return mm.icolumnsInfo(self, columns, attributes)
+		return mm.columnsInfo(self, columns, attributes)
 
 	def ifamilyInfo(self,columns):
 		return mm.ifamilyInfo(self,columns)

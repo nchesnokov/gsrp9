@@ -1,78 +1,60 @@
 import os
 import logging
 from os.path import join as opj
-from io import BytesIO
+import csv
+import yaml
+from yaml import Dumper
 from .common import concat
 from gsrp5service.orm.model import Model
 import web_pdb
-
-b = BytesIO()
-TAB = '  '
 
 GRANTS = ('readonly','nodrop','full','crw')
 ACCESS = {'readonly':['aread'],'nodrop':['aread','acreate','awrite',],'full':['aread','acreate','awrite','aunlink','aexecute'],'crw':['aread','acreate','awrite','aexecute']}
 
 _logger = logging.getLogger('listener.' + __name__)
 
-def RecordGroup(level,module,grant,cat):
+def RecordGroup(module,grant,cat):
 	return {'name': concat([module,cat,grant]),'note':"Module %s Type Object %s grant %s" % (module,cat,grant)}
 
-def RecordRole(level,module,obj,grant,cat):
-	return {'name':concat(['role',module,cat,obj,grant]),'note':"Module: %s Type: %s Object: %s grant: %s" % (module,cat,obj,grant),'group_id':concat([module,cat,grant])}
+def RecordRole(module,model,grant,cat):
+	return {'name':concat(['role',module,cat,model,grant]),'note':"Module: %s Type: %s Object: %s grant: %s" % (module,cat,model,grant),'group_id':concat([module,cat,grant])}
 
-def RecordsRole(level,module,objs,cat):
+def RecordsRole(module,models,cat):
 	res = []
-	for obj in objs:
+	for model in models:
 		for grant in GRANTS:
-			res.apend({obj:RecordRole(level+1,module,obj._name,grant,cat)})
+			res.append({model._name:RecordRole(module,model._name,grant,cat)})
 	
 	return res
 	
-
-def RecordAccess(level,module,obj,grant, cat):
-	cols = {'access_id':concat(['role',module,cat,obj,grant]),'object_id': obj}
+def RecordAccess(module,model,grant, cat):
+	cols = {'access_id':concat(['role',module,cat,model,grant]),'object_id': model}
 	for column in ACCESS[grant]:
 		cols[column] = True
+	
 	return cols
 	
-	indent = TAB * level
-	nm = concat(['role',module,cat,obj,grant])
-	b.write((indent + '<record id="%s">\n' % (concat(['access','role',module,cat,obj,grant]),)).encode('utf-8'))
-	b.write((indent + TAB * 2 + '<column name="access_id">%s</column>\n' % (nm,)).encode('utf-8'))
-	b.write((indent + TAB * 2 + '<column name="object_id">%s</column>\n' % (obj,)).encode('utf-8'))
-	for column in ACCESS[grant]:
-		b.write((indent + TAB + '<column name="%s">True</column>\n' % (column,)).encode('utf-8'))
-		
-	b.write((indent + '</record>\n').encode('utf-8'))
 
-
-def RecordsAccess(level,module,objs,cat):
-
-	indent = TAB * level
-
-	b.write((indent + '<records model="%s">\n' % ('bc.obj.access',)).encode('utf-8'))
-	for obj in objs:
+def RecordsAccess(module,models,cat):
+	res = []
+	for model in models:
 		for grant in GRANTS:
-			RecordAccess(level+1,module,obj._name,grant,cat)
-	b.write((indent + '</records>\n').encode('utf-8'))
-
-
-def Group(level,module,cat):
+			res.append(RecordAccess(module,model._name,grant,cat))
 	
-	indent = TAB * level
-	
-	b.write((indent + '<records model="%s">\n' % ('bc.group.access',)).encode('utf-8'))
+	return res
+
+def Group(module,cat):
+	res = []
 	for grant in GRANTS:
-		RecordGroup(level+1,module,grant,cat)
+		res.append(RecordGroup(module,grant,cat))
 
-	b.write((indent + '</records>\n').encode('utf-8'))
+	return res
 
+def Role(module,models,cat):
+	return RecordsRole(module,models,cat)
 
-def Role(level,module,objs,cat):
-	RecordsRole(level,module,objs,cat)
-
-def Access(level,module,objs,cat):
-	RecordsAccess(level,module,objs,cat)
+def Access(module,models,cat):
+	return RecordsAccess(module,models,cat)
 
 def Area(self, modules = None, context={}):
 	pwd = os.getcwd()
@@ -85,30 +67,41 @@ def Area(self, modules = None, context={}):
 	logmodules = []
 	for module in modules:
 		path = registry._modules[module]['path']
-		objs = {}
+		models = []
 		if module in registry._metas:
-			for cat in filter(lambda x: x in ('dashboards','models','views','reports','wizards'),registry._metas[module].keys()):
-				for key in registry._metas[module][cat]:
-					obj = registry._create_module_object(cat,key,module)
-					if isinstance(obj,Model):
-						if hasattr(obj,'_inherit') and not getattr(obj,'_inherit',None):
-							objs.setdefault(cat,[]).append(obj)
+				for key in registry._metas[module]['models']:
+					model = registry._create_module_object('models',key,module)
+					if isinstance(model,Model):
+						if hasattr(model,'_inherit') and not getattr(model,'_inherit',None):
+							models.append(model)
 
-		if len(objs) > 0:
-			b.write('<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n'.encode('utf-8'))
-			b.write((TAB+'<gsrp>\n').encode('utf-8'))
-			b.write((TAB * 2 + '<data>\n').encode('utf-8'))
-			Group(3, module,cat)
-			for cat in objs.keys():
-				Role(3,module,objs[cat],cat)
-				Access(3,module,objs[cat],cat)
-			b.write((TAB * 2 + '</data>\n').encode('utf-8'))
-			b.write((TAB + '</gsrp>\n').encode('utf-8'))
-			f=open(opj(path,module,'views','roles.xml'),'wb')
-			f.write(b.getvalue())
-			f.close()
-			b.seek(0,0)
-			b.truncate(0)
+		if len(models) > 0:
+			res_group = Group(module,'models')
+			#web_pdb.set_trace()
+			res_roles = Role(module,models,'models')
+			res_access = Access(module,models,'models')
+			if len(res_group) + len(res_roles) + len(res_access) > 0:
+				if not os.path.exists(opj(path,module,'views','roles')):
+					os.mkdir(opj(path,module,'views','roles'))
+				a = open(opj(path,module,'views','roles.csv'),'w')
+				aw = csv.DictWriter(a,['model','file'])
+				aw.writeheader()
+
+				if len(res_group) > 0:
+					with open(opj(path,module,'views','roles','bc.group.access'.replace('.','_') + '.yaml'),'w') as outfile:
+						yaml.dump(res_group, outfile, Dumper, default_flow_style=False)
+					aw.writerow({'model': 'bc.group.access','file':opj('views','menus','bc.group.access'.replace('.','_') + '.yaml' )})
+
+				if len(res_roles) > 0:
+					with open(opj(path,module,'views','roles','bc.access'.replace('.','_') + '.yaml'),'w') as outfile:
+						yaml.dump(res_roles, outfile, Dumper, default_flow_style=False)
+					aw.writerow({'model': 'bc.access','file':opj('views','menus','bc.access'.replace('.','_') + '.yaml' )})
+
+				if len(res_access) > 0:
+					with open(opj(path,module,'views','roles','bc.model.access'.replace('.','_') + '.yaml'),'w') as outfile:
+						yaml.dump(res_access, outfile, Dumper, default_flow_style=False)
+					aw.writerow({'model': 'bc.model.access','file':opj('views','menus','bc.model.access'.replace('.','_') + '.yaml' )})
+
 			logmodules.append(module)
 	log.append('Gen roles of modules %s' % (logmodules,))
 	_logger.info('Gen roles of modules %s' % (logmodules,))

@@ -12,6 +12,8 @@ from io import StringIO
 from datetime import datetime,date,time
 import time as tm
 from decimal import Decimal
+from gsrp5service.orm.orm import Model
+
 
 MAX_CHUNK_READ = 5000
 MAX_CHUNK_DELETE = 5000
@@ -737,51 +739,8 @@ def _getAccess(self):
 	else:
 		return {'create':True,'read':True,'write':True,'unlink':True,'modify':True,'insert':True,'select':True,'update':True,'delete':True,'upsert':True,'browse':True,'selectbrowse':True}
 
-# def _getAuth(self):
-	# return self._auth
-
-# def _getTransient(self):
-	# return self._transient
-
-# def _getModelName(self):
-	# return self._name
-
-# def _getSchema(self):
-	# return self._schema
-
-# def _getTable(self):
-	# return self._table
-
-# def _getTr_Table(self):
-	# return self._tr_table
-
-
-# def _getClass_Model(self):
-	# return self._class_model
-
-# def _getClass_Category(self):
-	# return self._class_category
-
-# def _getInherit(self):
-	# return self._inherit
-
-# def _getInherits(self):
-	# return self._inherits
-
-# def _getDescription(self):
-	# return self._description
-
-# def _getChecks(self):
-	# return self._checks
-
-# def _getTrgupdcols(self):
-	# return self._trg_upd_cols
-
 def _getTrigers(self):
 	return str(self._trigers)
-
-# def _getColumns_Attrs(self):
-	# return self._columns_attrs
 
 def _getColumns(self,columns=None,attributes=None):
 	
@@ -811,58 +770,12 @@ def _getDefault(self):
 			
 	return res
 
-# def _getRegister(self):
-	# return self._register
 
-# def _getConstraints(self):
-	# return self._constraints
+def _info(self,whitelist,args=[],kwargs={}):
 
-# def _getSql_Constraints(self):
-	# return self._sql_constraints
-
-# def _getOrder_By(self):
-	# return self._order_by
-
-# def _getGroup_By(self):
-	# return self._group_by
-
-# def _getAuto(self):
-	# return self._auto
-
-# def _getActions(self):
-	# return self._actions
-
-# def _getStates(self):
-	# return self._states
-
-# def _getAttrs(self):
-	# return self._attrs
-
-# def _getNo_Copy(self):
-	# return self._no_copy
-
-# def _getGroups(self):
-	# return self._groups
-
-# def _getPages(self):
-	# return self._pages
-
-# def _getIndicies(self):
-	# return self._indicies
-
-# def _getLog_Access(self):
-	# return self._log_access
-
-# def _getExtra(self):
-	# return self._extra
-
-# modelinfo end
-
-def modelInfo(self,args=[],kwargs={}):
 	mi = {}
 
 	worklist = []
-	whitelist = ['__doc__','access','auth','transient','name','names','table','tr_table','schema','class_model','class_category','inherit','inherits','description','checks','trgupdcols','trigers','columns_attrs','columns','family','i18n_family','default','register','constraints','i18n_constraints','sql_constraints','i18n_sql_constraints','order_by','group_by','auto','actions','states','attrs','no_copy','groups','pages','indicies','log_access','extra','i18nfields']
 	lk = False
 	lka = False
 	
@@ -892,84 +805,19 @@ def modelInfo(self,args=[],kwargs={}):
 				mi[k]=None
 	
 	return mi
+				
+
+
+def modelInfo(self,args=[],kwargs={}):
+	whitelist = ['__doc__','access','auth','transient','name','names','table','tr_table','schema','class_model','class_category','inherit','inherits','description','checks','trgupdcols','trigers','columns_attrs','columns','family','i18n_family','default','register','constraints','i18n_constraints','sql_constraints','i18n_sql_constraints','order_by','group_by','auto','actions','states','attrs','no_copy','groups','pages','indicies','log_access','extra','i18nfields']
+	return _info(self,whitelist,args,kwargs)
 				
 
 def imodelInfo(self,args=[],kwargs={}):
-	mi = {}
-
-	worklist = []
-	whitelist = ['__doc__','name','inherit','inherits','description','columns']
-	lk = False
-	lka = False
-	
-	if len(args) > 0:
-		lka = True
-		worklist.extend(args)
-	
-	if len(kwargs) > 0:
-		lk = True
-		worklist.extend(list(kwargs.keys()))
-	
-	if len(worklist) == 0:
-		worklist.extend(whitelist)
-	
-	for k in filter(lambda x: x in worklist, whitelist):
-		kk = k
-		fname = '_get'+kk.title()
-		if fname in __locals__:
-			if lk and k in kwargs:
-				mi[k] = __locals__[fname](self,**(kwargs[k]))
-			else:
-				mi[k] = __locals__[fname](self)
-		else:
-			if hasattr(self,'_' + k):
-				mi[k] = getattr(self,'_' + k)
-			else:
-				mi[k]=None
-	
-	return mi
+	whitelist = ['__doc__','name','inherit','inherits','description','checks','columns','family','i18n_family','default','register','constraints','i18n_constraints','sql_constraints','i18n_sql_constraints''i18nfields']
+	return _info(self,whitelist,args,kwargs)
 				
 
-def modelInfo2(self, header = None, names = None, columns = None, attributes = None):
-	mi = {}
-	if header is None:
-		header = ['__doc__','access','auth','transient','name','names','table','tr_table','schema','class_model','class_category','inherit','inherits','description','checks','trgupdcols','trigers','columns_attrs','columns','family','tr_family','default','register','constraints','sql_constraints','order_by','group_by','auto','actions','states','attrs','no_copy','groups','pages','indicies','log_access','extra']
-	for h in header:
-		if h == 'family':
-			continue
-		elif h == 'name':
-			mi[h] = _getModelName(self)
-		elif h == 'names':
-			mi[h] = _getNames(self,names)
-		elif h == 'columns':
-			mi[h] = _getColumns(self,columns,attributes)
-		else:
-			fname = '_get'+h.title()
-			m = None
-			if fname in __locals__:
-				m = __locals__[fname]
-			else:
-				print('NOT IN __LOCALS__:',fname)
-			if m:
-				mi[h] = m(self)
-			else:
-				mi[h] = None
-
-	if 'family' in header:
-		if 'columns' not in header:
-			mi['columns'] = _getColumns(self,columns,attributes)
-		else:
-			mi['columns'] = _getColumns(self)
-	if mi['columns'] is None:
-		mi['columns'] = _getColumns(self)
-	mi['family']= self.familyInfo(mi['columns'])
-	for key in mi['columns'].keys():
-		if key in self._readonlyfields:
-			if 'readonly' in mi['columns'][key] and not mi['columns'][key]['readonly']:
-				mi['columns'][key]['readonly'] = True
-	
-	#print('INFO:',mi['names'])
-	return mi
 
 def columnsInfo(self, columns = None, attributes = None):
 	res = {}
@@ -977,7 +825,7 @@ def columnsInfo(self, columns = None, attributes = None):
 		columns = list(self._columns.keys())
 	
 	for column in columns:
-		if column in MAGIC_COLUMNS:
+		if isinstance(self, Model) and column in MAGIC_COLUMNS:
 			res[column] = MAGIC_COLUMNS_INFO[column]
 		else:
 			if self._columns[column]._type == 'i18n':
@@ -1003,61 +851,40 @@ def columnsInfo(self, columns = None, attributes = None):
 
 	return res
 
-def imodelInfo2(self, columns = None, attributes = None):
-	mi = dict(
-		__doc__ = self.__doc__,
-		name = self._name,
-		inherit = self._inherit,
-		inherits = self._inherits,
-		views = self._views,
-		description = self._description,
-		trigers = self._trigers,
-		columns = self.icolumnsInfo(columns,attributes),
-		family = {},
-		default = self._default,
-		register = self._register,
-		constraints = self._constraints,
-		sql_constraints = self._sql_constraints,
-		actions = self._actions,
-		states = self._states,
-	)
-	mi['family']= self.ifamilyInfo(mi['columns'])
-	return mi
-
-def icolumnsInfo(self, columns = None, attributes = None):
-	res = {}
-	if not columns:
-		columns = list(self._columns.keys())
+# def icolumnsInfo(self, columns = None, attributes = None):
+	# res = {}
+	# if not columns:
+		# columns = list(self._columns.keys())
 	
-	for column in columns:
-		res[column] = self._columns[column]._get_attrs(attributes)
+	# for column in columns:
+		# res[column] = self._columns[column]._get_attrs(attributes)
 
-	for s in self._selectionfields:
-		if s in res and type(res[s]['selections']) == str:
-			method = getattr(self,res[s]['selections'],None)
-			if method:
-				v = method()
-				if v is not None:
-					res[s]['selections'] = v
+	# for s in self._selectionfields:
+		# if s in res and type(res[s]['selections']) == str:
+			# method = getattr(self,res[s]['selections'],None)
+			# if method:
+				# v = method()
+				# if v is not None:
+					# res[s]['selections'] = v
 
 
-	return res
+	# return res
 
-def ifamilyInfo(self,columns):
-	ifamily = {}
+# def ifamilyInfo(self,columns):
+	# ifamily = {}
 
-	for key in columns.keys():
-		column = columns[key]
-		if 'family' in column:
-			f = column['family']
-			ifamily.setdefault(f,[]).append(key)
-	return ifamily
+	# for key in columns.keys():
+		# column = columns[key]
+		# if 'family' in column:
+			# f = column['family']
+			# ifamily.setdefault(f,[]).append(key)
+	# return ifamily
 
 def familyInfo(self,columns):
 	family = {'Primary': ['id']}
 	if columns is None:
 		columns = columnsInfo(self,list(self._columns.keys()))
-	if self._log_access and not self._transient:
+	if isinstance(self,Model) and self._log_access and not self._transient:
 		family['Primary'].extend(['create_uid','create_timestamp','write_uid','write_timestamp'])
 
 	for key in filter(lambda x: self._columns[x]._type != 'i18n',columns.keys()):
