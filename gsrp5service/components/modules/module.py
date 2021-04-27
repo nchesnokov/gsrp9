@@ -825,12 +825,15 @@ def _loadMetaModel(self,model,module):
 		env_fields = bm._extra['env-fields']
 	info = bm.modelInfo(['columns'])['columns']
 
+	oom = info_class.modelInfo()
+	del oom['columns']
+	record['oom'] = oom
 	for key in filter(lambda x: x not in env_fields,info.keys()):
 		if key == 'columns':
 			for mkey in info_model['columns'].keys():
-				column = info_model['columns'][mkey]
-				c = _loadMetaModelColumn(self,mkey,column)	
-				record.setdefault('columns',[]).append(c)
+				#column = info_model['columns'][mkey]
+				#c = _loadMetaModelColumn(self,mkey,column)	
+				record.setdefault('columns',[]).append({'col':mkey,'moc':info_model['columns'][mkey]})
 			
 		elif key  in ref_fields:
 			if ref_fields[key] in info:
@@ -853,7 +856,7 @@ def _loadMetaInherit(self,model,module):
 		info_class = type.__new__(info_class_meta['cls'],info_class_meta['name'],info_class_meta['bases'],info_class_meta['attrs'])
 		type.__init__(info_class,info_class_meta['name'],info_class_meta['bases'],info_class_meta['attrs'])
 		info = info_class().modelInfo()
-		columns = self._session._models.get('bc.inherits').modelInfo(['columns'])['columns']
+		columns = self._session._models.get('bc.model.inherits').modelInfo(['columns'])['columns']
 	else:
 		return record
 
@@ -862,36 +865,37 @@ def _loadMetaInherit(self,model,module):
 			record[key] = info[key]
 
 	for key in info['columns'].keys():
-		column = info['columns'][key]
-		c = _loadMetaInheritColumns(self,key,column)	
-		record.setdefault('columns',[]).append(c)
+		#column = info['columns'][key]
+		#c = _loadMetaInheritColumns(self,key,column)	
+		record.setdefault('columns',[]).append({'col':mkey,'moc':info_model['columns'][mkey]})
 
 	return record		
 
 
 def _loadMetaModelColumn(self,name,column):
-	record = {}
-	ref_fields = {'col_name':'name','col_check':'check','col_unique':'unique','col_default':'default','col_family':'family'}
-	keys = self._session._models.get('bc.model.columns').modelInfo(['columns'])['columns'].keys()
-	record['col_name'] = name
-	record['col_type'] = column['type']
-	for key in keys:
+	return {'moc': self.columnsInfo(columns=[name])}
+	# record = {}
+	# ref_fields = {'col_name':'name','col_check':'check','col_unique':'unique','col_default':'default','col_family':'family'}
+	# keys = self._session._models.get('bc.model.columns').modelInfo(['columns'])['columns'].keys()
+	# record['col_name'] = name
+	# record['col_type'] = column['type']
+	# for key in keys:
 		
-		if key in column or key in ref_fields:
-			if key in ref_fields:
-				if ref_fields[key] in column:
-					record[key] = column[ref_fields[key]]
-			else:
-				if key in ('context','domain','selections','relatedy'):
-					record[key] = '%s ' % (column[key],)
-				else:
-					if key == 'size' and type(column[key]) == tuple:
-						record[key] = column[key][0]
-						record['precision'] = column[key][1]
-					else:
-						record[key] = column[key]
+		# if key in column or key in ref_fields:
+			# if key in ref_fields:
+				# if ref_fields[key] in column:
+					# record[key] = column[ref_fields[key]]
+			# else:
+				# if key in ('context','domain','selections','relatedy'):
+					# record[key] = '%s ' % (column[key],)
+				# else:
+					# if key == 'size' and type(column[key]) == tuple:
+						# record[key] = column[key][0]
+						# record['precision'] = column[key][1]
+					# else:
+						# record[key] = column[key]
 	
-	return record		
+	# return record		
 
 def _loadMetaInheritColumns(self,name,column):
 	record = {}

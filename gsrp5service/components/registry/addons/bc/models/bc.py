@@ -199,34 +199,32 @@ class bc_module_files(Model):
 
 bc_module_files()
 
-class bc_class_object_categories(Model):
-	_name = 'bc.class.object.categories'
-	_description = 'Category Class Objects'
+class bc_class_model_categories(Model):
+	_name = 'bc.class.model.categories'
+	_description = 'Category Class Models'
 	_class_object = 'K'
+	rec_name = 'code'
 	_columns = {
-	'fullname': fields.composite(label='Full Name', cols = ['otype','name'], required = True, compute = '_compute_composite'),
-	'otype': fields.selection(label='Object Type', selections = [('model','Model')]),
 	'code': fields.varchar(label='Code', size = 8,readonly=True),
 	'descr': fields.varchar(label='Description', size = 64,readonly=True),
 	'note': fields.text(label='Note',readonly=True)
 	}
 
-bc_class_object_categories()
+bc_class_model_categories()
 
 
-class bc_class_objects(Model):
-	_name = 'bc.class.objects'
-	_description = 'Class Objects'
+class bc_class_models(Model):
+	_name = 'bc.class.models'
+	_description = 'Class Models'
 	_class_object = 'K'
+	rec_name = 'code'
 	_columns = {
-	'fullname': fields.composite(label='Full Name', cols = ['otype','name'], required = True, compute = '_compute_composite'),
-	'otype': fields.selection(label='Object Type', selections = [('model','Model')]),
 	'code': fields.varchar(label='Code', size = 8,readonly=True),
 	'descr': fields.varchar(label='Description', size = 64,readonly=True),
 	'note': fields.text(label='Note',readonly=True)
 	}
 
-bc_class_objects()
+bc_class_models()
 
 
 class bc_models(Model):
@@ -235,14 +233,13 @@ class bc_models(Model):
 	_class_object = 'K'
 	_order_by="module_id,code"
 	_extra = {'env-fields':['class_model','class_model_category']}
+	rec_name = 'code'
 	_columns = {
-	'fullname': fields.composite(label='Full Name', cols = ['otype','code'], required = True, compute = '_compute_composite'),
 	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',readonly=True, on_delete = 'c'),
-	'otype': fields.selection(label='Object Type', selections = [('models','Models')]),
 	'code': fields.varchar(label = 'Name', size = 64,readonly=True),
 	'descr': fields.varchar(label = 'Description', size = 256,readonly=True),
-	'class_model': fields.many2one(label = 'Class Model', obj = 'bc.class.objects', readonly=True),
-	'class_model_category': fields.many2one(label = 'Class Model Category', obj = 'bc.class.object.categories', readonly=True),
+	'class_model': fields.many2one(label = 'Class Model', obj = 'bc.class.models', readonly=True),
+	'class_model_category': fields.many2one(label = 'Class Model Category', obj = 'bc.class.model.categories', readonly=True),
 	'oom': fields.json(label='Meta Of Object', readonly = True),
 	'columns': fields.one2many(label='Columns',obj='bc.model.columns', readonly = True),
 	'inherits':fields.one2many(label = 'Inherits', obj = 'bc.model.inherits', rel = 'object_id',readonly=True)
@@ -347,21 +344,20 @@ class bc_model_access(Model):
 
 bc_model_access()
 
-class bc_objects_data(Model):
-	_name = 'bc.object.data'
+class bc_model_data(Model):
+	_name = 'bc.model.data'
 	_description = 'Loading Object XML Data'
 	_class_object = 'K'
 	_table = 'bc_object_data'
 	_columns = {
 	'name': fields.varchar(label = 'Name',size = 256,readonly=True),
 	'module': fields.varchar(label = 'Module',size = 64,selectable=True,readonly=True),
-	'tobj': fields.selection(label = 'Type Object',selections=[('model','Model'),('imodel','Model Inherit')],selectable=True,readonly=True),
-	'obj': fields.varchar(label = 'Object',size = 64,selectable=True,readonly=True),
+	'model': fields.varchar(label = 'Object',size = 64,selectable=True,readonly=True),
 	'rec_id': fields.uuid(label = 'ID record',readonly=True),
 	'file_id': fields.many2one(label='File',obj='bc.module.files',readonly=True),
 	'date_init': fields.datetime(label = 'Timestamp init', timezone = False,readonly=True),
 	'date_update': fields.datetime(label = 'Timestamp update', timezone = False,readonly=True)
 	}
 
-bc_objects_data()
+bc_model_data()
 
