@@ -118,8 +118,8 @@ def _load(self,able=None, modules = None):
 			self._registry._load_module(depend)
 			_loadFiles(self,depend,self._registry._modules[depend],metas)
 			self._cr.commit()
-			if 'env' in metas:
-				_load_env(self,depend)
+			#if 'env' in metas:
+				#_load_env(self,depend)
 			
 			self._cr.commit()
 			_logger.info("Module: %s loaded:" % (depend,))
@@ -211,24 +211,24 @@ def _install(self,able=None, modules = None):
 			log.append([0,'module: <%s> successfull installed' % (depend,)])
 
 	
-		for depend in depends:
-			chunk = _chunks[depend]
-			info = self._registry._modules[depend]
-			metas ={}
-			if 'example' in chunk:
-				if 'data' in info['meta']:
-					metas['data'] = info['meta']['data']
-				if 'demo' in info['meta']:
-					metas['demo'] = info['meta']['demo']
-			else:
-				if 'data' in chunk and 'data' in info['meta']:
-					metas['data'] = info['meta']['data']
-				if 'demo' in chunk and 'demo' in info['meta']:
-					metas['demo'] = info['meta']['demo']
+		# for depend in depends:
+			# chunk = _chunks[depend]
+			# info = self._registry._modules[depend]
+			# metas ={}
+			# if 'example' in chunk:
+				# if 'data' in info['meta']:
+					# metas['data'] = info['meta']['data']
+				# if 'demo' in info['meta']:
+					# metas['demo'] = info['meta']['demo']
+			# else:
+				# if 'data' in chunk and 'data' in info['meta']:
+					# metas['data'] = info['meta']['data']
+				# if 'demo' in chunk and 'demo' in info['meta']:
+					# metas['demo'] = info['meta']['demo']
 
-			_loadFiles(self,depend,self._registry._modules[depend],metas)
-			self._cr.commit()
-			log.append([0,'module: <%s> data successfull loaded' % (depend,)])
+			# _loadFiles(self,depend,self._registry._modules[depend],metas)
+			# self._cr.commit()
+			# log.append([0,'module: <%s> data successfull loaded' % (depend,)])
 
 		# dep_modules = set()
 		# for depend in depends:
@@ -461,9 +461,9 @@ def _installModule(self,name,chunk):
 		
 	_loadFiles(self,name,self._registry._modules[name],metas)
 	self._cr.commit()
-	_load_env(self,name)
+	#_load_env(self,name)
 	
-	self._cr.commit()
+	#self._cr.commit()
 	self._session._setLangs()
 	_logger.info("Module: %s Installed:" % (name,))
 
@@ -777,7 +777,7 @@ def _loadMetaModule(self,name):
 			self._session._models.get('bc.models').create(model_records,{})
 
 	if len(imodel_records) > 0:
-			self._session._models.get('bc.inherits').create(imodel_records,{})
+			self._session._models.get('bc.model.inherits').create(imodel_records,{})
 	
 	self._session._models.get('bc.modules').write({'id':module_id,'state':'I'},{})
 	self._registry._modules[name]['state'] = 'I'
@@ -814,66 +814,62 @@ def _loadModuleFile(path,name,ext=['py','xml','csv','yaml','yml','so']):
 
 def _loadMetaModel(self,model,module):
 	record = {}
-	ref_fields = {'db_table':'table'}
 	info_class = self._registry._create_module_object('models',model,module)
+	
+	class_model = self._session._models.get('bc.class.models')
+	class_model_category = self._session._models.get('bc.class.model.categories')
 	if not info_class or isinstance(info_class,ModelInherit):
 		return record
 	info_model = info_class.modelInfo()
-	bm = self._session._models.get('bc.models')
-	env_fields = []
-	if bm._extra and 'env-fields' in bm._extra:
-		env_fields = bm._extra['env-fields']
-	info = bm.modelInfo(['columns'])['columns']
-
-	oom = info_class.modelInfo()
-	del oom['columns']
-	record['oom'] = oom
-	for key in filter(lambda x: x not in env_fields,info.keys()):
-		if key == 'columns':
-			for mkey in info_model['columns'].keys():
-				#column = info_model['columns'][mkey]
-				#c = _loadMetaModelColumn(self,mkey,column)	
-				record.setdefault('columns',[]).append({'col':mkey,'moc':info_model['columns'][mkey]})
-			
-		elif key  in ref_fields:
-			if ref_fields[key] in info:
-				record[key] = info_model[ref_fields[key]]
-		else:
-			if key in info_model:
-				record[key] = info_model[key]
+	columns = info_model['columns']
+	del info_model['columns']
+	
+	record['code'] = info_model['name']
+	record['descr'] = info_model['description']
+	record['class_model'] = class_model.search([('code','=', info_model['class_model'])])[0]
+	if info_model['class_model_category']:
+		cat = class_model_category.search([('code','=', info_model['class_model_category'])])
+		if len(cat) > 0:
+			record['class_model_category'] = cat
+	record['oom'] = info_model
+	
+	for col in columns.keys():
+		record.setdefault('columns',[]).append({'col':col,'moc':columns[col]})
 
 	return record		
 
 def _loadMetaInherit(self,model,module):
 	record = {}
-
-	#columns = self._registry._create_module_model('bc.inherits','bc').modelInfo()['columns']
-	columns = self._session._models.get('bc.modules').columnsInfo()
-	
-	#info_class_meta = self._registry._getMetaOfModules(model,module)
-	info_class_meta = self._registry._getMetaOfModulesObject('models',model,module)
-	if info_class_meta:
-		info_class = type.__new__(info_class_meta['cls'],info_class_meta['name'],info_class_meta['bases'],info_class_meta['attrs'])
-		type.__init__(info_class,info_class_meta['name'],info_class_meta['bases'],info_class_meta['attrs'])
-		info = info_class().modelInfo()
-		columns = self._session._models.get('bc.model.inherits').modelInfo(['columns'])['columns']
-	else:
+	info_class = self._registry._create_module_object('models',model,module)
+	if not info_class or isinstance(info_class,Model):
 		return record
+	
+	info_model = info_class.imodelInfo()
+	columns = info_model['columns']
+	del info_model['columns']
+	
+	record['code'] = info_model['name']
+	record['descr'] = info_model['description']
+	record['momi'] = info_model
+	
+	for col in columns.keys():
+		record.setdefault('columns',[]).append({'col':col,'moc':columns[col]})
 
-	for key in columns.keys():
-		if not columns[key]['type'] in ('one2many','many2one','many2many') and key in info:
-			record[key] = info[key]
+#	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
+#	'col': fields.many2one(label='Column', obj = 'bc.model.inherit.columns', readonly=True)
 
-	for key in info['columns'].keys():
-		#column = info['columns'][key]
-		#c = _loadMetaInheritColumns(self,key,column)	
-		record.setdefault('columns',[]).append({'col':mkey,'moc':info_model['columns'][mkey]})
-
+	for mkey in info_model['inherit'].keys():
+		info_class_inherit = self._session._models.get('bc.models')
+		if '_columns' in info_model['inherit'][mkey]:
+			for mcol in info_model['inherit'][mkey]['_columns']:
+				model_id = info_class_inherit.search([('code','=',mkey)])[0]
+				record.setdefault('models',[]).append({'model_id':model_id,'col':col})
+		
+		
 	return record		
 
-
-def _loadMetaModelColumn(self,name,column):
-	return {'moc': self.columnsInfo(columns=[name])}
+# def _loadMetaModelColumn(self,name,column):
+	# return {'moc': self.columnsInfo(columns=[name])}
 	# record = {}
 	# ref_fields = {'col_name':'name','col_check':'check','col_unique':'unique','col_default':'default','col_family':'family'}
 	# keys = self._session._models.get('bc.model.columns').modelInfo(['columns'])['columns'].keys()
@@ -897,29 +893,29 @@ def _loadMetaModelColumn(self,name,column):
 	
 	# return record		
 
-def _loadMetaInheritColumns(self,name,column):
-	record = {}
-	ref_fields = {'col_name':'name','col_check':'check','col_unique':'unique','col_default':'default','col_family':'family'}
-	keys = self._session._models.get('bc.inherit.columns').modelInfo(['columns'])['columns'].keys()
-	record['col_name'] = name
-	record['col_type'] = column['type']
-	for key in keys:
+# def _loadMetaInheritColumns(self,name,column):
+	# record = {}
+	# ref_fields = {'col_name':'name','col_check':'check','col_unique':'unique','col_default':'default','col_family':'family'}
+	# keys = self._session._models.get('bc.inherit.columns').modelInfo(['columns'])['columns'].keys()
+	# record['col_name'] = name
+	# record['col_type'] = column['type']
+	# for key in keys:
 		
-		if key in column or key in ref_fields:
-			if key in ref_fields:
-				if ref_fields[key] in column:
-					record[key] = column[ref_fields[key]]
-			else:
-				if key in ('context','filtering','domain','selections'):
-					record[key] = '%s ' % (column[key],)
-				else:
-					if key == 'size' and type(column[key]) == tuple:
-						record[key] = column[key][0]
-						record['precision'] = column[key][1]
-					else:
-						record[key] = column[key]
+		# if key in column or key in ref_fields:
+			# if key in ref_fields:
+				# if ref_fields[key] in column:
+					# record[key] = column[ref_fields[key]]
+			# else:
+				# if key in ('context','filtering','domain','selections'):
+					# record[key] = '%s ' % (column[key],)
+				# else:
+					# if key == 'size' and type(column[key]) == tuple:
+						# record[key] = column[key][0]
+						# record['precision'] = column[key][1]
+					# else:
+						# record[key] = column[key]
 	
-	return record		
+	# return record		
 
 
 	
@@ -937,67 +933,67 @@ def _loadEnvModule(self,chunk,name):
 		_loadFiles(self,name,self._registry._modules[name],metas)
 
 
-def _load_env_column(self,model,column):
-	v = {}
-	m = self._session._models.get(model)
-	obj = self._session._models.get(m.columnsInfo([column],['obj'])[column]['obj'])
-	recname = obj._getRecNameName()
-	r = obj.select([recname],{})
-	for k in r:
-		v[k[recname]] = k['id']
+# def _load_env_column(self,model,column):
+	# v = {}
+	# m = self._session._models.get(model)
+	# obj = self._session._models.get(m.columnsInfo([column],['obj'])[column]['obj'])
+	# recname = obj._getRecNameName()
+	# r = obj.select([recname],{})
+	# for k in r:
+		# v[k[recname]] = k['id']
 	
-	return v
+	# return v
 
-def _load_class_bc(self,name):
-	bc_models = self._session._models.get('bc.models').select(['name','module_id'],[('module_id','=','bc'),[('name','=','bc.models')]],{})
-	models = self._session._models.get('bc.models').select(['name','module_id'],[('module_id','=',name)],{})
-	mt = {}
-	bcm = self._session._models.get('bc.models')
-	mod_records = []
-	for model in models:
-		m = self._session._models.get(model['name'])
-		if isinstance(m,ModelInherit):
-			continue
-		if 'env-fields' in bcm._extra:
-			envfields = bcm._extra['env-fields']
-			for envfield in envfields:
-				mt[envfield] = _load_env_column(self,bcm._name,envfield)
+# def _load_class_bc(self,name):
+	# bc_models = self._session._models.get('bc.models').select(['name','module_id'],[('module_id','=','bc'),[('name','=','bc.models')]],{})
+	# models = self._session._models.get('bc.models').select(['name','module_id'],[('module_id','=',name)],{})
+	# mt = {}
+	# bcm = self._session._models.get('bc.models')
+	# mod_records = []
+	# for model in models:
+		# m = self._session._models.get(model['name'])
+		# if isinstance(m,ModelInherit):
+			# continue
+		# if 'env-fields' in bcm._extra:
+			# envfields = bcm._extra['env-fields']
+			# for envfield in envfields:
+				# mt[envfield] = _load_env_column(self,bcm._name,envfield)
 
-			mod_record = {'id':model['id']}
-			for envfield in envfields:
-				ef = getattr(m,'_' + envfield,None)
-				if ef:
-					mod_record[envfield] = mt[envfield][ef]
+			# mod_record = {'id':model['id']}
+			# for envfield in envfields:
+				# ef = getattr(m,'_' + envfield,None)
+				# if ef:
+					# mod_record[envfield] = mt[envfield][ef]
 			
-			mod_records.append(mod_record)
+			# mod_records.append(mod_record)
 	
-	bcm.write(mod_records,{})
+	# bcm.write(mod_records,{})
 			
-def _load_env(self,name):
-	models = self._session._models.get('bc.models').select(['name','module_id'],[('module_id','=',name)],{})
-	mt = {}
-	for model in models:
-		m = self._session._models.get(model['name'])
-		if not m or isinstance(m,ModelInherit) or m._name == 'bc.models':
-			continue
-		if 'env-fields' in m._extra:
-			envfields = m._extra['env-fields']
-			for envfield in envfields:
-				mt[envfield] = _load_env_column(self,m._name,envfield)
+# def _load_env(self,name):
+	# models = self._session._models.get('bc.models').select(['name','module_id'],[('module_id','=',name)],{})
+	# mt = {}
+	# for model in models:
+		# m = self._session._models.get(model['name'])
+		# if not m or isinstance(m,ModelInherit) or m._name == 'bc.models':
+			# continue
+		# if 'env-fields' in m._extra:
+			# envfields = m._extra['env-fields']
+			# for envfield in envfields:
+				# mt[envfield] = _load_env_column(self,m._name,envfield)
 
-			r1 = m.select([m._getRecNameName()],{})
-			mod_records = []
-			for k1 in r1:
-				mod_record = {'id':k1['id']}
-				for envfield in envfields:
-					ef = getattr(m,'_' + envfield,None)
-					if ef:
-						mod_record[envfield] = mt[envfield][ef]
-				mod_records.append(mod_record)
+			# r1 = m.select([m._getRecNameName()],{})
+			# mod_records = []
+			# for k1 in r1:
+				# mod_record = {'id':k1['id']}
+				# for envfield in envfields:
+					# ef = getattr(m,'_' + envfield,None)
+					# if ef:
+						# mod_record[envfield] = mt[envfield][ef]
+				# mod_records.append(mod_record)
 			
-			m.write(mod_records,{})
+			# m.write(mod_records,{})
 
-	_load_class_bc(self,name)
+	# _load_class_bc(self,name)
 
 def _loadFiles(self,name,info,metas):
 	path = info['path']
@@ -1057,6 +1053,7 @@ def _convertFromYAML(self,model,records):
 				recname = self._session._models.get(columns_info[key]['obj'])._getRecNameName()
 				if recname is None:
 					recname = 'id'	
+					web_pdb.set_trace()
 				if record[key] is not None:
 					oid = self._session._models.get(columns_info[key]['obj']).search([(recname,'=',record[key])],{},1)
 					if len(oid) > 0:

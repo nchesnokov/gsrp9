@@ -17,14 +17,17 @@ from .generate import *
 _logger = logging.getLogger('listener.' + __name__)
 
 
-GENTEMPLATES = {'elemnt-plus':gen_template_el,'vuetify':gen_template_vuetify,'devextrme':gen_template_devextrme}
-GENSRCIPTS = {'elemnt-plus':gen_script_el,'vuetify':gen_script_vuetify,'devextrme':gen_script_devextrme}
-GENSTYLES = {'elemnt-plus':gen_style_el,'vuetify':gen_style_vuetify,'devextrme':gen_style_devextrme}
+GENTEMPLATES = {'element-plus':gen_template_el,'vuetify':gen_template_vuetify,'devextrme':gen_template_devextrme}
+GENSRCIPTS = {'element-plus':gen_script_el,'vuetify':gen_script_vuetify,'devextrme':gen_script_devextrme}
+GENSTYLES = {'element-plus':gen_style_el,'vuetify':gen_style_vuetify,'devextrme':gen_style_devextrme}
 
 def ModelsColumns( view, columns):
-
+	res = []
 	exclude = EXCLUDE['models'][view]
-	return list(filter(lambda x: not (columns[x]['type'] in exclude or columns[x]['type'] == 'iProperty'),columns.keys()))
+	for col in columns:
+		res.append({'col':col})
+
+	return res
 
 def Views(framework,model,info):
 	res = []
@@ -34,7 +37,7 @@ def Views(framework,model,info):
 		if len(columns) == 0:
 			continue
 		standalone = False
-		record = {'framework':framework,'model':info['name'],'vtype':view,'cols':columns}
+		record = {'model':info['name'],'vtype':framework + '/' + view,'cols':ModelsColumns(view,columns)}
 		if standalone:	
 			record['standalone'] = standalone
 			record['template'] = GENTEMPLATES[framework][view](info,columns)
@@ -53,7 +56,7 @@ def iViews(framework,imodel,info, model, icolumns):
 	for view in EXCLUDE['models'].keys():
 		columns = isAllow(view,'imodels',info,icolumns)
 		standalone = False
-		record = {'framework':framework,'model':model,'vtype':view,'inherit_cols':columns}
+		record = {'model':model,'vtype':framework + '/' + view,'inherit_cols':ModelsColumns(view,columns)}
 		if standalone:	
 			record['standalone'] = standalone
 			record['template'] = GENTEMPLATES[framework][view](info,columns)
@@ -93,14 +96,14 @@ def Area(self, modules = None,context={}):
 		if len(objs) + len(iobjs) > 0:
 			if len(objs) > 0:
 				#_remove_dirs(opj(path,module,'views'))
-				for framework in ('elemnt-plus','vuetify','devextrme'):
+				for framework in ('element-plus','vuetify','devextrme'):
 					if os.path.exists(opj(path,module,'views',framework)):
 						_remove_dirs(opj(path,module,'views',framework))
 				
 				a = open(opj(path,module,'views','views.csv'),'w')
 				aw = csv.DictWriter(a,['model','file'])
 				aw.writeheader()
-				for framework in ('elemnt-plus','vuetify','devextrme'):
+				for framework in ('element-plus','vuetify','devextrme'):
 					if not os.path.exists(opj(path,module,'views',framework)):
 						os.mkdir(opj(path,module,'views',framework))
 					for model in objs['models']:	
@@ -113,7 +116,7 @@ def Area(self, modules = None,context={}):
 					a = open(opj(path,module,'views','views.csv'),'w')
 					aw = csv.DictWriter(a,['model','file'])
 					aw.writeheader()
-					for framework in ('elemnt-plus','vuetify','devextrme'):
+					for framework in ('element-plus','vuetify','devextrme'):
 						_remove_dirs(opj(path,module,'inherits',framework))
 
 				else:
@@ -122,7 +125,7 @@ def Area(self, modules = None,context={}):
 				if not os.path.exists(opj(path,module,'views','inherits')):
 					os.mkdir(opj(path,module,'views','inherits'))
 				
-				for framework in ('elemnt-plus','vuetify','devextrme'):
+				for framework in ('element-plus','vuetify','devextrme'):
 					if not os.path.exists(opj(path,module,'views','inherits',framework)):
 						os.mkdir(opj(path,module,'views','inherits',framework))
 					for imodel in iobjs['models']:	

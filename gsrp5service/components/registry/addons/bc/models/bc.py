@@ -203,7 +203,7 @@ class bc_class_model_categories(Model):
 	_name = 'bc.class.model.categories'
 	_description = 'Category Class Models'
 	_class_object = 'K'
-	rec_name = 'code'
+	_rec_name = 'code'
 	_columns = {
 	'code': fields.varchar(label='Code', size = 8,readonly=True),
 	'descr': fields.varchar(label='Description', size = 64,readonly=True),
@@ -217,7 +217,7 @@ class bc_class_models(Model):
 	_name = 'bc.class.models'
 	_description = 'Class Models'
 	_class_object = 'K'
-	rec_name = 'code'
+	_rec_name = 'code'
 	_columns = {
 	'code': fields.varchar(label='Code', size = 8,readonly=True),
 	'descr': fields.varchar(label='Description', size = 64,readonly=True),
@@ -232,8 +232,7 @@ class bc_models(Model):
 	_description = 'Models'
 	_class_object = 'K'
 	_order_by="module_id,code"
-	_extra = {'env-fields':['class_model','class_model_category']}
-	rec_name = 'code'
+	_rec_name = 'code'
 	_columns = {
 	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',readonly=True, on_delete = 'c'),
 	'code': fields.varchar(label = 'Name', size = 64,readonly=True),
@@ -242,7 +241,7 @@ class bc_models(Model):
 	'class_model_category': fields.many2one(label = 'Class Model Category', obj = 'bc.class.model.categories', readonly=True),
 	'oom': fields.json(label='Meta Of Object', readonly = True),
 	'columns': fields.one2many(label='Columns',obj='bc.model.columns', readonly = True),
-	'inherits':fields.one2many(label = 'Inherits', obj = 'bc.model.inherits', rel = 'object_id',readonly=True)
+	'inherits':fields.one2many(label = 'Inherits', obj = 'bc.model.inherit.inherits', rel = 'model_id',readonly=True)
 	}
 
 bc_models()
@@ -250,7 +249,7 @@ bc_models()
 class bc_model_columns(Model):
 	_name = 'bc.model.columns'
 	_description = 'Models'
-	_class_object = 'K'
+	_class_model = 'K'
 	_order_by="col"
 	_columns = {
 	'model_id': fields.many2one(label = 'Model', obj = 'bc.models', readonly=True, on_delete = 'c'),
@@ -267,13 +266,14 @@ class bc_model_inherits(Model):
 	_description = 'Object Inherits'
 	_class_object = 'K'
 	_order_by="module_id,model_id"
+	_rec_name = 'code'
 	_columns = {
-	'fullname': fields.composite(label='Full Name', cols = ['module_id','model_id','code'], required = True, compute = '_compute_composite'),
-	'model_id': fields.many2one(label = 'Object', obj = 'bc.models',readonly=True, on_delete = 'c'),
 	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',readonly=True, on_delete = 'c'),
 	'code': fields.varchar(label = 'Name', size = 64,readonly=True),
 	'descr': fields.varchar(label = 'Description', size = 256,readonly=True),
 	'momi': fields.json(label='Meta Of Model Inherit', readonly = True),
+	'columns': fields.one2many(label='Columns', obj = 'bc.model.inherit.columns', rel = 'inherit_id'),
+	'models': fields.one2many(label='Models', obj = 'bc.model.inherit.inherits', rel = 'inherit_id'),
 	}
 
 bc_model_inherits()
@@ -284,10 +284,27 @@ class bc_model_inherit_columns(Model):
 	_class_object = 'K'
 	_order_by="col"
 	_columns = {
-	'inherit_id': fields.many2one(label = 'Inherit', obj = 'bc.model.inherits', readonly=True, on_delete = 'c'),
-	'col': fields.varchar(label='Column', readonly=True),
+	'inherit_id': fields.many2one(label = 'Model Inherit', obj = 'bc.model.inherits', readonly=True, on_delete = 'c'),
+	'col': fields.varchar(label='Column', size = 64, readonly=True),
 	'moc': fields.json(label='Meta Of Column', readonly = True),
 	}
+
+
+class bc_model_inherit_inherits(Model):
+	_name = 'bc.model.inherit.inherits'
+	_description = 'Inherit To Models'
+	_class_object = 'K'
+	_order_by="col"
+	_columns = {
+	'inherit_id': fields.many2one(label = 'Inherit', obj = 'bc.model.inherits', readonly=True, on_delete = 'c'),
+	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
+	#'col': fields.many2one(label='Column', obj = 'bc.model.inherit.columns', readonly=True)
+	'col': fields.varchar(label='Column', size = 64, readonly=True),
+	}
+
+bc_model_inherit_columns()
+
+
 
 bc_model_inherit_columns()
 

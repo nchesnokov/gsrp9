@@ -809,7 +809,7 @@ def _info(self,whitelist,args=[],kwargs={}):
 
 
 def modelInfo(self,args=[],kwargs={}):
-	whitelist = ['__doc__','access','auth','transient','name','names','table','tr_table','schema','class_model','class_category','inherit','inherits','description','checks','trgupdcols','trigers','columns_attrs','columns','family','i18n_family','default','register','constraints','i18n_constraints','sql_constraints','i18n_sql_constraints','order_by','group_by','auto','actions','states','attrs','no_copy','groups','pages','indicies','log_access','extra','i18nfields']
+	whitelist = ['__doc__','access','auth','transient','name','names','table','tr_table','schema','class_model','class_model_category','inherit','inherits','description','checks','trgupdcols','trigers','columns_attrs','columns','family','i18n_family','default','register','constraints','i18n_constraints','sql_constraints','i18n_sql_constraints','order_by','group_by','auto','actions','states','attrs','no_copy','groups','pages','indicies','log_access','extra','i18nfields']
 	return _info(self,whitelist,args,kwargs)
 				
 

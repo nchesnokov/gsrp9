@@ -13,17 +13,17 @@ import web_pdb
 _logger = logging.getLogger('listener.' + __name__)
 
 def FrameworkRecordAction(framework,model,action):
-	return {'framework_id':framework,'action_id': action,'view_id':concat([framework,model,'search'])}
+	return {'framework_id':framework,'action_id': action,'view_id':concat([model,framework,'search'],'/')}
 
 
 def RecordAction(model):
-	return {'name': concat(['action',model,'search'])}
+	return {'name': concat(['action',model,'search']),'model':model}
 
 
 def RecordMenu(name,label,parent=None):
 	record = {'name':name,'label':label}
-	if parent:
-		record['parent_id'] = parent
+	#if parent:
+	record['parent_id'] = parent
 	
 	return record
 
@@ -75,7 +75,7 @@ def Area(self, modules = None, context={}):
 					action = RecordAction(model._name)
 					res_actions.append(action)
 					res_menu.append(RecordMenuItem(idx,module,model._name,model._description,concat(['ui','menu','module',module])))
-					for framework in ('elemnt-plus','vuetify','devextrme'):
+					for framework in ('element-plus','vuetify','devextrme'):
 						res_framework_actions.append(FrameworkRecordAction(framework,model._name,action['name']))
 
 						
@@ -85,7 +85,7 @@ def Area(self, modules = None, context={}):
 					action = RecordAction(cust_model._name)
 					res_actions.append(action)
 					res_menu.append(RecordMenuItem(idx,module,cust_model._name,cust_model._description,concat(['ui','menu','customize',module])))
-					for framework in ('elemnt-plus','vuetify','devextrme'):
+					for framework in ('element-plus','vuetify','devextrme'):
 						res_framework_actions.append(FrameworkRecordAction(framework,cust_model._name,action['name']))
 			
 			if len(res_menu) + len(res_actions) + len(res_framework_actions) > 0:
@@ -95,20 +95,20 @@ def Area(self, modules = None, context={}):
 				aw = csv.DictWriter(a,['model','file'])
 				aw.writeheader()
 
+				if len(res_actions) > 0:
+					with open(opj(path,module,'views','menus','devel.ui.model.actions'.replace('.','_') + '.yaml'),'w') as outfile:
+						yaml.dump(res_actions, outfile, Dumper, default_flow_style=False)
+					aw.writerow({'model': 'devel.ui.model.actions','file':opj('views','menus','devel.ui.model.actions'.replace('.','_') + '.yaml' )})
+
 				if len(res_menu) > 0:
 					with open(opj(path,module,'views','menus','devel.ui.model.menus'.replace('.','_') + '.yaml'),'w') as outfile:
 						yaml.dump(res_menu, outfile, Dumper, default_flow_style=False)
 					aw.writerow({'model': 'devel.ui.model.menus','file':opj('views','menus','devel.ui.model.menus'.replace('.','_') + '.yaml' )})
 
-				if len(res_actions) > 0:
-					with open(opj(path,module,'views','menus','devel.ui.model.actions'.replace('.','_') + '.yaml'),'w') as outfile:
-						yaml.dump(res_actions, outfile, Dumper, default_flow_style=False)
-					aw.writerow({'model': 'devel.ui.model.menus','file':opj('views','menus','devel.ui.model.actions'.replace('.','_') + '.yaml' )})
-
 				if len(res_framework_actions) > 0:
 					with open(opj(path,module,'views','menus','devel.ui.framework.model.actions'.replace('.','_') + '.yaml'),'w') as outfile:
 						yaml.dump(res_framework_actions, outfile, Dumper, default_flow_style=False)
-					aw.writerow({'model': 'devel.ui.model.menus','file':opj('views','menus','devel.ui.framework.model.actions'.replace('.','_') + '.yaml' )})
+					aw.writerow({'model': 'devel.ui.framework.model.actions','file':opj('views','menus','devel.ui.framework.model.actions'.replace('.','_') + '.yaml' )})
 
 			logmodules.append(module)
 	log.append('Gen menus of modules %s' % (logmodules,))

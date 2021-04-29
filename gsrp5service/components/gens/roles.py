@@ -90,17 +90,17 @@ def Area(self, modules = None, context={}):
 				if len(res_group) > 0:
 					with open(opj(path,module,'views','roles','bc.group.access'.replace('.','_') + '.yaml'),'w') as outfile:
 						yaml.dump(res_group, outfile, Dumper, default_flow_style=False)
-					aw.writerow({'model': 'bc.group.access','file':opj('views','menus','bc.group.access'.replace('.','_') + '.yaml' )})
+					aw.writerow({'model': 'bc.group.access','file':opj('views','roles','bc.group.access'.replace('.','_') + '.yaml' )})
 
 				if len(res_roles) > 0:
 					with open(opj(path,module,'views','roles','bc.access'.replace('.','_') + '.yaml'),'w') as outfile:
 						yaml.dump(res_roles, outfile, Dumper, default_flow_style=False)
-					aw.writerow({'model': 'bc.access','file':opj('views','menus','bc.access'.replace('.','_') + '.yaml' )})
+					aw.writerow({'model': 'bc.access','file':opj('views','roles','bc.access'.replace('.','_') + '.yaml' )})
 
 				if len(res_access) > 0:
 					with open(opj(path,module,'views','roles','bc.model.access'.replace('.','_') + '.yaml'),'w') as outfile:
 						yaml.dump(res_access, outfile, Dumper, default_flow_style=False)
-					aw.writerow({'model': 'bc.model.access','file':opj('views','menus','bc.model.access'.replace('.','_') + '.yaml' )})
+					aw.writerow({'model': 'bc.model.access','file':opj('views','roles','bc.model.access'.replace('.','_') + '.yaml' )})
 
 			logmodules.append(module)
 	log.append('Gen roles of modules %s' % (logmodules,))

@@ -25,16 +25,12 @@ def get_viewname_by_window_action_id2(cr,pool,uid,action_id):
 	return [None]
 
 
-def get_model_by_window_action_id_v2(pool,action_id):
-	ba = pool.get('bc.actions').select(fields=['name','ta',{'va':['view_id']},{'ra':['report_id']}],cond=[('name','=',action_id)])
-	if len(ba) > 0:
-		ta = ba[0]['ta']
-		if ta == 'model':
-			name = ba[0]['va'][0]['view_id']['name']
-			action = pool.get('bc.ui.views').select(fields=['model'],cond=[('name','=',name)],limit=1)
-			if len(action) > 0:
-				return action[0]['model']
-	return [None]
+def get_model_by_window_action_id_v2(pool,action_id, framework = 'element-plus'):
+	view_id = pool.get('devel.ui.framework.model.actions').select(fields=['action_id','view_id'],cond=[('fullname','=',action_id + '/' + framework)])
+
+	if len(view_id) > 0:
+		view_id[0]
+
 
 def get_view_by_window_action_id(cr,pool,uid,action_id):
 	name = get_viewname_by_window_action_id(cr,pool,uid,action_id)
@@ -160,7 +156,7 @@ def get_views_of_model_v2(cr,pool,uid,model):
 	return [v]
 
 def get_meta_of_model_v2(pool,model,context):
-	trs = pool.get('bc.model.translations').select(['tr'],[('lang','=',context['lang']),('model','=',model)])
+	trs = pool.get('devel.model.translations').select(['tr'],[('lang','=',context['lang']),('model','=',model)])
 	m = pool.get(model)
 	attrs = m.modelInfo() #attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
 					
@@ -271,7 +267,7 @@ def get_view_by_window_action_id_v2(cr,pool,uid,action_id):
 	return [None]
 
 def get_meta_by_window_action_id_v2(pool,action_id,context):
-	#web_pdb.set_trace()
+	web_pdb.set_trace()
 	model = get_model_by_window_action_id_v2(pool,action_id)
 	mof = get_meta_of_models_v2(pool,model,context)
 	return [{'root':model,'models':mof}]

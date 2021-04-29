@@ -247,7 +247,7 @@ def _createRecords(self, records, context):
 def _createRecord(self, record, context):
 	oid = None
 
-	fields = list(record.keys())
+	fields = list(filter(lambda x: x != 'id',record.keys()))
 	modelfields = list(self._columns.keys())
 	nomodelfields = list(filter(lambda x: not x in modelfields,fields))
 	if len(nomodelfields) > 0:
@@ -303,7 +303,7 @@ def _writeRecords(self, records, context):
 
 def _writeRecord(self, record, context):
 	oid = None
-	fields = list(record.keys())
+	fields = list(filter(lambda x: x != 'id',record.keys()))
 	modelfields = list(self._columns.keys())
 	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS,fields))
 	if len(nomodelfields) > 0:
@@ -391,7 +391,7 @@ def _modifyRecords(self, records, context):
 def _modifyRecord(self, record, context):
 	oid = None
 	i18nfields = self._i18nfields
-	fields = list(set(record.keys()) - set(i18nfields))
+	fields = list(set(list(filter(lambda x: x != 'id',record.keys()))) - set(i18nfields))
 	modelfields = list(set(self._columns.keys()) - set(i18nfields))
 	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS, fields))
 	if len(nomodelfields) > 0:
