@@ -453,11 +453,11 @@ def _installModule(self,name,chunk):
 		# if 'demo' in chunk and 'demo' in info['meta']:
 			# metas['demo'] = info['meta']['demo']
 	
-	if 'test' in chunk and 'test' in info['meta']:
-		metas['test'] = info['meta']['test']
+	# if 'test' in chunk and 'test' in info['meta']:
+		# metas['test'] = info['meta']['test']
 	
-	if 'i18n' in chunk and 'i18n' in info['meta']:
-		metas['i18n'] = info['meta']['i18n']
+	# if 'i18n' in chunk and 'i18n' in info['meta']:
+		# metas['i18n'] = info['meta']['i18n']
 		
 	_loadFiles(self,name,self._registry._modules[name],metas)
 	self._cr.commit()
@@ -1026,7 +1026,7 @@ def _loadFiles(self,name,info,metas):
 						r = self._session._models.get('bc.langs').search([('code','=',lang)],{})
 						if len(r) > 0:
 							for model in res[lang].keys():
-								r1 = self._session._models.get('bc.models').search([('name','=',model)],{})
+								r1 = self._session._models.get('bc.models').search([('code','=',model)],{})
 								if len(r1) > 0:
 									v = res[lang][model]
 									self._session._models.get('bc.model.translations').modify({'lang':r[0],'model':r1[0],'tr':json.dumps(v)},{})

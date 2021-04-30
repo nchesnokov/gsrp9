@@ -85,7 +85,7 @@ devel_ui_model_views()
 
 class devel_ui_model_view_columns(Model):
 	_name = 'devel.ui.model.view.columns'
-	_description = 'UI View Columns'
+	_description = 'UI Model View Columns'
 	_class_object = 'D'
 	_columns = {
 	'view_id': fields.many2one(label='Model View',obj='devel.ui.model.views',required=True),
@@ -95,7 +95,7 @@ class devel_ui_model_view_columns(Model):
 
 class devel_ui_model_view_column_inherits(Model):
 	_name = 'devel.ui.model.view.column.inherits'
-	_description = 'UI View Columns'
+	_description = 'UI Model View Columns Inherit'
 	_class_object = 'D'
 	_columns = {
 	'view_id': fields.many2one(label='Model View',obj='devel.ui.model.views',required=True),
@@ -179,7 +179,7 @@ class devel_ui_model_actions(Model):
 
 class devel_ui_framework_model_actions(Model):
 	_name = 'devel.ui.framework.model.actions'
-	_description = 'Model UI Actions'
+	_description = 'Model UI Framework Actions'
 	_class_object = 'D'
 	_columns = {
 	'fullname': fields.composite(label='Full Name', cols = ['action_id','framework_id'], required = True, compute = '_compute_composite'),

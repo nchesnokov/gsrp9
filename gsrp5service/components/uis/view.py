@@ -25,11 +25,14 @@ def get_viewname_by_window_action_id2(cr,pool,uid,action_id):
 	return [None]
 
 
-def get_model_by_window_action_id_v2(pool,action_id, framework = 'element-plus'):
-	view_id = pool.get('devel.ui.framework.model.actions').select(fields=['action_id','view_id'],cond=[('fullname','=',action_id + '/' + framework)])
+def get_model_by_window_action_id_v2(pool,action_id, context = {'framework':'element-plus'}):
+	af_id = pool.get('devel.ui.framework.model.actions').select(fields=['action_id','framework_id','view_id'],cond=[('fullname','=',action_id + '/' + context['framework'])])
 
-	if len(view_id) > 0:
-		view_id[0]
+	if len(af_id) > 0:
+		act = pool.get('devel.ui.model.actions').select(fields=['name','model'],cond=[('name','=',af_id[0]['action_id']['name'])])
+		if len(act) > 0:
+			return act[0]['model']['name']
+			
 
 
 def get_view_by_window_action_id(cr,pool,uid,action_id):
@@ -122,7 +125,7 @@ def get_view_by_name(cr,pool,uid,name):
 	v['allow'] = allow
 	return [v,o,w['arch'],allow]
 # v2
-def get_views_of_model_v2(cr,pool,uid,model):
+def get_views_of_model_v2_1(cr,pool,uid,model):
 	v = {}
 	v['root'] = 'view.' + model + '.search'
 	info = pool.get(model).modelInfo() #[],{'columns':{'attributes':['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter']}})
@@ -197,7 +200,8 @@ def get_meta_of_models_v2(pool,model,context):
 	
 	v.setdefault(model,{})['meta'] = info
 	v.setdefault(model,{})['views'] = views[model]  
-	v.setdefault(model,{})['allow'] = list(filter(lambda x: isAllow(x,'models',info),VIEWSGEN['models'].keys()))
+	#v.setdefault(model,{})['allow'] = list(filter(lambda x: isAllow(x,'models',info),VIEWSGEN['models'].keys()))
+	v.setdefault(model,{})['allow'] = list(v[model]['views'].keys())
 
 	for m2o in m2omodels:
 		if m2o in v:
@@ -207,7 +211,8 @@ def get_meta_of_models_v2(pool,model,context):
 		m2oinfo = get_referenced_attrs_v2(pool,m2oinfo,context)
 		v.setdefault(m2o,{})['meta'] = m2oinfo
 		v.setdefault(m2o,{})['views'] = m2oviews[m2o]  
-		v.setdefault(m2o,{})['allow'] = list(filter(lambda x: isAllow(x,'models',m2oinfo),VIEWSGEN['models'].keys()))
+		#v.setdefault(m2o,{})['allow'] = list(filter(lambda x: isAllow(x,'models',m2oinfo),VIEWSGEN['models'].keys()))
+		v.setdefault(m2o,{})['allow'] = list(v[m2o]['views'].keys())
 
 	for m2m in m2mmodels:
 		if m2m in v:
@@ -217,7 +222,8 @@ def get_meta_of_models_v2(pool,model,context):
 		m2minfo = get_referenced_attrs_v2(pool,m2minfo,context)
 		v.setdefault(m2m,{})['meta'] = m2minfo
 		v.setdefault(m2m,{})['views'] = m2mviews[m2m]
-		v.setdefault(m2m,{})['allow'] = list(filter(lambda x: isAllow(x,'models',m2minfo),VIEWSGEN['models'].keys())) 
+		#v.setdefault(m2m,{})['allow'] = list(filter(lambda x: isAllow(x,'models',m2minfo),VIEWSGEN['models'].keys())) 
+		v.setdefault(m2m,{})['allow'] = list(v[m2m]['views'].keys())
 
 	for m in models:
 		if m == model or m in v:
@@ -234,15 +240,15 @@ def get_meta_of_models_v2(pool,model,context):
 			
 def get_views_of_model_v2(pool,model,info,context):
 	o = {}
-
-	views = pool.get('devel.ui.model.views').select(fields=['fullname','framework','model','vtype','standart','template','script','style','scoped','sfc',{'cols':['col']},{'inherit_cols':['col']}],cond=[('framework','=',context['framework']),('model','=',model)],context=context)
+	#web_pdb.set_trace()
+	views = pool.get('devel.ui.model.views').select(fields=['fullname','model','vtype','standalone','template','script','style','scoped','sfc',{'cols':['col']},{'inherit_cols':['col']}],cond=[('vtype','like',context['framework'] + '/%'),('model','=',model)],context=context)
 	for view in views:
-		confs = pool.get('devel.tuning.ui.model.views').select(fields=['fullname','name','view','tuser','values'],cond=[('view','=',view['name']),('tuser','=', context['user'])],context=context)
+		confs = pool.get('devel.tuning.ui.model.views').select(fields=['fullname','name','view','tuser','values'],cond=[('view','=',view['fullname']),('tuser','=', context['user'])],context=context)
 		v  = {'columns':[],'id':view['id'],'confs':confs}
 		v['columns'].extend(view['cols'])
 		v['columns'].extend(view['inherit_cols'])
 		
-		o[view['vtype']] = v
+		o[view['vtype']['name'].split('/')[1]] = v
 
 	return {model:o}
 
@@ -267,8 +273,11 @@ def get_view_by_window_action_id_v2(cr,pool,uid,action_id):
 	return [None]
 
 def get_meta_by_window_action_id_v2(pool,action_id,context):
-	web_pdb.set_trace()
-	model = get_model_by_window_action_id_v2(pool,action_id)
+	
+	if 'framework' not in context:
+		context['framework'] = 'element-plus'
+	
+	model = get_model_by_window_action_id_v2(pool,action_id,context)
 	mof = get_meta_of_models_v2(pool,model,context)
 	return [{'root':model,'models':mof}]
 

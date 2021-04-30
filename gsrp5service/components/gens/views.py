@@ -49,17 +49,17 @@ def Views(framework,model,info):
 
 	return res
 
-def iViews(framework,imodel,info, model, icolumns):
+def iViews(framework, imodel, info, model, icolumns,views):
 	res = []
-	ci = info['columns']
+	#ci = info['columns']
 	#web_pdb.set_trace()
-	for view in EXCLUDE['models'].keys():
-		columns = isAllow(view,'imodels',info,icolumns)
+	for view in views:
+		#columns = isAllow(view,'imodels',info,icolumns)
 		standalone = False
-		record = {'model':model,'vtype':framework + '/' + view,'inherit_cols':ModelsColumns(view,columns)}
+		record = {'model':model,'vtype':framework + '/' + view,'inherit_cols':ModelsColumns(view,icolumns)}
 		if standalone:	
 			record['standalone'] = standalone
-			record['template'] = GENTEMPLATES[framework][view](info,columns)
+			#record['template'] = GENTEMPLATES[framework][view](info,columns)
 			#script = GENSRCIPTS[framework][view](info,columns)
 			#style = GENSTYLES[framework][view](info,columns)
 			#sfc = template +'\n' + script + '\n' + style
@@ -67,8 +67,6 @@ def iViews(framework,imodel,info, model, icolumns):
 		res.append(record)
 
 	return res
-
-
 
 def Area(self, modules = None,context={}):
 	pwd = os.getcwd()
@@ -79,6 +77,8 @@ def Area(self, modules = None,context={}):
 	else:
 		modules = list(filter(lambda x: x in modules,registry._depends))
 	logmodules = []
+	module_bc = False
+	module_devel = False
 	for module in modules:
 		path = registry._modules[module]['path']
 		objs = {}
@@ -94,48 +94,79 @@ def Area(self, modules = None,context={}):
 							iobjs.setdefault(cat,[]).append(obj)
 		
 		if len(objs) + len(iobjs) > 0:
+			if module == 'bc':
+				if not module_bc:
+					module_bc = True
+			elif module == 'devel':
+				if not module_devel:
+					module_devel = True
+				
+			if module in ('bc','devel'):
+				path_module = 'devel'
+			else:
+				path_module = module
+
 			if len(objs) > 0:
 				#_remove_dirs(opj(path,module,'views'))
+				fmode = 'w'
+				if module_bc and module_devel and module in ('bc','devel'):
+					fmode = 'a'
+				a = open(opj(path,path_module,'views','views.csv'),fmode)
+				if fmode == 'w':
+					aw = csv.DictWriter(a,['model','file'])
+					aw.writeheader()
+					for framework in ('element-plus','vuetify','devextrme'):
+						if os.path.exists(opj(path,path_module,'views',framework)):
+							_remove_dirs(opj(path,path_module,'views',framework))
+
 				for framework in ('element-plus','vuetify','devextrme'):
-					if os.path.exists(opj(path,module,'views',framework)):
-						_remove_dirs(opj(path,module,'views',framework))
-				
-				a = open(opj(path,module,'views','views.csv'),'w')
-				aw = csv.DictWriter(a,['model','file'])
-				aw.writeheader()
-				for framework in ('element-plus','vuetify','devextrme'):
-					if not os.path.exists(opj(path,module,'views',framework)):
-						os.mkdir(opj(path,module,'views',framework))
+					if not os.path.exists(opj(path,path_module,'views',framework)):
+						os.mkdir(opj(path,path_module,'views',framework))
 					for model in objs['models']:	
-						with open(opj(path,module,'views',framework,model._table+'.yaml'),'w') as outfile:
+						with open(opj(path,path_module,'views',framework,model._table+'.yaml'),'w') as outfile:
 							yaml.dump(Views(framework,model._name,model.modelInfo()), outfile, Dumper, default_flow_style=False)
 					
 						aw.writerow({'model': 'devel.ui.model.views','file':opj('views',framework,model._table+'.yaml' )})
 			if len(iobjs) > 0:
 				if len(objs) == 0:
-					a = open(opj(path,module,'views','views.csv'),'w')
-					aw = csv.DictWriter(a,['model','file'])
-					aw.writeheader()
+					
+					fmode = 'w'
+					if module_bc and module_devel  and module in ('bc','devel'):
+						fmode = 'a'
+
+					a = open(opj(path,path_module,'views','views.csv'),fmode)
+					if fmode == 'w':
+						aw = csv.DictWriter(a,['model','file'])
+						aw.writeheader()
 					for framework in ('element-plus','vuetify','devextrme'):
-						_remove_dirs(opj(path,module,'inherits',framework))
+						_remove_dirs(opj(path,path_module,'inherits',framework))
 
 				else:
-					a = open(opj(path,module,'views','views.csv'),'a')
+					a = open(opj(path,path_module,'views','views.csv'),'a')
 
-				if not os.path.exists(opj(path,module,'views','inherits')):
-					os.mkdir(opj(path,module,'views','inherits'))
+				if not os.path.exists(opj(path,path_module,'views','inherits')):
+					os.mkdir(opj(path,path_module,'views','inherits'))
 				
 				for framework in ('element-plus','vuetify','devextrme'):
-					if not os.path.exists(opj(path,module,'views','inherits',framework)):
-						os.mkdir(opj(path,module,'views','inherits',framework))
+					if not os.path.exists(opj(path,path_module,'views','inherits',framework)):
+						os.mkdir(opj(path,path_module,'views','inherits',framework))
 					for imodel in iobjs['models']:	
 						inherit = getattr(imodel,'_inherit')
 						for m in inherit.keys():
 							if '_columns' in inherit[m]:
 								cols =  inherit[m]['_columns']
-								nm = m
-								with open(opj(path,module,'views','inherits',framework,nm.replace('.','_') + '.yaml'),'w') as outfile:
-									yaml.dump(iViews(framework,imodel._name,imodel.imodelInfo(),m,cols), outfile, Dumper, default_flow_style=False)
+								nm = m + '.' +imodel._name
+								views = []
+								mobj = registry._create_module_object('models',m,registry._getLastModuleObject('models',m))
+								info = mobj.modelInfo()
+								ci = info['columns']
+								for view in EXCLUDE['models'].keys():
+									columns = isAllow(view,'models',info,list(ci.keys()))
+									if len(columns) == 0:
+										continue
+									views.append(view)
+								with open(opj(path,path_module,'views','inherits',framework,nm.replace('.','_') + '.yaml'),'w') as outfile:
+									yaml.dump(iViews(framework,imodel._name,imodel.imodelInfo(),m,cols,views), outfile, Dumper, default_flow_style=False)
 					
 							aw.writerow({'model': 'devel.ui.model.view.column.inherits','file':opj('views','inherits',framework,nm.replace('.','_') + '.yaml' )})
 				

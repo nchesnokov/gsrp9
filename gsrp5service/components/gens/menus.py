@@ -46,6 +46,8 @@ def Area(self, modules = None, context={}):
 	else:
 		modules = list(filter(lambda x: x in modules,registry._depends))
 	logmodules = []
+	module_bc = False
+	module_devel = False
 	for module in modules:
 		path = registry._modules[module]['path']
 		label = registry._modules[module]['meta']['name']
@@ -57,13 +59,24 @@ def Area(self, modules = None, context={}):
 				if isinstance(obj,Model):
 					info = obj.modelInfo()	
 					if len(isAllow('search','models',info,list(info['columns'].keys()))) > 0:
-					#if len(list(filter(lambda x: 'selectable' in info['columns'][x] and info['columns'][x]['selectable'] and 'rec_name' in info['names'] and info['names']['rec_name'],info['columns'].keys()))) > 0:
 						if 'class_model' in info and info['class_model'] in ('A','B','K'):
 							models.append(obj)
 						elif 'class_model' in info and info['class_model'] in ('C','E'):
 							cust_models.append(obj)
 
 		if len(models) > 0 or len(cust_models) > 0:
+			if module == 'bc':
+				if not module_bc:
+					module_bc = True
+			elif module == 'devel':
+				if not module_devel:
+					module_devel = True
+				
+			if module in ('bc','devel'):
+				path_module = 'devel'
+			else:
+				path_module = module
+
 			if module == 'bc':
 				RecordMenu(concat(['ui','menu','customize']),'Customizing')
 			res_menu =[]
@@ -89,26 +102,35 @@ def Area(self, modules = None, context={}):
 						res_framework_actions.append(FrameworkRecordAction(framework,cust_model._name,action['name']))
 			
 			if len(res_menu) + len(res_actions) + len(res_framework_actions) > 0:
-				if not os.path.exists(opj(path,module,'views','menus')):
-					os.mkdir(opj(path,module,'views','menus'))
-				a = open(opj(path,module,'views','menus.csv'),'w')
-				aw = csv.DictWriter(a,['model','file'])
-				aw.writeheader()
+				if not os.path.exists(opj(path,path_module,'views','menus')):
+					os.mkdir(opj(path,path_module,'views','menus'))
 
+				#web_pdb.set_trace()
+				fmode = 'w'
+				if module_bc and module_devel and module in ('bc','devel'):
+					fmode = 'a'
+		
+				a = open(opj(path,path_module,'views','menus.csv'),fmode)
+				if fmode == 'w':
+					aw = csv.DictWriter(a,['model','file'])
+					aw.writeheader()
+				prefix = ''
+				if module in ('bc','devel'):
+					prefix = module + '_'
 				if len(res_actions) > 0:
-					with open(opj(path,module,'views','menus','devel.ui.model.actions'.replace('.','_') + '.yaml'),'w') as outfile:
+					with open(opj(path,path_module,'views','menus',prefix + 'ui.model.actions'.replace('.','_') + '.yaml'),'w') as outfile:
 						yaml.dump(res_actions, outfile, Dumper, default_flow_style=False)
-					aw.writerow({'model': 'devel.ui.model.actions','file':opj('views','menus','devel.ui.model.actions'.replace('.','_') + '.yaml' )})
+					aw.writerow({'model': 'devel.ui.model.actions','file':opj('views','menus',prefix + 'ui.model.actions'.replace('.','_') + '.yaml' )})
 
 				if len(res_menu) > 0:
-					with open(opj(path,module,'views','menus','devel.ui.model.menus'.replace('.','_') + '.yaml'),'w') as outfile:
+					with open(opj(path,path_module,'views','menus',prefix + 'ui.model.menus'.replace('.','_') + '.yaml'),'w') as outfile:
 						yaml.dump(res_menu, outfile, Dumper, default_flow_style=False)
-					aw.writerow({'model': 'devel.ui.model.menus','file':opj('views','menus','devel.ui.model.menus'.replace('.','_') + '.yaml' )})
+					aw.writerow({'model': 'devel.ui.model.menus','file':opj('views','menus',prefix + 'ui.model.menus'.replace('.','_') + '.yaml' )})
 
 				if len(res_framework_actions) > 0:
-					with open(opj(path,module,'views','menus','devel.ui.framework.model.actions'.replace('.','_') + '.yaml'),'w') as outfile:
+					with open(opj(path,path_module,'views','menus',prefix + 'ui.framework.model.actions'.replace('.','_') + '.yaml'),'w') as outfile:
 						yaml.dump(res_framework_actions, outfile, Dumper, default_flow_style=False)
-					aw.writerow({'model': 'devel.ui.framework.model.actions','file':opj('views','menus','devel.ui.framework.model.actions'.replace('.','_') + '.yaml' )})
+					aw.writerow({'model': 'devel.ui.framework.model.actions','file':opj('views','menus',prefix + 'ui.framework.model.actions'.replace('.','_') + '.yaml' )})
 
 			logmodules.append(module)
 	log.append('Gen menus of modules %s' % (logmodules,))
