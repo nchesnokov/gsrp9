@@ -240,7 +240,7 @@ class bc_models(Model):
 	'class_model': fields.many2one(label = 'Class Model', obj = 'bc.class.models', readonly=True),
 	'class_model_category': fields.many2one(label = 'Class Model Category', obj = 'bc.class.model.categories', readonly=True),
 	'oom': fields.json(label='Meta Of Object', readonly = True),
-	'columns': fields.one2many(label='Columns',obj='bc.model.columns', readonly = True),
+	'columns': fields.one2many(label='Columns',obj='bc.model.columns', rel='model_id',readonly = True),
 	'inherits':fields.one2many(label = 'Inherits', obj = 'bc.model.inherit.inherits', rel = 'model_id',readonly=True)
 	}
 
@@ -248,7 +248,7 @@ bc_models()
 
 class bc_model_columns(Model):
 	_name = 'bc.model.columns'
-	_description = 'Models'
+	_description = 'Columns Of Model'
 	_class_model = 'K'
 	_order_by="col"
 	_columns = {
