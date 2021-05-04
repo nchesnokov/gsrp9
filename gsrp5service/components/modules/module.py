@@ -1053,7 +1053,6 @@ def _convertFromYAML(self,model,records):
 				recname = self._session._models.get(columns_info[key]['obj'])._getRecNameName()
 				if recname is None:
 					recname = 'id'	
-					web_pdb.set_trace()
 				if record[key] is not None:
 					oid = self._session._models.get(columns_info[key]['obj']).search([(recname,'=',record[key])],{},1)
 					if len(oid) > 0:
