@@ -369,7 +369,7 @@ class bc_model_data(Model):
 	_columns = {
 	'name': fields.varchar(label = 'Name',size = 256,readonly=True),
 	'module': fields.varchar(label = 'Module',size = 64,selectable=True,readonly=True),
-	'model': fields.varchar(label = 'Object',size = 64,selectable=True,readonly=True),
+	'model': fields.varchar(label = 'Model',size = 64,selectable=True,readonly=True),
 	'rec_id': fields.uuid(label = 'ID record',readonly=True),
 	'file_id': fields.many2one(label='File',obj='bc.module.files',readonly=True),
 	'date_init': fields.datetime(label = 'Timestamp init', timezone = False,readonly=True),
