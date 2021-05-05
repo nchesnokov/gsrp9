@@ -28,7 +28,7 @@ class devel_messages(Model):
 
 devel_messages()
 
-class bc_web_frameworks(Model):
+class devel_web_frameworks(Model):
 	_name = 'devel.web.frameworks'
 	_description = 'Web Frameworks'
 	_rec_name = 'code'
@@ -38,7 +38,7 @@ class bc_web_frameworks(Model):
 	'descr': fields.varchar(label='Description', size = 256,readonly=True)
 	}
 
-bc_web_frameworks()
+devel_web_frameworks()
 
 
 
@@ -64,7 +64,7 @@ class devel_ui_model_views(Model):
 	_columns = {
 	'fullname': fields.composite(label='Full Name', cols = ['model','vtype'], translate = True,required = True, compute = '_compute_composite'),
 	'model': fields.many2one(label='Model',obj='bc.models'),
-	'vtype': fields.related(label='View Type',obj='devel.ui.view.model.types', relatedy=['framework']),
+	'vtype': fields.many2one(label='View Type',obj='devel.ui.view.model.types'),
 	'standalone': fields.boolean(label='Standalone View'),
 	'template': fields.text(label='Template'),
 	'script': fields.text(label='Script'),
@@ -207,10 +207,10 @@ class devel_ui_model_menus(Model):
 devel_ui_model_menus()
 
 
-# class devel_bc_framework_inherit(ModelInherit):
-	# _name = 'devel.bc.framework.inherit'
-	# _description = 'BC module framework inherit'
-	# _inherit = {'bc.user.preferences':{'_columns':['framework']}}
-	# _columns = {
-		# 'framework': fields.many2one(label='Framework',obj='devel.web.frameworks')
-	# }
+class devel_bc_framework_inherit(ModelInherit):
+	_name = 'devel.bc.framework.inherit'
+	_description = 'BC module framework inherit'
+	_inherit = {'bc.user.preferences':{'_columns':['framework']}}
+	_columns = {
+		'framework': fields.many2one(label='Framework',obj='devel.web.frameworks')
+	}

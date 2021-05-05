@@ -51,20 +51,12 @@ def Views(framework,model,info):
 
 def iViews(framework, imodel, info, model, icolumns,views):
 	res = []
-	#ci = info['columns']
-	#web_pdb.set_trace()
+	icolumns_info = info['columns']
 	for view in views:
-		#columns = isAllow(view,'imodels',info,icolumns)
-		standalone = False
-		record = {'model':model,'vtype':framework + '/' + view,'inherit_cols':ModelsColumns(view,icolumns)}
-		if standalone:	
-			record['standalone'] = standalone
-			#record['template'] = GENTEMPLATES[framework][view](info,columns)
-			#script = GENSRCIPTS[framework][view](info,columns)
-			#style = GENSTYLES[framework][view](info,columns)
-			#sfc = template +'\n' + script + '\n' + style
-		
-		res.append(record)
+		exclude = EXCLUDE['models'][view]
+		for icolumn in icolumns:
+			if icolumns_info[icolumn]['type'] not in exclude:
+				res.append({'view_id':model + '/' + framework + '/' + view,'col':icolumn})  
 
 	return res
 

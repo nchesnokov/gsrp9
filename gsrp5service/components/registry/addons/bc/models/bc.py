@@ -263,7 +263,7 @@ bc_model_columns()
 
 class bc_model_inherits(Model):
 	_name = 'bc.model.inherits'
-	_description = 'Object Inherits'
+	_description = 'Model Inherits'
 	_class_object = 'K'
 	_order_by="module_id,model_id"
 	_rec_name = 'code'
@@ -280,7 +280,7 @@ bc_model_inherits()
 
 class bc_model_inherit_columns(Model):
 	_name = 'bc.model.inherit.columns'
-	_description = 'Models Inherits'
+	_description = 'Models Columns Inherits'
 	_class_object = 'K'
 	_order_by="col"
 	_columns = {
@@ -292,7 +292,7 @@ class bc_model_inherit_columns(Model):
 
 class bc_model_inherit_inherits(Model):
 	_name = 'bc.model.inherit.inherits'
-	_description = 'Inherit To Models'
+	_description = 'Inherit Columns To Models'
 	_class_object = 'K'
 	_order_by="col"
 	_columns = {

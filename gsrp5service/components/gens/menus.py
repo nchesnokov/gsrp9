@@ -77,11 +77,13 @@ def Area(self, modules = None, context={}):
 			else:
 				path_module = module
 
-			if module == 'bc':
-				RecordMenu(concat(['ui','menu','customize']),'Customizing')
 			res_menu =[]
 			res_actions = []
 			res_framework_actions = []
+
+			if module == 'bc':
+				res_menu.append(RecordMenu(concat(['ui','menu','customize']),'Customizing'))
+
 			if len(models) > 0:
 				res_menu.append(RecordMenu(concat(['ui','menu','module',module]),label))
 				for idx,model in enumerate(models):
