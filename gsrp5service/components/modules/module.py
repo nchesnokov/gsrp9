@@ -857,13 +857,13 @@ def _loadMetaInherit(self,model,module):
 
 #	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
 #	'col': fields.many2one(label='Column', obj = 'bc.model.inherit.columns', readonly=True)
-
-	for mkey in info_model['inherit'].keys():
-		info_class_inherit = self._session._models.get('bc.models')
-		if '_columns' in info_model['inherit'][mkey]:
-			for mcol in info_model['inherit'][mkey]['_columns']:
-				model_id = info_class_inherit.search([('code','=',mkey)])[0]
-				record.setdefault('models',[]).append({'model_id':model_id,'col':col})
+	if info_model['inherit']:
+		for mkey in info_model['inherit'].keys():
+			info_class_inherit = self._session._models.get('bc.models')
+			if '_columns' in info_model['inherit'][mkey]:
+				for mcol in info_model['inherit'][mkey]['_columns']:
+					model_id = info_class_inherit.search([('code','=',mkey)])[0]
+					record.setdefault('models',[]).append({'model_id':model_id,'col':col})
 		
 		
 	return record		
@@ -1106,15 +1106,31 @@ def _loadCSVFile(self,info,path,name,fl):
 					childs_id = mi['names']['childs_id']
 					rec_name = mi['names']['rec_name']
 					ir = []
-					if parent_id and childs_id:
-						rows = list(filter(lambda x:x[parent_id] is None,records))
-						_convertFromYAML(self,model,rows)
-						while len(rows) > 0:
-							ir = self._session._models.get(model).modify(rows,{'lang':'EN'})
-							self._cr.commit()
-							parents = list(map(lambda x:x[rec_name],rows))
-							rows = list(filter(lambda x:parent_id in x and x[parent_id] in parents,records))
+					if parent_id and childs_id:						
+						if len(records) > 1:
+							rns = set(list(map(lambda x: x[rec_name],records)))
+							rows_nn = list(filter(lambda x: x[parent_id] is not None and x[parent_id] not in rns,records))
+							for row_nn in rows_nn:
+								rows = list(filter(lambda x:x[parent_id] == row_nn[rec_name],records))
+								_convertFromYAML(self,model,rows)
+								while len(rows) > 0:
+									ir = self._session._models.get(model).modify(rows,{'lang':'EN'})
+									self._cr.commit()
+									parents = list(map(lambda x:x[rec_name],rows))
+									rows = list(filter(lambda x:parent_id in x and x[parent_id] in parents,records))
+									_convertFromYAML(self,model,rows)
+	
+							rows = list(filter(lambda x:x[parent_id] is None,records))
 							_convertFromYAML(self,model,rows)
+							while len(rows) > 0:
+								ir = self._session._models.get(model).modify(rows,{'lang':'EN'})
+								self._cr.commit()
+								parents = list(map(lambda x:x[rec_name],rows))
+								rows = list(filter(lambda x:parent_id in x and x[parent_id] in parents,records))
+								_convertFromYAML(self,model,rows)
+						else:
+							_convertFromYAML(self,model,records)
+							ir = self._session._models.get(model).modify(records,{'lang':'EN'})							
 					else:
 						_convertFromYAML(self,model,records)
 						ir = self._session._models.get(model).modify(records,{'lang':'EN'})

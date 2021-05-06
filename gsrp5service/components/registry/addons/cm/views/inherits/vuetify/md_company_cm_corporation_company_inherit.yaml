@@ -1,24 +1,12 @@
-- inherit_cols:
-  - col: corporation_id
-  model: md.company
-  vtype: vuetify/form
-- inherit_cols:
-  - col: corporation_id
-  model: md.company
-  vtype: vuetify/form.modal
-- inherit_cols:
-  - col: corporation_id
-  model: md.company
-  vtype: vuetify/list
-- inherit_cols:
-  - col: corporation_id
-  model: md.company
-  vtype: vuetify/m2mlist
-- inherit_cols:
-  - col: corporation_id
-  model: md.company
-  vtype: vuetify/search
-- inherit_cols:
-  - col: corporation_id
-  model: md.company
-  vtype: vuetify/find
+- col: corporation_id
+  view_id: md.company/vuetify/form
+- col: corporation_id
+  view_id: md.company/vuetify/form.modal
+- col: corporation_id
+  view_id: md.company/vuetify/list
+- col: corporation_id
+  view_id: md.company/vuetify/m2mlist
+- col: corporation_id
+  view_id: md.company/vuetify/search
+- col: corporation_id
+  view_id: md.company/vuetify/find

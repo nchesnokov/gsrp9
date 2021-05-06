@@ -378,3 +378,81 @@ class bc_model_data(Model):
 
 bc_model_data()
 
+class bc_ui_view_model_types(Model):
+	_name = 'bc.ui.view.model.types'
+	_description = 'UI Type Of View'
+	_class_object = 'K'
+	_columns = {
+	'code': fields.varchar(label='Code', size = 64,required=True),
+	'exclude': fields.json(label='Exclude'),
+	'note': fields.text(label='Note')
+	}
+
+bc_ui_view_model_types()
+
+class bc_ui_model_views(Model):
+	_name = 'bc.ui.model.views'
+	_description = 'UI Views'
+	_rec_name='fullname'
+	_class_object = 'K'
+	_columns = {
+	'fullname': fields.composite(label='Full Name', cols = ['model','vtype'], translate = True,required = True, compute = '_compute_composite'),
+	'model': fields.many2one(label='Model',obj='bc.models'),
+	'vtype': fields.many2one(label='View Type',obj='bc.ui.view.model.types'),
+	'cols': fields.one2many(label='Columns', obj = 'bc.ui.model.view.columns',rel = 'view_id'),
+	'inherit_cols': fields.one2many(label='Columns Inherit', obj = 'bc.ui.model.view.column.inherits',rel = 'view_id'),
+	'note': fields.text(label='Note')
+	}
+
+	_default = {
+		'vtype':'form'
+	}
+
+
+bc_ui_model_views()
+
+class bc_ui_model_view_columns(Model):
+	_name = 'bc.ui.model.view.columns'
+	_description = 'UI Model View Columns'
+	_class_object = 'K'
+	_columns = {
+	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',required=True),
+	'col': fields.many2one(label='Column',obj='bc.model.columns')
+	}
+
+class bc_ui_model_view_column_inherits(Model):
+	_name = 'bc.ui.model.view.column.inherits'
+	_description = 'UI Model View Columns Inherit'
+	_class_object = 'K'
+	_columns = {
+	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',required=True),
+	'col': fields.many2one(label='Column',obj='bc.model.columns')
+	}
+
+class bc_ui_model_actions(Model):
+	_name = 'bc.ui.model.actions'
+	_description = 'Model UI Actions'
+	_class_object = 'D'
+	_columns = {
+	'name': fields.varchar(label = 'Model Action',readonly=True),
+	'model': fields.many2one(label='Model',obj = 'bc.models'),
+	'view_id': fields.many2one(label='View',obj='bc.ui.model.views',readonly=True, on_delete = 'c')
+	}
+
+class bc_ui_model_menus(Model):
+	_name ='bc.ui.model.menus'
+	_description = 'UI Menus'
+	_class_object = 'D'
+	_order_by = 'sequence,label'
+	_columns = {
+	'name': fields.varchar(label = 'Name',readonly=True),
+	'label': fields.varchar(label = 'Label',readonly=True),
+	'parent_id': fields.many2one(label='Parent',obj='bc.ui.model.menus',readonly=True,on_delete='c'),
+	'childs_id': fields.one2many(label='Childs',obj='bc.ui.model.menus',rel='parent_id',readonly=True),
+	'sequence': fields.integer(label='Sequence'),
+	'action_id': fields.many2one(label='Action', obj='bc.ui.model.actions',readonly=True, on_delete = 'c')
+	}
+
+bc_ui_model_menus()
+
+

@@ -81,6 +81,11 @@ def Area(self, modules = None, context={}):
 			res_actions = []
 			res_framework_actions = []
 
+			res_cust_menu =[]
+			res_cust_actions = []
+			res_cust_framework_actions = []
+
+
 			if module == 'bc':
 				res_menu.append(RecordMenu(concat(['ui','menu','customize']),'Customizing'))
 
@@ -95,15 +100,15 @@ def Area(self, modules = None, context={}):
 
 						
 			if len(cust_models) > 0:
-				res_menu.append(RecordMenu(concat(['ui','menu','customize',module]),label,concat(['ui','menu','customize'])))
+				#res_cust_menu.append(RecordMenu(concat(['ui','menu','customize',module]),label,concat(['ui','menu','customize'])))
 				for idx,cust_model in enumerate(cust_models):
 					action = RecordAction(cust_model._name)
-					res_actions.append(action)
-					res_menu.append(RecordMenuItem(idx,module,cust_model._name,cust_model._description,concat(['ui','menu','customize',module])))
+					res_cust_actions.append(action)
+					res_cust_menu.append(RecordMenuItem(idx,module,cust_model._name,cust_model._description,concat(['ui','menu','customize',module])))
 					for framework in ('element-plus','vuetify','devextrme'):
-						res_framework_actions.append(FrameworkRecordAction(framework,cust_model._name,action['name']))
+						res_cust_framework_actions.append(FrameworkRecordAction(framework,cust_model._name,action['name']))
 			
-			if len(res_menu) + len(res_actions) + len(res_framework_actions) > 0:
+			if len(res_menu) + len(res_actions) + len(res_framework_actions) + len(res_cust_menu) + len(res_cust_actions) + len(res_cust_framework_actions) > 0:
 				if not os.path.exists(opj(path,path_module,'views','menus')):
 					os.mkdir(opj(path,path_module,'views','menus'))
 
@@ -124,15 +129,37 @@ def Area(self, modules = None, context={}):
 						yaml.dump(res_actions, outfile, Dumper, default_flow_style=False)
 					aw.writerow({'model': 'devel.ui.model.actions','file':opj('views','menus',prefix + 'ui.model.actions'.replace('.','_') + '.yaml' )})
 
+				if len(res_cust_actions) > 0:
+					with open(opj(path,path_module,'views','menus',prefix + 'ui.model.cust.actions'.replace('.','_') + '.yaml'),'w') as outfile:
+						yaml.dump(res_cust_actions, outfile, Dumper, default_flow_style=False)
+					aw.writerow({'model': 'devel.ui.model.actions','file':opj('views','menus',prefix + 'ui.model.cust.actions'.replace('.','_') + '.yaml' )})
+
 				if len(res_menu) > 0:
 					with open(opj(path,path_module,'views','menus',prefix + 'ui.model.menus'.replace('.','_') + '.yaml'),'w') as outfile:
 						yaml.dump(res_menu, outfile, Dumper, default_flow_style=False)
 					aw.writerow({'model': 'devel.ui.model.menus','file':opj('views','menus',prefix + 'ui.model.menus'.replace('.','_') + '.yaml' )})
 
+				if len(res_cust_menu) > 0:
+					with open(opj(path,path_module,'views','menus',prefix + 'ui.model.module.cust.menus'.replace('.','_') + '.yaml'),'w') as outfile:
+						yaml.dump([RecordMenu(concat(['ui','menu','customize',module]),label,concat(['ui','menu','customize']))], outfile, Dumper, default_flow_style=False)
+					aw.writerow({'model': 'devel.ui.model.menus','file':opj('views','menus',prefix + 'ui.model.module.cust.menus'.replace('.','_') + '.yaml' )})
+
+
+					with open(opj(path,path_module,'views','menus',prefix + 'ui.model.cust.menus'.replace('.','_') + '.yaml'),'w') as outfile:
+						yaml.dump(res_cust_menu, outfile, Dumper, default_flow_style=False)
+					aw.writerow({'model': 'devel.ui.model.menus','file':opj('views','menus',prefix + 'ui.model.cust.menus'.replace('.','_') + '.yaml' )})
+
+
 				if len(res_framework_actions) > 0:
 					with open(opj(path,path_module,'views','menus',prefix + 'ui.framework.model.actions'.replace('.','_') + '.yaml'),'w') as outfile:
 						yaml.dump(res_framework_actions, outfile, Dumper, default_flow_style=False)
 					aw.writerow({'model': 'devel.ui.framework.model.actions','file':opj('views','menus',prefix + 'ui.framework.model.actions'.replace('.','_') + '.yaml' )})
+
+				if len(res_cust_framework_actions) > 0:
+					with open(opj(path,path_module,'views','menus',prefix + 'ui.framework.model.cust.actions'.replace('.','_') + '.yaml'),'w') as outfile:
+						yaml.dump(res_cust_framework_actions, outfile, Dumper, default_flow_style=False)
+					aw.writerow({'model': 'devel.ui.framework.model.actions','file':opj('views','menus',prefix + 'ui.framework.model.cust.actions'.replace('.','_') + '.yaml' )})
+
 
 			logmodules.append(module)
 	log.append('Gen menus of modules %s' % (logmodules,))
