@@ -278,7 +278,7 @@ class bc_model_inherits(Model):
 	_name = 'bc.model.inherits'
 	_description = 'Model Inherits'
 	_class_object = 'K'
-	_order_by="module_id,model_id"
+	_order_by="module_id"
 	_rec_name = 'code'
 	_columns = {
 	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',readonly=True, on_delete = 'c'),
@@ -394,7 +394,7 @@ bc_model_data()
 class bc_ui_view_model_types(Model):
 	_name = 'bc.ui.view.model.types'
 	_description = 'UI Type Of View'
-	_class_object = 'D'
+	_class_object = 'K'
 	_columns = {
 	'fullname': fields.composite(label='Full Name', cols = ['framework','code'], translate = True,required = True, compute = '_compute_composite'),
 	'framework': fields.many2one(label='Web Framework',obj='bc.web.frameworks',required=True),
@@ -409,7 +409,7 @@ class bc_ui_model_views(Model):
 	_name = 'bc.ui.model.views'
 	_description = 'UI Views'
 	_rec_name='fullname'
-	_class_object = 'D'
+	_class_object = 'K'
 	_columns = {
 	'fullname': fields.composite(label='Full Name', cols = ['model','vtype'], translate = True,required = True, compute = '_compute_composite'),
 	'model': fields.many2one(label='Model',obj='bc.models'),
@@ -435,7 +435,7 @@ bc_ui_model_views()
 class bc_ui_model_view_columns(Model):
 	_name = 'bc.ui.model.view.columns'
 	_description = 'UI Model View Columns'
-	_class_object = 'D'
+	_class_object = 'K'
 	_columns = {
 	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',required=True),
 	#'col': fields.many2one(label='Column',obj='bc.model.columns')
@@ -445,7 +445,7 @@ class bc_ui_model_view_columns(Model):
 class bc_ui_model_view_column_inherits(Model):
 	_name = 'bc.ui.model.view.column.inherits'
 	_description = 'UI Model View Columns Inherit'
-	_class_object = 'D'
+	_class_object = 'K'
 	_columns = {
 	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',required=True),
 	#'col': fields.many2one(label='Column',obj='bc.model.columns')
@@ -460,7 +460,7 @@ bc_ui_model_view_columns()
 class bc_model_translations(Model):
 	_name = 'bc.model.translations'
 	_description = 'Model Translations'
-	_class_object = 'D'
+	_class_object = 'K'
 	_columns = {
 	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
 	'model': fields.many2one(label='Object',obj='bc.models',readonly=True, on_delete = 'c'),
@@ -473,7 +473,7 @@ bc_model_translations()
 class bc_model_translation_inherits(Model):
 	_name = 'bc.model.translation.inherits'
 	_description = 'Model Translations Inherit'
-	_class_object = 'D'
+	_class_object = 'K'
 	_columns = {
 	'obj_tr_id': fields.many2one(label='Translation Object',obj='bc.model.translations',readonly=True, on_delete = 'c'),
 	'tr': fields.json(label='Translations',readonly=True),
@@ -487,7 +487,7 @@ bc_model_translation_inherits()
 class bc_tuning_ui_model_views(Model):
 	_name = 'bc.tuning.ui.model.views'
 	_description = 'Tunning Models Views'
-	_class_object = 'D'
+	_class_object = 'K'
 	_columns = {
 	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['tuser','view','name'], required = True, compute = '_compute_composite')),
 	'name':fields.varchar(label='Name',size=128,readonly=True),
@@ -505,7 +505,7 @@ bc_tuning_ui_model_views()
 class bc_general_tuning_ui_model_views(Model):
 	_name = 'bc.general.tuning.ui.model.views'
 	_description = 'General Tunning Models Views'
-	_class_object = 'D'
+	_class_object = 'K'
 	_columns = {
 	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['view','name'], required = True, compute = '_compute_composite')),
 	'name':fields.varchar(label='Name',size=128,readonly=True),
@@ -520,7 +520,7 @@ bc_general_tuning_ui_model_views()
 class bc_ui_model_actions(Model):
 	_name = 'bc.ui.model.actions'
 	_description = 'Model UI Actions'
-	_class_object = 'D'
+	_class_object = 'K'
 	_columns = {
 	'name': fields.varchar(label = 'Model Action',readonly=True),
 	'model': fields.many2one(label='Model',obj = 'bc.models')
@@ -529,7 +529,7 @@ class bc_ui_model_actions(Model):
 class bc_ui_framework_model_actions(Model):
 	_name = 'bc.ui.framework.model.actions'
 	_description = 'Model UI Framework Actions'
-	_class_object = 'D'
+	_class_object = 'K'
 	_columns = {
 	'fullname': fields.composite(label='Full Name', cols = ['action_id','framework_id'], required = True, compute = '_compute_composite'),
 	'action_id': fields.many2one(label='Action',obj = 'bc.ui.model.actions'),
@@ -542,7 +542,7 @@ bc_ui_framework_model_actions()
 class bc_ui_model_menus(Model):
 	_name ='bc.ui.model.menus'
 	_description = 'UI Menus'
-	_class_object = 'D'
+	_class_object = 'K'
 	_order_by = 'sequence,label'
 	_columns = {
 	'name': fields.varchar(label = 'Name',readonly=True),
