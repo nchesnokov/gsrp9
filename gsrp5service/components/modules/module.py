@@ -1107,7 +1107,16 @@ def _loadCSVFile(self,info,path,name,fl):
 					rec_name = mi['names']['rec_name']
 					ir = []
 					if parent_id and childs_id:						
-						if len(records) > 1:
+						rows = list(filter(lambda x:x[parent_id] is None,records))
+						if len(rows) > 0:
+							_convertFromYAML(self,model,rows)
+							while len(rows) > 0:
+								ir = self._session._models.get(model).modify(rows,{'lang':'EN'})
+								self._cr.commit()
+								parents = list(map(lambda x:x[rec_name],rows))
+								rows = list(filter(lambda x:parent_id in x and x[parent_id] in parents,records))
+								_convertFromYAML(self,model,rows)
+						else:
 							rns = set(list(map(lambda x: x[rec_name],records)))
 							rows_nn = list(filter(lambda x: x[parent_id] is not None and x[parent_id] not in rns,records))
 							for row_nn in rows_nn:
@@ -1119,18 +1128,7 @@ def _loadCSVFile(self,info,path,name,fl):
 									parents = list(map(lambda x:x[rec_name],rows))
 									rows = list(filter(lambda x:parent_id in x and x[parent_id] in parents,records))
 									_convertFromYAML(self,model,rows)
-	
-							rows = list(filter(lambda x:x[parent_id] is None,records))
-							_convertFromYAML(self,model,rows)
-							while len(rows) > 0:
-								ir = self._session._models.get(model).modify(rows,{'lang':'EN'})
-								self._cr.commit()
-								parents = list(map(lambda x:x[rec_name],rows))
-								rows = list(filter(lambda x:parent_id in x and x[parent_id] in parents,records))
-								_convertFromYAML(self,model,rows)
-						else:
-							_convertFromYAML(self,model,records)
-							ir = self._session._models.get(model).modify(records,{'lang':'EN'})							
+								
 					else:
 						_convertFromYAML(self,model,records)
 						ir = self._session._models.get(model).modify(records,{'lang':'EN'})

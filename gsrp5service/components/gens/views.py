@@ -69,8 +69,6 @@ def Area(self, modules = None,context={}):
 	else:
 		modules = list(filter(lambda x: x in modules,registry._depends))
 	logmodules = []
-	module_bc = False
-	module_devel = False
 	for module in modules:
 		path = registry._modules[module]['path']
 		objs = {}
@@ -86,62 +84,39 @@ def Area(self, modules = None,context={}):
 							iobjs.setdefault(cat,[]).append(obj)
 		
 		if len(objs) + len(iobjs) > 0:
-			if module == 'bc':
-				if not module_bc:
-					module_bc = True
-			elif module == 'devel':
-				if not module_devel:
-					module_devel = True
-				
-			if module in ('bc','devel'):
-				path_module = 'devel'
-			else:
-				path_module = module
-
 			if len(objs) > 0:
 				#_remove_dirs(opj(path,module,'views'))
 				fmode = 'w'
-				if module_bc and module_devel and module in ('bc','devel'):
-					fmode = 'a'
-				a = open(opj(path,path_module,'views','views.csv'),fmode)
+				a = open(opj(path,module,'views','views.csv'),fmode)
 				if fmode == 'w':
 					aw = csv.DictWriter(a,['model','file'])
 					aw.writeheader()
 					for framework in ('element-plus','vuetify','devextrme'):
-						if os.path.exists(opj(path,path_module,'views',framework)):
-							_remove_dirs(opj(path,path_module,'views',framework))
+						if os.path.exists(opj(path,module,'views',framework)):
+							_remove_dirs(opj(path,module,'views',framework))
 
 				for framework in ('element-plus','vuetify','devextrme'):
-					if not os.path.exists(opj(path,path_module,'views',framework)):
-						os.mkdir(opj(path,path_module,'views',framework))
+					if not os.path.exists(opj(path,module,'views',framework)):
+						os.mkdir(opj(path,module,'views',framework))
 					for model in objs['models']:	
-						with open(opj(path,path_module,'views',framework,model._table+'.yaml'),'w') as outfile:
+						with open(opj(path,module,'views',framework,model._table+'.yaml'),'w') as outfile:
 							yaml.dump(Views(framework,model._name,model.modelInfo()), outfile, Dumper, default_flow_style=False)
 					
-						aw.writerow({'model': 'devel.ui.model.views','file':opj('views',framework,model._table+'.yaml' )})
+						aw.writerow({'model': 'bc.ui.model.views','file':opj('views',framework,model._table+'.yaml' )})
 			if len(iobjs) > 0:
 				if len(objs) == 0:
-					
-					fmode = 'w'
-					if module_bc and module_devel  and module in ('bc','devel'):
-						fmode = 'a'
-
-					a = open(opj(path,path_module,'views','views.csv'),fmode)
-					if fmode == 'w':
-						aw = csv.DictWriter(a,['model','file'])
-						aw.writeheader()
+					a = open(opj(path,module,'views','views.csv'),'w')
+					aw = csv.DictWriter(a,['model','file'])
+					aw.writeheader()
 					for framework in ('element-plus','vuetify','devextrme'):
-						_remove_dirs(opj(path,path_module,'inherits',framework))
+						_remove_dirs(opj(path,module,'inherits',framework))
 
-				else:
-					a = open(opj(path,path_module,'views','views.csv'),'a')
-
-				if not os.path.exists(opj(path,path_module,'views','inherits')):
-					os.mkdir(opj(path,path_module,'views','inherits'))
+				if not os.path.exists(opj(path,module,'views','inherits')):
+					os.mkdir(opj(path,module,'views','inherits'))
 				
 				for framework in ('element-plus','vuetify','devextrme'):
-					if not os.path.exists(opj(path,path_module,'views','inherits',framework)):
-						os.mkdir(opj(path,path_module,'views','inherits',framework))
+					if not os.path.exists(opj(path,module,'views','inherits',framework)):
+						os.mkdir(opj(path,module,'views','inherits',framework))
 					for imodel in iobjs['models']:	
 						inherit = getattr(imodel,'_inherit')
 						for m in inherit.keys():
@@ -157,10 +132,10 @@ def Area(self, modules = None,context={}):
 									if len(columns) == 0:
 										continue
 									views.append(view)
-								with open(opj(path,path_module,'views','inherits',framework,nm.replace('.','_') + '.yaml'),'w') as outfile:
+								with open(opj(path,module,'views','inherits',framework,nm.replace('.','_') + '.yaml'),'w') as outfile:
 									yaml.dump(iViews(framework,imodel._name,imodel.imodelInfo(),m,cols,views), outfile, Dumper, default_flow_style=False)
 					
-							aw.writerow({'model': 'devel.ui.model.view.column.inherits','file':opj('views','inherits',framework,nm.replace('.','_') + '.yaml' )})
+							aw.writerow({'model': 'bc.ui.model.view.column.inherits','file':opj('views','inherits',framework,nm.replace('.','_') + '.yaml' )})
 				
 			logmodules.append(module)
 	_logger.info('Gen views of modules %s' % (logmodules,))

@@ -256,7 +256,7 @@ class User(Session):
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
 	
 					self._setLangs()
-					return [self._connected,self._uid,{'country_timezones':dict(pytz.country_timezones),'country_names':dict(pytz.country_names),'langs':self._models.get('bc.langs').select(['code','description']),'preferences':self._models.get('bc.user.preferences').select(['user_id','lang','country','timezone']),'frameworks':self._models.get('devel.web.frameworks').select(['code','descr'])}]
+					return [self._connected,self._uid,{'country_timezones':dict(pytz.country_timezones),'country_names':dict(pytz.country_names),'langs':self._models.get('bc.langs').select(['code','description']),'preferences':self._models.get('bc.user.preferences').select(['user_id','lang','country','timezone']),'frameworks':self._models.get('bc.web.frameworks').select(['code','descr'])}]
 				else:
 					return [False,'Invalid username or password']
 		
