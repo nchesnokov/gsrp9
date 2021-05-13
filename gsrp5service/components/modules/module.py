@@ -32,10 +32,10 @@ class KeyBuffer(dict):
 			return self[key][obj][recordkey]  
 		return None
 
-def load(self,modules = None):
-	return _load(self,['install','autoinstall'],modules)
+def load(self,modules = None,context = {'lang':'EN'}):
+	return _load(self,['install','autoinstall'],modules, context)
 
-def _load(self,able=None, modules = None):
+def _load(self,able=None, modules = None, context = {'lang':'EN','tz':'UTC'}):
 	log = []
 	_modules = []
 	_chunks = {}
@@ -118,7 +118,7 @@ def _load(self,able=None, modules = None):
 				metas['i18n'] = info['meta']['i18n']
 				
 			self._registry._load_module(depend)
-			_loadFiles(self,depend,self._registry._modules[depend],metas)
+			_loadFiles(self,depend,self._registry._modules[depend],metas,context)
 			self._cr.commit()
 			#if 'env' in metas:
 				#_load_env(self,depend)
@@ -131,7 +131,7 @@ def _load(self,able=None, modules = None):
 
 	return log
 
-def _install(self,able=None, modules = None):
+def _install(self,able=None, modules = None, context = {'lang':'EN','tz':'UTC'}):
 	log = []
 	_modules = []
 	_chunks = {}
@@ -209,7 +209,7 @@ def _install(self,able=None, modules = None):
 	else:
 		for depend in depends:
 			self._registry._load_module(depend)
-			_installModule(self,depend,_chunks[depend])
+			_installModule(self,depend,_chunks[depend],context)
 			log.append([0,'module: <%s> successfull installed' % (depend,)])
 
 	
@@ -366,7 +366,7 @@ def _upgrade(self,able=None, modules = None):
 	
 	return log
 
-def _installModule(self,name,chunk):
+def _installModule(self,name,chunk,context):
 	_logger.info("Module: %s Install" % (name,))
 
 	self._registry._load_module(name)
@@ -426,7 +426,7 @@ def _installModule(self,name,chunk):
 				self._cr.execute('insert into ' + self._session._models.get('bc.users')._table + ' (id,login,password,firstname,lastname,issuperuser) values(%s,%s,%s,%s,%s,%s)',(self._uid,'admin',pbkdf2_sha256.hash('admin'),'Administartor','System Administarator',True))
 				_load_list_allmodules(self)
 	
-			_loadMetaData(self,chunk,name)
+			_loadMetaData(self,chunk,name,context)
 			self._cr.commit()
 	else:
 		self._session._objects[name] = self._registry._create_module_objects(name)
@@ -461,7 +461,7 @@ def _installModule(self,name,chunk):
 	# if 'i18n' in chunk and 'i18n' in info['meta']:
 		# metas['i18n'] = info['meta']['i18n']
 		
-	_loadFiles(self,name,self._registry._modules[name],metas)
+	_loadFiles(self,name,self._registry._modules[name],metas,context)
 	self._cr.commit()
 	#_load_env(self,name)
 	
@@ -751,7 +751,7 @@ def _load_list_modules(self,db):
 
 	return ['No modules for upgrade']
 
-def _loadMetaModule(self,name):
+def _loadMetaModule(self,name,context):
 	models = list(self._registry._metas[name]['models'].keys())
 	columns = self._session._models.get('bc.modules').columnsInfo()
 	module_id = self._registry._modules[name]['db_id']
@@ -765,33 +765,34 @@ def _loadMetaModule(self,name):
 	imodel_records = []
 
 	for model in models:
-		m = _loadMetaModel(self,model,name)
+		m = _loadMetaModel(self,model,name,context)
 		if len(m) > 0:
 			m['module_id'] = module_id
 			model_records.append(m)
 		else:
-			im = _loadMetaInherit(self,model,name)
+			im = _loadMetaInherit(self,model,name,context)
 			if len(im) > 0:
 				im['module_id'] = module_id
 				imodel_records.append(im)
 
 	if len(model_records) > 0:
-			self._session._models.get('bc.models').create(model_records,{})
+			self._session._models.get('bc.models').create(model_records,context)
 
 	if len(imodel_records) > 0:
 			self._session._models.get('bc.model.inherits').create(imodel_records,{})
 	
-	self._session._models.get('bc.modules').write({'id':module_id,'state':'I'},{})
+	self._session._models.get('bc.modules').write({'id':module_id,'state':'I'},context)
 	self._registry._modules[name]['state'] = 'I'
 
-def _loadModuleFiles(self,name):
+def _loadModuleFiles(self,name,context):
+	#web_pdb.set_trace()
 	module_id = self._registry._modules[name]['db_id']
 	file_records = _loadModuleFile(self._registry._modules[name]['path'],name)
 
 	for file_record in file_records:
 		file_record['module_id'] = module_id
 
-	self._session._models.get('bc.module.files').create(file_records,{})
+	self._session._models.get('bc.module.files').create(file_records,context)
 
 
 def _loadModuleFile(path,name,ext=['py','xml','csv','yaml','yml','so']):
@@ -814,7 +815,7 @@ def _loadModuleFile(path,name,ext=['py','xml','csv','yaml','yml','so']):
 				records.append(record)
 	return records
 
-def _loadMetaModel(self,model,module):
+def _loadMetaModel(self,model,module,context):
 	record = {}
 	info_class = self._registry._create_module_object('models',model,module)
 	
@@ -830,17 +831,17 @@ def _loadMetaModel(self,model,module):
 	record['descr'] = info_model['description']
 	record['class_model'] = class_model.search([('code','=', info_model['class_model'])])[0]
 	if info_model['class_model_category']:
-		cat = class_model_category.search([('code','=', info_model['class_model_category'])])
+		cat = class_model_category.search([('code','=', info_model['class_model_category'])],context)
 		if len(cat) > 0:
 			record['class_model_category'] = cat
 	record['oom'] = info_model
 	
-	for col in columns.keys():
-		record.setdefault('columns',[]).append({'col':col,'moc':columns[col]})
+	for idx,col in enumerate(columns.keys()):
+		record.setdefault('columns',[]).append({'seq':idx * 10,'col':col,'moc':columns[col]})
 
 	return record		
 
-def _loadMetaInherit(self,model,module):
+def _loadMetaInherit(self,model,module,context):
 	record = {}
 	info_class = self._registry._create_module_object('models',model,module)
 	if not info_class or isinstance(info_class,Model):
@@ -854,8 +855,8 @@ def _loadMetaInherit(self,model,module):
 	record['descr'] = info_model['description']
 	record['momi'] = info_model
 	
-	for col in columns.keys():
-		record.setdefault('columns',[]).append({'col':col,'moc':columns[col]})
+	for idx,col in enumerate(columns.keys()):
+		record.setdefault('columns',[]).append({'seq':idx * 10,'col':col,'moc':columns[col]})
 
 #	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
 #	'col': fields.many2one(label='Column', obj = 'bc.model.inherit.columns', readonly=True)
@@ -921,18 +922,18 @@ def _loadMetaInherit(self,model,module):
 
 
 	
-def _loadMetaData(self,chunk,name):
-	_loadModuleFiles(self,name)
-	_loadEnvModule(self,chunk,name)
-	record = _loadMetaModule(self,name)
-	return self._session._models.get('bc.modules').create(record,{})
+def _loadMetaData(self,chunk,name,context):
+	_loadModuleFiles(self,name,context)
+	_loadEnvModule(self,chunk,name,context)
+	record = _loadMetaModule(self,name,context)
+	return self._session._models.get('bc.modules').create(record,context)
 
-def _loadEnvModule(self,chunk,name):
+def _loadEnvModule(self,chunk,name,context):
 	info = self._registry._modules[name]
 	metas = {}
 	if 'env' in chunk and 'env' in info['meta']:
 		metas['env'] = info['meta']['env']
-		_loadFiles(self,name,self._registry._modules[name],metas)
+		_loadFiles(self,name,self._registry._modules[name],metas,context)
 
 
 # def _load_env_column(self,model,column):
@@ -997,7 +998,7 @@ def _loadEnvModule(self,chunk,name):
 
 	# _load_class_bc(self,name)
 
-def _loadFiles(self,name,info,metas):
+def _loadFiles(self,name,info,metas,context):
 	path = info['path']
 	for key in metas.keys():
 		meta = metas[key]
@@ -1006,7 +1007,7 @@ def _loadFiles(self,name,info,metas):
 			if ext == 'xml':
 				if os.path.exists(opj(path,name,f)):
 					_logger.info("loading file: %s" % (opj(path,name,f),))
-					_loadXMLFile(self,info,path,name,f)
+					_loadXMLFile(self,info,path,name,f,context)
 					_logger.info("Loaded  file: %s" % (opj(path,name,f),))
 				else:
 					_logger.critical("Loading  file: %s not found" % (opj(path,name,f),))
@@ -1016,7 +1017,7 @@ def _loadFiles(self,name,info,metas):
 					if key == 'test':
 						pass
 					else:
-						_loadCSVFile(self,info,path,name,f)
+						_loadCSVFile(self,info,path,name,f,context)
 					_logger.info("Loaded  file: %s" % (opj(path,name,f),))
 				else:
 					_logger.critical("Loading  file: %s not found" % (opj(path,name,f),))
@@ -1025,20 +1026,20 @@ def _loadFiles(self,name,info,metas):
 					_logger.info("loading file: %s" % (opj(path,name,f),))
 					res = _load_i18n(path,name,f)
 					for lang in res.keys():
-						r = self._session._models.get('bc.langs').search([('code','=',lang)],{})
+						r = self._session._models.get('bc.langs').search([('code','=',lang)],context)
 						if len(r) > 0:
 							for model in res[lang].keys():
-								r1 = self._session._models.get('bc.models').search([('code','=',model)],{})
+								r1 = self._session._models.get('bc.models').search([('code','=',model)],context)
 								if len(r1) > 0:
 									v = res[lang][model]
-									self._session._models.get('bc.model.translations').modify({'lang':r[0],'model':r1[0],'tr':json.dumps(v)},{})
+									self._session._models.get('bc.model.translations').modify({'lang':r[0],'model':r1[0],'tr':json.dumps(v)},context)
 							
 						
 					_logger.info("Loaded  file: %s" % (opj(path,name,f),))
 				else:
 					_logger.critical("Loading  file: %s not found" % (opj(path,name,f),))
 
-def _convertFromYAML(self,model,records):
+def _convertFromYAML(self,model,records,context):
 	m = self._session._models.get(model)
 	columns_info = m.columnsInfo()
 	sfs = m._selectionfields
@@ -1056,19 +1057,23 @@ def _convertFromYAML(self,model,records):
 				if recname is None:
 					recname = 'id'	
 				if record[key] is not None:
-					oid = self._session._models.get(columns_info[key]['obj']).search([(recname,'=',record[key])],{},1)
-					if len(oid) > 0:
-						record[key] = oid[0]
-			elif columns_info[key]['type'] == 'datetime' and columns_info[key]['timezone']:
+					cond = [(recname,'=',record[key])]
+					if columns_info[key]['type'] == 'related':
+						for rel in columns_info[key]['relatedy']:
+							cond.append((rel,'=',record[rel]))
+					oids = self._session._models.get(columns_info[key]['obj']).search(cond,context,1)
+					if len(oids) > 0:
+						record[key] = oids[0]
+			elif columns_info[key]['type'] in ('datetime','time') and columns_info[key]['timezone']:
 				if record[key]:
 					record[key] = record[key].astimezone()
 			elif columns_info[key]['type'] == 'selection':
 				if record[key] and len(record[key]) > 0:
 					record[key] = mfs[key][record[key]]
 			elif columns_info[key]['type'] == 'one2many':
-				_convertFromYAML(self,columns_info[key]['obj'],record[key])
+				_convertFromYAML(self,columns_info[key]['obj'],record[key],context)
 
-def _loadCSVFile(self,info,path,name,fl):
+def _loadCSVFile(self,info,path,name,fl,context):
 	with open(opj(path,name,fl)) as csvafile:
 		_buffer = KeyBuffer()
 		areader = csv.DictReader(csvafile)
@@ -1094,7 +1099,7 @@ def _loadCSVFile(self,info,path,name,fl):
 							value.append(row[field])
 	
 						values.append(value)
-					ir = self._session._models.get(model).do_upload_csv(self,fields,values,context={'FETCH':'LIST'})
+					ir = self._session._models.get(model).do_upload_csv(self,fields,values,context.copy().update({'FETCH':'LIST'}))
 					_logger.info("    Loaded annotation file: %s - records:%s" % (opj(path,name,f),len(ir)))
 
 			elif ext == 'yaml':
@@ -1118,19 +1123,19 @@ def _loadCSVFile(self,info,path,name,fl):
 							for key in keys:
 								rows = list(filter(lambda x:x[parent_id] == key,copy.deepcopy(records)))
 								if len(rows) > 0:
-									_convertFromYAML(self,model,rows)
-									ir = self._session._models.get(model).modify(rows,{'lang':'EN'})								
+									_convertFromYAML(self,model,rows,context)
+									ir = self._session._models.get(model).modify(rows,context)								
 					else:
-						_convertFromYAML(self,model,records)
-						ir = self._session._models.get(model).modify(records,{'lang':'EN'})
+						_convertFromYAML(self,model,records,context)
+						ir = self._session._models.get(model).modify(records,context)
 					_logger.info("    Loaded annotation file: %s - records:%s" % (opj(path,name,f),len(ir)))
 
-def _loadXMLFile(self,info,path,name,fl):
+def _loadXMLFile(self,info,path,name,fl,context):
 	_buffer = KeyBuffer()
 	fk = {}
 	rng=etree.RelaxNG(etree=etree.parse(opj(os.path.dirname(os.path.abspath(__file__)),'views.rng')))
 	obj = 'bc.module.files'
-	file_id = self._session._models.get(obj).search(cond=[(self._session._models.get(obj)._getRecNameName(),'=',opj(name,fl))],context={},limit=1)[0]
+	file_id = self._session._models.get(obj).search(cond=[(self._session._models.get(obj)._getRecNameName(),'=',opj(name,fl))],context=context,limit=1)[0]
 	for event,el in etree.iterparse(source=opj(path,name,fl),events=('end','start')):
 		if el.tag == 'records':
 			if event == 'start':
@@ -1147,10 +1152,10 @@ def _loadXMLFile(self,info,path,name,fl):
 							fkk[v] = k
 						fk[column] = fkk 
 			else:
-				ids = self._session._models.get(model).create(records,{})
+				ids = self._session._models.get(model).create(records,context)
 				for i in range(len(ids)):
 					datarecords[i]['rec_id'] = ids[i]
-				self._session._models.get('bc.model.data').create(datarecords,{})
+				self._session._models.get('bc.model.data').create(datarecords,context)
 		elif el.tag == 'record':
 			if event == 'start':
 				record = {}
@@ -1165,11 +1170,16 @@ def _loadXMLFile(self,info,path,name,fl):
 							oid = _buffer.key(key,obj,record[key])
 							if not oid:
 								if 'ref' in el.attrib:
-									oid = self._session._models.get('bc.model.data').select(fields=['rec_id'],cond=[('name','=',el.attrib['ref'])],context= {'FETCH':'LIST'},limit=1)[0]
+									ctx = context.copy()
+									ctx.update({'FETCH':'LIST'})
+									oid = self._session._models.get('bc.model.data').select(fields=['rec_id'],cond=[('name','=',el.attrib['ref'])],context = ctx,limit=1)[0]
 								else:
 									try:
-										oid = self._session._models.get(obj).search(cond=[(recname,'=',record[key])],context= {'FETCH':'LIST'},limit=1)[0]
+										ctx = context.copy()
+										ctx.update({'FETCH':'LIST'})
+										oid = self._session._models.get(obj).search(cond=[(recname,'=',record[key])],context = ctx,limit=1)[0]
 									except:
+										web_pdb.set_trace()
 										print('RECORD-KEY:',obj,record[key])
 									
 								

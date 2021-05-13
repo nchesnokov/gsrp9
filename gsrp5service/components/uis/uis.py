@@ -55,8 +55,9 @@ class Uis(Component):
 		return rmsg
 
 	def action(self,action_id,context):
+		rc = run(self._pool,action_id,context)
 		self._cr.rollback()
-		return run(self._pool,action_id,context)
+		return rc
 	
 	def get_view_by_name_v2(self,name,context):
 		return get_view_by_name_v2(self._pool,name)
@@ -65,4 +66,7 @@ class Uis(Component):
 		return [get_meta_of_models_v2(self._pool,model,context)]
 		
 	def menu(self,context={}):
-		return menu(self._pool,context)
+		rc = menu(self._pool,context)
+		self._cr.rollback()
+		return rc	
+		

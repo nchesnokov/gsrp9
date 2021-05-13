@@ -14,6 +14,9 @@ from gsrp5service.orm.common import DEFAULT_MODEL_NAMES as DMN
 
 from .generate import * 
 
+#FRAMEWORKS = ('element-plus','vuetify','devextrme')
+FRAMEWORKS = ('element-plus',)
+
 _logger = logging.getLogger('listener.' + __name__)
 
 
@@ -24,8 +27,8 @@ GENSTYLES = {'element-plus':gen_style_el,'vuetify':gen_style_vuetify,'devextrme'
 def ModelsColumns( view, columns):
 	res = []
 	exclude = EXCLUDE['models'][view]
-	for col in columns:
-		res.append({'col':col})
+	for idx,col in enumerate(columns):
+		res.append({'seq':idx * 10,'col':col})
 
 	return res
 
@@ -91,11 +94,11 @@ def Area(self, modules = None,context={}):
 				if fmode == 'w':
 					aw = csv.DictWriter(a,['model','file'])
 					aw.writeheader()
-					for framework in ('element-plus','vuetify','devextrme'):
+					for framework in FRAMEWORKS:
 						if os.path.exists(opj(path,module,'views',framework)):
 							_remove_dirs(opj(path,module,'views',framework))
 
-				for framework in ('element-plus','vuetify','devextrme'):
+				for framework in FRAMEWORKS:
 					if not os.path.exists(opj(path,module,'views',framework)):
 						os.mkdir(opj(path,module,'views',framework))
 					for model in objs['models']:	
@@ -108,13 +111,13 @@ def Area(self, modules = None,context={}):
 					a = open(opj(path,module,'views','views.csv'),'w')
 					aw = csv.DictWriter(a,['model','file'])
 					aw.writeheader()
-					for framework in ('element-plus','vuetify','devextrme'):
+					for framework in FRAMEWORKS:
 						_remove_dirs(opj(path,module,'inherits',framework))
 
 				if not os.path.exists(opj(path,module,'views','inherits')):
 					os.mkdir(opj(path,module,'views','inherits'))
 				
-				for framework in ('element-plus','vuetify','devextrme'):
+				for framework in FRAMEWORKS:
 					if not os.path.exists(opj(path,module,'views','inherits',framework)):
 						os.mkdir(opj(path,module,'views','inherits',framework))
 					for imodel in iobjs['models']:	
@@ -148,7 +151,7 @@ def isAllowDashboards(view,info):
 def isAllowModels(view,info,columns):
 	res = []
 	ci = info['columns']
-	if 	not ( view in ('search','find','form','list','m2mlist','form.modal') or view == 'tree' and info['names']['parent_id'] and  info['names']['childs_id'] or view in ('calendar','graph','mdx') and info['names']['date'] or view == 'schedule' and (info['names']['from_date'] and info['names']['to_date'] or info['names']['start_date'] and info['names']['end_date']) or view == 'kanban' and info['names']['state'] or view == 'geo' and (info['names']['from_latitude'] and info['names']['from_longitude'] or info['names']['to_latitude'] and info['names']['to_longitude'] or info['names']['latitude'] and info['names']['longitude']) or view == 'flow' and  info['names']['prev_name'] and info['names']['next_name']):
+	if 	not (view == 'search' and (info['names']['row_name'] or info['names']['rec_name'] or info['names']['full_name']) or view == 'find' and len(list(filter(lambda x: 'selectable' in ci[x] and ci[x]['selectable'],ci.keys()))) > 0 or view in ('form','list','m2mlist','form.modal') or view == 'tree' and info['names']['parent_id'] and  info['names']['childs_id'] or view in ('calendar','graph','mdx') and info['names']['date'] or view == 'schedule' and (info['names']['from_date'] and info['names']['to_date'] or info['names']['start_date'] and info['names']['end_date']) or view == 'kanban' and info['names']['state'] or view == 'geo' and (info['names']['from_latitude'] and info['names']['from_longitude'] or info['names']['to_latitude'] and info['names']['to_longitude'] or info['names']['latitude'] and info['names']['longitude']) or view == 'flow' and  info['names']['prev_name'] and info['names']['next_name']):
 		return res
 	
 	for col in columns:

@@ -263,9 +263,10 @@ class bc_model_columns(Model):
 	_name = 'bc.model.columns'
 	_description = 'Columns Of Model'
 	_class_model = 'K'
-	_order_by="col"
+	_order_by="seq"
 	_columns = {
 	'model_id': fields.many2one(label = 'Model', obj = 'bc.models', readonly=True, on_delete = 'c'),
+	'seq': fields.integer(label='Sequence', readonly = True),
 	'col': fields.varchar(label='Column', readonly=True),
 	'moc': fields.json(label='Meta Of Column', readonly = True),
 	}
@@ -278,7 +279,7 @@ class bc_model_inherits(Model):
 	_name = 'bc.model.inherits'
 	_description = 'Model Inherits'
 	_class_object = 'K'
-	_order_by="module_id"
+	_order_by="code"
 	_rec_name = 'code'
 	_columns = {
 	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',readonly=True, on_delete = 'c'),
@@ -384,7 +385,7 @@ class bc_model_data(Model):
 	'module': fields.varchar(label = 'Module',size = 64,selectable=True,readonly=True),
 	'model': fields.varchar(label = 'Model',size = 64,selectable=True,readonly=True),
 	'rec_id': fields.uuid(label = 'ID record',readonly=True),
-	'file_id': fields.many2one(label='File',obj='bc.module.files',readonly=True),
+	'file_id': fields.related(label='File',obj='bc.module.files',relatedy = ['module'],readonly=True),
 	'date_init': fields.datetime(label = 'Timestamp init', timezone = False,readonly=True),
 	'date_update': fields.datetime(label = 'Timestamp update', timezone = False,readonly=True)
 	}
@@ -436,8 +437,10 @@ class bc_ui_model_view_columns(Model):
 	_name = 'bc.ui.model.view.columns'
 	_description = 'UI Model View Columns'
 	_class_object = 'K'
+	_order_by="seq"
 	_columns = {
 	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',required=True),
+	'seq': fields.integer(label='Sequence', readonly = True),
 	#'col': fields.many2one(label='Column',obj='bc.model.columns')
 	'col': fields.varchar(label='Column', readonly = True)
 	}

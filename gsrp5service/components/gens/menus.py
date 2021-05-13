@@ -12,6 +12,10 @@ import web_pdb
 
 _logger = logging.getLogger('listener.' + __name__)
 
+
+#FRAMEWORKS = ('element-plus','vuetify','devextrme')
+FRAMEWORKS = ('element-plus',)
+
 def FrameworkRecordAction(framework,model,action):
 	return {'framework_id':framework,'action_id': action,'view_id':concat([model,framework,'search'],'/')}
 
@@ -76,7 +80,7 @@ def Area(self, modules = None, context={}):
 					action = RecordAction(model._name)
 					res_actions.append(action)
 					res_menu.append(RecordMenuItem(idx,module,model._name,model._description,concat(['ui','menu','module',module])))
-					for framework in ('element-plus','vuetify','devextrme'):
+					for framework in FRAMEWORKS:
 						res_framework_actions.append(FrameworkRecordAction(framework,model._name,action['name']))
 
 						
@@ -86,7 +90,7 @@ def Area(self, modules = None, context={}):
 					action = RecordAction(cust_model._name)
 					res_actions.append(action)
 					res_menu.append(RecordMenuItem(idx,module,cust_model._name,cust_model._description,concat(['ui','menu','customize',module])))
-					for framework in ('element-plus','vuetify','devextrme'):
+					for framework in FRAMEWORKS:
 						res_framework_actions.append(FrameworkRecordAction(framework,cust_model._name,action['name']))
 			
 			if len(res_menu) + len(res_actions) + len(res_framework_actions) > 0:

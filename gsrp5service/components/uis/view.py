@@ -233,8 +233,8 @@ def get_meta_of_models_v2(pool,model,context):
 			if k not in v:
 				v[k] = childs[k]
 
-	#for o2m in filter(lambda x: x != model,o2mmodels):
-		#v.setdefault(model,{}).setdefault('models', {})[o2m] = get_meta_of_models_v2(cr,pool,uid,o2m) 
+	for o2m in filter(lambda x: x != model or x not in v,o2mmodels):
+		v.update(get_meta_of_models_v2(pool,o2m,context)) 
 
 	return v
 			
