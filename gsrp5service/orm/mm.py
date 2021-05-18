@@ -219,6 +219,9 @@ def model__init__(self,access = None):
 	try:
 		if rec_name  and hasattr(self._columns[rec_name],'selectable'):
 			self._columns[rec_name].selectable = True
+		elif rec_name  and self._columns[rec_name]._type == 'i18n' and hasattr(self._columns[rec_name].column,'selectable'):
+			self._columns[rec_name].column.selectable = True
+			
 	except:
 		print('EXCEPT:',self._name,self._row_name,self._rec_name,self._full_name,self._columns)
 
