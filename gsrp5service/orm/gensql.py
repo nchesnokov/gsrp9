@@ -350,7 +350,7 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 						f.append('c.' + field)
 					else:
 						if parent_id and field == parent_id:
-							f.append('b.' + field)
+							f.append('a.' + field)
 						else:
 							f.append('a.' + field)
 
@@ -366,7 +366,7 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 							f.append(aliases[models[field]][field] + '.' + recname + ' as "' + field + '-name"')
 				elif modinfo['tr_table'] == models[field]:
 					if parent_id and field == parent_id:
-						f.append('b.' + field)
+						f.append('a.' + field)
 					else:
 						f.append('a.' + field)
 
