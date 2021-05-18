@@ -49,6 +49,7 @@ class md_product(Model):
 
 	def _service_invisible(self, fields,record,context):
 		res = {}
+		r = []
 		if 'template_id' in record and record['template_id']:
 			if type(record['template_id']) == dict and record['template_id']['name']:
 				r = self._pool.get('md.products.template').select(['mtype'],[('name','=',record['template_id']['name'])],context)
