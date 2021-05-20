@@ -590,6 +590,17 @@ def Create(self,record,context):
 
 	return _sql, values
 
+def CreateI18N(self,record,context):
+	info = self.modelInfo()
+	fields = list(record.keys())
+	values = list(record.values())
+
+	_sql = insert_clause() + into_clause(info['tr_table']) + fields_clause_insert(fields) + values_clause(len(values))+returning_clause()
+
+	return _sql, values
+
+
+
 def Insert(self,fields,values,context):
 	info  = self.modelInfo()
 	if id in fields:
@@ -792,14 +803,33 @@ def Write(self,record,context):
 	values = list(record.values())
 
 	if info['log_access']:
-		fields.extend(['create_uid','create_timestamp'])
+		fields.extend(['write_uid','write_timestamp'])
 		values.extend([self._uid,datetime.utcnow()])
 		values.append(oid)
 	
 	_sql = update_clause() + info['table']+ set_clause(fields) + ' WHERE id = %s' + returning_clause(list(filter(lambda x: x != 'id',fields)))
 
 	return _sql, values
+
+
+def WriteI18N(self,record,context):
+	info  = self.modelInfo()
+	oid = record['id']
+	del record['id']
+	fields = list(record.keys())
+	values = list(record.values())
+
+	if info['log_access']:
+		#fields.extend(['write_uid','write_timestamp'])
+		#values.extend([self._uid,datetime.utcnow()])
+		values.append(oid)
+	
+	_sql = update_clause() + info['tr_table']+ set_clause(fields) + ' WHERE id = %s' + returning_clause(list(filter(lambda x: x != 'id',fields)))
+
+	return _sql, values
+
 #testing
+
 def Update(self,cond,record,context):
 	info  = self.modelInfo()
 	fields = list(record.keys())

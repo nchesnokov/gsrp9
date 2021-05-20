@@ -620,6 +620,29 @@ def _compute_composite(self ,item,context):
 
 		if len(v) > 0:
 			item[fullname] = v
+	elif self._columns[fullname]._type == 'i18n' and self._columns[fullname].column._type == 'composite':
+		cols = self._columns[fullname].column.cols
+		delimiter = self._columns[fullname].column.delimiter
+		for col in cols:
+			if self._columns[col]._type in ('many2one','related'):
+				if col in item and item[col] and item[col]['name']:
+					if len(v) == 0:
+						if item[col]['name']:
+							v += item[col]['name']
+					else:
+						if item[col]['name']:
+							v += delimiter + item[col]['name']
+			else:
+				if len(v) == 0:
+					if item[col]:
+						v += str(item[col])
+				else:
+					if item[col]:
+						v += delimiter + str(item[col])
+
+		if len(v) > 0:
+			item[fullname] = v
+
 
 def _compute_complete_composite(self ,item,context):
 	v=''

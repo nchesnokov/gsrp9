@@ -489,7 +489,7 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	@property
 	def _computefields(self):
-		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute and type(self._columns[x].compute) == str,self._columns.keys())) 
+		return list(filter(lambda x: self._columns[x]._type == 'i18n' and hasattr(self._columns[x].column,'compute') and self._columns[x].column.compute and type(self._columns[x].column.compute) == str or  hasattr(self._columns[x],'compute') and self._columns[x].compute and type(self._columns[x].compute) == str,self._columns.keys())) 
 
 	@property
 	def _domaincomputefields(self):
