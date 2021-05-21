@@ -620,7 +620,7 @@ def _compute_composite(self ,item,context):
 
 		if len(v) > 0:
 			item[fullname] = v
-	elif self._columns[fullname]._type == 'i18n' and self._columns[fullname].column._type == 'composite':
+	elif fullname and self._columns[fullname]._type == 'i18n' and self._columns[fullname].column._type == 'composite':
 		cols = self._columns[fullname].column.cols
 		delimiter = self._columns[fullname].column.delimiter
 		for col in cols:
@@ -669,6 +669,28 @@ def _compute_complete_composite(self ,item,context):
 
 		if len(v) > 0:
 			item[completename] = v
+	elif completename and self._columns[completename]._type == 'i18n' and self._columns[completename].column._type == 'composite':
+		cols = self._columns[completename].column.cols
+		delimiter = self._columns[completename].column.delimiter
+		for col in cols:
+			if self._columns[col].column._type in ('many2one','related'):
+				if col in item and item[col] and item[col]['name']:
+					if len(v) == 0:
+						if item[col]['name']:
+							v += item[col]['name']
+					else:
+						if item[col]['name']:
+							v += delimiter + item[col]['name']
+			else:
+				if len(v) == 0:
+					if item[col]:
+						v += str(item[col])
+				else:
+					if item[col]:
+						v += delimiter + str(item[col])
+
+		if len(v) > 0:
+			item[completename] = v
 
 
 def _compute_decomposite(self ,item,context):
@@ -694,9 +716,9 @@ def _compute_composite_tree(self ,item,context):
 	rowname = self._getRowNameName()
 	fullname = self._getFullNameName()
 	parent_id = self._getParentIdName() 
-	delimiter = self._columns[fullname].delimiter
 
 	if fullname and self._columns[fullname]._type == 'composite' and parent_id and self._getChildsIdName():
+		delimiter = self._columns[fullname].delimiter
 		if item[parent_id] and item[parent_id]['name']:
 			if type(item[parent_id]) == dict and item[parent_id]['id']:
 				v += self.read(item[parent_id]['id'],[fullname],context)[0][fullname]
@@ -711,6 +733,23 @@ def _compute_composite_tree(self ,item,context):
 
 		if len(v) > 0:
 			item[fullname] = v
+	elif fullname and self._columns[fullname]._type == 'i18n' and self._columns[fullname].column._type == 'composite':
+		delimiter = self._columns[fullname].column.delimiter
+		if item[parent_id] and item[parent_id]['name']:
+			if type(item[parent_id]) == dict and item[parent_id]['id']:
+				v += self.read(item[parent_id]['id'],[fullname],context)[0][fullname]
+			elif type(item[parent_id]) == str:
+				v += self.read(item[parent_id],[fullname],context)[0][fullname]
+			if item[rowname]:
+				v += delimiter + item[rowname]
+
+		else:
+			if item[rowname]:
+				v += item[rowname]
+
+		if len(v) > 0:
+			item[fullname] = v
+
 
 # modelinfo
 def _setDefault(self,item):

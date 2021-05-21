@@ -90,7 +90,7 @@ def _conv_record_to_ext(self,record,context):
 					recname = m._RecNameName
 					ctx = context.copy()
 					ctx['read'] = 'raw'
-					v = m.search([(recname,'=',record[key])])
+					v = m.search([(recname,'=',record[key])],ctx)
 					if len(v) > 0:
 						if type(v[0]) == dict:
 							record[key] = {'id':v[0],'name':record[key]}
