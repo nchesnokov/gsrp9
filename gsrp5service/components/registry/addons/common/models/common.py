@@ -142,7 +142,7 @@ class seq_access_schemas(Model):
 	'area': fields.many2one(label='Area',obj='seq.areas',required = True),
 	'segment': fields.many2one(label='Segment',obj='seq.segments',required = True),
 	'name': fields.varchar(label='Name',translate = True,required = True),
-	'fullname': fields.composite(label='Full Name',cols=['area','segment','name'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name',cols=['area','segment','name'],translate = True,required = True),
 	'usage': fields.selection(label='Usage',selections=[('a','All')]),
 	'items': fields.one2many(label='Items',obj='seq.access.schema.items',rel='schema_id')
 	}

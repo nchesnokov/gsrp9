@@ -1231,10 +1231,12 @@ class MCache(object):
 		m = self._pool.get(model)
 		record = self._data._getCData(path)
 		fields = list(record.keys())
-		ci = m.columnsInfo(columns=m._computefields,attributes=['compute','priority'])
+		ci = m.columnsInfo(columns=m._computefields,attributes=['compute','priority','type'])
 		priority = {}
+		cmap = {}
 		#for compute_field in filter(lambda x: x in fields,m._computefields):
 		for compute_field in m._computefields:
+			cmap.setdefault(ci[compute_field]['compute'],set()).add(compute_field)
 			priority.setdefault(ci[compute_field]['priority'],set()).add(ci[compute_field]['compute'])
 		
 		pkeys = list(priority.keys())
@@ -1244,7 +1246,11 @@ class MCache(object):
 			for compute_method in priority[pkey]:			
 				method = getattr(m,compute_method,None)
 				if method and callable(method):
-					r = method(record,self._context)
+					if compute_method in ('_compute_composite','_compute_decomposite','_compute_composite_tree'):
+						for col in cmap[compute_method]:
+							r = method(col, record,self._context)
+					else:
+						r = method(record,self._context)
 					if r is not None: 
 						res.update(r)
 	

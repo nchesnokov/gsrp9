@@ -36,7 +36,7 @@ class seq_access(Model):
 	'area': fields.many2one(label='Area',obj='seq.areas',required = True),
 	'segment': fields.many2one(label='Segment',obj='seq.segments',required = True),
 	'name': fields.varchar(label='Name',translate = True,required = True),
-	'fullname': fields.composite(label='Full Name',cols=['area','segment','name'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name',cols=['area','segment','name'],translate = True,required = True),
 	'usage': fields.selection(label='Usage',selections=[('a','All')]),
 	'models': fields.one2many(label='Models',obj='seq.models',rel='access_id')
 	}
@@ -97,7 +97,7 @@ class seq_conditions(Model):
 	'area': fields.many2one(label='Area',obj='seq.areas',required = True),
 	'segment': fields.many2one(label='Segment',obj='seq.segments',required = True),
 	'name': fields.varchar(label='Name',translate = True,required = True),
-	'fullname': fields.composite(label='Full Name',cols=['area','segment','name'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name',cols=['area','segment','name'],translate = True,required = True),
 	'usage': fields.selection(label='Usage',selections=[('a','All')]),
 	'seq_access': fields.related(label='Sequence Access',obj='seq.access',relatedy=['area','segment','usage']),
 	}

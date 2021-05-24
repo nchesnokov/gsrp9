@@ -10,7 +10,7 @@ class ewm_warehouse(Model):
 	_columns = {
 	'stock': fields.many2one(label='Stock',obj='st.stock',required = True),
 	'name': fields.varchar(label = 'Name',required = True),
-	'fullname': fields.composite(label = 'Fullname',cols=['stock','name'], translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label = 'Fullname',cols=['stock','name'], translate = True,required = True),
 	'products': fields.one2many(label='Products',readonly=True,obj='md.stock.product',rel='stock_id',limit=80),
 	'note': fields.text(label = 'Note')}
 

@@ -55,7 +55,7 @@ md_ewm_product()
 	# 'company': fields.many2one(label='Company',obj='md.company', required = True),
 	# 'year':fields.varchar(label = 'Year', required = True),
 	# 'code':fields.varchar(label = 'Year', required = True),
-	# 'fullname': fields.composite(label='Full Name', cols = ['company','year','code'], translate = True,required = True, compute = '_compute_composite'),
+	# 'fullname': fields.composite(label='Full Name', cols = ['company','year','code'], translate = True,required = True),
 	# 'category_id': fields.many2one(label='Category',obj='st.stock.document.categories'),
 	# 'manager': fields.many2one(label='Manager',obj='bc.users'),
 	# 'origin': fields.varchar(label = 'Origin'),

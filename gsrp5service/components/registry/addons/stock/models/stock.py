@@ -29,7 +29,7 @@ class st_stock(Model):
 	_columns = {
 	'company': fields.many2one(label='Company',obj='md.company'),
 	'name': fields.varchar(label = 'Name'),
-	'fullname': fields.composite(label = 'Fullname',cols=['company','name'], translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label = 'Fullname',cols=['company','name'], translate = True,required = True),
 	'location': fields.many2one(label='Location',obj='st.location'),
 	'products': fields.one2many(label='Products',readonly=True,obj='md.stock.product',rel='stock_id',limit=80),
 	'note': fields.text(label = 'Note')}
@@ -90,7 +90,7 @@ md_stock_product()
 	# 'company': fields.many2one(label='Company',obj='md.company', required = True),
 	# 'year':fields.varchar(label = 'Year', required = True),
 	# 'code':fields.varchar(label = 'Year', required = True),
-	# 'fullname': fields.composite(label='Full Name', cols = ['company','year','code'], translate = True,required = True, compute = '_compute_composite'),
+	# 'fullname': fields.composite(label='Full Name', cols = ['company','year','code'], translate = True,required = True),
 	# 'category_id': fields.many2one(label='Category',obj='st.stock.document.categories'),
 	# 'manager': fields.many2one(label='Manager',obj='bc.users'),
 	# 'origin': fields.varchar(label = 'Origin'),

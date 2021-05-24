@@ -17,7 +17,7 @@ class srm_unit_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.unit.categories'),
 	'childs_id': fields.one2many(obj = 'srm.unit.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True),
 	'units': fields.one2many(label='Units',obj='srm.units',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -53,7 +53,7 @@ class srm_channel_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.channel.categories'),
 	'childs_id': fields.one2many(obj = 'srm.channel.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True),
 	'channels': fields.one2many(label='Channels',obj='srm.channels',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -84,7 +84,7 @@ class srm_segment_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.segment.categories'),
 	'childs_id': fields.one2many(obj = 'srm.segment.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True),
 	'segments': fields.one2many(label='Segments',obj='srm.segments',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -116,7 +116,7 @@ class srm_area_categories(Model):
 	'parent_id': fields.many2one(label='Parent',obj='srm.area.categories'),
 	'childs_id': fields.one2many(obj = 'srm.area.categories',rel = 'parent_id',label = 'Childs'),
 	'areas': fields.one2many(label='Areas',obj='srm.areas',rel='category_id',limit = 80,readonly=True),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -146,7 +146,7 @@ class srm_region_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.region.categories'),
 	'childs_id': fields.one2many(obj = 'srm.region.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True),
 	'segments': fields.one2many(label='REgions',obj='srm.regions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -178,7 +178,7 @@ class srm_division_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.division.categories'),
 	'childs_id': fields.one2many(obj = 'srm.division.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True),
 	'divisions': fields.one2many(label='Divisions',obj='srm.divisions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -210,7 +210,7 @@ class srm_subdivision_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.subdivision.categories'),
 	'childs_id': fields.one2many(obj = 'srm.subdivision.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True),
 	'subdivisions': fields.one2many(label='Orders',obj='srm.subdivisions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -262,7 +262,7 @@ class srm_unit_segment_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
 	'segment_id': fields.many2one(label='Segment',obj='srm.segments',selectable=True),
-	'fullname': fields.composite(label='Full Name',cols=['segment_id'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name',cols=['segment_id'],translate = True,required = True),
 	}
 
 	def _compute_fullname(self,cr,pool,uid,item,context):
@@ -284,7 +284,7 @@ class srm_unit_area_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
 	'area_id': fields.many2one(label='Area',obj='srm.areas',selectable=True),
-	'fullname': fields.composite(label='Full Name',cols=['area_id'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name',cols=['area_id'],translate = True,required = True),
 	}
 
 	def _compute_fullname(self,cr,pool,uid,item,context):
@@ -306,7 +306,7 @@ class srm_unit_region_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='srm.units'),
 	'region_id': fields.many2one(label='Region',obj='srm.regions',selectable=True),
-	'fullname': fields.composite(label='Full Name',cols=['region_id'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name',cols=['region_id'],translate = True,required = True),
 	}
 
 	def _compute_fullname(self,cr,pool,uid,item,context):
@@ -330,7 +330,7 @@ class srm_division_subdivision_assigments(Model):
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='srm.divisions'),
 	'subdivision_id': fields.many2one(label='Subdivision',obj='srm.subdivisions',selectable=True),
-	'fullname': fields.composite(label='Full Name',cols=['subdivision_id'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name',cols=['subdivision_id'],translate = True,required = True),
 	}
 
 	def _compute_fullname(self,cr,pool,uid,item,context):
@@ -357,7 +357,7 @@ class srm_markets(Model):
 	'segment_id': fields.related(label='Segment',obj='srm.unit.segment.assigments', relatedy=['unit_id'], required = True),
 	'area_id': fields.related(label='Area',obj='srm.unit.area.assigments', relatedy=['unit_id'], required = True),
 	'region_id': fields.related(label='Region',obj='srm.unit.region.assigments', relatedy=['unit_id'], required = True),
-	'fullname': fields.composite(label='Full Name',cols=['unit_id','channel_id','segment_id','area_id','region_id'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name',cols=['unit_id','channel_id','segment_id','area_id','region_id'],translate = True,required = True),
 	'note': fields.text(label='Note'),
 	}
 
@@ -373,7 +373,7 @@ class srm_teams(Model):
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='srm.divisions', required = True),
 	'subdivision_id': fields.related(label='Subdivision',obj='srm.division.subdivision.assigments', relatedy=['division_id'], required = True),
-	'fullname': fields.composite(label='Full Name',cols=['division_id','subdivision_id'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name',cols=['division_id','subdivision_id'],translate = True,required = True),
 	'note': fields.text(label='Note'),
 	}
 
@@ -482,7 +482,7 @@ class srm_plan_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.plan.category'),
 	'childs_id': fields.one2many(obj = 'srm.plan.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.composite(label='Full Name', translate = True,required = True),
 	'plans': fields.one2many(label='Plans',obj='srm.plans',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -498,7 +498,7 @@ class srm_request_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.request.category'),
 	'childs_id': fields.one2many(obj = 'srm.request.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'requests': fields.one2many(label='Requests',obj='srm.requests',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -514,7 +514,7 @@ class srm_response_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.response.category'),
 	'childs_id': fields.one2many(obj = 'srm.response.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'responses': fields.one2many(label='Responses',obj='srm.responses',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -530,7 +530,7 @@ class srm_rfx_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.rfx.category'),
 	'childs_id': fields.one2many(obj = 'srm.rfx.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'rfxs': fields.one2many(label='RFXs',obj='srm.rfxs',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -546,7 +546,7 @@ class srm_auction_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.auction.category'),
 	'childs_id': fields.one2many(obj = 'srm.auction.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'auctions': fields.one2many(label='Auctions',obj='srm.auctions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -562,7 +562,7 @@ class srm_offer_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.offer.category'),
 	'childs_id': fields.one2many(obj = 'srm.offer.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'offers': fields.one2many(label='Offers',obj='srm.offers',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -578,7 +578,7 @@ class srm_evolution_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.evolution.category'),
 	'childs_id': fields.one2many(obj = 'srm.evolution.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'evolutions': fields.one2many(label='Evolutions',obj='srm.evolutions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -594,7 +594,7 @@ class srm_decision_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.decision.category'),
 	'childs_id': fields.one2many(obj = 'srm.decision.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'decisions': fields.one2many(label='Decisions',obj='srm.decisions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -610,7 +610,7 @@ class srm_contract_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='srm.contract.category'),
 	'childs_id': fields.one2many(obj = 'srm.contract.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'contracts': fields.one2many(label='Contracts',obj='srm.contracts',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}

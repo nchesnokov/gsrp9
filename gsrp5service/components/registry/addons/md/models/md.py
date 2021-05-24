@@ -205,7 +205,7 @@ class md_partner_contacts(Model):
 	'firstname': fields.i18n(fields.varchar(label = 'First Name',size=64)),
 	'lastname': fields.i18n(fields.varchar(label = 'Last Name',size=64)),
 	'middlename': fields.i18n(fields.varchar(label = 'Middle Name',size=64)),
-	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['firstname','lastname','middlename','birthday'], translate = True,required = True, compute = '_compute_composite')),
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['firstname','lastname','middlename','birthday'], translate = True,required = True)),
 	#'fullname': fields.varchar(label = 'Full Name',compute = ["(CONCAT(firstname,' ',lastname,' ',middlename,':',birthday::STRING))",True]),
 	'gender': fields.selection(selections=[('male', 'Male'),('female', 'Female'),('other', 'Other')],label="Gender"),
 	'marital': fields.selection(selections=[('single', 'Single'),('married', 'Married'),('widower', 'Widower'),('divorced', 'Divorced')], label='Marital Status'),
@@ -372,7 +372,7 @@ class md_boms(Model):
 	_columns = {
 	'name': fields.varchar(label="Name"),
 	'company': fields.many2one(label='Company', obj='md.company'),
-	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','name'], required = True, compute = '_compute_composite')),
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','name'], required = True)),
 	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
 	'usage': fields.selection(label='Usage',selections=[('all','All')]),
 	'product': fields.many2one(label='Product',obj='md.product'),
@@ -407,7 +407,7 @@ class md_mobs(Model):
 	_columns = {
 	'name': fields.varchar(label="Name"),
 	'company': fields.many2one(label='Company', obj='md.company'),
-	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','name'], required = True, compute = '_compute_composite')),
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','name'], required = True)),
 	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
 	'usage': fields.selection(label='Usage',selections=[('all','All')]),
 	'product': fields.many2one(label='Product',obj='md.product'),
@@ -442,7 +442,7 @@ class md_bobs(Model):
 	_columns = {
 	'name': fields.varchar(label="Name"),
 	'company': fields.many2one(label='Company', obj='md.company'),
-	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','name'], required = True, compute = '_compute_composite')),
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','name'], required = True)),
 	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
 	'usage': fields.selection(label='Usage',selections=[('all','All')]),
 	'partition': fields.integer(label='Partition',required=True,check='partition > 0'),

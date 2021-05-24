@@ -13,7 +13,7 @@ class fm_unit_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='fm.unit.categories'),
 	'childs_id': fields.one2many(obj = 'fm.unit.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'units': fields.one2many(label='Units',obj='fm.units',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}

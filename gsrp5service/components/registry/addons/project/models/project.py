@@ -12,7 +12,7 @@ class prj_unit_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.unit.categories'),
 	'childs_id': fields.one2many(obj = 'prj.unit.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'units': fields.one2many(label='Units',obj='prj.units',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -48,7 +48,7 @@ class prj_channel_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.channel.categories'),
 	'childs_id': fields.one2many(obj = 'prj.channel.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'channels': fields.one2many(label='Channels',obj='prj.channels',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -79,7 +79,7 @@ class prj_segment_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.segment.categories'),
 	'childs_id': fields.one2many(obj = 'prj.segment.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'segments': fields.one2many(label='Segments',obj='prj.segments',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -111,7 +111,7 @@ class prj_area_categories(Model):
 	'parent_id': fields.many2one(label='Parent',obj='prj.area.categories'),
 	'childs_id': fields.one2many(obj = 'prj.area.categories',rel = 'parent_id',label = 'Childs'),
 	'areas': fields.one2many(label='Areas',obj='prj.areas',rel='category_id',limit = 80,readonly=True),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -141,7 +141,7 @@ class prj_region_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.region.categories'),
 	'childs_id': fields.one2many(obj = 'prj.region.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'segments': fields.one2many(label='REgions',obj='prj.regions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -173,7 +173,7 @@ class prj_division_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.division.categories'),
 	'childs_id': fields.one2many(obj = 'prj.division.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'divisions': fields.one2many(label='Divisions',obj='prj.divisions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -205,7 +205,7 @@ class prj_subdivision_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.subdivision.categories'),
 	'childs_id': fields.one2many(obj = 'prj.subdivision.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'subdivisions': fields.one2many(label='Orders',obj='prj.subdivisions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -352,7 +352,7 @@ class prj_markets(Model):
 	'segment_id': fields.related(label='Segment',obj='prj.unit.segment.assigments', relatedy=['unit_id'], required = True),
 	'area_id': fields.related(label='Area',obj='prj.unit.area.assigments', relatedy=['unit_id'], required = True),
 	'region_id': fields.related(label='Region',obj='prj.unit.region.assigments', relatedy=['unit_id'], required = True),
-	'fullname': fields.composite(label='Full Name',cols=['unit_id','channel_id','segment_id','area_id','region_id'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.tree(label='Full Name',cols=['unit_id','channel_id','segment_id','area_id','region_id'],translate = True,required = True),
 	'note': fields.text(label='Note'),
 	}
 
@@ -368,7 +368,7 @@ class prj_teams(Model):
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='prj.divisions', required = True),
 	'subdivision_id': fields.related(label='Subdivision',obj='prj.division.subdivision.assigments', relatedy=['division_id'], required = True),
-	'fullname': fields.composite(label='Full Name',cols=['division_id','subdivision_id'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name',cols=['division_id','subdivision_id'],translate = True,required = True),
 	'note': fields.text(label='Note'),
 	}
 
@@ -596,7 +596,7 @@ class prj_bill(Model):
 	'btype': fields.many2one(label='Type',obj='prj.bill.types',on_change='_on_change_btype', required = True),
 	'name': fields.varchar(label = 'Bill', required = True),
 	'company': fields.many2one(label='Company',obj='md.company', required = True),
-	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True, compute = '_compute_composite'),	
+	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True),
 	'category_id': fields.many2one(label='Category',obj='prj.bill.category'),
 	'parent_id': fields.many2one(label='Parent',obj='prj.bill'),
 	'childs_id': fields.one2many(label='Childs',obj='prj.bill',rel='parent_id'),

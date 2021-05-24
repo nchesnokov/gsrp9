@@ -125,8 +125,21 @@ class composite(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
 
-	def __init__(self, label = 'unknown', cols = [], delimiter = '/',readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, on_check = None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = None, check = None,family = 'Primary',compute = None, store = True,state=None, actions=None, icon = None):
-		super(composite, self).__init__(label=label, cols = cols, delimiter = delimiter, readonly=readonly, invisible=invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = compute, store = store, state = state, actions = actions, icon = icon)
+	def __init__(self, label = 'unknown', cols = [], delimiter = '/',readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, on_check = None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = None, check = None,family = 'Primary', store = True,state=None, actions=None, icon = None):
+		super(composite, self).__init__(label=label, cols = cols, delimiter = delimiter, readonly=readonly, invisible=invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = '_compute_composite', store = store, state = state, actions = actions, icon = icon)
+
+class tree(_column):
+	_type = 'tree'
+	_db_type = 'STRING'
+	_symbol_c = "%s"
+	_symbol_f = _set_symbol
+	_symbol_set = (_symbol_c, _symbol_f)
+	_symbol_get = None
+
+	def __init__(self, label = 'unknown', parent = None, delimiter = '/',readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, on_check = None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = None, check = None,family = 'Primary', store = True,state=None, actions=None, icon = None):
+		super(tree, self).__init__(label=label, parent = parent, delimiter = delimiter, readonly=readonly, invisible=invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = '_compute_composite_tree', store = store, state = state, actions = actions, icon = icon)
+
+
 
 class decomposite(_column):
 	_type = 'decomposite'
@@ -136,8 +149,8 @@ class decomposite(_column):
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
 
-	def __init__(self, label = 'unknown', column = None, delimiter = '/', part=None, readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, on_check = None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = None, check = None,family = 'Primary',compute = None, store = False, state=None, actions=None, icon = None):
-		super(composite, self).__init__(label=label, column = column, delimiter = delimiter, part=part, readonly=readonly, invisible=invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = compute, store = store, state = state, actions = actions, icon = icon)
+	def __init__(self, label = 'unknown', col = None, delimiter = '/', part=None, readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, on_check = None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = None, check = None,family = 'Primary', store = False, state=None, actions=None, icon = None):
+		super(decomposite, self).__init__(label=label, column = column, delimiter = delimiter, part=part, readonly=readonly, invisible=invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = '_compute_decomposite', store = store, state = state, actions = actions, icon = icon)
 
 
 

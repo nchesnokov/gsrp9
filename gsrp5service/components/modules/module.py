@@ -1118,7 +1118,8 @@ def _loadCSVFile(self,info,path,name,fl,context):
 						for record in records:
 							ts.setdefault(record[rec_name],set()).add(record[parent_id])
 						tss = list(toposort.toposort(ts))
-
+						#print('TSS:',tss)
+						web_pdb.set_trace()
 						for keys in tss:
 							for key in keys:
 								rows = list(filter(lambda x:x[parent_id] == key,copy.deepcopy(records)))

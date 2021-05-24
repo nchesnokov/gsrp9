@@ -397,7 +397,7 @@ class bc_ui_view_model_types(Model):
 	_description = 'UI Type Of View'
 	_class_object = 'K'
 	_columns = {
-	'fullname': fields.composite(label='Full Name', cols = ['framework','code'], translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name', cols = ['framework','code'], translate = True,required = True),
 	'framework': fields.many2one(label='Web Framework',obj='bc.web.frameworks',required=True),
 	'code': fields.varchar(label='Code', size = 64,required=True),
 	'exclude': fields.json(label='Exclude'),
@@ -412,7 +412,7 @@ class bc_ui_model_views(Model):
 	_rec_name='fullname'
 	_class_object = 'K'
 	_columns = {
-	'fullname': fields.composite(label='Full Name', cols = ['model','vtype'], translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name', cols = ['model','vtype'], translate = True,required = True),
 	'model': fields.many2one(label='Model',obj='bc.models'),
 	'vtype': fields.many2one(label='View Type',obj='bc.ui.view.model.types'),
 	'standalone': fields.boolean(label='Standalone View'),
@@ -492,7 +492,7 @@ class bc_tuning_ui_model_views(Model):
 	_description = 'Tunning Models Views'
 	_class_object = 'K'
 	_columns = {
-	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['tuser','view','name'], required = True, compute = '_compute_composite')),
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['tuser','view','name'], required = True)),
 	'name':fields.varchar(label='Name',size=128,readonly=True),
 	'view':fields.many2one(label = 'View', obj='bc.ui.model.views',readonly=True, on_delete = 'c'),
 	'tuser': fields.many2one(label = 'User', obj='bc.users',readonly=True, on_delete = 'c'),
@@ -510,7 +510,7 @@ class bc_general_tuning_ui_model_views(Model):
 	_description = 'General Tunning Models Views'
 	_class_object = 'K'
 	_columns = {
-	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['view','name'], required = True, compute = '_compute_composite')),
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['view','name'], required = True)),
 	'name':fields.varchar(label='Name',size=128,readonly=True),
 	'view':fields.many2one(label = 'View', obj='bc.ui.model.views',readonly=True, on_delete = 'c'),
 	'values': fields.json(label='Values',readonly=True)
@@ -534,7 +534,7 @@ class bc_ui_framework_model_actions(Model):
 	_description = 'Model UI Framework Actions'
 	_class_object = 'K'
 	_columns = {
-	'fullname': fields.composite(label='Full Name', cols = ['action_id','framework_id'], required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name', cols = ['action_id','framework_id'], required = True),
 	'action_id': fields.many2one(label='Action',obj = 'bc.ui.model.actions'),
 	'framework_id': fields.many2one(label='Framework',obj = 'bc.web.frameworks'),
 	'view_id': fields.many2one(label='View',obj='bc.ui.model.views',readonly=True, on_delete = 'c')

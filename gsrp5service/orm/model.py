@@ -15,32 +15,6 @@ _logger = logging.getLogger(__name__)
 
 import web_pdb
 
-
-# class MetaModel(type):
-	# __modules__ = {}
-
-	# def __new__(cls, name, bases, attrs):
-		# if '__module__' in attrs and not attrs['__module__'] in ('gsrp5service.orm.model.MetaModel','orm.model.MetaModel','model.MetaModel','gsrp5service.orm.model','orm.model'):
-			# _m = attrs['__module__'].split('.')
-			# _module = attrs['__module__']
-
-			# if _m[0] == 'gsrp5service':
-				# _module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[3:5])	
-			# else:	
-				# _module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[:2])	
-
-			# MetaModel.__modules__.setdefault(_module,{})[attrs['_name']] = {'name':name,'bases':bases,'attrs':attrs}
-
-		# return super(MetaModel, cls).__new__(cls, name, bases, attrs)
-
-	# def __init__(self, name, bases, attrs):
-		# if not hasattr(self, '_register'):
-			# setattr(self,'_register',True)
-		# else:
-			# self._register = True
-			# super(MetaModel, self).__init__(name, bases, attrs)
-
-#class BaseModelInherit(object, metaclass = MetaModel):
 class BaseModelInherit(object, metaclass = MetaObjects):
 	_name = None
 	_description = None
@@ -486,7 +460,7 @@ class BaseModel(object, metaclass = MetaObjects):
 	@property
 	def _on_check_fields(self):
 		return list(filter(lambda x: hasattr(self._columns[x],'on_check') and self._columns[x].on_check and type(self._columns[x].on_check) == str,self._columns.keys())) 
-
+	
 	@property
 	def _computefields(self):
 		return list(filter(lambda x: self._columns[x]._type == 'i18n' and hasattr(self._columns[x].column,'compute') and self._columns[x].column.compute and type(self._columns[x].column.compute) == str or  hasattr(self._columns[x],'compute') and self._columns[x].compute and type(self._columns[x].compute) == str,self._columns.keys())) 
@@ -651,17 +625,17 @@ class BaseModel(object, metaclass = MetaObjects):
 	def _buildSchemaColumns(self,pool):
 		return mm._buildSchemaColumns(self,pool)
 
-	def _compute_composite(self ,item,context):
-		return mm._compute_composite(self ,item,context)
+	def _compute_composite(self ,field,item,context):
+		return mm._compute_composite(self ,field,item,context)
 
 	def _compute_complete_composite(self ,item,context):
 		return mm._compute_complete_composite(self ,item,context)
 
-	def _compute_composite_tree(self ,item,context):
-		return mm._compute_composite_tree(self ,item,context)
+	def _compute_composite_tree(self ,field,item,context):
+		return mm._compute_composite_tree(self ,field,item,context)
 
-	def _compute_decomposite(self ,item,context):
-		return mm._compute_decomposite(self ,item,context)
+	def _compute_decomposite(self ,field,item,context):
+		return mm._compute_decomposite(self ,field,item,context)
 
 
 	# def _getAccess(self):

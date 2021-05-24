@@ -15,7 +15,7 @@ class md_category_country(Model):
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.country'),
 	'childs_id': fields.one2many(obj = 'md.category.country',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -29,7 +29,7 @@ class md_category_language(Model):
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.language'),
 	'childs_id': fields.one2many(obj = 'md.category.language',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.i18n(fields.composite(label='Full Name', required = True, compute = '_compute_composite_tree')),
+	'fullname': fields.i18n(fields.tree(label='Full Name', required = True)),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -43,7 +43,7 @@ class md_category_product(Model):
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.product'),
 	'childs_id': fields.one2many(obj = 'md.category.product',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.i18n(fields.composite(label='Full Name', required = True, compute = '_compute_composite_tree')),
+	'fullname': fields.i18n(fields.tree(label='Full Name', required = True)),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -111,7 +111,7 @@ class md_category_partner(Model):
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.partner'),
 	'childs_id': fields.one2many(obj = 'md.category.partner',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.i18n(fields.composite(label='Full Name', required = True, compute = '_compute_composite_tree')),
+	'fullname': fields.i18n(fields.tree(label='Full Name', required = True)),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -125,7 +125,7 @@ class md_category_location(Model):
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'parent_id': fields.many2one(label='Parent',obj='md.category.location'),
 	'childs_id': fields.one2many(obj = 'md.category.location',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.i18n(fields.composite(label='Full Name', required = True, compute = '_compute_composite_tree')),
+	'fullname': fields.i18n(fields.tree(label='Full Name', required = True)),
 	'note': fields.text(label = 'Note')
 	}
 

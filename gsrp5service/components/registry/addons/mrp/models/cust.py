@@ -115,7 +115,7 @@ class mrp_demand_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mrp.demand.category'),
 	'childs_id': fields.one2many(obj = 'mrp.demand.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'demands': fields.one2many(label='Demands',obj='mrp.demand',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -131,7 +131,7 @@ class mrp_request_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mrp.request.category'),
 	'childs_id': fields.one2many(obj = 'mrp.request.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'requests': fields.one2many(label='Requests',obj='mrp.request',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}

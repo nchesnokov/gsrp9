@@ -163,7 +163,7 @@ class mm_workcenter_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mm.workcenter.category'),
 	'childs_id': fields.one2many(obj = 'mm.workcenter.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'workcenters': fields.one2many(label='Orders',obj='mm.workcenters',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -179,7 +179,7 @@ class mm_production_order_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mm.production.order.category'),
 	'childs_id': fields.one2many(obj = 'mm.production.order.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'orders': fields.one2many(label='Orders',obj='mm.production.orders',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -195,7 +195,7 @@ class mm_technologic_order_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mm.technologic.order.category'),
 	'childs_id': fields.one2many(obj = 'mm.technologic.order.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'orders': fields.one2many(label='Orders',obj='mm.technologic.orders',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -211,7 +211,7 @@ class mm_disassembly_order_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mm.disassembly.order.category'),
 	'childs_id': fields.one2many(obj = 'mm.disassembly.order.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'orders': fields.one2many(label='Orders',obj='mm.disassembly.orders',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -278,7 +278,7 @@ class mm_map_op_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mm.map.op.category'),
 	'childs_id': fields.one2many(obj = 'mm.map.op.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'ops': fields.one2many(label='Maps',obj='mm.map.ops',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -294,7 +294,7 @@ class mm_map_ops(Model):
 	'category_id': fields.many2one(label='Category',obj='mm.map.op.category'),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'company': fields.many2one(label='Company',obj='md.company'),
-	'fullname': fields.composite(label='Full Name', cols=['company','name'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name', cols=['company','name'],translate = True,required = True),
 	'usage': fields.selection(label='Usage',selections=[('p','Production'),('t','Technology'),('d','Disassembly'),('a','All')]),
 	'note': fields.text(label = 'Note')
 	}
@@ -311,7 +311,7 @@ class mm_production_map_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mm.production.map.category'),
 	'childs_id': fields.one2many(obj = 'mm.production.map.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'maps': fields.one2many(label='Maps',obj='mm.production.maps',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -327,7 +327,7 @@ class mm_production_maps(Model):
 	'category_id': fields.many2one(label='Category',obj='mm.production.map.category'),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'company': fields.many2one(label='Company',obj='md.company'),
-	'fullname': fields.composite(label='Full Name', cols=['company','name'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name', cols=['company','name'],translate = True,required = True),
 	'bom': fields.many2one(label='BoM',obj='md.boms',on_change='_on_change_bom'),
 	'ops': fields.one2many(obj = 'mm.production.map.ops',rel = 'op_id',label = 'Operations'),
 	'note': fields.text(label = 'Note')
@@ -365,7 +365,7 @@ class mm_technologic_map_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mm.technologic.map.category'),
 	'childs_id': fields.one2many(obj = 'mm.technologic.map.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'maps': fields.one2many(label='Maps',obj='mm.technologic.maps',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -381,7 +381,7 @@ class mm_technologic_maps(Model):
 	'category_id': fields.many2one(label='Category',obj='mm.technologic.map.category'),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'company': fields.many2one(label='Company',obj='md.company'),
-	'fullname': fields.composite(label='Full Name', cols=['company','name'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name', cols=['company','name'],translate = True,required = True),
 	'bob': fields.many2one(label='BoB',obj='md.bobs',on_change='_on_change_bob'),
 	'ops': fields.one2many(obj = 'mm.technologic.map.ops',rel = 'op_id',label = 'Operations'),
 	'note': fields.text(label = 'Note')
@@ -419,7 +419,7 @@ class mm_disassembly_map_category(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='mm.disassembly.map.category'),
 	'childs_id': fields.one2many(obj = 'mm.disassembly.map.category',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'maps': fields.one2many(label='Maps',obj='mm.disassembly.maps',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -435,7 +435,7 @@ class mm_disassembly_maps(Model):
 	'category_id': fields.many2one(label='Category',obj='mm.disassembly.map.category'),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'company': fields.many2one(label='Company',obj='md.company'),
-	'fullname': fields.composite(label='Full Name', cols=['company','name'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name', cols=['company','name'],translate = True,required = True),
 	'mob': fields.many2one(label='MoB',obj='md.mobs',on_change='_on_change_mob'),
 	'ops': fields.one2many(obj = 'mm.disassembly.map.ops',rel = 'op_id',label = 'Operations'),
 	'note': fields.text(label = 'Note')

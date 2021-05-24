@@ -14,7 +14,7 @@ class sales_order_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='sale.order.categories'),
 	'childs_id': fields.one2many(obj = 'sale.order.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'orders': fields.one2many(label='Orders',obj='sale.orders',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -28,7 +28,7 @@ class sale_invoice_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='sale.invoice.categories'),
 	'childs_id': fields.one2many(obj = 'sale.invoice.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'invoices': fields.one2many(label='Orders',obj='sale.invoices',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -45,7 +45,7 @@ class sale_orders(Model):
 	'otype': fields.many2one(label='Type',obj='sale.order.types',on_change='_on_change_otype'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
-	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True),
 	'market': fields.many2one(label='Market',obj='sale.markets'),
 	'team': fields.many2one(label='Team',obj='sale.teams'),
 	'category': fields.many2one(label='Category',obj='sale.order.categories'),
@@ -439,7 +439,7 @@ class sale_invoices(Model):
 	'itype': fields.many2one(label='Type',obj='sale.invoice.types',on_change='on_change_itype'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
-	'fullname': fields.composite(label='Full Name', cols = ['company','itype','name'], translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name', cols = ['company','itype','name'], translate = True,required = True),
 	'market_id': fields.many2one(label='Market',obj='sale.markets'),
 	'team_id': fields.many2one(label='Team',obj='sale.teams'),
 	'category_id': fields.many2one(label='Category',obj='sale.invoice.categories'),

@@ -17,7 +17,7 @@ class sale_unit_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='sale.unit.categories'),
 	'childs_id': fields.one2many(obj = 'sale.unit.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'units': fields.one2many(label='Units',obj='sale.units',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -53,7 +53,7 @@ class sale_channel_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='sale.channel.categories'),
 	'childs_id': fields.one2many(obj = 'sale.channel.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'channels': fields.one2many(label='Channels',obj='sale.channels',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -84,7 +84,7 @@ class sale_segment_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='sale.segment.categories'),
 	'childs_id': fields.one2many(obj = 'sale.segment.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'segments': fields.one2many(label='Segments',obj='sale.segments',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -115,7 +115,7 @@ class sale_area_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='sale.area.categories'),
 	'childs_id': fields.one2many(obj = 'sale.area.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'areas': fields.one2many(label='Areas',obj='sale.areas',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -146,7 +146,7 @@ class sale_region_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='sale.region.categories'),
 	'childs_id': fields.one2many(obj = 'sale.region.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'segments': fields.one2many(label='REgions',obj='sale.regions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -178,7 +178,7 @@ class sale_division_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='sale.division.categories'),
 	'childs_id': fields.one2many(obj = 'sale.division.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'divisions': fields.one2many(label='Divisions',obj='sale.divisions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -210,7 +210,7 @@ class sale_subdivision_categories(Model):
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='sale.subdivision.categories'),
 	'childs_id': fields.one2many(obj = 'sale.subdivision.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.composite(label='Full Name', translate = True,required = True, compute = '_compute_composite_tree'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
 	'subdivisions': fields.one2many(label='Orders',obj='sale.subdivisions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.text(label = 'Note')
 	}
@@ -363,7 +363,7 @@ class sale_markets(Model):
 	'segment_id': fields.related(label='Segment',obj='sale.unit.segment.assigments', relatedy=['unit_id'], required = True),
 	'area_id': fields.related(label='Area',obj='sale.unit.area.assigments', relatedy=['unit_id'], required = True),
 	'region_id': fields.related(label='Region',obj='sale.unit.region.assigments', relatedy=['unit_id'], required = True),
-	'fullname': fields.composite(label='Full Name',cols=['unit_id','channel_id','segment_id','area_id','region_id'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name',cols=['unit_id','channel_id','segment_id','area_id','region_id'],translate = True,required = True),
 	'note': fields.text(label='Note'),
 	}
 
@@ -379,7 +379,7 @@ class sale_teams(Model):
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='sale.divisions', required = True),
 	'subdivision_id': fields.related(label='Subdivision',obj='sale.division.subdivision.assigments', relatedy=['division_id'], required = True),
-	'fullname': fields.composite(label='Full Name',cols=['division_id','subdivision_id'],translate = True,required = True, compute = '_compute_composite'),
+	'fullname': fields.composite(label='Full Name',cols=['division_id','subdivision_id'],translate = True,required = True),
 	'note': fields.text(label='Note'),
 	}
 

@@ -287,7 +287,7 @@ def _getChildsIdName(self):
 def _getRowNameName(self):
 	n = _getSpecName(self,'row_name')
 	if n:
-		if not self._columns[n]._type in ('char','varchar','selection','composite','i18n'):
+		if not self._columns[n]._type in ('char','varchar','selection','composite','decomposite','tree','i18n'):
 			n = None
 
 	return n
@@ -295,7 +295,7 @@ def _getRowNameName(self):
 def _getCompleteNameName(self):
 	n = _getSpecName(self,'complete_name')
 	if n:
-		if not self._columns[n]._type in ('char','varchar','selection','composite','i18n'):
+		if not self._columns[n]._type in ('char','varchar','selection','composite','decomposite','tree','i18n'):
 			n = None
 
 	return n
@@ -304,7 +304,7 @@ def _getCompleteNameName(self):
 def _getFullNameName(self):
 	n = _getSpecName(self,'full_name')
 	if n:
-		if not self._columns[n]._type in ('char','varchar','composite','i18n'):
+		if not self._columns[n]._type in ('char','varchar','composite','decomposite','tree','i18n'):
 			n = None
 
 	return n
@@ -595,12 +595,11 @@ def _getHook(self,name):
 		
 		return getattr(self,hook,None)
 
-def _compute_composite(self ,item,context):
+def _compute_composite(self , field, item, context):
 	v=''
-	fullname = self._getFullNameName()
-	if fullname and self._columns[fullname]._type == 'composite':
-		cols = self._columns[fullname].cols
-		delimiter = self._columns[fullname].delimiter
+	if self._columns[field]._type == 'composite':
+		cols = self._columns[field].cols
+		delimiter = self._columns[field].delimiter
 		for col in cols:
 			if self._columns[col]._type in ('many2one','related'):
 				if col in item and item[col] and item[col]['name']:
@@ -619,10 +618,10 @@ def _compute_composite(self ,item,context):
 						v += delimiter + str(item[col])
 
 		if len(v) > 0:
-			item[fullname] = v
-	elif fullname and self._columns[fullname]._type == 'i18n' and self._columns[fullname].column._type == 'composite':
-		cols = self._columns[fullname].column.cols
-		delimiter = self._columns[fullname].column.delimiter
+			item[field] = v
+	elif self._columns[field]._type == 'i18n' and self._columns[field].column._type == 'composite':
+		cols = self._columns[field].column.cols
+		delimiter = self._columns[field].column.delimiter
 		for col in cols:
 			if self._columns[col]._type in ('many2one','related'):
 				if col in item and item[col] and item[col]['name']:
@@ -641,7 +640,7 @@ def _compute_composite(self ,item,context):
 						v += delimiter + str(item[col])
 
 		if len(v) > 0:
-			item[fullname] = v
+			item[field] = v
 
 
 def _compute_complete_composite(self ,item,context):
@@ -693,37 +692,39 @@ def _compute_complete_composite(self ,item,context):
 			item[completename] = v
 
 
-def _compute_decomposite(self ,item,context):
+def _compute_decomposite(self ,field, item,context):
 	v=''
-	fullname = self._getFullNameName()
-	if fullname and self._columns[fullname]._type == 'composite':
-		cols = self._columns[fullname].cols
-		delimiter = self._columns[fullname].delimiter
-		parts = item[fullname].split(delimiter)
-		for col in cols:
-			idx = cols.index(col)
-			part = parts[idx] 
-			if self._columns[col]._type in ('many2one','related'):
-				obj = self._pool.get(self._columns[col].obj)
-				item[col] = {'id':obj.search([(obj._RecNameName,'=',part)])[0],'name':part}
-			else:
-				item[col] = part
+	if self._columns[field]._type == 'decomposite' and self._columns[self._columns[field].column]._type == 'composite':
+		col = self._columns[field].column
+		part = self._columns[field].part
+		delimiter = self._columns[col].delimiter
+		parts = item[col].split(delimiter)
+		item[field] = parts[part] 
+
+	elif self._columns[field]._type == 'i18n' and self._columns[field].column._type == 'decomposite' and self._columns[self._columns[field].column].column._type == 'composite':
+		col = self._columns[field].column
+		part = self._columns[field].part
+		delimiter = self._columns[col].delimiter
+		parts = item[col].split(delimiter)
+		item[field] = parts[part] 
 
 
-def _compute_composite_tree(self ,item,context):
+
+def _compute_composite_tree(self ,field ,item, context):
 	v=''
 	recname = self._getRecNameName()
 	rowname = self._getRowNameName()
 	fullname = self._getFullNameName()
-	parent_id = self._getParentIdName() 
+	parent_id = self._getParentIdName()
+	childs_id = self._getChildsIdName() 
 
-	if fullname and self._columns[fullname]._type == 'composite' and parent_id and self._getChildsIdName():
-		delimiter = self._columns[fullname].delimiter
+	if self._columns[field]._type == 'tree' and parent_id and childs_id:
+		delimiter = self._columns[field].delimiter
 		if item[parent_id] and item[parent_id]['name']:
 			if type(item[parent_id]) == dict and item[parent_id]['id']:
-				v += self.read(item[parent_id]['id'],[fullname],context)[0][fullname]
+				v += self.read(item[parent_id]['id'],[recname],context)[0][recname]
 			elif type(item[parent_id]) == str:
-				v += self.read(item[parent_id],[fullname],context)[0][fullname]
+				v += self.read(item[parent_id],[recname],context)[0][recname]
 			if item[rowname]:
 				v += delimiter + item[rowname]
 
@@ -732,14 +733,14 @@ def _compute_composite_tree(self ,item,context):
 				v += item[rowname]
 
 		if len(v) > 0:
-			item[fullname] = v
-	elif fullname and self._columns[fullname]._type == 'i18n' and self._columns[fullname].column._type == 'composite':
-		delimiter = self._columns[fullname].column.delimiter
+			item[recname] = v
+	elif fullname and self._columns[field]._type == 'i18n' and self._columns[field].column._type == 'tree':
+		delimiter = self._columns[field].column.delimiter
 		if item[parent_id] and item[parent_id]['name']:
 			if type(item[parent_id]) == dict and item[parent_id]['id']:
-				v += self.read(item[parent_id]['id'],[fullname],context)[0][fullname]
+				v += self.read(item[parent_id]['id'],[recname],context)[0][recname]
 			elif type(item[parent_id]) == str:
-				v += self.read(item[parent_id],[fullname],context)[0][fullname]
+				v += self.read(item[parent_id],[recname],context)[0][recname]
 			if item[rowname]:
 				v += delimiter + item[rowname]
 
@@ -748,7 +749,7 @@ def _compute_composite_tree(self ,item,context):
 				v += item[rowname]
 
 		if len(v) > 0:
-			item[fullname] = v
+			item[recname] = v
 
 
 # modelinfo
