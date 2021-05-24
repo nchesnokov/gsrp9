@@ -115,8 +115,6 @@ def _convert_cond(self,cond):
 		for c in cond:
 			if type(c) == dict and '__tuple__' in c:
 				conv.append(tuple(c['__tuple__']))
-			#elif type(c) == list:
-				#conv.extend(_cond_convert(self,c))
 			elif type(c) == str:
 				conv.append(c)
 			else:
@@ -163,7 +161,7 @@ def _build_joins(self,modinfo,fields,condfields):
 			i18nfields = m._i18nfields
 			tr_table = m._tr_table
 			recname = m._RecNameName
-			if len(i18nfields) > 0 and recname in i18nfields:
+			if len(i18nfields) > 0 and field in i18nfields:
 				joins.setdefault(tr_table,[]).append(field)
 			else:
 				joins.setdefault(modinfo['columns'][field]['obj'],[]).append(field)
@@ -187,12 +185,12 @@ def _build_aliases(self,joins=None):
 		fields = joins[key]
 		columnsinfo = self.columnsInfo(attributes=['type','ref'])
 		fieldsref = list(filter(lambda x: columnsinfo[x]['type'] == 'referenced',self._columns.keys()))
-		for i in range(l):
-			if fields[i] in fieldsref:
-				objref = columnsinfo[fields[i]]['ref'].split('.')[0]
-				aliases.setdefault(key,{})[fields[i]] = aliases[key][objref]
+		for idx,field in enumerate(joins[key]):
+			if field in fieldsref:
+				objref = columnsinfo[field]['ref'].split('.')[0]
+				aliases.setdefault(key,{})[field] = aliases[key][objref]
 			else:
-				aliases.setdefault(key,{})[fields[i]] = curalias + '%s' % (i,)
+				aliases.setdefault(key,{})[field] = curalias #+ '%s' % (idx,)
 		if curalias[-1] == 'z':
 			curalias += 'a'
 		else:
@@ -216,7 +214,8 @@ def parse_joins(self,context,pool, model, aliases,joins = None):
 
 	parent_id = pool.get(model)._getParentIdName()
 	if parent_id and model in joins and parent_id in joins[model]:
-		if len(i18nfields) > 0  and parent_id in i18nfields:
+		recname = pool.get(model)._RecNameName
+		if len(i18nfields) > 0  and recname in i18nfields:
 			join += ' LEFT OUTER JOIN ' + pool.get(model)._table +' AS b ON (b.' + parent_id + ' = c.id )'
 		else:
 			join += ' LEFT OUTER JOIN ' + pool.get(model)._table +' AS b ON (b.id = a.' + parent_id + ')'
@@ -340,7 +339,7 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 				obj = self.columnsInfo(columns=[objref])[objref]['obj']
 				f.append(aliases[models[field]][field] + '.' + fieldref + ' as ' + field)
 				
-			elif field in columnsmeta and columnsmeta[field] in ('many2one','related'):
+			elif field in columnsmeta and columnsmeta[field] in ('many2one','related','tree'):
 				modinfo = self._pool.get(self.modelInfo()['columns'][field]['obj']).modelInfo()
 				parent_id = modinfo['names']['parent_id']
 				recname = modinfo['names']['rec_name']
@@ -350,7 +349,7 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 						f.append('c.' + field)
 					else:
 						if parent_id and field == parent_id:
-							f.append('a.' + field)
+							f.append('b.' + field)
 						else:
 							f.append('a.' + field)
 
