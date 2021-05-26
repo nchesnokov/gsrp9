@@ -156,15 +156,15 @@ def _build_joins(self,modinfo,fields,condfields):
 	joins = {}
 	for field in filter(lambda x: x in fields or x in condfields,self._joinfields):
 		if 'obj' in modinfo['columns'][field]:
+			#joins.setdefault(modinfo['columns'][field]['obj'],[]).append(field)
 			obj = modinfo['columns'][field]['obj']
 			m = self._pool.get(obj)
 			i18nfields = m._i18nfields
 			tr_table = m._tr_table
 			recname = m._RecNameName
-			if len(i18nfields) > 0 and field in i18nfields:
+			if len(i18nfields) > 0 and recname in i18nfields:
 				joins.setdefault(tr_table,[]).append(field)
-			else:
-				joins.setdefault(modinfo['columns'][field]['obj'],[]).append(field)
+			joins.setdefault(obj,[]).append(field)
 		else:
 			objref,fieldref = modinfo['columns'][field]['ref'].split('.')
 			obj = modinfo['columns'][objref]['obj']
@@ -190,7 +190,7 @@ def _build_aliases(self,joins=None):
 				objref = columnsinfo[field]['ref'].split('.')[0]
 				aliases.setdefault(key,{})[field] = aliases[key][objref]
 			else:
-				aliases.setdefault(key,{})[field] = curalias #+ '%s' % (idx,)
+				aliases.setdefault(key,{})[field] = curalias + '%s' % (idx,)
 		if curalias[-1] == 'z':
 			curalias += 'a'
 		else:
@@ -339,7 +339,7 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 				obj = self.columnsInfo(columns=[objref])[objref]['obj']
 				f.append(aliases[models[field]][field] + '.' + fieldref + ' as ' + field)
 				
-			elif field in columnsmeta and columnsmeta[field] in ('many2one','related','tree'):
+			elif field in columnsmeta and columnsmeta[field] in ('many2one','related'):
 				modinfo = self._pool.get(self.modelInfo()['columns'][field]['obj']).modelInfo()
 				parent_id = modinfo['names']['parent_id']
 				recname = modinfo['names']['rec_name']
@@ -362,7 +362,11 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 							else:
 								f.append('b.' + recname + ' as "' + field + '-name"')
 						else:
-							f.append(aliases[models[field]][field] + '.' + recname + ' as "' + field + '-name"')
+							m = pool.get(models[field])
+							if recname and m._tr_table and m._columns[recname]._type == 'i18n':
+								f.append(aliases[m._tr_table][field] + '.' + recname + ' as "' + field + '-name"')
+							else: 
+								f.append(aliases[models[field]][field] + '.' + recname + ' as "' + field + '-name"')
 				elif modinfo['tr_table'] == models[field]:
 					if parent_id and field == parent_id:
 						f.append('a.' + field)
