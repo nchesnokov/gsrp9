@@ -1,4 +1,5 @@
 import web_pdb
+import re
 from functools import reduce
 from datetime import datetime
 from .common import MAGIC_COLUMNS
@@ -129,9 +130,10 @@ def _build_condfields(self,cond=None):
 			cond = []
 	
 		condfields  = []
+		_nostorecomputefields = self._nostorecomputefields
 		for c in cond:
 			if type(c) == tuple:
-				if c[0] in self._nostorecomputefields:
+				if c[0] in _nostorecomputefields:
 					raise gensql_exception('Condition field: %s in model: %s must be store in database. Condition: %s' % (c[0],self._name,cond))
 				if len(c) in (1,3):
 					condfields.append(c[0])
@@ -162,7 +164,7 @@ def _build_joins(self,modinfo,fields,condfields):
 			i18nfields = m._i18nfields
 			tr_table = m._tr_table
 			recname = m._RecNameName
-			if len(i18nfields) > 0 and recname in i18nfields:
+			if len(i18nfields) > 0 and recname in i18nfields: #and obj != m._name:
 				joins.setdefault(tr_table,[]).append(field)
 			joins.setdefault(obj,[]).append(field)
 		else:
@@ -172,12 +174,140 @@ def _build_joins(self,modinfo,fields,condfields):
 	
 	return joins
 
+def _build_models(self, fields,cond,context):
+	models = {}
+	joins = []
+	columns = ['a.id']
+	conds = []
+	alias = _gen_aliases('d')
+	fa = {}
+	modinfo = self.modelInfo()
+	colsinfo = modinfo['columns']
+	parent_id = modinfo['names']['parent_id']
+	afields =set(fields) - set(self._i18nfields)
+	models.setdefault(self._table,{})['a'] = list(filter(lambda x: x in fields and x in afields,self._rowfields))
+	columns.extend(list(map(lambda x: 'a.' + x,models[self._table]['a'])))
+	joins.append(self._table + " AS a")
+	if self._tr_table:
+		models.setdefault(self._tr_table,{})['c'] = list(filter(lambda x: x in fields,self._i18nfields))
+		columns.extend(list(map(lambda x: 'c.' + x,models[self._tr_table]['c'])))
+		joins.append("LEFT OUTER JOIN " + self._tr_table + " AS c ON (c.id = a.id AND c.lang = '%s')" % (self._session._lang2id[context['lang'].upper()],) )
+
+	if parent_id and parent_id in fields:
+		if self._tr_table and  self._RecNameName in self._i18nfields:
+			models.setdefault(self._tr_table,{})['d'] = [self._RecNameName]
+			columns.extend(list(map(lambda x: 'd.' + x + ' AS ' + '"' + parent_id + '-name' + '"' ,models[self._tr_table]['d'])))
+			joins.append("LEFT OUTER JOIN " + self._table + " AS b LEFT OUTER JOIN " + self._tr_table + " AS d ON (d.id = b.id AND b.id = a." + parent_id + " and d.lang = '%s')" % (self._session._lang2id[context['lang'].upper()],) )
+		else:
+			models.setdefault(self._table,{})['b'] = [self._RecNameName]
+			columns.extend(list(map(lambda x: 'b.' + x + ' AS ' + '"' + parent_id + '-name' + '"' ,models[self._table]['b'])))
+			joins.append("LEFT OUTER JOIN " + self._table + " AS b ON (b.id = a." + parent_id + ")" )
+			
+	for field in filter(lambda x: x != parent_id and colsinfo[x]['type'] in ('many2one','related') and x in fields,self._rowfields):
+		obj = self._columns[field].obj
+		m = self._pool.get(obj)
+		recname = m._RecNameName
+		ca = next(alias)
+		if m._tr_table:
+			if recname in m._columns and m._columns[recname]._type == 'i18n':
+				models.setdefault(m._tr_table,{})[ca] = [recname]
+				columns.extend(list(map(lambda x: ca + '.' + x + ' AS ' + '"' + field + '-name' + '"' ,models[m._tr_table][ca])))
+				joins.append("LEFT OUTER JOIN " + m._tr_table + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
+			else:
+				models.setdefault(m._table,{})[ca] = [recname]
+				columns.extend(list(map(lambda x: ca + '.' + x + ' AS ' + '"' + field + '-name' + '"' ,models[m._table][ca])))
+				joins.append("LEFT OUTER JOIN " + m._table + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
+
+			if self._columns[field].domain:
+				rcond = []
+				for d in self._columns[field].domain:
+					rcond.append(ca + '.' + d[0])
+					if len(d) > 1:
+						rcond.append(d[1])
+					if len(d) > 2:
+						rcond.append(d[2])
+
+				conds.append(tuple(rcond))
+
+		else:
+			models.setdefault(m._table,{})[ca] = [recname]
+			columns.extend(list(map(lambda x: ca + '.' + x + ' AS ' + '"' + field + '-name' + '"' ,models[m._table][ca])))
+			joins.append("LEFT OUTER JOIN " + m._table + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
+			
+
+			if self._columns[field].domain:
+				rcond = []
+				for d in self._columns[field].domain:
+					rcond.append(ca + '.' + d[0])
+					if len(d) > 1:
+						rcond.append(d[1])
+					if len(d) > 2:
+						rcond.append(d[2])
+
+				conds.append(tuple(rcond))
+		
+	for m in models.keys():
+		for a in models[m].keys():
+			for f in models[m][a]:
+				#fa.setdefault(f,{})[a] = m
+				fa[f] = a
+	for f in list(map(lambda y: y[0],filter(lambda x: type(x) == tuple,cond))):
+		fa[f] = 'a'
+	
+	for c in cond:
+		rcond = []
+		rcond.append(fa[c[0]] + '.' + c[0])
+		if len(c) > 1:
+			rcond.append(c[1])
+		if len(c) > 2:
+			rcond.append(c[2])
+
+		conds.append(tuple(rcond))
+		
+	
+	return models,joins,columns,conds
+
+def inc_char(text, chlist = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.lower()):
+    # Unique and sort
+    chlist = ''.join(sorted(set(str(chlist))))
+    chlen = len(chlist)
+    if not chlen:
+        return ''
+    text = str(text)
+    # Replace all chars but chlist
+    text = re.sub('[^' + chlist + ']', '', text)
+    if not len(text):
+        return chlist[0]
+    # Increment
+    inc = ''
+    over = False
+    for i in range(1, len(text)+1):
+        lchar = text[-i]
+        pos = chlist.find(lchar) + 1
+        if pos < chlen:
+            inc = chlist[pos] + inc
+            over = False
+            break
+        else:
+            inc = chlist[0] + inc
+            over = True
+    if over:
+        inc += chlist[0]
+    result = text[0:-len(inc)] + inc
+    return result
+
+def _gen_aliases(v):
+	text = v
+	while True:
+		text = inc_char(text)
+		yield text
+
 def _build_aliases(self,joins=None):
 	"""
 	joins = {'model1':['field1'],'model2':['field1','field2']}
 	"""
 	aliases ={}
-	curalias = 'd'
+	curalias = 'e'
 	if joins is None:
 		joins = {}
 	for key in joins.keys():
@@ -216,9 +346,9 @@ def parse_joins(self,context,pool, model, aliases,joins = None):
 	if parent_id and model in joins and parent_id in joins[model]:
 		recname = pool.get(model)._RecNameName
 		if len(i18nfields) > 0  and recname in i18nfields:
-			join += ' LEFT OUTER JOIN ' + pool.get(model)._table +' AS b ON (b.' + parent_id + ' = c.id )'
+			join += ' LEFT OUTER JOIN ' + pool.get(model)._table + ' AS b ON (b.' + parent_id + ' = c.id )' + ' LEFT OUTER JOIN ' + pool.get(model)._tr_table + ' AS d ON (b.' + parent_id + ' = d.id )'
 		else:
-			join += ' LEFT OUTER JOIN ' + pool.get(model)._table +' AS b ON (b.id = a.' + parent_id + ')'
+			join += ' LEFT OUTER JOIN ' + pool.get(model)._table + ' AS b ON (b.id = a.' + parent_id + ')'
 	
 	for key in joins.keys():
 		for field in list(filter(lambda x: x in self._storefields,joins[key])):
@@ -309,6 +439,7 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 	"""
 
 	models = {'field1':'model1','field2':'model2'}
+	select a.id,c.name,c.fullname,a.parent_id, d.fullname as parent_id_name from md_category_product as a left join md_category_product_tr as c on (a.id = c.id) inner join md_category_product as b on (b.id=c.id)  left join md_category_product_tr as d on (d.id = b.parent_id);
 	"""
 	f = []
 	
@@ -327,8 +458,8 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 			fields.append(recname)
 
 	i18nfields = self._i18nfields
-	
-	#web_pdb.set_trace()
+	#if  self._name == 'md.category.product':
+		#web_pdb.set_trace()
 	for field in fields:
 		if type(field) == str:
 			if field in columnsmeta and columnsmeta[field] in ('one2many','many2many'):
@@ -358,18 +489,27 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 					if recname and type(recname) == str:
 						if parent_id and field == parent_id:
 							if len(i18nfields) > 0 and recname in i18nfields:
-								f.append('c.' + recname + ' as "' + field + '-name"')
+								m = pool.get(models[field])
+								if recname and m._tr_table and m._columns[recname]._type == 'i18n':
+									if self._name == m._name:
+										f.append('d.' + recname + ' as "' + field + '-name"')
+									else:
+										f.append(aliases[m._tr_table][field] + '.' + recname + ' as "' + field + '-name"')
+								#f.append('c.' + recname + ' as "' + field + '-name"')
 							else:
 								f.append('b.' + recname + ' as "' + field + '-name"')
 						else:
 							m = pool.get(models[field])
 							if recname and m._tr_table and m._columns[recname]._type == 'i18n':
-								f.append(aliases[m._tr_table][field] + '.' + recname + ' as "' + field + '-name"')
+								if self._name == m._name:
+									f.append('d.' + recname + ' as "' + field + '-name"')
+								else:
+									f.append(aliases[m._tr_table][field] + '.' + recname + ' as "' + field + '-name"')
 							else: 
 								f.append(aliases[models[field]][field] + '.' + recname + ' as "' + field + '-name"')
 				elif modinfo['tr_table'] == models[field]:
 					if parent_id and field == parent_id:
-						f.append('a.' + field)
+						f.append('c.' + field)
 					else:
 						f.append('a.' + field)
 
@@ -378,7 +518,11 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 					#parent_id = pool.get(modinfo['name'])._getParentIdName()
 					#f.append(aliases[models[field]][field] + '.' + field )
 					if recname and type(recname) == str:
-						f.append(aliases[models[field]][field] + '.' + recname + ' as "' + field + '-name"')
+						m = pool.get(models[field])
+						if recname and m._tr_table and m._columns[recname]._type == 'i18n':
+							f.append(aliases[m._tr_table][field] + '.' + recname + ' as "' + field + '-name"')
+						else:
+							f.append(aliases[models[field]][field] + '.' + recname + ' as "' + field + '-name"')
 
 			else:
 				if len(i18nfields) > 0 and field in i18nfields:
@@ -690,6 +834,10 @@ def Read(self,ids,fields,context):
 	return _sql,_values
 #tested
 def Select(self, fields, cond, context, limit = None, offset = None):
+	_models_new, _joins_new, _columns_new, _conds_new = _build_models(self,fields,cond,context)
+	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new))
+	print('GENSQL-NEW:',_conds_new,_sql_new)
+
 	_fields = ['id']
 	info = self.modelInfo()
 	pool = self._pool
@@ -722,7 +870,7 @@ def Select(self, fields, cond, context, limit = None, offset = None):
 		_values.append(offset)
 
 	_sql = select_clause() + fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
-	#print('SQL:', _sql,_values)
+	print('GENSQL:', _sql,_values)
 	return _sql,_values
 #tested
 def Search(self, cond, context, limit, offset):
@@ -1014,3 +1162,8 @@ class WhereParse(list):
 			elif isinstance(child,WhereParse):
 				_values.extend(child._vals())
 		return _values
+
+if __name__ == '__main__':
+	print(_get_aliases('e'))
+	print(_get_aliases('e'))
+	print(_get_aliases('e'))
