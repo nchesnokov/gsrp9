@@ -179,6 +179,7 @@ def _build_models(self, fields,cond,context):
 	joins = []
 	columns = ['a.id']
 	conds = []
+	cond_fields_map = {}
 	alias = _gen_aliases('d')
 	fa = {}
 	modinfo = self.modelInfo()
@@ -187,20 +188,26 @@ def _build_models(self, fields,cond,context):
 	afields =set(fields) - set(self._i18nfields)
 	models.setdefault(self._table,{})['a'] = list(filter(lambda x: x in fields and x in afields,self._rowfields))
 	columns.extend(list(map(lambda x: 'a.' + x,models[self._table]['a'])))
+	for f in filter(lambda x: colsinfo[x]['type'] not in ('many2one','related'),models.setdefault(self._table,{})['a']):
+		cond_fields_map['a.' + f] =  'a.' + f
 	joins.append(self._table + " AS a")
 	if self._tr_table:
 		models.setdefault(self._tr_table,{})['c'] = list(filter(lambda x: x in fields,self._i18nfields))
 		columns.extend(list(map(lambda x: 'c.' + x,models[self._tr_table]['c'])))
+		for f in filter(lambda x: colsinfo[x]['type'] not in ('many2one','related'),models.setdefault(self._tr_table,{})['c']):
+			cond_fields_map['a.' + f] =  'c.' + f
 		joins.append("LEFT OUTER JOIN " + self._tr_table + " AS c ON (c.id = a.id AND c.lang = '%s')" % (self._session._lang2id[context['lang'].upper()],) )
 
 	if parent_id and parent_id in fields:
 		if self._tr_table and  self._RecNameName in self._i18nfields:
 			models.setdefault(self._tr_table,{})['d'] = [self._RecNameName]
 			columns.extend(list(map(lambda x: 'd.' + x + ' AS ' + '"' + parent_id + '-name' + '"' ,models[self._tr_table]['d'])))
+			cond_fields_map['a.' + parent_id] =  '"' + parent_id + '-name' + '"'
 			joins.append("LEFT OUTER JOIN " + self._table + " AS b LEFT OUTER JOIN " + self._tr_table + " AS d ON (d.id = b.id AND b.id = a." + parent_id + " and d.lang = '%s')" % (self._session._lang2id[context['lang'].upper()],) )
 		else:
 			models.setdefault(self._table,{})['b'] = [self._RecNameName]
 			columns.extend(list(map(lambda x: 'b.' + x + ' AS ' + '"' + parent_id + '-name' + '"' ,models[self._table]['b'])))
+			cond_fields_map['a.' + parent_id] =  '"' + parent_id + '-name' + '"'
 			joins.append("LEFT OUTER JOIN " + self._table + " AS b ON (b.id = a." + parent_id + ")" )
 			
 	for field in filter(lambda x: x != parent_id and colsinfo[x]['type'] in ('many2one','related') and x in fields,self._rowfields):
@@ -212,12 +219,14 @@ def _build_models(self, fields,cond,context):
 			if recname in m._columns and m._columns[recname]._type == 'i18n':
 				models.setdefault(m._tr_table,{})[ca] = [recname]
 				columns.extend(list(map(lambda x: ca + '.' + x + ' AS ' + '"' + field + '-name' + '"' ,models[m._tr_table][ca])))
+				cond_fields_map[ca + '.' + field] =  '"' + field + '-name' + '"'
 				joins.append("LEFT OUTER JOIN " + m._tr_table + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
 			else:
 				models.setdefault(m._table,{})[ca] = [recname]
 				columns.extend(list(map(lambda x: ca + '.' + x + ' AS ' + '"' + field + '-name' + '"' ,models[m._table][ca])))
+				cond_fields_map[ca + '.' + field] =  '"' + field + '-name' + '"'
 				joins.append("LEFT OUTER JOIN " + m._table + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
-
+			
 			if self._columns[field].domain:
 				rcond = []
 				for d in self._columns[field].domain:
@@ -232,6 +241,7 @@ def _build_models(self, fields,cond,context):
 		else:
 			models.setdefault(m._table,{})[ca] = [recname]
 			columns.extend(list(map(lambda x: ca + '.' + x + ' AS ' + '"' + field + '-name' + '"' ,models[m._table][ca])))
+			cond_fields_map[ca + '.' + field] =  '"' + field + '-name' + '"'
 			joins.append("LEFT OUTER JOIN " + m._table + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
 			
 
@@ -256,7 +266,7 @@ def _build_models(self, fields,cond,context):
 	
 	for c in cond:
 		rcond = []
-		rcond.append(fa[c[0]] + '.' + c[0])
+		rcond.append(cond_fields_map[fa[c[0]] + '.' + c[0]])
 		if len(c) > 1:
 			rcond.append(c[1])
 		if len(c) > 2:
