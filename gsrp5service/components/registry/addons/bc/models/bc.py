@@ -136,9 +136,9 @@ class bc_user_preferences(Model):
 	_description = 'User Preferncess'
 	_class_object = 'K'
 	_columns = {
-	'user_id':fields.many2one(label='User',obj='bc.users',readonly=True),
-	'framework': fields.many2one(label='Framework',obj='bc.web.frameworks'),
-	'lang':fields.many2one(label='Language',obj='bc.langs'),
+	'user_id':fields.many2one(label='User',obj='bc.users',rel='preferences',readonly=True),
+	'framework': fields.referenced(label='Framework',obj='bc.web.frameworks'),
+	'lang':fields.referenced(label='Language',obj='bc.langs'),
 	'country': fields.selection(label='Country',selections='_get_countries'),
 	'timezone': fields.selection(label='Timezone', selections='_get_timezones')
 	}
@@ -163,7 +163,7 @@ class bc_group_modules(Model):
 	'name2': fields.varchar(label = 'Name 2', selectable = True, required = True,readonly=True),
 	'parent_id': fields.many2one(label = 'Parent',obj='bc.group.modules',readonly=True),
 	'childs_id': fields.one2many(label = 'Childs',obj='bc.group.modules',rel='parent_id',readonly=True),
-	'bc_modules': fields.one2many(label = 'Modules',obj = 'bc.modules', rel = 'bc_group_module_id',readonly=True),
+	'modules': fields.one2many(label = 'Modules',obj = 'bc.modules', rel = 'group_module_id',readonly=True),
 	'note': fields.text(label='Note',readonly=True)
 	}
 
@@ -175,7 +175,7 @@ class bc_modules(Model):
 	_rec_name = 'code'
 	_class_object = 'K'
 	_columns = {
-	'bc_group_module_id': fields.many2one(label = 'Group', obj = 'bc.group.modules', required = False, on_delete = 'n',readonly=True),
+	'group_module_id': fields.many2one(label = 'Group', obj = 'bc.group.modules', rel='modules', required = False, on_delete = 'n',readonly=True),
 	'code': fields.varchar(label = 'Code',readonly=True),
 	'name': fields.varchar(label = 'Name',readonly=True),
 	'version': fields.varchar(label = 'Version',readonly=True),
@@ -191,7 +191,7 @@ class bc_modules(Model):
 	'state': fields.selection(label = 'State', selections = [('N','Not installed'),('I','Installed'),('i','To be installed'),('u','To be upgrade'),('r','To be uninstalled')],readonly=True),
 	'description': fields.text(label = 'Long Description',readonly=True),
 	'models': fields.one2many(label ='Objects', obj = 'bc.models', rel = 'module_id',readonly=True),
-	'model_inherits': fields.one2many(label ='Inherit Objects', obj = 'bc.model.inherits', rel = 'module_id',readonly=True),
+	'inherits': fields.one2many(label ='Inherit Modelss', obj = 'bc.model.inherits', rel = 'module_id',readonly=True),
 	'files': fields.one2many(label ='Files', obj = 'bc.module.files', rel = 'module_id',readonly=True)}
 
 bc_modules()
@@ -203,7 +203,7 @@ class bc_module_files(Model):
 	_class_object = 'K'
 	_order_by="module_id,id"
 	_columns = {
-	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules', required = False, on_delete = 'n',readonly=True),
+	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules', rel='files', required = False, on_delete = 'n',readonly=True),
 	'filename': fields.varchar(label = 'Name',size=255,readonly=True),
 	'size': fields.integer(label='Size',readonly=True),
 	'ctime': fields.datetime(label='Created',timezone = False,readonly=True),
@@ -247,11 +247,11 @@ class bc_models(Model):
 	_order_by="module_id,code"
 	_rec_name = 'code'
 	_columns = {
-	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',readonly=True, on_delete = 'c'),
+	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',rel='models',readonly=True, on_delete = 'c'),
 	'code': fields.varchar(label = 'Name', size = 64,readonly=True),
 	'descr': fields.varchar(label = 'Description', size = 256,readonly=True),
-	'class_model': fields.many2one(label = 'Class Model', obj = 'bc.class.models', readonly=True),
-	'class_model_category': fields.many2one(label = 'Class Model Category', obj = 'bc.class.model.categories', readonly=True),
+	'class_model': fields.related(label = 'Class Model', obj = 'bc.class.models', readonly=True),
+	'class_model_category': fields.related(label = 'Class Model Category', obj = 'bc.class.model.categories', readonly=True),
 	'oom': fields.json(label='Meta Of Object', readonly = True),
 	'columns': fields.one2many(label='Columns',obj='bc.model.columns', rel='model_id',readonly = True),
 	'inherits':fields.one2many(label = 'Inherits', obj = 'bc.model.inherit.inherits', rel = 'model_id',readonly=True)
@@ -265,7 +265,7 @@ class bc_model_columns(Model):
 	_class_model = 'K'
 	_order_by="seq"
 	_columns = {
-	'model_id': fields.many2one(label = 'Model', obj = 'bc.models', readonly=True, on_delete = 'c'),
+	'model_id': fields.many2one(label = 'Model', obj = 'bc.models', rel='columns',readonly=True, on_delete = 'c'),
 	'seq': fields.integer(label='Sequence', readonly = True),
 	'col': fields.varchar(label='Column', readonly=True),
 	'moc': fields.json(label='Meta Of Column', readonly = True),
@@ -282,7 +282,7 @@ class bc_model_inherits(Model):
 	_order_by="code"
 	_rec_name = 'code'
 	_columns = {
-	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',readonly=True, on_delete = 'c'),
+	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',rel='inherits',readonly=True, on_delete = 'c'),
 	'code': fields.varchar(label = 'Name', size = 64,readonly=True),
 	'descr': fields.varchar(label = 'Description', size = 256,readonly=True),
 	'momi': fields.json(label='Meta Of Model Inherit', readonly = True),
@@ -298,7 +298,7 @@ class bc_model_inherit_columns(Model):
 	_class_object = 'K'
 	_order_by="col"
 	_columns = {
-	'inherit_id': fields.many2one(label = 'Model Inherit', obj = 'bc.model.inherits', readonly=True, on_delete = 'c'),
+	'inherit_id': fields.many2one(label = 'Model Inherit', obj = 'bc.model.inherits', rel='columns',readonly=True, on_delete = 'c'),
 	'col': fields.varchar(label='Column', size = 64, readonly=True),
 	'moc': fields.json(label='Meta Of Column', readonly = True),
 	}
@@ -310,8 +310,8 @@ class bc_model_inherit_inherits(Model):
 	_class_object = 'K'
 	_order_by="col"
 	_columns = {
-	'inherit_id': fields.many2one(label = 'Inherit', obj = 'bc.model.inherits', readonly=True, on_delete = 'c'),
-	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
+	'inherit_id': fields.many2one(label = 'Inherit', obj = 'bc.model.inherits', rel='models',readonly=True, on_delete = 'c'),
+	'model_id': fields.referenced(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
 	#'col': fields.many2one(label='Column', obj = 'bc.model.inherit.columns', readonly=True)
 	'col': fields.varchar(label='Column', size = 64, readonly=True),
 	}
@@ -329,7 +329,7 @@ class bc_group_access(Model):
 	_class_object = 'K'
 	_columns = {
 	'name': fields.varchar(label="Group Access",readonly=True),
-	'parent_id': fields.many2one(label='Parent',obj='bc.group.access',readonly=True),
+	'parent_id': fields.many2one(label='Parent',obj='bc.group.access',rel='childs_id',readonly=True),
 	'childs_id': fields.one2many(label='Childs',obj='bc.group.access',rel='parent_id',readonly=True),
 	'roles': fields.one2many(label='Roles',obj='bc.access',rel='group_id',readonly=True),
 	'active': fields.boolean('Active',readonly=True),
@@ -344,7 +344,7 @@ class bc_access(Model):
 	_class_object = 'K'
 	_columns = {
 	'name': fields.varchar(label="Access",readonly=True),
-	'group_id': fields.many2one(label='Group',obj='bc.group.access',readonly=True, on_delete = 'c'),
+	'group_id': fields.referenced(label='Group',obj='bc.group.access',readonly=True, on_delete = 'c'),
 	'models': fields.one2many(label='Objects',obj='bc.model.access',rel='access_id',readonly=True),
 	'inactive': fields.boolean('Inactive',readonly=True),
 	'note': fields.text(label='Note',readonly=True)
@@ -359,8 +359,8 @@ class bc_model_access(Model):
 	_class_object = 'K'
 	_order_by='model_id,access_id'
 	_columns = {
-	'access_id': fields.many2one(label='Access',obj='bc.access',readonly=True, on_delete = 'c'),
-	'model_id': fields.many2one(label='Object',obj='bc.models',readonly=True, on_delete = 'c'),
+	'access_id': fields.many2one(label='Access',obj='bc.access',rel='models',readonly=True, on_delete = 'c'),
+	'model': fields.referenced(label='Model',obj='bc.models',readonly=True, on_delete = 'c'),
 	'acreate': fields.boolean('Create',readonly=True),
 	'awrite': fields.boolean('Write',readonly=True),
 	'aread': fields.boolean('Read',readonly=True),
@@ -398,7 +398,7 @@ class bc_ui_view_model_types(Model):
 	_class_object = 'K'
 	_columns = {
 	'fullname': fields.composite(label='Full Name', cols = ['framework','code'], translate = True,required = True),
-	'framework': fields.many2one(label='Web Framework',obj='bc.web.frameworks',required=True),
+	'framework': fields.referenced(label='Web Framework',obj='bc.web.frameworks',required=True),
 	'code': fields.varchar(label='Code', size = 64,required=True),
 	'exclude': fields.json(label='Exclude'),
 	'note': fields.text(label='Note')
@@ -413,8 +413,8 @@ class bc_ui_model_views(Model):
 	_class_object = 'K'
 	_columns = {
 	'fullname': fields.composite(label='Full Name', cols = ['model','vtype'], translate = True,required = True),
-	'model': fields.many2one(label='Model',obj='bc.models'),
-	'vtype': fields.many2one(label='View Type',obj='bc.ui.view.model.types'),
+	'model': fields.referenced(label='Model',obj='bc.models'),
+	'vtype': fields.referenced(label='View Type',obj='bc.ui.view.model.types'),
 	'standalone': fields.boolean(label='Standalone View'),
 	'template': fields.text(label='Template'),
 	'script': fields.text(label='Script'),
@@ -439,7 +439,7 @@ class bc_ui_model_view_columns(Model):
 	_class_object = 'K'
 	_order_by="seq"
 	_columns = {
-	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',required=True),
+	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',rel='cols',required=True),
 	'seq': fields.integer(label='Sequence', readonly = True),
 	#'col': fields.many2one(label='Column',obj='bc.model.columns')
 	'col': fields.varchar(label='Column', readonly = True)
@@ -450,7 +450,7 @@ class bc_ui_model_view_column_inherits(Model):
 	_description = 'UI Model View Columns Inherit'
 	_class_object = 'K'
 	_columns = {
-	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',required=True),
+	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',rel='inherit_cols',required=True),
 	#'col': fields.many2one(label='Column',obj='bc.model.columns')
 	'col': fields.varchar(label='Column', readonly = True)
 	}
@@ -465,8 +465,8 @@ class bc_model_translations(Model):
 	_description = 'Model Translations'
 	_class_object = 'K'
 	_columns = {
-	'lang': fields.many2one(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
-	'model': fields.many2one(label='Object',obj='bc.models',readonly=True, on_delete = 'c'),
+	'lang': fields.referenced(label='Language',obj='bc.langs',readonly=True, on_delete = 'c'),
+	'model': fields.referenced(label='Object',obj='bc.models',readonly=True, on_delete = 'c'),
 	'tr': fields.json(label='Translations',readonly=True),
 	'inherits': fields.one2many(label='Inherits',obj='bc.model.translation.inherits',rel='inherit_id')
 	}
@@ -478,7 +478,7 @@ class bc_model_translation_inherits(Model):
 	_description = 'Model Translations Inherit'
 	_class_object = 'K'
 	_columns = {
-	'obj_tr_id': fields.many2one(label='Translation Object',obj='bc.model.translations',readonly=True, on_delete = 'c'),
+	'inherit_id': fields.many2one(label='Translation Object',obj='bc.model.translations',rel='inherits',readonly=True, on_delete = 'c'),
 	'tr': fields.json(label='Translations',readonly=True),
 	}
 
@@ -494,8 +494,8 @@ class bc_tuning_ui_model_views(Model):
 	_columns = {
 	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['tuser','view','name'], required = True)),
 	'name':fields.varchar(label='Name',size=128,readonly=True),
-	'view':fields.many2one(label = 'View', obj='bc.ui.model.views',readonly=True, on_delete = 'c'),
-	'tuser': fields.many2one(label = 'User', obj='bc.users',readonly=True, on_delete = 'c'),
+	'view':fields.referenced(label = 'View', obj='bc.ui.model.views',readonly=True, on_delete = 'c'),
+	'tuser': fields.referenced(label = 'User', obj='bc.users',readonly=True, on_delete = 'c'),
 	'values': fields.json(label='Values',readonly=True)
 	}
 
@@ -512,7 +512,7 @@ class bc_general_tuning_ui_model_views(Model):
 	_columns = {
 	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['view','name'], required = True)),
 	'name':fields.varchar(label='Name',size=128,readonly=True),
-	'view':fields.many2one(label = 'View', obj='bc.ui.model.views',readonly=True, on_delete = 'c'),
+	'view':fields.referenced(label = 'View', obj='bc.ui.model.views',readonly=True, on_delete = 'c'),
 	'values': fields.json(label='Values',readonly=True)
 	}
 
@@ -526,7 +526,7 @@ class bc_ui_model_actions(Model):
 	_class_object = 'K'
 	_columns = {
 	'name': fields.varchar(label = 'Model Action',readonly=True),
-	'model': fields.many2one(label='Model',obj = 'bc.models')
+	'model': fields.referenced(label='Model',obj = 'bc.models')
 	}
 
 class bc_ui_framework_model_actions(Model):
@@ -535,9 +535,9 @@ class bc_ui_framework_model_actions(Model):
 	_class_object = 'K'
 	_columns = {
 	'fullname': fields.composite(label='Full Name', cols = ['action_id','framework_id'], required = True),
-	'action_id': fields.many2one(label='Action',obj = 'bc.ui.model.actions'),
-	'framework_id': fields.many2one(label='Framework',obj = 'bc.web.frameworks'),
-	'view_id': fields.many2one(label='View',obj='bc.ui.model.views',readonly=True, on_delete = 'c')
+	'action_id': fields.referenced(label='Action',obj = 'bc.ui.model.actions'),
+	'framework_id': fields.referenced(label='Framework',obj = 'bc.web.frameworks'),
+	'view_id': fields.referenced(label='View',obj='bc.ui.model.views',readonly=True, on_delete = 'c')
 	}
 
 bc_ui_framework_model_actions()
@@ -550,10 +550,10 @@ class bc_ui_model_menus(Model):
 	_columns = {
 	'name': fields.varchar(label = 'Name',readonly=True),
 	'label': fields.varchar(label = 'Label',readonly=True),
-	'parent_id': fields.many2one(label='Parent',obj='bc.ui.model.menus',readonly=True,on_delete='c'),
+	'parent_id': fields.many2one(label='Parent',obj='bc.ui.model.menus',rel='childs_id',readonly=True,on_delete='c'),
 	'childs_id': fields.one2many(label='Childs',obj='bc.ui.model.menus',rel='parent_id',readonly=True),
 	'sequence': fields.integer(label='Sequence'),
-	'action_id': fields.many2one(label='Action', obj='bc.ui.model.actions',readonly=True, on_delete = 'c')
+	'action_id': fields.referenced(label='Action', obj='bc.ui.model.actions',readonly=True, on_delete = 'c')
 	}
 
 bc_ui_model_menus()

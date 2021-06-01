@@ -163,7 +163,7 @@ def columnsIndex(pool,info):
 		res.append('INDEX create_uid_idx (create_uid)')
 		res.append('INDEX write_uid_idx (write_uid)')
 	for key in filter(lambda x: x not in i18n_cols,columns.keys()):
-		if ('selectable' in columns[key] and columns[key]['selectable'] or columns[key]['type'] in ('many2one','related','state','inactive')) and  key != rec_name:
+		if ('selectable' in columns[key] and columns[key]['selectable'] or columns[key]['type'] in ('many2one','referenced','related','state','inactive')) and  key != rec_name:
 			res.append('INDEX '+ key + '_idx (' + key +')' )
 		if columns[key]['type'] == 'json':
 			res.append('INVERTED INDEX '+ key + '_inverted_idx (' + key +')' )
@@ -176,7 +176,7 @@ def columnsI18NIndex(pool,info):
 	rec_name = info['names']['rec_name']
 	i18n_cols = info['i18nfields']
 	for key in i18n_cols:
-		if ('selectable' in columns[key] and columns[key]['selectable'] or columns[key]['type'] in ('many2one','related','state','inactive')) and  key != rec_name:
+		if ('selectable' in columns[key] and columns[key]['selectable'] or columns[key]['type'] in ('many2one','referenced','related','state','inactive')) and  key != rec_name:
 			res.append('INDEX '+ key + '_idx (' + key +')' )
 		if columns[key]['type'] == 'json':
 			res.append('INVERTED INDEX '+ key + '_inverted_idx (' + key +')' )

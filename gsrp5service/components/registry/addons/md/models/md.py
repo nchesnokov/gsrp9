@@ -17,16 +17,16 @@ class md_product(Model):
 	_class_model = 'B'
 	_columns = {
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
-	'template_id': fields.many2one(label='Template',obj='md.products.template'),
+	'template_id': fields.many2one(label='Template',obj='md.products.template',rel='products'),
 	'code': fields.varchar(label = 'Code',size=16),
-	'uom': fields.many2one(label="Unit Of Measure",obj='md.uom'),
+	'uom': fields.referenced(label="Unit Of Measure",obj='md.uom'),
 	#'isexcise': fields.boolean(label='Is Excise')
 	#'excise': fields.many2one(label='Excise',obj='md.excise.code',invisible='_excise_invisible'),
-	'gti': fields.many2one(label='Group Of Type Items',obj='md.gtis'),
+	'gti': fields.referenced(label='Group Of Type Items',obj='md.gtis'),
 	'volume': fields.float(label='Volume',invisible='_service_invisible'),
-	'volume_uom': fields.many2one(label="Volume UoM",obj='md.uom',invisible='_service_invisible',domain=[('quantity_id','=','Volume')]),
+	'volume_uom': fields.referenced(label="Volume UoM",obj='md.uom',invisible='_service_invisible',domain=[('quantity_id','=','Volume')]),
 	'weight': fields.float(label='Weight',invisible='_service_invisible'),
-	'weight_uom': fields.many2one(label="Weight UoM",obj='md.uom',invisible='_service_invisible',domain=[('quantity_id','=','Weight')]),
+	'weight_uom': fields.referenced(label="Weight UoM",obj='md.uom',invisible='_service_invisible',domain=[('quantity_id','=','Weight')]),
 	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closing','Closing'),('closed','Closed'),('canceled','Canceled')]),
 	'qrcode': fields.binary(label="QRCode", accept='image/*', help="This field holds the image QRCode",readonly=True),
 	'image': fields.binary(label="Photo", accept='image/*', help="This field holds the image used as photo for the employee, limited to 1024x1024px."),
@@ -157,8 +157,8 @@ class md_partner(Model):
 	_description = 'Partner'
 	_class_model = 'B'
 	_columns = {
-	'category_id': fields.many2one(label='Category',obj='md.category.partner'),
-	'country_id': fields.many2one(label='Country',obj='md.country',required=True),
+	'category': fields.referenced(label='Category',obj='md.category.partner'),
+	'country': fields.referenced(label='Country',obj='md.country',required=True),
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'code': fields.varchar(label = 'Code',size=16),
 	'ispeople': fields.boolean(label = 'People'),
@@ -181,9 +181,9 @@ class md_partner_addresses(Model):
 	_description = 'Partner Addresses'
 	_class_model = 'B'
 	_columns = {
-	'partner_id': fields.many2one(label='Partner',obj='md.partner'),
+	'partner_id': fields.many2one(label='Partner',obj='md.partner',rel='addresses'),
 	'taddr': fields.selection(label='Type Of Address',selections=[('l','Location'),('p','Postal'),('a','Situtation')]),
-	'country': fields.many2one(label='Country',obj='md.country'),
+	#'country': fields.referenced(label='Country',obj='md.country'),
 	'state': fields.related(label = 'State Of Coutry',obj='md.country.states',relatedy=[('country','country_id')]),
 	'sity': fields.related(label = 'Sity',obj='md.country.state.sities',relatedy=[('state','state_id')]),
 	'street': fields.i18n(fields.varchar(label = 'Street',size=64)),
@@ -199,7 +199,7 @@ class md_partner_contacts(Model):
 	_description = 'Partner Contacts'
 	_class_model = 'B'
 	_columns = {
-	'partner_id': fields.many2one(label='Partner',obj='md.partner'),
+	'partner_id': fields.many2one(label='Partner',obj='md.partner',rel='contacts'),
 	'usage': fields.selection(label='Usage',selections=[('d','Dear')]),
 	'sequence': fields.integer(label='Sequence'),
 	'firstname': fields.i18n(fields.varchar(label = 'First Name',size=64)),
@@ -218,7 +218,7 @@ class md_partner_contacts(Model):
 			 "resized as a 64x64px image, with aspect ratio preserved. "
 			 "Use this field anywhere a small image is required."),
 	# work
-	'address_id': fields.many2one(obj='md.partner', label='Work Address'),
+	'address_id': fields.referenced(obj='md.partner', label='Work Address'),
 	'work_phone':  fields.varchar(label='Work Phone'),
 	'mobile_phone': fields.varchar(label='Work Mobile'),
 	'work_email': fields.varchar(label='Work Email'),
@@ -234,9 +234,9 @@ class md_partner_products(Model):
 	_description = 'Partner Products'
 	_class_model = 'B'
 	_columns = {
-	'partner_id': fields.many2one(label='Partner',obj='md.partner'),
-	'product_id': fields.many2one(label='Product',obj='md.product'),
-	'uom': fields.referenced(label='UoM',ref='product_id.uom'),
+	'partner_id': fields.many2one(label='Partner',obj='md.partner',rel='products'),
+	'product': fields.referenced(label='Product',obj='md.product'),
+	#'uom': fields.referenced(label='UoM',ref='product_id.uom'),
 	'minqty': fields.numeric(label='Min Quantity',size=(11,3),required=True),
 	'image': fields.binary(label="Photo", help="This field holds the image used as photo for the employee, limited to 1024x1024px."),
 	'image_medium': fields.binary(label="Medium-sized photo", help="Medium-sized photo of the employee. It is automatically "
@@ -257,9 +257,10 @@ class md_partner_roles(Model):
 	_description = 'Partner Roles'
 	_class_model = 'B'
 	_columns = {
-	'role_id': fields.many2one(label='Role',obj='md.role.partners'),
-	'name': fields.referenced(ref='role_id.descr'),
-	'partner_id': fields.many2one(label='Partner',obj='md.partner')
+	'partner_id': fields.many2one(label='Partner',obj='md.partner',rel='roles'),
+	'role': fields.referenced(label='Role',obj='md.role.partners'),
+	#'name': fields.referenced(ref='role_id.descr'),
+	
 }
 
 md_partner_roles()
@@ -269,10 +270,10 @@ class md_pricelist_partner_products(Model):
 	_description = 'Pricelist Partner Products'
 	_class_model = 'B'
 	_columns = {
-	'partner_product_id': fields.many2one(label='Partner Product',obj='md.partner.products'),
+	'partner_product_id': fields.many2one(label='Partner Product',obj='md.partner.products',rel='prices'),
 	'valid_from': fields.date(label='Valid From',required=True),
 	'valid_to': fields.date(label='Valid to',required=True),
-	'currency_id': fields.many2one(label='Currency',obj='md.currency',required=True),
+	'currency': fields.referenced(label='Currency',obj='md.currency',required=True),
 	'qty': fields.integer(label='Qty Price',required=True),
 	'price': fields.numeric(label='Price',size=(11,2),required=True),
 	'note': fields.text(label = 'Note')
@@ -288,10 +289,10 @@ class md_currency_rate(Model):
 	_description = 'Currency Rate'
 	_class_model = 'B'
 	_columns = {
-	'currency_id': fields.many2one(label = 'From Currency',obj='md.currency'),
-	'currency_id1': fields.many2one(label = 'To Currency',obj='md.currency'),
-	'company_id': fields.many2one(label = 'Company',obj='md.company'),
-	'key_id': fields.many2one(label = 'Key',obj='md.key.currencies'),
+	'company_id': fields.many2one(label = 'Company',obj='md.company',rel='currency_rate'),
+	'currency_id': fields.related(label = 'From Currency',obj='md.currency'),
+	'currency_id1': fields.related(label = 'To Currency',obj='md.currency'),
+	'key_id': fields.related(label = 'Key',obj='md.key.currencies'),
 	'date': fields.date(label = 'Date'),
 	'account': fields.integer(label='Account',check='account > 0'),
 	'rate': fields.numeric(label = 'Currency Rate',size=(9,5), required = True,check='rate > 0.00000')
@@ -315,7 +316,7 @@ class md_banks(Model):
 	'street2': fields.varchar(label='Street2'),
 	'zip': fields.varchar(label='ZIP'),
 	'city': fields.varchar(label='City'),
-	'country_id': fields.many2one(label='Country',obj='md.country'),
+	'country_id': fields.referenced(label='Country',obj='md.country'),
 	'state_id': fields.related(label='Fed. State',obj='md.country.states',relatedy=['country_id']),
 	'email': fields.varchar(label='Email',pattern='.+@.+\..+'),
 	'phone': fields.varchar(label='Phone'),
@@ -336,16 +337,16 @@ class md_partners_bank(Model):
 	_description = 'Bank of Partner'
 	_class_model = 'B'
 	_columns = {
+	'bank_id': fields.many2one(obj='md.banks', label='Bank',rel='partners'),
 	'acc_type': fields.varchar(label = 'ACC Type',compute='_compute_acc_type', help='Bank account type, inferred from account number'),
 	'acc_number': fields.varchar(label='Account Number', required=True),
 	'sanitized_acc_number': fields.varchar(compute='_compute_sanitized_acc_number', label='Sanitized Account Number', readonly=True),
-	'partner_id': fields.many2one(obj='md.partner', label='Account Holder', on_delete='c', domain=[ ('issuplier', )]),
-	'bank_id': fields.many2one(obj='md.banks', label='Bank'),
-	'bank_name': fields.referenced(label='Bank Name',ref='bank_id.name'),
-	'bank_bic': fields.referenced(ref='bank_id.bic'),
+	'partner': fields.related(obj='md.partner', label='Account Holder', on_delete='c', domain=[ ('issuplier', )]),
+	#'bank_name': fields.referenced(label='Bank Name',ref='bank_id.name'),
+	#'bank_bic': fields.referenced(ref='bank_id.bic'),
 	'sequence': fields.integer(label='Sequence'),
-	'currency_id': fields.many2one(obj='md.currency', label='Currency'),
-	'company_id': fields.many2one(obj='md.company', label='Company',  on_delete='c'),
+	'currency': fields.referenced(obj='md.currency', label='Currency'),
+	'company': fields.referenced(obj='md.company', label='Company',  on_delete='c'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -371,11 +372,11 @@ class md_boms(Model):
 	_class_model = 'B'
 	_columns = {
 	'name': fields.varchar(label="Name"),
-	'company': fields.many2one(label='Company', obj='md.company'),
+	'company': fields.referenced(label='Company', obj='md.company'),
 	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','name'], required = True)),
 	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
 	'usage': fields.selection(label='Usage',selections=[('all','All')]),
-	'product': fields.many2one(label='Product',obj='md.product'),
+	'product': fields.referenced(label='Product',obj='md.product'),
 	'partition': fields.integer(label='Partition',required=True,check='partition > 0'),
 	'items': fields.one2many(label='Input',obj='md.bom.items',rel='bom_id')
 	}
@@ -387,10 +388,10 @@ class md_bom_items(Model):
 	_description = 'BoM items'
 	_class_model = 'B'
 	_columns = {
-	'bom_id': fields.many2one(label="BoM",obj='md.boms'),
-	'product': fields.many2one(label='Product',obj='md.product'),
+	'bom_id': fields.many2one(label="BoM",obj='md.boms',rel='items'),
+	'product': fields.referenced(label='Product',obj='md.product'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'uom': fields.referenced(label='UoM',obj='md.uom'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -406,11 +407,11 @@ class md_mobs(Model):
 	_class_model = 'B'
 	_columns = {
 	'name': fields.varchar(label="Name"),
-	'company': fields.many2one(label='Company', obj='md.company'),
+	'company': fields.referenced(label='Company', obj='md.company'),
 	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','name'], required = True)),
 	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
 	'usage': fields.selection(label='Usage',selections=[('all','All')]),
-	'product': fields.many2one(label='Product',obj='md.product'),
+	'product': fields.referenced(label='Product',obj='md.product'),
 	'partition': fields.integer(label='Partition',required=True,check='partition > 0'),
 	'items': fields.one2many(label='Input',obj='md.mob.items',rel='mob_id')
 	}
@@ -422,10 +423,10 @@ class md_mob_items(Model):
 	_description = 'MoB items'
 	_class_model = 'B'
 	_columns = {
-	'mob_id': fields.many2one(label="MoB",obj='md.mobs'),
-	'product': fields.many2one(label='Product',obj='md.product'),
+	'mob_id': fields.many2one(label="MoB",obj='md.mobs',rel='items'),
+	'product': fields.referenced(label='Product',obj='md.product'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'uom': fields.referenced(label='UoM',obj='md.uom'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -441,7 +442,7 @@ class md_bobs(Model):
 	_class_model = 'B'
 	_columns = {
 	'name': fields.varchar(label="Name"),
-	'company': fields.many2one(label='Company', obj='md.company'),
+	'company': fields.referenced(label='Company', obj='md.company'),
 	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','name'], required = True)),
 	'type': fields.selection(label='Type',selections=[('real','Real'),('kvazi','Kwazi')]),
 	'usage': fields.selection(label='Usage',selections=[('all','All')]),
@@ -457,10 +458,10 @@ class md_bob_input_items(Model):
 	_description = 'BoB Input items'
 	_class_model = 'B'
 	_columns = {
-	'bob_id': fields.many2one(label="BoM",obj='md.bobs'),
-	'product': fields.many2one(label='Product',obj='md.product'),
+	'bob_id': fields.many2one(label="BoM",obj='md.bobs',rel='input_items'),
+	'product': fields.referenced(label='Product',obj='md.product'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'uom': fields.referenced(label='UoM',obj='md.uom'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -475,10 +476,10 @@ class md_bob_output_items(Model):
 	_description = 'BoB Output items'
 	_class_model = 'B'
 	_columns = {
-	'bob_id': fields.many2one(label="BoM",obj='md.bobs'),
-	'product': fields.many2one(label='Product',obj='md.product'),
+	'bob_id': fields.many2one(label="BoM",obj='md.bobs',rel='output_items'),
+	'product': fields.referenced(label='Product',obj='md.product'),
 	'quantity': fields.numeric(label='Quantity',size=(11,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'uom': fields.referenced(label='UoM',obj='md.uom'),
 	'note': fields.text(label = 'Note')
 	}
 

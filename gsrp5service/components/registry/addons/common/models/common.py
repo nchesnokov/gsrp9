@@ -139,10 +139,10 @@ class seq_access_schemas(Model):
 	_description = 'Sequence Access Schema'
 	_rec_name = 'fullname'
 	_columns = {
-	'area': fields.many2one(label='Area',obj='seq.areas',required = True),
-	'segment': fields.many2one(label='Segment',obj='seq.segments',required = True),
+	'area': fields.referenced(label='Area',obj='seq.areas',required = True),
+	'segment': fields.referenced(label='Segment',obj='seq.segments',required = True),
 	'name': fields.varchar(label='Name',translate = True,required = True),
-	'fullname': fields.composite(label='Full Name',cols=['area','segment','name'],translate = True,required = True),
+	'fullname': fields.i18n(fields.composite(label='Full Name',cols=['area','segment','name'],required = True)),
 	'usage': fields.selection(label='Usage',selections=[('a','All')]),
 	'items': fields.one2many(label='Items',obj='seq.access.schema.items',rel='schema_id')
 	}
@@ -159,9 +159,9 @@ class seq_access_schema_items(Model):
 	_description = 'Sequence Access Items Of Schema'
 	_order_by = 'seq'
 	_columns = {
-	'schema_id': fields.many2one(label='Schema',obj='seq.access.schemas',required = True),
+	'schema_id': fields.many2one(label='Schema',obj='seq.access.schemas',rel='items',required = True),
 	'seq': fields.integer(label='Sequence',required=True),
-	'condition': fields.many2one(label='Condition',obj='seq.conditions',required = True),
+	'condition': fields.referenced(label='Condition',obj='seq.conditions',required = True),
 	'required': fields.boolean(label='Required')
 	}
 

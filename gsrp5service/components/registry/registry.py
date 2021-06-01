@@ -251,7 +251,7 @@ class Registry(Component):
 			if isinstance(models[key],ModelInherit):
 				continue
 			model = models[key]
-			m2ofields = model._m2orelatedfields
+			m2ofields = model._m2ofields
 			o2mfields = model._o2mfields
 
 			ci = model.columnsInfo(m2ofields + o2mfields,['obj','rel'])
@@ -269,12 +269,14 @@ class Registry(Component):
 			
 			for m2ofield in m2ofields:
 				obj = ci[m2ofield]['obj']
-				rel = m2ofield
+				#rel = m2ofield
+				rel = ci[m2ofield]['rel']
 				mobj = models[obj]
-				if len(mobj._o2mfields) > 0:
-					cim = mobj.columnsInfo(mobj._o2mfields,['obj','rel'])
-					if len(list(filter(lambda x: cim[x]['obj'] == model._name and cim[x]['rel'] == rel,cim.keys()))) == 0:
-						m2oremove.append(m2ofield)
+				if len(mobj._o2mfields) > 0 and rel not in mobj._o2mfields or rel == None:
+					print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
+					#cim = mobj.columnsInfo(mobj._o2mfields,['obj','rel'])
+					#if len(list(filter(lambda x: cim[x]['obj'] == model._name and cim[x]['rel'] == rel,cim.keys()))) == 0:
+						#m2oremove.append(m2ofield)
 
 			for o2mfield in o2mfields:
 				obj = ci[o2mfield]['obj']
@@ -286,7 +288,7 @@ class Registry(Component):
 						o2mremove.append(o2mfield)
 				else:
 					pass
-					#print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
+					print('NOT MAPPED M2OFIELD:',model._name,o2mfield,obj,rel)
 
 
 			for f in m2oremove:

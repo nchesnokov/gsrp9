@@ -150,7 +150,7 @@ class decomposite(_column):
 	_symbol_get = None
 
 	def __init__(self, label = 'unknown', col = None, delimiter = '/', part=None, readonly = None, invisible = None, pattern = None,priority = 0, context = {}, required = None, size = None, on_change = None, on_check = None, translate = False, selectable = False, domain=None, manual = None, help = None, unique = None, check = None,family = 'Primary', store = False, state=None, actions=None, icon = None):
-		super(decomposite, self).__init__(label=label, column = column, delimiter = delimiter, part=part, readonly=readonly, invisible=invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = '_compute_decomposite', store = store, state = state, actions = actions, icon = icon)
+		super(decomposite, self).__init__(label=label, part = part, delimiter = delimiter, readonly=readonly, invisible=invisible, pattern=pattern, priority=priority, context=context, required = required, size = size, on_change = on_change, translate = translate, selectable = selectable, domain=domain, manual = manual, help=help, unique = unique, check = check,family = family,compute = '_compute_decomposite', store = store, state = state, actions = actions, icon = icon)
 
 
 
@@ -283,16 +283,16 @@ class selection(_column):
 	def __init__(self, label = 'unknown', selections = [],readonly = None, invisible = None, priority = 0, context = {}, required = None, size = 32, on_change = None, on_check = None, translate = False, selectable = False, manual = None, help = None, unique = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
 		super(selection,self).__init__(label = label, selections = selections,readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, size = size, on_change = on_change, on_check = on_check, translate = translate, selectable = selectable, manual = manual, help = help, unique = unique,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
 
-class iSelection(_column):
-	_type = 'iSelection'
-	_db_type = None
-	_symbol_c = "%s"
-	_symbol_f = _set_symbol
-	_symbol_set = (_symbol_c, _symbol_f)
-	_symbol_get = None
+# class iSelection(_column):
+	# _type = 'iSelection'
+	# _db_type = None
+	# _symbol_c = "%s"
+	# _symbol_f = _set_symbol
+	# _symbol_set = (_symbol_c, _symbol_f)
+	# _symbol_get = None
 
-	def __init__(self, selections = []):
-		super(iSelection,self).__init__(selections = selections)
+	# def __init__(self, selections = []):
+		# super(iSelection,self).__init__(selections = selections)
 
 class binary(_column):
 	_type = 'binary'
@@ -515,8 +515,8 @@ class many2one(_column):
 	_symbol_f = lambda x: x or None
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
-	def __init__(self,label='unknown', obj = None, readonly = None, invisible = None, required = None,priority = 0, ext_fields = None, domain = None, context = {}, on_change = None, on_check = None, selectable = True, on_delete = None, on_update = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, icon = None):
-		super(many2one,self).__init__(label = label, obj = obj, readonly = readonly, invisible = invisible, required = required,priority = priority, ext_fields = ext_fields, domain = domain, context = context, on_change = on_change, on_check = on_check, selectable = selectable, on_delete = on_delete, on_update = on_update, manual = manual, help = help,family = family, compute = compute, store = store, state = state, icon = icon)
+	def __init__(self,label='unknown', obj = None, rel = None, readonly = None, invisible = None, required = None,priority = 0, ext_fields = None, domain = None, context = {}, on_change = None, on_check = None, selectable = True, on_delete = None, on_update = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, icon = None):
+		super(many2one,self).__init__(label = label, obj = obj, rel = rel, readonly = readonly, invisible = invisible, required = required,priority = priority, ext_fields = ext_fields, domain = domain, context = context, on_change = on_change, on_check = on_check, selectable = selectable, on_delete = on_delete, on_update = on_update, manual = manual, help = help,family = family, compute = compute, store = store, state = state, icon = icon)
 
 class one2one(_column):
 	_type = 'one2one'
@@ -544,16 +544,27 @@ class related(_column):
 	def __init__(self,label='unknown', obj = None, relatedy=None, readonly = None, invisible = None, required = None,priority = 0, domain = None, context = {}, on_change = None, on_check = None, selectable = True, on_delete = None, on_update = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, icon = None):
 		super(related,self).__init__(label = label, obj = obj, relatedy=relatedy, readonly = readonly, invisible = invisible, required = required,priority = priority, domain = domain, context = context,on_change = on_change, on_check = on_check,selectable = selectable, on_delete = on_delete, on_update = on_update, manual = manual, help = help,family = family, compute = compute, store = store, state = state, icon = icon)
 
-
 class referenced(_column):
 	_type = 'referenced'
+	_db_type = 'UUID'
+	_symbol_c = '%s'
+	_symbol_f = lambda x: x or None
+	_symbol_set = (_symbol_c, _symbol_f)
+	_symbol_get = None
+	def __init__(self,label='unknown', obj = None, readonly = None, invisible = None, required = None,priority = 0, ext_fields = None, domain = None, context = {}, on_change = None, on_check = None, selectable = True, on_delete = None, on_update = None, manual = None, help = None,family = 'Primary', compute = None, store = True,state=None, icon = None):
+		super(referenced,self).__init__(label = label, obj = obj , readonly = readonly, invisible = invisible, required = required,priority = priority, ext_fields = ext_fields, domain = domain, context = context, on_change = on_change, on_check = on_check, selectable = selectable, on_delete = on_delete, on_update = on_update, manual = manual, help = help,family = family, compute = compute, store = store, state = state, icon = icon)
+
+
+
+class link(_column):
+	_type = 'link'
 	_db_type = None
 	_symbol_c = '%s'
 	_symbol_f = lambda x: x or None
 	_symbol_set = (_symbol_c, _symbol_f)
 	_symbol_get = None
 	def __init__(self,label=None,ref = None, state = None, invisible = None):
-		super(referenced,self).__init__(label=label,ref = ref,readonly=True,state=state, invisible = invisible, store = False)
+		super(link,self).__init__(label=label,ref = ref,readonly=True,state=state, invisible = invisible, store = False)
 
 class iProperty(_column):
 	_type = 'iProperty'

@@ -95,7 +95,7 @@ class md_products_template(Model):
 	_class_model = 'C'
 	_columns = {
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
-	'category_id': fields.many2one(label='Category',obj='md.category.product'),
+	'category_id': fields.referenced(label='Category',obj='md.category.product'),
 	'mtype': fields.selection(label='Type',selections=[('p','Product'),('s','Service'),('w','Work'),('c','Consumable')]),
 	'products': fields.one2many(label = 'Products',obj='md.product',rel='template_id'),
 	'note': fields.text(label = 'Note')
@@ -136,7 +136,7 @@ class md_location(Model):
 	_description = 'Location'
 	_class_model = 'C'
 	_columns = {
-	'category_id': fields.many2one(label='Category',obj='md.category.location'),
+	'category_id': fields.referenced(label='Category',obj='md.category.location'),
 	'usage': fields.selection(label='Usage',selections=[('partner', 'Partner'),('company', 'Company'),('stock', 'Stock'),('all','All')]),
 	'name': fields.i18n(fields.varchar(label = 'Name')),
 	'latitude': fields.float(label='Latitude'),
@@ -179,7 +179,7 @@ class md_quantity_uom(Model):
 	_class_model = 'C'
 	_columns = {
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
-	'group_id': fields.many2one(label='Group Quantity',obj='md.group.quantity'),
+	'group_id': fields.referenced(label='Group Quantity',obj='md.group.quantity'),
 	'meter': fields.integer(label='Meter',check='meter >= 0'),
 	'weight': fields.integer(label='Weight',check='weight >= 0'),
 	'tense': fields.integer(label='Tense',check='tense >= 0'),
@@ -210,7 +210,7 @@ class md_uom(Model):
 	_description = 'Unit of Measure'
 	_class_model = 'C'
 	_columns = {
-	'quantity_id': fields.many2one(label='Quantity',obj='md.quantity.uom'),
+	'quantity_id': fields.referenced(label='Quantity',obj='md.quantity.uom'),
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'shortname': fields.varchar(label = 'Short Name',size=32),
 	'code': fields.varchar(label = 'Code',size=3),
@@ -219,8 +219,7 @@ class md_uom(Model):
 	'numerator': fields.integer(label='Numerator'),
 	'denominator': fields.integer(label='Denomerator'),
 	'round': fields.integer(label='Rounding off'),
-	'extconst': fields.float(label='Extend Constant'),
-	'quantity_id': fields.many2one(label='Quantity',obj='md.quantity.uom')
+	'extconst': fields.float(label='Extend Constant')
 	}
 
 md_uom()
@@ -341,7 +340,7 @@ class md_country_states(Model):
 	_class_model = 'C'
 	_order = 'code'
 	_columns = {
-	'country_id': fields.many2one(obj='md.country', label='Country', required=True),
+	'country_id': fields.many2one(obj='md.country', label='Country', rel='states',required=True),
 	'name': fields.varchar(label='State Name', help='Administrative divisions of a country. E.g. Fed. State, Departement, Canton'),
 	'code': fields.varchar(label='State Code', help='The state code.', required=True),
 	'sities': fields.one2many(label='Sities',obj='md.country.state.sities',rel='state_id')
@@ -359,7 +358,7 @@ class md_country_state_cities(Model):
 	_class_model = 'C'
 	_order = 'code'
 	_columns = {
-	'state_id': fields.many2one(obj='md.country.states', label='State', required=True),
+	'state_id': fields.many2one(obj='md.country.states', rel='sities',label='State', required=True),
 	'name': fields.varchar(label='City Name', help='Administrative divisions of a country. E.g. Fed. State, Departement, Canton'),
 	'code': fields.varchar(label='Sity Code', help='The sity code.', required=True)
 	}
@@ -391,8 +390,8 @@ class md_company(Model):
 	_class_model = 'C'
 	_columns = {
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
-	'country_id': fields.many2one(label='Country',obj='md.country'),
-	'currency_id': fields.many2one(label='Currency',obj='md.currency'),
+	'country': fields.referenced(label='Country',obj='md.country'),
+	'currency': fields.referenced(label='Currency',obj='md.currency'),
 	'currency_rate': fields.one2many(label='Currency Rate',obj='md.currency.rate',rel='company_id'),
 	'note': fields.i18n(fields.text(label = 'Note'))
 	}

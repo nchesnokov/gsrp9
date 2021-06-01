@@ -60,16 +60,16 @@ class mm_production_orders(Model):
 	_inherits = {'mm.common.model':{'_methods':['_calculate_amount_costs','_calculate_parts']}}
 	_date = 'dopo'
 	_columns = {
-	'otype': fields.many2one(label='Type',obj='mm.production.order.types',on_change='_on_change_otype', required = True),
+	'otype': fields.referenced(label='Type',obj='mm.production.order.types',on_change='_on_change_otype', required = True),
 	'name': fields.varchar(label = 'Name'),
-	'company': fields.many2one(label='Company',obj='md.company'),
+	'company': fields.referenced(label='Company',obj='md.company'),
 	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True),
-	 'map': fields.many2one(label='Map',obj= 'mm.production.maps',on_change='_on_change_map'),
-	'bom': fields.many2one(label='BoM',obj='md.boms',on_change='_on_change_bom'),
-	'product': fields.many2one(label='Production Product',obj='md.product',readonly=True),
+	 'map': fields.referenced(label='Map',obj= 'mm.production.maps',on_change='_on_change_map'),
+	'bom': fields.referenced(label='BoM',obj='md.boms',on_change='_on_change_bom'),
+	'product': fields.referenced(label='Production Product',obj='md.product',readonly=True),
 	'part': fields.numeric(label='Production Part',size=(11,3), readonly=True),
-	'category_id': fields.many2one(label='Category',obj='mm.production.order.category'),
-	'manager': fields.many2one(label='Manager',obj='bc.users'),
+	'category_id': fields.referenced(label='Category',obj='mm.production.order.category'),
+	'manager': fields.referenced(label='Manager',obj='bc.users'),
 	'origin': fields.varchar(label = 'Origin'),
 	'dopo': fields.date(label='Date Of Production Order',required=True),
 	'from_date': fields.date(label='Start Date Of Production Order',required=True),
@@ -152,10 +152,10 @@ class mm_production_order_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'order_id': fields.many2one(label='Order',obj='mm.production.orders'),
+	'order_id': fields.many2one(label='Order',obj='mm.production.orders',rel='texts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='mm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'text_id': fields.referenced(label='Text ID',obj='mm.texts'),
+	#'descr': fields.referenced(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -165,9 +165,9 @@ class mm_production_order_roles(Model):
 	_name = 'mm.production.order.roles'
 	_description = 'Production Order Roles'
 	_columns = {
-	'order_id': fields.many2one(label = 'Order',obj='mm.production.orders'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
-	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
+	'order_id': fields.many2one(label = 'Order',obj='mm.production.orders',rel='roles'),
+	'role_id': fields.referenced(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
+	'patner_id': fields.referenced(label = 'Parther',obj='md.partner')
 	}
 
 mm_production_order_roles()
@@ -176,14 +176,14 @@ class mm_production_order_pricing(Model):
 	_name = 'mm.production.order.pricing'
 	_description = 'Production Order Pricing'
 	_columns = {
-	'order_id': fields.many2one(label = 'Order',obj='mm.production.orders'),
+	'order_id': fields.many2one(label = 'Order',obj='mm.production.orders',rel='pricing'),
 	'level': fields.integer(label = 'Level'),
-	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','mm')],required=True),
+	'cond': fields.referenced(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','mm')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='mm.pricing.group.levels'),
+	'group_level': fields.referenced(label = 'Group Level',obj='mm.pricing.group.levels'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
+	'currency': fields.referenced(label='Currency',obj='md.currency',required=True),
 	}
 
 mm_production_order_pricing()
@@ -194,14 +194,14 @@ class mm_production_order_items(Model):
 	_inherits = {'mm.common.model':{'_methods':['_on_change_product','_calculate_item']}}
 	_hooks = {'aar':'_on_add_row'}
 	_columns = {
-	'order_id': fields.many2one(obj = 'mm.production.orders',label = 'Production Order'),
-	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product',readonly=True),
+	'order_id': fields.many2one(obj = 'mm.production.orders',label = 'Production Order',rel='items'),
+	'product': fields.referenced(label='Product',obj='md.product',on_change='_on_change_product',readonly=True),
 	'quantity': fields.numeric(label='Quantity',size=(13,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'uom': fields.referenced(label='UoM',obj='md.uom'),
 	'price': fields.numeric(label='Price',size=(13,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'currency': fields.referenced(label='Currency',obj='md.currency'),
 	'unit': fields.integer(label='Unit'),
-	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom'),
 	'amount': fields.numeric(label='Amount',size=(15,2),priority=1,compute='_calculate_item'),
 	'texts': fields.one2many(label='Texts',obj='mm.production.order.item.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')
@@ -223,7 +223,7 @@ class mm_production_order_delivery_schedules(Model):
 	_name = 'mm.production.order.schedules'
 	_description = 'Production Order Schedule'
 	_columns = {
-	'order_id': fields.many2one(obj = 'mm.production.orders',label = 'Order'),
+	'order_id': fields.many2one(obj = 'mm.production.orders',label = 'Order',rel='schedules'),
 	'part': fields.numeric(label='Part',size=(11,3),required=True,check='part > 0.000'),
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
@@ -241,13 +241,13 @@ class mm_production_order_ops(Model):
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
-	'order_id': fields.many2one(label='Order',obj='mm.production.orders'),
-	'prev':  fields.many2one(label='Prev',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
-	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('d','a'))],required=True),
-	'next': fields.many2one(label='Next',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
-	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
+	'order_id': fields.many2one(label='Order',obj='mm.production.orders',rel='ops'),
+	'prev':  fields.referenced(label='Prev',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'op':  fields.referenced(label='Operation',obj='mm.map.ops',domain=[('usage','in',('d','a'))],required=True),
+	'next': fields.referenced(label='Next',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'workcenter': fields.referenced(label='Workcenter',obj='mm.workcenters',required=True),
 	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
-	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
+	'uod': fields.referenced(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
 	'per_cicle': fields.boolean(label='Per Cicle'),
 	'note': fields.text(label = 'Note')
 	}
@@ -258,12 +258,12 @@ class mm_production_order_output_plates(Model):
 	_name = 'mm.production.order.output.plates'
 	_description = 'Production Order Output Plates'
 	_columns = {
-	'order_id': fields.many2one(label = 'Order',obj='mm.production.orders'),
+	'order_id': fields.many2one(label = 'Order',obj='mm.production.orders',rel='plates'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
-	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','mm'),'|',('usage','=','a')]),
-	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('ispeople',)]),
-	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('p','a'))]),
-	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'otype': fields.referenced(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','mm'),'|',('usage','=','a')]),
+	'partner': fields.referenced(label='Partner',obj='md.partner',required=True,domain=[('ispeople',)]),
+	'role': fields.referenced(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('p','a'))]),
+	'language': fields.referenced(label = 'language',obj='md.language',required=True),
 	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
@@ -283,10 +283,10 @@ class mm_production_order_item_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'item_id': fields.many2one(label='Item',obj='mm.production.order.items'),
+	'item_id': fields.many2one(label='Item',obj='mm.production.order.items',rel='texts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='mm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'text_id': fields.referenced(label='Text ID',obj='mm.texts'),
+	#'descr': fields.referenced(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -299,15 +299,15 @@ class mm_technologic_orders(Model):
 	_inherits = {'mm.common.model':{'_methods':['_calculate_amount_costs','_calculate_parts']}}
 	_date = 'doto'
 	_columns = {
-	'otype': fields.many2one(label='Type',obj='mm.technologic.order.types',on_change='_on_change_otype', required = True),
+	'otype': fields.referenced(label='Type',obj='mm.technologic.order.types',on_change='_on_change_otype', required = True),
 	'name': fields.varchar(label = 'Name'),
-	'company': fields.many2one(label='Company',obj='md.company'),
+	'company': fields.referenced(label='Company',obj='md.company'),
 	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True),
-	'map': fields.many2one(label='Map',obj= 'mm.technologic.maps',on_change='_on_change_map'),
-	'bob': fields.many2one(label='BoB',obj='md.bobs',on_change='_on_change_bob'),
+	'map': fields.referenced(label='Map',obj= 'mm.technologic.maps',on_change='_on_change_map'),
+	'bob': fields.referenced(label='BoB',obj='md.bobs',on_change='_on_change_bob'),
 	'part': fields.numeric(label='Production Part',size=(11,3), readonly=True),
-	'manager': fields.many2one(label='Manager',obj='bc.users'),
-	'category_id': fields.many2one(label='Category',obj='mm.technologic.order.category'),
+	'manager': fields.referenced(label='Manager',obj='bc.users'),
+	'category_id': fields.referenced(label='Category',obj='mm.technologic.order.category'),
 	'origin': fields.varchar(label = 'Origin'),
 	'doto': fields.date(label='Date Of Technologic Order',required=True),
 	'from_date': fields.date(label='Start Date Of Technologic Order',required=True),
@@ -414,7 +414,7 @@ class mm_technologic_order_delivery_schedules(Model):
 	_name = 'mm.technologic.order.schedules'
 	_description = 'Technologic Order Delivery Schedule'
 	_columns = {
-	'order_id': fields.many2one(obj = 'mm.technologic.orders',label = 'Schedule'),
+	'order_id': fields.many2one(obj = 'mm.technologic.orders',label = 'Schedule',rel='schedules'),
 	'part': fields.numeric(label='Part',size=(11,3),required=True,check='part > 0.000'),
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
@@ -432,13 +432,13 @@ class mm_technologic_order_ops(Model):
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
-	'order_id': fields.many2one(label='Order',obj='mm.technologic.orders'),
-	'prev':  fields.many2one(label='Prev',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
-	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('d','a'))],required=True),
-	'next': fields.many2one(label='Next',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
-	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
+	'order_id': fields.many2one(label='Order',obj='mm.technologic.orders',rel='ops'),
+	'prev':  fields.referenced(label='Prev',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'op':  fields.referenced(label='Operation',obj='mm.map.ops',domain=[('usage','in',('d','a'))],required=True),
+	'next': fields.referenced(label='Next',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'workcenter': fields.referenced(label='Workcenter',obj='mm.workcenters',required=True),
 	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
-	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
+	'uod': fields.referenced(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
 	'per_cicle': fields.boolean(label='Per Cicle'),
 	'note': fields.text(label = 'Note')
 	}
@@ -453,10 +453,10 @@ class mm_technologic_order_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'order_id': fields.many2one(label='Order',obj='mm.technologic.orders'),
+	'order_id': fields.many2one(label='Order',obj='mm.technologic.orders',rel='texts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='mm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'text_id': fields.referenced(label='Text ID',obj='mm.texts'),
+	#'descr': fields.referenced(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -466,9 +466,9 @@ class mm_technologic_order_roles(Model):
 	_name = 'mm.technologic.order.roles'
 	_description = 'Technologic Order Roles'
 	_columns = {
-	'order_id': fields.many2one(label = 'Order',obj='mm.technologic.orders'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
-	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
+	'order_id': fields.many2one(label = 'Order',obj='mm.technologic.orders',rel='roles'),
+	'role_id': fields.referenced(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
+	'patner_id': fields.referenced(label = 'Parther',obj='md.partner')
 	}
 
 mm_technologic_order_roles()
@@ -477,14 +477,14 @@ class mm_technologic_order_pricing(Model):
 	_name = 'mm.technologic.order.pricing'
 	_description = 'Technologic Order Pricing'
 	_columns = {
-	'order_id': fields.many2one(label = 'Order',obj='mm.technologic.orders'),
+	'order_id': fields.many2one(label = 'Order',obj='mm.technologic.orders',rel='pricing'),
 	'level': fields.integer(label = 'Level'),
-	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','mm')],required=True),
+	'cond': fields.referenced(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','mm')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='mm.pricing.group.levels'),
+	'group_level': fields.referenced(label = 'Group Level',obj='mm.pricing.group.levels'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
+	'currency': fields.referenced(label='Currency',obj='md.currency',required=True),
 	}
 
 mm_technologic_order_pricing()
@@ -494,14 +494,14 @@ class mm_technologic_order_item_ibob(Model):
 	_description = 'Technologic Order Items InBoB'
 	_inherits = {'mm.common.model':{'_methods':['_on_change_product','_calculate_item']}}
 	_columns = {
-	'order_id': fields.many2one(obj = 'mm.technologic.orders',label = 'Item'),
-	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
+	'order_id': fields.many2one(obj = 'mm.technologic.orders',label = 'Item',rel='ibobs'),
+	'product': fields.referenced(label='Product',obj='md.product',on_change='_on_change_product'),
 	'quantity': fields.numeric(label='Quantity',size=(13,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'uom': fields.referenced(label='UoM',obj='md.uom'),
 	'price': fields.numeric(label='Price',size=(13,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'currency': fields.referenced(label='Currency',obj='md.currency'),
 	'unit': fields.integer(label='Unit'),
-	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_item'),
 	'texts': fields.one2many(label='Texts',obj='mm.technologic.order.item.ibob.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')
@@ -521,14 +521,14 @@ class mm_technologic_order_item_obob(Model):
 	_description = 'Technologic Order Items OutBoB'
 	_inherits = {'mm.common.model':{'_methods':['_on_change_product','_calculate_item']}}
 	_columns = {
-	'order_id': fields.many2one(obj = 'mm.technologic.orders',label = 'Item'),
-	'product': fields.many2one(label='Product',obj='md.product',on_change = '_on_change_product'),
+	'order_id': fields.many2one(obj = 'mm.technologic.orders',label = 'Item',rel='obobs'),
+	'product': fields.referenced(label='Product',obj='md.product',on_change = '_on_change_product'),
 	'quantity': fields.numeric(label='Quantity',size=(13,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'uom': fields.referenced(label='UoM',obj='md.uom'),
 	'price': fields.numeric(label='Price',size=(13,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'currency': fields.referenced(label='Currency',obj='md.currency'),
 	'unit': fields.integer(label='Unit'),
-	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom'),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_item'),
 	'texts': fields.one2many(label='Texts',obj='mm.technologic.order.item.obob.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')
@@ -546,12 +546,12 @@ class mm_technologic_order_output_plates(Model):
 	_name = 'mm.technologic.order.output.plates'
 	_description = 'Technologic Order Output Plates'
 	_columns = {
-	'order_id': fields.many2one(label = 'Order',obj='mm.technologic.orders'),
+	'order_id': fields.many2one(label = 'Order',obj='mm.technologic.orders',rel='plates'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
-	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','mm'),'|',('usage','=','a')]),
-	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('ispeople',)]),
-	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('p','a'))]),
-	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'otype': fields.referenced(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','mm'),'|',('usage','=','a')]),
+	'partner': fields.referenced(label='Partner',obj='md.partner',required=True,domain=[('ispeople',)]),
+	'role': fields.referenced(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('p','a'))]),
+	'language': fields.referenced(label = 'language',obj='md.language',required=True),
 	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
@@ -571,10 +571,10 @@ class mm_technologic_order_item_ibob_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'item_id': fields.many2one(label='Item',obj='mm.technologic.order.item.ibob'),
+	'item_id': fields.many2one(label='Item',obj='mm.technologic.order.item.ibob',rel='texts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='mm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'text_id': fields.referenced(label='Text ID',obj='mm.texts'),
+	#'descr': fields.referenced(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -588,10 +588,10 @@ class mm_technologic_order_item_obob_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'item_id': fields.many2one(label='Item',obj='mm.technologic.order.item.obob'),
+	'item_id': fields.many2one(label='Item',obj='mm.technologic.order.item.obob',rel='texts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='mm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'text_id': fields.referenced(label='Text ID',obj='mm.texts'),
+	#'descr': fields.referenced(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -604,16 +604,16 @@ class mm_disassembly_orders(Model):
 	_inherits = {'mm.common.model':{'_methods':['_calculate_amount_costs','_calculate_parts']}}
 	_date = 'dodo'
 	_columns = {
-	'otype': fields.many2one(label='Type',obj='mm.disassembly.order.types',on_change='_on_change_otype', required = True),
+	'otype': fields.referenced(label='Type',obj='mm.disassembly.order.types',on_change='_on_change_otype', required = True),
 	'name': fields.varchar(label = 'Name'),
-	'company': fields.many2one(label='Company',obj='md.company'),
+	'company': fields.referenced(label='Company',obj='md.company'),
 	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True),
-	'map': fields.many2one(label='Map',obj= 'mm.disassembly.maps',on_change='_on_change_map'),
-	'mob': fields.many2one(label='MoB',obj='md.mobs',priority=1,on_change='_on_change_mob'),
-	'product': fields.many2one(label='Disassembly Product',obj='md.product',readonly=True),
+	'map': fields.referenced(label='Map',obj= 'mm.disassembly.maps',on_change='_on_change_map'),
+	'mob': fields.referenced(label='MoB',obj='md.mobs',priority=1,on_change='_on_change_mob'),
+	'product': fields.referenced(label='Disassembly Product',obj='md.product',readonly=True),
 	'part': fields.numeric(label='Disassembly Part',size=(11,3), readonly=True),
-	'category_id': fields.many2one(label='Category',obj='mm.disassembly.order.category'),
-	'manager': fields.many2one(label='Manager',obj='bc.users'),
+	'category_id': fields.referenced(label='Category',obj='mm.disassembly.order.category'),
+	'manager': fields.referenced(label='Manager',obj='bc.users'),
 	'origin': fields.varchar(label = 'Origin'),
 	'dodo': fields.date(label='Date Of Disassembly Order',required=True),
 	'from_date': fields.date(label='Start Date Of Disassembly Order',required=True),
@@ -697,10 +697,10 @@ class mm_disassembly_order_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'order_id': fields.many2one(label='Order',obj='mm.disassembly.orders'),
+	'order_id': fields.many2one(label='Order',obj='mm.disassembly.orders',rel='texts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='mm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'text_id': fields.referenced(label='Text ID',obj='mm.texts'),
+	#'descr': fields.referenced(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -710,9 +710,9 @@ class mm_disassembly_order_roles(Model):
 	_name = 'mm.disassembly.order.roles'
 	_description = 'Disassembly Order Roles'
 	_columns = {
-	'order_id': fields.many2one(label = 'Order',obj='mm.disassembly.orders'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
-	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
+	'order_id': fields.many2one(label = 'Order',obj='mm.disassembly.orders',rel='roles'),
+	'role_id': fields.referenced(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','i','p','a'))]),
+	'patner_id': fields.referenced(label = 'Parther',obj='md.partner')
 	}
 
 mm_disassembly_order_roles()
@@ -721,14 +721,14 @@ class mm_disassembly_order_pricing(Model):
 	_name = 'mm.disassembly.order.pricing'
 	_description = 'Disassembly Order Pricing'
 	_columns = {
-	'order_id': fields.many2one(label = 'Order',obj='mm.disassembly.orders'),
+	'order_id': fields.many2one(label = 'Order',obj='mm.disassembly.orders',rel='pricing'),
 	'level': fields.integer(label = 'Level'),
-	'cond': fields.many2one(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','mm')],required=True),
+	'cond': fields.referenced(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','mm')],required=True),
 	'from_level': fields.integer(label = 'From Level'),
 	'to_level': fields.integer(label = 'To Level'),
-	'group_level': fields.many2one(label = 'Group Level',obj='mm.pricing.group.levels'),
+	'group_level': fields.referenced(label = 'Group Level',obj='mm.pricing.group.levels'),
 	'amount': fields.numeric(label='Amount',size=(15,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
+	'currency': fields.referenced(label='Currency',obj='md.currency',required=True),
 	}
 
 mm_disassembly_order_pricing()
@@ -738,14 +738,14 @@ class mm_disassembly_order_items(Model):
 	_description = 'Disassembly Order Items'
 	_inherits = {'mm.common.model':{'_methods':['_on_change_product','_calculate_item']}}
 	_columns = {
-	'order_id': fields.many2one(obj = 'mm.disassembly.orders',label = 'Order'),
-	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
+	'order_id': fields.many2one(obj = 'mm.disassembly.orders',label = 'Order',rel='items'),
+	'product': fields.referenced(label='Product',obj='md.product',on_change='_on_change_product'),
 	'quantity': fields.numeric(label='Quantity',size=(13,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
+	'uom': fields.referenced(label='UoM',obj='md.uom'),
 	'price': fields.numeric(label='Price',size=(13,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'currency': fields.referenced(label='Currency',obj='md.currency'),
 	'unit': fields.integer(label='Unit'),
-	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom'),
 	'amount': fields.numeric(label='Amount',size=(15,2),priority=1,compute='_calculate_item'),
 	'texts': fields.one2many(label='Texts',obj='mm.disassembly.order.item.texts',rel='item_id'),
 	'note': fields.text(label = 'Note')
@@ -764,7 +764,7 @@ class mm_disassembly_order_delivery_schedules(Model):
 	_name = 'mm.disassembly.order.schedules'
 	_description = 'Disassembly Order Delivery Schedule'
 	_columns = {
-	'order_id': fields.many2one(obj = 'mm.disassembly.orders',label = 'Order'),
+	'order_id': fields.many2one(obj = 'mm.disassembly.orders',label = 'Order',rel='schedules'),
 	'part': fields.numeric(label='Part',size=(11,3),required=True,check='part > 0.000'),
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
@@ -782,13 +782,13 @@ class mm_disassembly_order_ops(Model):
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
-	'order_id': fields.many2one(label='Order',obj='mm.disassembly.orders'),
-	'prev':  fields.many2one(label='Prev',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
-	'op':  fields.many2one(label='Operation',obj='mm.map.ops',domain=[('usage','in',('d','a'))],required=True),
-	'next': fields.many2one(label='Next',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
-	'workcenter': fields.many2one(label='Workcenter',obj='mm.workcenters',required=True),
+	'order_id': fields.many2one(label='Order',obj='mm.disassembly.orders',rel='ops'),
+	'prev':  fields.referenced(label='Prev',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'op':  fields.referenced(label='Operation',obj='mm.map.ops',domain=[('usage','in',('d','a'))],required=True),
+	'next': fields.referenced(label='Next',obj='mm.map.ops',domain=[('usage','in',('d','a'))]),
+	'workcenter': fields.referenced(label='Workcenter',obj='mm.workcenters',required=True),
 	'duration': fields.numeric(label='Duration',size=(11,3),required=True),
-	'uod': fields.many2one(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
+	'uod': fields.referenced(label='Unit of duration',obj='md.uom',domain=[('quantity_id','=','Time')],required=True),
 	'per_cicle': fields.boolean(label='Per Cicle'),
 	'note': fields.text(label = 'Note')
 	}
@@ -799,12 +799,12 @@ class mm_disassembly_order_output_plates(Model):
 	_name = 'mm.disassembly.order.output.plates'
 	_description = 'Disassembly Order Output Plates'
 	_columns = {
-	'order_id': fields.many2one(label = 'Order',obj='mm.disassembly.orders'),
+	'order_id': fields.many2one(label = 'Order',obj='mm.disassembly.orders',rel='plates'),
 	'state': fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True),
-	'otype': fields.many2one(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','mm'),'|',('usage','=','a')]),
-	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('ispeople',)]),
-	'role': fields.many2one(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('p','a'))]),
-	'language': fields.many2one(label = 'language',obj='md.language',required=True),
+	'otype': fields.referenced(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','mm'),'|',('usage','=','a')]),
+	'partner': fields.referenced(label='Partner',obj='md.partner',required=True,domain=[('ispeople',)]),
+	'role': fields.referenced(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('p','a'))]),
+	'language': fields.referenced(label = 'language',obj='md.language',required=True),
 	'msm': fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True),
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
@@ -824,10 +824,10 @@ class mm_disassembly_order_item_texts(Model):
 	_order_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'item_id': fields.many2one(label='Item',obj='mm.disassembly.order.items'),
+	'item_id': fields.many2one(label='Item',obj='mm.disassembly.order.items',rel='texts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='mm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'text_id': fields.referenced(label='Text ID',obj='mm.texts'),
+	#'descr': fields.referenced(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -837,12 +837,12 @@ class md_mm_product(Model):
 	_name = 'md.mm.product'
 	_description = 'Production Of Product'
 	_columns = {
-	'product_id': fields.many2one(label='Product',obj='md.product'),
-	'uom': fields.many2one(label="Unit Of Measure",obj='md.uom'),
+	'product_id': fields.many2one(label='Product',obj='md.product',rel='production'),
+	'uom': fields.referenced(label="Unit Of Measure",obj='md.uom'),
 	'price': fields.numeric(label='Price',size=(13,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'currency': fields.referenced(label='Currency',obj='md.currency'),
 	'unit': fields.integer(label='Unit'),
-	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom'),
 	'note': fields.text(label = 'Note'),
 	}
 

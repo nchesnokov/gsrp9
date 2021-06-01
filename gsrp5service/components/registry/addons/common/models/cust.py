@@ -33,8 +33,8 @@ class seq_access(Model):
 	_class_model = 'C'
 	_rec_name = 'fullname'
 	_columns = {
-	'area': fields.many2one(label='Area',obj='seq.areas',required = True),
-	'segment': fields.many2one(label='Segment',obj='seq.segments',required = True),
+	'area': fields.referenced(label='Area',obj='seq.areas',required = True),
+	'segment': fields.referenced(label='Segment',obj='seq.segments',required = True),
 	'name': fields.varchar(label='Name',translate = True,required = True),
 	'fullname': fields.composite(label='Full Name',cols=['area','segment','name'],translate = True,required = True),
 	'usage': fields.selection(label='Usage',selections=[('a','All')]),
@@ -53,10 +53,10 @@ class seq_models(Model):
 	_description = 'Sequence Models'
 	_class_model = 'C'
 	_columns = {
-	'access_id': fields.many2one(label='Access Sequence',obj='seq.access'),
+	'access_id': fields.many2one(label='Access Sequence',obj='seq.access',rel='models'),
 	'sequence': fields.integer(label='Sequence'),
-	'model': fields.many2one(label='Model', obj = 'bc.models'),
-	'columns': fields.one2many(label='Columns',obj='seq.model.columns',rel='object_id'),
+	'model': fields.referenced(label='Model', obj = 'bc.models'),
+	'columns': fields.one2many(label='Columns',obj='seq.model.columns',rel='model_id'),
 	'values': fields.one2many(label='Values',obj='seq.model.column.values',rel='model_id'),
 	
 	}
@@ -68,9 +68,9 @@ class seq_model_columns(Model):
 	_description = 'Sequence Model Columns'
 	_class_model = 'C'
 	_columns = {
-	'object_id': fields.many2one(label='Model',obj='seq.models'),
+	'model_id': fields.many2one(label='Model',obj='seq.models',rel='columns'),
 	'sequence': fields.integer(label='Sequence'),
-	'col': fields.many2one(label='Column', obj='bc.model.columns')
+	'col': fields.referenced(label='Column', obj='bc.model.columns')
 	}
 	
 seq_model_columns()
@@ -80,9 +80,9 @@ class seq_model_column_values(Model):
 	_description = 'Sequence Model Columns'
 	_class_model = 'C'
 	_columns = {
-	'model_id': fields.many2one(label='Model',obj='seq.models'),
+	'model_id': fields.many2one(label='Model',obj='seq.models',rel='values'),
 	'sequence': fields.integer(label='Sequence'),
-	'col': fields.many2one(label='Column', obj='bc.model.columns')
+	'col': fields.referenced(label='Column', obj='bc.model.columns')
 	}
 
 seq_model_column_values()
@@ -94,9 +94,9 @@ class seq_conditions(Model):
 	_class_model = 'C'
 	_rec_name = 'fullname'
 	_columns = {
-	'area': fields.many2one(label='Area',obj='seq.areas',required = True),
-	'segment': fields.many2one(label='Segment',obj='seq.segments',required = True),
-	'name': fields.varchar(label='Name',translate = True,required = True),
+	'area': fields.referenced(label='Area',obj='seq.areas',required = True),
+	'segment': fields.referenced(label='Segment',obj='seq.segments',required = True),
+	'name': fields.i18n(fields.varchar(label='Name',required = True)),
 	'fullname': fields.composite(label='Full Name',cols=['area','segment','name'],translate = True,required = True),
 	'usage': fields.selection(label='Usage',selections=[('a','All')]),
 	'seq_access': fields.related(label='Sequence Access',obj='seq.access',relatedy=['area','segment','usage']),

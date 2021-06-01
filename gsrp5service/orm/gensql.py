@@ -167,10 +167,10 @@ def _build_joins(self,modinfo,fields,condfields):
 			if len(i18nfields) > 0 and recname in i18nfields: #and obj != m._name:
 				joins.setdefault(tr_table,[]).append(field)
 			joins.setdefault(obj,[]).append(field)
-		else:
-			objref,fieldref = modinfo['columns'][field]['ref'].split('.')
-			obj = modinfo['columns'][objref]['obj']
-			joins.setdefault(obj,[]).append(field)
+		# else:
+			# objref,fieldref = modinfo['columns'][field]['ref'].split('.')
+			# obj = modinfo['columns'][objref]['obj']
+			# joins.setdefault(obj,[]).append(field)
 	
 	return joins
 
@@ -278,33 +278,33 @@ def _build_models(self, fields,cond,context):
 	return models,joins,columns,conds
 
 def inc_char(text, chlist = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.lower()):
-    # Unique and sort
-    chlist = ''.join(sorted(set(str(chlist))))
-    chlen = len(chlist)
-    if not chlen:
-        return ''
-    text = str(text)
-    # Replace all chars but chlist
-    text = re.sub('[^' + chlist + ']', '', text)
-    if not len(text):
-        return chlist[0]
-    # Increment
-    inc = ''
-    over = False
-    for i in range(1, len(text)+1):
-        lchar = text[-i]
-        pos = chlist.find(lchar) + 1
-        if pos < chlen:
-            inc = chlist[pos] + inc
-            over = False
-            break
-        else:
-            inc = chlist[0] + inc
-            over = True
-    if over:
-        inc += chlist[0]
-    result = text[0:-len(inc)] + inc
-    return result
+	# Unique and sort
+	chlist = ''.join(sorted(set(str(chlist))))
+	chlen = len(chlist)
+	if not chlen:
+		return ''
+	text = str(text)
+	# Replace all chars but chlist
+	text = re.sub('[^' + chlist + ']', '', text)
+	if not len(text):
+		return chlist[0]
+	# Increment
+	inc = ''
+	over = False
+	for i in range(1, len(text)+1):
+		lchar = text[-i]
+		pos = chlist.find(lchar) + 1
+		if pos < chlen:
+			inc = chlist[pos] + inc
+			over = False
+			break
+		else:
+			inc = chlist[0] + inc
+			over = True
+	if over:
+		inc += chlist[0]
+	result = text[0:-len(inc)] + inc
+	return result
 
 def _gen_aliases(v):
 	text = v
@@ -324,13 +324,13 @@ def _build_aliases(self,joins=None):
 		l = len(joins[key])
 		fields = joins[key]
 		columnsinfo = self.columnsInfo(attributes=['type','ref'])
-		fieldsref = list(filter(lambda x: columnsinfo[x]['type'] == 'referenced',self._columns.keys()))
+		#fieldsref = list(filter(lambda x: columnsinfo[x]['type'] == 'referenced',self._columns.keys()))
 		for idx,field in enumerate(joins[key]):
-			if field in fieldsref:
-				objref = columnsinfo[field]['ref'].split('.')[0]
-				aliases.setdefault(key,{})[field] = aliases[key][objref]
-			else:
-				aliases.setdefault(key,{})[field] = curalias + '%s' % (idx,)
+			#if field in fieldsref:
+				#objref = columnsinfo[field]['ref'].split('.')[0]
+				#aliases.setdefault(key,{})[field] = aliases[key][objref]
+			#else:
+			aliases.setdefault(key,{})[field] = curalias + '%s' % (idx,)
 		if curalias[-1] == 'z':
 			curalias += 'a'
 		else:
@@ -474,13 +474,13 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 		if type(field) == str:
 			if field in columnsmeta and columnsmeta[field] in ('one2many','many2many'):
 				f.append('NULL AS ' + field)
-			elif field in columnsmeta and columnsmeta[field] == 'referenced':
-				colinfo = self.columnsInfo(columns=[field])[field]
-				objref,fieldref = colinfo['ref'].split('.')
-				obj = self.columnsInfo(columns=[objref])[objref]['obj']
-				f.append(aliases[models[field]][field] + '.' + fieldref + ' as ' + field)
+			# elif field in columnsmeta and columnsmeta[field] == 'referenced':
+				# colinfo = self.columnsInfo(columns=[field])[field]
+				# objref,fieldref = colinfo['ref'].split('.')
+				# obj = self.columnsInfo(columns=[objref])[objref]['obj']
+				# f.append(aliases[models[field]][field] + '.' + fieldref + ' as ' + field)
 				
-			elif field in columnsmeta and columnsmeta[field] in ('many2one','related'):
+			elif field in columnsmeta and columnsmeta[field] in ('many2one','referenced','related'):
 				modinfo = self._pool.get(self.modelInfo()['columns'][field]['obj']).modelInfo()
 				parent_id = modinfo['names']['parent_id']
 				recname = modinfo['names']['rec_name']
@@ -844,9 +844,9 @@ def Read(self,ids,fields,context):
 	return _sql,_values
 #tested
 def Select(self, fields, cond, context, limit = None, offset = None):
-	_models_new, _joins_new, _columns_new, _conds_new = _build_models(self,fields,cond,context)
-	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new))
-	print('GENSQL-NEW:',_conds_new,_sql_new)
+	#_models_new, _joins_new, _columns_new, _conds_new = _build_models(self,fields,cond,context)
+	#_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new))
+	#print('GENSQL-NEW:',_conds_new,_sql_new)
 
 	_fields = ['id']
 	info = self.modelInfo()
@@ -880,7 +880,7 @@ def Select(self, fields, cond, context, limit = None, offset = None):
 		_values.append(offset)
 
 	_sql = select_clause() + fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
-	print('GENSQL:', _sql,_values)
+	#print('GENSQL:', _sql,_values)
 	return _sql,_values
 #tested
 def Search(self, cond, context, limit, offset):
@@ -1172,8 +1172,3 @@ class WhereParse(list):
 			elif isinstance(child,WhereParse):
 				_values.extend(child._vals())
 		return _values
-
-if __name__ == '__main__':
-	print(_get_aliases('e'))
-	print(_get_aliases('e'))
-	print(_get_aliases('e'))

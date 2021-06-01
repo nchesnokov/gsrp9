@@ -601,7 +601,7 @@ def _compute_composite(self , field, item, context):
 		cols = self._columns[field].cols
 		delimiter = self._columns[field].delimiter
 		for col in cols:
-			if self._columns[col]._type in ('many2one','related'):
+			if self._columns[col]._type in ('many2one','referenced','related'):
 				if col in item and item[col] and item[col]['name']:
 					if len(v) == 0:
 						if item[col]['name']:
@@ -623,7 +623,7 @@ def _compute_composite(self , field, item, context):
 		cols = self._columns[field].column.cols
 		delimiter = self._columns[field].column.delimiter
 		for col in cols:
-			if self._columns[col]._type in ('many2one','related'):
+			if self._columns[col]._type in ('many2one','referenced','related'):
 				if col in item and item[col] and item[col]['name']:
 					if len(v) == 0:
 						if item[col]['name']:
@@ -650,7 +650,7 @@ def _compute_complete_composite(self ,item,context):
 		cols = self._columns[completename].cols
 		delimiter = self._columns[completename].delimiter
 		for col in cols:
-			if self._columns[col]._type in ('many2one','related'):
+			if self._columns[col]._type in ('many2one','referenced','related'):
 				if col in item and item[col] and item[col]['name']:
 					if len(v) == 0:
 						if item[col]['name']:
@@ -672,7 +672,7 @@ def _compute_complete_composite(self ,item,context):
 		cols = self._columns[completename].column.cols
 		delimiter = self._columns[completename].column.delimiter
 		for col in cols:
-			if self._columns[col].column._type in ('many2one','related'):
+			if self._columns[col].column._type in ('many2one','referenced','related'):
 				if col in item and item[col] and item[col]['name']:
 					if len(v) == 0:
 						if item[col]['name']:

@@ -83,7 +83,7 @@ class BaseModelInherit(object, metaclass = MetaObjects):
 
 	@property
 	def _readonlyfields(self):
-		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute or self._columns[x]._type == 'referenced',self._columns.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'compute') and self._columns[x].compute,self._columns.keys())) 
 
 	@property
 	def _on_change_fields(self):
@@ -115,7 +115,7 @@ class BaseModelInherit(object, metaclass = MetaObjects):
 
 	@property
 	def _nosavedfields(self):
-		return list(filter(lambda x: hasattr(self._columns[x],'store') and not self._columns[x].store or self._columns[x]._type == 'referenced' or hasattr(self._columns[x],'compute') and type(self._columns[x].compute) in (list,tuple),self._columns.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'store') and not self._columns[x].store or hasattr(self._columns[x],'compute') and type(self._columns[x].compute) in (list,tuple),self._columns.keys())) 
 
 	@property
 	def _requiredfields(self):
@@ -127,7 +127,7 @@ class BaseModelInherit(object, metaclass = MetaObjects):
 
 	@property
 	def _selectablefields(self):
-		return list(filter(lambda x: hasattr(self._columns[x],'store') and self._columns[x].store or self._columns[x]._type in ('one2many','many2many','text','xml','binary','referenced'),self._columns.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'store') and self._columns[x].store or self._columns[x]._type in ('one2many','many2many','text','xml','binary'),self._columns.keys())) 
 
 	def imodelInfo(self, args = [], kwargs = {}):
 		return mm.imodelInfo(self, args, kwargs)
@@ -451,7 +451,7 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	@property
 	def _readonlyfields(self):
-		return list(filter(lambda x: hasattr(self._columns[x],'readonly') and self._columns[x].readonly or hasattr(self._columns[x],'compute') and self._columns[x].compute and hasattr(self._columns[x],'store') and self._columns[x].store or self._columns[x]._type == 'referenced',self._columns.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'readonly') and self._columns[x].readonly or hasattr(self._columns[x],'compute') and self._columns[x].compute and hasattr(self._columns[x],'store') and self._columns[x].store,self._columns.keys())) 
 
 	@property
 	def _on_change_fields(self):
@@ -483,7 +483,7 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	@property
 	def _nosavedfields(self):
-		return list(filter(lambda x: hasattr(self._columns[x],'store') and not self._columns[x].store or self._columns[x]._type == 'referenced' or hasattr(self._columns[x],'compute') and type(self._columns[x].compute) in (list,tuple),self._columns.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'store') and not self._columns[x].store or hasattr(self._columns[x],'compute') and type(self._columns[x].compute) in (list,tuple),self._columns.keys())) 
 
 	@property
 	def _requiredfields(self):
@@ -495,7 +495,7 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	@property
 	def _selectablefields(self):
-		return list(filter(lambda x: hasattr(self._columns[x],'store') and self._columns[x].store or self._columns[x]._type in ('one2many','many2many','text','xml','binary','referenced'),self._columns.keys())) 
+		return list(filter(lambda x: hasattr(self._columns[x],'store') and self._columns[x].store or self._columns[x]._type in ('one2many','many2many','text','xml','binary'),self._columns.keys())) 
 
 	def _getMessage(self ,area,code,context={}):
 		r = self._pool.get('bc.messages').select(['area','code','descr'],[('area','=',area),('code','=',code)],context,limit=1)

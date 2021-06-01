@@ -213,7 +213,7 @@ class Cursor(object):
 		for field in fields:
 			if type(field) == str:
 				if field in descfields:
-					if columnsmeta[field] in ('many2one','related'):
+					if columnsmeta[field] in ('many2one','referenced','related'):
 						row.append({'id':record[dm[field]]})
 					elif columnsmeta[field] in ('one2many','many2many'):
 						row.append([])
@@ -223,7 +223,7 @@ class Cursor(object):
 						row.append(record[dm[field]])
 				elif type(field) == dict:
 					for k in field:
-						if columnsmeta[k] in ('many2one','related'):
+						if columnsmeta[k] in ('many2one','referenced','related'):
 							row.append({'id':record[dm[k]]})
 						elif columnsmeta[k] in ('one2many','many2many'):
 							row.append([])
@@ -250,7 +250,7 @@ class Cursor(object):
 				continue
 			
 			n = desc.split('-')
-			if len(n) > 1 and n[0] in columnsmeta and columnsmeta[n[0]] in ('many2one','related'):
+			if len(n) > 1 and n[0] in columnsmeta and columnsmeta[n[0]] in ('many2one','referenced','related'):
 				if n[0] in fm:
 					idx = fm[n[0]]
 					row[idx]['name'] = record[j]

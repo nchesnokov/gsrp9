@@ -20,7 +20,7 @@ class devel_messages(Model):
 	_rec_name='code'
 	_class_object = 'D'
 	_columns = {
-	'area': fields.many2one(label='Area', obj='devel.area.messages', required=True),
+	'area': fields.referenced(label='Area', obj='devel.area.messages', required=True),
 	'code': fields.varchar(label='Message', size = 64),
 	'descr': fields.varchar(label='Description', required=True),
 	'note': fields.text(label='Note')
