@@ -52,7 +52,7 @@ def get_view_by_name(cr,pool,uid,name):
 	v['models'][w['model']] = i
 
 	for column in i['columns'].keys():
-		if i['columns'][column]['type'] == 'referenced':
+		if i['columns'][column]['type'] == 'link':
 			ref = i['columns'][column]['ref'];
 			field,reffield = ref.split('.')
 			reffieldInfo = pool.get(i['columns'][field]['obj']).columnsInfo(columns=[reffield],attributes=['type','label','size'])
@@ -68,7 +68,7 @@ def get_view_by_name(cr,pool,uid,name):
 
 		m = v['models'][obj]
 		for column in m['columns'].keys():
-			if m['columns'][column]['type'] == 'referenced':
+			if m['columns'][column]['type'] == 'link':
 				ref = m['columns'][column]['ref'];
 				field,reffield = ref.split('.')
 				reffieldInfo = pool.get(m['columns'][field]['obj']).columnsInfo(columns=[reffield],attributes=['type','label','size'])
@@ -134,7 +134,7 @@ def get_views_of_model_v2_1(cr,pool,uid,model):
 
 	m = v['models'][model]['meta']
 	for column in m['columns'].keys():
-		if m['columns'][column]['type'] == 'referenced':
+		if m['columns'][column]['type'] == 'link':
 			ref = m['columns'][column]['ref'];
 			field,reffield = ref.split('.')
 			reffieldInfo = pool.get(m['columns'][field]['obj']).columnsInfo(columns=[reffield],attributes=['type','label','size','selections'])
@@ -306,7 +306,7 @@ def get_view_by_name_v2(cr,pool,uid,name):
 
 		m = v['models'][model]['meta']
 		for column in m['columns'].keys():
-			if m['columns'][column]['type'] == 'referenced':
+			if m['columns'][column]['type'] == 'link':
 				ref = m['columns'][column]['ref'];
 				field,reffield = ref.split('.')
 				reffieldInfo = pool.get(m['columns'][field]['obj']).columnsInfo(columns=[reffield],attributes=['type','label','size','selections'])
@@ -391,7 +391,7 @@ def view(cr,pool,uid,action_id = None, name = None):
 	v['models'][w['model']] = i
 
 	for column in i['columns'].keys():
-		if i['columns'][column]['type'] == 'referenced':
+		if i['columns'][column]['type'] == 'link':
 			ref = i['columns'][column]['ref'];
 			field,reffield = ref.split('.')
 			reffieldInfo = pool.get(i['columns'][field]['obj']).columnsInfo(columns=[reffield],attributes=['type','label','size'])
@@ -407,7 +407,7 @@ def view(cr,pool,uid,action_id = None, name = None):
 
 		m = v['models'][obj]
 		for column in m['columns'].keys():
-			if m['columns'][column]['type'] == 'referenced':
+			if m['columns'][column]['type'] == 'link':
 				ref = m['columns'][column]['ref'];
 				field,reffield = ref.split('.')
 				reffieldInfo = pool.get(m['columns'][field]['obj']).columnsInfo(columns=[reffield],attributes=['type','label','size'])
@@ -443,7 +443,7 @@ def view(cr,pool,uid,action_id = None, name = None):
 
 def get_referenced_attrs_v2(pool,info,context):
 	for column in info['columns'].keys():
-		if info['columns'][column]['type'] == 'referenced':
+		if info['columns'][column]['type'] == 'link':
 			ref = info['columns'][column]['ref'];
 			field,reffield = ref.split('.')
 			reffieldInfo = pool.get(info['columns'][field]['obj']).columnsInfo(columns=[reffield],attributes=['type','label','size','selections'])
