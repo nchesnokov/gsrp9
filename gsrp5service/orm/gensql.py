@@ -10,6 +10,42 @@ WHERE_OPERATOR = ['=','!=','>','>=','<','<=','like','ilike','~','~*','in','betwe
 
 class gensql_exception(Exception): pass
 
+def inc_char(text, chlist = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.lower()):
+	# Unique and sort
+	chlist = ''.join(sorted(set(str(chlist))))
+	chlen = len(chlist)
+	if not chlen:
+		return ''
+	text = str(text)
+	# Replace all chars but chlist
+	text = re.sub('[^' + chlist + ']', '', text)
+	if not len(text):
+		return chlist[0]
+	# Increment
+	inc = ''
+	over = False
+	for i in range(1, len(text)+1):
+		lchar = text[-i]
+		pos = chlist.find(lchar) + 1
+		if pos < chlen:
+			inc = chlist[pos] + inc
+			over = False
+			break
+		else:
+			inc = chlist[0] + inc
+			over = True
+	if over:
+		inc += chlist[0]
+	result = text[0:-len(inc)] + inc
+	return result
+
+def _gen_aliases(v):
+	text = v
+	while True:
+		text = inc_char(text)
+		yield text
+
+
 def convert(val):		
 	if type(val) in (tuple,list):
 		if len(val) == 1:
@@ -174,143 +210,164 @@ def _build_joins(self,modinfo,fields,condfields):
 	
 	return joins
 
-def _build_models(self, fields,cond,context):
-	models = {}
-	joins = []
-	columns = ['a.id']
+def _build_cond_fields(self,cond):
+	fields = set()
+	if cond:
+		for c in cond:
+			if type(c) == tuple:
+				fields.add(c[0])
+			elif type(c) == list:
+				fields.intersection(_build_cond_fields(self,c))
+				
+	return fields
+
+def _build_domain_fields(self,m2ofields):
+	fields = {}
+	for m2ofield in m2ofields:
+		domain = self._columns[m2ofield].domain
+		if domain:
+			fields.setdefault(m2ofield,set()).intersection(_build_cond_fields(self,domain))
+				
+	return fields
+
+
+def _build_fields_conds(self,maps=None,cond=None):
 	conds = []
-	cond_fields_map = {}
+	if maps and cond:
+		for c in cond:
+			if type(c) == tuple:
+				v = []
+				# maps {'parent_id':'"parent_id-name"','uom':'"uom-name"'}
+				v.append(maps[c[0]] if c[0] in maps else 'a.' + c[0])
+					
+				if len(c) > 1:
+					v.append(c[1])
+				if len(c) > 2:
+					v.append(c[2])
+
+				conds.append(tuple(v))
+			elif type(c) == list:	
+				fields.extend(_build_fields_conds(self,c))
+
+	return conds
+
+def _build_domain_conds(self,alias,domain):
+	conds = []
+	if domain:
+		for c in domain:
+			if type(c) == tuple:
+				cond = []
+				cond.append(alias+'.' + c[0])
+				if len(c) > 1:
+					cond.append(c[1])
+				if len(c) > 2:
+					cond.append(c[2])
+				conds.append(tuple(cond))
+			elif type(c) == list:	
+				fields.extend(_build_domain_conds(self,c))
+			elif type(c) == str:
+				cond.append(c)
+			
+			conds.append(tuple(cond))
+
+	return conds
+
+def _build_order_by_fields(self,order_by):
+	fields = {}
+	if order_by:
+		for field in order_by.split(','):
+			f = field.split(' ')
+			fields[f[0]] = f[1] if len(f) > 1 else None
+			
+	return fields
+
+def _build_query(self, fields,cond,context):
+	joins = []
+	columns = {'a':['id']}
+	columns_as = {}
+	columns_maps = {}
+	columns_alias = {}
+	cond_fields = _build_cond_fields(self,cond)
+	domain_fields = _build_domain_fields(self,list(filter(lambda x: x in fields,self._m2ofields + self._referencedfields + self._relatedfields )))
+	order_by_fields = _build_order_by_fields(self,self._order_by)
+	_fields = list(set(fields).union(set(cond_fields)).union(set(list(order_by_fields.keys()))))
 	alias = _gen_aliases('d')
-	fa = {}
 	modinfo = self.modelInfo()
 	colsinfo = modinfo['columns']
 	parent_id = modinfo['names']['parent_id']
-	afields =set(fields) - set(self._i18nfields)
-	models.setdefault(self._table,{})['a'] = list(filter(lambda x: x in fields and x in afields,self._rowfields))
-	columns.extend(list(map(lambda x: 'a.' + x,models[self._table]['a'])))
-	for f in filter(lambda x: colsinfo[x]['type'] not in ('many2one','related'),models.setdefault(self._table,{})['a']):
-		cond_fields_map['a.' + f] =  'a.' + f
+	recname = modinfo['names']['rec_name']
+	if recname and type(recname) == str and recname not in _fields:
+		_fields.append(recname)
+
+	aliases = {'a':self._table}
+	columns['a'].extend(list((set(_fields) - set(self._i18nfields)).intersection(set(self._rowfields))))
 	joins.append(self._table + " AS a")
 	if self._tr_table:
-		models.setdefault(self._tr_table,{})['c'] = list(filter(lambda x: x in fields,self._i18nfields))
-		columns.extend(list(map(lambda x: 'c.' + x,models[self._tr_table]['c'])))
-		for f in filter(lambda x: colsinfo[x]['type'] not in ('many2one','related'),models.setdefault(self._tr_table,{})['c']):
-			cond_fields_map['a.' + f] =  'c.' + f
+		aliases['c'] = self._tr_table
+		columns['c'] = list(set(self._i18nfields).intersection(set(_fields)).intersection(set(self._rowfields)))
 		joins.append("LEFT OUTER JOIN " + self._tr_table + " AS c ON (c.id = a.id AND c.lang = '%s')" % (self._session._lang2id[context['lang'].upper()],) )
 
-	if parent_id and parent_id in fields:
-		if self._tr_table and  self._RecNameName in self._i18nfields:
-			models.setdefault(self._tr_table,{})['d'] = [self._RecNameName]
-			columns.extend(list(map(lambda x: 'd.' + x + ' AS ' + '"' + parent_id + '-name' + '"' ,models[self._tr_table]['d'])))
-			cond_fields_map['a.' + parent_id] =  '"' + parent_id + '-name' + '"'
-			joins.append("LEFT OUTER JOIN " + self._table + " AS b LEFT OUTER JOIN " + self._tr_table + " AS d ON (d.id = b.id AND b.id = a." + parent_id + " and d.lang = '%s')" % (self._session._lang2id[context['lang'].upper()],) )
+	if parent_id and parent_id in columns['a']:
+		if self._tr_table and  recname in self._i18nfields:
+			aliases['d'] = self._tr_table
+			columns.setdefault('d',[]).extend([recname,'lang'])
+			columns_maps[parent_id] = parent_id + '-name' + '"'
+			columns_as['d.' + recname] = '"' + parent_id + '-name' + '"'
+			joins.append("LEFT OUTER JOIN " + self._tr_table + " AS d ON (d.id = a." + parent_id + " and d.lang = '%s')" % (self._session._lang2id[context['lang'].upper()],) )
 		else:
-			models.setdefault(self._table,{})['b'] = [self._RecNameName]
-			columns.extend(list(map(lambda x: 'b.' + x + ' AS ' + '"' + parent_id + '-name' + '"' ,models[self._table]['b'])))
-			cond_fields_map['a.' + parent_id] =  '"' + parent_id + '-name' + '"'
+			aliases['b'] = self._table
+			columns.setdefault('b',[]).extend([recname])
+			columns_maps[parent_id] = parent_id + '-name' + '"'
+			columns_as['b.' + recname] = '"' + parent_id + '-name' + '"'
 			joins.append("LEFT OUTER JOIN " + self._table + " AS b ON (b.id = a." + parent_id + ")" )
 			
-	for field in filter(lambda x: x != parent_id and colsinfo[x]['type'] in ('many2one','related') and x in fields,self._rowfields):
+	for field in filter(lambda x: x not in (parent_id,'id') and colsinfo[x]['type'] in ('many2one','referenced','related'),columns['a']):
+		ca = next(alias)
 		obj = self._columns[field].obj
 		m = self._pool.get(obj)
 		recname = m._RecNameName
-		ca = next(alias)
-		if m._tr_table:
-			if recname in m._columns and m._columns[recname]._type == 'i18n':
-				models.setdefault(m._tr_table,{})[ca] = [recname]
-				columns.extend(list(map(lambda x: ca + '.' + x + ' AS ' + '"' + field + '-name' + '"' ,models[m._tr_table][ca])))
-				cond_fields_map[ca + '.' + field] =  '"' + field + '-name' + '"'
-				joins.append("LEFT OUTER JOIN " + m._tr_table + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
+		i18nfields = m._i18nfields
+		columns.setdefault(ca,[]).extend([recname])
+		columns_maps[ca + '.' + field] = field + '-name' + '"'
+		columns_as[ca + '.' + recname] = '"' + field + '-name' + '"'
+		joins.append("LEFT OUTER JOIN " + m._tr_table if m._tr_table and recname in i18nfields else m._table + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
+		
+	columns_aliases = {}
+	for key in columns.keys():
+		for col in columns[key]:
+			columns_aliases[col] = key
+	
+	cols = []
+	for col in _fields:
+		if col in columns_aliases:
+			acol = columns_aliases[col]+'.' + col
+			if acol in columns_as:
+				cols.append(acol + ' AS ' + columns_as[acol])
 			else:
-				models.setdefault(m._table,{})[ca] = [recname]
-				columns.extend(list(map(lambda x: ca + '.' + x + ' AS ' + '"' + field + '-name' + '"' ,models[m._table][ca])))
-				cond_fields_map[ca + '.' + field] =  '"' + field + '-name' + '"'
-				joins.append("LEFT OUTER JOIN " + m._table + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
-			
-			if self._columns[field].domain:
-				rcond = []
-				for d in self._columns[field].domain:
-					rcond.append(ca + '.' + d[0])
-					if len(d) > 1:
-						rcond.append(d[1])
-					if len(d) > 2:
-						rcond.append(d[2])
-
-				conds.append(tuple(rcond))
-
+				cols.append(acol)
 		else:
-			models.setdefault(m._table,{})[ca] = [recname]
-			columns.extend(list(map(lambda x: ca + '.' + x + ' AS ' + '"' + field + '-name' + '"' ,models[m._table][ca])))
-			cond_fields_map[ca + '.' + field] =  '"' + field + '-name' + '"'
-			joins.append("LEFT OUTER JOIN " + m._table + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
+			cols.append('a.'+col)
+	
+	
+	#if len(cond) > 0:
+		#web_pdb.set_trace()
+
+	conds = _build_fields_conds(self,columns_maps,cond)
+
+	order_by_list = []
+	for k in order_by_fields.keys():
+		order_by_list.append(k + ' ' + order_by_fields[k] if order_by_fields[k] else k)
+
+	order_by = ''
+	if len(order_by_list) > 1:
+		order_by = reduce(lambda x,y: x + ',' + y,order_by_list)
+	elif len(order_by_list) == 1:
+		order_by = 	order_by_list[0]
+	
 			
+	print('fields:',_fields,columns)
 
-			if self._columns[field].domain:
-				rcond = []
-				for d in self._columns[field].domain:
-					rcond.append(ca + '.' + d[0])
-					if len(d) > 1:
-						rcond.append(d[1])
-					if len(d) > 2:
-						rcond.append(d[2])
-
-				conds.append(tuple(rcond))
-		
-	for m in models.keys():
-		for a in models[m].keys():
-			for f in models[m][a]:
-				#fa.setdefault(f,{})[a] = m
-				fa[f] = a
-	for f in list(map(lambda y: y[0],filter(lambda x: type(x) == tuple,cond))):
-		fa[f] = 'a'
-	
-	for c in cond:
-		rcond = []
-		rcond.append(cond_fields_map[fa[c[0]] + '.' + c[0]])
-		if len(c) > 1:
-			rcond.append(c[1])
-		if len(c) > 2:
-			rcond.append(c[2])
-
-		conds.append(tuple(rcond))
-		
-	
-	return models,joins,columns,conds
-
-def inc_char(text, chlist = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.lower()):
-	# Unique and sort
-	chlist = ''.join(sorted(set(str(chlist))))
-	chlen = len(chlist)
-	if not chlen:
-		return ''
-	text = str(text)
-	# Replace all chars but chlist
-	text = re.sub('[^' + chlist + ']', '', text)
-	if not len(text):
-		return chlist[0]
-	# Increment
-	inc = ''
-	over = False
-	for i in range(1, len(text)+1):
-		lchar = text[-i]
-		pos = chlist.find(lchar) + 1
-		if pos < chlen:
-			inc = chlist[pos] + inc
-			over = False
-			break
-		else:
-			inc = chlist[0] + inc
-			over = True
-	if over:
-		inc += chlist[0]
-	result = text[0:-len(inc)] + inc
-	return result
-
-def _gen_aliases(v):
-	text = v
-	while True:
-		text = inc_char(text)
-		yield text
+	return joins,cols,conds,order_by_fields.items()
 
 def _build_aliases(self,joins=None):
 	"""
@@ -590,7 +647,7 @@ def parse_order_by(self,pool,aliases,models,order_by = None, columnsmeta=None):
 					o.append(('c.'+field,sort))
 				else:
 					o.append(('a.'+field,sort))
-		elif field in columnsmeta and columnsmeta[field] in ('many2one','related'):
+		elif field in columnsmeta and columnsmeta[field] in ('many2one','referenced','related'):
 			recname = pool.get(models[field])._getRecNameName()
 			if recname:
 				if type(recname) == str:
@@ -844,9 +901,12 @@ def Read(self,ids,fields,context):
 	return _sql,_values
 #tested
 def Select(self, fields, cond, context, limit = None, offset = None):
-	#_models_new, _joins_new, _columns_new, _conds_new = _build_models(self,fields,cond,context)
-	#_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new))
-	#print('GENSQL-NEW:',_conds_new,_sql_new)
+	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,fields,cond,context)
+	_where = WhereParse(_conds_new)
+	_cond = _where._cond
+	_values = _where._values
+	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause(_cond) + orderby_clause(_order_by_new) if len(_order_by_new) > 0 else '' + limit_clause(limit) if limit else '' + offset_clause(offset) if offset else '' 
+	print('GENSQL-NEW:',_conds_new,_order_by_new,_sql_new,_values)
 
 	_fields = ['id']
 	info = self.modelInfo()

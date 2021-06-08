@@ -114,19 +114,91 @@ class Model(object):
 	def __inherits_cls__(registry,module,meta):
 		ORM.__inherits_cls__(registry,module,'Model',meta)
 
-class Trigger(object): pass
-class Report(object): pass
-class Query(object): pass
-class Dialog(object): pass
-class Wizard(object): pass
-class View(object): pass
-class Dashboard(object): pass
-class Link(object): pass
+class Action(object):
+	_obj = 'actions'
+	__keys_inherits__ = []				
+
+	@staticmethod
+	def __inherits_cls__(registry,module,meta):
+		ORM.__inherits_cls__(registry,module,'Action',meta)
+
+class Form(object):
+	_obj = 'forms'
+	__keys_inherits__ = []				
+
+	@staticmethod
+	def __inherits_cls__(registry,module,meta):
+		ORM.__inherits_cls__(registry,module,'Form',meta)
+
+class Trigger(object):
+	_obj = 'triggers'
+	__keys_inherits__ = []				
+
+	@staticmethod
+	def __inherits_cls__(registry,module,meta):
+		ORM.__inherits_cls__(registry,module,'Trigger',meta)
+
+class Report(object):
+	_obj = 'reports'
+	__keys_inherits__ = []				
+
+	@staticmethod
+	def __inherits_cls__(registry,module,meta):
+		ORM.__inherits_cls__(registry,module,'Report',meta)
+
+class Query(object):
+	_obj = 'queries'
+	__keys_inherits__ = []				
+
+	@staticmethod
+	def __inherits_cls__(registry,module,meta):
+		ORM.__inherits_cls__(registry,module,'Query',meta)
+
+class Dialog(object):
+	_obj = 'dialogs'
+	__keys_inherits__ = []				
+
+	@staticmethod
+	def __inherits_cls__(registry,module,meta):
+		ORM.__inherits_cls__(registry,module,'Dialog',meta)
+
+class Wizard(object):
+	_obj = 'wizards'
+	__keys_inherits__ = []				
+
+	@staticmethod
+	def __inherits_cls__(registry,module,meta):
+		ORM.__inherits_cls__(registry,module,'Wizard',meta)
+
+class View(object):
+	_obj = 'views'
+	__keys_inherits__ = []				
+
+	@staticmethod
+	def __inherits_cls__(registry,module,meta):
+		ORM.__inherits_cls__(registry,module,'View',meta)
+
+class Dashboard(object):
+	_obj = 'dashbords'
+	__keys_inherits__ = []				
+
+	@staticmethod
+	def __inherits_cls__(registry,module,meta):
+		ORM.__inherits_cls__(registry,module,'Dashboard',meta)
+
+class Link(object):
+	_obj = 'links'
+	__keys_inherits__ = []				
+
+	@staticmethod
+	def __inherits_cls__(registry,module,meta):
+		ORM.__inherits_cls__(registry,module,'Link',meta)
+
 
 
 class ModelInherit(object):
 	_obj = 'models'
-	__keys_inherit__ = ['_columns','_actions','_states','_extra','_auths','_chechs','_views','trg_upd_cols','_trigers','_default','_constraints','_sql_constraints']				
+	__keys_inherit__ = ['_columns','_actions','_states','_extra','_auths','_checks','_views','trg_upd_cols','_trigers','_default','_constraints','_sql_constraints']				
 	@staticmethod
 	def __inherit_cls_methods__(meta, imeta, methods):
 		for method in methods:
@@ -189,6 +261,9 @@ class ModelInherit(object):
 		INHERIT.__inherit_cls__(registry,module,'ModelInherit',imeta)
 	
 class TriggerInherit(object):
+	_obj = 'triggers'
+	__keys_inherit__ = []				
+
 	def _trg_upd_cols(self, meta, imeta, trg_upd_cols):
 		meta['attrs'].setdefault('_trg_upd_cols',[]).extend(imeta['attrs']['_trg_upd_cols'])
 
@@ -202,17 +277,87 @@ class TriggerInherit(object):
 				else:
 					meta['attrs'].setdefault('_trigers',{}).setdefault(triger,[]).append(triger[tk])
 
-class ReportInherit(object): pass
-class QueryInherit(object): pass
-class DialogInherit(object): pass
-class WizardInherit(object): pass
-class ViewInherit(object): pass
-class DashboardInherit(object): pass
-class LinkInherit(object): pass
+	@staticmethod
+	def __inherit_cls__(registry,module,imeta):
+		INHERIT.__inherit_cls__(registry,module,'TriggerInherit',imeta)
+
+
+class ActionInherit(object):
+	_obj = 'actions'
+	__keys_inherit__ = []				
+
+	@staticmethod
+	def __inherit_cls__(registry,module,imeta):
+		INHERIT.__inherit_cls__(registry,module,'ActionInherit',imeta)
+
+class FormInherit(object):
+	_obj = 'forms'
+	__keys_inherit__ = []				
+
+	@staticmethod
+	def __inherit_cls__(registry,module,imeta):
+		INHERIT.__inherit_cls__(registry,module,'FormInherit',imeta)
+
+class ReportInherit(object):
+	_obj = 'reports'
+	__keys_inherit__ = []				
+
+	@staticmethod
+	def __inherit_cls__(registry,module,imeta):
+		INHERIT.__inherit_cls__(registry,module,'ReportInherit',imeta)
+
+class QueryInherit(object):
+	_obj = 'queries'
+	__keys_inherit__ = []				
+
+	@staticmethod
+	def __inherit_cls__(registry,module,imeta):
+		INHERIT.__inherit_cls__(registry,module,'QueryInherit',imeta)
+
+class DialogInherit(object):
+	_obj = 'dialogs'
+	__keys_inherit__ = []				
+
+	@staticmethod
+	def __inherit_cls__(registry,module,imeta):
+		INHERIT.__inherit_cls__(registry,module,'DialogInherit',imeta)
+
+class WizardInherit(object):
+	_obj = 'wizards'
+	__keys_inherit__ = []				
+
+	@staticmethod
+	def __inherit_cls__(registry,module,imeta):
+		INHERIT.__inherit_cls__(registry,module,'WizardInherit',imeta)
+
+class ViewInherit(object):
+	_obj = 'views'
+	__keys_inherit__ = []				
+
+	@staticmethod
+	def __inherit_cls__(registry,module,imeta):
+		INHERIT.__inherit_cls__(registry,module,'ViewInherit',imeta)
+
+class DashboardInherit(object):
+	_obj = 'dashboards'
+	__keys_inherit__ = []				
+
+	@staticmethod
+	def __inherit_cls__(registry,module,imeta):
+		INHERIT.__inherit_cls__(registry,module,'DashboardInherit',imeta)
+
+class LinkInherit(object):
+	_obj = 'links'
+	__keys_inherit__ = []				
+
+	@staticmethod
+	def __inherit_cls__(registry,module,imeta):
+		INHERIT.__inherit_cls__(registry,module,'LinkInherit',imeta)
+
 
 _locals = locals()
 
-_maps = {'models':'Model','reports':'Report','triggers':'Triger','queries':'Query','dialogs':'Dialog','wizards':'Wizard','views':'View','dashboards':'Dashboard','links':'link'}
+_maps = {'models':'Model','reports':'Report','triggers':'Trigger','queries':'Query','dialogs':'Dialog','wizards':'Wizard','views':'View','dashboards':'Dashboard','links':'Link','actions':'Action','forms':'Form'}
 
 def inherit(registry,module,obj,imeta):
 	return _locals[_maps[obj]+'Inherit'].__inherit_cls__(registry,module,imeta)

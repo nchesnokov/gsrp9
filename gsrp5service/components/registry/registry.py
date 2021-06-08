@@ -11,23 +11,39 @@ from .depmod import Graph,Node,DependsInstall,DependsRemove
 
 from gsrp5service.orm.orm import inherit,inherits
 
-import gsrp5service.orm.model
-from gsrp5service.orm.model import Model,ModelInherit
-from gsrp5service.orm.mm import _getRecNameName,_getChildsIdName
+import gsrp5service.orm.action
+from gsrp5service.orm.action import Action,ActionInherit
 
-import gsrp5service.orm.report
-from gsrp5service.orm.report import Report,ReportInherit
+import gsrp5service.orm.dashboard
+from gsrp5service.orm.dashboard import Dashboard,DashboardInherit
 
 import gsrp5service.orm.dialog
 from gsrp5service.orm.dialog import Dialog,DialogInherit
 
-import gsrp5service.orm.wizard
-from gsrp5service.orm.wizard import Wizard,WizardInherit
+import gsrp5service.orm.form
+from gsrp5service.orm.form import Form,FormInherit
+
+import gsrp5service.orm.link
+from gsrp5service.orm.link import Link,LinkInherit
+
+import gsrp5service.orm.model
+from gsrp5service.orm.model import Model,ModelInherit
+from gsrp5service.orm.mm import _getRecNameName,_getChildsIdName
 
 import gsrp5service.orm.query
 from gsrp5service.orm.query import Query,QueryInherit
 
-import gsrp5service.orm.link
+import gsrp5service.orm.report
+from gsrp5service.orm.report import Report,ReportInherit
+
+import gsrp5service.orm.trigger
+from gsrp5service.orm.trigger import Trigger,TriggerInherit
+
+import gsrp5service.orm.view
+from gsrp5service.orm.view import View,ViewInherit
+
+import gsrp5service.orm.wizard
+from gsrp5service.orm.wizard import Wizard,WizardInherit
 
 from serviceloader.tools.common import Service, Component, configManagerFixed
 

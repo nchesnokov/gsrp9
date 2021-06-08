@@ -5,11 +5,15 @@ import logging
 from functools import reduce
 from .metaobjects import MetaObjects
 from tools.translations import trlocal as _
+#from . import mm
+#from .mm import orm_exception
+#from .mm import Access
 
 _logger = logging.getLogger(__name__)
 
-class Dashboard(object, metaclass = MetaObjects):
+
+class View(object, metaclass = MetaObjects):
 	_name = None
 	
-class DashboardInherit(object, metaclass = MetaObjects):
+class ViewInherit(object, metaclass = MetaObjects):
 	_name = None
