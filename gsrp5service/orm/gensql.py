@@ -233,15 +233,22 @@ def _build_domain_fields(self,m2ofields):
 
 def _build_fields_conds(self,maps=None,cond=None):
 	conds = []
+	print('maps:',maps,cond)
 	if maps and cond:
 		for c in cond:
 			if type(c) == tuple:
 				v = []
 				# maps {'parent_id':'"parent_id-name"','uom':'"uom-name"'}
-				v.append(maps[c[0]] if c[0] in maps else 'a.' + c[0])
+				if c[1][0] == 'r':
+					v.append('a.' + c[0])
+				else:
+					v.append(maps[c[0]] if c[0] in maps else 'a.' + c[0])
 					
 				if len(c) > 1:
-					v.append(c[1])
+					if c[1][0] == 'r':
+						v.append(c[1][1:])
+					else:
+						v.append(c[1])
 				if len(c) > 2:
 					v.append(c[2])
 
@@ -328,9 +335,11 @@ def _build_query(self, fields,cond,context):
 		recname = m._RecNameName
 		i18nfields = m._i18nfields
 		columns.setdefault(ca,[]).extend([recname])
-		columns_maps[ca + '.' + field] = field + '-name' + '"'
+		#columns_maps[ca + '.' + field] = field + '-name' + '"'
+		#columns_maps[field] = '"' + field + '-name' + '"'
+		columns_maps[field] = ca + '.' + recname
 		columns_as[ca + '.' + recname] = '"' + field + '-name' + '"'
-		joins.append("LEFT OUTER JOIN " + m._tr_table if m._tr_table and recname in i18nfields else m._table + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
+		joins.append("LEFT OUTER JOIN " + (m._tr_table if m._tr_table and recname in i18nfields else m._table) + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
 		
 	columns_aliases = {}
 	for key in columns.keys():
@@ -348,7 +357,9 @@ def _build_query(self, fields,cond,context):
 		else:
 			cols.append('a.'+col)
 	
-	
+	for k,v in columns_as.items():
+		cols.append(k + ' AS ' + v)
+
 	#if len(cond) > 0:
 		#web_pdb.set_trace()
 
@@ -356,7 +367,13 @@ def _build_query(self, fields,cond,context):
 
 	order_by_list = []
 	for k in order_by_fields.keys():
-		order_by_list.append(k + ' ' + order_by_fields[k] if order_by_fields[k] else k)
+		if k == 'id':
+			rn = self._RecNameName
+			if not rn:
+				rn = k
+			order_by_list.append(rn + ' ' + order_by_fields[k] if order_by_fields[k] else k)
+		else:
+		 order_by_list.append(k + ' ' + order_by_fields[k] if order_by_fields[k] else k)
 
 	order_by = ''
 	if len(order_by_list) > 1:
@@ -365,7 +382,7 @@ def _build_query(self, fields,cond,context):
 		order_by = 	order_by_list[0]
 	
 			
-	print('fields:',_fields,columns)
+	print('fields:',_fields,columns,cond,conds)
 
 	return joins,cols,conds,order_by_fields.items()
 
