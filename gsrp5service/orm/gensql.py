@@ -231,30 +231,29 @@ def _build_domain_fields(self,m2ofields):
 	return fields
 
 
-def _build_fields_conds(self,maps=None,cond=None):
+def _build_fields_conds(self,columns,maps=None,cond=None):
 	conds = []
-	print('maps:',maps,cond)
-	if maps and cond:
-		for c in cond:
-			if type(c) == tuple:
-				v = []
-				# maps {'parent_id':'"parent_id-name"','uom':'"uom-name"'}
+	print('maps:',columns,maps,cond)
+	for c in cond:
+		if type(c) == tuple:
+			v = []
+			# maps {'parent_id':'"parent_id-name"','uom':'"uom-name"'}
+			if c[1][0] == 'r':
+				v.append('a.' + c[0])
+			else:
+				v.append(maps[c[0]] if c[0] in maps else 'a.' + c[0])
+				
+			if len(c) > 1:
 				if c[1][0] == 'r':
-					v.append('a.' + c[0])
+					v.append(c[1][1:])
 				else:
-					v.append(maps[c[0]] if c[0] in maps else 'a.' + c[0])
-					
-				if len(c) > 1:
-					if c[1][0] == 'r':
-						v.append(c[1][1:])
-					else:
-						v.append(c[1])
-				if len(c) > 2:
-					v.append(c[2])
+					v.append(c[1])
+			if len(c) > 2:
+				v.append(c[2])
 
-				conds.append(tuple(v))
-			elif type(c) == list:	
-				fields.extend(_build_fields_conds(self,c))
+			conds.append(tuple(v))
+		elif type(c) == list:	
+			fields.extend(_build_fields_conds(self,c))
 
 	return conds
 
@@ -290,14 +289,13 @@ def _build_order_by_fields(self,order_by):
 
 def _build_query(self, fields,cond,context):
 	joins = []
-	columns = {'a':['id']}
+	columns = {}
 	columns_as = {}
 	columns_maps = {}
-	columns_alias = {}
 	cond_fields = _build_cond_fields(self,cond)
 	domain_fields = _build_domain_fields(self,list(filter(lambda x: x in fields,self._m2ofields + self._referencedfields + self._relatedfields )))
 	order_by_fields = _build_order_by_fields(self,self._order_by)
-	_fields = list(set(fields).union(set(cond_fields)).union(set(list(order_by_fields.keys()))))
+	_fields = list(set(filter(lambda x: type(x) == str,fields)).union(set(cond_fields)).union(set(list(order_by_fields.keys()))))
 	alias = _gen_aliases('d')
 	modinfo = self.modelInfo()
 	colsinfo = modinfo['columns']
@@ -307,7 +305,7 @@ def _build_query(self, fields,cond,context):
 		_fields.append(recname)
 
 	aliases = {'a':self._table}
-	columns['a'].extend(list((set(_fields) - set(self._i18nfields)).intersection(set(self._rowfields))))
+	columns['a'] = list((set(_fields) - set(self._i18nfields)).intersection(set(self._rowfields)))
 	joins.append(self._table + " AS a")
 	if self._tr_table:
 		aliases['c'] = self._tr_table
@@ -318,13 +316,13 @@ def _build_query(self, fields,cond,context):
 		if self._tr_table and  recname in self._i18nfields:
 			aliases['d'] = self._tr_table
 			columns.setdefault('d',[]).extend([recname,'lang'])
-			columns_maps[parent_id] = parent_id + '-name' + '"'
+			columns_maps[parent_id] = 'd.' + recname
 			columns_as['d.' + recname] = '"' + parent_id + '-name' + '"'
 			joins.append("LEFT OUTER JOIN " + self._tr_table + " AS d ON (d.id = a." + parent_id + " and d.lang = '%s')" % (self._session._lang2id[context['lang'].upper()],) )
 		else:
 			aliases['b'] = self._table
 			columns.setdefault('b',[]).extend([recname])
-			columns_maps[parent_id] = parent_id + '-name' + '"'
+			columns_maps[parent_id] = 'b.' + recname
 			columns_as['b.' + recname] = '"' + parent_id + '-name' + '"'
 			joins.append("LEFT OUTER JOIN " + self._table + " AS b ON (b.id = a." + parent_id + ")" )
 			
@@ -341,29 +339,33 @@ def _build_query(self, fields,cond,context):
 		columns_as[ca + '.' + recname] = '"' + field + '-name' + '"'
 		joins.append("LEFT OUTER JOIN " + (m._tr_table if m._tr_table and recname in i18nfields else m._table) + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
 		
-	columns_aliases = {}
-	for key in columns.keys():
-		for col in columns[key]:
-			columns_aliases[col] = key
-	
+	for field in fields:
+		if type(field) == dict:
+			for f,o in field.items():
+				if f not in (parent_id,'id') and colsinfo[f]['type'] in ('many2many','one2many'):
+					obj = self._columns[f].obj
+					m = self._pool.get(obj)
+					columns_as[ 'NULL'] = f
+		elif type(field) == str:
+			if field not in (parent_id,'id') and colsinfo[field]['type'] in ('many2many','one2many'):
+				obj = self._columns[field].obj
+				m = self._pool.get(obj)
+				columns_as[ 'NULL'] = field
+			
 	cols = []
+	if 'id' not in fields:
+		cols.append('a.id')
+	
 	for col in _fields:
-		if col in columns_aliases:
-			acol = columns_aliases[col]+'.' + col
-			if acol in columns_as:
-				cols.append(acol + ' AS ' + columns_as[acol])
-			else:
-				cols.append(acol)
-		else:
+		if 'a' in columns and col in columns['a']:
 			cols.append('a.'+col)
+		elif 'c' in columns and col in columns['c']:
+			cols.append('c.'+col)
 	
 	for k,v in columns_as.items():
 		cols.append(k + ' AS ' + v)
 
-	#if len(cond) > 0:
-		#web_pdb.set_trace()
-
-	conds = _build_fields_conds(self,columns_maps,cond)
+	conds = _build_fields_conds(self,columns,columns_maps,cond)
 
 	order_by_list = []
 	for k in order_by_fields.keys():
@@ -382,7 +384,7 @@ def _build_query(self, fields,cond,context):
 		order_by = 	order_by_list[0]
 	
 			
-	print('fields:',_fields,columns,cond,conds)
+	print('fields:',_fields,cols,columns,cond,conds)
 
 	return joins,cols,conds,order_by_fields.items()
 
@@ -888,6 +890,11 @@ def Upsert(self,fields,values,context):
 
 #tested
 def Read(self,ids,fields,context):
+	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,fields,[],context)
+	_values_new = ids
+	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause_ids(ids) + (orderby_clause(_order_by_new) if len(_order_by_new) > 0 else '') 
+	print('GENSQL-NEW-READ:',_conds_new,_order_by_new,_sql_new,_values_new)
+
 	_fields = ['id']
 	info = self.modelInfo()
 	pool = self._pool
@@ -921,9 +928,10 @@ def Select(self, fields, cond, context, limit = None, offset = None):
 	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,fields,cond,context)
 	_where = WhereParse(_conds_new)
 	_cond = _where._cond
-	_values = _where._values
+	_values_new = _where._values
 	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause(_cond) + orderby_clause(_order_by_new) if len(_order_by_new) > 0 else '' + limit_clause(limit) if limit else '' + offset_clause(offset) if offset else '' 
-	print('GENSQL-NEW:',_conds_new,_order_by_new,_sql_new,_values)
+	print('GENSQL-NEW-SELECT:',_conds_new,_order_by_new,_sql_new,_values_new)
+	return _sql_new,_values_new
 
 	_fields = ['id']
 	info = self.modelInfo()

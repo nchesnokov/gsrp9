@@ -209,6 +209,7 @@ class Cursor(object):
 				for k in field.keys():
 					fm[k] = i
 
+		#web_pdb.set_trace()
 		row = []
 		for field in fields:
 			if type(field) == str:
