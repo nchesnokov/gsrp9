@@ -129,7 +129,7 @@ class sale_order_texts(Model):
 	'order_id': fields.many2one(label='Order',obj='sale.orders'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='sale.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -360,7 +360,7 @@ class sale_order_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='sale.order.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='sale.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -485,7 +485,7 @@ class sale_invoice_texts(Model):
 	'invoice_id': fields.many2one(label='Order',obj='sale.invoices'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='sale.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -555,7 +555,7 @@ class sale_invoice_item_texts(Model):
 	'item_id': fields.many2one(label='Order',obj='sale.invoice.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='sale.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 

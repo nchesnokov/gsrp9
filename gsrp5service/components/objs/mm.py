@@ -68,7 +68,7 @@ def _join_diffs(d1,d2):
 
 def _conv_record_to_ext(self,record,context):
 	for key in filter(lambda x: x != 'id',record.keys()):
-		if self._columns[key]._type in ('many2one','related'):
+		if self._columns[key]._type in ('many2one','referenced','related'):
 			if type(record[key]) == str:
 				try:
 					uuid.UUID(record[key])
@@ -84,7 +84,6 @@ def _conv_record_to_ext(self,record,context):
 							except:
 								pass
 								#web_pdb.set_trace()
-							
 				except ValueError:
 					m = self._pool.get(self._columns[key].obj)
 					recname = m._RecNameName

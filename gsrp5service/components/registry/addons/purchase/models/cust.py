@@ -433,7 +433,7 @@ class purchase_schema_text_items(Model):
 	'schema_id': fields.many2one(label = 'Schema',obj='purchase.schema.texts'),
 	'seq': fields.integer(label='Sequence'),
 	'text_id': fields.many2one(label = 'Text',obj='purchase.texts'),
-	'descr': fields.referenced(ref='text_id.descr')
+	'descr': fields.link(ref='text_id.descr')
 	}
 
 purchase_schema_text_items()

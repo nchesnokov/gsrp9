@@ -101,7 +101,7 @@ class srm_demand_texts(Model):
 	'demand_id': fields.many2one(label='Demand',obj='srm.demands'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -260,7 +260,7 @@ class srm_demand_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='srm.demand.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -497,7 +497,7 @@ class srm_part_texts(Model):
 	'part_id': fields.many2one(label='Part',obj='srm.parts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -655,7 +655,7 @@ class srm_part_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='srm.part.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -892,7 +892,7 @@ class srm_plan_texts(Model):
 	'plan_id': fields.many2one(label='Plan',obj='srm.plans'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -1050,7 +1050,7 @@ class srm_plan_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='srm.plan.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -1287,7 +1287,7 @@ class srm_request_texts(Model):
 	'request_id': fields.many2one(label='Request',obj='srm.requests'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -1445,7 +1445,7 @@ class srm_request_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='srm.request.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -1682,7 +1682,7 @@ class srm_response_texts(Model):
 	'response_id': fields.many2one(label='Response',obj='srm.responses'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -1840,7 +1840,7 @@ class srm_response_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='srm.response.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -2078,7 +2078,7 @@ class srm_rfx_texts(Model):
 	'rfx_id': fields.many2one(label='RFX',obj='srm.rfxs'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -2236,7 +2236,7 @@ class srm_rfx_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='srm.rfx.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -2473,7 +2473,7 @@ class srm_auction_texts(Model):
 	'auction_id': fields.many2one(label='Auction',obj='srm.auctions'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -2631,7 +2631,7 @@ class srm_auction_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='srm.auction.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -2868,7 +2868,7 @@ class srm_offer_texts(Model):
 	'offer_id': fields.many2one(label='Offer',obj='srm.offers'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -3026,7 +3026,7 @@ class srm_offer_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='srm.offer.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -3263,7 +3263,7 @@ class srm_evolution_texts(Model):
 	'evolution_id': fields.many2one(label='Evolution',obj='srm.evolutions'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -3421,7 +3421,7 @@ class srm_evolution_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='srm.evolution.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -3658,7 +3658,7 @@ class srm_decision_texts(Model):
 	'decision_id': fields.many2one(label='Decision',obj='srm.decisions'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -3816,7 +3816,7 @@ class srm_decision_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='srm.decision.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -4053,7 +4053,7 @@ class srm_contract_texts(Model):
 	'contract_id': fields.many2one(label='Contract',obj='srm.contracts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -4211,7 +4211,7 @@ class srm_contract_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='srm.contract.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='srm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 

@@ -40,7 +40,7 @@ class mrp_schema_text_items(Model):
 	'schema_id': fields.many2one(label = 'Schema',obj='mrp.schema.texts'),
 	'seq': fields.integer(label='Sequence'),
 	'text_id': fields.many2one(label = 'Text',obj='mrp.texts'),
-	'descr': fields.referenced(ref='text_id.descr')
+	'descr': fields.link(ref='text_id.descr')
 	}
 
 mrp_schema_text_items()

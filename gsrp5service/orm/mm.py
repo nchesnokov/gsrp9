@@ -760,7 +760,7 @@ def _setDefault(self,item):
 		if k in item:
 			if m1[k]['type'] in ('numeric','decimal'):
 				item[k] = Decimal(_default[k])
-			elif m1[k]['type'] in ('many2one','related'):
+			elif m1[k]['type'] in ('many2one','related','referenced'):
 				item.setdefault(k,{})['name'] = _default[k]
 			else:
 				item[k] = _default[k]	

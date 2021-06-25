@@ -371,7 +371,7 @@ class bc_model_access(Model):
 	'note': fields.text(label='Note',readonly=True)
 	}
 	
-	_sql_constraints = [('model_unique','unique (access_id, model_id)', 'Model to be  unique in access')]
+	_sql_constraints = [('model_unique','unique (access_id, model)', 'Model to be  unique in access')]
 
 bc_model_access()
 

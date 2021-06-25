@@ -1313,7 +1313,7 @@ class MCache(object):
 			if k in item:
 				if m1[k]['type'] in ('numeric','decimal'):
 					item[k] = Decimal(_default[k])
-				elif m1[k]['type'] in ('many2one','related'):
+				elif m1[k]['type'] in ('many2one','referenced','related'):
 					item[k]['name'] = _default[k]
 					oids = self._pool.get(m1[k]['obj']).search([(self._pool.get(m1[k]['obj'])._getRecNameName(),'=',_default[k])],self._context)
 					if len(oids) > 0:
@@ -1684,7 +1684,7 @@ class MCache(object):
 		m = self._pool.get(model)
 		excl_fields = m._o2mfields + m._m2mfields + ['id']
 		for k in filter(lambda x: x not in excl_fields,item['__data__'].keys()):
-			if k in m._columns and m._columns[k]._type in ('many2one','related'):
+			if k in m._columns and m._columns[k]._type in ('many2one','referenced','related'):
 				#if rel and k != rel or not rel:
 				data[k] = item['__data__'][k]['id']
 			elif k in m._columns and m._columns[k]._type == 'json':
@@ -1754,7 +1754,7 @@ class MCache(object):
 		m = self._pool.get(model)
 		excl_fields = m._o2mfields + m._m2mfields
 		for k in filter(lambda x: x not in excl_fields,item['__data__'].keys()):
-			if k in m._columns and m._columns[k]._type in ('many2one','related'):
+			if k in m._columns and m._columns[k]._type in ('many2one','referenced','related'):
 				if rel and k != rel or not rel:
 					if type(item['__data__'][k]) == dict:
 						data[k] = item['__data__'][k]['id']
@@ -1834,7 +1834,7 @@ class MCache(object):
 		m = self._pool.get(model)
 		excl_fields = m._o2mfields + m._m2mfields
 		for k in filter(lambda x: x not in excl_fields,item['__data__'].keys()):
-			if m._columns[k]._type in ('many2one','related'):
+			if m._columns[k]._type in ('many2one','referenced','related'):
 				if k != rel:
 					data[k] = item['__data__'][k]['id']
 			elif k in m._columns and m._columns[k]._type == 'json':
@@ -1930,7 +1930,7 @@ class MCache(object):
 			for mkey in models[model].keys():
 				data = {}
 				for k in models[model][mkey].keys():
-					if m._columns[k]._type in ('many2one','related'):
+					if m._columns[k]._type in ('many2one','referenced','related'):
 						data[k] = models[model][mkey][k]['id']
 					elif k in m._columns and m._columns[k]._type == 'json':
 						data[k] = json.dumps(models[model][mkey][k])

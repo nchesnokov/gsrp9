@@ -290,9 +290,9 @@ class md_currency_rate(Model):
 	_class_model = 'B'
 	_columns = {
 	'company_id': fields.many2one(label = 'Company',obj='md.company',rel='currency_rate'),
-	'currency_id': fields.related(label = 'From Currency',obj='md.currency'),
-	'currency_id1': fields.related(label = 'To Currency',obj='md.currency'),
-	'key_id': fields.related(label = 'Key',obj='md.key.currencies'),
+	'currency_id': fields.referenced(label = 'From Currency',obj='md.currency'),
+	'currency_id1': fields.referenced(label = 'To Currency',obj='md.currency'),
+	'key_id': fields.referenced(label = 'Key',obj='md.key.currencies'),
 	'date': fields.date(label = 'Date'),
 	'account': fields.integer(label='Account',check='account > 0'),
 	'rate': fields.numeric(label = 'Currency Rate',size=(9,5), required = True,check='rate > 0.00000')
@@ -342,8 +342,8 @@ class md_partners_bank(Model):
 	'acc_number': fields.varchar(label='Account Number', required=True),
 	'sanitized_acc_number': fields.varchar(compute='_compute_sanitized_acc_number', label='Sanitized Account Number', readonly=True),
 	'partner': fields.related(obj='md.partner', label='Account Holder', on_delete='c', domain=[ ('issuplier', )]),
-	#'bank_name': fields.referenced(label='Bank Name',ref='bank_id.name'),
-	#'bank_bic': fields.referenced(ref='bank_id.bic'),
+	'bank_name': fields.link(label='Bank Name',ref='bank_id.name'),
+	'bank_bic': fields.link(ref='bank_id.bic'),
 	'sequence': fields.integer(label='Sequence'),
 	'currency': fields.referenced(obj='md.currency', label='Currency'),
 	'company': fields.referenced(obj='md.company', label='Company',  on_delete='c'),
@@ -360,7 +360,7 @@ class md_partners_bank(Model):
 		return  {'sanitized_acc_number':''}
 
 	_sql_constraints = [
-		('unique_number', 'unique(sanitized_acc_number, company_id)', 'Account Number must be unique'),
+		('unique_number', 'unique(sanitized_acc_number, company)', 'Account Number must be unique'),
 	]
 
 md_partners_bank()

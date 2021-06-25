@@ -59,7 +59,7 @@ class mrp_demand_texts(Model):
 	'demand_id': fields.many2one(label='Demand',obj='mrp.demand', on_delete='c'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='mrp.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -144,7 +144,7 @@ class mrp_demand_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='mrp.demand.items', on_delete='c'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='mrp.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -239,7 +239,7 @@ class mrp_request_texts(Model):
 	'request_id': fields.many2one(label='Request',obj='mrp.request', on_delete='c'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='mrp.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -320,7 +320,7 @@ class mrp_request_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='mrp.request.items', on_delete='c'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='mrp.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 

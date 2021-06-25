@@ -233,7 +233,7 @@ class crm_unit_channel_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='crm_units'),
 	'channel_id': fields.many2one(label='Channel',obj='crm_channels'),
-	'descr': fields.referenced(ref='channel_id.descr'),
+	'descr': fields.link(ref='channel_id.descr'),
 	}
 
 crm_unit_channel_assigments()
@@ -246,7 +246,7 @@ class crm_unit_segment_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='crm_units'),
 	'segment_id': fields.many2one(label='Segment',obj='crm_segments'),
-	'descr': fields.referenced(ref='segment_id.descr'),
+	'descr': fields.link(ref='segment_id.descr'),
 	}
 
 crm_unit_segment_assigments()
@@ -259,7 +259,7 @@ class crm_unit_area_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='crm_units'),
 	'area_id': fields.many2one(label='Area',obj='crm_areas'),
-	'descr': fields.referenced(ref='area_id.descr'),
+	'descr': fields.link(ref='area_id.descr'),
 	}
 
 crm_unit_area_assigments()
@@ -272,7 +272,7 @@ class crm_unit_region_assigments(Model):
 	_columns = {
 	'unit_id': fields.many2one(label='Unit',obj='crm_units'),
 	'region_id': fields.many2one(label='Region',obj='crm_regions'),
-	'descr': fields.referenced(ref='region_id.descr'),
+	'descr': fields.link(ref='region_id.descr'),
 	}
 
 crm_unit_segment_assigments()
@@ -287,7 +287,7 @@ class crm_division_subdivision_assigments(Model):
 	_columns = {
 	'division_id': fields.many2one(label='Division',obj='crm_divisions'),
 	'subdivision_id': fields.many2one(label='Subdivision',obj='crm_subdivisions'),
-	'descr': fields.referenced(ref='subdivision_id.descr'),
+	'descr': fields.link(ref='subdivision_id.descr'),
 	}
 
 crm_division_subdivision_assigments()
@@ -462,7 +462,7 @@ class crm_schema_text_items(Model):
 	_columns = {
 	'schema_id': fields.many2one(label = 'Schema',obj='crm.schema.texts'),
 	'text_id': fields.many2one(label = 'Text',obj='crm.texts'),
-	'descr': fields.referenced(ref='text_id.descr')
+	'descr': fields.link(ref='text_id.descr')
 	}
 
 crm_schema_text_items()
@@ -699,7 +699,7 @@ class crm_request_texts(Model):
 	'request_id': fields.many2one(label='Request',obj='crm.requests'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='crm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -769,7 +769,7 @@ class crm_request_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='crm.request.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='crm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -889,7 +889,7 @@ class crm_offer_texts(Model):
 	'offer_id': fields.many2one(label='Offer',obj='crm.offers'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='crm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -959,7 +959,7 @@ class crm_offer_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='crm.offer.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='crm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -1081,7 +1081,7 @@ class crm_contract_texts(Model):
 	'contract_id': fields.many2one(label='Offer',obj='crm.contracts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='crm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -1164,7 +1164,7 @@ class crm_contract_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='crm.contract.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='crm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 

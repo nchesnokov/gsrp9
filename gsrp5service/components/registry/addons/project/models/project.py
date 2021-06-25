@@ -352,7 +352,7 @@ class prj_markets(Model):
 	'segment_id': fields.related(label='Segment',obj='prj.unit.segment.assigments', relatedy=['unit_id'], required = True),
 	'area_id': fields.related(label='Area',obj='prj.unit.area.assigments', relatedy=['unit_id'], required = True),
 	'region_id': fields.related(label='Region',obj='prj.unit.region.assigments', relatedy=['unit_id'], required = True),
-	'fullname': fields.tree(label='Full Name',cols=['unit_id','channel_id','segment_id','area_id','region_id'],translate = True,required = True),
+	'fullname': fields.tree(label='Full Name',translate = True,required = True),
 	'note': fields.text(label='Note'),
 	}
 
@@ -430,7 +430,7 @@ class prj_schema_text_items(Model):
 	'schema_id': fields.many2one(label = 'Schema',obj='prj.schema.texts'),
 	'seq': fields.integer(label='Sequence'),
 	'text_id': fields.many2one(label = 'Text',obj='prj.texts'),
-	'descr': fields.referenced(ref='text_id.descr')
+	'descr': fields.link(ref='text_id.descr')
 	}
 
 prj_schema_text_items()

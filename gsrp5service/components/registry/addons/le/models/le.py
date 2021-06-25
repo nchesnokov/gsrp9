@@ -102,7 +102,7 @@ class le_inbound_delivery_texts(Model):
 	'delivery_id': fields.many2one(label='Delivery',obj='le.inbound.delivery'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='le.delivery.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -249,7 +249,7 @@ class le_inbound_delivery_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='le.inbound.delivery.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='le.delivery.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -417,7 +417,7 @@ class le_outbound_delivery_texts(Model):
 	'delivery_id': fields.many2one(label='Delivery',obj='le.outbound.delivery'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='le.delivery.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -512,7 +512,7 @@ class le_outbound_delivery_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='le.outbound.delivery.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='le.delivery.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -649,7 +649,7 @@ class le_internal_delivery_texts(Model):
 	'delivery_id': fields.many2one(label='Delivery',obj='le.internal.delivery'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='le.delivery.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -745,7 +745,7 @@ class le_internal_delivery_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='le.internal.delivery.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='le.delivery.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 

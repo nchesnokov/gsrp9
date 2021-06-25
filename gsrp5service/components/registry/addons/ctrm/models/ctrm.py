@@ -106,7 +106,7 @@ class ctrm_schema_text_items(Model):
 	_columns = {
 	'schema_id': fields.many2one(label = 'Schema',obj='ctrm.schema.texts'),
 	'text_id': fields.many2one(label = 'Text',obj='ctrm.texts'),
-	'descr': fields.referenced(ref='text_id.descr')
+	'descr': fields.link(ref='text_id.descr')
 	}
 
 ctrm_schema_text_items()
@@ -120,7 +120,7 @@ class ctrm_origin_quotes(Model):
 	_columns = {
 	'schema_id': fields.many2one(label = 'Schema',obj='ctrm.schema.texts'),
 	'text_id': fields.many2one(label = 'Text',obj='ctrm.texts'),
-	'descr': fields.referenced(ref='text_id.descr')
+	'descr': fields.link(ref='text_id.descr')
 	}
 
 ctrm_origin_quotes	()
@@ -333,7 +333,7 @@ class ctrm_request_texts(Model):
 	'request_id': fields.many2one(label='Request',obj='ctrm.requests'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='ctrm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -403,7 +403,7 @@ class ctrm_request_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='ctrm.request.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='ctrm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -510,7 +510,7 @@ class ctrm_offer_texts(Model):
 	'offer_id': fields.many2one(label='Offer',obj='ctrm.offers'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='ctrm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -580,7 +580,7 @@ class ctrm_offer_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='ctrm.offer.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='ctrm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -689,7 +689,7 @@ class ctrm_contract_texts(Model):
 	'contract_id': fields.many2one(label='Offer',obj='ctrm.contracts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='ctrm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 
@@ -757,7 +757,7 @@ class ctrm_contract_item_texts(Model):
 	'item_id': fields.many2one(label='Item',obj='ctrm.contract.items'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
 	'text_id': fields.many2one(label='Text ID',obj='ctrm.texts'),
-	'descr': fields.referenced(ref='text_id.descr'),
+	'descr': fields.link(ref='text_id.descr'),
 	'content':fields.text(label = 'Content',translate=True)
 	}
 

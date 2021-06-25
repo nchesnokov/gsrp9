@@ -1052,7 +1052,7 @@ def _convertFromYAML(self,model,records,context):
 		for key in record.keys():
 			if key == 'id':
 				continue
-			if columns_info[key]['type'] in ('many2one','related'):
+			if columns_info[key]['type'] in ('many2one','referenced','related'):
 				recname = self._session._models.get(columns_info[key]['obj'])._getRecNameName()
 				if recname is None:
 					recname = 'id'	
@@ -1119,7 +1119,7 @@ def _loadCSVFile(self,info,path,name,fl,context):
 							ts.setdefault(record[rec_name],set()).add(record[parent_id])
 						tss = list(toposort.toposort(ts))
 						#print('TSS:',tss)
-						web_pdb.set_trace()
+						#web_pdb.set_trace()
 						for keys in tss:
 							for key in keys:
 								rows = list(filter(lambda x:x[parent_id] == key,copy.deepcopy(records)))
@@ -1164,7 +1164,7 @@ def _loadXMLFile(self,info,path,name,fl,context):
 			else:
 				for key in record.keys():
 						column = columnsinfo[key]
-						if column['type'] in ('many2one','related'):
+						if column['type'] in ('many2one','referenced','related'):
 							obj = column['obj']
 							recname = self._session._models.get(obj)._getRecNameName()
 

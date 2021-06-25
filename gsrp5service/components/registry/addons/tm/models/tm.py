@@ -268,10 +268,10 @@ class tm_unit_equipment_orders(Model):
 	_columns = {
 	'unit_equipment_id': fields.many2one(label='Unit Equipment',obj='tm.unit.equipments'),
 	'order_id': fields.many2one(label='Order',obj='tm.orders'),
-	'state': fields.referenced(label='State',ref='order_id.state'),
-	'start_date': fields.referenced(label='Start Date',ref='order_id.from_date'),
-	'end_date': fields.referenced(label='End Date',ref='order_id.to_date'),
-	'otype': fields.referenced(label='Type',ref='order_id.otype'),
+	'state': fields.link(label='State',ref='order_id.state'),
+	'start_date': fields.link(label='Start Date',ref='order_id.from_date'),
+	'end_date': fields.link(label='End Date',ref='order_id.to_date'),
+	'otype': fields.link(label='Type',ref='order_id.otype'),
 	'note': fields.text(label='Note')
 	}
 

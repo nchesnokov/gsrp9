@@ -233,7 +233,7 @@ def _build_domain_fields(self,m2ofields):
 
 def _build_fields_conds(self,columns,maps=None,cond=None):
 	conds = []
-	print('maps:',columns,maps,cond)
+	#print('maps:',columns,maps,cond)
 	for c in cond:
 		if type(c) == tuple:
 			v = []
@@ -310,6 +310,8 @@ def _build_query(self, fields,cond,context):
 	if self._tr_table:
 		aliases['c'] = self._tr_table
 		columns['c'] = list(set(self._i18nfields).intersection(set(_fields)).intersection(set(self._rowfields)))
+		for c in columns['c']:
+			columns_maps[c] = 'c.' + c
 		joins.append("LEFT OUTER JOIN " + self._tr_table + " AS c ON (c.id = a.id AND c.lang = '%s')" % (self._session._lang2id[context['lang'].upper()],) )
 
 	if parent_id and parent_id in columns['a']:
@@ -333,8 +335,6 @@ def _build_query(self, fields,cond,context):
 		recname = m._RecNameName
 		i18nfields = m._i18nfields
 		columns.setdefault(ca,[]).extend([recname])
-		#columns_maps[ca + '.' + field] = field + '-name' + '"'
-		#columns_maps[field] = '"' + field + '-name' + '"'
 		columns_maps[field] = ca + '.' + recname
 		columns_as[ca + '.' + recname] = '"' + field + '-name' + '"'
 		joins.append("LEFT OUTER JOIN " + (m._tr_table if m._tr_table and recname in i18nfields else m._table) + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
@@ -384,7 +384,7 @@ def _build_query(self, fields,cond,context):
 		order_by = 	order_by_list[0]
 	
 			
-	print('fields:',_fields,cols,columns,cond,conds)
+	#print('fields:',_fields,cols,columns,cond,conds)
 
 	return joins,cols,conds,order_by_fields.items()
 
@@ -891,10 +891,15 @@ def Upsert(self,fields,values,context):
 #tested
 def Read(self,ids,fields,context):
 	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,fields,[],context)
-	_values_new = ids
-	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause_ids(ids) + (orderby_clause(_order_by_new) if len(_order_by_new) > 0 else '') 
-	print('GENSQL-NEW-READ:',_conds_new,_order_by_new,_sql_new,_values_new)
 
+	if type(ids) == str:
+		_values_new = [ids]
+	else:
+		_values_new = [tuple(ids)]
+
+	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause_ids(ids) + (orderby_clause(_order_by_new) if len(_order_by_new) > 0 else '') 
+	#print('GENSQL-NEW-READ:',_conds_new,_order_by_new,_sql_new,_values_new)
+	return _sql_new,_values_new
 	_fields = ['id']
 	info = self.modelInfo()
 	pool = self._pool
@@ -930,7 +935,7 @@ def Select(self, fields, cond, context, limit = None, offset = None):
 	_cond = _where._cond
 	_values_new = _where._values
 	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause(_cond) + orderby_clause(_order_by_new) if len(_order_by_new) > 0 else '' + limit_clause(limit) if limit else '' + offset_clause(offset) if offset else '' 
-	print('GENSQL-NEW-SELECT:',_conds_new,_order_by_new,_sql_new,_values_new)
+	#print('GENSQL-NEW-SELECT:',_conds_new,_order_by_new,_sql_new,_values_new)
 	return _sql_new,_values_new
 
 	_fields = ['id']
