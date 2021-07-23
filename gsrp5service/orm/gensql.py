@@ -974,59 +974,75 @@ def Select(self, fields, cond, context, limit = None, offset = None):
 	return _sql,_values
 #tested
 def Search(self, cond, context, limit, offset):
-	info  = self.modelInfo()
-	pool = self._pool
-	_f = fields_from_order_by(self)
-	
-	#web_pdb.set_trace()
-	_fields = fields_clause_select(_f).split(',')
- 
-# Parses
-	cond = _convert_cond(self,cond)
-	condfields = _build_condfields(self=self,cond=cond)
-	joins = _build_joins(self=self,modinfo = info,fields = _fields,condfields=condfields)
-	aliases = _build_aliases(self=self,joins=joins)
-	joinmodels = _build_joinmodels(self=self,joins = joins)
-	_fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
-	join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)
-	cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
-	order_by = parse_order_by(self = self,pool = pool,aliases = aliases,models=joinmodels,order_by = info['order_by'], columnsmeta = self._columnsmeta)
-# Parses
-
-	_where = WhereParse(cond)
+	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,[],cond,context)
+	_where = WhereParse(_conds_new)
 	_cond = _where._cond
-	_values = _where._values
-	if limit:
-		_values.append(limit)
-	if offset:	
-		_values.append(offset)
-	_sql = select_clause() +fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
-	return _sql, tuple(_values)
+	_values_new = _where._values
+	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause(_cond) + orderby_clause(_order_by_new) if len(_order_by_new) > 0 else '' + limit_clause(limit) if limit else '' + offset_clause(offset) if offset else '' 
+	select_clause() +fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
+	#print('GENSQL-NEW-SELECT:',_conds_new,_order_by_new,_sql_new,_values_new)
+	return _sql_new,tuple(_values_new)
+
+	# info  = self.modelInfo()
+	# pool = self._pool
+	# _f = fields_from_order_by(self)
+	
+	# #web_pdb.set_trace()
+	# _fields = fields_clause_select(_f).split(',')
+ 
+# # Parses
+	# cond = _convert_cond(self,cond)
+	# condfields = _build_condfields(self=self,cond=cond)
+	# joins = _build_joins(self=self,modinfo = info,fields = _fields,condfields=condfields)
+	# aliases = _build_aliases(self=self,joins=joins)
+	# joinmodels = _build_joinmodels(self=self,joins = joins)
+	# _fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
+	# join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)
+	# cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
+	# order_by = parse_order_by(self = self,pool = pool,aliases = aliases,models=joinmodels,order_by = info['order_by'], columnsmeta = self._columnsmeta)
+# # Parses
+
+	# _where = WhereParse(cond)
+	# _cond = _where._cond
+	# _values = _where._values
+	# if limit:
+		# _values.append(limit)
+	# if offset:	
+		# _values.append(offset)
+	# _sql = select_clause() +fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
+	# return _sql, tuple(_values)
 
 #tested
 def Count(self,cond,context):
-	info  = self.modelInfo()
-	pool = self._pool
-	_fields = fields_clause_select().split(',')
-
-# Parses
-	cond = _convert_cond(self,cond)
-	condfields = _build_condfields(self=self,cond=cond)
-	joins = _build_joins(self=self,modinfo = info,fields = _fields,condfields=condfields)
-	aliases = _build_aliases(self=self,joins=joins)
-	joinmodels = _build_joinmodels(self=self,joins = joins)
-	_fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
-	join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)
-	cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
-# Parses
-
-	_where = WhereParse(cond)
-
+	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,[],cond,context)
+	_where = WhereParse(_conds_new)
 	_cond = _where._cond
-	_values = _where._values
+	_values_new = _where._values
+	_sql_new = count_clause() + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause(_cond)
+	return _sql_new,_values_new
 
-	_sql = count_clause() + from_clause(join) + where_clause(_cond)
-	return _sql,_values
+	# info  = self.modelInfo()
+	# pool = self._pool
+	# _fields = fields_clause_select().split(',')
+
+# # Parses
+	# cond = _convert_cond(self,cond)
+	# condfields = _build_condfields(self=self,cond=cond)
+	# joins = _build_joins(self=self,modinfo = info,fields = _fields,condfields=condfields)
+	# aliases = _build_aliases(self=self,joins=joins)
+	# joinmodels = _build_joinmodels(self=self,joins = joins)
+	# _fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
+	# join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)
+	# cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
+# # Parses
+
+	# _where = WhereParse(cond)
+
+	# _cond = _where._cond
+	# _values = _where._values
+
+	# _sql = count_clause() + from_clause(join) + where_clause(_cond)
+	# return _sql,_values
 #tested
 def Delete(self,cond, context):
 	info  = self.modelInfo()	

@@ -51,7 +51,7 @@ class BaseModelInherit(object, metaclass = MetaObjects):
 
 	@property
 	def _m2orelatedfields(self):
-		return list(filter(lambda x: self._columns[x]._type in ('many2one','related'),self._columns.keys())) 
+		return list(filter(lambda x: self._columns[x]._type in ('many2one','related','referenced'),self._columns.keys())) 
 
 	@property
 	def _joinfields(self):
@@ -414,7 +414,7 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	@property
 	def _m2orelatedfields(self):
-		return list(filter(lambda x: self._columns[x]._type in ('many2one','related'),self._columns.keys())) 
+		return list(filter(lambda x: self._columns[x]._type in ('many2one','referenced','related'),self._columns.keys())) 
 
 	@property
 	def _joinfields(self):
