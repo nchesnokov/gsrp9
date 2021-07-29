@@ -253,7 +253,7 @@ def _build_fields_conds(self,columns,maps=None,cond=None):
 
 			conds.append(tuple(v))
 		elif type(c) == list:	
-			fields.extend(_build_fields_conds(self,c))
+			conds.extend(_build_fields_conds(self,c))
 
 	return conds
 
@@ -270,7 +270,7 @@ def _build_domain_conds(self,alias,domain):
 					cond.append(c[2])
 				conds.append(tuple(cond))
 			elif type(c) == list:	
-				fields.extend(_build_domain_conds(self,c))
+				conds.extend(_build_domain_conds(self,c))
 			elif type(c) == str:
 				cond.append(c)
 			
@@ -375,7 +375,7 @@ def _build_query(self, fields,cond,context):
 				rn = k
 			order_by_list.append(rn + ' ' + order_by_fields[k] if order_by_fields[k] else k)
 		else:
-		 order_by_list.append(k + ' ' + order_by_fields[k] if order_by_fields[k] else k)
+			order_by_list.append(k + ' ' + order_by_fields[k] if order_by_fields[k] else k)
 
 	order_by = ''
 	if len(order_by_list) > 1:
@@ -900,34 +900,34 @@ def Read(self,ids,fields,context):
 	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause_ids(ids) + (orderby_clause(_order_by_new) if len(_order_by_new) > 0 else '') 
 	#print('GENSQL-NEW-READ:',_conds_new,_order_by_new,_sql_new,_values_new)
 	return _sql_new,_values_new
-	_fields = ['id']
-	info = self.modelInfo()
-	pool = self._pool
-	if fields is None:
-		_fields.extend(list(info['columns'].keys()))
-	else:
-		_fields.extend(fields)
+	# _fields = ['id']
+	# info = self.modelInfo()
+	# pool = self._pool
+	# if fields is None:
+		# _fields.extend(list(info['columns'].keys()))
+	# else:
+		# _fields.extend(fields)
 
-	_fields.extend(filter(lambda x: x != 'id' and x not in _fields,fields_from_order_by(self)))
+	# _fields.extend(filter(lambda x: x != 'id' and x not in _fields,fields_from_order_by(self)))
  
-# Parses
-	cond = _convert_cond(self,[])
-	condfields = _build_condfields(self=self,cond=cond)
-	joins = _build_joins(self=self,modinfo = info,fields = _fields,condfields=condfields)
-	aliases = _build_aliases(self=self,joins=joins)
-	joinmodels = _build_joinmodels(self=self,joins = joins)
-	_fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
-	join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)
-	cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
-	order_by = parse_order_by(self = self,pool = pool,aliases = aliases,models=joinmodels,order_by = info['order_by'], columnsmeta = self._columnsmeta)
-# Parses
+# # Parses
+	# cond = _convert_cond(self,[])
+	# condfields = _build_condfields(self=self,cond=cond)
+	# joins = _build_joins(self=self,modinfo = info,fields = _fields,condfields=condfields)
+	# aliases = _build_aliases(self=self,joins=joins)
+	# joinmodels = _build_joinmodels(self=self,joins = joins)
+	# _fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
+	# join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)
+	# cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
+	# order_by = parse_order_by(self = self,pool = pool,aliases = aliases,models=joinmodels,order_by = info['order_by'], columnsmeta = self._columnsmeta)
+# # Parses
 
-	_sql = select_clause() +fields_clause(_fields) + from_clause(join) + where_clause_ids(ids) + orderby_clause(order_by)
-	if type(ids) == str:
-		_values = [ids]
-	else:
-		_values = [tuple(ids)]
-	return _sql,_values
+	# _sql = select_clause() +fields_clause(_fields) + from_clause(join) + where_clause_ids(ids) + orderby_clause(order_by)
+	# if type(ids) == str:
+		# _values = [ids]
+	# else:
+		# _values = [tuple(ids)]
+	# return _sql,_values
 #tested
 def Select(self, fields, cond, context, limit = None, offset = None):
 	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,fields,cond,context)
@@ -938,48 +938,49 @@ def Select(self, fields, cond, context, limit = None, offset = None):
 	#print('GENSQL-NEW-SELECT:',_conds_new,_order_by_new,_sql_new,_values_new)
 	return _sql_new,_values_new
 
-	_fields = ['id']
-	info = self.modelInfo()
-	pool = self._pool
-	if fields is None:
-		_fields.extend(list(info['columns'].keys()))
-	else:
-		_fields.extend(fields)
+	# _fields = ['id']
+	# info = self.modelInfo()
+	# pool = self._pool
+	# if fields is None:
+		# _fields.extend(list(info['columns'].keys()))
+	# else:
+		# _fields.extend(fields)
 
-	_fields.extend(filter(lambda x: x != 'id' and x not in _fields,fields_from_order_by(self)))
+	# _fields.extend(filter(lambda x: x != 'id' and x not in _fields,fields_from_order_by(self)))
 
-# Parses
-	cond = _convert_cond(self,cond)
-	condfields = _build_condfields(self=self,cond=cond)
-	joins = _build_joins(self=self,modinfo = info,fields = _fields,condfields=condfields)
-	aliases = _build_aliases(self=self,joins=joins)
-	joinmodels = _build_joinmodels(self=self,joins = joins)
-	_fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
-	join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)	
-	cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
-	order_by = parse_order_by(self = self,pool = pool,aliases = aliases,models=joinmodels,order_by = info['order_by'], columnsmeta = self._columnsmeta)
+# # Parses
+	# cond = _convert_cond(self,cond)
+	# condfields = _build_condfields(self=self,cond=cond)
+	# joins = _build_joins(self=self,modinfo = info,fields = _fields,condfields=condfields)
+	# aliases = _build_aliases(self=self,joins=joins)
+	# joinmodels = _build_joinmodels(self=self,joins = joins)
+	# _fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
+	# join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)	
+	# cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
+	# order_by = parse_order_by(self = self,pool = pool,aliases = aliases,models=joinmodels,order_by = info['order_by'], columnsmeta = self._columnsmeta)
 	
-# Parses
+# # Parses
 	
-	_where = WhereParse(cond)
-	_cond = _where._cond
-	_values = _where._values
-	if limit:
-		_values.append(limit)
-	if offset:
-		_values.append(offset)
+	# _where = WhereParse(cond)
+	# _cond = _where._cond
+	# _values = _where._values
+	# if limit:
+		# _values.append(limit)
+	# if offset:
+		# _values.append(offset)
 
-	_sql = select_clause() + fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
-	#print('GENSQL:', _sql,_values)
-	return _sql,_values
+	# _sql = select_clause() + fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
+	# #print('GENSQL:', _sql,_values)
+	# return _sql,_values
 #tested
 def Search(self, cond, context, limit, offset):
 	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,[],cond,context)
 	_where = WhereParse(_conds_new)
 	_cond = _where._cond
 	_values_new = _where._values
+	_fields = []
 	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause(_cond) + orderby_clause(_order_by_new) if len(_order_by_new) > 0 else '' + limit_clause(limit) if limit else '' + offset_clause(offset) if offset else '' 
-	select_clause() +fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
+	#select_clause() +fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
 	#print('GENSQL-NEW-SELECT:',_conds_new,_order_by_new,_sql_new,_values_new)
 	return _sql_new,tuple(_values_new)
 
