@@ -36,7 +36,7 @@ for sd in ('addons',):
 			for n in a:
 				data_files.append((opj(sys.base_prefix,'lib64','python'+('%s.%s') % (sys.version_info.major,sys.version_info.minor),'site-packages',d[0]),[n]))
 
-data_files.append((opj(sys.base_prefix,'lib64','python'+('%s.%s') % (sys.version_info.major,sys.version_info.minor),'site-packages','gsrp5service','components','modules','views.rng')))
+data_files.append((opj(sys.base_prefix,'lib64','python'+('%s.%s') % (sys.version_info.major,sys.version_info.minor),'site-packages','gsrp5service','components','modules'),['views.rng']))
 
 packages = ['gsrp5service']
 

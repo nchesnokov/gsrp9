@@ -229,6 +229,13 @@ def _fetch_results(self,fields,context):
 def _createRecords(self, records, context):
 	res = []
 
+	for tn in self._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onCreateBeforeAll']
+		if method and callable(method):
+			kwargs = {'r1':records,'context':context}
+			method(**kwargs)
+
 	trg1 = self._getTriger('bi')
 	for trg11 in trg1:
 		kwargs = {'r1':records,'context':context}
@@ -237,6 +244,13 @@ def _createRecords(self, records, context):
 	for record in records:
 		oid = _createRecord(self, record, context)		
 		res.append(oid)
+
+	for tn in self._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onCreateAfterAll']
+		if method and callable(method):
+			kwargs = {'r1':records,'context':context}
+			method(**kwargs)
 
 	trg2 = self._getTriger('ai')
 	for trg22 in trg2:
@@ -267,6 +281,13 @@ def _createRecord(self, record, context):
 	emptyfields = list(filter(lambda x: not x in record and not x in MAGIC_COLUMNS,self._requiredfields))		
 	if len(emptyfields) > 0:
 		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo(['name'])['name'], record))
+
+	for tn in self._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onCreateBeforeForEachRow']
+		if method and callable(method):
+			kwargs = {'r1':record,'context':context}
+			method(**kwargs)
 
 	trg1 = self._getTriger('bir')
 	for trg11 in trg1:
@@ -313,6 +334,14 @@ def _createRecord(self, record, context):
 	# rowcount = self._execute(sql,vals)
 	# if rowcount > 0:
 		# oid = self._cr.fetchone()[0]
+
+	for tn in self._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onCreateAfterForEachRow']
+		if method and callable(method):
+			kwargs = {'r1':record,'context':context}
+			method(**kwargs)
+
 
 	trg2 = self._getTriger('air')
 	for trg22 in trg2:
@@ -684,6 +713,14 @@ def _read(self, ids, fields = None, context = {}):
 		length = len(ids)		
 	count = int(length/MAX_CHUNK_READ)
 	chunk = int(length % MAX_CHUNK_READ)
+
+	for tn in self._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onReadBeforeAll']
+		if method and callable(method):
+			kwargs = {'r1':ids,'context':context}
+			method(**kwargs)
+	
 	for i in range(count):
 		j = i * MAX_CHUNK_READ
 		chunk_ids = ids[j:j + MAX_CHUNK_READ]
@@ -776,6 +813,13 @@ def _read(self, ids, fields = None, context = {}):
 					record[m2mfield] = _m2mread(self,record['id'],m2mfield,m2mfields[m2mfield],context)
 			
 			res.extend(records)
+
+			for tn in self._triggers:
+				tr = self._session._triggers[tn]
+				method = tr._actions['_onReadBeforeAll']
+				if method and callable(method):
+					kwargs = {'r1':res,'context':context}
+					method(**kwargs)
 	
 	return res
 	

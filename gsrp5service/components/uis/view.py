@@ -419,6 +419,7 @@ def view(cr,pool,uid,action_id = None, name = None):
 	
 	mi = pool.get(w['model']).modelInfo()
 	#allow = list(filter(lambda x: isAllow(x,'models',mi),VIEWSGEN['models'].keys()))
+	allow = list(w['model']['views'].keys())
 	
 	o = {'type':'','header':{},'columns':{},'viewname':w['name'],'webicon':action['webicon']}
 	for event,el in etree.iterparse(source=BytesIO(w['arch'].encode('utf-8')),events=('end','start')):

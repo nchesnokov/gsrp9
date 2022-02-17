@@ -1,4 +1,4 @@
-from .view import view,get_viewname_by_window_action_id,get_view_by_window_action_id,get_view_by_window_action_id_v2,get_meta_by_window_action_id_v2,get_view_by_name,get_view_by_name_v2,get_views_of_model_v2,get_meta_of_models_v2
+from .view import view,get_viewname_by_window_action_id,get_view_by_window_action_id_v2,get_meta_by_window_action_id_v2,get_view_by_name_v2,get_views_of_model_v2,get_meta_of_models_v2
 from .menu import menu
 from .action import run
 from serviceloader.tools.common import Component
