@@ -19,7 +19,7 @@ import web_pdb
 from gsrp5service.orm.mm import _m2mfieldid2
 
 from gsrp5service.components.objs.mm import *
-from gsrp5service.components.objs.mm import _createRecord,_writeRecord,_modifyRecord,_conv_record_to_ext
+from gsrp5service.components.objs.mm import _createRecord,_writeRecord,_modifyRecord,_unlinkRecord,_conv_record_to_ext
 
 
 class DCacheList(list): pass

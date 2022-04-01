@@ -1,0 +1,5 @@
+                <el-time-picker
+                    v-model="dataForm.__data__['{0}']"
+                    @change="cache(dataForm, '{0}')"
+                    :readonly="readonly('{0}')"
+                ></el-time-picker>

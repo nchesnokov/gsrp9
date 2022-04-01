@@ -1,0 +1,37 @@
+                <el-input
+                    v-model="dataForm.__data__['{0}'].name"
+                    @change="m2o_cache(dataForm, '{0}')"
+                    :readonly="readonly(col)"
+                >
+                    <template v-if="isCompute('{0}')" #prefix>
+                        <el-button type="primary" size="mini" icon="el-icon-s-data" />
+                    </template>
+                    <template #suffix>
+                        <el-button
+                            type="primary"
+                            size="small"
+                            :icon="Search"
+                            @click="do_find('{0}', 'single', [], { 'item': dataForm })"
+                        ></el-button>
+                        <el-button
+                            type="primary"
+                            size="small"
+                            :icon="DocumentAdd"
+                            @click="do_add('{0}')"
+                        ></el-button>
+                        <el-button
+                            v-if="dataForm.__data__['{0}'].id != null"
+                            type="primary"
+                            size="small"
+                            :icon="Edit"
+                            @click="do_edit('{0}', dataForm.__data__['{0}'].id)"
+                        ></el-button>
+                        <el-button
+                            v-if="dataForm.__data__['{0}'].id != null"
+                            type="primary"
+                            size="small"
+                            :icon="View"
+                            @click="do_lookup('{0}', dataForm.__data__['{0}'].id)"
+                        ></el-button>
+                    </template>
+                </el-input>					

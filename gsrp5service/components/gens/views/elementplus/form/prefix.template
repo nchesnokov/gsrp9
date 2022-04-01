@@ -1,0 +1,79 @@
+    <slot name="search">
+        <el-row>
+            <gp-selectable
+                v-if="showSearch"
+                :columns="metas[model].meta.columns"
+                :names="metas[model].meta.names"
+                :cid="cid"
+                @update:search="do_search"
+                @update:search-cancel="showSearch = false"
+            ></gp-selectable>
+        </el-row>
+    </slot>
+    <slot>
+        <el-row>{{ mode + ':' + metas[model].meta.description }}</el-row>
+        <el-row>
+            <el-dropdown @command="i18nCommand">
+                <span class="el-dropdown-link">
+                    {{ $UserPreferences.lang.toLowerCase() }}
+                    <i
+                        class="el-icon-arrow-down el-icon--right"
+                    ></i>
+                </span>
+                <template #dropdown>
+                    <el-dropdown-menu>
+                        <el-dropdown-item
+                            v-for="lang in $UserPreferences.langs"
+                            :key="lang.code"
+                            :command="{ lang: lang.code }"
+                        >{{ lang.description }}</el-dropdown-item>
+                    </el-dropdown-menu>
+                </template>
+            </el-dropdown>
+        </el-row>
+        <el-row>
+            <el-button
+                v-if="!showSearch"
+                type="primary"
+                size="small"
+                :icon="Search"
+                @click="do_action('find')"
+            ></el-button>
+            <el-button
+                v-if="multipleSelection.length == 0"
+                type="primary"
+                size="small"
+                :icon="DocumentAdd"
+                @click="do_action('new')"
+            ></el-button>
+            <el-button
+                v-if="multipleSelection.length > 0 && mode == 'lookup'"
+                type="primary"
+                size="small"
+                :icon="Edit"
+                @click="do_action('edit')"
+            ></el-button>
+            <el-button
+                v-if="multipleSelection.length > 0 && mode == 'edit'"
+                type="primary"
+                size="small"
+                :icon="View"
+                @click="do_action('lookup')"
+            ></el-button>
+        </el-row>
+        <el-pagination
+            v-if="multipleSelection.length > 1"
+            background
+            layout="total, prev, pager, next, jumper"
+            @current-change="handleCurrentChange"
+            :page-size="pageSize"
+            :total="multipleSelection.length"
+        ></el-pagination>
+        <el-form
+            v-if="'__data__' in dataForm && Object.keys(dataForm.__data__).length > 0"
+            :model="dataForm.__data__"
+            label-width="auto"
+            status-icon
+            inline-message
+        >
+

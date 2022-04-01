@@ -3,6 +3,8 @@ from gsrp5service.orm.model import Model
 
 from passlib.hash import pbkdf2_sha256
 
+from gsrp5service.components.gens.utils import GENERATE as _GENERATEVIEW
+
 import pytz
 
 import web_pdb
@@ -303,6 +305,7 @@ class bc_model_inherit_columns(Model):
 	'moc': fields.json(label='Meta Of Column', readonly = True),
 	}
 
+bc_model_inherit_columns()
 
 class bc_model_inherit_inherits(Model):
 	_name = 'bc.model.inherit.inherits'
@@ -316,12 +319,7 @@ class bc_model_inherit_inherits(Model):
 	'col': fields.varchar(label='Column', size = 64, readonly=True),
 	}
 
-bc_model_inherit_columns()
-
-
-
-bc_model_inherit_columns()
-
+bc_model_inherit_inherits()
 
 class bc_group_access(Model):
 	_name = 'bc.group.access'
@@ -406,6 +404,20 @@ class bc_ui_view_model_types(Model):
 
 bc_ui_view_model_types()
 
+class bc_ui_view_model_types(Model):
+	_name = 'bc.ui.view.model.types'
+	_description = 'UI Type Of View'
+	_class_object = 'K'
+	_columns = {
+	'fullname': fields.composite(label='Full Name', cols = ['framework','code'], translate = True,required = True),
+	'framework': fields.referenced(label='Web Framework',obj='bc.web.frameworks',required=True),
+	'code': fields.varchar(label='Code', size = 64,required=True),
+	'exclude': fields.json(label='Exclude'),
+	'note': fields.text(label='Note')
+	}
+
+bc_ui_view_model_types()
+
 class bc_ui_model_views(Model):
 	_name = 'bc.ui.model.views'
 	_description = 'UI Views'
@@ -415,16 +427,73 @@ class bc_ui_model_views(Model):
 	'fullname': fields.composite(label='Full Name', cols = ['model','vtype'], translate = True,required = True),
 	'model': fields.referenced(label='Model',obj='bc.models'),
 	'vtype': fields.referenced(label='View Type',obj='bc.ui.view.model.types'),
+	#'creaded': fields.datetime('Created', readonly = True),
+	#'modified': fields.datetime('Modified', readonly = True),
 	'standalone': fields.boolean(label='Standalone View'),
 	'template': fields.text(label='Template'),
+	#'render': fields.text(label='Render'),
 	'script': fields.text(label='Script'),
 	'style': fields.text(label='Style'),
 	'scoped': fields.boolean(label='Scoped'),
-	'sfc': fields.text(label='Single File Component'),
+	'sfc': fields.text(label='Single File Component',compute='_generateSFC'),
 	'cols': fields.one2many(label='Columns', obj = 'bc.ui.model.view.columns',rel = 'view_id'),
 	'inherit_cols': fields.one2many(label='Columns Inherit', obj = 'bc.ui.model.view.column.inherits',rel = 'view_id'),
 	'note': fields.text(label='Note')
 	}
+
+	def _generateTemplate(self,record,context):
+		#web_pdb.set_trace()
+		if 'template' in _GENERATEVIEW and record['vtype']['name'] in _GENERATEVIEW['template'] and (record['template'] is  None or len(record['template']) == 0):
+			record['template'] = _GENERATEVIEW['template'][record['vtype']['name']](record['model']['name'],self._pool,context)
+
+	def _generateRender(self,record,context):
+		if 'render' in _GENERATEVIEW and record['vtype']['name'] in _GENERATEVIEW['render'] and (record['render'] is  None or len(record['render']) == 0):
+			record['render'] = _GENERATEVIEW['render'][record['vtype']['name']](record['model'],self._pool,context)
+
+	def _generateScript(self,record,context):	
+		if 'script' in _GENERATEVIEW and record['vtype']['name'] in _GENERATEVIEW['script'] and (record['script'] is None or len(record['script']) == 0):
+			record['script'] = _GENERATEVIEW['script'][record['vtype']['name']](record['model'],self._pool,context)
+
+	def _generateStyle(self,record,context):
+		if record['style'] is not None and len(record['style']) > 0:
+			 if record['scoped']:
+				 return '<style scoped>\n' + record['style'] + '</style>'
+
+			 record['style'] = '<style>\n' + record['style'] + '</style>'
+
+
+	def _generateSFC(self,record,context):
+		self._generateTemplate(record,context)
+		#self._generateRender(record,context)
+		self._generateScript(record,context)
+		self._generateStyle(record,context)
+		#record['sfc'] = record[record['render']] if len(record['render']) > 0 else record['template'] + record['script'] + '\n' + record['style'] 
+		if record['template']:
+			record['sfc'] = record['template']
+		if record['script']:
+			record['sfc'] += record['script']
+		
+		if record['style']:
+			record['sfc'] += record['style']
+
+		#record['sfc'] = record['template'] if record['template'] else '' + '\n'+ record['script'] if record['script'] else ''  + '\n' + record['style'] if record['style'] else '' 
+		#print('RECORD:',self._name,record)
+	def create(self,records,context):
+		pass
+		#return self._generateSFC(record,context)
+
+	def readforupdate(self, ids, fields = None, context = {}):
+		records = super(Model,self).readforupdate(ids,fields, context)
+		if len(records) > 0:
+			if type(records[0]['__data__']) in (list,tuple):
+				for record in records[0]['__data__']:
+					self._generateSFC(record,context)
+			elif type(records[0]['__data__']) == dict:
+				self._generateSFC(records[0]['__data__'],context)
+			
+			#web_pdb.set_trace()
+			#print('RECORDS:',self._name,records[0]['__data__'])
+		return records
 
 	_default = {
 		'framework':'element-plus'
@@ -442,8 +511,11 @@ class bc_ui_model_view_columns(Model):
 	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',rel='cols',required=True),
 	'seq': fields.integer(label='Sequence', readonly = True),
 	#'col': fields.many2one(label='Column',obj='bc.model.columns')
-	'col': fields.varchar(label='Column', readonly = True)
+	'col': fields.varchar(label='Column', readonly = True),
+	#'script': fields.text(label='Script'),
 	}
+
+bc_ui_model_view_columns()
 
 class bc_ui_model_view_column_inherits(Model):
 	_name = 'bc.ui.model.view.column.inherits'
@@ -452,13 +524,11 @@ class bc_ui_model_view_column_inherits(Model):
 	_columns = {
 	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',rel='inherit_cols',required=True),
 	#'col': fields.many2one(label='Column',obj='bc.model.columns')
-	'col': fields.varchar(label='Column', readonly = True)
+	'col': fields.varchar(label='Column', readonly = True),
+	#'script': fields.text(label='Script'),
 	}
 
-
-
-bc_ui_model_view_columns()
-
+bc_ui_model_view_column_inherits()
 
 class bc_model_translations(Model):
 	_name = 'bc.model.translations'

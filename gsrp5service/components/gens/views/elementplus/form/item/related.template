@@ -1,0 +1,33 @@
+                <el-input
+                    v-model="dataForm.__data__[col].name"
+                    v-if="colsType[col] == 'related'"
+                    @change="related_cache(dataForm, col, metas[model].meta.columns[field].relatedy)"
+                    :readonly="readonly(col)"
+                >
+                    <template v-if="isCompute(col)" #prefix>
+                        <el-button type="primary" size="small" :icon="Monitor" />
+                    </template>
+                    <template #suffix>
+                        <el-button type="primary" size="small" :icon="Search" @click="do_find(col)"></el-button>
+                        <el-button
+                            type="primary"
+                            size="small"
+                            :icon="DocumentAdd"
+                            @click="do_add(col)"
+                        ></el-button>
+                        <el-button
+                            v-if="dataForm.__data__[col].id != null"
+                            type="primary"
+                            size="small"
+                            :icon="Edit"
+                            @click="do_edit(col, dataForm.__data__[col].id)"
+                        ></el-button>
+                        <el-button
+                            v-if="dataForm.__data__[col].id != null"
+                            type="primary"
+                            size="small"
+                            :icon="View"
+                            @click="do_lookup(col, dataForm.__data__[col].id)"
+                        ></el-button>
+                    </template>
+                </el-input>				

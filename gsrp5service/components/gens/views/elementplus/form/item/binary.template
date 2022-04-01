@@ -1,0 +1,5 @@
+                <el-image if="colsType['{0}'] == 'binary' && metas[model].meta.columns['{0}'].accept == 'image/*'"
+                    style="width: 100px; height: 100px"
+                    :src="'data:image/jpeg;base64,'+dataForm.__data__[col]"
+                    fit="fit"
+                ></el-image>

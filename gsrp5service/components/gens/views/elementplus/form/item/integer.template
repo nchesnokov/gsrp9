@@ -1,0 +1,10 @@
+                <el-input
+                    v-model="dataForm.__data__['{0}']"
+                    v-else-if="['uuid', 'integer', 'float', 'decimal', 'numeric', 'timedelta'].indexOf(colsType[col]) >= 0"
+                    @change="cache(dataForm, '{0}')"
+                    :readonly="readonly(col)"
+                >
+                    <template v-if="isCompute('{0}')" #prefix>
+                        <el-button type="primary" size="small" :icon="Monitor" />
+                    </template>
+                </el-input>

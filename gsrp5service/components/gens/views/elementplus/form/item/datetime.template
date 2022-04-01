@@ -1,0 +1,6 @@
+                <el-date-picker
+                    v-model="dataForm.__data__['{0}']"
+                    type="datetime"
+                    @change="cache(dataForm, '{0}')"
+                    :readonly="readonly('{0}')"
+                ></el-date-picker>

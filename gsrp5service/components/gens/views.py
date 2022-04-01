@@ -46,7 +46,7 @@ def Views(framework,model,info):
 			record['template'] = GENTEMPLATES[framework][view](info,columns)
 			record['script'] = GENSRCIPTS[framework][view](info,columns)
 			record['style'] = GENSTYLES[framework][view](info,columns)
-			record['sfc'] = template +'\n' + script + '\n' + style
+			record['sfc'] = record['template'] +'\n' + record['script'] if len(record['script']) > 0 else '' + record['setup'] if len(record['setup']) > 0 else '' + '\n' + record['style']
 		
 		res.append(record)
 
