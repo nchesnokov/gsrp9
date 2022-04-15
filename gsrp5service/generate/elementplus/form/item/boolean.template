@@ -1,0 +1,5 @@
+                <el-switch
+                    v-model="dataForm.__data__['%s']"
+                    @change="cache(dataForm, '%s')"
+                    :disabled="readonly('%s')"
+                ></el-switch>

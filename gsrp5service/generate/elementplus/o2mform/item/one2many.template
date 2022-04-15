@@ -1,0 +1,15 @@
+            <el-tabs type="border-card" v-if="o2mcols.length > 0">
+                <el-tab-pane :label="colsLabel[o2mcol]" v-for="o2mcol in o2mcols" :key="o2mcol">
+                    <gp-o2m-components
+                        :cid="cid"
+                        :guid="guid"
+                        :root="proxy"
+                        :metas="metas"
+                        :model="metas[model].meta.columns[o2mcol].obj"
+                        :container="o2mcol + '.' + dataForm.__path__"
+                        :cdata="dataForm.__containers__[o2mcol + '.' + dataForm.__path__]"
+                        :mode="mode"
+                        :rel="metas[model].meta.columns[o2mcol].rel"
+                    />
+                </el-tab-pane>
+            </el-tabs>

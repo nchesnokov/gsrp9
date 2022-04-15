@@ -1,0 +1,9 @@
+                <el-input
+                    v-model="dataForm.__data__['%s']"
+                    @change="cache(dataForm, '%s')"
+                    :readonly="readonly('%s')"
+                >
+                    <template v-if="isCompute('%s')" #prefix>
+                        <el-button type="primary" size="small" :icon="Monitor" />
+                    </template>
+                </el-input>

@@ -1,0 +1,8 @@
+                <el-row>
+                    <el-button type="primary" @click="do_find('%s', 'multiple')">Add</el-button>
+                    <gp-m2m-list
+                        :metas="metas"
+                        :model="metas[model].meta.columns['%s'].obj"
+                        :tableData="dataForm.__m2m_containers__['%s']"
+                    ></gp-m2m-list>
+                </el-row>

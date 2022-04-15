@@ -1,0 +1,37 @@
+        </el-form>
+    </slot>
+    <slot name="footer">
+        <el-popconfirm
+            v-if="mode == 'new'"
+            confirmButtonText="OK"
+            cancelButtonText="No, Thanks"
+            icon="el-icon-info"
+            iconColor="red"
+            title="Are you sure to cancel?"
+            @confirm="onCancel"
+        >
+            <template #reference>
+                <el-button type="danger">Cancel</el-button>
+            </template>
+        </el-popconfirm>
+        <el-popconfirm
+            v-if="Object.keys(modal).length > 0"
+            confirmButtonText="OK"
+            cancelButtonText="No, Thanks"
+            icon="el-icon-info"
+            iconColor="red"
+            title="Are you sure to close?"
+            @confirm="onClose"
+        >
+            <template #reference>
+                <el-button type="danger">Close</el-button>
+            </template>
+        </el-popconfirm>
+
+        <el-button type="success" @click="onValidate" :disabled="mode == 'lookup'">Validate</el-button>
+        <el-button
+            type="primary"
+            @click="onSubmit"
+            :disabled="mode == 'lookup'"
+        >{{ mode == 'copy' ? 'Copy' : 'Save' }}</el-button>
+    </slot>

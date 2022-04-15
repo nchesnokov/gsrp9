@@ -1,0 +1,12 @@
+                <el-select
+                    v-model="dataForm.__data__['%s']"
+                    @change="cache(dataForm, '%s')"
+                    :disabled="readonly('%s')"
+                >
+                    <el-option
+                        v-for="item in selOptions['%s']"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                    ></el-option>
+                </el-select>

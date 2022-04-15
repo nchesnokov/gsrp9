@@ -3,7 +3,9 @@ from gsrp5service.orm.model import Model
 
 from passlib.hash import pbkdf2_sha256
 
-from gsrp5service.components.gens.utils import GENERATE as _GENERATEVIEW
+from gsrp5service.generate.loader import META
+
+_GENERATEVIEW = META['_gens']
 
 import pytz
 
@@ -443,23 +445,22 @@ class bc_ui_model_views(Model):
 
 	def _generateTemplate(self,record,context):
 		#web_pdb.set_trace()
-		if 'template' in _GENERATEVIEW and record['vtype']['name'] in _GENERATEVIEW['template'] and (record['template'] is  None or len(record['template']) == 0):
-			record['template'] = _GENERATEVIEW['template'][record['vtype']['name']](record['model']['name'],self._pool,context)
+		if record['vtype']['name'] in _GENERATEVIEW and (record['template'] is  None or len(record['template']) == 0):
+			record['template'] = _GENERATEVIEW[record['vtype']['name']].view._generateTemplate(META,record['model']['name'],self._pool,context)
 
 	def _generateRender(self,record,context):
-		if 'render' in _GENERATEVIEW and record['vtype']['name'] in _GENERATEVIEW['render'] and (record['render'] is  None or len(record['render']) == 0):
-			record['render'] = _GENERATEVIEW['render'][record['vtype']['name']](record['model'],self._pool,context)
+		if record['vtype']['name'] in _GENERATEVIEW and (record['render'] is  None or len(record['render']) == 0):
+			record['render'] = _GENERATEVIEW[record['vtype']['name']].view._generateRender(META,record['model']['name'],self._pool,context)
+
 
 	def _generateScript(self,record,context):	
-		if 'script' in _GENERATEVIEW and record['vtype']['name'] in _GENERATEVIEW['script'] and (record['script'] is None or len(record['script']) == 0):
-			record['script'] = _GENERATEVIEW['script'][record['vtype']['name']](record['model'],self._pool,context)
+		if record['vtype']['name'] in _GENERATEVIEW and (record['script'] is  None or len(record['script']) == 0):
+			record['script'] = _GENERATEVIEW[record['vtype']['name']].view._generateScript(META,record['model']['name'],self._pool,context)
 
 	def _generateStyle(self,record,context):
-		if record['style'] is not None and len(record['style']) > 0:
-			 if record['scoped']:
-				 return '<style scoped>\n' + record['style'] + '</style>'
+		if record['vtype']['name'] in _GENERATEVIEW and (record['style'] is  None or len(record['style']) == 0):
+			record['style'] = _GENERATEVIEW[record['vtype']['name']].view._generateStyle(META,record['model']['name'],self._pool,context)
 
-			 record['style'] = '<style>\n' + record['style'] + '</style>'
 
 
 	def _generateSFC(self,record,context):
@@ -481,6 +482,26 @@ class bc_ui_model_views(Model):
 	def create(self,records,context):
 		pass
 		#return self._generateSFC(record,context)
+
+	
+	def getSFC(self, model, vtype,context):
+		records = super(Model,self).select(fields=["fullname", "model", "vtype", "standalone",'template','script', 'style', "sfc"], cond=[('model','=',model),('vtype','=', vtype)], context=context)
+
+		if len(records) > 0:
+			if type(records) in (list,tuple):
+				for record in records:
+					self._generateSFC(record,context)
+					for k in ('template','script', 'style'):
+						del record[k]
+			elif type(records) == dict:
+				self._generateSFC(records,context)
+				for k in ('template','script', 'style'):
+					del records[k]
+			
+			#web_pdb.set_trace()
+			#print('RECORDS:',self._name,records[0]['__data__'])
+		return records
+
 
 	def readforupdate(self, ids, fields = None, context = {}):
 		records = super(Model,self).readforupdate(ids,fields, context)
@@ -512,7 +533,9 @@ class bc_ui_model_view_columns(Model):
 	'seq': fields.integer(label='Sequence', readonly = True),
 	#'col': fields.many2one(label='Column',obj='bc.model.columns')
 	'col': fields.varchar(label='Column', readonly = True),
+	#'template': fields.text(label='Template'),
 	#'script': fields.text(label='Script'),
+
 	}
 
 bc_ui_model_view_columns()
