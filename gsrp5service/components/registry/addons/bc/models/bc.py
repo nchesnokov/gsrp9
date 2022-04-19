@@ -117,7 +117,7 @@ class bc_langs(Model):
 	_rec_name = 'code'
 	_class_object = 'K'
 	_columns = {
-	'code': fields.varchar(label='Language',size = 3,readonly=True),
+	'code': fields.varchar(label='Language',size = 3,readonly=False),
 	'description': fields.varchar(label='Description', size = 64,readonly=True)
 	}
 
@@ -436,6 +436,7 @@ class bc_ui_model_views(Model):
 	#'render': fields.text(label='Render'),
 	'script': fields.text(label='Script'),
 	'style': fields.text(label='Style'),
+	'i18n': fields.text(label='I18N'),
 	'scoped': fields.boolean(label='Scoped'),
 	'sfc': fields.text(label='Single File Component',compute='_generateSFC'),
 	'cols': fields.one2many(label='Columns', obj = 'bc.ui.model.view.columns',rel = 'view_id'),
@@ -461,9 +462,13 @@ class bc_ui_model_views(Model):
 		if record['vtype']['name'] in _GENERATEVIEW and (record['style'] is  None or len(record['style']) == 0):
 			record['style'] = _GENERATEVIEW[record['vtype']['name']].view._generateStyle(META,record['model']['name'],self._pool,context)
 
+	def _generateI18N(self,record,context):
+		if record['vtype']['name'] in _GENERATEVIEW and (record['i18n'] is  None or len(record['i18n']) == 0):
+			record['i18n'] = _GENERATEVIEW[record['vtype']['name']].view._generateI18N(META,record['model']['name'],self._pool,context)
 
 
 	def _generateSFC(self,record,context):
+		self._generateI18N(record,context)
 		self._generateTemplate(record,context)
 		#self._generateRender(record,context)
 		self._generateScript(record,context)
@@ -477,6 +482,10 @@ class bc_ui_model_views(Model):
 		if record['style']:
 			record['sfc'] += record['style']
 
+
+		if record['i18n']:
+			record['sfc'] += record['i18n']
+
 		#record['sfc'] = record['template'] if record['template'] else '' + '\n'+ record['script'] if record['script'] else ''  + '\n' + record['style'] if record['style'] else '' 
 		#print('RECORD:',self._name,record)
 	def create(self,records,context):
@@ -485,17 +494,17 @@ class bc_ui_model_views(Model):
 
 	
 	def getSFC(self, model, vtype,context):
-		records = super(Model,self).select(fields=["fullname", "model", "vtype", "standalone",'template','script', 'style', "sfc"], cond=[('model','=',model),('vtype','=', vtype)], context=context)
+		records = super(Model,self).select(fields=["fullname", "model", "vtype", "standalone",'template','script', 'style', 'i18n',"sfc"], cond=[('model','=',model),('vtype','=', vtype)], context=context)
 
 		if len(records) > 0:
 			if type(records) in (list,tuple):
 				for record in records:
 					self._generateSFC(record,context)
-					for k in ('template','script', 'style'):
+					for k in ('template','script', 'style','i18n'):
 						del record[k]
 			elif type(records) == dict:
 				self._generateSFC(records,context)
-				for k in ('template','script', 'style'):
+				for k in ('template','script', 'style','i18n'):
 					del records[k]
 			
 			#web_pdb.set_trace()

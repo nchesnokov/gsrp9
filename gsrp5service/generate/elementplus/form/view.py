@@ -1,4 +1,6 @@
 import os
+import yaml
+from yaml import Dumper
 import json
 from  os.path import join as opj
 
@@ -59,5 +61,19 @@ def _generateStyle(meta,model,pool,context):
 	if style in _texts:
 		return '<style scoped>\n' + _texts[style] + '\n</style>'
 
+def _generateI18N(meta,model,pool,context):
+	langs = pool.get('bc.langs').select(fields=['code'],cond=[],context=context)
+	records = pool.get('bc.models').select(fields=['code','descr','momi',{'columns':['seq','col','moc']},{'inherits':['col']}],cond=[('code','=',model)],context=context)
+	i18ns = {}
+	for record in records:
+		for column in record['columns']:
+			column['moc'] = json.loads(column['moc'])
+			label = column['moc']['label']
+			for lang in langs: 
+				i18ns.setdefault(lang['code'],{})[label] = label
+	
+	return '\n<i18n lang="yaml">\n' + str(yaml.dump(i18ns)) + '\n</i18n>'
 
-GENERATE = {'template':_generateTemplate, 'script':_generateScript, 'style':_generateStyle}
+
+
+GENERATE = {'template':_generateTemplate, 'script':_generateScript, 'style':_generateStyle,'i18n':_generateI18N}
