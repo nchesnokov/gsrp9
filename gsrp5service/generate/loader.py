@@ -39,7 +39,7 @@ def _loadFiles(path):
 								_texts[ext+ '-' + fw + '-' + k + '-' + nm] = f.read()
 						elif os.path.islink(p):
 							link = os.readlink(p)
-							a2 = link.partition(path+os.path.sep)[2].split('.')[0]
+							a2 = link.partition(path+os.path.sep)[0].split('.')[0]
 							_maps[ext+ '-' + fw + '-'  + k + '-' + nm] = ext+ '-' + fw + '-' + k + '-' + a2
 
 if __name__ == '__main__':

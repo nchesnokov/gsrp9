@@ -15,22 +15,25 @@ def _generateTemplate(meta,model,pool,context):
 	if prefix in _texts:
 		s = _texts[prefix]
 
-	records = pool.get('bc.models').select(fields=['code','descr','momi',{'columns':['seq','col','moc']},{'inherits':['col']}],cond=[('code','=',model)],context=context)
-	for record in records:
-		o2m = True
-		for column in record['columns']:
-			column['moc'] = json.loads(column['moc'])
-			key =  '-'.join(['template',framework,viewtype,'item',column['moc']['type']])
-			if key in _maps:
-				key = _maps[key]
-			if key in _texts:
-				if column['moc']['type'] == 'one2many' and o2m or column['moc']['type'] != 'one2many':
-					s += """\n\t\t<el-form-item :label="colsLabel['{0}']">\n""".format(column['col'])
-					#s += _texts[key].format(column['col'])
-					s += _texts[key] % tuple([column['col']] * _texts[key].count("'%s'"))
-					s += """\n\t\t</el-form-item>"""
-					if column['moc']['type'] == 'one2many' and o2m:
-						o2m = False
+	#records = pool.get('bc.models').select(fields=['code','descr','momi',{'columns':['seq','col','moc']},{'inherits':['col']}],cond=[('code','=',model)],context=context)
+	columnsInfo = pool.get(model).columnsInfo()
+	print('keys:',columnsInfo.keys())
+	for k in columnsInfo.keys():
+		if columnsInfo[k]['type'] in ('one2many','one2related'):
+			continue
+		key =  '-'.join(['template',framework,viewtype,'item',columnsInfo[k]['type']])
+		if key in _maps:
+			key = _maps[key]
+		if key in _texts:
+			s += """\n\t\t<el-form-item :label="colsLabel['{0}']">\n""".format(k)
+			s += _texts[key] % tuple([k] * _texts[key].count("'%s'"))
+			s += """\n\t\t</el-form-item>"""
+		
+	if  len(pool.get(model)._o2mfields) > 0:
+		key =  '-'.join(['template',framework,viewtype,'item','one2many'])
+		#s += """\n\t\t<el-form-item>\n"""
+		s += _texts[key]
+		#s += """\n\t\t</el-form-item>"""
 		
 	suffix = '-'.join(['template',framework,viewtype,'suffix'])
 	if suffix in _texts:

@@ -91,7 +91,7 @@ class _column(object):
 			result['symbol_get'] = self._symbol_get
 
 		if 'readonly' in result:
-			result['readonly'] = result['readonly'] or result['type'] == 'referenced' or 'compute' in self.__dict__ and self.__dict__['compute'] and type(self.__dict__['compute']) in (list,tuple) 
+			result['readonly'] = result['readonly'] or 'compute' in self.__dict__ and self.__dict__['compute'] and type(self.__dict__['compute']) in (list,tuple) 
 		
 		return result
 
