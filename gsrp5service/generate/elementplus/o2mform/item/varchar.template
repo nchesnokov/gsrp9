@@ -1,28 +1,17 @@
-                <el-input
-                    v-model="dataForm.__data__['%s']"
-                    :maxlength="colsSize['%s']"
-                    show-word-limit
-                    @change="cache(dataForm, '%s')"
-                    :readonly="readonly('%s')"
-                >
-                    <template v-if="isCompute('%s')" #prepend>
-                        <el-button type="primary" size="small" :icon="Monitor" />
-                        <el-dropdown v-if="colsTranslate['%s']" @command="i18nCommand">
-                            <span class="el-dropdown-link">
-                                {{ colsLang['%s'].toLowerCase() }}
-                                <i
-                                    class="el-icon-arrow-down el-icon--right"
-                                ></i>
-                            </span>
-                            <template #dropdown>
-                                <el-dropdown-menu>
-                                    <el-dropdown-item
-                                        v-for="lang in $UserPreferences.langs"
-                                        :key="lang.code"
-                                        :command="{ col: '%s', lang: lang.code }"
-                                    >{{ lang.description }}</el-dropdown-item>
-                                </el-dropdown-menu>
-                            </template>
-                        </el-dropdown>
-                    </template>
-                </el-input>		
+            <el-input v-model="cdata[page - 1].__data__['%s']" @change="cache(cdata[page - 1], '%s')"
+                :prefix-icon="isCompute('%s') ? Monitor : ''" :readonly="readonly('%s')">
+                <template #prefix>
+                    <el-dropdown v-if="'%s'sTranslate['%s']" @command="i18nCommand">
+                        <span class="el-dropdown-link">
+                            {{ colsLang['%s'].toLowerCase() }}
+                            <i class="el-icon-arrow-down el-icon--right"></i>
+                        </span>
+                        <template #dropdown>
+                            <el-dropdown-menu>
+                                <el-dropdown-item v-for="lang in $UserPreferences.langs" :key="lang.code"
+                                    :command="{ col: '%s', lang: lang.code }">{{ lang.description }}</el-dropdown-item>
+                            </el-dropdown-menu>
+                        </template>
+                    </el-dropdown>
+                </template>
+            </el-input>

@@ -1,35 +1,13 @@
-    <slot name="footer">
-        <el-popconfirm
-            v-if="mode == 'new'"
-            confirmButtonText="OK"
-            cancelButtonText="No, Thanks"
-            icon="el-icon-info"
-            iconColor="red"
-            title="Are you sure to cancel?"
-            @confirm="onCancel"
-        >
-            <template #reference>
-                <el-button type="danger">Cancel</el-button>
-            </template>
-        </el-popconfirm>
-        <el-popconfirm
-            v-if="Object.keys(modal).length > 0"
-            confirmButtonText="OK"
-            cancelButtonText="No, Thanks"
-            icon="el-icon-info"
-            iconColor="red"
-            title="Are you sure to close?"
-            @confirm="onClose"
-        >
-            <template #reference>
-                <el-button type="danger">Close</el-button>
-            </template>
-        </el-popconfirm>
-
-        <el-button type="success" @click="onValidate" :disabled="mode == 'lookup'">Validate</el-button>
-        <el-button
-            type="primary"
-            @click="onSubmit"
-            :disabled="mode == 'lookup'"
-        >{{ mode == 'copy' ? 'Copy' : 'Save' }}</el-button>
-    </slot>
+        <el-tabs type="border-card" v-if="o2mcols.length > 0">
+            <el-tab-pane :label="colsLabel[o2mcol]" v-for="o2mcol in o2mcols" :key="o2mcol">
+                <gp-o2m-components
+                    :cid="cid"
+                    :metas="metas"
+                    :model="metas[model].meta.columns[o2mcol].obj"
+                    :cdata="cdata[page - 1].__o2m_containers__[o2mcol]"
+                    :mode="mode"
+                    :rel="metas[model].meta.columns[o2mcol].rel"
+                />
+            </el-tab-pane>
+        </el-tabs>
+    </el-form>

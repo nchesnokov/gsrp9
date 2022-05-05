@@ -19,9 +19,9 @@ def _loadFiles(path):
 		for address, dirs, files in os.walk(opj(path,d)):
 			if address[-11:] == '__pycache__':
 				continue
-			v = address.partition(path+os.path.sep)[2].replace('./','').split(os.path.sep)
-			if len(v) > 2:
-				_gens[fw+'/'+v[1]] = __import__(name='gsrp5service.generate.'+ d +'.'+v[1],globals=globals(),locals=locals(),fromlist=['view'],level=0)
+			v = address.partition(path + os.path.sep)[2].replace('./','').split(os.path.sep)
+			if len(v) > 1:
+				_gens[fw+'/'+v[1]] = __import__(name='gsrp5service.generate.'+ d +'.' +v[1] ,globals=globals(),locals=locals(),fromlist=['view'],level=0)
 			for name in files:
 				if address.startswith('./'):
 					k1 = address.replace('./','').split(os.path.sep)
@@ -44,10 +44,10 @@ def _loadFiles(path):
 
 if __name__ == '__main__':
 	_loadFiles('./')
-	#for k in _texts.keys():
-	#	print('texts:',k,'\n',_texts[k])
 	print('MAPS:',_maps)
 	print('TEXTS:',_texts.keys())
+	print('GENS:',_gens)
+	
 	for k in _gens.keys():
 		print('GENS:',k,dir(_gens[k]))
 else:

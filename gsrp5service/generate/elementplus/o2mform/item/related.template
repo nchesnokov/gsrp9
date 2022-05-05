@@ -1,33 +1,13 @@
-                <el-input
-                    v-model="dataForm.__data__[col].name"
-                    v-if="colsType[col] == 'related'"
-                    @change="related_cache(dataForm, col, metas[model].meta.columns[field].relatedy)"
-                    :readonly="readonly(col)"
-                >
-                    <template v-if="isCompute(col)" #prefix>
-                        <el-button type="primary" size="small" :icon="Monitor" />
-                    </template>
-                    <template #suffix>
-                        <el-button type="primary" size="small" :icon="Search" @click="do_find(col)"></el-button>
-                        <el-button
-                            type="primary"
-                            size="small"
-                            :icon="DocumentAdd"
-                            @click="do_add(col)"
-                        ></el-button>
-                        <el-button
-                            v-if="dataForm.__data__[col].id != null"
-                            type="primary"
-                            size="small"
-                            :icon="Edit"
-                            @click="do_edit(col, dataForm.__data__[col].id)"
-                        ></el-button>
-                        <el-button
-                            v-if="dataForm.__data__[col].id != null"
-                            type="primary"
-                            size="small"
-                            :icon="View"
-                            @click="do_lookup(col, dataForm.__data__[col].id)"
-                        ></el-button>
-                    </template>
-                </el-input>				
+            <el-input v-model="cdata[page - 1].__data__['%s'].name" @change="related_cache(cdata[page - 1], '%s')"
+                :prefix-icon="isCompute('%s') ? Monitor : ''"
+                :readonly="readonly('%s')">
+                <template #suffix>
+                    <el-button type="primary" size="small" :icon="Search"
+                        @click="do_find('%s', 'single', [], { 'item': cdata[page - 1] })"></el-button>
+                    <el-button type="primary" size="small" :icon="DocumentAdd" @click="do_add('%s')"></el-button>
+                    <el-button v-if="cdata[page - 1].__data__['%s'].id != null" type="primary" size="small" :icon="Edit"
+                        @click="do_edit('%s', cdata[page - 1].__data__['%s'].id)"></el-button>
+                    <el-button v-if="cdata[page - 1].__data__['%s'].id != null" type="primary" size="small" :icon="View"
+                        @click="do_lookup('%s', cdata[page - 1].__data__['%s'].id)"></el-button>
+                </template>
+            </el-input>

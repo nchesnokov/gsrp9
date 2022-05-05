@@ -14,6 +14,8 @@ import { on_modify_models } from '../js/nf.js'
 
 import { Monitor, Search, DocumentAdd, Edit, View } from '@element-plus/icons-vue'
 
+import { useI18n } from 'vue-i18n'
+
 const props = defineProps({
     cid: {
         type: String,
@@ -58,6 +60,11 @@ const fields = reactive([])
 const cols = reactive([])
 const o2mcols = reactive([])
 const multipleSelection = reactive([])
+
+const { locale, t } = useI18n({
+    inheritLocale: true
+})
+
 
 const readonly = col => {
     return mode.value == 'lookup' || dataForm.__meta__.ro[col] || isCompute(col)
@@ -379,7 +386,7 @@ const fieldsBuild = (model, view) => {
 const do_find = (col, mode = 'single', extcond = [], callbackopts = {}) => {
     const rootComponent = defineAsyncComponent({
         loader: () =>
-            import('./gp-find.vue'),
+            import('./static/gp-find.vue'),
         suspensible: false
     })
 
@@ -447,7 +454,7 @@ const on_search = msg => {
 const do_modal_form = (col, oid, mode) => {
     const rootComponent = defineAsyncComponent({
         loader: () =>
-            import('./gp-form-modal.vue'),
+            import('./static/gp-form-modal.vue'),
         suspensible: false
     })
     const rootProps = {

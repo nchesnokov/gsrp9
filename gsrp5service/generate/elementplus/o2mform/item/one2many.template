@@ -7,7 +7,7 @@
                         :metas="metas"
                         :model="metas[model].meta.columns[o2mcol].obj"
                         :container="o2mcol + '.' + dataForm.__path__"
-                        :cdata="dataForm.__containers__[o2mcol + '.' + dataForm.__path__]"
+                        :cdata="cdata[page - 1].__containers__[o2mcol + '.' + dataForm.__path__]"
                         :mode="mode"
                         :rel="metas[model].meta.columns[o2mcol].rel"
                     />

@@ -1,0 +1,115 @@
+    <gp-selectable
+        v-if="showSearch"
+        :columns="metas[model].meta.columns"
+        :names="metas[model].meta.names"
+        :cid="cid"
+        @update:search="do_search"
+        @update:search-cancel="showSearch = false"
+    ></gp-selectable>
+
+    <el-row>{{ metas[model].meta.description }}</el-row>
+    <el-row v-if="!showSearch">
+        <el-tooltip class="item" effect="dark" content="Find record(s)" placement="top">
+            <el-button type="primary" size="small" :icon="Search" @click="do_action('find')"></el-button>
+        </el-tooltip>
+        <el-tooltip
+            v-if="multipleSelection.length == 0"
+            class="item"
+            effect="dark"
+            content="New record"
+            placement="top"
+        >
+            <el-button type="primary" size="small" :icon="DocumentAdd" @click="do_action('new')"></el-button>
+        </el-tooltip>
+        <el-tooltip
+            v-if="multipleSelection.length > 0"
+            class="item"
+            effect="dark"
+            content="Copy selected record(s)"
+            placement="top"
+        >
+            <el-button type="primary" size="small" :icon="DocumentCopy" @click="do_action('copy')"></el-button>
+        </el-tooltip>
+        <el-tooltip
+            v-if="multipleSelection.length > 0"
+            class="item"
+            effect="dark"
+            content="Edit selected record(s)"
+            placement="top"
+        >
+            <el-button type="primary" size="small" :icon="Edit" @click="do_action('edit')"></el-button>
+        </el-tooltip>
+        <el-tooltip
+            v-if="multipleSelection.length > 0"
+            class="item"
+            effect="dark"
+            content="Lookup selected record(s)"
+            placement="top"
+        >
+            <el-button type="primary" size="small" :icon="View" @click="do_action('lookup')"></el-button>
+        </el-tooltip>
+
+        <el-popconfirm
+            v-if="multipleSelection.length > 0"
+            confirmButtonText="OK"
+            cancelButtonText="No, Thanks"
+            icon="el-icon-info"
+            iconColor="red"
+            title="Are you sure to delete?"
+            @confirm="do_action('delete')"
+        >
+            <template #reference>
+                <el-tooltip
+                    v-if="multipleSelection.length > 0"
+                    class="item"
+                    effect="dark"
+                    content="Delete selected record(s)"
+                    placement="top"
+                >
+                    <el-button type="primary" size="small" :icon="Delete"></el-button>
+                </el-tooltip>
+            </template>
+        </el-popconfirm>
+
+        <el-tooltip class="item" effect="dark" content="Upload records from file" placement="top">
+            <el-button type="primary" size="small" :icon="Upload" @click="do_action('upload')"></el-button>
+        </el-tooltip>
+        <el-tooltip
+            v-if="multipleSelection.length > 0"
+            class="item"
+            effect="dark"
+            content="Download selected record(s)"
+            placement="top"
+        >
+            <el-button type="primary" size="small" :icon="Download" @click="do_action('download')"></el-button>
+        </el-tooltip>
+        <el-tooltip class="item" effect="dark" content="Setting view" placement="top">
+            <el-button type="primary" size="small" :icon="Setting" @click="do_action('setting')"></el-button>
+        </el-tooltip>
+    </el-row>
+    <el-table @selection-change="handleSelectionChange" :data="tableDataDisplay">
+        <el-table-column type="selection" width="55" />
+        <el-table-column :prop="col" :label="colsLabel[col]" v-for="col in cols" :key="col">
+            <template
+                v-if="colsType[col] == 'selection'"
+                #default="scope"
+            >{{ selOptions[col][scope.row[col]] }}</template>
+            <template v-else-if="colsType[col] == 'boolean'" #default="scope">
+                <el-checkbox v-model="scope.row[col]" disabled />
+            </template>
+            <template
+                v-else-if="['many2one','referenced','related'].indexOf(colsType[col]) >= 0"
+                #default="scope"
+            >{{ scope.row[col].name }}</template>
+
+            <template v-else #default="scope">{{ scope.row[col] }}</template>
+        </el-table-column>
+    </el-table>
+    <el-pagination
+        v-if="tableData.length > pageSize"
+        background
+        layout="total ,prev, pager, next, jumper"
+        @current-change="handleCurrentChange"
+        :page-size="pageSize"
+        :total="tableData.length"
+    ></el-pagination>

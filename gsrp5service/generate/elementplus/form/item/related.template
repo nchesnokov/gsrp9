@@ -1,6 +1,5 @@
                 <el-input
                     v-model="dataForm.__data__['%s'].name"
-                    v-if="colsType['%s'] == 'related'"
                     @change="related_cache(dataForm, '%s', metas[model].meta.columns['%s'].relatedy)"
                     :readonly="readonly('%s')"
                 >

@@ -241,7 +241,7 @@ def get_meta_of_models_v2(pool,model,context):
 def get_views_of_model_v2(pool,model,info,context):
 	o = {}
 	#web_pdb.set_trace()
-	views = pool.get('bc.ui.model.views').select(fields=['fullname','model','vtype','standalone','template','script','style','scoped','sfc',{'cols':['col']},{'inherit_cols':['col']}],cond=[('vtype','like',context['framework'] + '/%'),('model','=',model)],context=context)
+	views = pool.get('bc.ui.model.views').select(fields=['fullname','model','vtype','standalone','template','script','style','i18n','scoped','sfc',{'cols':['col']},{'inherit_cols':['col']}],cond=[('vtype','like',context['framework'] + '/%'),('model','=',model)],context=context)
 	for view in views:
 		confs = pool.get('bc.tuning.ui.model.views').select(fields=['fullname','name','view','tuser','values'],cond=[('view','=',view['fullname']),('tuser','=', context['user'])],context=context)
 		v  = {'columns':[],'id':view['id'],'confs':confs}

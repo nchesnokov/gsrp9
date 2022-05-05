@@ -1,0 +1,199 @@
+import {
+    defineAsyncComponent,
+    createVNode,
+    render,
+    reactive,
+    ref,
+    h,
+    computed,
+    onMounted,
+    getCurrentInstance
+}
+    from 'vue'
+import { Search, DocumentAdd, DocumentCopy, Edit, DocumentDelete, View, Delete, Download, Upload, Setting } from '@element-plus/icons-vue'
+
+import {useI18n} from 'vue-i18n'
+
+const props = defineProps({ cid: String, metas: Object, model: String })
+const emit = defineEmits(['action:form'])
+
+
+const {
+    proxy
+} = getCurrentInstance()
+//const {t} = useI18n()
+const page = ref(1)
+const pageSize = ref(15)
+const showSearch = ref(false)
+const cols = reactive([])
+const o2mcols = reactive([])
+const colsType = reactive({})
+const colsLabel = reactive({})
+const selOptions = reactive({})
+const tableData = reactive([])
+const multipleSelection = reactive([])
+
+// const { locale, t } = useI18n({
+//     inheritLocale: true
+// })
+
+
+const handleSelectionChange = val => {
+    //console.log('selection:', val)
+    multipleSelection.splice(0, multipleSelection.length, ...val)
+}
+
+const handleCurrentChange = val => {
+    page.value = val
+}
+
+const _get_selections = s => {
+    let r = {}
+    for (let j = 0; j < s.length; j++) r[s[j][0]] = s[j][1]
+    return r
+}
+
+const getProp = col => {
+    return ['many2one', 'referenced', 'related'].indexOf(colsType[col]) >= 0 ? col + '.name' : col
+}
+const do_select = () => {
+    showSearch.value = true
+}
+
+const do_search = event => {
+    //console.log('select data:', event)
+    proxy.$ws.sendAsync({
+        _msg: [
+            props.cid,
+            'models',
+            props.model,
+            'select', {
+                fields: props.metas[props.model].views.search.columns.map((v) => v.col),
+                cond: event.cond,
+                context: proxy.$UserPreferences.Context,
+                offset: event.offset.value,
+                limit: event.limit.value
+            }
+        ]
+    }
+        
+    ).then(msg => on_select_data(msg) )
+}
+
+const do_modal_form = (oid, mode) => {
+    const rootComponent = defineAsyncComponent({
+        loader: () =>
+            import('./static/gp-form-modal.vue'),
+        suspensible: false
+    })
+    const rootProps = {
+        cid: props.cid,
+        model: props.model,
+        mode: mode,
+        oid: oid
+    }
+    const vnode = createVNode(rootComponent, rootProps)
+    vnode.appContext = proxy.$appcontext
+    const rootContainer = document.createElement('div')
+    render(vnode, rootContainer, false)
+    document.querySelector('#sv').appendChild(rootContainer)
+}
+
+const do_action = action => {
+    //console.log('action:', action)
+    switch (action) {
+        case 'find':
+            do_select()
+            break
+        case 'new':
+            //proxy.$emit('action:form',{'mode':'new'});
+            do_modal_form(null, 'new')
+            break
+        case 'edit':
+            //proxy.$emit('action:form',{'mode':'edit','oids':multipleSelection});
+            do_modal_form(
+                multipleSelection.length == 1 ? multipleSelection[0].id : multipleSelection.map(v => v.id),
+                'edit'
+            )
+            break
+        case 'lookup':
+            //proxy.$emit('action:form',{'mode':'lookup','oids':multipleSelection});
+            do_modal_form(
+                multipleSelection.length == 1 ? multipleSelection[0].id : multipleSelection.map(v => v.id),
+                'lookup'
+            )
+            break
+        case 'copy':
+            //proxy.$emit('action:form',{'mode':'edit','oids':multipleSelection});
+            do_modal_form(
+                multipleSelection.length == 1 ? multipleSelection[0].id : multipleSelection.map(v => v.id),
+                'copy'
+            )
+            break
+        case 'delete':
+            proxy.$ws.sendAsync({
+                _msg: [
+                    props.cid,
+                    'models',
+                    props.model,
+                    'unlink', {
+                        ids: multipleSelection.length == 1 ? multipleSelection[0].id : multipleSelection.map(v => v.id),
+                        context: proxy.$UserPreferences.Context
+                    }
+                ]
+            }
+            ).then((msg) => {
+                //console.log('action:', msg)
+                if (msg.length > 0) {
+                    proxy.$ws.sendAsync({
+                        _msg: [
+                            props.cid,
+                            '_commit'
+                        ]
+                    }).then(() => {
+                        proxy.$notify({
+                            title: 'Information',
+                            message: h(
+                                'i', {
+                                style: 'color: teal'
+                            },
+                                'Records deleted.'
+                            )
+                        })
+
+                    })
+
+                }
+            }
+            )
+
+            break
+
+    }
+}
+
+const on_select_data = msg => {
+    //console.log('msg:', msg)
+    if (msg.length > 0) showSearch.value = false
+    tableData.splice(0, tableData.length, ...msg)
+}
+
+const tableDataDisplay = computed(() => {
+    //console.log('computed:');
+    //console.log('computed:', tableData === null || tableData.length === 0 ? reactive([]) : tableData.slice(pageSize.value * page.value - pageSize.value, pageSize.value * page.value));
+    if (tableData === null || tableData.length === 0) return reactive([])
+    else return tableData.slice(pageSize.value * page.value - pageSize.value, pageSize.value * page.value)
+})
+onMounted(() => {
+    for (
+        let i = 0,
+        c = props.metas[props.model].views.list.columns.map((v) => v.col),
+        meta = props.metas[props.model].meta.columns; i < c.length; i++
+    ) {
+        colsType[c[i]] = meta[c[i]].type
+        colsLabel[c[i]] = meta[c[i]].label
+        if (colsType[c[i]] == 'selection') selOptions[c[i]] = _get_selections(meta[c[i]].selections)
+        if (colsType[c[i]] == 'one2many') o2mcols.push(c[i])
+        else cols.push(c[i])
+    }
+})

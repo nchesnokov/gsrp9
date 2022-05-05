@@ -896,6 +896,7 @@ def columnsInfo(self, columns = None, attributes = None):
 		else:
 			if self._columns[column]._type == 'i18n':
 				res[column] = self._columns[column].column._get_attrs(attributes)
+				res[column]['translate'] = True
 			else:
 				res[column] = self._columns[column]._get_attrs(attributes)
 

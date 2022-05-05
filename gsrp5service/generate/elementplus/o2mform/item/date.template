@@ -1,5 +1,5 @@
-                <el-date-picker
-                    v-model="dataForm.__data__['{0}']"
-                    @change="cache(dataForm, '{0}')"
-                    :readonly="readonly('{0}')"
-                ></el-date-picker>
+			<el-date-picker
+				v-model="cdata[page - 1].__data__['%s']]"
+				@change="cache(cdata[page - 1], '%s')"
+				:readonly="readonly('%s')"
+			></el-date-picker>

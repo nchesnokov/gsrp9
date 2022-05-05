@@ -543,7 +543,7 @@ class bc_ui_model_view_columns(Model):
 	#'col': fields.many2one(label='Column',obj='bc.model.columns')
 	'col': fields.varchar(label='Column', readonly = True),
 	#'template': fields.text(label='Template'),
-	#'script': fields.text(label='Script'),
+
 
 	}
 
