@@ -182,7 +182,7 @@ class BaseModel(object, metaclass = MetaObjects):
 	_indicies = {}
 	_extra = {}
 
-	def __init__(self,access = None):
+	def __init__(self,access = None, attrs = None):
 		mm.model__init__(self,access)
 
 	def _execute(self, sql,vals=None):
@@ -498,6 +498,11 @@ class BaseModel(object, metaclass = MetaObjects):
 	@property
 	def _selectablefields(self):
 		return list(filter(lambda x: hasattr(self._columns[x],'store') and self._columns[x].store or self._columns[x]._type in ('one2many','many2many','text','xml','binary'),self._columns.keys())) 
+
+	@property
+	def _findfields(self):
+		return list(filter(lambda x: hasattr(self._columns[x],'selectable') and self._columns[x].selectable,self._columns.keys())) 
+
 
 	def _getMessage(self ,area,code,context={}):
 		r = self._pool.get('bc.messages').select(['area','code','descr'],[('area','=',area),('code','=',code)],context,limit=1)

@@ -1,0 +1,131 @@
+- cols:
+  - col: descr
+    seq: 0
+  - col: area
+    seq: 10
+  model: seq.areas
+  vtype: element-plus/find
+- cols:
+  - col: descr
+    seq: 0
+  - col: segment
+    seq: 10
+  model: seq.segments
+  vtype: element-plus/find
+- cols:
+  - col: models
+    seq: 0
+  - col: area
+    seq: 10
+  - col: segment
+    seq: 20
+  - col: name
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: usage
+    seq: 50
+  model: seq.access
+  vtype: element-plus/search
+- cols:
+  - col: models
+    seq: 0
+  - col: area
+    seq: 10
+  - col: segment
+    seq: 20
+  - col: name
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: usage
+    seq: 50
+  model: seq.access
+  vtype: element-plus/find
+- cols:
+  - col: access_id
+    seq: 0
+  - col: model
+    seq: 10
+  - col: sequence
+    seq: 20
+  - col: values
+    seq: 30
+  - col: columns
+    seq: 40
+  model: seq.models
+  vtype: element-plus/find
+- cols:
+  - col: col
+    seq: 0
+  - col: model_id
+    seq: 10
+  - col: sequence
+    seq: 20
+  model: seq.model.columns
+  vtype: element-plus/find
+- cols:
+  - col: col
+    seq: 0
+  - col: model_id
+    seq: 10
+  - col: sequence
+    seq: 20
+  model: seq.model.column.values
+  vtype: element-plus/find
+- cols:
+  - col: area
+    seq: 0
+  - col: segment
+    seq: 10
+  - col: name
+    seq: 20
+  - col: seq_access
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: usage
+    seq: 50
+  model: seq.conditions
+  vtype: element-plus/find
+- cols:
+  - col: area
+    seq: 0
+  - col: segment
+    seq: 10
+  - col: name
+    seq: 20
+  - col: items
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: usage
+    seq: 50
+  model: seq.access.schemas
+  vtype: element-plus/search
+- cols:
+  - col: area
+    seq: 0
+  - col: segment
+    seq: 10
+  - col: name
+    seq: 20
+  - col: items
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: usage
+    seq: 50
+  model: seq.access.schemas
+  vtype: element-plus/find
+- cols:
+  - col: condition
+    seq: 0
+  - col: required
+    seq: 10
+  - col: schema_id
+    seq: 20
+  - col: seq
+    seq: 30
+  model: seq.access.schema.items
+  vtype: element-plus/find

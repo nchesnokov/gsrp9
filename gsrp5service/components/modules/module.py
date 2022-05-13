@@ -32,10 +32,10 @@ class KeyBuffer(dict):
 			return self[key][obj][recordkey]  
 		return None
 
-def load(self,modules = None,context = {'lang':'EN'}):
+def load(self,modules = None,context = {'lang':'en'}):
 	return _load(self,['install','autoinstall'],modules, context)
 
-def _load(self,able=None, modules = None, context = {'lang':'EN','tz':'UTC'}):
+def _load(self,able=None, modules = None, context = {'lang':'en','tz':'UTC'}):
 	log = []
 	_modules = []
 	_chunks = {}

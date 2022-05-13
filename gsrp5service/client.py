@@ -16,10 +16,69 @@ secure = False
 from lxml import etree
 from io import BytesIO
 
+from msgpack import packb, unpackb, ExtType
+
+from datetime import datetime,date,time,timedelta,timezone
+
 ssl_ctx = None
 if secure:
 	ssl_ctx = ssl.create_default_context(purpose = ssl.Purpose.CLIENT_AUTH)
 	ssl_ctx.load_cert_chain(opj(os.getcwd(),"server.crt"),opj(os.getcwd(),"server.key"))
+
+def default(obj):
+	if isinstance(obj,tuple):
+		return ExtType(10,packb(obj))
+	elif isinstance(obj,datetime):
+		return ExtType(11, bytes(obj.astimezone().strftime("%Y-%m-%d %H:%M:%S%z"),'utf-8'))
+	elif isinstance(obj,datetime):
+		return ExtType(12, bytes(obj.astimezone().strftime("%Y-%m-%d %H:%M:%S"),'utf-8'))
+	elif isinstance(obj,date):
+		return ExtType(13, bytes(obj.strftime("%Y-%m-%d"),'utf-8'))
+	elif isinstance(obj,time):
+		return ExtType(14, bytes(obj.strftime("%H:%M:%S%z"),'utf-8'))
+	elif isinstance(obj,time):
+		return ExtType(15, bytes(obj.strftime("%H:%M:%S"),'utf-8'))
+	elif isinstance(obj,timedelta):
+		return ExtType(16, bytes(str(obj.total_seconds()),'utf-8'))
+	elif isinstance(obj,Decimal):
+		return ExtType(17, bytes(str(obj),'utf-8'))
+	elif isinstance(obj,memoryview):
+		return ExtType(18, obj.tobytes().decode('utf-8'))
+	elif isinstance(obj,Exception):
+		return ExtType(20, bytes(str(obj),'utf-8'))
+
+	return obj
+		
+def ext_hook(code,data):
+	if code == 10:
+		return tuple(unpackb(unpackb(data).data))
+	elif code == 11:
+		if data is not None:
+			return datetime.strptime(data.decode('utf-8'),"%Y-%m-%d %H:%M:%S%z")
+	elif code == 12:
+		if data is not None:
+			return datetime.strptime(data.decode('utf-8'),"%Y-%m-%d %H:%M:%S")
+	elif code == 13:
+		if data is not None:
+			return datetime.strptime(data.decode('utf-8'),"%Y-%m-%d").date()
+	elif code == 14:
+		if data is not None:
+			return datetime.strptime(data.decode('utf-8'),"%H:%M:%S").time()
+	elif code == 15:
+		if data is not None:
+			return datetime.strptime(data.decode('utf-8'),"%H:%M:%S").time()
+
+	elif code == 16:
+		if data is not None:
+			return timedelta(seconds=float(data.decode('utf-8')))
+	elif code == 17:
+		if data is not None:
+			return Decimal(data.decode('utf-8'))
+	elif code == 18:
+		if data is not None:
+			return memoryview(data.decode('utf-8'))
+	
+	return data
 
 async def _execute(args):
 	global uid
@@ -30,10 +89,12 @@ async def _execute(args):
 		msg=['0' * 32]
 	msg.extend(args[1:])
 	print('MSG:',msg)
-	imsg = pickle.dumps(msg)
+	#imsg = pickle.dumps(msg)
+	imsg = packb(msg,default=default,use_bin_type=False,strict_types=True)
 	await ws.send(imsg)
 	omsg = await ws.recv()
-	rmsg =pickle.loads(omsg)
+	#rmsg =pickle.loads(omsg)	
+	rmsg = unpackb(omsg,ext_hook=ext_hook,use_list=True)
 	print('RMSG:',rmsg)
 	if hasattr(rmsg,'_class__') and issubclass(rmsg,Exception):
 		print('Exception: %s' % (rmsg,))
@@ -73,7 +134,7 @@ async def hello():
 		#async with websockets.connect('ws://www.gsrp5labs.com:8170') as ws:
 		#async with websockets.connect('ws://localhost:8170/ws') as ws:
 		async with websockets.connect('ws://localhost:8170') as ws:
-			if not True:
+			if True:
 				Uuid = await _execute([ws, '_open','gsrp5.system',{'profile':'system'}])
 				#msg = await _execute([ws,'modules','upgrademoduleslist',{'db':'test001'}])
 				#return
@@ -89,7 +150,8 @@ async def hello():
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['mm']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','purchase','sale']}])
 				#msg = await _execute([ws, 'gens','tests',{'modules': ['md']}])
-				msg = await _execute([ws, 'gens','ui',{'modules': ['bc','devel','common','md']}])
+				#msg = await _execute([ws, 'gens','ui',{'modules': ['bc','devel','common','md']}])
+				msg = await _execute([ws, 'gens','view',{'modules': ['bc','devel','common','md']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': [',purchase']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','common','purchase','sale']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['md','purchase','sale','srm']}])
@@ -107,10 +169,10 @@ async def hello():
 				
 				return
 				#msg = await _execute([ws, 'dropSlot',{'sid':'test001'}])
-				msg = await _execute([ws, 'dropSlot',{'sid':'test003'}])
+				msg = await _execute([ws, 'dropSlot',{'sid':'test004'}])
 				#msg = await _execute([ws, 'slots','dropSlot',{'sid':'test003'}])
 				#msg = await _execute([ws, '_reload'])
-				msg = await _execute([ws,'createSlot',{'name':'test003','db_user':'test'}])
+				msg = await _execute([ws,'createSlot',{'name':'test004','db_user':'test'}])
 				#msg = await _execute([ws, 'modules','sysinstall'])
 				#msg = await _execute([ws, 'slots','create',{'sid':'test002','host':'localhost','port':26257,'database':'test002','db_user':'test','db_password':'test','sslmode':'verify-full'}])
 				#msg = await _execute([ws, 'slots','create',{'sid':'test001','host':'localhost','port':26257,'database':'test001','db_user':'test','db_password':'test','sslmode':'verify-full'}])

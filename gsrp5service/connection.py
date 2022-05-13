@@ -219,7 +219,7 @@ class Cursor(object):
 					elif columnsmeta[field] in ('one2many','many2many'):
 						row.append([])
 					elif columnsmeta[field] in ('json','jsonb'):
-						row.append(json.dumps(record[dm[field]]))
+						row.append(json.loads(record[dm[field]]))
 					else:
 						row.append(record[dm[field]])
 				elif type(field) == dict:

@@ -1,0 +1,448 @@
+- cols:
+  - col: preferences
+    seq: 0
+  - col: login
+    seq: 10
+  - col: issuperuser
+    seq: 20
+  - col: lastname
+    seq: 30
+  - col: password
+    seq: 40
+  - col: firstname
+    seq: 50
+  model: bc.users
+  vtype: element-plus/search
+- cols:
+  - col: preferences
+    seq: 0
+  - col: login
+    seq: 10
+  - col: issuperuser
+    seq: 20
+  - col: lastname
+    seq: 30
+  - col: password
+    seq: 40
+  - col: firstname
+    seq: 50
+  model: bc.users
+  vtype: element-plus/find
+- cols:
+  - col: description
+    seq: 0
+  - col: code
+    seq: 10
+  model: bc.langs
+  vtype: element-plus/find
+- cols:
+  - col: descr
+    seq: 0
+  - col: code
+    seq: 10
+  model: bc.web.frameworks
+  vtype: element-plus/find
+- cols:
+  - col: framework
+    seq: 0
+  - col: user_id
+    seq: 10
+  - col: country
+    seq: 20
+  - col: lang
+    seq: 30
+  - col: timezone
+    seq: 40
+  model: bc.user.preferences
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: modules
+    seq: 10
+  - col: parent_id
+    seq: 20
+  - col: note
+    seq: 30
+  - col: childs_id
+    seq: 40
+  - col: name2
+    seq: 50
+  model: bc.group.modules
+  vtype: element-plus/find
+- cols:
+  - col: models
+    seq: 0
+  - col: group_module_id
+    seq: 10
+  - col: author
+    seq: 20
+  - col: version
+    seq: 30
+  - col: category
+    seq: 40
+  - col: description
+    seq: 50
+  - col: code
+    seq: 60
+  - col: image
+    seq: 70
+  - col: state
+    seq: 80
+  - col: maintainer
+    seq: 90
+  - col: area
+    seq: 100
+  - col: shortdescription
+    seq: 110
+  - col: inherits
+    seq: 120
+  - col: able
+    seq: 130
+  - col: website
+    seq: 140
+  - col: files
+    seq: 150
+  - col: icon
+    seq: 160
+  - col: name
+    seq: 170
+  model: bc.modules
+  vtype: element-plus/find
+- cols:
+  - col: module_id
+    seq: 0
+  - col: size
+    seq: 10
+  - col: filename
+    seq: 20
+  - col: mtime
+    seq: 30
+  - col: ctime
+    seq: 40
+  model: bc.module.files
+  vtype: element-plus/find
+- cols:
+  - col: descr
+    seq: 0
+  - col: note
+    seq: 10
+  - col: code
+    seq: 20
+  model: bc.class.model.categories
+  vtype: element-plus/find
+- cols:
+  - col: descr
+    seq: 0
+  - col: note
+    seq: 10
+  - col: code
+    seq: 20
+  model: bc.class.models
+  vtype: element-plus/find
+- cols:
+  - col: oom
+    seq: 0
+  - col: class_model
+    seq: 10
+  - col: class_model_category
+    seq: 20
+  - col: inherits
+    seq: 30
+  - col: module_id
+    seq: 40
+  - col: columns
+    seq: 50
+  - col: code
+    seq: 60
+  - col: descr
+    seq: 70
+  model: bc.models
+  vtype: element-plus/find
+- cols:
+  - col: col
+    seq: 0
+  - col: model_id
+    seq: 10
+  - col: moc
+    seq: 20
+  - col: seq
+    seq: 30
+  model: bc.model.columns
+  vtype: element-plus/find
+- cols:
+  - col: models
+    seq: 0
+  - col: module_id
+    seq: 10
+  - col: descr
+    seq: 20
+  - col: code
+    seq: 30
+  - col: momi
+    seq: 40
+  - col: columns
+    seq: 50
+  model: bc.model.inherits
+  vtype: element-plus/find
+- cols:
+  - col: inherit_id
+    seq: 0
+  - col: col
+    seq: 10
+  - col: moc
+    seq: 20
+  model: bc.model.inherit.columns
+  vtype: element-plus/find
+- cols:
+  - col: inherit_id
+    seq: 0
+  - col: model_id
+    seq: 10
+  - col: col
+    seq: 20
+  model: bc.model.inherit.inherits
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: roles
+    seq: 10
+  - col: parent_id
+    seq: 20
+  - col: note
+    seq: 30
+  - col: active
+    seq: 40
+  - col: childs_id
+    seq: 50
+  model: bc.group.access
+  vtype: element-plus/find
+- cols:
+  - col: models
+    seq: 0
+  - col: name
+    seq: 10
+  - col: group_id
+    seq: 20
+  - col: note
+    seq: 30
+  - col: inactive
+    seq: 40
+  model: bc.access
+  vtype: element-plus/search
+- cols:
+  - col: models
+    seq: 0
+  - col: name
+    seq: 10
+  - col: group_id
+    seq: 20
+  - col: note
+    seq: 30
+  - col: inactive
+    seq: 40
+  model: bc.access
+  vtype: element-plus/find
+- cols:
+  - col: aexecute
+    seq: 0
+  - col: model
+    seq: 10
+  - col: note
+    seq: 20
+  - col: auth
+    seq: 30
+  - col: awrite
+    seq: 40
+  - col: access_id
+    seq: 50
+  - col: aread
+    seq: 60
+  - col: acreate
+    seq: 70
+  - col: aunlink
+    seq: 80
+  - col: inactive
+    seq: 90
+  model: bc.model.access
+  vtype: element-plus/find
+- cols:
+  - col: model
+    seq: 0
+  - col: name
+    seq: 10
+  - col: module
+    seq: 20
+  - col: rec_id
+    seq: 30
+  - col: file_id
+    seq: 40
+  - col: date_update
+    seq: 50
+  - col: date_init
+    seq: 60
+  model: bc.model.data
+  vtype: element-plus/find
+- cols:
+  - col: framework
+    seq: 0
+  - col: exclude
+    seq: 10
+  - col: fullname
+    seq: 20
+  - col: code
+    seq: 30
+  - col: note
+    seq: 40
+  model: bc.ui.view.model.types
+  vtype: element-plus/find
+- cols:
+  - col: model
+    seq: 0
+  - col: scoped
+    seq: 10
+  - col: script
+    seq: 20
+  - col: vtype
+    seq: 30
+  - col: i18n
+    seq: 40
+  - col: cols
+    seq: 50
+  - col: inherit_cols
+    seq: 60
+  - col: note
+    seq: 70
+  - col: style
+    seq: 80
+  - col: fullname
+    seq: 90
+  - col: template
+    seq: 100
+  - col: standalone
+    seq: 110
+  - col: sfc
+    seq: 120
+  model: bc.ui.model.views
+  vtype: element-plus/search
+- cols:
+  - col: model
+    seq: 0
+  - col: scoped
+    seq: 10
+  - col: script
+    seq: 20
+  - col: vtype
+    seq: 30
+  - col: i18n
+    seq: 40
+  - col: cols
+    seq: 50
+  - col: inherit_cols
+    seq: 60
+  - col: note
+    seq: 70
+  - col: style
+    seq: 80
+  - col: fullname
+    seq: 90
+  - col: template
+    seq: 100
+  - col: standalone
+    seq: 110
+  - col: sfc
+    seq: 120
+  model: bc.ui.model.views
+  vtype: element-plus/find
+- cols:
+  - col: view_id
+    seq: 0
+  - col: col
+    seq: 10
+  - col: seq
+    seq: 20
+  model: bc.ui.model.view.columns
+  vtype: element-plus/find
+- cols:
+  - col: view_id
+    seq: 0
+  - col: col
+    seq: 10
+  model: bc.ui.model.view.column.inherits
+  vtype: element-plus/find
+- cols:
+  - col: model
+    seq: 0
+  - col: tr
+    seq: 10
+  - col: lang
+    seq: 20
+  - col: inherits
+    seq: 30
+  model: bc.model.translations
+  vtype: element-plus/find
+- cols:
+  - col: inherit_id
+    seq: 0
+  - col: tr
+    seq: 10
+  model: bc.model.translation.inherits
+  vtype: element-plus/find
+- cols:
+  - col: tuser
+    seq: 0
+  - col: values
+    seq: 10
+  - col: name
+    seq: 20
+  - col: fullname
+    seq: 30
+  - col: view
+    seq: 40
+  model: bc.tuning.ui.model.views
+  vtype: element-plus/find
+- cols:
+  - col: values
+    seq: 0
+  - col: name
+    seq: 10
+  - col: fullname
+    seq: 20
+  - col: view
+    seq: 30
+  model: bc.general.tuning.ui.model.views
+  vtype: element-plus/find
+- cols:
+  - col: model
+    seq: 0
+  - col: name
+    seq: 10
+  model: bc.ui.model.actions
+  vtype: element-plus/find
+- cols:
+  - col: view_id
+    seq: 0
+  - col: action_id
+    seq: 10
+  - col: framework_id
+    seq: 20
+  - col: fullname
+    seq: 30
+  model: bc.ui.framework.model.actions
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: childs_id
+    seq: 10
+  - col: sequence
+    seq: 20
+  - col: parent_id
+    seq: 30
+  - col: action_id
+    seq: 40
+  - col: label
+    seq: 50
+  model: bc.ui.model.menus
+  vtype: element-plus/find

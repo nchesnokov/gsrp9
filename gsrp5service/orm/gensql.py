@@ -333,11 +333,12 @@ def _build_query(self, fields,cond,context):
 		obj = self._columns[field].obj
 		m = self._pool.get(obj)
 		recname = m._RecNameName
-		i18nfields = m._i18nfields
-		columns.setdefault(ca,[]).extend([recname])
-		columns_maps[field] = ca + '.' + recname
-		columns_as[ca + '.' + recname] = '"' + field + '-name' + '"'
-		joins.append("LEFT OUTER JOIN " + (m._tr_table if m._tr_table and recname in i18nfields else m._table) + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
+		if recname:
+			i18nfields = m._i18nfields
+			columns.setdefault(ca,[]).extend([recname])
+			columns_maps[field] = ca + '.' + recname
+			columns_as[ca + '.' + recname] = '"' + field + '-name' + '"'
+			joins.append("LEFT OUTER JOIN " + (m._tr_table if m._tr_table and recname in i18nfields else m._table) + " AS " + ca + " ON (" + ca + ".id = a." + field + ")")
 		
 	for field in fields:
 		if type(field) == dict:

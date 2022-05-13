@@ -25,36 +25,14 @@ GENSRCIPTS = {'element-plus':gen_script_el,'vuetify':gen_script_vuetify,'devextr
 GENSTYLES = {'element-plus':gen_style_el,'vuetify':gen_style_vuetify,'devextrme':gen_style_devextrme}
 
 def ModelsColumns( view, columns):
+	return [{'seq':idx * 10,'col':col} for idx,col in enumerate(columns)]
+
+def Views(framework,model,views):
+	return [ {'model':model,'vtype':framework + '/' + view,'cols':ModelsColumns(view,columns)} for view,columns in views]
+	
+def iViews(framework, imodel, views):
 	res = []
-	exclude = EXCLUDE['models'][view]
-	for idx,col in enumerate(columns):
-		res.append({'seq':idx * 10,'col':col})
-
-	return res
-
-def Views(framework,model,info):
-	res = []
-	ci = info['columns']
-	for view in EXCLUDE['models'].keys():
-		columns = isAllow(view,'models',info,list(ci.keys()))
-		if len(columns) == 0:
-			continue
-		standalone = False
-		record = {'model':info['name'],'vtype':framework + '/' + view,'cols':ModelsColumns(view,columns)}
-		if standalone:	
-			record['standalone'] = standalone
-			record['template'] = GENTEMPLATES[framework][view](info,columns)
-			record['script'] = GENSRCIPTS[framework][view](info,columns)
-			record['style'] = GENSTYLES[framework][view](info,columns)
-			record['sfc'] = record['template'] +'\n' + record['script'] if len(record['script']) > 0 else '' + record['setup'] if len(record['setup']) > 0 else '' + '\n' + record['style']
-		
-		res.append(record)
-
-	return res
-
-def iViews(framework, imodel, info, model, icolumns,views):
-	res = []
-	icolumns_info = info['columns']
+	icolumns_info = imodel.modelInfo()['columns']
 	for view in views:
 		exclude = EXCLUDE['models'][view]
 		for icolumn in icolumns:
@@ -101,11 +79,10 @@ def Area(self, modules = None,context={}):
 				for framework in FRAMEWORKS:
 					if not os.path.exists(opj(path,module,'views',framework)):
 						os.mkdir(opj(path,module,'views',framework))
-					for model in objs['models']:	
-						with open(opj(path,module,'views',framework,model._table+'.yaml'),'w') as outfile:
-							yaml.dump(Views(framework,model._name,model.modelInfo()), outfile, Dumper, default_flow_style=False)
+					with open(opj(path,module,'views',framework,'views.yaml'),'w') as outfile:					
+						yaml.dump([record for model in objs['models'] for record in Views(framework,model._name,isAllow(model))], outfile, Dumper, default_flow_style=False)
 					
-						aw.writerow({'model': 'bc.ui.model.views','file':opj('views',framework,model._table+'.yaml' )})
+					aw.writerow({'model': 'bc.ui.model.views','file':opj('views',framework,'views.yaml' )})
 			if len(iobjs) > 0:
 				if len(objs) == 0:
 					a = open(opj(path,module,'views','views.csv'),'w')
@@ -144,55 +121,30 @@ def Area(self, modules = None,context={}):
 	_logger.info('Gen views of modules %s' % (logmodules,))
 	return ['Gen views of modules %s' % (logmodules,)]
 
-def isAllowDashboards(view,info):
-	r = False
-	return r
 
-def isAllowModels(view,info,columns):
-	res = []
-	ci = info['columns']
-	if 	not (view == 'search' and (info['names']['row_name'] or info['names']['rec_name'] or info['names']['full_name']) or view == 'find' and len(list(filter(lambda x: 'selectable' in ci[x] and ci[x]['selectable'],ci.keys()))) > 0 or view in ('form','list','m2mlist','form.modal') or view == 'tree' and info['names']['parent_id'] and  info['names']['childs_id'] or view in ('calendar','graph','mdx') and info['names']['date'] or view == 'schedule' and (info['names']['from_date'] and info['names']['to_date'] or info['names']['start_date'] and info['names']['end_date']) or view == 'kanban' and info['names']['state'] or view == 'geo' and (info['names']['from_latitude'] and info['names']['from_longitude'] or info['names']['to_latitude'] and info['names']['to_longitude'] or info['names']['latitude'] and info['names']['longitude']) or view == 'flow' and  info['names']['prev_name'] and info['names']['next_name']):
-		return res
-	
-	for col in columns:
-		if len(EXCLUDE['models'][view]) == 0 or ci[col]['type'] not in EXCLUDE['models'][view] and ci[col]['type'] not in ('iProperty',):
-				res.append(col)
-	
-	return res
+def isAllow(obj):
+	allows = []
+	for view in VIEWS:
+		if view == 'search' and len(obj._o2mfields) > 0 and len(obj._m2ofields) == 0 and obj._getRecNameName():
+			allows.append((view,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+		elif view == 'find' and len(obj._findfields) > 0:
+			allows.append((view,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+		elif view == 'm2m' and len(obj._m2mfields) > 0:
+			allows.append((view,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
 
-def isAllowIModels(view,info,columns):
-	res = []
-	ci = info['columns']
+	
+	return allows
+	
+def isAllowInherit(iobj):
+	iallows = []
+	for view in VIEWS:
+		icols = list(filter(lambda x: iobj._columns[x]._type != 'iProperty' and obj._columns[x]._type not in EXCLUDE['models'][view],iobj._columns.keys()))
+		if len(icols) > 0:
+			iallows.append((view,[]))
 		
-	for col in columns:
-		if len(EXCLUDE['models'][view]) == 0 or ci[col]['type'] not in EXCLUDE['models'][view] and ci[col]['type'] not in ('iProperty',):
-			res.append(col)
 	
-	return res
-
-
-def isAllowViews(view,info,columns):
-	r = False
-	return r
-
-def isAllowReports(view,info,columns):
-	r = False
-	return r
-
-def isAllowWizards(view,info,columns):
-	r = False
-	return r
-
-ISALLOW_OBJS = {'dashboards':isAllowDashboards,'models': isAllowModels,'imodels': isAllowIModels,'views':isAllowViews,'reports':isAllowReports,'wizards':isAllowWizards}
-
-def isAllow(view,cat,info,columns):
-	r = False
-	if cat in ISALLOW_OBJS:
-		r = ISALLOW_OBJS[cat](view,info,columns)
+	return iallows
 	
-	return r
-
-def isAllowInherit(view,cat,columnsinfo):
 	r = False
 	if cat in ISALLOW_OBJS:
 		r = ISALLOW_OBJS[cat](view,columnsinfo)
@@ -201,7 +153,12 @@ def isAllowInherit(view,cat,columnsinfo):
 
 
 
+
+
+
+VIEWS = ['search','find','m2mlist','form.modal','form','o2mform','gantt','o2mgantt','schedule', 'o2mschedule','calendat', 'o2ncalendar','graph','o2mgraph','kanban','o2mkanban','mdx','o2mmdx','matrix','o2mmatrix','geo','o2mgeo','flow','o2mflow','tree','o2mtree']
 EXCLUDE = {}
-EXCLUDE['models'] = {'calendar':['one2many','one2related','many2many','text','binary','xml','json'],'form':[],'form.modal':[],'schedule':['one2many','one2related','many2many','text','binary','xml','json'],'gantt':['one2many','one2related','many2many','text','binary','xml','json'],'graph':['one2many','one2related','many2many','text','binary','xml','json'],'kanban':['one2many','one2related','many2many','xml','json'],'list':['many2many','text','binary','xml','json'],'m2mlist':['one2many','one2related','many2many','text','binary','xml','json'],'mdx':['one2many','one2related','many2many','text','binary','xml','json'],'matrix':['one2many','one2related','many2many','text','binary','xml','json'],'search':['one2many','one2related','many2many','text','binary','xml','json'],'find':['one2many','one2related','many2many','text','binary','xml','json'],'tree':['one2many','one2related','many2many','text','binary','xml','json'],'geo':['one2many','one2related','many2many','text','binary','xml','json'],'flow':['integer','float','real','decimal','numeric','date','time','datetime','one2related','many2many','text','binary','xml','json']}
+EXCLUDE['models'] = {'calendar':['one2many','one2related','many2many','text','binary','xml','json'],'form':[],'form.modal':[],'schedule':['one2many','one2related','many2many','text','binary','xml','json'],'gantt':['one2many','one2related','many2many','text','binary','xml','json'],'graph':['one2many','one2related','many2many','text','binary','xml','json'],'kanban':['one2many','one2related','many2many','xml','json'],'list':['many2many','text','binary','xml','json'],'m2mlist':['one2many','one2related','many2many','text','binary','xml','json'],'mdx':['one2many','one2related','many2many','text','binary','xml','json'],'matrix':['one2many','one2related','many2many','text','binary','xml','json'],'search':['one2many','one2related','many2many','text','binary','xml','json'],'find':['one2many','one2related','many2many','text','binary','xml','json'],'tree':['one2many','one2related','many2many','text','binary','xml','json'],'geo':['one2many','one2related','many2many','text','binary','xml','json'],'flow':['integer','float','real','decimal','numeric','date','time','datetime','one2related','many2many','text','binary','xml','json']
+}
 
 

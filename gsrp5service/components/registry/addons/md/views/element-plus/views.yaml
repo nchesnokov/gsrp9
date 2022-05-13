@@ -1,0 +1,755 @@
+- cols:
+  - col: name
+    seq: 0
+  - col: fullname
+    seq: 10
+  - col: parent_id
+    seq: 20
+  - col: note
+    seq: 30
+  - col: childs_id
+    seq: 40
+  model: md.category.country
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: fullname
+    seq: 10
+  - col: parent_id
+    seq: 20
+  - col: note
+    seq: 30
+  - col: childs_id
+    seq: 40
+  model: md.category.language
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: fullname
+    seq: 10
+  - col: parent_id
+    seq: 20
+  - col: note
+    seq: 30
+  - col: childs_id
+    seq: 40
+  model: md.category.product
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: note
+    seq: 10
+  - col: category_id
+    seq: 20
+  - col: mtype
+    seq: 30
+  - col: products
+    seq: 40
+  model: md.products.template
+  vtype: element-plus/search
+- cols:
+  - col: name
+    seq: 0
+  - col: note
+    seq: 10
+  - col: category_id
+    seq: 20
+  - col: mtype
+    seq: 30
+  - col: products
+    seq: 40
+  model: md.products.template
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: fullname
+    seq: 10
+  - col: parent_id
+    seq: 20
+  - col: note
+    seq: 30
+  - col: childs_id
+    seq: 40
+  model: md.category.partner
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: fullname
+    seq: 10
+  - col: parent_id
+    seq: 20
+  - col: note
+    seq: 30
+  - col: childs_id
+    seq: 40
+  model: md.category.location
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: longitude
+    seq: 10
+  - col: category_id
+    seq: 20
+  - col: note
+    seq: 30
+  - col: usage
+    seq: 40
+  - col: latitude
+    seq: 50
+  model: md.location
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: numerator
+    seq: 10
+  - col: note
+    seq: 20
+  - col: parent_id
+    seq: 30
+  - col: denominator
+    seq: 40
+  - col: childs_id
+    seq: 50
+  model: md.group.quantity
+  vtype: element-plus/find
+- cols:
+  - col: group_id
+    seq: 0
+  - col: note
+    seq: 10
+  - col: weight
+    seq: 20
+  - col: candelle
+    seq: 30
+  - col: mole
+    seq: 40
+  - col: name
+    seq: 50
+  - col: meter
+    seq: 60
+  - col: tense
+    seq: 70
+  - col: ampere
+    seq: 80
+  - col: kelvin
+    seq: 90
+  - col: uoms
+    seq: 100
+  model: md.quantity.uom
+  vtype: element-plus/search
+- cols:
+  - col: group_id
+    seq: 0
+  - col: note
+    seq: 10
+  - col: weight
+    seq: 20
+  - col: candelle
+    seq: 30
+  - col: mole
+    seq: 40
+  - col: name
+    seq: 50
+  - col: meter
+    seq: 60
+  - col: tense
+    seq: 70
+  - col: ampere
+    seq: 80
+  - col: kelvin
+    seq: 90
+  - col: uoms
+    seq: 100
+  model: md.quantity.uom
+  vtype: element-plus/find
+- cols:
+  - col: numerator
+    seq: 0
+  - col: quantity_id
+    seq: 10
+  - col: shortname
+    seq: 20
+  - col: places
+    seq: 30
+  - col: name
+    seq: 40
+  - col: extconst
+    seq: 50
+  - col: code
+    seq: 60
+  - col: denominator
+    seq: 70
+  - col: round
+    seq: 80
+  - col: isocode
+    seq: 90
+  model: md.uom
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: note
+    seq: 10
+  - col: code
+    seq: 20
+  - col: shortname
+    seq: 30
+  - col: currency_rate
+    seq: 40
+  - col: isocode
+    seq: 50
+  model: md.currency
+  vtype: element-plus/search
+- cols:
+  - col: states
+    seq: 0
+  - col: alpha2
+    seq: 10
+  - col: name
+    seq: 20
+  - col: alpha3
+    seq: 30
+  - col: group_ids
+    seq: 40
+  - col: code
+    seq: 50
+  - col: shortname
+    seq: 60
+  model: md.country
+  vtype: element-plus/search
+- cols:
+  - col: name
+    seq: 0
+  - col: sities
+    seq: 10
+  - col: country_id
+    seq: 20
+  - col: code
+    seq: 30
+  model: md.country.states
+  vtype: element-plus/find
+- cols:
+  - col: state_id
+    seq: 0
+  - col: name
+    seq: 10
+  - col: code
+    seq: 20
+  model: md.country.state.sities
+  vtype: element-plus/find
+- cols:
+  - col: iso631_2t
+    seq: 0
+  - col: name
+    seq: 10
+  - col: iso631_2b
+    seq: 20
+  - col: iso631_1
+    seq: 30
+  model: md.language
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: note
+    seq: 10
+  - col: country
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: currency_rate
+    seq: 40
+  model: md.company
+  vtype: element-plus/search
+- cols:
+  - col: name
+    seq: 0
+  - col: note
+    seq: 10
+  - col: country
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: currency_rate
+    seq: 40
+  model: md.company
+  vtype: element-plus/find
+- cols:
+  - col: image_small
+    seq: 0
+  - col: gti
+    seq: 10
+  - col: note
+    seq: 20
+  - col: volume_uom
+    seq: 30
+  - col: weight_uom
+    seq: 40
+  - col: code
+    seq: 50
+  - col: image
+    seq: 60
+  - col: state
+    seq: 70
+  - col: uom
+    seq: 80
+  - col: qrcode
+    seq: 90
+  - col: volume
+    seq: 100
+  - col: weight
+    seq: 110
+  - col: link
+    seq: 120
+  - col: template_id
+    seq: 130
+  - col: image_medium
+    seq: 140
+  - col: name
+    seq: 150
+  model: md.product
+  vtype: element-plus/find
+- cols:
+  - col: vat_reason
+    seq: 0
+  - col: longitude
+    seq: 10
+  - col: country
+    seq: 20
+  - col: category
+    seq: 30
+  - col: addresses
+    seq: 40
+  - col: iscustomer
+    seq: 50
+  - col: roles
+    seq: 60
+  - col: issuplier
+    seq: 70
+  - col: products
+    seq: 80
+  - col: name
+    seq: 90
+  - col: contacts
+    seq: 100
+  - col: ispeople
+    seq: 110
+  - col: code
+    seq: 120
+  - col: vat_number
+    seq: 130
+  - col: latitude
+    seq: 140
+  model: md.partner
+  vtype: element-plus/search
+- cols:
+  - col: vat_reason
+    seq: 0
+  - col: longitude
+    seq: 10
+  - col: country
+    seq: 20
+  - col: category
+    seq: 30
+  - col: addresses
+    seq: 40
+  - col: iscustomer
+    seq: 50
+  - col: roles
+    seq: 60
+  - col: issuplier
+    seq: 70
+  - col: products
+    seq: 80
+  - col: name
+    seq: 90
+  - col: contacts
+    seq: 100
+  - col: ispeople
+    seq: 110
+  - col: code
+    seq: 120
+  - col: vat_number
+    seq: 130
+  - col: latitude
+    seq: 140
+  model: md.partner
+  vtype: element-plus/find
+- cols:
+  - col: house
+    seq: 0
+  - col: sity
+    seq: 10
+  - col: street2
+    seq: 20
+  - col: street
+    seq: 30
+  - col: taddr
+    seq: 40
+  - col: room
+    seq: 50
+  - col: partner_id
+    seq: 60
+  - col: state
+    seq: 70
+  model: md.partner.addresses
+  vtype: element-plus/find
+- cols:
+  - col: mobile_phone
+    seq: 0
+  - col: work_phone
+    seq: 10
+  - col: image_small
+    seq: 20
+  - col: lastname
+    seq: 30
+  - col: note
+    seq: 40
+  - col: partner_id
+    seq: 50
+  - col: image
+    seq: 60
+  - col: gender
+    seq: 70
+  - col: sequence
+    seq: 80
+  - col: marital
+    seq: 90
+  - col: work_location
+    seq: 100
+  - col: birthday
+    seq: 110
+  - col: usage
+    seq: 120
+  - col: address_id
+    seq: 130
+  - col: work_email
+    seq: 140
+  - col: image_medium
+    seq: 150
+  - col: middlename
+    seq: 160
+  - col: fullname
+    seq: 170
+  - col: firstname
+    seq: 180
+  model: md.partner.contacts
+  vtype: element-plus/find
+- cols:
+  - col: prices
+    seq: 0
+  - col: image_small
+    seq: 10
+  - col: note
+    seq: 20
+  - col: link
+    seq: 30
+  - col: image_medium
+    seq: 40
+  - col: minqty
+    seq: 50
+  - col: partner_id
+    seq: 60
+  - col: image
+    seq: 70
+  - col: product
+    seq: 80
+  model: md.partner.products
+  vtype: element-plus/find
+- cols:
+  - col: partner_id
+    seq: 0
+  - col: role
+    seq: 10
+  model: md.partner.roles
+  vtype: element-plus/find
+- cols:
+  - col: price
+    seq: 0
+  - col: note
+    seq: 10
+  - col: valid_from
+    seq: 20
+  - col: qty
+    seq: 30
+  - col: currency
+    seq: 40
+  - col: valid_to
+    seq: 50
+  - col: partner_product_id
+    seq: 60
+  model: md.pricelist.partner.products
+  vtype: element-plus/find
+- cols:
+  - col: currency_id1
+    seq: 0
+  - col: key_id
+    seq: 10
+  - col: company_id
+    seq: 20
+  - col: rate
+    seq: 30
+  - col: account
+    seq: 40
+  - col: currency_id
+    seq: 50
+  - col: date
+    seq: 60
+  model: md.currency.rate
+  vtype: element-plus/find
+- cols:
+  - col: partners
+    seq: 0
+  - col: email
+    seq: 10
+  - col: note
+    seq: 20
+  - col: city
+    seq: 30
+  - col: zip
+    seq: 40
+  - col: name
+    seq: 50
+  - col: street2
+    seq: 60
+  - col: street
+    seq: 70
+  - col: country_id
+    seq: 80
+  - col: state_id
+    seq: 90
+  - col: phone
+    seq: 100
+  - col: inactive
+    seq: 110
+  - col: bic
+    seq: 120
+  model: md.banks
+  vtype: element-plus/search
+- cols:
+  - col: partners
+    seq: 0
+  - col: email
+    seq: 10
+  - col: note
+    seq: 20
+  - col: city
+    seq: 30
+  - col: zip
+    seq: 40
+  - col: name
+    seq: 50
+  - col: street2
+    seq: 60
+  - col: street
+    seq: 70
+  - col: country_id
+    seq: 80
+  - col: state_id
+    seq: 90
+  - col: phone
+    seq: 100
+  - col: inactive
+    seq: 110
+  - col: bic
+    seq: 120
+  model: md.banks
+  vtype: element-plus/find
+- cols:
+  - col: sequence
+    seq: 0
+  - col: partner
+    seq: 10
+  - col: bank_name
+    seq: 20
+  - col: sanitized_acc_number
+    seq: 30
+  - col: note
+    seq: 40
+  - col: acc_type
+    seq: 50
+  - col: acc_number
+    seq: 60
+  - col: company
+    seq: 70
+  - col: bank_id
+    seq: 80
+  - col: currency
+    seq: 90
+  - col: bank_bic
+    seq: 100
+  model: md.partners.bank
+  vtype: element-plus/find
+- cols:
+  - col: items
+    seq: 0
+  - col: usage
+    seq: 10
+  - col: partition
+    seq: 20
+  - col: type
+    seq: 30
+  - col: company
+    seq: 40
+  - col: name
+    seq: 50
+  - col: fullname
+    seq: 60
+  - col: product
+    seq: 70
+  model: md.boms
+  vtype: element-plus/search
+- cols:
+  - col: items
+    seq: 0
+  - col: usage
+    seq: 10
+  - col: partition
+    seq: 20
+  - col: type
+    seq: 30
+  - col: company
+    seq: 40
+  - col: name
+    seq: 50
+  - col: fullname
+    seq: 60
+  - col: product
+    seq: 70
+  model: md.boms
+  vtype: element-plus/find
+- cols:
+  - col: note
+    seq: 0
+  - col: quantity
+    seq: 10
+  - col: bom_id
+    seq: 20
+  - col: product
+    seq: 30
+  - col: uom
+    seq: 40
+  model: md.bom.items
+  vtype: element-plus/find
+- cols:
+  - col: items
+    seq: 0
+  - col: usage
+    seq: 10
+  - col: partition
+    seq: 20
+  - col: type
+    seq: 30
+  - col: company
+    seq: 40
+  - col: name
+    seq: 50
+  - col: fullname
+    seq: 60
+  - col: product
+    seq: 70
+  model: md.mobs
+  vtype: element-plus/search
+- cols:
+  - col: items
+    seq: 0
+  - col: usage
+    seq: 10
+  - col: partition
+    seq: 20
+  - col: type
+    seq: 30
+  - col: company
+    seq: 40
+  - col: name
+    seq: 50
+  - col: fullname
+    seq: 60
+  - col: product
+    seq: 70
+  model: md.mobs
+  vtype: element-plus/find
+- cols:
+  - col: mob_id
+    seq: 0
+  - col: quantity
+    seq: 10
+  - col: note
+    seq: 20
+  - col: product
+    seq: 30
+  - col: uom
+    seq: 40
+  model: md.mob.items
+  vtype: element-plus/find
+- cols:
+  - col: usage
+    seq: 0
+  - col: partition
+    seq: 10
+  - col: type
+    seq: 20
+  - col: output_items
+    seq: 30
+  - col: company
+    seq: 40
+  - col: name
+    seq: 50
+  - col: input_items
+    seq: 60
+  - col: fullname
+    seq: 70
+  model: md.bobs
+  vtype: element-plus/search
+- cols:
+  - col: usage
+    seq: 0
+  - col: partition
+    seq: 10
+  - col: type
+    seq: 20
+  - col: output_items
+    seq: 30
+  - col: company
+    seq: 40
+  - col: name
+    seq: 50
+  - col: input_items
+    seq: 60
+  - col: fullname
+    seq: 70
+  model: md.bobs
+  vtype: element-plus/find
+- cols:
+  - col: quantity
+    seq: 0
+  - col: bob_id
+    seq: 10
+  - col: note
+    seq: 20
+  - col: product
+    seq: 30
+  - col: uom
+    seq: 40
+  model: md.bob.input.items
+  vtype: element-plus/find
+- cols:
+  - col: quantity
+    seq: 0
+  - col: bob_id
+    seq: 10
+  - col: note
+    seq: 20
+  - col: product
+    seq: 30
+  - col: uom
+    seq: 40
+  model: md.bob.output.items
+  vtype: element-plus/find
