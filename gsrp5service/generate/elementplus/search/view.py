@@ -73,7 +73,7 @@ def _generateI18N(meta,model,pool,context):
 	i18ns = {}
 	for record in records:
 		for column in record['columns']:
-			column['moc'] = json.loads(column['moc'])
+			#column['moc'] = json.loads(column['moc'])
 			label = column['moc']['label']
 			for lang in langs: 
 				i18ns.setdefault(lang['code'],{})[label] = label

@@ -177,7 +177,7 @@ def _conv_dict_to_raw_records(self,fields,records,context):
 		
 	return records
 
-def _fetch_results(self,fields,context):
+def _fetch_results(self,cr, uid, pool, model, fields,context):
 	
 	res = []
 	
@@ -186,35 +186,35 @@ def _fetch_results(self,fields,context):
 
 	fetch = context['FETCH']
 
-	selectablefields = list(filter(lambda x: x in fields,self._selectablefields))
-	nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))
+	selectablefields = list(filter(lambda x: x in fields,model._selectablefields))
+	nostorecomputefields = list(filter(lambda x: x in fields,model._nostorecomputefields))
 
-	records = self._cr.dictfetchall(selectablefields, self._columnsmeta)
+	records = cr.dictfetchall(selectablefields, model._columnsmeta)
 	for record in records:
 		for field in fields:
 			if type(field) == dict:
-				recname = self._getRecNameName()
+				recname = model._getRecNameName()
 				if recname in record:
 					oid = record[recname]
 				else:
 					if context['FETCH'] == 'LIST':
-						oid = self.read(record['id'],[recname],context)[0][0]
+						oid = model.read(record['id'],[recname],context)[0][0]
 					elif context['FETCH'] == 'DICT':
-						oid = self.read(record['id'],[recname],context)[0]['id']
+						oid = model.read(record['id'],[recname],context)[0]['id']
 					elif context['FETCH'] == 'RAW':
-						oid = self.read(record['id'],[recname],context)[0]['id']
-				for key in filter(lambda x: x in self._o2mfields,field.keys()):
-					columninfo = self.columnsInfo(columns=[key],attributes=['obj','rel','limit','offset'])
+						oid = model.read(record['id'],[recname],context)[0]['id']
+				for key in filter(lambda x: x in model._o2mfields,field.keys()):
+					columninfo = model.columnsInfo(columns=[key],attributes=['obj','rel','limit','offset'])
 					obj = columninfo[key]['obj']
 					rel = columninfo[key]['rel']
-					record[key] = _o2mread(self = self._pool.get(obj),oid = oid, field = rel, fields = field[key], context = context,limit = columninfo[key]['limit'],offset = columninfo[key]['offset'])
+					record[key] = _o2mread(self = pool.get(obj),oid = oid, field = rel, fields = field[key], context = context,limit = columninfo[key]['limit'],offset = columninfo[key]['offset'])
 
 		for field in fields:
 			if type(field) == dict:
-				for key in filter(lambda x: x in self._m2mfields,field.keys()):
-					record[key] = _m2mread(self = self,oid = record['id'], field = key, fields = field[key], context = context)
+				for key in filter(lambda x: x in model._m2mfields,field.keys()):
+					record[key] = _m2mread(self = model,oid = record['id'], field = key, fields = field[key], context = context)
 
-		_computes = self._compute(record,context)
+		_computes = model._compute(record,context)
 		if _computes is not None:
 			record.update(_computes)
 	if fetch == 'DICT':		
@@ -225,76 +225,59 @@ def _fetch_results(self,fields,context):
 		res.extend(_conv_dict_to_raw_records(self,fields,records,context))
 
 	return res
-
-def _createRecords(self, records, context):
+#SessionModel
+def _createRecords(self, cr, uid, pool, model, records, context):
 	res = []
 
-	for tn in self._triggers:
+	for tn in model._triggers:
 		tr = self._session._triggers[tn]
 		method = tr._actions['_onCreateBeforeAll']
 		if method and callable(method):
-			kwargs = {'r1':records,'context':context}
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':records,'context':context}
 			method(**kwargs)
-
-	trg1 = self._getTriger('bi')
-	for trg11 in trg1:
-		kwargs = {'r1':records,'context':context}
-		trg11(**kwargs)
-
+	
 	for record in records:
-		oid = _createRecord(self, record, context)		
+		oid = _createRecord(self, cr, uid, pool, model, record, context)		
 		res.append(oid)
 
-	for tn in self._triggers:
+	for tn in model._triggers:
 		tr = self._session._triggers[tn]
 		method = tr._actions['_onCreateAfterAll']
 		if method and callable(method):
-			kwargs = {'r1':records,'context':context}
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':records,'context':context}
 			method(**kwargs)
-
-	trg2 = self._getTriger('ai')
-	for trg22 in trg2:
-		kwargs = {'r1':records,'context':context}
-		trg22(**kwargs)
-
+	
 	return res
 
-def _createRecord(self, record, context):
+def _createRecord(self, cr, uid, pool, model, record, context):
 	oid = None
 	
-	i18nfields = self._i18nfields
+	i18nfields = model._i18nfields
 	fields = list(filter(lambda x: x != 'id',record.keys()))
-	modelfields = list(self._columns.keys())
+	modelfields = list(model._columns.keys())
 	nomodelfields = list(filter(lambda x: not x in modelfields,fields))
 	if len(nomodelfields) > 0:
-		raise orm_exception("Fields: %s not found in model: %s" % (nomodelfields, self._name))
+		raise orm_exception("Fields: %s not found in model: %s" % (nomodelfields, model._name))
 
-	for nosavedfield in self._nosavedfields:
+	for nosavedfield in model._nosavedfields:
 		if nosavedfield in record:
 			del record[nosavedfield]
-	columnsinfo = self.columnsInfo(columns = fields)
+	columnsinfo = model.columnsInfo(columns = fields)
 
 	for nonefield in list(filter(lambda x: x in record and record[x] is None,fields)):
 		if nonefield in record:
 			del record[nonefield]
 	
-	emptyfields = list(filter(lambda x: not x in record and not x in MAGIC_COLUMNS,self._requiredfields))		
+	emptyfields = list(filter(lambda x: not x in record and not x in MAGIC_COLUMNS,model._requiredfields))		
 	if len(emptyfields) > 0:
-		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo(['name'])['name'], record))
+		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, model.modelInfo(['name'])['name'], record))
 
-	for tn in self._triggers:
+	for tn in model._triggers:
 		tr = self._session._triggers[tn]
 		method = tr._actions['_onCreateBeforeForEachRow']
 		if method and callable(method):
-			kwargs = {'r1':record,'context':context}
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':record,'context':context}
 			method(**kwargs)
-
-	trg1 = self._getTriger('bir')
-	for trg11 in trg1:
-		kwargs = {'r1':record,'context':context}
-		trg11(**kwargs)
-
-
 
 	if 'id' in record:
 		record_m = {'id':record['id']}
@@ -308,67 +291,61 @@ def _createRecord(self, record, context):
 			record_t[k] = record[k]
 		else:
 			record_m[k] = record[k]
-	sql,vals = gensql.Create(self, record_m, context)
-	rowcount = self._execute(sql,vals)
+	sql,vals = gensql.Create(self, cr, uid, pool, model, record_m, context)
+	rowcount = cr.execute(sql,vals)
 	if rowcount > 0:
-		oid = self._cr.fetchone()[0]
+		oid = cr.fetchone()[0]
 		if 'id' in record_t and len(record_t) > 1 or 'id' not in record_t and len(record_t) > 0:
 			if 'id' not in record_t:
 				record_t['id'] = oid
 			if 'lang' not in record_t:
-				#web_pdb.set_trace()
-				lang = self._pool.get('bc.users').read(self._session._uid,[{'preferences':['user_id','lang']}],{})
+				lang = pool.get('bc.users').read([{'preferences':['user_id','lang']}],{})
 				if len(lang[0]['preferences']) > 0:
 					record_t['lang'] = lang[0]['preferences'][0]['lang']['id']
 				else:
 					if 'lang' in context:
 						record_t['lang'] = self._session._lang2id[context['lang']]
 					else:
-						record_t['lang'] = self._session._lang2id['EN']
-			sql,vals = gensql.CreateI18N(self, record_t, context)
-			rowcount = self._execute(sql,vals)
+						record_t['lang'] = self._session._lang2id['en']
+			sql,vals = gensql.CreateI18N(self,  cr, uid, pool, model, record_t, context)
+			rowcount = cr._execute(sql,vals)
 
-
-
-	# sql,vals = gensql.Create(self, record, context)
-	# rowcount = self._execute(sql,vals)
-	# if rowcount > 0:
-		# oid = self._cr.fetchone()[0]
-
-	for tn in self._triggers:
+	for tn in model._triggers:
 		tr = self._session._triggers[tn]
 		method = tr._actions['_onCreateAfterForEachRow']
 		if method and callable(method):
-			kwargs = {'r1':record,'context':context}
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':record,'context':context}
 			method(**kwargs)
-
-
-	trg2 = self._getTriger('air')
-	for trg22 in trg2:
-		kwargs = {'r1':record,'context':context}
-		trg22(**kwargs)
 
 	return oid
 
-def _writeRecords(self, records, context):
+def _writeRecords(self, cr, uid, pool, model, records, context):
 	res = []
+	ctx = context.copy()
+	ctx['FETCH'] = 'RAW'
+	records21 = model.read(list(map(lambda x: x['id'],records)), self._selectablefields, ctx)
 
-	trg1 = self._getTriger('bu')
-	for trg11 in trg1:
-		kwargs = {'r1':records,'r2':records,'context':context}
-		trg11(**kwargs)
-
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onWriteBeforeAll']
+		if method and callable(method):
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':records,'r2':records21,'context':context}
+			method(**kwargs)
+	
 	for record in records:
-		res.append(_writeRecord(self, record, context))		
+		oid = self._writeRecord(model, cr, uid, pool, model, record, context)		
+		res.append(oid)
 
-	trg2 = self._getTriger('au')
-	for trg22 in trg2:
-		kwargs = {'r1':records,'r2':records,'context':context}
-		trg22(**kwargs)
-
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onWriteAfterAll']
+		if method and callable(method):
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':records,'r2':records21,'context':context}
+			method(**kwargs)
+	
 	return res
 
-def _writeRecord(self, record, context):
+def _writeRecord(self, cr, uid, pool, model, record, context):
 	oid = None
 	i18nfields = self._i18nfields
 	fields = list(filter(lambda x: x != 'id',record.keys()))
@@ -385,43 +362,18 @@ def _writeRecord(self, record, context):
 	emptyfields = list(filter(lambda x: x in fields and record[x] is None,self._requiredfields))		
 
 	if len(emptyfields) > 0:
-		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self._name, record))
+		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, model._name, record))
 
-	trg1 = self._getTriger('bur')
-	record2 =None
-	upd_cols = set()
-	if trg1 and len(trg1) > 0:
-		ctx = context.copy()
-		ctx['FETCH'] = 'RAW'
-		record21 = self.read(record['id'], self._selectablefields, ctx)
+	ctx = context.copy()
+	ctx['FETCH'] = 'RAW'
+	record21 = model.read(record['id'], self._selectablefields, ctx)
 
-		if len(record21) > 0:
-			record2 = record21[0]
-		
-		if record2:
-			k1 = set(list(record.keys()))
-			k2 = set(list(record2.keys()))
-			uk = list(set(k1).intersection(set(k2)))
-			ik = list(set(k1)- set(k2))
-			dk = list(set(k2)- set(k1))
-			
-			for k in uk:
-				if record[k] != record2[k]:
-					if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
-						upd_cols.add(k)
-			for k in ik:
-				if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
-					upd_cols.add(k)
-		
-			for k in dk:
-				if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
-					upd_cols.add(k)
-		
-			if len(upd_cols) > 0:
-		
-				for trg11 in trg1:
-					kwargs = {'r1':record,'r2':record,'context':context}
-					trg11(**kwargs)
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onWriteBeforeForEachRow']
+		if method and callable(method):
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':record,'r2':record21,'context':context}
+			method(**kwargs)
 
 	if 'id' in record:
 		record_m = {'id':record['id']}
@@ -436,15 +388,14 @@ def _writeRecord(self, record, context):
 		else:
 			record_m[k] = record[k]
 
-	sql,vals = gensql.Write(self, record_m, context)
-	rowcount = self._execute(sql,vals)
+	sql,vals = gensql.Write(cr, uid, pool, model, record_m, context)
+	rowcount = cr._execute(sql,vals)
 	if rowcount > 0:
 		oid = self._cr.fetchone()[0]
 		if 'id' in record_t and len(record_t) > 1 or 'id' not in record_t and len(record_t) > 0:
 			if 'id' not in record_t:
 				record_t['id'] = oid
 			if 'lang' not in record_t:
-				#web_pdb.set_trace()
 				lang = self._pool.get('bc.users').read(self._session._uid,[{'preferences':['user_id','lang']}],{})
 				if len(lang[0]['preferences']) > 0:
 					record_t['lang'] = lang[0]['preferences'][0]['lang']['id']
@@ -452,101 +403,75 @@ def _writeRecord(self, record, context):
 					if 'lang' in context:
 						record_t['lang'] = self._session._lang2id[context['lang']]
 					else:
-						record_t['lang'] = self._session._lang2id['EN']
-			sql,vals = gensql.WriteI18N(self, record_t, context)
-			rowcount = self._execute(sql,vals)
+						record_t['lang'] = self._session._lang2id['en']
+			sql,vals = gensql.WriteI18N(cr, uid, pool, model, record_t, context)
+			rowcount = cr._execute(sql,vals)
 
-	# if rowcount > 0:
-		# oid = self._cr.fetchone()[0]
-
-	if len(upd_cols) > 0:
-		trg2 = self._getTriger('aur')
-		if trg2 and len(trg2) > 0:
-			for trg22 in trg2:
-				kwargs = {'r1':record,'r2':record,'context':context}
-				trg22(**kwargs)
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onWriteAfterForEachRow']
+		if method and callable(method):
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':record,'r2':record21,'context':context}
+			method(**kwargs)
 
 	return oid
 
-def _modifyRecords(self, records, context):
+def _modifyRecords(self, cr, uid, pool, model, records, context):
 	res = []
+	ctx = context.copy()
+	ctx['FETCH'] = 'RAW'
+	records21 = model.read(list(map(lambda x: x['id'],records)), self._selectablefields, ctx)
 
-	trg1 = self._getTriger('bu')
-	for trg11 in trg1:
-		kwargs = {'r1':records,'r2':records,'context':context}
-		trg11(**kwargs)
-
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onModifyBeforeAll']
+		if method and callable(method):
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':records,'r2':records21,'context':context}
+			method(**kwargs)
+	
 	for record in records:
-		oid = _modifyRecord(self, record, context)
+		oid = self._writeRecord(model, cr, uid, pool, model, record, context)		
 		res.append(oid)
 
-	trg2 = self._getTriger('au')
-	for trg22 in trg2:
-		kwargs = {'r1':records,'r2':records,'context':context}
-		trg22(**kwargs)
-
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onModifyAfterAll']
+		if method and callable(method):
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':records,'r2':records21,'context':context}
+			method(**kwargs)
+	
 	return res
 
-def _modifyRecord(self, record, context):
+def _modifyRecord(self, cr, uid, pool, model, record, context):
 	oid = None
 	i18nfields = self._i18nfields
-	fields = list(set(list(filter(lambda x: x != 'id',record.keys()))) - set(i18nfields))
-	modelfields = list(set(self._columns.keys()) - set(i18nfields))
-	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS, fields))
+	fields = list(filter(lambda x: x != 'id',record.keys()))
+	modelfields = list(self._columns.keys())
+	nomodelfields = list(filter(lambda x: not x in modelfields and not x in MAGIC_COLUMNS,fields))
 	if len(nomodelfields) > 0:
-		raise orm_exception("Fields: %s not found in model: %s" % (nomodelfields, self.modelInfo(['name'])['name']))
-	
+		raise orm_exception("Fields: %s not found in model: %s" % (nomodelfields, self._name))
+
 	for nosavedfield in self._nosavedfields:
 		if nosavedfield in record:
 			del record[nosavedfield]
 	columnsinfo = self.columnsInfo(columns = fields)
-	o2mfields = list(filter(lambda x: x in fields, self._o2mfields))
-	o2rfields = list(filter(lambda x: x in fields, self._o2rfields)) # o2related
-	m2mfields = list(filter(lambda x: x in fields, self._m2mfields))
+	
+	emptyfields = list(filter(lambda x: x in fields and record[x] is None,self._requiredfields))		
 
-	emptyfields = list(filter(lambda x: x in fields and record[x] is None,list(set(self._requiredfields) - set(i18nfields))))		
 	if len(emptyfields) > 0:
-		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, self.modelInfo(['name'])['name'], record))
+		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, model._name, record))
 
-	o2mfieldsrecords = {}
-	o2rfieldsrecords = {} # o2related
-	m2mfieldsrecords = {}
+	ctx = context.copy()
+	ctx['FETCH'] = 'RAW'
+	record21 = model.read(record['id'], self._selectablefields, ctx)
 
-	trg1 = self._getTriger('bur')
-	record2 =None
-	upd_cols = set()
-	if trg1 and len(trg1) > 0:
-		if 'id' in record and record['id']:
-			ctx = context.copy()
-			ctx['FETCH'] = 'RAW'
-			record21 = self.read(record['id'], self._selectablefields, ctx)
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onModifyBeforeForEachRow']
+		if method and callable(method):
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':record,'r2':record21,'context':context}
+			method(**kwargs)
 
-			if len(record21) > 0:
-				record2 = record21[0]
-
-		if record2:
-			k1 = set(list(record.keys()))
-			k2 = set(list(record2.keys()))
-			uk = list(set(k1).intersection(set(k2)))
-			ik = list(set(k1)- set(k2))
-			dk = list(set(k2)- set(k1))
-			
-			for k in uk:
-				if record[k] != record2[k]:
-					if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
-						upd_cols.add(k)
-			for k in ik:
-				if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
-					upd_cols.add(k)
-	
-			for k in dk:
-				if self._trg_upd_cols and len(self._trg_upd_cols) == 0 or self._trg_upd_cols and k in self._trg_upd_cols:
-					upd_cols.add(k)
-	
-		if record2 is None or len(upd_cols) > 0:
-			for trg11 in trg1:
-				kwargs = {'r1':record,'r2':record2,'context':context}
-				trg11(**kwargs)
 	if 'id' in record:
 		record_m = {'id':record['id']}
 		record_t = {'id':record['id']}
@@ -559,15 +484,15 @@ def _modifyRecord(self, record, context):
 			record_t[k] = record[k]
 		else:
 			record_m[k] = record[k]
-	sql,vals = gensql.Modify(self, record_m, context)
-	rowcount = self._execute(sql,vals)
+
+	sql,vals = gensql.Modify(cr, uid, pool, model, record_m, context)
+	rowcount = cr._execute(sql,vals)
 	if rowcount > 0:
 		oid = self._cr.fetchone()[0]
 		if 'id' in record_t and len(record_t) > 1 or 'id' not in record_t and len(record_t) > 0:
 			if 'id' not in record_t:
 				record_t['id'] = oid
 			if 'lang' not in record_t:
-				#web_pdb.set_trace()
 				lang = self._pool.get('bc.users').read(self._session._uid,[{'preferences':['user_id','lang']}],{})
 				if len(lang[0]['preferences']) > 0:
 					record_t['lang'] = lang[0]['preferences'][0]['lang']['id']
@@ -575,20 +500,43 @@ def _modifyRecord(self, record, context):
 					if 'lang' in context:
 						record_t['lang'] = self._session._lang2id[context['lang']]
 					else:
-						record_t['lang'] = self._session._lang2id['EN']
-			sql,vals = gensql.ModifyI18N(self, record_t, context)
-			rowcount = self._execute(sql,vals)
-			
+						record_t['lang'] = self._session._lang2id['en']
+			sql,vals = gensql.ModifyI18N(cr, uid, pool, model, record_t, context)
+			rowcount = cr._execute(sql,vals)
 
-	if record2 is None or len(upd_cols) > 0:
-		trg2 = self._getTriger('aur')
-		for trg22 in trg2:
-			kwargs = {'r1':record,'r2':record2,'context':context}
-			trg22(**kwargs)
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onModifyAfterForEachRow']
+		if method and callable(method):
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':record,'r2':record21,'context':context}
+			method(**kwargs)
 
 	return oid
 
-def _unlinkRecord(self, record, context = {}):
+def _unlinkRecords(self, cr, uid, pool, model, records, context):
+	res = []
+
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onUnlinkBeforeAll']
+		if method and callable(method):
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r2':records,'context':context}
+			method(**kwargs)
+	
+	for record in records:
+		oid = self._unlinkRecord(model, cr, uid, pool, model, record, context)		
+		res.append(oid)
+
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onUnlinkAfterAll']
+		if method and callable(method):
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r2':records,'context':context}
+			method(**kwargs)
+	
+	return res
+
+def _unlinkRecord(self, cr, uid, pool, model, record, context = {}):
 	oid = None
 	if not self._access._checkUnlink():
 		orm_exception("Unlink:access dennied of model % s" % (self._name,))
@@ -606,26 +554,29 @@ def _unlinkRecord(self, record, context = {}):
 			id2 = _m2mfieldid2(self._pool,obj,rel)
 
 		rels = []
-
-	trg1 = self._getTriger('bdr')
-	for trg11 in trg1:
-		kwargs = {'r2':record,'context':context}
-		trg11(**kwargs)
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onUnlinkBeforeForEachRow']
+		if method and callable(method):
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r2':record,'context':context}
+			method(**kwargs)
 
 	sql,vals = gensql.Unlink(self,[record['id']],context)
-	rowcount = self._execute(sql,vals)
+	rowcount = cr._execute(sql,vals)
 	if rowcount > 0:
-		oid = self._cr.fetchone()[0]
+		oid = cr.fetchone()[0]
 
-	trg2 = self._getTriger('adr')
-	for trg22 in trg2:
-		kwargs = {'r2':record,'context':context}
-		trg22(**kwargs)
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onUnlinkAfterForEachRow']
+		if method and callable(method):
+			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r2':record,'context':context}
+			method(**kwargs)
 
 	return oid
 
-def count(self, cond = None, context = {}):
-	if not self._access._checkRead():
+def count(self, cr, uid, pool, model, cond = None, context = {}):
+	if not model._access._checkRead():
 		orm_exception("Read:access dennied of model % s" % (self._name,))
 
 	res = []
@@ -644,18 +595,19 @@ def count(self, cond = None, context = {}):
 	if not fetch in ('LIST','DICT'):
 		orm_exception('Invalid fetch mode: %s' % (fetch,))
 
-	sql,vals = gensql.Count(self, cond, context)
-	rowcount = self._execute(sql,vals)
+	sql,vals = gensql.Count(self, cr, uid, pool, model, cond, context)
+	rowcount = cr._execute(sql,vals)
 	if rowcount > 0:
 		if fetch == "LIST":
-			res.extend(self._cr.fetchone(['count'], {'count':'integer'})) 
+			res.extend(cr.fetchone(['count'], {'count':'integer'})) 
 		elif fetch == "DICT":
-			res.extend(self._cr.dictfetchone(['count'], {'count':'integer'})) 
+			res.extend(cr.dictfetchone(['count'], {'count':'integer'})) 
+	
 	return res
 	
 #tested
-def search(self, cond = None, context = {}, limit = None, offset = None):
-	if not self._access._checkRead():
+def search(self, cr, uid, pool, model, cond = None, context = {}, limit = None, offset = None):
+	if not model._access._checkRead():
 		orm_exception("Read:access dennied of model % s" % (self._name,))
 
 	res = []
@@ -677,16 +629,16 @@ def search(self, cond = None, context = {}, limit = None, offset = None):
 	if not fetch in ('LIST','DICT'):
 		orm_exception('Invalid fetch mode: %s' % (fetch,))
 
-	sql,vals = gensql.Search(self,cond, context, limit, offset)
-	rowcount = self._execute(sql,vals)
+	sql,vals = gensql.Search(self, cr, uid, pool, model, cond, context, limit, offset)
+	rowcount = cr.execute(sql,vals)
 	if rowcount > 0:
 		if fetch == "LIST":
-			res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
+			res.extend(list(map(lambda x: x[0], cr.fetchall()))) 
 		elif fetch == "DICT":
-			res.extend(list(map(lambda x: x['id'],self._cr.dictfetchall()))) 
+			res.extend(list(map(lambda x: x['id'], cr.dictfetchall()))) 
 	return res
 
-def _read(self, ids, fields = None, context = {}):
+def _read(self, cr, uid, pool, model, ids, fields = None, context = {}):
 
 	res = []
 
@@ -705,16 +657,16 @@ def _read(self, ids, fields = None, context = {}):
 		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
 
 	if fields is None:
-		fields = self._selectablefields
+		fields = model._selectablefields
 
-	rowfields = list(filter(lambda x: x in fields,self._rowfields)) 
+	rowfields = list(filter(lambda x: x in fields,model._rowfields)) 
 	length = 1
 	if type(ids) in (list,tuple):
 		length = len(ids)		
 	count = int(length/MAX_CHUNK_READ)
 	chunk = int(length % MAX_CHUNK_READ)
 
-	for tn in self._triggers:
+	for tn in model._triggers:
 		tr = self._session._triggers[tn]
 		method = tr._actions['_onReadBeforeAll']
 		if method and callable(method):
@@ -724,15 +676,15 @@ def _read(self, ids, fields = None, context = {}):
 	for i in range(count):
 		j = i * MAX_CHUNK_READ
 		chunk_ids = ids[j:j + MAX_CHUNK_READ]
-		sql,vals = gensql.Read(self,chunk_ids,rowfields,context)
-		rowcount = self._execute(sql,vals)
+		sql,vals = gensql.Read(self,cr,uid,pool,model,chunk_ids,rowfields,context)
+		rowcount = cr.execute(sql,vals)
 		if rowcount > 0:
-			selectablefields = list(filter(lambda x: x in fields,self._selectablefields))
+			selectablefields = list(filter(lambda x: x in fields,model._rowfields))
 			nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))		
-			records = self._cr.dictfetchall(selectablefields,self._columnsmeta)
+			records = cr.dictfetchall(selectablefields,self._columnsmeta)
 			for record in records:
 
-				for jk in self._jsonfields:
+				for jk in model._jsonfields:
 					if jk in record:
 						if type(record[jk]) == str:
 							record[jk] = json.loads(record[jk])
@@ -744,7 +696,7 @@ def _read(self, ids, fields = None, context = {}):
 				for fd in fds:
 					dictfields.update(fd)
 
-				recname = self._getRecNameName()
+				recname = model._getRecNameName()
 				if recname and recname in record:
 					oid = record[recname]
 				else:
@@ -754,15 +706,15 @@ def _read(self, ids, fields = None, context = {}):
 					if o2mfield in dictfields:
 						o2mfields[o2mfield] = dictfields[o2mfield]
 
-				for m2mfield in self._m2mfields:
+				for m2mfield in model._m2mfields:
 					if m2mfield in dictfields:
 						m2mfields[m2mfield] = dictfields[m2mfield]
 
 				for o2mfield in o2mfields:
-					record[o2mfield] = _o2mread(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
+					record[o2mfield] = _o2mread(self,cr,uid,pool,pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
 	
 				for m2mfield in m2mfields:
-					record[m2mfield] = _m2mread(self,record['id'],m2mfields[m2mfield],context)
+					record[m2mfield] = _m2mread(self,cr,uid,pool,model,record['id'],m2mfields[m2mfield],context)
 			
 			res.extend(records)
 
@@ -772,15 +724,15 @@ def _read(self, ids, fields = None, context = {}):
 		else:
 			j = count * MAX_CHUNK_READ			
 			chunk_ids = ids[j:]
-		sql,vals = gensql.Read(self,chunk_ids,fields,context)
-		rowcount = self._execute(sql,vals)
+		sql,vals = gensql.Read(self,cr,uid,pool,model,chunk_ids,fields,context)
+		rowcount = cr.execute(sql,vals)
 		if rowcount > 0:
-			selectablefields = list(filter(lambda x: x in fields,self._selectablefields))
-			nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))		
-			records = self._cr.dictfetchall(selectablefields,self._columnsmeta)
+			selectablefields = list(filter(lambda x: x in fields,model._rowfields))
+			nostorecomputefields = list(filter(lambda x: x in fields,model._nostorecomputefields))		
+			records = cr.dictfetchall(selectablefields,model._columnsmeta)
 			for record in records:
 
-				for jk in self._jsonfields:
+				for jk in model._jsonfields:
 					if jk in record:
 						if type(record[jk]) == str:
 							record[jk] = json.loads(record[jk])
@@ -792,29 +744,29 @@ def _read(self, ids, fields = None, context = {}):
 				for fd in fds:
 					dictfields.update(fd)
 
-				recname = self._getRecNameName()
+				recname = model._getRecNameName()
 				if recname and recname in record:
 					oid = record[recname]
 				else:
 					oid = record['id']
 
-				for o2mfield in self._o2mfields:
+				for o2mfield in model._o2mfields:
 					if o2mfield in dictfields:
 						o2mfields[o2mfield] = dictfields[o2mfield]
 
-				for m2mfield in self._m2mfields:
+				for m2mfield in model._m2mfields:
 					if m2mfield in dictfields:
 						m2mfields[m2mfield] = dictfields[m2mfield]
 
 				for o2mfield in o2mfields:
-					record[o2mfield] = _o2mread(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
+					record[o2mfield] = _o2mread(self,cr,uid,pool,pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
 	
 				for m2mfield in m2mfields:
-					record[m2mfield] = _m2mread(self,record['id'],m2mfield,m2mfields[m2mfield],context)
+					record[m2mfield] = _m2mread(self,cr,uid,pool,model,record['id'],m2mfield,m2mfields[m2mfield],context)
 			
 			res.extend(records)
 
-			for tn in self._triggers:
+			for tn in model._triggers:
 				tr = self._session._triggers[tn]
 				method = tr._actions['_onReadBeforeAll']
 				if method and callable(method):
@@ -823,12 +775,12 @@ def _read(self, ids, fields = None, context = {}):
 	
 	return res
 	
-def read(self, ids, fields = None, context = {}):
-	if not self._access._checkRead():
-		orm_exception("Read:access dennied of model % s" % (self._name,))
-	return _read(self, ids, fields, context)
+def read(self, cr, uid, pool, model, ids, fields = None, context = {}):
+	if not model._access._checkRead():
+		orm_exception("Read:access dennied of model % s" % (model._name,))
+	return _read(self, cr, uid, pool, model, ids, fields, context)
 
-def _select(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
+def _select(self, cr, uid, pool, model, fields = None ,cond = None, context = {}, limit = None, offset = None):
 
 	res = []
 
@@ -849,20 +801,20 @@ def _select(self, fields = None ,cond = None, context = {}, limit = None, offset
 	if fields is None:
 		fields = self._selectablefields
 
-	rowfields = list(filter(lambda x: x in fields,self._rowfields)) 
+	rowfields = list(filter(lambda x: x in fields,model._rowfields)) 
 	if cond is None:
 		cond = []
 
-	sql,vals = gensql.Select(self, rowfields, cond, context, limit, offset)
+	sql,vals = gensql.Select(self, cr, uid, pool, model, rowfields, cond, context, limit, offset)
 
-	rowcount = self._execute(sql,vals)
+	rowcount = cr.execute(sql,vals)
 	if rowcount > 0:
-		selectablefields = list(filter(lambda x: x in fields,self._selectablefields))
-		nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))
-		records = self._cr.dictfetchall(selectablefields,self._columnsmeta)
+		selectablefields = list(filter(lambda x: x in fields,model._rowfields))
+		nostorecomputefields = list(filter(lambda x: x in fields,model._nostorecomputefields))
+		records = cr.dictfetchall(selectablefields,model._columnsmeta)
 		for record in records:
 
-			for jk in self._jsonfields:
+			for jk in model._jsonfields:
 				if jk in record:
 					if type(record[jk]) == str:
 						record[jk] = json.loads(record[jk])
@@ -874,35 +826,35 @@ def _select(self, fields = None ,cond = None, context = {}, limit = None, offset
 			for fd in fds:
 				dictfields.update(fd)
 
-			recname = self._getRecNameName()
+			recname = model._getRecNameName()
 			if recname and recname in record:
 				oid = record[recname]
 			else:
 				oid = record['id']
 
-			for o2mfield in self._o2mfields:
+			for o2mfield in model._o2mfields:
 				if o2mfield in dictfields:
 					o2mfields[o2mfield] = dictfields[o2mfield]
 
-			for m2mfield in self._m2mfields:
+			for m2mfield in model._m2mfields:
 				if m2mfield in dictfields:
 					m2mfields[m2mfield] = dictfields[m2mfield]
 
 			for o2mfield in o2mfields:
-				record[o2mfield] = _o2mread(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
+				record[o2mfield] = _o2mread(self,cr,uid,pool,pool[model._columns[o2mfield].obj],oid,model._columns[o2mfield].rel,o2mfields[o2mfield],context)
 
 			for m2mfield in m2mfields:
-				record[m2mfield] = _m2mread(self._pool[self._columns[o2mfield].obj],oid,m2mfield,m2mfields[m2mfield],context)
+				record[m2mfield] = _m2mread(self,cr,uid,pool,pool[model._columns[o2mfield].obj],oid,m2mfield,m2mfields[m2mfield],context)
 		
 		res.extend(records)
 
 	return res
 
-def select(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
-	if not self._access._checkRead():
+def select(self, cr, uid, pool, model, fields = None ,cond = None, context = {}, limit = None, offset = None):
+	if not model._access._checkRead():
 		orm_exception("Select:access dennied of model % s" % (self._name,))
 	
-	return _select(self,  fields, cond, context, limit, offset)
+	return _select(self, cr,uid, pool, model, fields, cond, context, limit, offset)
 
 # Other start
 def unlink(self, ids, context = {}):
@@ -985,11 +937,11 @@ def delete(self, cond, context = {}):
 	
 	return res
 
-def create(self, records, context = {}):
-	if not self._access._checkCreate():
+def create(self, cr, uid, pool, model, records, context = {}):
+	if not model._access._checkCreate():
 		orm_exception("Create:access dennied of model % s" % (self._name,))
 
-	checks = _do_checks(self,  records, context)
+	checks = _do_checks(model,  records, context)
 	if type(records) == dict:
 		for check in checks:
 			for key in check.keys():
@@ -1000,7 +952,7 @@ def create(self, records, context = {}):
 			for check in ch:
 				for key in check.keys():
 					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
-						orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
+						orm_exception("Create:Check errors of model %s\nChecks:%s" % (model._name,checks))
 
 	if 'lang' not in context:
 		context['lang'] = os.environ['LANG']
@@ -1008,10 +960,10 @@ def create(self, records, context = {}):
 		context['tz'] = tm.tzname[1]
 
 	if type(records) in (list,tuple):
-		return _createRecords(self, records, context)
+		return _createRecords(self, cr, uid, pool, model, records, context)
 
 	elif type(records) == dict:
-		return [_createRecord(self, records, context)]
+		return [_createRecord(self, cr, uid, pool, model, records, context)]
 
 def write(self, records, context = {}):
 	if not self._access._checkWrite():
@@ -1357,17 +1309,17 @@ def selectbrowse(self, fields = None ,cond = None, context = {}, limit = None, o
 
 # Other end
 
-def _o2mread(self, oid, field,fields, context):
+def _o2mread(self, cr, uid, pool, model, oid, field,fields, context):
 	res = []
-	modelinfo = self.modelInfo()
-	columnsinfo = self.columnsInfo()
+	modelinfo = model.modelInfo()
+	columnsinfo = model.columnsInfo()
 	
-	sql,vals = gensql.Select(self,fields, [(field,'=',oid)], context)
-	rowcount = self._execute(sql,vals)
+	sql,vals = gensql.Select(self,cr,uid,pool,model,fields, [(field,'=',oid)], context)
+	rowcount = cr.execute(sql,vals)
 	if rowcount > 0:
-		selectablefields = list(filter(lambda x: x in fields,self._selectablefields))
-		nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))
-		records = self._cr.dictfetchall(selectablefields,self._columnsmeta)
+		selectablefields = list(filter(lambda x: x in fields,model._selectablefields))
+		nostorecomputefields = list(filter(lambda x: x in fields,model._nostorecomputefields))
+		records = cr.dictfetchall(selectablefields,model._columnsmeta)
 		for record in records:
 			o2mfields = {}
 			m2mfields = {}
@@ -1376,35 +1328,35 @@ def _o2mread(self, oid, field,fields, context):
 			for fd in fds:
 				dictfields.update(fd)
 
-			recname = self._getRecNameName()
+			recname = model._getRecNameName()
 			if recname and recname in record:
 				oid = record[recname]
 			else:
 				oid = record['id']
 
-			for o2mfield in self._o2mfields:
+			for o2mfield in model._o2mfields:
 				if o2mfield in dictfields:
 					o2mfields[o2mfield] = dictfields[o2mfield]
 
-			for m2mfield in self._m2mfields:
+			for m2mfield in model._m2mfields:
 				if m2mfield in dictfields:
 					m2mfields[m2mfield] = dictfields[m2mfield]
 
 			for o2mfield in o2mfields:
-				record[o2mfield] = _o2mread(self._pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,dictfields[o2mfield],context)
+				record[o2mfield] = _o2mread(self,cr,uid,pool,pool[model._columns[o2mfield].obj],oid,model._columns[o2mfield].rel,dictfields[o2mfield],context)
 
 			for m2mfield in m2mfields:
-				record[m2mfield] = _m2mread(self._pool[self._columns[o2mfield].obj],oid,m2mfield,dictfields[m2mfield],context)
+				record[m2mfield] = _m2mread(self,cr,uid,pool,pool[self._columns[o2mfield].obj],oid,m2mfield,dictfields[m2mfield],context)
 
 		res.extend(records)
 	
 	return res
 
-def _m2mread(self, oid, field, fields, context):
+def _m2mread(self, cr, uid, pool, model, oid, field, fields, context):
 	res = []
 	ids = []
 
-	columnsinfo = self.columnsInfo()
+	columnsinfo = model.columnsInfo()
 	columninfo = columnsinfo[field]
 	rel = columninfo['rel']
 	obj = columninfo['obj']
@@ -1412,15 +1364,15 @@ def _m2mread(self, oid, field, fields, context):
 	id1 = columninfo['id1']
 	id2 = columninfo['id2']
 	if not id2:
-		id2 = self._m2mfieldid2(self._pool,obj,rel)
-	rowcount = self._execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
+		id2 = model._m2mfieldid2(self._pool,obj,rel)
+	rowcount = cr.execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
 	if rowcount > 0:
 		if len(fields) > 0:
 			ids.extend(list(map(lambda x: x[2],self._cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})))) 
 			if len(ids) > 0:
-				res.extend(self._pool.get(obj).read(ids ,fields , context))
+				res.extend(self.readFor(obj,ids,fields , context))
 		else:
-			res.extend(self._cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})) 
+			res.extend(cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})) 
 
 	return res
 
@@ -1557,7 +1509,7 @@ def _m2munlink(self,rel,id1,id2,oid,rels,context):
 	
 	return res
 
-def _tree(self, fields = None ,parent = None, context = {}):
+def _tree(self, cr, uid, pool, model, fields = None ,parent = None, context = {}):
 
 	res = []
 
@@ -1576,24 +1528,162 @@ def _tree(self, fields = None ,parent = None, context = {}):
 		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
 
 	if parent is None:
-		cond = [(self._getSpecName('parent_id'),'?')]
+		cond = [(model._getSpecName('parent_id'),'?')]
 	else:
-		cond = [(self._getSpecName('parent_id'),'=', parent)]
+		cond = [(model._getSpecName('parent_id'),'=', parent)]
 
-	sql,vals = gensql.Select(self,fields, cond, context,None,None)
-	rowcount = self._execute(sql,vals)
+	sql,vals = gensql.Select(self,cr, uid, pool, model, fields, cond, context,None,None)
+	rowcount = cr.execute(sql,vals)
 
 	if rowcount > 0:
-		res.extend(_fetch_results(self,fields,context))
+		res.extend(_fetch_results(self, cr, uid, pool, model,fields,context))
 		for r in res:
-			r[self._getSpecName('childs_id')].extend(_tree(self, fields, r[self._getSpecName('rec_name')], context))
+			r[model._getSpecName('childs_id')].extend(_tree(self, cr, uid, pool, model, fields, r[model._getSpecName('rec_name')], context))
 
 	return res
 
-def tree(self, fields = None ,parent = None, context = {}):
-	if not self._access._checkRead():
+def tree(self, cr, uid, pool, model, fields = None ,parent = None, context = {}):
+	if not model._access._checkRead():
 		orm_exception("Tree:access dennied of model % s" % (self._name,))
 	
-	return _tree(self, fields, parent, context)
+	return _tree(self, cr, uid, pool, model, fields, parent, context)
 
+	
+class Model(object):
+	def __init__(self,session):
+		self._cr = session._cursor
+		self._uid = session._uid
+		self._pool = session._models
+		self._session = session
+	
+	def count(self, model, cond = None, context = {}):
+		return count(self, self._cr, self._uid, self._pool, model, cond, context)
+	
+	def countFor(self, name, cond = None, context = {}):
+		return count(self, self._cr, self._uid, self._pool, self._pool.get(name), cond, context)
+		
+	def search(self, model, cond = None, context = {}, limit = None, offset = None):
+		return search(self, self._cr, self._uid, self._pool, model, cond, context, limit, offset)
 
+	def searchFor(self, name,  cond = None, context = {}, limit = None, offset = None):
+		return search(self, self._cr, self._uid, self._pool, self._pool.get(name), cond, context, limit, offset)
+
+	def read(self, model, ids, fields = None, context = {}):
+		return  read(self, self._cr, self._uid, self._pool, model, ids, fields, context)
+	
+	def readFor(self, name, ids, fields = None, context = {}):
+		return  read(self, self._cr, self._uid, self._pool.get(name), ids, fields, context)
+
+	def readForUpdate(self, model, ids, fields = None, context = {}):
+		return  readForUpdate(self, self._cr, self._uid, self._pool, model, ids, fields, context)
+	
+	def readForUpdateFor(self, name, ids, fields = None, context = {}):
+		return  readForUpdate(self, self._cr, self._uid, self._pool.get(name), ids, fields, context)
+	
+	def select(self, model, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		return select(self, self._cr, self._uid, self._pool, model, fields, cond, context, limit, offset)
+
+	def selectFor(self, name, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		return select(self, self._cr, self._uid, self._pool, self._pool.get(name),fields, cond, context, limit, offset)
+
+	def selectForUpdate(self, model, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		return selectForUpdate(self, self._cr, self._uid, self._pool, fields, model, cond, context, limit, offset)
+
+	def selectForUpdateFor(self, name, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		return selectForUpdate(self, self._cr, self._uid, self._pool, self._pool.get(name),fields, cond, context, limit, offset)
+	
+	def tree(self, model,fields = None ,parent = None, context = {}):
+		return tree(self, self._cr, self._uid, self._pool, model, fields ,parent, context)
+
+	def treeFor(self, name,fields = None ,parent = None, context = {}):
+		return tree(self, self._cr, self._uid, self._pool, self._pool.get(name), fields ,parent, context)
+	
+	def treeForUpdate(self, model,fields = None ,parent = None, context = {}):
+		return treeForUpdate(self, self._cr, self._uid, self._pool, model, fields ,parent, context)
+
+	def treeForUpdateFor(self, name,fields = None ,parent = None, context = {}):
+		return treeForUpdate(self, self._cr, self._uid, self._pool, self._pool.get(name), fields ,parent, context)
+
+	def browse(self, model, ids, fields = None, context = {}):
+		return browse(self, self._cr, self._uid, self._pool, model, ids, fields, context)
+
+	def browseFor(self, name, ids, fields = None, context = {}):
+		return browse(self, self._cr, self._uid, self._pool, self._pool.get(name), ids, fields, context)
+
+	def browseForUpdate(self, model, ids, fields = None, context = {}):
+		return browseForUpdate(self, self._cr, self._uid, self._pool, model, ids, fields, context)
+
+	def browseForUpdateFor(self, name, ids, fields = None, context = {}):
+		return browseForUpdate(self, self._cr, self._uid, self._pool, self._pool.get(name), ids, fields, context)
+	
+	def selectBrowse(self, model, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		return selectBrowse(self, self._cr, self._uid, self._pool, model, fields ,cond, context, limit, offset)
+
+	def selectBrowseFor(self, name, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		return selectBrowse(self, self._cr, self._uid, self._pool, self._pool.get(name), fields ,cond, context, limit, offset)
+
+	def selectBrowseForUpdate(self, model, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		return selectBrowse(self, self._cr, self._uid, self._pool, model, fields ,cond, context, limit, offset)
+
+	def selectBrowseForUpdateFor(self, name, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		return selectBrowse(self, self._cr, self._uid, self._pool, self._pool.get(name), fields ,cond, context, limit, offset)
+	
+	def unlink(self, model, ids, context = {}):
+		return unlink(self, self._cr, self._uid, self._pool, model, ids, context)
+
+	def unlinkFor(self, name, ids, context = {}):
+		return unlink(self, self._cr, self._uid, self._pool, self._pool.get(name), ids, context)
+	
+	def delete(self, model, cond, context = {}):
+		return delete(self, self._cr, self._uid, self._pool, model, cond, context)
+
+	def deleteFor(self, name, cond, context = {}):
+		return delete(self, self._cr, self._uid, self._pool, self._pool.get(name), cond, context)
+	
+	def create(self, model, records, context = {}):
+		if hasattr(self,'_session'):
+			if 'cache' in context:
+				return records
+			else:
+				uid = model._getCacheID('create',context)
+				return getattr(self._session._cache[uid],'_create')(model,records,context)
+		#return create(self, self._cr, self._uid, self._pool, model, records, context)
+
+	def createFor(self, name, records, context = {}):
+		return create(self, self._cr, self._uid, self._pool, self._pool.get(name), records, context)
+	
+	def write(self, model, records, context = {}):
+		return write(self, self._cr, self._uid, self._pool, model, records, context)
+
+	def writeFor(self, name, records, context = {}):
+		return write(self, self._cr, self._uid, self._pool, self._pool.get(name), records, context)
+	
+	def modify(self, model, records, context = {}):
+		return modify(self, self._cr, self._uid, self._pool, model, records, context)
+
+	def modifyFor(self, name, records, context = {}):
+		return modify(self, self._cr, self._uid, self._pool, self._pool.get(name), records, context)
+
+	def update(self, model, record, cond = None,context = {}):
+		return update(self, self._cr, self._uid, self._pool, model, record, cond,context)
+
+	def updateFor(self, name, record, cond = None,context = {}):
+		return update(self, self._cr, self._uid, self._pool, self._pool.get(name), record, cond,context)
+	
+	def insert(self, model, fields, values,context = {}):
+		return insert(self, self._cr, self._uid, self._pool, model, fields, values,context)
+
+	def insertFor(self, name, fields, values,context = {}):
+		return insert(self, self._cr, self._uid, self._pool, self._pool.get(name), fields, values,context)
+
+	def upsert(self, model, fields, values,context = {}):
+		return upsert(self, self._cr, self._uid, self._pool, model, fields, values,context)
+
+	def upsertFor(self, name, fields, values,context = {}):
+		return upsert(self, self._cr, self._uid, self._pool, self._pool.get(name), fields, values,context)
+
+	def model(self,name):
+		return self._pool.get(name)
+	
+	def navigate(self,name,onlyRowData=True):
+		pass

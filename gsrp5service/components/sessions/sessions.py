@@ -12,6 +12,7 @@ from serviceloader.tools.common import configManagerDynamic
 from serviceloader.tools.common import Component
 from gsrp5service.connection import Cursor
 from gsrp5service.orm.model import Access
+from gsrp5service.components.objs.mm import Model
 from gsrp5service.components.objs.cache4 import MCache
 
 _logger = logging.getLogger('listener.' + __name__)
@@ -206,6 +207,7 @@ class User(Session):
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'])
 
 		if self._cursor.open():
+			self._SessionModel = Model(self)
 			self._registry = self._components['registry']
 			self._registry._load_module('bc')
 			self._objects = self._components['registry']._create_loaded_objects(self)
@@ -236,8 +238,10 @@ class User(Session):
 					for key in self._models.keys():
 						if res[2]:
 							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+							self._models[key]._model = self._SessionModel
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
+							self._models[key]._model = self._SessionModel
 
 					db_infos = self._models.get('bc.modules').select(fields=['code','state'],cond=[],context={})
 					for db_info in db_infos:
@@ -248,12 +252,13 @@ class User(Session):
 					self._components['registry']._load_installed_modules()
 					self._objects = self._components['registry']._create_loaded_objects(self)
 					self._components['registry']._load_inheritables()					  
-
 					for key in self._models.keys():
 						if res[2]:
 							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+							self._models[key]._model = SessionModel
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
+							self._models[key]._model = SessionModel
 	
 					self._setLangs()
 					return [self._connected,self._uid,{'country_timezones':dict(pytz.country_timezones),'country_names':dict(pytz.country_names),'langs':self._models.get('bc.langs').select(['code','description']),'preferences':self._models.get('bc.user.preferences').select(['user_id','lang','country','framework','timezone']),'frameworks':self._models.get('bc.web.frameworks').select(['code','descr'])}]
@@ -417,18 +422,25 @@ class System(Session):
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'])
 
 		if self._cursor.open():
-			self._registry = self._components['registry']
-			self._components['registry']._load_modules()
-			self._objects = self._components['registry']._create_loaded_objects(self)
-
-
-			for key in self._models.keys():
-				self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
-			
 			self._getUid()
 			for key in self._components.keys():
 				if hasattr(self._components[key],'_setup'):
 					self._components[key]._setup(self)
+
+			self._registry = self._components['registry']
+			self._components['registry']._load_modules()
+			self._objects = self._components['registry']._create_loaded_objects(self)
+			
+			self._SessionModel = Model(self)
+
+			for key in self._models.keys():
+				self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+				self._models[key]._model = self._SessionModel
+			
+			# self._getUid()
+			# for key in self._components.keys():
+				# if hasattr(self._components[key],'_setup'):
+					# self._components[key]._setup(self)
 			return self
 
 		#self._cursor = None

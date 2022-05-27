@@ -1,10 +1,45 @@
 - cols:
-  - col: descr
-    seq: 0
   - col: area
+    seq: 0
+  - col: descr
+    seq: 10
+  model: seq.areas
+  vtype: element-plus/search
+- cols:
+  - col: area
+    seq: 0
+  - col: descr
     seq: 10
   model: seq.areas
   vtype: element-plus/find
+- cols:
+  - col: area
+    seq: 0
+  - col: descr
+    seq: 10
+  model: seq.areas
+  vtype: element-plus/list
+- cols:
+  - col: area
+    seq: 0
+  - col: descr
+    seq: 10
+  model: seq.areas
+  vtype: element-plus/form.modal
+- cols:
+  - col: area
+    seq: 0
+  - col: descr
+    seq: 10
+  model: seq.areas
+  vtype: element-plus/form
+- cols:
+  - col: descr
+    seq: 0
+  - col: segment
+    seq: 10
+  model: seq.segments
+  vtype: element-plus/search
 - cols:
   - col: descr
     seq: 0
@@ -13,119 +48,500 @@
   model: seq.segments
   vtype: element-plus/find
 - cols:
-  - col: models
+  - col: descr
+    seq: 0
+  - col: segment
+    seq: 10
+  model: seq.segments
+  vtype: element-plus/list
+- cols:
+  - col: descr
+    seq: 0
+  - col: segment
+    seq: 10
+  model: seq.segments
+  vtype: element-plus/form.modal
+- cols:
+  - col: descr
+    seq: 0
+  - col: segment
+    seq: 10
+  model: seq.segments
+  vtype: element-plus/form
+- cols:
+  - col: fullname
     seq: 0
   - col: area
     seq: 10
-  - col: segment
-    seq: 20
-  - col: name
-    seq: 30
-  - col: fullname
-    seq: 40
   - col: usage
+    seq: 20
+  - col: models
+    seq: 30
+  - col: name
+    seq: 40
+  - col: segment
     seq: 50
   model: seq.access
   vtype: element-plus/search
 - cols:
-  - col: models
+  - col: fullname
     seq: 0
   - col: area
     seq: 10
-  - col: segment
-    seq: 20
-  - col: name
-    seq: 30
-  - col: fullname
-    seq: 40
   - col: usage
+    seq: 20
+  - col: models
+    seq: 30
+  - col: name
+    seq: 40
+  - col: segment
     seq: 50
   model: seq.access
   vtype: element-plus/find
 - cols:
-  - col: access_id
+  - col: fullname
     seq: 0
-  - col: model
+  - col: area
     seq: 10
-  - col: sequence
+  - col: usage
     seq: 20
-  - col: values
+  - col: models
     seq: 30
+  - col: name
+    seq: 40
+  - col: segment
+    seq: 50
+  model: seq.access
+  vtype: element-plus/list
+- cols:
+  - col: fullname
+    seq: 0
+  - col: area
+    seq: 10
+  - col: usage
+    seq: 20
+  - col: models
+    seq: 30
+  - col: name
+    seq: 40
+  - col: segment
+    seq: 50
+  model: seq.access
+  vtype: element-plus/form.modal
+- cols:
+  - col: fullname
+    seq: 0
+  - col: area
+    seq: 10
+  - col: usage
+    seq: 20
+  - col: models
+    seq: 30
+  - col: name
+    seq: 40
+  - col: segment
+    seq: 50
+  model: seq.access
+  vtype: element-plus/form
+- cols:
   - col: columns
+    seq: 0
+  - col: access_id
+    seq: 10
+  - col: values
+    seq: 20
+  - col: sequence
+    seq: 30
+  - col: model
     seq: 40
   model: seq.models
   vtype: element-plus/find
 - cols:
-  - col: col
+  - col: columns
     seq: 0
-  - col: model_id
+  - col: access_id
     seq: 10
+  - col: values
+    seq: 20
   - col: sequence
+    seq: 30
+  - col: model
+    seq: 40
+  model: seq.models
+  vtype: element-plus/list
+- cols:
+  - col: columns
+    seq: 0
+  - col: access_id
+    seq: 10
+  - col: values
+    seq: 20
+  - col: sequence
+    seq: 30
+  - col: model
+    seq: 40
+  model: seq.models
+  vtype: element-plus/form.modal
+- cols:
+  - col: columns
+    seq: 0
+  - col: access_id
+    seq: 10
+  - col: values
+    seq: 20
+  - col: sequence
+    seq: 30
+  - col: model
+    seq: 40
+  model: seq.models
+  vtype: element-plus/form
+- cols:
+  - col: columns
+    seq: 0
+  - col: access_id
+    seq: 10
+  - col: values
+    seq: 20
+  - col: sequence
+    seq: 30
+  - col: model
+    seq: 40
+  model: seq.models
+  vtype: element-plus/o2m-form
+- cols:
+  - col: columns
+    seq: 0
+  - col: access_id
+    seq: 10
+  - col: values
+    seq: 20
+  - col: sequence
+    seq: 30
+  - col: model
+    seq: 40
+  model: seq.models
+  vtype: element-plus/o2m-list
+- cols:
+  - col: model_id
+    seq: 0
+  - col: sequence
+    seq: 10
+  - col: col
     seq: 20
   model: seq.model.columns
   vtype: element-plus/find
 - cols:
-  - col: col
-    seq: 0
   - col: model_id
-    seq: 10
+    seq: 0
   - col: sequence
+    seq: 10
+  - col: col
+    seq: 20
+  model: seq.model.columns
+  vtype: element-plus/list
+- cols:
+  - col: model_id
+    seq: 0
+  - col: sequence
+    seq: 10
+  - col: col
+    seq: 20
+  model: seq.model.columns
+  vtype: element-plus/form.modal
+- cols:
+  - col: model_id
+    seq: 0
+  - col: sequence
+    seq: 10
+  - col: col
+    seq: 20
+  model: seq.model.columns
+  vtype: element-plus/form
+- cols:
+  - col: model_id
+    seq: 0
+  - col: sequence
+    seq: 10
+  - col: col
+    seq: 20
+  model: seq.model.columns
+  vtype: element-plus/o2m-form
+- cols:
+  - col: model_id
+    seq: 0
+  - col: sequence
+    seq: 10
+  - col: col
+    seq: 20
+  model: seq.model.columns
+  vtype: element-plus/o2m-list
+- cols:
+  - col: model_id
+    seq: 0
+  - col: sequence
+    seq: 10
+  - col: col
     seq: 20
   model: seq.model.column.values
   vtype: element-plus/find
 - cols:
-  - col: area
+  - col: model_id
     seq: 0
-  - col: segment
+  - col: sequence
     seq: 10
-  - col: name
+  - col: col
+    seq: 20
+  model: seq.model.column.values
+  vtype: element-plus/list
+- cols:
+  - col: model_id
+    seq: 0
+  - col: sequence
+    seq: 10
+  - col: col
+    seq: 20
+  model: seq.model.column.values
+  vtype: element-plus/form.modal
+- cols:
+  - col: model_id
+    seq: 0
+  - col: sequence
+    seq: 10
+  - col: col
+    seq: 20
+  model: seq.model.column.values
+  vtype: element-plus/form
+- cols:
+  - col: model_id
+    seq: 0
+  - col: sequence
+    seq: 10
+  - col: col
+    seq: 20
+  model: seq.model.column.values
+  vtype: element-plus/o2m-form
+- cols:
+  - col: model_id
+    seq: 0
+  - col: sequence
+    seq: 10
+  - col: col
+    seq: 20
+  model: seq.model.column.values
+  vtype: element-plus/o2m-list
+- cols:
+  - col: fullname
+    seq: 0
+  - col: area
+    seq: 10
+  - col: usage
     seq: 20
   - col: seq_access
     seq: 30
-  - col: fullname
+  - col: name
     seq: 40
+  - col: segment
+    seq: 50
+  model: seq.conditions
+  vtype: element-plus/search
+- cols:
+  - col: fullname
+    seq: 0
+  - col: area
+    seq: 10
   - col: usage
+    seq: 20
+  - col: seq_access
+    seq: 30
+  - col: name
+    seq: 40
+  - col: segment
     seq: 50
   model: seq.conditions
   vtype: element-plus/find
 - cols:
-  - col: area
+  - col: fullname
     seq: 0
-  - col: segment
+  - col: area
     seq: 10
+  - col: usage
+    seq: 20
+  - col: seq_access
+    seq: 30
   - col: name
+    seq: 40
+  - col: segment
+    seq: 50
+  model: seq.conditions
+  vtype: element-plus/list
+- cols:
+  - col: fullname
+    seq: 0
+  - col: area
+    seq: 10
+  - col: usage
+    seq: 20
+  - col: seq_access
+    seq: 30
+  - col: name
+    seq: 40
+  - col: segment
+    seq: 50
+  model: seq.conditions
+  vtype: element-plus/form.modal
+- cols:
+  - col: fullname
+    seq: 0
+  - col: area
+    seq: 10
+  - col: usage
+    seq: 20
+  - col: seq_access
+    seq: 30
+  - col: name
+    seq: 40
+  - col: segment
+    seq: 50
+  model: seq.conditions
+  vtype: element-plus/form
+- cols:
+  - col: fullname
+    seq: 0
+  - col: area
+    seq: 10
+  - col: usage
     seq: 20
   - col: items
     seq: 30
-  - col: fullname
+  - col: name
     seq: 40
-  - col: usage
+  - col: segment
     seq: 50
   model: seq.access.schemas
   vtype: element-plus/search
 - cols:
-  - col: area
+  - col: fullname
     seq: 0
-  - col: segment
+  - col: area
     seq: 10
-  - col: name
+  - col: usage
     seq: 20
   - col: items
     seq: 30
-  - col: fullname
+  - col: name
     seq: 40
-  - col: usage
+  - col: segment
     seq: 50
   model: seq.access.schemas
   vtype: element-plus/find
 - cols:
+  - col: fullname
+    seq: 0
+  - col: area
+    seq: 10
+  - col: usage
+    seq: 20
+  - col: items
+    seq: 30
+  - col: name
+    seq: 40
+  - col: segment
+    seq: 50
+  model: seq.access.schemas
+  vtype: element-plus/list
+- cols:
+  - col: fullname
+    seq: 0
+  - col: area
+    seq: 10
+  - col: usage
+    seq: 20
+  - col: items
+    seq: 30
+  - col: name
+    seq: 40
+  - col: segment
+    seq: 50
+  model: seq.access.schemas
+  vtype: element-plus/form.modal
+- cols:
+  - col: fullname
+    seq: 0
+  - col: area
+    seq: 10
+  - col: usage
+    seq: 20
+  - col: items
+    seq: 30
+  - col: name
+    seq: 40
+  - col: segment
+    seq: 50
+  model: seq.access.schemas
+  vtype: element-plus/form
+- cols:
   - col: condition
     seq: 0
-  - col: required
+  - col: seq
     seq: 10
   - col: schema_id
     seq: 20
-  - col: seq
+  - col: required
     seq: 30
   model: seq.access.schema.items
   vtype: element-plus/find
+- cols:
+  - col: condition
+    seq: 0
+  - col: seq
+    seq: 10
+  - col: schema_id
+    seq: 20
+  - col: required
+    seq: 30
+  model: seq.access.schema.items
+  vtype: element-plus/list
+- cols:
+  - col: condition
+    seq: 0
+  - col: seq
+    seq: 10
+  - col: schema_id
+    seq: 20
+  - col: required
+    seq: 30
+  model: seq.access.schema.items
+  vtype: element-plus/form.modal
+- cols:
+  - col: condition
+    seq: 0
+  - col: seq
+    seq: 10
+  - col: schema_id
+    seq: 20
+  - col: required
+    seq: 30
+  model: seq.access.schema.items
+  vtype: element-plus/form
+- cols:
+  - col: condition
+    seq: 0
+  - col: seq
+    seq: 10
+  - col: schema_id
+    seq: 20
+  - col: required
+    seq: 30
+  model: seq.access.schema.items
+  vtype: element-plus/o2m-form
+- cols:
+  - col: condition
+    seq: 0
+  - col: seq
+    seq: 10
+  - col: schema_id
+    seq: 20
+  - col: required
+    seq: 30
+  model: seq.access.schema.items
+  vtype: element-plus/o2m-list

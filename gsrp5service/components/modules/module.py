@@ -32,7 +32,7 @@ class KeyBuffer(dict):
 			return self[key][obj][recordkey]  
 		return None
 
-def load(self,modules = None,context = {'lang':'en'}):
+def load(self,modules = None,context = {'lang':'en','tz':'UTC'}):
 	return _load(self,['install','autoinstall'],modules, context)
 
 def _load(self,able=None, modules = None, context = {'lang':'en','tz':'UTC'}):
@@ -131,7 +131,7 @@ def _load(self,able=None, modules = None, context = {'lang':'en','tz':'UTC'}):
 
 	return log
 
-def _install(self,able=None, modules = None, context = {'lang':'EN','tz':'UTC'}):
+def _install(self,able=None, modules = None, context = {'lang':'en','tz':'UTC'}):
 	log = []
 	_modules = []
 	_chunks = {}
@@ -417,9 +417,10 @@ def _installModule(self,name,chunk,context):
 			_logger.info("Tables created")
 	
 			self._registry._load_inheritable(name)
-	
+			#web_pdb.set_trace()
 			for k in self._session._models.keys():
 				self._session._models[k]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+				self._session._models[k]._model = self._session._SessionModel
 				
 	
 			if name == 'bc':
@@ -433,33 +434,34 @@ def _installModule(self,name,chunk,context):
 
 		for k in self._session._objects[name]['models'].keys():
 			self._session._objects[name]['models'][k]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+			self._session._objects[name]['models'][k]._model = self._session._SessionModel
 	
 	info = self._registry._modules[name]
 
 	metas = {}
 
-	# if 'env' in chunk and 'env' in info['meta']:
-		# metas['env'] = info['meta']['env']
+	#if 'env' in chunk and 'env' in info['meta']:
+		#metas['env'] = info['meta']['env']
 	
 	if 'view' in chunk and 'view' in info['meta']:
 		metas['view'] = info['meta']['view']
 	
-	# if 'example' in chunk:
-		# if 'data' in info['meta']:
-			# metas['data'] = info['meta']['data']
-		# if 'demo' in info['meta']:
-			# metas['demo'] = info['meta']['demo']
-	# else:
-		# if 'data' in chunk and 'data' in info['meta']:
-			# metas['data'] = info['meta']['data']
-		# if 'demo' in chunk and 'demo' in info['meta']:
-			# metas['demo'] = info['meta']['demo']
+	if 'example' in chunk:
+		if 'data' in info['meta']:
+			metas['data'] = info['meta']['data']
+		if 'demo' in info['meta']:
+			metas['demo'] = info['meta']['demo']
+	else:
+		if 'data' in chunk and 'data' in info['meta']:
+			metas['data'] = info['meta']['data']
+		if 'demo' in chunk and 'demo' in info['meta']:
+			metas['demo'] = info['meta']['demo']
 	
-	# if 'test' in chunk and 'test' in info['meta']:
-		# metas['test'] = info['meta']['test']
+	if 'test' in chunk and 'test' in info['meta']:
+		metas['test'] = info['meta']['test']
 	
-	# if 'i18n' in chunk and 'i18n' in info['meta']:
-		# metas['i18n'] = info['meta']['i18n']
+	if 'i18n' in chunk and 'i18n' in info['meta']:
+		metas['i18n'] = info['meta']['i18n']
 		
 	_loadFiles(self,name,self._registry._modules[name],metas,context)
 	self._cr.commit()
@@ -776,10 +778,10 @@ def _loadMetaModule(self,name,context):
 				imodel_records.append(im)
 
 	if len(model_records) > 0:
-			self._session._models.get('bc.models').create(model_records,context)
+		self._session._models.get('bc.models').create(model_records,context)
 
 	if len(imodel_records) > 0:
-			self._session._models.get('bc.model.inherits').create(imodel_records,{})
+		self._session._models.get('bc.model.inherits').create(imodel_records,{})
 	
 	self._session._models.get('bc.modules').write({'id':module_id,'state':'I'},context)
 	self._registry._modules[name]['state'] = 'I'

@@ -218,7 +218,7 @@ class Cursor(object):
 						row.append({'id':record[dm[field]]})
 					elif columnsmeta[field] in ('one2many','many2many'):
 						row.append([])
-					elif columnsmeta[field] in ('json','jsonb'):
+					elif columnsmeta[field] in ('json','jsonb') and type(record[dm[field]]) == str:
 						row.append(json.loads(record[dm[field]]))
 					else:
 						row.append(record[dm[field]])
@@ -228,22 +228,18 @@ class Cursor(object):
 							row.append({'id':record[dm[k]]})
 						elif columnsmeta[k] in ('one2many','many2many'):
 							row.append([])
-						elif columnsmeta[k] =='function':
-							row.append(None)
+						elif columnsmeta[field] in ('json','jsonb') and type(record[dm[field]]) == str:
+							row.append(json.loads(record[dm[field]]))
 						else:
 							row.append(record[dm[k]])					
 			else:
 				if type(field) == str:
 					if columnsmeta[field] in ('one2many','many2many'):
 						row.append([])
-					elif columnsmeta[field] =='function':
-						row.append(None)
 				elif type(field) == dict:
 					for k in field:
 						if columnsmeta[k] in ('one2many','many2many'):
 							row.append([])
-						elif columnsmeta[k] =='function':
-							row.append(None)
 
 		for j in range(len(descfields)):
 			desc = descfields[j]

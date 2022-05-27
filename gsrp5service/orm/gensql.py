@@ -287,51 +287,51 @@ def _build_order_by_fields(self,order_by):
 			
 	return fields
 
-def _build_query(self, fields,cond,context):
+def _build_query(self, cr, uid, pool, model, fields, cond, context):
 	joins = []
 	columns = {}
 	columns_as = {}
 	columns_maps = {}
-	cond_fields = _build_cond_fields(self,cond)
-	domain_fields = _build_domain_fields(self,list(filter(lambda x: x in fields,self._m2ofields + self._referencedfields + self._relatedfields )))
-	order_by_fields = _build_order_by_fields(self,self._order_by)
+	cond_fields = _build_cond_fields(model,cond)
+	domain_fields = _build_domain_fields(model,list(filter(lambda x: x in fields,model._m2ofields + model._referencedfields + model._relatedfields )))
+	order_by_fields = _build_order_by_fields(model,model._order_by)
 	_fields = list(set(filter(lambda x: type(x) == str,fields)).union(set(cond_fields)).union(set(list(order_by_fields.keys()))))
 	alias = _gen_aliases('d')
-	modinfo = self.modelInfo()
+	modinfo = model.modelInfo()
 	colsinfo = modinfo['columns']
 	parent_id = modinfo['names']['parent_id']
 	recname = modinfo['names']['rec_name']
 	if recname and type(recname) == str and recname not in _fields:
 		_fields.append(recname)
 
-	aliases = {'a':self._table}
-	columns['a'] = list((set(_fields) - set(self._i18nfields)).intersection(set(self._rowfields)))
-	joins.append(self._table + " AS a")
-	if self._tr_table:
-		aliases['c'] = self._tr_table
-		columns['c'] = list(set(self._i18nfields).intersection(set(_fields)).intersection(set(self._rowfields)))
+	aliases = {'a':model._table}
+	columns['a'] = list((set(_fields) - set(model._i18nfields)).intersection(set(model._rowfields)))
+	joins.append(model._table + " AS a")
+	if model._tr_table:
+		aliases['c'] = model._tr_table
+		columns['c'] = list(set(model._i18nfields).intersection(set(_fields)).intersection(set(model._rowfields)))
 		for c in columns['c']:
 			columns_maps[c] = 'c.' + c
-		joins.append("LEFT OUTER JOIN " + self._tr_table + " AS c ON (c.id = a.id AND c.lang = '%s')" % (self._session._lang2id[context['lang']].lower(),) )
+		joins.append("LEFT OUTER JOIN " + model._tr_table + " AS c ON (c.id = a.id AND c.lang = '%s')" % (self._session._lang2id[context['lang']].lower(),) )
 
 	if parent_id and parent_id in columns['a']:
-		if self._tr_table and  recname in self._i18nfields:
-			aliases['d'] = self._tr_table
+		if model._tr_table and  recname in model._i18nfields:
+			aliases['d'] = model._tr_table
 			columns.setdefault('d',[]).extend([recname,'lang'])
 			columns_maps[parent_id] = 'd.' + recname
 			columns_as['d.' + recname] = '"' + parent_id + '-name' + '"'
-			joins.append("LEFT OUTER JOIN " + self._tr_table + " AS d ON (d.id = a." + parent_id + " and d.lang = '%s')" % (self._session._lang2id[context['lang']].lower(),) )
+			joins.append("LEFT OUTER JOIN " + model._tr_table + " AS d ON (d.id = a." + parent_id + " and d.lang = '%s')" % (self._session._lang2id[context['lang']].lower(),) )
 		else:
-			aliases['b'] = self._table
+			aliases['b'] = model._table
 			columns.setdefault('b',[]).extend([recname])
 			columns_maps[parent_id] = 'b.' + recname
 			columns_as['b.' + recname] = '"' + parent_id + '-name' + '"'
-			joins.append("LEFT OUTER JOIN " + self._table + " AS b ON (b.id = a." + parent_id + ")" )
+			joins.append("LEFT OUTER JOIN " + model._table + " AS b ON (b.id = a." + parent_id + ")" )
 			
 	for field in filter(lambda x: x not in (parent_id,'id') and colsinfo[x]['type'] in ('many2one','referenced','related'),columns['a']):
 		ca = next(alias)
-		obj = self._columns[field].obj
-		m = self._pool.get(obj)
+		obj = model._columns[field].obj
+		m = pool.get(obj)
 		recname = m._RecNameName
 		if recname:
 			i18nfields = m._i18nfields
@@ -344,13 +344,13 @@ def _build_query(self, fields,cond,context):
 		if type(field) == dict:
 			for f,o in field.items():
 				if f not in (parent_id,'id') and colsinfo[f]['type'] in ('many2many','one2many'):
-					obj = self._columns[f].obj
-					m = self._pool.get(obj)
+					obj = model._columns[f].obj
+					m = pool.get(obj)
 					columns_as[ 'NULL'] = f
 		elif type(field) == str:
 			if field not in (parent_id,'id') and colsinfo[field]['type'] in ('many2many','one2many'):
-				obj = self._columns[field].obj
-				m = self._pool.get(obj)
+				obj = model._columns[field].obj
+				m = pool.get(obj)
 				columns_as[ 'NULL'] = field
 			
 	cols = []
@@ -366,12 +366,12 @@ def _build_query(self, fields,cond,context):
 	for k,v in columns_as.items():
 		cols.append(k + ' AS ' + v)
 
-	conds = _build_fields_conds(self,columns,columns_maps,cond)
+	conds = _build_fields_conds(model,columns,columns_maps,cond)
 
 	order_by_list = []
 	for k in order_by_fields.keys():
 		if k == 'id':
-			rn = self._RecNameName
+			rn = model._RecNameName
 			if not rn:
 				rn = k
 			order_by_list.append(rn + ' ' + order_by_fields[k] if order_by_fields[k] else k)
@@ -811,21 +811,21 @@ def domain_clause(info):
 		return va
 	return []
 #tested
-def Create(self,record,context):
-	info = self.modelInfo()
+def Create(self,cr,uid,pool,model,record,context):
+	info = model.modelInfo()
 	fields = list(record.keys())
 	values = list(record.values())
 
 	if info['log_access']:
 		fields.extend(['create_uid','create_timestamp'])
-		values.extend([self._uid,datetime.utcnow()])
+		values.extend([uid,datetime.utcnow()])
 
 	_sql = insert_clause() + into_clause(info['table']) + fields_clause_insert(fields) + values_clause(len(values))+returning_clause()
 
 	return _sql, values
 
-def CreateI18N(self,record,context):
-	info = self.modelInfo()
+def CreateI18N(self,cr,uid,pool,model,record,context):
+	info = model.modelInfo()
 	fields = list(record.keys())
 	values = list(record.values())
 
@@ -890,8 +890,8 @@ def Upsert(self,fields,values,context):
 
 
 #tested
-def Read(self,ids,fields,context):
-	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,fields,[],context)
+def Read(self,cr,uid,pool,model,ids,fields,context):
+	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,cr,uid,pool,model,fields,[],context)
 
 	if type(ids) == str:
 		_values_new = [ids]
@@ -901,37 +901,9 @@ def Read(self,ids,fields,context):
 	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause_ids(ids) + (orderby_clause(_order_by_new) if len(_order_by_new) > 0 else '') 
 	#print('GENSQL-NEW-READ:',_conds_new,_order_by_new,_sql_new,_values_new)
 	return _sql_new,_values_new
-	# _fields = ['id']
-	# info = self.modelInfo()
-	# pool = self._pool
-	# if fields is None:
-		# _fields.extend(list(info['columns'].keys()))
-	# else:
-		# _fields.extend(fields)
-
-	# _fields.extend(filter(lambda x: x != 'id' and x not in _fields,fields_from_order_by(self)))
- 
-# # Parses
-	# cond = _convert_cond(self,[])
-	# condfields = _build_condfields(self=self,cond=cond)
-	# joins = _build_joins(self=self,modinfo = info,fields = _fields,condfields=condfields)
-	# aliases = _build_aliases(self=self,joins=joins)
-	# joinmodels = _build_joinmodels(self=self,joins = joins)
-	# _fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
-	# join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)
-	# cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
-	# order_by = parse_order_by(self = self,pool = pool,aliases = aliases,models=joinmodels,order_by = info['order_by'], columnsmeta = self._columnsmeta)
-# # Parses
-
-	# _sql = select_clause() +fields_clause(_fields) + from_clause(join) + where_clause_ids(ids) + orderby_clause(order_by)
-	# if type(ids) == str:
-		# _values = [ids]
-	# else:
-		# _values = [tuple(ids)]
-	# return _sql,_values
 #tested
-def Select(self, fields, cond, context, limit = None, offset = None):
-	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,fields,cond,context)
+def Select(self, cr, uid, pool, model, fields, cond, context, limit = None, offset = None):
+	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,cr,uid,pool,model,fields,cond,context)
 	_where = WhereParse(_conds_new)
 	_cond = _where._cond
 	_values_new = _where._values
@@ -939,43 +911,10 @@ def Select(self, fields, cond, context, limit = None, offset = None):
 	#print('GENSQL-NEW-SELECT:',_conds_new,_order_by_new,_sql_new,_values_new)
 	return _sql_new,_values_new
 
-	# _fields = ['id']
-	# info = self.modelInfo()
-	# pool = self._pool
-	# if fields is None:
-		# _fields.extend(list(info['columns'].keys()))
-	# else:
-		# _fields.extend(fields)
 
-	# _fields.extend(filter(lambda x: x != 'id' and x not in _fields,fields_from_order_by(self)))
-
-# # Parses
-	# cond = _convert_cond(self,cond)
-	# condfields = _build_condfields(self=self,cond=cond)
-	# joins = _build_joins(self=self,modinfo = info,fields = _fields,condfields=condfields)
-	# aliases = _build_aliases(self=self,joins=joins)
-	# joinmodels = _build_joinmodels(self=self,joins = joins)
-	# _fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
-	# join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)	
-	# cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
-	# order_by = parse_order_by(self = self,pool = pool,aliases = aliases,models=joinmodels,order_by = info['order_by'], columnsmeta = self._columnsmeta)
-	
-# # Parses
-	
-	# _where = WhereParse(cond)
-	# _cond = _where._cond
-	# _values = _where._values
-	# if limit:
-		# _values.append(limit)
-	# if offset:
-		# _values.append(offset)
-
-	# _sql = select_clause() + fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
-	# #print('GENSQL:', _sql,_values)
-	# return _sql,_values
 #tested
-def Search(self, cond, context, limit, offset):
-	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,[],cond,context)
+def Search(self,cr,uid,pool,model, cond, context, limit, offset):
+	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,cr,uid,pool,model,[],cond,context)
 	_where = WhereParse(_conds_new)
 	_cond = _where._cond
 	_values_new = _where._values
@@ -985,69 +924,18 @@ def Search(self, cond, context, limit, offset):
 	#print('GENSQL-NEW-SELECT:',_conds_new,_order_by_new,_sql_new,_values_new)
 	return _sql_new,tuple(_values_new)
 
-	# info  = self.modelInfo()
-	# pool = self._pool
-	# _f = fields_from_order_by(self)
-	
-	# #web_pdb.set_trace()
-	# _fields = fields_clause_select(_f).split(',')
- 
-# # Parses
-	# cond = _convert_cond(self,cond)
-	# condfields = _build_condfields(self=self,cond=cond)
-	# joins = _build_joins(self=self,modinfo = info,fields = _fields,condfields=condfields)
-	# aliases = _build_aliases(self=self,joins=joins)
-	# joinmodels = _build_joinmodels(self=self,joins = joins)
-	# _fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
-	# join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)
-	# cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
-	# order_by = parse_order_by(self = self,pool = pool,aliases = aliases,models=joinmodels,order_by = info['order_by'], columnsmeta = self._columnsmeta)
-# # Parses
-
-	# _where = WhereParse(cond)
-	# _cond = _where._cond
-	# _values = _where._values
-	# if limit:
-		# _values.append(limit)
-	# if offset:	
-		# _values.append(offset)
-	# _sql = select_clause() +fields_clause(_fields) + from_clause(join) + where_clause(_cond) + orderby_clause(order_by) + limit_clause(limit) + offset_clause(offset) 
-	# return _sql, tuple(_values)
-
 #tested
-def Count(self,cond,context):
-	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,[],cond,context)
+def Count(self,cr,uid,pool,model,cond,context):
+	_joins_new, _columns_new, _conds_new,_order_by_new = _build_query(self,cr,uid,pool,model,[],cond,context)
 	_where = WhereParse(_conds_new)
 	_cond = _where._cond
 	_values_new = _where._values
 	_sql_new = count_clause() + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause(_cond)
 	return _sql_new,_values_new
 
-	# info  = self.modelInfo()
-	# pool = self._pool
-	# _fields = fields_clause_select().split(',')
-
-# # Parses
-	# cond = _convert_cond(self,cond)
-	# condfields = _build_condfields(self=self,cond=cond)
-	# joins = _build_joins(self=self,modinfo = info,fields = _fields,condfields=condfields)
-	# aliases = _build_aliases(self=self,joins=joins)
-	# joinmodels = _build_joinmodels(self=self,joins = joins)
-	# _fields = parse_fields(self=self,pool = pool,aliases = aliases,models=joinmodels,fields = _fields, columnsmeta = self._columnsmeta)
-	# join = parse_joins(self=self,context=context,pool = pool, model = info['name'], aliases = aliases,joins = joins)
-	# cond = parse_cond(self=self,pool = pool,aliases = aliases,models = joinmodels,cond = cond)
-# # Parses
-
-	# _where = WhereParse(cond)
-
-	# _cond = _where._cond
-	# _values = _where._values
-
-	# _sql = count_clause() + from_clause(join) + where_clause(_cond)
-	# return _sql,_values
 #tested
-def Delete(self,cond, context):
-	info  = self.modelInfo()	
+def Delete(self,cr,uid,pool,model,cond, context):
+	info  = model.modelInfo()	
 	_where = WhereParse(cond)
 	_cond = _where._cond
 	_values = _where._values
@@ -1055,8 +943,8 @@ def Delete(self,cond, context):
 	_sql = delete_clause() + from_clause(info['table']) + where_clause(_cond) + returning_clause()
 	return _sql,_values
 #tested
-def Unlink(self, ids, context):
-	info  = self.modelInfo()
+def Unlink(self,cr,uid,pool,model, ids, context):
+	info  = model.modelInfo()
 	_sql = delete_clause() + from_clause(info['table']) + where_clause_unlink_ids(ids) + returning_clause()
 	if type(ids) == int:
 		_values = [ids]
@@ -1064,8 +952,8 @@ def Unlink(self, ids, context):
 		_values = [tuple(ids)]
 	return _sql,_values
 #tested
-def Write(self,record,context):
-	info  = self.modelInfo()
+def Write(self,cr,uid,pool,model,record,context):
+	info  = model.modelInfo()
 	oid = record['id']
 	del record['id']
 	fields = list(record.keys())
@@ -1081,8 +969,8 @@ def Write(self,record,context):
 	return _sql, values
 
 
-def WriteI18N(self,record,context):
-	info  = self.modelInfo()
+def WriteI18N(self,cr,uid,pool,model,record,context):
+	info  = model.modelInfo()
 	oid = record['id']
 	del record['id']
 	fields = list(record.keys())
@@ -1099,8 +987,8 @@ def WriteI18N(self,record,context):
 
 #testing
 
-def Update(self,cond,record,context):
-	info  = self.modelInfo()
+def Update(self,cr,uid,pool,model,cond,record,context):
+	info  = model.modelInfo()
 	fields = list(record.keys())
 	values = list(record.values())
 	columns = info['columns']
@@ -1114,7 +1002,7 @@ def Update(self,cond,record,context):
 
 	if info['log_access']:
 		fields.extend(['write_uid','write_timestamp'])
-		values.extend([self._uid,datetime.utcnow()])
+		values.extend([uid,datetime.utcnow()])
 
 	_where = WhereParse(cond)
 	_cond = _where._cond
@@ -1123,20 +1011,20 @@ def Update(self,cond,record,context):
 	_sql = update_clause() + info['table']+ set_clause(fields) + where_clause(_cond) + returning_clause(list(filter(lambda x: x != 'id',fields)))
 	return _sql, values
 
-def Modify(self,record,context):
-	info  = self.modelInfo()
+def Modify(self,cr,uid,pool,model,record,context):
+	info  = model.modelInfo()
 	fields = list(record.keys())
 	values = list(record.values())
 
 	if info['log_access']:
 		fields.extend(['create_uid','create_timestamp'])
-		values.extend([self._uid,datetime.utcnow()])
+		values.extend([uid,datetime.utcnow()])
 
 	_sql = upsert_clause() + into_clause(info['table']) + fields_clause_insert(fields) + values_clause(len(values)) + returning_clause()
 	return _sql, values
 
-def ModifyI18N(self,record,context):
-	info  = self.modelInfo()
+def ModifyI18N(self,cr,uid,pool,model,record,context):
+	info  = model.modelInfo()
 	fields = list(record.keys())
 	values = list(record.values())
 

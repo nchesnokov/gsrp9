@@ -224,7 +224,8 @@ class Registry(Component):
 		cls = type(meta['name'],meta['bases'],meta['attrs'])
 		type.__init__(cls, meta['name'],meta['bases'],meta['attrs'])
 		obj = cls()
-		obj.__init__()				
+		obj.__init__()
+		#obj._model = self._session._SessionModel				
 		return obj	
 #
 	def _metaObject_with_inherits(self,obj,module):
@@ -289,7 +290,8 @@ class Registry(Component):
 				rel = ci[m2ofield]['rel']
 				mobj = models[obj]
 				if len(mobj._o2mfields) > 0 and rel not in mobj._o2mfields or rel == None:
-					print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
+					pass
+					#print('NOT MAPPED O2MFIELD:',model._name,o2mfield,obj,rel)
 					#cim = mobj.columnsInfo(mobj._o2mfields,['obj','rel'])
 					#if len(list(filter(lambda x: cim[x]['obj'] == model._name and cim[x]['rel'] == rel,cim.keys()))) == 0:
 						#m2oremove.append(m2ofield)
@@ -325,6 +327,8 @@ class Registry(Component):
 			
 			if len(model._schema[0]) == 0 and len(model._schema[1]) > 0:
 				root_models.append(key)
+			
+			#model.__readonly__ = True
 		
 		return models
 	

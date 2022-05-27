@@ -59,8 +59,9 @@ def Area(self, modules = None, context={}):
 			for key in registry._metas[module]['models'].keys():
 				obj = registry._create_module_object('models',key,module)
 				if isinstance(obj,Model):
-					info = obj.modelInfo()	
-					if len(isAllow('search','models',info,list(info['columns'].keys()))) > 0:
+					info = obj.modelInfo()
+					if len(list(filter(lambda x: x[0] == 'search' and len(x[2]) > 0,isAllow(obj,{})))) > 0:
+					#if len(isAllow('search','models',info,list(info['columns'].keys()))) > 0:
 						if 'class_model' in info and info['class_model'] in ('A','B','K'):
 							models.append(obj)
 						elif 'class_model' in info and info['class_model'] in ('C','E'):

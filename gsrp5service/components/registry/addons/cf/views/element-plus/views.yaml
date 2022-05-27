@@ -1,0 +1,1536 @@
+- cols:
+  - col: name
+    seq: 0
+  - col: users_id
+    seq: 10
+  - col: code
+    seq: 20
+  model: cf.groups
+  vtype: element-plus/search
+- cols:
+  - col: name
+    seq: 0
+  - col: users_id
+    seq: 10
+  - col: code
+    seq: 20
+  model: cf.groups
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: users_id
+    seq: 10
+  - col: code
+    seq: 20
+  model: cf.groups
+  vtype: element-plus/list
+- cols:
+  - col: firstname
+    seq: 0
+  - col: issuperuser
+    seq: 10
+  - col: preferences
+    seq: 20
+  - col: login
+    seq: 30
+  - col: lastname
+    seq: 40
+  - col: password
+    seq: 50
+  model: bc.users
+  vtype: element-plus/m2mlist
+- cols:
+  - col: name
+    seq: 0
+  - col: users_id
+    seq: 10
+  - col: code
+    seq: 20
+  model: cf.groups
+  vtype: element-plus/form.modal
+- cols:
+  - col: name
+    seq: 0
+  - col: users_id
+    seq: 10
+  - col: code
+    seq: 20
+  model: cf.groups
+  vtype: element-plus/form
+- cols:
+  - col: files
+    seq: 0
+  - col: tag
+    seq: 10
+  - col: folders
+    seq: 20
+  - col: links
+    seq: 30
+  model: cf.tags
+  vtype: element-plus/search
+- cols:
+  - col: files
+    seq: 0
+  - col: tag
+    seq: 10
+  - col: folders
+    seq: 20
+  - col: links
+    seq: 30
+  model: cf.tags
+  vtype: element-plus/find
+- cols:
+  - col: files
+    seq: 0
+  - col: tag
+    seq: 10
+  - col: folders
+    seq: 20
+  - col: links
+    seq: 30
+  model: cf.tags
+  vtype: element-plus/list
+- cols:
+  - col: files
+    seq: 0
+  - col: links
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: parent_id
+    seq: 60
+  - col: modified_by
+    seq: 70
+  - col: name
+    seq: 80
+  - col: created_by
+    seq: 90
+  - col: created
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.folders
+  vtype: element-plus/m2mlist
+- cols:
+  - col: url
+    seq: 0
+  - col: data
+    seq: 10
+  - col: size
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: modified_by
+    seq: 60
+  - col: name
+    seq: 70
+  - col: created_by
+    seq: 80
+  - col: created
+    seq: 90
+  - col: folder_id
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.files
+  vtype: element-plus/m2mlist
+- cols:
+  - col: users_access
+    seq: 0
+  - col: groups_access
+    seq: 10
+  - col: modified
+    seq: 20
+  - col: modified_by
+    seq: 30
+  - col: name
+    seq: 40
+  - col: created_by
+    seq: 50
+  - col: created
+    seq: 60
+  - col: folder_id
+    seq: 70
+  - col: tags_id
+    seq: 80
+  - col: others_access
+    seq: 90
+  - col: file_id
+    seq: 100
+  model: cf.links
+  vtype: element-plus/m2mlist
+- cols:
+  - col: files
+    seq: 0
+  - col: tag
+    seq: 10
+  - col: folders
+    seq: 20
+  - col: links
+    seq: 30
+  model: cf.tags
+  vtype: element-plus/form.modal
+- cols:
+  - col: files
+    seq: 0
+  - col: tag
+    seq: 10
+  - col: folders
+    seq: 20
+  - col: links
+    seq: 30
+  model: cf.tags
+  vtype: element-plus/form
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: user_id
+    seq: 20
+  - col: w
+    seq: 30
+  - col: file_id
+    seq: 40
+  model: cf.file.access.users
+  vtype: element-plus/find
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: user_id
+    seq: 20
+  - col: w
+    seq: 30
+  - col: file_id
+    seq: 40
+  model: cf.file.access.users
+  vtype: element-plus/list
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: user_id
+    seq: 20
+  - col: w
+    seq: 30
+  - col: file_id
+    seq: 40
+  model: cf.file.access.users
+  vtype: element-plus/form.modal
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: user_id
+    seq: 20
+  - col: w
+    seq: 30
+  - col: file_id
+    seq: 40
+  model: cf.file.access.users
+  vtype: element-plus/form
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: user_id
+    seq: 20
+  - col: w
+    seq: 30
+  - col: file_id
+    seq: 40
+  model: cf.file.access.users
+  vtype: element-plus/o2m-form
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: user_id
+    seq: 20
+  - col: w
+    seq: 30
+  - col: file_id
+    seq: 40
+  model: cf.file.access.users
+  vtype: element-plus/o2m-list
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: x
+    seq: 20
+  - col: w
+    seq: 30
+  - col: file_id
+    seq: 40
+  model: cf.file.access.groups
+  vtype: element-plus/find
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: x
+    seq: 20
+  - col: w
+    seq: 30
+  - col: file_id
+    seq: 40
+  model: cf.file.access.groups
+  vtype: element-plus/list
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: x
+    seq: 20
+  - col: w
+    seq: 30
+  - col: file_id
+    seq: 40
+  model: cf.file.access.groups
+  vtype: element-plus/form.modal
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: x
+    seq: 20
+  - col: w
+    seq: 30
+  - col: file_id
+    seq: 40
+  model: cf.file.access.groups
+  vtype: element-plus/form
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: x
+    seq: 20
+  - col: w
+    seq: 30
+  - col: file_id
+    seq: 40
+  model: cf.file.access.groups
+  vtype: element-plus/o2m-form
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: x
+    seq: 20
+  - col: w
+    seq: 30
+  - col: file_id
+    seq: 40
+  model: cf.file.access.groups
+  vtype: element-plus/o2m-list
+- cols:
+  - col: x
+    seq: 0
+  - col: w
+    seq: 10
+  - col: r
+    seq: 20
+  - col: file_id
+    seq: 30
+  model: cf.file.access.others
+  vtype: element-plus/find
+- cols:
+  - col: x
+    seq: 0
+  - col: w
+    seq: 10
+  - col: r
+    seq: 20
+  - col: file_id
+    seq: 30
+  model: cf.file.access.others
+  vtype: element-plus/list
+- cols:
+  - col: x
+    seq: 0
+  - col: w
+    seq: 10
+  - col: r
+    seq: 20
+  - col: file_id
+    seq: 30
+  model: cf.file.access.others
+  vtype: element-plus/form.modal
+- cols:
+  - col: x
+    seq: 0
+  - col: w
+    seq: 10
+  - col: r
+    seq: 20
+  - col: file_id
+    seq: 30
+  model: cf.file.access.others
+  vtype: element-plus/form
+- cols:
+  - col: x
+    seq: 0
+  - col: w
+    seq: 10
+  - col: r
+    seq: 20
+  - col: file_id
+    seq: 30
+  model: cf.file.access.others
+  vtype: element-plus/o2m-form
+- cols:
+  - col: x
+    seq: 0
+  - col: w
+    seq: 10
+  - col: r
+    seq: 20
+  - col: file_id
+    seq: 30
+  model: cf.file.access.others
+  vtype: element-plus/o2m-list
+- cols:
+  - col: url
+    seq: 0
+  - col: data
+    seq: 10
+  - col: size
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: modified_by
+    seq: 60
+  - col: name
+    seq: 70
+  - col: created_by
+    seq: 80
+  - col: created
+    seq: 90
+  - col: folder_id
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.files
+  vtype: element-plus/search
+- cols:
+  - col: url
+    seq: 0
+  - col: data
+    seq: 10
+  - col: size
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: modified_by
+    seq: 60
+  - col: name
+    seq: 70
+  - col: created_by
+    seq: 80
+  - col: created
+    seq: 90
+  - col: folder_id
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.files
+  vtype: element-plus/find
+- cols:
+  - col: url
+    seq: 0
+  - col: data
+    seq: 10
+  - col: size
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: modified_by
+    seq: 60
+  - col: name
+    seq: 70
+  - col: created_by
+    seq: 80
+  - col: created
+    seq: 90
+  - col: folder_id
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.files
+  vtype: element-plus/list
+- cols:
+  - col: files
+    seq: 0
+  - col: tag
+    seq: 10
+  - col: folders
+    seq: 20
+  - col: links
+    seq: 30
+  model: cf.tags
+  vtype: element-plus/m2mlist
+- cols:
+  - col: url
+    seq: 0
+  - col: data
+    seq: 10
+  - col: size
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: modified_by
+    seq: 60
+  - col: name
+    seq: 70
+  - col: created_by
+    seq: 80
+  - col: created
+    seq: 90
+  - col: folder_id
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.files
+  vtype: element-plus/form.modal
+- cols:
+  - col: url
+    seq: 0
+  - col: data
+    seq: 10
+  - col: size
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: modified_by
+    seq: 60
+  - col: name
+    seq: 70
+  - col: created_by
+    seq: 80
+  - col: created
+    seq: 90
+  - col: folder_id
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.files
+  vtype: element-plus/form
+- cols:
+  - col: url
+    seq: 0
+  - col: data
+    seq: 10
+  - col: size
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: modified_by
+    seq: 60
+  - col: name
+    seq: 70
+  - col: created_by
+    seq: 80
+  - col: created
+    seq: 90
+  - col: folder_id
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.files
+  vtype: element-plus/o2m-form
+- cols:
+  - col: url
+    seq: 0
+  - col: data
+    seq: 10
+  - col: size
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: modified_by
+    seq: 60
+  - col: name
+    seq: 70
+  - col: created_by
+    seq: 80
+  - col: created
+    seq: 90
+  - col: folder_id
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.files
+  vtype: element-plus/o2m-list
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: link_id
+    seq: 20
+  - col: user_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.link.access.users
+  vtype: element-plus/find
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: link_id
+    seq: 20
+  - col: user_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.link.access.users
+  vtype: element-plus/list
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: link_id
+    seq: 20
+  - col: user_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.link.access.users
+  vtype: element-plus/form.modal
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: link_id
+    seq: 20
+  - col: user_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.link.access.users
+  vtype: element-plus/form
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: link_id
+    seq: 20
+  - col: user_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.link.access.users
+  vtype: element-plus/o2m-form
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: link_id
+    seq: 20
+  - col: user_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.link.access.users
+  vtype: element-plus/o2m-list
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: link_id
+    seq: 20
+  - col: x
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.link.access.groups
+  vtype: element-plus/find
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: link_id
+    seq: 20
+  - col: x
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.link.access.groups
+  vtype: element-plus/list
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: link_id
+    seq: 20
+  - col: x
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.link.access.groups
+  vtype: element-plus/form.modal
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: link_id
+    seq: 20
+  - col: x
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.link.access.groups
+  vtype: element-plus/form
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: link_id
+    seq: 20
+  - col: x
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.link.access.groups
+  vtype: element-plus/o2m-form
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: link_id
+    seq: 20
+  - col: x
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.link.access.groups
+  vtype: element-plus/o2m-list
+- cols:
+  - col: link_id
+    seq: 0
+  - col: x
+    seq: 10
+  - col: w
+    seq: 20
+  - col: r
+    seq: 30
+  model: cf.link.access.others
+  vtype: element-plus/find
+- cols:
+  - col: link_id
+    seq: 0
+  - col: x
+    seq: 10
+  - col: w
+    seq: 20
+  - col: r
+    seq: 30
+  model: cf.link.access.others
+  vtype: element-plus/list
+- cols:
+  - col: link_id
+    seq: 0
+  - col: x
+    seq: 10
+  - col: w
+    seq: 20
+  - col: r
+    seq: 30
+  model: cf.link.access.others
+  vtype: element-plus/form.modal
+- cols:
+  - col: link_id
+    seq: 0
+  - col: x
+    seq: 10
+  - col: w
+    seq: 20
+  - col: r
+    seq: 30
+  model: cf.link.access.others
+  vtype: element-plus/form
+- cols:
+  - col: link_id
+    seq: 0
+  - col: x
+    seq: 10
+  - col: w
+    seq: 20
+  - col: r
+    seq: 30
+  model: cf.link.access.others
+  vtype: element-plus/o2m-form
+- cols:
+  - col: link_id
+    seq: 0
+  - col: x
+    seq: 10
+  - col: w
+    seq: 20
+  - col: r
+    seq: 30
+  model: cf.link.access.others
+  vtype: element-plus/o2m-list
+- cols:
+  - col: users_access
+    seq: 0
+  - col: groups_access
+    seq: 10
+  - col: modified
+    seq: 20
+  - col: modified_by
+    seq: 30
+  - col: name
+    seq: 40
+  - col: created_by
+    seq: 50
+  - col: created
+    seq: 60
+  - col: folder_id
+    seq: 70
+  - col: tags_id
+    seq: 80
+  - col: others_access
+    seq: 90
+  - col: file_id
+    seq: 100
+  model: cf.links
+  vtype: element-plus/search
+- cols:
+  - col: users_access
+    seq: 0
+  - col: groups_access
+    seq: 10
+  - col: modified
+    seq: 20
+  - col: modified_by
+    seq: 30
+  - col: name
+    seq: 40
+  - col: created_by
+    seq: 50
+  - col: created
+    seq: 60
+  - col: folder_id
+    seq: 70
+  - col: tags_id
+    seq: 80
+  - col: others_access
+    seq: 90
+  - col: file_id
+    seq: 100
+  model: cf.links
+  vtype: element-plus/find
+- cols:
+  - col: users_access
+    seq: 0
+  - col: groups_access
+    seq: 10
+  - col: modified
+    seq: 20
+  - col: modified_by
+    seq: 30
+  - col: name
+    seq: 40
+  - col: created_by
+    seq: 50
+  - col: created
+    seq: 60
+  - col: folder_id
+    seq: 70
+  - col: tags_id
+    seq: 80
+  - col: others_access
+    seq: 90
+  - col: file_id
+    seq: 100
+  model: cf.links
+  vtype: element-plus/list
+- cols:
+  - col: files
+    seq: 0
+  - col: tag
+    seq: 10
+  - col: folders
+    seq: 20
+  - col: links
+    seq: 30
+  model: cf.tags
+  vtype: element-plus/m2mlist
+- cols:
+  - col: users_access
+    seq: 0
+  - col: groups_access
+    seq: 10
+  - col: modified
+    seq: 20
+  - col: modified_by
+    seq: 30
+  - col: name
+    seq: 40
+  - col: created_by
+    seq: 50
+  - col: created
+    seq: 60
+  - col: folder_id
+    seq: 70
+  - col: tags_id
+    seq: 80
+  - col: others_access
+    seq: 90
+  - col: file_id
+    seq: 100
+  model: cf.links
+  vtype: element-plus/form.modal
+- cols:
+  - col: users_access
+    seq: 0
+  - col: groups_access
+    seq: 10
+  - col: modified
+    seq: 20
+  - col: modified_by
+    seq: 30
+  - col: name
+    seq: 40
+  - col: created_by
+    seq: 50
+  - col: created
+    seq: 60
+  - col: folder_id
+    seq: 70
+  - col: tags_id
+    seq: 80
+  - col: others_access
+    seq: 90
+  - col: file_id
+    seq: 100
+  model: cf.links
+  vtype: element-plus/form
+- cols:
+  - col: users_access
+    seq: 0
+  - col: groups_access
+    seq: 10
+  - col: modified
+    seq: 20
+  - col: modified_by
+    seq: 30
+  - col: name
+    seq: 40
+  - col: created_by
+    seq: 50
+  - col: created
+    seq: 60
+  - col: folder_id
+    seq: 70
+  - col: tags_id
+    seq: 80
+  - col: others_access
+    seq: 90
+  - col: file_id
+    seq: 100
+  model: cf.links
+  vtype: element-plus/o2m-form
+- cols:
+  - col: users_access
+    seq: 0
+  - col: groups_access
+    seq: 10
+  - col: modified
+    seq: 20
+  - col: modified_by
+    seq: 30
+  - col: name
+    seq: 40
+  - col: created_by
+    seq: 50
+  - col: created
+    seq: 60
+  - col: folder_id
+    seq: 70
+  - col: tags_id
+    seq: 80
+  - col: others_access
+    seq: 90
+  - col: file_id
+    seq: 100
+  model: cf.links
+  vtype: element-plus/o2m-list
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: user_id
+    seq: 20
+  - col: folder_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.folder.access.users
+  vtype: element-plus/find
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: user_id
+    seq: 20
+  - col: folder_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.folder.access.users
+  vtype: element-plus/list
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: user_id
+    seq: 20
+  - col: folder_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.folder.access.users
+  vtype: element-plus/form.modal
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: user_id
+    seq: 20
+  - col: folder_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.folder.access.users
+  vtype: element-plus/form
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: user_id
+    seq: 20
+  - col: folder_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.folder.access.users
+  vtype: element-plus/o2m-form
+- cols:
+  - col: r
+    seq: 0
+  - col: x
+    seq: 10
+  - col: user_id
+    seq: 20
+  - col: folder_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.folder.access.users
+  vtype: element-plus/o2m-list
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: x
+    seq: 20
+  - col: folder_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.folder.access.groups
+  vtype: element-plus/find
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: x
+    seq: 20
+  - col: folder_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.folder.access.groups
+  vtype: element-plus/list
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: x
+    seq: 20
+  - col: folder_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.folder.access.groups
+  vtype: element-plus/form.modal
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: x
+    seq: 20
+  - col: folder_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.folder.access.groups
+  vtype: element-plus/form
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: x
+    seq: 20
+  - col: folder_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.folder.access.groups
+  vtype: element-plus/o2m-form
+- cols:
+  - col: group_id
+    seq: 0
+  - col: r
+    seq: 10
+  - col: x
+    seq: 20
+  - col: folder_id
+    seq: 30
+  - col: w
+    seq: 40
+  model: cf.folder.access.groups
+  vtype: element-plus/o2m-list
+- cols:
+  - col: x
+    seq: 0
+  - col: folder_id
+    seq: 10
+  - col: w
+    seq: 20
+  - col: r
+    seq: 30
+  model: cf.folder.access.others
+  vtype: element-plus/find
+- cols:
+  - col: x
+    seq: 0
+  - col: folder_id
+    seq: 10
+  - col: w
+    seq: 20
+  - col: r
+    seq: 30
+  model: cf.folder.access.others
+  vtype: element-plus/list
+- cols:
+  - col: x
+    seq: 0
+  - col: folder_id
+    seq: 10
+  - col: w
+    seq: 20
+  - col: r
+    seq: 30
+  model: cf.folder.access.others
+  vtype: element-plus/form.modal
+- cols:
+  - col: x
+    seq: 0
+  - col: folder_id
+    seq: 10
+  - col: w
+    seq: 20
+  - col: r
+    seq: 30
+  model: cf.folder.access.others
+  vtype: element-plus/form
+- cols:
+  - col: x
+    seq: 0
+  - col: folder_id
+    seq: 10
+  - col: w
+    seq: 20
+  - col: r
+    seq: 30
+  model: cf.folder.access.others
+  vtype: element-plus/o2m-form
+- cols:
+  - col: x
+    seq: 0
+  - col: folder_id
+    seq: 10
+  - col: w
+    seq: 20
+  - col: r
+    seq: 30
+  model: cf.folder.access.others
+  vtype: element-plus/o2m-list
+- cols:
+  - col: files
+    seq: 0
+  - col: links
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: parent_id
+    seq: 60
+  - col: modified_by
+    seq: 70
+  - col: name
+    seq: 80
+  - col: created_by
+    seq: 90
+  - col: created
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.folders
+  vtype: element-plus/search
+- cols:
+  - col: files
+    seq: 0
+  - col: links
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: parent_id
+    seq: 60
+  - col: modified_by
+    seq: 70
+  - col: name
+    seq: 80
+  - col: created_by
+    seq: 90
+  - col: created
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.folders
+  vtype: element-plus/find
+- cols:
+  - col: files
+    seq: 0
+  - col: links
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: parent_id
+    seq: 60
+  - col: modified_by
+    seq: 70
+  - col: name
+    seq: 80
+  - col: created_by
+    seq: 90
+  - col: created
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.folders
+  vtype: element-plus/list
+- cols:
+  - col: files
+    seq: 0
+  - col: tag
+    seq: 10
+  - col: folders
+    seq: 20
+  - col: links
+    seq: 30
+  model: cf.tags
+  vtype: element-plus/m2mlist
+- cols:
+  - col: files
+    seq: 0
+  - col: links
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: parent_id
+    seq: 60
+  - col: modified_by
+    seq: 70
+  - col: name
+    seq: 80
+  - col: created_by
+    seq: 90
+  - col: created
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.folders
+  vtype: element-plus/form.modal
+- cols:
+  - col: files
+    seq: 0
+  - col: links
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: parent_id
+    seq: 60
+  - col: modified_by
+    seq: 70
+  - col: name
+    seq: 80
+  - col: created_by
+    seq: 90
+  - col: created
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.folders
+  vtype: element-plus/form
+- cols:
+  - col: files
+    seq: 0
+  - col: links
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: parent_id
+    seq: 60
+  - col: modified_by
+    seq: 70
+  - col: name
+    seq: 80
+  - col: created_by
+    seq: 90
+  - col: created
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.folders
+  vtype: element-plus/o2m-form
+- cols:
+  - col: files
+    seq: 0
+  - col: links
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: parent_id
+    seq: 60
+  - col: modified_by
+    seq: 70
+  - col: name
+    seq: 80
+  - col: created_by
+    seq: 90
+  - col: created
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.folders
+  vtype: element-plus/tree
+- cols:
+  - col: files
+    seq: 0
+  - col: links
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: parent_id
+    seq: 60
+  - col: modified_by
+    seq: 70
+  - col: name
+    seq: 80
+  - col: created_by
+    seq: 90
+  - col: created
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.folders
+  vtype: element-plus/o2m-tree
+- cols:
+  - col: files
+    seq: 0
+  - col: links
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: users_access
+    seq: 30
+  - col: groups_access
+    seq: 40
+  - col: modified
+    seq: 50
+  - col: parent_id
+    seq: 60
+  - col: modified_by
+    seq: 70
+  - col: name
+    seq: 80
+  - col: created_by
+    seq: 90
+  - col: created
+    seq: 100
+  - col: tags_id
+    seq: 110
+  - col: others_access
+    seq: 120
+  model: cf.folders
+  vtype: element-plus/o2m-list
