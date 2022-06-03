@@ -55,7 +55,7 @@ class Session(Component):
 		elif args[0] == 'write':
 			return self._cache[args[1]]._do_write(**(args[2]))
 		elif args[0] == 'modify':
-			return self._cache[args[1]]._do_mmfify(**(args[2]))
+			return self._cache[args[1]]._do_modify(**(args[2]))
 		elif args[0] == 'unlink':
 			return self._cache[args[1]]._do_unlink(**(args[2]))
 		elif args[0] == 'select':

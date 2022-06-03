@@ -19,8 +19,9 @@ import web_pdb
 from gsrp5service.orm.mm import _m2mfieldid2
 
 from gsrp5service.components.objs.mm import *
-from gsrp5service.components.objs.mm import _createRecord,_writeRecord,_modifyRecord,_unlinkRecord,_conv_record_to_ext
+from gsrp5service.orm.utils.models import _createRecord,_writeRecord,_modifyRecord,_unlinkRecord,_conv_record_to_ext
 
+__all__ = ['DCacheList','DCacheDict','MCache']
 
 class DCacheList(list): pass
 
@@ -1768,16 +1769,16 @@ class MCache(object):
 		if 'id' in data:
 			if self._mode == 'write':
 				#m.write(data,self._context)
-				r = _writeRecord(m,data,self._context)
+				r = _writeRecord(self, self._cr,self._uid,self._pool,m,data,self._context)
 			elif self._mode in ('modify','new','create'):
 				#if self._mode in ('new','create'):
 					#m.create(data,self._context)
 
 				#elif self._mode == 'modify':
 					#m.modify(data,self._context)
-				r = _modifyRecord(m,data,self._context)
+				r = _modifyRecord(self, self._cr,self._uid,self._pool,m,data,self._context)
 		else:
-			r = _createRecord(m,data,self._context)
+			r = _createRecord(self, self._cr,self._uid,self._pool,m,data,self._context)
 
 		if r:
 			if 'id' not in item['__data__']:
