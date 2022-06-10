@@ -1,115 +1,109 @@
 - cols:
-  - col: note
-    seq: 0
-  - col: uom
-    seq: 10
   - col: product_id
+    seq: 0
+  - col: quantity
+    seq: 10
+  - col: uom
     seq: 20
-  - col: currency
+  - col: price
     seq: 30
-  - col: uop
+  - col: currency
     seq: 40
   - col: unit
     seq: 50
-  - col: price
+  - col: uop
     seq: 60
-  - col: quantity
-    seq: 70
   model: md.cost.product
   vtype: element-plus/find
 - cols:
-  - col: note
-    seq: 0
-  - col: uom
-    seq: 10
   - col: product_id
+    seq: 0
+  - col: quantity
+    seq: 10
+  - col: uom
     seq: 20
-  - col: currency
+  - col: price
     seq: 30
-  - col: uop
+  - col: currency
     seq: 40
   - col: unit
     seq: 50
-  - col: price
+  - col: uop
     seq: 60
-  - col: quantity
-    seq: 70
   model: md.cost.product
   vtype: element-plus/list
 - cols:
-  - col: note
-    seq: 0
-  - col: uom
-    seq: 10
   - col: product_id
+    seq: 0
+  - col: quantity
+    seq: 10
+  - col: uom
     seq: 20
-  - col: currency
+  - col: price
     seq: 30
-  - col: uop
+  - col: currency
     seq: 40
   - col: unit
     seq: 50
-  - col: price
+  - col: uop
     seq: 60
-  - col: quantity
+  - col: note
     seq: 70
   model: md.cost.product
   vtype: element-plus/form.modal
 - cols:
-  - col: note
-    seq: 0
-  - col: uom
-    seq: 10
   - col: product_id
+    seq: 0
+  - col: quantity
+    seq: 10
+  - col: uom
     seq: 20
-  - col: currency
+  - col: price
     seq: 30
-  - col: uop
+  - col: currency
     seq: 40
   - col: unit
     seq: 50
-  - col: price
+  - col: uop
     seq: 60
-  - col: quantity
+  - col: note
     seq: 70
   model: md.cost.product
   vtype: element-plus/form
 - cols:
-  - col: note
-    seq: 0
-  - col: uom
-    seq: 10
   - col: product_id
+    seq: 0
+  - col: quantity
+    seq: 10
+  - col: uom
     seq: 20
-  - col: currency
+  - col: price
     seq: 30
-  - col: uop
+  - col: currency
     seq: 40
   - col: unit
     seq: 50
-  - col: price
+  - col: uop
     seq: 60
-  - col: quantity
+  - col: note
     seq: 70
   model: md.cost.product
   vtype: element-plus/o2m-form
 - cols:
-  - col: note
-    seq: 0
-  - col: uom
-    seq: 10
   - col: product_id
+    seq: 0
+  - col: quantity
+    seq: 10
+  - col: uom
     seq: 20
-  - col: currency
+  - col: price
     seq: 30
-  - col: uop
+  - col: currency
     seq: 40
   - col: unit
     seq: 50
-  - col: price
+  - col: uop
     seq: 60
-  - col: quantity
-    seq: 70
   model: md.cost.product
   vtype: element-plus/o2m-list
 - cols:
@@ -117,10 +111,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: cm.cost.center.category
   vtype: element-plus/search
 - cols:
@@ -128,10 +118,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: cm.cost.center.category
   vtype: element-plus/find
 - cols:
@@ -139,10 +125,8 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
-    seq: 30
+    seq: 20
   model: cm.cost.center.category
   vtype: element-plus/list
 - cols:
@@ -150,9 +134,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.center.category
   vtype: element-plus/form.modal
@@ -161,9 +145,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.center.category
   vtype: element-plus/form
@@ -172,9 +156,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.center.category
   vtype: element-plus/o2m-form
@@ -183,10 +167,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: cm.cost.center.category
   vtype: element-plus/tree
 - cols:
@@ -194,10 +174,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: cm.cost.center.category
   vtype: element-plus/o2m-tree
 - cols:
@@ -205,10 +181,8 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
-    seq: 30
+    seq: 20
   model: cm.cost.center.category
   vtype: element-plus/o2m-list
 - cols:
@@ -216,10 +190,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: cm.cost.order.category
   vtype: element-plus/search
 - cols:
@@ -227,10 +197,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: cm.cost.order.category
   vtype: element-plus/find
 - cols:
@@ -238,10 +204,8 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
-    seq: 30
+    seq: 20
   model: cm.cost.order.category
   vtype: element-plus/list
 - cols:
@@ -249,9 +213,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.order.category
   vtype: element-plus/form.modal
@@ -260,9 +224,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.order.category
   vtype: element-plus/form
@@ -271,9 +235,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.order.category
   vtype: element-plus/o2m-form
@@ -282,10 +246,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: cm.cost.order.category
   vtype: element-plus/tree
 - cols:
@@ -293,10 +253,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: cm.cost.order.category
   vtype: element-plus/o2m-tree
 - cols:
@@ -304,10 +260,8 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
-    seq: 30
+    seq: 20
   model: cm.cost.order.category
   vtype: element-plus/o2m-list
 - cols:
@@ -315,10 +269,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: cm.cost.collector.category
   vtype: element-plus/search
 - cols:
@@ -326,10 +276,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: cm.cost.collector.category
   vtype: element-plus/find
 - cols:
@@ -337,10 +283,8 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
-    seq: 30
+    seq: 20
   model: cm.cost.collector.category
   vtype: element-plus/list
 - cols:
@@ -348,9 +292,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.collector.category
   vtype: element-plus/form.modal
@@ -359,9 +303,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.collector.category
   vtype: element-plus/form
@@ -370,9 +314,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.collector.category
   vtype: element-plus/o2m-form
@@ -381,10 +325,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: cm.cost.collector.category
   vtype: element-plus/tree
 - cols:
@@ -392,10 +332,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: cm.cost.collector.category
   vtype: element-plus/o2m-tree
 - cols:
@@ -403,778 +339,707 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
-    seq: 30
+    seq: 20
   model: cm.cost.collector.category
   vtype: element-plus/o2m-list
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
-    seq: 50
+    seq: 20
+  - col: currency
+    seq: 30
   model: cm.cost.center
   vtype: element-plus/search
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
-    seq: 50
+    seq: 20
+  - col: currency
+    seq: 30
   model: cm.cost.center
   vtype: element-plus/find
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
-    seq: 50
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
   model: cm.cost.center
   vtype: element-plus/list
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
+  - col: note
     seq: 50
   model: cm.cost.center
   vtype: element-plus/form.modal
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
+  - col: note
     seq: 50
   model: cm.cost.center
   vtype: element-plus/form
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
+  - col: note
     seq: 50
   model: cm.cost.center
   vtype: element-plus/o2m-form
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
-    seq: 50
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
   model: cm.cost.center
   vtype: element-plus/o2m-list
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_center_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.center.dates
   vtype: element-plus/find
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_center_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.center.dates
   vtype: element-plus/list
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_center_id
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.center.dates
   vtype: element-plus/form.modal
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_center_id
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.center.dates
   vtype: element-plus/form
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_center_id
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.center.dates
   vtype: element-plus/o2m-form
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_center_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
+  model: cm.cost.center.dates
+  vtype: element-plus/calendar
+- cols:
+  - col: cost_center_id
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.center.dates
   vtype: element-plus/o2m-calendar
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_center_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.center.dates
   vtype: element-plus/graph
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_center_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.center.dates
   vtype: element-plus/o2m-graph
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_center_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.center.dates
   vtype: element-plus/mdx
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_center_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.center.dates
   vtype: element-plus/o2m-mdx
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_center_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.center.dates
   vtype: element-plus/o2m-list
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
-    seq: 50
+    seq: 20
+  - col: currency
+    seq: 30
   model: cm.cost.order
   vtype: element-plus/search
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
-    seq: 50
+    seq: 20
+  - col: currency
+    seq: 30
   model: cm.cost.order
   vtype: element-plus/find
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
-    seq: 50
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
   model: cm.cost.order
   vtype: element-plus/list
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
+  - col: note
     seq: 50
   model: cm.cost.order
   vtype: element-plus/form.modal
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
+  - col: note
     seq: 50
   model: cm.cost.order
   vtype: element-plus/form
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
+  - col: note
     seq: 50
   model: cm.cost.order
   vtype: element-plus/o2m-form
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
-    seq: 50
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
   model: cm.cost.order
   vtype: element-plus/o2m-list
 - cols:
   - col: cost_order_id
     seq: 0
-  - col: note
-    seq: 10
   - col: cost_date
-    seq: 20
+    seq: 10
   - col: cost
-    seq: 30
+    seq: 20
   model: cm.cost.order.dates
   vtype: element-plus/find
 - cols:
   - col: cost_order_id
     seq: 0
-  - col: note
-    seq: 10
   - col: cost_date
-    seq: 20
+    seq: 10
   - col: cost
-    seq: 30
+    seq: 20
   model: cm.cost.order.dates
   vtype: element-plus/list
 - cols:
   - col: cost_order_id
     seq: 0
-  - col: note
-    seq: 10
   - col: cost_date
-    seq: 20
+    seq: 10
   - col: cost
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.order.dates
   vtype: element-plus/form.modal
 - cols:
   - col: cost_order_id
     seq: 0
-  - col: note
-    seq: 10
   - col: cost_date
-    seq: 20
+    seq: 10
   - col: cost
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.order.dates
   vtype: element-plus/form
 - cols:
   - col: cost_order_id
     seq: 0
-  - col: note
-    seq: 10
   - col: cost_date
-    seq: 20
+    seq: 10
   - col: cost
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.order.dates
   vtype: element-plus/o2m-form
 - cols:
   - col: cost_order_id
     seq: 0
-  - col: note
-    seq: 10
   - col: cost_date
-    seq: 20
+    seq: 10
   - col: cost
-    seq: 30
+    seq: 20
+  model: cm.cost.order.dates
+  vtype: element-plus/calendar
+- cols:
+  - col: cost_order_id
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.order.dates
   vtype: element-plus/o2m-calendar
 - cols:
   - col: cost_order_id
     seq: 0
-  - col: note
-    seq: 10
   - col: cost_date
-    seq: 20
+    seq: 10
   - col: cost
-    seq: 30
+    seq: 20
   model: cm.cost.order.dates
   vtype: element-plus/graph
 - cols:
   - col: cost_order_id
     seq: 0
-  - col: note
-    seq: 10
   - col: cost_date
-    seq: 20
+    seq: 10
   - col: cost
-    seq: 30
+    seq: 20
   model: cm.cost.order.dates
   vtype: element-plus/o2m-graph
 - cols:
   - col: cost_order_id
     seq: 0
-  - col: note
-    seq: 10
   - col: cost_date
-    seq: 20
+    seq: 10
   - col: cost
-    seq: 30
+    seq: 20
   model: cm.cost.order.dates
   vtype: element-plus/mdx
 - cols:
   - col: cost_order_id
     seq: 0
-  - col: note
-    seq: 10
   - col: cost_date
-    seq: 20
+    seq: 10
   - col: cost
-    seq: 30
+    seq: 20
   model: cm.cost.order.dates
   vtype: element-plus/o2m-mdx
 - cols:
   - col: cost_order_id
     seq: 0
-  - col: note
-    seq: 10
   - col: cost_date
-    seq: 20
+    seq: 10
   - col: cost
-    seq: 30
+    seq: 20
   model: cm.cost.order.dates
   vtype: element-plus/o2m-list
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
-    seq: 50
+    seq: 20
+  - col: currency
+    seq: 30
   model: cm.cost.collector
   vtype: element-plus/search
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
-    seq: 50
+    seq: 20
+  - col: currency
+    seq: 30
   model: cm.cost.collector
   vtype: element-plus/find
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
-    seq: 50
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
   model: cm.cost.collector
   vtype: element-plus/list
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
+  - col: note
     seq: 50
   model: cm.cost.collector
   vtype: element-plus/form.modal
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
+  - col: note
     seq: 50
   model: cm.cost.collector
   vtype: element-plus/form
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
+  - col: note
     seq: 50
   model: cm.cost.collector
   vtype: element-plus/o2m-form
 - cols:
-  - col: category
-    seq: 0
-  - col: currency
-    seq: 10
   - col: name
-    seq: 20
-  - col: dates
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: category
+    seq: 10
   - col: company
-    seq: 50
+    seq: 20
+  - col: currency
+    seq: 30
+  - col: dates
+    seq: 40
   model: cm.cost.collector
   vtype: element-plus/o2m-list
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_collector_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.collector.dates
   vtype: element-plus/find
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_collector_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.collector.dates
   vtype: element-plus/list
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_collector_id
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.collector.dates
   vtype: element-plus/form.modal
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_collector_id
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.collector.dates
   vtype: element-plus/form
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_collector_id
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
+  - col: note
     seq: 30
   model: cm.cost.collector.dates
   vtype: element-plus/o2m-form
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_collector_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
+  model: cm.cost.collector.dates
+  vtype: element-plus/calendar
+- cols:
+  - col: cost_collector_id
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.collector.dates
   vtype: element-plus/o2m-calendar
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_collector_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.collector.dates
   vtype: element-plus/graph
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_collector_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.collector.dates
   vtype: element-plus/o2m-graph
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_collector_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.collector.dates
   vtype: element-plus/mdx
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_collector_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.collector.dates
   vtype: element-plus/o2m-mdx
 - cols:
-  - col: cost
-    seq: 0
-  - col: note
-    seq: 10
-  - col: cost_date
-    seq: 20
   - col: cost_collector_id
-    seq: 30
+    seq: 0
+  - col: cost_date
+    seq: 10
+  - col: cost
+    seq: 20
   model: cm.cost.collector.dates
   vtype: element-plus/o2m-list
 - cols:
-  - col: usage
-    seq: 0
-  - col: currency
-    seq: 10
-  - col: companies
-    seq: 20
   - col: name
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: usage
+    seq: 10
+  - col: currency
+    seq: 20
   model: cm.corporations
   vtype: element-plus/search
 - cols:
-  - col: usage
-    seq: 0
-  - col: currency
-    seq: 10
-  - col: companies
-    seq: 20
   - col: name
-    seq: 30
-  - col: note
-    seq: 40
+    seq: 0
+  - col: usage
+    seq: 10
+  - col: currency
+    seq: 20
   model: cm.corporations
   vtype: element-plus/find
 - cols:
-  - col: usage
-    seq: 0
-  - col: currency
-    seq: 10
-  - col: companies
-    seq: 20
   - col: name
+    seq: 0
+  - col: usage
+    seq: 10
+  - col: currency
+    seq: 20
+  - col: companies
     seq: 30
-  - col: note
-    seq: 40
   model: cm.corporations
   vtype: element-plus/list
 - cols:
-  - col: usage
-    seq: 0
-  - col: currency
-    seq: 10
-  - col: companies
-    seq: 20
   - col: name
+    seq: 0
+  - col: usage
+    seq: 10
+  - col: currency
+    seq: 20
+  - col: companies
     seq: 30
   - col: note
     seq: 40
   model: cm.corporations
   vtype: element-plus/form.modal
 - cols:
-  - col: usage
-    seq: 0
-  - col: currency
-    seq: 10
-  - col: companies
-    seq: 20
   - col: name
+    seq: 0
+  - col: usage
+    seq: 10
+  - col: currency
+    seq: 20
+  - col: companies
     seq: 30
   - col: note
     seq: 40
   model: cm.corporations
   vtype: element-plus/form
 - cols:
-  - col: usage
-    seq: 0
-  - col: currency
-    seq: 10
-  - col: companies
-    seq: 20
   - col: name
+    seq: 0
+  - col: usage
+    seq: 10
+  - col: currency
+    seq: 20
+  - col: companies
     seq: 30
   - col: note
     seq: 40
   model: cm.corporations
   vtype: element-plus/o2m-form
 - cols:
-  - col: usage
-    seq: 0
-  - col: currency
-    seq: 10
-  - col: companies
-    seq: 20
   - col: name
+    seq: 0
+  - col: usage
+    seq: 10
+  - col: currency
+    seq: 20
+  - col: companies
     seq: 30
-  - col: note
-    seq: 40
   model: cm.corporations
   vtype: element-plus/o2m-list

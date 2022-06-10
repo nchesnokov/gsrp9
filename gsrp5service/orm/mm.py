@@ -163,11 +163,12 @@ class browse_record(object):
 		return str(self)
 
 
-def model__init__(self,access = None, attrs = None):
+def model__init__(self,access = None, attrs = None, proxy = None):
 	
 	self._schema = []
 	self._levels = {}
-		
+	self._proxy = proxy
+
 	if not self._name and not hasattr(self, '_inherit'):
 		name = type(self).__name__.split('.')[0]
 		msg = "The class %s has to have a _name attribute" % (name,)

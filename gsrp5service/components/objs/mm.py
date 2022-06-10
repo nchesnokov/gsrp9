@@ -46,7 +46,18 @@ class Model(object):
 		return  read(self, self._cr, self._uid, self._pool.get(name), ids, fields, context)
 
 	def readForUpdate(self, model, ids, fields = None, context = {}):
-		return  readForUpdate(self, self._cr, self._uid, self._pool, model, ids, fields, context)
+		row = self.read(model,ids,fields,context)
+		if len(row) > 0:
+			model._session._cache[context['cache']]._rawdata = row[0]
+			model._session._cache[context['cache']]._data = DCacheDict(row[0],model._name,model._model._cr,model._model._pool,model._model._uid,context)
+			model._session._cache[context['cache']]._getMeta()
+			m = model._session._cache[context['cache']]._data._getData(model._session._cache[context['cache']]._data._root)
+			m['__checks__'] = []
+			return [m]
+		else:
+			return row
+		
+		#return  readForUpdate(self, self._cr, self._uid, self._pool, model, ids, fields, context)
 	
 	def readForUpdateFor(self, name, ids, fields = None, context = {}):
 		return  readForUpdate(self, self._cr, self._uid, self._pool.get(name), ids, fields, context)
@@ -143,7 +154,9 @@ class Model(object):
 		res = []
 		mcache = MCache(model._model._cr,model._model._pool,model._model._uid,'write',context)
 		if type(records) == dict:
+			#r = self.read( model, records['id'],[], context)[0]
 			mcache._data = DCacheDict(_conv_record_to_ext(model,records,context),model._name,model._model._cr,model._model._pool,model._model._uid,context,False)
+			
 			mcache._do_calculate_all(context)
 			res.append(mcache._save()[1])
 		elif  type(records) in (list,tuple):
@@ -163,7 +176,7 @@ class Model(object):
 	
 	def modify(self, model, records, context = {}):
 		res = []
-		mcache = MCache(model._model._cr,model._model._pool,model._model._uid,'write',context)
+		mcache = MCache(model._model._cr,model._model._pool,model._model._uid,'modify',context)
 		if type(records) == dict:
 			mcache._data = DCacheDict(_conv_record_to_ext(model,records,context),model._name,model._model._cr,model._model._pool,model._model._uid,context,False)
 			mcache._do_calculate_all(context)

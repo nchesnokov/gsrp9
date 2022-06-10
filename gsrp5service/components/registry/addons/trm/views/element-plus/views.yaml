@@ -3,10 +3,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: trm.inode.category
   vtype: element-plus/search
 - cols:
@@ -14,10 +10,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: trm.inode.category
   vtype: element-plus/find
 - cols:
@@ -25,10 +17,8 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
-    seq: 30
+    seq: 20
   model: trm.inode.category
   vtype: element-plus/list
 - cols:
@@ -36,9 +26,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: trm.inode.category
   vtype: element-plus/form.modal
@@ -47,9 +37,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: trm.inode.category
   vtype: element-plus/form
@@ -58,9 +48,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: trm.inode.category
   vtype: element-plus/o2m-form
@@ -69,10 +59,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: trm.inode.category
   vtype: element-plus/tree
 - cols:
@@ -80,10 +66,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: trm.inode.category
   vtype: element-plus/o2m-tree
 - cols:
@@ -91,10 +73,8 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
-    seq: 30
+    seq: 20
   model: trm.inode.category
   vtype: element-plus/o2m-list
 - cols:
@@ -102,10 +82,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: trm.vehicle.category
   vtype: element-plus/search
 - cols:
@@ -113,10 +89,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: trm.vehicle.category
   vtype: element-plus/find
 - cols:
@@ -124,10 +96,8 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
-    seq: 30
+    seq: 20
   model: trm.vehicle.category
   vtype: element-plus/list
 - cols:
@@ -135,9 +105,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: trm.vehicle.category
   vtype: element-plus/form.modal
@@ -146,9 +116,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: trm.vehicle.category
   vtype: element-plus/form
@@ -157,9 +127,9 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
+    seq: 20
+  - col: note
     seq: 30
   model: trm.vehicle.category
   vtype: element-plus/o2m-form
@@ -168,10 +138,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: trm.vehicle.category
   vtype: element-plus/tree
 - cols:
@@ -179,10 +145,6 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
-  - col: childs_id
-    seq: 30
   model: trm.vehicle.category
   vtype: element-plus/o2m-tree
 - cols:
@@ -190,150 +152,134 @@
     seq: 0
   - col: parent_id
     seq: 10
-  - col: note
-    seq: 20
   - col: childs_id
-    seq: 30
+    seq: 20
   model: trm.vehicle.category
   vtype: element-plus/o2m-list
 - cols:
-  - col: code
-    seq: 0
   - col: itype
-    seq: 10
+    seq: 0
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
-  - col: note
-    seq: 40
   model: trm.inode
   vtype: element-plus/search
 - cols:
-  - col: code
-    seq: 0
   - col: itype
-    seq: 10
+    seq: 0
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
-  - col: note
-    seq: 40
   model: trm.inode
   vtype: element-plus/find
 - cols:
-  - col: code
-    seq: 0
   - col: itype
-    seq: 10
+    seq: 0
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
-  - col: note
-    seq: 40
   model: trm.inode
   vtype: element-plus/list
 - cols:
-  - col: code
-    seq: 0
   - col: itype
-    seq: 10
+    seq: 0
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
   - col: note
     seq: 40
   model: trm.inode
   vtype: element-plus/form.modal
 - cols:
-  - col: code
-    seq: 0
   - col: itype
-    seq: 10
+    seq: 0
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
   - col: note
     seq: 40
   model: trm.inode
   vtype: element-plus/form
 - cols:
-  - col: code
-    seq: 0
   - col: itype
-    seq: 10
+    seq: 0
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
   - col: note
     seq: 40
   model: trm.inode
   vtype: element-plus/o2m-form
 - cols:
-  - col: code
-    seq: 0
   - col: itype
-    seq: 10
+    seq: 0
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
-  - col: note
-    seq: 40
   model: trm.inode
   vtype: element-plus/o2m-list
 - cols:
   - col: vtype
     seq: 0
-  - col: code
-    seq: 10
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
-  - col: note
-    seq: 40
   model: trm.vehicle
   vtype: element-plus/search
 - cols:
   - col: vtype
     seq: 0
-  - col: code
-    seq: 10
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
-  - col: note
-    seq: 40
   model: trm.vehicle
   vtype: element-plus/find
 - cols:
   - col: vtype
     seq: 0
-  - col: code
-    seq: 10
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
-  - col: note
-    seq: 40
   model: trm.vehicle
   vtype: element-plus/list
 - cols:
   - col: vtype
     seq: 0
-  - col: code
-    seq: 10
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
   - col: note
     seq: 40
@@ -342,11 +288,11 @@
 - cols:
   - col: vtype
     seq: 0
-  - col: code
-    seq: 10
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
   - col: note
     seq: 40
@@ -355,11 +301,11 @@
 - cols:
   - col: vtype
     seq: 0
-  - col: code
-    seq: 10
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
   - col: note
     seq: 40
@@ -368,90 +314,80 @@
 - cols:
   - col: vtype
     seq: 0
-  - col: code
-    seq: 10
   - col: category_id
-    seq: 20
+    seq: 10
   - col: name
+    seq: 20
+  - col: code
     seq: 30
-  - col: note
-    seq: 40
   model: trm.vehicle
   vtype: element-plus/o2m-list
 - cols:
-  - col: name
+  - col: vihicle_id
     seq: 0
-  - col: note
+  - col: name
     seq: 10
   - col: code
     seq: 20
-  - col: vihicle_id
-    seq: 30
   model: trm.unit.vehicle
   vtype: element-plus/search
 - cols:
-  - col: name
+  - col: vihicle_id
     seq: 0
-  - col: note
+  - col: name
     seq: 10
   - col: code
     seq: 20
-  - col: vihicle_id
-    seq: 30
   model: trm.unit.vehicle
   vtype: element-plus/find
 - cols:
-  - col: name
+  - col: vihicle_id
     seq: 0
-  - col: note
+  - col: name
     seq: 10
   - col: code
     seq: 20
-  - col: vihicle_id
-    seq: 30
   model: trm.unit.vehicle
   vtype: element-plus/list
 - cols:
-  - col: name
+  - col: vihicle_id
     seq: 0
-  - col: note
+  - col: name
     seq: 10
   - col: code
     seq: 20
-  - col: vihicle_id
+  - col: note
     seq: 30
   model: trm.unit.vehicle
   vtype: element-plus/form.modal
 - cols:
-  - col: name
+  - col: vihicle_id
     seq: 0
-  - col: note
+  - col: name
     seq: 10
   - col: code
     seq: 20
-  - col: vihicle_id
+  - col: note
     seq: 30
   model: trm.unit.vehicle
   vtype: element-plus/form
 - cols:
-  - col: name
+  - col: vihicle_id
     seq: 0
-  - col: note
+  - col: name
     seq: 10
   - col: code
     seq: 20
-  - col: vihicle_id
+  - col: note
     seq: 30
   model: trm.unit.vehicle
   vtype: element-plus/o2m-form
 - cols:
-  - col: name
+  - col: vihicle_id
     seq: 0
-  - col: note
+  - col: name
     seq: 10
   - col: code
     seq: 20
-  - col: vihicle_id
-    seq: 30
   model: trm.unit.vehicle
   vtype: element-plus/o2m-list

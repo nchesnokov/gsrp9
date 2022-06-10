@@ -36,13 +36,40 @@ def iViews(framework, imodel, info, model, icolumns,views):
 	icolumns_info = info['columns']
 	for view in views:
 		exclude = EXCLUDE['models'][view]
-		for icolumn in icolumns:
-			if icolumns_info[icolumn]['type'] not in exclude:
-				#res.append({'view_id':model + '/' + framework + '/' + view,'col':imodel + '/' + model + '/' + icolumn})  
-				res.append({'view_id':model + '/' + framework + '/' + view,'col':icolumn})  
+		for icolumn in filter(lambda x: icolumns_info[x]['type'] not in exclude and icolumns_info[x]['type'] != 'iProperty',icolumns):
+			res.append({'view_id':model + '/' + framework + '/' + view,'col':icolumn})  
 
 	return res
 
+def checkIViews(objs,iobjs):
+	ma = {}
+	imа = {}
+	for obj in objs:
+		ma[model] = isAllow(model)
+	
+	for imodel in iobjs['models']:	
+		inherit = getattr(imodel,'_inherit')
+		for m in inherit.keys():
+			if '_columns' in inherit[m]:
+				cols =  inherit[m]['_columns']
+				nm = m + '.' +imodel._name
+				views = []
+				mobj = registry._create_module_object('models',m,registry._getLastModuleObject('models',m))
+				info = mobj.modelInfo()
+				ci = info['columns']
+				for view in EXCLUDE['models'].keys():
+					columns = isAllow(mobj,{})
+					if len(columns) == 0:
+						continue
+					views.append(view)
+					ima.setdefault(m,[]).append(view)
+	
+	for ikey in ima.keys():
+		if  ikey in ima:
+			pass
+		 
+
+	
 def Area(self, modules = None,context={}):
 	pwd = os.getcwd()
 	pool = self._models
@@ -114,7 +141,7 @@ def Area(self, modules = None,context={}):
 								ci = info['columns']
 								for view in EXCLUDE['models'].keys():
 									#columns = isAllow(view,'models',info,list(ci.keys()))
-									columns = isAllow(mobj,{})
+									columns = isAllowView(view,mobj,{})
 									if len(columns) == 0:
 										continue
 									views.append(view)
@@ -131,44 +158,92 @@ def Area(self, modules = None,context={}):
 def isAllow(obj,m2mobjs):
 	allows = []
 	for view in VIEWS:
+		cols = list(filter(lambda x:obj._columns[x]._type not in EXCLUDE['models'][view] and obj._columns[x]._type != 'iProperty', obj._columns.keys()))
 		if view == 'search' and (obj._RowNameName or obj._RecNameName or obj._FullNameName):
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view in ('form','form.modal','list'):
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view == 'tree' and obj._ParentIdName and obj._ChildsIdName:
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view == 'find' and (len(obj._findfields) > 0 or obj._RowNameName or obj._RecNameName or obj._FullNameName):
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view == 'm2mlist' and len(obj._m2mfields) > 0:
 			for m2mfield in obj._m2mfields:
 				if obj._columns[m2mfield].obj in m2mobjs:
-					allows.append((view,obj._columns[m2mfield].obj,set(m2mobjs[obj._columns[m2mfield].obj]._columns.keys()-set(EXCLUDE['models'][view]))))
+					m2mcols = list(filter(lambda x:m2mobjs[obj._columns[m2mfield].obj]._columns[x]._type not in EXCLUDE['models'][view] , m2mobjs[obj._columns[m2mfield].obj]._columns.keys()))
+					allows.append((view,obj._columns[m2mfield].obj,m2mcols))
 		elif view in ('calendar','graph','mdx') and obj._DateName:
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view in ('schedule','gantt') and (obj._FromDateName and obj._ToDateName or obj._StartDateName and obj._EndDateName):
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view == 'kanban' and obj._StateName:
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view == 'geo' and (obj._FromLatitudeName and obj._FromLongitudeName or obj._ToLatitudeName and obj._ToLongitudeName or obj._LatitudeName and obj._LongitudeName ):
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view == 'flow' and  obj._PrevNameName and obj._NextNameName:
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view in ('o2m-form','o2m-list') and len(obj._m2ofields) > 0:
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view == 'o2m-tree' and len(obj._m2ofields) > 0 and obj._ParentIdName and obj._ChildsIdName:
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view in ('o2m-calendar','o2m-graph','o2m-mdx') and len(obj._m2ofields) > 0 and obj._DateName:
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view in ('o2m-schedule','o2m-gantt') and len(obj._m2ofields) > 0 and (obj._FromDateName and obj._ToDateName or obj._StartDateName and obj._EndDateName):
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view == 'o2m-kanban' and len(obj._m2ofields) > 0 and obj._StateName:
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view == 'o2m-geo' and len(obj._m2ofields) > 0 and (obj._FromLatitudeName and obj._FromLongitudeName or obj._ToLatitudeName and obj._ToLongitudeName or obj._LatitudeName and obj._LongitudeName ):
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 		elif view == 'o2m-flow' and len(obj._m2ofields) > 0 and  obj._PrevNameName and obj._NextNameName:
-			allows.append((view,obj._name,set(obj._columns.keys()-set(EXCLUDE['models'][view]))))
+			allows.append((view,obj._name,cols))
 	
+	#print('ALLOW:',allows)
 	return allows
+
+def isAllowView(view,obj,m2mobjs):
+	allows = []
+	cols = list(filter(lambda x:obj._columns[x]._type not in EXCLUDE['models'][view] and obj._columns[x]._type != 'iProperty', obj._columns.keys()))
+	if view == 'search' and (obj._RowNameName or obj._RecNameName or obj._FullNameName):
+		allows.append((view,obj._name,cols))
+	elif view in ('form','form.modal','list'):
+		allows.append((view,obj._name,cols))
+	elif view == 'tree' and obj._ParentIdName and obj._ChildsIdName:
+		allows.append((view,obj._name,cols))
+	elif view == 'find' and (len(obj._findfields) > 0 or obj._RowNameName or obj._RecNameName or obj._FullNameName):
+		allows.append((view,obj._name,cols))
+	elif view == 'm2mlist' and len(obj._m2mfields) > 0:
+		for m2mfield in obj._m2mfields:
+			if obj._columns[m2mfield].obj in m2mobjs:
+				m2mcols = list(filter(lambda x:m2mobjs[obj._columns[m2mfield].obj]._columns[x]._type not in EXCLUDE['models'][view] , m2mobjs[obj._columns[m2mfield].obj]._columns.keys()))
+				allows.append((view,obj._columns[m2mfield].obj,m2mcols))
+	elif view in ('calendar','graph','mdx') and obj._DateName:
+		allows.append((view,obj._name,cols))
+	elif view in ('schedule','gantt') and (obj._FromDateName and obj._ToDateName or obj._StartDateName and obj._EndDateName):
+		allows.append((view,obj._name,cols))
+	elif view == 'kanban' and obj._StateName:
+		allows.append((view,obj._name,cols))
+	elif view == 'geo' and (obj._FromLatitudeName and obj._FromLongitudeName or obj._ToLatitudeName and obj._ToLongitudeName or obj._LatitudeName and obj._LongitudeName ):
+		allows.append((view,obj._name,cols))
+	elif view == 'flow' and  obj._PrevNameName and obj._NextNameName:
+		allows.append((view,obj._name,cols))
+	elif view in ('o2m-form','o2m-list') and len(obj._m2ofields) > 0:
+		allows.append((view,obj._name,cols))
+	elif view == 'o2m-tree' and len(obj._m2ofields) > 0 and obj._ParentIdName and obj._ChildsIdName:
+		allows.append((view,obj._name,cols))
+	elif view in ('o2m-calendar','o2m-graph','o2m-mdx') and len(obj._m2ofields) > 0 and obj._DateName:
+		allows.append((view,obj._name,cols))
+	elif view in ('o2m-schedule','o2m-gantt') and len(obj._m2ofields) > 0 and (obj._FromDateName and obj._ToDateName or obj._StartDateName and obj._EndDateName):
+		allows.append((view,obj._name,cols))
+	elif view == 'o2m-kanban' and len(obj._m2ofields) > 0 and obj._StateName:
+		allows.append((view,obj._name,cols))
+	elif view == 'o2m-geo' and len(obj._m2ofields) > 0 and (obj._FromLatitudeName and obj._FromLongitudeName or obj._ToLatitudeName and obj._ToLongitudeName or obj._LatitudeName and obj._LongitudeName ):
+		allows.append((view,obj._name,cols))
+	elif view == 'o2m-flow' and len(obj._m2ofields) > 0 and  obj._PrevNameName and obj._NextNameName:
+		allows.append((view,obj._name,cols))
+	
+	#print('ALLOW:',allows)
+	return allows
+
 	
 def isAllowInherit(iobj):
 	iallows = []
@@ -191,7 +266,7 @@ def isAllowInherit(iobj):
 
 
 
-VIEWS = ['search','find','list','m2mlist','form.modal','form','o2m-form','gantt','o2m-gantt','schedule', 'o2m-schedule','calendat', 'o2m-calendar','graph','o2m-graph','kanban','o2m-kanban','mdx','o2m-mdx','matrix','o2m-matrix','geo','o2m-geo','flow','o2m-flow','tree','o2m-tree','o2m-list']
+VIEWS = ['search','find','list','m2mlist','form.modal','form','o2m-form','gantt','o2m-gantt','schedule', 'o2m-schedule','calendar', 'o2m-calendar','graph','o2m-graph','kanban','o2m-kanban','mdx','o2m-mdx','matrix','o2m-matrix','geo','o2m-geo','flow','o2m-flow','tree','o2m-tree','o2m-list']
 EXCLUDE = {}
 EXCLUDE['models'] = {'calendar':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'form':[],'form.modal':[],'schedule':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'gantt':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'graph':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'kanban':['one2many','one2related','many2many','xml','json','jsonb'],'list':['many2many','text','binary','xml','json','jsonb'],'o2m-list':['many2many','text','binary','xml','json','jsonb'],'m2mlist':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'mdx':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'matrix':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'search':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'find':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'tree':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'geo':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'flow':['integer','float','real','decimal','numeric','date','time','datetime','one2related','many2many','text','binary','xml','json','jsonb'],'o2m-calendar':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'o2m-form':[],'o2m-schedule':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'o2m-gantt':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'o2m-graph':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'o2m-kanban':['one2many','one2related','many2many','xml','json','jsonb'],'o2m-mdx':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'o2m-matrix':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'o2m-tree':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'o2m-geo':['one2many','one2related','many2many','text','binary','xml','json','jsonb'],'o2m-flow':['integer','float','real','decimal','numeric','date','time','datetime','one2related','many2many','text','binary','xml','json','jsonb']
 }

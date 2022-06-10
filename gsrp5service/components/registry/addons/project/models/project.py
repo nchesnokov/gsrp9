@@ -444,11 +444,11 @@ class prj_bill_types(Model):
 	_columns = {
 	'ptype': fields.selection(label='Type',selections=[('ord','Order'),('ap','Advance Payment'),('ps','Pseduo'),('dm','Debit Request'),('cr','Credit Request'),('rо','Return')]),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'htschema': fields.many2one(label='Text Schema Of Head',obj='purchase.schema.texts',domain=[('usage','in',('h','b'))]),
-	'itschema': fields.many2one(label='Text Schema Of Item',obj='purchase.schema.texts',domain=[('usage','in',('i','b'))]),
-	'roles': fields.one2many(label='Roles',obj='purchase.order.type.roles',rel='type_id'),
-	'plates': fields.one2many(label='Plates',obj='purchase.order.type.plates',rel='type_id'),
-	'tis': fields.one2many(label='TIs',obj='purchase.order.type.items',rel='type_id'),
+	'htschema': fields.many2one(label='Text Schema Of Head',obj='prj.schema.texts',domain=[('usage','in',('h','b'))]),
+	'itschema': fields.many2one(label='Text Schema Of Item',obj='prj.schema.texts',domain=[('usage','in',('i','b'))]),
+	'roles': fields.one2many(label='Roles',obj='prj.bill.type.roles',rel='type_id'),
+	'plates': fields.one2many(label='Plates',obj='prj.bill.type.plates',rel='type_id'),
+	'tis': fields.one2many(label='TIs',obj='prj.bill.type.items',rel='type_id'),
 	'note': fields.text(label = 'Note')
 	}
 
@@ -477,12 +477,26 @@ class prj_bill_type_plates(Model):
 	_columns = {
 	'type_id': fields.many2one(label = 'Type',obj='prj.bill.types'),
 	'seq': fields.integer(label='Sequence',required=True),
-	'plate': fields.many2one(label = 'Plate',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'plate': fields.many2one(label = 'Plate',obj='md.type.plates',required=True,domain=[('usage','=','prj'),'|',('usage','=','prj')]),
 	'required': fields.boolean(label='Required'),
 	'note': fields.text(label = 'Note')
 	}
 
 prj_bill_type_plates()
+
+class prj_bill_type_items(Model):
+	_name = 'prj.bill.type.items'
+	_description = 'Plates Of Project Bill Items'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'type_id': fields.many2one(label = 'Type',obj='prj.bill.types'),
+	'gti_id': fields.many2one(label = 'GTI',obj='md.gtis'),
+	'itype_id': fields.many2one(label = 'Type Of Items',obj='md.type.items',domain=[('usage','=','prj'),'|',('usage','=','a')]),
+	'note': fields.text(label = 'Note')
+	}
+
+prj_bill_type_items()
 
 
 class prj_resource_category(Model):

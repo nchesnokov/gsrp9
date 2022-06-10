@@ -1695,13 +1695,13 @@ class MCache(object):
 
 		if 'id' in data:
 			if self._mode == 'write':
-				r = _writeRecord(m,data,self._context)
+				r = _writeRecord(self, self._cr,self._uid,self._pool,m,data,self._context)
 			elif self._mode in ('modify','new','create'):
-				r = _modifyRecord(m,data,self._context)
+				r = _modifyRecord(self, self._cr,self._uid,self._pool,m,data,self._context)
 
 			#r = _modifyRecord(m,data,self._context)
 		else:
-			r = _createRecord(m,data,self._context)
+			r = _createRecord(self, self._cr,self._uid,self._pool,m,data,self._context)
 
 		if r:
 			item['__data__']['id'] = r
@@ -1843,7 +1843,7 @@ class MCache(object):
 			else:
 				data[k] = item['__data__'][k]
 
-		r = _createRecord(m,data,self._context)
+		r = _createRecord(self, self._cr,self._uid,self._pool,m,data,self._context)
 		if r:
 			item['__data__']['id'] = r
 			self._data._getCData(path)['id'] = r
@@ -1891,7 +1891,7 @@ class MCache(object):
 						self._o2m_removeItem(r)
 			data = item['__data__']
 			m = self._pool.get(item['__model__'])
-			r = _unlinkRecord(m,data,self._context)
+			r = _unlinkRecord(self, self._cr,self._uid,self._pool,m,data,self._context)
 
 	def _m2m_appendRows(self,rows):
 		rels = {}
@@ -1942,10 +1942,10 @@ class MCache(object):
 				if 'id' in cdata:
 					data['id'] = cdata['id']
 					#m.write(data, self._context)
-					r = _writeRecord(m, data, self._context)
+					r = _writeRecord(self, self._cr,self._uid,self._pool, m, data, self._context)
 				else:
 					#m.create(data, self._context)
-					r = _createRecord(m,data,self._context)
+					r = _createRecord(self, self._cr,self._uid,self._pool, m, data, self._context)
 					if r:
 						models[model][mkey]['id'] = r
 

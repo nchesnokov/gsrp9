@@ -306,6 +306,7 @@ class bc_model_inherit_columns(Model):
 	_columns = {
 	'inherit_id': fields.many2one(label = 'Model Inherit', obj = 'bc.model.inherits', rel='columns',readonly=True, on_delete = 'c'),
 	'name': fields.composite(label='Name Column', cols = ['inherit_id','col'], required = True),
+	'seq': fields.integer(label='Sequence', readonly = True),
 	'col': fields.varchar(label='Column', size = 64, readonly=True),
 	'moc': fields.json(label='Meta Of Column', readonly = True),
 	}
@@ -320,9 +321,9 @@ class bc_model_inherit_inherits(Model):
 	_columns = {
 	'inherit_id': fields.many2one(label = 'Inherit', obj = 'bc.model.inherits', rel='models',readonly=True, on_delete = 'c'),
 	'model_id': fields.referenced(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
-	'name': fields.composite(label='Name Column', cols = ['inhetit_id','model_id','col'], required = True),
-	'col': fields.many2one(label='Column', obj = 'bc.model.inherit.columns', readonly=True)
-	#'col': fields.varchar(label='Column', size = 64, readonly=True),
+	#'name': fields.composite(label='Name Column', cols = ['inherit_id','model_id','col'], required = True),
+	#'col': fields.many2one(label='Column', obj = 'bc.model.inherit.columns', readonly=True)
+	'col': fields.varchar(label='Column', size = 64, readonly=True),
 	}
 
 bc_model_inherit_inherits()
@@ -419,13 +420,13 @@ class bc_ui_model_views(Model):
 	'fullname': fields.composite(label='Full Name', cols = ['model','vtype'], translate = True,required = True),
 	'model': fields.referenced(label='Model',obj='bc.models'),
 	'vtype': fields.referenced(label='View Type',obj='bc.ui.view.model.types'),
-	'creaded': fields.datetime('Created', readonly = True),
+	'created': fields.datetime('Created', readonly = True),
 	'modified': fields.datetime('Modified', readonly = True),
 	'standalone': fields.boolean(label='Standalone View'),
 	'template': fields.text(label='Template'),
 	'render': fields.text(label='Render'),
 	'script': fields.text(label='Script'),
-	'script_setup': fields.text(label='Script'),
+	'script_setup': fields.text(label='Script  Setup'),
 	'style': fields.text(label='Style'),
 	'i18n': fields.text(label='I18N'),
 	'scoped': fields.boolean(label='Scoped'),
@@ -438,24 +439,24 @@ class bc_ui_model_views(Model):
 	def _generateTemplate(self,record,context):
 		#web_pdb.set_trace()
 		if record['vtype']['name'] in _GENERATEVIEW: #and (record['template'] is  None or len(record['template']) == 0):
-			record['template'] = _GENERATEVIEW[record['vtype']['name']].view._generateTemplate(META,record['model']['name'],self._pool,context)
+			record['template'] = _GENERATEVIEW[record['vtype']['name']].view._generateTemplate(META,record['model']['name'],self._model._pool,context)
 
 	def _generateRender(self,record,context):
 		if record['vtype']['name'] in _GENERATEVIEW: #and (record['render'] is  None or len(record['render']) == 0):
-			record['render'] = _GENERATEVIEW[record['vtype']['name']].view._generateRender(META,record['model']['name'],self._pool,context)
+			record['render'] = _GENERATEVIEW[record['vtype']['name']].view._generateRender(META,record['model']['name'],self._model._pool,context)
 
 
 	def _generateScript(self,record,context):	
 		if record['vtype']['name'] in _GENERATEVIEW: #and (record['script'] is  None or len(record['script']) == 0):
-			record['script'] = _GENERATEVIEW[record['vtype']['name']].view._generateScript(META,record['model']['name'],self._pool,context)
+			record['script'] = _GENERATEVIEW[record['vtype']['name']].view._generateScript(META,record['model']['name'],self._model._pool,context)
 
 	def _generateStyle(self,record,context):
 		if record['vtype']['name'] in _GENERATEVIEW: #and (record['style'] is  None or len(record['style']) == 0):
-			record['style'] = _GENERATEVIEW[record['vtype']['name']].view._generateStyle(META,record['model']['name'],self._pool,context)
+			record['style'] = _GENERATEVIEW[record['vtype']['name']].view._generateStyle(META,record['model']['name'],self._model._pool,context)
 
 	def _generateI18N(self,record,context):
 		if record['vtype']['name'] in _GENERATEVIEW: # and (record['i18n'] is  None or len(record['i18n']) == 0):
-			record['i18n'] = _GENERATEVIEW[record['vtype']['name']].view._generateI18N(META,record['model']['name'],self._pool,context)
+			record['i18n'] = _GENERATEVIEW[record['vtype']['name']].view._generateI18N(META,record['model']['name'],self._model._pool,context)
 
 
 	def _generateSFC(self,record,context):

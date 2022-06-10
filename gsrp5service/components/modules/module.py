@@ -492,18 +492,18 @@ def _uninstallModule(self,name):
 	# f = self._session._models.get('bc.module.files').delete([('module_id','=',name)])
 	# _logger.info(" Unlink module files: %s records: %s" % (name,len(f)))
 
-	mm = self._session._models.get('bc.models').select(['module_id','name','db_table',{'columns':['model_id']}],[('module_id','=',name)])
-	db_models = list(map(lambda x: x['name'],mm))
+	mm = self._session._models.get('bc.models').select(['module_id','code','db_table',{'columns':['model_id']}],[('module_id','=',name)])
+	db_models = list(map(lambda x: x['code'],mm))
 	for m in mm:
 		self._session._models.get('bc.model.columns').unlink(list(map(lambda x: x['id'],m['columns']))) 
 	
 	self._session._models.get('bc.models').unlink(list(map(lambda x: x['id'],mm))) 
 
-	mmi = self._session._models.get('bc.inherits').select(['module_id',{'columns':['inherit_id']}],[('module_id','=',name)])
+	mmi = self._session._models.get('bc.model.inherits').select(['module_id',{'columns':['inherit_id']}],[('module_id','=',name)])
 	for m in mmi:
-		self._session._models.get('bc.bc.inherit.columns').unlink(list(map(lambda x: x['id'],m['columns']))) 
+		self._session._models.get('bc.model.inherit.columns').unlink(list(map(lambda x: x['id'],m['columns']))) 
 	
-	self._session._models.get('bc.inherits').unlink(list(map(lambda x: x['id'],mm))) 
+	self._session._models.get('bc.model.inherits').unlink(list(map(lambda x: x['id'],mm))) 
 
 	
 	sqls = []
@@ -528,7 +528,7 @@ def _uninstallModule(self,name):
 								if mods['attrs']['_columns'][icolkey]._type not in ('iProperty','referenced'):
 									sqls.append("ALTER TABLE IF EXISTS %s DROP COLUMN IF EXISTS %s CASCADE" % (ikey,icolkey))
 							
-							mmiv = self._session._models.get('bc.ui.views').select([{'inherit_views':['name']}],[('model','=',ikey)])
+							mmiv = self._session._models.get('bc.ui.model.views').select([{'inherit_views':['name']}],[('model','=',ikey)])
 							self._session._models.get('bc.ui.views.inherit').unlink(list(map(lambda x: x['id'],mmiv))) 				
 							
 					else:
@@ -1127,7 +1127,8 @@ def _loadCSVFile(self,info,path,name,fl,context):
 								rows = list(filter(lambda x:x[parent_id] == key,copy.deepcopy(records)))
 								if len(rows) > 0:
 									_convertFromYAML(self,model,rows,context)
-									ir = self._session._models.get(model).modify(rows,context)								
+									ir = self._session._models.get(model).modify(rows,context)
+									self._session._cursor._commit()								
 					else:
 						_convertFromYAML(self,model,records,context)
 						ir = self._session._models.get(model).modify(records,context)

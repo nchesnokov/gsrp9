@@ -101,7 +101,6 @@ class Session(Component):
 		
 		return Exception('No defined method of mcache: <%s>' % (args[0],))
 
-
 class User(Session):
 
 	_closed = False
@@ -122,6 +121,29 @@ class User(Session):
 		cf.read(config_file)
 		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':None,'password':None,'sslmode':None,'sslrootcert':None,'sslrootkey':None,'sslcert':None,'sslkey':None},ikey=['port'])
 
+	@property
+	def _getCursor(self):
+		return self._cursor
+	
+	@property
+	def _getUid(self):
+		return self._uid
+
+	@property
+	def _getPool(self):
+		return	self._objects.get('models')
+	
+	@property
+	def _getMCache(self):
+		return self._mcache
+
+	def _getInterface(self,key,name,*args, **kwargs):
+		if key and key in self._cache and hasattr(self._cache[key],name):
+			return getattr(self._cache[key],name)(*args,**kwargs)
+		
+	def _getModel(self,name):
+		return self._models[name]
+		
 	def _call(self,args):
 		rmsg = []
 		args0 = args[0]
@@ -209,6 +231,7 @@ class User(Session):
 		if self._cursor.open():
 			self._SessionModel = Model(self)
 			self._registry = self._components['registry']
+			self._registry._setup(self)
 			self._registry._load_module('bc')
 			self._objects = self._components['registry']._create_loaded_objects(self)
 			for key in self._components.keys():
@@ -238,10 +261,9 @@ class User(Session):
 					for key in self._models.keys():
 						if res[2]:
 							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
-							self._models[key]._model = self._SessionModel
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
-							self._models[key]._model = self._SessionModel
+							
 
 					db_infos = self._models.get('bc.modules').select(fields=['code','state'],cond=[],context={})
 					for db_info in db_infos:
@@ -252,13 +274,14 @@ class User(Session):
 					self._components['registry']._load_installed_modules()
 					self._objects = self._components['registry']._create_loaded_objects(self)
 					self._components['registry']._load_inheritables()					  
+					self._SessionModel = Model(self)
 					for key in self._models.keys():
 						if res[2]:
 							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
-							self._models[key]._model = SessionModel
+							self._models[key]._model = self._SessionModel
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
-							self._models[key]._model = SessionModel
+							self._models[key]._model = self._SessionModel
 	
 					self._setLangs()
 					return [self._connected,self._uid,{'country_timezones':dict(pytz.country_timezones),'country_names':dict(pytz.country_names),'langs':self._models.get('bc.langs').select(['code','description']),'preferences':self._models.get('bc.user.preferences').select(['user_id','lang','country','framework','timezone']),'frameworks':self._models.get('bc.web.frameworks').select(['code','descr'])}]
@@ -459,11 +482,15 @@ class System(Session):
 				
 				self._cursor.conn.autocommit=True
 				_logger.info("Create Slot: %s" % (name,))
-				self._cursor.execute("CREATE DATABASE IF NOT EXISTS %s ENCODING='UTF-8';SET DATABASE=%s;GRANT ALL ON DATABASE %s TO %s" % (name,name,name,db_user))
+				self._cursor.execute("CREATE DATABASE IF NOT EXISTS %s ENCODING='UTF-8'" % (name,))
+				self._cursor.execute("SET DATABASE=%s" % (name,))
+				
 				self._cursor.conn.autocommit = autocommit
 
 				rmsg.append(self._cursor.cr.statusmessage)
 				rmsg.extend(self._components['modules']._call(['sysinstall']))
+				self._cursor.execute("GRANT ALL ON TABLE %s.* TO %s WITH GRANT OPTION" % (name,db_user))
+				self._cursor.commit()
 				_logger.info("Slot: %s Created" % (name,))
 			else:
 				_logger.info("Slot: %s are created" % (name,))

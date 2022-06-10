@@ -14,7 +14,7 @@ ACCESS = {'readonly':['aread'],'nodrop':['aread','acreate','awrite',],'full':['a
 _logger = logging.getLogger('listener.' + __name__)
 
 def RecordGroup(module,grant,cat):
-	return {'name': concat([module,cat,grant]),'note':"Module %s Type Object %s grant %s" % (module,cat,grant)}
+	return {'name': concat([module,cat,grant]),'note':"Module %s Type Object %s grant %s" % (module,cat,grant),'parent_id':None}
 
 def RecordRole(module,model,grant,cat):
 	return {'name':concat(['role',module,cat,model,grant]),'note':"Module: %s Type: %s Object: %s grant: %s" % (module,cat,model,grant),'group_id':concat([module,cat,grant])}
@@ -23,12 +23,13 @@ def RecordsRole(module,models,cat):
 	res = []
 	for model in models:
 		for grant in GRANTS:
-			res.append({model._name:RecordRole(module,model._name,grant,cat)})
+			#res.append({model._name:RecordRole(module,model._name,grant,cat)})
+			res.append(RecordRole(module,model._name,grant,cat))
 	
 	return res
 	
 def RecordAccess(module,model,grant, cat):
-	cols = {'access_id':concat(['role',module,cat,model,grant]),'object_id': model}
+	cols = {'access_id':concat(['role',module,cat,model,grant]),'model': model}
 	for column in ACCESS[grant]:
 		cols[column] = True
 	

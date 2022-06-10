@@ -47,6 +47,8 @@ from gsrp5service.orm.wizard import Wizard,WizardInherit
 
 from serviceloader.tools.common import Service, Component, configManagerFixed
 
+from gsrp5service.components.objs.proxy import ModelProxy
+
 from configparser import ConfigParser
 
 class Exception_Registry(Exception): pass
@@ -224,8 +226,11 @@ class Registry(Component):
 		cls = type(meta['name'],meta['bases'],meta['attrs'])
 		type.__init__(cls, meta['name'],meta['bases'],meta['attrs'])
 		obj = cls()
-		obj.__init__()
-		#obj._model = self._session._SessionModel				
+		
+		if isinstance(obj,Model):
+			obj.__init__(proxy= ModelProxy(self._session))
+		else:
+			obj.__init__()	
 		return obj	
 #
 	def _metaObject_with_inherits(self,obj,module):

@@ -1,1252 +1,1104 @@
 - cols:
   - col: name
     seq: 0
-  - col: employee_ids
-    seq: 10
   - col: color
-    seq: 20
+    seq: 10
   model: hcm.employee.categories
   vtype: element-plus/search
 - cols:
   - col: name
     seq: 0
-  - col: employee_ids
-    seq: 10
   - col: color
-    seq: 20
+    seq: 10
   model: hcm.employee.categories
   vtype: element-plus/find
 - cols:
   - col: name
     seq: 0
-  - col: employee_ids
-    seq: 10
   - col: color
-    seq: 20
+    seq: 10
   model: hcm.employee.categories
   vtype: element-plus/list
 - cols:
-  - col: fullname
+  - col: firstname
     seq: 0
-  - col: birthday
-    seq: 10
-  - col: work_phone
-    seq: 20
-  - col: coach_id
-    seq: 30
-  - col: job_id
-    seq: 40
-  - col: country_id
-    seq: 50
   - col: lastname
+    seq: 10
+  - col: middlename
+    seq: 20
+  - col: birthday
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: user_id
+    seq: 50
+  - col: active
     seq: 60
   - col: address_home_id
     seq: 70
-  - col: active
-    seq: 80
-  - col: address_id
-    seq: 90
-  - col: identification_id
-    seq: 100
   - col: is_address_home_a_company
-    seq: 110
-  - col: work_location
-    seq: 120
-  - col: image
-    seq: 130
-  - col: mobile_phone
-    seq: 140
-  - col: firstname
-    seq: 150
+    seq: 80
+  - col: country_id
+    seq: 90
   - col: gender
-    seq: 160
-  - col: sinid
-    seq: 170
-  - col: color
-    seq: 180
-  - col: category_ids
-    seq: 190
-  - col: visa_no
-    seq: 200
-  - col: visa_expire
-    seq: 210
+    seq: 100
   - col: marital
-    seq: 220
-  - col: image_small
-    seq: 230
-  - col: middlename
-    seq: 240
-  - col: notes
-    seq: 250
-  - col: child_ids
-    seq: 260
-  - col: department_id
-    seq: 270
-  - col: parent_id
-    seq: 280
-  - col: passport_id
-    seq: 290
-  - col: permit_no
-    seq: 300
-  - col: image_medium
-    seq: 310
-  - col: work_email
-    seq: 320
-  - col: user_id
-    seq: 330
+    seq: 110
   - col: ssnid
-    seq: 340
+    seq: 120
+  - col: sinid
+    seq: 130
+  - col: identification_id
+    seq: 140
+  - col: passport_id
+    seq: 150
+  - col: permit_no
+    seq: 160
+  - col: visa_no
+    seq: 170
+  - col: visa_expire
+    seq: 180
+  - col: address_id
+    seq: 190
+  - col: work_phone
+    seq: 200
+  - col: mobile_phone
+    seq: 210
+  - col: work_email
+    seq: 220
+  - col: work_location
+    seq: 230
+  - col: job_id
+    seq: 240
+  - col: department_id
+    seq: 250
+  - col: parent_id
+    seq: 260
+  - col: coach_id
+    seq: 270
+  - col: color
+    seq: 280
   model: hcm.employees
   vtype: element-plus/m2mlist
 - cols:
   - col: name
     seq: 0
-  - col: employee_ids
-    seq: 10
   - col: color
+    seq: 10
+  - col: employee_ids
     seq: 20
   model: hcm.employee.categories
   vtype: element-plus/form.modal
 - cols:
   - col: name
     seq: 0
-  - col: employee_ids
-    seq: 10
   - col: color
+    seq: 10
+  - col: employee_ids
     seq: 20
   model: hcm.employee.categories
   vtype: element-plus/form
 - cols:
-  - col: fullname
-    seq: 0
-  - col: member_ids
-    seq: 10
-  - col: active
-    seq: 20
-  - col: note
-    seq: 30
   - col: company
-    seq: 40
-  - col: parent_id
-    seq: 50
-  - col: complete_name
-    seq: 60
-  - col: color
-    seq: 70
+    seq: 0
   - col: name
-    seq: 80
-  - col: childs_id
-    seq: 90
-  - col: jobs_ids
-    seq: 100
+    seq: 10
+  - col: parent_id
+    seq: 20
+  - col: fullname
+    seq: 30
+  - col: complete_name
+    seq: 40
   - col: manager_id
-    seq: 110
+    seq: 50
+  - col: color
+    seq: 60
+  - col: active
+    seq: 70
   model: hcm.department
   vtype: element-plus/search
 - cols:
-  - col: fullname
-    seq: 0
-  - col: member_ids
-    seq: 10
-  - col: active
-    seq: 20
-  - col: note
-    seq: 30
   - col: company
-    seq: 40
-  - col: parent_id
-    seq: 50
-  - col: complete_name
-    seq: 60
-  - col: color
-    seq: 70
+    seq: 0
   - col: name
-    seq: 80
-  - col: childs_id
-    seq: 90
-  - col: jobs_ids
-    seq: 100
+    seq: 10
+  - col: parent_id
+    seq: 20
+  - col: fullname
+    seq: 30
+  - col: complete_name
+    seq: 40
   - col: manager_id
-    seq: 110
+    seq: 50
+  - col: color
+    seq: 60
+  - col: active
+    seq: 70
   model: hcm.department
   vtype: element-plus/find
 - cols:
-  - col: fullname
-    seq: 0
-  - col: member_ids
-    seq: 10
-  - col: active
-    seq: 20
-  - col: note
-    seq: 30
   - col: company
-    seq: 40
-  - col: parent_id
-    seq: 50
-  - col: complete_name
-    seq: 60
-  - col: color
-    seq: 70
+    seq: 0
   - col: name
-    seq: 80
+    seq: 10
+  - col: parent_id
+    seq: 20
   - col: childs_id
-    seq: 90
-  - col: jobs_ids
-    seq: 100
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: complete_name
+    seq: 50
   - col: manager_id
-    seq: 110
+    seq: 60
+  - col: member_ids
+    seq: 70
+  - col: jobs_ids
+    seq: 80
+  - col: color
+    seq: 90
+  - col: active
+    seq: 100
   model: hcm.department
   vtype: element-plus/list
 - cols:
-  - col: fullname
-    seq: 0
-  - col: member_ids
-    seq: 10
-  - col: active
-    seq: 20
-  - col: note
-    seq: 30
   - col: company
-    seq: 40
-  - col: parent_id
-    seq: 50
-  - col: complete_name
-    seq: 60
-  - col: color
-    seq: 70
+    seq: 0
   - col: name
-    seq: 80
+    seq: 10
+  - col: parent_id
+    seq: 20
   - col: childs_id
-    seq: 90
-  - col: jobs_ids
-    seq: 100
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: complete_name
+    seq: 50
   - col: manager_id
+    seq: 60
+  - col: member_ids
+    seq: 70
+  - col: jobs_ids
+    seq: 80
+  - col: note
+    seq: 90
+  - col: color
+    seq: 100
+  - col: active
     seq: 110
   model: hcm.department
   vtype: element-plus/form.modal
 - cols:
-  - col: fullname
-    seq: 0
-  - col: member_ids
-    seq: 10
-  - col: active
-    seq: 20
-  - col: note
-    seq: 30
   - col: company
-    seq: 40
-  - col: parent_id
-    seq: 50
-  - col: complete_name
-    seq: 60
-  - col: color
-    seq: 70
+    seq: 0
   - col: name
-    seq: 80
+    seq: 10
+  - col: parent_id
+    seq: 20
   - col: childs_id
-    seq: 90
-  - col: jobs_ids
-    seq: 100
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: complete_name
+    seq: 50
   - col: manager_id
+    seq: 60
+  - col: member_ids
+    seq: 70
+  - col: jobs_ids
+    seq: 80
+  - col: note
+    seq: 90
+  - col: color
+    seq: 100
+  - col: active
     seq: 110
   model: hcm.department
   vtype: element-plus/form
 - cols:
-  - col: fullname
-    seq: 0
-  - col: member_ids
-    seq: 10
-  - col: active
-    seq: 20
-  - col: note
-    seq: 30
   - col: company
-    seq: 40
-  - col: parent_id
-    seq: 50
-  - col: complete_name
-    seq: 60
-  - col: color
-    seq: 70
+    seq: 0
   - col: name
-    seq: 80
+    seq: 10
+  - col: parent_id
+    seq: 20
   - col: childs_id
-    seq: 90
-  - col: jobs_ids
-    seq: 100
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: complete_name
+    seq: 50
   - col: manager_id
+    seq: 60
+  - col: member_ids
+    seq: 70
+  - col: jobs_ids
+    seq: 80
+  - col: note
+    seq: 90
+  - col: color
+    seq: 100
+  - col: active
     seq: 110
   model: hcm.department
   vtype: element-plus/o2m-form
 - cols:
-  - col: fullname
-    seq: 0
-  - col: member_ids
-    seq: 10
-  - col: active
-    seq: 20
-  - col: note
-    seq: 30
   - col: company
-    seq: 40
-  - col: parent_id
-    seq: 50
-  - col: complete_name
-    seq: 60
-  - col: color
-    seq: 70
+    seq: 0
   - col: name
-    seq: 80
-  - col: childs_id
-    seq: 90
-  - col: jobs_ids
-    seq: 100
+    seq: 10
+  - col: parent_id
+    seq: 20
+  - col: fullname
+    seq: 30
+  - col: complete_name
+    seq: 40
   - col: manager_id
-    seq: 110
+    seq: 50
+  - col: color
+    seq: 60
+  - col: active
+    seq: 70
   model: hcm.department
   vtype: element-plus/tree
 - cols:
-  - col: fullname
-    seq: 0
-  - col: member_ids
-    seq: 10
-  - col: active
-    seq: 20
-  - col: note
-    seq: 30
   - col: company
-    seq: 40
-  - col: parent_id
-    seq: 50
-  - col: complete_name
-    seq: 60
-  - col: color
-    seq: 70
+    seq: 0
   - col: name
-    seq: 80
-  - col: childs_id
-    seq: 90
-  - col: jobs_ids
-    seq: 100
+    seq: 10
+  - col: parent_id
+    seq: 20
+  - col: fullname
+    seq: 30
+  - col: complete_name
+    seq: 40
   - col: manager_id
-    seq: 110
+    seq: 50
+  - col: color
+    seq: 60
+  - col: active
+    seq: 70
   model: hcm.department
   vtype: element-plus/o2m-tree
 - cols:
-  - col: fullname
-    seq: 0
-  - col: member_ids
-    seq: 10
-  - col: active
-    seq: 20
-  - col: note
-    seq: 30
   - col: company
-    seq: 40
-  - col: parent_id
-    seq: 50
-  - col: complete_name
-    seq: 60
-  - col: color
-    seq: 70
+    seq: 0
   - col: name
-    seq: 80
+    seq: 10
+  - col: parent_id
+    seq: 20
   - col: childs_id
-    seq: 90
-  - col: jobs_ids
-    seq: 100
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: complete_name
+    seq: 50
   - col: manager_id
-    seq: 110
+    seq: 60
+  - col: member_ids
+    seq: 70
+  - col: jobs_ids
+    seq: 80
+  - col: color
+    seq: 90
+  - col: active
+    seq: 100
   model: hcm.department
   vtype: element-plus/o2m-list
 - cols:
-  - col: no_of_hired_employee
+  - col: name
     seq: 0
-  - col: employee_ids
+  - col: expected_employees
     seq: 10
-  - col: no_of_recruitment
-    seq: 20
-  - col: requirements
-    seq: 30
-  - col: department_id
-    seq: 40
   - col: no_of_employee
+    seq: 20
+  - col: no_of_recruitment
+    seq: 30
+  - col: no_of_hired_employee
+    seq: 40
+  - col: department_id
     seq: 50
   - col: company_id
     seq: 60
-  - col: description
-    seq: 70
-  - col: name
-    seq: 80
   - col: state
-    seq: 90
-  - col: expected_employees
-    seq: 100
+    seq: 70
   model: hcm.job
   vtype: element-plus/search
 - cols:
-  - col: no_of_hired_employee
+  - col: name
     seq: 0
-  - col: employee_ids
+  - col: expected_employees
     seq: 10
-  - col: no_of_recruitment
-    seq: 20
-  - col: requirements
-    seq: 30
-  - col: department_id
-    seq: 40
   - col: no_of_employee
+    seq: 20
+  - col: no_of_recruitment
+    seq: 30
+  - col: no_of_hired_employee
+    seq: 40
+  - col: department_id
     seq: 50
   - col: company_id
     seq: 60
-  - col: description
-    seq: 70
-  - col: name
-    seq: 80
   - col: state
-    seq: 90
-  - col: expected_employees
-    seq: 100
+    seq: 70
   model: hcm.job
   vtype: element-plus/find
 - cols:
-  - col: no_of_hired_employee
-    seq: 0
-  - col: employee_ids
-    seq: 10
-  - col: no_of_recruitment
-    seq: 20
-  - col: requirements
-    seq: 30
-  - col: department_id
-    seq: 40
-  - col: no_of_employee
-    seq: 50
-  - col: company_id
-    seq: 60
-  - col: description
-    seq: 70
   - col: name
-    seq: 80
-  - col: state
-    seq: 90
+    seq: 0
   - col: expected_employees
-    seq: 100
+    seq: 10
+  - col: no_of_employee
+    seq: 20
+  - col: no_of_recruitment
+    seq: 30
+  - col: no_of_hired_employee
+    seq: 40
+  - col: employee_ids
+    seq: 50
+  - col: department_id
+    seq: 60
+  - col: company_id
+    seq: 70
+  - col: state
+    seq: 80
   model: hcm.job
   vtype: element-plus/list
 - cols:
-  - col: no_of_hired_employee
-    seq: 0
-  - col: employee_ids
-    seq: 10
-  - col: no_of_recruitment
-    seq: 20
-  - col: requirements
-    seq: 30
-  - col: department_id
-    seq: 40
-  - col: no_of_employee
-    seq: 50
-  - col: company_id
-    seq: 60
-  - col: description
-    seq: 70
   - col: name
-    seq: 80
-  - col: state
-    seq: 90
+    seq: 0
   - col: expected_employees
+    seq: 10
+  - col: no_of_employee
+    seq: 20
+  - col: no_of_recruitment
+    seq: 30
+  - col: no_of_hired_employee
+    seq: 40
+  - col: employee_ids
+    seq: 50
+  - col: description
+    seq: 60
+  - col: requirements
+    seq: 70
+  - col: department_id
+    seq: 80
+  - col: company_id
+    seq: 90
+  - col: state
     seq: 100
   model: hcm.job
   vtype: element-plus/form.modal
 - cols:
-  - col: no_of_hired_employee
-    seq: 0
-  - col: employee_ids
-    seq: 10
-  - col: no_of_recruitment
-    seq: 20
-  - col: requirements
-    seq: 30
-  - col: department_id
-    seq: 40
-  - col: no_of_employee
-    seq: 50
-  - col: company_id
-    seq: 60
-  - col: description
-    seq: 70
   - col: name
-    seq: 80
-  - col: state
-    seq: 90
+    seq: 0
   - col: expected_employees
+    seq: 10
+  - col: no_of_employee
+    seq: 20
+  - col: no_of_recruitment
+    seq: 30
+  - col: no_of_hired_employee
+    seq: 40
+  - col: employee_ids
+    seq: 50
+  - col: description
+    seq: 60
+  - col: requirements
+    seq: 70
+  - col: department_id
+    seq: 80
+  - col: company_id
+    seq: 90
+  - col: state
     seq: 100
   model: hcm.job
   vtype: element-plus/form
 - cols:
-  - col: no_of_hired_employee
-    seq: 0
-  - col: employee_ids
-    seq: 10
-  - col: no_of_recruitment
-    seq: 20
-  - col: requirements
-    seq: 30
-  - col: department_id
-    seq: 40
-  - col: no_of_employee
-    seq: 50
-  - col: company_id
-    seq: 60
-  - col: description
-    seq: 70
   - col: name
-    seq: 80
-  - col: state
-    seq: 90
+    seq: 0
   - col: expected_employees
+    seq: 10
+  - col: no_of_employee
+    seq: 20
+  - col: no_of_recruitment
+    seq: 30
+  - col: no_of_hired_employee
+    seq: 40
+  - col: employee_ids
+    seq: 50
+  - col: description
+    seq: 60
+  - col: requirements
+    seq: 70
+  - col: department_id
+    seq: 80
+  - col: company_id
+    seq: 90
+  - col: state
     seq: 100
   model: hcm.job
   vtype: element-plus/o2m-form
 - cols:
-  - col: no_of_hired_employee
-    seq: 0
-  - col: employee_ids
-    seq: 10
-  - col: no_of_recruitment
-    seq: 20
-  - col: requirements
-    seq: 30
-  - col: department_id
-    seq: 40
-  - col: no_of_employee
-    seq: 50
-  - col: company_id
-    seq: 60
-  - col: description
-    seq: 70
   - col: name
+    seq: 0
+  - col: expected_employees
+    seq: 10
+  - col: no_of_employee
+    seq: 20
+  - col: no_of_recruitment
+    seq: 30
+  - col: no_of_hired_employee
+    seq: 40
+  - col: description
+    seq: 50
+  - col: requirements
+    seq: 60
+  - col: department_id
+    seq: 70
+  - col: company_id
     seq: 80
   - col: state
     seq: 90
-  - col: expected_employees
-    seq: 100
   model: hcm.job
   vtype: element-plus/kanban
 - cols:
-  - col: no_of_hired_employee
-    seq: 0
-  - col: employee_ids
-    seq: 10
-  - col: no_of_recruitment
-    seq: 20
-  - col: requirements
-    seq: 30
-  - col: department_id
-    seq: 40
-  - col: no_of_employee
-    seq: 50
-  - col: company_id
-    seq: 60
-  - col: description
-    seq: 70
   - col: name
+    seq: 0
+  - col: expected_employees
+    seq: 10
+  - col: no_of_employee
+    seq: 20
+  - col: no_of_recruitment
+    seq: 30
+  - col: no_of_hired_employee
+    seq: 40
+  - col: description
+    seq: 50
+  - col: requirements
+    seq: 60
+  - col: department_id
+    seq: 70
+  - col: company_id
     seq: 80
   - col: state
     seq: 90
-  - col: expected_employees
-    seq: 100
   model: hcm.job
   vtype: element-plus/o2m-kanban
 - cols:
-  - col: no_of_hired_employee
-    seq: 0
-  - col: employee_ids
-    seq: 10
-  - col: no_of_recruitment
-    seq: 20
-  - col: requirements
-    seq: 30
-  - col: department_id
-    seq: 40
-  - col: no_of_employee
-    seq: 50
-  - col: company_id
-    seq: 60
-  - col: description
-    seq: 70
   - col: name
-    seq: 80
-  - col: state
-    seq: 90
+    seq: 0
   - col: expected_employees
-    seq: 100
+    seq: 10
+  - col: no_of_employee
+    seq: 20
+  - col: no_of_recruitment
+    seq: 30
+  - col: no_of_hired_employee
+    seq: 40
+  - col: employee_ids
+    seq: 50
+  - col: department_id
+    seq: 60
+  - col: company_id
+    seq: 70
+  - col: state
+    seq: 80
   model: hcm.job
   vtype: element-plus/o2m-list
 - cols:
-  - col: fullname
+  - col: firstname
     seq: 0
-  - col: birthday
-    seq: 10
-  - col: work_phone
-    seq: 20
-  - col: coach_id
-    seq: 30
-  - col: job_id
-    seq: 40
-  - col: country_id
-    seq: 50
   - col: lastname
+    seq: 10
+  - col: middlename
+    seq: 20
+  - col: birthday
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: user_id
+    seq: 50
+  - col: active
     seq: 60
   - col: address_home_id
     seq: 70
-  - col: active
-    seq: 80
-  - col: address_id
-    seq: 90
-  - col: identification_id
-    seq: 100
   - col: is_address_home_a_company
-    seq: 110
-  - col: work_location
-    seq: 120
-  - col: image
-    seq: 130
-  - col: mobile_phone
-    seq: 140
-  - col: firstname
-    seq: 150
+    seq: 80
+  - col: country_id
+    seq: 90
   - col: gender
-    seq: 160
-  - col: sinid
-    seq: 170
-  - col: color
-    seq: 180
-  - col: category_ids
-    seq: 190
-  - col: visa_no
-    seq: 200
-  - col: visa_expire
-    seq: 210
+    seq: 100
   - col: marital
-    seq: 220
-  - col: image_small
-    seq: 230
-  - col: middlename
-    seq: 240
-  - col: notes
-    seq: 250
-  - col: child_ids
-    seq: 260
-  - col: department_id
-    seq: 270
-  - col: parent_id
-    seq: 280
-  - col: passport_id
-    seq: 290
-  - col: permit_no
-    seq: 300
-  - col: image_medium
-    seq: 310
-  - col: work_email
-    seq: 320
-  - col: user_id
-    seq: 330
+    seq: 110
   - col: ssnid
-    seq: 340
+    seq: 120
+  - col: sinid
+    seq: 130
+  - col: identification_id
+    seq: 140
+  - col: passport_id
+    seq: 150
+  - col: permit_no
+    seq: 160
+  - col: visa_no
+    seq: 170
+  - col: visa_expire
+    seq: 180
+  - col: address_id
+    seq: 190
+  - col: work_phone
+    seq: 200
+  - col: mobile_phone
+    seq: 210
+  - col: work_email
+    seq: 220
+  - col: work_location
+    seq: 230
+  - col: job_id
+    seq: 240
+  - col: department_id
+    seq: 250
+  - col: parent_id
+    seq: 260
+  - col: coach_id
+    seq: 270
+  - col: color
+    seq: 280
   model: hcm.employees
   vtype: element-plus/search
 - cols:
-  - col: fullname
+  - col: firstname
     seq: 0
-  - col: birthday
-    seq: 10
-  - col: work_phone
-    seq: 20
-  - col: coach_id
-    seq: 30
-  - col: job_id
-    seq: 40
-  - col: country_id
-    seq: 50
   - col: lastname
+    seq: 10
+  - col: middlename
+    seq: 20
+  - col: birthday
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: user_id
+    seq: 50
+  - col: active
     seq: 60
   - col: address_home_id
     seq: 70
-  - col: active
-    seq: 80
-  - col: address_id
-    seq: 90
-  - col: identification_id
-    seq: 100
   - col: is_address_home_a_company
-    seq: 110
-  - col: work_location
-    seq: 120
-  - col: image
-    seq: 130
-  - col: mobile_phone
-    seq: 140
-  - col: firstname
-    seq: 150
+    seq: 80
+  - col: country_id
+    seq: 90
   - col: gender
-    seq: 160
-  - col: sinid
-    seq: 170
-  - col: color
-    seq: 180
-  - col: category_ids
-    seq: 190
-  - col: visa_no
-    seq: 200
-  - col: visa_expire
-    seq: 210
+    seq: 100
   - col: marital
-    seq: 220
-  - col: image_small
-    seq: 230
-  - col: middlename
-    seq: 240
-  - col: notes
-    seq: 250
-  - col: child_ids
-    seq: 260
-  - col: department_id
-    seq: 270
-  - col: parent_id
-    seq: 280
-  - col: passport_id
-    seq: 290
-  - col: permit_no
-    seq: 300
-  - col: image_medium
-    seq: 310
-  - col: work_email
-    seq: 320
-  - col: user_id
-    seq: 330
+    seq: 110
   - col: ssnid
-    seq: 340
+    seq: 120
+  - col: sinid
+    seq: 130
+  - col: identification_id
+    seq: 140
+  - col: passport_id
+    seq: 150
+  - col: permit_no
+    seq: 160
+  - col: visa_no
+    seq: 170
+  - col: visa_expire
+    seq: 180
+  - col: address_id
+    seq: 190
+  - col: work_phone
+    seq: 200
+  - col: mobile_phone
+    seq: 210
+  - col: work_email
+    seq: 220
+  - col: work_location
+    seq: 230
+  - col: job_id
+    seq: 240
+  - col: department_id
+    seq: 250
+  - col: parent_id
+    seq: 260
+  - col: coach_id
+    seq: 270
+  - col: color
+    seq: 280
   model: hcm.employees
   vtype: element-plus/find
 - cols:
-  - col: fullname
+  - col: firstname
     seq: 0
-  - col: birthday
-    seq: 10
-  - col: work_phone
-    seq: 20
-  - col: coach_id
-    seq: 30
-  - col: job_id
-    seq: 40
-  - col: country_id
-    seq: 50
   - col: lastname
+    seq: 10
+  - col: middlename
+    seq: 20
+  - col: birthday
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: user_id
+    seq: 50
+  - col: active
     seq: 60
   - col: address_home_id
     seq: 70
-  - col: active
-    seq: 80
-  - col: address_id
-    seq: 90
-  - col: identification_id
-    seq: 100
   - col: is_address_home_a_company
-    seq: 110
-  - col: work_location
-    seq: 120
-  - col: image
-    seq: 130
-  - col: mobile_phone
-    seq: 140
-  - col: firstname
-    seq: 150
+    seq: 80
+  - col: country_id
+    seq: 90
   - col: gender
-    seq: 160
-  - col: sinid
-    seq: 170
-  - col: color
-    seq: 180
-  - col: category_ids
-    seq: 190
-  - col: visa_no
-    seq: 200
-  - col: visa_expire
-    seq: 210
+    seq: 100
   - col: marital
-    seq: 220
-  - col: image_small
-    seq: 230
-  - col: middlename
-    seq: 240
-  - col: notes
-    seq: 250
-  - col: child_ids
-    seq: 260
-  - col: department_id
-    seq: 270
-  - col: parent_id
-    seq: 280
-  - col: passport_id
-    seq: 290
-  - col: permit_no
-    seq: 300
-  - col: image_medium
-    seq: 310
-  - col: work_email
-    seq: 320
-  - col: user_id
-    seq: 330
+    seq: 110
   - col: ssnid
-    seq: 340
+    seq: 120
+  - col: sinid
+    seq: 130
+  - col: identification_id
+    seq: 140
+  - col: passport_id
+    seq: 150
+  - col: permit_no
+    seq: 160
+  - col: visa_no
+    seq: 170
+  - col: visa_expire
+    seq: 180
+  - col: address_id
+    seq: 190
+  - col: work_phone
+    seq: 200
+  - col: mobile_phone
+    seq: 210
+  - col: work_email
+    seq: 220
+  - col: work_location
+    seq: 230
+  - col: job_id
+    seq: 240
+  - col: department_id
+    seq: 250
+  - col: parent_id
+    seq: 260
+  - col: child_ids
+    seq: 270
+  - col: coach_id
+    seq: 280
+  - col: color
+    seq: 290
   model: hcm.employees
   vtype: element-plus/list
 - cols:
   - col: name
     seq: 0
-  - col: employee_ids
-    seq: 10
   - col: color
-    seq: 20
+    seq: 10
   model: hcm.employee.categories
   vtype: element-plus/m2mlist
 - cols:
-  - col: fullname
+  - col: firstname
     seq: 0
-  - col: birthday
-    seq: 10
-  - col: work_phone
-    seq: 20
-  - col: coach_id
-    seq: 30
-  - col: job_id
-    seq: 40
-  - col: country_id
-    seq: 50
   - col: lastname
+    seq: 10
+  - col: middlename
+    seq: 20
+  - col: birthday
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: user_id
+    seq: 50
+  - col: active
     seq: 60
   - col: address_home_id
     seq: 70
-  - col: active
-    seq: 80
-  - col: address_id
-    seq: 90
-  - col: identification_id
-    seq: 100
   - col: is_address_home_a_company
-    seq: 110
-  - col: work_location
-    seq: 120
-  - col: image
-    seq: 130
-  - col: mobile_phone
-    seq: 140
-  - col: firstname
-    seq: 150
+    seq: 80
+  - col: country_id
+    seq: 90
   - col: gender
-    seq: 160
-  - col: sinid
-    seq: 170
-  - col: color
-    seq: 180
-  - col: category_ids
-    seq: 190
-  - col: visa_no
-    seq: 200
-  - col: visa_expire
-    seq: 210
+    seq: 100
   - col: marital
-    seq: 220
-  - col: image_small
-    seq: 230
-  - col: middlename
-    seq: 240
-  - col: notes
-    seq: 250
-  - col: child_ids
-    seq: 260
-  - col: department_id
-    seq: 270
-  - col: parent_id
-    seq: 280
-  - col: passport_id
-    seq: 290
-  - col: permit_no
-    seq: 300
-  - col: image_medium
-    seq: 310
-  - col: work_email
-    seq: 320
-  - col: user_id
-    seq: 330
+    seq: 110
   - col: ssnid
+    seq: 120
+  - col: sinid
+    seq: 130
+  - col: identification_id
+    seq: 140
+  - col: passport_id
+    seq: 150
+  - col: permit_no
+    seq: 160
+  - col: visa_no
+    seq: 170
+  - col: visa_expire
+    seq: 180
+  - col: image
+    seq: 190
+  - col: image_medium
+    seq: 200
+  - col: image_small
+    seq: 210
+  - col: address_id
+    seq: 220
+  - col: work_phone
+    seq: 230
+  - col: mobile_phone
+    seq: 240
+  - col: work_email
+    seq: 250
+  - col: work_location
+    seq: 260
+  - col: job_id
+    seq: 270
+  - col: department_id
+    seq: 280
+  - col: parent_id
+    seq: 290
+  - col: child_ids
+    seq: 300
+  - col: coach_id
+    seq: 310
+  - col: category_ids
+    seq: 320
+  - col: notes
+    seq: 330
+  - col: color
     seq: 340
   model: hcm.employees
   vtype: element-plus/form.modal
 - cols:
-  - col: fullname
+  - col: firstname
     seq: 0
-  - col: birthday
-    seq: 10
-  - col: work_phone
-    seq: 20
-  - col: coach_id
-    seq: 30
-  - col: job_id
-    seq: 40
-  - col: country_id
-    seq: 50
   - col: lastname
+    seq: 10
+  - col: middlename
+    seq: 20
+  - col: birthday
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: user_id
+    seq: 50
+  - col: active
     seq: 60
   - col: address_home_id
     seq: 70
-  - col: active
-    seq: 80
-  - col: address_id
-    seq: 90
-  - col: identification_id
-    seq: 100
   - col: is_address_home_a_company
-    seq: 110
-  - col: work_location
-    seq: 120
-  - col: image
-    seq: 130
-  - col: mobile_phone
-    seq: 140
-  - col: firstname
-    seq: 150
+    seq: 80
+  - col: country_id
+    seq: 90
   - col: gender
-    seq: 160
-  - col: sinid
-    seq: 170
-  - col: color
-    seq: 180
-  - col: category_ids
-    seq: 190
-  - col: visa_no
-    seq: 200
-  - col: visa_expire
-    seq: 210
+    seq: 100
   - col: marital
-    seq: 220
-  - col: image_small
-    seq: 230
-  - col: middlename
-    seq: 240
-  - col: notes
-    seq: 250
-  - col: child_ids
-    seq: 260
-  - col: department_id
-    seq: 270
-  - col: parent_id
-    seq: 280
-  - col: passport_id
-    seq: 290
-  - col: permit_no
-    seq: 300
-  - col: image_medium
-    seq: 310
-  - col: work_email
-    seq: 320
-  - col: user_id
-    seq: 330
+    seq: 110
   - col: ssnid
+    seq: 120
+  - col: sinid
+    seq: 130
+  - col: identification_id
+    seq: 140
+  - col: passport_id
+    seq: 150
+  - col: permit_no
+    seq: 160
+  - col: visa_no
+    seq: 170
+  - col: visa_expire
+    seq: 180
+  - col: image
+    seq: 190
+  - col: image_medium
+    seq: 200
+  - col: image_small
+    seq: 210
+  - col: address_id
+    seq: 220
+  - col: work_phone
+    seq: 230
+  - col: mobile_phone
+    seq: 240
+  - col: work_email
+    seq: 250
+  - col: work_location
+    seq: 260
+  - col: job_id
+    seq: 270
+  - col: department_id
+    seq: 280
+  - col: parent_id
+    seq: 290
+  - col: child_ids
+    seq: 300
+  - col: coach_id
+    seq: 310
+  - col: category_ids
+    seq: 320
+  - col: notes
+    seq: 330
+  - col: color
     seq: 340
   model: hcm.employees
   vtype: element-plus/form
 - cols:
-  - col: fullname
+  - col: firstname
     seq: 0
-  - col: birthday
-    seq: 10
-  - col: work_phone
-    seq: 20
-  - col: coach_id
-    seq: 30
-  - col: job_id
-    seq: 40
-  - col: country_id
-    seq: 50
   - col: lastname
+    seq: 10
+  - col: middlename
+    seq: 20
+  - col: birthday
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: user_id
+    seq: 50
+  - col: active
     seq: 60
   - col: address_home_id
     seq: 70
-  - col: active
-    seq: 80
-  - col: address_id
-    seq: 90
-  - col: identification_id
-    seq: 100
   - col: is_address_home_a_company
-    seq: 110
-  - col: work_location
-    seq: 120
-  - col: image
-    seq: 130
-  - col: mobile_phone
-    seq: 140
-  - col: firstname
-    seq: 150
+    seq: 80
+  - col: country_id
+    seq: 90
   - col: gender
-    seq: 160
-  - col: sinid
-    seq: 170
-  - col: color
-    seq: 180
-  - col: category_ids
-    seq: 190
-  - col: visa_no
-    seq: 200
-  - col: visa_expire
-    seq: 210
+    seq: 100
   - col: marital
-    seq: 220
-  - col: image_small
-    seq: 230
-  - col: middlename
-    seq: 240
-  - col: notes
-    seq: 250
-  - col: child_ids
-    seq: 260
-  - col: department_id
-    seq: 270
-  - col: parent_id
-    seq: 280
-  - col: passport_id
-    seq: 290
-  - col: permit_no
-    seq: 300
-  - col: image_medium
-    seq: 310
-  - col: work_email
-    seq: 320
-  - col: user_id
-    seq: 330
+    seq: 110
   - col: ssnid
+    seq: 120
+  - col: sinid
+    seq: 130
+  - col: identification_id
+    seq: 140
+  - col: passport_id
+    seq: 150
+  - col: permit_no
+    seq: 160
+  - col: visa_no
+    seq: 170
+  - col: visa_expire
+    seq: 180
+  - col: image
+    seq: 190
+  - col: image_medium
+    seq: 200
+  - col: image_small
+    seq: 210
+  - col: address_id
+    seq: 220
+  - col: work_phone
+    seq: 230
+  - col: mobile_phone
+    seq: 240
+  - col: work_email
+    seq: 250
+  - col: work_location
+    seq: 260
+  - col: job_id
+    seq: 270
+  - col: department_id
+    seq: 280
+  - col: parent_id
+    seq: 290
+  - col: child_ids
+    seq: 300
+  - col: coach_id
+    seq: 310
+  - col: category_ids
+    seq: 320
+  - col: notes
+    seq: 330
+  - col: color
     seq: 340
   model: hcm.employees
   vtype: element-plus/o2m-form
 - cols:
-  - col: fullname
+  - col: firstname
     seq: 0
-  - col: birthday
-    seq: 10
-  - col: work_phone
-    seq: 20
-  - col: coach_id
-    seq: 30
-  - col: job_id
-    seq: 40
-  - col: country_id
-    seq: 50
   - col: lastname
+    seq: 10
+  - col: middlename
+    seq: 20
+  - col: birthday
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: user_id
+    seq: 50
+  - col: active
     seq: 60
   - col: address_home_id
     seq: 70
-  - col: active
-    seq: 80
-  - col: address_id
-    seq: 90
-  - col: identification_id
-    seq: 100
   - col: is_address_home_a_company
-    seq: 110
-  - col: work_location
-    seq: 120
-  - col: image
-    seq: 130
-  - col: mobile_phone
-    seq: 140
-  - col: firstname
-    seq: 150
+    seq: 80
+  - col: country_id
+    seq: 90
   - col: gender
-    seq: 160
-  - col: sinid
-    seq: 170
-  - col: color
-    seq: 180
-  - col: category_ids
-    seq: 190
-  - col: visa_no
-    seq: 200
-  - col: visa_expire
-    seq: 210
+    seq: 100
   - col: marital
-    seq: 220
-  - col: image_small
-    seq: 230
-  - col: middlename
-    seq: 240
-  - col: notes
-    seq: 250
-  - col: child_ids
-    seq: 260
-  - col: department_id
-    seq: 270
-  - col: parent_id
-    seq: 280
-  - col: passport_id
-    seq: 290
-  - col: permit_no
-    seq: 300
-  - col: image_medium
-    seq: 310
-  - col: work_email
-    seq: 320
-  - col: user_id
-    seq: 330
+    seq: 110
   - col: ssnid
-    seq: 340
+    seq: 120
+  - col: sinid
+    seq: 130
+  - col: identification_id
+    seq: 140
+  - col: passport_id
+    seq: 150
+  - col: permit_no
+    seq: 160
+  - col: visa_no
+    seq: 170
+  - col: visa_expire
+    seq: 180
+  - col: address_id
+    seq: 190
+  - col: work_phone
+    seq: 200
+  - col: mobile_phone
+    seq: 210
+  - col: work_email
+    seq: 220
+  - col: work_location
+    seq: 230
+  - col: job_id
+    seq: 240
+  - col: department_id
+    seq: 250
+  - col: parent_id
+    seq: 260
+  - col: coach_id
+    seq: 270
+  - col: color
+    seq: 280
   model: hcm.employees
   vtype: element-plus/tree
 - cols:
-  - col: fullname
+  - col: firstname
     seq: 0
-  - col: birthday
-    seq: 10
-  - col: work_phone
-    seq: 20
-  - col: coach_id
-    seq: 30
-  - col: job_id
-    seq: 40
-  - col: country_id
-    seq: 50
   - col: lastname
+    seq: 10
+  - col: middlename
+    seq: 20
+  - col: birthday
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: user_id
+    seq: 50
+  - col: active
     seq: 60
   - col: address_home_id
     seq: 70
-  - col: active
-    seq: 80
-  - col: address_id
-    seq: 90
-  - col: identification_id
-    seq: 100
   - col: is_address_home_a_company
-    seq: 110
-  - col: work_location
-    seq: 120
-  - col: image
-    seq: 130
-  - col: mobile_phone
-    seq: 140
-  - col: firstname
-    seq: 150
+    seq: 80
+  - col: country_id
+    seq: 90
   - col: gender
-    seq: 160
-  - col: sinid
-    seq: 170
-  - col: color
-    seq: 180
-  - col: category_ids
-    seq: 190
-  - col: visa_no
-    seq: 200
-  - col: visa_expire
-    seq: 210
+    seq: 100
   - col: marital
-    seq: 220
-  - col: image_small
-    seq: 230
-  - col: middlename
-    seq: 240
-  - col: notes
-    seq: 250
-  - col: child_ids
-    seq: 260
-  - col: department_id
-    seq: 270
-  - col: parent_id
-    seq: 280
-  - col: passport_id
-    seq: 290
-  - col: permit_no
-    seq: 300
-  - col: image_medium
-    seq: 310
-  - col: work_email
-    seq: 320
-  - col: user_id
-    seq: 330
+    seq: 110
   - col: ssnid
-    seq: 340
+    seq: 120
+  - col: sinid
+    seq: 130
+  - col: identification_id
+    seq: 140
+  - col: passport_id
+    seq: 150
+  - col: permit_no
+    seq: 160
+  - col: visa_no
+    seq: 170
+  - col: visa_expire
+    seq: 180
+  - col: address_id
+    seq: 190
+  - col: work_phone
+    seq: 200
+  - col: mobile_phone
+    seq: 210
+  - col: work_email
+    seq: 220
+  - col: work_location
+    seq: 230
+  - col: job_id
+    seq: 240
+  - col: department_id
+    seq: 250
+  - col: parent_id
+    seq: 260
+  - col: coach_id
+    seq: 270
+  - col: color
+    seq: 280
   model: hcm.employees
   vtype: element-plus/o2m-tree
 - cols:
-  - col: fullname
+  - col: firstname
     seq: 0
-  - col: birthday
-    seq: 10
-  - col: work_phone
-    seq: 20
-  - col: coach_id
-    seq: 30
-  - col: job_id
-    seq: 40
-  - col: country_id
-    seq: 50
   - col: lastname
+    seq: 10
+  - col: middlename
+    seq: 20
+  - col: birthday
+    seq: 30
+  - col: fullname
+    seq: 40
+  - col: user_id
+    seq: 50
+  - col: active
     seq: 60
   - col: address_home_id
     seq: 70
-  - col: active
-    seq: 80
-  - col: address_id
-    seq: 90
-  - col: identification_id
-    seq: 100
   - col: is_address_home_a_company
-    seq: 110
-  - col: work_location
-    seq: 120
-  - col: image
-    seq: 130
-  - col: mobile_phone
-    seq: 140
-  - col: firstname
-    seq: 150
+    seq: 80
+  - col: country_id
+    seq: 90
   - col: gender
-    seq: 160
-  - col: sinid
-    seq: 170
-  - col: color
-    seq: 180
-  - col: category_ids
-    seq: 190
-  - col: visa_no
-    seq: 200
-  - col: visa_expire
-    seq: 210
+    seq: 100
   - col: marital
-    seq: 220
-  - col: image_small
-    seq: 230
-  - col: middlename
-    seq: 240
-  - col: notes
-    seq: 250
-  - col: child_ids
-    seq: 260
-  - col: department_id
-    seq: 270
-  - col: parent_id
-    seq: 280
-  - col: passport_id
-    seq: 290
-  - col: permit_no
-    seq: 300
-  - col: image_medium
-    seq: 310
-  - col: work_email
-    seq: 320
-  - col: user_id
-    seq: 330
+    seq: 110
   - col: ssnid
-    seq: 340
+    seq: 120
+  - col: sinid
+    seq: 130
+  - col: identification_id
+    seq: 140
+  - col: passport_id
+    seq: 150
+  - col: permit_no
+    seq: 160
+  - col: visa_no
+    seq: 170
+  - col: visa_expire
+    seq: 180
+  - col: address_id
+    seq: 190
+  - col: work_phone
+    seq: 200
+  - col: mobile_phone
+    seq: 210
+  - col: work_email
+    seq: 220
+  - col: work_location
+    seq: 230
+  - col: job_id
+    seq: 240
+  - col: department_id
+    seq: 250
+  - col: parent_id
+    seq: 260
+  - col: child_ids
+    seq: 270
+  - col: coach_id
+    seq: 280
+  - col: color
+    seq: 290
   model: hcm.employees
   vtype: element-plus/o2m-list

@@ -189,20 +189,20 @@ class BaseModel(object, metaclass = MetaObjects):
 		# else:
 			# print('__setattr__:',self,name,value)
 	
-	def __init__(self,access = None, attrs = None):
-		mm.model__init__(self,access,attrs)
+	def __init__(self,access = None, attrs = None, proxy = None):
+		mm.model__init__(self,access,attrs,proxy)
 
 	# def _execute(self, sql,vals=None):
 		# self._session._cursor.cr.execute(sql,vals)
 		# return self._session._cursor.cr.rowcount
 
-	# @property
-	# def _cr(self):
-		# return self._session._cursor
+	@property
+	def _cr(self):
+		return self._proxy.cr
 
-	# @property
-	# def _pool(self):
-		# return self._session._models
+	@property
+	def _pool(self):
+		return self._proxy.pool
 
 	# @property
 	# def _reports(self):
@@ -226,7 +226,7 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	@property
 	def _uid(self):
-		return self._session._uid
+		return self._proxy.uid
 		
 	def _compute(self,item,context):
 		res = {}
@@ -255,15 +255,17 @@ class BaseModel(object, metaclass = MetaObjects):
 		if 'cache' in context:
 			return context['cache']
 		else:
-			return self._session._mcache(['open',{'mode':mode,'context':context}])[0]
+			return self._proxy._mcache(['open',{'mode':mode,'context':context}])[0]
 #new
-	def read(self,ids,fields=None,context={}):
-		if hasattr(self,'_model'):
-			return  self._model.read(self, ids, fields, context)
+	# def read(self,ids,fields=None,context={}):
+		# if hasattr(self,'_model'):
+			# return  self._model.read(self, ids, fields, context)
 
-	def readforupdate(self,ids,fields=None,context={}):
-		if hasattr(self,'_model'):
-			return  self._model.readForUpdate(self, ids, fields, context)
+	# def readforupdate(self,ids,fields=None,context={}):
+		# if hasattr(self,'_modelCall'):
+			# print('_modelCall:',self._modelCall)
+		# if hasattr(self,'_model'):
+			# return  self._model.readForUpdate(self, ids, fields, context)
 
 	def write(self,records,context={}):
 		if hasattr(self,'_model'):
@@ -281,14 +283,14 @@ class BaseModel(object, metaclass = MetaObjects):
 		if hasattr(self,'_model'):
 			return  self._model.unlink(self,ids,context)
 
-	def select(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
-		if hasattr(self,'_model'):
-			return  self._model.select(self,fields, cond, context, limit, offset)
+	# def select(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
+		# if hasattr(self,'_model'):
+			# return  self._model.select(self,fields, cond, context, limit, offset)
 
 
-	def selectforupdate(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
-		if hasattr(self,'_model'):
-			return  self._model.selectForUpdate(self,fields, cond, context, limit, offset)
+	# def selectforupdate(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
+		# if hasattr(self,'_model'):
+			# return  self._model.selectForUpdate(self,fields, cond, context, limit, offset)
 
 	def update(self,record, cond = None,context = {}):
 		if hasattr(self,'_model'):
@@ -341,15 +343,17 @@ class BaseModel(object, metaclass = MetaObjects):
 
  
 #new
-	def read_1(self,ids,fields=None,context={}):
+	def read(self,ids,fields=None,context={}):
 		if hasattr(self,'_session'):
 			uid = self._getCacheID('read',context)
-			return getattr(self._session._cache[uid],'_read')(self,ids,fields,context)
+			return self._proxy.interface(uid,'_read',self,ids,fields,context)
+			#return getattr(self._session._cache[uid],'_read')(self,ids,fields,context)
 
-	def readforupdate_1(self,ids,fields=None,context={}):
+	def readforupdate(self,ids,fields=None,context={}):
 		if hasattr(self,'_session'):
 			uid = self._getCacheID('readforupdate',context)
-			return getattr(self._session._cache[uid],'_readforupdate')(self,ids,fields,context)
+			return self._proxy.interface(uid,'_readforupdate',self,ids,fields,context)
+			#return getattr(self._session._cache[uid],'_readforupdate')(self,ids,fields,context)
 
 	def write_1(self,records,context={}):
 		if hasattr(self,'_session'):
@@ -383,10 +387,12 @@ class BaseModel(object, metaclass = MetaObjects):
 				uid = self._getCacheID('unlink',context)
 				return getattr(self._session._cache[uid],'_unlink')(self,ids,context)
 
-	def select_1(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
+	def select(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
+		web_pdb.set_trace()
 		if hasattr(self,'_session'):
 			uid = self._getCacheID('select',context)
-			return getattr(self._session._cache[uid],'_select')(self,fields, cond, context, limit, offset)
+			return self._proxy.interface(uid,'_select',self,fields, cond, context, limit, offset)
+			#return getattr(self._session._cache[uid],'_select')(self,fields, cond, context, limit, offset)
 
 	def selectforupdate_1(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
 		if hasattr(self,'_session'):
@@ -891,3 +897,16 @@ class TransientModel(BaseModel):
 
 class ModelInherit(BaseModelInherit):
 	_transient = True
+
+class ModelProxy(object):
+	_methods = {}
+	
+	def __init__(self,session):
+		self._methods['call'] = session._call
+		self._methods['cr'] = session._cursor
+		self._methods['uid'] = session._uid
+		self._methods['get'] = session._getModel
+	
+	def __getattr__(self,name):
+		if name in self._methods:
+			return self._methods[name]

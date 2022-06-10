@@ -18,7 +18,7 @@ import web_pdb
 
 from gsrp5service.orm.mm import _m2mfieldid2
 
-__all__ = ['count','search','select','read','write','modify','create','insert','upsert','update','unlink','delete','browse','selectbrowse','tree','browse_record','browse_record_list','browse_null','_conv_record_to_ext']
+__all__ = ['count','search','select','read','readForUpdate','write','modify','create','insert','upsert','update','unlink','delete','browse','selectbrowse','tree','browse_record','browse_record_list','browse_null','_conv_record_to_ext']
 
 MAX_CHUNK_READ = 5000
 MAX_CHUNK_DELETE = 5000
@@ -85,6 +85,8 @@ def _conv_record_to_ext(self,record,context):
 							except:
 								#pass
 								web_pdb.set_trace()
+					else:
+						web_pdb.set_trace()
 				except ValueError:
 					#m = self._pool.get(self._columns[key].obj)
 					m = self.model(self._columns[key].obj)
@@ -301,7 +303,7 @@ def _createRecord(self, cr, uid, pool, model, record, context):
 			if 'id' not in record_t:
 				record_t['id'] = oid
 			if 'lang' not in record_t:
-				lang = pool.get('bc.users').read([{'preferences':['user_id','lang']}],{})
+				lang = pool.get('bc.users').read(context['user'],[{'preferences':['user_id','lang']}],{})
 				if len(lang[0]['preferences']) > 0:
 					record_t['lang'] = lang[0]['preferences'][0]['lang']['id']
 				else:
@@ -495,12 +497,12 @@ def _modifyRecord(self, cr, uid, pool, model, record, context):
 			if 'id' not in record_t:
 				record_t['id'] = oid
 			if 'lang' not in record_t:
-				lang = self._pool.get('bc.users').read(self._session._uid,[{'preferences':['user_id','lang']}],{})
+				lang = self._pool.get('bc.users').read(self._uid,[{'preferences':['user_id','lang']}],{})
 				if len(lang[0]['preferences']) > 0:
 					record_t['lang'] = lang[0]['preferences'][0]['lang']['id']
 				else:
 					if 'lang' in context:
-						record_t['lang'] = self._session._lang2id[context['lang']]
+						record_t['lang'] = model._model._session._lang2id[context['lang']]
 					else:
 						record_t['lang'] = self._session._lang2id['en']
 			sql,vals = gensql.ModifyI18N(self,cr, uid, pool, model, record_t, context)
@@ -782,6 +784,20 @@ def read(self, cr, uid, pool, model, ids, fields = None, context = {}):
 		orm_exception("Read:access dennied of model % s" % (model._name,))
 	return _read(self, cr, uid, pool, model, ids, fields, context)
 
+
+def readForUpdate(self, cr, uid, pool, model,ids,fields=None,context={}):
+	row = read(self, cr, uid, pool,model,ids,fields,context)
+	if len(row) > 0:
+		self._rawdata = row[0]
+		self._data = DCacheDict(row[0],model._name,model._cr,model._pool,model._uid,context)
+		self._getMeta()
+		m = self._data._getData(self._data._root)
+		m['__checks__'] = []
+		return [m]
+	else:
+		return row
+
+
 def _select(self, cr, uid, pool, model, fields = None ,cond = None, context = {}, limit = None, offset = None):
 
 	res = []
@@ -859,9 +875,9 @@ def select(self, cr, uid, pool, model, fields = None ,cond = None, context = {},
 	return _select(self, cr,uid, pool, model, fields, cond, context, limit, offset)
 
 # Other start
-def unlink(self, ids, context = {}):
-	if not self._access._checkUnlink():
-		orm_exception("Unlink:access dennied of model % s" % (self._name,))
+def unlink(self, cr, uid, pool, model, ids, context = {}):
+	if not model._access._checkUnlink():
+		orm_exception("Unlink:access dennied of model % s" % (model._name,))
 
 	res = []
 	if 'lang' not in context:
@@ -871,9 +887,9 @@ def unlink(self, ids, context = {}):
 	if type(ids)  == str:
 		ids = [ids]
 
-	model_info = self.modelInfo() #attributes=['type','rel','obj','id1','id2'])
+	model_info = model.modelInfo() #attributes=['type','rel','obj','id1','id2'])
 	columns_info = model_info['columns']
-	m2mfields = list(filter(lambda x: columns_info[x]['type'] == 'many2many',self._columns.keys()))
+	m2mfields = list(filter(lambda x: columns_info[x]['type'] == 'many2many',model._columns.keys()))
 	for m2mfield in m2mfields:
 		rel = columns_info[m2mfield]['rel']
 		obj = columns_info[m2mfield]['obj']
@@ -887,12 +903,12 @@ def unlink(self, ids, context = {}):
 		#for oid in ids:
 			#_m2munlink(self,rel,id1,id2,oid,rels,context)
 
-	trg1 = self._getTriger('bdr')
+	trg1 = model._getTriger('bdr')
 	for trg11 in trg1:
 		kwargs = {'oid':ids,'context':context}
 		trg11(**kwargs)
 
-	trg2 = self._getTriger('bd')
+	trg2 = model._getTriger('bd')
 	for trg22 in trg2:
 		kwargs = {'oid':ids,'context':context}
 		trg22(**kwargs)
@@ -903,25 +919,25 @@ def unlink(self, ids, context = {}):
 	for i in range(count):
 		j = i * MAX_CHUNK_DELETE
 		chunk_ids = ids[j:j + MAX_CHUNK_DELETE]
-		sql,vals = gensql.Unlink(self,chunk_ids,context)
-		rowcount = self._execute(sql,vals)
+		sql,vals = gensql.Unlink(self, cr, uid, pool, model, chunk_ids, context)
+		rowcount = cr.execute(sql,vals)
 		if rowcount > 0:
-			res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
+			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
 	if chunk > 0:
 		j = count * MAX_CHUNK_DELETE
 		chunk_ids = ids[j:]
-		sql,vals = gensql.Unlink(self,chunk_ids,context)
-		rowcount = self._execute(sql,vals)
+		sql,vals = gensql.Unlink(self, cr, uid, pool, model, chunk_ids,context)
+		rowcount = cr.execute(sql,vals)
 		if rowcount > 0:
-			res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
+			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
 
 
-	trg3 = self._getTriger('adr')
+	trg3 = model._getTriger('adr')
 	for trg33 in trg3:
 		kwargs = {'oid':ids,'context':context}
 		trg33(**kwargs)
 
-	trg4 = self._getTriger('ad')
+	trg4 = model._getTriger('ad')
 	for trg44 in trg4:
 		kwargs = {'oid':ids,'context':context}
 		trg44(**kwargs)
