@@ -174,7 +174,7 @@ class Session(Component):
 			return self._cache[args[1]]._rollback(**(args[2]))
 		elif args[0] == 'open':
 			oid = str(uuid.uuid4())
-			kwargs = {'cr':self._cursor,'pool':self._models,'uid':self._uid}
+			kwargs = {'cr':self._cursor,'pool':self._models,'uid':self._uid,'session':self}
 			for k in args[1].keys():
 				kwargs[k] = args[1][k]
 			self._cache[oid] = MCache(**kwargs)
@@ -327,7 +327,6 @@ class User(Session):
 			self._cursor  = Cursor(dsn=conf['dsn'],database=conf['database'],host=conf['host'],port=conf['port'],user=conf['user'],password=conf['password'])
 
 		if self._cursor.open():
-			self._SessionModel = Model(self)
 			self._registry = self._components['registry']
 			self._registry._setup(self)
 			self._registry._load_module('bc')
@@ -372,14 +371,11 @@ class User(Session):
 					self._components['registry']._load_installed_modules()
 					self._objects = self._components['registry']._create_loaded_objects(self)
 					self._components['registry']._load_inheritables()					  
-					self._SessionModel = Model(self)
 					for key in self._models.keys():
 						if res[2]:
 							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
-							self._models[key]._model = self._SessionModel
 						else:
 							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
-							self._models[key]._model = self._SessionModel
 	
 					self._setLangs()
 					return [self._connected,self._uid,{'country_timezones':dict(pytz.country_timezones),'country_names':dict(pytz.country_names),'langs':self._models.get('bc.langs').select(['code','description']),'preferences':self._models.get('bc.user.preferences').select(['user_id','lang','country','framework','timezone']),'frameworks':self._models.get('bc.web.frameworks').select(['code','descr'])}]
@@ -455,6 +451,10 @@ class System(Session):
 		cf.read(config_file)
 		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':'system','password':None,'sslmode':None,'sslrootcert':None,'sslrootkey':None,'sslcert':None,'sslkey':None},ikey=['port'])
 		#print('CONG:',self._conf)
+		self._proxy_models = ModelProxy(self)
+		self._proxy_triggers = TrigerProxy(self)
+		self._proxy_actions = ActionProxy(self)
+
 
 	def _call(self,args):
 		res = []
@@ -552,11 +552,9 @@ class System(Session):
 			self._components['registry']._load_modules()
 			self._objects = self._components['registry']._create_loaded_objects(self)
 			
-			self._SessionModel = Model(self)
 
 			for key in self._models.keys():
 				self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
-				self._models[key]._model = self._SessionModel
 			
 			# self._getUid()
 			# for key in self._components.keys():

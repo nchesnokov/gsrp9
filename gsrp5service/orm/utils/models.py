@@ -73,7 +73,7 @@ def _conv_record_to_ext(self,record,context):
 				try:
 					uuid.UUID(record[key])
 					#m = self._model._pool.get(self._columns[key].obj)
-					m = self.model(self._columns[key].obj)
+					m = self._model(self._columns[key].obj)
 					recname = m._RecNameName
 					ctx = context.copy()
 					ctx['read'] = 'raw'
@@ -89,7 +89,7 @@ def _conv_record_to_ext(self,record,context):
 						web_pdb.set_trace()
 				except ValueError:
 					#m = self._pool.get(self._columns[key].obj)
-					m = self.model(self._columns[key].obj)
+					m = self._model(self._columns[key].obj)
 					recname = m._RecNameName
 					ctx = context.copy()
 					ctx['read'] = 'raw'
@@ -944,14 +944,14 @@ def unlink(self, cr, uid, pool, model, ids, context = {}):
 
 	return res
 
-def delete(self, cond, context = {}):
-	if not self._access._checkUnlink():
+def delete(self, cr, uid, pool, model, cond, context = {}):
+	if not model._access._checkUnlink():
 		orm_exception("Delete:access dennied of model % s" % (self._name,))
 
 	res = []
-	oids = search(self, cond, context)
+	oids = search(self, cr, uid, pool, model, cond, context)
 	if len(oids) > 0:
-		res = unlink(self, oids, context)
+		res = unlink(self, cr, uid, pool, model, oids, context)
 	
 	return res
 

@@ -10,7 +10,7 @@ class common_schema_access_method(ModelInherit):
 	}
 
 	def get_schema(self,area,segment,name,context={}):
-		r = self._pool.get('seq.access.schemas').select(fields=['seq','condition','required',{'items':['seq','condition','required']}],cond=[('area','=',area),('segment','=',segment),('name','=','name')],context=context)
+		r = self._proxy.get('seq.access.schemas').select(fields=['seq','condition','required',{'items':['seq','condition','required']}],cond=[('area','=',area),('segment','=',segment),('name','=','name')],context=context)
 		if len(r) > 0:
 			return r[0]['items']
 		
@@ -75,7 +75,7 @@ class model_common(ModelInherit):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
+				r = self._proxy.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -111,7 +111,7 @@ class model_common(ModelInherit):
 			else:
 				ids = record['vat_code']
 			if ids:
-				r = self._pool.get('md.vat.code').read(ids,['value'],context)[0]['value']
+				r = self._proxy.get('md.vat.code').read(ids,['value'],context)[0]['value']
 				record['vat_amount'] = record['amount'] * Decimal('0.%s' % (r,)) 
 				
 		return None

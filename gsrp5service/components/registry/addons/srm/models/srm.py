@@ -44,26 +44,26 @@ class srm_demands(Model):
 	def _on_change_dtype(self,item,context={}):		
 		#import web_pdb
 		#web_pdb.set_trace()
-		roles = self._pool.get('srm.demand.type.roles').select(['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		roles = self._proxy.get('srm.demand.type.roles').select(['role_id'],[('type_id','=',item['dtype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('srm.demand.roles')._buildEmptyItem()
+			item_role = self._proxy.get('srm.demand.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = self._pool.get('srm.demand.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['dtype']['name'])],context)
+		deadlines = self._proxy.get('srm.demand.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['dtype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = self._pool.get('srm.demand.deadlines')._buildEmptyItem()
+			item_deadline = self._proxy.get('srm.demand.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 	
-		types = self._pool.get('srm.demand.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('srm.demand.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('srm.demand.texts')._buildEmptyItem()
+			item_text = self._proxy.get('srm.demand.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -74,12 +74,12 @@ class srm_demands(Model):
 
 	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._proxy.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = self._pool.get('srm.demand.item.delivery.schedules')._buildEmptyItem()
+				ei = self._proxy.get('srm.demand.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = self._pool.get('srm.demand.items')._buildEmptyItem()
+				item_items = self._proxy.get('srm.demand.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -211,7 +211,7 @@ class srm_demand_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -440,26 +440,26 @@ class srm_parts(Model):
 	'note': fields.text('Note')}
 	
 	def _on_change_ptype(self,item,context={}):		
-		roles = self._pool.get('srm.part.type.roles').select(['role_id'],[('type_id','=',item['ptype']['name'])],context)
+		roles = self._proxy.get('srm.part.type.roles').select(['role_id'],[('type_id','=',item['ptype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('srm.part.roles')._buildEmptyItem()
+			item_role = self._proxy.get('srm.part.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = self._pool.get('srm.part.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['ptype']['name'])],context)
+		deadlines = self._proxy.get('srm.part.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['ptype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = self._pool.get('srm.part.deadlines')._buildEmptyItem()
+			item_deadline = self._proxy.get('srm.part.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = self._pool.get('srm.part.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('srm.part.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('srm.part.texts')._buildEmptyItem()
+			item_text = self._proxy.get('srm.part.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -470,12 +470,12 @@ class srm_parts(Model):
 
 	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._proxy.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = self._pool.get('srm.part.item.delivery.schedules')._buildEmptyItem()
+				ei = self._proxy.get('srm.part.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = self._pool.get('srm.part.items')._buildEmptyItem()
+				item_items = self._proxy.get('srm.part.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -606,7 +606,7 @@ class srm_part_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -835,26 +835,26 @@ class srm_plans(Model):
 	'note': fields.text('Note')}
 	
 	def _on_change_ptype(self,item,context={}):		
-		roles = self._pool.get('srm.plan.type.roles').select(['role_id'],[('type_id','=',item['ptype']['name'])],context)
+		roles = self._proxy.get('srm.plan.type.roles').select(['role_id'],[('type_id','=',item['ptype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('srm.plan.roles')._buildEmptyItem()
+			item_role = self._proxy.get('srm.plan.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = self._pool.get('srm.plan.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['ptype']['name'])],context)
+		deadlines = self._proxy.get('srm.plan.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['ptype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = self._pool.get('srm.plan.deadlines')._buildEmptyItem()
+			item_deadline = self._proxy.get('srm.plan.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = self._pool.get('srm.plan.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('srm.plan.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('srm.plan.texts')._buildEmptyItem()
+			item_text = self._proxy.get('srm.plan.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -865,12 +865,12 @@ class srm_plans(Model):
 
 	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._proxy.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = self._pool.get('srm.plan.item.delivery.schedules')._buildEmptyItem()
+				ei = self._proxy.get('srm.plan.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = self._pool.get('srm.plan.items')._buildEmptyItem()
+				item_items = self._proxy.get('srm.plan.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -1001,7 +1001,7 @@ class srm_plan_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -1230,26 +1230,26 @@ class srm_requests(Model):
 	'note': fields.text('Note')}
 	
 	def _on_change_rtype(self,item,context={}):		
-		roles = self._pool.get('srm.request.type.roles').select(['role_id'],[('type_id','=',item['rtype']['name'])],context)
+		roles = self._proxy.get('srm.request.type.roles').select(['role_id'],[('type_id','=',item['rtype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('srm.request.roles')._buildEmptyItem()
+			item_role = self._proxy.get('srm.request.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = self._pool.get('srm.request.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
+		deadlines = self._proxy.get('srm.request.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = self._pool.get('srm.request.deadlines')._buildEmptyItem()
+			item_deadline = self._proxy.get('srm.request.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = self._pool.get('srm.request.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('srm.request.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('srm.request.texts')._buildEmptyItem()
+			item_text = self._proxy.get('srm.request.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -1260,12 +1260,12 @@ class srm_requests(Model):
 
 	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._proxy.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = self._pool.get('srm.request.item.delivery.schedules')._buildEmptyItem()
+				ei = self._proxy.get('srm.request.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = self._pool.get('srm.request.items')._buildEmptyItem()
+				item_items = self._proxy.get('srm.request.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -1396,7 +1396,7 @@ class srm_request_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -1625,26 +1625,26 @@ class srm_responses(Model):
 	'note': fields.text('Note')}
 	
 	def _on_change_rtype(self,item,context={}):		
-		roles = self._pool.get('srm.response.type.roles').select(['role_id'],[('type_id','=',item['rtype']['name'])],context)
+		roles = self._proxy.get('srm.response.type.roles').select(['role_id'],[('type_id','=',item['rtype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('srm.response.roles')._buildEmptyItem()
+			item_role = self._proxy.get('srm.response.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = self._pool.get('srm.response.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
+		deadlines = self._proxy.get('srm.response.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = self._pool.get('srm.response.deadlines')._buildEmptyItem()
+			item_deadline = self._proxy.get('srm.response.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = self._pool.get('srm.response.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('srm.response.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('srm.response.texts')._buildEmptyItem()
+			item_text = self._proxy.get('srm.response.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -1655,12 +1655,12 @@ class srm_responses(Model):
 
 	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._proxy.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = self._pool.get('srm.response.item.delivery.schedules')._buildEmptyItem()
+				ei = self._proxy.get('srm.response.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = self._pool.get('srm.response.items')._buildEmptyItem()
+				item_items = self._proxy.get('srm.response.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -1791,7 +1791,7 @@ class srm_response_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -2021,26 +2021,26 @@ class srm_rfxs(Model):
 	'note': fields.text('Note')}
 	
 	def _on_change_rtype(self,item,context={}):		
-		roles = self._pool.get('srm.rfx.type.roles').select(['role_id'],[('type_id','=',item['rtype']['name'])],context)
+		roles = self._proxy.get('srm.rfx.type.roles').select(['role_id'],[('type_id','=',item['rtype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('srm.rfx.roles')._buildEmptyItem()
+			item_role = self._proxy.get('srm.rfx.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = self._pool.get('srm.rfx.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
+		deadlines = self._proxy.get('srm.rfx.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['rtype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = self._pool.get('srm.rfx.deadlines')._buildEmptyItem()
+			item_deadline = self._proxy.get('srm.rfx.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = self._pool.get('srm.rfx.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('srm.rfx.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('srm.rfx.texts')._buildEmptyItem()
+			item_text = self._proxy.get('srm.rfx.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -2051,12 +2051,12 @@ class srm_rfxs(Model):
 
 	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._proxy.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = self._pool.get('srm.rfx.item.delivery.schedules')._buildEmptyItem()
+				ei = self._proxy.get('srm.rfx.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = self._pool.get('srm.rfx.items')._buildEmptyItem()
+				item_items = self._proxy.get('srm.rfx.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -2187,7 +2187,7 @@ class srm_rfx_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -2416,26 +2416,26 @@ class srm_auctions(Model):
 	'note': fields.text('Note')}
 	
 	def _on_change_atype(self,item,context={}):		
-		roles = self._pool.get('srm.auction.type.roles').select(['role_id'],[('type_id','=',item['atype']['name'])],context)
+		roles = self._proxy.get('srm.auction.type.roles').select(['role_id'],[('type_id','=',item['atype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('srm.auction.roles')._buildEmptyItem()
+			item_role = self._proxy.get('srm.auction.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = self._pool.get('srm.auction.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['atype']['name'])],context)
+		deadlines = self._proxy.get('srm.auction.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['atype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = self._pool.get('srm.auction.deadlines')._buildEmptyItem()
+			item_deadline = self._proxy.get('srm.auction.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = self._pool.get('srm.auction.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('srm.auction.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('srm.auction.texts')._buildEmptyItem()
+			item_text = self._proxy.get('srm.auction.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -2446,12 +2446,12 @@ class srm_auctions(Model):
 
 	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._proxy.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = self._pool.get('srm.auction.item.delivery.schedules')._buildEmptyItem()
+				ei = self._proxy.get('srm.auction.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = self._pool.get('srm.auction.items')._buildEmptyItem()
+				item_items = self._proxy.get('srm.auction.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -2582,7 +2582,7 @@ class srm_auction_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -2811,26 +2811,26 @@ class srm_offers(Model):
 	'note': fields.text('Note')}
 	
 	def _on_change_otype(self,item,context={}):		
-		roles = self._pool.get('srm.offer.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
+		roles = self._proxy.get('srm.offer.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('srm.offer.roles')._buildEmptyItem()
+			item_role = self._proxy.get('srm.offer.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = self._pool.get('srm.offer.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['otype']['name'])],context)
+		deadlines = self._proxy.get('srm.offer.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['otype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = self._pool.get('srm.offer.deadlines')._buildEmptyItem()
+			item_deadline = self._proxy.get('srm.offer.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = self._pool.get('srm.offer.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('srm.offer.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('srm.offer.texts')._buildEmptyItem()
+			item_text = self._proxy.get('srm.offer.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -2841,12 +2841,12 @@ class srm_offers(Model):
 
 	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._proxy.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = self._pool.get('srm.offer.item.delivery.schedules')._buildEmptyItem()
+				ei = self._proxy.get('srm.offer.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = self._pool.get('srm.offer.items')._buildEmptyItem()
+				item_items = self._proxy.get('srm.offer.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -2977,7 +2977,7 @@ class srm_offer_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -3206,26 +3206,26 @@ class srm_evolutions(Model):
 	'note': fields.text('Note')}
 	
 	def _on_change_etype(self,item,context={}):		
-		roles = self._pool.get('srm.evolution.type.roles').select(['role_id'],[('type_id','=',item['etype']['name'])],context)
+		roles = self._proxy.get('srm.evolution.type.roles').select(['role_id'],[('type_id','=',item['etype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('srm.evolution.roles')._buildEmptyItem()
+			item_role = self._proxy.get('srm.evolution.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = self._pool.get('srm.evolution.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['etype']['name'])],context)
+		deadlines = self._proxy.get('srm.evolution.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['etype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = self._pool.get('srm.evolution.deadlines')._buildEmptyItem()
+			item_deadline = self._proxy.get('srm.evolution.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = self._pool.get('srm.evolution.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('srm.evolution.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('srm.evolution.texts')._buildEmptyItem()
+			item_text = self._proxy.get('srm.evolution.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -3236,12 +3236,12 @@ class srm_evolutions(Model):
 
 	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._proxy.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = self._pool.get('srm.evolution.item.delivery.schedules')._buildEmptyItem()
+				ei = self._proxy.get('srm.evolution.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = self._pool.get('srm.evolution.items')._buildEmptyItem()
+				item_items = self._proxy.get('srm.evolution.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -3372,7 +3372,7 @@ class srm_evolution_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -3601,26 +3601,26 @@ class srm_decisions(Model):
 	'note': fields.text('Note')}
 	
 	def _on_change_dtype(self,item,context={}):		
-		roles = self._pool.get('srm.decision.type.roles').select(['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		roles = self._proxy.get('srm.decision.type.roles').select(['role_id'],[('type_id','=',item['dtype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('srm.decision.roles')._buildEmptyItem()
+			item_role = self._proxy.get('srm.decision.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = self._pool.get('srm.decision.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['dtype']['name'])],context)
+		deadlines = self._proxy.get('srm.decision.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['dtype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = self._pool.get('srm.decision.deadlines')._buildEmptyItem()
+			item_deadline = self._proxy.get('srm.decision.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = self._pool.get('srm.decision.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('srm.decision.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('srm.decision.texts')._buildEmptyItem()
+			item_text = self._proxy.get('srm.decision.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -3631,12 +3631,12 @@ class srm_decisions(Model):
 
 	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._proxy.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = self._pool.get('srm.decision.item.delivery.schedules')._buildEmptyItem()
+				ei = self._proxy.get('srm.decision.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = self._pool.get('srm.decision.items')._buildEmptyItem()
+				item_items = self._proxy.get('srm.decision.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -3767,7 +3767,7 @@ class srm_decision_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -3996,26 +3996,26 @@ class srm_contracts(Model):
 	'note': fields.text('Note')}
 	
 	def _on_change_ctype(self,item,context={}):		
-		roles = self._pool.get('srm.contract.type.roles').select(['role_id'],[('type_id','=',item['ctype']['name'])],context)
+		roles = self._proxy.get('srm.contract.type.roles').select(['role_id'],[('type_id','=',item['ctype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('srm.contract.roles')._buildEmptyItem()
+			item_role = self._proxy.get('srm.contract.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 
-		deadlines = self._pool.get('srm.contract.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['ctype']['name'])],context)
+		deadlines = self._proxy.get('srm.contract.type.deadlines').select(['sequence','deadline_id','required'],[('type_id','=',item['ctype']['name'])],context)
 		for deadline in deadlines:
-			item_deadline = self._pool.get('srm.contract.deadlines')._buildEmptyItem()
+			item_deadline = self._proxy.get('srm.contract.deadlines')._buildEmptyItem()
 			item_deadline['sequence'] = deadline['sequence']
 			item_deadline['deadline_id'] = deadline['deadline_id']
 			item_deadline['required'] = deadline['required']
 			item['deadlines'].append(item_deadline)
 		
-		types = self._pool.get('srm.contract.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('srm.contract.types').select(['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('srm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('srm.contract.texts')._buildEmptyItem()
+			item_text = self._proxy.get('srm.contract.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -4026,12 +4026,12 @@ class srm_contracts(Model):
 
 	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._pool.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self._proxy.get('md.bom.input.items').select(['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = self._pool.get('srm.contract.item.delivery.schedules')._buildEmptyItem()
+				ei = self._proxy.get('srm.contract.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = self._pool.get('srm.contract.items')._buildEmptyItem()
+				item_items = self._proxy.get('srm.contract.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
@@ -4162,7 +4162,7 @@ class srm_contract_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.srm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				

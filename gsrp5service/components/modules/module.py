@@ -420,9 +420,7 @@ def _installModule(self,name,chunk,context):
 			#web_pdb.set_trace()
 			for k in self._session._models.keys():
 				self._session._models[k]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
-				self._session._models[k]._model = self._session._SessionModel
-				
-	
+			
 			if name == 'bc':
 				self._cr.execute('insert into ' + self._session._models.get('bc.users')._table + ' (id,login,password,firstname,lastname,issuperuser) values(%s,%s,%s,%s,%s,%s)',(self._uid,'admin',pbkdf2_sha256.hash('admin'),'Administartor','System Administarator',True))
 				_load_list_allmodules(self)
@@ -434,7 +432,6 @@ def _installModule(self,name,chunk,context):
 
 		for k in self._session._objects[name]['models'].keys():
 			self._session._objects[name]['models'][k]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
-			self._session._objects[name]['models'][k]._model = self._session._SessionModel
 	
 	info = self._registry._modules[name]
 
@@ -529,7 +526,7 @@ def _uninstallModule(self,name):
 									sqls.append("ALTER TABLE IF EXISTS %s DROP COLUMN IF EXISTS %s CASCADE" % (ikey,icolkey))
 							
 							mmiv = self._session._models.get('bc.ui.model.views').select([{'inherit_views':['name']}],[('model','=',ikey)])
-							self._session._models.get('bc.ui.views.inherit').unlink(list(map(lambda x: x['id'],mmiv))) 				
+							self._session._models.get('bc.ui.model.view.column.inherits').unlink(list(map(lambda x: x['id'],mmiv))) 				
 							
 					else:
 						if model in self._session._models:
@@ -850,7 +847,12 @@ def _loadMetaInherit(self,model,module,context):
 		return record
 	
 	info_model = info_class.imodelInfo()
-	columns = info_model['columns']
+	columns = {}
+	for col in info_model['columns'].keys():
+		if info_model['columns'][col]['type'] == 'iProperty':
+			continue
+		columns[col] = info_model['columns'][col]
+
 	del info_model['columns']
 	
 	record['code'] = info_model['name']

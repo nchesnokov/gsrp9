@@ -19,7 +19,7 @@ import web_pdb
 from gsrp5service.orm.mm import _m2mfieldid2
 
 from gsrp5service.components.objs.mm import *
-from gsrp5service.orm.utils.models import _createRecord,_writeRecord,_modifyRecord,_unlinkRecord,_conv_record_to_ext,select
+from gsrp5service.orm.utils.models import _createRecord,_writeRecord,_modifyRecord,_unlinkRecord,_conv_record_to_ext,select,read,tree,search,count,unlink,delete,write,update,modify
 
 __all__ = ['DCacheList','DCacheDict','MCache']
 
@@ -933,7 +933,10 @@ class DCacheDict(object):
 		
 class MCache(object):
 	
-	def __init__(self,cr,pool,uid,mode,context):
+	def __init__(self,cr,pool,uid,session,mode,context):
+		self._proxy_models = session._proxy_models
+		self._proxy_triggers = session._proxy_triggers
+		self._proxy_actions = session._proxy_actions
 		self._cr = cr
 		self._pool = pool
 		self._uid = uid
@@ -1012,10 +1015,10 @@ class MCache(object):
 
 #model method
 	def _read(self,model,ids,fields=None,context={}):
-		return read(model,ids,fields,context)
+		return read(self, self._cr, self._uid, self._pool,model,ids,fields,context)
 
 	def _readforupdate(self,model,ids,fields=None,context={}):
-		row = read(model,ids,fields,context)
+		row = read(self, self._cr, self._uid, self._pool,model,ids,fields,context)
 		if len(row) > 0:
 			self._rawdata = row[0]
 			self._data = DCacheDict(row[0],model._name,model._cr,model._pool,model._uid,context)
@@ -1074,7 +1077,7 @@ class MCache(object):
 		return res
 
 	def _unlink(self,model,ids,context={}):
-		return unlink(model,ids,context)
+		return unlink(self, self._cr, self._uid, self._pool,model,ids,context)
 
 	def _select(self,model,fields = None ,cond = None, context = {}, limit = None, offset = None):
 		return select(self, self._cr, self._uid, self._pool, model,fields, cond, context, limit, offset)
@@ -1092,34 +1095,34 @@ class MCache(object):
 		return res 
 
 	def _update(self,model,record, cond = None,context = {}):
-		return update(model,record,cond,context)
+		return update(self, self._cr, self._uid, self._pool,model,record,cond,context)
 
 	def _upsert(self,model,fields, values,context = {}):
-		return upsert(model,fields, values,context )
+		return upsert(self,_cr, self._uid, self._pool,model,fields, values,context )
 
 	def _insert(self,model,fields, values,context = {}):
-		return insert(model,fields, values,context )
+		return insert(self, self._cr, self._uid, self._pool,model,fields, values,context )
 
 	def _delete(self,model,cond,context = {}):
-		return delete(model,cond,context )
+		return delete(self, self._cr, self._uid, self._pool,model,cond,context )
 
 	def _count(self,model,cond = None, context = {}):
-			return count(model,cond, context)
+			return count(self, self._cr, self._uid, self._pool,model,cond, context)
 
 	def _search(self,model, cond = None, context = {}, limit = None, offset = None):
-		return search(model,cond, context, limit, offset)
+		return search(self, self._cr, self._uid, self._pool,model,cond, context, limit, offset)
 
 	def _tree(self,model,fields = None ,parent = None, context = {}):
-		return tree(model,fields,parent, context)
+		return tree(self, self._cr, self._uid, self._pool,model,fields,parent, context)
 
 	def _treeforupdate(self,model,fields = None ,parent = None, context = {}):
-		return tree(model,fields,parent, context)
+		return tree(self, self._cr, self._uid, self._pool,model,fields,parent, context)
 
 	def _browse(self,model,ids,fields=None,context={}):
-			return browse(model,ids,fields,context)
+			return browse(self, self._cr, self._uid, self._pool,model,ids,fields,context)
 
 	def _selectbrowse(self,model, fields = None ,cond = None, context = {}, limit = None, offset = None):
-			return selectbrowse(model,fields,cond,context,limit,offset)
+			return selectbrowse(self, self._cr, self._uid, self._pool,model,fields,cond,context,limit,offset)
 
 	def _o2mread(self, oid, field,fields, context):
 		return _o2mread(self, oid, field,fields, context)

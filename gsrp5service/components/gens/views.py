@@ -133,7 +133,7 @@ def Area(self, modules = None,context={}):
 						inherit = getattr(imodel,'_inherit')
 						for m in inherit.keys():
 							if '_columns' in inherit[m]:
-								cols =  inherit[m]['_columns']
+								cols =  list(filter(lambda x: imodel._columns[x]._type != 'iProperty',inherit[m]['_columns']))
 								nm = m + '.' +imodel._name
 								views = []
 								mobj = registry._create_module_object('models',m,registry._getLastModuleObject('models',m))

@@ -39,6 +39,6 @@ class ModelProxy(object):
 		# return self._methods['_mcache'](args)
 			
 
-	def get(self,key):
-		return self._methods['get'](key)
+	# def get(self,key):
+		# return self._methods['get'](key)
 	

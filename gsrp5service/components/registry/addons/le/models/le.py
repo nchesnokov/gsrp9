@@ -65,18 +65,18 @@ class le_inbound_delivery(Model):
 	}
 
 	def _on_change_dtype(self,item,context={}):		
-		roles = self._pool.get('le.inbound.delivery.type.roles').select( ['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		roles = self._proxy.get('le.inbound.delivery.type.roles').select( ['role_id'],[('type_id','=',item['dtype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('le.inbound.delivery.roles')._buildEmptyItem()
+			item_role = self._proxy.get('le.inbound.delivery.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = self._pool.get('le.inbound.delivery.types').select( ['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('le.delivery.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('le.inbound.delivery.types').select( ['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('le.delivery.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('le.inbound.delivery.texts')._buildEmptyItem()
+			item_text = self._proxy.get('le.inbound.delivery.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -181,7 +181,7 @@ class le_inbound_delivery_items(Model):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
+				r = self._proxy.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -199,7 +199,7 @@ class le_inbound_delivery_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -307,7 +307,7 @@ class le_inbound_delivery_packlist(Model):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
+				r = self._proxy.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -325,7 +325,7 @@ class le_inbound_delivery_packlist(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -376,22 +376,22 @@ class le_outbound_delivery(Model):
 	}
 
 	def _itrade_ivisible(self,item,context={}):
-		we_country = self._pool.get('md.patner').select(['country_id'],[(self._pool.get('md.partner')._getRecNameName(),'=',item['partner']['name'])],context)[0]['country_id']['name']
-		return self._pool.get('md.company').count([(self._pool.get('md.company')._getRecNameName(),'=',item['company_id']['name']),('country_id','=',we_country)],context) > 0
+		we_country = self._proxy.get('md.patner').select(['country_id'],[(self._proxy.get('md.partner')._getRecNameName(),'=',item['partner']['name'])],context)[0]['country_id']['name']
+		return self._proxy.get('md.company').count([(self._proxy.get('md.company')._getRecNameName(),'=',item['company_id']['name']),('country_id','=',we_country)],context) > 0
 	
 	def _on_change_dtype(self,item,context={}):		
-		roles = self._pool.get('le.outbound.delivery.type.roles').select( ['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		roles = self._proxy.get('le.outbound.delivery.type.roles').select( ['role_id'],[('type_id','=',item['dtype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('le.outbound.delivery.roles')._buildEmptyItem()
+			item_role = self._proxy.get('le.outbound.delivery.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = self._pool.get('le.outbound.delivery.types').select( ['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('le.delivery.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('le.outbound.delivery.types').select( ['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('le.delivery.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('le.outbound.delivery.texts')._buildEmptyItem()
+			item_text = self._proxy.get('le.outbound.delivery.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -466,7 +466,7 @@ class le_outbound_delivery_items(Model):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
+				r = self._proxy.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -484,7 +484,7 @@ class le_outbound_delivery_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.sale.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.sale.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -547,7 +547,7 @@ class le_outbound_delivery_packlist(Model):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
+				r = self._proxy.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -565,7 +565,7 @@ class le_outbound_delivery_packlist(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -612,18 +612,18 @@ class le_internal_delivery(Model):
 	}
 
 	def _on_change_dtype(self,item,context={}):		
-		roles = self._pool.get('le.internal.delivery.type.roles').select( ['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		roles = self._proxy.get('le.internal.delivery.type.roles').select( ['role_id'],[('type_id','=',item['dtype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('le.internal.delivery.roles')._buildEmptyItem()
+			item_role = self._proxy.get('le.internal.delivery.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = self._pool.get('le.internal.delivery.types').select( ['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('le.delivery.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('le.internal.delivery.types').select( ['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('le.delivery.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('le.internal.delivery.texts')._buildEmptyItem()
+			item_text = self._proxy.get('le.internal.delivery.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -699,7 +699,7 @@ class le_internal_delivery_items(Model):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
+				r = self._proxy.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -717,7 +717,7 @@ class le_internal_delivery_items(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -781,7 +781,7 @@ class le_internal_delivery_packlist(Model):
 			else:
 				ids = item['vat_code']
 			if ids:
-				r = self._pool.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
+				r = self._proxy.get('md.vat.code').read(ids,['value','subtype_vat'],context)[0]
 				v = r['value']
 				s = r['subtype_vat']
 				if s == 'e':
@@ -799,7 +799,7 @@ class le_internal_delivery_packlist(Model):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.purchase.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				

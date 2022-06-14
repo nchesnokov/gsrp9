@@ -256,206 +256,159 @@ class BaseModel(object, metaclass = MetaObjects):
 			return context['cache']
 		else:
 			return self._proxy._mcache(['open',{'mode':mode,'context':context}])[0]
-#new
-	# def read(self,ids,fields=None,context={}):
-		# if hasattr(self,'_model'):
-			# return  self._model.read(self, ids, fields, context)
 
-	# def readforupdate(self,ids,fields=None,context={}):
-		# if hasattr(self,'_modelCall'):
-			# print('_modelCall:',self._modelCall)
-		# if hasattr(self,'_model'):
-			# return  self._model.readForUpdate(self, ids, fields, context)
-
-	def write(self,records,context={}):
-		if hasattr(self,'_model'):
-			return  self._model.write(self,records,context)
-
-	def modify(self,records,context={}):
-		if hasattr(self,'_model'):
-			return  self._model.modify(self,records,context)
-
-	def create(self,records,context={}):
-		if hasattr(self,'_model'):
-			return  self._model.create(self,records,context)
-
-	def unlink(self,ids,context={}):
-		if hasattr(self,'_model'):
-			return  self._model.unlink(self,ids,context)
-
-	# def select(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
-		# if hasattr(self,'_model'):
-			# return  self._model.select(self,fields, cond, context, limit, offset)
-
-
-	# def selectforupdate(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
-		# if hasattr(self,'_model'):
-			# return  self._model.selectForUpdate(self,fields, cond, context, limit, offset)
-
-	def update(self,record, cond = None,context = {}):
-		if hasattr(self,'_model'):
-			return  self._model.update(self,record,cond,context)
-
-	def upsert(self,fields, values,context = {}):
-		if hasattr(self,'_model'):
-			return  self._model.upsert(self,fields, values,context)
-
-	def insert(self,fields, values,context = {}):
-		if hasattr(self,'_model'):
-			return  self._model.insert(self,fields, values,context)
-
-	def delete(self,cond,context = {}):
-		if hasattr(self,'_model'):
-			return  self._model.upsert(self,cond, context)
-
-	def count(self,cond = None, context = {}):
-		if hasattr(self,'_model'):
-			return  self._model.count(self,cond, context)
-
-	def search(self,cond = None, context = {}, limit = None, offset = None):
-		if hasattr(self,'_model'):
-			return  self._model.search(self,cond, context, limit, offset)
-
-	def tree(self,fields = None ,parent = None, context = {}):
-		if hasattr(self,'_model'):
-			return  self._model.tree(self,fields,parent, context)
-
-	def treeforupdate(self,fields = None ,parent = None, context = {}):
-		if hasattr(self,'_model'):
-			return  self._model.treeForUpdate(self,fields,parent, context)
-
-	def browse(self,ids,fields=None,context={}):
-		if hasattr(self,'_model'):
-			return  self._model.browse(self,fields,parent, context)
-
-
-	def selectbrowse(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
-		if hasattr(self,'_model'):
-			return  self._model.selectBrowse(self, fields ,cond, context , limit, offset)
-
-	def model(self, name):
-		if hasattr(self,'_model'):
-			return  self._model.model(name)
-
-	def navigate(self, name):
-		if hasattr(self,'_model'):
-			return  self._model.navigate(name)
-
- 
-#new
 	def read(self,ids,fields=None,context={}):
-		if hasattr(self,'_session'):
-			uid = self._getCacheID('read',context)
-			return self._proxy.interface(uid,'_read',self,ids,fields,context)
-			#return getattr(self._session._cache[uid],'_read')(self,ids,fields,context)
+		uid = self._getCacheID('read',context)
+		return self._proxy.interface(uid,'_read',self,ids,fields,context)
 
 	def readforupdate(self,ids,fields=None,context={}):
-		if hasattr(self,'_session'):
-			uid = self._getCacheID('readforupdate',context)
-			return self._proxy.interface(uid,'_readforupdate',self,ids,fields,context)
-			#return getattr(self._session._cache[uid],'_readforupdate')(self,ids,fields,context)
+		uid = self._getCacheID('readforupdate',context)
+		return self._proxy.interface(uid,'_readforupdate',self,ids,fields,context)
 
-	def write_1(self,records,context={}):
-		if hasattr(self,'_session'):
-			if 'cache' in context:
-				return records
-			else:
-				uid = self._getCacheID('write',context)
-				return getattr(self._session._cache[uid],'_write')(self,records,context)
+	def write(self,records,context={}):
+		uid = self._getCacheID('write',context)
+		return getattr(self._session._cache[uid],'_write')(self,records,context)
 
-	def modify_1(self,records,context={}):
-		if hasattr(self,'_session'):
-			if 'cache' in context:
-				return records
-			else:
-				uid = self._getCacheID('modify',context)
-				return getattr(self._session._cache[uid],'_modify')(self,records,context)
+	def modify(self,records,context={}):
+		uid = self._getCacheID('modify',context)
+		return getattr(self._session._cache[uid],'_modify')(self,records,context)
 
-	def create_1(self,records,context={}):
-		if hasattr(self,'_session'):
-			if 'cache' in context:
-				return records
-			else:
-				uid = self._getCacheID('create',context)
-				return getattr(self._session._cache[uid],'_create')(self,records,context)
+	def create(self,records,context={}):
+		uid = self._getCacheID('create',context)
+		return getattr(self._session._cache[uid],'_create')(self,records,context)
 
-	def unlink_1(self,ids,context={}):
-		if hasattr(self,'_session'):
-			if 'cache' in context:
-				return ids
-			else:
-				uid = self._getCacheID('unlink',context)
-				return getattr(self._session._cache[uid],'_unlink')(self,ids,context)
+	def unlink(self,ids,context={}):
+		uid = self._getCacheID('unlink',context)
+		return getattr(self._session._cache[uid],'_unlink')(self,ids,context)
 
 	def select(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
-		if hasattr(self,'_session'):
-			uid = self._getCacheID('select',context)
-			return self._proxy.interface(uid,'_select',self,fields, cond, context, limit, offset)
-			#return getattr(self._session._cache[uid],'_select')(self,fields, cond, context, limit, offset)
+		uid = self._getCacheID('select',context)
+		return self._proxy.interface(uid,'_select',self,fields, cond, context, limit, offset)
 
-	def selectforupdate_1(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
-		if hasattr(self,'_session'):
-			uid = self._getCacheID('selectforupdate',context)
-			return getattr(self._session._cache[uid],'_selectforupdate')(self,fields, cond, context, limit, offset)
+	def selectforupdate(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
+		uid = self._getCacheID('selectforupdate',context)
+		return getattr(self._session._cache[uid],'_selectforupdate')(self,fields, cond, context, limit, offset)
 
-	def update_1(self,record, cond = None,context = {}):
-		if hasattr(self,'_session'):
-			if 'cache' in context:
-				return record
-			else:
-				uid = self._getCacheID('update',context)
-				return getattr(self._session._cache[uid],'_update')(self,record,cond,context)
+	def update(self,record, cond = None,context = {}):
+		uid = self._getCacheID('update',context)
+		return getattr(self._session._cache[uid],'_update')(self,record,cond,context)
 
-	def upsert_1(self,fields, values,context = {}):
-		if hasattr(self,'_session'):
-			if 'cache' in context:
-				return values
-			else:
-				uid = self._getCacheID('upsert',context)
-				return getattr(self._session._cache[uid],'_upsert')(self,fields, values,context )
+	def upsert(self,fields, values,context = {}):
+		uid = self._getCacheID('upsert',context)
+		return getattr(self._session._cache[uid],'_upsert')(self,fields, values,context )
 
-	def insert_1(self,fields, values,context = {}):
-		if hasattr(self,'_session'):
-			if 'cache' in context:
-				return values
-			else:
-				uid = self._getCacheID('insert',context)
-				return getattr(self._session._cache[uid],'_insert')(self,fields, values,context )
+	def insert(self,fields, values,context = {}):
+		uid = self._getCacheID('insert',context)
+		return getattr(self._session._cache[uid],'_insert')(self,fields, values,context )
 
-	def delete_1(self,cond,context = {}):
-		if hasattr(self,'_session'):
-			uid = self._getCacheID('delete',context)
-			return getattr(self._session._cache[uid],'_delete')(self,cond,context )
+	def delete(self,cond,context = {}):
+		uid = self._getCacheID('delete',context)
+		return getattr(self._session._cache[uid],'_delete')(self,cond,context )
 
-	def count_1(self,cond = None, context = {}):
-		if hasattr(self,'_session'):
-			uid = self._getCacheID('count',context)
-			return getattr(self._session._cache[uid],'_count')(self,cond, context)
+	def count(self,cond = None, context = {}):
+		uid = self._getCacheID('count',context)
+		return getattr(self._session._cache[uid],'_count')(self,cond, context)
 
-	def search_1(self,cond = None, context = {}, limit = None, offset = None):
-		if hasattr(self,'_session'):
-			uid = self._getCacheID('search',context)
-			return getattr(self._session._cache[uid],'_search')(self,cond, context, limit, offset)
+	def search(self,cond = None, context = {}, limit = None, offset = None):
+		uid = self._getCacheID('search',context)
+		return getattr(self._session._cache[uid],'_search')(self,cond, context, limit, offset)
 
-	def tree_1(self,fields = None ,parent = None, context = {}):
-		if hasattr(self,'_session'):
-			uid = self._getCacheID('tree',context)
-			return getattr(self._session._cache[uid],'_tree')(self,fields,parent, context)
+	def tree(self,fields = None ,parent = None, context = {}):
+		uid = self._getCacheID('tree',context)
+		return getattr(self._session._cache[uid],'_tree')(self,fields,parent, context)
 
-	def treeforupdate_1(self,fields = None ,parent = None, context = {}):
-		if hasattr(self,'_session'):
-			uid = self._getCacheID('treeforupdate',context)
-			return getattr(self._session._cache[uid],'_treeforupdate')(self,fields,parent, context)
+	def treeforupdate(self,fields = None ,parent = None, context = {}):
+		uid = self._getCacheID('treeforupdate',context)
+		return getattr(self._session._cache[uid],'_treeforupdate')(self,fields,parent, context)
 
-	def browse_1(self,ids,fields=None,context={}):
-		if hasattr(self,'_session'):
-			uid = self._getCacheID('browse',context)
-			return getattr(self._session._cache[uid],'_browse')(self,ids,fields,context)
+	def browse(self,ids,fields=None,context={}):
+		uid = self._getCacheID('browse',context)
+		return getattr(self._session._cache[uid],'_browse')(self,ids,fields,context)
 
-	def selectbrowse_1(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
-		if hasattr(self,'_session'):
-			uid = self._getCacheID('selectbrowse',context)
-			return getattr(self._session._cache[uid],'_selectbrowse')(self, fields ,cond, context , limit, offset )
+	def selectbrowse(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		uid = self._getCacheID('selectbrowse',context)
+		return getattr(self._session._cache[uid],'_selectbrowse')(self, fields ,cond, context , limit, offset )
+
+# model For
+	def readFor(self,name,ids,fields=None,context={}):
+		uid = self._getCacheID('read',context)
+		return self._proxy.interface(uid,'_read',self._proxy.get(name),ids,fields,context)
+
+	def readforupdateFor(self,name,ids,fields=None,context={}):
+		uid = self._getCacheID('readforupdate',context)
+		return self._proxy.interface(uid,'_readforupdate',self._proxy.get(name),ids,fields,context)
+
+	def writeFor(self,name,records,context={}):
+		uid = self._getCacheID('write',context)
+		return getattr(self._session._cache[uid],'_write')(self._proxy.get(name),records,context)
+
+	def modifyFor(self,name,records,context={}):
+		uid = self._getCacheID('modify',context)
+		return getattr(self._session._cache[uid],'_modify')(self._proxy.get(name),records,context)
+
+	def createFor(self,name,records,context={}):
+		uid = self._getCacheID('create',context)
+		return getattr(self._session._cache[uid],'_create')(self._proxy.get(name),records,context)
+
+	def unlinkFor(self,name,ids,context={}):
+		uid = self._getCacheID('unlink',context)
+		return getattr(self._session._cache[uid],'_unlink')(self._proxy.get(name),ids,context)
+
+	def selectFor(self,name,fields = None ,cond = None, context = {}, limit = None, offset = None):
+		uid = self._getCacheID('select',context)
+		return self._proxy.interface(uid,'_select',self._proxy.get(name),fields, cond, context, limit, offset)
+
+	def selectforupdateFor(self,name,fields = None ,cond = None, context = {}, limit = None, offset = None):
+		uid = self._getCacheID('selectforupdate',context)
+		return getattr(self._session._cache[uid],'_selectforupdate')(self._proxy.get(name),fields, cond, context, limit, offset)
+
+	def updateFor(self,name,record, cond = None,context = {}):
+		uid = self._getCacheID('update',context)
+		return getattr(self._session._cache[uid],'_update')(self._proxy.get(name),record,cond,context)
+
+	def upsertFor(self,name,fields, values,context = {}):
+		uid = self._getCacheID('upsert',context)
+		return getattr(self._session._cache[uid],'_upsert')(self._proxy.get(name),fields, values,context )
+
+	def insertFor(self,name,fields, values,context = {}):
+		uid = self._getCacheID('insert',context)
+		return getattr(self._session._cache[uid],'_insert')(self._proxy.get(name),fields, values,context )
+
+	def deleteFor(self,name,cond,context = {}):
+		uid = self._getCacheID('delete',context)
+		return getattr(self._session._cache[uid],'_delete')(self._proxy.get(name),cond,context )
+
+	def countFor(self,name,cond = None, context = {}):
+		uid = self._getCacheID('count',context)
+		return getattr(self._session._cache[uid],'_count')(self._proxy.get(name),cond, context)
+
+	def searchFor(self,name,cond = None, context = {}, limit = None, offset = None):
+		uid = self._getCacheID('search',context)
+		return getattr(self._session._cache[uid],'_search')(self._proxy.get(name),cond, context, limit, offset)
+
+	def treeFor(self,name,fields = None ,parent = None, context = {}):
+		uid = self._getCacheID('tree',context)
+		return getattr(self._session._cache[uid],'_tree')(self._proxy.get(name),fields,parent, context)
+
+	def treeforupdateFor(self,name,fields = None ,parent = None, context = {}):
+		uid = self._getCacheID('treeforupdate',context)
+		return getattr(self._session._cache[uid],'_treeforupdate')(self._proxy.get(name),fields,parent, context)
+
+	def browseFor(self,name,ids,fields=None,context={}):
+		uid = self._getCacheID('browse',context)
+		return getattr(self._session._cache[uid],'_browse')(self._proxy.get(name),ids,fields,context)
+
+	def selectbrowseFor(self,name, fields = None ,cond = None, context = {}, limit = None, offset = None):
+		uid = self._getCacheID('selectbrowse',context)
+		return getattr(self._session._cache[uid],'_selectbrowse')(self._proxy.get(name), fields ,cond, context , limit, offset )
+
+
+# model For
+	def _model(self,name):
+		return self._proxy.get(name)
+
+	def _navigate(self,name):
+		return name
 
 	def o2mread(self, oid, field,fields, context):
 		if hasattr(self,'_session'):

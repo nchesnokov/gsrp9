@@ -32,7 +32,7 @@ class model_common(ModelInherit):
 
 	def _on_change_product(self,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._pool.get('md.mm.product').select(['uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.mm.product').select(['uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				for f in ('uom','price','currency','unit','uop'):
 					if f not in item or item[f] != p[0][f]:
@@ -91,21 +91,21 @@ class mm_production_orders(Model):
 	}
 
 	def _on_change_otype(self,item,context={}):		
-		roles = self._pool.get('mm.production.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
+		roles = self._proxy.get('mm.production.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('mm.production.order.roles')._buildEmptyItem()
+			item_role = self._proxy.get('mm.production.order.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = self._pool.get('mm.production.order.types').select(['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = self._pool.get('mm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('mm.production.order.types').select(['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = self._proxy.get('mm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		if len(texts1) > 0:
 			texts = texts1[0]['texts']
 		else:
 			texts = texts1
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('mm.production.order.texts')._buildEmptyItem()
+			item_text = self._proxy.get('mm.production.order.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -116,13 +116,13 @@ class mm_production_orders(Model):
 
 	def _on_change_map(self,item,context={}):
 		if  item['map'] and 'name' in item['map'] and item['map']['name']:
-			m = self._pool.get('mm.production.maps').select(['fullname','bom',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
+			m = self._proxy.get('mm.production.maps').select(['fullname','bom',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
 			if len(m) > 0:
 				if m[0]['bom']:
 					item['bom'] = m[0]['bom']
 				if len(m[0]['ops']) > 0:
 					for op in m[0]['ops']:
-						ei_op = self._pool.get('mm.production.order.ops')._buildEmptyItem()
+						ei_op = self._proxy.get('mm.production.order.ops')._buildEmptyItem()
 						for k in filter(lambda x: x != 'id',op.keys()):
 							ei_op[k] = op[k]
 							
@@ -130,13 +130,13 @@ class mm_production_orders(Model):
 
 	def _on_change_bom(self,item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			b = self._pool.get('md.boms').select(['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['bom']['name'])],context)
+			b = self._proxy.get('md.boms').select(['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['bom']['name'])],context)
 			if len(b) > 0:
 				item['product'] = b[0]['product']
 				item['part'] = b[0]['partition']
 				p = b[0]['items']
 				for i in p:
-					ei = self._pool.get('mm.production.order.items')._buildEmptyItem()
+					ei = self._proxy.get('mm.production.order.items')._buildEmptyItem()
 					ei['product'] = i['product']
 					ei['quantity'] = i['quantity']
 					ei['uom'] = i['uom']
@@ -327,21 +327,21 @@ class mm_technologic_orders(Model):
 	'note': fields.text(label='Note')}
 
 	def _on_change_otype(self,item,context={}):		
-		roles = self._pool.get('mm.technologic.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
+		roles = self._proxy.get('mm.technologic.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('mm.technologic.order.roles')._buildEmptyItem()
+			item_role = self._proxy.get('mm.technologic.order.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = self._pool.get('mm.technologic.order.types').select(['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = self._pool.get('mm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('mm.technologic.order.types').select(['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = self._proxy.get('mm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		if len(texts1) > 0:
 			texts = texts1[0]['texts']
 		else:
 			texts = texts1
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('mm.technologic.order.texts')._buildEmptyItem()
+			item_text = self._proxy.get('mm.technologic.order.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -352,13 +352,13 @@ class mm_technologic_orders(Model):
 
 	def _on_change_map(self,item,context={}):
 		if  item['map'] and 'name' in item['map'] and item['map']['name']:
-			m = self._pool.get('mm.technologic.maps').select(['fullname','bob',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
+			m = self._proxy.get('mm.technologic.maps').select(['fullname','bob',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
 			if len(m) > 0:
 				if m[0]['bob']:
 					item['bob'] = m[0]['bob']
 				if len(m[0]['ops']) > 0:
 					for op in m[0]['ops']:
-						ei_op = self._pool.get('mm.technologic.order.ops')._buildEmptyItem()
+						ei_op = self._proxy.get('mm.technologic.order.ops')._buildEmptyItem()
 						for k in filter(lambda x: x != 'id',op.keys()):
 							ei_op[k] = op[k]
 						
@@ -366,12 +366,12 @@ class mm_technologic_orders(Model):
 
 	def _on_change_bob(self,item,context={}):		
 		if item['bob'] and 'name' in item['bob'] and item['bob']['name']:
-			b = self._pool.get('md.bobs').select(['fullname','partition',{'input_items':['product','quantity','uom']},{'output_items':['product','quantity','uom']}],[('fullname','=',item['bob']['name'])],context)
+			b = self._proxy.get('md.bobs').select(['fullname','partition',{'input_items':['product','quantity','uom']},{'output_items':['product','quantity','uom']}],[('fullname','=',item['bob']['name'])],context)
 			if len(b) > 0:
 				item['part'] = b[0]['partition']
 				p = b[0]['input_items']
 				for i in p:
-					ei = self._pool.get('mm.technologic.order.item.ibob')._buildEmptyItem()
+					ei = self._proxy.get('mm.technologic.order.item.ibob')._buildEmptyItem()
 					ei['product'] = i['product']
 					ei['quantity'] = i['quantity']
 					ei['uom'] = i['uom']
@@ -379,7 +379,7 @@ class mm_technologic_orders(Model):
 					
 				p = b[0]['output_items']
 				for i in p:
-					ei = self._pool.get('mm.technologic.order.item.obob')._buildEmptyItem()
+					ei = self._proxy.get('mm.technologic.order.item.obob')._buildEmptyItem()
 					ei['product'] = i['product']
 					ei['quantity'] = i['quantity']
 					ei['uom'] = i['uom']
@@ -631,21 +631,21 @@ class mm_disassembly_orders(Model):
 	'note': fields.text('Note')}
 
 	def _on_change_otype(self,item,context={}):		
-		roles = self._pool.get('mm.disassembly.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
+		roles = self._proxy.get('mm.disassembly.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('mm.disassembly.order.roles')._buildEmptyItem()
+			item_role = self._proxy.get('mm.disassembly.order.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = self._pool.get('mm.disassembly.order.types').select(['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = self._pool.get('mm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('mm.disassembly.order.types').select(['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = self._proxy.get('mm.schema.texts').select(['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		if len(texts1) > 0:
 			texts = texts1[0]['texts']
 		else:
 			texts = texts1
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('mm.disassembly.order.texts')._buildEmptyItem()
+			item_text = self._proxy.get('mm.disassembly.order.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -656,13 +656,13 @@ class mm_disassembly_orders(Model):
 
 	def _on_change_map(self,item,context={}):
 		if  item['map'] and 'name' in item['map'] and item['map']['name']:
-			m = self._pool.get('mm.disassembly.maps').select(['fullname','mob',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
+			m = self._proxy.get('mm.disassembly.maps').select(['fullname','mob',{'ops':['prev','op','next','workcenter','duration','uod','per_cicle','note']}],[('fullname','=',item['map']['name'])],context)		
 			if len(m) > 0:
 				if m[0]['mob']:
 					item['mob'] = m[0]['mob']
 				if len(m[0]['ops']) > 0:
 					for op in m[0]['ops']:
-						ei_op = self._pool.get('mm.disassembly.order.ops')._buildEmptyItem()
+						ei_op = self._proxy.get('mm.disassembly.order.ops')._buildEmptyItem()
 						for k in filter(lambda x: x != 'id',op.keys()):
 							ei_op[k] = op[k]
 						
@@ -670,14 +670,14 @@ class mm_disassembly_orders(Model):
 
 	def _on_change_mob(self,item,context={}):		
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
-			b = self._pool.get('md.mobs').select(['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['mob']['name'])],context)
+			b = self._proxy.get('md.mobs').select(['fullname','product','partition',{'items':['product','quantity','uom']}],[('fullname','=',item['mob']['name'])],context)
 			if len(b) > 0:
 				item['product'] = b[0]['product']
 				item['part'] = b[0]['partition']
 				p = b[0]['items']
 
 				for i in p:
-					ei = self._pool.get('mm.disassembly.order.items')._buildEmptyItem()
+					ei = self._proxy.get('mm.disassembly.order.items')._buildEmptyItem()
 					ei['product'] = i['product']
 					ei['quantity'] = i['quantity']
 					ei['uom'] = i['uom']

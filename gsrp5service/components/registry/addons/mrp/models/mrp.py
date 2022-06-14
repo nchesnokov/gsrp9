@@ -27,18 +27,18 @@ class mrp_demand(Model):
 	}
 
 	def _on_change_dtype(self,item,context={}):		
-		roles = self._pool.get('mrp.demand.type.roles').select( ['role_id'],[('type_id','=',item['dtype']['name'])],context)
+		roles = self._proxy.get('mrp.demand.type.roles').select( ['role_id'],[('type_id','=',item['dtype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('mrp.demand.roles')._buildEmptyItem()
+			item_role = self._proxy.get('mrp.demand.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = self._pool.get('mrp.demand.types').select( ['htschema'],[('name','=',item['dtype']['name'])],context)	
-		texts1 = self._pool.get('mrp.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('mrp.demand.types').select( ['htschema'],[('name','=',item['dtype']['name'])],context)	
+		texts1 = self._proxy.get('mrp.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('mrp.demand.texts')._buildEmptyItem()
+			item_text = self._proxy.get('mrp.demand.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -116,12 +116,12 @@ class mrp_demand_items(Model):
 
 	def _on_add_row(self,item,context={}):
 		data = context['data']
-		types = self._pool.get('mrp.demand.types').select( ['itschema'],[('name','=',data['dtype']['name'])],context)
-		texts1 = self._pool.get('mrp.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['itschema']['name'])],context)
+		types = self._proxy.get('mrp.demand.types').select( ['itschema'],[('name','=',data['dtype']['name'])],context)
+		texts1 = self._proxy.get('mrp.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['itschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('mrp.demand.item.texts')._buildEmptyItem()
+			item_text = self._proxy.get('mrp.demand.item.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -204,18 +204,18 @@ class mrp_request(Model):
 	'note': fields.text('Note')}
 
 	def _on_change_rtype(self,item,context={}):		
-		roles = self._pool.get('mrp.request.type.roles').select( ['role_id'],[('type_id','=',item['rtype']['name'])],context)
+		roles = self._proxy.get('mrp.request.type.roles').select( ['role_id'],[('type_id','=',item['rtype']['name'])],context)
 		for role in roles:
-			item_role = self._pool.get('mrp.request.roles')._buildEmptyItem()
+			item_role = self._proxy.get('mrp.request.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = self._pool.get('mrp.request.types').select( ['htschema'],[('name','=',item['rtype']['name'])],context)	
-		texts1 = self._pool.get('mrp.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		types = self._proxy.get('mrp.request.types').select( ['htschema'],[('name','=',item['rtype']['name'])],context)	
+		texts1 = self._proxy.get('mrp.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('mrp.request.texts')._buildEmptyItem()
+			item_text = self._proxy.get('mrp.request.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
@@ -295,12 +295,12 @@ class mrp_request_items(Model):
 
 	def _on_add_row(self,item,context={}):
 		data = context['data']
-		types = self._pool.get('mrp.request.types').select( ['itschema'],[('name','=',data['rtype']['name'])],context)
-		texts1 = self._pool.get('mrp.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['itschema']['name'])],context)
+		types = self._proxy.get('mrp.request.types').select( ['itschema'],[('name','=',data['rtype']['name'])],context)
+		texts1 = self._proxy.get('mrp.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['itschema']['name'])],context)
 		texts = texts1[0]['texts']
 		seq = 0
 		for text in texts:
-			item_text = self._pool.get('mrp.request.item.texts')._buildEmptyItem()
+			item_text = self._proxy.get('mrp.request.item.texts')._buildEmptyItem()
 			if text['seq']:
 				item_text['seq'] = text['seq']
 			else:
