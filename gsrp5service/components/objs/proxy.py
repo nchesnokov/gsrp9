@@ -2,36 +2,41 @@
 class ModelProxy(object):
 	_methods = {}
 	
-	def __init__(self,session):
-		self._methods['call'] = session._call
-		self._methods['cr'] = session._getCursor
-		self._methods['uid'] = session._getUid
-		self._methods['pool'] = session._getPool
-		self._methods['interface'] = session._getInterface
-		self._methods['_mcache'] = session._getMCache
-		self._methods['get'] = session._getModel
+	def __init__(self,proxy):
+		self._methods['call'] = proxy._call
+		self._methods['cr'] = proxy._getCursor
+		self._methods['uid'] = proxy._getUid
+		self._methods['pool'] = proxy._getPool
+		self._methods['interface'] = proxy._getInterface
+		self._methods['_mcache'] = proxy._getMCache
+		self._methods['get'] = proxy._getModel
+		self._methods['_lang2id'] = proxy._getLangID
 	
 	
-	def call(*args,**kwars):
-		return self._methods['call'](*args,**kwargs)
-
-	@property
-	def cr(self):
-		return self._methods['cr']()
+	def __getattr__(self,name):
+		if name in self._methods:
+			return self._methods[name]
 	
-	@property
-	def uid(self):
-		return self._methods['uid']()
+	# def call(*args,**kwars):
+		# return self._methods['call'](*args,**kwargs)
 
-	@property
-	def pool(self):
-		return self._methods['pool']()
+	# @property
+	# def cr(self):
+		# return self._methods['cr']()
+	
+	# @property
+	# def uid(self):
+		# return self._methods['uid']()
 
-	def interface(self,key,name,*args,**kwargs):
-		return self._methods['interface'](key,name,*args,**kwargs)
+	# @property
+	# def pool(self):
+		# return self._methods['pool']()
 
-	def _mcache(self,args):
-		return self._methods['_mcache'](args)
+	# def interface(self,key,name,*args,**kwargs):
+		# return self._methods['interface'](key,name,*args,**kwargs)
+
+	# def _mcache(self,args):
+		# return self._methods['_mcache'](args)
 			
 
 	def get(self,key):

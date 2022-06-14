@@ -19,7 +19,7 @@ import web_pdb
 from gsrp5service.orm.mm import _m2mfieldid2
 
 from gsrp5service.components.objs.mm import *
-from gsrp5service.orm.utils.models import _createRecord,_writeRecord,_modifyRecord,_unlinkRecord,_conv_record_to_ext
+from gsrp5service.orm.utils.models import _createRecord,_writeRecord,_modifyRecord,_unlinkRecord,_conv_record_to_ext,select
 
 __all__ = ['DCacheList','DCacheDict','MCache']
 
@@ -1077,7 +1077,7 @@ class MCache(object):
 		return unlink(model,ids,context)
 
 	def _select(self,model,fields = None ,cond = None, context = {}, limit = None, offset = None):
-		return select(model,fields, cond, context, limit, offset)
+		return select(self, self._cr, self._uid, self._pool, model,fields, cond, context, limit, offset)
 
 	def _selectforupdate(self,model,fields = None ,cond = None, context = {}, limit = None, offset = None):
 		res = []

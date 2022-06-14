@@ -19,6 +19,100 @@ _logger = logging.getLogger('listener.' + __name__)
 
 class interface_exception(Exception): pass
 
+class ModelProxy(object):
+	def __init__(self,session):
+		self._session = session
+
+	def _call(self,args):
+		return self._session._call(args)
+
+	@property
+	def _getCursor(self):
+		return self._session._cursor
+	
+	@property
+	def _getUid(self):
+		return self._session._uid
+
+	@property
+	def _getPool(self):
+		return	self._session._objects.get('models')
+	
+	@property
+	def _getMCache(self):
+		return self._session._mcache
+
+	def _getInterface(self,key,name,*args, **kwargs):
+		if key and key in self._session._cache and hasattr(self._session._cache[key],name):
+			return getattr(self._session._cache[key],name)(*args,**kwargs)
+		
+	def _getModel(self,name):
+		return	self._session._objects.get('models').get(name)
+	
+	def _getLangID(self,lang):
+		return self._session._lang2id.get(lang)
+
+class TrigerProxy(object):
+	def __init__(self,session):
+		self._session = session
+	
+	def _call(self,args):
+		return self._session._call(args)
+
+	@property
+	def _getCursor(self):
+		return self._session._cursor
+	
+	@property
+	def _getUid(self):
+		return self._session._uid
+
+	@property
+	def _getPool(self):
+		return	self._session._objects.get('triggers')
+	
+	@property
+	def _getMCache(self):
+		return self._session._mcache
+
+	def _getInterface(self,key,name,*args, **kwargs):
+		if key and key in self._session._cache and hasattr(self._session._cache[key],name):
+			return getattr(self._session._cache[key],name)(*args,**kwargs)
+		
+	def _getModel(self,name):
+		return	self._session._objects.get('triggers').get(name)
+
+class ActionProxy(object):
+	def __init__(self,session):
+		self._session = session
+
+	def _call(self,args):
+		return self._session._call(args)
+
+	@property
+	def _getCursor(self):
+		return self._session._cursor
+	
+	@property
+	def _getUid(self):
+		return self._session._uid
+
+	@property
+	def _getPool(self):
+		return	self._session._objects.get('actions')
+	
+	@property
+	def _getMCache(self):
+		return self._session._mcache
+
+	def _getInterface(self,key,name,*args, **kwargs):
+		if key and key in self._session._cache and hasattr(self._session._cache[key],name):
+			return getattr(self._session._cache[key],name)(*args,**kwargs)
+		
+	def _getModel(self,name):
+		return	self._session._objects.get('actions').get(name)
+
+
 class Session(Component):
 	_lang2id = {}
 	def _mcache(self,args):
@@ -120,29 +214,33 @@ class User(Session):
 		cf = ConfigParser()
 		cf.read(config_file)
 		self._conf = configManagerDynamic(cf,{'dsn':None,'database':None,'host':'localhost','port':26257,'user':None,'password':None,'sslmode':None,'sslrootcert':None,'sslrootkey':None,'sslcert':None,'sslkey':None},ikey=['port'])
-
-	@property
-	def _getCursor(self):
-		return self._cursor
 	
-	@property
-	def _getUid(self):
-		return self._uid
+		self._proxy_models = ModelProxy(self)
+		self._proxy_triggers = TrigerProxy(self)
+		self._proxy_actions = ActionProxy(self)
 
-	@property
-	def _getPool(self):
-		return	self._objects.get('models')
+	# @property
+	# def _getCursor(self):
+		# return self._cursor
 	
-	@property
-	def _getMCache(self):
-		return self._mcache
+	# @property
+	# def _getUid(self):
+		# return self._uid
 
-	def _getInterface(self,key,name,*args, **kwargs):
-		if key and key in self._cache and hasattr(self._cache[key],name):
-			return getattr(self._cache[key],name)(*args,**kwargs)
+	# @property
+	# def _getPool(self):
+		# return	self._objects.get('models')
+	
+	# @property
+	# def _getMCache(self):
+		# return self._mcache
+
+	# def _getInterface(self,key,name,*args, **kwargs):
+		# if key and key in self._cache and hasattr(self._cache[key],name):
+			# return getattr(self._cache[key],name)(*args,**kwargs)
 		
-	def _getModel(self,name):
-		return self._models[name]
+	# def _getModel(self,name):
+		# return self._models[name]
 		
 	def _call(self,args):
 		rmsg = []

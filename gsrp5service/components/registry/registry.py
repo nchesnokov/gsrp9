@@ -228,7 +228,7 @@ class Registry(Component):
 		obj = cls()
 		
 		if isinstance(obj,Model):
-			obj.__init__(proxy= ModelProxy(self._session))
+			obj.__init__(proxy= ModelProxy(self._session._proxy_models))
 		else:
 			obj.__init__()	
 		return obj	

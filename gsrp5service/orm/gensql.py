@@ -312,7 +312,7 @@ def _build_query(self, cr, uid, pool, model, fields, cond, context):
 		columns['c'] = list(set(model._i18nfields).intersection(set(_fields)).intersection(set(model._rowfields)))
 		for c in columns['c']:
 			columns_maps[c] = 'c.' + c
-		joins.append("LEFT OUTER JOIN " + model._tr_table + " AS c ON (c.id = a.id AND c.lang = '%s')" % (self._session._lang2id[context['lang']].lower(),) )
+		joins.append("LEFT OUTER JOIN " + model._tr_table + " AS c ON (c.id = a.id AND c.lang = '%s')" % (model._proxy._lang2id(context['lang']).lower(),) )
 
 	if parent_id and parent_id in columns['a']:
 		if model._tr_table and  recname in model._i18nfields:
@@ -320,7 +320,7 @@ def _build_query(self, cr, uid, pool, model, fields, cond, context):
 			columns.setdefault('d',[]).extend([recname,'lang'])
 			columns_maps[parent_id] = 'd.' + recname
 			columns_as['d.' + recname] = '"' + parent_id + '-name' + '"'
-			joins.append("LEFT OUTER JOIN " + model._tr_table + " AS d ON (d.id = a." + parent_id + " and d.lang = '%s')" % (self._session._lang2id[context['lang']].lower(),) )
+			joins.append("LEFT OUTER JOIN " + model._tr_table + " AS d ON (d.id = a." + parent_id + " and d.lang = '%s')" % (model._proxy._lang2id(context['lang']).lower(),) )
 		else:
 			aliases['b'] = model._table
 			columns.setdefault('b',[]).extend([recname])
@@ -426,7 +426,7 @@ def parse_joins(self,context,pool, model, aliases,joins = None):
 	
 	i18nfields = pool.get(model)._i18nfields
 	if len(i18nfields) > 0:
-		join += ' LEFT OUTER JOIN ' + pool.get(model)._tr_table +" AS c ON (c.id = a.id and c.lang = '%s')" % (self._session._lang2id[context['lang']].lower(),)	
+		join += ' LEFT OUTER JOIN ' + pool.get(model)._tr_table +" AS c ON (c.id = a.id and c.lang = '%s')" % (model._proxy._lang2id(context['lang']).lower(),)	
 
 
 	parent_id = pool.get(model)._getParentIdName()

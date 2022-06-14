@@ -388,7 +388,6 @@ class BaseModel(object, metaclass = MetaObjects):
 				return getattr(self._session._cache[uid],'_unlink')(self,ids,context)
 
 	def select(self,fields = None ,cond = None, context = {}, limit = None, offset = None):
-		web_pdb.set_trace()
 		if hasattr(self,'_session'):
 			uid = self._getCacheID('select',context)
 			return self._proxy.interface(uid,'_select',self,fields, cond, context, limit, offset)
