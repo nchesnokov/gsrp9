@@ -29,7 +29,7 @@ class fm_units(Model):
 	_class_category = 'order'
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='fm.unit.categories'),
-	'company_id': fields.many2many(label='Companies',obj='md.company', rel='md_company_fm_unit_rel', id2='unit_id', id1='company_id'),
+	'company_ids': fields.many2many(label='Companies',obj='md.company', rel='md_company_fm_unit_rel', id2='unit_id', id1='company_id'),
 	'code': fields.varchar(label = 'Code',size=8,translate=True),
 	'descr':fields.varchar(label = 'Description',size=128,translate=True),
 	#'channels': fields.one2many(label='Channels',obj='srm.unit.channel.assigments',rel='unit_id'),
@@ -219,11 +219,12 @@ fcm_company_articles()
 class md_fcm_company_inherit(ModelInherit):
 	_name = 'md.fcm.company.inherit'
 	_description = 'Genaral Model Inherit For Company'
-	_inherit = {'md.company':{'_columns':['fcm_departaments','fcm_objs','fcm_articles']}}
+	_inherit = {'md.company':{'_columns':['fcm_departaments','fcm_objs','fcm_articles','fm_units']}}
 	_columns = {
 		'fcm_departaments': fields.one2many(label='Departaments',obj='fcm.company.departaments',rel='company_id'),
 		'fcm_objs': fields.one2many(label='Objects',obj='fcm.company.objs',rel='company_id'),
 		'fcm_articles': fields.one2many(label='Articles',obj='fcm.company.articles',rel='company_id'),
+		'fm_units': fields.many2many(label='FM Units',obj='fm.units',rel='md_company_fm_unit_rel',id1='unit_id',id2='company_id'),
 	}
 	
 md_fcm_company_inherit()

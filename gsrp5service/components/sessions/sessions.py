@@ -52,10 +52,10 @@ class ModelProxy(object):
 	def _getLangID(self,lang):
 		return self._session._lang2id.get(lang)
 
-class TrigerProxy(object):
+class ReportProxy(object):
 	def __init__(self,session):
 		self._session = session
-	
+
 	def _call(self,args):
 		return self._session._call(args)
 
@@ -69,7 +69,7 @@ class TrigerProxy(object):
 
 	@property
 	def _getPool(self):
-		return	self._session._objects.get('triggers')
+		return	self._session._objects.get('models')
 	
 	@property
 	def _getMCache(self):
@@ -79,38 +79,73 @@ class TrigerProxy(object):
 		if key and key in self._session._cache and hasattr(self._session._cache[key],name):
 			return getattr(self._session._cache[key],name)(*args,**kwargs)
 		
+	def _getReport(self,name):
+		return	self._session._objects.get('reports').get(name)
+	
+	def _getLangID(self,lang):
+		return self._session._lang2id.get(lang)
+
+class DashboarfProxy(object):
+	def __init__(self,session):
+		self._session = session
+
+	def _call(self,args):
+		return self._session._call(args)
+
+	@property
+	def _getCursor(self):
+		return self._session._cursor
+	
+	@property
+	def _getUid(self):
+		return self._session._uid
+
+	@property
+	def _getPool(self):
+		return	self._session._objects.get('models')
+	
+	@property
+	def _getMCache(self):
+		return self._session._mcache
+
+	def _getInterface(self,key,name,*args, **kwargs):
+		if key and key in self._session._cache and hasattr(self._session._cache[key],name):
+			return getattr(self._session._cache[key],name)(*args,**kwargs)
+		
+	def _getDashboard(self,name):
+		return	self._session._objects.get('dashboards').get(name)
+	
+	def _getLangID(self,lang):
+		return self._session._lang2id.get(lang)
+
+
+class TrigerProxy(object):
+
+	def __init__(self,session):
+		self._session = session
+	
 	def _getModel(self,name):
+		return	self._session._objects.get('models').get(name)
+		
+	def _getTriger(self,name):
 		return	self._session._objects.get('triggers').get(name)
 
 class ActionProxy(object):
+
 	def __init__(self,session):
 		self._session = session
-
-	def _call(self,args):
-		return self._session._call(args)
-
-	@property
-	def _getCursor(self):
-		return self._session._cursor
-	
-	@property
-	def _getUid(self):
-		return self._session._uid
-
-	@property
-	def _getPool(self):
-		return	self._session._objects.get('actions')
-	
-	@property
-	def _getMCache(self):
-		return self._session._mcache
-
-	def _getInterface(self,key,name,*args, **kwargs):
-		if key and key in self._session._cache and hasattr(self._session._cache[key],name):
-			return getattr(self._session._cache[key],name)(*args,**kwargs)
 		
-	def _getModel(self,name):
+	def _getAction(self,name):
 		return	self._session._objects.get('actions').get(name)
+
+class AccessProxy(object):
+	_models = {}
+	def __init__(self,session):
+		self._session = session
+		
+	def get(self,name):
+		return	self._session._access.get('models').get(name)
+
 
 
 class Session(Component):
@@ -207,6 +242,7 @@ class User(Session):
 	_uid = 0
 	_objects = {}
 	_auths = {}
+	_access = {}
 	_cache = {}
 	_cache_attrs = {}
 
@@ -218,30 +254,8 @@ class User(Session):
 		self._proxy_models = ModelProxy(self)
 		self._proxy_triggers = TrigerProxy(self)
 		self._proxy_actions = ActionProxy(self)
-
-	# @property
-	# def _getCursor(self):
-		# return self._cursor
+		self._proxy_access = AccessProxy(self)
 	
-	# @property
-	# def _getUid(self):
-		# return self._uid
-
-	# @property
-	# def _getPool(self):
-		# return	self._objects.get('models')
-	
-	# @property
-	# def _getMCache(self):
-		# return self._mcache
-
-	# def _getInterface(self,key,name,*args, **kwargs):
-		# if key and key in self._cache and hasattr(self._cache[key],name):
-			# return getattr(self._cache[key],name)(*args,**kwargs)
-		
-	# def _getModel(self,name):
-		# return self._models[name]
-		
 	def _call(self,args):
 		rmsg = []
 		args0 = args[0]
@@ -357,9 +371,9 @@ class User(Session):
 					self._uid = res[0]
 					for key in self._models.keys():
 						if res[2]:
-							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+							self._access.setdefault('models',{})[key] = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 						else:
-							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
+							self._access.setdefault('models',{})[key] = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
 							
 
 					db_infos = self._models.get('bc.modules').select(fields=['code','state'],cond=[],context={})
@@ -373,9 +387,9 @@ class User(Session):
 					self._components['registry']._load_inheritables()					  
 					for key in self._models.keys():
 						if res[2]:
-							self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+							self._access.setdefault('models',{})[key] = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 						else:
-							self._models[key]._access = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
+							self._access.setdefault('models',{})[key] = Access(read=True,write=False,create=False,unlink=False,modify=False,insert=False,select=True,update=False,delete=False,upsert=False,browse=True,selectbrowse=True)
 	
 					self._setLangs()
 					return [self._connected,self._uid,{'country_timezones':dict(pytz.country_timezones),'country_names':dict(pytz.country_names),'langs':self._models.get('bc.langs').select(['code','description']),'preferences':self._models.get('bc.user.preferences').select(['user_id','lang','country','framework','timezone']),'frameworks':self._models.get('bc.web.frameworks').select(['code','descr'])}]
@@ -454,6 +468,7 @@ class System(Session):
 		self._proxy_models = ModelProxy(self)
 		self._proxy_triggers = TrigerProxy(self)
 		self._proxy_actions = ActionProxy(self)
+		self._access_proxy = AccessProxy(self)
 
 
 	def _call(self,args):
@@ -646,7 +661,7 @@ class System(Session):
 							self._components[key]._setup(self)
 
 					for key in self._models.keys():
-						self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+						self._access.setdefault('models',{})[key] = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 
 					db_infos = self._models.get('bc.modules').select(fields=['code','state'],cond=[])
 					for db_info in db_infos:
@@ -657,7 +672,7 @@ class System(Session):
 				#models = self._components['registry']._create_loaded_models()
 
 				for key in self._models.keys():
-					self._models[key]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+					self._access.setdefault('models',{})[key] = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 		
 		self._setLangs()
 		

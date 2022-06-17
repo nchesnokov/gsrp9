@@ -33,7 +33,7 @@ class sale_units(Model):
 	_class_category = 'order'
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='sale.unit.categories'),
-	'company_id': fields.many2many(label='Companies',obj='md.company', rel='md_company_sale_unit_rel', id2='unit_id', id1='company_id'),
+	'company_ids': fields.many2many(label='Companies',obj='md.company', rel='md_company_sale_unit_rel', id2='unit_id', id1='company_id'),
 	'code': fields.varchar(label = 'Code',size=8,translate=True),
 	'descr':fields.varchar(label = 'Description',size=128,translate=True),
 	'channels': fields.one2many(label='Channels',obj='sale.unit.channel.assigments',rel='unit_id'),
@@ -520,5 +520,13 @@ class sale_invoice_type_roles(Model):
 	}
 
 sale_invoice_type_roles()
+
+class sale_units_md_company_inherit(ModelInherit):
+	_name = 'sale.units.md.company.inherit'
+	_description = 'Sale Units Master Data Company Inherit'
+	_inherit = {'md.company':{'_columns':['sale_units']}}
+	_columns={
+	'sale_units': fields.many2many(label='Sale Units',obj='sale.units',rel='md_company_sale_unit_rel',id1='unit_id',id2='company_id'),
+	}
 
 # end customize

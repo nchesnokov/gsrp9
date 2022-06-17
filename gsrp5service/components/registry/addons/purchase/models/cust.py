@@ -33,7 +33,7 @@ class purchase_units(Model):
 	_class_category = 'order'
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='purchase.unit.categories'),
-	'company_id': fields.many2many(label='Companies',obj='md.company', rel='md_company_purchase_unit_rel', id2='unit_id', id1='company_id'),
+	'company_ids': fields.many2many(label='Companies',obj='md.company', rel='md_company_purchase_unit_rel', id2='unit_id', id1='company_id'),
 	'code': fields.varchar(label = 'Code',size=8,translate=True),
 	'descr':fields.varchar(label = 'Description',size=128,translate=True),
 	'channels': fields.one2many(label='Channels',obj='purchase.unit.channel.assigments',rel='unit_id'),
@@ -566,5 +566,12 @@ class purchase_invoce_categories(Model):
 
 purchase_invoce_categories()
 
+class purchase_units_md_company_inherit(ModelInherit):
+	_name = 'purchase.units.md.company.inherit'
+	_description = 'Purchase Units Master Data Company Inherit'
+	_inherit = {'md.company':{'_columns':['purchase_units']}}
+	_columns={
+	'purchase_units': fields.many2many(label='Purchase Units',obj='purchase.units',rel='md_company_purchase_unit_rel',id1='unit_id',id2='company_id'),
+	}
 
 # end customize

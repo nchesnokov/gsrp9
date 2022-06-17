@@ -17,28 +17,3 @@ class ModelProxy(object):
 		if name in self._methods:
 			return self._methods[name]
 	
-	# def call(*args,**kwars):
-		# return self._methods['call'](*args,**kwargs)
-
-	# @property
-	# def cr(self):
-		# return self._methods['cr']()
-	
-	# @property
-	# def uid(self):
-		# return self._methods['uid']()
-
-	# @property
-	# def pool(self):
-		# return self._methods['pool']()
-
-	# def interface(self,key,name,*args,**kwargs):
-		# return self._methods['interface'](key,name,*args,**kwargs)
-
-	# def _mcache(self,args):
-		# return self._methods['_mcache'](args)
-			
-
-	# def get(self,key):
-		# return self._methods['get'](key)
-	

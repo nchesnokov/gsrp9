@@ -28,7 +28,7 @@ class prj_units(Model):
 	_class_category = 'order'
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='prj.unit.categories'),
-	'company_id': fields.many2many(label='Companies',obj='md.company', rel='md_company_prj_unit_rel', id2='unit_id', id1='company_id'),
+	'company_ids': fields.many2many(label='Companies',obj='md.company', rel='md_company_prj_unit_rel', id2='unit_id', id1='company_id'),
 	'code': fields.varchar(label = 'Code',size=8,translate=True),
 	'descr':fields.varchar(label = 'Description',size=128,translate=True),
 	'channels': fields.one2many(label='Channels',obj='prj.unit.channel.assigments',rel='unit_id'),
@@ -610,7 +610,7 @@ class prj_bill(Model):
 	'btype': fields.many2one(label='Type',obj='prj.bill.types',on_change='_on_change_btype', required = True),
 	'name': fields.varchar(label = 'Bill', required = True),
 	'company': fields.many2one(label='Company',obj='md.company', required = True),
-	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True),
+	'fullname': fields.composite(label='Full Name', cols = ['company','btype','name'], translate = True,required = True),
 	'category_id': fields.many2one(label='Category',obj='prj.bill.category'),
 	'parent_id': fields.many2one(label='Parent',obj='prj.bill'),
 	'childs_id': fields.one2many(label='Childs',obj='prj.bill',rel='parent_id'),
@@ -660,7 +660,7 @@ class prj_project(Model):
 	_name = 'prj.project'
 	_description = 'Project'
 	_columns = {
-	'portfolio_id': fields.many2one(label='Portfolio',obj='prj.portfolio'),
+	'portfolio_id': fields.many2one(label='Portfolio',obj='prj.portfolio',rel='projects'),
 	'name': fields.varchar(label = 'Project'),
 	'category_id': fields.many2one(label='Category',obj='prj.prj.category'),
 	'parent_id': fields.many2one(label='Parent',obj='prj.project'),
@@ -811,3 +811,10 @@ class md_prj_product_inherit(ModelInherit):
 	
 md_prj_product_inherit()
 
+class prj_units_md_company_inherit(ModelInherit):
+	_name = 'prj.units.md.company.inherit'
+	_description = 'Project Units Master Data Company Inherit'
+	_inherit = {'md.company':{'_columns':['prj_units']}}
+	_columns={
+	'prj_units': fields.many2many(label='Project Units',obj='prj.units',rel='md_company_prj_unit_rel',id1='unit_id',id2='company_id'),
+	}

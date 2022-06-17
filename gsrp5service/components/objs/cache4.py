@@ -19,7 +19,7 @@ import web_pdb
 from gsrp5service.orm.mm import _m2mfieldid2
 
 from gsrp5service.components.objs.mm import *
-from gsrp5service.orm.utils.models import _createRecord,_writeRecord,_modifyRecord,_unlinkRecord,_conv_record_to_ext,select,read,tree,search,count,unlink,delete,write,update,modify
+from gsrp5service.orm.utils.models import _createRecord,_writeRecord,_modifyRecord,_unlinkRecord,_conv_record_to_ext,select,read,tree,search,count,unlink,delete,write,update,modify,_m2mcreate
 
 __all__ = ['DCacheList','DCacheDict','MCache']
 
@@ -937,6 +937,7 @@ class MCache(object):
 		self._proxy_models = session._proxy_models
 		self._proxy_triggers = session._proxy_triggers
 		self._proxy_actions = session._proxy_actions
+		self._proxy_access = session._proxy_access
 		self._cr = cr
 		self._pool = pool
 		self._uid = uid
@@ -1908,7 +1909,7 @@ class MCache(object):
 			rels.setdefault(oid,[]).append(row['__data__']['id'])
 
 		for oid in rels.keys():
-			_m2mcreate(m,rel,id1,id2,oid,rels[oid],self._context)
+			_m2mcreate(self, self._cr,self._uid,self._pool, m,rel,id1,id2,oid,rels[oid],self._context)
 
 	def _m2m_removeRows(self,rows):
 		rels = {}

@@ -308,9 +308,9 @@ def _createRecord(self, cr, uid, pool, model, record, context):
 					record_t['lang'] = lang[0]['preferences'][0]['lang']['id']
 				else:
 					if 'lang' in context:
-						record_t['lang'] = self._session._lang2id[context['lang']]
+						record_t['lang'] = model._proxy._lang2id(context['lang'])
 					else:
-						record_t['lang'] = self._session._lang2id['en']
+						record_t['lang'] = model._proxy._lang2id('en')
 			sql,vals = gensql.CreateI18N(self,  cr, uid, pool, model, record_t, context)
 			rowcount = cr._execute(sql,vals)
 
@@ -405,9 +405,9 @@ def _writeRecord(self, cr, uid, pool, model, record, context):
 					record_t['lang'] = lang[0]['preferences'][0]['lang']['id']
 				else:
 					if 'lang' in context:
-						record_t['lang'] = model._session._lang2id[context['lang']]
+						record_t['lang'] = model._proxy._lang2id(context['lang'])
 					else:
-						record_t['lang'] = model._session._lang2id['en']
+						record_t['lang'] = model._proxy._lang2id('en')
 			sql,vals = gensql.WriteI18N(self,cr, uid, pool, model, record_t, context)
 			rowcount = cr.execute(sql,vals)
 
@@ -502,9 +502,9 @@ def _modifyRecord(self, cr, uid, pool, model, record, context):
 					record_t['lang'] = lang[0]['preferences'][0]['lang']['id']
 				else:
 					if 'lang' in context:
-						record_t['lang'] = model._model._session._lang2id[context['lang']]
+						record_t['lang'] = model._proxy._lang2id(context['lang'])
 					else:
-						record_t['lang'] = self._session._lang2id['en']
+						record_t['lang'] = model._proxy._lang2id('en')
 			sql,vals = gensql.ModifyI18N(self,cr, uid, pool, model, record_t, context)
 			rowcount = cr.execute(sql,vals)
 
@@ -580,7 +580,7 @@ def _unlinkRecord(self, cr, uid, pool, model, record, context = {}):
 	return oid
 
 def count(self, cr, uid, pool, model, cond = None, context = {}):
-	if not model._access._checkRead():
+	if not self._proxy_access.get(model._name)._checkRead():
 		orm_exception("Read:access dennied of model % s" % (self._name,))
 
 	res = []
@@ -611,36 +611,38 @@ def count(self, cr, uid, pool, model, cond = None, context = {}):
 	
 #tested
 def search(self, cr, uid, pool, model, cond = None, context = {}, limit = None, offset = None):
-	if not model._access._checkRead():
-		orm_exception("Read:access dennied of model % s" % (self._name,))
+	return model.select(self, cr, uid, pool, model, [] ,cond, context, limit, offset)
+	
+	# if not self._proxy_access.get(model._name)._checkRead():
+		# orm_exception("Read:access dennied of model % s" % (self._name,))
 
-	res = []
+	# res = []
 
-	if 'lang' not in context:
-		context['lang'] = os.environ['LANG']
+	# if 'lang' not in context:
+		# context['lang'] = os.environ['LANG']
 
-	if 'tz' not in context:
-		context['tz'] = tm.tzname[1]
+	# if 'tz' not in context:
+		# context['tz'] = tm.tzname[1]
 
-	if cond is None:
-		cond = []
+	# if cond is None:
+		# cond = []
 
-	if 'FETCH' not in context:
-		context['FETCH'] = 'DICT'
+	# if 'FETCH' not in context:
+		# context['FETCH'] = 'DICT'
 
-	fetch = context['FETCH']
+	# fetch = context['FETCH']
 
-	if not fetch in ('LIST','DICT'):
-		orm_exception('Invalid fetch mode: %s' % (fetch,))
+	# if not fetch in ('LIST','DICT'):
+		# orm_exception('Invalid fetch mode: %s' % (fetch,))
 
-	sql,vals = gensql.Search(self, cr, uid, pool, model, cond, context, limit, offset)
-	rowcount = cr.execute(sql,vals)
-	if rowcount > 0:
-		if fetch == "LIST":
-			res.extend(list(map(lambda x: x[0], cr.fetchall()))) 
-		elif fetch == "DICT":
-			res.extend(list(map(lambda x: x['id'], cr.dictfetchall()))) 
-	return res
+	# sql,vals = gensql.Search(self, cr, uid, pool, model, cond, context, limit, offset)
+	# rowcount = cr.execute(sql,vals)
+	# if rowcount > 0:
+		# if fetch == "LIST":
+			# res.extend(list(map(lambda x: x[0], cr.fetchall()))) 
+		# elif fetch == "DICT":
+			# res.extend(list(map(lambda x: x['id'], cr.dictfetchall()))) 
+	# return res
 
 def _read(self, cr, uid, pool, model, ids, fields = None, context = {}):
 
@@ -780,7 +782,7 @@ def _read(self, cr, uid, pool, model, ids, fields = None, context = {}):
 	return res
 	
 def read(self, cr, uid, pool, model, ids, fields = None, context = {}):
-	if not model._access._checkRead():
+	if not self._proxy_access.get(model._name)._checkRead():
 		orm_exception("Read:access dennied of model % s" % (model._name,))
 	return _read(self, cr, uid, pool, model, ids, fields, context)
 
@@ -869,14 +871,14 @@ def _select(self, cr, uid, pool, model, fields = None ,cond = None, context = {}
 	return res
 
 def select(self, cr, uid, pool, model, fields = None ,cond = None, context = {}, limit = None, offset = None):
-	if not model._access._checkRead():
+	if not self._proxy_access.get(model._name)._checkRead():
 		orm_exception("Select:access dennied of model % s" % (self._name,))
 	
 	return _select(self, cr,uid, pool, model, fields, cond, context, limit, offset)
 
 # Other start
 def unlink(self, cr, uid, pool, model, ids, context = {}):
-	if not model._access._checkUnlink():
+	if not self._proxy_access.get(model._name)._checkUnlink():
 		orm_exception("Unlink:access dennied of model % s" % (model._name,))
 
 	res = []
@@ -945,7 +947,7 @@ def unlink(self, cr, uid, pool, model, ids, context = {}):
 	return res
 
 def delete(self, cr, uid, pool, model, cond, context = {}):
-	if not model._access._checkUnlink():
+	if not self._proxy_access.get(model._name)._checkUnlink():
 		orm_exception("Delete:access dennied of model % s" % (self._name,))
 
 	res = []
@@ -956,7 +958,7 @@ def delete(self, cr, uid, pool, model, cond, context = {}):
 	return res
 
 def create(self, cr, uid, pool, model, records, context = {}):
-	if not model._access._checkCreate():
+	if not self._proxy_access.get(model._name)._checkCreate():
 		orm_exception("Create:access dennied of model % s" % (self._name,))
 
 	checks = _do_checks(model,  records, context)
@@ -984,7 +986,7 @@ def create(self, cr, uid, pool, model, records, context = {}):
 		return [_createRecord(self, cr, uid, pool, model, records, context)]
 
 def write(self, records, context = {}):
-	if not self._access._checkWrite():
+	if not self._proxy_access.get(model._name)._checkWrite():
 		orm_exception("Write:access dennied of model % s" % (self._name,))
 
 	checks = _do_checks(self, records, context)
@@ -1006,7 +1008,7 @@ def write(self, records, context = {}):
 		return [_writeRecord(self, records, context)]
 
 def modify(self, records, context = {}):
-	if not self._access._checkWrite():
+	if not self._proxy_access.get(model._name)._checkWrite():
 		orm_exception("Modify:access dennied of model % s" % (self._name,))
 
 	checks = _do_checks(self, records, context)
@@ -1034,7 +1036,7 @@ def modify(self, records, context = {}):
 		return [_modifyRecord(self, records, context)]
 	
 def update(self, record, cond = None,context = {}):
-	if not self._access._checkWrite():
+	if not self._proxy_access.get(model._name)._checkWrite():
 		orm_exception("Update:access dennied of model % s" % (self._name,))
 
 	res = []
@@ -1069,7 +1071,7 @@ def update(self, record, cond = None,context = {}):
 
 #testing
 def insert(self, fields, values,context = {}):
-	if not self._access._checkCreate():
+	if not self._proxy_access.get(model._name)._checkCreate():
 		orm_exception("Insert:access dennied of model % s" % (self._name,))
 
 	checks = _do_checks(self, _gen_records(fields,values), context)
@@ -1185,7 +1187,7 @@ def insert(self, fields, values,context = {}):
 
 #testing
 def upsert(self, fields, values,context = {}):
-	if not self._access._checkCreate():
+	if not self._proxy_access.get(model._name)._checkCreate():
 		orm_exception("Upsert:access dennied of model % s" % (self._name,))
 
 	checks = _do_checks(self, _gen_records(fields,values), context)
@@ -1298,7 +1300,7 @@ def upsert(self, fields, values,context = {}):
 	return res
 
 def browse(self, ids, fields = None, context = {}):
-	if not self._access._checkRead():
+	if not self._proxy_access.get(model._name)._checkRead():
 		orm_exception("Browse:access dennied of model % s" % (self._name,))
 
 	brl = browse_record_list()
@@ -1312,7 +1314,7 @@ def browse(self, ids, fields = None, context = {}):
 	return brl
 
 def selectbrowse(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
-	if not self._access._checkRead():
+	if not self._proxy_access.get(model._name)._checkRead():
 		orm_exception("SelectBrowse:access dennied of model % s" % (self._name,))
 
 	brl = browse_record_list()
@@ -1329,46 +1331,82 @@ def selectbrowse(self, fields = None ,cond = None, context = {}, limit = None, o
 
 def _o2mread(self, cr, uid, pool, model, oid, field,fields, context):
 	res = []
-	modelinfo = model.modelInfo()
-	columnsinfo = model.columnsInfo()
-	
-	sql,vals = gensql.Select(self,cr,uid,pool,model,fields, [(field,'=',oid)], context)
-	rowcount = cr.execute(sql,vals)
-	if rowcount > 0:
-		selectablefields = list(filter(lambda x: x in fields,model._selectablefields))
-		nostorecomputefields = list(filter(lambda x: x in fields,model._nostorecomputefields))
-		records = cr.dictfetchall(selectablefields,model._columnsmeta)
-		for record in records:
-			o2mfields = {}
-			m2mfields = {}
-			fds = list(filter(lambda x: type(x) == dict,fields))
-			dictfields = {}
-			for fd in fds:
-				dictfields.update(fd)
+	records = model.select(fields,[(field,'=',oid)],context)
 
-			recname = model._getRecNameName()
-			if recname and recname in record:
-				oid = record[recname]
-			else:
-				oid = record['id']
+	for record in records:
+		o2mfields = {}
+		m2mfields = {}
+		fds = list(filter(lambda x: type(x) == dict,fields))
+		dictfields = {}
+		for fd in fds:
+			dictfields.update(fd)
 
-			for o2mfield in model._o2mfields:
-				if o2mfield in dictfields:
-					o2mfields[o2mfield] = dictfields[o2mfield]
+		recname = model._getRecNameName()
+		if recname and recname in record:
+			oid = record[recname]
+		else:
+			oid = record['id']
 
-			for m2mfield in model._m2mfields:
-				if m2mfield in dictfields:
-					m2mfields[m2mfield] = dictfields[m2mfield]
+		for o2mfield in model._o2mfields:
+			if o2mfield in dictfields:
+				o2mfields[o2mfield] = dictfields[o2mfield]
 
-			for o2mfield in o2mfields:
-				record[o2mfield] = _o2mread(self,cr,uid,pool,pool[model._columns[o2mfield].obj],oid,model._columns[o2mfield].rel,dictfields[o2mfield],context)
+		for m2mfield in model._m2mfields:
+			if m2mfield in dictfields:
+				m2mfields[m2mfield] = dictfields[m2mfield]
 
-			for m2mfield in m2mfields:
-				record[m2mfield] = _m2mread(self,cr,uid,pool,pool[self._columns[o2mfield].obj],oid,m2mfield,dictfields[m2mfield],context)
+		for o2mfield in o2mfields:
+			record[o2mfield] = _o2mread(self,cr,uid,pool,pool[model._columns[o2mfield].obj],oid,model._columns[o2mfield].rel,dictfields[o2mfield],context)
 
-		res.extend(records)
+		for m2mfield in m2mfields:
+			record[m2mfield] = _m2mread(self,cr,uid,pool,pool[self._columns[o2mfield].obj],oid,m2mfield,dictfields[m2mfield],context)
+
+	res.extend(records)
 	
 	return res
+
+
+	# res = []
+	# modelinfo = model.modelInfo()
+	# columnsinfo = model.columnsInfo()
+	
+	# sql,vals = gensql.Select(self,cr,uid,pool,model,fields, [(field,'=',oid)], context)
+	# rowcount = cr.execute(sql,vals)
+	# if rowcount > 0:
+		# selectablefields = list(filter(lambda x: x in fields,model._selectablefields))
+		# nostorecomputefields = list(filter(lambda x: x in fields,model._nostorecomputefields))
+		# records = cr.dictfetchall(selectablefields,model._columnsmeta)
+		# for record in records:
+			# o2mfields = {}
+			# m2mfields = {}
+			# fds = list(filter(lambda x: type(x) == dict,fields))
+			# dictfields = {}
+			# for fd in fds:
+				# dictfields.update(fd)
+
+			# recname = model._getRecNameName()
+			# if recname and recname in record:
+				# oid = record[recname]
+			# else:
+				# oid = record['id']
+
+			# for o2mfield in model._o2mfields:
+				# if o2mfield in dictfields:
+					# o2mfields[o2mfield] = dictfields[o2mfield]
+
+			# for m2mfield in model._m2mfields:
+				# if m2mfield in dictfields:
+					# m2mfields[m2mfield] = dictfields[m2mfield]
+
+			# for o2mfield in o2mfields:
+				# record[o2mfield] = _o2mread(self,cr,uid,pool,pool[model._columns[o2mfield].obj],oid,model._columns[o2mfield].rel,dictfields[o2mfield],context)
+
+			# for m2mfield in m2mfields:
+				# record[m2mfield] = _m2mread(self,cr,uid,pool,pool[self._columns[o2mfield].obj],oid,m2mfield,dictfields[m2mfield],context)
+
+		# res.extend(records)
+	
+	# return res
 
 def _m2mread(self, cr, uid, pool, model, oid, field, fields, context):
 	res = []
@@ -1394,7 +1432,7 @@ def _m2mread(self, cr, uid, pool, model, oid, field, fields, context):
 
 	return res
 
-def _m2mcreate(self,rel,id1,id2,oid,rels,context):
+def _m2mcreate(self, cr, uid, pool, model,rel,id1,id2,oid,rels,context):
 	res = []
 	values = []
 
@@ -1410,12 +1448,12 @@ def _m2mcreate(self,rel,id1,id2,oid,rels,context):
 		sql += reduce(lambda x,y: str(x) + ',' + str(y),values)
 		
 	sql += ' returning id'
-	self._execute(sql)
-	if self._cr.rowcount > 0:
+	cr.execute(sql)
+	if cr.rowcount > 0:
 		if context['FETCH'] == 'LIST':
-			res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
+			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
 		elif context['FETCH'] == 'DICT':
-			res.extend(list(map(lambda x: x['id'],self._cr.dictfetchall()))) 
+			res.extend(list(map(lambda x: x['id'],cr.dictfetchall()))) 
 	
 	return res
 
@@ -1561,7 +1599,7 @@ def _tree(self, cr, uid, pool, model, fields = None ,parent = None, context = {}
 	return res
 
 def tree(self, cr, uid, pool, model, fields = None ,parent = None, context = {}):
-	if not model._access._checkRead():
+	if not self._proxy_access.get(model._name)._checkRead():
 		orm_exception("Tree:access dennied of model % s" % (self._name,))
 	
 	return _tree(self, cr, uid, pool, model, fields, parent, context)

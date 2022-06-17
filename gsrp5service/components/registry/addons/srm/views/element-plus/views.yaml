@@ -141,20 +141,9 @@
   model: srm.units
   vtype: element-plus/list
 - cols:
-  - col: name
-    seq: 0
-  - col: country
-    seq: 10
-  - col: currency
-    seq: 20
-  - col: note
-    seq: 30
-  model: md.company
-  vtype: element-plus/m2mlist
-- cols:
   - col: category_id
     seq: 0
-  - col: company_id
+  - col: company_ids
     seq: 10
   - col: code
     seq: 20
@@ -173,7 +162,7 @@
 - cols:
   - col: category_id
     seq: 0
-  - col: company_id
+  - col: company_ids
     seq: 10
   - col: code
     seq: 20
@@ -192,7 +181,7 @@
 - cols:
   - col: category_id
     seq: 0
-  - col: company_id
+  - col: company_ids
     seq: 10
   - col: code
     seq: 20

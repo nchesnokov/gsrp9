@@ -23,7 +23,10 @@ class bc_users(Model):
 	'firstname': fields.varchar('First Name', required = True, selectable = True,readonly=True),
 	'lastname': fields.varchar('Last Name', required = True, selectable = True,readonly=True),
 	'issuperuser': fields.boolean(label='Is Super User',readonly=True),
-	'preferences':fields.one2many(label='Preferences',obj='bc.user.preferences',rel='user_id')
+	'user_type': fields.selection(label='User Type',selections=[('s','Super User'),('u','User'),('d','Developer'),('t','Technical User'),('r','Remote User')]),
+	'preferences':fields.one2many(label='Preferences',obj='bc.user.preferences',rel='user_id'),
+	'access': fields.one2many(label='Access Models',obj='bc.user.model.access',rel='user_id'),
+	'auth': fields.one2many(label='Auth Models',obj='bc.user.model.auths',rel='user_id'),
 	}
 
 	_sql_constraints = [('full_name_unique','unique (firstname, lastname)', 'Login unique fullname of user')]
@@ -156,6 +159,7 @@ class bc_user_preferences(Model):
 		return res
 		
 bc_user_preferences()
+
 
 
 class bc_group_modules(Model):
@@ -348,8 +352,8 @@ class bc_access(Model):
 	_description = 'Access'
 	_class_object = 'K'
 	_columns = {
+	'group_id': fields.many2one(label='Group',obj='bc.group.access',rel = 'bc.group.access',readonly=True, on_delete = 'c'),
 	'name': fields.varchar(label="Access",readonly=True),
-	'group_id': fields.referenced(label='Group',obj='bc.group.access',readonly=True, on_delete = 'c'),
 	'models': fields.one2many(label='Objects',obj='bc.model.access',rel='access_id',readonly=True),
 	'inactive': fields.boolean('Inactive',readonly=True),
 	'note': fields.text(label='Note',readonly=True)
@@ -652,3 +656,45 @@ class bc_ui_model_menus(Model):
 	}
 
 bc_ui_model_menus()
+
+class bc_access_models(Model):
+	_name = 'bc.access.models'
+	_description = 'Access Models'
+	_class_object = 'K'
+	_columns = {
+	'name': fields.varchar(label = 'Name',readonly=True),
+	'model': fields.many2one(label = 'Model',obj='bc.models',readonly=True),
+	#'access': fields.referenced(label = 'Columns',obj = 'bc.auth.model.columns', rel = 'model_module_id',readonly=True),
+	'note': fields.text(label='Note',readonly=True)
+	}
+
+class bc_auth_models(Model):
+	_name = 'bc.auth.models'
+	_description = 'Auth Models'
+	_class_object = 'K'
+	_columns = {
+	'name': fields.varchar(label = 'Name',readonly=True),
+	'model': fields.many2one(label = 'Model',obj='bc.models',readonly=True),
+	#'columns': fields.one2many(label = 'Columns',obj = 'bc.auth.model.columns', rel = 'model_module_id',readonly=True),
+	'note': fields.text(label='Note',readonly=True)
+	}
+
+class bc_user_model_access(Model):
+	_name = 'bc.user.model.access'
+	_description = 'User Access Models'
+	_class_object = 'K'
+	_columns = {
+	'user_id': fields.many2one(label = 'User',obj = 'bc.users',rel = 'access',readonly=True),
+	#'columns': fields.one2many(label = 'Columns',obj = 'bc.auth.model.columns', rel = 'model_module_id',readonly=True),
+	'note': fields.text(label='Note',readonly=True)
+	}
+
+class bc_user_model_auths(Model):
+	_name = 'bc.user.model.auths'
+	_description = 'User Auth Models'
+	_class_object = 'K'
+	_columns = {
+	'user_id': fields.many2one(label = 'User',obj = 'bc.users',rel = 'auth',readonly=True),
+	#'columns': fields.one2many(label = 'Columns',obj = 'bc.auth.model.columns', rel = 'model_module_id',readonly=True),
+	'note': fields.text(label='Note',readonly=True)
+	}

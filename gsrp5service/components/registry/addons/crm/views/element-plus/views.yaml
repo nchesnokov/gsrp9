@@ -3,14 +3,14 @@
     seq: 0
   - col: parent_id
     seq: 10
-  model: crm_unit.categories
+  model: crm.unit.categories
   vtype: element-plus/search
 - cols:
   - col: name
     seq: 0
   - col: parent_id
     seq: 10
-  model: crm_unit.categories
+  model: crm.unit.categories
   vtype: element-plus/find
 - cols:
   - col: name
@@ -21,7 +21,7 @@
     seq: 20
   - col: units
     seq: 30
-  model: crm_unit.categories
+  model: crm.unit.categories
   vtype: element-plus/list
 - cols:
   - col: name
@@ -34,7 +34,7 @@
     seq: 30
   - col: note
     seq: 40
-  model: crm_unit.categories
+  model: crm.unit.categories
   vtype: element-plus/form.modal
 - cols:
   - col: name
@@ -47,7 +47,7 @@
     seq: 30
   - col: note
     seq: 40
-  model: crm_unit.categories
+  model: crm.unit.categories
   vtype: element-plus/form
 - cols:
   - col: name
@@ -60,21 +60,21 @@
     seq: 30
   - col: note
     seq: 40
-  model: crm_unit.categories
+  model: crm.unit.categories
   vtype: element-plus/o2m-form
 - cols:
   - col: name
     seq: 0
   - col: parent_id
     seq: 10
-  model: crm_unit.categories
+  model: crm.unit.categories
   vtype: element-plus/tree
 - cols:
   - col: name
     seq: 0
   - col: parent_id
     seq: 10
-  model: crm_unit.categories
+  model: crm.unit.categories
   vtype: element-plus/o2m-tree
 - cols:
   - col: name
@@ -85,7 +85,7 @@
     seq: 20
   - col: units
     seq: 30
-  model: crm_unit.categories
+  model: crm.unit.categories
   vtype: element-plus/o2m-list
 - cols:
   - col: category_id
@@ -94,7 +94,7 @@
     seq: 10
   - col: descr
     seq: 20
-  model: crm_units
+  model: crm.units
   vtype: element-plus/search
 - cols:
   - col: category_id
@@ -103,7 +103,7 @@
     seq: 10
   - col: descr
     seq: 20
-  model: crm_units
+  model: crm.units
   vtype: element-plus/find
 - cols:
   - col: category_id
@@ -120,7 +120,7 @@
     seq: 50
   - col: regions
     seq: 60
-  model: crm_units
+  model: crm.units
   vtype: element-plus/list
 - cols:
   - col: name
@@ -136,7 +136,7 @@
 - cols:
   - col: category_id
     seq: 0
-  - col: company_id
+  - col: company_ids
     seq: 10
   - col: code
     seq: 20
@@ -150,12 +150,12 @@
     seq: 60
   - col: regions
     seq: 70
-  model: crm_units
+  model: crm.units
   vtype: element-plus/form.modal
 - cols:
   - col: category_id
     seq: 0
-  - col: company_id
+  - col: company_ids
     seq: 10
   - col: code
     seq: 20
@@ -169,12 +169,12 @@
     seq: 60
   - col: regions
     seq: 70
-  model: crm_units
+  model: crm.units
   vtype: element-plus/form
 - cols:
   - col: category_id
     seq: 0
-  - col: company_id
+  - col: company_ids
     seq: 10
   - col: code
     seq: 20
@@ -188,7 +188,7 @@
     seq: 60
   - col: regions
     seq: 70
-  model: crm_units
+  model: crm.units
   vtype: element-plus/o2m-form
 - cols:
   - col: category_id
@@ -205,21 +205,21 @@
     seq: 50
   - col: regions
     seq: 60
-  model: crm_units
+  model: crm.units
   vtype: element-plus/o2m-list
 - cols:
   - col: name
     seq: 0
   - col: parent_id
     seq: 10
-  model: crm_channel.categories
+  model: crm.channel.categories
   vtype: element-plus/search
 - cols:
   - col: name
     seq: 0
   - col: parent_id
     seq: 10
-  model: crm_channel.categories
+  model: crm.channel.categories
   vtype: element-plus/find
 - cols:
   - col: name
@@ -230,21 +230,8 @@
     seq: 20
   - col: channels
     seq: 30
-  model: crm_channel.categories
+  model: crm.channel.categories
   vtype: element-plus/list
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: channels
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_channel.categories
-  vtype: element-plus/form.modal
 - cols:
   - col: name
     seq: 0
@@ -256,7 +243,20 @@
     seq: 30
   - col: note
     seq: 40
-  model: crm_channel.categories
+  model: crm.channel.categories
+  vtype: element-plus/form.modal
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: channels
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.channel.categories
   vtype: element-plus/form
 - cols:
   - col: name
@@ -269,21 +269,21 @@
     seq: 30
   - col: note
     seq: 40
-  model: crm_channel.categories
+  model: crm.channel.categories
   vtype: element-plus/o2m-form
 - cols:
   - col: name
     seq: 0
   - col: parent_id
     seq: 10
-  model: crm_channel.categories
+  model: crm.channel.categories
   vtype: element-plus/tree
 - cols:
   - col: name
     seq: 0
   - col: parent_id
     seq: 10
-  model: crm_channel.categories
+  model: crm.channel.categories
   vtype: element-plus/o2m-tree
 - cols:
   - col: name
@@ -294,1290 +294,7 @@
     seq: 20
   - col: channels
     seq: 30
-  model: crm_channel.categories
-  vtype: element-plus/o2m-list
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_channels
-  vtype: element-plus/search
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_channels
-  vtype: element-plus/find
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_channels
-  vtype: element-plus/list
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_channels
-  vtype: element-plus/form.modal
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_channels
-  vtype: element-plus/form
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_channels
-  vtype: element-plus/o2m-form
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_channels
-  vtype: element-plus/o2m-list
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_segment.categories
-  vtype: element-plus/search
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_segment.categories
-  vtype: element-plus/find
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: segments
-    seq: 30
-  model: crm_segment.categories
-  vtype: element-plus/list
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: segments
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_segment.categories
-  vtype: element-plus/form.modal
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: segments
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_segment.categories
-  vtype: element-plus/form
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: segments
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_segment.categories
-  vtype: element-plus/o2m-form
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_segment.categories
-  vtype: element-plus/tree
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_segment.categories
-  vtype: element-plus/o2m-tree
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: segments
-    seq: 30
-  model: crm_segment.categories
-  vtype: element-plus/o2m-list
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_segments
-  vtype: element-plus/search
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_segments
-  vtype: element-plus/find
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_segments
-  vtype: element-plus/list
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_segments
-  vtype: element-plus/form.modal
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_segments
-  vtype: element-plus/form
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_segments
-  vtype: element-plus/o2m-form
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_segments
-  vtype: element-plus/o2m-list
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_area.categories
-  vtype: element-plus/search
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_area.categories
-  vtype: element-plus/find
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: areas
-    seq: 30
-  model: crm_area.categories
-  vtype: element-plus/list
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: areas
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_area.categories
-  vtype: element-plus/form.modal
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: areas
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_area.categories
-  vtype: element-plus/form
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: areas
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_area.categories
-  vtype: element-plus/o2m-form
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_area.categories
-  vtype: element-plus/tree
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_area.categories
-  vtype: element-plus/o2m-tree
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: areas
-    seq: 30
-  model: crm_area.categories
-  vtype: element-plus/o2m-list
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_areas
-  vtype: element-plus/search
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_areas
-  vtype: element-plus/find
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_areas
-  vtype: element-plus/list
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_areas
-  vtype: element-plus/form.modal
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_areas
-  vtype: element-plus/form
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_areas
-  vtype: element-plus/o2m-form
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_areas
-  vtype: element-plus/o2m-list
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_region.categories
-  vtype: element-plus/search
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_region.categories
-  vtype: element-plus/find
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: segments
-    seq: 30
-  model: crm_region.categories
-  vtype: element-plus/list
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: segments
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_region.categories
-  vtype: element-plus/form.modal
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: segments
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_region.categories
-  vtype: element-plus/form
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: segments
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_region.categories
-  vtype: element-plus/o2m-form
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_region.categories
-  vtype: element-plus/tree
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_region.categories
-  vtype: element-plus/o2m-tree
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: segments
-    seq: 30
-  model: crm_region.categories
-  vtype: element-plus/o2m-list
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_regions
-  vtype: element-plus/search
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_regions
-  vtype: element-plus/find
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_regions
-  vtype: element-plus/list
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_regions
-  vtype: element-plus/form.modal
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_regions
-  vtype: element-plus/form
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_regions
-  vtype: element-plus/o2m-form
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_regions
-  vtype: element-plus/o2m-list
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_division.categories
-  vtype: element-plus/search
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_division.categories
-  vtype: element-plus/find
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: divisions
-    seq: 30
-  model: crm_division.categories
-  vtype: element-plus/list
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: divisions
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_division.categories
-  vtype: element-plus/form.modal
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: divisions
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_division.categories
-  vtype: element-plus/form
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: divisions
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_division.categories
-  vtype: element-plus/o2m-form
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_division.categories
-  vtype: element-plus/tree
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_division.categories
-  vtype: element-plus/o2m-tree
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: divisions
-    seq: 30
-  model: crm_division.categories
-  vtype: element-plus/o2m-list
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_divisions
-  vtype: element-plus/search
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_divisions
-  vtype: element-plus/find
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  - col: subdivisions
-    seq: 30
-  model: crm_divisions
-  vtype: element-plus/list
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  - col: subdivisions
-    seq: 30
-  model: crm_divisions
-  vtype: element-plus/form.modal
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  - col: subdivisions
-    seq: 30
-  model: crm_divisions
-  vtype: element-plus/form
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  - col: subdivisions
-    seq: 30
-  model: crm_divisions
-  vtype: element-plus/o2m-form
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  - col: subdivisions
-    seq: 30
-  model: crm_divisions
-  vtype: element-plus/o2m-list
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_subdivision.categories
-  vtype: element-plus/search
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_subdivision.categories
-  vtype: element-plus/find
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: subdivisions
-    seq: 30
-  model: crm_subdivision.categories
-  vtype: element-plus/list
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: subdivisions
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_subdivision.categories
-  vtype: element-plus/form.modal
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: subdivisions
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_subdivision.categories
-  vtype: element-plus/form
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: subdivisions
-    seq: 30
-  - col: note
-    seq: 40
-  model: crm_subdivision.categories
-  vtype: element-plus/o2m-form
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_subdivision.categories
-  vtype: element-plus/tree
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  model: crm_subdivision.categories
-  vtype: element-plus/o2m-tree
-- cols:
-  - col: name
-    seq: 0
-  - col: parent_id
-    seq: 10
-  - col: childs_id
-    seq: 20
-  - col: subdivisions
-    seq: 30
-  model: crm_subdivision.categories
-  vtype: element-plus/o2m-list
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_subdivisions
-  vtype: element-plus/search
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_subdivisions
-  vtype: element-plus/find
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_subdivisions
-  vtype: element-plus/list
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_subdivisions
-  vtype: element-plus/form.modal
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_subdivisions
-  vtype: element-plus/form
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_subdivisions
-  vtype: element-plus/o2m-form
-- cols:
-  - col: category_id
-    seq: 0
-  - col: code
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_subdivisions
-  vtype: element-plus/o2m-list
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.channel.assigments
-  vtype: element-plus/find
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.channel.assigments
-  vtype: element-plus/list
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.channel.assigments
-  vtype: element-plus/form.modal
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.channel.assigments
-  vtype: element-plus/form
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.channel.assigments
-  vtype: element-plus/o2m-form
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.channel.assigments
-  vtype: element-plus/o2m-list
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: segment_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.segment.assigments
-  vtype: element-plus/find
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: segment_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.segment.assigments
-  vtype: element-plus/list
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: segment_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.segment.assigments
-  vtype: element-plus/form.modal
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: segment_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.segment.assigments
-  vtype: element-plus/form
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: segment_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.segment.assigments
-  vtype: element-plus/o2m-form
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: segment_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.segment.assigments
-  vtype: element-plus/o2m-list
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: area_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.area.assigments
-  vtype: element-plus/find
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: area_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.area.assigments
-  vtype: element-plus/list
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: area_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.area.assigments
-  vtype: element-plus/form.modal
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: area_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.area.assigments
-  vtype: element-plus/form
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: area_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.area.assigments
-  vtype: element-plus/o2m-form
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: area_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.area.assigments
-  vtype: element-plus/o2m-list
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: region_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.region.assigments
-  vtype: element-plus/find
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: region_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.region.assigments
-  vtype: element-plus/list
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: region_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.region.assigments
-  vtype: element-plus/form.modal
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: region_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.region.assigments
-  vtype: element-plus/form
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: region_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.region.assigments
-  vtype: element-plus/o2m-form
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: region_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_unit.region.assigments
-  vtype: element-plus/o2m-list
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_division.subdivision.assigments
-  vtype: element-plus/find
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_division.subdivision.assigments
-  vtype: element-plus/list
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_division.subdivision.assigments
-  vtype: element-plus/form.modal
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_division.subdivision.assigments
-  vtype: element-plus/form
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_division.subdivision.assigments
-  vtype: element-plus/o2m-form
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: descr
-    seq: 20
-  model: crm_division.subdivision.assigments
-  vtype: element-plus/o2m-list
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: segment_id
-    seq: 20
-  - col: area_id
-    seq: 30
-  - col: region_id
-    seq: 40
-  - col: fullname
-    seq: 50
-  model: crm.markets
-  vtype: element-plus/search
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: segment_id
-    seq: 20
-  - col: area_id
-    seq: 30
-  - col: region_id
-    seq: 40
-  - col: fullname
-    seq: 50
-  model: crm.markets
-  vtype: element-plus/find
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: segment_id
-    seq: 20
-  - col: area_id
-    seq: 30
-  - col: region_id
-    seq: 40
-  - col: fullname
-    seq: 50
-  model: crm.markets
-  vtype: element-plus/list
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: segment_id
-    seq: 20
-  - col: area_id
-    seq: 30
-  - col: region_id
-    seq: 40
-  - col: fullname
-    seq: 50
-  - col: note
-    seq: 60
-  model: crm.markets
-  vtype: element-plus/form.modal
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: segment_id
-    seq: 20
-  - col: area_id
-    seq: 30
-  - col: region_id
-    seq: 40
-  - col: fullname
-    seq: 50
-  - col: note
-    seq: 60
-  model: crm.markets
-  vtype: element-plus/form
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: segment_id
-    seq: 20
-  - col: area_id
-    seq: 30
-  - col: region_id
-    seq: 40
-  - col: fullname
-    seq: 50
-  - col: note
-    seq: 60
-  model: crm.markets
-  vtype: element-plus/o2m-form
-- cols:
-  - col: unit_id
-    seq: 0
-  - col: channel_id
-    seq: 10
-  - col: segment_id
-    seq: 20
-  - col: area_id
-    seq: 30
-  - col: region_id
-    seq: 40
-  - col: fullname
-    seq: 50
-  model: crm.markets
-  vtype: element-plus/o2m-list
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: fullname
-    seq: 20
-  model: crm_teams
-  vtype: element-plus/search
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: fullname
-    seq: 20
-  model: crm_teams
-  vtype: element-plus/find
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: fullname
-    seq: 20
-  model: crm_teams
-  vtype: element-plus/list
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: fullname
-    seq: 20
-  - col: note
-    seq: 30
-  model: crm_teams
-  vtype: element-plus/form.modal
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: fullname
-    seq: 20
-  - col: note
-    seq: 30
-  model: crm_teams
-  vtype: element-plus/form
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: fullname
-    seq: 20
-  - col: note
-    seq: 30
-  model: crm_teams
-  vtype: element-plus/o2m-form
-- cols:
-  - col: division_id
-    seq: 0
-  - col: subdivision_id
-    seq: 10
-  - col: fullname
-    seq: 20
-  model: crm_teams
+  model: crm.channel.categories
   vtype: element-plus/o2m-list
 - cols:
   - col: code
@@ -1621,6 +338,1198 @@
   model: crm.channels
   vtype: element-plus/form
 - cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.segment.categories
+  vtype: element-plus/search
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.segment.categories
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: segments
+    seq: 30
+  model: crm.segment.categories
+  vtype: element-plus/list
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: segments
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.segment.categories
+  vtype: element-plus/form.modal
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: segments
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.segment.categories
+  vtype: element-plus/form
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: segments
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.segment.categories
+  vtype: element-plus/o2m-form
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.segment.categories
+  vtype: element-plus/tree
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.segment.categories
+  vtype: element-plus/o2m-tree
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: segments
+    seq: 30
+  model: crm.segment.categories
+  vtype: element-plus/o2m-list
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.segments
+  vtype: element-plus/search
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.segments
+  vtype: element-plus/find
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.segments
+  vtype: element-plus/list
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.segments
+  vtype: element-plus/form.modal
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.segments
+  vtype: element-plus/form
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.segments
+  vtype: element-plus/o2m-form
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.segments
+  vtype: element-plus/o2m-list
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.area.categories
+  vtype: element-plus/search
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.area.categories
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: areas
+    seq: 30
+  model: crm.area.categories
+  vtype: element-plus/list
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: areas
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.area.categories
+  vtype: element-plus/form.modal
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: areas
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.area.categories
+  vtype: element-plus/form
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: areas
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.area.categories
+  vtype: element-plus/o2m-form
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.area.categories
+  vtype: element-plus/tree
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.area.categories
+  vtype: element-plus/o2m-tree
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: areas
+    seq: 30
+  model: crm.area.categories
+  vtype: element-plus/o2m-list
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.areas
+  vtype: element-plus/search
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.areas
+  vtype: element-plus/find
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.areas
+  vtype: element-plus/list
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.areas
+  vtype: element-plus/form.modal
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.areas
+  vtype: element-plus/form
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.areas
+  vtype: element-plus/o2m-form
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.areas
+  vtype: element-plus/o2m-list
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.region.categories
+  vtype: element-plus/search
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.region.categories
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: segments
+    seq: 30
+  model: crm.region.categories
+  vtype: element-plus/list
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: segments
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.region.categories
+  vtype: element-plus/form.modal
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: segments
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.region.categories
+  vtype: element-plus/form
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: segments
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.region.categories
+  vtype: element-plus/o2m-form
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.region.categories
+  vtype: element-plus/tree
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.region.categories
+  vtype: element-plus/o2m-tree
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: segments
+    seq: 30
+  model: crm.region.categories
+  vtype: element-plus/o2m-list
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.regions
+  vtype: element-plus/search
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.regions
+  vtype: element-plus/find
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.regions
+  vtype: element-plus/list
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.regions
+  vtype: element-plus/form.modal
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.regions
+  vtype: element-plus/form
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.regions
+  vtype: element-plus/o2m-form
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.regions
+  vtype: element-plus/o2m-list
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.division.categories
+  vtype: element-plus/search
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.division.categories
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: divisions
+    seq: 30
+  model: crm.division.categories
+  vtype: element-plus/list
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: divisions
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.division.categories
+  vtype: element-plus/form.modal
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: divisions
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.division.categories
+  vtype: element-plus/form
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: divisions
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.division.categories
+  vtype: element-plus/o2m-form
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.division.categories
+  vtype: element-plus/tree
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.division.categories
+  vtype: element-plus/o2m-tree
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: divisions
+    seq: 30
+  model: crm.division.categories
+  vtype: element-plus/o2m-list
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.divisions
+  vtype: element-plus/search
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.divisions
+  vtype: element-plus/find
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  - col: subdivisions
+    seq: 30
+  model: crm.divisions
+  vtype: element-plus/list
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  - col: subdivisions
+    seq: 30
+  model: crm.divisions
+  vtype: element-plus/form.modal
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  - col: subdivisions
+    seq: 30
+  model: crm.divisions
+  vtype: element-plus/form
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  - col: subdivisions
+    seq: 30
+  model: crm.divisions
+  vtype: element-plus/o2m-form
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  - col: subdivisions
+    seq: 30
+  model: crm.divisions
+  vtype: element-plus/o2m-list
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.subdivision.categories
+  vtype: element-plus/search
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.subdivision.categories
+  vtype: element-plus/find
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: subdivisions
+    seq: 30
+  model: crm.subdivision.categories
+  vtype: element-plus/list
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: subdivisions
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.subdivision.categories
+  vtype: element-plus/form.modal
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: subdivisions
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.subdivision.categories
+  vtype: element-plus/form
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: subdivisions
+    seq: 30
+  - col: note
+    seq: 40
+  model: crm.subdivision.categories
+  vtype: element-plus/o2m-form
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.subdivision.categories
+  vtype: element-plus/tree
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  model: crm.subdivision.categories
+  vtype: element-plus/o2m-tree
+- cols:
+  - col: name
+    seq: 0
+  - col: parent_id
+    seq: 10
+  - col: childs_id
+    seq: 20
+  - col: subdivisions
+    seq: 30
+  model: crm.subdivision.categories
+  vtype: element-plus/o2m-list
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.subdivisions
+  vtype: element-plus/search
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.subdivisions
+  vtype: element-plus/find
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.subdivisions
+  vtype: element-plus/list
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.subdivisions
+  vtype: element-plus/form.modal
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.subdivisions
+  vtype: element-plus/form
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.subdivisions
+  vtype: element-plus/o2m-form
+- cols:
+  - col: category_id
+    seq: 0
+  - col: code
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.subdivisions
+  vtype: element-plus/o2m-list
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.channel.assigments
+  vtype: element-plus/find
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.channel.assigments
+  vtype: element-plus/list
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.channel.assigments
+  vtype: element-plus/form.modal
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.channel.assigments
+  vtype: element-plus/form
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.channel.assigments
+  vtype: element-plus/o2m-form
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.channel.assigments
+  vtype: element-plus/o2m-list
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: segment_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.segment.assigments
+  vtype: element-plus/find
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: segment_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.segment.assigments
+  vtype: element-plus/list
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: segment_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.segment.assigments
+  vtype: element-plus/form.modal
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: segment_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.segment.assigments
+  vtype: element-plus/form
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: segment_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.segment.assigments
+  vtype: element-plus/o2m-form
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: segment_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.segment.assigments
+  vtype: element-plus/o2m-list
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: area_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.area.assigments
+  vtype: element-plus/find
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: area_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.area.assigments
+  vtype: element-plus/list
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: area_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.area.assigments
+  vtype: element-plus/form.modal
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: area_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.area.assigments
+  vtype: element-plus/form
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: area_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.area.assigments
+  vtype: element-plus/o2m-form
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: area_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.area.assigments
+  vtype: element-plus/o2m-list
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: region_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.region.assigments
+  vtype: element-plus/find
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: region_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.region.assigments
+  vtype: element-plus/list
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: region_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.region.assigments
+  vtype: element-plus/form.modal
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: region_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.region.assigments
+  vtype: element-plus/form
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: region_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.region.assigments
+  vtype: element-plus/o2m-form
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: region_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.unit.region.assigments
+  vtype: element-plus/o2m-list
+- cols:
+  - col: division_id
+    seq: 0
+  - col: subdivision_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.division.subdivision.assigments
+  vtype: element-plus/find
+- cols:
+  - col: division_id
+    seq: 0
+  - col: subdivision_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.division.subdivision.assigments
+  vtype: element-plus/list
+- cols:
+  - col: division_id
+    seq: 0
+  - col: subdivision_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.division.subdivision.assigments
+  vtype: element-plus/form.modal
+- cols:
+  - col: division_id
+    seq: 0
+  - col: subdivision_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.division.subdivision.assigments
+  vtype: element-plus/form
+- cols:
+  - col: division_id
+    seq: 0
+  - col: subdivision_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.division.subdivision.assigments
+  vtype: element-plus/o2m-form
+- cols:
+  - col: division_id
+    seq: 0
+  - col: subdivision_id
+    seq: 10
+  - col: descr
+    seq: 20
+  model: crm.division.subdivision.assigments
+  vtype: element-plus/o2m-list
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: segment_id
+    seq: 20
+  - col: area_id
+    seq: 30
+  - col: region_id
+    seq: 40
+  - col: fullname
+    seq: 50
+  model: crm.markets
+  vtype: element-plus/search
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: segment_id
+    seq: 20
+  - col: area_id
+    seq: 30
+  - col: region_id
+    seq: 40
+  - col: fullname
+    seq: 50
+  model: crm.markets
+  vtype: element-plus/find
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: segment_id
+    seq: 20
+  - col: area_id
+    seq: 30
+  - col: region_id
+    seq: 40
+  - col: fullname
+    seq: 50
+  model: crm.markets
+  vtype: element-plus/list
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: segment_id
+    seq: 20
+  - col: area_id
+    seq: 30
+  - col: region_id
+    seq: 40
+  - col: fullname
+    seq: 50
+  - col: note
+    seq: 60
+  model: crm.markets
+  vtype: element-plus/form.modal
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: segment_id
+    seq: 20
+  - col: area_id
+    seq: 30
+  - col: region_id
+    seq: 40
+  - col: fullname
+    seq: 50
+  - col: note
+    seq: 60
+  model: crm.markets
+  vtype: element-plus/form
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: segment_id
+    seq: 20
+  - col: area_id
+    seq: 30
+  - col: region_id
+    seq: 40
+  - col: fullname
+    seq: 50
+  - col: note
+    seq: 60
+  model: crm.markets
+  vtype: element-plus/o2m-form
+- cols:
+  - col: unit_id
+    seq: 0
+  - col: channel_id
+    seq: 10
+  - col: segment_id
+    seq: 20
+  - col: area_id
+    seq: 30
+  - col: region_id
+    seq: 40
+  - col: fullname
+    seq: 50
+  model: crm.markets
+  vtype: element-plus/o2m-list
+- cols:
+  - col: code
+    seq: 0
+  - col: descr
+    seq: 10
+  model: crm.teams
+  vtype: element-plus/search
+- cols:
+  - col: code
+    seq: 0
+  - col: descr
+    seq: 10
+  model: crm.teams
+  vtype: element-plus/find
+- cols:
+  - col: code
+    seq: 0
+  - col: descr
+    seq: 10
+  - col: groups
+    seq: 20
+  model: crm.teams
+  vtype: element-plus/list
+- cols:
+  - col: code
+    seq: 0
+  - col: descr
+    seq: 10
+  - col: groups
+    seq: 20
+  model: crm.teams
+  vtype: element-plus/form.modal
+- cols:
+  - col: code
+    seq: 0
+  - col: descr
+    seq: 10
+  - col: groups
+    seq: 20
+  model: crm.teams
+  vtype: element-plus/form
+- cols:
   - col: channel_id
     seq: 0
   - col: code
@@ -1683,47 +1592,6 @@
     seq: 20
   model: crm.sectors
   vtype: element-plus/o2m-list
-- cols:
-  - col: code
-    seq: 0
-  - col: descr
-    seq: 10
-  model: crm.teams
-  vtype: element-plus/search
-- cols:
-  - col: code
-    seq: 0
-  - col: descr
-    seq: 10
-  model: crm.teams
-  vtype: element-plus/find
-- cols:
-  - col: code
-    seq: 0
-  - col: descr
-    seq: 10
-  - col: groups
-    seq: 20
-  model: crm.teams
-  vtype: element-plus/list
-- cols:
-  - col: code
-    seq: 0
-  - col: descr
-    seq: 10
-  - col: groups
-    seq: 20
-  model: crm.teams
-  vtype: element-plus/form.modal
-- cols:
-  - col: code
-    seq: 0
-  - col: descr
-    seq: 10
-  - col: groups
-    seq: 20
-  model: crm.teams
-  vtype: element-plus/form
 - cols:
   - col: team_id
     seq: 0

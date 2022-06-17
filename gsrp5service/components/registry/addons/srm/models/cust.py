@@ -33,7 +33,7 @@ class srm_units(Model):
 	_class_category = 'order'
 	_columns = {
 	'category_id': fields.many2one(label='Category',obj='srm.unit.categories'),
-	'company_id': fields.many2many(label='Companies',obj='md.company', rel='md_company_srm_unit_rel', id2='unit_id', id1='company_id'),
+	'company_ids': fields.many2many(label='Companies',obj='md.company', rel='md_company_srm_unit_rel', id2='unit_id', id1='company_id'),
 	'code': fields.varchar(label = 'Code',size=8,translate=True),
 	'descr':fields.varchar(label = 'Description',size=128,translate=True),
 	'channels': fields.one2many(label='Channels',obj='srm.unit.channel.assigments',rel='unit_id'),
@@ -763,5 +763,13 @@ class srm_demand_type_items(Model):
 	}
 
 srm_demand_type_items()
+
+class srm_units_md_company_inherit(ModelInherit):
+	_name = 'srm.units.md.company.inherit'
+	_description = 'SRM Units Master Data Company Inherit'
+	_inherit = {'md.company':{'_columns':['srm_units']}}
+	_columns={
+	'srm_units': fields.many2many(label='SRM Units',obj='srm.units',rel='md_company_srm_unit_rel',id1='unit_id',id2='company_id'),
+	}
 
 # Types & Roles
