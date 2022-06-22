@@ -6,35 +6,6 @@ from decimal import Decimal
 from datetime import datetime
 from datetime import timedelta
 
-
-class sales_order_categories(Model):
-	_name = 'sale.order.categories'
-	_description = 'Category Sale Order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='sale.order.categories'),
-	'childs_id': fields.one2many(obj = 'sale.order.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.tree(label='Full Name', translate = True,required = True),
-	'orders': fields.one2many(label='Orders',obj='sale.orders',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-sales_order_categories()
-
-class sale_invoice_categories(Model):
-	_name = 'sale.invoice.categories'
-	_description = 'Category Sale Invoice'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='sale.invoice.categories'),
-	'childs_id': fields.one2many(obj = 'sale.invoice.categories',rel = 'parent_id',label = 'Childs'),
-	'fullname': fields.tree(label='Full Name', translate = True,required = True),
-	'invoices': fields.one2many(label='Orders',obj='sale.invoices',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-sale_invoice_categories()
-
 class sale_orders(Model):
 	_name = 'sale.orders'
 	_description = 'Sale Orders'

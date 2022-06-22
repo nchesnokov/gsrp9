@@ -324,8 +324,6 @@ class sale_unit_region_assigments(Model):
 
 sale_unit_segment_assigments()
 
-
-
 class sale_division_subdivision_assigments(Model):
 	_name = 'sale.division.subdivision.assigments'
 	_description = 'Sale Division Of Subdivision Assigment'
@@ -347,9 +345,7 @@ class sale_division_subdivision_assigments(Model):
 		if len(v) > 0:
 			item['fullname'] = v
 
-
 sale_division_subdivision_assigments()
-
 
 class sale_markets(Model):
 	_name = 'sale.markets'
@@ -369,7 +365,6 @@ class sale_markets(Model):
 
 sale_markets()
 
-
 class sale_teams(Model):
 	_name = 'sale.teams'
 	_description = 'Sale Teams'
@@ -384,7 +379,6 @@ class sale_teams(Model):
 	}
 
 sale_teams()
-
 
 #Organization structure
 #Pricing
@@ -491,7 +485,6 @@ class sale_order_type_items(Model):
 
 sale_order_type_items()
 
-
 class sale_invoice_types(Model):
 	_name = 'sale.invoice.types'
 	_description = 'Types Sale Invoice'
@@ -520,6 +513,38 @@ class sale_invoice_type_roles(Model):
 	}
 
 sale_invoice_type_roles()
+
+class sales_order_categories(Model):
+	_name = 'sale.order.categories'
+	_description = 'Category Sale Order'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='sale.order.categories'),
+	'childs_id': fields.one2many(obj = 'sale.order.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
+	'orders': fields.one2many(label='Orders',obj='sale.orders',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+sales_order_categories()
+
+class sale_invoice_categories(Model):
+	_name = 'sale.invoice.categories'
+	_description = 'Category Sale Invoice'
+	_class_model = 'C'
+	_class_category = 'invoice'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='sale.invoice.categories'),
+	'childs_id': fields.one2many(obj = 'sale.invoice.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
+	'invoices': fields.one2many(label='Orders',obj='sale.invoices',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+sale_invoice_categories()
 
 class sale_units_md_company_inherit(ModelInherit):
 	_name = 'sale.units.md.company.inherit'

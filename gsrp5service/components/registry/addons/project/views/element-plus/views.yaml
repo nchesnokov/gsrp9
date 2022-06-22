@@ -141,6 +141,17 @@
   model: prj.units
   vtype: element-plus/list
 - cols:
+  - col: name
+    seq: 0
+  - col: country
+    seq: 10
+  - col: currency
+    seq: 20
+  - col: note
+    seq: 30
+  model: md.company
+  vtype: element-plus/m2mlist
+- cols:
   - col: category_id
     seq: 0
   - col: company_ids
@@ -2236,6 +2247,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.resource.category
   vtype: element-plus/search
 - cols:
@@ -2243,6 +2256,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.resource.category
   vtype: element-plus/find
 - cols:
@@ -2252,8 +2267,10 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: projects
+  - col: fullname
     seq: 30
+  - col: projects
+    seq: 40
   model: prj.resource.category
   vtype: element-plus/list
 - cols:
@@ -2263,10 +2280,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: projects
+  - col: fullname
     seq: 30
-  - col: note
+  - col: projects
     seq: 40
+  - col: note
+    seq: 50
   model: prj.resource.category
   vtype: element-plus/form.modal
 - cols:
@@ -2276,10 +2295,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: projects
+  - col: fullname
     seq: 30
-  - col: note
+  - col: projects
     seq: 40
+  - col: note
+    seq: 50
   model: prj.resource.category
   vtype: element-plus/form
 - cols:
@@ -2289,10 +2310,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: projects
+  - col: fullname
     seq: 30
-  - col: note
+  - col: projects
     seq: 40
+  - col: note
+    seq: 50
   model: prj.resource.category
   vtype: element-plus/o2m-form
 - cols:
@@ -2300,6 +2323,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.resource.category
   vtype: element-plus/tree
 - cols:
@@ -2307,6 +2332,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.resource.category
   vtype: element-plus/o2m-tree
 - cols:
@@ -2316,8 +2343,10 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: projects
+  - col: fullname
     seq: 30
+  - col: projects
+    seq: 40
   model: prj.resource.category
   vtype: element-plus/o2m-list
 - cols:
@@ -2325,6 +2354,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.bill.category
   vtype: element-plus/search
 - cols:
@@ -2332,6 +2363,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.bill.category
   vtype: element-plus/find
 - cols:
@@ -2341,8 +2374,10 @@
     seq: 10
   - col: childs_id
     seq: 20
+  - col: fullname
+    seq: 30
   - col: bills
-    seq: 30
+    seq: 40
   model: prj.bill.category
   vtype: element-plus/list
 - cols:
@@ -2352,10 +2387,12 @@
     seq: 10
   - col: childs_id
     seq: 20
+  - col: fullname
+    seq: 30
   - col: bills
-    seq: 30
-  - col: note
     seq: 40
+  - col: note
+    seq: 50
   model: prj.bill.category
   vtype: element-plus/form.modal
 - cols:
@@ -2365,10 +2402,12 @@
     seq: 10
   - col: childs_id
     seq: 20
+  - col: fullname
+    seq: 30
   - col: bills
-    seq: 30
-  - col: note
     seq: 40
+  - col: note
+    seq: 50
   model: prj.bill.category
   vtype: element-plus/form
 - cols:
@@ -2378,10 +2417,12 @@
     seq: 10
   - col: childs_id
     seq: 20
+  - col: fullname
+    seq: 30
   - col: bills
-    seq: 30
-  - col: note
     seq: 40
+  - col: note
+    seq: 50
   model: prj.bill.category
   vtype: element-plus/o2m-form
 - cols:
@@ -2389,6 +2430,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.bill.category
   vtype: element-plus/tree
 - cols:
@@ -2396,6 +2439,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.bill.category
   vtype: element-plus/o2m-tree
 - cols:
@@ -2405,8 +2450,10 @@
     seq: 10
   - col: childs_id
     seq: 20
+  - col: fullname
+    seq: 30
   - col: bills
-    seq: 30
+    seq: 40
   model: prj.bill.category
   vtype: element-plus/o2m-list
 - cols:
@@ -2414,6 +2461,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.portfolio.category
   vtype: element-plus/search
 - cols:
@@ -2421,6 +2470,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.portfolio.category
   vtype: element-plus/find
 - cols:
@@ -2430,8 +2481,10 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: portfolios
+  - col: fullname
     seq: 30
+  - col: portfolios
+    seq: 40
   model: prj.portfolio.category
   vtype: element-plus/list
 - cols:
@@ -2441,10 +2494,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: portfolios
+  - col: fullname
     seq: 30
-  - col: note
+  - col: portfolios
     seq: 40
+  - col: note
+    seq: 50
   model: prj.portfolio.category
   vtype: element-plus/form.modal
 - cols:
@@ -2454,10 +2509,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: portfolios
+  - col: fullname
     seq: 30
-  - col: note
+  - col: portfolios
     seq: 40
+  - col: note
+    seq: 50
   model: prj.portfolio.category
   vtype: element-plus/form
 - cols:
@@ -2467,10 +2524,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: portfolios
+  - col: fullname
     seq: 30
-  - col: note
+  - col: portfolios
     seq: 40
+  - col: note
+    seq: 50
   model: prj.portfolio.category
   vtype: element-plus/o2m-form
 - cols:
@@ -2478,6 +2537,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.portfolio.category
   vtype: element-plus/tree
 - cols:
@@ -2485,6 +2546,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.portfolio.category
   vtype: element-plus/o2m-tree
 - cols:
@@ -2494,8 +2557,10 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: portfolios
+  - col: fullname
     seq: 30
+  - col: portfolios
+    seq: 40
   model: prj.portfolio.category
   vtype: element-plus/o2m-list
 - cols:
@@ -2503,6 +2568,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.prj.category
   vtype: element-plus/search
 - cols:
@@ -2510,6 +2577,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.prj.category
   vtype: element-plus/find
 - cols:
@@ -2519,8 +2588,10 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: projects
+  - col: fullname
     seq: 30
+  - col: projects
+    seq: 40
   model: prj.prj.category
   vtype: element-plus/list
 - cols:
@@ -2530,10 +2601,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: projects
+  - col: fullname
     seq: 30
-  - col: note
+  - col: projects
     seq: 40
+  - col: note
+    seq: 50
   model: prj.prj.category
   vtype: element-plus/form.modal
 - cols:
@@ -2543,10 +2616,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: projects
+  - col: fullname
     seq: 30
-  - col: note
+  - col: projects
     seq: 40
+  - col: note
+    seq: 50
   model: prj.prj.category
   vtype: element-plus/form
 - cols:
@@ -2556,10 +2631,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: projects
+  - col: fullname
     seq: 30
-  - col: note
+  - col: projects
     seq: 40
+  - col: note
+    seq: 50
   model: prj.prj.category
   vtype: element-plus/o2m-form
 - cols:
@@ -2567,6 +2644,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.prj.category
   vtype: element-plus/tree
 - cols:
@@ -2574,6 +2653,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.prj.category
   vtype: element-plus/o2m-tree
 - cols:
@@ -2583,8 +2664,10 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: projects
+  - col: fullname
     seq: 30
+  - col: projects
+    seq: 40
   model: prj.prj.category
   vtype: element-plus/o2m-list
 - cols:
@@ -2592,6 +2675,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.stage.category
   vtype: element-plus/search
 - cols:
@@ -2599,6 +2684,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.stage.category
   vtype: element-plus/find
 - cols:
@@ -2608,8 +2695,10 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: stages
+  - col: fullname
     seq: 30
+  - col: stages
+    seq: 40
   model: prj.stage.category
   vtype: element-plus/list
 - cols:
@@ -2619,10 +2708,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: stages
+  - col: fullname
     seq: 30
-  - col: note
+  - col: stages
     seq: 40
+  - col: note
+    seq: 50
   model: prj.stage.category
   vtype: element-plus/form.modal
 - cols:
@@ -2632,10 +2723,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: stages
+  - col: fullname
     seq: 30
-  - col: note
+  - col: stages
     seq: 40
+  - col: note
+    seq: 50
   model: prj.stage.category
   vtype: element-plus/form
 - cols:
@@ -2645,10 +2738,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: stages
+  - col: fullname
     seq: 30
-  - col: note
+  - col: stages
     seq: 40
+  - col: note
+    seq: 50
   model: prj.stage.category
   vtype: element-plus/o2m-form
 - cols:
@@ -2656,6 +2751,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.stage.category
   vtype: element-plus/tree
 - cols:
@@ -2663,6 +2760,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.stage.category
   vtype: element-plus/o2m-tree
 - cols:
@@ -2672,8 +2771,10 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: stages
+  - col: fullname
     seq: 30
+  - col: stages
+    seq: 40
   model: prj.stage.category
   vtype: element-plus/o2m-list
 - cols:
@@ -2681,6 +2782,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.task.category
   vtype: element-plus/search
 - cols:
@@ -2688,6 +2791,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.task.category
   vtype: element-plus/find
 - cols:
@@ -2697,8 +2802,10 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: tasks
+  - col: fullname
     seq: 30
+  - col: tasks
+    seq: 40
   model: prj.task.category
   vtype: element-plus/list
 - cols:
@@ -2708,10 +2815,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: tasks
+  - col: fullname
     seq: 30
-  - col: note
+  - col: tasks
     seq: 40
+  - col: note
+    seq: 50
   model: prj.task.category
   vtype: element-plus/form.modal
 - cols:
@@ -2721,10 +2830,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: tasks
+  - col: fullname
     seq: 30
-  - col: note
+  - col: tasks
     seq: 40
+  - col: note
+    seq: 50
   model: prj.task.category
   vtype: element-plus/form
 - cols:
@@ -2734,10 +2845,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: tasks
+  - col: fullname
     seq: 30
-  - col: note
+  - col: tasks
     seq: 40
+  - col: note
+    seq: 50
   model: prj.task.category
   vtype: element-plus/o2m-form
 - cols:
@@ -2745,6 +2858,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.task.category
   vtype: element-plus/tree
 - cols:
@@ -2752,6 +2867,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.task.category
   vtype: element-plus/o2m-tree
 - cols:
@@ -2761,8 +2878,10 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: tasks
+  - col: fullname
     seq: 30
+  - col: tasks
+    seq: 40
   model: prj.task.category
   vtype: element-plus/o2m-list
 - cols:
@@ -2770,6 +2889,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.element.category
   vtype: element-plus/search
 - cols:
@@ -2777,6 +2898,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.element.category
   vtype: element-plus/find
 - cols:
@@ -2786,8 +2909,10 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: elements
+  - col: fullname
     seq: 30
+  - col: elements
+    seq: 40
   model: prj.element.category
   vtype: element-plus/list
 - cols:
@@ -2797,10 +2922,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: elements
+  - col: fullname
     seq: 30
-  - col: note
+  - col: elements
     seq: 40
+  - col: note
+    seq: 50
   model: prj.element.category
   vtype: element-plus/form.modal
 - cols:
@@ -2810,10 +2937,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: elements
+  - col: fullname
     seq: 30
-  - col: note
+  - col: elements
     seq: 40
+  - col: note
+    seq: 50
   model: prj.element.category
   vtype: element-plus/form
 - cols:
@@ -2823,10 +2952,12 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: elements
+  - col: fullname
     seq: 30
-  - col: note
+  - col: elements
     seq: 40
+  - col: note
+    seq: 50
   model: prj.element.category
   vtype: element-plus/o2m-form
 - cols:
@@ -2834,6 +2965,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.element.category
   vtype: element-plus/tree
 - cols:
@@ -2841,6 +2974,8 @@
     seq: 0
   - col: parent_id
     seq: 10
+  - col: fullname
+    seq: 20
   model: prj.element.category
   vtype: element-plus/o2m-tree
 - cols:
@@ -2850,8 +2985,10 @@
     seq: 10
   - col: childs_id
     seq: 20
-  - col: elements
+  - col: fullname
     seq: 30
+  - col: elements
+    seq: 40
   model: prj.element.category
   vtype: element-plus/o2m-list
 - cols:

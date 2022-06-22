@@ -1424,9 +1424,9 @@ def _m2mread(self, cr, uid, pool, model, oid, field, fields, context):
 	rowcount = cr.execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
 	if rowcount > 0:
 		if len(fields) > 0:
-			ids.extend(list(map(lambda x: x[2],self._cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})))) 
+			ids.extend(list(map(lambda x: x[2],cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})))) 
 			if len(ids) > 0:
-				res.extend(self.readFor(obj,ids,fields , context))
+				res.extend(model.readFor(obj,ids,fields , context))
 		else:
 			res.extend(cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})) 
 
