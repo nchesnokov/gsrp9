@@ -47,26 +47,27 @@ class purchase_orders(Model):
 	'note': fields.text('Note',translate=True)
 	}
 
-	def _on_change_otype(self, item,context={}):		
-		roles = self._proxy.get('purchase.order.type.roles').select( ['role_id'],[('type_id','=',item['otype']['name'])],context)
-		for role in roles:
-			item_role = self._proxy.get('purchase.order.roles')._buildEmptyItem()
-			item_role['role_id'] = role['role_id']
-			item['roles'].append(item_role)
-		
-		types = self._proxy.get('purchase.order.types').select( ['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = self._proxy.get('purchase.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
-		texts = texts1[0]['texts']
-		seq = 0
-		for text in texts:
-			item_text = self._proxy.get('purchase.order.texts')._buildEmptyItem()
-			if text['seq']:
-				item_text['seq'] = text['seq']
-			else:
-				item_text['seq'] = seq
-				seq += 10
-			item_text['text_id'] = text['text_id']
-			item['texts'].append(item_text)
+	def _on_change_otype(self, item,context={}):
+		if item['otype'] and 'name' in item['otype'] and item['otype']['name']:
+			roles = self._proxy.get('purchase.order.type.roles').select( ['role_id'],[('type_id','=',item['otype']['name'])],context)
+			for role in roles:
+				item_role = self._proxy.get('purchase.order.roles')._buildEmptyItem()
+				item_role['role_id'] = role['role_id']
+				item['roles'].append(item_role)
+			
+			types = self._proxy.get('purchase.order.types').select( ['htschema'],[('name','=',item['otype']['name'])],context)	
+			texts1 = self._proxy.get('purchase.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+			texts = texts1[0]['texts']
+			seq = 0
+			for text in texts:
+				item_text = self._proxy.get('purchase.order.texts')._buildEmptyItem()
+				if text['seq']:
+					item_text['seq'] = text['seq']
+				else:
+					item_text['seq'] = seq
+					seq += 10
+				item_text['text_id'] = text['text_id']
+				item['texts'].append(item_text)
 
 	def _on_change_bom(self, item,context={}):		
 		#web_pdb.set_trace()

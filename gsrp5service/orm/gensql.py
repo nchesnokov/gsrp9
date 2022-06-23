@@ -401,13 +401,13 @@ def _build_aliases(self,joins=None):
 		l = len(joins[key])
 		fields = joins[key]
 		columnsinfo = self.columnsInfo(attributes=['type','ref'])
-		#fieldsref = list(filter(lambda x: columnsinfo[x]['type'] == 'referenced',self._columns.keys()))
+		fieldsref = list(filter(lambda x: columnsinfo[x]['type'] == 'link',self._columns.keys()))
 		for idx,field in enumerate(joins[key]):
-			#if field in fieldsref:
-				#objref = columnsinfo[field]['ref'].split('.')[0]
-				#aliases.setdefault(key,{})[field] = aliases[key][objref]
-			#else:
-			aliases.setdefault(key,{})[field] = curalias + '%s' % (idx,)
+			if field in fieldsref:
+				objref = columnsinfo[field]['ref'].split('.')[0]
+				aliases.setdefault(key,{})[field] = aliases[key][objref]
+			else:
+				aliases.setdefault(key,{})[field] = curalias + '%s' % (idx,)
 		if curalias[-1] == 'z':
 			curalias += 'a'
 		else:
@@ -545,17 +545,16 @@ def parse_fields(self,pool,aliases,models,fields = None, columnsmeta=None):
 			fields.append(recname)
 
 	i18nfields = self._i18nfields
-	#if  self._name == 'md.category.product':
-		#web_pdb.set_trace()
+
 	for field in fields:
 		if type(field) == str:
 			if field in columnsmeta and columnsmeta[field] in ('one2many','many2many'):
 				f.append('NULL AS ' + field)
-			# elif field in columnsmeta and columnsmeta[field] == 'referenced':
-				# colinfo = self.columnsInfo(columns=[field])[field]
-				# objref,fieldref = colinfo['ref'].split('.')
-				# obj = self.columnsInfo(columns=[objref])[objref]['obj']
-				# f.append(aliases[models[field]][field] + '.' + fieldref + ' as ' + field)
+			elif field in columnsmeta and columnsmeta[field] == 'link':
+				colinfo = self.columnsInfo(columns=[field])[field]
+				objref,fieldref = colinfo['ref'].split('.')
+				obj = self.columnsInfo(columns=[objref])[objref]['obj']
+				f.append(aliases[models[field]][field] + '.' + fieldref + ' as ' + field)
 				
 			elif field in columnsmeta and columnsmeta[field] in ('many2one','referenced','related'):
 				modinfo = self._pool.get(self.modelInfo()['columns'][field]['obj']).modelInfo()

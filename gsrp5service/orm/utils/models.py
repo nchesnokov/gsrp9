@@ -312,7 +312,7 @@ def _createRecord(self, cr, uid, pool, model, record, context):
 					else:
 						record_t['lang'] = model._proxy._lang2id('en')
 			sql,vals = gensql.CreateI18N(self,  cr, uid, pool, model, record_t, context)
-			rowcount = cr._execute(sql,vals)
+			rowcount = cr.execute(sql,vals)
 
 	for tn in model._triggers:
 		tr = self._session._triggers[tn]
@@ -400,7 +400,7 @@ def _writeRecord(self, cr, uid, pool, model, record, context):
 			if 'id' not in record_t:
 				record_t['id'] = oid
 			if 'lang' not in record_t:
-				lang = model.model('bc.users').read(model._session._uid,[{'preferences':['user_id','lang']}],{})
+				lang = model.readFor('bc.users',model._session._uid,[{'preferences':['user_id','lang']}],{})
 				if len(lang[0]['preferences']) > 0:
 					record_t['lang'] = lang[0]['preferences'][0]['lang']['id']
 				else:
@@ -611,7 +611,7 @@ def count(self, cr, uid, pool, model, cond = None, context = {}):
 	
 #tested
 def search(self, cr, uid, pool, model, cond = None, context = {}, limit = None, offset = None):
-	return model.select(self, cr, uid, pool, model, [] ,cond, context, limit, offset)
+	return list(map(lambda x: x['id'],select(self, cr, uid, pool, model, [] ,cond, context, limit, offset)))
 	
 	# if not self._proxy_access.get(model._name)._checkRead():
 		# orm_exception("Read:access dennied of model % s" % (self._name,))

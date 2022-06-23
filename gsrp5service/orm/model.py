@@ -452,7 +452,7 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	@property
 	def _rowfields(self):
-		return list(filter(lambda x: self._columns[x]._type not in ('one2many','many2many','one2related'),self._columns.keys())) 
+		return list(filter(lambda x: self._columns[x]._type not in ('one2many','many2many','one2related','link'),self._columns.keys())) 
 
 	@property
 	def _i18nfields(self):

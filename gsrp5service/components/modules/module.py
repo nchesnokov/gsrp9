@@ -499,8 +499,9 @@ def _uninstallModule(self,name):
 	mmi = self._session._models.get('bc.model.inherits').select(['module_id',{'columns':['inherit_id']}],[('module_id','=',name)])
 	for m in mmi:
 		self._session._models.get('bc.model.inherit.columns').unlink(list(map(lambda x: x['id'],m['columns']))) 
+		self._session._models.get('bc.model.inherit.inherits').unlink(list(map(lambda x: x['id'],m['columns']))) 
 	
-	self._session._models.get('bc.model.inherits').unlink(list(map(lambda x: x['id'],mm))) 
+	self._session._models.get('bc.model.inherits').unlink(list(map(lambda x: x['id'],mmi))) 
 
 	
 	sqls = []
