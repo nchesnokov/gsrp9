@@ -3,6 +3,8 @@ from gsrp5service.orm.model import Model, ModelInherit
 
 from decimal import Decimal
 
+import web_pdb
+
 class common_schema_access_method(ModelInherit):
 	_name = 'common.schema.access.method'
 	_description = 'Access Schema Method'
