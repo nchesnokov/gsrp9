@@ -271,59 +271,59 @@ class purchase_order_items(Model):
 
 		return None
 
-	_trg_upd_cols = ['product','guantity','amount']
+	# _trg_upd_cols = ['product','guantity','amount']
 
-	_trigers = {
-		'bir': '_trgForEachRowBeforeInsertIB1',
-		'bur': '_trgForEachRowBeforeUpdateUB1',
-		'bdr': '_trgForEachRowBeforeDeleteDB1',
-		'air': '_trgForEachRowAfterInsertIA1',
-		'aur': '_trgForEachRowAfterUpdateUA1',
-		'adr': '_trgForEachRowAfterDeleteDA1',
-		'bi': '_trgBeforeInsertIBA1',
-		'bu': '_trgBeforeUpdateUBA1',
-		'bd': '_trgBeforeDeleteDBA1',
-		'ai': '_trgBeforeInsertIBA1',
-		'au': '_trgAfterUpdateIUA1',
-		'ad': '_trgAfterDeleteDA1',
-		}
+	# _trigers = {
+		# 'bir': '_trgForEachRowBeforeInsertIB1',
+		# 'bur': '_trgForEachRowBeforeUpdateUB1',
+		# 'bdr': '_trgForEachRowBeforeDeleteDB1',
+		# 'air': '_trgForEachRowAfterInsertIA1',
+		# 'aur': '_trgForEachRowAfterUpdateUA1',
+		# 'adr': '_trgForEachRowAfterDeleteDA1',
+		# 'bi': '_trgBeforeInsertIBA1',
+		# 'bu': '_trgBeforeUpdateUBA1',
+		# 'bd': '_trgBeforeDeleteDBA1',
+		# 'ai': '_trgBeforeInsertIBA1',
+		# 'au': '_trgAfterUpdateIUA1',
+		# 'ad': '_trgAfterDeleteDA1',
+		# }
 
-	def _trgForEachRowBeforeInsertIB1(self, r1,context):
-		print('Triger For Each Row Before Insert')
+	# def _trgForEachRowBeforeInsertIB1(self, r1,context):
+		# print('Triger For Each Row Before Insert')
 
-	def _trgForEachRowAfterInsertIA1(self, r1,context):
-		print('Triger For Each Row After Insert')
+	# def _trgForEachRowAfterInsertIA1(self, r1,context):
+		# print('Triger For Each Row After Insert')
 
-	def _trgBeforeInsertIBA1(self, r1,context):
-		print('Triger Before Insert')
+	# def _trgBeforeInsertIBA1(self, r1,context):
+		# print('Triger Before Insert')
 
-	def _trgAfterInsertIAA1(self, r1,context):
-		print('Triger After Insert')
+	# def _trgAfterInsertIAA1(self, r1,context):
+		# print('Triger After Insert')
 
-#
-	def _trgForEachRowBeforeUpdateUB1(self, r1,r2,context):
-		print('Triger For Each Row Before Update')
+# #
+	# def _trgForEachRowBeforeUpdateUB1(self, r1,r2,context):
+		# print('Triger For Each Row Before Update')
 
-	def _trgForEachRowAfterUpdateUA1(self, r1,r2,context):
-		print('Triger For Each Row After Update')
+	# def _trgForEachRowAfterUpdateUA1(self, r1,r2,context):
+		# print('Triger For Each Row After Update')
 
-	def _trgBeforeUpdateUBA1(self, r1,r2,context):
-		print('Triger Before Update')
+	# def _trgBeforeUpdateUBA1(self, r1,r2,context):
+		# print('Triger Before Update')
 
-	def _trgAfterUpdateIUA1(self, r1,r2,context):
-		print('Triger After Update')
-#
-	def _trgForEachRowBeforeDeleteDB1(self, r2,context):
-		print('Triger For Each Row Before Delete')
+	# def _trgAfterUpdateIUA1(self, r1,r2,context):
+		# print('Triger After Update')
+# #
+	# def _trgForEachRowBeforeDeleteDB1(self, r2,context):
+		# print('Triger For Each Row Before Delete')
 
-	def _trgForEachRowAfterDeleteDA1(self, r2,context):
-		print('Triger For Each Row After Delete')
+	# def _trgForEachRowAfterDeleteDA1(self, r2,context):
+		# print('Triger For Each Row After Delete')
 
-	def _trgBeforeDeleteDBA1(self, r2,context):
-		print('Triger Before Delete')
+	# def _trgBeforeDeleteDBA1(self, r2,context):
+		# print('Triger Before Delete')
 
-	def _trgAfterDeleteDA1(self, r2,context):
-		print('Triger After Delete')
+	# def _trgAfterDeleteDA1(self, r2,context):
+		# print('Triger After Delete')
 
 
 
