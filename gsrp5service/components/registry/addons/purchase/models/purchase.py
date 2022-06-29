@@ -48,19 +48,19 @@ class purchase_orders(Model):
 	}
 
 	def _on_change_otype(self, item,context={}):
-		if item['otype'] and 'name' in item['otype'] and item['otype']['name']:
-			roles = self._proxy.get('purchase.order.type.roles').select( ['role_id'],[('type_id','=',item['otype']['name'])],context)
+		if 'name' in item['otype'] and item['otype']['name']:
+			roles = self.selectFor('purchase.order.type.roles', ['role_id'],[('type_id','=',item['otype']['name'])],context)
 			for role in roles:
-				item_role = self._proxy.get('purchase.order.roles')._buildEmptyItem()
+				item_role = self._model('purchase.order.roles')._buildEmptyItem()
 				item_role['role_id'] = role['role_id']
 				item['roles'].append(item_role)
 			
-			types = self._proxy.get('purchase.order.types').select( ['htschema'],[('name','=',item['otype']['name'])],context)	
-			texts1 = self._proxy.get('purchase.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+			types = self.selectFor('purchase.order.types', ['htschema'],[('name','=',item['otype']['name'])],context)	
+			texts1 = self.selectFor('purchase.schema.texts', ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 			texts = texts1[0]['texts']
 			seq = 0
 			for text in texts:
-				item_text = self._proxy.get('purchase.order.texts')._buildEmptyItem()
+				item_text = self._model('purchase.order.texts')._buildEmptyItem()
 				if text['seq']:
 					item_text['seq'] = text['seq']
 				else:
@@ -72,12 +72,12 @@ class purchase_orders(Model):
 	def _on_change_bom(self, item,context={}):		
 		#web_pdb.set_trace()
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._proxy.get('md.bom.items').select( ['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self.selectFor('md.bom.items', ['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
-				ei = self._proxy.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
+				ei = self._model('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = self._proxy.get('purchase.order.items')._buildEmptyItem()
+				item_items = self._model('purchase.order.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
