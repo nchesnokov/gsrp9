@@ -408,7 +408,7 @@ class BaseModel(object, metaclass = MetaObjects):
 		return self._proxy.get(name)
 
 	def _navigate(self,name):
-		return name
+		return self._proxy.navigate(name)
 
 	def o2mread(self, oid, field,fields, context):
 		if hasattr(self,'_session'):
@@ -858,6 +858,8 @@ class ModelProxy(object):
 		self._methods['cr'] = session._cursor
 		self._methods['uid'] = session._uid
 		self._methods['get'] = session._getModel
+		self._methods['lib'] = session._getLib
+		self._methods['navigate'] = session._getNavigate
 	
 	def __getattr__(self,name):
 		if name in self._methods:

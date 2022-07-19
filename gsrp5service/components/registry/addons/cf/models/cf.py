@@ -206,6 +206,7 @@ class cf_links(Model):
 	_description = 'Colobrative Links'
 	_log_access = False
 	_columns = {
+	'folder_id': fields.many2one(label='Folder',obj='cf.folders',rel='links'),
 	'name': fields.varchar(label = 'Name',size=64),
 	'file_id': fields.many2one(label='File',obj='cf.files'),
 	'created_by': fields.many2one(label='Created By',obj='bc.users'),
@@ -329,7 +330,7 @@ class cf_folders(Model):
 	'parent_id': fields.many2one(label='Parent',obj='cf.folders'),
 	'childs_id': fields.one2many(label='Childs',obj='cf.folders',rel='parent_id'),
 	'files': fields.one2many(label='Files',obj='cf.files',rel='folder_id'),
-	'links': fields.one2many(label='Links',obj='cf.links',rel='link_id'),
+	'links': fields.one2many(label='Links',obj='cf.links',rel='folder_id'),
 	'users_access': fields.one2many(label='User Access',obj='cf.folder.access.users',rel='folder_id'),
 	'groups_access': fields.one2many(label='Group Access',obj='cf.folder.access.groups',rel='folder_id'),
 	'others_access': fields.one2many(label='Other Access',obj='cf.folder.access.others',rel='folder_id'),

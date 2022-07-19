@@ -97,6 +97,7 @@ class prj_stage(Model):
 	_description = 'Project Stage'
 	_columns = {
 	'prj_id': fields.many2one(label='Project',obj='prj.project', on_delete='c', on_update='c'),
+	'category_id': fields.many2one(label='Category',obj='prj.stage.category'),
 	'name': fields.varchar(label = 'Stage'),
 	'type': fields.selection(label='Type',selections=[('b','Begin'),('e','End'),('w','Work'),('s','Situtation')]),
 	'parent_id': fields.many2one(label='Parent',obj='prj.stage'),
@@ -148,6 +149,7 @@ class prj_element(Model):
 	_description = 'Project Element'
 	_columns = {
 	'stage_id': fields.many2one(label='Stage',obj='prj.stage', on_delete='c', on_update='c', selectable=True, required=True),
+	'category_id': fields.many2one(label='Category',obj='prj.element.category'),
 	'name': fields.varchar(label = 'Element',translate=True),
 	'parent_id': fields.many2one(label='Parent',obj='prj.element'),
 	'childs_id': fields.one2many(label='Childs',obj='prj.element',rel='parent_id'),

@@ -71,6 +71,7 @@ class scm_workcenter(Model):
 	_name = 'scm.workcenter'
 	_description = 'Workcenter'
 	_columns = {
+	'category_id': fields.many2one(label='Category',obj='scm.workcenter.category',rel='workcenters'),
 	'name': fields.varchar(label = 'Name',size=64,translate=True),
 	'wctype': fields.selection(label='Type',selections=[('p','Production'),('t','Technology'),('d','Disassembly'),('a','All')]),
 	'cost_peer_hour': fields.numeric(label='Cost Peer Hours',size=(15,2)),

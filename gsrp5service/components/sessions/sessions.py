@@ -48,6 +48,13 @@ class ModelProxy(object):
 		
 	def _getModel(self,name):
 		return	self._session._objects.get('models').get(name)
+
+	def _getLib(self,name):
+		return	self._session._objects.get('libs').get(name)
+
+	def _getNavigate(self,name):
+		return	self._getMCache()['111']._navigate(name)
+
 	
 	def _getLangID(self,lang):
 		return self._session._lang2id.get(lang)

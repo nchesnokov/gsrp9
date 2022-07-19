@@ -19,7 +19,7 @@ class sale_orders(Model):
 	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True),
 	'market': fields.many2one(label='Market',obj='sale.markets'),
 	'team': fields.many2one(label='Team',obj='sale.teams'),
-	'category': fields.many2one(label='Category',obj='sale.order.categories'),
+	'category_id': fields.many2one(label='Category',obj='sale.order.categories'),
 	'origin': fields.varchar(label = 'Origin'),
 	'manager': fields.many2one(label='Manager',obj='bc.users'),
 	'doo': fields.date(label='Date Of Order',required=True),

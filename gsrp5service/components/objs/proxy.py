@@ -10,6 +10,7 @@ class ModelProxy(object):
 		self._methods['interface'] = proxy._getInterface
 		self._methods['_mcache'] = proxy._getMCache
 		self._methods['get'] = proxy._getModel
+		self._methods['lib'] = proxy._getLib
 		self._methods['_lang2id'] = proxy._getLangID
 	
 	

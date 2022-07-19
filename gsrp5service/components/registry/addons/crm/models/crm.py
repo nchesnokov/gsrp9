@@ -1,752 +1,246 @@
 from gsrp5service.orm import fields
-from gsrp5service.orm.model import Model,ModelInherit
+from gsrp5service.orm.model import Model, ModelInherit
 
 from decimal import Decimal
 
 from datetime import datetime
 from datetime import timedelta
 
-# Customize
-# Organization structure
-class crm_unit_categories(Model):
-	_name = 'crm.unit.categories'
-	_description = 'Categories CRM Unit'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='crm.unit.categories'),
-	'childs_id': fields.one2many(obj = 'crm.unit.categories',rel = 'parent_id',label = 'Childs'),
-	'units': fields.one2many(label='Units',obj='crm.units',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_unit_categories()
-
-
-class crm_units(Model):
-	_name = 'crm.units'
-	_description = 'CRM Units'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'category_id': fields.many2one(label='Category',obj='crm.unit.categories'),
-	'company_ids': fields.many2many(label='Companies',obj='md.company', rel='md_company_crm_unit_rel', id2='unit_id', id1='company_id'),
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	'channels': fields.one2many(label='Channels',obj='crm.unit.channel.assigments',rel='unit_id'),
-	'segments': fields.one2many(label='Segments',obj='crm.unit.segment.assigments',rel='unit_id'),
-	'areas': fields.one2many(label='Areas',obj='crm.unit.area.assigments',rel='unit_id'),
-	'regions': fields.one2many(label='Regions',obj='crm.unit.region.assigments',rel='unit_id')
-	}
-
-crm_units()
-
-class crm_channel_categories(Model):
-	_name = 'crm.channel.categories'
-	_description = 'Categories CRM Chanel'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='crm.channel.categories'),
-	'childs_id': fields.one2many(obj = 'crm.channel.categories',rel = 'parent_id',label = 'Childs'),
-	'channels': fields.one2many(label='Channels',obj='crm.channels',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_channel_categories()
-
-
-class crm_channels(Model):
-	_name = 'crm.channels'
-	_description = 'CRM Channels'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'category_id': fields.many2one(label='Category',obj='crm.channel.categories'),
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	}
-
-crm_channels()
-
-class crm_segment_categories(Model):
-	_name = 'crm.segment.categories'
-	_description = 'Categories CRM Segment'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='crm.segment.categories'),
-	'childs_id': fields.one2many(obj = 'crm.segment.categories',rel = 'parent_id',label = 'Childs'),
-	'segments': fields.one2many(label='Segments',obj='crm.segments',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_segment_categories()
-
-
-class crm_segments(Model):
-	_name = 'crm.segments'
-	_description = 'CRM Segments'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'category_id': fields.many2one(label='Category',obj='crm.segment.categories'),
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	}
-
-crm_segments()
-
-class crm_area_categories(Model):
-	_name = 'crm.area.categories'
-	_description = 'Categories CRM Area'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='crm.area.categories'),
-	'childs_id': fields.one2many(obj = 'crm.area.categories',rel = 'parent_id',label = 'Childs'),
-	'areas': fields.one2many(label='Areas',obj='crm.areas',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_area_categories()
-
-
-class crm_areas(Model):
-	_name = 'crm.areas'
-	_description = 'CRM Areas'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'category_id': fields.many2one(label='Category',obj='crm.area.categories'),
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	}
-
-crm_areas()
-
-class crm_region_categories(Model):
-	_name = 'crm.region.categories'
-	_description = 'Categories CRM Region'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='crm.region.categories'),
-	'childs_id': fields.one2many(obj = 'crm.region.categories',rel = 'parent_id',label = 'Childs'),
-	'segments': fields.one2many(label='Regions',obj='crm.regions',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_region_categories()
-
-
-class crm_regions(Model):
-	_name = 'crm.regions'
-	_description = 'CRM Regions'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'category_id': fields.many2one(label='Category',obj='crm.region.categories'),
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	}
-
-crm_regions()
-
-
-class crm_division_categories(Model):
-	_name = 'crm.division.categories'
-	_description = 'Categories CRM Division'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='crm.division.categories'),
-	'childs_id': fields.one2many(obj = 'crm.division.categories',rel = 'parent_id',label = 'Childs'),
-	'divisions': fields.one2many(label='Divisions',obj='crm.divisions',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_division_categories()
-
-
-class crm_divisions(Model):
-	_name = 'crm.divisions'
-	_description = 'CRM Divisions'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'category_id': fields.many2one(label='Category',obj='crm.division.categories'),
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	'subdivisions': fields.one2many(label='SubDivisions',obj='crm.division.subdivision.assigments',rel='division_id')
-	}
-
-crm_divisions()
-
-class crm_subdivision_categories(Model):
-	_name = 'crm.subdivision.categories'
-	_description = 'Categories CRM Subdivision'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='crm.subdivision.categories'),
-	'childs_id': fields.one2many(obj = 'crm.subdivision.categories',rel = 'parent_id',label = 'Childs'),
-	'subdivisions': fields.one2many(label='Orders',obj='crm.subdivisions',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_subdivision_categories()
-
-
-class crm_subdivisions(Model):
-	_name = 'crm.subdivisions'
-	_description = 'CRM Subdivisions'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'category_id': fields.many2one(label='Category',obj='crm.subdivision.categories'),
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	}
-
-crm_subdivisions()
-
-class crm_unit_channel_assigments(Model):
-	_name = 'crm.unit.channel.assigments'
-	_description = 'CRM Unit Of Channel Assigment'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'unit_id': fields.many2one(label='Unit',obj='crm.units'),
-	'channel_id': fields.many2one(label='Channel',obj='crm.channels'),
-	'descr': fields.link(ref='channel_id.descr'),
-	}
-
-crm_unit_channel_assigments()
-
-class crm_unit_segment_assigments(Model):
-	_name = 'crm.unit.segment.assigments'
-	_description = 'CRM Unit Of Segment Assigment'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'unit_id': fields.many2one(label='Unit',obj='crm.units'),
-	'segment_id': fields.many2one(label='Segment',obj='crm.segments'),
-	'descr': fields.link(ref='segment_id.descr'),
-	}
-
-crm_unit_segment_assigments()
-
-class crm_unit_area_assigments(Model):
-	_name = 'crm.unit.area.assigments'
-	_description = 'CRM Unit Of Area Assigment'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'unit_id': fields.many2one(label='Unit',obj='crm.units'),
-	'area_id': fields.many2one(label='Area',obj='crm.areas'),
-	'descr': fields.link(ref='area_id.descr'),
-	}
-
-crm_unit_area_assigments()
-
-class crm_unit_region_assigments(Model):
-	_name = 'crm.unit.region.assigments'
-	_description = 'CRM Unit Of Region Assigment'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'unit_id': fields.many2one(label='Unit',obj='crm.units'),
-	'region_id': fields.many2one(label='Region',obj='crm.regions'),
-	'descr': fields.link(ref='region_id.descr'),
-	}
-
-crm_unit_segment_assigments()
-
-
-
-class crm_division_subdivision_assigments(Model):
-	_name = 'crm.division.subdivision.assigments'
-	_description = 'CRM Division Of Subdivision Assigment'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'division_id': fields.many2one(label='Division',obj='crm.divisions'),
-	'subdivision_id': fields.many2one(label='Subdivision',obj='crm.subdivisions'),
-	'descr': fields.link(ref='subdivision_id.descr'),
-	}
-
-crm_division_subdivision_assigments()
-
-
-class crm_markets(Model):
-	_name = 'crm.markets'
-	_description = 'CRM Market'
-	_class_model = 'C'
-	_class_category = 'order'
-	_rec_name = 'fullname'
-	_columns = {
-	'unit_id': fields.many2one(label='Unit',obj='crm.units', required = True),
-	'channel_id': fields.related(label='Channel',obj='crm.unit.channel.assigments', relatedy=['unit_id'], required = True),
-	'segment_id': fields.related(label='Segment',obj='crm.unit.segment.assigments', relatedy=['unit_id'], required = True),
-	'area_id': fields.related(label='Area',obj='crm.unit.area.assigments', relatedy=['unit_id'], required = True),
-	'region_id': fields.related(label='Region',obj='crm.unit.region.assigments', relatedy=['unit_id'], required = True),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
-	'note': fields.text(label='Note'),
-	}
-
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'unit_id' in item and 'name' in item['unit_id'] and item['unit_id']['name']:
-			v += item['unit_id']['name']
-
-		if 'channel_id' in item and 'name' in item['channel_id'] and item['channel_id']['name']:
-			v += '/' + item['channel_id']['name']
-
-		if 'segment_id' in item and 'name' in item['segment_id'] and item['segment_id']['name']:
-			v += '/' + item['segment_id']['name']
-
-		if 'area_id' in item and 'name' in item['area_id'] and item['area_id']['name']:
-			v += '/' + item['are_id']['name']
-
-		if 'region_id' in item and 'name' in item['region_id'] and item['region_id']['name']:
-			v += '/' + item['region_id']['name']
-
-		
-		if len(v) > 0:
-			item['fullname'] = v
-
-
-crm_markets()
-
-
-class crm_teams(Model):
-	_name = 'crm.teams'
-	_description = 'CRM Teams'
-	_class_model = 'C'
-	_class_category = 'order'
-	_rec_name = 'fullname'
-	_columns = {
-	'division_id': fields.many2one(label='Division',obj='crm.divisions', required = True),
-	'subdivision_id': fields.related(label='Subdivision',obj='crm.subdivisions', relatedy=['division_id'], required = True),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
-	'note': fields.text(label='Note'),
-	}
-
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'division_id' in item and 'name' in item['division_id'] and item['division_id']['name']:
-			v += item['division_id']['name']
-
-		if 'subdivision_id' in item and 'name' in item['subdivision_id'] and item['subdivision_id']['name']:
-			v += '/' + item['subdivison_id']['name']
-		
-		if len(v) > 0:
-			item['fullname'] = v
-
-crm_teams()
-
-
-#Organization structure
-
-# Organization
-class crm_channels(Model):
-	_name = 'crm.channels'
-	_description = 'CRM Cannels'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	'sectors': fields.one2many(label='Sectors',obj='crm.sectors',rel='channel_id')
-	}
-
-crm_channels()
-
-class crm_sectors(Model):
-	_name = 'crm.sectors'
-	_description = 'CRM Sectors'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'channel_id': fields.many2one(label='Channel',obj='crm.channels'),
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	}
-
-crm_sectors()
-
-class crm_teams(Model):
-	_name = 'crm.teams'
-	_description = 'CRM Teams'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	'groups': fields.one2many(label='Groups',obj='crm.groups',rel='team_id')
-	}
-
-crm_teams()
-
-class crm_groups(Model):
-	_name = 'crm.groups'
-	_description = 'CRM Groups'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'team_id': fields.many2one(label='Group',obj='crm.teams'),
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	}
-
-crm_groups()
-
-# Organization end
-# Text
-class crm_texts(Model):
-	_name = 'crm.texts'
-	_description = 'CRM Texts'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	}
-
-crm_texts()
-
-class crm_schema_texts(Model):
-	_name = 'crm.schema.texts'
-	_description = 'Schema Of CRM Texts'
-	_rec_name = 'code'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'usage': fields.selection(label='Usage',selections=[('h','Header'),('i','Item'),('b','Both')]),
-	'code': fields.varchar(label = 'Code',size=8,translate=True),
-	'descr':fields.varchar(label = 'Description',size=128,translate=True),
-	'texts': fields.one2many(label='Texts',obj='crm.schema.text.items',rel='schema_id')
-	}
-	
-	_default = {
-		'usage':'b'
-	}
-
-crm_schema_texts()
-
-class crm_schema_text_items(Model):
-	_name = 'crm.schema.text.items'
-	_description = 'Items Of Schema CRM Texts'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'schema_id': fields.many2one(label = 'Schema',obj='crm.schema.texts'),
-	'text_id': fields.many2one(label = 'Text',obj='crm.texts'),
-	'descr': fields.link(ref='text_id.descr')
-	}
-
-crm_schema_text_items()
-
-# Text end
-
-class crm_request_types(Model):
-	_name = 'crm.request.types'
-	_description = 'Types CRM Request'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'rtype': fields.selection(label='Type',selections=[('ord','Order'),('ap','Advance Payment'),('ps','Pseduo'),('dm','Debit Request'),('cr','Credit Request'),('rо','Return')]),
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'htschema': fields.many2one(label='Text Schema Of Head',obj='crm.schema.texts',domain=[('usage','in',('h','b'))]),
-	'itschema': fields.many2one(label='Text Schema Of Item',obj='crm.schema.texts',domain=[('usage','in',('i','b'))]),
-	'roles': fields.one2many(label='Roles',obj='crm.request.type.roles',rel='type_id'),
-	'required': fields.boolean(label='Required'),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_request_types()
-
-class crm_request_type_roles(Model):
-	_name = 'crm.request.type.roles'
-	_description = 'Role CRM Request Types'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'type_id': fields.many2one(label = 'Type',obj='crm.request.types', on_delete='c'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_request_type_roles()
-
-class crm_offer_types(Model):
-	_name = 'crm.offer.types'
-	_description = 'Types CRM Offer'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'otype': fields.selection(label='Type',selections=[('ord','Order'),('ap','Advance Payment'),('ps','Pseduo'),('dm','Debit Request'),('cr','Credit Request'),('rо','Return')]),
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'htschema': fields.many2one(label='Text Schema Of Head',obj='crm.schema.texts',domain=[('usage','in',('h','b'))]),
-	'itschema': fields.many2one(label='Text Schema Of Item',obj='crm.schema.texts',domain=[('usage','in',('i','b'))]),
-	'roles': fields.one2many(label='Roles',obj='crm.offer.type.roles',rel='type_id'),
-	'required': fields.boolean(label='Required'),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_offer_types()
-
-class crm_offer_type_roles(Model):
-	_name = 'crm.offer.type.roles'
-	_description = 'Role CRM Offer Types'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'type_id': fields.many2one(label = 'Type',obj='crm.offer.types', on_delete='c'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_offer_type_roles()
-
-class crm_contract_types(Model):
-	_name = 'crm.contract.types'
-	_description = 'Types CRM Contract'
-	_class_model = 'C'
-	_class_category = 'order'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'htschema': fields.many2one(label='Text Schema Of Head',obj='crm.schema.texts',domain=[('usage','in',('h','b'))]),
-	'itschema': fields.many2one(label='Text Schema Of Item',obj='crm.schema.texts',domain=[('usage','in',('i','b'))]),
-	'roles': fields.one2many(label='Roles',obj='crm.contract.type.roles',rel='type_id'),
-	'required': fields.boolean(label='Required'),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_contract_types()
-
-class crm_contract_type_roles(Model):
-	_name = 'crm.contract.type.roles'
-	_description = 'Role CRM Contract Types'
-	_class_model = 'C'
-	_class_category = 'delivery'
-	_columns = {
-	'type_id': fields.many2one(label = 'Type',obj='crm.contract.types', on_delete='c'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_contract_type_roles()
-
-# end customize
-
-class crm_request_categories(Model):
-	_name = 'crm.request.categories'
-	_description = 'Category CRM Request'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='crm.request.categories'),
-	'childs_id': fields.one2many(obj = 'crm.request.categories',rel = 'parent_id',label = 'Childs'),
-	'requests': fields.one2many(label='Requests',obj='crm.requests',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_request_categories()
-
-class crm_offer_categories(Model):
-	_name = 'crm.offer.categories'
-	_description = 'Category CRM Offer'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='crm.offer.categories'),
-	'childs_id': fields.one2many(obj = 'crm.offer.categories',rel = 'parent_id',label = 'Childs'),
-	'offers': fields.one2many(label='Offers',obj='crm.offers',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_offer_categories()
-
-class crm_contract_categories(Model):
-	_name = 'crm.contract.categories'
-	_description = 'Category CRM Contract'
-	_columns = {
-	'name': fields.varchar(label = 'Name',size=64,translate=True),
-	'parent_id': fields.many2one(label='Parent',obj='crm.contract.categories'),
-	'childs_id': fields.one2many(obj = 'crm.contract.categories',rel = 'parent_id',label = 'Childs'),
-	'contracts': fields.one2many(label='Contracts',obj='crm.contracts',rel='category_id',limit = 80,readonly=True),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_contract_categories()
-
 class crm_requests(Model):
 	_name = 'crm.requests'
-	_description = 'CRM Request'
+	_description = 'CRM Requests'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
-	_date = 'dor'
+	_rec_name = 'fullname'
+	_class_category = 'crm-request'
+	_date = 'doo'
 	_columns = {
-	'rtype': fields.many2one(label='Type',required = True,obj='crm.request.types',on_change='_on_change_rtype'),
-	'company': fields.many2one(label='Company',obj='md.company'),
-	'name': fields.varchar(label = 'Name'),
-	'fullname': fields.varchar(label='Full Name',translate = True,required = True, compute = '_compute_fullname'),
-	'market': fields.many2one(label='Market',obj='crm.markets'),
-	'team': fields.many2one(label='Team',obj='crm.teams'),
-	'category': fields.many2one(label='Category',obj='crm.request.categories'),
-	'manager': fields.many2one(label='Manager',obj='bc.users'),
+	'otype': fields.referenced(label='Type',obj='crm.request.types',on_change='_on_change_otype',required=True),
+	'name': fields.i18n(fields.varchar(label = 'Name',required=True)),
+	'company': fields.referenced(label='Company',obj='md.company',required=True),
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','otype','name'],required = True)),
+	'market': fields.referenced(label='Market',obj='crm.markets',required=True),
+	'team': fields.many2one(label='Team',obj='crm.teams',required=True),
+	'category_id': fields.many2one(label='Category',obj='crm.request.categories',required=True),
 	'origin': fields.varchar(label = 'Origin'),
-	'from_date': fields.date(label='Begin Date Of Request',required=True),
-	'to_date': fields.date(label='End Date Of Request',required=True),
-	'dor': fields.date(label='Date Of Request',required=True),
-	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('iscustomer',)]),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
-	'incoterms1': fields.many2one(label='Incoterms 1',obj='md.incoterms'),
-	'incoterms2': fields.varchar(label = 'Incoterms 2'),
-	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
+	'manager': fields.many2one(label='Manager',obj='bc.users',required=True),
+	'doo': fields.date(label='Date Of Order',required=True),
+	'from_date': fields.date(label='Begin Date Of Order',required=True),
+	'to_date': fields.date(label='End Date Of Order',required=True),
+	'partner': fields.many2one(label='Partner',obj='md.partner',required=True,domain=[('iscustomer',)]),
+	'currency': fields.many2one(label='Currency',obj='md.currency',required=True),
+	'incoterms1': fields.many2one(label='Incoterms 1',obj='md.incoterms',required=True),
+	'incoterms2': fields.varchar(label = 'Incoterms 2',required=True),
+	'state': fields.i18n(fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')],required=True)),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'mob': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','sale'),'|',('usage','=','all')],on_change='_on_change_mob'),
+	'mob': fields.referenced(label='BoM',obj='md.boms',domain=[('usage','=','crm'),'|',('usage','=','all')],on_change='_on_change_mob'),
 	'items': fields.one2many(label='Items',obj='crm.request.items',rel='request_id'),
+	'pricing': fields.one2many(label='Pricing',obj='crm.request.pricing',rel='request_id'),
 	'roles': fields.one2many(label='Roles',obj='crm.request.roles',rel='request_id'),
 	'texts': fields.one2many(label='Texts',obj='crm.request.texts',rel='request_id'),
-	'note': fields.text('Note')
+	'plates': fields.one2many(label='Plates',obj='crm.request.output.plates',rel='request_id'),
+	'payments': fields.one2many(label='Payments',obj='crm.request.payment.schedules',rel='request_id'),
+	'note': fields.i18n(fields.text('Note'))
 	}
-#
-	def _compute_fullname(self,cr,pool,uid,item,context):
-		v=''
-		if 'company' in item and 'name' in item['company'] and item['company']['name']:
-			v += item['company']['name']
 
-		if 'otype' in item and 'name' in item['otype'] and item['otype']['name']:
-			v += '/' + item['otype']['name']
-
-		if item['name']:
-			v += '/' + item['name']
-		
-		if len(v) > 0:
-			item['fullname'] = v
-
-	def _on_change_rtype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('crm.request.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+	def _on_change_otype(self ,item,context={}):		
+		roles = self.selectFor('crm.request.type.roles',['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('crm.request.roles')._buildEmptyItem()
+			item_role = self._model('crm.request.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = pool.get('crm.request.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = pool.get('crm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
-		texts = texts1[0]['texts']
-		seq = 0
-		for text in texts:
-			item_text = pool.get('crm.request.texts')._buildEmptyItem()
-			if text['seq']:
-				item_text['seq'] = text['seq']
-			else:
-				item_text['seq'] = seq
-				seq += 10
-			item_text['text_id'] = text['text_id']
-			item['texts'].append(item_text)
+		types = self.selectFor('crm.request.types', ['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = self.selectFor('crm.schema.texts', ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		if len(texts1) > 0:
+			texts = texts1[0]['texts']
+			seq = 0
+			for text in texts:
+				item_text = self._model('crm.request.texts')._buildEmptyItem()
+				if text['seq']:
+					item_text['seq'] = text['seq']
+				else:
+					item_text['seq'] = seq
+					seq += 10
+				item_text['text_id'] = text['text_id']
+				item['texts'].append(item_text)
 
-	def _on_change_mob(self,cr,pool,uid,item,context={}):		
+	def _on_change_mob(self ,item,context={}):		
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
-			p = pool.get('md.mob.output.items').select(cr,pool,uid,['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
+			p = self.selectFor('md.mob.output.items', ['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
 			for i in p:
-				ei = pool.get('sale.order.item.delivery.schedules')._buildEmptyItem()
+				ei = self._model('crm.request.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
 				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('sale.order.items')._buildEmptyItem()
+				item_items = self._model('crm.request.items')._buildEmptyItem()
 				item_items['delivery_schedules'].append(ei)
 				for f in ('product','uom'):
 					item_items[f] = i[f]
 				item_items['price'] = 0.00
 				item['items'].append(item_items)
 
+		return None
+
 #
+
 	_default = {
 		'state':'draft'
 	}
 
-crm_requests()
+#crm_requests()
 
 class crm_request_texts(Model):
 	_name = 'crm.request.texts'
 	_description = 'CRM Request Texts'
 	_class_model = 'C'
-	_class_category = 'order'
-	_order_by = "seq asc"
+	_class_category = 'crm-request'
+	_request_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'request_id': fields.many2one(label='Request',obj='crm.requests'),
+	'request_id': fields.many2one(label='Request',obj='crm.requests',rel='texts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='crm.texts'),
+	'text_id': fields.referenced(label='Text ID',obj='crm.texts'),
 	'descr': fields.link(ref='text_id.descr'),
-	'content':fields.text(label = 'Content',translate=True)
+	'content':fields.i18n(fields.text(label = 'Content'))
 	}
 
-crm_request_texts()
+#crm_request_texts()
 
 class crm_request_roles(Model):
 	_name = 'crm.request.roles'
 	_description = 'CRM Request Roles'
+	_class_category = 'crm-request'
 	_columns = {
-	'request_id': fields.many2one(label = 'Request',obj='crm.requests'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
-	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
+	'request_id': fields.many2one(label = 'Request',obj='crm.requests',rel='roles'),
+	'role_id': fields.referenced(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('c','i','p','a'))]),
+	'patner_id': fields.referenced(label = 'Parther',obj='md.partner',required=True)
 	}
 
-crm_request_roles()
+#crm_request_roles()
+
+class crm_request_pricing(Model):
+	_name = 'crm.request.pricing'
+	_description = 'CRM Request Pricing'
+	_class_category = 'crm-request'
+	_columns = {
+	'request_id': fields.many2one(label = 'Request',obj='crm.requests',rel='pricing'),
+	'level': fields.integer(label = 'Level',required=True),
+	'cond': fields.referenced(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','s')],required=True),
+	'from_level': fields.integer(label = 'From Level'),
+	'to_level': fields.integer(label = 'To Level'),
+	'group_level': fields.referenced(label = 'Group Level',obj='crm.pricing.group.levels'),
+	'amount': fields.numeric(label='Amount',size=(15,2),required=True),
+	'currency': fields.referenced(label='Currency',obj='md.currency',required=True),
+	}
+
+#crm_request_pricing()
+
+class crm_request_payment_schedules(Model):
+	_name = 'crm.request.payment.schedules'
+	_description = 'CRM Request Payment Schedules'
+	_class_category = 'crm-request'
+	_columns = {
+	'request_id': fields.many2one(label = 'Request',obj='crm.requests'),
+	'amount': fields.numeric(label='Amount',size=(15,2),required=True),
+	'currency': fields.referenced(label='Currency',obj='md.currency',required=True),
+	'schedule': fields.datetime(label='Schedule',required=True),
+	'note': fields.i18n(fields.text(label = 'Note'))
+	}
+
+#crm_request_payment_schedules()
+
+class crm_request_output_plates(Model):
+	_name = 'crm.request.output.plates'
+	_description = 'CRM Request Output Plates'
+	_columns = {
+	'request_id': fields.many2one(label = 'Request',obj='crm.requests'),
+	'state': fields.i18n(fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True)),
+	'otype': fields.referenced(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'partner': fields.referenced(label='Partner',obj='md.partner',required=True,domain=[('iscustomer',)]),
+	'role': fields.referenced(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('c','i','p','a'))]),
+	'language': fields.referenced(label = 'language',obj='md.language',required=True),
+	'msm': fields.i18n(fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True)),
+	'schedule': fields.datetime(label='Schedule',required=True),
+	'note': fields.i18n(fields.text(label = 'Note'))
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+#crm_request_output_plates()
 
 class crm_request_items(Model):
 	_name = 'crm.request.items'
 	_description = 'CRM Request Items'
-	_inherits = {'common.model':{'_methods':['_calculate_vat_amount_costs','_calculate_items_amount_costs','_calculate_items']}}
+	_inherits = {'common.model':{'_methods':['_calculate_items']}}
+	_class_category = 'crm-request'
 	_columns = {
 	'request_id': fields.many2one(obj = 'crm.requests',label = 'CRM Request'),
-	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
+	'itype_id': fields.referenced(label='Group Of Type Items', obj='md.type.items',required=True,domain=[('usage','in',('s','a'))]),
+	'product': fields.referenced(label='Product',obj='md.product',required=True,on_change='_on_change_product'),
 	'quantity': fields.numeric(label='Quantity',compute='_calculate_items',size=(13,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
-	'price': fields.numeric(label='Price',size=(13,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
-	'unit': fields.integer(label='Unit'),
-	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
-	'amount': fields.numeric(label='Amount',compute='_calculate_items',size=(15,2)),
-	'vat_code': fields.many2one(label='Vat code',obj='md.vat.code',domain=[('type_vat','in',('s','n'))]),
+	'uom': fields.referenced(label='UoM',obj='md.uom',required=True),
+	'price': fields.numeric(label='Price',size=(13,3),required=True),
+	'currency': fields.referenced(label='Currency',obj='md.currency',required=True),
+	'unit': fields.integer(label='Unit',required=True),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom',required=True),
+	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_items'),
+	'vat_code': fields.referenced(label='Vat code',obj='md.vat.code',required=True,domain=[('type_vat','in',('s','n'))]),
 	'vat_amount': fields.numeric(label='VAT Amount',compute='_calculate_items',size=(15,2)),
 	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
+	'volume': fields.float(label='Volume', readonly=True),
+	'volume_total': fields.float(label='Volume Total', readonly=True),
+	'volume_uom': fields.many2one(label="Volume UoM",obj='md.uom', readonly=True,domain=[('quantity_id','=','Volume')]),
+	'weight': fields.float(label='Weight', readonly=True),
+	'weight_total': fields.float(label='Weight Total', readonly=True),
+	'weight_uom': fields.many2one(label="Weight UoM",obj='md.uom', readonly=True,domain=[('quantity_id','=','Weight')]),
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='crm.request.item.delivery.schedules',rel='item_id'),
+	'pricing': fields.one2many(label='Pricing',obj='crm.request.pricing.items',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='crm.request.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='crm.request.item.texts',rel='item_id'),
-	'note': fields.text(label = 'Note')}
+	'plates': fields.one2many(label='Plates',obj='crm.request.item.output.plates',rel='item_id'),
+	'payments': fields.one2many(label='Payments',obj='crm.request.item.payment.schedules',rel='item_id'),
+	'note': fields.i18n(fields.text(label = 'Note'))
+	}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self ,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.sale.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			i = self._proxy.get('crm.request.type.items').select( ['gti_id','itype_id'],[],context)
+			gti = {}
+			if len(i) > 0:
+				for r in i:
+					gti[r['gti_id']['name']] = r['itype_id']
+			p = self._proxy.get('md.product').select( ['name','gti','volume','volume_uom','weight','weight_uom',{'crm':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
 			if len(p) > 0:
-				if item['vat_code'] != p[0]['vat']:
-					item['vat_code'] = p[0]['vat']				
-				for f in ('uom','price','currency','unit','uop'):
-					if item[f] != p[0][f]:
-						item[f] = p[0][f]
+				for f in ('gti','volume','volume_uom','weight','weight_uom','crm'):
+					if f == 'crm':
+						if len(p[0][f]) > 0:
+							d = p[0][f][0]
+							for m in ('uom','price','currency','unit','uop','vat'):
+								if m not in item or item[m] != d[m]:
+									if m == 'vat':
+										item['vat_code'] = d['vat']				
+									else:
+										item[m] = d[m]
+					else:
+						if f == 'gti':
+							if p[0]['gti']['name'] in gti:
+								item['itype_id'] = gti[p[0][f]['name']]
+						else:
+							if f not in item or item[f] != p[0][f]:
+								item[f] = p[0][f]
+
+			else:
+				for f in ('vat_code','uom','price','currency','unit','uop'):
+					if f in ('price','unit'):
+						if f in self._default:
+							item[f] = self._default[f]
+						else:
+							item[f] = None
+					else:
+						item[f] = {'id':None,'name':None}
 
 		return None
 
@@ -755,183 +249,227 @@ class crm_request_items(Model):
 		'unit': 1
 	}
 
+#crm_request_items()
 
-crm_request_items()
+class crm_request_pricing_items(Model):
+	_name = 'crm.request.pricing.items'
+	_description = 'CRM Request Item Pricing'
+	_class_category = 'crm-request'
+	_columns = {
+	'item_id': fields.many2one(label = 'Request',obj='crm.request.items',rel='pricing'),
+	'level': fields.integer(label = 'Level',required=True),
+	'cond': fields.referenced(label='Condition',obj='seq.conditions',domain=[('area','=','b'),('usage','=','s')],required=True),
+	'from_level': fields.integer(label = 'From Level'),
+	'to_level': fields.integer(label = 'To Level'),
+	'group_level': fields.referenced(label = 'Group Level',obj='crm.pricing.group.levels'),
+	'price': fields.numeric(label='Price',size=(13,2),required=True),
+	'cop': fields.referenced(label='Currency Of Price',obj='md.currency',required=True),
+	'unit': fields.integer(label='Unit',required=True),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom',required=True),
+	'amount': fields.numeric(label='Amount',size=(15,2),required=True),
+	'currency': fields.referenced(label='Currency',obj='md.currency',required=True),
+	}
+
+#crm_request_pricing_items()
 
 class crm_request_item_texts(Model):
 	_name = 'crm.request.item.texts'
 	_description = 'CRM Request Item Texts'
-	_class_model = 'C'
-	_class_category = 'order'
-	_order_by = "seq asc"
+	_class_category = 'crm-request'
+	_request_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'item_id': fields.many2one(label='Item',obj='crm.request.items'),
+	'item_id': fields.many2one(label='Item',obj='crm.request.items',rel='texts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='crm.texts'),
+	'text_id': fields.referenced(label='Text ID',obj='crm.texts',required=True),
 	'descr': fields.link(ref='text_id.descr'),
-	'content':fields.text(label = 'Content',translate=True)
+	'content':fields.i18n(fields.text(label = 'Content'))
 	}
 
-crm_request_item_texts()
+#crm_request_item_texts()
+
 
 class crm_request_item_roles(Model):
 	_name = 'crm.request.item.roles'
-	_description = 'CRM Offer Item Roles'
+	_description = 'CRM Request Roles'
+	_class_category = 'crm-request'
 	_columns = {
-	'item_id': fields.many2one(label = 'Item',obj='crm.request.items'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
-	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
+	'item_id': fields.many2one(label = 'Item',obj='crm.request.items',rel='roles'),
+	'role_id': fields.referenced(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('c','i','p','a'))]),
+	'patner_id': fields.referenced(label = 'Parther',obj='md.partner',required=True)
 	}
 
-crm_request_item_roles()
+#crm_request_item_roles()
+
 
 class crm_request_item_delivery_schedules(Model):
 	_name = 'crm.request.item.delivery.schedules'
-	_description = 'CRM REquest Item Delivery Schedules'
+	_description = 'CRM Request Item Delivery Schedules'
+	_class_category = 'crm-request'
 	_columns = {
-	'item_id': fields.many2one(obj = 'crm.request.items',label = 'Request Item'),
-	'quantity': fields.numeric(label='Quantity',size=(11,3)),
-	'schedule': fields.datetime(label='Schedule'),
-	'note': fields.text(label = 'Note')
+	'item_id': fields.many2one(obj = 'crm.request.items',label = 'Order Item',rel='delivery_schedules'),
+	'quantity': fields.numeric(label='Quantity',size=(11,3),required=True),
+	'schedule': fields.datetime(label='Schedule',required=True),
+	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
 	_default = {
-		'quantity': 1
+		'quantity': 1.000
 	}
 
-crm_request_item_delivery_schedules()
+#crm_request_item_delivery_schedules()
 
+class crm_request_item_output_plates(Model):
+	_name = 'crm.request.item.output.plates'
+	_description = 'CRM Request Item Output Plates'
+	_class_category = 'crm-request'
+	_columns = {
+	'item_id': fields.many2one(label = 'Request',obj='crm.request.items',rel='plates'),
+	'state': fields.i18n(fields.selection(label='State',selections=[('c','Created'),('p','Printed'),('e','Error'),('w','Warning'),('i','Info')],required=True)),
+	'otype': fields.referenced(label='Type',obj='md.type.plates',required=True,domain=[('usage','=','p'),'|',('usage','=','a')]),
+	'partner': fields.referenced(label='Partner',obj='md.partner',required=True,domain=[('issuplier',)]),
+	'role': fields.referenced(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('s','i','p','a'))]),
+	'language': fields.referenced(label = 'language',obj='md.language',required=True),
+	'msm': fields.i18n(fields.selection(label='Message Sending Method',selections=[('pj','Peridiocal Job Send'),('tj','Timing Job Send'),('ss','Self Output Send'),('im','Immediately Send')],required=True)),
+	'schedule': fields.datetime(label='Schedule',required=True),
+	'note': fields.i18n(fields.text(label = 'Note'))
+	}
+	
+	_default = {
+		'state':'c'
+	}
+
+#crm_request_item_output_plates()
+
+class crm_request_item_payment_schedules(Model):
+	_name = 'crm.request.item.payment.schedules'
+	_description = 'CRM Request Item Payment Schedules'
+	_class_category = 'crm-request'
+	_columns = {
+	'item_id': fields.many2one(label = 'Item',obj='crm.request.items',rel='payments'),
+	'amount': fields.numeric(label='Amount',size=(15,2),required=True),
+	'currency': fields.referenced(label='Currency',obj='md.currency',required=True),
+	'schedule': fields.datetime(label='Schedule',required=True),
+	'note': fields.i18n(fields.text(label = 'Note'))
+	}
+
+#crm_request_item_payment_schedules()
+
+# Offer
 class crm_offers(Model):
 	_name = 'crm.offers'
-	_description = 'CRM Offer'
-	_date = 'doo'
+	_description = 'CRM Offers'
+	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
+	_date = 'doi'
+	_class_category = 'crm-offer'
 	_columns = {
-	'otype': fields.many2one(label='Type',required = True,obj='crm.offer.types',on_change='_on_change_otype'),
-	'name': fields.varchar(label = 'Name'),
-	'category_id': fields.many2one(label='Category',obj='crm.offer.categories'),
-	'company_id': fields.many2one(label='Company',obj='md.company'),
-	'channel_id': fields.many2one(label='Cannel',obj='crm.channels'),
-	'sector_id': fields.related(label='Sector',obj='crm.sectors',relatedy=['channel_id']),
-	'team_id': fields.many2one(label='Team',obj='crm.teams'),
-	'group_id': fields.related(label='Group',obj='crm.groups',relatedy=['team_id']),
-	'manager': fields.many2one(label='Manager',obj='bc.users'),
+	'itype': fields.referenced(label='Type',obj='crm.offer.types',required = True,on_change='on_change_itype'),
+	'name': fields.varchar(label = 'Name',required = True),
+	'company': fields.referenced(label='Company',obj='md.company',required = True),
+	'fullname': fields.i18n(fields.composite(label='Full Name', cols = ['company','itype','name'],required = True)),
+	'market': fields.referenced(label='Market',obj='crm.markets',required = True),
+	'team': fields.referenced(label='Team',obj='crm.teams',required = True),
+	'category_id': fields.many2one(label='Category',obj='crm.offer.categories',rel='offers',required = True),
 	'origin': fields.varchar(label = 'Origin'),
-	'doo': fields.date(label='Date Of Offer',required=True),
-	'from_date': fields.date(label='Begin Date Of Offer',required=True),
-	'to_date': fields.date(label='End Date Of Offer',required=True),
-	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('iscustomer',)]),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
-	'incoterms1': fields.many2one(label='Incoterms 1',obj='md.incoterms'),
-	'incoterms2': fields.varchar(label = 'Incoterms 2'),
-	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
+	'doi': fields.date(label='Date Of Invoice',required=True),
+	'partner': fields.referenced(label='Partner',obj='md.partner',required = True,domain=[('iscustomer',)]),
+	'currency': fields.referenced(label='Currency',obj='md.currency',required = True),
+	'incoterms1': fields.referenced(label='Incoterms 1',obj='md.incoterms',required = True),
+	'incoterms2': fields.varchar(label = 'Incoterms 2',required = True),
+	'state': fields.i18n(fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')])),
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'mob': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','sale'),'|',('usage','=','all')],on_change='_on_change_mob'),
 	'items': fields.one2many(label='Items',obj='crm.offer.items',rel='offer_id'),
 	'roles': fields.one2many(label='Roles',obj='crm.offer.roles',rel='offer_id'),
 	'texts': fields.one2many(label='Texts',obj='crm.offer.texts',rel='offer_id'),
-	'note': fields.text('Note')
+	'note': fields.i18n(fields.text('Note'))
 	}
-#
-	def _on_change_otype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('crm.offer.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
+
+	def _on_change_itype(self ,item,context={}):		
+		roles = self.selectFor('crm.offer.type.roles',['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
-			item_role = pool.get('crm.offer.roles')._buildEmptyItem()
+			item_role = self._model('crm.offer.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
 		
-		types = pool.get('crm.offer.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = pool.get('crm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
-		texts = texts1[0]['texts']
-		seq = 0
-		for text in texts:
-			item_text = pool.get('crm.offer.texts')._buildEmptyItem()
-			if text['seq']:
-				item_text['seq'] = text['seq']
-			else:
-				item_text['seq'] = seq
-				seq += 10
-			item_text['text_id'] = text['text_id']
-			item['texts'].append(item_text)
+		types = self.selectFor('crm.offer.types', ['htschema'],[('name','=',item['otype']['name'])],context)	
+		texts1 = self.selectFor('crm.schema.texts', ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
+		if len(texts1) > 0:
+			texts = texts1[0]['texts']
+			seq = 0
+			for text in texts:
+				item_text = self._model('crm.offer.texts')._buildEmptyItem()
+				if text['seq']:
+					item_text['seq'] = text['seq']
+				else:
+					item_text['seq'] = seq
+					seq += 10
+				item_text['text_id'] = text['text_id']
+				item['texts'].append(item_text)
 
-	def _on_change_mob(self,cr,pool,uid,item,context={}):		
-		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
-			p = pool.get('md.mob.output.items').select(cr,pool,uid,['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
-			for i in p:
-				ei = pool.get('sale.order.item.delivery.schedules')._buildEmptyItem()
-				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('sale.order.items')._buildEmptyItem()
-				item_items['delivery_schedules'].append(ei)
-				for f in ('product','uom'):
-					item_items[f] = i[f]
-				item_items['price'] = 0.00
-				item['items'].append(item_items)
-
-#
 
 	_default = {
 		'state':'draft'
 	}
 
-crm_offers()
+#crm_offers()
 
 class crm_offer_texts(Model):
 	_name = 'crm.offer.texts'
 	_description = 'CRM Offer Texts'
-	_class_model = 'C'
-	_class_category = 'order'
-	_order_by = "seq asc"
+	_class_category = 'crm-offer'
+	_request_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'offer_id': fields.many2one(label='Offer',obj='crm.offers'),
+	'offer_id': fields.many2one(label='Offer',obj='crm.offers',rel='texts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='crm.texts'),
+	'text_id': fields.referenced(label='Text ID',obj='crm.texts',required=True),
 	'descr': fields.link(ref='text_id.descr'),
-	'content':fields.text(label = 'Content',translate=True)
+	'content':fields.i18n(fields.text(label = 'Content'))
 	}
 
-crm_offer_texts()
+#crm_offer_texts()
 
 class crm_offer_roles(Model):
 	_name = 'crm.offer.roles'
 	_description = 'CRM Offer Roles'
+	_class_category = 'crm-offer'
 	_columns = {
-	'offer_id': fields.many2one(label = 'Request',obj='crm.offers'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
-	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
+	'offer_id': fields.many2one(label = 'Offer',obj='crm.offers',rel='roles'),
+	'role_id': fields.referenced(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('c','i','p','a'))]),
+	'patner_id': fields.referenced(label = 'Parther',obj='md.partner',required=True)
 	}
 
-crm_offer_roles()
+#crm_offer_roles()
 
 class crm_offer_items(Model):
 	_name = 'crm.offer.items'
 	_description = 'CRM Offer Items'
-	_inherits = {'common.model':{'_methods':['_calculate_vat_amount_costs','_calculate_items_amount_costs','_calculate_items']}}
+	_inherits = {'common.model':{'_methods':['_calculate_items']}}
+	_class_category = 'crm-offer'
 	_columns = {
-	'offer_id': fields.many2one(obj = 'crm.offers',label = 'CRM Offer'),
-	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
+	'offer_id': fields.many2one(obj = 'crm.offers',label = 'Offer',rel='items'),
+	'product': fields.referenced(label='Product',obj='md.product',required=True,on_change='_on_change_product'	),
 	'quantity': fields.numeric(label='Quantity',compute='_calculate_items',size=(13,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
-	'price': fields.numeric(label='Price',size=(13,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
-	'unit': fields.integer(label='Unit'),
-	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
-	'amount': fields.numeric(label='Amount',compute='_calculate_items',size=(15,2)),
-	'vat_code': fields.many2one(label='Vat code',obj='md.vat.code',domain=[('type_vat','in',('s','n'))]),
+	'uom': fields.referenced(label='UoM',obj='md.uom',required=True),
+	'price': fields.numeric(label='Price',size=(13,3),required=True),
+	'currency': fields.referenced(label='Currency',obj='md.currency',required=True),
+	'unit': fields.integer(label='Unit',required=True),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom',required=True),
+	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_items'),
+	'vat_code': fields.referenced(label='Vat code',obj='md.vat.code',required=True,domain=[('type_vat','in',('s','n'))]),
 	'vat_amount': fields.numeric(label='VAT Amount',compute='_calculate_items',size=(15,2)),
 	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
 	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='crm.offer.item.delivery.schedules',rel='item_id'),
 	'roles': fields.one2many(label='Roles',obj='crm.offer.item.roles',rel='item_id'),
 	'texts': fields.one2many(label='Texts',obj='crm.offer.item.texts',rel='item_id'),
-	'note': fields.text(label = 'Note')
+	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
+	def _on_change_product(self ,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = pool.get('md.sale.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self.selectFor('md.crm.product',['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
@@ -946,277 +484,81 @@ class crm_offer_items(Model):
 		'unit': 1
 	}
 
-crm_offer_items()
+#sales_offer_items()
 
 class crm_offer_item_texts(Model):
 	_name = 'crm.offer.item.texts'
 	_description = 'CRM Offer Item Texts'
 	_class_model = 'C'
-	_class_category = 'order'
-	_order_by = "seq asc"
+	_class_category = 'crm-offer'
+	_request_by = "seq asc"
 	_sequence = 'seq'
 	_columns = {
-	'item_id': fields.many2one(label='Item',obj='crm.offer.items'),
+	'item_id': fields.many2one(label='Request',obj='crm.offer.items',rel='texts'),
 	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='crm.texts'),
+	'text_id': fields.referenced(label='Text ID',obj='crm.texts',required=True),
 	'descr': fields.link(ref='text_id.descr'),
-	'content':fields.text(label = 'Content',translate=True)
+	'content':fields.i18n(fields.text(label = 'Content'))
 	}
 
-crm_offer_item_texts()
+#crm_offer_item_texts()
 
 class crm_offer_item_roles(Model):
 	_name = 'crm.offer.item.roles'
 	_description = 'CRM Offer Item Roles'
+	_class_category = 'crm-offer'
 	_columns = {
-	'item_id': fields.many2one(label = 'Item',obj='crm.offer.items'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
-	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
+	'item_id': fields.many2one(label = 'Item',obj='crm.offer.items',rel='roles'),
+	'role_id': fields.referenced(label = 'Role',obj='md.role.partners',required=True,domain=[('trole','in',('c','i','p','a'))]),
+	'patner_id': fields.referenced(label = 'Parther',obj='md.partner',required=True)
 	}
 
-crm_offer_item_roles()
+#crm_offer_item_roles()
 
-class crm_offer_item_delivery_schedules(Model):
+class crm_invoce_item_delivery_schedules(Model):
 	_name = 'crm.offer.item.delivery.schedules'
 	_description = 'CRM Offer Item Delivery Schedules'
+	_class_category = 'crm-offer'
 	_columns = {
-	'item_id': fields.many2one(obj = 'crm.offer.items',label = 'Offer Item'),
-	'quantity': fields.numeric(label='Quantity',size=(11,3)),
-	'schedule': fields.datetime(label='Schedule'),
-	'note': fields.text(label = 'Note')
+	'item_id': fields.many2one(obj = 'crm.offer.items',label = 'Order Item',rel='delivery_schedules'),
+	'quantity': fields.numeric(label='Quantity',size=(11,3),required=True),
+	'schedule': fields.datetime(label='Schedule',required=True),
+	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
 	_default = {
 		'quantity': 1.000
 	}
 
-crm_offer_item_delivery_schedules()
+#sales_invoce_item_delivery_schedules()
 
-# Contract
-class crm_contracts(Model):
-	_name = 'crm.contracts'
-	_description = 'CRM Contract'
-	_date = 'doc'
+#inherit
+
+class md_crm_product(Model):
+	_name = 'md.crm.product'
+	_description = 'CRM Of Product'
+	_class_category = 'md-product'
 	_columns = {
-	'ctype': fields.many2one(label='Type',obj='crm.contract.types',on_change='_on_change_ctype'),
-	'name': fields.varchar(label = 'Name'),
-	'category_id': fields.many2one(label='Category',obj='crm.contract.categories'),
-	'company_id': fields.many2one(label='Company',obj='md.company'),
-	'channel_id': fields.many2one(label='Cannel',obj='crm.channels'),
-	'sector_id': fields.related(label='Sector',obj='crm.sectors',relatedy=['channel_id']),
-	'team_id': fields.many2one(label='Team',obj='crm.teams'),
-	'group_id': fields.related(label='Group',obj='crm.groups',relatedy=['team_id']),
-	'manager': fields.many2one(label='Manager',obj='bc.users'),
-	'origin': fields.varchar(label = 'Origin'),
-	'doc': fields.date(label='Date Of Contract',required=True),
-	'from_date': fields.date(label='Begin Date Of Contract',required=True),
-	'to_date': fields.date(label='End Date Of Contract',required=True),
-	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('iscustomer',)]),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
-	'incoterms1': fields.many2one(label='Incoterms 1',obj='md.incoterms'),
-	'incoterms2': fields.varchar(label = 'Incoterms 2'),
-	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
-	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'mob': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','sale'),'|',('usage','=','all')],on_change='_on_change_mob'),
-	'items': fields.one2many(label='Items',obj='crm.contract.items',rel='contract_id'),
-	'roles': fields.one2many(label='Roles',obj='crm.contract.roles',rel='contract_id'),
-	'texts': fields.one2many(label='Texts',obj='crm.contract.texts',rel='contract_id'),
-	'payments': fields.one2many(label='Payments',obj='crm.contract.payment.schedules',rel='contarct_id'),
-	'note': fields.text('Note')
-	}
-#
-	def _on_change_ctype(self,cr,pool,uid,item,context={}):		
-		roles = pool.get('crm.contract.type.roles').select(cr,pool,uid,['role_id'],[('type_id','=',item['otype']['name'])],context)
-		for role in roles:
-			item_role = pool.get('crm.contract.roles')._buildEmptyItem()
-			item_role['role_id'] = role['role_id']
-			item['roles'].append(item_role)
-		
-		types = pool.get('crm.contract.types').select(cr,pool,uid,['htschema'],[('name','=',item['otype']['name'])],context)	
-		texts1 = pool.get('crm.schema.texts').select(cr,pool,uid,['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
-		texts = texts1[0]['texts']
-		seq = 0
-		for text in texts:
-			item_text = pool.get('crm.contract.texts')._buildEmptyItem()
-			if text['seq']:
-				item_text['seq'] = text['seq']
-			else:
-				item_text['seq'] = seq
-				seq += 10
-			item_text['text_id'] = text['text_id']
-			item['texts'].append(item_text)
-
-	def _on_change_mob(self,cr,pool,uid,item,context={}):		
-		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
-			p = pool.get('md.mob.output.items').select(cr,pool,uid,['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
-			for i in p:
-				ei = pool.get('sale.order.item.delivery.schedules')._buildEmptyItem()
-				ei['quantity'] = i['quantity']
-				ei['schedule'] = datetime.now().astimezone()+timedelta(3)
-				item_items = pool.get('sale.order.items')._buildEmptyItem()
-				item_items['delivery_schedules'].append(ei)
-				for f in ('product','uom'):
-					item_items[f] = i[f]
-				item_items['price'] = 0.00
-				item['items'].append(item_items)
-
-#
-
-	_default = {
-		'state':'draft'
+	'product_id': fields.many2one(label='Product',obj='md.product',rel='crm'),
+	'vat': fields.referenced(label='VAT Code',obj='md.vat.code',required=True,domain=[('type_vat','in',('s','n'))]),
+	'uom': fields.referenced(label="Unit Of Measure",obj='md.uom',required=True),
+	'price': fields.numeric(label='Price',size=(13,2),required=True),
+	'currency': fields.referenced(label='Currency',obj='md.currency',required=True),
+	'unit': fields.integer(label='Unit',required=True),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom',required=True),
+	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
-crm_contracts()
+#md_sale_product()
 
-class crm_contract_texts(Model):
-	_name = 'crm.contract.texts'
-	_description = 'CRM Contract Texts'
-	_class_model = 'C'
-	_class_category = 'order'
-	_order_by = "seq asc"
-	_sequence = 'seq'
+class md_crm_product_inherit(ModelInherit):
+	_name = 'md.crm.product.inherit'
+	_description = 'Genaral Model Inherit For CRM Product'
+	_inherit = {'md.product':{'_columns':['crm']},'md.mobs':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}}
 	_columns = {
-	'contract_id': fields.many2one(label='Offer',obj='crm.contracts'),
-	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='crm.texts'),
-	'descr': fields.link(ref='text_id.descr'),
-	'content':fields.text(label = 'Content',translate=True)
+		'crm': fields.one2many(label='CRMs',obj='md.crm.product',rel='product_id'),
+		'usage': fields.iProperty(selections=[('crm','CRM')])
 	}
+	
+#md_sale_product_inherit()
 
-crm_contract_texts()
-
-class crm_contract_roles(Model):
-	_name = 'crm.contract.roles'
-	_description = 'CRM Contracts Roles'
-	_columns = {
-	'offer_id': fields.many2one(label = 'Request',obj='crm.contracts'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
-	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
-	}
-
-crm_contract_roles()
-
-class crm_contract_payment_schedules(Model):
-	_name = 'crm.contract.payment.schedules'
-	_description = 'CRM Contract Payment Schedules'
-	_columns = {
-	'contract_id': fields.many2one(label='Contract',obj='crm.contracts'),
-	'amount': fields.numeric(label='Amount',size=(15,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
-	'schedule': fields.datetime(label='Schedule'),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_contract_payment_schedules()
-
-
-class crm_contract_items(Model):
-	_name = 'crm.contract.items'
-	_description = 'CRM Offer Items'
-	_inherits = {'common.model':{'_methods':['_calculate_vat_amount_costs','_calculate_items_amount_costs']}}
-	_columns = {
-	'contract_id': fields.many2one(obj = 'crm.contracts',label = 'Contract'),
-	'product': fields.many2one(label='Product',obj='md.product',on_change='_on_change_product'),
-	'quantity': fields.numeric(label='Quantity',compute='_calculate_items',size=(13,2)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
-	'price': fields.numeric(label='Price',size=(13,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
-	'unit': fields.integer(label='Unit'),
-	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
-	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_items'),
-	'vat_code': fields.many2one(label='Vat code',obj='md.vat.code',domain=[('type_vat','in',('s','n'))]),
-	'vat_amount': fields.numeric(label='VAT Amount',compute='_calculate_items',size=(15,2)),
-	'total_amount': fields.numeric(label='Total Amount',compute='_calculate_items',size=(15,2)),
-	'delivery_schedules': fields.one2many(label='Delivery Schedule',obj='crm.contract.item.delivery.schedules',rel='item_id'),
-	'payments': fields.one2many(label='Payments',obj='crm.contract.item.payment.schedules',rel='item_id'),
-	'roles': fields.one2many(label='Roles',obj='crm.contract.item.roles',rel='item_id'),
-	'texts': fields.one2many(label='Texts',obj='crm.contract.item.texts',rel='item_id'),
-	'note': fields.text(label = 'Note')
-	}
-
-	def _on_change_product(self,cr,pool,uid,item,context={}):		
-		if item['product_id'] and 'name' in item['product_id'] and item['product_id']['name']:
-			p = pool.get('md.sale.product').select(cr,pool,uid,['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product_id']['name'])],context)
-			if len(p) > 0:
-				for f in ('vat','uom','price','currency','unit','uop'):
-					if item['item'][f] != p[0][f]:
-						item['item'][f] = p[0][f]
-
-		return None
-
-	_default = {
-		'quantity': 1,
-		'unit': 1
-	}
-
-crm_contract_items()
-
-class crm_contract_item_texts(Model):
-	_name = 'crm.contract.item.texts'
-	_description = 'CRM Contract Item Texts'
-	_class_model = 'C'
-	_class_category = 'order'
-	_order_by = "seq asc"
-	_sequence = 'seq'
-	_columns = {
-	'item_id': fields.many2one(label='Item',obj='crm.contract.items'),
-	'seq': fields.integer(label='Sequence',readonly=True,invisible=True),
-	'text_id': fields.many2one(label='Text ID',obj='crm.texts'),
-	'descr': fields.link(ref='text_id.descr'),
-	'content':fields.text(label = 'Content',translate=True)
-	}
-
-crm_contract_item_texts()
-
-class crm_contract_item_roles(Model):
-	_name = 'crm.contract.item.roles'
-	_description = 'CRM Contract Item Roles'
-	_columns = {
-	'item_id': fields.many2one(label = 'Item',obj='crm.contract.items'),
-	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('c','a'))]),
-	'patner_id': fields.many2one(label = 'Parther',obj='md.partner')
-	}
-
-crm_contract_item_roles()
-
-class crm_contract_item_delivery_schedules(Model):
-	_name = 'crm.contract.item.delivery.schedules'
-	_description = 'CRM Contract Item Delivery Schedules'
-	_columns = {
-	'item_id': fields.many2one(obj = 'crm.contract.items',label = 'Item'),
-	'quantity': fields.numeric(label='Quantity',size=(11,3)),
-	'uom': fields.many2one(label='UoM',obj='md.uom'),
-	'schedule': fields.datetime(label='Schedule'),
-	'note': fields.text(label = 'Note')
-	}
-
-	_default = {
-		'quantity': 1.000
-	}
-
-crm_contract_item_delivery_schedules()
-
-class crm_contract_item_payment_schedules(Model):
-	_name = 'crm.contract.item.payment.schedules'
-	_description = 'CRM Contract Item Payment Schedules'
-	_columns = {
-	'item_id': fields.many2one(label = 'Item',obj='crm.contract.items'),
-	'amount': fields.numeric(label='Amount',size=(15,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
-	'schedule': fields.datetime(label='Schedule'),
-	'note': fields.text(label = 'Note')
-	}
-
-crm_contract_item_payment_schedules()
-
-class crm_units_md_company_inherit(ModelInherit):
-	_name = 'crm.units.md.company.inherit'
-	_description = 'CRM Units Master Data Company Inherit'
-	_inherit = {'md.company':{'_columns':['crm_units']}}
-	_columns={
-	'crm_units': fields.many2many(label='CRM Units',obj='crm.units',rel='md_company_crm_unit_rel',id1='unit_id',id2='company_id'),
-	}
-
-crm_units_md_company_inherit()

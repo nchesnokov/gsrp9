@@ -1015,6 +1015,9 @@ class MCache(object):
 		return res
 
 #model method
+	def _navigate(self,name):
+		return {}
+
 	def _read(self,model,ids,fields=None,context={}):
 		return read(self, self._cr, self._uid, self._pool,model,ids,fields,context)
 

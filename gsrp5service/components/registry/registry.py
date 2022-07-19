@@ -310,7 +310,7 @@ class Registry(Component):
 					if rel not in cim or cim[rel]['obj'] != model._name:
 						o2mremove.append(o2mfield)
 				else:
-					pass
+					#web_pdb.set_trace()
 					print('NOT MAPPED M2OFIELD:',model._name,o2mfield,obj,rel)
 
 
