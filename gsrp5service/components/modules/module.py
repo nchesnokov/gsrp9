@@ -419,7 +419,9 @@ def _installModule(self,name,chunk,context):
 			self._registry._load_inheritable(name)
 			#web_pdb.set_trace()
 			for k in self._session._models.keys():
-				self._session._models[k]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+				self._session._access.setdefault('models',{})[k] = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
+
+				#self._session._models[k]._access = Access(read=True,write=True,create=True,unlink=True,modify=True,insert=True,select=True,update=True,delete=True,upsert=True,browse=True,selectbrowse=True)
 			
 			if name == 'bc':
 				self._cr.execute('insert into ' + self._session._models.get('bc.users')._table + ' (id,login,password,firstname,lastname,issuperuser) values(%s,%s,%s,%s,%s,%s)',(self._uid,'admin',pbkdf2_sha256.hash('admin'),'Administartor','System Administarator',True))
@@ -781,6 +783,10 @@ def _loadMetaModule(self,name,context):
 	if len(imodel_records) > 0:
 		self._session._models.get('bc.model.inherits').create(imodel_records,{})
 	
+	if len(imodel_inherit_records) > 0:
+		self._session._models.get('bc.model.inherit.inherits').create(imodel_inherit_records,{})
+	
+	
 	self._session._models.get('bc.modules').write({'id':module_id,'state':'I'},context)
 	self._registry._modules[name]['state'] = 'I'
 
@@ -837,7 +843,7 @@ def _loadMetaModel(self,model,module,context):
 	record['oom'] = info_model
 	
 	for idx,col in enumerate(columns.keys()):
-		record.setdefault('columns',[]).append({'seq':idx * 10,'col':col,'moc':columns[col]})
+		record.setdefault('columns',[]).append({'seq':idx * 10,'model_name':model,'col':col,'moc':columns[col]})
 
 	return record		
 
@@ -863,15 +869,52 @@ def _loadMetaInherit(self,model,module,context):
 	for idx,col in enumerate(columns.keys()):
 		record.setdefault('columns',[]).append({'seq':idx * 10,'col':col,'moc':columns[col]})
 
-#	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
-#	'col': fields.many2one(label='Column', obj = 'bc.model.inherit.columns', readonly=True)
+	# if info_model['inherit']:
+		# for mkey in info_model['inherit'].keys():
+			# info_class_inherit = self._session._models.get('bc.models')
+			# if '_columns' in info_model['inherit'][mkey]:
+				# for mcol in info_model['inherit'][mkey]['_columns']:
+					# #model_id = info_class_inherit.search([('code','=',mkey)])[0]
+					# model_id = info_class_inherit.select(fields=['code'],cond=[('code','=',mkey)])[0]
+					# model_id['name'] = model_id['code']
+					# del model_id['code']  
+					# record.setdefault('models',[]).append({'model_id':model_id,'col':mcol})
+		
+		
+	return record		
+
+def _loadMetaColumnInherit(self,model,module,context):
+	record = {}
+	info_class = self._registry._create_module_object('models',model,module)
+	if not info_class or isinstance(info_class,Model):
+		return record
+	
+	info_model = info_class.imodelInfo()
+	columns = {}
+	for col in info_model['columns'].keys():
+		if info_model['columns'][col]['type'] == 'iProperty':
+			continue
+		columns[col] = info_model['columns'][col]
+
+	del info_model['columns']
+	
+	record['code'] = info_model['name']
+	record['descr'] = info_model['description']
+	record['momi'] = info_model
+	
+	# for idx,col in enumerate(columns.keys()):
+		# record.setdefault('columns',[]).append({'seq':idx * 10,'col':col,'moc':columns[col]})
+
 	if info_model['inherit']:
 		for mkey in info_model['inherit'].keys():
 			info_class_inherit = self._session._models.get('bc.models')
 			if '_columns' in info_model['inherit'][mkey]:
 				for mcol in info_model['inherit'][mkey]['_columns']:
-					model_id = info_class_inherit.search([('code','=',mkey)])[0]
-					record.setdefault('models',[]).append({'model_id':model_id,'col':col})
+					#model_id = info_class_inherit.search([('code','=',mkey)])[0]
+					model_id = info_class_inherit.select(fields=['code'],cond=[('code','=',mkey)])[0]
+					model_id['name'] = model_id['code']
+					del model_id['code']  
+					record.setdefault('models',[]).append({'model_id':model_id,'col':imcol})
 		
 		
 	return record		

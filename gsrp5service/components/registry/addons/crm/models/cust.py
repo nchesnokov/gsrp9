@@ -12,7 +12,7 @@ class crm_unit_categories(Model):
 	_name = 'crm.unit.categories'
 	_description = 'Categories CRM Unit'
 	_class_model = 'C'
-	_class_category = 'order'
+	_class_category = 'crm-org'
 	_columns = {
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'parent_id': fields.many2one(label='Parent',obj='crm.unit.categories',rel='childs_id'),
@@ -324,7 +324,7 @@ class crm_teams(Model):
 	_name = 'crm.teams'
 	_description = 'CRM Teams'
 	_class_model = 'C'
-	_class_category = 'crm-org=full'
+	_class_category = 'crm-org-full'
 	_rec_name = 'fullname'
 	_columns = {
 	'division_id': fields.referenced(label='Division',obj='crm.divisions', required = True),

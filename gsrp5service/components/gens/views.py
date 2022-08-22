@@ -25,8 +25,8 @@ GENSRCIPTS = {'element-plus':gen_script_el,'vuetify':gen_script_vuetify,'devextr
 GENSTYLES = {'element-plus':gen_style_el,'vuetify':gen_style_vuetify,'devextrme':gen_style_devextrme}
 
 def ModelsColumns( view, vmodel, columns):
-	#return [{'seq':idx * 10,'col':vmodel + '/' + col} for idx,col in enumerate(columns)]
-	return [{'seq':idx * 10,'col':col} for idx,col in enumerate(columns)]
+	return [{'seq':idx * 10,'col':vmodel + '/' + col} for idx,col in enumerate(columns)]
+	#return [{'seq':idx * 10,'col':col} for idx,col in enumerate(columns)]
 
 def Views(framework,model,views):
 	return [ {'model':vmodel,'vtype':framework + '/' + view,'cols':ModelsColumns(view,vmodel,columns)} for view,vmodel,columns in views]

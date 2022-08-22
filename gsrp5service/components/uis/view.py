@@ -245,7 +245,11 @@ def get_views_of_model_v2(pool,model,info,context):
 	for view in views:
 		confs = pool.get('bc.tuning.ui.model.views').select(fields=['fullname','name','view','tuser','values'],cond=[('view','=',view['fullname']),('tuser','=', context['user'])],context=context)
 		v  = {'columns':[],'id':view['id'],'confs':confs}
+		for r in view['cols']:
+			r['col'] = r['col']['name'].split('/')[1]
 		v['columns'].extend(view['cols'])
+		for r in view['inherit_cols']:
+			r['col'] = r['col']['name'].split('/')[1]
 		v['columns'].extend(view['inherit_cols'])
 		
 		o[view['vtype']['name'].split('/')[1]] = v

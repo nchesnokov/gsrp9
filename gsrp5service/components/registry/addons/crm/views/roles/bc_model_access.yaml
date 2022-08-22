@@ -439,48 +439,27 @@
   aread: true
   awrite: true
   model: crm.teams
-- access_id: role.crm.models.crm.sectors.readonly
+- access_id: role.crm.models.crm.pricing.group.levels.readonly
   aread: true
-  model: crm.sectors
-- access_id: role.crm.models.crm.sectors.nodrop
+  model: crm.pricing.group.levels
+- access_id: role.crm.models.crm.pricing.group.levels.nodrop
   acreate: true
   aread: true
   awrite: true
-  model: crm.sectors
-- access_id: role.crm.models.crm.sectors.full
-  acreate: true
-  aexecute: true
-  aread: true
-  aunlink: true
-  awrite: true
-  model: crm.sectors
-- access_id: role.crm.models.crm.sectors.crw
-  acreate: true
-  aexecute: true
-  aread: true
-  awrite: true
-  model: crm.sectors
-- access_id: role.crm.models.crm.groups.readonly
-  aread: true
-  model: crm.groups
-- access_id: role.crm.models.crm.groups.nodrop
-  acreate: true
-  aread: true
-  awrite: true
-  model: crm.groups
-- access_id: role.crm.models.crm.groups.full
+  model: crm.pricing.group.levels
+- access_id: role.crm.models.crm.pricing.group.levels.full
   acreate: true
   aexecute: true
   aread: true
   aunlink: true
   awrite: true
-  model: crm.groups
-- access_id: role.crm.models.crm.groups.crw
+  model: crm.pricing.group.levels
+- access_id: role.crm.models.crm.pricing.group.levels.crw
   acreate: true
   aexecute: true
   aread: true
   awrite: true
-  model: crm.groups
+  model: crm.pricing.group.levels
 - access_id: role.crm.models.crm.texts.readonly
   aread: true
   model: crm.texts
@@ -586,6 +565,27 @@
   aread: true
   awrite: true
   model: crm.request.type.roles
+- access_id: role.crm.models.crm.request.type.items.readonly
+  aread: true
+  model: crm.request.type.items
+- access_id: role.crm.models.crm.request.type.items.nodrop
+  acreate: true
+  aread: true
+  awrite: true
+  model: crm.request.type.items
+- access_id: role.crm.models.crm.request.type.items.full
+  acreate: true
+  aexecute: true
+  aread: true
+  aunlink: true
+  awrite: true
+  model: crm.request.type.items
+- access_id: role.crm.models.crm.request.type.items.crw
+  acreate: true
+  aexecute: true
+  aread: true
+  awrite: true
+  model: crm.request.type.items
 - access_id: role.crm.models.crm.offer.types.readonly
   aread: true
   model: crm.offer.types
@@ -628,48 +628,6 @@
   aread: true
   awrite: true
   model: crm.offer.type.roles
-- access_id: role.crm.models.crm.contract.types.readonly
-  aread: true
-  model: crm.contract.types
-- access_id: role.crm.models.crm.contract.types.nodrop
-  acreate: true
-  aread: true
-  awrite: true
-  model: crm.contract.types
-- access_id: role.crm.models.crm.contract.types.full
-  acreate: true
-  aexecute: true
-  aread: true
-  aunlink: true
-  awrite: true
-  model: crm.contract.types
-- access_id: role.crm.models.crm.contract.types.crw
-  acreate: true
-  aexecute: true
-  aread: true
-  awrite: true
-  model: crm.contract.types
-- access_id: role.crm.models.crm.contract.type.roles.readonly
-  aread: true
-  model: crm.contract.type.roles
-- access_id: role.crm.models.crm.contract.type.roles.nodrop
-  acreate: true
-  aread: true
-  awrite: true
-  model: crm.contract.type.roles
-- access_id: role.crm.models.crm.contract.type.roles.full
-  acreate: true
-  aexecute: true
-  aread: true
-  aunlink: true
-  awrite: true
-  model: crm.contract.type.roles
-- access_id: role.crm.models.crm.contract.type.roles.crw
-  acreate: true
-  aexecute: true
-  aread: true
-  awrite: true
-  model: crm.contract.type.roles
 - access_id: role.crm.models.crm.request.categories.readonly
   aread: true
   model: crm.request.categories
@@ -712,27 +670,6 @@
   aread: true
   awrite: true
   model: crm.offer.categories
-- access_id: role.crm.models.crm.contract.categories.readonly
-  aread: true
-  model: crm.contract.categories
-- access_id: role.crm.models.crm.contract.categories.nodrop
-  acreate: true
-  aread: true
-  awrite: true
-  model: crm.contract.categories
-- access_id: role.crm.models.crm.contract.categories.full
-  acreate: true
-  aexecute: true
-  aread: true
-  aunlink: true
-  awrite: true
-  model: crm.contract.categories
-- access_id: role.crm.models.crm.contract.categories.crw
-  acreate: true
-  aexecute: true
-  aread: true
-  awrite: true
-  model: crm.contract.categories
 - access_id: role.crm.models.crm.requests.readonly
   aread: true
   model: crm.requests
@@ -796,6 +733,69 @@
   aread: true
   awrite: true
   model: crm.request.roles
+- access_id: role.crm.models.crm.request.pricing.readonly
+  aread: true
+  model: crm.request.pricing
+- access_id: role.crm.models.crm.request.pricing.nodrop
+  acreate: true
+  aread: true
+  awrite: true
+  model: crm.request.pricing
+- access_id: role.crm.models.crm.request.pricing.full
+  acreate: true
+  aexecute: true
+  aread: true
+  aunlink: true
+  awrite: true
+  model: crm.request.pricing
+- access_id: role.crm.models.crm.request.pricing.crw
+  acreate: true
+  aexecute: true
+  aread: true
+  awrite: true
+  model: crm.request.pricing
+- access_id: role.crm.models.crm.request.payment.schedules.readonly
+  aread: true
+  model: crm.request.payment.schedules
+- access_id: role.crm.models.crm.request.payment.schedules.nodrop
+  acreate: true
+  aread: true
+  awrite: true
+  model: crm.request.payment.schedules
+- access_id: role.crm.models.crm.request.payment.schedules.full
+  acreate: true
+  aexecute: true
+  aread: true
+  aunlink: true
+  awrite: true
+  model: crm.request.payment.schedules
+- access_id: role.crm.models.crm.request.payment.schedules.crw
+  acreate: true
+  aexecute: true
+  aread: true
+  awrite: true
+  model: crm.request.payment.schedules
+- access_id: role.crm.models.crm.request.output.plates.readonly
+  aread: true
+  model: crm.request.output.plates
+- access_id: role.crm.models.crm.request.output.plates.nodrop
+  acreate: true
+  aread: true
+  awrite: true
+  model: crm.request.output.plates
+- access_id: role.crm.models.crm.request.output.plates.full
+  acreate: true
+  aexecute: true
+  aread: true
+  aunlink: true
+  awrite: true
+  model: crm.request.output.plates
+- access_id: role.crm.models.crm.request.output.plates.crw
+  acreate: true
+  aexecute: true
+  aread: true
+  awrite: true
+  model: crm.request.output.plates
 - access_id: role.crm.models.crm.request.items.readonly
   aread: true
   model: crm.request.items
@@ -817,6 +817,27 @@
   aread: true
   awrite: true
   model: crm.request.items
+- access_id: role.crm.models.crm.request.pricing.items.readonly
+  aread: true
+  model: crm.request.pricing.items
+- access_id: role.crm.models.crm.request.pricing.items.nodrop
+  acreate: true
+  aread: true
+  awrite: true
+  model: crm.request.pricing.items
+- access_id: role.crm.models.crm.request.pricing.items.full
+  acreate: true
+  aexecute: true
+  aread: true
+  aunlink: true
+  awrite: true
+  model: crm.request.pricing.items
+- access_id: role.crm.models.crm.request.pricing.items.crw
+  acreate: true
+  aexecute: true
+  aread: true
+  awrite: true
+  model: crm.request.pricing.items
 - access_id: role.crm.models.crm.request.item.texts.readonly
   aread: true
   model: crm.request.item.texts
@@ -880,6 +901,48 @@
   aread: true
   awrite: true
   model: crm.request.item.delivery.schedules
+- access_id: role.crm.models.crm.request.item.output.plates.readonly
+  aread: true
+  model: crm.request.item.output.plates
+- access_id: role.crm.models.crm.request.item.output.plates.nodrop
+  acreate: true
+  aread: true
+  awrite: true
+  model: crm.request.item.output.plates
+- access_id: role.crm.models.crm.request.item.output.plates.full
+  acreate: true
+  aexecute: true
+  aread: true
+  aunlink: true
+  awrite: true
+  model: crm.request.item.output.plates
+- access_id: role.crm.models.crm.request.item.output.plates.crw
+  acreate: true
+  aexecute: true
+  aread: true
+  awrite: true
+  model: crm.request.item.output.plates
+- access_id: role.crm.models.crm.request.item.payment.schedules.readonly
+  aread: true
+  model: crm.request.item.payment.schedules
+- access_id: role.crm.models.crm.request.item.payment.schedules.nodrop
+  acreate: true
+  aread: true
+  awrite: true
+  model: crm.request.item.payment.schedules
+- access_id: role.crm.models.crm.request.item.payment.schedules.full
+  acreate: true
+  aexecute: true
+  aread: true
+  aunlink: true
+  awrite: true
+  model: crm.request.item.payment.schedules
+- access_id: role.crm.models.crm.request.item.payment.schedules.crw
+  acreate: true
+  aexecute: true
+  aread: true
+  awrite: true
+  model: crm.request.item.payment.schedules
 - access_id: role.crm.models.crm.offers.readonly
   aread: true
   model: crm.offers
@@ -1027,192 +1090,24 @@
   aread: true
   awrite: true
   model: crm.offer.item.delivery.schedules
-- access_id: role.crm.models.crm.contracts.readonly
+- access_id: role.crm.models.md.crm.product.readonly
   aread: true
-  model: crm.contracts
-- access_id: role.crm.models.crm.contracts.nodrop
+  model: md.crm.product
+- access_id: role.crm.models.md.crm.product.nodrop
   acreate: true
   aread: true
   awrite: true
-  model: crm.contracts
-- access_id: role.crm.models.crm.contracts.full
-  acreate: true
-  aexecute: true
-  aread: true
-  aunlink: true
-  awrite: true
-  model: crm.contracts
-- access_id: role.crm.models.crm.contracts.crw
-  acreate: true
-  aexecute: true
-  aread: true
-  awrite: true
-  model: crm.contracts
-- access_id: role.crm.models.crm.contract.texts.readonly
-  aread: true
-  model: crm.contract.texts
-- access_id: role.crm.models.crm.contract.texts.nodrop
-  acreate: true
-  aread: true
-  awrite: true
-  model: crm.contract.texts
-- access_id: role.crm.models.crm.contract.texts.full
+  model: md.crm.product
+- access_id: role.crm.models.md.crm.product.full
   acreate: true
   aexecute: true
   aread: true
   aunlink: true
   awrite: true
-  model: crm.contract.texts
-- access_id: role.crm.models.crm.contract.texts.crw
+  model: md.crm.product
+- access_id: role.crm.models.md.crm.product.crw
   acreate: true
   aexecute: true
   aread: true
   awrite: true
-  model: crm.contract.texts
-- access_id: role.crm.models.crm.contract.roles.readonly
-  aread: true
-  model: crm.contract.roles
-- access_id: role.crm.models.crm.contract.roles.nodrop
-  acreate: true
-  aread: true
-  awrite: true
-  model: crm.contract.roles
-- access_id: role.crm.models.crm.contract.roles.full
-  acreate: true
-  aexecute: true
-  aread: true
-  aunlink: true
-  awrite: true
-  model: crm.contract.roles
-- access_id: role.crm.models.crm.contract.roles.crw
-  acreate: true
-  aexecute: true
-  aread: true
-  awrite: true
-  model: crm.contract.roles
-- access_id: role.crm.models.crm.contract.payment.schedules.readonly
-  aread: true
-  model: crm.contract.payment.schedules
-- access_id: role.crm.models.crm.contract.payment.schedules.nodrop
-  acreate: true
-  aread: true
-  awrite: true
-  model: crm.contract.payment.schedules
-- access_id: role.crm.models.crm.contract.payment.schedules.full
-  acreate: true
-  aexecute: true
-  aread: true
-  aunlink: true
-  awrite: true
-  model: crm.contract.payment.schedules
-- access_id: role.crm.models.crm.contract.payment.schedules.crw
-  acreate: true
-  aexecute: true
-  aread: true
-  awrite: true
-  model: crm.contract.payment.schedules
-- access_id: role.crm.models.crm.contract.items.readonly
-  aread: true
-  model: crm.contract.items
-- access_id: role.crm.models.crm.contract.items.nodrop
-  acreate: true
-  aread: true
-  awrite: true
-  model: crm.contract.items
-- access_id: role.crm.models.crm.contract.items.full
-  acreate: true
-  aexecute: true
-  aread: true
-  aunlink: true
-  awrite: true
-  model: crm.contract.items
-- access_id: role.crm.models.crm.contract.items.crw
-  acreate: true
-  aexecute: true
-  aread: true
-  awrite: true
-  model: crm.contract.items
-- access_id: role.crm.models.crm.contract.item.texts.readonly
-  aread: true
-  model: crm.contract.item.texts
-- access_id: role.crm.models.crm.contract.item.texts.nodrop
-  acreate: true
-  aread: true
-  awrite: true
-  model: crm.contract.item.texts
-- access_id: role.crm.models.crm.contract.item.texts.full
-  acreate: true
-  aexecute: true
-  aread: true
-  aunlink: true
-  awrite: true
-  model: crm.contract.item.texts
-- access_id: role.crm.models.crm.contract.item.texts.crw
-  acreate: true
-  aexecute: true
-  aread: true
-  awrite: true
-  model: crm.contract.item.texts
-- access_id: role.crm.models.crm.contract.item.roles.readonly
-  aread: true
-  model: crm.contract.item.roles
-- access_id: role.crm.models.crm.contract.item.roles.nodrop
-  acreate: true
-  aread: true
-  awrite: true
-  model: crm.contract.item.roles
-- access_id: role.crm.models.crm.contract.item.roles.full
-  acreate: true
-  aexecute: true
-  aread: true
-  aunlink: true
-  awrite: true
-  model: crm.contract.item.roles
-- access_id: role.crm.models.crm.contract.item.roles.crw
-  acreate: true
-  aexecute: true
-  aread: true
-  awrite: true
-  model: crm.contract.item.roles
-- access_id: role.crm.models.crm.contract.item.delivery.schedules.readonly
-  aread: true
-  model: crm.contract.item.delivery.schedules
-- access_id: role.crm.models.crm.contract.item.delivery.schedules.nodrop
-  acreate: true
-  aread: true
-  awrite: true
-  model: crm.contract.item.delivery.schedules
-- access_id: role.crm.models.crm.contract.item.delivery.schedules.full
-  acreate: true
-  aexecute: true
-  aread: true
-  aunlink: true
-  awrite: true
-  model: crm.contract.item.delivery.schedules
-- access_id: role.crm.models.crm.contract.item.delivery.schedules.crw
-  acreate: true
-  aexecute: true
-  aread: true
-  awrite: true
-  model: crm.contract.item.delivery.schedules
-- access_id: role.crm.models.crm.contract.item.payment.schedules.readonly
-  aread: true
-  model: crm.contract.item.payment.schedules
-- access_id: role.crm.models.crm.contract.item.payment.schedules.nodrop
-  acreate: true
-  aread: true
-  awrite: true
-  model: crm.contract.item.payment.schedules
-- access_id: role.crm.models.crm.contract.item.payment.schedules.full
-  acreate: true
-  aexecute: true
-  aread: true
-  aunlink: true
-  awrite: true
-  model: crm.contract.item.payment.schedules
-- access_id: role.crm.models.crm.contract.item.payment.schedules.crw
-  acreate: true
-  aexecute: true
-  aread: true
-  awrite: true
-  model: crm.contract.item.payment.schedules
+  model: md.crm.product

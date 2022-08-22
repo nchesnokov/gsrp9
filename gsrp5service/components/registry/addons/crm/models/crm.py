@@ -537,7 +537,7 @@ class crm_invoce_item_delivery_schedules(Model):
 class md_crm_product(Model):
 	_name = 'md.crm.product'
 	_description = 'CRM Of Product'
-	_class_category = 'md-product'
+	_class_category = 'crm-md-product'
 	_columns = {
 	'product_id': fields.many2one(label='Product',obj='md.product',rel='crm'),
 	'vat': fields.referenced(label='VAT Code',obj='md.vat.code',required=True,domain=[('type_vat','in',('s','n'))]),

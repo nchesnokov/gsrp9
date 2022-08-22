@@ -644,6 +644,74 @@ def search(self, cr, uid, pool, model, cond = None, context = {}, limit = None, 
 			# res.extend(list(map(lambda x: x['id'], cr.dictfetchall()))) 
 	# return res
 
+def _readchunk(self, cr, uid, pool, model, chunk_ids, fields, context):
+	for oid in chunk_ids:
+		for tn in model._triggers:
+			tr = self._session._triggers[tn]
+			method = tr._actions['_onReadBeforeForEachRow']
+			if method and callable(method):
+				kwargs = {'r1':oid,'context':context}
+				method(**kwargs)
+
+	rowfields = list(filter(lambda x: x in fields,model._rowfields)) 
+	sql,vals = gensql.Read(self,cr,uid,pool,model,chunk_ids,rowfields,context)
+	rowcount = cr.execute(sql,vals)
+	if rowcount > 0:
+		selectablefields = list(filter(lambda x: x in fields,model._rowfields))
+		nostorecomputefields = list(filter(lambda x: x in fields,model._nostorecomputefields))		
+		records = cr.dictfetchall(selectablefields,model._columnsmeta)
+		for record in records:
+			for jk in model._jsonfields:
+				if jk in record:
+					if type(record[jk]) == str:
+						record[jk] = json.loads(record[jk])
+			
+			for tn in model._triggers:
+				tr = self._session._triggers[tn]
+				method = tr._actions['_onReadAfterForEachRow']
+				if method and callable(method):
+					kwargs = {'r1':record,'context':context}
+					method(**kwargs)
+
+
+			o2mfields = {}
+			m2mfields = {}
+			referencedfields = {}
+			fds = list(filter(lambda x: type(x) == dict,fields))
+			dictfields = {}
+			for fd in fds:
+				dictfields.update(fd)
+
+			recname = model._getRecNameName()
+			if recname and recname in record:
+				oid = record[recname]
+			else:
+				oid = record['id']
+
+			for o2mfield in model._o2mfields:
+				if o2mfield in dictfields:
+					o2mfields[o2mfield] = dictfields[o2mfield]
+
+			for referencedfield in model._referencedfields:
+				if referencedfield in dictfields:
+					referencedfields[referencedfield] = dictfields[referencedfield]
+
+			for m2mfield in model._m2mfields:
+				if m2mfield in dictfields:
+					m2mfields[m2mfield] = dictfields[m2mfield]
+
+			for o2mfield in o2mfields:
+				record[o2mfield] = _o2mread(self,cr,uid,pool,pool[model._columns[o2mfield].obj],oid,model._columns[o2mfield].rel,o2mfields[o2mfield],context)
+
+			for referencedfield in referencedfields:
+				record[referencedfields] = _read(self,cr,uid,pool,pool[model._columns[referencedfield].obj],oid,referencedfields[referencedfield],context)
+
+			for m2mfield in m2mfields:
+				record[m2mfield] = _m2mread(self,cr,uid,pool,model,record['id'],m2mfields[m2mfield],context)
+		
+		return records
+
+
 def _read(self, cr, uid, pool, model, ids, fields = None, context = {}):
 
 	res = []
@@ -665,13 +733,6 @@ def _read(self, cr, uid, pool, model, ids, fields = None, context = {}):
 	if fields is None:
 		fields = model._selectablefields
 
-	rowfields = list(filter(lambda x: x in fields,model._rowfields)) 
-	length = 1
-	if type(ids) in (list,tuple):
-		length = len(ids)		
-	count = int(length/MAX_CHUNK_READ)
-	chunk = int(length % MAX_CHUNK_READ)
-
 	for tn in model._triggers:
 		tr = self._session._triggers[tn]
 		method = tr._actions['_onReadBeforeAll']
@@ -679,105 +740,16 @@ def _read(self, cr, uid, pool, model, ids, fields = None, context = {}):
 			kwargs = {'r1':ids,'context':context}
 			method(**kwargs)
 	
-	for i in range(count):
-		j = i * MAX_CHUNK_READ
-		chunk_ids = ids[j:j + MAX_CHUNK_READ]
-		sql,vals = gensql.Read(self,cr,uid,pool,model,chunk_ids,rowfields,context)
-		rowcount = cr.execute(sql,vals)
-		if rowcount > 0:
-			selectablefields = list(filter(lambda x: x in fields,model._rowfields))
-			nostorecomputefields = list(filter(lambda x: x in fields,self._nostorecomputefields))		
-			records = cr.dictfetchall(selectablefields,self._columnsmeta)
-			for record in records:
+	for count in range(0,len(ids),MAX_CHUNK_READ):
+		chunk_ids = ids[count: (count + MAX_CHUNK_READ) if count % MAX_CHUNK_READ  == 0 else len(ids)]
+		res.extend(_readchunk(self,cr,uid,pool,model,chunk_ids,fields,context))
 
-				for jk in model._jsonfields:
-					if jk in record:
-						if type(record[jk]) == str:
-							record[jk] = json.loads(record[jk])
-
-				o2mfields = {}
-				m2mfields = {}
-				fds = list(filter(lambda x: type(x) == dict,fields))
-				dictfields = {}
-				for fd in fds:
-					dictfields.update(fd)
-
-				recname = model._getRecNameName()
-				if recname and recname in record:
-					oid = record[recname]
-				else:
-					oid = record['id']
-
-				for o2mfield in self._o2mfields:
-					if o2mfield in dictfields:
-						o2mfields[o2mfield] = dictfields[o2mfield]
-
-				for m2mfield in model._m2mfields:
-					if m2mfield in dictfields:
-						m2mfields[m2mfield] = dictfields[m2mfield]
-
-				for o2mfield in o2mfields:
-					record[o2mfield] = _o2mread(self,cr,uid,pool,pool[self._columns[o2mfield].obj],oid,self._columns[o2mfield].rel,o2mfields[o2mfield],context)
-	
-				for m2mfield in m2mfields:
-					record[m2mfield] = _m2mread(self,cr,uid,pool,model,record['id'],m2mfields[m2mfield],context)
-			
-			res.extend(records)
-
-	if chunk > 0:
-		if length == 1:
-			chunk_ids = ids
-		else:
-			j = count * MAX_CHUNK_READ			
-			chunk_ids = ids[j:]
-		sql,vals = gensql.Read(self,cr,uid,pool,model,chunk_ids,fields,context)
-		rowcount = cr.execute(sql,vals)
-		if rowcount > 0:
-			selectablefields = list(filter(lambda x: x in fields,model._rowfields))
-			nostorecomputefields = list(filter(lambda x: x in fields,model._nostorecomputefields))		
-			records = cr.dictfetchall(selectablefields,model._columnsmeta)
-			for record in records:
-
-				for jk in model._jsonfields:
-					if jk in record:
-						if type(record[jk]) == str:
-							record[jk] = json.loads(record[jk])
-
-				o2mfields = {}
-				m2mfields = {}
-				fds = list(filter(lambda x: type(x) == dict,fields))
-				dictfields = {}
-				for fd in fds:
-					dictfields.update(fd)
-
-				recname = model._getRecNameName()
-				if recname and recname in record:
-					oid = record[recname]
-				else:
-					oid = record['id']
-
-				for o2mfield in model._o2mfields:
-					if o2mfield in dictfields:
-						o2mfields[o2mfield] = dictfields[o2mfield]
-
-				for m2mfield in model._m2mfields:
-					if m2mfield in dictfields:
-						m2mfields[m2mfield] = dictfields[m2mfield]
-
-				for o2mfield in o2mfields:
-					record[o2mfield] = _o2mread(self,cr,uid,pool,pool[model._columns[o2mfield].obj],oid,model._columns[o2mfield].rel,o2mfields[o2mfield],context)
-	
-				for m2mfield in m2mfields:
-					record[m2mfield] = _m2mread(self,cr,uid,pool,model,record['id'],m2mfield,m2mfields[m2mfield],context)
-			
-			res.extend(records)
-
-			for tn in model._triggers:
-				tr = self._session._triggers[tn]
-				method = tr._actions['_onReadBeforeAll']
-				if method and callable(method):
-					kwargs = {'r1':res,'context':context}
-					method(**kwargs)
+	for tn in model._triggers:
+		tr = self._session._triggers[tn]
+		method = tr._actions['_onReadAfterAll']
+		if method and callable(method):
+			kwargs = {'r1':res,'context':context}
+			method(**kwargs)
 	
 	return res
 	

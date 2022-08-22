@@ -598,8 +598,8 @@ def _getHook(self,name):
 
 def _compute_composite(self , field, item, context):
 	v=''
-	if self._name == 'bc.model.columns':
-		web_pdb.set_trace()	
+	# if self._name == 'bc.model.columns':
+		# web_pdb.set_trace()	
 	if self._columns[field]._type == 'composite':
 		cols = self._columns[field].cols
 		delimiter = self._columns[field].delimiter

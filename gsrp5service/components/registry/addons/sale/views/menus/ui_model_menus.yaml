@@ -1,26 +1,16 @@
 - label: Sales Managament
   name: ui.menu.module.sale
   parent_id: null
-- action_id: action.sale.order.categories.search
-  label: Category Sale Order
-  name: ui.menu.sale.order.categories.search
-  parent_id: ui.menu.module.sale
-  sequence: 0
-- action_id: action.sale.invoice.categories.search
-  label: Category Sale Invoice
-  name: ui.menu.sale.invoice.categories.search
-  parent_id: ui.menu.module.sale
-  sequence: 1
 - action_id: action.sale.orders.search
   label: Sale Orders
   name: ui.menu.sale.orders.search
   parent_id: ui.menu.module.sale
-  sequence: 2
+  sequence: 0
 - action_id: action.sale.invoices.search
   label: Sale Invoices
   name: ui.menu.sale.invoices.search
   parent_id: ui.menu.module.sale
-  sequence: 3
+  sequence: 1
 - label: Sales Managament
   name: ui.menu.customize.sale
   parent_id: ui.menu.customize
@@ -154,3 +144,13 @@
   name: ui.menu.sale.invoice.types.search
   parent_id: ui.menu.customize.sale
   sequence: 25
+- action_id: action.sale.order.categories.search
+  label: Category Sale Order
+  name: ui.menu.sale.order.categories.search
+  parent_id: ui.menu.customize.sale
+  sequence: 26
+- action_id: action.sale.invoice.categories.search
+  label: Category Sale Invoice
+  name: ui.menu.sale.invoice.categories.search
+  parent_id: ui.menu.customize.sale
+  sequence: 27

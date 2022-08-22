@@ -255,29 +255,17 @@
   name: role.crm.models.crm.teams.crw
   note: 'Module: crm Type: models Object: crm.teams grant: crw'
 - group_id: crm.models.readonly
-  name: role.crm.models.crm.sectors.readonly
-  note: 'Module: crm Type: models Object: crm.sectors grant: readonly'
+  name: role.crm.models.crm.pricing.group.levels.readonly
+  note: 'Module: crm Type: models Object: crm.pricing.group.levels grant: readonly'
 - group_id: crm.models.nodrop
-  name: role.crm.models.crm.sectors.nodrop
-  note: 'Module: crm Type: models Object: crm.sectors grant: nodrop'
+  name: role.crm.models.crm.pricing.group.levels.nodrop
+  note: 'Module: crm Type: models Object: crm.pricing.group.levels grant: nodrop'
 - group_id: crm.models.full
-  name: role.crm.models.crm.sectors.full
-  note: 'Module: crm Type: models Object: crm.sectors grant: full'
+  name: role.crm.models.crm.pricing.group.levels.full
+  note: 'Module: crm Type: models Object: crm.pricing.group.levels grant: full'
 - group_id: crm.models.crw
-  name: role.crm.models.crm.sectors.crw
-  note: 'Module: crm Type: models Object: crm.sectors grant: crw'
-- group_id: crm.models.readonly
-  name: role.crm.models.crm.groups.readonly
-  note: 'Module: crm Type: models Object: crm.groups grant: readonly'
-- group_id: crm.models.nodrop
-  name: role.crm.models.crm.groups.nodrop
-  note: 'Module: crm Type: models Object: crm.groups grant: nodrop'
-- group_id: crm.models.full
-  name: role.crm.models.crm.groups.full
-  note: 'Module: crm Type: models Object: crm.groups grant: full'
-- group_id: crm.models.crw
-  name: role.crm.models.crm.groups.crw
-  note: 'Module: crm Type: models Object: crm.groups grant: crw'
+  name: role.crm.models.crm.pricing.group.levels.crw
+  note: 'Module: crm Type: models Object: crm.pricing.group.levels grant: crw'
 - group_id: crm.models.readonly
   name: role.crm.models.crm.texts.readonly
   note: 'Module: crm Type: models Object: crm.texts grant: readonly'
@@ -339,6 +327,18 @@
   name: role.crm.models.crm.request.type.roles.crw
   note: 'Module: crm Type: models Object: crm.request.type.roles grant: crw'
 - group_id: crm.models.readonly
+  name: role.crm.models.crm.request.type.items.readonly
+  note: 'Module: crm Type: models Object: crm.request.type.items grant: readonly'
+- group_id: crm.models.nodrop
+  name: role.crm.models.crm.request.type.items.nodrop
+  note: 'Module: crm Type: models Object: crm.request.type.items grant: nodrop'
+- group_id: crm.models.full
+  name: role.crm.models.crm.request.type.items.full
+  note: 'Module: crm Type: models Object: crm.request.type.items grant: full'
+- group_id: crm.models.crw
+  name: role.crm.models.crm.request.type.items.crw
+  note: 'Module: crm Type: models Object: crm.request.type.items grant: crw'
+- group_id: crm.models.readonly
   name: role.crm.models.crm.offer.types.readonly
   note: 'Module: crm Type: models Object: crm.offer.types grant: readonly'
 - group_id: crm.models.nodrop
@@ -363,30 +363,6 @@
   name: role.crm.models.crm.offer.type.roles.crw
   note: 'Module: crm Type: models Object: crm.offer.type.roles grant: crw'
 - group_id: crm.models.readonly
-  name: role.crm.models.crm.contract.types.readonly
-  note: 'Module: crm Type: models Object: crm.contract.types grant: readonly'
-- group_id: crm.models.nodrop
-  name: role.crm.models.crm.contract.types.nodrop
-  note: 'Module: crm Type: models Object: crm.contract.types grant: nodrop'
-- group_id: crm.models.full
-  name: role.crm.models.crm.contract.types.full
-  note: 'Module: crm Type: models Object: crm.contract.types grant: full'
-- group_id: crm.models.crw
-  name: role.crm.models.crm.contract.types.crw
-  note: 'Module: crm Type: models Object: crm.contract.types grant: crw'
-- group_id: crm.models.readonly
-  name: role.crm.models.crm.contract.type.roles.readonly
-  note: 'Module: crm Type: models Object: crm.contract.type.roles grant: readonly'
-- group_id: crm.models.nodrop
-  name: role.crm.models.crm.contract.type.roles.nodrop
-  note: 'Module: crm Type: models Object: crm.contract.type.roles grant: nodrop'
-- group_id: crm.models.full
-  name: role.crm.models.crm.contract.type.roles.full
-  note: 'Module: crm Type: models Object: crm.contract.type.roles grant: full'
-- group_id: crm.models.crw
-  name: role.crm.models.crm.contract.type.roles.crw
-  note: 'Module: crm Type: models Object: crm.contract.type.roles grant: crw'
-- group_id: crm.models.readonly
   name: role.crm.models.crm.request.categories.readonly
   note: 'Module: crm Type: models Object: crm.request.categories grant: readonly'
 - group_id: crm.models.nodrop
@@ -410,18 +386,6 @@
 - group_id: crm.models.crw
   name: role.crm.models.crm.offer.categories.crw
   note: 'Module: crm Type: models Object: crm.offer.categories grant: crw'
-- group_id: crm.models.readonly
-  name: role.crm.models.crm.contract.categories.readonly
-  note: 'Module: crm Type: models Object: crm.contract.categories grant: readonly'
-- group_id: crm.models.nodrop
-  name: role.crm.models.crm.contract.categories.nodrop
-  note: 'Module: crm Type: models Object: crm.contract.categories grant: nodrop'
-- group_id: crm.models.full
-  name: role.crm.models.crm.contract.categories.full
-  note: 'Module: crm Type: models Object: crm.contract.categories grant: full'
-- group_id: crm.models.crw
-  name: role.crm.models.crm.contract.categories.crw
-  note: 'Module: crm Type: models Object: crm.contract.categories grant: crw'
 - group_id: crm.models.readonly
   name: role.crm.models.crm.requests.readonly
   note: 'Module: crm Type: models Object: crm.requests grant: readonly'
@@ -459,6 +423,42 @@
   name: role.crm.models.crm.request.roles.crw
   note: 'Module: crm Type: models Object: crm.request.roles grant: crw'
 - group_id: crm.models.readonly
+  name: role.crm.models.crm.request.pricing.readonly
+  note: 'Module: crm Type: models Object: crm.request.pricing grant: readonly'
+- group_id: crm.models.nodrop
+  name: role.crm.models.crm.request.pricing.nodrop
+  note: 'Module: crm Type: models Object: crm.request.pricing grant: nodrop'
+- group_id: crm.models.full
+  name: role.crm.models.crm.request.pricing.full
+  note: 'Module: crm Type: models Object: crm.request.pricing grant: full'
+- group_id: crm.models.crw
+  name: role.crm.models.crm.request.pricing.crw
+  note: 'Module: crm Type: models Object: crm.request.pricing grant: crw'
+- group_id: crm.models.readonly
+  name: role.crm.models.crm.request.payment.schedules.readonly
+  note: 'Module: crm Type: models Object: crm.request.payment.schedules grant: readonly'
+- group_id: crm.models.nodrop
+  name: role.crm.models.crm.request.payment.schedules.nodrop
+  note: 'Module: crm Type: models Object: crm.request.payment.schedules grant: nodrop'
+- group_id: crm.models.full
+  name: role.crm.models.crm.request.payment.schedules.full
+  note: 'Module: crm Type: models Object: crm.request.payment.schedules grant: full'
+- group_id: crm.models.crw
+  name: role.crm.models.crm.request.payment.schedules.crw
+  note: 'Module: crm Type: models Object: crm.request.payment.schedules grant: crw'
+- group_id: crm.models.readonly
+  name: role.crm.models.crm.request.output.plates.readonly
+  note: 'Module: crm Type: models Object: crm.request.output.plates grant: readonly'
+- group_id: crm.models.nodrop
+  name: role.crm.models.crm.request.output.plates.nodrop
+  note: 'Module: crm Type: models Object: crm.request.output.plates grant: nodrop'
+- group_id: crm.models.full
+  name: role.crm.models.crm.request.output.plates.full
+  note: 'Module: crm Type: models Object: crm.request.output.plates grant: full'
+- group_id: crm.models.crw
+  name: role.crm.models.crm.request.output.plates.crw
+  note: 'Module: crm Type: models Object: crm.request.output.plates grant: crw'
+- group_id: crm.models.readonly
   name: role.crm.models.crm.request.items.readonly
   note: 'Module: crm Type: models Object: crm.request.items grant: readonly'
 - group_id: crm.models.nodrop
@@ -470,6 +470,18 @@
 - group_id: crm.models.crw
   name: role.crm.models.crm.request.items.crw
   note: 'Module: crm Type: models Object: crm.request.items grant: crw'
+- group_id: crm.models.readonly
+  name: role.crm.models.crm.request.pricing.items.readonly
+  note: 'Module: crm Type: models Object: crm.request.pricing.items grant: readonly'
+- group_id: crm.models.nodrop
+  name: role.crm.models.crm.request.pricing.items.nodrop
+  note: 'Module: crm Type: models Object: crm.request.pricing.items grant: nodrop'
+- group_id: crm.models.full
+  name: role.crm.models.crm.request.pricing.items.full
+  note: 'Module: crm Type: models Object: crm.request.pricing.items grant: full'
+- group_id: crm.models.crw
+  name: role.crm.models.crm.request.pricing.items.crw
+  note: 'Module: crm Type: models Object: crm.request.pricing.items grant: crw'
 - group_id: crm.models.readonly
   name: role.crm.models.crm.request.item.texts.readonly
   note: 'Module: crm Type: models Object: crm.request.item.texts grant: readonly'
@@ -509,6 +521,34 @@
 - group_id: crm.models.crw
   name: role.crm.models.crm.request.item.delivery.schedules.crw
   note: 'Module: crm Type: models Object: crm.request.item.delivery.schedules grant:
+    crw'
+- group_id: crm.models.readonly
+  name: role.crm.models.crm.request.item.output.plates.readonly
+  note: 'Module: crm Type: models Object: crm.request.item.output.plates grant: readonly'
+- group_id: crm.models.nodrop
+  name: role.crm.models.crm.request.item.output.plates.nodrop
+  note: 'Module: crm Type: models Object: crm.request.item.output.plates grant: nodrop'
+- group_id: crm.models.full
+  name: role.crm.models.crm.request.item.output.plates.full
+  note: 'Module: crm Type: models Object: crm.request.item.output.plates grant: full'
+- group_id: crm.models.crw
+  name: role.crm.models.crm.request.item.output.plates.crw
+  note: 'Module: crm Type: models Object: crm.request.item.output.plates grant: crw'
+- group_id: crm.models.readonly
+  name: role.crm.models.crm.request.item.payment.schedules.readonly
+  note: 'Module: crm Type: models Object: crm.request.item.payment.schedules grant:
+    readonly'
+- group_id: crm.models.nodrop
+  name: role.crm.models.crm.request.item.payment.schedules.nodrop
+  note: 'Module: crm Type: models Object: crm.request.item.payment.schedules grant:
+    nodrop'
+- group_id: crm.models.full
+  name: role.crm.models.crm.request.item.payment.schedules.full
+  note: 'Module: crm Type: models Object: crm.request.item.payment.schedules grant:
+    full'
+- group_id: crm.models.crw
+  name: role.crm.models.crm.request.item.payment.schedules.crw
+  note: 'Module: crm Type: models Object: crm.request.item.payment.schedules grant:
     crw'
 - group_id: crm.models.readonly
   name: role.crm.models.crm.offers.readonly
@@ -599,118 +639,14 @@
   note: 'Module: crm Type: models Object: crm.offer.item.delivery.schedules grant:
     crw'
 - group_id: crm.models.readonly
-  name: role.crm.models.crm.contracts.readonly
-  note: 'Module: crm Type: models Object: crm.contracts grant: readonly'
+  name: role.crm.models.md.crm.product.readonly
+  note: 'Module: crm Type: models Object: md.crm.product grant: readonly'
 - group_id: crm.models.nodrop
-  name: role.crm.models.crm.contracts.nodrop
-  note: 'Module: crm Type: models Object: crm.contracts grant: nodrop'
+  name: role.crm.models.md.crm.product.nodrop
+  note: 'Module: crm Type: models Object: md.crm.product grant: nodrop'
 - group_id: crm.models.full
-  name: role.crm.models.crm.contracts.full
-  note: 'Module: crm Type: models Object: crm.contracts grant: full'
+  name: role.crm.models.md.crm.product.full
+  note: 'Module: crm Type: models Object: md.crm.product grant: full'
 - group_id: crm.models.crw
-  name: role.crm.models.crm.contracts.crw
-  note: 'Module: crm Type: models Object: crm.contracts grant: crw'
-- group_id: crm.models.readonly
-  name: role.crm.models.crm.contract.texts.readonly
-  note: 'Module: crm Type: models Object: crm.contract.texts grant: readonly'
-- group_id: crm.models.nodrop
-  name: role.crm.models.crm.contract.texts.nodrop
-  note: 'Module: crm Type: models Object: crm.contract.texts grant: nodrop'
-- group_id: crm.models.full
-  name: role.crm.models.crm.contract.texts.full
-  note: 'Module: crm Type: models Object: crm.contract.texts grant: full'
-- group_id: crm.models.crw
-  name: role.crm.models.crm.contract.texts.crw
-  note: 'Module: crm Type: models Object: crm.contract.texts grant: crw'
-- group_id: crm.models.readonly
-  name: role.crm.models.crm.contract.roles.readonly
-  note: 'Module: crm Type: models Object: crm.contract.roles grant: readonly'
-- group_id: crm.models.nodrop
-  name: role.crm.models.crm.contract.roles.nodrop
-  note: 'Module: crm Type: models Object: crm.contract.roles grant: nodrop'
-- group_id: crm.models.full
-  name: role.crm.models.crm.contract.roles.full
-  note: 'Module: crm Type: models Object: crm.contract.roles grant: full'
-- group_id: crm.models.crw
-  name: role.crm.models.crm.contract.roles.crw
-  note: 'Module: crm Type: models Object: crm.contract.roles grant: crw'
-- group_id: crm.models.readonly
-  name: role.crm.models.crm.contract.payment.schedules.readonly
-  note: 'Module: crm Type: models Object: crm.contract.payment.schedules grant: readonly'
-- group_id: crm.models.nodrop
-  name: role.crm.models.crm.contract.payment.schedules.nodrop
-  note: 'Module: crm Type: models Object: crm.contract.payment.schedules grant: nodrop'
-- group_id: crm.models.full
-  name: role.crm.models.crm.contract.payment.schedules.full
-  note: 'Module: crm Type: models Object: crm.contract.payment.schedules grant: full'
-- group_id: crm.models.crw
-  name: role.crm.models.crm.contract.payment.schedules.crw
-  note: 'Module: crm Type: models Object: crm.contract.payment.schedules grant: crw'
-- group_id: crm.models.readonly
-  name: role.crm.models.crm.contract.items.readonly
-  note: 'Module: crm Type: models Object: crm.contract.items grant: readonly'
-- group_id: crm.models.nodrop
-  name: role.crm.models.crm.contract.items.nodrop
-  note: 'Module: crm Type: models Object: crm.contract.items grant: nodrop'
-- group_id: crm.models.full
-  name: role.crm.models.crm.contract.items.full
-  note: 'Module: crm Type: models Object: crm.contract.items grant: full'
-- group_id: crm.models.crw
-  name: role.crm.models.crm.contract.items.crw
-  note: 'Module: crm Type: models Object: crm.contract.items grant: crw'
-- group_id: crm.models.readonly
-  name: role.crm.models.crm.contract.item.texts.readonly
-  note: 'Module: crm Type: models Object: crm.contract.item.texts grant: readonly'
-- group_id: crm.models.nodrop
-  name: role.crm.models.crm.contract.item.texts.nodrop
-  note: 'Module: crm Type: models Object: crm.contract.item.texts grant: nodrop'
-- group_id: crm.models.full
-  name: role.crm.models.crm.contract.item.texts.full
-  note: 'Module: crm Type: models Object: crm.contract.item.texts grant: full'
-- group_id: crm.models.crw
-  name: role.crm.models.crm.contract.item.texts.crw
-  note: 'Module: crm Type: models Object: crm.contract.item.texts grant: crw'
-- group_id: crm.models.readonly
-  name: role.crm.models.crm.contract.item.roles.readonly
-  note: 'Module: crm Type: models Object: crm.contract.item.roles grant: readonly'
-- group_id: crm.models.nodrop
-  name: role.crm.models.crm.contract.item.roles.nodrop
-  note: 'Module: crm Type: models Object: crm.contract.item.roles grant: nodrop'
-- group_id: crm.models.full
-  name: role.crm.models.crm.contract.item.roles.full
-  note: 'Module: crm Type: models Object: crm.contract.item.roles grant: full'
-- group_id: crm.models.crw
-  name: role.crm.models.crm.contract.item.roles.crw
-  note: 'Module: crm Type: models Object: crm.contract.item.roles grant: crw'
-- group_id: crm.models.readonly
-  name: role.crm.models.crm.contract.item.delivery.schedules.readonly
-  note: 'Module: crm Type: models Object: crm.contract.item.delivery.schedules grant:
-    readonly'
-- group_id: crm.models.nodrop
-  name: role.crm.models.crm.contract.item.delivery.schedules.nodrop
-  note: 'Module: crm Type: models Object: crm.contract.item.delivery.schedules grant:
-    nodrop'
-- group_id: crm.models.full
-  name: role.crm.models.crm.contract.item.delivery.schedules.full
-  note: 'Module: crm Type: models Object: crm.contract.item.delivery.schedules grant:
-    full'
-- group_id: crm.models.crw
-  name: role.crm.models.crm.contract.item.delivery.schedules.crw
-  note: 'Module: crm Type: models Object: crm.contract.item.delivery.schedules grant:
-    crw'
-- group_id: crm.models.readonly
-  name: role.crm.models.crm.contract.item.payment.schedules.readonly
-  note: 'Module: crm Type: models Object: crm.contract.item.payment.schedules grant:
-    readonly'
-- group_id: crm.models.nodrop
-  name: role.crm.models.crm.contract.item.payment.schedules.nodrop
-  note: 'Module: crm Type: models Object: crm.contract.item.payment.schedules grant:
-    nodrop'
-- group_id: crm.models.full
-  name: role.crm.models.crm.contract.item.payment.schedules.full
-  note: 'Module: crm Type: models Object: crm.contract.item.payment.schedules grant:
-    full'
-- group_id: crm.models.crw
-  name: role.crm.models.crm.contract.item.payment.schedules.crw
-  note: 'Module: crm Type: models Object: crm.contract.item.payment.schedules grant:
-    crw'
+  name: role.crm.models.md.crm.product.crw
+  note: 'Module: crm Type: models Object: md.crm.product grant: crw'

@@ -150,7 +150,7 @@ class md_product(Model):
 		'state':'draft'
 	}
 
-md_product()
+#md_product()
 
 class md_partner(Model):
 	_name = 'md.partner'
@@ -174,7 +174,7 @@ class md_partner(Model):
 	'roles': fields.one2many(label='Roles',obj='md.partner.roles',rel='partner_id'),
 	}
 
-md_partner()
+#md_partner()
 
 class md_partner_addresses(Model):
 	_name = 'md.partner.addresses'
@@ -192,7 +192,7 @@ class md_partner_addresses(Model):
 	'room': fields.i18n(fields.varchar(label = 'Room',size=64))
 	}
 
-md_partner_addresses()
+#md_partner_addresses()
 
 class md_partner_contacts(Model):
 	_name = 'md.partner.contacts'
@@ -226,7 +226,7 @@ class md_partner_contacts(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-md_partner_contacts()
+#md_partner_contacts()
 
 
 class md_partner_products(Model):
@@ -236,13 +236,13 @@ class md_partner_products(Model):
 	_columns = {
 	'partner_id': fields.many2one(label='Partner',obj='md.partner',rel='products'),
 	'product': fields.referenced(label='Product',obj='md.product'),
-	#'uom': fields.referenced(label='UoM',ref='product_id.uom'),
+	#'uom': fields.referenced(label='Unit Of Measure',obj='md.uom'),
 	'minqty': fields.numeric(label='Min Quantity',size=(11,3),required=True),
-	'image': fields.binary(label="Photo", help="This field holds the image used as photo for the employee, limited to 1024x1024px."),
-	'image_medium': fields.binary(label="Medium-sized photo", help="Medium-sized photo of the employee. It is automatically "
+	'image': fields.binary(label="Photo", accept='image/*', help="This field holds the image used as photo for the employee, limited to 1024x1024px."),
+	'image_medium': fields.binary(label="Medium-sized photo", accept='image/*', help="Medium-sized photo of the employee. It is automatically "
 			 "resized as a 128x128px image, with aspect ratio preserved. "
 			 "Use this field in form views or some kanban views."),
-	'image_small': fields.binary(label=	"Small-sized photo", help="Small-sized photo of the employee. It is automatically "
+	'image_small': fields.binary(label=	"Small-sized photo", accept='image/*', help="Small-sized photo of the employee. It is automatically "
 			 "resized as a 64x64px image, with aspect ratio preserved. "
 			 "Use this field anywhere a small image is required."),
 	'link': fields.varchar(label='Link',size=255),
@@ -250,7 +250,7 @@ class md_partner_products(Model):
 	'note': fields.text(label = 'Note')
 }
 
-md_partner_products()
+#md_partner_products()
 
 class md_partner_roles(Model):
 	_name = 'md.partner.roles'
@@ -263,7 +263,7 @@ class md_partner_roles(Model):
 	
 }
 
-md_partner_roles()
+#md_partner_roles()
 
 class md_pricelist_partner_products(Model):
 	_name = 'md.pricelist.partner.products'
@@ -282,7 +282,8 @@ class md_pricelist_partner_products(Model):
 	_default = {
 		'qty':1
 	}
-md_pricelist_partner_products()
+
+#md_pricelist_partner_products()
 
 class md_currency_rate(Model):
 	_name = 'md.currency.rate'
@@ -304,7 +305,7 @@ class md_currency_rate(Model):
 		'type': 'd'
 	}
 
-md_currency_rate()
+#md_currency_rate()
 
 class md_banks(Model):
 	_name = 'md.banks'
@@ -330,7 +331,7 @@ class md_banks(Model):
 		'bic':['bic']
 	}
 
-md_banks()
+#md_banks()
 
 class md_partners_bank(Model):
 	_name = 'md.partners.bank'
@@ -363,7 +364,7 @@ class md_partners_bank(Model):
 		('unique_number', 'unique(sanitized_acc_number, company)', 'Account Number must be unique'),
 	]
 
-md_partners_bank()
+#md_partners_bank()
 
 # bom
 class md_boms(Model):
@@ -381,7 +382,7 @@ class md_boms(Model):
 	'items': fields.one2many(label='Input',obj='md.bom.items',rel='bom_id')
 	}
 
-md_boms()
+#md_boms()
 
 class md_bom_items(Model):
 	_name = 'md.bom.items'
@@ -399,7 +400,7 @@ class md_bom_items(Model):
 		'quantity': 1
 	}
 
-md_bom_items()
+#md_bom_items()
 
 class md_mobs(Model):
 	_name = 'md.mobs'
@@ -416,7 +417,7 @@ class md_mobs(Model):
 	'items': fields.one2many(label='Input',obj='md.mob.items',rel='mob_id')
 	}
 
-md_mobs()
+#md_mobs()
 
 class md_mob_items(Model):
 	_name = 'md.mob.items'
@@ -434,7 +435,7 @@ class md_mob_items(Model):
 		'quantity': 1
 	}
 
-md_mob_items()
+#md_mob_items()
 
 class md_bobs(Model):
 	_name = 'md.bobs'
@@ -451,7 +452,7 @@ class md_bobs(Model):
 	'output_items': fields.one2many(label='output',obj='md.bob.output.items',rel='bob_id')
 	}
 
-md_bobs()
+#md_bobs()
 
 class md_bob_input_items(Model):
 	_name = 'md.bob.input.items'
@@ -469,7 +470,7 @@ class md_bob_input_items(Model):
 		'quantity': 1
 	}
 
-md_bob_input_items()
+#md_bob_input_items()
 
 class md_bob_output_items(Model):
 	_name = 'md.bob.output.items'
@@ -487,6 +488,6 @@ class md_bob_output_items(Model):
 		'quantity': 1
 	}
 
-md_bob_output_items()
+#md_bob_output_items()
 
 # 

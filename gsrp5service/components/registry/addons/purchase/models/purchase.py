@@ -659,14 +659,14 @@ class md_purchase_product(Model):
 	_name = 'md.purchase.product'
 	_description = 'Purchase Of Product'
 	_columns = {
-	'product_id': fields.many2one(label='Product',obj='md.product'),
-	'vat': fields.many2one(label='VAT Code',obj='md.vat.code',domain=[('type_vat','in',('p','n'))]),
-	'uom': fields.many2one(label="Unit Of Measure",obj='md.uom'),
+	'product_id': fields.many2one(label='Product',obj='md.product', rel = 'purchase'),
+	'vat': fields.referenced(label='VAT Code',obj='md.vat.code',domain=[('type_vat','in',('p','n'))]),
+	'uom': fields.referenced(label="Unit Of Measure",obj='md.uom'),
 	'price': fields.numeric(label='Price',size=(13,2)),
-	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'currency': fields.referenced(label='Currency',obj='md.currency'),
 	'unit': fields.integer(label='Unit'),
-	'uop': fields.many2one(label="Unit Of Price",obj='md.uom'),
-	'note': fields.text(label = 'Note'),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom'),
+	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
 md_purchase_product()
@@ -681,3 +681,58 @@ class md_purchase_product_inherit(ModelInherit):
 	}
 	
 md_purchase_product_inherit()
+
+# pricing
+
+class pricing_purchase_b0001(Model):
+	_name = 'pricing.purchase.b0001'
+	_description = 'Pricing Purchase Of Product'
+	_columns = {
+	'product': fields.referenced(label='Product',obj='md.product'),
+	'uom': fields.referenced(label="Unit Of Measure",obj='md.uom'),
+	'price': fields.numeric(label='Price',size=(13,2)),
+	'currency': fields.referenced(label='Currency',obj='md.currency'),
+	'unit': fields.integer(label='Unit'),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom'),
+	'note': fields.i18n(fields.text(label = 'Note'))
+	}
+
+class pricing_purchase_b0001(Model):
+	_name = 'pricing.purchase.b0001'
+	_description = 'Pricing Purchase Of Product'
+	_columns = {
+	'product': fields.referenced(label='Product',obj='md.product'),
+	'uom': fields.referenced(label="Unit Of Measure",obj='md.uom'),
+	'price': fields.numeric(label='Price',size=(13,2)),
+	'currency': fields.referenced(label='Currency',obj='md.currency'),
+	'unit': fields.integer(label='Unit'),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom'),
+	'note': fields.i18n(fields.text(label = 'Note'))
+	}
+
+class pricing_purchase_b0002(Model):
+	_name = 'pricing.purchase.b0002'
+	_description = 'Pricing Purchase Of Product'
+	_columns = {
+	'product': fields.referenced(label='Product',obj='md.product'),
+	'uom': fields.referenced(label="Unit Of Measure",obj='md.uom'),
+	'price': fields.numeric(label='Price',size=(13,2)),
+	'currency': fields.referenced(label='Currency',obj='md.currency'),
+	'unit': fields.integer(label='Unit'),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom'),
+	'note': fields.i18n(fields.text(label = 'Note'))
+	}
+
+class pricing_purchase_b0003(Model):
+	_name = 'pricing.purchase.b0003'
+	_description = 'Pricing Purchase Of Product'
+	_columns = {
+	'product': fields.referenced(label='Product',obj='md.product'),
+	'uom': fields.referenced(label="Unit Of Measure",obj='md.uom'),
+	'price': fields.numeric(label='Price',size=(13,2)),
+	'currency': fields.referenced(label='Currency',obj='md.currency'),
+	'unit': fields.integer(label='Unit'),
+	'uop': fields.referenced(label="Unit Of Price",obj='md.uom'),
+	'note': fields.i18n(fields.text(label = 'Note'))
+	}
+

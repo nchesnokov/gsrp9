@@ -224,7 +224,7 @@ class bc_class_model_categories(Model):
 	_class_object = 'K'
 	_rec_name = 'code'
 	_columns = {
-	'code': fields.varchar(label='Code', size = 8,readonly=True),
+	'code': fields.varchar(label='Code', size = 32,readonly=True),
 	'descr': fields.varchar(label='Description', size = 64,readonly=True),
 	'note': fields.text(label='Note',readonly=True)
 	}
@@ -259,7 +259,7 @@ class bc_models(Model):
 	'class_model': fields.related(label = 'Class Model', obj = 'bc.class.models', readonly=True),
 	'class_model_category': fields.related(label = 'Class Model Category', obj = 'bc.class.model.categories', readonly=True),
 	'oom': fields.json(label='Meta Of Object', readonly = True),
-#	'columns': fields.one2many(label='Columns',obj='bc.model.columns', rel='model_id',readonly = True),
+	'columns': fields.one2many(label='Columns',obj='bc.model.columns', rel='model_id',readonly = True),
 	'inherits':fields.one2many(label = 'Inherits', obj = 'bc.model.inherit.inherits', rel = 'model_id',readonly=True)
 	}
 
@@ -272,8 +272,9 @@ class bc_model_columns(Model):
 	#_rec_name = 'name'
 	_order_by="seq"
 	_columns = {
-	'model_id': fields.referenced(label = 'Model', obj = 'bc.models',readonly=True, on_delete = 'c'),
-	'name': fields.composite(label='Name Column', cols = ['model_id','col'], required = True),
+	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',rel='columns',readonly=True, on_delete = 'c'),
+	'model_name': fields.varchar(label='Model Name',size=64,required = True,readonly=True),
+	'name': fields.composite(label='Name Column', cols = ['model_name','col'], required = True),
 	'seq': fields.integer(label='Sequence', readonly = True),
 	'col': fields.varchar(label='Column', readonly=True),
 	'moc': fields.json(label='Meta Of Column', readonly = True),
@@ -544,11 +545,12 @@ class bc_ui_model_view_column_inherits(Model):
 	_class_object = 'K'
 	_columns = {
 	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',rel='inherit_cols', on_delete = 'c',required=True),
-	#'col': fields.referenced(label='Column',obj='bc.model.inherit.inherits'),
-	'col': fields.varchar(label='Column', readonly = True),
+	'col': fields.referenced(label='Column',obj='bc.model.inherit.inherits'),
+	#'col': fields.varchar(label='Column', readonly = True),
+	'i18n': fields.text(label='I18N'),
 	'template': fields.text(label='Template'),
-	'render': fields.text(label='Render')
-	#'script': fields.text(label='Script'),
+	'render': fields.text(label='Render'),
+	'script': fields.text(label='Script')
 	}
 
 #bc_ui_model_view_column_inherits()

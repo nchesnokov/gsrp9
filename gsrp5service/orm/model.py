@@ -412,7 +412,7 @@ class BaseModel(object, metaclass = MetaObjects):
 
 	def o2mread(self, oid, field,fields, context):
 		if hasattr(self,'_session'):
-			uid = self._getCacheID('_02mread',context)
+			uid = self._getCacheID('_o2mread',context)
 			return getattr(self._session._cache[uid],'o2mread')(self, oid, field,fields, context)
 	
 		def m2mread(self, oid, field, fields, context):

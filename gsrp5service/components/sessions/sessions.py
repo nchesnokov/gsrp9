@@ -463,6 +463,7 @@ class System(Session):
 	_uid = None
 	_srvs = {}
 	_objects = {}
+	_access = {}
 	_auths = {}
 	_cache = {}
 	_cache_attrs = {}
@@ -475,7 +476,7 @@ class System(Session):
 		self._proxy_models = ModelProxy(self)
 		self._proxy_triggers = TrigerProxy(self)
 		self._proxy_actions = ActionProxy(self)
-		self._access_proxy = AccessProxy(self)
+		self._proxy_access = AccessProxy(self)
 
 
 	def _call(self,args):

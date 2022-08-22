@@ -13,7 +13,7 @@ class seq_areas(Model):
 	'descr':fields.text(label='Description')
 	}
 
-seq_areas()
+#seq_areas()
 
 class seq_segments(Model):
 	_name = 'seq.segments'
@@ -25,7 +25,7 @@ class seq_segments(Model):
 	'descr':fields.text(label='Description')
 	}
 
-seq_segments()
+#seq_segments()
 
 class seq_access(Model):
 	_name = 'seq.access'
@@ -46,7 +46,7 @@ class seq_access(Model):
 	}
 
 
-seq_access()
+#seq_access()
 
 class seq_models(Model):
 	_name = 'seq.models'
@@ -61,7 +61,7 @@ class seq_models(Model):
 	
 	}
 
-seq_models()
+#seq_models()
 
 class seq_model_columns(Model):
 	_name = 'seq.model.columns'
@@ -70,10 +70,11 @@ class seq_model_columns(Model):
 	_columns = {
 	'model_id': fields.many2one(label='Model',obj='seq.models',rel='columns'),
 	'sequence': fields.integer(label='Sequence'),
-	'col': fields.referenced(label='Column', obj='bc.model.columns')
+	'col': fields.referenced(label='Column', obj='bc.model.columns'),
+	'inherit_col': fields.referenced(label='Inherit Column', obj='bc.model.inherit.inherits')
 	}
 	
-seq_model_columns()
+#seq_model_columns()
 
 class seq_model_column_values(Model):
 	_name = 'seq.model.column.values'
@@ -82,10 +83,12 @@ class seq_model_column_values(Model):
 	_columns = {
 	'model_id': fields.many2one(label='Model',obj='seq.models',rel='values'),
 	'sequence': fields.integer(label='Sequence'),
-	'col': fields.referenced(label='Column', obj='bc.model.columns')
+	'col': fields.referenced(label='Column', obj='bc.model.columns'),
+	'inherit_col': fields.referenced(label='Inherit Column', obj='bc.model.inherit.inherits'),
+	'values': fields.json(label='Values')
 	}
 
-seq_model_column_values()
+#seq_model_column_values()
 
 
 class seq_conditions(Model):
@@ -107,7 +110,7 @@ class seq_conditions(Model):
 	}
 
 
-seq_conditions()
+#seq_conditions()
 
 
 

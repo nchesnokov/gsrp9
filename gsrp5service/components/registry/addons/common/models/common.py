@@ -121,25 +121,14 @@ class model_common(ModelInherit):
 	_columns = {
 	}
 
-model_common()
+#model_common()
 
-class inherit_common(ModelInherit):
-	_name = 'common.inherit'
-	_description = 'Inherit'
-
-	_columns = {
-	}
-	
-inherit_common()
-
-# sequence access start
-
-# sequence access end
 
 class seq_access_schemas(Model):
 	_name = 'seq.access.schemas'
 	_description = 'Sequence Access Schema'
 	_rec_name = 'fullname'
+	_class_category = 'common-access'
 	_columns = {
 	'area': fields.referenced(label='Area',obj='seq.areas',required = True),
 	'segment': fields.referenced(label='Segment',obj='seq.segments',required = True),
@@ -154,12 +143,13 @@ class seq_access_schemas(Model):
 	}
 
 
-seq_access_schemas()
+#seq_access_schemas()
 
 class seq_access_schema_items(Model):
 	_name = 'seq.access.schema.items'
 	_description = 'Sequence Access Items Of Schema'
 	_order_by = 'seq'
+	_class_category = 'common-access'
 	_columns = {
 	'schema_id': fields.many2one(label='Schema',obj='seq.access.schemas',rel='items',required = True),
 	'seq': fields.integer(label='Sequence',required=True),
@@ -167,4 +157,4 @@ class seq_access_schema_items(Model):
 	'required': fields.boolean(label='Required')
 	}
 
-seq_access_schema_items()
+#seq_access_schema_items()
