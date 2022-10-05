@@ -706,12 +706,12 @@ def returning_clause(fields = None):
 	
 def offset_clause(offset):
 	if offset:
-		return ' OFFSET %s'
+		return ' OFFSET %s' % (offset,)
 	return ''
 
 def limit_clause(limit):
 	if limit:
-		return ' LIMIT %s'
+		return ' LIMIT %s' % (limit,)
 	return ''
 
 def orderby_clause(order_by = None):
@@ -906,7 +906,7 @@ def Select(self, cr, uid, pool, model, fields, cond, context, limit = None, offs
 	_where = WhereParse(_conds_new)
 	_cond = _where._cond
 	_values_new = _where._values
-	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause(_cond) + orderby_clause(_order_by_new) if len(_order_by_new) > 0 else '' + limit_clause(limit) if limit else '' + offset_clause(offset) if offset else '' 
+	_sql_new = select_clause() +  fields_clause(_columns_new) + from_clause(reduce(lambda x,y: x+' '+y,_joins_new)) + where_clause(_cond) + (orderby_clause(_order_by_new) if len(_order_by_new) > 0 else '') + limit_clause(limit)  + offset_clause(offset) 
 	#print('GENSQL-NEW-SELECT:',_conds_new,_order_by_new,_sql_new,_values_new)
 	return _sql_new,_values_new
 

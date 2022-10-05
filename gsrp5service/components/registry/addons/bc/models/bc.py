@@ -435,42 +435,57 @@ class bc_ui_model_views(Model):
 	'inherit_cols': fields.one2many(label='Columns Inherit', obj = 'bc.ui.model.view.column.inherits',rel = 'view_id'),
 	'note': fields.text(label='Note')
 	}
+	def _generateTemplateColumns(self,record,context):
+		#web_pdb.set_trace()
+		if record['vtype']['name'] in _GENERATEVIEW: #and (record['template'] is  None or len(record['template']) == 0):
+			return _GENERATEVIEW[record['vtype']['name']].view._generateTemplateColumns(META,record['model']['name'],self._proxy.pool,context)
+
 
 	def _generateTemplate(self,record,context):
 		#web_pdb.set_trace()
 		if record['vtype']['name'] in _GENERATEVIEW: #and (record['template'] is  None or len(record['template']) == 0):
-			record['template'] = _GENERATEVIEW[record['vtype']['name']].view._generateTemplate(META,record['model']['name'],self._model._pool,context)
+			record['template'] = _GENERATEVIEW[record['vtype']['name']].view._generateTemplate(META,record['model']['name'],self._proxy.pool,context)
 
 	def _generateRender(self,record,context):
 		if record['vtype']['name'] in _GENERATEVIEW: #and (record['render'] is  None or len(record['render']) == 0):
-			record['render'] = _GENERATEVIEW[record['vtype']['name']].view._generateRender(META,record['model']['name'],self._model._pool,context)
+			record['render'] = _GENERATEVIEW[record['vtype']['name']].view._generateRender(META,record['model']['name'],self._proxy.pool,context)
 
 
 	def _generateScript(self,record,context):	
 		if record['vtype']['name'] in _GENERATEVIEW: #and (record['script'] is  None or len(record['script']) == 0):
-			record['script'] = _GENERATEVIEW[record['vtype']['name']].view._generateScript(META,record['model']['name'],self._model._pool,context)
+			record['script'] = _GENERATEVIEW[record['vtype']['name']].view._generateScript(META,record['model']['name'],self._proxy.pool,context)
+
+	def _generateScriptSetup(self,record,context):	
+		if record['vtype']['name'] in _GENERATEVIEW: #and (record['script'] is  None or len(record['script']) == 0):
+			record['script_setup'] = _GENERATEVIEW[record['vtype']['name']].view._generateScriptSetup(META,record['model']['name'],self._proxy.pool,context)
+
 
 	def _generateStyle(self,record,context):
 		if record['vtype']['name'] in _GENERATEVIEW: #and (record['style'] is  None or len(record['style']) == 0):
-			record['style'] = _GENERATEVIEW[record['vtype']['name']].view._generateStyle(META,record['model']['name'],self._model._pool,context)
+			record['style'] = _GENERATEVIEW[record['vtype']['name']].view._generateStyle(META,record['model']['name'],self._proxy.pool,context)
 
 	def _generateI18N(self,record,context):
 		if record['vtype']['name'] in _GENERATEVIEW: # and (record['i18n'] is  None or len(record['i18n']) == 0):
-			record['i18n'] = _GENERATEVIEW[record['vtype']['name']].view._generateI18N(META,record['model']['name'],self._model._pool,context)
+			record['i18n'] = _GENERATEVIEW[record['vtype']['name']].view._generateI18N(META,record['model']['name'],self._proxy.pool,context)
 
 
 	def _generateSFC(self,record,context):
 		self._generateI18N(record,context)
+		cs = self._generateTemplateColumns(record,context)
+		for col in record['cols']:
+			col['template'] = cs[col['col']['name']]
 		self._generateTemplate(record,context)
 		#self._generateRender(record,context)
 		self._generateScript(record,context)
+		self._generateScriptSetup(record,context)
 		self._generateStyle(record,context)
 		#record['sfc'] = record[record['render']] if len(record['render']) > 0 else record['template'] + record['script'] + '\n' + record['style'] 
 		if 'template' in record and record['template']:
 			record['sfc'] = record['template']
 		if 'script' in record and record['script']:
 			record['sfc'] += record['script']
-		
+		if 'script_setup' in record and record['script_setup']:
+			record['sfc'] += record['script_setup']	
 		if 'style' in record and record['style']:
 			record['sfc'] += record['style']
 
@@ -486,17 +501,17 @@ class bc_ui_model_views(Model):
 
 	
 	def getSFC(self, model, vtype,context):
-		records = super(Model,self).select(fields=["fullname", "model", "vtype", "standalone",'template','script', 'style', 'i18n',"sfc"], cond=[('model','=',model),('vtype','=', vtype)], context=context)
+		records = super(Model,self).select(fields=["fullname", "model", "vtype", "standalone",'template','script', 'style', 'i18n','sfc',{'cols':['seq','col','template','render'],'inherit_cols':[]}], cond=[('model','=',model),('vtype','=', vtype)], context=context)
 
 		if len(records) > 0:
 			if type(records) in (list,tuple):
 				for record in records:
 					self._generateSFC(record,context)
-					for k in ('template','script', 'style','i18n'):
+					for k in ('template','script','script_setup', 'style','i18n'):
 						del record[k]
 			elif type(records) == dict:
 				self._generateSFC(records,context)
-				for k in ('template','script', 'style','i18n'):
+				for k in ('template','script','script_setup', 'style','i18n'):
 					del records[k]
 			
 			#web_pdb.set_trace()
