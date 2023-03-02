@@ -423,13 +423,15 @@ class bc_ui_model_views(Model):
 	'created': fields.datetime('Created', readonly = True),
 	'modified': fields.datetime('Modified', readonly = True),
 	'standalone': fields.boolean(label='Standalone View'),
+	#'template_prefix': fields.text(label='Template Prefix'),
+	#'template_suffix': fields.text(label='Template Suffix'),
 	'template': fields.text(label='Template'),
 	'render': fields.text(label='Render'),
 	'script': fields.text(label='Script'),
 	'script_setup': fields.text(label='Script  Setup'),
+	'scoped': fields.boolean(label='Scoped'),
 	'style': fields.text(label='Style'),
 	'i18n': fields.text(label='I18N'),
-	'scoped': fields.boolean(label='Scoped'),
 	'sfc': fields.text(label='Single File Component'),
 	'cols': fields.one2many(label='Columns', obj = 'bc.ui.model.view.columns',rel = 'view_id'),
 	'inherit_cols': fields.one2many(label='Columns Inherit', obj = 'bc.ui.model.view.column.inherits',rel = 'view_id'),
@@ -471,9 +473,9 @@ class bc_ui_model_views(Model):
 
 	def _generateSFC(self,record,context):
 		self._generateI18N(record,context)
-		cs = self._generateTemplateColumns(record,context)
-		for col in record['cols']:
-			col['template'] = cs[col['col']['name']]
+		#cs = self._generateTemplateColumns(record,context)
+		# for col in record['__o2m_comtainers__']['cols']:
+			# col['template'] = cs[col['col']['name']]
 		self._generateTemplate(record,context)
 		#self._generateRender(record,context)
 		self._generateScript(record,context)
@@ -522,11 +524,11 @@ class bc_ui_model_views(Model):
 	def readforupdate(self, ids, fields = None, context = {}):
 		records = super(Model,self).readforupdate(ids,fields, context)
 		if len(records) > 0:
-			if type(records[0]['__data__']) in (list,tuple):
-				for record in records[0]['__data__']:
+			if type(records) in (list,tuple):
+				for record in records:
 					self._generateSFC(record,context)
-			elif type(records[0]['__data__']) == dict:
-				self._generateSFC(records[0]['__data__'],context)
+			elif type(records) == dict:
+				self._generateSFC(records,context)
 			
 			#web_pdb.set_trace()
 			#print('RECORDS:',self._name,records[0]['__data__'])

@@ -1293,7 +1293,7 @@ def browse(self, ids, fields = None, context = {}):
 
 	return brl
 
-def selectbrowse(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
+def selectBrowse(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
 	if not self._access._checkRead():
 		orm_exception("SelectBrowse:access dennied of model % s" % (self._name,))
 

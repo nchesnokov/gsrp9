@@ -134,7 +134,7 @@ async def hello():
 		#async with websockets.connect('ws://www.gsrp5labs.com:8170') as ws:
 		#async with websockets.connect('ws://localhost:8170/ws') as ws:
 		async with websockets.connect('ws://localhost:8170') as ws:
-			if not True:
+			if True:
 				msg = await _execute([ws, '_open','gsrp5.system',{'profile':'system'}])
 				#msg = await _execute([ws,'modules','upgrademoduleslist',{'db':'test001'}])
 				#return
@@ -167,12 +167,12 @@ async def hello():
 				
 				#msg = await _execute([ws, 'modules','install',{'modules':['wkf_srm']}])
 				
-				return
-				#msg = await _execute([ws, 'dropSlot',{'sid':'test001'}])
-				msg = await _execute([ws, 'dropSlot',{'sid':'test002'}])
+				#return
+				# msg = await _execute([ws, 'dropSlot',{'sid':'test001'}])
+				#msg = await _execute([ws, 'dropSlot',{'sid':'test002'}])
 				#msg = await _execute([ws, 'slots','dropSlot',{'sid':'test003'}])
 				#msg = await _execute([ws, '_reload'])
-				msg = await _execute([ws,'createSlot',{'name':'test002','db_user':'test'}])
+				msg = await _execute([ws,'createSlot',{'name':'test001','db_user':'test'}])
 				#msg = await _execute([ws, 'modules','sysinstall'])
 				#msg = await _execute([ws, 'slots','create',{'sid':'test002','host':'localhost','port':26257,'database':'test002','db_user':'test','db_password':'test','sslmode':'verify-full'}])
 				#msg = await _execute([ws, 'slots','create',{'sid':'test001','host':'localhost','port':26257,'database':'test001','db_user':'test','db_password':'test','sslmode':'verify-full'}])
@@ -181,7 +181,7 @@ async def hello():
 			else:
 				#msg = await _execute([ws, '_slots'])
 				#return
-				msg = await _execute([ws, '_open','gsrp5.user',{'profile':'test002'}])
+				msg = await _execute([ws, '_open','gsrp5.user',{'profile':'test001'}])
 				msg = await _execute([ws, 'login',{'user':'admin','password':'admin'}])
 				#msg=await _execute([ws,'models','md.category.product','tree',{'fields':['name','parent_id','childs_id']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':['hcm','wkf_srm','project']}])

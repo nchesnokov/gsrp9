@@ -24,7 +24,7 @@ def _generateTemplateColumns(meta,model,pool,context):
 			
 			if key in _texts:
 				s = """\n\t\t<el-form-item :label="colsLabel['{0}']">\n""".format(column['col'])
-				s += _text[key].format(column['col'])
+				s += _texts[key].format(column['col'])
 				s += """\n\t\t</el-form-item>"""
 				cs[key] = s
 	

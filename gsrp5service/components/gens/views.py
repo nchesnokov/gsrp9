@@ -45,7 +45,7 @@ def checkIViews(objs,iobjs):
 	ma = {}
 	imа = {}
 	for obj in objs:
-		ma[model] = isAllow(model)
+		 ma[model] = isAllow(model)
 	
 	for imodel in iobjs['models']:	
 		inherit = getattr(imodel,'_inherit')

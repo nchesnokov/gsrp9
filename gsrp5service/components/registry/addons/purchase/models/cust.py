@@ -359,7 +359,7 @@ class purchase_markets(Model):
 	_class_category = 'purchase-org'
 	_rec_name = 'fullname'
 	_columns = {
-	'unit_id': fields.referenced(label='Unit',obj='purchase.units', rel ='',required = True),
+	'unit_id': fields.referenced(label='Unit',obj='purchase.units',required = True),
 	'channel_id': fields.related(label='Channel',obj='purchase.unit.channel.assigments', relatedy=['unit_id'], required = True),
 	'segment_id': fields.related(label='Segment',obj='purchase.unit.segment.assigments', relatedy=['unit_id'], required = True),
 	'area_id': fields.related(label='Area',obj='purchase.unit.area.assigments', relatedy=['unit_id'], required = True),
@@ -411,8 +411,8 @@ class purchase_texts(Model):
 	_class_model = 'C'
 	_class_category = 'purchase-text'
 	_columns = {
-	'code': i18n(fields.varchar(label = 'Code',size=8)),
-	'descr':fields.i18n(varchar(label = 'Description',size=128)),
+	'code': fields.i18n(fields.varchar(label = 'Code',size=8)),
+	'descr':fields.i18n(fields.varchar(label = 'Description',size=128)),
 	#'schemas': fields.many2many(label='Purchase Text Schemas',obj='purchase.texts',rel='purchase_texts_rel',id2='schema_id',id1='text_id'),
 	'note': fields.i18n(fields.text(label='Note'))
 	}

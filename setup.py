@@ -2,9 +2,11 @@ import os
 import sys
 from functools import reduce
 from os.path import join as opj
-from distutils.core import setup, Extension
-from Cython.Distutils import build_ext
-from DistUtilsExtra.command import build_i18n,build_help,build_icons,build_extra
+from setuptools import setup
+from Cython.Build import cythonize 
+# from distutils.core import setup, Extension
+# from Cython.Distutils import build_ext
+# from DistUtilsExtra.command import build_i18n,build_help,build_icons,build_extra
 __package_name__ = 'gsrp5service'
 __package_file__ = 'gsrp5-service'
 
@@ -27,7 +29,8 @@ for d in os.walk('gsrp5service'):
 	if len(l) > 0:
 		a=list(map(lambda x:opj(d[0],x), l ))
 		for n in a:
-			modules.append(Extension('%s' % (n.replace(os.path.sep,'.'),), sources = ['%s' % (n + '.c')],language='clang'))
+			#modules.append(Extension('%s' % (n.replace(os.path.sep,'.'),), sources = ['%s' % (n + '.c')],language='clang'))
+			modules.append(n+'.py')
 for sd in ('addons',):			
 	for d in os.walk(opj('gsrp5service','components','registry',sd)):
 		l = list(map(lambda x:x,list(filter(lambda x: x[-4:] in ('.xml','.csv','.pot','.rml') or x[-5:] in ('.yaml','.docx','.xlsx') or x[-3:] == '.po' or x == '__manifest__.info',d[2]))))
@@ -40,8 +43,7 @@ data_files.append((opj(sys.base_prefix,'lib64','python'+('%s.%s') % (sys.version
 
 packages = ['gsrp5service']
 
-setup (name = __package_name__,package_data = package_data, data_files = data_files, packages = packages,package_dir = {__package_name__:'gsrp5service'},version = '1.0.0.0', description = 'Global System Resource Planing',long_description = 'Global System Resource Planing & Executing', author='Nikolay Chesnokov', author_email='nikolaychesnokov@gmail.com' , url='http://www.gsrp5.org', license='AGPL-3'
-,cmdclass = { 'build_ext': build_ext, "build" : build_extra.build_extra,'build_i18n':build_i18n.build_i18n}, ext_modules = modules)
+setup (name = __package_name__,package_data = package_data, data_files = data_files, packages = packages,package_dir = {__package_name__:'gsrp5service'},version = '1.0.0.0', description = 'Global System Resource Planing',long_description = 'Global System Resource Planing & Executing', author='Nikolay Chesnokov', author_email='nikolaychesnokov@gmail.com' , url='http://www.gsrp5.org', license='AGPL-3', ext_modules = cythonize(modules))
 
 
 

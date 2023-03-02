@@ -22,7 +22,7 @@ def _generateTemplateColumns(meta,model,pool,context):
 			
 			if key in _texts:
 				s = """\n\t\t<el-form-item :label="colsLabel['{0}']">\n""".format(column['col'])
-				s += _text[key].format(column['col'])
+				s += _texts[key].format(column['col'])
 				s += """\n\t\t</el-form-item>"""
 				cs[key] = s
 	
@@ -47,10 +47,10 @@ def _generateTemplate(meta,model,pool,context):
 			
 			if key in _texts:
 				s += """\n\t\t<el-form-item :label="colsLabel['{0}']">\n""".format(column['col'])
-				s += _text[key].format(column['col'])
+				s += _texts[key].format(column['col'])
 				s += """\n\t\t</el-form-item>"""
 		
-	siffix = ['template',framework[frameworkdir],viewtype,'suffix'].join('-')
+	suffix = ['template',framework[frameworkdir],viewtype,'suffix'].join('-')
 	if suffix in _maps:
 		s += _maps[suffix]
 
@@ -80,6 +80,7 @@ def _generateScriptSetup(meta,model,pool,context):
 
 def _generateStyle(meta,model,pool,context):
 	_texts = meta['_texts']
+	_maps = meta['_maps']
 	
 	style = ['style',framework[frameworkdir],viewtype,'style'].join('-')
 	if style in _texts:
