@@ -168,7 +168,7 @@ async def hello():
 				#msg = await _execute([ws, 'modules','install',{'modules':['wkf_srm']}])
 				
 				#return
-				# msg = await _execute([ws, 'dropSlot',{'sid':'test001'}])
+				msg = await _execute([ws, 'dropSlot',{'sid':'test001'}])
 				#msg = await _execute([ws, 'dropSlot',{'sid':'test002'}])
 				#msg = await _execute([ws, 'slots','dropSlot',{'sid':'test003'}])
 				#msg = await _execute([ws, '_reload'])
