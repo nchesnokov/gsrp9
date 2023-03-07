@@ -765,26 +765,52 @@ def _loadMetaModule(self,name,context):
 
 	model_records = []
 	imodel_records = []
-
+	
 	for model in models:
 		m = _loadMetaModel(self,model,name,context)
 		if len(m) > 0:
 			m['module_id'] = module_id
-			model_records.append(m)
+			#model_records.append(m)
+			self._session._models.get('bc.models').create(m,context)
 		else:
 			im = _loadMetaInherit(self,model,name,context)
 			if len(im) > 0:
 				im['module_id'] = module_id
-				imodel_records.append(im)
+				#imodel_records.append(im)
+				oid = self._session._models.get('bc.model.inherits').create(im,context)[0]
+				icols = {}
+				imcols = self._session._models.get('bc.model.inherit.columns').select(fields=['inherit_id','col','moc'],cond=[('inherit_id','r=',oid)],context=context)
+				for imcol in imcols:
+					if imcol['moc']['type'] != 'iProperty':
+						icols[imcol['col']] = imcol['id']
+					
+				inherit = self._registry._create_module_object('models',model,name)._inherit
+				if inherit:
+					imc_records = []
+					for mkey in inherit.keys():
+						mid = self._session._models.get('bc.models').select(fields=[],cond=[('code','=',mkey)])[0]['id']
+						if '_columns' in inherit[mkey]:
+							imc_record = {}
+							for c in inherit[mkey]['_columns']:
+								if c in icols:
+									imc_record['inherit_id'] = oid
+									imc_record['model_id'] = mid
+									imc_record['col'] = icols[c]
+							if len(imc_record) > 0:
+								imc_records.append(imc_record)
+					#web_pdb.set_trace()
+					self._session._models.get('bc.model.inherit.inherits').create(imc_records,context)			
+	# if len(model_records) > 0:
+		# self._session._models.get('bc.models').create(model_records,context)
 
-	if len(model_records) > 0:
-		self._session._models.get('bc.models').create(model_records,context)
+	# if len(imodel_records) > 0:
+		# oids = self._session._models.get('bc.model.inherits').create(imodel_records,{})
+		# imodel_inherit_records = []
 
-	if len(imodel_records) > 0:
-		self._session._models.get('bc.model.inherits').create(imodel_records,{})
-	
-	if len(imodel_inherit_records) > 0:
-		self._session._models.get('bc.model.inherit.inherits').create(imodel_inherit_records,{})
+		# for oid in oids:
+			# pass
+		# if len(imodel_inherit_records) > 0:
+			# self._session._models.get('bc.model.inherit.inherits').create(imodel_inherit_records,{})
 	
 	
 	self._session._models.get('bc.modules').write({'id':module_id,'state':'I'},context)

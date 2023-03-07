@@ -323,6 +323,7 @@ class md_country(Model):
 	_description = 'Country'
 	_class_model = 'C'
 	_columns = {
+	'category_id': fields.referenced(label='Category',obj='md.category.country'),
 	'name': fields.i18n(fields.varchar(label = 'Name',size=64)),
 	'shortname': fields.i18n(fields.varchar(label = 'Short Name',size=32)),
 	'code': fields.varchar(label = 'Code',size=3),

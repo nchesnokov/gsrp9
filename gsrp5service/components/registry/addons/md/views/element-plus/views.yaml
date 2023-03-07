@@ -1458,16 +1458,18 @@
   model: md.country.group
   vtype: element-plus/list
 - cols:
-  - col: md.country/name
+  - col: md.country/category_id
     seq: 0
-  - col: md.country/shortname
+  - col: md.country/name
     seq: 10
-  - col: md.country/code
+  - col: md.country/shortname
     seq: 20
-  - col: md.country/alpha2
+  - col: md.country/code
     seq: 30
-  - col: md.country/alpha3
+  - col: md.country/alpha2
     seq: 40
+  - col: md.country/alpha3
+    seq: 50
   model: md.country
   vtype: element-plus/m2mlist
 - cols:
@@ -1485,44 +1487,50 @@
   model: md.country.group
   vtype: element-plus/form
 - cols:
-  - col: md.country/name
+  - col: md.country/category_id
     seq: 0
-  - col: md.country/shortname
+  - col: md.country/name
     seq: 10
-  - col: md.country/code
+  - col: md.country/shortname
     seq: 20
-  - col: md.country/alpha2
+  - col: md.country/code
     seq: 30
-  - col: md.country/alpha3
+  - col: md.country/alpha2
     seq: 40
+  - col: md.country/alpha3
+    seq: 50
   model: md.country
   vtype: element-plus/search
 - cols:
-  - col: md.country/name
+  - col: md.country/category_id
     seq: 0
-  - col: md.country/shortname
+  - col: md.country/name
     seq: 10
-  - col: md.country/code
+  - col: md.country/shortname
     seq: 20
-  - col: md.country/alpha2
+  - col: md.country/code
     seq: 30
-  - col: md.country/alpha3
+  - col: md.country/alpha2
     seq: 40
+  - col: md.country/alpha3
+    seq: 50
   model: md.country
   vtype: element-plus/find
 - cols:
-  - col: md.country/name
+  - col: md.country/category_id
     seq: 0
-  - col: md.country/shortname
+  - col: md.country/name
     seq: 10
-  - col: md.country/code
+  - col: md.country/shortname
     seq: 20
-  - col: md.country/alpha2
+  - col: md.country/code
     seq: 30
-  - col: md.country/alpha3
+  - col: md.country/alpha2
     seq: 40
-  - col: md.country/states
+  - col: md.country/alpha3
     seq: 50
+  - col: md.country/states
+    seq: 60
   model: md.country
   vtype: element-plus/list
 - cols:
@@ -1531,37 +1539,41 @@
   model: md.country.group
   vtype: element-plus/m2mlist
 - cols:
-  - col: md.country/name
+  - col: md.country/category_id
     seq: 0
-  - col: md.country/shortname
+  - col: md.country/name
     seq: 10
-  - col: md.country/code
+  - col: md.country/shortname
     seq: 20
-  - col: md.country/alpha2
+  - col: md.country/code
     seq: 30
-  - col: md.country/alpha3
+  - col: md.country/alpha2
     seq: 40
-  - col: md.country/group_ids
+  - col: md.country/alpha3
     seq: 50
-  - col: md.country/states
+  - col: md.country/group_ids
     seq: 60
+  - col: md.country/states
+    seq: 70
   model: md.country
   vtype: element-plus/form.modal
 - cols:
-  - col: md.country/name
+  - col: md.country/category_id
     seq: 0
-  - col: md.country/shortname
+  - col: md.country/name
     seq: 10
-  - col: md.country/code
+  - col: md.country/shortname
     seq: 20
-  - col: md.country/alpha2
+  - col: md.country/code
     seq: 30
-  - col: md.country/alpha3
+  - col: md.country/alpha2
     seq: 40
-  - col: md.country/group_ids
+  - col: md.country/alpha3
     seq: 50
-  - col: md.country/states
+  - col: md.country/group_ids
     seq: 60
+  - col: md.country/states
+    seq: 70
   model: md.country
   vtype: element-plus/form
 - cols:

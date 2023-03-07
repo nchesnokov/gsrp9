@@ -708,8 +708,8 @@ def _readchunk(self, cr, uid, pool, model, chunk_ids, fields, context):
 				record[referencedfields] = _read(self,cr,uid,pool,pool[model._columns[referencedfield].obj],oid,referencedfields[referencedfield],context)
 
 			for m2mfield in m2mfields:
-				record[m2mfield] = _m2mread(self,cr,uid,pool,model,record['id'],m2mfields[m2mfield],context)
-		
+				record[m2mfield] = _m2mread(self,cr,uid,pool,model,record['id'],m2mfield,m2mfields[m2mfield],context)
+#def _m2mread(self, cr, uid, pool, model, oid, field, fields, context)		
 		return records
 
 
@@ -792,7 +792,7 @@ def _select(self, cr, uid, pool, model, fields = None ,cond = None, context = {}
 		orm_exception('Invalid fetch mode: %s' % (fetch.upper(),))
 
 	if fields is None:
-		fields = self._selectablefields
+		fields = model._selectablefields
 
 	rowfields = list(filter(lambda x: x in fields,model._rowfields)) 
 	if cond is None:
