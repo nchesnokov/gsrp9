@@ -37,7 +37,7 @@ def iViews(framework, imodel, info, model, icolumns,views):
 	for view in views:
 		exclude = EXCLUDE['models'][view]
 		for icolumn in filter(lambda x: icolumns_info[x]['type'] not in exclude and icolumns_info[x]['type'] != 'iProperty',icolumns):
-			res.append({'view_id':model + '/' + framework + '/' + view,'col':icolumn})  
+			res.append({'view_id':model + '/' + framework + '/' + view,'col':model + '/' + icolumn})  
 
 	return res
 

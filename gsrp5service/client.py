@@ -147,7 +147,7 @@ async def hello():
 				#msg = await _execute([ws, 'modules','load',{'modules': {'md':['i18n']}}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','devel','cm','crm','fa','hcm','md1','ml','mm','md3','mrp','oil','oil2','project','purchase','sale','le','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm','ctrm','ewm']}])				
 				#msg = await _execute([ws, 'login',{'user':'admin','password':'admin','slot':'test001'}])
-				#msg = await _execute([ws, 'gens','ui',{'modules': ['md']}])
+				msg = await _execute([ws, 'gens','ui',{'modules': ['purchase','sale']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','purchase','sale']}])
 				#msg = await _execute([ws, 'gens','tests',{'modules': ['md']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['bc','devel','common','md']}])
@@ -167,7 +167,7 @@ async def hello():
 				
 				#msg = await _execute([ws, 'modules','install',{'modules':['wkf_srm']}])
 				
-				#return
+				return
 				msg = await _execute([ws, 'dropSlot',{'sid':'test001'}])
 				#msg = await _execute([ws, 'dropSlot',{'sid':'test002'}])
 				#msg = await _execute([ws, 'slots','dropSlot',{'sid':'test003'}])
@@ -193,7 +193,7 @@ async def hello():
 				#msg = await _execute([ws, 'modules','install',{'modules':['le','mrp','mm','purchase']}])
 				#msg = await _execute([ws, 'modеls','md.product','create',{'records': {'name':'Gasoline-100','code':'AI100'}}])
 				#msg = await _execute([ws, 'modules','uninstall',{'modules':['mm']}])
-				#msg = await _execute([ws, 'modules','load',{'modules':{'purchase':['view','demo','data','example']}}])
+				#msg = await _execute([ws, 'modules','load',{'modules':{'sale':['view','demo','data','example']}}])
 				#msg = await _execute([ws, 'modules','load',{'modules':{'crm':['env','view','demo','data','example']}}])
 				msg = await _execute([ws, 'modules','install',{'modules':['sale']}])
 				#msg = await _execute([ws, 'modules','install',{'modules':{'sale':['view']}}])

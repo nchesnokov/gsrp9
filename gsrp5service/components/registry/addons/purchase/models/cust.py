@@ -151,7 +151,7 @@ class purchase_region_categories(Model):
 	'parent_id': fields.many2one(label='Parent',obj='purchase.region.categories',rel='childs'),
 	'childs_id': fields.one2many(obj = 'purchase.region.categories',rel = 'parent_id',label = 'Childs'),
 	'fullname': fields.i18n(fields.tree(label='Full Name',required = True)),
-	'regions': fields.one2many(label='REgions',obj='purchase.regions',rel='category_id',limit = 80,readonly=True),
+	'regions': fields.one2many(label='Regions',obj='purchase.regions',rel='category_id',limit = 80,readonly=True),
 	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
