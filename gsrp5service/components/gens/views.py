@@ -45,7 +45,7 @@ def checkIViews(objs,iobjs):
 	ma = {}
 	imа = {}
 	for obj in objs:
-		 ma[model] = isAllow(model)
+		 ma[model] = isAllow(model,m2mobjs)
 	
 	for imodel in iobjs['models']:	
 		inherit = getattr(imodel,'_inherit')
@@ -58,7 +58,7 @@ def checkIViews(objs,iobjs):
 				info = mobj.modelInfo()
 				ci = info['columns']
 				for view in EXCLUDE['models'].keys():
-					columns = isAllow(mobj,{})
+					columns = isAllow(mobj,m2mobjs)
 					if len(columns) == 0:
 						continue
 					views.append(view)
@@ -69,6 +69,8 @@ def checkIViews(objs,iobjs):
 			pass
 		 
 
+m2mobjs = {}
+# im2mobjs = {}
 	
 def Area(self, modules = None,context={}):
 	pwd = os.getcwd()
@@ -83,7 +85,6 @@ def Area(self, modules = None,context={}):
 		path = registry._modules[module]['path']
 		objs = {}
 		iobjs = {}
-		m2mobjs = {}
 		if module in registry._metas:
 			for cat in filter(lambda x: x in ('models',),registry._metas[module].keys()):
 				for key in registry._metas[module][cat]:
@@ -91,10 +92,12 @@ def Area(self, modules = None,context={}):
 					if isinstance(obj,Model):
 						objs.setdefault(cat,[]).append(obj)
 						for m2mfield in obj._m2mfields:
-							m2mobjs[obj._columns[m2mfield].obj] = registry._create_module_object(cat,obj._columns[m2mfield].obj,registry._getLastModuleObject(cat,obj._columns[m2mfield].obj))
+							m2mobjs.setdefault(obj._columns[m2mfield].obj,{})[m2mfield] = registry._create_module_object(cat,obj._columns[m2mfield].obj,registry._getLastModuleObject(cat,obj._columns[m2mfield].obj))
 					elif isinstance(obj,ModelInherit):
 						if hasattr(obj,'_inherit') and getattr(obj,'_inherit',None):
 							iobjs.setdefault(cat,[]).append(obj)
+							# for m2mkey in filter(lambda x: obj._columns[x]._type == 'many2many',obj._columns.keys()):
+								# im2mobjs[obj._columns[m2mkey].obj] = ''
 		
 		if len(objs) + len(iobjs) > 0:
 			if len(objs) > 0:
@@ -141,7 +144,7 @@ def Area(self, modules = None,context={}):
 								ci = info['columns']
 								for view in EXCLUDE['models'].keys():
 									#columns = isAllow(view,'models',info,list(ci.keys()))
-									columns = isAllowView(view,mobj,{})
+									columns = isAllowView(view,mobj,m2mobjs)
 									if len(columns) == 0:
 										continue
 									views.append(view)
@@ -170,8 +173,9 @@ def isAllow(obj,m2mobjs):
 		elif view == 'm2mlist' and len(obj._m2mfields) > 0:
 			for m2mfield in obj._m2mfields:
 				if obj._columns[m2mfield].obj in m2mobjs:
-					m2mcols = list(filter(lambda x:m2mobjs[obj._columns[m2mfield].obj]._columns[x]._type not in EXCLUDE['models'][view] , m2mobjs[obj._columns[m2mfield].obj]._columns.keys()))
-					allows.append((view,obj._columns[m2mfield].obj,m2mcols))
+					for m2mkey in m2mobjs[obj._columns[m2mfield].obj].keys():
+						m2mcols = list(filter(lambda x:m2mobjs[obj._columns[m2mfield].obj][m2mkey]._columns[x]._type not in EXCLUDE['models'][view] , m2mobjs[obj._columns[m2mfield].obj][m2mkey]._columns.keys()))
+						allows.append((view,obj._name,cols))
 		elif view in ('calendar','graph','mdx') and obj._DateName:
 			allows.append((view,obj._name,cols))
 		elif view in ('schedule','gantt') and (obj._FromDateName and obj._ToDateName or obj._StartDateName and obj._EndDateName):

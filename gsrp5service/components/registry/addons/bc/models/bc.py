@@ -523,12 +523,12 @@ class bc_ui_model_views(Model):
 
 	def readforupdate(self, ids, fields = None, context = {}):
 		records = super(Model,self).readforupdate(ids,fields, context)
-		if len(records) > 0:
-			if type(records) in (list,tuple):
-				for record in records:
-					self._generateSFC(record,context)
-			elif type(records) == dict:
-				self._generateSFC(records,context)
+		# if len(records) > 0:
+			# if type(records) in (list,tuple):
+				# for record in records:
+					# self._generateSFC(record,context)
+			# elif type(records) == dict:
+				# self._generateSFC(records,context)
 			
 			#web_pdb.set_trace()
 			#print('RECORDS:',self._name,records[0]['__data__'])

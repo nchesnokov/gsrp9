@@ -141,15 +141,13 @@
   model: sale.units
   vtype: element-plus/list
 - cols:
-  - col: md.company/name
+  - col: sale.units/category_id
     seq: 0
-  - col: md.company/country
+  - col: sale.units/code
     seq: 10
-  - col: md.company/currency
+  - col: sale.units/descr
     seq: 20
-  - col: md.company/note
-    seq: 30
-  model: md.company
+  model: sale.units
   vtype: element-plus/m2mlist
 - cols:
   - col: sale.units/category_id

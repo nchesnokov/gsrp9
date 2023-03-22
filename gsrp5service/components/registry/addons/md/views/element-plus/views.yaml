@@ -1458,19 +1458,9 @@
   model: md.country.group
   vtype: element-plus/list
 - cols:
-  - col: md.country/category_id
+  - col: md.country.group/name
     seq: 0
-  - col: md.country/name
-    seq: 10
-  - col: md.country/shortname
-    seq: 20
-  - col: md.country/code
-    seq: 30
-  - col: md.country/alpha2
-    seq: 40
-  - col: md.country/alpha3
-    seq: 50
-  model: md.country
+  model: md.country.group
   vtype: element-plus/m2mlist
 - cols:
   - col: md.country.group/name
@@ -1534,9 +1524,19 @@
   model: md.country
   vtype: element-plus/list
 - cols:
-  - col: md.country.group/name
+  - col: md.country/category_id
     seq: 0
-  model: md.country.group
+  - col: md.country/name
+    seq: 10
+  - col: md.country/shortname
+    seq: 20
+  - col: md.country/code
+    seq: 30
+  - col: md.country/alpha2
+    seq: 40
+  - col: md.country/alpha3
+    seq: 50
+  model: md.country
   vtype: element-plus/m2mlist
 - cols:
   - col: md.country/category_id
