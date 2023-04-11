@@ -3,6 +3,71 @@ from gsrp5service.orm.model import Model, ModelInherit
 
 from decimal import Decimal
 
+
+AREA_COMMON = [('A','Output Documentd'),('B','Pricing'),('C','Calculation Schema')]
+
+class common_sequences(Model):
+	_name = 'common.sequences'
+	_description = 'Common Sequences'
+	_class_model = 'C'
+	_rec_name = 'fullname'
+	_columns = {
+	'area': fields.selection(label='Area',selections=AREA_COMMON),
+	'usage': fields.selection(label='Usage',selections=[('all','All')]),
+	'seq': fields.varchar(label='Sequence',size=16),
+	'fullname': fields.composite(label='Full Name',cols=['area','usage','seq']),
+	'descr':fields.varchar(label='Description',size=64),
+	'seq_access': fields.one2many(label='Sequence Access',obj='common.sequence.access',rel='seq_id'),
+	'comment':fields.text(label='Comment')
+	}
+
+class common_sequence_access(Model):
+	_name = 'common.sequence.access'
+	_description = 'Common Sequences'
+	_class_model = 'C'
+	_columns = {
+	'seq_id': fields.many2one(label='Common Sequence',obj='common.sequences',rel='seq_access'),
+	'seq': fields.integer(label='Sequence'),
+	'model': fields.varchar(label='Model',size=4),
+	'descr':fields.varchar(label='Description',size=64,compute="_getTableName"),
+	'comment':fields.text(label='Comment')
+	}
+
+	def _getTableName(self,row,context):
+		if row['seq_id'] and row['model_code'] is not None:
+			row['descr'] = ['common','a','a'].join('.') + row['model_code']
+
+class common_sequence_conditions(Model):
+	_name = 'common.sequence.conditions'
+	_description = 'Common Sequence Condition'
+	_class_model = 'C'
+	_rec_name = 'fullname'
+	_columns = {
+	'area': fields.selection(label='Area',selections=AREA_COMMON),
+	'usage': fields.selection(label='Usage',selections=[]),
+	'condition': fields.varchar(label='Condition',size=16),
+	'fullname': fields.composite(label='Full Name',cols=['area','usage','condition']),
+	'seq': fields.related(label='Sequence',relatedy=['area','usage']),
+	'descr':fields.varchar(label='Description',size=64),
+	'comment':fields.text(label='Comment')
+	}
+
+class common_sequence_schemas(Model):
+	_name = 'common.sequence,schemas'
+	_description = 'Common Sequence Schemas'
+	_class_model = 'C'
+	_rec_name = 'fullname'
+	_columns = {
+	'area': fields.selection(label='Area',selections=AREA_COMMON),
+	'usage': fields.selection(label='Usage',selections=[]),
+	'schema': fields.varchar(label='Schema',size=16),
+	'fullname': fields.composite(label='Full Name',cols=['area','usage','schema']),
+	'seq': fields.related(label='Sequence',relatedy=['area','usage']),
+	'descr':fields.varchar(label='Description',size=64),
+	'comment':fields.text(label='Comment')
+	}
+
+
 class seq_areas(Model):
 	_name = 'seq.areas'
 	_description = 'Sequense Area'

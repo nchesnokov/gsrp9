@@ -234,12 +234,12 @@ class purchase_order_items(Model):
 
 	def _on_change_product(self, item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			i = self._proxy.get('purchase.order.type.items').select( ['gti_id','itype_id'],[],context)
+			i = self.selectFor('purchase.order.type.items', ['gti_id','itype_id'],[],context)
 			gti = {}
 			if len(i) > 0:
 				for r in i:
 					gti[r['gti_id']['name']] = r['itype_id']
-			p = self._proxy.get('md.product').select( ['name','gti','volume','volume_uom','weight','weight_uom',{'purchase':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
+			p = self.selectFor('md.product', ['name','gti','volume','volume_uom','weight','weight_uom',{'purchase':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
 			if len(p) > 0:
 				for f in ('gti','volume','volume_uom','weight','weight_uom','purchase'):
 					if f == 'purchase':
@@ -467,7 +467,7 @@ class purchase_invoices(Model):
 	}
 
 	def _on_change_itype(self, item,context={}):		
-			roles = self._proxy.get('purchase.invoice.type.roles').select(['role_id'],[('type_id','=',item['otype'])],context)
+			roles = self.selectFor('purchase.invoice.type.roles',['role_id'],[('type_id','=',item['otype'])],context)
 			if len(roles) > 0:
 				if 'roles' not in item:
 					item['roles'] = []
@@ -476,7 +476,7 @@ class purchase_invoices(Model):
 
 	def _on_change_bom(self, item,context={}):		
 		if item['bom'] and 'name' in item['bom'] and item['bom']['name']:
-			p = self._proxy.get('md.bom.input.items').select( ['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
+			p = self.selectFor('md.bom.input.items', ['product','quantity','uom'],[('bom_id','=',item['bom']['name'])],context)
 			for i in p:
 				ei = self._proxy.get('purchase.order.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
@@ -570,7 +570,7 @@ class purchase_invoice_items(Model):
 
 	def _on_change_product(self, item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._proxy.get('md.purchase.product').select( ['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self.selectFor('md.purchase.product', ['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				

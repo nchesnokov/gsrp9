@@ -131,7 +131,7 @@ class mrp_demand_items(Model):
 			item['texts'].append(item_text)
 
 	def _compute_quantity(self,item,context):
-		return 0.0
+		return {'quantity':0.0}
 
 mrp_demand_items()
 

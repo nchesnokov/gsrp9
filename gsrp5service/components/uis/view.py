@@ -77,6 +77,7 @@ def get_meta_of_models_v2(pool,model,context):
 	info = get_referenced_attrs_v2(pool,info,context)
 	
 	v.setdefault(model,{})['meta'] = info
+	v.setdefault(model,{})['names'] = pool[model]._getNames()
 	v.setdefault(model,{})['views'] = views[model]  
 	#v.setdefault(model,{})['allow'] = list(filter(lambda x: isAllow(x,'models',info),VIEWSGEN['models'].keys()))
 	v.setdefault(model,{})['allow'] = list(v[model]['views'].keys())
