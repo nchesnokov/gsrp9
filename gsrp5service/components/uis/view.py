@@ -63,7 +63,7 @@ def get_meta_of_models_v2(pool,model,context):
 	for m in filter(lambda x:'obj' in iobj['columns'][x] and iobj['columns'][x]['obj'] and iobj['columns'][x]['type'] == 'one2many',iobj['columns'].keys()):
 		models.append(iobj['columns'][m]['obj'])
 
-	for m2o in filter(lambda x:'obj' in iobj['columns'][x] and iobj['columns'][x]['obj'] and iobj['columns'][x]['type'] in ('many2one','related'),iobj['columns'].keys()):
+	for m2o in filter(lambda x:'obj' in iobj['columns'][x] and iobj['columns'][x]['obj'] and iobj['columns'][x]['type'] in ('many2one','related','referenced'),iobj['columns'].keys()):
 		m2omodels.append(iobj['columns'][m2o]['obj'])
 
 	for m2m in filter(lambda x:'obj' in iobj['columns'][x] and iobj['columns'][x]['obj'] and iobj['columns'][x]['type'] == 'many2many',iobj['columns'].keys()):

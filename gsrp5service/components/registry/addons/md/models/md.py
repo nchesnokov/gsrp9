@@ -183,7 +183,7 @@ class md_partner_addresses(Model):
 	_columns = {
 	'partner_id': fields.many2one(label='Partner',obj='md.partner',rel='addresses'),
 	'taddr': fields.selection(label='Type Of Address',selections=[('l','Location'),('p','Postal'),('a','Situtation')]),
-	#'country': fields.referenced(label='Country',obj='md.country'),
+	'country': fields.referenced(label='Country',obj='md.country'),
 	'state': fields.related(label = 'State Of Coutry',obj='md.country.states',relatedy=[('country','country_id')]),
 	'sity': fields.related(label = 'Sity',obj='md.country.state.sities',relatedy=[('state','state_id')]),
 	'street': fields.i18n(fields.varchar(label = 'Street',size=64)),

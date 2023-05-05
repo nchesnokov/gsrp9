@@ -509,4 +509,157 @@ class crm_units_md_company_inherit(ModelInherit):
 	'crm_units': fields.many2many(label='CRM Units',obj='crm.units',rel='md_company_crm_unit_rel',id1='unit_id',id2='company_id'),
 	}
 
+########
+class crm_contract_types(Model):
+	_name = 'crm.contract.types'
+	_description = 'Types Contract'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'otype': fields.selection(label='Type',selections=[('ord','Order'),('ap','Advance Payment'),('ps','Pseduo'),('dm','Debit Request'),('cr','Credit Request'),('rо','Return')]),
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'htschema': fields.many2one(label='Text Schema Of Head',obj='crm.schema.texts',domain=[('usage','in',('h','b'))]),
+	'itschema': fields.many2one(label='Text Schema Of Item',obj='crm.schema.texts',domain=[('usage','in',('i','b'))]),
+	'roles': fields.one2many(label='Roles',obj='crm.contract.type.roles',rel='type_id'),
+	'tis': fields.one2many(label='TIs',obj='crm.contract.type.items',rel='type_id'),
+	'required': fields.boolean(label='Required'),
+	'note': fields.text(label = 'Note')
+	}
+
+class crm_contract_type_roles(Model):
+	_name = 'crm.contract.type.roles'
+	_description = 'Role Contract Types'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'type_id': fields.many2one(label = 'Type',obj='crm.contract.types'),
+	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','a'))]),
+	'note': fields.text(label = 'Note')
+	}
+
+
+class crm_contract_type_items(Model):
+	_name = 'crm.contract.type.items'
+	_description = 'Role Contract Items'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'type_id': fields.many2one(label = 'Type',obj='crm.contract.types'),
+	'gti_id': fields.many2one(label = 'GTI',obj='md.gtis'),
+	'itype_id': fields.many2one(label = 'Type Of Items',obj='md.type.items',domain=[('usage','=','s'),'|',('usage','=','a')]),
+	'note': fields.text(label = 'Note')
+	}
+
+
+
+class crm_order_types(Model):
+	_name = 'crm.order.types'
+	_description = 'Types Sale Order'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'otype': fields.selection(label='Type',selections=[('ord','Order'),('ap','Advance Payment'),('ps','Pseduo'),('dm','Debit Request'),('cr','Credit Request'),('rо','Return')]),
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'htschema': fields.many2one(label='Text Schema Of Head',obj='crm.schema.texts',domain=[('usage','in',('h','b'))]),
+	'itschema': fields.many2one(label='Text Schema Of Item',obj='crm.schema.texts',domain=[('usage','in',('i','b'))]),
+	'roles': fields.one2many(label='Roles',obj='crm.order.type.roles',rel='type_id'),
+	'tis': fields.one2many(label='TIs',obj='crm.order.type.items',rel='type_id'),
+	'required': fields.boolean(label='Required'),
+	'note': fields.text(label = 'Note')
+	}
+
+class crm_order_type_roles(Model):
+	_name = 'crm.order.type.roles'
+	_description = 'Role Sale Order Types'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'type_id': fields.many2one(label = 'Type',obj='crm.order.types'),
+	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','a'))]),
+	'note': fields.text(label = 'Note')
+	}
+
+
+class crm_order_type_items(Model):
+	_name = 'crm.order.type.items'
+	_description = 'Role Sale Order Items'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'type_id': fields.many2one(label = 'Type',obj='crm.order.types'),
+	'gti_id': fields.many2one(label = 'GTI',obj='md.gtis'),
+	'itype_id': fields.many2one(label = 'Type Of Items',obj='md.type.items',domain=[('usage','=','s'),'|',('usage','=','a')]),
+	'note': fields.text(label = 'Note')
+	}
+
+class crm_invoice_types(Model):
+	_name = 'crm.invoice.types'
+	_description = 'Types Sale Invoice'
+	_class_model = 'C'
+	_class_category = 'invoice'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'htschema': fields.many2one(label='Text Schema Of Head',obj='crm.schema.texts',domain=[('usage','in',('h','b'))]),
+	'itschema': fields.many2one(label='Text Schema Of Item',obj='crm.schema.texts',domain=[('usage','in',('i','b'))]),
+	'roles': fields.one2many(label='Roles',obj='crm.invoice.type.roles',rel='type_id'),
+	'note': fields.text(label = 'Note')
+	}
+
+class crm_invoice_type_roles(Model):
+	_name = 'crm.invoice.type.roles'
+	_description = 'Role sale Invoice Types'
+	_class_model = 'C'
+	_class_category = 'invoice'
+	_columns = {
+	'type_id': fields.many2one(label = 'Type',obj='crm.invoice.types'),
+	'role_id': fields.many2one(label = 'Role',obj='md.role.partners',domain=[('trole','in',('s','a'))]),
+	'required': fields.boolean(label='Required'),
+	'note': fields.text(label = 'Note')
+	}
+
+class crm_contract_categories(Model):
+	_name = 'crm.contract.categories'
+	_description = 'Category Contract'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='crm.contract.categories'),
+	'childs_id': fields.one2many(obj = 'crm.contract.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
+	'orders': fields.one2many(label='Orders',obj='crm.orders',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+class crm_order_categories(Model):
+	_name = 'crm.order.categories'
+	_description = 'Category Sale Order'
+	_class_model = 'C'
+	_class_category = 'order'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='crm.order.categories'),
+	'childs_id': fields.one2many(obj = 'crm.order.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
+	'orders': fields.one2many(label='Orders',obj='crm.orders',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+
+class crm_invoice_categories(Model):
+	_name = 'crm.invoice.categories'
+	_description = 'Category Sale Invoice'
+	_class_model = 'C'
+	_class_category = 'invoice'
+	_columns = {
+	'name': fields.varchar(label = 'Name',size=64,translate=True),
+	'parent_id': fields.many2one(label='Parent',obj='crm.invoice.categories'),
+	'childs_id': fields.one2many(obj = 'crm.invoice.categories',rel = 'parent_id',label = 'Childs'),
+	'fullname': fields.tree(label='Full Name', translate = True,required = True),
+	'invoices': fields.one2many(label='Orders',obj='crm.invoices',rel='category_id',limit = 80,readonly=True),
+	'note': fields.text(label = 'Note')
+	}
+
+
+
 # end customize

@@ -7,8 +7,8 @@ from decimal import Decimal
 AREA_COMMON = [('A','Output Documentd'),('B','Pricing'),('C','Calculation Schema')]
 
 class common_sequences(Model):
-	_name = 'common.sequences'
-	_description = 'Common Sequences'
+	_name = 'common.sequencies'
+	_description = 'Common Sequencies'
 	_class_model = 'C'
 	_rec_name = 'fullname'
 	_columns = {
@@ -26,7 +26,7 @@ class common_sequence_access(Model):
 	_description = 'Common Sequences'
 	_class_model = 'C'
 	_columns = {
-	'seq_id': fields.many2one(label='Common Sequence',obj='common.sequences',rel='seq_access'),
+	'seq_id': fields.many2one(label='Common Sequence',obj='common.sequencies',rel='seq_access'),
 	'seq': fields.integer(label='Sequence'),
 	'model': fields.varchar(label='Model',size=4),
 	'descr':fields.varchar(label='Description',size=64,compute="_getTableName"),
@@ -47,13 +47,21 @@ class common_sequence_conditions(Model):
 	'usage': fields.selection(label='Usage',selections=[]),
 	'condition': fields.varchar(label='Condition',size=16),
 	'fullname': fields.composite(label='Full Name',cols=['area','usage','condition']),
-	'seq': fields.related(label='Sequence',relatedy=['area','usage']),
+	'seq': fields.related(label='Sequence',relatedy=['area','usage'],obj='common.sequencies'),
 	'descr':fields.varchar(label='Description',size=64),
+	'class_cond': fields.selection(label='Condition Class',selections=[]),
+	'calc_rule': fields.selection(label='Calculation Rule',selections=[]),
+	'type_cond': fields.selection(label='Type Condition',selections=[]),
+	'rounding_rule': fields.selection(label='Rounding Rule',selections=[('c','Commercial'),('d','Down Side'),('b','Big Side')]),
+	'sign_cond': fields.selection(label='Condition Sign',selections=[('b','Both'),('p','Positive'),('n','Negative')]),
+	'group_cond': fields.boolean(label='Group Condition'),
+	'equ_round_diff': fields.boolean(label='Equalize Rounding Differences'),
+	'sub_group_cond': fields.referenced(label='Subroutine Group Condition',obj='common.sequence.schemas'),
 	'comment':fields.text(label='Comment')
 	}
 
 class common_sequence_schemas(Model):
-	_name = 'common.sequence,schemas'
+	_name = 'common.sequence.schemas'
 	_description = 'Common Sequence Schemas'
 	_class_model = 'C'
 	_rec_name = 'fullname'
@@ -62,7 +70,7 @@ class common_sequence_schemas(Model):
 	'usage': fields.selection(label='Usage',selections=[]),
 	'schema': fields.varchar(label='Schema',size=16),
 	'fullname': fields.composite(label='Full Name',cols=['area','usage','schema']),
-	'seq': fields.related(label='Sequence',relatedy=['area','usage']),
+	'seq': fields.related(label='Sequence',relatedy=['area','usage'],obj='common.sequencies'),
 	'descr':fields.varchar(label='Description',size=64),
 	'comment':fields.text(label='Comment')
 	}
