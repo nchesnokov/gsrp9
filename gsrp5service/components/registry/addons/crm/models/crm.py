@@ -561,7 +561,7 @@ class crm_contracts(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'mob': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','sale'),'|',('usage','=','all')],on_change='_on_change_mob'),
+	'mob': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','crm'),'|',('usage','=','all')],on_change='_on_change_mob'),
 	'items': fields.one2many(label='Items',obj='crm.contract.items',rel='contract_id'),
 	'pricing': fields.one2many(label='Pricing',obj='crm.contract.pricing',rel='contract_id'),
 	'roles': fields.one2many(label='Roles',obj='crm.contract.roles',rel='contract_id'),
@@ -728,10 +728,10 @@ class crm_contract_items(Model):
 			if len(i) > 0:
 				for r in i:
 					gti[r['gti_id']['name']] = r['itype_id']
-			p = self._proxy.get('md.product').select( ['name','gti','volume','volume_uom','weight','weight_uom',{'sale':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
+			p = self._proxy.get('md.product').select( ['name','gti','volume','volume_uom','weight','weight_uom',{'crm':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
 			if len(p) > 0:
-				for f in ('gti','volume','volume_uom','weight','weight_uom','sale'):
-					if f == 'sale':
+				for f in ('gti','volume','volume_uom','weight','weight_uom','crm'):
+					if f == 'crm':
 						if len(p[0][f]) > 0:
 							d = p[0][f][0]
 							for m in ('uom','price','currency','unit','uop','vat'):
@@ -939,7 +939,7 @@ class crm_orders(Model):
 	'amount': fields.numeric(label='Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2),compute='_calculate_amount_costs'),
 	'total_amount': fields.numeric(label='Total Amount',size=(15,2),compute='_calculate_amount_costs'),
-	'mob': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','sale'),'|',('usage','=','all')],on_change='_on_change_mob'),
+	'mob': fields.many2one(label='BoM',obj='md.boms',domain=[('usage','=','crm'),'|',('usage','=','all')],on_change='_on_change_mob'),
 	'items': fields.one2many(label='Items',obj='crm.order.items',rel='order_id'),
 	'pricing': fields.one2many(label='Pricing',obj='crm.order.pricing',rel='order_id'),
 	'roles': fields.one2many(label='Roles',obj='crm.order.roles',rel='order_id'),
@@ -1106,10 +1106,10 @@ class crm_order_items(Model):
 			if len(i) > 0:
 				for r in i:
 					gti[r['gti_id']['name']] = r['itype_id']
-			p = self._proxy.get('md.product').select( ['name','gti','volume','volume_uom','weight','weight_uom',{'sale':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
+			p = self._proxy.get('md.product').select( ['name','gti','volume','volume_uom','weight','weight_uom',{'crm':['vat','uom','price','currency','unit','uop']}],[('name','=',item['product']['name'])],context)
 			if len(p) > 0:
-				for f in ('gti','volume','volume_uom','weight','weight_uom','sale'):
-					if f == 'sale':
+				for f in ('gti','volume','volume_uom','weight','weight_uom','crm'):
+					if f == 'crm':
 						if len(p[0][f]) > 0:
 							d = p[0][f][0]
 							for m in ('uom','price','currency','unit','uop','vat'):
@@ -1349,7 +1349,7 @@ class crm_invoice_texts(Model):
 
 class crm_invoice_roles(Model):
 	_name = 'crm.invoice.roles'
-	_description = 'sale Invoice Roles'
+	_description = 'CRM Invoice Roles'
 	_class_category = 'crm-invoice'
 	_columns = {
 	'invoice_id': fields.many2one(label = 'Invoice',obj='crm.invoices'),
@@ -1383,7 +1383,7 @@ class crm_invoice_items(Model):
 
 	def _on_change_product(self ,item,context={}):		
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
-			p = self._proxy.get('md.sale.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
+			p = self._proxy.get('md.crm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
 					item['vat_code'] = p[0]['vat']				
