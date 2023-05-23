@@ -134,7 +134,7 @@ async def hello():
 		#async with websockets.connect('ws://www.gsrp5labs.com:8170') as ws:
 		#async with websockets.connect('ws://localhost:8170/ws') as ws:
 		async with websockets.connect('ws://localhost:8170') as ws:
-			if True and False:
+			if True or False:
 				msg = await _execute([ws, '_open','gsrp5.system',{'profile':'system'}])
 				#msg = await _execute([ws,'modules','upgrademoduleslist',{'db':'test001'}])
 				#return
@@ -151,7 +151,7 @@ async def hello():
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','purchase','sale']}])
 				#msg = await _execute([ws, 'gens','tests',{'modules': ['md']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['bc','devel','common','md']}])
-				#msg = await _execute([ws, 'gens','ui',{'modules': ['purchase']}])
+				msg = await _execute([ws, 'gens','ui',{'modules': ['crm']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['common']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','common','purchase','sale']}])
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['md','purchase','sale','srm']}])

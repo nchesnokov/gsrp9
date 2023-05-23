@@ -236,11 +236,8 @@ def _build_fields_conds(self,columns,maps=None,cond=None):
 	#print('maps:',columns,maps,cond)
 	for c in cond:
 		if type(c) == tuple:
-			v = []
-			# maps {'parent_id':'"parent_id-name"','uom':'"uom-name"'}
-			if c[1][0] == 'r':
-				v.append('a.' + c[0])
-			else:
+			v = []			
+			if len(c) > 0:
 				v.append(maps[c[0]] if c[0] in maps else 'a.' + c[0])
 				
 			if len(c) > 1:
@@ -253,7 +250,9 @@ def _build_fields_conds(self,columns,maps=None,cond=None):
 
 			conds.append(tuple(v))
 		elif type(c) == list:	
-			conds.extend(_build_fields_conds(self,c))
+			conds.append(_build_fields_conds(self,columns,maps,c))
+		elif type(c) == str:
+			conds.append(c)		
 
 	return conds
 
@@ -270,7 +269,7 @@ def _build_domain_conds(self,alias,domain):
 					cond.append(c[2])
 				conds.append(tuple(cond))
 			elif type(c) == list:	
-				conds.extend(_build_domain_conds(self,c))
+				conds.extend(_build_domain_conds(self,alias,c))
 			elif type(c) == str:
 				cond.append(c)
 			

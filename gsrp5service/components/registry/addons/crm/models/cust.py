@@ -660,6 +660,4 @@ class crm_invoice_categories(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-
-
 # end customize

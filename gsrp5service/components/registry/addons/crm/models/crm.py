@@ -68,7 +68,7 @@ class crm_requests(Model):
 
 	def _on_change_mob(self ,item,context={}):		
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
-			p = self.selectFor('md.mob.output.items', ['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
+			p = self.selectFor('md.bom.items', ['product','quantity','uom'],[('bom_id','=',item['mob']['name'])],context)
 			for i in p:
 				ei = self._model('crm.request.item.delivery.schedules')._buildEmptyItem()
 				ei['quantity'] = i['quantity']
@@ -1460,7 +1460,7 @@ class md_crm_product(Model):
 class md_crm_product_inherit(ModelInherit):
 	_name = 'md.crm.product.inherit'
 	_description = 'Genaral Model Inherit For CRM Product'
-	_inherit = {'md.product':{'_columns':['crm']},'md.mobs':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}}
+	_inherit = {'md.product':{'_columns':['crm']},'md.bobs':{'_columns':['usage']},'md.boms':{'_columns':['usage']},'md.mobs':{'_columns':['usage']},'md.type.items':{'_columns':['usage']},'seq.conditions':{'_columns':['usage']},'seq.access.schemas':{'_columns':['usage']},'seq.access':{'_columns':['usage']}}
 	_columns = {
 		'crm': fields.one2many(label='CRMs',obj='md.crm.product',rel='product_id'),
 		'usage': fields.iProperty(selections=[('crm','CRM')])

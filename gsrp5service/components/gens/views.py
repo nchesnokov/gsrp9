@@ -171,11 +171,12 @@ def isAllow(obj,m2mobjs):
 		elif view == 'find' and (len(obj._findfields) > 0 or obj._RowNameName or obj._RecNameName or obj._FullNameName):
 			allows.append((view,obj._name,cols))
 		elif view == 'm2mlist' and len(obj._m2mfields) > 0:
+			web_pdb.set_trace()
 			for m2mfield in obj._m2mfields:
 				if obj._columns[m2mfield].obj in m2mobjs:
 					for m2mkey in m2mobjs[obj._columns[m2mfield].obj].keys():
 						m2mcols = list(filter(lambda x:m2mobjs[obj._columns[m2mfield].obj][m2mkey]._columns[x]._type not in EXCLUDE['models'][view] , m2mobjs[obj._columns[m2mfield].obj][m2mkey]._columns.keys()))
-						allows.append((view,obj._name,cols))
+						allows.append((view,obj._name,m2mcols))
 		elif view in ('calendar','graph','mdx') and obj._DateName:
 			allows.append((view,obj._name,cols))
 		elif view in ('schedule','gantt') and (obj._FromDateName and obj._ToDateName or obj._StartDateName and obj._EndDateName):
@@ -259,11 +260,11 @@ def isAllowInherit(iobj):
 	
 	return iallows
 	
-	r = False
-	if cat in ISALLOW_OBJS:
-		r = ISALLOW_OBJS[cat](view,columnsinfo)
+	# r = False
+	# if cat in ISALLOW_OBJS:
+		# r = ISALLOW_OBJS[cat](view,columnsinfo)
 	
-	return r
+	# return r
 
 
 

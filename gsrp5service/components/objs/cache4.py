@@ -1359,7 +1359,7 @@ class MCache(object):
 			self._checks.clear()
 
 		if len(res) > 0:
-			return [res]
+			return [{'__models__':res}]
 		
 		return []
 			
@@ -1392,7 +1392,7 @@ class MCache(object):
 			self._checks.clear()
 		
 		if len(res) > 0:
-			return [res]
+			return [{'__models__':res}]
 		
 		return []
 
@@ -1417,7 +1417,7 @@ class MCache(object):
 			self._checks.clear()
 
 		if len(res) > 0:
-			return [res]
+			return [{'__models__':res}]
 		
 		return []
 
@@ -1443,7 +1443,7 @@ class MCache(object):
 			self._checks.clear()
 
 		if len(res) > 0:
-			return [res]
+			return [{'__models__':res}]
 		
 		return []
 
@@ -1459,7 +1459,7 @@ class MCache(object):
 			res['__data__'] = data_diffs
 
 		if len(res) > 0:
-			return [res]
+			return [{'__models__':res}]
 		
 		return []
 
@@ -1482,7 +1482,7 @@ class MCache(object):
 			self._checks.clear()
 
 		if len(res) > 0:
-			return [res]
+			return [{'__models__':res}]
 		
 		return []
 	
@@ -2157,7 +2157,7 @@ class MCache(object):
 			self._checks.clear()
 
 		if len(res) > 0:
-			return [res]
+			return [{'__models__':res}]
 		
 		return []
 
