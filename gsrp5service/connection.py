@@ -139,16 +139,16 @@ class Cursor(object):
 			if type(query) == str:
 				self.cr.execute(query = query, vars = vals)
 				self.query.append(('execute',query,vals))
-				print('EXECUTE:',self.mogrify(query,vals))
+				#print('EXECUTE:',self.mogrify(query,vals))
 			elif type(query) in (tuple,list):
 				for q1 in query:
-					print('EXECUTE:',self.mogrify(q1,vals))
+					#print('EXECUTE:',self.mogrify(q1,vals))
 					self.cr.execute(query = q1, vars = vals)
 					self.query.append(('execute',q1,vals))
 		except:
 			self._rollback()
 			self.query.clear()
-			print('query: %s %s' % (query,vals))
+			#print('query: %s %s' % (query,vals))
 			_logger.error('query: %s %s' % (query,vals))
 			raise
 

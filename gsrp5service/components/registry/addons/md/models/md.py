@@ -342,7 +342,7 @@ class md_partners_bank(Model):
 	'acc_type': fields.varchar(label = 'ACC Type',compute='_compute_acc_type', help='Bank account type, inferred from account number'),
 	'acc_number': fields.varchar(label='Account Number', required=True),
 	'sanitized_acc_number': fields.varchar(compute='_compute_sanitized_acc_number', label='Sanitized Account Number', readonly=True),
-	'partner': fields.related(obj='md.partner', label='Account Holder', on_delete='c', domain=[ ('issuplier', )]),
+	'partner': fields.referenced(obj='md.partner', label='Account Holder', on_delete='c', domain=[ ('issuplier', )]),
 	'bank_name': fields.link(label='Bank Name',ref='bank_id.name'),
 	'bank_bic': fields.link(ref='bank_id.bic'),
 	'sequence': fields.integer(label='Sequence'),
