@@ -779,12 +779,13 @@ def _loadMetaModule(self,name,context):
 				#imodel_records.append(im)
 				oid = self._session._models.get('bc.model.inherits').create(im,context)[0]
 				icols = {}
-				imcols = self._session._models.get('bc.model.inherit.columns').select(fields=['inherit_id','col','moc'],cond=[('inherit_id','r=',oid)],context=context)
+				imcols = self._session._models.get('bc.model.inherit.columns').select(fields=['inherit_id','col','moc'],cond=[('inherit_id','=',model)],context=context)
 				for imcol in imcols:
 					if imcol['moc']['type'] != 'iProperty':
 						icols[imcol['col']] = imcol['id']
 					
 				inherit = self._registry._create_module_object('models',model,name)._inherit
+				web_pdb.set_trace()
 				if inherit:
 					imc_records = []
 					for mkey in inherit.keys():
@@ -798,7 +799,7 @@ def _loadMetaModule(self,name,context):
 									imc_record['col'] = icols[c]
 							if len(imc_record) > 0:
 								imc_records.append(imc_record)
-					#web_pdb.set_trace()
+					web_pdb.set_trace()
 					self._session._models.get('bc.model.inherit.inherits').create(imc_records,context)			
 	# if len(model_records) > 0:
 		# self._session._models.get('bc.models').create(model_records,context)
