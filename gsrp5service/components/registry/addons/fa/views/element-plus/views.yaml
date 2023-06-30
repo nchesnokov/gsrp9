@@ -184,85 +184,54 @@
   model: fa.accounts
   vtype: element-plus/list
 - cols:
-  - col: fa.accounts/name
+  - col: fa.accounts.tax/name
     seq: 0
-  - col: fa.accounts/currency_id
+  - col: fa.accounts.tax/type_tax_use
     seq: 10
-  - col: fa.accounts/code
+  - col: fa.accounts.tax/tax_adjustment
     seq: 20
-  - col: fa.accounts/deprecated
+  - col: fa.accounts.tax/amount_type
     seq: 30
-  - col: fa.accounts/user_type_id
+  - col: fa.accounts.tax/inactive
     seq: 40
-  - col: fa.accounts/internal_type
+  - col: fa.accounts.tax/company_id
     seq: 50
-  - col: fa.accounts/last_time_entries_checked
+  - col: fa.accounts.tax/sequence
     seq: 60
-  - col: fa.accounts/reconcile
+  - col: fa.accounts.tax/amount
     seq: 70
-  - col: fa.accounts/company_id
+  - col: fa.accounts.tax/account_id
     seq: 80
-  - col: fa.accounts/group_id
+  - col: fa.accounts.tax/refund_account_id
     seq: 90
-  - col: fa.accounts/opening_debit
+  - col: fa.accounts.tax/description
     seq: 100
-  - col: fa.accounts/opening_credit
+  - col: fa.accounts.tax/price_include
     seq: 110
-  model: fa.accounts
+  - col: fa.accounts.tax/include_base_amount
+    seq: 120
+  - col: fa.accounts.tax/analytic
+    seq: 130
+  - col: fa.accounts.tax/tax_group_id
+    seq: 140
+  - col: fa.accounts.tax/hide_tax_exigibility
+    seq: 150
+  - col: fa.accounts.tax/tax_exigibility
+    seq: 160
+  - col: fa.accounts.tax/cash_basis_account
+    seq: 170
+  model: fa.accounts.tax
   vtype: element-plus/m2mlist
 - cols:
-  - col: fa.accounts/name
+  - col: fa.accounts.tag/name
     seq: 0
-  - col: fa.accounts/currency_id
+  - col: fa.accounts.tag/applicability
     seq: 10
-  - col: fa.accounts/code
+  - col: fa.accounts.tag/color
     seq: 20
-  - col: fa.accounts/deprecated
+  - col: fa.accounts.tag/inactive
     seq: 30
-  - col: fa.accounts/user_type_id
-    seq: 40
-  - col: fa.accounts/internal_type
-    seq: 50
-  - col: fa.accounts/last_time_entries_checked
-    seq: 60
-  - col: fa.accounts/reconcile
-    seq: 70
-  - col: fa.accounts/company_id
-    seq: 80
-  - col: fa.accounts/group_id
-    seq: 90
-  - col: fa.accounts/opening_debit
-    seq: 100
-  - col: fa.accounts/opening_credit
-    seq: 110
-  model: fa.accounts
-  vtype: element-plus/m2mlist
-- cols:
-  - col: fa.accounts/name
-    seq: 0
-  - col: fa.accounts/currency_id
-    seq: 10
-  - col: fa.accounts/code
-    seq: 20
-  - col: fa.accounts/deprecated
-    seq: 30
-  - col: fa.accounts/user_type_id
-    seq: 40
-  - col: fa.accounts/internal_type
-    seq: 50
-  - col: fa.accounts/last_time_entries_checked
-    seq: 60
-  - col: fa.accounts/reconcile
-    seq: 70
-  - col: fa.accounts/company_id
-    seq: 80
-  - col: fa.accounts/group_id
-    seq: 90
-  - col: fa.accounts/opening_debit
-    seq: 100
-  - col: fa.accounts/opening_credit
-    seq: 110
-  model: fa.accounts
+  model: fa.accounts.tag
   vtype: element-plus/m2mlist
 - cols:
   - col: fa.accounts/name
@@ -623,286 +592,58 @@
   model: fa.accounts.journal
   vtype: element-plus/list
 - cols:
-  - col: fa.accounts.journal/name
+  - col: fa.accounts.type/name
     seq: 0
-  - col: fa.accounts.journal/code
+  - col: fa.accounts.type/include_initial_balance
     seq: 10
-  - col: fa.accounts.journal/inactive
+  - col: fa.accounts.type/type
     seq: 20
-  - col: fa.accounts.journal/type
-    seq: 30
-  - col: fa.accounts.journal/default_credit_account_id
-    seq: 40
-  - col: fa.accounts.journal/default_debit_account_id
-    seq: 50
-  - col: fa.accounts.journal/update_posted
-    seq: 60
-  - col: fa.accounts.journal/group_invoice_lines
-    seq: 70
-  - col: fa.accounts.journal/sequence
-    seq: 80
-  - col: fa.accounts.journal/sequence_number_next
-    seq: 90
-  - col: fa.accounts.journal/refund_sequence_number_next
-    seq: 100
-  - col: fa.accounts.journal/currency_id
-    seq: 110
-  - col: fa.accounts.journal/company_id
-    seq: 120
-  - col: fa.accounts.journal/refund_sequence
-    seq: 130
-  - col: fa.accounts.journal/at_least_one_inbound
-    seq: 140
-  - col: fa.accounts.journal/at_least_one_outbound
-    seq: 150
-  - col: fa.accounts.journal/profit_account_id
-    seq: 160
-  - col: fa.accounts.journal/loss_account_id
-    seq: 170
-  - col: fa.accounts.journal/belongs_to_company
-    seq: 180
-  - col: fa.accounts.journal/bank_statements_source
-    seq: 190
-  - col: fa.accounts.journal/bank_acc_number
-    seq: 200
-  - col: fa.accounts.journal/bank_id
-    seq: 210
-  model: fa.accounts.journal
+  model: fa.accounts.type
   vtype: element-plus/m2mlist
 - cols:
-  - col: fa.accounts.journal/name
+  - col: fa.accounts/name
     seq: 0
-  - col: fa.accounts.journal/code
+  - col: fa.accounts/currency_id
     seq: 10
-  - col: fa.accounts.journal/inactive
+  - col: fa.accounts/code
     seq: 20
-  - col: fa.accounts.journal/type
+  - col: fa.accounts/deprecated
     seq: 30
-  - col: fa.accounts.journal/default_credit_account_id
+  - col: fa.accounts/user_type_id
     seq: 40
-  - col: fa.accounts.journal/default_debit_account_id
+  - col: fa.accounts/internal_type
     seq: 50
-  - col: fa.accounts.journal/update_posted
+  - col: fa.accounts/last_time_entries_checked
     seq: 60
-  - col: fa.accounts.journal/group_invoice_lines
+  - col: fa.accounts/reconcile
     seq: 70
-  - col: fa.accounts.journal/sequence
+  - col: fa.accounts/company_id
     seq: 80
-  - col: fa.accounts.journal/sequence_number_next
+  - col: fa.accounts/group_id
     seq: 90
-  - col: fa.accounts.journal/refund_sequence_number_next
+  - col: fa.accounts/opening_debit
     seq: 100
-  - col: fa.accounts.journal/currency_id
+  - col: fa.accounts/opening_credit
     seq: 110
-  - col: fa.accounts.journal/company_id
-    seq: 120
-  - col: fa.accounts.journal/refund_sequence
-    seq: 130
-  - col: fa.accounts.journal/at_least_one_inbound
-    seq: 140
-  - col: fa.accounts.journal/at_least_one_outbound
-    seq: 150
-  - col: fa.accounts.journal/profit_account_id
-    seq: 160
-  - col: fa.accounts.journal/loss_account_id
-    seq: 170
-  - col: fa.accounts.journal/belongs_to_company
-    seq: 180
-  - col: fa.accounts.journal/bank_statements_source
-    seq: 190
-  - col: fa.accounts.journal/bank_acc_number
-    seq: 200
-  - col: fa.accounts.journal/bank_id
-    seq: 210
-  model: fa.accounts.journal
+  model: fa.accounts
   vtype: element-plus/m2mlist
 - cols:
-  - col: fa.accounts.journal/name
+  - col: fa.accounts.payment.method/name
     seq: 0
-  - col: fa.accounts.journal/code
+  - col: fa.accounts.payment.method/code
     seq: 10
-  - col: fa.accounts.journal/inactive
+  - col: fa.accounts.payment.method/payment_type
     seq: 20
-  - col: fa.accounts.journal/type
-    seq: 30
-  - col: fa.accounts.journal/default_credit_account_id
-    seq: 40
-  - col: fa.accounts.journal/default_debit_account_id
-    seq: 50
-  - col: fa.accounts.journal/update_posted
-    seq: 60
-  - col: fa.accounts.journal/group_invoice_lines
-    seq: 70
-  - col: fa.accounts.journal/sequence
-    seq: 80
-  - col: fa.accounts.journal/sequence_number_next
-    seq: 90
-  - col: fa.accounts.journal/refund_sequence_number_next
-    seq: 100
-  - col: fa.accounts.journal/currency_id
-    seq: 110
-  - col: fa.accounts.journal/company_id
-    seq: 120
-  - col: fa.accounts.journal/refund_sequence
-    seq: 130
-  - col: fa.accounts.journal/at_least_one_inbound
-    seq: 140
-  - col: fa.accounts.journal/at_least_one_outbound
-    seq: 150
-  - col: fa.accounts.journal/profit_account_id
-    seq: 160
-  - col: fa.accounts.journal/loss_account_id
-    seq: 170
-  - col: fa.accounts.journal/belongs_to_company
-    seq: 180
-  - col: fa.accounts.journal/bank_statements_source
-    seq: 190
-  - col: fa.accounts.journal/bank_acc_number
-    seq: 200
-  - col: fa.accounts.journal/bank_id
-    seq: 210
-  model: fa.accounts.journal
+  model: fa.accounts.payment.method
   vtype: element-plus/m2mlist
 - cols:
-  - col: fa.accounts.journal/name
+  - col: fa.accounts.payment.method/name
     seq: 0
-  - col: fa.accounts.journal/code
+  - col: fa.accounts.payment.method/code
     seq: 10
-  - col: fa.accounts.journal/inactive
+  - col: fa.accounts.payment.method/payment_type
     seq: 20
-  - col: fa.accounts.journal/type
-    seq: 30
-  - col: fa.accounts.journal/default_credit_account_id
-    seq: 40
-  - col: fa.accounts.journal/default_debit_account_id
-    seq: 50
-  - col: fa.accounts.journal/update_posted
-    seq: 60
-  - col: fa.accounts.journal/group_invoice_lines
-    seq: 70
-  - col: fa.accounts.journal/sequence
-    seq: 80
-  - col: fa.accounts.journal/sequence_number_next
-    seq: 90
-  - col: fa.accounts.journal/refund_sequence_number_next
-    seq: 100
-  - col: fa.accounts.journal/currency_id
-    seq: 110
-  - col: fa.accounts.journal/company_id
-    seq: 120
-  - col: fa.accounts.journal/refund_sequence
-    seq: 130
-  - col: fa.accounts.journal/at_least_one_inbound
-    seq: 140
-  - col: fa.accounts.journal/at_least_one_outbound
-    seq: 150
-  - col: fa.accounts.journal/profit_account_id
-    seq: 160
-  - col: fa.accounts.journal/loss_account_id
-    seq: 170
-  - col: fa.accounts.journal/belongs_to_company
-    seq: 180
-  - col: fa.accounts.journal/bank_statements_source
-    seq: 190
-  - col: fa.accounts.journal/bank_acc_number
-    seq: 200
-  - col: fa.accounts.journal/bank_id
-    seq: 210
-  model: fa.accounts.journal
-  vtype: element-plus/m2mlist
-- cols:
-  - col: fa.accounts.journal/name
-    seq: 0
-  - col: fa.accounts.journal/code
-    seq: 10
-  - col: fa.accounts.journal/inactive
-    seq: 20
-  - col: fa.accounts.journal/type
-    seq: 30
-  - col: fa.accounts.journal/default_credit_account_id
-    seq: 40
-  - col: fa.accounts.journal/default_debit_account_id
-    seq: 50
-  - col: fa.accounts.journal/update_posted
-    seq: 60
-  - col: fa.accounts.journal/group_invoice_lines
-    seq: 70
-  - col: fa.accounts.journal/sequence
-    seq: 80
-  - col: fa.accounts.journal/sequence_number_next
-    seq: 90
-  - col: fa.accounts.journal/refund_sequence_number_next
-    seq: 100
-  - col: fa.accounts.journal/currency_id
-    seq: 110
-  - col: fa.accounts.journal/company_id
-    seq: 120
-  - col: fa.accounts.journal/refund_sequence
-    seq: 130
-  - col: fa.accounts.journal/at_least_one_inbound
-    seq: 140
-  - col: fa.accounts.journal/at_least_one_outbound
-    seq: 150
-  - col: fa.accounts.journal/profit_account_id
-    seq: 160
-  - col: fa.accounts.journal/loss_account_id
-    seq: 170
-  - col: fa.accounts.journal/belongs_to_company
-    seq: 180
-  - col: fa.accounts.journal/bank_statements_source
-    seq: 190
-  - col: fa.accounts.journal/bank_acc_number
-    seq: 200
-  - col: fa.accounts.journal/bank_id
-    seq: 210
-  model: fa.accounts.journal
-  vtype: element-plus/m2mlist
-- cols:
-  - col: fa.accounts.journal/name
-    seq: 0
-  - col: fa.accounts.journal/code
-    seq: 10
-  - col: fa.accounts.journal/inactive
-    seq: 20
-  - col: fa.accounts.journal/type
-    seq: 30
-  - col: fa.accounts.journal/default_credit_account_id
-    seq: 40
-  - col: fa.accounts.journal/default_debit_account_id
-    seq: 50
-  - col: fa.accounts.journal/update_posted
-    seq: 60
-  - col: fa.accounts.journal/group_invoice_lines
-    seq: 70
-  - col: fa.accounts.journal/sequence
-    seq: 80
-  - col: fa.accounts.journal/sequence_number_next
-    seq: 90
-  - col: fa.accounts.journal/refund_sequence_number_next
-    seq: 100
-  - col: fa.accounts.journal/currency_id
-    seq: 110
-  - col: fa.accounts.journal/company_id
-    seq: 120
-  - col: fa.accounts.journal/refund_sequence
-    seq: 130
-  - col: fa.accounts.journal/at_least_one_inbound
-    seq: 140
-  - col: fa.accounts.journal/at_least_one_outbound
-    seq: 150
-  - col: fa.accounts.journal/profit_account_id
-    seq: 160
-  - col: fa.accounts.journal/loss_account_id
-    seq: 170
-  - col: fa.accounts.journal/belongs_to_company
-    seq: 180
-  - col: fa.accounts.journal/bank_statements_source
-    seq: 190
-  - col: fa.accounts.journal/bank_acc_number
-    seq: 200
-  - col: fa.accounts.journal/bank_id
-    seq: 210
-  model: fa.accounts.journal
+  model: fa.accounts.payment.method
   vtype: element-plus/m2mlist
 - cols:
   - col: fa.accounts.journal/name
@@ -1308,82 +1049,15 @@
   model: fa.accounts.tax
   vtype: element-plus/m2mlist
 - cols:
-  - col: fa.accounts.tax/name
+  - col: fa.accounts.tag/name
     seq: 0
-  - col: fa.accounts.tax/type_tax_use
+  - col: fa.accounts.tag/applicability
     seq: 10
-  - col: fa.accounts.tax/tax_adjustment
+  - col: fa.accounts.tag/color
     seq: 20
-  - col: fa.accounts.tax/amount_type
+  - col: fa.accounts.tag/inactive
     seq: 30
-  - col: fa.accounts.tax/inactive
-    seq: 40
-  - col: fa.accounts.tax/company_id
-    seq: 50
-  - col: fa.accounts.tax/sequence
-    seq: 60
-  - col: fa.accounts.tax/amount
-    seq: 70
-  - col: fa.accounts.tax/account_id
-    seq: 80
-  - col: fa.accounts.tax/refund_account_id
-    seq: 90
-  - col: fa.accounts.tax/description
-    seq: 100
-  - col: fa.accounts.tax/price_include
-    seq: 110
-  - col: fa.accounts.tax/include_base_amount
-    seq: 120
-  - col: fa.accounts.tax/analytic
-    seq: 130
-  - col: fa.accounts.tax/tax_group_id
-    seq: 140
-  - col: fa.accounts.tax/hide_tax_exigibility
-    seq: 150
-  - col: fa.accounts.tax/tax_exigibility
-    seq: 160
-  - col: fa.accounts.tax/cash_basis_account
-    seq: 170
-  model: fa.accounts.tax
-  vtype: element-plus/m2mlist
-- cols:
-  - col: fa.accounts.tax/name
-    seq: 0
-  - col: fa.accounts.tax/type_tax_use
-    seq: 10
-  - col: fa.accounts.tax/tax_adjustment
-    seq: 20
-  - col: fa.accounts.tax/amount_type
-    seq: 30
-  - col: fa.accounts.tax/inactive
-    seq: 40
-  - col: fa.accounts.tax/company_id
-    seq: 50
-  - col: fa.accounts.tax/sequence
-    seq: 60
-  - col: fa.accounts.tax/amount
-    seq: 70
-  - col: fa.accounts.tax/account_id
-    seq: 80
-  - col: fa.accounts.tax/refund_account_id
-    seq: 90
-  - col: fa.accounts.tax/description
-    seq: 100
-  - col: fa.accounts.tax/price_include
-    seq: 110
-  - col: fa.accounts.tax/include_base_amount
-    seq: 120
-  - col: fa.accounts.tax/analytic
-    seq: 130
-  - col: fa.accounts.tax/tax_group_id
-    seq: 140
-  - col: fa.accounts.tax/hide_tax_exigibility
-    seq: 150
-  - col: fa.accounts.tax/tax_exigibility
-    seq: 160
-  - col: fa.accounts.tax/cash_basis_account
-    seq: 170
-  model: fa.accounts.tax
+  model: fa.accounts.tag
   vtype: element-plus/m2mlist
 - cols:
   - col: fa.accounts.tax/name
@@ -1856,61 +1530,54 @@
   model: fa.account.template
   vtype: element-plus/list
 - cols:
-  - col: fa.account.template/name
+  - col: fa.tax.template/chart_template_id
     seq: 0
-  - col: fa.account.template/currency_id
+  - col: fa.tax.template/name
     seq: 10
-  - col: fa.account.template/code
+  - col: fa.tax.template/type_tax_use
     seq: 20
-  - col: fa.account.template/user_type_id
+  - col: fa.tax.template/tax_adjustment
     seq: 30
-  - col: fa.account.template/reconcile
+  - col: fa.tax.template/amount_type
     seq: 40
-  - col: fa.account.template/nocreate
+  - col: fa.tax.template/active
     seq: 50
-  - col: fa.account.template/chart_template_id
+  - col: fa.tax.template/company_id
     seq: 60
-  - col: fa.account.template/group_id
+  - col: fa.tax.template/sequence
     seq: 70
-  model: fa.account.template
+  - col: fa.tax.template/amount
+    seq: 80
+  - col: fa.tax.template/account_id
+    seq: 90
+  - col: fa.tax.template/refund_account_id
+    seq: 100
+  - col: fa.tax.template/description
+    seq: 110
+  - col: fa.tax.template/price_include
+    seq: 120
+  - col: fa.tax.template/include_base_amount
+    seq: 130
+  - col: fa.tax.template/analytic
+    seq: 140
+  - col: fa.tax.template/tax_group_id
+    seq: 150
+  - col: fa.tax.template/tax_exigibility
+    seq: 160
+  - col: fa.tax.template/cash_basis_account
+    seq: 170
+  model: fa.tax.template
   vtype: element-plus/m2mlist
 - cols:
-  - col: fa.account.template/name
+  - col: fa.accounts.tag/name
     seq: 0
-  - col: fa.account.template/currency_id
+  - col: fa.accounts.tag/applicability
     seq: 10
-  - col: fa.account.template/code
+  - col: fa.accounts.tag/color
     seq: 20
-  - col: fa.account.template/user_type_id
+  - col: fa.accounts.tag/inactive
     seq: 30
-  - col: fa.account.template/reconcile
-    seq: 40
-  - col: fa.account.template/nocreate
-    seq: 50
-  - col: fa.account.template/chart_template_id
-    seq: 60
-  - col: fa.account.template/group_id
-    seq: 70
-  model: fa.account.template
-  vtype: element-plus/m2mlist
-- cols:
-  - col: fa.account.template/name
-    seq: 0
-  - col: fa.account.template/currency_id
-    seq: 10
-  - col: fa.account.template/code
-    seq: 20
-  - col: fa.account.template/user_type_id
-    seq: 30
-  - col: fa.account.template/reconcile
-    seq: 40
-  - col: fa.account.template/nocreate
-    seq: 50
-  - col: fa.account.template/chart_template_id
-    seq: 60
-  - col: fa.account.template/group_id
-    seq: 70
-  model: fa.account.template
+  model: fa.accounts.tag
   vtype: element-plus/m2mlist
 - cols:
   - col: fa.account.template/name
@@ -2512,82 +2179,15 @@
   model: fa.tax.template
   vtype: element-plus/m2mlist
 - cols:
-  - col: fa.tax.template/chart_template_id
+  - col: fa.accounts.tag/name
     seq: 0
-  - col: fa.tax.template/name
+  - col: fa.accounts.tag/applicability
     seq: 10
-  - col: fa.tax.template/type_tax_use
+  - col: fa.accounts.tag/color
     seq: 20
-  - col: fa.tax.template/tax_adjustment
+  - col: fa.accounts.tag/inactive
     seq: 30
-  - col: fa.tax.template/amount_type
-    seq: 40
-  - col: fa.tax.template/active
-    seq: 50
-  - col: fa.tax.template/company_id
-    seq: 60
-  - col: fa.tax.template/sequence
-    seq: 70
-  - col: fa.tax.template/amount
-    seq: 80
-  - col: fa.tax.template/account_id
-    seq: 90
-  - col: fa.tax.template/refund_account_id
-    seq: 100
-  - col: fa.tax.template/description
-    seq: 110
-  - col: fa.tax.template/price_include
-    seq: 120
-  - col: fa.tax.template/include_base_amount
-    seq: 130
-  - col: fa.tax.template/analytic
-    seq: 140
-  - col: fa.tax.template/tax_group_id
-    seq: 150
-  - col: fa.tax.template/tax_exigibility
-    seq: 160
-  - col: fa.tax.template/cash_basis_account
-    seq: 170
-  model: fa.tax.template
-  vtype: element-plus/m2mlist
-- cols:
-  - col: fa.tax.template/chart_template_id
-    seq: 0
-  - col: fa.tax.template/name
-    seq: 10
-  - col: fa.tax.template/type_tax_use
-    seq: 20
-  - col: fa.tax.template/tax_adjustment
-    seq: 30
-  - col: fa.tax.template/amount_type
-    seq: 40
-  - col: fa.tax.template/active
-    seq: 50
-  - col: fa.tax.template/company_id
-    seq: 60
-  - col: fa.tax.template/sequence
-    seq: 70
-  - col: fa.tax.template/amount
-    seq: 80
-  - col: fa.tax.template/account_id
-    seq: 90
-  - col: fa.tax.template/refund_account_id
-    seq: 100
-  - col: fa.tax.template/description
-    seq: 110
-  - col: fa.tax.template/price_include
-    seq: 120
-  - col: fa.tax.template/include_base_amount
-    seq: 130
-  - col: fa.tax.template/analytic
-    seq: 140
-  - col: fa.tax.template/tax_group_id
-    seq: 150
-  - col: fa.tax.template/tax_exigibility
-    seq: 160
-  - col: fa.tax.template/cash_basis_account
-    seq: 170
-  model: fa.tax.template
+  model: fa.accounts.tag
   vtype: element-plus/m2mlist
 - cols:
   - col: fa.tax.template/chart_template_id
@@ -2825,25 +2425,13 @@
   model: fa.fiscal.position.template
   vtype: element-plus/list
 - cols:
-  - col: fa.fiscal.position.template/sequence
+  - col: md.country.states/country_id
     seq: 0
-  - col: fa.fiscal.position.template/name
+  - col: md.country.states/name
     seq: 10
-  - col: fa.fiscal.position.template/chart_template_id
+  - col: md.country.states/code
     seq: 20
-  - col: fa.fiscal.position.template/auto_apply
-    seq: 30
-  - col: fa.fiscal.position.template/vat_required
-    seq: 40
-  - col: fa.fiscal.position.template/country_id
-    seq: 50
-  - col: fa.fiscal.position.template/country_group_id
-    seq: 60
-  - col: fa.fiscal.position.template/zip_from
-    seq: 70
-  - col: fa.fiscal.position.template/zip_to
-    seq: 80
-  model: fa.fiscal.position.template
+  model: md.country.states
   vtype: element-plus/m2mlist
 - cols:
   - col: fa.fiscal.position.template/sequence

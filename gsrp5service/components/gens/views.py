@@ -30,6 +30,14 @@ def ModelsColumns( view, vmodel, columns):
 def Views(framework,model,views):
 	return [ {'model':vmodel,'vtype':framework + '/' + view,'cols':ModelsColumns(view,vmodel,columns)} for view,vmodel,columns in views]
 	
+
+def ObjsViewsColumns( view, vmodel, columns):
+	return [{'seq':idx * 10,'col':vmodel + '/' + col} for idx,col in enumerate(columns)]
+
+def ObjsViews(obj,framework,model,views):
+	return [ {'type_obj':obj,'obj':vobj,'vtype':framework + '/' + view,'cols':ObjsViewsColumns(view,vobj,columns)} for view,vobj,columns in views]
+
+
 def iViews(framework, views):
 	res = []
 
@@ -81,6 +89,11 @@ def Area(self, modules = None,context={}):
 						yaml.dump([record for model in objs['models'] for record in Views(framework,model._name,isAllow(registry,model))], outfile, Dumper, default_flow_style=False)
 					
 					aw.writerow({'model': 'bc.ui.model.views','file':opj('views',framework,'views.yaml' )})
+					with open(opj(path,module,'views',framework,'model_views.yaml'),'w') as outfile:					
+						yaml.dump([record for model in objs['models'] for record in ObjsViews('model',framework,model._name,isAllow(registry,model))], outfile, Dumper, default_flow_style=False)
+					
+					aw.writerow({'model': 'bc.ui.obj.views','file':opj('views',framework,'model_views.yaml' )})
+
 			if len(iobjs) > 0:
 				if len(objs) == 0:
 					a = open(opj(path,module,'views','views.csv'),'w')
@@ -101,13 +114,24 @@ def Area(self, modules = None,context={}):
 							if '_columns' in inherit[m]:
 								nm = m + '.' +imodel._name
 								views = []
-								views.extend(isAllowView(registry,m,imodel))
-								if len(views) > 0:
-									with open(opj(path,module,'views','inherits',framework,nm.replace('.','_') + '.yaml'),'w') as outfile:
-										yaml.dump(iViews(framework, views), outfile, Dumper, default_flow_style=False)
-					
-									aw.writerow({'model': 'bc.ui.model.view.column.inherits','file':opj('views','inherits',framework,nm.replace('.','_') + '.yaml' )})
+								m2mviews = []
+								vv = isAllowView(registry,m,imodel)
+								if len(vv) > 0:
+									views.extend(list(filter(lambda x:x[0] != 'm2mlist',vv)))
+									m2mviews.extend(list(filter(lambda x:x[0] == 'm2mlist',vv)))
+									if len(views) > 0:
+										with open(opj(path,module,'views','inherits',framework,nm.replace('.','_') + '.yaml'),'w') as outfile:
+											yaml.dump(iViews(framework, views), outfile, Dumper, default_flow_style=False)
+						
+										aw.writerow({'model': 'bc.ui.model.view.column.inherits','file':opj('views','inherits',framework,nm.replace('.','_') + '.yaml' )})
 				
+									if len(m2mviews) > 0:
+										with open(opj(path,module,'views','inherits',framework,'m2m_' + nm.replace('.','_') + '.yaml'),'w') as outfile:
+											#yaml.dump(Views(framework, m2mviews), outfile, Dumper, default_flow_style=False)
+											yaml.dump(Views(framework,m,m2mviews), outfile, Dumper, default_flow_style=False)
+						
+										aw.writerow({'model': 'bc.ui.model.views','file':opj('views','inherits',framework,'m2m_' + nm.replace('.','_') + '.yaml' )})
+
 			logmodules.append(module)
 	_logger.info('Gen views of modules %s' % (logmodules,))
 	return ['Gen views of modules %s' % (logmodules,)]
@@ -128,7 +152,7 @@ def isAllow(registry,obj):
 		elif view == 'm2mlist' and len(obj._m2mfields) > 0:
 			for m2mfield in obj._m2mfields:
 				mobj = registry._create_module_object('models',obj._columns[m2mfield].obj,registry._getLastModuleObject('models',obj._columns[m2mfield].obj))
-				allows.append((view,obj._name,list(filter(lambda x: mobj._columns[x]._type not in EXCLUDE['models']['m2mlist'],mobj._columns.keys()))))
+				allows.append((view,obj._columns[m2mfield].obj,list(filter(lambda x: mobj._columns[x]._type not in EXCLUDE['models']['m2mlist'],mobj._columns.keys()))))
 		elif view in ('calendar','graph','mdx') and obj._DateName:
 			allows.append((view,obj._name,cols))
 		elif view in ('schedule','gantt') and (obj._FromDateName and obj._ToDateName or obj._StartDateName and obj._EndDateName):
@@ -179,7 +203,8 @@ def isAllowView(registry,model,imodel):
 			if len(m2mcols) > 0:			
 				for m2mcol in m2mcols:
 					mobj = registry._create_module_object('models',imodel._columns[m2mcol].obj,registry._getLastModuleObject('models',imodel._columns[m2mcol].obj))
-					allows.append((view,obj._name,list(filter(lambda x: mobj._columns[x]._type not in EXCLUDE['models']['m2mlist'],mobj._columns.keys()))))
+					#allows.append((view,imodel._columns[m2mcol].obj,list(filter(lambda x: mobj._columns[x]._type not in EXCLUDE['models']['m2mlist'],mobj._columns.keys()))))
+					allows.append((view,mobj._name,list(filter(lambda x: mobj._columns[x]._type not in EXCLUDE['models']['m2mlist'],mobj._columns.keys()))))
 		elif view in ('calendar','graph','mdx') and hasattr(obj,'_DateName') and obj._DateName:
 			allows.append((view,obj._name,cols))
 		elif view in ('schedule','gantt') and (obj._FromDateName and obj._ToDateName or obj._StartDateName and obj._EndDateName):

@@ -16,7 +16,7 @@ def _set_symbol(self, symb):
 
 class _column(object):
 
-	__slots__ = ('__dict__','accept','actions','label', 'column', 'readonly','invisible', 'priority', 'domain', 'context', 'pattern','required', 'size', 'on_delete', 'on_update','on_change','on_check', 'translate', 'selections', 'selectable', 'manual', 'help', 'unique','check','family','timezone','relatedy','obj','rel','id1','id2','ref','offset','limit','compute','store','state','icon','cols','delimiter')
+	__slots__ = ('__dict__','accept','actions','label', 'column', 'readonly','invisible', 'priority', 'domain', 'context', 'pattern','required', 'size', 'on_delete', 'on_update','on_change','on_check', 'translate', 'selections', 'selectable', 'manual', 'help', 'unique','check','family','timezone','relatedy','obj','rel','id1','id2','ref','offset','limit','compute','store','state','icon','cols','delimiter','model')
 
 	def __init__(self, **kwargs):
 
@@ -565,6 +565,11 @@ class link(_column):
 	_symbol_get = None
 	def __init__(self,label=None,ref = None, state = None, invisible = None):
 		super(link,self).__init__(label=label,ref = ref,readonly=True,state=state, invisible = invisible, store = False)
+
+class columnRef(_column):
+	_type = 'columnRef'
+	def __init__(self,model, column,label=None):
+		super(columnRef,self).__init__(model=model,column=column,label=label)
 
 class iProperty(_column):
 	_type = 'iProperty'

@@ -36,6 +36,35 @@ class MetaReport(type):
 
 class Report(object, metaclass = MetaReport):
 	_name = None
+	_colums = {}
+	_action = []
+	_join = {}
 	
+	def __init__(self,access = None, attrs = None, proxy = None):
+		self. _access = access
+		
+		for key in filter(lambda x: x not in ('name','columns','action','join','access','proxy'),attrs.keys()):
+			setattr(self,'_'+ key,attrs[key])
+		
+		self._proxy = proxy
+		
+	def execute(self,cond):
+		pass
+
 class ReportInherit(object, metaclass = MetaReport):
 	_name = None
+
+class ReportProxy(object):
+	_methods = {}
+	
+	def __init__(self,session):
+		self._methods['call'] = session._call
+		self._methods['cr'] = session._cursor
+		self._methods['uid'] = session._uid
+		self._methods['get'] = session._getModel
+		self._methods['lib'] = session._getLib
+		self._methods['navigate'] = session._getNavigate
+	
+	def __getattr__(self,name):
+		if name in self._methods:
+			return self._methods[name]

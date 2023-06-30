@@ -141,13 +141,15 @@
   model: prj.units
   vtype: element-plus/list
 - cols:
-  - col: prj.units/category_id
+  - col: md.company/name
     seq: 0
-  - col: prj.units/code
+  - col: md.company/country
     seq: 10
-  - col: prj.units/descr
+  - col: md.company/currency
     seq: 20
-  model: prj.units
+  - col: md.company/note
+    seq: 30
+  model: md.company
   vtype: element-plus/m2mlist
 - cols:
   - col: prj.units/category_id

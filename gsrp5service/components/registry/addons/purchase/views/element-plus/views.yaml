@@ -159,15 +159,15 @@
   model: purchase.units
   vtype: element-plus/list
 - cols:
-  - col: purchase.units/category_id
+  - col: md.company/name
     seq: 0
-  - col: purchase.units/code
+  - col: md.company/country
     seq: 10
-  - col: purchase.units/descr
+  - col: md.company/currency
     seq: 20
-  - col: purchase.units/note
+  - col: md.company/note
     seq: 30
-  model: purchase.units
+  model: md.company
   vtype: element-plus/m2mlist
 - cols:
   - col: purchase.units/category_id

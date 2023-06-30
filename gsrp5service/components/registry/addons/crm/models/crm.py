@@ -531,17 +531,51 @@ class crm_offer_item_delivery_schedules(Model):
 		'quantity': 1.000
 	}
 
-#sales_invoce_item_delivery_schedules()
 ##########
-class crm_contracts(Model):
-	_name = 'crm.contracts'
-	_description = 'Crm Contracts'
+
+class crm_group_contracts(Model):
+	_name = 'crm.group.contracts'
+	_description = 'CRM Group Contracts'
 	_class_category = 'crm-contract'
+	_class_model = 'A'
 	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
 	_rec_name = 'fullname'
 	_date = 'doo'
 	_columns = {
-	'otype': fields.many2one(label='Type',obj='crm.contract.types',on_change='_on_change_otype'),
+	# 'otype': fields.many2one(label='Type',obj='crm.contract.types',on_change='_on_change_otype'),
+	'name': fields.varchar(label = 'Name'),
+	'company': fields.many2one(label='Company',obj='md.company'),
+	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True),
+	'market': fields.many2one(label='Market',obj='crm.markets'),
+	'team': fields.many2one(label='Team',obj='crm.teams'),
+	'category_id': fields.many2one(label='Category',obj='crm.contract.categories'),
+	'origin': fields.varchar(label = 'Origin'),
+	'manager': fields.many2one(label='Manager',obj='bc.users'),
+	'doo': fields.date(label='Date Of Order',required=True),
+	'from_date': fields.date(label='Begin Date Of Order',required=True),
+	'to_date': fields.date(label='End Date Of Order',required=True),
+	'partner': fields.many2one(label='Partner',obj='md.partner',domain=[('iscustomer',)]),
+	'currency': fields.many2one(label='Currency',obj='md.currency'),
+	'state': fields.selection(label='State',selections=[('draft','Draft'),('approved','Approved'),('inprocess','In Process'),('closed','Closed'),('canceled','Canceled')]),
+	'amount': fields.numeric(label='Amount',size=(15,2)),
+	'vat_amount': fields.numeric(label='VAT Amount',size=(15,2)),
+	'total_amount': fields.numeric(label='Total Amount',size=(15,2)),
+	'contracts': fields.one2many(label='Contracts',obj='crm.contracts',rel='grp_contract_id'),
+	'note': fields.text('Note')
+	}
+
+
+class crm_contracts(Model):
+	_name = 'crm.contracts'
+	_description = 'CRM Contracts'
+	_class_category = 'crm-contract'
+	_class_model = 'A'
+	_inherits = {'common.model':{'_methods':['_calculate_amount_costs']}}
+	_rec_name = 'fullname'
+	_date = 'doo'
+	_columns = {
+	'otype': fields.referenced(label='Type',obj='crm.contract.types',on_change='_on_change_otype'),
+	'grp_contract_id': fields.many2one(label='Type',obj='crm.group.contracts',rel='contracts'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
 	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True),

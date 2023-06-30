@@ -20,11 +20,65 @@
   model: hcm.employee.categories
   vtype: element-plus/list
 - cols:
-  - col: hcm.employee.categories/name
+  - col: hcm.employees/firstname
     seq: 0
-  - col: hcm.employee.categories/color
+  - col: hcm.employees/lastname
     seq: 10
-  model: hcm.employee.categories
+  - col: hcm.employees/middlename
+    seq: 20
+  - col: hcm.employees/birthday
+    seq: 30
+  - col: hcm.employees/fullname
+    seq: 40
+  - col: hcm.employees/user_id
+    seq: 50
+  - col: hcm.employees/active
+    seq: 60
+  - col: hcm.employees/address_home_id
+    seq: 70
+  - col: hcm.employees/is_address_home_a_company
+    seq: 80
+  - col: hcm.employees/country_id
+    seq: 90
+  - col: hcm.employees/gender
+    seq: 100
+  - col: hcm.employees/marital
+    seq: 110
+  - col: hcm.employees/ssnid
+    seq: 120
+  - col: hcm.employees/sinid
+    seq: 130
+  - col: hcm.employees/identification_id
+    seq: 140
+  - col: hcm.employees/passport_id
+    seq: 150
+  - col: hcm.employees/permit_no
+    seq: 160
+  - col: hcm.employees/visa_no
+    seq: 170
+  - col: hcm.employees/visa_expire
+    seq: 180
+  - col: hcm.employees/address_id
+    seq: 190
+  - col: hcm.employees/work_phone
+    seq: 200
+  - col: hcm.employees/mobile_phone
+    seq: 210
+  - col: hcm.employees/work_email
+    seq: 220
+  - col: hcm.employees/work_location
+    seq: 230
+  - col: hcm.employees/job_id
+    seq: 240
+  - col: hcm.employees/department_id
+    seq: 250
+  - col: hcm.employees/parent_id
+    seq: 260
+  - col: hcm.employees/coach_id
+    seq: 270
+  - col: hcm.employees/color
+    seq: 280
+  model: hcm.employees
   vtype: element-plus/m2mlist
 - cols:
   - col: hcm.employee.categories/name
@@ -638,65 +692,11 @@
   model: hcm.employees
   vtype: element-plus/list
 - cols:
-  - col: hcm.employees/firstname
+  - col: hcm.employee.categories/name
     seq: 0
-  - col: hcm.employees/lastname
+  - col: hcm.employee.categories/color
     seq: 10
-  - col: hcm.employees/middlename
-    seq: 20
-  - col: hcm.employees/birthday
-    seq: 30
-  - col: hcm.employees/fullname
-    seq: 40
-  - col: hcm.employees/user_id
-    seq: 50
-  - col: hcm.employees/active
-    seq: 60
-  - col: hcm.employees/address_home_id
-    seq: 70
-  - col: hcm.employees/is_address_home_a_company
-    seq: 80
-  - col: hcm.employees/country_id
-    seq: 90
-  - col: hcm.employees/gender
-    seq: 100
-  - col: hcm.employees/marital
-    seq: 110
-  - col: hcm.employees/ssnid
-    seq: 120
-  - col: hcm.employees/sinid
-    seq: 130
-  - col: hcm.employees/identification_id
-    seq: 140
-  - col: hcm.employees/passport_id
-    seq: 150
-  - col: hcm.employees/permit_no
-    seq: 160
-  - col: hcm.employees/visa_no
-    seq: 170
-  - col: hcm.employees/visa_expire
-    seq: 180
-  - col: hcm.employees/address_id
-    seq: 190
-  - col: hcm.employees/work_phone
-    seq: 200
-  - col: hcm.employees/mobile_phone
-    seq: 210
-  - col: hcm.employees/work_email
-    seq: 220
-  - col: hcm.employees/work_location
-    seq: 230
-  - col: hcm.employees/job_id
-    seq: 240
-  - col: hcm.employees/department_id
-    seq: 250
-  - col: hcm.employees/parent_id
-    seq: 260
-  - col: hcm.employees/coach_id
-    seq: 270
-  - col: hcm.employees/color
-    seq: 280
-  model: hcm.employees
+  model: hcm.employee.categories
   vtype: element-plus/m2mlist
 - cols:
   - col: hcm.employees/firstname

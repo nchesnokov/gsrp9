@@ -410,7 +410,10 @@ def _installModule(self,name,chunk,context):
 			if len(sqls) == 1:
 				self._cr.execute(sqls[0])
 			else:
-				self._cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
+				for s in sqls:
+					self._cr.execute(s)
+					#self._cr.commit()
+				#self._cr.execute(reduce(lambda x,y: x + ';' + y, sqls))
 
 			self._cr.commit()
 	
@@ -772,6 +775,12 @@ def _loadMetaModule(self,name,context):
 			m['module_id'] = module_id
 			#model_records.append(m)
 			self._session._models.get('bc.models').create(m,context)
+			obj_m = m.copy()
+			for r in obj_m:
+				obj_m['type_obj'] = 'model'
+				for c in r['columns']:
+					c['obj_type_name'] = 'model'
+			self._session._models.get('bc.objs').create(obj_m,context)
 		else:
 			im = _loadMetaInherit(self,model,name,context)
 			if len(im) > 0:
@@ -785,7 +794,7 @@ def _loadMetaModule(self,name,context):
 						icols[imcol['col']] = imcol['id']
 					
 				inherit = self._registry._create_module_object('models',model,name)._inherit
-				web_pdb.set_trace()
+				#web_pdb.set_trace()
 				if inherit:
 					imc_records = []
 					for mkey in inherit.keys():
@@ -799,7 +808,7 @@ def _loadMetaModule(self,name,context):
 									imc_record['col'] = icols[c]
 							if len(imc_record) > 0:
 								imc_records.append(imc_record)
-					web_pdb.set_trace()
+					#web_pdb.set_trace()
 					self._session._models.get('bc.model.inherit.inherits').create(imc_records,context)			
 	# if len(model_records) > 0:
 		# self._session._models.get('bc.models').create(model_records,context)

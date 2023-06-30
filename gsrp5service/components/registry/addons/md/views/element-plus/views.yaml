@@ -1458,9 +1458,19 @@
   model: md.country.group
   vtype: element-plus/list
 - cols:
-  - col: md.country.group/name
+  - col: md.country/category_id
     seq: 0
-  model: md.country.group
+  - col: md.country/name
+    seq: 10
+  - col: md.country/shortname
+    seq: 20
+  - col: md.country/code
+    seq: 30
+  - col: md.country/alpha2
+    seq: 40
+  - col: md.country/alpha3
+    seq: 50
+  model: md.country
   vtype: element-plus/m2mlist
 - cols:
   - col: md.country.group/name
@@ -1524,19 +1534,9 @@
   model: md.country
   vtype: element-plus/list
 - cols:
-  - col: md.country/category_id
+  - col: md.country.group/name
     seq: 0
-  - col: md.country/name
-    seq: 10
-  - col: md.country/shortname
-    seq: 20
-  - col: md.country/code
-    seq: 30
-  - col: md.country/alpha2
-    seq: 40
-  - col: md.country/alpha3
-    seq: 50
-  model: md.country
+  model: md.country.group
   vtype: element-plus/m2mlist
 - cols:
   - col: md.country/category_id
@@ -2290,18 +2290,20 @@
     seq: 0
   - col: md.partner.addresses/taddr
     seq: 10
-  - col: md.partner.addresses/state
+  - col: md.partner.addresses/country
     seq: 20
-  - col: md.partner.addresses/sity
+  - col: md.partner.addresses/state
     seq: 30
-  - col: md.partner.addresses/street
+  - col: md.partner.addresses/sity
     seq: 40
-  - col: md.partner.addresses/street2
+  - col: md.partner.addresses/street
     seq: 50
-  - col: md.partner.addresses/house
+  - col: md.partner.addresses/street2
     seq: 60
-  - col: md.partner.addresses/room
+  - col: md.partner.addresses/house
     seq: 70
+  - col: md.partner.addresses/room
+    seq: 80
   model: md.partner.addresses
   vtype: element-plus/find
 - cols:
@@ -2309,18 +2311,20 @@
     seq: 0
   - col: md.partner.addresses/taddr
     seq: 10
-  - col: md.partner.addresses/state
+  - col: md.partner.addresses/country
     seq: 20
-  - col: md.partner.addresses/sity
+  - col: md.partner.addresses/state
     seq: 30
-  - col: md.partner.addresses/street
+  - col: md.partner.addresses/sity
     seq: 40
-  - col: md.partner.addresses/street2
+  - col: md.partner.addresses/street
     seq: 50
-  - col: md.partner.addresses/house
+  - col: md.partner.addresses/street2
     seq: 60
-  - col: md.partner.addresses/room
+  - col: md.partner.addresses/house
     seq: 70
+  - col: md.partner.addresses/room
+    seq: 80
   model: md.partner.addresses
   vtype: element-plus/list
 - cols:
@@ -2328,18 +2332,20 @@
     seq: 0
   - col: md.partner.addresses/taddr
     seq: 10
-  - col: md.partner.addresses/state
+  - col: md.partner.addresses/country
     seq: 20
-  - col: md.partner.addresses/sity
+  - col: md.partner.addresses/state
     seq: 30
-  - col: md.partner.addresses/street
+  - col: md.partner.addresses/sity
     seq: 40
-  - col: md.partner.addresses/street2
+  - col: md.partner.addresses/street
     seq: 50
-  - col: md.partner.addresses/house
+  - col: md.partner.addresses/street2
     seq: 60
-  - col: md.partner.addresses/room
+  - col: md.partner.addresses/house
     seq: 70
+  - col: md.partner.addresses/room
+    seq: 80
   model: md.partner.addresses
   vtype: element-plus/form.modal
 - cols:
@@ -2347,18 +2353,20 @@
     seq: 0
   - col: md.partner.addresses/taddr
     seq: 10
-  - col: md.partner.addresses/state
+  - col: md.partner.addresses/country
     seq: 20
-  - col: md.partner.addresses/sity
+  - col: md.partner.addresses/state
     seq: 30
-  - col: md.partner.addresses/street
+  - col: md.partner.addresses/sity
     seq: 40
-  - col: md.partner.addresses/street2
+  - col: md.partner.addresses/street
     seq: 50
-  - col: md.partner.addresses/house
+  - col: md.partner.addresses/street2
     seq: 60
-  - col: md.partner.addresses/room
+  - col: md.partner.addresses/house
     seq: 70
+  - col: md.partner.addresses/room
+    seq: 80
   model: md.partner.addresses
   vtype: element-plus/form
 - cols:
@@ -2366,18 +2374,20 @@
     seq: 0
   - col: md.partner.addresses/taddr
     seq: 10
-  - col: md.partner.addresses/state
+  - col: md.partner.addresses/country
     seq: 20
-  - col: md.partner.addresses/sity
+  - col: md.partner.addresses/state
     seq: 30
-  - col: md.partner.addresses/street
+  - col: md.partner.addresses/sity
     seq: 40
-  - col: md.partner.addresses/street2
+  - col: md.partner.addresses/street
     seq: 50
-  - col: md.partner.addresses/house
+  - col: md.partner.addresses/street2
     seq: 60
-  - col: md.partner.addresses/room
+  - col: md.partner.addresses/house
     seq: 70
+  - col: md.partner.addresses/room
+    seq: 80
   model: md.partner.addresses
   vtype: element-plus/o2m-form
 - cols:
@@ -2385,18 +2395,20 @@
     seq: 0
   - col: md.partner.addresses/taddr
     seq: 10
-  - col: md.partner.addresses/state
+  - col: md.partner.addresses/country
     seq: 20
-  - col: md.partner.addresses/sity
+  - col: md.partner.addresses/state
     seq: 30
-  - col: md.partner.addresses/street
+  - col: md.partner.addresses/sity
     seq: 40
-  - col: md.partner.addresses/street2
+  - col: md.partner.addresses/street
     seq: 50
-  - col: md.partner.addresses/house
+  - col: md.partner.addresses/street2
     seq: 60
-  - col: md.partner.addresses/room
+  - col: md.partner.addresses/house
     seq: 70
+  - col: md.partner.addresses/room
+    seq: 80
   model: md.partner.addresses
   vtype: element-plus/o2m-list
 - cols:
