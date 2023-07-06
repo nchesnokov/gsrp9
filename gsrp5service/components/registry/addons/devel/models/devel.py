@@ -101,7 +101,7 @@ class devel_ui_model_view_column_inherits(Model):
 	_description = 'UI Model View Columns Inherit'
 	_class_object = 'K'
 	_columns = {
-	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',rel='inherit_cols',required=True),
+	'view_id': fields.many2one(label='Model View',obj='devel.ui.model.views',rel='inherit_cols',required=True),
 	#'col': fields.many2one(label='Column',obj='bc.model.columns')
 	'col': fields.varchar(label='Column', readonly = True)
 	}

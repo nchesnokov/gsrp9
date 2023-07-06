@@ -1321,6 +1321,27 @@
   aread: true
   awrite: true
   model: crm.offer.item.delivery.schedules
+- access_id: role.crm.models.crm.group.contracts.readonly
+  aread: true
+  model: crm.group.contracts
+- access_id: role.crm.models.crm.group.contracts.nodrop
+  acreate: true
+  aread: true
+  awrite: true
+  model: crm.group.contracts
+- access_id: role.crm.models.crm.group.contracts.full
+  acreate: true
+  aexecute: true
+  aread: true
+  aunlink: true
+  awrite: true
+  model: crm.group.contracts
+- access_id: role.crm.models.crm.group.contracts.crw
+  acreate: true
+  aexecute: true
+  aread: true
+  awrite: true
+  model: crm.group.contracts
 - access_id: role.crm.models.crm.contracts.readonly
   aread: true
   model: crm.contracts

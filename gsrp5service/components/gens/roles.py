@@ -70,40 +70,41 @@ def Area(self, modules = None, context={}):
 		path = registry._modules[module]['path']
 		models = []
 		if module in registry._metas:
-				for key in registry._metas[module]['models']:
-					model = registry._create_module_object('models',key,module)
+			for cat in filter(lambda x: x in ('models','reports','dashboards'),registry._metas[module].keys()):
+				for key in registry._metas[module][cat]:
+					model = registry._create_module_object(cat,key,module)
 					if isinstance(model,Model):
 						if hasattr(model,'_inherit') and not getattr(model,'_inherit',None):
 							models.append(model)
 
-		if len(models) > 0:
-			res_group = Group(module,'models')
-			#web_pdb.set_trace()
-			res_roles = Role(module,models,'models')
-			res_access = Access(module,models,'models')
-			if len(res_group) + len(res_roles) + len(res_access) > 0:
-				if not os.path.exists(opj(path,module,'views','roles')):
-					os.mkdir(opj(path,module,'views','roles'))
-				a = open(opj(path,module,'views','roles.csv'),'w')
-				aw = csv.DictWriter(a,['model','file'])
-				aw.writeheader()
-
-				if len(res_group) > 0:
-					with open(opj(path,module,'views','roles','bc.group.access'.replace('.','_') + '.yaml'),'w') as outfile:
-						yaml.dump(res_group, outfile, Dumper, default_flow_style=False)
-					aw.writerow({'model': 'bc.group.access','file':opj('views','roles','bc.group.access'.replace('.','_') + '.yaml' )})
-
-				if len(res_roles) > 0:
-					with open(opj(path,module,'views','roles','bc.access'.replace('.','_') + '.yaml'),'w') as outfile:
-						yaml.dump(res_roles, outfile, Dumper, default_flow_style=False)
-					aw.writerow({'model': 'bc.access','file':opj('views','roles','bc.access'.replace('.','_') + '.yaml' )})
-
-				if len(res_access) > 0:
-					with open(opj(path,module,'views','roles','bc.model.access'.replace('.','_') + '.yaml'),'w') as outfile:
-						yaml.dump(res_access, outfile, Dumper, default_flow_style=False)
-					aw.writerow({'model': 'bc.model.access','file':opj('views','roles','bc.model.access'.replace('.','_') + '.yaml' )})
-
-			logmodules.append(module)
+			if len(models) > 0:
+				res_group = Group(module,cat)
+				#web_pdb.set_trace()
+				res_roles = Role(module,models,cat)
+				res_access = Access(module,models,cat)
+				if len(res_group) + len(res_roles) + len(res_access) > 0:
+					if not os.path.exists(opj(path,module,'views','roles')):
+						os.mkdir(opj(path,module,'views','roles'))
+					a = open(opj(path,module,'views','roles.csv'),'w')
+					aw = csv.DictWriter(a,['model','file'])
+					aw.writeheader()
+	
+					if len(res_group) > 0:
+						with open(opj(path,module,'views','roles',('bc.group.' + cat + '.access').replace('.','_') + '.yaml'),'w') as outfile:
+							yaml.dump(res_group, outfile, Dumper, default_flow_style=False)
+						aw.writerow({'model': 'bc.group.obj.access','file':opj('views','roles',('bc.group.' + cat + '.access').replace('.','_') + '.yaml' )})
+	
+					if len(res_roles) > 0:
+						with open(opj(path,module,'views','roles',('bc.' + cat + '.access').replace('.','_') + '.yaml'),'w') as outfile:
+							yaml.dump(res_roles, outfile, Dumper, default_flow_style=False)
+						aw.writerow({'model': 'bc.obj.access','file':opj('views','roles',('bc.' + cat + '.access').replace('.','_') + '.yaml' )})
+	
+					if len(res_access) > 0:
+						with open(opj(path,module,'views','roles',('bc.' + cat + '.object.access').replace('.','_') + '.yaml'),'w') as outfile:
+							yaml.dump(res_access, outfile, Dumper, default_flow_style=False)
+						aw.writerow({'model': 'bc.obj.object.access','file':opj('views','roles',('bc.' + cat + '.object.access').replace('.','_') + '.yaml' )})
+	
+				logmodules.append(module)
 	log.append('Gen roles of modules %s' % (logmodules,))
 	_logger.info('Gen roles of modules %s' % (logmodules,))
 	return log

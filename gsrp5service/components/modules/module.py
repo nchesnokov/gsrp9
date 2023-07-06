@@ -120,8 +120,6 @@ def _load(self,able=None, modules = None, context = {'lang':'en','tz':'UTC'}):
 			self._registry._load_module(depend)
 			_loadFiles(self,depend,self._registry._modules[depend],metas,context)
 			self._cr.commit()
-			#if 'env' in metas:
-				#_load_env(self,depend)
 			
 			self._cr.commit()
 			_logger.info("Module: %s loaded:" % (depend,))
@@ -212,42 +210,6 @@ def _install(self,able=None, modules = None, context = {'lang':'en','tz':'UTC'})
 			_installModule(self,depend,_chunks[depend],context)
 			log.append([0,'module: <%s> successfull installed' % (depend,)])
 
-	
-		# for depend in depends:
-			# chunk = _chunks[depend]
-			# info = self._registry._modules[depend]
-			# metas ={}
-			# if 'example' in chunk:
-				# if 'data' in info['meta']:
-					# metas['data'] = info['meta']['data']
-				# if 'demo' in info['meta']:
-					# metas['demo'] = info['meta']['demo']
-			# else:
-				# if 'data' in chunk and 'data' in info['meta']:
-					# metas['data'] = info['meta']['data']
-				# if 'demo' in chunk and 'demo' in info['meta']:
-					# metas['demo'] = info['meta']['demo']
-
-			# _loadFiles(self,depend,self._registry._modules[depend],metas)
-			# self._cr.commit()
-			# log.append([0,'module: <%s> data successfull loaded' % (depend,)])
-
-		# dep_modules = set()
-		# for depend in depends:
-			# keys = list(self._registry._metas[depend]['models'].keys())
-			# for key in keys:
-				# if 'inherit' in self._registry._modules[depend]['class'][key]['attrs'] and ModelInherit in self._registry._modules[depend]['class'][key]['bases']:
-					# inherit = self._registry._modules[depend]['class'][key]['attrs']['inherit']
-					# for ikey in inherit.keys():
-						# m1 = self._registry._getLastModule(key)
-						# if m1:
-							# dep_modules.add(key)
-
-		# all_modules = list(filter(lambda x:x != 'bc',depends+list(dep_modules)))
-	
-		# for all_module in filter(lambda x: x in all_modules,[node.name for node in self._registry._graph]):
-			
-			# log.append([0,'module: <%s> successfull reloaded' % (all_module,)])
 	
 	return log
 
@@ -355,14 +317,6 @@ def _upgrade(self,able=None, modules = None):
 						m1 = self._registry._getLastModule(key)
 						if m1:
 							dep_modules.add(key)
-	
-		# self._registry._reload_modules(all_modules)
-	
-		# for all_module in filter(lambda x: x in all_modules,[node.name for node in self._registry._graph]):
-			# for mkey in self._registry. _getModuleModels(all_module).keys():
-				# self._session._models[mkey] = self._registry._create_module_object('models',mkey,self._registry._getLastModuleLoaded(mkey))
-			
-			# log.append([0,'module: <%s> successfull reloaded' % (all_module,)])
 	
 	return log
 
@@ -480,33 +434,19 @@ def _uninstallModule(self,name):
 	meta = self._registry._modules[name]['meta']
 	mom = self._registry._objs[name]['models']
 
-	# xmldatas = self._session._models.get('bc.model.data').select(['name','module','model','rec_id'],[('module','=',name)])
-	# xmlmodels = {}
-	# for xmldata in xmldatas:
-		# xmlmodels.setdefault(xmldata['model'],[]).append(xmldata['rec_id'])
-	
-	# for key in xmlmodels.keys():
-		# r = self._session._models.get(key).unlink(xmlmodels[key])
-		# _logger.info(" Unlink from model: %s records: %s" % (key,len(xmlmodels[key])))
-
-	# self._session._models.get('bc.model.data').unlink(list(map(lambda x: x['id'],xmldatas)))
-
-	# f = self._session._models.get('bc.module.files').delete([('module_id','=',name)])
-	# _logger.info(" Unlink module files: %s records: %s" % (name,len(f)))
-
-	mm = self._session._models.get('bc.models').select(['module_id','code','db_table',{'columns':['model_id']}],[('module_id','=',name)])
+	mm = self._session._models.get('bc.objs').select(['module_id','code','db_table',{'columns':['model_id']}],[('module_id','=',name)])
 	db_models = list(map(lambda x: x['code'],mm))
 	for m in mm:
-		self._session._models.get('bc.model.columns').unlink(list(map(lambda x: x['id'],m['columns']))) 
+		self._session._models.get('bc.obj.columns').unlink(list(map(lambda x: x['id'],m['columns']))) 
 	
-	self._session._models.get('bc.models').unlink(list(map(lambda x: x['id'],mm))) 
+	self._session._models.get('bc.objs').unlink(list(map(lambda x: x['id'],mm))) 
 
-	mmi = self._session._models.get('bc.model.inherits').select(['module_id',{'columns':['inherit_id']}],[('module_id','=',name)])
+	mmi = self._session._models.get('bc.obj.inherits').select(['module_id',{'columns':['inherit_id']}],[('module_id','=',name)])
 	for m in mmi:
-		self._session._models.get('bc.model.inherit.columns').unlink(list(map(lambda x: x['id'],m['columns']))) 
-		self._session._models.get('bc.model.inherit.inherits').unlink(list(map(lambda x: x['id'],m['columns']))) 
+		self._session._models.get('bc.obj.inherit.columns').unlink(list(map(lambda x: x['id'],m['columns']))) 
+		self._session._models.get('bc.obj.inherit.inherits').unlink(list(map(lambda x: x['id'],m['columns']))) 
 	
-	self._session._models.get('bc.model.inherits').unlink(list(map(lambda x: x['id'],mmi))) 
+	self._session._models.get('bc.obj.inherits').unlink(list(map(lambda x: x['id'],mmi))) 
 
 	
 	sqls = []
@@ -554,7 +494,7 @@ def _uninstallModule(self,name):
 		_logger.info("Tables dropped")
 
 
-	xmldatas = self._session._models.get('bc.model.data').select(['name','module','model','rec_id'],[('module','=',name)])
+	xmldatas = self._session._models.get('bc.obj.data').select(['name','module','model','rec_id'],[('module','=',name)])
 	xmlmodels = {}
 	for xmldata in xmldatas:
 		xmlmodels.setdefault(xmldata['model'],[]).append(xmldata['rec_id'])
@@ -563,7 +503,7 @@ def _uninstallModule(self,name):
 		r = self._session._models.get(key).unlink(xmlmodels[key])
 		_logger.info(" Unlink from model: %s records: %s" % (key,len(xmlmodels[key])))
 
-	self._session._models.get('bc.model.data').unlink(list(map(lambda x: x['id'],xmldatas)))
+	self._session._models.get('bc.obj.data').unlink(list(map(lambda x: x['id'],xmldatas)))
 
 	f = self._session._models.get('bc.module.files').delete([('module_id','=',name)])
 	_logger.info(" Unlink module files: %s records: %s" % (name,len(f)))
@@ -583,7 +523,7 @@ def _upgradeModule(self,name):
 	log = []
 	_logger.info(" Module: %s Upgrade" % (name,))
 
-	mm = self._session._models.get('bc.models').select(['module_id','name','db_table',{'columns':['model_id']}],[('module_id','=',name)])
+	mm = self._session._models.get('bc.objs').select(['module_id','name','db_table',{'columns':['model_id']}],[('module_id','=',name)])
 	db_models = list(map(lambda x: x['name'],mm))
 	db_tables = {}
 	for m in mm:
@@ -627,8 +567,8 @@ def _upgradeModule(self,name):
 		sqls.extend(genddl.getReferencedConstraints(self._session._models,model))
 	
 	models_to_upgrade = []
-	bc_columns = self._session._models.get('bc.model.columns').columnsInfo()
-	columns = list(self._session._models.get('bc.model.columns')._columns.keys())
+	bc_columns = self._session._models.get('bc.obj.columns').columnsInfo()
+	columns = list(self._session._models.get('bc.obj.columns')._columns.keys())
 	
 	cols_to_drop = {}
 	cols_to_create = {}
@@ -637,7 +577,7 @@ def _upgradeModule(self,name):
 	for model in models_to_check_upgrade:
 		if isinstance(self._session._models.get(model),ModelInherit):
 			continue
-		db_cols = self._session._models.get('bc.models').select([{'columns':columns}],[('name','=',model)])[0]['columns']
+		db_cols = self._session._models.get('bc.objs').select([{'columns':columns}],[('name','=',model)])[0]['columns']
 		model_cols = list(self._session._models.get(model)._columns.keys())
 		cd = list(filter(lambda x:x not in model_cols,db_cols))
 		if len(cd) > 0:
@@ -760,11 +700,6 @@ def _loadMetaModule(self,name,context):
 	models = list(self._registry._metas[name]['models'].keys())
 	columns = self._session._models.get('bc.modules').columnsInfo()
 	module_id = self._registry._modules[name]['db_id']
-	# file_records = _loadModuleFile(self._registry._modules[name]['path'],name)
-	# for file_record in file_records:
-		# file_record['module_id'] = module_id
-
-	# self._session._models.get('bc.module.files').create(file_records,{})
 
 	model_records = []
 	imodel_records = []
@@ -774,7 +709,7 @@ def _loadMetaModule(self,name,context):
 		if len(m) > 0:
 			m['module_id'] = module_id
 			#model_records.append(m)
-			self._session._models.get('bc.models').create(m,context)
+			self._session._models.get('bc.objs').create(m,context)
 			obj_m = m.copy()
 			for r in obj_m:
 				obj_m['type_obj'] = 'model'
@@ -786,9 +721,9 @@ def _loadMetaModule(self,name,context):
 			if len(im) > 0:
 				im['module_id'] = module_id
 				#imodel_records.append(im)
-				oid = self._session._models.get('bc.model.inherits').create(im,context)[0]
+				oid = self._session._models.get('bc.obj.inherits').create(im,context)[0]
 				icols = {}
-				imcols = self._session._models.get('bc.model.inherit.columns').select(fields=['inherit_id','col','moc'],cond=[('inherit_id','=',model)],context=context)
+				imcols = self._session._models.get('bc.obj.inherit.columns').select(fields=['inherit_id','col','moc'],cond=[('inherit_id','=',model)],context=context)
 				for imcol in imcols:
 					if imcol['moc']['type'] != 'iProperty':
 						icols[imcol['col']] = imcol['id']
@@ -798,30 +733,20 @@ def _loadMetaModule(self,name,context):
 				if inherit:
 					imc_records = []
 					for mkey in inherit.keys():
-						mid = self._session._models.get('bc.models').select(fields=[],cond=[('code','=',mkey)])[0]['id']
+						mid = self._session._models.get('bc.objs').select(fields=[],cond=[('code','=',mkey),('type_obj','=','models')])[0]['id']
+						tid = self._session._models.get('bc.type.objs').select(fields=[],cond=[('code','=','models')])[0]['id']
 						if '_columns' in inherit[mkey]:
 							imc_record = {}
 							for c in inherit[mkey]['_columns']:
 								if c in icols:
 									imc_record['inherit_id'] = oid
-									imc_record['model_id'] = mid
+									imc_record['type_obj'] = tid
+									imc_record['obj_id'] = mid
 									imc_record['col'] = icols[c]
 							if len(imc_record) > 0:
 								imc_records.append(imc_record)
 					#web_pdb.set_trace()
-					self._session._models.get('bc.model.inherit.inherits').create(imc_records,context)			
-	# if len(model_records) > 0:
-		# self._session._models.get('bc.models').create(model_records,context)
-
-	# if len(imodel_records) > 0:
-		# oids = self._session._models.get('bc.model.inherits').create(imodel_records,{})
-		# imodel_inherit_records = []
-
-		# for oid in oids:
-			# pass
-		# if len(imodel_inherit_records) > 0:
-			# self._session._models.get('bc.model.inherit.inherits').create(imodel_inherit_records,{})
-	
+					self._session._models.get('bc.obj.inherit.inherits').create(imc_records,context)			
 	
 	self._session._models.get('bc.modules').write({'id':module_id,'state':'I'},context)
 	self._registry._modules[name]['state'] = 'I'
@@ -861,14 +786,17 @@ def _loadMetaModel(self,model,module,context):
 	record = {}
 	info_class = self._registry._create_module_object('models',model,module)
 	
-	class_model = self._session._models.get('bc.class.models')
-	class_model_category = self._session._models.get('bc.class.model.categories')
+	class_model = self._session._models.get('bc.class.objs')
+	class_model_category = self._session._models.get('bc.class.obj.categories')
 	if not info_class or isinstance(info_class,ModelInherit):
 		return record
 	info_model = info_class.modelInfo()
 	columns = info_model['columns']
 	del info_model['columns']
 	
+	type_obj_name = 'models'
+	type_obj = self._session._models.get('bc.type.objs').search(cond=[('code','=',type_obj_name)])
+	record['type_obj'] = type_obj
 	record['code'] = info_model['name']
 	record['descr'] = info_model['description']
 	record['class_model'] = class_model.search([('code','=', info_model['class_model'])])[0]
@@ -905,18 +833,6 @@ def _loadMetaInherit(self,model,module,context):
 	for idx,col in enumerate(columns.keys()):
 		record.setdefault('columns',[]).append({'seq':idx * 10,'col':col,'moc':columns[col]})
 
-	# if info_model['inherit']:
-		# for mkey in info_model['inherit'].keys():
-			# info_class_inherit = self._session._models.get('bc.models')
-			# if '_columns' in info_model['inherit'][mkey]:
-				# for mcol in info_model['inherit'][mkey]['_columns']:
-					# #model_id = info_class_inherit.search([('code','=',mkey)])[0]
-					# model_id = info_class_inherit.select(fields=['code'],cond=[('code','=',mkey)])[0]
-					# model_id['name'] = model_id['code']
-					# del model_id['code']  
-					# record.setdefault('models',[]).append({'model_id':model_id,'col':mcol})
-		
-		
 	return record		
 
 def _loadMetaColumnInherit(self,model,module,context):
@@ -938,15 +854,11 @@ def _loadMetaColumnInherit(self,model,module,context):
 	record['descr'] = info_model['description']
 	record['momi'] = info_model
 	
-	# for idx,col in enumerate(columns.keys()):
-		# record.setdefault('columns',[]).append({'seq':idx * 10,'col':col,'moc':columns[col]})
-
 	if info_model['inherit']:
 		for mkey in info_model['inherit'].keys():
-			info_class_inherit = self._session._models.get('bc.models')
+			info_class_inherit = self._session._models.get('bc.objs')
 			if '_columns' in info_model['inherit'][mkey]:
 				for mcol in info_model['inherit'][mkey]['_columns']:
-					#model_id = info_class_inherit.search([('code','=',mkey)])[0]
 					model_id = info_class_inherit.select(fields=['code'],cond=[('code','=',mkey)])[0]
 					model_id['name'] = model_id['code']
 					del model_id['code']  
@@ -954,56 +866,6 @@ def _loadMetaColumnInherit(self,model,module,context):
 		
 		
 	return record		
-
-# def _loadMetaModelColumn(self,name,column):
-	# return {'moc': self.columnsInfo(columns=[name])}
-	# record = {}
-	# ref_fields = {'col_name':'name','col_check':'check','col_unique':'unique','col_default':'default','col_family':'family'}
-	# keys = self._session._models.get('bc.model.columns').modelInfo(['columns'])['columns'].keys()
-	# record['col_name'] = name
-	# record['col_type'] = column['type']
-	# for key in keys:
-		
-		# if key in column or key in ref_fields:
-			# if key in ref_fields:
-				# if ref_fields[key] in column:
-					# record[key] = column[ref_fields[key]]
-			# else:
-				# if key in ('context','domain','selections','relatedy'):
-					# record[key] = '%s ' % (column[key],)
-				# else:
-					# if key == 'size' and type(column[key]) == tuple:
-						# record[key] = column[key][0]
-						# record['precision'] = column[key][1]
-					# else:
-						# record[key] = column[key]
-	
-	# return record		
-
-# def _loadMetaInheritColumns(self,name,column):
-	# record = {}
-	# ref_fields = {'col_name':'name','col_check':'check','col_unique':'unique','col_default':'default','col_family':'family'}
-	# keys = self._session._models.get('bc.inherit.columns').modelInfo(['columns'])['columns'].keys()
-	# record['col_name'] = name
-	# record['col_type'] = column['type']
-	# for key in keys:
-		
-		# if key in column or key in ref_fields:
-			# if key in ref_fields:
-				# if ref_fields[key] in column:
-					# record[key] = column[ref_fields[key]]
-			# else:
-				# if key in ('context','filtering','domain','selections'):
-					# record[key] = '%s ' % (column[key],)
-				# else:
-					# if key == 'size' and type(column[key]) == tuple:
-						# record[key] = column[key][0]
-						# record['precision'] = column[key][1]
-					# else:
-						# record[key] = column[key]
-	
-	# return record		
-
 
 	
 def _loadMetaData(self,chunk,name,context):
@@ -1018,69 +880,6 @@ def _loadEnvModule(self,chunk,name,context):
 	if 'env' in chunk and 'env' in info['meta']:
 		metas['env'] = info['meta']['env']
 		_loadFiles(self,name,self._registry._modules[name],metas,context)
-
-
-# def _load_env_column(self,model,column):
-	# v = {}
-	# m = self._session._models.get(model)
-	# obj = self._session._models.get(m.columnsInfo([column],['obj'])[column]['obj'])
-	# recname = obj._getRecNameName()
-	# r = obj.select([recname],{})
-	# for k in r:
-		# v[k[recname]] = k['id']
-	
-	# return v
-
-# def _load_class_bc(self,name):
-	# bc_models = self._session._models.get('bc.models').select(['name','module_id'],[('module_id','=','bc'),[('name','=','bc.models')]],{})
-	# models = self._session._models.get('bc.models').select(['name','module_id'],[('module_id','=',name)],{})
-	# mt = {}
-	# bcm = self._session._models.get('bc.models')
-	# mod_records = []
-	# for model in models:
-		# m = self._session._models.get(model['name'])
-		# if isinstance(m,ModelInherit):
-			# continue
-		# if 'env-fields' in bcm._extra:
-			# envfields = bcm._extra['env-fields']
-			# for envfield in envfields:
-				# mt[envfield] = _load_env_column(self,bcm._name,envfield)
-
-			# mod_record = {'id':model['id']}
-			# for envfield in envfields:
-				# ef = getattr(m,'_' + envfield,None)
-				# if ef:
-					# mod_record[envfield] = mt[envfield][ef]
-			
-			# mod_records.append(mod_record)
-	
-	# bcm.write(mod_records,{})
-			
-# def _load_env(self,name):
-	# models = self._session._models.get('bc.models').select(['name','module_id'],[('module_id','=',name)],{})
-	# mt = {}
-	# for model in models:
-		# m = self._session._models.get(model['name'])
-		# if not m or isinstance(m,ModelInherit) or m._name == 'bc.models':
-			# continue
-		# if 'env-fields' in m._extra:
-			# envfields = m._extra['env-fields']
-			# for envfield in envfields:
-				# mt[envfield] = _load_env_column(self,m._name,envfield)
-
-			# r1 = m.select([m._getRecNameName()],{})
-			# mod_records = []
-			# for k1 in r1:
-				# mod_record = {'id':k1['id']}
-				# for envfield in envfields:
-					# ef = getattr(m,'_' + envfield,None)
-					# if ef:
-						# mod_record[envfield] = mt[envfield][ef]
-				# mod_records.append(mod_record)
-			
-			# m.write(mod_records,{})
-
-	# _load_class_bc(self,name)
 
 def _loadFiles(self,name,info,metas,context):
 	path = info['path']
@@ -1113,10 +912,10 @@ def _loadFiles(self,name,info,metas,context):
 						r = self._session._models.get('bc.langs').search([('code','=',lang)],context)
 						if len(r) > 0:
 							for model in res[lang].keys():
-								r1 = self._session._models.get('bc.models').search([('code','=',model)],context)
+								r1 = self._session._models.get('bc.objs').search([('code','=',model)],context)
 								if len(r1) > 0:
 									v = res[lang][model]
-									self._session._models.get('bc.model.translations').modify({'lang':r[0],'model':r1[0],'tr':json.dumps(v)},context)
+									self._session._models.get('bc.obj.translations').modify({'lang':r[0],'model':r1[0],'tr':json.dumps(v)},context)
 							
 						
 					_logger.info("Loaded  file: %s" % (opj(path,name,f),))
@@ -1227,7 +1026,8 @@ def _loadXMLFile(self,info,path,name,fl,context):
 			if event == 'start':
 				records = []
 				datarecords = []
-				model = el.attrib['model']
+				obj = el.attrib['model']
+
 				modelinfo = self._session._models.get(model).modelInfo()
 				columnsinfo = modelinfo['columns']
 				columns = list(columnsinfo.keys())
@@ -1241,7 +1041,7 @@ def _loadXMLFile(self,info,path,name,fl,context):
 				ids = self._session._models.get(model).create(records,context)
 				for i in range(len(ids)):
 					datarecords[i]['rec_id'] = ids[i]
-				self._session._models.get('bc.model.data').create(datarecords,context)
+				self._session._models.get('bc.obj.data').create(datarecords,context)
 		elif el.tag == 'record':
 			if event == 'start':
 				record = {}
@@ -1258,7 +1058,7 @@ def _loadXMLFile(self,info,path,name,fl,context):
 								if 'ref' in el.attrib:
 									ctx = context.copy()
 									ctx.update({'FETCH':'LIST'})
-									oid = self._session._models.get('bc.model.data').select(fields=['rec_id'],cond=[('name','=',el.attrib['ref'])],context = ctx,limit=1)[0]
+									oid = self._session._models.get('bc.obj.data').select(fields=['rec_id'],cond=[('name','=',el.attrib['ref'])],context = ctx,limit=1)[0]
 								else:
 									try:
 										ctx = context.copy()
@@ -1279,7 +1079,8 @@ def _loadXMLFile(self,info,path,name,fl,context):
 
 				datarecord['name'] = el.attrib['id']
 				datarecord['module'] = name
-				datarecord['model'] = model
+				#datarecord['type_obj'] = 'models'
+				datarecord['obj'] = model
 				datarecord['file_id'] = file_id
 				datarecord['date_init'] = datetime.utcnow()
 				

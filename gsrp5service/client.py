@@ -159,7 +159,7 @@ async def hello():
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','cm','crm','fa','hcm','ml','mm','mrp','purchase','sale','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm']}])
 				#msg = await _execute([ws, 'gens','tests',{'modules': ['crm','purchase','sale','le','cf','ai','cm','fa','hcm']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': None}])
-				#msg = await _execute([ws, 'gens','ui',{'modules': ['bc']}])
+				msg = await _execute([ws, 'gens','ui',{'modules': ['bc']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['common','crm']}])
 				#msg = await _execute([ws, 'gens','view',{'modules': ['trm','ehs','scm']}])
 				#msg = await _execute([ws, 'gens','menu',{'modules': ['trm','ehs','scm']}])
@@ -169,7 +169,7 @@ async def hello():
 				
 				#msg = await _execute([ws, 'modules','install',{'modules':['wkf_srm']}])
 				
-				#return
+				return
 				#msg = await _execute([ws, 'dropSlot',{'sid':'test001'}])
 				msg = await _execute([ws, 'dropSlot',{'sid':'test003'}])
 				#msg = await _execute([ws, 'slots','dropSlot',{'sid':'test003'}])
