@@ -17,22 +17,21 @@ _logger = logging.getLogger('listener.' + __name__)
 FRAMEWORKS = ('element-plus',)
 
 def FrameworkRecordAction(framework,model,action):
-	return {'framework_id':framework,'action_id': action,'view_id':concat([model,framework,'search'],'/')}
+	return {'type_obj':'models','framework_id':framework,'action_id': action,'view_id':concat([model,framework,'search'],'/')}
 
 
-def RecordAction(model):
-	return {'name': concat(['action',model,'search']),'model':model}
+def RecordAction(obj,cat='models'):
+	return {'type_obj':'models','name': concat([cat,'action',obj,'search']),'obj':obj}
 
 
 def RecordMenu(name,label,parent=None):
 	record = {'name':name,'label':label}
-	#if parent:
 	record['parent_id'] = parent
 	
 	return record
 
-def RecordMenuItem(idx,module,model,label,menu):
-	record = {'sequence':idx,'name': concat(['ui.menu',model,'search']),'label':label,'action_id':concat(['action',model,'search'])}
+def RecordMenuItem(idx,module,obj,label,menu,cat='models'):
+	record = {'sequence':idx,'name': concat([cat,'ui.menu',obj,'search']),'label':label,'action_id':concat([cat,'action',obj,'search'])}
 	if menu:
 		record['parent_id'] = menu
 	
@@ -109,12 +108,12 @@ def Area(self, modules = None, context={}):
 					if len(res_menu) > 0:
 						with open(opj(path,module,'views','menus',('ui.' + cat + '.menus').replace('.','_') + '.yaml'),'w') as outfile:
 							yaml.dump(res_menu, outfile, Dumper, default_flow_style=False)
-						aw.writerow({'model': 'bc.ui.obj.menus','file':opj('views','menus','ui.' + cat + '.menus'.replace('.','_') + '.yaml' )})
+						aw.writerow({'model': 'bc.ui.obj.menus','file':opj('views','menus',('ui.' + cat + '.menus').replace('.','_') + '.yaml' )})
 	
 					if len(res_framework_actions) > 0:
-						with open(opj(path,module,'views','menus','ui.framework.obj.actions'.replace('.','_') + '.yaml'),'w') as outfile:
+						with open(opj(path,module,'views','menus',('ui.framework.' + cat + '.actions').replace('.','_') + '.yaml'),'w') as outfile:
 							yaml.dump(res_framework_actions, outfile, Dumper, default_flow_style=False)
-						aw.writerow({'model': 'bc.ui.framework.obj.actions','file':opj('views','menus','ui.framework.obj.actions'.replace('.','_') + '.yaml' )})
+						aw.writerow({'model': 'bc.ui.framework.obj.actions','file':opj('views','menus',('ui.framework.' + cat + '.actions').replace('.','_') + '.yaml' )})
 	
 
 			logmodules.append(module)

@@ -7,7 +7,7 @@
     seq: 20
   obj: le.shipping.points
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.shipping.points/company_id
     seq: 0
@@ -17,19 +17,7 @@
     seq: 20
   obj: le.shipping.points
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: le.shipping.points/company_id
-    seq: 0
-  - col: le.shipping.points/ptype
-    seq: 10
-  - col: le.shipping.points/name
-    seq: 20
-  - col: le.shipping.points/places
-    seq: 30
-  obj: le.shipping.points
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: le.shipping.points/company_id
     seq: 0
@@ -39,11 +27,9 @@
     seq: 20
   - col: le.shipping.points/places
     seq: 30
-  - col: le.shipping.points/note
-    seq: 40
   obj: le.shipping.points
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.shipping.points/company_id
     seq: 0
@@ -57,7 +43,7 @@
     seq: 40
   obj: le.shipping.points
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.shipping.points/company_id
     seq: 0
@@ -71,7 +57,21 @@
     seq: 40
   obj: le.shipping.points
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.shipping.points/company_id
+    seq: 0
+  - col: le.shipping.points/ptype
+    seq: 10
+  - col: le.shipping.points/name
+    seq: 20
+  - col: le.shipping.points/places
+    seq: 30
+  - col: le.shipping.points/note
+    seq: 40
+  obj: le.shipping.points
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.shipping.points/company_id
     seq: 0
@@ -83,7 +83,7 @@
     seq: 30
   obj: le.shipping.points
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.loading.places/point_id
     seq: 0
@@ -91,7 +91,7 @@
     seq: 10
   obj: le.loading.places
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.loading.places/point_id
     seq: 0
@@ -99,7 +99,7 @@
     seq: 10
   obj: le.loading.places
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.loading.places/point_id
     seq: 0
@@ -107,17 +107,7 @@
     seq: 10
   obj: le.loading.places
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: le.loading.places/point_id
-    seq: 0
-  - col: le.loading.places/name
-    seq: 10
-  - col: le.loading.places/note
-    seq: 20
-  obj: le.loading.places
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.loading.places/point_id
     seq: 0
@@ -127,7 +117,7 @@
     seq: 20
   obj: le.loading.places
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.loading.places/point_id
     seq: 0
@@ -137,7 +127,17 @@
     seq: 20
   obj: le.loading.places
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.loading.places/point_id
+    seq: 0
+  - col: le.loading.places/name
+    seq: 10
+  - col: le.loading.places/note
+    seq: 20
+  obj: le.loading.places
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.loading.places/point_id
     seq: 0
@@ -145,7 +145,7 @@
     seq: 10
   obj: le.loading.places
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.md.group.freight.cargo/name
     seq: 0
@@ -153,7 +153,7 @@
     seq: 10
   obj: le.md.group.freight.cargo
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.md.group.freight.cargo/name
     seq: 0
@@ -161,7 +161,7 @@
     seq: 10
   obj: le.md.group.freight.cargo
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.md.group.freight.cargo/name
     seq: 0
@@ -169,7 +169,7 @@
     seq: 10
   obj: le.md.group.freight.cargo
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.md.group.freight.cargo/name
     seq: 0
@@ -179,7 +179,7 @@
     seq: 20
   obj: le.md.group.freight.cargo
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.md.group.freight.cargo/name
     seq: 0
@@ -189,7 +189,7 @@
     seq: 20
   obj: le.md.group.freight.cargo
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.delivery.texts/code
     seq: 0
@@ -197,7 +197,7 @@
     seq: 10
   obj: le.delivery.texts
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.delivery.texts/code
     seq: 0
@@ -205,7 +205,7 @@
     seq: 10
   obj: le.delivery.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.delivery.texts/code
     seq: 0
@@ -213,7 +213,7 @@
     seq: 10
   obj: le.delivery.texts
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.delivery.texts/code
     seq: 0
@@ -221,7 +221,7 @@
     seq: 10
   obj: le.delivery.texts
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.delivery.texts/code
     seq: 0
@@ -229,7 +229,7 @@
     seq: 10
   obj: le.delivery.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.delivery.schema.texts/usage
     seq: 0
@@ -239,7 +239,7 @@
     seq: 20
   obj: le.delivery.schema.texts
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.delivery.schema.texts/usage
     seq: 0
@@ -249,19 +249,7 @@
     seq: 20
   obj: le.delivery.schema.texts
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: le.delivery.schema.texts/usage
-    seq: 0
-  - col: le.delivery.schema.texts/code
-    seq: 10
-  - col: le.delivery.schema.texts/descr
-    seq: 20
-  - col: le.delivery.schema.texts/texts
-    seq: 30
-  obj: le.delivery.schema.texts
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: le.delivery.schema.texts/usage
     seq: 0
@@ -273,7 +261,7 @@
     seq: 30
   obj: le.delivery.schema.texts
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.delivery.schema.texts/usage
     seq: 0
@@ -285,7 +273,19 @@
     seq: 30
   obj: le.delivery.schema.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
+- cols:
+  - col: le.delivery.schema.texts/usage
+    seq: 0
+  - col: le.delivery.schema.texts/code
+    seq: 10
+  - col: le.delivery.schema.texts/descr
+    seq: 20
+  - col: le.delivery.schema.texts/texts
+    seq: 30
+  obj: le.delivery.schema.texts
+  type_obj: models
+  vtype: models/element-plus/form
 - cols:
   - col: le.delivery.schema.text.items/schema_id
     seq: 0
@@ -297,7 +297,7 @@
     seq: 30
   obj: le.delivery.schema.text.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.delivery.schema.text.items/schema_id
     seq: 0
@@ -309,7 +309,7 @@
     seq: 30
   obj: le.delivery.schema.text.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.delivery.schema.text.items/schema_id
     seq: 0
@@ -321,7 +321,7 @@
     seq: 30
   obj: le.delivery.schema.text.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.delivery.schema.text.items/schema_id
     seq: 0
@@ -333,7 +333,7 @@
     seq: 30
   obj: le.delivery.schema.text.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.delivery.schema.text.items/schema_id
     seq: 0
@@ -345,7 +345,7 @@
     seq: 30
   obj: le.delivery.schema.text.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.delivery.schema.text.items/schema_id
     seq: 0
@@ -357,7 +357,7 @@
     seq: 30
   obj: le.delivery.schema.text.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery.types/name
     seq: 0
@@ -369,7 +369,7 @@
     seq: 30
   obj: le.inbound.delivery.types
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.inbound.delivery.types/name
     seq: 0
@@ -381,7 +381,7 @@
     seq: 30
   obj: le.inbound.delivery.types
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery.types/name
     seq: 0
@@ -395,7 +395,7 @@
     seq: 40
   obj: le.inbound.delivery.types
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery.types/name
     seq: 0
@@ -411,7 +411,7 @@
     seq: 50
   obj: le.inbound.delivery.types
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery.types/name
     seq: 0
@@ -427,7 +427,7 @@
     seq: 50
   obj: le.inbound.delivery.types
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.inbound.delivery.types/name
     seq: 0
@@ -443,7 +443,7 @@
     seq: 50
   obj: le.inbound.delivery.types
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery.types/name
     seq: 0
@@ -457,7 +457,7 @@
     seq: 40
   obj: le.inbound.delivery.types
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery.type.roles/type_id
     seq: 0
@@ -465,7 +465,7 @@
     seq: 10
   obj: le.inbound.delivery.type.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery.type.roles/type_id
     seq: 0
@@ -473,17 +473,7 @@
     seq: 10
   obj: le.inbound.delivery.type.roles
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: le.inbound.delivery.type.roles/type_id
-    seq: 0
-  - col: le.inbound.delivery.type.roles/role_id
-    seq: 10
-  - col: le.inbound.delivery.type.roles/note
-    seq: 20
-  obj: le.inbound.delivery.type.roles
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery.type.roles/type_id
     seq: 0
@@ -493,7 +483,7 @@
     seq: 20
   obj: le.inbound.delivery.type.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery.type.roles/type_id
     seq: 0
@@ -503,7 +493,17 @@
     seq: 20
   obj: le.inbound.delivery.type.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.inbound.delivery.type.roles/type_id
+    seq: 0
+  - col: le.inbound.delivery.type.roles/role_id
+    seq: 10
+  - col: le.inbound.delivery.type.roles/note
+    seq: 20
+  obj: le.inbound.delivery.type.roles
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery.type.roles/type_id
     seq: 0
@@ -511,7 +511,7 @@
     seq: 10
   obj: le.inbound.delivery.type.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.outbound.delivery.types/name
     seq: 0
@@ -523,7 +523,7 @@
     seq: 30
   obj: le.outbound.delivery.types
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.outbound.delivery.types/name
     seq: 0
@@ -535,7 +535,7 @@
     seq: 30
   obj: le.outbound.delivery.types
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.outbound.delivery.types/name
     seq: 0
@@ -549,7 +549,7 @@
     seq: 40
   obj: le.outbound.delivery.types
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.outbound.delivery.types/name
     seq: 0
@@ -565,7 +565,7 @@
     seq: 50
   obj: le.outbound.delivery.types
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.outbound.delivery.types/name
     seq: 0
@@ -581,7 +581,7 @@
     seq: 50
   obj: le.outbound.delivery.types
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.outbound.delivery.types/name
     seq: 0
@@ -597,7 +597,7 @@
     seq: 50
   obj: le.outbound.delivery.types
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.outbound.delivery.types/name
     seq: 0
@@ -611,7 +611,7 @@
     seq: 40
   obj: le.outbound.delivery.types
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.outbound.delivery.type.roles/type_id
     seq: 0
@@ -619,7 +619,7 @@
     seq: 10
   obj: le.outbound.delivery.type.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.outbound.delivery.type.roles/type_id
     seq: 0
@@ -627,17 +627,7 @@
     seq: 10
   obj: le.outbound.delivery.type.roles
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: le.outbound.delivery.type.roles/type_id
-    seq: 0
-  - col: le.outbound.delivery.type.roles/role_id
-    seq: 10
-  - col: le.outbound.delivery.type.roles/note
-    seq: 20
-  obj: le.outbound.delivery.type.roles
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.outbound.delivery.type.roles/type_id
     seq: 0
@@ -647,7 +637,7 @@
     seq: 20
   obj: le.outbound.delivery.type.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.outbound.delivery.type.roles/type_id
     seq: 0
@@ -657,7 +647,17 @@
     seq: 20
   obj: le.outbound.delivery.type.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.outbound.delivery.type.roles/type_id
+    seq: 0
+  - col: le.outbound.delivery.type.roles/role_id
+    seq: 10
+  - col: le.outbound.delivery.type.roles/note
+    seq: 20
+  obj: le.outbound.delivery.type.roles
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.outbound.delivery.type.roles/type_id
     seq: 0
@@ -665,7 +665,7 @@
     seq: 10
   obj: le.outbound.delivery.type.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.internal.delivery.types/name
     seq: 0
@@ -677,7 +677,7 @@
     seq: 30
   obj: le.internal.delivery.types
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.internal.delivery.types/name
     seq: 0
@@ -689,7 +689,7 @@
     seq: 30
   obj: le.internal.delivery.types
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.internal.delivery.types/name
     seq: 0
@@ -703,7 +703,7 @@
     seq: 40
   obj: le.internal.delivery.types
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.internal.delivery.types/name
     seq: 0
@@ -719,7 +719,7 @@
     seq: 50
   obj: le.internal.delivery.types
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.internal.delivery.types/name
     seq: 0
@@ -735,7 +735,7 @@
     seq: 50
   obj: le.internal.delivery.types
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.internal.delivery.types/name
     seq: 0
@@ -751,7 +751,7 @@
     seq: 50
   obj: le.internal.delivery.types
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.internal.delivery.types/name
     seq: 0
@@ -765,7 +765,7 @@
     seq: 40
   obj: le.internal.delivery.types
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.internal.delivery.type.roles/type_id
     seq: 0
@@ -773,7 +773,7 @@
     seq: 10
   obj: le.internal.delivery.type.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.internal.delivery.type.roles/type_id
     seq: 0
@@ -781,17 +781,7 @@
     seq: 10
   obj: le.internal.delivery.type.roles
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: le.internal.delivery.type.roles/type_id
-    seq: 0
-  - col: le.internal.delivery.type.roles/role_id
-    seq: 10
-  - col: le.internal.delivery.type.roles/note
-    seq: 20
-  obj: le.internal.delivery.type.roles
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.internal.delivery.type.roles/type_id
     seq: 0
@@ -801,7 +791,7 @@
     seq: 20
   obj: le.internal.delivery.type.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.internal.delivery.type.roles/type_id
     seq: 0
@@ -811,7 +801,17 @@
     seq: 20
   obj: le.internal.delivery.type.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.internal.delivery.type.roles/type_id
+    seq: 0
+  - col: le.internal.delivery.type.roles/role_id
+    seq: 10
+  - col: le.internal.delivery.type.roles/note
+    seq: 20
+  obj: le.internal.delivery.type.roles
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.internal.delivery.type.roles/type_id
     seq: 0
@@ -819,7 +819,7 @@
     seq: 10
   obj: le.internal.delivery.type.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery.category/name
     seq: 0
@@ -827,7 +827,7 @@
     seq: 10
   obj: le.inbound.delivery.category
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.inbound.delivery.category/name
     seq: 0
@@ -835,7 +835,7 @@
     seq: 10
   obj: le.inbound.delivery.category
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery.category/name
     seq: 0
@@ -847,7 +847,7 @@
     seq: 30
   obj: le.inbound.delivery.category
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery.category/name
     seq: 0
@@ -861,7 +861,7 @@
     seq: 40
   obj: le.inbound.delivery.category
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery.category/name
     seq: 0
@@ -875,7 +875,7 @@
     seq: 40
   obj: le.inbound.delivery.category
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.inbound.delivery.category/name
     seq: 0
@@ -889,7 +889,7 @@
     seq: 40
   obj: le.inbound.delivery.category
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery.category/name
     seq: 0
@@ -897,7 +897,7 @@
     seq: 10
   obj: le.inbound.delivery.category
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: le.inbound.delivery.category/name
     seq: 0
@@ -905,7 +905,7 @@
     seq: 10
   obj: le.inbound.delivery.category
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: le.inbound.delivery.category/name
     seq: 0
@@ -917,7 +917,7 @@
     seq: 30
   obj: le.inbound.delivery.category
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.outbound.delivery.category/name
     seq: 0
@@ -925,7 +925,7 @@
     seq: 10
   obj: le.outbound.delivery.category
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.outbound.delivery.category/name
     seq: 0
@@ -933,19 +933,7 @@
     seq: 10
   obj: le.outbound.delivery.category
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: le.outbound.delivery.category/name
-    seq: 0
-  - col: le.outbound.delivery.category/parent_id
-    seq: 10
-  - col: le.outbound.delivery.category/childs_id
-    seq: 20
-  - col: le.outbound.delivery.category/deliveries
-    seq: 30
-  obj: le.outbound.delivery.category
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: le.outbound.delivery.category/name
     seq: 0
@@ -955,11 +943,9 @@
     seq: 20
   - col: le.outbound.delivery.category/deliveries
     seq: 30
-  - col: le.outbound.delivery.category/note
-    seq: 40
   obj: le.outbound.delivery.category
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.outbound.delivery.category/name
     seq: 0
@@ -973,7 +959,7 @@
     seq: 40
   obj: le.outbound.delivery.category
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.outbound.delivery.category/name
     seq: 0
@@ -987,7 +973,21 @@
     seq: 40
   obj: le.outbound.delivery.category
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.outbound.delivery.category/name
+    seq: 0
+  - col: le.outbound.delivery.category/parent_id
+    seq: 10
+  - col: le.outbound.delivery.category/childs_id
+    seq: 20
+  - col: le.outbound.delivery.category/deliveries
+    seq: 30
+  - col: le.outbound.delivery.category/note
+    seq: 40
+  obj: le.outbound.delivery.category
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.outbound.delivery.category/name
     seq: 0
@@ -995,7 +995,7 @@
     seq: 10
   obj: le.outbound.delivery.category
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: le.outbound.delivery.category/name
     seq: 0
@@ -1003,7 +1003,7 @@
     seq: 10
   obj: le.outbound.delivery.category
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: le.outbound.delivery.category/name
     seq: 0
@@ -1015,7 +1015,7 @@
     seq: 30
   obj: le.outbound.delivery.category
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.internal.delivery.category/name
     seq: 0
@@ -1023,7 +1023,7 @@
     seq: 10
   obj: le.internal.delivery.category
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.internal.delivery.category/name
     seq: 0
@@ -1031,19 +1031,7 @@
     seq: 10
   obj: le.internal.delivery.category
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: le.internal.delivery.category/name
-    seq: 0
-  - col: le.internal.delivery.category/parent_id
-    seq: 10
-  - col: le.internal.delivery.category/childs_id
-    seq: 20
-  - col: le.internal.delivery.category/deliveries
-    seq: 30
-  obj: le.internal.delivery.category
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: le.internal.delivery.category/name
     seq: 0
@@ -1053,11 +1041,9 @@
     seq: 20
   - col: le.internal.delivery.category/deliveries
     seq: 30
-  - col: le.internal.delivery.category/note
-    seq: 40
   obj: le.internal.delivery.category
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.internal.delivery.category/name
     seq: 0
@@ -1071,7 +1057,7 @@
     seq: 40
   obj: le.internal.delivery.category
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.internal.delivery.category/name
     seq: 0
@@ -1085,7 +1071,21 @@
     seq: 40
   obj: le.internal.delivery.category
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.internal.delivery.category/name
+    seq: 0
+  - col: le.internal.delivery.category/parent_id
+    seq: 10
+  - col: le.internal.delivery.category/childs_id
+    seq: 20
+  - col: le.internal.delivery.category/deliveries
+    seq: 30
+  - col: le.internal.delivery.category/note
+    seq: 40
+  obj: le.internal.delivery.category
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.internal.delivery.category/name
     seq: 0
@@ -1093,7 +1093,7 @@
     seq: 10
   obj: le.internal.delivery.category
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: le.internal.delivery.category/name
     seq: 0
@@ -1101,7 +1101,7 @@
     seq: 10
   obj: le.internal.delivery.category
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: le.internal.delivery.category/name
     seq: 0
@@ -1113,7 +1113,7 @@
     seq: 30
   obj: le.internal.delivery.category
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.pricing.group.levels/code
     seq: 0
@@ -1121,7 +1121,7 @@
     seq: 10
   obj: le.pricing.group.levels
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.pricing.group.levels/code
     seq: 0
@@ -1129,7 +1129,7 @@
     seq: 10
   obj: le.pricing.group.levels
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.pricing.group.levels/code
     seq: 0
@@ -1137,7 +1137,7 @@
     seq: 10
   obj: le.pricing.group.levels
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.pricing.group.levels/code
     seq: 0
@@ -1145,7 +1145,7 @@
     seq: 10
   obj: le.pricing.group.levels
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.pricing.group.levels/code
     seq: 0
@@ -1153,7 +1153,7 @@
     seq: 10
   obj: le.pricing.group.levels
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: md.pack.product/product_id
     seq: 0
@@ -1171,7 +1171,7 @@
     seq: 60
   obj: md.pack.product
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: md.pack.product/product_id
     seq: 0
@@ -1189,7 +1189,7 @@
     seq: 60
   obj: md.pack.product
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: md.pack.product/product_id
     seq: 0
@@ -1209,7 +1209,7 @@
     seq: 70
   obj: md.pack.product
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: md.pack.product/product_id
     seq: 0
@@ -1229,7 +1229,7 @@
     seq: 70
   obj: md.pack.product
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: md.pack.product/product_id
     seq: 0
@@ -1249,7 +1249,7 @@
     seq: 70
   obj: md.pack.product
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: md.pack.product/product_id
     seq: 0
@@ -1267,7 +1267,7 @@
     seq: 60
   obj: md.pack.product
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1303,7 +1303,7 @@
     seq: 150
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1339,7 +1339,7 @@
     seq: 150
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1381,7 +1381,7 @@
     seq: 180
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1425,7 +1425,7 @@
     seq: 190
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1469,7 +1469,7 @@
     seq: 190
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1513,7 +1513,7 @@
     seq: 190
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1549,7 +1549,7 @@
     seq: 150
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/calendar
+  vtype: models/element-plus/calendar
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1585,7 +1585,7 @@
     seq: 150
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/o2m-calendar
+  vtype: models/element-plus/o2m-calendar
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1621,7 +1621,7 @@
     seq: 150
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/graph
+  vtype: models/element-plus/graph
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1657,45 +1657,7 @@
     seq: 150
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/o2m-graph
-- cols:
-  - col: le.inbound.delivery/dtype
-    seq: 0
-  - col: le.inbound.delivery/company_id
-    seq: 10
-  - col: le.inbound.delivery/point_id
-    seq: 20
-  - col: le.inbound.delivery/place_id
-    seq: 30
-  - col: le.inbound.delivery/category_id
-    seq: 40
-  - col: le.inbound.delivery/name
-    seq: 50
-  - col: le.inbound.delivery/origin
-    seq: 60
-  - col: le.inbound.delivery/dod
-    seq: 70
-  - col: le.inbound.delivery/partner
-    seq: 80
-  - col: le.inbound.delivery/currency
-    seq: 90
-  - col: le.inbound.delivery/incoterms1
-    seq: 100
-  - col: le.inbound.delivery/incoterms2
-    seq: 110
-  - col: le.inbound.delivery/state
-    seq: 120
-  - col: le.inbound.delivery/amount
-    seq: 130
-  - col: le.inbound.delivery/vat_amount
-    seq: 140
-  - col: le.inbound.delivery/total_amount
-    seq: 150
-  - col: le.inbound.delivery/note
-    seq: 160
-  obj: le.inbound.delivery
-  type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-graph
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1733,7 +1695,45 @@
     seq: 160
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: le.inbound.delivery/dtype
+    seq: 0
+  - col: le.inbound.delivery/company_id
+    seq: 10
+  - col: le.inbound.delivery/point_id
+    seq: 20
+  - col: le.inbound.delivery/place_id
+    seq: 30
+  - col: le.inbound.delivery/category_id
+    seq: 40
+  - col: le.inbound.delivery/name
+    seq: 50
+  - col: le.inbound.delivery/origin
+    seq: 60
+  - col: le.inbound.delivery/dod
+    seq: 70
+  - col: le.inbound.delivery/partner
+    seq: 80
+  - col: le.inbound.delivery/currency
+    seq: 90
+  - col: le.inbound.delivery/incoterms1
+    seq: 100
+  - col: le.inbound.delivery/incoterms2
+    seq: 110
+  - col: le.inbound.delivery/state
+    seq: 120
+  - col: le.inbound.delivery/amount
+    seq: 130
+  - col: le.inbound.delivery/vat_amount
+    seq: 140
+  - col: le.inbound.delivery/total_amount
+    seq: 150
+  - col: le.inbound.delivery/note
+    seq: 160
+  obj: le.inbound.delivery
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1769,7 +1769,7 @@
     seq: 150
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/mdx
+  vtype: models/element-plus/mdx
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1805,7 +1805,7 @@
     seq: 150
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/o2m-mdx
+  vtype: models/element-plus/o2m-mdx
 - cols:
   - col: le.inbound.delivery/dtype
     seq: 0
@@ -1847,7 +1847,7 @@
     seq: 180
   obj: le.inbound.delivery
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery.texts/delivery_id
     seq: 0
@@ -1859,7 +1859,7 @@
     seq: 30
   obj: le.inbound.delivery.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery.texts/delivery_id
     seq: 0
@@ -1871,21 +1871,7 @@
     seq: 30
   obj: le.inbound.delivery.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: le.inbound.delivery.texts/delivery_id
-    seq: 0
-  - col: le.inbound.delivery.texts/seq
-    seq: 10
-  - col: le.inbound.delivery.texts/text_id
-    seq: 20
-  - col: le.inbound.delivery.texts/descr
-    seq: 30
-  - col: le.inbound.delivery.texts/content
-    seq: 40
-  obj: le.inbound.delivery.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery.texts/delivery_id
     seq: 0
@@ -1899,7 +1885,7 @@
     seq: 40
   obj: le.inbound.delivery.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery.texts/delivery_id
     seq: 0
@@ -1913,7 +1899,21 @@
     seq: 40
   obj: le.inbound.delivery.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.inbound.delivery.texts/delivery_id
+    seq: 0
+  - col: le.inbound.delivery.texts/seq
+    seq: 10
+  - col: le.inbound.delivery.texts/text_id
+    seq: 20
+  - col: le.inbound.delivery.texts/descr
+    seq: 30
+  - col: le.inbound.delivery.texts/content
+    seq: 40
+  obj: le.inbound.delivery.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery.texts/delivery_id
     seq: 0
@@ -1925,7 +1925,7 @@
     seq: 30
   obj: le.inbound.delivery.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery.roles/delivery_id
     seq: 0
@@ -1935,7 +1935,7 @@
     seq: 20
   obj: le.inbound.delivery.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery.roles/delivery_id
     seq: 0
@@ -1945,7 +1945,7 @@
     seq: 20
   obj: le.inbound.delivery.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery.roles/delivery_id
     seq: 0
@@ -1955,7 +1955,7 @@
     seq: 20
   obj: le.inbound.delivery.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery.roles/delivery_id
     seq: 0
@@ -1965,7 +1965,7 @@
     seq: 20
   obj: le.inbound.delivery.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.inbound.delivery.roles/delivery_id
     seq: 0
@@ -1975,7 +1975,7 @@
     seq: 20
   obj: le.inbound.delivery.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery.roles/delivery_id
     seq: 0
@@ -1985,7 +1985,7 @@
     seq: 20
   obj: le.inbound.delivery.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery.pricing/delivery_id
     seq: 0
@@ -2005,7 +2005,7 @@
     seq: 70
   obj: le.inbound.delivery.pricing
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery.pricing/delivery_id
     seq: 0
@@ -2025,7 +2025,7 @@
     seq: 70
   obj: le.inbound.delivery.pricing
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery.pricing/delivery_id
     seq: 0
@@ -2045,7 +2045,7 @@
     seq: 70
   obj: le.inbound.delivery.pricing
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery.pricing/delivery_id
     seq: 0
@@ -2065,7 +2065,7 @@
     seq: 70
   obj: le.inbound.delivery.pricing
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.inbound.delivery.pricing/delivery_id
     seq: 0
@@ -2085,7 +2085,7 @@
     seq: 70
   obj: le.inbound.delivery.pricing
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery.pricing/delivery_id
     seq: 0
@@ -2105,7 +2105,7 @@
     seq: 70
   obj: le.inbound.delivery.pricing
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery.payment.schedules/delivery_id
     seq: 0
@@ -2117,7 +2117,7 @@
     seq: 30
   obj: le.inbound.delivery.payment.schedules
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery.payment.schedules/delivery_id
     seq: 0
@@ -2129,21 +2129,7 @@
     seq: 30
   obj: le.inbound.delivery.payment.schedules
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: le.inbound.delivery.payment.schedules/delivery_id
-    seq: 0
-  - col: le.inbound.delivery.payment.schedules/amount
-    seq: 10
-  - col: le.inbound.delivery.payment.schedules/currency
-    seq: 20
-  - col: le.inbound.delivery.payment.schedules/schedule
-    seq: 30
-  - col: le.inbound.delivery.payment.schedules/note
-    seq: 40
-  obj: le.inbound.delivery.payment.schedules
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery.payment.schedules/delivery_id
     seq: 0
@@ -2157,7 +2143,7 @@
     seq: 40
   obj: le.inbound.delivery.payment.schedules
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery.payment.schedules/delivery_id
     seq: 0
@@ -2171,7 +2157,21 @@
     seq: 40
   obj: le.inbound.delivery.payment.schedules
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.inbound.delivery.payment.schedules/delivery_id
+    seq: 0
+  - col: le.inbound.delivery.payment.schedules/amount
+    seq: 10
+  - col: le.inbound.delivery.payment.schedules/currency
+    seq: 20
+  - col: le.inbound.delivery.payment.schedules/schedule
+    seq: 30
+  - col: le.inbound.delivery.payment.schedules/note
+    seq: 40
+  obj: le.inbound.delivery.payment.schedules
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery.payment.schedules/delivery_id
     seq: 0
@@ -2183,7 +2183,7 @@
     seq: 30
   obj: le.inbound.delivery.payment.schedules
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery.items/delivery_id
     seq: 0
@@ -2213,7 +2213,7 @@
     seq: 120
   obj: le.inbound.delivery.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery.items/delivery_id
     seq: 0
@@ -2247,7 +2247,7 @@
     seq: 140
   obj: le.inbound.delivery.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery.items/delivery_id
     seq: 0
@@ -2283,7 +2283,7 @@
     seq: 150
   obj: le.inbound.delivery.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery.items/delivery_id
     seq: 0
@@ -2319,7 +2319,7 @@
     seq: 150
   obj: le.inbound.delivery.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.inbound.delivery.items/delivery_id
     seq: 0
@@ -2355,7 +2355,7 @@
     seq: 150
   obj: le.inbound.delivery.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery.items/delivery_id
     seq: 0
@@ -2389,7 +2389,7 @@
     seq: 140
   obj: le.inbound.delivery.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery.output.plates/delivery_id
     seq: 0
@@ -2409,7 +2409,7 @@
     seq: 70
   obj: le.inbound.delivery.output.plates
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery.output.plates/delivery_id
     seq: 0
@@ -2429,29 +2429,7 @@
     seq: 70
   obj: le.inbound.delivery.output.plates
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: le.inbound.delivery.output.plates/delivery_id
-    seq: 0
-  - col: le.inbound.delivery.output.plates/state
-    seq: 10
-  - col: le.inbound.delivery.output.plates/otype
-    seq: 20
-  - col: le.inbound.delivery.output.plates/partner
-    seq: 30
-  - col: le.inbound.delivery.output.plates/role
-    seq: 40
-  - col: le.inbound.delivery.output.plates/language
-    seq: 50
-  - col: le.inbound.delivery.output.plates/msm
-    seq: 60
-  - col: le.inbound.delivery.output.plates/schedule
-    seq: 70
-  - col: le.inbound.delivery.output.plates/note
-    seq: 80
-  obj: le.inbound.delivery.output.plates
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery.output.plates/delivery_id
     seq: 0
@@ -2473,7 +2451,7 @@
     seq: 80
   obj: le.inbound.delivery.output.plates
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery.output.plates/delivery_id
     seq: 0
@@ -2495,7 +2473,7 @@
     seq: 80
   obj: le.inbound.delivery.output.plates
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
 - cols:
   - col: le.inbound.delivery.output.plates/delivery_id
     seq: 0
@@ -2517,7 +2495,7 @@
     seq: 80
   obj: le.inbound.delivery.output.plates
   type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery.output.plates/delivery_id
     seq: 0
@@ -2539,7 +2517,29 @@
     seq: 80
   obj: le.inbound.delivery.output.plates
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: le.inbound.delivery.output.plates/delivery_id
+    seq: 0
+  - col: le.inbound.delivery.output.plates/state
+    seq: 10
+  - col: le.inbound.delivery.output.plates/otype
+    seq: 20
+  - col: le.inbound.delivery.output.plates/partner
+    seq: 30
+  - col: le.inbound.delivery.output.plates/role
+    seq: 40
+  - col: le.inbound.delivery.output.plates/language
+    seq: 50
+  - col: le.inbound.delivery.output.plates/msm
+    seq: 60
+  - col: le.inbound.delivery.output.plates/schedule
+    seq: 70
+  - col: le.inbound.delivery.output.plates/note
+    seq: 80
+  obj: le.inbound.delivery.output.plates
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: le.inbound.delivery.output.plates/delivery_id
     seq: 0
@@ -2559,7 +2559,7 @@
     seq: 70
   obj: le.inbound.delivery.output.plates
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery.item.texts/item_id
     seq: 0
@@ -2571,7 +2571,7 @@
     seq: 30
   obj: le.inbound.delivery.item.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery.item.texts/item_id
     seq: 0
@@ -2583,7 +2583,7 @@
     seq: 30
   obj: le.inbound.delivery.item.texts
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery.item.texts/item_id
     seq: 0
@@ -2597,7 +2597,7 @@
     seq: 40
   obj: le.inbound.delivery.item.texts
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery.item.texts/item_id
     seq: 0
@@ -2611,7 +2611,7 @@
     seq: 40
   obj: le.inbound.delivery.item.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.inbound.delivery.item.texts/item_id
     seq: 0
@@ -2625,7 +2625,7 @@
     seq: 40
   obj: le.inbound.delivery.item.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery.item.texts/item_id
     seq: 0
@@ -2637,7 +2637,7 @@
     seq: 30
   obj: le.inbound.delivery.item.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery.item.output.plates/item_id
     seq: 0
@@ -2657,7 +2657,7 @@
     seq: 70
   obj: le.inbound.delivery.item.output.plates
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery.item.output.plates/item_id
     seq: 0
@@ -2677,29 +2677,7 @@
     seq: 70
   obj: le.inbound.delivery.item.output.plates
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: le.inbound.delivery.item.output.plates/item_id
-    seq: 0
-  - col: le.inbound.delivery.item.output.plates/state
-    seq: 10
-  - col: le.inbound.delivery.item.output.plates/otype
-    seq: 20
-  - col: le.inbound.delivery.item.output.plates/partner
-    seq: 30
-  - col: le.inbound.delivery.item.output.plates/role
-    seq: 40
-  - col: le.inbound.delivery.item.output.plates/language
-    seq: 50
-  - col: le.inbound.delivery.item.output.plates/msm
-    seq: 60
-  - col: le.inbound.delivery.item.output.plates/schedule
-    seq: 70
-  - col: le.inbound.delivery.item.output.plates/note
-    seq: 80
-  obj: le.inbound.delivery.item.output.plates
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery.item.output.plates/item_id
     seq: 0
@@ -2721,7 +2699,7 @@
     seq: 80
   obj: le.inbound.delivery.item.output.plates
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery.item.output.plates/item_id
     seq: 0
@@ -2743,7 +2721,7 @@
     seq: 80
   obj: le.inbound.delivery.item.output.plates
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
 - cols:
   - col: le.inbound.delivery.item.output.plates/item_id
     seq: 0
@@ -2765,7 +2743,7 @@
     seq: 80
   obj: le.inbound.delivery.item.output.plates
   type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery.item.output.plates/item_id
     seq: 0
@@ -2787,7 +2765,29 @@
     seq: 80
   obj: le.inbound.delivery.item.output.plates
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: le.inbound.delivery.item.output.plates/item_id
+    seq: 0
+  - col: le.inbound.delivery.item.output.plates/state
+    seq: 10
+  - col: le.inbound.delivery.item.output.plates/otype
+    seq: 20
+  - col: le.inbound.delivery.item.output.plates/partner
+    seq: 30
+  - col: le.inbound.delivery.item.output.plates/role
+    seq: 40
+  - col: le.inbound.delivery.item.output.plates/language
+    seq: 50
+  - col: le.inbound.delivery.item.output.plates/msm
+    seq: 60
+  - col: le.inbound.delivery.item.output.plates/schedule
+    seq: 70
+  - col: le.inbound.delivery.item.output.plates/note
+    seq: 80
+  obj: le.inbound.delivery.item.output.plates
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: le.inbound.delivery.item.output.plates/item_id
     seq: 0
@@ -2807,7 +2807,7 @@
     seq: 70
   obj: le.inbound.delivery.item.output.plates
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.inbound.delivery.packlist/item_id
     seq: 0
@@ -2835,7 +2835,7 @@
     seq: 110
   obj: le.inbound.delivery.packlist
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.inbound.delivery.packlist/item_id
     seq: 0
@@ -2863,7 +2863,7 @@
     seq: 110
   obj: le.inbound.delivery.packlist
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.inbound.delivery.packlist/item_id
     seq: 0
@@ -2893,7 +2893,7 @@
     seq: 120
   obj: le.inbound.delivery.packlist
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.inbound.delivery.packlist/item_id
     seq: 0
@@ -2923,7 +2923,7 @@
     seq: 120
   obj: le.inbound.delivery.packlist
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.inbound.delivery.packlist/item_id
     seq: 0
@@ -2953,7 +2953,7 @@
     seq: 120
   obj: le.inbound.delivery.packlist
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.inbound.delivery.packlist/item_id
     seq: 0
@@ -2981,7 +2981,7 @@
     seq: 110
   obj: le.inbound.delivery.packlist
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3017,7 +3017,7 @@
     seq: 150
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3053,7 +3053,7 @@
     seq: 150
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3095,7 +3095,7 @@
     seq: 180
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3139,7 +3139,7 @@
     seq: 190
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3183,7 +3183,7 @@
     seq: 190
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3227,7 +3227,7 @@
     seq: 190
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3263,7 +3263,7 @@
     seq: 150
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/calendar
+  vtype: models/element-plus/calendar
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3299,7 +3299,7 @@
     seq: 150
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/o2m-calendar
+  vtype: models/element-plus/o2m-calendar
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3335,7 +3335,7 @@
     seq: 150
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/graph
+  vtype: models/element-plus/graph
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3371,45 +3371,7 @@
     seq: 150
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/o2m-graph
-- cols:
-  - col: le.outbound.delivery/dtype
-    seq: 0
-  - col: le.outbound.delivery/company_id
-    seq: 10
-  - col: le.outbound.delivery/point_id
-    seq: 20
-  - col: le.outbound.delivery/place_id
-    seq: 30
-  - col: le.outbound.delivery/category_id
-    seq: 40
-  - col: le.outbound.delivery/name
-    seq: 50
-  - col: le.outbound.delivery/origin
-    seq: 60
-  - col: le.outbound.delivery/dod
-    seq: 70
-  - col: le.outbound.delivery/partner
-    seq: 80
-  - col: le.outbound.delivery/currency
-    seq: 90
-  - col: le.outbound.delivery/incoterms1
-    seq: 100
-  - col: le.outbound.delivery/incoterms2
-    seq: 110
-  - col: le.outbound.delivery/state
-    seq: 120
-  - col: le.outbound.delivery/amount
-    seq: 130
-  - col: le.outbound.delivery/vat_amount
-    seq: 140
-  - col: le.outbound.delivery/total_amount
-    seq: 150
-  - col: le.outbound.delivery/note
-    seq: 160
-  obj: le.outbound.delivery
-  type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-graph
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3447,7 +3409,45 @@
     seq: 160
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: le.outbound.delivery/dtype
+    seq: 0
+  - col: le.outbound.delivery/company_id
+    seq: 10
+  - col: le.outbound.delivery/point_id
+    seq: 20
+  - col: le.outbound.delivery/place_id
+    seq: 30
+  - col: le.outbound.delivery/category_id
+    seq: 40
+  - col: le.outbound.delivery/name
+    seq: 50
+  - col: le.outbound.delivery/origin
+    seq: 60
+  - col: le.outbound.delivery/dod
+    seq: 70
+  - col: le.outbound.delivery/partner
+    seq: 80
+  - col: le.outbound.delivery/currency
+    seq: 90
+  - col: le.outbound.delivery/incoterms1
+    seq: 100
+  - col: le.outbound.delivery/incoterms2
+    seq: 110
+  - col: le.outbound.delivery/state
+    seq: 120
+  - col: le.outbound.delivery/amount
+    seq: 130
+  - col: le.outbound.delivery/vat_amount
+    seq: 140
+  - col: le.outbound.delivery/total_amount
+    seq: 150
+  - col: le.outbound.delivery/note
+    seq: 160
+  obj: le.outbound.delivery
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3483,7 +3483,7 @@
     seq: 150
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/mdx
+  vtype: models/element-plus/mdx
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3519,7 +3519,7 @@
     seq: 150
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/o2m-mdx
+  vtype: models/element-plus/o2m-mdx
 - cols:
   - col: le.outbound.delivery/dtype
     seq: 0
@@ -3561,7 +3561,7 @@
     seq: 180
   obj: le.outbound.delivery
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.outbound.delivery.texts/delivery_id
     seq: 0
@@ -3573,7 +3573,7 @@
     seq: 30
   obj: le.outbound.delivery.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.outbound.delivery.texts/delivery_id
     seq: 0
@@ -3585,21 +3585,7 @@
     seq: 30
   obj: le.outbound.delivery.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: le.outbound.delivery.texts/delivery_id
-    seq: 0
-  - col: le.outbound.delivery.texts/seq
-    seq: 10
-  - col: le.outbound.delivery.texts/text_id
-    seq: 20
-  - col: le.outbound.delivery.texts/descr
-    seq: 30
-  - col: le.outbound.delivery.texts/content
-    seq: 40
-  obj: le.outbound.delivery.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.outbound.delivery.texts/delivery_id
     seq: 0
@@ -3613,7 +3599,7 @@
     seq: 40
   obj: le.outbound.delivery.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.outbound.delivery.texts/delivery_id
     seq: 0
@@ -3627,7 +3613,21 @@
     seq: 40
   obj: le.outbound.delivery.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.outbound.delivery.texts/delivery_id
+    seq: 0
+  - col: le.outbound.delivery.texts/seq
+    seq: 10
+  - col: le.outbound.delivery.texts/text_id
+    seq: 20
+  - col: le.outbound.delivery.texts/descr
+    seq: 30
+  - col: le.outbound.delivery.texts/content
+    seq: 40
+  obj: le.outbound.delivery.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.outbound.delivery.texts/delivery_id
     seq: 0
@@ -3639,7 +3639,7 @@
     seq: 30
   obj: le.outbound.delivery.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.outbound.delivery.roles/delivery_id
     seq: 0
@@ -3649,7 +3649,7 @@
     seq: 20
   obj: le.outbound.delivery.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.outbound.delivery.roles/delivery_id
     seq: 0
@@ -3659,7 +3659,7 @@
     seq: 20
   obj: le.outbound.delivery.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.outbound.delivery.roles/delivery_id
     seq: 0
@@ -3669,7 +3669,7 @@
     seq: 20
   obj: le.outbound.delivery.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.outbound.delivery.roles/delivery_id
     seq: 0
@@ -3679,7 +3679,7 @@
     seq: 20
   obj: le.outbound.delivery.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.outbound.delivery.roles/delivery_id
     seq: 0
@@ -3689,7 +3689,7 @@
     seq: 20
   obj: le.outbound.delivery.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.outbound.delivery.roles/delivery_id
     seq: 0
@@ -3699,7 +3699,7 @@
     seq: 20
   obj: le.outbound.delivery.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.outbound.delivery.items/delivery_id
     seq: 0
@@ -3729,7 +3729,7 @@
     seq: 120
   obj: le.outbound.delivery.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.outbound.delivery.items/delivery_id
     seq: 0
@@ -3763,7 +3763,7 @@
     seq: 140
   obj: le.outbound.delivery.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.outbound.delivery.items/delivery_id
     seq: 0
@@ -3799,7 +3799,7 @@
     seq: 150
   obj: le.outbound.delivery.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.outbound.delivery.items/delivery_id
     seq: 0
@@ -3835,7 +3835,7 @@
     seq: 150
   obj: le.outbound.delivery.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.outbound.delivery.items/delivery_id
     seq: 0
@@ -3871,7 +3871,7 @@
     seq: 150
   obj: le.outbound.delivery.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.outbound.delivery.items/delivery_id
     seq: 0
@@ -3905,7 +3905,7 @@
     seq: 140
   obj: le.outbound.delivery.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.outbound.delivery.item.texts/item_id
     seq: 0
@@ -3917,7 +3917,7 @@
     seq: 30
   obj: le.outbound.delivery.item.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.outbound.delivery.item.texts/item_id
     seq: 0
@@ -3929,21 +3929,7 @@
     seq: 30
   obj: le.outbound.delivery.item.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: le.outbound.delivery.item.texts/item_id
-    seq: 0
-  - col: le.outbound.delivery.item.texts/seq
-    seq: 10
-  - col: le.outbound.delivery.item.texts/text_id
-    seq: 20
-  - col: le.outbound.delivery.item.texts/descr
-    seq: 30
-  - col: le.outbound.delivery.item.texts/content
-    seq: 40
-  obj: le.outbound.delivery.item.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.outbound.delivery.item.texts/item_id
     seq: 0
@@ -3957,7 +3943,7 @@
     seq: 40
   obj: le.outbound.delivery.item.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.outbound.delivery.item.texts/item_id
     seq: 0
@@ -3971,7 +3957,21 @@
     seq: 40
   obj: le.outbound.delivery.item.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.outbound.delivery.item.texts/item_id
+    seq: 0
+  - col: le.outbound.delivery.item.texts/seq
+    seq: 10
+  - col: le.outbound.delivery.item.texts/text_id
+    seq: 20
+  - col: le.outbound.delivery.item.texts/descr
+    seq: 30
+  - col: le.outbound.delivery.item.texts/content
+    seq: 40
+  obj: le.outbound.delivery.item.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.outbound.delivery.item.texts/item_id
     seq: 0
@@ -3983,7 +3983,7 @@
     seq: 30
   obj: le.outbound.delivery.item.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.outbound.delivery.packlist/item_id
     seq: 0
@@ -4011,7 +4011,7 @@
     seq: 110
   obj: le.outbound.delivery.packlist
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.outbound.delivery.packlist/item_id
     seq: 0
@@ -4039,7 +4039,7 @@
     seq: 110
   obj: le.outbound.delivery.packlist
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.outbound.delivery.packlist/item_id
     seq: 0
@@ -4069,7 +4069,7 @@
     seq: 120
   obj: le.outbound.delivery.packlist
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.outbound.delivery.packlist/item_id
     seq: 0
@@ -4099,7 +4099,7 @@
     seq: 120
   obj: le.outbound.delivery.packlist
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.outbound.delivery.packlist/item_id
     seq: 0
@@ -4129,7 +4129,7 @@
     seq: 120
   obj: le.outbound.delivery.packlist
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.outbound.delivery.packlist/item_id
     seq: 0
@@ -4157,7 +4157,7 @@
     seq: 110
   obj: le.outbound.delivery.packlist
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4193,7 +4193,7 @@
     seq: 150
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4229,7 +4229,7 @@
     seq: 150
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4271,7 +4271,7 @@
     seq: 180
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4315,7 +4315,7 @@
     seq: 190
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4359,7 +4359,7 @@
     seq: 190
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4403,7 +4403,7 @@
     seq: 190
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4439,7 +4439,7 @@
     seq: 150
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/calendar
+  vtype: models/element-plus/calendar
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4475,7 +4475,7 @@
     seq: 150
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/o2m-calendar
+  vtype: models/element-plus/o2m-calendar
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4511,7 +4511,7 @@
     seq: 150
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/graph
+  vtype: models/element-plus/graph
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4547,45 +4547,7 @@
     seq: 150
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/o2m-graph
-- cols:
-  - col: le.internal.delivery/dtype
-    seq: 0
-  - col: le.internal.delivery/company_id
-    seq: 10
-  - col: le.internal.delivery/point_id
-    seq: 20
-  - col: le.internal.delivery/place_id
-    seq: 30
-  - col: le.internal.delivery/category_id
-    seq: 40
-  - col: le.internal.delivery/name
-    seq: 50
-  - col: le.internal.delivery/origin
-    seq: 60
-  - col: le.internal.delivery/dod
-    seq: 70
-  - col: le.internal.delivery/partner
-    seq: 80
-  - col: le.internal.delivery/currency
-    seq: 90
-  - col: le.internal.delivery/incoterms1
-    seq: 100
-  - col: le.internal.delivery/incoterms2
-    seq: 110
-  - col: le.internal.delivery/state
-    seq: 120
-  - col: le.internal.delivery/amount
-    seq: 130
-  - col: le.internal.delivery/vat_amount
-    seq: 140
-  - col: le.internal.delivery/total_amount
-    seq: 150
-  - col: le.internal.delivery/note
-    seq: 160
-  obj: le.internal.delivery
-  type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-graph
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4623,7 +4585,45 @@
     seq: 160
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: le.internal.delivery/dtype
+    seq: 0
+  - col: le.internal.delivery/company_id
+    seq: 10
+  - col: le.internal.delivery/point_id
+    seq: 20
+  - col: le.internal.delivery/place_id
+    seq: 30
+  - col: le.internal.delivery/category_id
+    seq: 40
+  - col: le.internal.delivery/name
+    seq: 50
+  - col: le.internal.delivery/origin
+    seq: 60
+  - col: le.internal.delivery/dod
+    seq: 70
+  - col: le.internal.delivery/partner
+    seq: 80
+  - col: le.internal.delivery/currency
+    seq: 90
+  - col: le.internal.delivery/incoterms1
+    seq: 100
+  - col: le.internal.delivery/incoterms2
+    seq: 110
+  - col: le.internal.delivery/state
+    seq: 120
+  - col: le.internal.delivery/amount
+    seq: 130
+  - col: le.internal.delivery/vat_amount
+    seq: 140
+  - col: le.internal.delivery/total_amount
+    seq: 150
+  - col: le.internal.delivery/note
+    seq: 160
+  obj: le.internal.delivery
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4659,7 +4659,7 @@
     seq: 150
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/mdx
+  vtype: models/element-plus/mdx
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4695,7 +4695,7 @@
     seq: 150
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/o2m-mdx
+  vtype: models/element-plus/o2m-mdx
 - cols:
   - col: le.internal.delivery/dtype
     seq: 0
@@ -4737,7 +4737,7 @@
     seq: 180
   obj: le.internal.delivery
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.internal.delivery.texts/delivery_id
     seq: 0
@@ -4749,7 +4749,7 @@
     seq: 30
   obj: le.internal.delivery.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.internal.delivery.texts/delivery_id
     seq: 0
@@ -4761,21 +4761,7 @@
     seq: 30
   obj: le.internal.delivery.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: le.internal.delivery.texts/delivery_id
-    seq: 0
-  - col: le.internal.delivery.texts/seq
-    seq: 10
-  - col: le.internal.delivery.texts/text_id
-    seq: 20
-  - col: le.internal.delivery.texts/descr
-    seq: 30
-  - col: le.internal.delivery.texts/content
-    seq: 40
-  obj: le.internal.delivery.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.internal.delivery.texts/delivery_id
     seq: 0
@@ -4789,7 +4775,7 @@
     seq: 40
   obj: le.internal.delivery.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.internal.delivery.texts/delivery_id
     seq: 0
@@ -4803,7 +4789,21 @@
     seq: 40
   obj: le.internal.delivery.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.internal.delivery.texts/delivery_id
+    seq: 0
+  - col: le.internal.delivery.texts/seq
+    seq: 10
+  - col: le.internal.delivery.texts/text_id
+    seq: 20
+  - col: le.internal.delivery.texts/descr
+    seq: 30
+  - col: le.internal.delivery.texts/content
+    seq: 40
+  obj: le.internal.delivery.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.internal.delivery.texts/delivery_id
     seq: 0
@@ -4815,7 +4815,7 @@
     seq: 30
   obj: le.internal.delivery.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.internal.delivery.roles/delivery_id
     seq: 0
@@ -4825,7 +4825,7 @@
     seq: 20
   obj: le.internal.delivery.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.internal.delivery.roles/delivery_id
     seq: 0
@@ -4835,7 +4835,7 @@
     seq: 20
   obj: le.internal.delivery.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.internal.delivery.roles/delivery_id
     seq: 0
@@ -4845,7 +4845,7 @@
     seq: 20
   obj: le.internal.delivery.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.internal.delivery.roles/delivery_id
     seq: 0
@@ -4855,7 +4855,7 @@
     seq: 20
   obj: le.internal.delivery.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.internal.delivery.roles/delivery_id
     seq: 0
@@ -4865,7 +4865,7 @@
     seq: 20
   obj: le.internal.delivery.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.internal.delivery.roles/delivery_id
     seq: 0
@@ -4875,7 +4875,7 @@
     seq: 20
   obj: le.internal.delivery.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.internal.delivery.items/delivery_id
     seq: 0
@@ -4905,7 +4905,7 @@
     seq: 120
   obj: le.internal.delivery.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.internal.delivery.items/delivery_id
     seq: 0
@@ -4939,7 +4939,7 @@
     seq: 140
   obj: le.internal.delivery.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.internal.delivery.items/delivery_id
     seq: 0
@@ -4975,7 +4975,7 @@
     seq: 150
   obj: le.internal.delivery.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.internal.delivery.items/delivery_id
     seq: 0
@@ -5011,7 +5011,7 @@
     seq: 150
   obj: le.internal.delivery.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.internal.delivery.items/delivery_id
     seq: 0
@@ -5047,7 +5047,7 @@
     seq: 150
   obj: le.internal.delivery.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.internal.delivery.items/delivery_id
     seq: 0
@@ -5081,7 +5081,7 @@
     seq: 140
   obj: le.internal.delivery.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.internal.delivery.item.texts/item_id
     seq: 0
@@ -5093,7 +5093,7 @@
     seq: 30
   obj: le.internal.delivery.item.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.internal.delivery.item.texts/item_id
     seq: 0
@@ -5105,21 +5105,7 @@
     seq: 30
   obj: le.internal.delivery.item.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: le.internal.delivery.item.texts/item_id
-    seq: 0
-  - col: le.internal.delivery.item.texts/seq
-    seq: 10
-  - col: le.internal.delivery.item.texts/text_id
-    seq: 20
-  - col: le.internal.delivery.item.texts/descr
-    seq: 30
-  - col: le.internal.delivery.item.texts/content
-    seq: 40
-  obj: le.internal.delivery.item.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: le.internal.delivery.item.texts/item_id
     seq: 0
@@ -5133,7 +5119,7 @@
     seq: 40
   obj: le.internal.delivery.item.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.internal.delivery.item.texts/item_id
     seq: 0
@@ -5147,7 +5133,21 @@
     seq: 40
   obj: le.internal.delivery.item.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: le.internal.delivery.item.texts/item_id
+    seq: 0
+  - col: le.internal.delivery.item.texts/seq
+    seq: 10
+  - col: le.internal.delivery.item.texts/text_id
+    seq: 20
+  - col: le.internal.delivery.item.texts/descr
+    seq: 30
+  - col: le.internal.delivery.item.texts/content
+    seq: 40
+  obj: le.internal.delivery.item.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.internal.delivery.item.texts/item_id
     seq: 0
@@ -5159,7 +5159,7 @@
     seq: 30
   obj: le.internal.delivery.item.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.internal.delivery.packlist/item_id
     seq: 0
@@ -5187,7 +5187,7 @@
     seq: 110
   obj: le.internal.delivery.packlist
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.internal.delivery.packlist/item_id
     seq: 0
@@ -5215,7 +5215,7 @@
     seq: 110
   obj: le.internal.delivery.packlist
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.internal.delivery.packlist/item_id
     seq: 0
@@ -5245,7 +5245,7 @@
     seq: 120
   obj: le.internal.delivery.packlist
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.internal.delivery.packlist/item_id
     seq: 0
@@ -5275,7 +5275,7 @@
     seq: 120
   obj: le.internal.delivery.packlist
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.internal.delivery.packlist/item_id
     seq: 0
@@ -5305,7 +5305,7 @@
     seq: 120
   obj: le.internal.delivery.packlist
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.internal.delivery.packlist/item_id
     seq: 0
@@ -5333,7 +5333,7 @@
     seq: 110
   obj: le.internal.delivery.packlist
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: le.md.group.freight.cargo.product/product_id
     seq: 0
@@ -5341,7 +5341,7 @@
     seq: 10
   obj: le.md.group.freight.cargo.product
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: le.md.group.freight.cargo.product/product_id
     seq: 0
@@ -5349,7 +5349,7 @@
     seq: 10
   obj: le.md.group.freight.cargo.product
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: le.md.group.freight.cargo.product/product_id
     seq: 0
@@ -5357,7 +5357,7 @@
     seq: 10
   obj: le.md.group.freight.cargo.product
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: le.md.group.freight.cargo.product/product_id
     seq: 0
@@ -5365,7 +5365,7 @@
     seq: 10
   obj: le.md.group.freight.cargo.product
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: le.md.group.freight.cargo.product/product_id
     seq: 0
@@ -5373,7 +5373,7 @@
     seq: 10
   obj: le.md.group.freight.cargo.product
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: le.md.group.freight.cargo.product/product_id
     seq: 0
@@ -5381,4 +5381,4 @@
     seq: 10
   obj: le.md.group.freight.cargo.product
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list

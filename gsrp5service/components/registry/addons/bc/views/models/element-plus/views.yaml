@@ -1157,7 +1157,7 @@
 - cols:
   - col: bc.obj.columns/obj_id
     seq: 0
-  - col: bc.obj.columns/obj_type_name
+  - col: bc.obj.columns/type_obj_name
     seq: 10
   - col: bc.obj.columns/obj_name
     seq: 20
@@ -1173,7 +1173,7 @@
 - cols:
   - col: bc.obj.columns/obj_id
     seq: 0
-  - col: bc.obj.columns/obj_type_name
+  - col: bc.obj.columns/type_obj_name
     seq: 10
   - col: bc.obj.columns/obj_name
     seq: 20
@@ -1189,7 +1189,7 @@
 - cols:
   - col: bc.obj.columns/obj_id
     seq: 0
-  - col: bc.obj.columns/obj_type_name
+  - col: bc.obj.columns/type_obj_name
     seq: 10
   - col: bc.obj.columns/obj_name
     seq: 20
@@ -1205,7 +1205,7 @@
 - cols:
   - col: bc.obj.columns/obj_id
     seq: 0
-  - col: bc.obj.columns/obj_type_name
+  - col: bc.obj.columns/type_obj_name
     seq: 10
   - col: bc.obj.columns/obj_name
     seq: 20
@@ -1223,7 +1223,7 @@
 - cols:
   - col: bc.obj.columns/obj_id
     seq: 0
-  - col: bc.obj.columns/obj_type_name
+  - col: bc.obj.columns/type_obj_name
     seq: 10
   - col: bc.obj.columns/obj_name
     seq: 20
@@ -1241,7 +1241,7 @@
 - cols:
   - col: bc.obj.columns/obj_id
     seq: 0
-  - col: bc.obj.columns/obj_type_name
+  - col: bc.obj.columns/type_obj_name
     seq: 10
   - col: bc.obj.columns/obj_name
     seq: 20
@@ -1259,7 +1259,7 @@
 - cols:
   - col: bc.obj.columns/obj_id
     seq: 0
-  - col: bc.obj.columns/obj_type_name
+  - col: bc.obj.columns/type_obj_name
     seq: 10
   - col: bc.obj.columns/obj_name
     seq: 20
@@ -1897,16 +1897,14 @@
     seq: 10
   - col: bc.obj.data/name
     seq: 20
-  - col: bc.obj.data/fullname
-    seq: 30
   - col: bc.obj.data/rec_id
-    seq: 40
+    seq: 30
   - col: bc.obj.data/file_id
-    seq: 50
+    seq: 40
   - col: bc.obj.data/timestamp_init
-    seq: 60
+    seq: 50
   - col: bc.obj.data/timestamp_update
-    seq: 70
+    seq: 60
   obj: bc.obj.data
   type_obj: models
   vtype: models/element-plus/search
@@ -1917,16 +1915,14 @@
     seq: 10
   - col: bc.obj.data/name
     seq: 20
-  - col: bc.obj.data/fullname
-    seq: 30
   - col: bc.obj.data/rec_id
-    seq: 40
+    seq: 30
   - col: bc.obj.data/file_id
-    seq: 50
+    seq: 40
   - col: bc.obj.data/timestamp_init
-    seq: 60
+    seq: 50
   - col: bc.obj.data/timestamp_update
-    seq: 70
+    seq: 60
   obj: bc.obj.data
   type_obj: models
   vtype: models/element-plus/find
@@ -1937,16 +1933,14 @@
     seq: 10
   - col: bc.obj.data/name
     seq: 20
-  - col: bc.obj.data/fullname
-    seq: 30
   - col: bc.obj.data/rec_id
-    seq: 40
+    seq: 30
   - col: bc.obj.data/file_id
-    seq: 50
+    seq: 40
   - col: bc.obj.data/timestamp_init
-    seq: 60
+    seq: 50
   - col: bc.obj.data/timestamp_update
-    seq: 70
+    seq: 60
   obj: bc.obj.data
   type_obj: models
   vtype: models/element-plus/list
@@ -1957,16 +1951,14 @@
     seq: 10
   - col: bc.obj.data/name
     seq: 20
-  - col: bc.obj.data/fullname
-    seq: 30
   - col: bc.obj.data/rec_id
-    seq: 40
+    seq: 30
   - col: bc.obj.data/file_id
-    seq: 50
+    seq: 40
   - col: bc.obj.data/timestamp_init
-    seq: 60
+    seq: 50
   - col: bc.obj.data/timestamp_update
-    seq: 70
+    seq: 60
   obj: bc.obj.data
   type_obj: models
   vtype: models/element-plus/form.modal
@@ -1977,16 +1969,14 @@
     seq: 10
   - col: bc.obj.data/name
     seq: 20
-  - col: bc.obj.data/fullname
-    seq: 30
   - col: bc.obj.data/rec_id
-    seq: 40
+    seq: 30
   - col: bc.obj.data/file_id
-    seq: 50
+    seq: 40
   - col: bc.obj.data/timestamp_init
-    seq: 60
+    seq: 50
   - col: bc.obj.data/timestamp_update
-    seq: 70
+    seq: 60
   obj: bc.obj.data
   type_obj: models
   vtype: models/element-plus/form
@@ -2703,174 +2693,138 @@
   type_obj: models
   vtype: models/element-plus/form
 - cols:
-  - col: bc.ui.obj.menus/type_obj
-    seq: 0
   - col: bc.ui.obj.menus/name
-    seq: 10
-  - col: bc.ui.obj.menus/fullname
-    seq: 20
+    seq: 0
   - col: bc.ui.obj.menus/label
-    seq: 30
+    seq: 10
   - col: bc.ui.obj.menus/parent_id
-    seq: 40
+    seq: 20
   - col: bc.ui.obj.menus/sequence
-    seq: 50
+    seq: 30
   - col: bc.ui.obj.menus/action_id
-    seq: 60
+    seq: 40
   obj: bc.ui.obj.menus
   type_obj: models
   vtype: models/element-plus/search
 - cols:
-  - col: bc.ui.obj.menus/type_obj
-    seq: 0
   - col: bc.ui.obj.menus/name
-    seq: 10
-  - col: bc.ui.obj.menus/fullname
-    seq: 20
+    seq: 0
   - col: bc.ui.obj.menus/label
-    seq: 30
+    seq: 10
   - col: bc.ui.obj.menus/parent_id
-    seq: 40
+    seq: 20
   - col: bc.ui.obj.menus/sequence
-    seq: 50
+    seq: 30
   - col: bc.ui.obj.menus/action_id
-    seq: 60
+    seq: 40
   obj: bc.ui.obj.menus
   type_obj: models
   vtype: models/element-plus/find
 - cols:
-  - col: bc.ui.obj.menus/type_obj
-    seq: 0
   - col: bc.ui.obj.menus/name
-    seq: 10
-  - col: bc.ui.obj.menus/fullname
-    seq: 20
+    seq: 0
   - col: bc.ui.obj.menus/label
-    seq: 30
+    seq: 10
   - col: bc.ui.obj.menus/parent_id
-    seq: 40
+    seq: 20
   - col: bc.ui.obj.menus/childs_id
-    seq: 50
+    seq: 30
   - col: bc.ui.obj.menus/sequence
-    seq: 60
+    seq: 40
   - col: bc.ui.obj.menus/action_id
-    seq: 70
+    seq: 50
   obj: bc.ui.obj.menus
   type_obj: models
   vtype: models/element-plus/list
 - cols:
-  - col: bc.ui.obj.menus/type_obj
-    seq: 0
   - col: bc.ui.obj.menus/name
-    seq: 10
-  - col: bc.ui.obj.menus/fullname
-    seq: 20
+    seq: 0
   - col: bc.ui.obj.menus/label
-    seq: 30
+    seq: 10
   - col: bc.ui.obj.menus/parent_id
-    seq: 40
+    seq: 20
   - col: bc.ui.obj.menus/childs_id
-    seq: 50
+    seq: 30
   - col: bc.ui.obj.menus/sequence
-    seq: 60
+    seq: 40
   - col: bc.ui.obj.menus/action_id
-    seq: 70
+    seq: 50
   obj: bc.ui.obj.menus
   type_obj: models
   vtype: models/element-plus/form.modal
 - cols:
-  - col: bc.ui.obj.menus/type_obj
-    seq: 0
   - col: bc.ui.obj.menus/name
-    seq: 10
-  - col: bc.ui.obj.menus/fullname
-    seq: 20
+    seq: 0
   - col: bc.ui.obj.menus/label
-    seq: 30
+    seq: 10
   - col: bc.ui.obj.menus/parent_id
-    seq: 40
+    seq: 20
   - col: bc.ui.obj.menus/childs_id
-    seq: 50
+    seq: 30
   - col: bc.ui.obj.menus/sequence
-    seq: 60
+    seq: 40
   - col: bc.ui.obj.menus/action_id
-    seq: 70
+    seq: 50
   obj: bc.ui.obj.menus
   type_obj: models
   vtype: models/element-plus/form
 - cols:
-  - col: bc.ui.obj.menus/type_obj
-    seq: 0
   - col: bc.ui.obj.menus/name
-    seq: 10
-  - col: bc.ui.obj.menus/fullname
-    seq: 20
+    seq: 0
   - col: bc.ui.obj.menus/label
-    seq: 30
+    seq: 10
   - col: bc.ui.obj.menus/parent_id
-    seq: 40
+    seq: 20
   - col: bc.ui.obj.menus/childs_id
-    seq: 50
+    seq: 30
   - col: bc.ui.obj.menus/sequence
-    seq: 60
+    seq: 40
   - col: bc.ui.obj.menus/action_id
-    seq: 70
+    seq: 50
   obj: bc.ui.obj.menus
   type_obj: models
   vtype: models/element-plus/o2m-form
 - cols:
-  - col: bc.ui.obj.menus/type_obj
-    seq: 0
   - col: bc.ui.obj.menus/name
-    seq: 10
-  - col: bc.ui.obj.menus/fullname
-    seq: 20
+    seq: 0
   - col: bc.ui.obj.menus/label
-    seq: 30
+    seq: 10
   - col: bc.ui.obj.menus/parent_id
-    seq: 40
+    seq: 20
   - col: bc.ui.obj.menus/sequence
-    seq: 50
+    seq: 30
   - col: bc.ui.obj.menus/action_id
-    seq: 60
+    seq: 40
   obj: bc.ui.obj.menus
   type_obj: models
   vtype: models/element-plus/tree
 - cols:
-  - col: bc.ui.obj.menus/type_obj
-    seq: 0
   - col: bc.ui.obj.menus/name
-    seq: 10
-  - col: bc.ui.obj.menus/fullname
-    seq: 20
+    seq: 0
   - col: bc.ui.obj.menus/label
-    seq: 30
+    seq: 10
   - col: bc.ui.obj.menus/parent_id
-    seq: 40
+    seq: 20
   - col: bc.ui.obj.menus/sequence
-    seq: 50
+    seq: 30
   - col: bc.ui.obj.menus/action_id
-    seq: 60
+    seq: 40
   obj: bc.ui.obj.menus
   type_obj: models
   vtype: models/element-plus/o2m-tree
 - cols:
-  - col: bc.ui.obj.menus/type_obj
-    seq: 0
   - col: bc.ui.obj.menus/name
-    seq: 10
-  - col: bc.ui.obj.menus/fullname
-    seq: 20
+    seq: 0
   - col: bc.ui.obj.menus/label
-    seq: 30
+    seq: 10
   - col: bc.ui.obj.menus/parent_id
-    seq: 40
+    seq: 20
   - col: bc.ui.obj.menus/childs_id
-    seq: 50
+    seq: 30
   - col: bc.ui.obj.menus/sequence
-    seq: 60
+    seq: 40
   - col: bc.ui.obj.menus/action_id
-    seq: 70
+    seq: 50
   obj: bc.ui.obj.menus
   type_obj: models
   vtype: models/element-plus/o2m-list

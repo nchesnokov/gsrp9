@@ -9,7 +9,7 @@
     seq: 30
   obj: purchase.unit.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.unit.categories/name
     seq: 0
@@ -21,23 +21,7 @@
     seq: 30
   obj: purchase.unit.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: purchase.unit.categories/name
-    seq: 0
-  - col: purchase.unit.categories/parent_id
-    seq: 10
-  - col: purchase.unit.categories/childs_id
-    seq: 20
-  - col: purchase.unit.categories/fullname
-    seq: 30
-  - col: purchase.unit.categories/units
-    seq: 40
-  - col: purchase.unit.categories/note
-    seq: 50
-  obj: purchase.unit.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.unit.categories/name
     seq: 0
@@ -53,7 +37,7 @@
     seq: 50
   obj: purchase.unit.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.unit.categories/name
     seq: 0
@@ -69,7 +53,7 @@
     seq: 50
   obj: purchase.unit.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.unit.categories/name
     seq: 0
@@ -85,31 +69,7 @@
     seq: 50
   obj: purchase.unit.categories
   type_obj: models
-  vtype: element-plus/o2m-form
-- cols:
-  - col: purchase.unit.categories/name
-    seq: 0
-  - col: purchase.unit.categories/parent_id
-    seq: 10
-  - col: purchase.unit.categories/fullname
-    seq: 20
-  - col: purchase.unit.categories/note
-    seq: 30
-  obj: purchase.unit.categories
-  type_obj: models
-  vtype: element-plus/tree
-- cols:
-  - col: purchase.unit.categories/name
-    seq: 0
-  - col: purchase.unit.categories/parent_id
-    seq: 10
-  - col: purchase.unit.categories/fullname
-    seq: 20
-  - col: purchase.unit.categories/note
-    seq: 30
-  obj: purchase.unit.categories
-  type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.unit.categories/name
     seq: 0
@@ -125,7 +85,47 @@
     seq: 50
   obj: purchase.unit.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-form
+- cols:
+  - col: purchase.unit.categories/name
+    seq: 0
+  - col: purchase.unit.categories/parent_id
+    seq: 10
+  - col: purchase.unit.categories/fullname
+    seq: 20
+  - col: purchase.unit.categories/note
+    seq: 30
+  obj: purchase.unit.categories
+  type_obj: models
+  vtype: models/element-plus/tree
+- cols:
+  - col: purchase.unit.categories/name
+    seq: 0
+  - col: purchase.unit.categories/parent_id
+    seq: 10
+  - col: purchase.unit.categories/fullname
+    seq: 20
+  - col: purchase.unit.categories/note
+    seq: 30
+  obj: purchase.unit.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-tree
+- cols:
+  - col: purchase.unit.categories/name
+    seq: 0
+  - col: purchase.unit.categories/parent_id
+    seq: 10
+  - col: purchase.unit.categories/childs_id
+    seq: 20
+  - col: purchase.unit.categories/fullname
+    seq: 30
+  - col: purchase.unit.categories/units
+    seq: 40
+  - col: purchase.unit.categories/note
+    seq: 50
+  obj: purchase.unit.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.units/category_id
     seq: 0
@@ -137,7 +137,7 @@
     seq: 30
   obj: purchase.units
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.units/category_id
     seq: 0
@@ -149,7 +149,7 @@
     seq: 30
   obj: purchase.units
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.units/category_id
     seq: 0
@@ -169,7 +169,7 @@
     seq: 70
   obj: purchase.units
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: md.company/name
     seq: 0
@@ -181,7 +181,7 @@
     seq: 30
   obj: md.company
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: purchase.units/category_id
     seq: 0
@@ -203,7 +203,7 @@
     seq: 80
   obj: purchase.units
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.units/category_id
     seq: 0
@@ -225,7 +225,7 @@
     seq: 80
   obj: purchase.units
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.units/category_id
     seq: 0
@@ -247,7 +247,7 @@
     seq: 80
   obj: purchase.units
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.units/category_id
     seq: 0
@@ -267,7 +267,7 @@
     seq: 70
   obj: purchase.units
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.channel.categories/name
     seq: 0
@@ -279,7 +279,7 @@
     seq: 30
   obj: purchase.channel.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.channel.categories/name
     seq: 0
@@ -291,23 +291,7 @@
     seq: 30
   obj: purchase.channel.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: purchase.channel.categories/name
-    seq: 0
-  - col: purchase.channel.categories/parent_id
-    seq: 10
-  - col: purchase.channel.categories/childs_id
-    seq: 20
-  - col: purchase.channel.categories/fullname
-    seq: 30
-  - col: purchase.channel.categories/channels
-    seq: 40
-  - col: purchase.channel.categories/note
-    seq: 50
-  obj: purchase.channel.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.channel.categories/name
     seq: 0
@@ -323,7 +307,7 @@
     seq: 50
   obj: purchase.channel.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.channel.categories/name
     seq: 0
@@ -339,7 +323,7 @@
     seq: 50
   obj: purchase.channel.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.channel.categories/name
     seq: 0
@@ -355,31 +339,7 @@
     seq: 50
   obj: purchase.channel.categories
   type_obj: models
-  vtype: element-plus/o2m-form
-- cols:
-  - col: purchase.channel.categories/name
-    seq: 0
-  - col: purchase.channel.categories/parent_id
-    seq: 10
-  - col: purchase.channel.categories/fullname
-    seq: 20
-  - col: purchase.channel.categories/note
-    seq: 30
-  obj: purchase.channel.categories
-  type_obj: models
-  vtype: element-plus/tree
-- cols:
-  - col: purchase.channel.categories/name
-    seq: 0
-  - col: purchase.channel.categories/parent_id
-    seq: 10
-  - col: purchase.channel.categories/fullname
-    seq: 20
-  - col: purchase.channel.categories/note
-    seq: 30
-  obj: purchase.channel.categories
-  type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.channel.categories/name
     seq: 0
@@ -395,7 +355,47 @@
     seq: 50
   obj: purchase.channel.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-form
+- cols:
+  - col: purchase.channel.categories/name
+    seq: 0
+  - col: purchase.channel.categories/parent_id
+    seq: 10
+  - col: purchase.channel.categories/fullname
+    seq: 20
+  - col: purchase.channel.categories/note
+    seq: 30
+  obj: purchase.channel.categories
+  type_obj: models
+  vtype: models/element-plus/tree
+- cols:
+  - col: purchase.channel.categories/name
+    seq: 0
+  - col: purchase.channel.categories/parent_id
+    seq: 10
+  - col: purchase.channel.categories/fullname
+    seq: 20
+  - col: purchase.channel.categories/note
+    seq: 30
+  obj: purchase.channel.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-tree
+- cols:
+  - col: purchase.channel.categories/name
+    seq: 0
+  - col: purchase.channel.categories/parent_id
+    seq: 10
+  - col: purchase.channel.categories/childs_id
+    seq: 20
+  - col: purchase.channel.categories/fullname
+    seq: 30
+  - col: purchase.channel.categories/channels
+    seq: 40
+  - col: purchase.channel.categories/note
+    seq: 50
+  obj: purchase.channel.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.channels/category_id
     seq: 0
@@ -407,7 +407,7 @@
     seq: 30
   obj: purchase.channels
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.channels/category_id
     seq: 0
@@ -419,7 +419,7 @@
     seq: 30
   obj: purchase.channels
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.channels/category_id
     seq: 0
@@ -431,7 +431,7 @@
     seq: 30
   obj: purchase.channels
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.channels/category_id
     seq: 0
@@ -443,7 +443,7 @@
     seq: 30
   obj: purchase.channels
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.channels/category_id
     seq: 0
@@ -455,7 +455,7 @@
     seq: 30
   obj: purchase.channels
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.channels/category_id
     seq: 0
@@ -467,7 +467,7 @@
     seq: 30
   obj: purchase.channels
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.channels/category_id
     seq: 0
@@ -479,7 +479,7 @@
     seq: 30
   obj: purchase.channels
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.segment.categories/name
     seq: 0
@@ -491,7 +491,7 @@
     seq: 30
   obj: purchase.segment.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.segment.categories/name
     seq: 0
@@ -503,7 +503,7 @@
     seq: 30
   obj: purchase.segment.categories
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.segment.categories/name
     seq: 0
@@ -519,7 +519,7 @@
     seq: 50
   obj: purchase.segment.categories
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.segment.categories/name
     seq: 0
@@ -535,7 +535,7 @@
     seq: 50
   obj: purchase.segment.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.segment.categories/name
     seq: 0
@@ -551,7 +551,7 @@
     seq: 50
   obj: purchase.segment.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.segment.categories/name
     seq: 0
@@ -567,7 +567,7 @@
     seq: 50
   obj: purchase.segment.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.segment.categories/name
     seq: 0
@@ -579,7 +579,7 @@
     seq: 30
   obj: purchase.segment.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: purchase.segment.categories/name
     seq: 0
@@ -591,7 +591,7 @@
     seq: 30
   obj: purchase.segment.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: purchase.segment.categories/name
     seq: 0
@@ -607,7 +607,7 @@
     seq: 50
   obj: purchase.segment.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.segments/category_id
     seq: 0
@@ -619,7 +619,7 @@
     seq: 30
   obj: purchase.segments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.segments/category_id
     seq: 0
@@ -631,7 +631,7 @@
     seq: 30
   obj: purchase.segments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.segments/category_id
     seq: 0
@@ -643,7 +643,7 @@
     seq: 30
   obj: purchase.segments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.segments/category_id
     seq: 0
@@ -655,7 +655,7 @@
     seq: 30
   obj: purchase.segments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.segments/category_id
     seq: 0
@@ -667,7 +667,7 @@
     seq: 30
   obj: purchase.segments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.segments/category_id
     seq: 0
@@ -679,7 +679,7 @@
     seq: 30
   obj: purchase.segments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.segments/category_id
     seq: 0
@@ -691,7 +691,7 @@
     seq: 30
   obj: purchase.segments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.area.categories/name
     seq: 0
@@ -703,7 +703,7 @@
     seq: 30
   obj: purchase.area.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.area.categories/name
     seq: 0
@@ -715,7 +715,7 @@
     seq: 30
   obj: purchase.area.categories
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.area.categories/name
     seq: 0
@@ -731,7 +731,7 @@
     seq: 50
   obj: purchase.area.categories
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.area.categories/name
     seq: 0
@@ -747,7 +747,7 @@
     seq: 50
   obj: purchase.area.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.area.categories/name
     seq: 0
@@ -763,7 +763,7 @@
     seq: 50
   obj: purchase.area.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.area.categories/name
     seq: 0
@@ -779,7 +779,7 @@
     seq: 50
   obj: purchase.area.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.area.categories/name
     seq: 0
@@ -791,7 +791,7 @@
     seq: 30
   obj: purchase.area.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: purchase.area.categories/name
     seq: 0
@@ -803,7 +803,7 @@
     seq: 30
   obj: purchase.area.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: purchase.area.categories/name
     seq: 0
@@ -819,7 +819,7 @@
     seq: 50
   obj: purchase.area.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.areas/category_id
     seq: 0
@@ -831,7 +831,7 @@
     seq: 30
   obj: purchase.areas
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.areas/category_id
     seq: 0
@@ -843,7 +843,7 @@
     seq: 30
   obj: purchase.areas
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.areas/category_id
     seq: 0
@@ -855,7 +855,7 @@
     seq: 30
   obj: purchase.areas
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.areas/category_id
     seq: 0
@@ -867,7 +867,7 @@
     seq: 30
   obj: purchase.areas
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.areas/category_id
     seq: 0
@@ -879,7 +879,7 @@
     seq: 30
   obj: purchase.areas
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.areas/category_id
     seq: 0
@@ -891,7 +891,7 @@
     seq: 30
   obj: purchase.areas
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.areas/category_id
     seq: 0
@@ -903,7 +903,7 @@
     seq: 30
   obj: purchase.areas
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.region.categories/name
     seq: 0
@@ -915,7 +915,7 @@
     seq: 30
   obj: purchase.region.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.region.categories/name
     seq: 0
@@ -927,7 +927,7 @@
     seq: 30
   obj: purchase.region.categories
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.region.categories/name
     seq: 0
@@ -943,7 +943,7 @@
     seq: 50
   obj: purchase.region.categories
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.region.categories/name
     seq: 0
@@ -959,7 +959,7 @@
     seq: 50
   obj: purchase.region.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.region.categories/name
     seq: 0
@@ -975,7 +975,7 @@
     seq: 50
   obj: purchase.region.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.region.categories/name
     seq: 0
@@ -991,7 +991,7 @@
     seq: 50
   obj: purchase.region.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.region.categories/name
     seq: 0
@@ -1003,7 +1003,7 @@
     seq: 30
   obj: purchase.region.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: purchase.region.categories/name
     seq: 0
@@ -1015,7 +1015,7 @@
     seq: 30
   obj: purchase.region.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: purchase.region.categories/name
     seq: 0
@@ -1031,7 +1031,7 @@
     seq: 50
   obj: purchase.region.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.regions/category_id
     seq: 0
@@ -1043,7 +1043,7 @@
     seq: 30
   obj: purchase.regions
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.regions/category_id
     seq: 0
@@ -1055,7 +1055,7 @@
     seq: 30
   obj: purchase.regions
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.regions/category_id
     seq: 0
@@ -1067,7 +1067,7 @@
     seq: 30
   obj: purchase.regions
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.regions/category_id
     seq: 0
@@ -1079,7 +1079,7 @@
     seq: 30
   obj: purchase.regions
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.regions/category_id
     seq: 0
@@ -1091,7 +1091,7 @@
     seq: 30
   obj: purchase.regions
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.regions/category_id
     seq: 0
@@ -1103,7 +1103,7 @@
     seq: 30
   obj: purchase.regions
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.regions/category_id
     seq: 0
@@ -1115,7 +1115,7 @@
     seq: 30
   obj: purchase.regions
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.division.categories/name
     seq: 0
@@ -1127,7 +1127,7 @@
     seq: 30
   obj: purchase.division.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.division.categories/name
     seq: 0
@@ -1139,7 +1139,7 @@
     seq: 30
   obj: purchase.division.categories
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.division.categories/name
     seq: 0
@@ -1155,7 +1155,7 @@
     seq: 50
   obj: purchase.division.categories
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.division.categories/name
     seq: 0
@@ -1171,7 +1171,7 @@
     seq: 50
   obj: purchase.division.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.division.categories/name
     seq: 0
@@ -1187,7 +1187,7 @@
     seq: 50
   obj: purchase.division.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.division.categories/name
     seq: 0
@@ -1203,7 +1203,7 @@
     seq: 50
   obj: purchase.division.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.division.categories/name
     seq: 0
@@ -1215,7 +1215,7 @@
     seq: 30
   obj: purchase.division.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: purchase.division.categories/name
     seq: 0
@@ -1227,7 +1227,7 @@
     seq: 30
   obj: purchase.division.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: purchase.division.categories/name
     seq: 0
@@ -1243,7 +1243,7 @@
     seq: 50
   obj: purchase.division.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.divisions/category_id
     seq: 0
@@ -1255,7 +1255,7 @@
     seq: 30
   obj: purchase.divisions
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.divisions/category_id
     seq: 0
@@ -1267,21 +1267,7 @@
     seq: 30
   obj: purchase.divisions
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: purchase.divisions/category_id
-    seq: 0
-  - col: purchase.divisions/code
-    seq: 10
-  - col: purchase.divisions/descr
-    seq: 20
-  - col: purchase.divisions/subdivisions
-    seq: 30
-  - col: purchase.divisions/note
-    seq: 40
-  obj: purchase.divisions
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.divisions/category_id
     seq: 0
@@ -1295,7 +1281,7 @@
     seq: 40
   obj: purchase.divisions
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.divisions/category_id
     seq: 0
@@ -1309,7 +1295,7 @@
     seq: 40
   obj: purchase.divisions
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.divisions/category_id
     seq: 0
@@ -1323,7 +1309,7 @@
     seq: 40
   obj: purchase.divisions
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.divisions/category_id
     seq: 0
@@ -1337,7 +1323,21 @@
     seq: 40
   obj: purchase.divisions
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-form
+- cols:
+  - col: purchase.divisions/category_id
+    seq: 0
+  - col: purchase.divisions/code
+    seq: 10
+  - col: purchase.divisions/descr
+    seq: 20
+  - col: purchase.divisions/subdivisions
+    seq: 30
+  - col: purchase.divisions/note
+    seq: 40
+  obj: purchase.divisions
+  type_obj: models
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.subdivision.categories/name
     seq: 0
@@ -1349,7 +1349,7 @@
     seq: 30
   obj: purchase.subdivision.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.subdivision.categories/name
     seq: 0
@@ -1361,7 +1361,7 @@
     seq: 30
   obj: purchase.subdivision.categories
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.subdivision.categories/name
     seq: 0
@@ -1377,7 +1377,7 @@
     seq: 50
   obj: purchase.subdivision.categories
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.subdivision.categories/name
     seq: 0
@@ -1393,7 +1393,7 @@
     seq: 50
   obj: purchase.subdivision.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.subdivision.categories/name
     seq: 0
@@ -1409,7 +1409,7 @@
     seq: 50
   obj: purchase.subdivision.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.subdivision.categories/name
     seq: 0
@@ -1425,7 +1425,7 @@
     seq: 50
   obj: purchase.subdivision.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.subdivision.categories/name
     seq: 0
@@ -1437,7 +1437,7 @@
     seq: 30
   obj: purchase.subdivision.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: purchase.subdivision.categories/name
     seq: 0
@@ -1449,7 +1449,7 @@
     seq: 30
   obj: purchase.subdivision.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: purchase.subdivision.categories/name
     seq: 0
@@ -1465,7 +1465,7 @@
     seq: 50
   obj: purchase.subdivision.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.subdivisions/category_id
     seq: 0
@@ -1477,7 +1477,7 @@
     seq: 30
   obj: purchase.subdivisions
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.subdivisions/category_id
     seq: 0
@@ -1489,7 +1489,7 @@
     seq: 30
   obj: purchase.subdivisions
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.subdivisions/category_id
     seq: 0
@@ -1501,7 +1501,7 @@
     seq: 30
   obj: purchase.subdivisions
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.subdivisions/category_id
     seq: 0
@@ -1513,7 +1513,7 @@
     seq: 30
   obj: purchase.subdivisions
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.subdivisions/category_id
     seq: 0
@@ -1525,7 +1525,7 @@
     seq: 30
   obj: purchase.subdivisions
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.subdivisions/category_id
     seq: 0
@@ -1537,7 +1537,7 @@
     seq: 30
   obj: purchase.subdivisions
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.subdivisions/category_id
     seq: 0
@@ -1549,7 +1549,7 @@
     seq: 30
   obj: purchase.subdivisions
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.unit.channel.assigments/unit_id
     seq: 0
@@ -1559,7 +1559,7 @@
     seq: 20
   obj: purchase.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.unit.channel.assigments/unit_id
     seq: 0
@@ -1569,7 +1569,7 @@
     seq: 20
   obj: purchase.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.unit.channel.assigments/unit_id
     seq: 0
@@ -1579,7 +1579,7 @@
     seq: 20
   obj: purchase.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.unit.channel.assigments/unit_id
     seq: 0
@@ -1589,7 +1589,7 @@
     seq: 20
   obj: purchase.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.unit.channel.assigments/unit_id
     seq: 0
@@ -1599,7 +1599,7 @@
     seq: 20
   obj: purchase.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.unit.channel.assigments/unit_id
     seq: 0
@@ -1609,7 +1609,7 @@
     seq: 20
   obj: purchase.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.unit.channel.assigments/unit_id
     seq: 0
@@ -1619,7 +1619,7 @@
     seq: 20
   obj: purchase.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.unit.segment.assigments/unit_id
     seq: 0
@@ -1629,7 +1629,7 @@
     seq: 20
   obj: purchase.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.unit.segment.assigments/unit_id
     seq: 0
@@ -1639,7 +1639,7 @@
     seq: 20
   obj: purchase.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.unit.segment.assigments/unit_id
     seq: 0
@@ -1649,7 +1649,7 @@
     seq: 20
   obj: purchase.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.unit.segment.assigments/unit_id
     seq: 0
@@ -1659,7 +1659,7 @@
     seq: 20
   obj: purchase.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.unit.segment.assigments/unit_id
     seq: 0
@@ -1669,7 +1669,7 @@
     seq: 20
   obj: purchase.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.unit.segment.assigments/unit_id
     seq: 0
@@ -1679,7 +1679,7 @@
     seq: 20
   obj: purchase.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.unit.segment.assigments/unit_id
     seq: 0
@@ -1689,7 +1689,7 @@
     seq: 20
   obj: purchase.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.unit.area.assigments/unit_id
     seq: 0
@@ -1699,7 +1699,7 @@
     seq: 20
   obj: purchase.unit.area.assigments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.unit.area.assigments/unit_id
     seq: 0
@@ -1709,7 +1709,7 @@
     seq: 20
   obj: purchase.unit.area.assigments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.unit.area.assigments/unit_id
     seq: 0
@@ -1719,7 +1719,7 @@
     seq: 20
   obj: purchase.unit.area.assigments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.unit.area.assigments/unit_id
     seq: 0
@@ -1729,7 +1729,7 @@
     seq: 20
   obj: purchase.unit.area.assigments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.unit.area.assigments/unit_id
     seq: 0
@@ -1739,7 +1739,7 @@
     seq: 20
   obj: purchase.unit.area.assigments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.unit.area.assigments/unit_id
     seq: 0
@@ -1749,7 +1749,7 @@
     seq: 20
   obj: purchase.unit.area.assigments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.unit.area.assigments/unit_id
     seq: 0
@@ -1759,7 +1759,7 @@
     seq: 20
   obj: purchase.unit.area.assigments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.unit.region.assigments/unit_id
     seq: 0
@@ -1769,7 +1769,7 @@
     seq: 20
   obj: purchase.unit.region.assigments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.unit.region.assigments/unit_id
     seq: 0
@@ -1779,7 +1779,7 @@
     seq: 20
   obj: purchase.unit.region.assigments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.unit.region.assigments/unit_id
     seq: 0
@@ -1789,7 +1789,7 @@
     seq: 20
   obj: purchase.unit.region.assigments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.unit.region.assigments/unit_id
     seq: 0
@@ -1799,7 +1799,7 @@
     seq: 20
   obj: purchase.unit.region.assigments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.unit.region.assigments/unit_id
     seq: 0
@@ -1809,7 +1809,7 @@
     seq: 20
   obj: purchase.unit.region.assigments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.unit.region.assigments/unit_id
     seq: 0
@@ -1819,7 +1819,7 @@
     seq: 20
   obj: purchase.unit.region.assigments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.unit.region.assigments/unit_id
     seq: 0
@@ -1829,7 +1829,7 @@
     seq: 20
   obj: purchase.unit.region.assigments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.division.subdivision.assigments/division_id
     seq: 0
@@ -1839,7 +1839,7 @@
     seq: 20
   obj: purchase.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.division.subdivision.assigments/division_id
     seq: 0
@@ -1849,7 +1849,7 @@
     seq: 20
   obj: purchase.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.division.subdivision.assigments/division_id
     seq: 0
@@ -1859,7 +1859,7 @@
     seq: 20
   obj: purchase.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.division.subdivision.assigments/division_id
     seq: 0
@@ -1869,7 +1869,7 @@
     seq: 20
   obj: purchase.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.division.subdivision.assigments/division_id
     seq: 0
@@ -1879,7 +1879,7 @@
     seq: 20
   obj: purchase.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.division.subdivision.assigments/division_id
     seq: 0
@@ -1889,7 +1889,7 @@
     seq: 20
   obj: purchase.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.division.subdivision.assigments/division_id
     seq: 0
@@ -1899,7 +1899,7 @@
     seq: 20
   obj: purchase.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.markets/unit_id
     seq: 0
@@ -1917,7 +1917,7 @@
     seq: 60
   obj: purchase.markets
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.markets/unit_id
     seq: 0
@@ -1935,7 +1935,7 @@
     seq: 60
   obj: purchase.markets
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.markets/unit_id
     seq: 0
@@ -1953,7 +1953,7 @@
     seq: 60
   obj: purchase.markets
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.markets/unit_id
     seq: 0
@@ -1971,7 +1971,7 @@
     seq: 60
   obj: purchase.markets
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.markets/unit_id
     seq: 0
@@ -1989,7 +1989,7 @@
     seq: 60
   obj: purchase.markets
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.teams/division_id
     seq: 0
@@ -2001,7 +2001,7 @@
     seq: 30
   obj: purchase.teams
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.teams/division_id
     seq: 0
@@ -2013,7 +2013,7 @@
     seq: 30
   obj: purchase.teams
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.teams/division_id
     seq: 0
@@ -2025,7 +2025,7 @@
     seq: 30
   obj: purchase.teams
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.teams/division_id
     seq: 0
@@ -2037,7 +2037,7 @@
     seq: 30
   obj: purchase.teams
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.teams/division_id
     seq: 0
@@ -2049,7 +2049,7 @@
     seq: 30
   obj: purchase.teams
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.pricing.group.levels/code
     seq: 0
@@ -2059,7 +2059,7 @@
     seq: 20
   obj: purchase.pricing.group.levels
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.pricing.group.levels/code
     seq: 0
@@ -2069,7 +2069,7 @@
     seq: 20
   obj: purchase.pricing.group.levels
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.pricing.group.levels/code
     seq: 0
@@ -2079,7 +2079,7 @@
     seq: 20
   obj: purchase.pricing.group.levels
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.pricing.group.levels/code
     seq: 0
@@ -2089,7 +2089,7 @@
     seq: 20
   obj: purchase.pricing.group.levels
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.pricing.group.levels/code
     seq: 0
@@ -2099,7 +2099,7 @@
     seq: 20
   obj: purchase.pricing.group.levels
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.texts/code
     seq: 0
@@ -2109,7 +2109,7 @@
     seq: 20
   obj: purchase.texts
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.texts/code
     seq: 0
@@ -2119,7 +2119,7 @@
     seq: 20
   obj: purchase.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.texts/code
     seq: 0
@@ -2129,7 +2129,7 @@
     seq: 20
   obj: purchase.texts
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.texts/code
     seq: 0
@@ -2139,7 +2139,7 @@
     seq: 20
   obj: purchase.texts
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.texts/code
     seq: 0
@@ -2149,7 +2149,7 @@
     seq: 20
   obj: purchase.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.schema.texts/usage
     seq: 0
@@ -2161,7 +2161,7 @@
     seq: 30
   obj: purchase.schema.texts
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.schema.texts/usage
     seq: 0
@@ -2173,21 +2173,7 @@
     seq: 30
   obj: purchase.schema.texts
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: purchase.schema.texts/usage
-    seq: 0
-  - col: purchase.schema.texts/code
-    seq: 10
-  - col: purchase.schema.texts/descr
-    seq: 20
-  - col: purchase.schema.texts/texts
-    seq: 30
-  - col: purchase.schema.texts/note
-    seq: 40
-  obj: purchase.schema.texts
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.schema.texts/usage
     seq: 0
@@ -2201,7 +2187,7 @@
     seq: 40
   obj: purchase.schema.texts
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.schema.texts/usage
     seq: 0
@@ -2215,7 +2201,21 @@
     seq: 40
   obj: purchase.schema.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
+- cols:
+  - col: purchase.schema.texts/usage
+    seq: 0
+  - col: purchase.schema.texts/code
+    seq: 10
+  - col: purchase.schema.texts/descr
+    seq: 20
+  - col: purchase.schema.texts/texts
+    seq: 30
+  - col: purchase.schema.texts/note
+    seq: 40
+  obj: purchase.schema.texts
+  type_obj: models
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.schema.text.items/schema_id
     seq: 0
@@ -2225,7 +2225,7 @@
     seq: 20
   obj: purchase.schema.text.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.schema.text.items/schema_id
     seq: 0
@@ -2235,7 +2235,7 @@
     seq: 20
   obj: purchase.schema.text.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.schema.text.items/schema_id
     seq: 0
@@ -2245,7 +2245,7 @@
     seq: 20
   obj: purchase.schema.text.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.schema.text.items/schema_id
     seq: 0
@@ -2255,7 +2255,7 @@
     seq: 20
   obj: purchase.schema.text.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.schema.text.items/schema_id
     seq: 0
@@ -2265,7 +2265,7 @@
     seq: 20
   obj: purchase.schema.text.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.schema.text.items/schema_id
     seq: 0
@@ -2275,7 +2275,7 @@
     seq: 20
   obj: purchase.schema.text.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.types/otype
     seq: 0
@@ -2289,7 +2289,7 @@
     seq: 40
   obj: purchase.order.types
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.order.types/otype
     seq: 0
@@ -2303,7 +2303,7 @@
     seq: 40
   obj: purchase.order.types
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.types/otype
     seq: 0
@@ -2323,7 +2323,7 @@
     seq: 70
   obj: purchase.order.types
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.types/otype
     seq: 0
@@ -2343,7 +2343,7 @@
     seq: 70
   obj: purchase.order.types
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.types/otype
     seq: 0
@@ -2363,7 +2363,7 @@
     seq: 70
   obj: purchase.order.types
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.type.roles/type_id
     seq: 0
@@ -2375,7 +2375,7 @@
     seq: 30
   obj: purchase.order.type.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.type.roles/type_id
     seq: 0
@@ -2387,7 +2387,7 @@
     seq: 30
   obj: purchase.order.type.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.type.roles/type_id
     seq: 0
@@ -2399,7 +2399,7 @@
     seq: 30
   obj: purchase.order.type.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.type.roles/type_id
     seq: 0
@@ -2411,7 +2411,7 @@
     seq: 30
   obj: purchase.order.type.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.type.roles/type_id
     seq: 0
@@ -2423,7 +2423,7 @@
     seq: 30
   obj: purchase.order.type.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.type.roles/type_id
     seq: 0
@@ -2435,7 +2435,7 @@
     seq: 30
   obj: purchase.order.type.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.type.plates/type_id
     seq: 0
@@ -2449,7 +2449,7 @@
     seq: 40
   obj: purchase.order.type.plates
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.type.plates/type_id
     seq: 0
@@ -2463,7 +2463,7 @@
     seq: 40
   obj: purchase.order.type.plates
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.type.plates/type_id
     seq: 0
@@ -2477,7 +2477,7 @@
     seq: 40
   obj: purchase.order.type.plates
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.type.plates/type_id
     seq: 0
@@ -2491,7 +2491,7 @@
     seq: 40
   obj: purchase.order.type.plates
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.type.plates/type_id
     seq: 0
@@ -2505,7 +2505,7 @@
     seq: 40
   obj: purchase.order.type.plates
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.type.plates/type_id
     seq: 0
@@ -2519,7 +2519,7 @@
     seq: 40
   obj: purchase.order.type.plates
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.type.items/type_id
     seq: 0
@@ -2531,7 +2531,7 @@
     seq: 30
   obj: purchase.order.type.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.type.items/type_id
     seq: 0
@@ -2543,7 +2543,7 @@
     seq: 30
   obj: purchase.order.type.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.type.items/type_id
     seq: 0
@@ -2555,7 +2555,7 @@
     seq: 30
   obj: purchase.order.type.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.type.items/type_id
     seq: 0
@@ -2567,7 +2567,7 @@
     seq: 30
   obj: purchase.order.type.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.type.items/type_id
     seq: 0
@@ -2579,7 +2579,7 @@
     seq: 30
   obj: purchase.order.type.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.type.items/type_id
     seq: 0
@@ -2591,7 +2591,7 @@
     seq: 30
   obj: purchase.order.type.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.invoice.types/itype
     seq: 0
@@ -2605,7 +2605,7 @@
     seq: 40
   obj: purchase.invoice.types
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.invoice.types/itype
     seq: 0
@@ -2619,23 +2619,7 @@
     seq: 40
   obj: purchase.invoice.types
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: purchase.invoice.types/itype
-    seq: 0
-  - col: purchase.invoice.types/name
-    seq: 10
-  - col: purchase.invoice.types/htschema
-    seq: 20
-  - col: purchase.invoice.types/itschema
-    seq: 30
-  - col: purchase.invoice.types/roles
-    seq: 40
-  - col: purchase.invoice.types/note
-    seq: 50
-  obj: purchase.invoice.types
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.invoice.types/itype
     seq: 0
@@ -2651,7 +2635,7 @@
     seq: 50
   obj: purchase.invoice.types
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.invoice.types/itype
     seq: 0
@@ -2667,7 +2651,23 @@
     seq: 50
   obj: purchase.invoice.types
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
+- cols:
+  - col: purchase.invoice.types/itype
+    seq: 0
+  - col: purchase.invoice.types/name
+    seq: 10
+  - col: purchase.invoice.types/htschema
+    seq: 20
+  - col: purchase.invoice.types/itschema
+    seq: 30
+  - col: purchase.invoice.types/roles
+    seq: 40
+  - col: purchase.invoice.types/note
+    seq: 50
+  obj: purchase.invoice.types
+  type_obj: models
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.invoice.type.roles/type_id
     seq: 0
@@ -2679,7 +2679,7 @@
     seq: 30
   obj: purchase.invoice.type.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.invoice.type.roles/type_id
     seq: 0
@@ -2691,7 +2691,7 @@
     seq: 30
   obj: purchase.invoice.type.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.invoice.type.roles/type_id
     seq: 0
@@ -2703,7 +2703,7 @@
     seq: 30
   obj: purchase.invoice.type.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.invoice.type.roles/type_id
     seq: 0
@@ -2715,7 +2715,7 @@
     seq: 30
   obj: purchase.invoice.type.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.invoice.type.roles/type_id
     seq: 0
@@ -2727,7 +2727,7 @@
     seq: 30
   obj: purchase.invoice.type.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.invoice.type.roles/type_id
     seq: 0
@@ -2739,7 +2739,7 @@
     seq: 30
   obj: purchase.invoice.type.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.categories/name
     seq: 0
@@ -2751,7 +2751,7 @@
     seq: 30
   obj: purchase.order.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.order.categories/name
     seq: 0
@@ -2763,7 +2763,7 @@
     seq: 30
   obj: purchase.order.categories
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.categories/name
     seq: 0
@@ -2779,7 +2779,7 @@
     seq: 50
   obj: purchase.order.categories
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.categories/name
     seq: 0
@@ -2795,7 +2795,7 @@
     seq: 50
   obj: purchase.order.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.categories/name
     seq: 0
@@ -2811,7 +2811,7 @@
     seq: 50
   obj: purchase.order.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.categories/name
     seq: 0
@@ -2827,7 +2827,7 @@
     seq: 50
   obj: purchase.order.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.categories/name
     seq: 0
@@ -2839,7 +2839,7 @@
     seq: 30
   obj: purchase.order.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: purchase.order.categories/name
     seq: 0
@@ -2851,7 +2851,7 @@
     seq: 30
   obj: purchase.order.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: purchase.order.categories/name
     seq: 0
@@ -2867,7 +2867,7 @@
     seq: 50
   obj: purchase.order.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.invoce.categories/name
     seq: 0
@@ -2879,7 +2879,7 @@
     seq: 30
   obj: purchase.invoce.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.invoce.categories/name
     seq: 0
@@ -2891,23 +2891,7 @@
     seq: 30
   obj: purchase.invoce.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: purchase.invoce.categories/name
-    seq: 0
-  - col: purchase.invoce.categories/parent_id
-    seq: 10
-  - col: purchase.invoce.categories/childs_id
-    seq: 20
-  - col: purchase.invoce.categories/fullname
-    seq: 30
-  - col: purchase.invoce.categories/invoices
-    seq: 40
-  - col: purchase.invoce.categories/note
-    seq: 50
-  obj: purchase.invoce.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.invoce.categories/name
     seq: 0
@@ -2923,7 +2907,7 @@
     seq: 50
   obj: purchase.invoce.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.invoce.categories/name
     seq: 0
@@ -2939,7 +2923,7 @@
     seq: 50
   obj: purchase.invoce.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.invoce.categories/name
     seq: 0
@@ -2955,31 +2939,7 @@
     seq: 50
   obj: purchase.invoce.categories
   type_obj: models
-  vtype: element-plus/o2m-form
-- cols:
-  - col: purchase.invoce.categories/name
-    seq: 0
-  - col: purchase.invoce.categories/parent_id
-    seq: 10
-  - col: purchase.invoce.categories/fullname
-    seq: 20
-  - col: purchase.invoce.categories/note
-    seq: 30
-  obj: purchase.invoce.categories
-  type_obj: models
-  vtype: element-plus/tree
-- cols:
-  - col: purchase.invoce.categories/name
-    seq: 0
-  - col: purchase.invoce.categories/parent_id
-    seq: 10
-  - col: purchase.invoce.categories/fullname
-    seq: 20
-  - col: purchase.invoce.categories/note
-    seq: 30
-  obj: purchase.invoce.categories
-  type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.invoce.categories/name
     seq: 0
@@ -2995,7 +2955,47 @@
     seq: 50
   obj: purchase.invoce.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-form
+- cols:
+  - col: purchase.invoce.categories/name
+    seq: 0
+  - col: purchase.invoce.categories/parent_id
+    seq: 10
+  - col: purchase.invoce.categories/fullname
+    seq: 20
+  - col: purchase.invoce.categories/note
+    seq: 30
+  obj: purchase.invoce.categories
+  type_obj: models
+  vtype: models/element-plus/tree
+- cols:
+  - col: purchase.invoce.categories/name
+    seq: 0
+  - col: purchase.invoce.categories/parent_id
+    seq: 10
+  - col: purchase.invoce.categories/fullname
+    seq: 20
+  - col: purchase.invoce.categories/note
+    seq: 30
+  obj: purchase.invoce.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-tree
+- cols:
+  - col: purchase.invoce.categories/name
+    seq: 0
+  - col: purchase.invoce.categories/parent_id
+    seq: 10
+  - col: purchase.invoce.categories/childs_id
+    seq: 20
+  - col: purchase.invoce.categories/fullname
+    seq: 30
+  - col: purchase.invoce.categories/invoices
+    seq: 40
+  - col: purchase.invoce.categories/note
+    seq: 50
+  obj: purchase.invoce.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3043,7 +3043,7 @@
     seq: 210
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3091,7 +3091,7 @@
     seq: 210
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3151,7 +3151,7 @@
     seq: 270
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3213,7 +3213,7 @@
     seq: 280
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3275,7 +3275,7 @@
     seq: 280
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3337,7 +3337,7 @@
     seq: 280
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3385,7 +3385,7 @@
     seq: 210
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/gantt
+  vtype: models/element-plus/gantt
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3433,7 +3433,7 @@
     seq: 210
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/o2m-gantt
+  vtype: models/element-plus/o2m-gantt
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3481,7 +3481,7 @@
     seq: 210
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/schedule
+  vtype: models/element-plus/schedule
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3529,7 +3529,7 @@
     seq: 210
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/o2m-schedule
+  vtype: models/element-plus/o2m-schedule
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3577,7 +3577,7 @@
     seq: 210
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/calendar
+  vtype: models/element-plus/calendar
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3625,7 +3625,7 @@
     seq: 210
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/o2m-calendar
+  vtype: models/element-plus/o2m-calendar
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3673,7 +3673,7 @@
     seq: 210
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/graph
+  vtype: models/element-plus/graph
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3721,57 +3721,7 @@
     seq: 210
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/o2m-graph
-- cols:
-  - col: purchase.orders/otype
-    seq: 0
-  - col: purchase.orders/name
-    seq: 10
-  - col: purchase.orders/company
-    seq: 20
-  - col: purchase.orders/fullname
-    seq: 30
-  - col: purchase.orders/market_id
-    seq: 40
-  - col: purchase.orders/team_id
-    seq: 50
-  - col: purchase.orders/category_id
-    seq: 60
-  - col: purchase.orders/manager
-    seq: 70
-  - col: purchase.orders/origin
-    seq: 80
-  - col: purchase.orders/doo
-    seq: 90
-  - col: purchase.orders/from_date
-    seq: 100
-  - col: purchase.orders/to_date
-    seq: 110
-  - col: purchase.orders/partner
-    seq: 120
-  - col: purchase.orders/currency
-    seq: 130
-  - col: purchase.orders/incoterms1
-    seq: 140
-  - col: purchase.orders/incoterms2
-    seq: 150
-  - col: purchase.orders/pm
-    seq: 160
-  - col: purchase.orders/state
-    seq: 170
-  - col: purchase.orders/amount
-    seq: 180
-  - col: purchase.orders/vat_amount
-    seq: 190
-  - col: purchase.orders/total_amount
-    seq: 200
-  - col: purchase.orders/bom
-    seq: 210
-  - col: purchase.orders/note
-    seq: 220
-  obj: purchase.orders
-  type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-graph
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3821,7 +3771,57 @@
     seq: 220
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: purchase.orders/otype
+    seq: 0
+  - col: purchase.orders/name
+    seq: 10
+  - col: purchase.orders/company
+    seq: 20
+  - col: purchase.orders/fullname
+    seq: 30
+  - col: purchase.orders/market_id
+    seq: 40
+  - col: purchase.orders/team_id
+    seq: 50
+  - col: purchase.orders/category_id
+    seq: 60
+  - col: purchase.orders/manager
+    seq: 70
+  - col: purchase.orders/origin
+    seq: 80
+  - col: purchase.orders/doo
+    seq: 90
+  - col: purchase.orders/from_date
+    seq: 100
+  - col: purchase.orders/to_date
+    seq: 110
+  - col: purchase.orders/partner
+    seq: 120
+  - col: purchase.orders/currency
+    seq: 130
+  - col: purchase.orders/incoterms1
+    seq: 140
+  - col: purchase.orders/incoterms2
+    seq: 150
+  - col: purchase.orders/pm
+    seq: 160
+  - col: purchase.orders/state
+    seq: 170
+  - col: purchase.orders/amount
+    seq: 180
+  - col: purchase.orders/vat_amount
+    seq: 190
+  - col: purchase.orders/total_amount
+    seq: 200
+  - col: purchase.orders/bom
+    seq: 210
+  - col: purchase.orders/note
+    seq: 220
+  obj: purchase.orders
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3869,7 +3869,7 @@
     seq: 210
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/mdx
+  vtype: models/element-plus/mdx
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3917,7 +3917,7 @@
     seq: 210
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/o2m-mdx
+  vtype: models/element-plus/o2m-mdx
 - cols:
   - col: purchase.orders/otype
     seq: 0
@@ -3977,7 +3977,7 @@
     seq: 270
   obj: purchase.orders
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.texts/order_id
     seq: 0
@@ -3989,7 +3989,7 @@
     seq: 30
   obj: purchase.order.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.texts/order_id
     seq: 0
@@ -4001,21 +4001,7 @@
     seq: 30
   obj: purchase.order.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: purchase.order.texts/order_id
-    seq: 0
-  - col: purchase.order.texts/seq
-    seq: 10
-  - col: purchase.order.texts/text_id
-    seq: 20
-  - col: purchase.order.texts/descr
-    seq: 30
-  - col: purchase.order.texts/content
-    seq: 40
-  obj: purchase.order.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.texts/order_id
     seq: 0
@@ -4029,7 +4015,7 @@
     seq: 40
   obj: purchase.order.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.texts/order_id
     seq: 0
@@ -4043,7 +4029,21 @@
     seq: 40
   obj: purchase.order.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: purchase.order.texts/order_id
+    seq: 0
+  - col: purchase.order.texts/seq
+    seq: 10
+  - col: purchase.order.texts/text_id
+    seq: 20
+  - col: purchase.order.texts/descr
+    seq: 30
+  - col: purchase.order.texts/content
+    seq: 40
+  obj: purchase.order.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.texts/order_id
     seq: 0
@@ -4055,7 +4055,7 @@
     seq: 30
   obj: purchase.order.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.roles/order_id
     seq: 0
@@ -4065,7 +4065,7 @@
     seq: 20
   obj: purchase.order.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.roles/order_id
     seq: 0
@@ -4075,7 +4075,7 @@
     seq: 20
   obj: purchase.order.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.roles/order_id
     seq: 0
@@ -4085,7 +4085,7 @@
     seq: 20
   obj: purchase.order.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.roles/order_id
     seq: 0
@@ -4095,7 +4095,7 @@
     seq: 20
   obj: purchase.order.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.roles/order_id
     seq: 0
@@ -4105,7 +4105,7 @@
     seq: 20
   obj: purchase.order.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.roles/order_id
     seq: 0
@@ -4115,7 +4115,7 @@
     seq: 20
   obj: purchase.order.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.pricing/order_id
     seq: 0
@@ -4135,7 +4135,7 @@
     seq: 70
   obj: purchase.order.pricing
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.pricing/order_id
     seq: 0
@@ -4155,7 +4155,7 @@
     seq: 70
   obj: purchase.order.pricing
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.pricing/order_id
     seq: 0
@@ -4175,7 +4175,7 @@
     seq: 70
   obj: purchase.order.pricing
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.pricing/order_id
     seq: 0
@@ -4195,7 +4195,7 @@
     seq: 70
   obj: purchase.order.pricing
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.pricing/order_id
     seq: 0
@@ -4215,7 +4215,7 @@
     seq: 70
   obj: purchase.order.pricing
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.pricing/order_id
     seq: 0
@@ -4235,7 +4235,7 @@
     seq: 70
   obj: purchase.order.pricing
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.payment.schedules/order_id
     seq: 0
@@ -4247,7 +4247,7 @@
     seq: 30
   obj: purchase.order.payment.schedules
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.payment.schedules/order_id
     seq: 0
@@ -4259,21 +4259,7 @@
     seq: 30
   obj: purchase.order.payment.schedules
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: purchase.order.payment.schedules/order_id
-    seq: 0
-  - col: purchase.order.payment.schedules/amount
-    seq: 10
-  - col: purchase.order.payment.schedules/currency
-    seq: 20
-  - col: purchase.order.payment.schedules/schedule
-    seq: 30
-  - col: purchase.order.payment.schedules/note
-    seq: 40
-  obj: purchase.order.payment.schedules
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.payment.schedules/order_id
     seq: 0
@@ -4287,7 +4273,7 @@
     seq: 40
   obj: purchase.order.payment.schedules
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.payment.schedules/order_id
     seq: 0
@@ -4301,7 +4287,21 @@
     seq: 40
   obj: purchase.order.payment.schedules
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: purchase.order.payment.schedules/order_id
+    seq: 0
+  - col: purchase.order.payment.schedules/amount
+    seq: 10
+  - col: purchase.order.payment.schedules/currency
+    seq: 20
+  - col: purchase.order.payment.schedules/schedule
+    seq: 30
+  - col: purchase.order.payment.schedules/note
+    seq: 40
+  obj: purchase.order.payment.schedules
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.payment.schedules/order_id
     seq: 0
@@ -4313,7 +4313,7 @@
     seq: 30
   obj: purchase.order.payment.schedules
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.output.plates/order_id
     seq: 0
@@ -4333,7 +4333,7 @@
     seq: 70
   obj: purchase.order.output.plates
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.output.plates/order_id
     seq: 0
@@ -4353,29 +4353,7 @@
     seq: 70
   obj: purchase.order.output.plates
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: purchase.order.output.plates/order_id
-    seq: 0
-  - col: purchase.order.output.plates/state
-    seq: 10
-  - col: purchase.order.output.plates/otype
-    seq: 20
-  - col: purchase.order.output.plates/partner
-    seq: 30
-  - col: purchase.order.output.plates/role
-    seq: 40
-  - col: purchase.order.output.plates/language
-    seq: 50
-  - col: purchase.order.output.plates/msm
-    seq: 60
-  - col: purchase.order.output.plates/schedule
-    seq: 70
-  - col: purchase.order.output.plates/note
-    seq: 80
-  obj: purchase.order.output.plates
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.output.plates/order_id
     seq: 0
@@ -4397,7 +4375,7 @@
     seq: 80
   obj: purchase.order.output.plates
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.output.plates/order_id
     seq: 0
@@ -4419,7 +4397,7 @@
     seq: 80
   obj: purchase.order.output.plates
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.output.plates/order_id
     seq: 0
@@ -4441,7 +4419,7 @@
     seq: 80
   obj: purchase.order.output.plates
   type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.output.plates/order_id
     seq: 0
@@ -4463,7 +4441,29 @@
     seq: 80
   obj: purchase.order.output.plates
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: purchase.order.output.plates/order_id
+    seq: 0
+  - col: purchase.order.output.plates/state
+    seq: 10
+  - col: purchase.order.output.plates/otype
+    seq: 20
+  - col: purchase.order.output.plates/partner
+    seq: 30
+  - col: purchase.order.output.plates/role
+    seq: 40
+  - col: purchase.order.output.plates/language
+    seq: 50
+  - col: purchase.order.output.plates/msm
+    seq: 60
+  - col: purchase.order.output.plates/schedule
+    seq: 70
+  - col: purchase.order.output.plates/note
+    seq: 80
+  obj: purchase.order.output.plates
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: purchase.order.output.plates/order_id
     seq: 0
@@ -4483,7 +4483,7 @@
     seq: 70
   obj: purchase.order.output.plates
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.items/order_id
     seq: 0
@@ -4525,7 +4525,7 @@
     seq: 180
   obj: purchase.order.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.items/order_id
     seq: 0
@@ -4579,7 +4579,7 @@
     seq: 240
   obj: purchase.order.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.items/order_id
     seq: 0
@@ -4635,7 +4635,7 @@
     seq: 250
   obj: purchase.order.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.items/order_id
     seq: 0
@@ -4691,7 +4691,7 @@
     seq: 250
   obj: purchase.order.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.items/order_id
     seq: 0
@@ -4747,7 +4747,7 @@
     seq: 250
   obj: purchase.order.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.items/order_id
     seq: 0
@@ -4801,7 +4801,7 @@
     seq: 240
   obj: purchase.order.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.pricing.items/item_id
     seq: 0
@@ -4829,7 +4829,7 @@
     seq: 110
   obj: purchase.order.pricing.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.pricing.items/item_id
     seq: 0
@@ -4857,7 +4857,7 @@
     seq: 110
   obj: purchase.order.pricing.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.pricing.items/item_id
     seq: 0
@@ -4885,7 +4885,7 @@
     seq: 110
   obj: purchase.order.pricing.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.pricing.items/item_id
     seq: 0
@@ -4913,7 +4913,7 @@
     seq: 110
   obj: purchase.order.pricing.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.pricing.items/item_id
     seq: 0
@@ -4941,7 +4941,7 @@
     seq: 110
   obj: purchase.order.pricing.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.pricing.items/item_id
     seq: 0
@@ -4969,7 +4969,7 @@
     seq: 110
   obj: purchase.order.pricing.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.item.texts/item_id
     seq: 0
@@ -4981,7 +4981,7 @@
     seq: 30
   obj: purchase.order.item.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.item.texts/item_id
     seq: 0
@@ -4993,21 +4993,7 @@
     seq: 30
   obj: purchase.order.item.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: purchase.order.item.texts/item_id
-    seq: 0
-  - col: purchase.order.item.texts/seq
-    seq: 10
-  - col: purchase.order.item.texts/text_id
-    seq: 20
-  - col: purchase.order.item.texts/descr
-    seq: 30
-  - col: purchase.order.item.texts/content
-    seq: 40
-  obj: purchase.order.item.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.item.texts/item_id
     seq: 0
@@ -5021,7 +5007,7 @@
     seq: 40
   obj: purchase.order.item.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.item.texts/item_id
     seq: 0
@@ -5035,7 +5021,21 @@
     seq: 40
   obj: purchase.order.item.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: purchase.order.item.texts/item_id
+    seq: 0
+  - col: purchase.order.item.texts/seq
+    seq: 10
+  - col: purchase.order.item.texts/text_id
+    seq: 20
+  - col: purchase.order.item.texts/descr
+    seq: 30
+  - col: purchase.order.item.texts/content
+    seq: 40
+  obj: purchase.order.item.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.item.texts/item_id
     seq: 0
@@ -5047,7 +5047,7 @@
     seq: 30
   obj: purchase.order.item.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.item.roles/item_id
     seq: 0
@@ -5057,7 +5057,7 @@
     seq: 20
   obj: purchase.order.item.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.item.roles/item_id
     seq: 0
@@ -5067,7 +5067,7 @@
     seq: 20
   obj: purchase.order.item.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.item.roles/item_id
     seq: 0
@@ -5077,7 +5077,7 @@
     seq: 20
   obj: purchase.order.item.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.item.roles/item_id
     seq: 0
@@ -5087,7 +5087,7 @@
     seq: 20
   obj: purchase.order.item.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.item.roles/item_id
     seq: 0
@@ -5097,7 +5097,7 @@
     seq: 20
   obj: purchase.order.item.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.item.roles/item_id
     seq: 0
@@ -5107,7 +5107,7 @@
     seq: 20
   obj: purchase.order.item.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.item.delivery.schedules/item_id
     seq: 0
@@ -5117,7 +5117,7 @@
     seq: 20
   obj: purchase.order.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.item.delivery.schedules/item_id
     seq: 0
@@ -5127,19 +5127,7 @@
     seq: 20
   obj: purchase.order.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: purchase.order.item.delivery.schedules/item_id
-    seq: 0
-  - col: purchase.order.item.delivery.schedules/quantity
-    seq: 10
-  - col: purchase.order.item.delivery.schedules/schedule
-    seq: 20
-  - col: purchase.order.item.delivery.schedules/note
-    seq: 30
-  obj: purchase.order.item.delivery.schedules
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.item.delivery.schedules/item_id
     seq: 0
@@ -5151,7 +5139,7 @@
     seq: 30
   obj: purchase.order.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.item.delivery.schedules/item_id
     seq: 0
@@ -5163,7 +5151,19 @@
     seq: 30
   obj: purchase.order.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: purchase.order.item.delivery.schedules/item_id
+    seq: 0
+  - col: purchase.order.item.delivery.schedules/quantity
+    seq: 10
+  - col: purchase.order.item.delivery.schedules/schedule
+    seq: 20
+  - col: purchase.order.item.delivery.schedules/note
+    seq: 30
+  obj: purchase.order.item.delivery.schedules
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.item.delivery.schedules/item_id
     seq: 0
@@ -5173,7 +5173,7 @@
     seq: 20
   obj: purchase.order.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.item.output.plates/item_id
     seq: 0
@@ -5193,7 +5193,7 @@
     seq: 70
   obj: purchase.order.item.output.plates
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.item.output.plates/item_id
     seq: 0
@@ -5213,29 +5213,7 @@
     seq: 70
   obj: purchase.order.item.output.plates
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: purchase.order.item.output.plates/item_id
-    seq: 0
-  - col: purchase.order.item.output.plates/state
-    seq: 10
-  - col: purchase.order.item.output.plates/otype
-    seq: 20
-  - col: purchase.order.item.output.plates/partner
-    seq: 30
-  - col: purchase.order.item.output.plates/role
-    seq: 40
-  - col: purchase.order.item.output.plates/language
-    seq: 50
-  - col: purchase.order.item.output.plates/msm
-    seq: 60
-  - col: purchase.order.item.output.plates/schedule
-    seq: 70
-  - col: purchase.order.item.output.plates/note
-    seq: 80
-  obj: purchase.order.item.output.plates
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.item.output.plates/item_id
     seq: 0
@@ -5257,7 +5235,7 @@
     seq: 80
   obj: purchase.order.item.output.plates
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.item.output.plates/item_id
     seq: 0
@@ -5279,7 +5257,7 @@
     seq: 80
   obj: purchase.order.item.output.plates
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.item.output.plates/item_id
     seq: 0
@@ -5301,7 +5279,7 @@
     seq: 80
   obj: purchase.order.item.output.plates
   type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.item.output.plates/item_id
     seq: 0
@@ -5323,7 +5301,29 @@
     seq: 80
   obj: purchase.order.item.output.plates
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: purchase.order.item.output.plates/item_id
+    seq: 0
+  - col: purchase.order.item.output.plates/state
+    seq: 10
+  - col: purchase.order.item.output.plates/otype
+    seq: 20
+  - col: purchase.order.item.output.plates/partner
+    seq: 30
+  - col: purchase.order.item.output.plates/role
+    seq: 40
+  - col: purchase.order.item.output.plates/language
+    seq: 50
+  - col: purchase.order.item.output.plates/msm
+    seq: 60
+  - col: purchase.order.item.output.plates/schedule
+    seq: 70
+  - col: purchase.order.item.output.plates/note
+    seq: 80
+  obj: purchase.order.item.output.plates
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: purchase.order.item.output.plates/item_id
     seq: 0
@@ -5343,7 +5343,7 @@
     seq: 70
   obj: purchase.order.item.output.plates
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.order.item.payment.schedules/item_id
     seq: 0
@@ -5355,7 +5355,7 @@
     seq: 30
   obj: purchase.order.item.payment.schedules
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.order.item.payment.schedules/item_id
     seq: 0
@@ -5367,7 +5367,7 @@
     seq: 30
   obj: purchase.order.item.payment.schedules
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.order.item.payment.schedules/item_id
     seq: 0
@@ -5381,7 +5381,7 @@
     seq: 40
   obj: purchase.order.item.payment.schedules
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.order.item.payment.schedules/item_id
     seq: 0
@@ -5395,7 +5395,7 @@
     seq: 40
   obj: purchase.order.item.payment.schedules
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.order.item.payment.schedules/item_id
     seq: 0
@@ -5409,7 +5409,7 @@
     seq: 40
   obj: purchase.order.item.payment.schedules
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.order.item.payment.schedules/item_id
     seq: 0
@@ -5421,7 +5421,7 @@
     seq: 30
   obj: purchase.order.item.payment.schedules
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -5461,7 +5461,7 @@
     seq: 170
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -5501,7 +5501,7 @@
     seq: 170
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -5549,7 +5549,7 @@
     seq: 210
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -5599,7 +5599,7 @@
     seq: 220
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -5649,7 +5649,7 @@
     seq: 220
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -5699,7 +5699,7 @@
     seq: 220
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -5739,7 +5739,7 @@
     seq: 170
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/calendar
+  vtype: models/element-plus/calendar
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -5779,7 +5779,7 @@
     seq: 170
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/o2m-calendar
+  vtype: models/element-plus/o2m-calendar
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -5819,7 +5819,7 @@
     seq: 170
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/graph
+  vtype: models/element-plus/graph
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -5859,49 +5859,7 @@
     seq: 170
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/o2m-graph
-- cols:
-  - col: purchase.invoices/itype
-    seq: 0
-  - col: purchase.invoices/name
-    seq: 10
-  - col: purchase.invoices/company
-    seq: 20
-  - col: purchase.invoices/fullname
-    seq: 30
-  - col: purchase.invoices/market_id
-    seq: 40
-  - col: purchase.invoices/team_id
-    seq: 50
-  - col: purchase.invoices/category_id
-    seq: 60
-  - col: purchase.invoices/origin
-    seq: 70
-  - col: purchase.invoices/doi
-    seq: 80
-  - col: purchase.invoices/partner
-    seq: 90
-  - col: purchase.invoices/currency
-    seq: 100
-  - col: purchase.invoices/incoterms1
-    seq: 110
-  - col: purchase.invoices/incoterms2
-    seq: 120
-  - col: purchase.invoices/state
-    seq: 130
-  - col: purchase.invoices/amount
-    seq: 140
-  - col: purchase.invoices/vat_amount
-    seq: 150
-  - col: purchase.invoices/total_amount
-    seq: 160
-  - col: purchase.invoices/bom
-    seq: 170
-  - col: purchase.invoices/note
-    seq: 180
-  obj: purchase.invoices
-  type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-graph
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -5943,7 +5901,49 @@
     seq: 180
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: purchase.invoices/itype
+    seq: 0
+  - col: purchase.invoices/name
+    seq: 10
+  - col: purchase.invoices/company
+    seq: 20
+  - col: purchase.invoices/fullname
+    seq: 30
+  - col: purchase.invoices/market_id
+    seq: 40
+  - col: purchase.invoices/team_id
+    seq: 50
+  - col: purchase.invoices/category_id
+    seq: 60
+  - col: purchase.invoices/origin
+    seq: 70
+  - col: purchase.invoices/doi
+    seq: 80
+  - col: purchase.invoices/partner
+    seq: 90
+  - col: purchase.invoices/currency
+    seq: 100
+  - col: purchase.invoices/incoterms1
+    seq: 110
+  - col: purchase.invoices/incoterms2
+    seq: 120
+  - col: purchase.invoices/state
+    seq: 130
+  - col: purchase.invoices/amount
+    seq: 140
+  - col: purchase.invoices/vat_amount
+    seq: 150
+  - col: purchase.invoices/total_amount
+    seq: 160
+  - col: purchase.invoices/bom
+    seq: 170
+  - col: purchase.invoices/note
+    seq: 180
+  obj: purchase.invoices
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -5983,7 +5983,7 @@
     seq: 170
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/mdx
+  vtype: models/element-plus/mdx
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -6023,7 +6023,7 @@
     seq: 170
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/o2m-mdx
+  vtype: models/element-plus/o2m-mdx
 - cols:
   - col: purchase.invoices/itype
     seq: 0
@@ -6071,7 +6071,7 @@
     seq: 210
   obj: purchase.invoices
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.invoice.pricing/invoice_id
     seq: 0
@@ -6091,7 +6091,7 @@
     seq: 70
   obj: purchase.invoice.pricing
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.invoice.pricing/invoice_id
     seq: 0
@@ -6111,7 +6111,7 @@
     seq: 70
   obj: purchase.invoice.pricing
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.invoice.pricing/invoice_id
     seq: 0
@@ -6131,7 +6131,7 @@
     seq: 70
   obj: purchase.invoice.pricing
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.invoice.pricing/invoice_id
     seq: 0
@@ -6151,7 +6151,7 @@
     seq: 70
   obj: purchase.invoice.pricing
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.invoice.pricing/invoice_id
     seq: 0
@@ -6171,7 +6171,7 @@
     seq: 70
   obj: purchase.invoice.pricing
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.invoice.pricing/invoice_id
     seq: 0
@@ -6191,7 +6191,7 @@
     seq: 70
   obj: purchase.invoice.pricing
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.invoice.texts/invoice_id
     seq: 0
@@ -6203,7 +6203,7 @@
     seq: 30
   obj: purchase.invoice.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.invoice.texts/invoice_id
     seq: 0
@@ -6215,21 +6215,7 @@
     seq: 30
   obj: purchase.invoice.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: purchase.invoice.texts/invoice_id
-    seq: 0
-  - col: purchase.invoice.texts/seq
-    seq: 10
-  - col: purchase.invoice.texts/text_id
-    seq: 20
-  - col: purchase.invoice.texts/descr
-    seq: 30
-  - col: purchase.invoice.texts/content
-    seq: 40
-  obj: purchase.invoice.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.invoice.texts/invoice_id
     seq: 0
@@ -6243,7 +6229,7 @@
     seq: 40
   obj: purchase.invoice.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.invoice.texts/invoice_id
     seq: 0
@@ -6257,7 +6243,21 @@
     seq: 40
   obj: purchase.invoice.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: purchase.invoice.texts/invoice_id
+    seq: 0
+  - col: purchase.invoice.texts/seq
+    seq: 10
+  - col: purchase.invoice.texts/text_id
+    seq: 20
+  - col: purchase.invoice.texts/descr
+    seq: 30
+  - col: purchase.invoice.texts/content
+    seq: 40
+  obj: purchase.invoice.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.invoice.texts/invoice_id
     seq: 0
@@ -6269,7 +6269,7 @@
     seq: 30
   obj: purchase.invoice.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.invoice.roles/invoice_id
     seq: 0
@@ -6279,7 +6279,7 @@
     seq: 20
   obj: purchase.invoice.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.invoice.roles/invoice_id
     seq: 0
@@ -6289,7 +6289,7 @@
     seq: 20
   obj: purchase.invoice.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.invoice.roles/invoice_id
     seq: 0
@@ -6299,7 +6299,7 @@
     seq: 20
   obj: purchase.invoice.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.invoice.roles/invoice_id
     seq: 0
@@ -6309,7 +6309,7 @@
     seq: 20
   obj: purchase.invoice.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.invoice.roles/invoice_id
     seq: 0
@@ -6319,7 +6319,7 @@
     seq: 20
   obj: purchase.invoice.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.invoice.roles/invoice_id
     seq: 0
@@ -6329,7 +6329,7 @@
     seq: 20
   obj: purchase.invoice.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.invoice.items/invoice_id
     seq: 0
@@ -6357,7 +6357,7 @@
     seq: 110
   obj: purchase.invoice.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.invoice.items/invoice_id
     seq: 0
@@ -6393,7 +6393,7 @@
     seq: 150
   obj: purchase.invoice.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.invoice.items/invoice_id
     seq: 0
@@ -6431,7 +6431,7 @@
     seq: 160
   obj: purchase.invoice.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.invoice.items/invoice_id
     seq: 0
@@ -6469,7 +6469,7 @@
     seq: 160
   obj: purchase.invoice.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.invoice.items/invoice_id
     seq: 0
@@ -6507,7 +6507,7 @@
     seq: 160
   obj: purchase.invoice.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.invoice.items/invoice_id
     seq: 0
@@ -6543,7 +6543,7 @@
     seq: 150
   obj: purchase.invoice.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.invoice.item.texts/item_id
     seq: 0
@@ -6555,7 +6555,7 @@
     seq: 30
   obj: purchase.invoice.item.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.invoice.item.texts/item_id
     seq: 0
@@ -6567,21 +6567,7 @@
     seq: 30
   obj: purchase.invoice.item.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: purchase.invoice.item.texts/item_id
-    seq: 0
-  - col: purchase.invoice.item.texts/seq
-    seq: 10
-  - col: purchase.invoice.item.texts/text_id
-    seq: 20
-  - col: purchase.invoice.item.texts/descr
-    seq: 30
-  - col: purchase.invoice.item.texts/content
-    seq: 40
-  obj: purchase.invoice.item.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.invoice.item.texts/item_id
     seq: 0
@@ -6595,7 +6581,7 @@
     seq: 40
   obj: purchase.invoice.item.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.invoice.item.texts/item_id
     seq: 0
@@ -6609,7 +6595,21 @@
     seq: 40
   obj: purchase.invoice.item.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: purchase.invoice.item.texts/item_id
+    seq: 0
+  - col: purchase.invoice.item.texts/seq
+    seq: 10
+  - col: purchase.invoice.item.texts/text_id
+    seq: 20
+  - col: purchase.invoice.item.texts/descr
+    seq: 30
+  - col: purchase.invoice.item.texts/content
+    seq: 40
+  obj: purchase.invoice.item.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.invoice.item.texts/item_id
     seq: 0
@@ -6621,7 +6621,7 @@
     seq: 30
   obj: purchase.invoice.item.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.invoice.item.roles/item_id
     seq: 0
@@ -6631,7 +6631,7 @@
     seq: 20
   obj: purchase.invoice.item.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.invoice.item.roles/item_id
     seq: 0
@@ -6641,7 +6641,7 @@
     seq: 20
   obj: purchase.invoice.item.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.invoice.item.roles/item_id
     seq: 0
@@ -6651,7 +6651,7 @@
     seq: 20
   obj: purchase.invoice.item.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.invoice.item.roles/item_id
     seq: 0
@@ -6661,7 +6661,7 @@
     seq: 20
   obj: purchase.invoice.item.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.invoice.item.roles/item_id
     seq: 0
@@ -6671,7 +6671,7 @@
     seq: 20
   obj: purchase.invoice.item.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.invoice.item.roles/item_id
     seq: 0
@@ -6681,7 +6681,7 @@
     seq: 20
   obj: purchase.invoice.item.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.invoice.pricing.items/item_id
     seq: 0
@@ -6709,7 +6709,7 @@
     seq: 110
   obj: purchase.invoice.pricing.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.invoice.pricing.items/item_id
     seq: 0
@@ -6737,7 +6737,7 @@
     seq: 110
   obj: purchase.invoice.pricing.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.invoice.pricing.items/item_id
     seq: 0
@@ -6765,7 +6765,7 @@
     seq: 110
   obj: purchase.invoice.pricing.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.invoice.pricing.items/item_id
     seq: 0
@@ -6793,7 +6793,7 @@
     seq: 110
   obj: purchase.invoice.pricing.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: purchase.invoice.pricing.items/item_id
     seq: 0
@@ -6821,7 +6821,7 @@
     seq: 110
   obj: purchase.invoice.pricing.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.invoice.pricing.items/item_id
     seq: 0
@@ -6849,7 +6849,7 @@
     seq: 110
   obj: purchase.invoice.pricing.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: purchase.invoce.item.delivery.schedules/item_id
     seq: 0
@@ -6859,7 +6859,7 @@
     seq: 20
   obj: purchase.invoce.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: purchase.invoce.item.delivery.schedules/item_id
     seq: 0
@@ -6869,19 +6869,7 @@
     seq: 20
   obj: purchase.invoce.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: purchase.invoce.item.delivery.schedules/item_id
-    seq: 0
-  - col: purchase.invoce.item.delivery.schedules/quantity
-    seq: 10
-  - col: purchase.invoce.item.delivery.schedules/schedule
-    seq: 20
-  - col: purchase.invoce.item.delivery.schedules/note
-    seq: 30
-  obj: purchase.invoce.item.delivery.schedules
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: purchase.invoce.item.delivery.schedules/item_id
     seq: 0
@@ -6893,7 +6881,7 @@
     seq: 30
   obj: purchase.invoce.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: purchase.invoce.item.delivery.schedules/item_id
     seq: 0
@@ -6905,7 +6893,19 @@
     seq: 30
   obj: purchase.invoce.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: purchase.invoce.item.delivery.schedules/item_id
+    seq: 0
+  - col: purchase.invoce.item.delivery.schedules/quantity
+    seq: 10
+  - col: purchase.invoce.item.delivery.schedules/schedule
+    seq: 20
+  - col: purchase.invoce.item.delivery.schedules/note
+    seq: 30
+  obj: purchase.invoce.item.delivery.schedules
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: purchase.invoce.item.delivery.schedules/item_id
     seq: 0
@@ -6915,7 +6915,7 @@
     seq: 20
   obj: purchase.invoce.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: md.purchase.product/product_id
     seq: 0
@@ -6935,7 +6935,7 @@
     seq: 70
   obj: md.purchase.product
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: md.purchase.product/product_id
     seq: 0
@@ -6955,7 +6955,7 @@
     seq: 70
   obj: md.purchase.product
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: md.purchase.product/product_id
     seq: 0
@@ -6975,7 +6975,7 @@
     seq: 70
   obj: md.purchase.product
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: md.purchase.product/product_id
     seq: 0
@@ -6995,7 +6995,7 @@
     seq: 70
   obj: md.purchase.product
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: md.purchase.product/product_id
     seq: 0
@@ -7015,7 +7015,7 @@
     seq: 70
   obj: md.purchase.product
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: md.purchase.product/product_id
     seq: 0
@@ -7035,7 +7035,7 @@
     seq: 70
   obj: md.purchase.product
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: pricing.purchase.b0001/product
     seq: 0
@@ -7053,7 +7053,7 @@
     seq: 60
   obj: pricing.purchase.b0001
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: pricing.purchase.b0001/product
     seq: 0
@@ -7071,7 +7071,7 @@
     seq: 60
   obj: pricing.purchase.b0001
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: pricing.purchase.b0001/product
     seq: 0
@@ -7089,7 +7089,7 @@
     seq: 60
   obj: pricing.purchase.b0001
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: pricing.purchase.b0001/product
     seq: 0
@@ -7107,7 +7107,7 @@
     seq: 60
   obj: pricing.purchase.b0001
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: pricing.purchase.b0002/product
     seq: 0
@@ -7125,7 +7125,7 @@
     seq: 60
   obj: pricing.purchase.b0002
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: pricing.purchase.b0002/product
     seq: 0
@@ -7143,7 +7143,7 @@
     seq: 60
   obj: pricing.purchase.b0002
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: pricing.purchase.b0002/product
     seq: 0
@@ -7161,7 +7161,7 @@
     seq: 60
   obj: pricing.purchase.b0002
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: pricing.purchase.b0002/product
     seq: 0
@@ -7179,7 +7179,7 @@
     seq: 60
   obj: pricing.purchase.b0002
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: pricing.purchase.b0003/product
     seq: 0
@@ -7197,7 +7197,7 @@
     seq: 60
   obj: pricing.purchase.b0003
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: pricing.purchase.b0003/product
     seq: 0
@@ -7215,7 +7215,7 @@
     seq: 60
   obj: pricing.purchase.b0003
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: pricing.purchase.b0003/product
     seq: 0
@@ -7233,7 +7233,7 @@
     seq: 60
   obj: pricing.purchase.b0003
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: pricing.purchase.b0003/product
     seq: 0
@@ -7251,4 +7251,4 @@
     seq: 60
   obj: pricing.purchase.b0003
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form

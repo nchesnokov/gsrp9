@@ -7,7 +7,7 @@
     seq: 20
   obj: fa.accounts.type
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.accounts.type/name
     seq: 0
@@ -17,7 +17,7 @@
     seq: 20
   obj: fa.accounts.type
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.accounts.type/name
     seq: 0
@@ -27,19 +27,7 @@
     seq: 20
   obj: fa.accounts.type
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: fa.accounts.type/name
-    seq: 0
-  - col: fa.accounts.type/include_initial_balance
-    seq: 10
-  - col: fa.accounts.type/type
-    seq: 20
-  - col: fa.accounts.type/note
-    seq: 30
-  obj: fa.accounts.type
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: fa.accounts.type/name
     seq: 0
@@ -51,7 +39,19 @@
     seq: 30
   obj: fa.accounts.type
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
+- cols:
+  - col: fa.accounts.type/name
+    seq: 0
+  - col: fa.accounts.type/include_initial_balance
+    seq: 10
+  - col: fa.accounts.type/type
+    seq: 20
+  - col: fa.accounts.type/note
+    seq: 30
+  obj: fa.accounts.type
+  type_obj: models
+  vtype: models/element-plus/form
 - cols:
   - col: fa.accounts.tag/name
     seq: 0
@@ -63,7 +63,7 @@
     seq: 30
   obj: fa.accounts.tag
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.accounts.tag/name
     seq: 0
@@ -75,7 +75,7 @@
     seq: 30
   obj: fa.accounts.tag
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.accounts.tag/name
     seq: 0
@@ -87,7 +87,7 @@
     seq: 30
   obj: fa.accounts.tag
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fa.accounts.tag/name
     seq: 0
@@ -99,7 +99,7 @@
     seq: 30
   obj: fa.accounts.tag
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.accounts.tag/name
     seq: 0
@@ -111,7 +111,7 @@
     seq: 30
   obj: fa.accounts.tag
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.accounts/name
     seq: 0
@@ -139,7 +139,7 @@
     seq: 110
   obj: fa.accounts
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.accounts/name
     seq: 0
@@ -167,7 +167,7 @@
     seq: 110
   obj: fa.accounts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.accounts/name
     seq: 0
@@ -195,7 +195,7 @@
     seq: 110
   obj: fa.accounts
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fa.accounts.tax/name
     seq: 0
@@ -235,7 +235,7 @@
     seq: 170
   obj: fa.accounts.tax
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.accounts.tag/name
     seq: 0
@@ -247,7 +247,7 @@
     seq: 30
   obj: fa.accounts.tag
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.accounts/name
     seq: 0
@@ -281,7 +281,7 @@
     seq: 140
   obj: fa.accounts
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.accounts/name
     seq: 0
@@ -315,7 +315,7 @@
     seq: 140
   obj: fa.accounts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.accounts/name
     seq: 0
@@ -349,7 +349,7 @@
     seq: 140
   obj: fa.accounts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fa.accounts/name
     seq: 0
@@ -377,7 +377,7 @@
     seq: 110
   obj: fa.accounts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fa.accounts.group/name
     seq: 0
@@ -387,7 +387,7 @@
     seq: 20
   obj: fa.accounts.group
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.accounts.group/name
     seq: 0
@@ -397,19 +397,7 @@
     seq: 20
   obj: fa.accounts.group
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: fa.accounts.group/name
-    seq: 0
-  - col: fa.accounts.group/code_prefix
-    seq: 10
-  - col: fa.accounts.group/parent_id
-    seq: 20
-  - col: fa.accounts.group/childs_id
-    seq: 30
-  obj: fa.accounts.group
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: fa.accounts.group/name
     seq: 0
@@ -421,7 +409,7 @@
     seq: 30
   obj: fa.accounts.group
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: fa.accounts.group/name
     seq: 0
@@ -433,7 +421,7 @@
     seq: 30
   obj: fa.accounts.group
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.accounts.group/name
     seq: 0
@@ -445,27 +433,7 @@
     seq: 30
   obj: fa.accounts.group
   type_obj: models
-  vtype: element-plus/o2m-form
-- cols:
-  - col: fa.accounts.group/name
-    seq: 0
-  - col: fa.accounts.group/code_prefix
-    seq: 10
-  - col: fa.accounts.group/parent_id
-    seq: 20
-  obj: fa.accounts.group
-  type_obj: models
-  vtype: element-plus/tree
-- cols:
-  - col: fa.accounts.group/name
-    seq: 0
-  - col: fa.accounts.group/code_prefix
-    seq: 10
-  - col: fa.accounts.group/parent_id
-    seq: 20
-  obj: fa.accounts.group
-  type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/form
 - cols:
   - col: fa.accounts.group/name
     seq: 0
@@ -477,7 +445,39 @@
     seq: 30
   obj: fa.accounts.group
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-form
+- cols:
+  - col: fa.accounts.group/name
+    seq: 0
+  - col: fa.accounts.group/code_prefix
+    seq: 10
+  - col: fa.accounts.group/parent_id
+    seq: 20
+  obj: fa.accounts.group
+  type_obj: models
+  vtype: models/element-plus/tree
+- cols:
+  - col: fa.accounts.group/name
+    seq: 0
+  - col: fa.accounts.group/code_prefix
+    seq: 10
+  - col: fa.accounts.group/parent_id
+    seq: 20
+  obj: fa.accounts.group
+  type_obj: models
+  vtype: models/element-plus/o2m-tree
+- cols:
+  - col: fa.accounts.group/name
+    seq: 0
+  - col: fa.accounts.group/code_prefix
+    seq: 10
+  - col: fa.accounts.group/parent_id
+    seq: 20
+  - col: fa.accounts.group/childs_id
+    seq: 30
+  obj: fa.accounts.group
+  type_obj: models
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fa.accounts.journal/name
     seq: 0
@@ -525,7 +525,7 @@
     seq: 210
   obj: fa.accounts.journal
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.accounts.journal/name
     seq: 0
@@ -573,7 +573,7 @@
     seq: 210
   obj: fa.accounts.journal
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.accounts.journal/name
     seq: 0
@@ -621,7 +621,7 @@
     seq: 210
   obj: fa.accounts.journal
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fa.accounts.type/name
     seq: 0
@@ -631,7 +631,7 @@
     seq: 20
   obj: fa.accounts.type
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.accounts/name
     seq: 0
@@ -659,7 +659,7 @@
     seq: 110
   obj: fa.accounts
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.accounts.payment.method/name
     seq: 0
@@ -669,7 +669,7 @@
     seq: 20
   obj: fa.accounts.payment.method
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.accounts.payment.method/name
     seq: 0
@@ -679,7 +679,7 @@
     seq: 20
   obj: fa.accounts.payment.method
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.accounts.journal/name
     seq: 0
@@ -735,7 +735,7 @@
     seq: 250
   obj: fa.accounts.journal
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.accounts.journal/name
     seq: 0
@@ -791,7 +791,7 @@
     seq: 250
   obj: fa.accounts.journal
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.accounts.journal/name
     seq: 0
@@ -847,7 +847,7 @@
     seq: 250
   obj: fa.accounts.journal
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fa.accounts.journal/name
     seq: 0
@@ -895,7 +895,7 @@
     seq: 210
   obj: fa.accounts.journal
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fa.accounts.tax.group/name
     seq: 0
@@ -903,7 +903,7 @@
     seq: 10
   obj: fa.accounts.tax.group
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.accounts.tax.group/name
     seq: 0
@@ -911,7 +911,7 @@
     seq: 10
   obj: fa.accounts.tax.group
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.accounts.tax.group/name
     seq: 0
@@ -919,7 +919,7 @@
     seq: 10
   obj: fa.accounts.tax.group
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fa.accounts.tax.group/name
     seq: 0
@@ -927,7 +927,7 @@
     seq: 10
   obj: fa.accounts.tax.group
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.accounts.tax.group/name
     seq: 0
@@ -935,7 +935,7 @@
     seq: 10
   obj: fa.accounts.tax.group
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.accounts.tax/name
     seq: 0
@@ -975,7 +975,7 @@
     seq: 170
   obj: fa.accounts.tax
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.accounts.tax/name
     seq: 0
@@ -1015,7 +1015,7 @@
     seq: 170
   obj: fa.accounts.tax
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.accounts.tax/name
     seq: 0
@@ -1055,7 +1055,7 @@
     seq: 170
   obj: fa.accounts.tax
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fa.accounts.tax/name
     seq: 0
@@ -1095,7 +1095,7 @@
     seq: 170
   obj: fa.accounts.tax
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.accounts.tag/name
     seq: 0
@@ -1107,7 +1107,7 @@
     seq: 30
   obj: fa.accounts.tag
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.accounts.tax/name
     seq: 0
@@ -1151,7 +1151,7 @@
     seq: 190
   obj: fa.accounts.tax
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.accounts.tax/name
     seq: 0
@@ -1195,7 +1195,7 @@
     seq: 190
   obj: fa.accounts.tax
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.accounts.tax/name
     seq: 0
@@ -1239,7 +1239,7 @@
     seq: 190
   obj: fa.accounts.tax
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fa.accounts.tax/name
     seq: 0
@@ -1279,7 +1279,7 @@
     seq: 170
   obj: fa.accounts.tax
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fa.accounts.reconcile.model/name
     seq: 0
@@ -1315,7 +1315,7 @@
     seq: 150
   obj: fa.accounts.reconcile.model
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.accounts.reconcile.model/name
     seq: 0
@@ -1351,7 +1351,7 @@
     seq: 150
   obj: fa.accounts.reconcile.model
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.accounts.reconcile.model/name
     seq: 0
@@ -1387,7 +1387,7 @@
     seq: 150
   obj: fa.accounts.reconcile.model
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fa.accounts.reconcile.model/name
     seq: 0
@@ -1423,7 +1423,7 @@
     seq: 150
   obj: fa.accounts.reconcile.model
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.accounts.reconcile.model/name
     seq: 0
@@ -1459,7 +1459,7 @@
     seq: 150
   obj: fa.accounts.reconcile.model
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.accounts.reconcile.model/name
     seq: 0
@@ -1495,7 +1495,7 @@
     seq: 150
   obj: fa.accounts.reconcile.model
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fa.accounts.reconcile.model/name
     seq: 0
@@ -1531,7 +1531,7 @@
     seq: 150
   obj: fa.accounts.reconcile.model
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fa.account.template/name
     seq: 0
@@ -1551,7 +1551,7 @@
     seq: 70
   obj: fa.account.template
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.account.template/name
     seq: 0
@@ -1571,7 +1571,7 @@
     seq: 70
   obj: fa.account.template
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.account.template/name
     seq: 0
@@ -1591,7 +1591,7 @@
     seq: 70
   obj: fa.account.template
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fa.tax.template/chart_template_id
     seq: 0
@@ -1631,7 +1631,7 @@
     seq: 170
   obj: fa.tax.template
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.accounts.tag/name
     seq: 0
@@ -1643,7 +1643,7 @@
     seq: 30
   obj: fa.accounts.tag
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.account.template/name
     seq: 0
@@ -1669,7 +1669,7 @@
     seq: 100
   obj: fa.account.template
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.account.template/name
     seq: 0
@@ -1695,7 +1695,7 @@
     seq: 100
   obj: fa.account.template
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.account.template/name
     seq: 0
@@ -1721,7 +1721,7 @@
     seq: 100
   obj: fa.account.template
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fa.account.template/name
     seq: 0
@@ -1741,7 +1741,7 @@
     seq: 70
   obj: fa.account.template
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fa.chart.template/name
     seq: 0
@@ -1789,7 +1789,7 @@
     seq: 210
   obj: fa.chart.template
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.chart.template/name
     seq: 0
@@ -1837,59 +1837,7 @@
     seq: 210
   obj: fa.chart.template
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: fa.chart.template/name
-    seq: 0
-  - col: fa.chart.template/company_id
-    seq: 10
-  - col: fa.chart.template/parent_id
-    seq: 20
-  - col: fa.chart.template/code_digits
-    seq: 30
-  - col: fa.chart.template/visible
-    seq: 40
-  - col: fa.chart.template/currency_id
-    seq: 50
-  - col: fa.chart.template/use_anglo_saxon
-    seq: 60
-  - col: fa.chart.template/complete_tax_set
-    seq: 70
-  - col: fa.chart.template/account_ids
-    seq: 80
-  - col: fa.chart.template/tax_template_ids
-    seq: 90
-  - col: fa.chart.template/bank_account_code_prefix
-    seq: 100
-  - col: fa.chart.template/cash_account_code_prefix
-    seq: 110
-  - col: fa.chart.template/transfer_account_id
-    seq: 120
-  - col: fa.chart.template/income_currency_exchange_account_id
-    seq: 130
-  - col: fa.chart.template/expense_currency_exchange_account_id
-    seq: 140
-  - col: fa.chart.template/property_account_receivable_id
-    seq: 150
-  - col: fa.chart.template/property_account_payable_id
-    seq: 160
-  - col: fa.chart.template/property_account_expense_categ_id
-    seq: 170
-  - col: fa.chart.template/property_account_income_categ_id
-    seq: 180
-  - col: fa.chart.template/property_account_expense_id
-    seq: 190
-  - col: fa.chart.template/property_account_income_id
-    seq: 200
-  - col: fa.chart.template/property_stock_account_input_categ_id
-    seq: 210
-  - col: fa.chart.template/property_stock_account_output_categ_id
-    seq: 220
-  - col: fa.chart.template/property_stock_valuation_account_id
-    seq: 230
-  obj: fa.chart.template
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: fa.chart.template/name
     seq: 0
@@ -1941,7 +1889,7 @@
     seq: 230
   obj: fa.chart.template
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: fa.chart.template/name
     seq: 0
@@ -1993,7 +1941,7 @@
     seq: 230
   obj: fa.chart.template
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.chart.template/name
     seq: 0
@@ -2045,7 +1993,7 @@
     seq: 230
   obj: fa.chart.template
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.chart.template/name
     seq: 0
@@ -2097,7 +2045,59 @@
     seq: 230
   obj: fa.chart.template
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-form
+- cols:
+  - col: fa.chart.template/name
+    seq: 0
+  - col: fa.chart.template/company_id
+    seq: 10
+  - col: fa.chart.template/parent_id
+    seq: 20
+  - col: fa.chart.template/code_digits
+    seq: 30
+  - col: fa.chart.template/visible
+    seq: 40
+  - col: fa.chart.template/currency_id
+    seq: 50
+  - col: fa.chart.template/use_anglo_saxon
+    seq: 60
+  - col: fa.chart.template/complete_tax_set
+    seq: 70
+  - col: fa.chart.template/account_ids
+    seq: 80
+  - col: fa.chart.template/tax_template_ids
+    seq: 90
+  - col: fa.chart.template/bank_account_code_prefix
+    seq: 100
+  - col: fa.chart.template/cash_account_code_prefix
+    seq: 110
+  - col: fa.chart.template/transfer_account_id
+    seq: 120
+  - col: fa.chart.template/income_currency_exchange_account_id
+    seq: 130
+  - col: fa.chart.template/expense_currency_exchange_account_id
+    seq: 140
+  - col: fa.chart.template/property_account_receivable_id
+    seq: 150
+  - col: fa.chart.template/property_account_payable_id
+    seq: 160
+  - col: fa.chart.template/property_account_expense_categ_id
+    seq: 170
+  - col: fa.chart.template/property_account_income_categ_id
+    seq: 180
+  - col: fa.chart.template/property_account_expense_id
+    seq: 190
+  - col: fa.chart.template/property_account_income_id
+    seq: 200
+  - col: fa.chart.template/property_stock_account_input_categ_id
+    seq: 210
+  - col: fa.chart.template/property_stock_account_output_categ_id
+    seq: 220
+  - col: fa.chart.template/property_stock_valuation_account_id
+    seq: 230
+  obj: fa.chart.template
+  type_obj: models
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fa.tax.template/chart_template_id
     seq: 0
@@ -2137,7 +2137,7 @@
     seq: 170
   obj: fa.tax.template
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.tax.template/chart_template_id
     seq: 0
@@ -2177,7 +2177,7 @@
     seq: 170
   obj: fa.tax.template
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.tax.template/chart_template_id
     seq: 0
@@ -2217,7 +2217,7 @@
     seq: 170
   obj: fa.tax.template
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fa.tax.template/chart_template_id
     seq: 0
@@ -2257,7 +2257,7 @@
     seq: 170
   obj: fa.tax.template
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.accounts.tag/name
     seq: 0
@@ -2269,7 +2269,7 @@
     seq: 30
   obj: fa.accounts.tag
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.tax.template/chart_template_id
     seq: 0
@@ -2313,7 +2313,7 @@
     seq: 190
   obj: fa.tax.template
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.tax.template/chart_template_id
     seq: 0
@@ -2357,7 +2357,7 @@
     seq: 190
   obj: fa.tax.template
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.tax.template/chart_template_id
     seq: 0
@@ -2401,7 +2401,7 @@
     seq: 190
   obj: fa.tax.template
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fa.tax.template/chart_template_id
     seq: 0
@@ -2441,7 +2441,7 @@
     seq: 170
   obj: fa.tax.template
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fa.fiscal.position.template/sequence
     seq: 0
@@ -2463,7 +2463,7 @@
     seq: 80
   obj: fa.fiscal.position.template
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.fiscal.position.template/sequence
     seq: 0
@@ -2485,7 +2485,7 @@
     seq: 80
   obj: fa.fiscal.position.template
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.fiscal.position.template/sequence
     seq: 0
@@ -2511,7 +2511,7 @@
     seq: 100
   obj: fa.fiscal.position.template
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: md.country.states/country_id
     seq: 0
@@ -2521,7 +2521,7 @@
     seq: 20
   obj: md.country.states
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fa.fiscal.position.template/sequence
     seq: 0
@@ -2551,7 +2551,7 @@
     seq: 120
   obj: fa.fiscal.position.template
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.fiscal.position.template/sequence
     seq: 0
@@ -2581,7 +2581,7 @@
     seq: 120
   obj: fa.fiscal.position.template
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.fiscal.position.template/sequence
     seq: 0
@@ -2611,7 +2611,7 @@
     seq: 120
   obj: fa.fiscal.position.template
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fa.fiscal.position.template/sequence
     seq: 0
@@ -2637,7 +2637,7 @@
     seq: 100
   obj: fa.fiscal.position.template
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fa.fiscal.position.tax.template/position_id
     seq: 0
@@ -2647,7 +2647,7 @@
     seq: 20
   obj: fa.fiscal.position.tax.template
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.fiscal.position.tax.template/position_id
     seq: 0
@@ -2657,7 +2657,7 @@
     seq: 20
   obj: fa.fiscal.position.tax.template
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.fiscal.position.tax.template/position_id
     seq: 0
@@ -2667,7 +2667,7 @@
     seq: 20
   obj: fa.fiscal.position.tax.template
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fa.fiscal.position.tax.template/position_id
     seq: 0
@@ -2677,7 +2677,7 @@
     seq: 20
   obj: fa.fiscal.position.tax.template
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.fiscal.position.tax.template/position_id
     seq: 0
@@ -2687,7 +2687,7 @@
     seq: 20
   obj: fa.fiscal.position.tax.template
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.fiscal.position.tax.template/position_id
     seq: 0
@@ -2697,7 +2697,7 @@
     seq: 20
   obj: fa.fiscal.position.tax.template
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fa.fiscal.position.tax.template/position_id
     seq: 0
@@ -2707,7 +2707,7 @@
     seq: 20
   obj: fa.fiscal.position.tax.template
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fa.fiscal.position.account.template/position_id
     seq: 0
@@ -2717,7 +2717,7 @@
     seq: 20
   obj: fa.fiscal.position.account.template
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.fiscal.position.account.template/position_id
     seq: 0
@@ -2727,7 +2727,7 @@
     seq: 20
   obj: fa.fiscal.position.account.template
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.fiscal.position.account.template/position_id
     seq: 0
@@ -2737,7 +2737,7 @@
     seq: 20
   obj: fa.fiscal.position.account.template
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fa.fiscal.position.account.template/position_id
     seq: 0
@@ -2747,7 +2747,7 @@
     seq: 20
   obj: fa.fiscal.position.account.template
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.fiscal.position.account.template/position_id
     seq: 0
@@ -2757,7 +2757,7 @@
     seq: 20
   obj: fa.fiscal.position.account.template
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.fiscal.position.account.template/position_id
     seq: 0
@@ -2767,7 +2767,7 @@
     seq: 20
   obj: fa.fiscal.position.account.template
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fa.fiscal.position.account.template/position_id
     seq: 0
@@ -2777,7 +2777,7 @@
     seq: 20
   obj: fa.fiscal.position.account.template
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fa.reconcile.model.template/chart_template_id
     seq: 0
@@ -2809,7 +2809,7 @@
     seq: 130
   obj: fa.reconcile.model.template
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.reconcile.model.template/chart_template_id
     seq: 0
@@ -2841,7 +2841,7 @@
     seq: 130
   obj: fa.reconcile.model.template
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.reconcile.model.template/chart_template_id
     seq: 0
@@ -2873,7 +2873,7 @@
     seq: 130
   obj: fa.reconcile.model.template
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fa.reconcile.model.template/chart_template_id
     seq: 0
@@ -2905,7 +2905,7 @@
     seq: 130
   obj: fa.reconcile.model.template
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.reconcile.model.template/chart_template_id
     seq: 0
@@ -2937,7 +2937,7 @@
     seq: 130
   obj: fa.reconcile.model.template
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fa.reconcile.model.template/chart_template_id
     seq: 0
@@ -2969,7 +2969,7 @@
     seq: 130
   obj: fa.reconcile.model.template
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fa.reconcile.model.template/chart_template_id
     seq: 0
@@ -3001,7 +3001,7 @@
     seq: 130
   obj: fa.reconcile.model.template
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fa.accounts.payment.method/name
     seq: 0
@@ -3011,7 +3011,7 @@
     seq: 20
   obj: fa.accounts.payment.method
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fa.accounts.payment.method/name
     seq: 0
@@ -3021,7 +3021,7 @@
     seq: 20
   obj: fa.accounts.payment.method
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fa.accounts.payment.method/name
     seq: 0
@@ -3031,7 +3031,7 @@
     seq: 20
   obj: fa.accounts.payment.method
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fa.accounts.payment.method/name
     seq: 0
@@ -3041,7 +3041,7 @@
     seq: 20
   obj: fa.accounts.payment.method
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fa.accounts.payment.method/name
     seq: 0
@@ -3051,4 +3051,4 @@
     seq: 20
   obj: fa.accounts.payment.method
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form

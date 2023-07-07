@@ -5,7 +5,7 @@
     seq: 10
   obj: hcm.employee.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: hcm.employee.categories/name
     seq: 0
@@ -13,7 +13,7 @@
     seq: 10
   obj: hcm.employee.categories
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: hcm.employee.categories/name
     seq: 0
@@ -21,7 +21,7 @@
     seq: 10
   obj: hcm.employee.categories
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: hcm.employees/firstname
     seq: 0
@@ -83,17 +83,7 @@
     seq: 280
   obj: hcm.employees
   type_obj: models
-  vtype: element-plus/m2mlist
-- cols:
-  - col: hcm.employee.categories/name
-    seq: 0
-  - col: hcm.employee.categories/color
-    seq: 10
-  - col: hcm.employee.categories/employee_ids
-    seq: 20
-  obj: hcm.employee.categories
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: hcm.employee.categories/name
     seq: 0
@@ -103,7 +93,17 @@
     seq: 20
   obj: hcm.employee.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
+- cols:
+  - col: hcm.employee.categories/name
+    seq: 0
+  - col: hcm.employee.categories/color
+    seq: 10
+  - col: hcm.employee.categories/employee_ids
+    seq: 20
+  obj: hcm.employee.categories
+  type_obj: models
+  vtype: models/element-plus/form
 - cols:
   - col: hcm.department/company
     seq: 0
@@ -123,7 +123,7 @@
     seq: 70
   obj: hcm.department
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: hcm.department/company
     seq: 0
@@ -143,7 +143,7 @@
     seq: 70
   obj: hcm.department
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: hcm.department/company
     seq: 0
@@ -169,35 +169,7 @@
     seq: 100
   obj: hcm.department
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: hcm.department/company
-    seq: 0
-  - col: hcm.department/name
-    seq: 10
-  - col: hcm.department/parent_id
-    seq: 20
-  - col: hcm.department/childs_id
-    seq: 30
-  - col: hcm.department/fullname
-    seq: 40
-  - col: hcm.department/complete_name
-    seq: 50
-  - col: hcm.department/manager_id
-    seq: 60
-  - col: hcm.department/member_ids
-    seq: 70
-  - col: hcm.department/jobs_ids
-    seq: 80
-  - col: hcm.department/note
-    seq: 90
-  - col: hcm.department/color
-    seq: 100
-  - col: hcm.department/active
-    seq: 110
-  obj: hcm.department
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: hcm.department/company
     seq: 0
@@ -225,7 +197,7 @@
     seq: 110
   obj: hcm.department
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: hcm.department/company
     seq: 0
@@ -253,7 +225,35 @@
     seq: 110
   obj: hcm.department
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: hcm.department/company
+    seq: 0
+  - col: hcm.department/name
+    seq: 10
+  - col: hcm.department/parent_id
+    seq: 20
+  - col: hcm.department/childs_id
+    seq: 30
+  - col: hcm.department/fullname
+    seq: 40
+  - col: hcm.department/complete_name
+    seq: 50
+  - col: hcm.department/manager_id
+    seq: 60
+  - col: hcm.department/member_ids
+    seq: 70
+  - col: hcm.department/jobs_ids
+    seq: 80
+  - col: hcm.department/note
+    seq: 90
+  - col: hcm.department/color
+    seq: 100
+  - col: hcm.department/active
+    seq: 110
+  obj: hcm.department
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: hcm.department/company
     seq: 0
@@ -273,7 +273,7 @@
     seq: 70
   obj: hcm.department
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: hcm.department/company
     seq: 0
@@ -293,7 +293,7 @@
     seq: 70
   obj: hcm.department
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: hcm.department/company
     seq: 0
@@ -319,7 +319,7 @@
     seq: 100
   obj: hcm.department
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: hcm.job/name
     seq: 0
@@ -339,7 +339,7 @@
     seq: 70
   obj: hcm.job
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: hcm.job/name
     seq: 0
@@ -359,7 +359,7 @@
     seq: 70
   obj: hcm.job
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: hcm.job/name
     seq: 0
@@ -381,33 +381,7 @@
     seq: 80
   obj: hcm.job
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: hcm.job/name
-    seq: 0
-  - col: hcm.job/expected_employees
-    seq: 10
-  - col: hcm.job/no_of_employee
-    seq: 20
-  - col: hcm.job/no_of_recruitment
-    seq: 30
-  - col: hcm.job/no_of_hired_employee
-    seq: 40
-  - col: hcm.job/employee_ids
-    seq: 50
-  - col: hcm.job/description
-    seq: 60
-  - col: hcm.job/requirements
-    seq: 70
-  - col: hcm.job/department_id
-    seq: 80
-  - col: hcm.job/company_id
-    seq: 90
-  - col: hcm.job/state
-    seq: 100
-  obj: hcm.job
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: hcm.job/name
     seq: 0
@@ -433,7 +407,7 @@
     seq: 100
   obj: hcm.job
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: hcm.job/name
     seq: 0
@@ -459,7 +433,33 @@
     seq: 100
   obj: hcm.job
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: hcm.job/name
+    seq: 0
+  - col: hcm.job/expected_employees
+    seq: 10
+  - col: hcm.job/no_of_employee
+    seq: 20
+  - col: hcm.job/no_of_recruitment
+    seq: 30
+  - col: hcm.job/no_of_hired_employee
+    seq: 40
+  - col: hcm.job/employee_ids
+    seq: 50
+  - col: hcm.job/description
+    seq: 60
+  - col: hcm.job/requirements
+    seq: 70
+  - col: hcm.job/department_id
+    seq: 80
+  - col: hcm.job/company_id
+    seq: 90
+  - col: hcm.job/state
+    seq: 100
+  obj: hcm.job
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: hcm.job/name
     seq: 0
@@ -483,7 +483,7 @@
     seq: 90
   obj: hcm.job
   type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/kanban
 - cols:
   - col: hcm.job/name
     seq: 0
@@ -507,7 +507,7 @@
     seq: 90
   obj: hcm.job
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: hcm.job/name
     seq: 0
@@ -529,7 +529,7 @@
     seq: 80
   obj: hcm.job
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: hcm.employees/firstname
     seq: 0
@@ -591,7 +591,7 @@
     seq: 280
   obj: hcm.employees
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: hcm.employees/firstname
     seq: 0
@@ -653,7 +653,7 @@
     seq: 280
   obj: hcm.employees
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: hcm.employees/firstname
     seq: 0
@@ -717,7 +717,7 @@
     seq: 290
   obj: hcm.employees
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: hcm.employee.categories/name
     seq: 0
@@ -725,7 +725,7 @@
     seq: 10
   obj: hcm.employee.categories
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: hcm.employees/firstname
     seq: 0
@@ -799,7 +799,7 @@
     seq: 340
   obj: hcm.employees
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: hcm.employees/firstname
     seq: 0
@@ -873,7 +873,7 @@
     seq: 340
   obj: hcm.employees
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: hcm.employees/firstname
     seq: 0
@@ -947,7 +947,7 @@
     seq: 340
   obj: hcm.employees
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: hcm.employees/firstname
     seq: 0
@@ -1009,7 +1009,7 @@
     seq: 280
   obj: hcm.employees
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: hcm.employees/firstname
     seq: 0
@@ -1071,7 +1071,7 @@
     seq: 280
   obj: hcm.employees
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: hcm.employees/firstname
     seq: 0
@@ -1135,4 +1135,4 @@
     seq: 290
   obj: hcm.employees
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list

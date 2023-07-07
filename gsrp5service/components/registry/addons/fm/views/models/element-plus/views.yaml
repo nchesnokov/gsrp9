@@ -7,7 +7,7 @@
     seq: 20
   obj: fm.unit.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fm.unit.categories/name
     seq: 0
@@ -17,21 +17,7 @@
     seq: 20
   obj: fm.unit.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: fm.unit.categories/name
-    seq: 0
-  - col: fm.unit.categories/parent_id
-    seq: 10
-  - col: fm.unit.categories/childs_id
-    seq: 20
-  - col: fm.unit.categories/fullname
-    seq: 30
-  - col: fm.unit.categories/units
-    seq: 40
-  obj: fm.unit.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: fm.unit.categories/name
     seq: 0
@@ -43,11 +29,9 @@
     seq: 30
   - col: fm.unit.categories/units
     seq: 40
-  - col: fm.unit.categories/note
-    seq: 50
   obj: fm.unit.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: fm.unit.categories/name
     seq: 0
@@ -63,7 +47,7 @@
     seq: 50
   obj: fm.unit.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fm.unit.categories/name
     seq: 0
@@ -79,7 +63,23 @@
     seq: 50
   obj: fm.unit.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: fm.unit.categories/name
+    seq: 0
+  - col: fm.unit.categories/parent_id
+    seq: 10
+  - col: fm.unit.categories/childs_id
+    seq: 20
+  - col: fm.unit.categories/fullname
+    seq: 30
+  - col: fm.unit.categories/units
+    seq: 40
+  - col: fm.unit.categories/note
+    seq: 50
+  obj: fm.unit.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fm.unit.categories/name
     seq: 0
@@ -89,7 +89,7 @@
     seq: 20
   obj: fm.unit.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: fm.unit.categories/name
     seq: 0
@@ -99,7 +99,7 @@
     seq: 20
   obj: fm.unit.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: fm.unit.categories/name
     seq: 0
@@ -113,7 +113,7 @@
     seq: 40
   obj: fm.unit.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fm.units/category_id
     seq: 0
@@ -123,7 +123,7 @@
     seq: 20
   obj: fm.units
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fm.units/category_id
     seq: 0
@@ -133,7 +133,7 @@
     seq: 20
   obj: fm.units
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fm.units/category_id
     seq: 0
@@ -143,7 +143,7 @@
     seq: 20
   obj: fm.units
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: md.company/name
     seq: 0
@@ -155,7 +155,7 @@
     seq: 30
   obj: md.company
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: fm.units/category_id
     seq: 0
@@ -167,7 +167,7 @@
     seq: 30
   obj: fm.units
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fm.units/category_id
     seq: 0
@@ -179,7 +179,7 @@
     seq: 30
   obj: fm.units
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fm.units/category_id
     seq: 0
@@ -191,7 +191,7 @@
     seq: 30
   obj: fm.units
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fm.units/category_id
     seq: 0
@@ -201,7 +201,7 @@
     seq: 20
   obj: fm.units
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fm.currency.exchanges/code
     seq: 0
@@ -217,7 +217,7 @@
     seq: 50
   obj: fm.currency.exchanges
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fm.currency.exchanges/code
     seq: 0
@@ -233,7 +233,7 @@
     seq: 50
   obj: fm.currency.exchanges
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fm.currency.exchanges/code
     seq: 0
@@ -249,7 +249,7 @@
     seq: 50
   obj: fm.currency.exchanges
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fm.currency.exchanges/code
     seq: 0
@@ -267,7 +267,7 @@
     seq: 60
   obj: fm.currency.exchanges
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fm.currency.exchanges/code
     seq: 0
@@ -285,7 +285,7 @@
     seq: 60
   obj: fm.currency.exchanges
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fm.currency.exchanges/code
     seq: 0
@@ -303,7 +303,7 @@
     seq: 60
   obj: fm.currency.exchanges
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fm.currency.exchanges/code
     seq: 0
@@ -319,7 +319,7 @@
     seq: 50
   obj: fm.currency.exchanges
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fcm.departament.categories/name
     seq: 0
@@ -327,7 +327,7 @@
     seq: 10
   obj: fcm.departament.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fcm.departament.categories/name
     seq: 0
@@ -335,19 +335,7 @@
     seq: 10
   obj: fcm.departament.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: fcm.departament.categories/name
-    seq: 0
-  - col: fcm.departament.categories/parent_id
-    seq: 10
-  - col: fcm.departament.categories/childs_id
-    seq: 20
-  - col: fcm.departament.categories/departaments
-    seq: 30
-  obj: fcm.departament.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: fcm.departament.categories/name
     seq: 0
@@ -357,11 +345,9 @@
     seq: 20
   - col: fcm.departament.categories/departaments
     seq: 30
-  - col: fcm.departament.categories/note
-    seq: 40
   obj: fcm.departament.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: fcm.departament.categories/name
     seq: 0
@@ -375,7 +361,7 @@
     seq: 40
   obj: fcm.departament.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fcm.departament.categories/name
     seq: 0
@@ -389,7 +375,21 @@
     seq: 40
   obj: fcm.departament.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: fcm.departament.categories/name
+    seq: 0
+  - col: fcm.departament.categories/parent_id
+    seq: 10
+  - col: fcm.departament.categories/childs_id
+    seq: 20
+  - col: fcm.departament.categories/departaments
+    seq: 30
+  - col: fcm.departament.categories/note
+    seq: 40
+  obj: fcm.departament.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fcm.departament.categories/name
     seq: 0
@@ -397,7 +397,7 @@
     seq: 10
   obj: fcm.departament.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: fcm.departament.categories/name
     seq: 0
@@ -405,7 +405,7 @@
     seq: 10
   obj: fcm.departament.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: fcm.departament.categories/name
     seq: 0
@@ -417,7 +417,7 @@
     seq: 30
   obj: fcm.departament.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fcm.obj.categories/name
     seq: 0
@@ -425,7 +425,7 @@
     seq: 10
   obj: fcm.obj.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fcm.obj.categories/name
     seq: 0
@@ -433,19 +433,7 @@
     seq: 10
   obj: fcm.obj.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: fcm.obj.categories/name
-    seq: 0
-  - col: fcm.obj.categories/parent_id
-    seq: 10
-  - col: fcm.obj.categories/childs_id
-    seq: 20
-  - col: fcm.obj.categories/objs
-    seq: 30
-  obj: fcm.obj.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: fcm.obj.categories/name
     seq: 0
@@ -455,11 +443,9 @@
     seq: 20
   - col: fcm.obj.categories/objs
     seq: 30
-  - col: fcm.obj.categories/note
-    seq: 40
   obj: fcm.obj.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: fcm.obj.categories/name
     seq: 0
@@ -473,7 +459,7 @@
     seq: 40
   obj: fcm.obj.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fcm.obj.categories/name
     seq: 0
@@ -487,7 +473,21 @@
     seq: 40
   obj: fcm.obj.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: fcm.obj.categories/name
+    seq: 0
+  - col: fcm.obj.categories/parent_id
+    seq: 10
+  - col: fcm.obj.categories/childs_id
+    seq: 20
+  - col: fcm.obj.categories/objs
+    seq: 30
+  - col: fcm.obj.categories/note
+    seq: 40
+  obj: fcm.obj.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fcm.obj.categories/name
     seq: 0
@@ -495,7 +495,7 @@
     seq: 10
   obj: fcm.obj.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: fcm.obj.categories/name
     seq: 0
@@ -503,7 +503,7 @@
     seq: 10
   obj: fcm.obj.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: fcm.obj.categories/name
     seq: 0
@@ -515,7 +515,7 @@
     seq: 30
   obj: fcm.obj.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fcm.article.categories/name
     seq: 0
@@ -523,7 +523,7 @@
     seq: 10
   obj: fcm.article.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fcm.article.categories/name
     seq: 0
@@ -531,19 +531,7 @@
     seq: 10
   obj: fcm.article.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: fcm.article.categories/name
-    seq: 0
-  - col: fcm.article.categories/parent_id
-    seq: 10
-  - col: fcm.article.categories/childs_id
-    seq: 20
-  - col: fcm.article.categories/articles
-    seq: 30
-  obj: fcm.article.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: fcm.article.categories/name
     seq: 0
@@ -553,11 +541,9 @@
     seq: 20
   - col: fcm.article.categories/articles
     seq: 30
-  - col: fcm.article.categories/note
-    seq: 40
   obj: fcm.article.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: fcm.article.categories/name
     seq: 0
@@ -571,7 +557,7 @@
     seq: 40
   obj: fcm.article.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fcm.article.categories/name
     seq: 0
@@ -585,7 +571,21 @@
     seq: 40
   obj: fcm.article.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: fcm.article.categories/name
+    seq: 0
+  - col: fcm.article.categories/parent_id
+    seq: 10
+  - col: fcm.article.categories/childs_id
+    seq: 20
+  - col: fcm.article.categories/articles
+    seq: 30
+  - col: fcm.article.categories/note
+    seq: 40
+  obj: fcm.article.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fcm.article.categories/name
     seq: 0
@@ -593,7 +593,7 @@
     seq: 10
   obj: fcm.article.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: fcm.article.categories/name
     seq: 0
@@ -601,7 +601,7 @@
     seq: 10
   obj: fcm.article.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: fcm.article.categories/name
     seq: 0
@@ -613,7 +613,7 @@
     seq: 30
   obj: fcm.article.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fcm.departaments/category_id
     seq: 0
@@ -621,7 +621,7 @@
     seq: 10
   obj: fcm.departaments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fcm.departaments/category_id
     seq: 0
@@ -629,7 +629,7 @@
     seq: 10
   obj: fcm.departaments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fcm.departaments/category_id
     seq: 0
@@ -637,17 +637,7 @@
     seq: 10
   obj: fcm.departaments
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: fcm.departaments/category_id
-    seq: 0
-  - col: fcm.departaments/name
-    seq: 10
-  - col: fcm.departaments/note
-    seq: 20
-  obj: fcm.departaments
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: fcm.departaments/category_id
     seq: 0
@@ -657,7 +647,7 @@
     seq: 20
   obj: fcm.departaments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fcm.departaments/category_id
     seq: 0
@@ -667,7 +657,17 @@
     seq: 20
   obj: fcm.departaments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: fcm.departaments/category_id
+    seq: 0
+  - col: fcm.departaments/name
+    seq: 10
+  - col: fcm.departaments/note
+    seq: 20
+  obj: fcm.departaments
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fcm.departaments/category_id
     seq: 0
@@ -675,7 +675,7 @@
     seq: 10
   obj: fcm.departaments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fcm.objs/usage
     seq: 0
@@ -685,7 +685,7 @@
     seq: 20
   obj: fcm.objs
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fcm.objs/usage
     seq: 0
@@ -695,7 +695,7 @@
     seq: 20
   obj: fcm.objs
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fcm.objs/usage
     seq: 0
@@ -705,7 +705,7 @@
     seq: 20
   obj: fcm.objs
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fcm.objs/usage
     seq: 0
@@ -717,7 +717,7 @@
     seq: 30
   obj: fcm.objs
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fcm.objs/usage
     seq: 0
@@ -729,7 +729,7 @@
     seq: 30
   obj: fcm.objs
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fcm.objs/usage
     seq: 0
@@ -741,7 +741,7 @@
     seq: 30
   obj: fcm.objs
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fcm.objs/usage
     seq: 0
@@ -751,7 +751,7 @@
     seq: 20
   obj: fcm.objs
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fcm.articles/category_id
     seq: 0
@@ -759,7 +759,7 @@
     seq: 10
   obj: fcm.articles
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fcm.articles/category_id
     seq: 0
@@ -767,7 +767,7 @@
     seq: 10
   obj: fcm.articles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fcm.articles/category_id
     seq: 0
@@ -775,17 +775,7 @@
     seq: 10
   obj: fcm.articles
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: fcm.articles/category_id
-    seq: 0
-  - col: fcm.articles/name
-    seq: 10
-  - col: fcm.articles/note
-    seq: 20
-  obj: fcm.articles
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: fcm.articles/category_id
     seq: 0
@@ -795,7 +785,7 @@
     seq: 20
   obj: fcm.articles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fcm.articles/category_id
     seq: 0
@@ -805,7 +795,17 @@
     seq: 20
   obj: fcm.articles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: fcm.articles/category_id
+    seq: 0
+  - col: fcm.articles/name
+    seq: 10
+  - col: fcm.articles/note
+    seq: 20
+  obj: fcm.articles
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fcm.articles/category_id
     seq: 0
@@ -813,7 +813,7 @@
     seq: 10
   obj: fcm.articles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fcm.company.departaments/company_id
     seq: 0
@@ -823,7 +823,7 @@
     seq: 20
   obj: fcm.company.departaments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fcm.company.departaments/company_id
     seq: 0
@@ -833,7 +833,7 @@
     seq: 20
   obj: fcm.company.departaments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fcm.company.departaments/company_id
     seq: 0
@@ -843,7 +843,7 @@
     seq: 20
   obj: fcm.company.departaments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: fcm.company.departaments/company_id
     seq: 0
@@ -855,7 +855,7 @@
     seq: 30
   obj: fcm.company.departaments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fcm.company.departaments/company_id
     seq: 0
@@ -867,7 +867,7 @@
     seq: 30
   obj: fcm.company.departaments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: fcm.company.departaments/company_id
     seq: 0
@@ -879,7 +879,7 @@
     seq: 30
   obj: fcm.company.departaments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fcm.company.departaments/company_id
     seq: 0
@@ -889,7 +889,7 @@
     seq: 20
   obj: fcm.company.departaments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fcm.company.objs/company_id
     seq: 0
@@ -899,7 +899,7 @@
     seq: 20
   obj: fcm.company.objs
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fcm.company.objs/company_id
     seq: 0
@@ -909,7 +909,7 @@
     seq: 20
   obj: fcm.company.objs
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fcm.company.objs/company_id
     seq: 0
@@ -919,19 +919,7 @@
     seq: 20
   obj: fcm.company.objs
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: fcm.company.objs/company_id
-    seq: 0
-  - col: fcm.company.objs/obj_id
-    seq: 10
-  - col: fcm.company.objs/fullname
-    seq: 20
-  - col: fcm.company.objs/note
-    seq: 30
-  obj: fcm.company.objs
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: fcm.company.objs/company_id
     seq: 0
@@ -943,7 +931,7 @@
     seq: 30
   obj: fcm.company.objs
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fcm.company.objs/company_id
     seq: 0
@@ -955,7 +943,19 @@
     seq: 30
   obj: fcm.company.objs
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: fcm.company.objs/company_id
+    seq: 0
+  - col: fcm.company.objs/obj_id
+    seq: 10
+  - col: fcm.company.objs/fullname
+    seq: 20
+  - col: fcm.company.objs/note
+    seq: 30
+  obj: fcm.company.objs
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fcm.company.objs/company_id
     seq: 0
@@ -965,7 +965,7 @@
     seq: 20
   obj: fcm.company.objs
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: fcm.company.articles/company_id
     seq: 0
@@ -975,7 +975,7 @@
     seq: 20
   obj: fcm.company.articles
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: fcm.company.articles/company_id
     seq: 0
@@ -985,7 +985,7 @@
     seq: 20
   obj: fcm.company.articles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: fcm.company.articles/company_id
     seq: 0
@@ -995,19 +995,7 @@
     seq: 20
   obj: fcm.company.articles
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: fcm.company.articles/company_id
-    seq: 0
-  - col: fcm.company.articles/article_id
-    seq: 10
-  - col: fcm.company.articles/fullname
-    seq: 20
-  - col: fcm.company.articles/note
-    seq: 30
-  obj: fcm.company.articles
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: fcm.company.articles/company_id
     seq: 0
@@ -1019,7 +1007,7 @@
     seq: 30
   obj: fcm.company.articles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: fcm.company.articles/company_id
     seq: 0
@@ -1031,7 +1019,19 @@
     seq: 30
   obj: fcm.company.articles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: fcm.company.articles/company_id
+    seq: 0
+  - col: fcm.company.articles/article_id
+    seq: 10
+  - col: fcm.company.articles/fullname
+    seq: 20
+  - col: fcm.company.articles/note
+    seq: 30
+  obj: fcm.company.articles
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: fcm.company.articles/company_id
     seq: 0
@@ -1041,4 +1041,4 @@
     seq: 20
   obj: fcm.company.articles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list

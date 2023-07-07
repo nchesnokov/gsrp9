@@ -15,7 +15,7 @@
     seq: 60
   obj: md.cost.product
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: md.cost.product/product_id
     seq: 0
@@ -33,27 +33,7 @@
     seq: 60
   obj: md.cost.product
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: md.cost.product/product_id
-    seq: 0
-  - col: md.cost.product/quantity
-    seq: 10
-  - col: md.cost.product/uom
-    seq: 20
-  - col: md.cost.product/price
-    seq: 30
-  - col: md.cost.product/currency
-    seq: 40
-  - col: md.cost.product/unit
-    seq: 50
-  - col: md.cost.product/uop
-    seq: 60
-  - col: md.cost.product/note
-    seq: 70
-  obj: md.cost.product
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: md.cost.product/product_id
     seq: 0
@@ -73,7 +53,7 @@
     seq: 70
   obj: md.cost.product
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: md.cost.product/product_id
     seq: 0
@@ -93,7 +73,27 @@
     seq: 70
   obj: md.cost.product
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: md.cost.product/product_id
+    seq: 0
+  - col: md.cost.product/quantity
+    seq: 10
+  - col: md.cost.product/uom
+    seq: 20
+  - col: md.cost.product/price
+    seq: 30
+  - col: md.cost.product/currency
+    seq: 40
+  - col: md.cost.product/unit
+    seq: 50
+  - col: md.cost.product/uop
+    seq: 60
+  - col: md.cost.product/note
+    seq: 70
+  obj: md.cost.product
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: md.cost.product/product_id
     seq: 0
@@ -111,7 +111,7 @@
     seq: 60
   obj: md.cost.product
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: cm.cost.center.category/name
     seq: 0
@@ -119,7 +119,7 @@
     seq: 10
   obj: cm.cost.center.category
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: cm.cost.center.category/name
     seq: 0
@@ -127,17 +127,7 @@
     seq: 10
   obj: cm.cost.center.category
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: cm.cost.center.category/name
-    seq: 0
-  - col: cm.cost.center.category/parent_id
-    seq: 10
-  - col: cm.cost.center.category/childs_id
-    seq: 20
-  obj: cm.cost.center.category
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: cm.cost.center.category/name
     seq: 0
@@ -145,11 +135,9 @@
     seq: 10
   - col: cm.cost.center.category/childs_id
     seq: 20
-  - col: cm.cost.center.category/note
-    seq: 30
   obj: cm.cost.center.category
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: cm.cost.center.category/name
     seq: 0
@@ -161,7 +149,7 @@
     seq: 30
   obj: cm.cost.center.category
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: cm.cost.center.category/name
     seq: 0
@@ -173,7 +161,19 @@
     seq: 30
   obj: cm.cost.center.category
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: cm.cost.center.category/name
+    seq: 0
+  - col: cm.cost.center.category/parent_id
+    seq: 10
+  - col: cm.cost.center.category/childs_id
+    seq: 20
+  - col: cm.cost.center.category/note
+    seq: 30
+  obj: cm.cost.center.category
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: cm.cost.center.category/name
     seq: 0
@@ -181,7 +181,7 @@
     seq: 10
   obj: cm.cost.center.category
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: cm.cost.center.category/name
     seq: 0
@@ -189,7 +189,7 @@
     seq: 10
   obj: cm.cost.center.category
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: cm.cost.center.category/name
     seq: 0
@@ -199,7 +199,7 @@
     seq: 20
   obj: cm.cost.center.category
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: cm.cost.order.category/name
     seq: 0
@@ -207,7 +207,7 @@
     seq: 10
   obj: cm.cost.order.category
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: cm.cost.order.category/name
     seq: 0
@@ -215,17 +215,7 @@
     seq: 10
   obj: cm.cost.order.category
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: cm.cost.order.category/name
-    seq: 0
-  - col: cm.cost.order.category/parent_id
-    seq: 10
-  - col: cm.cost.order.category/childs_id
-    seq: 20
-  obj: cm.cost.order.category
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: cm.cost.order.category/name
     seq: 0
@@ -233,11 +223,9 @@
     seq: 10
   - col: cm.cost.order.category/childs_id
     seq: 20
-  - col: cm.cost.order.category/note
-    seq: 30
   obj: cm.cost.order.category
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: cm.cost.order.category/name
     seq: 0
@@ -249,7 +237,7 @@
     seq: 30
   obj: cm.cost.order.category
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: cm.cost.order.category/name
     seq: 0
@@ -261,7 +249,19 @@
     seq: 30
   obj: cm.cost.order.category
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: cm.cost.order.category/name
+    seq: 0
+  - col: cm.cost.order.category/parent_id
+    seq: 10
+  - col: cm.cost.order.category/childs_id
+    seq: 20
+  - col: cm.cost.order.category/note
+    seq: 30
+  obj: cm.cost.order.category
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: cm.cost.order.category/name
     seq: 0
@@ -269,7 +269,7 @@
     seq: 10
   obj: cm.cost.order.category
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: cm.cost.order.category/name
     seq: 0
@@ -277,7 +277,7 @@
     seq: 10
   obj: cm.cost.order.category
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: cm.cost.order.category/name
     seq: 0
@@ -287,7 +287,7 @@
     seq: 20
   obj: cm.cost.order.category
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: cm.cost.collector.category/name
     seq: 0
@@ -295,7 +295,7 @@
     seq: 10
   obj: cm.cost.collector.category
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: cm.cost.collector.category/name
     seq: 0
@@ -303,17 +303,7 @@
     seq: 10
   obj: cm.cost.collector.category
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: cm.cost.collector.category/name
-    seq: 0
-  - col: cm.cost.collector.category/parent_id
-    seq: 10
-  - col: cm.cost.collector.category/childs_id
-    seq: 20
-  obj: cm.cost.collector.category
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: cm.cost.collector.category/name
     seq: 0
@@ -321,11 +311,9 @@
     seq: 10
   - col: cm.cost.collector.category/childs_id
     seq: 20
-  - col: cm.cost.collector.category/note
-    seq: 30
   obj: cm.cost.collector.category
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: cm.cost.collector.category/name
     seq: 0
@@ -337,7 +325,7 @@
     seq: 30
   obj: cm.cost.collector.category
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: cm.cost.collector.category/name
     seq: 0
@@ -349,7 +337,19 @@
     seq: 30
   obj: cm.cost.collector.category
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: cm.cost.collector.category/name
+    seq: 0
+  - col: cm.cost.collector.category/parent_id
+    seq: 10
+  - col: cm.cost.collector.category/childs_id
+    seq: 20
+  - col: cm.cost.collector.category/note
+    seq: 30
+  obj: cm.cost.collector.category
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: cm.cost.collector.category/name
     seq: 0
@@ -357,7 +357,7 @@
     seq: 10
   obj: cm.cost.collector.category
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: cm.cost.collector.category/name
     seq: 0
@@ -365,7 +365,7 @@
     seq: 10
   obj: cm.cost.collector.category
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: cm.cost.collector.category/name
     seq: 0
@@ -375,7 +375,7 @@
     seq: 20
   obj: cm.cost.collector.category
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: cm.cost.center/name
     seq: 0
@@ -387,7 +387,7 @@
     seq: 30
   obj: cm.cost.center
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: cm.cost.center/name
     seq: 0
@@ -399,7 +399,7 @@
     seq: 30
   obj: cm.cost.center
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: cm.cost.center/name
     seq: 0
@@ -413,7 +413,7 @@
     seq: 40
   obj: cm.cost.center
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: cm.cost.center/name
     seq: 0
@@ -429,7 +429,7 @@
     seq: 50
   obj: cm.cost.center
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: cm.cost.center/name
     seq: 0
@@ -445,7 +445,7 @@
     seq: 50
   obj: cm.cost.center
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: cm.cost.center/name
     seq: 0
@@ -461,7 +461,7 @@
     seq: 50
   obj: cm.cost.center
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: cm.cost.center/name
     seq: 0
@@ -475,7 +475,7 @@
     seq: 40
   obj: cm.cost.center
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: cm.cost.center.dates/cost_center_id
     seq: 0
@@ -485,7 +485,7 @@
     seq: 20
   obj: cm.cost.center.dates
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: cm.cost.center.dates/cost_center_id
     seq: 0
@@ -495,19 +495,7 @@
     seq: 20
   obj: cm.cost.center.dates
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: cm.cost.center.dates/cost_center_id
-    seq: 0
-  - col: cm.cost.center.dates/cost_date
-    seq: 10
-  - col: cm.cost.center.dates/cost
-    seq: 20
-  - col: cm.cost.center.dates/note
-    seq: 30
-  obj: cm.cost.center.dates
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: cm.cost.center.dates/cost_center_id
     seq: 0
@@ -519,7 +507,7 @@
     seq: 30
   obj: cm.cost.center.dates
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: cm.cost.center.dates/cost_center_id
     seq: 0
@@ -531,7 +519,19 @@
     seq: 30
   obj: cm.cost.center.dates
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: cm.cost.center.dates/cost_center_id
+    seq: 0
+  - col: cm.cost.center.dates/cost_date
+    seq: 10
+  - col: cm.cost.center.dates/cost
+    seq: 20
+  - col: cm.cost.center.dates/note
+    seq: 30
+  obj: cm.cost.center.dates
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: cm.cost.center.dates/cost_center_id
     seq: 0
@@ -541,7 +541,7 @@
     seq: 20
   obj: cm.cost.center.dates
   type_obj: models
-  vtype: element-plus/calendar
+  vtype: models/element-plus/calendar
 - cols:
   - col: cm.cost.center.dates/cost_center_id
     seq: 0
@@ -551,7 +551,7 @@
     seq: 20
   obj: cm.cost.center.dates
   type_obj: models
-  vtype: element-plus/o2m-calendar
+  vtype: models/element-plus/o2m-calendar
 - cols:
   - col: cm.cost.center.dates/cost_center_id
     seq: 0
@@ -561,7 +561,7 @@
     seq: 20
   obj: cm.cost.center.dates
   type_obj: models
-  vtype: element-plus/graph
+  vtype: models/element-plus/graph
 - cols:
   - col: cm.cost.center.dates/cost_center_id
     seq: 0
@@ -571,7 +571,7 @@
     seq: 20
   obj: cm.cost.center.dates
   type_obj: models
-  vtype: element-plus/o2m-graph
+  vtype: models/element-plus/o2m-graph
 - cols:
   - col: cm.cost.center.dates/cost_center_id
     seq: 0
@@ -581,7 +581,7 @@
     seq: 20
   obj: cm.cost.center.dates
   type_obj: models
-  vtype: element-plus/mdx
+  vtype: models/element-plus/mdx
 - cols:
   - col: cm.cost.center.dates/cost_center_id
     seq: 0
@@ -591,7 +591,7 @@
     seq: 20
   obj: cm.cost.center.dates
   type_obj: models
-  vtype: element-plus/o2m-mdx
+  vtype: models/element-plus/o2m-mdx
 - cols:
   - col: cm.cost.center.dates/cost_center_id
     seq: 0
@@ -601,7 +601,7 @@
     seq: 20
   obj: cm.cost.center.dates
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: cm.cost.order/name
     seq: 0
@@ -613,7 +613,7 @@
     seq: 30
   obj: cm.cost.order
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: cm.cost.order/name
     seq: 0
@@ -625,7 +625,7 @@
     seq: 30
   obj: cm.cost.order
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: cm.cost.order/name
     seq: 0
@@ -639,7 +639,7 @@
     seq: 40
   obj: cm.cost.order
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: cm.cost.order/name
     seq: 0
@@ -655,7 +655,7 @@
     seq: 50
   obj: cm.cost.order
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: cm.cost.order/name
     seq: 0
@@ -671,7 +671,7 @@
     seq: 50
   obj: cm.cost.order
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: cm.cost.order/name
     seq: 0
@@ -687,7 +687,7 @@
     seq: 50
   obj: cm.cost.order
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: cm.cost.order/name
     seq: 0
@@ -701,7 +701,7 @@
     seq: 40
   obj: cm.cost.order
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: cm.cost.order.dates/cost_order_id
     seq: 0
@@ -711,7 +711,7 @@
     seq: 20
   obj: cm.cost.order.dates
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: cm.cost.order.dates/cost_order_id
     seq: 0
@@ -721,19 +721,7 @@
     seq: 20
   obj: cm.cost.order.dates
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: cm.cost.order.dates/cost_order_id
-    seq: 0
-  - col: cm.cost.order.dates/cost_date
-    seq: 10
-  - col: cm.cost.order.dates/cost
-    seq: 20
-  - col: cm.cost.order.dates/note
-    seq: 30
-  obj: cm.cost.order.dates
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: cm.cost.order.dates/cost_order_id
     seq: 0
@@ -745,7 +733,7 @@
     seq: 30
   obj: cm.cost.order.dates
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: cm.cost.order.dates/cost_order_id
     seq: 0
@@ -757,7 +745,19 @@
     seq: 30
   obj: cm.cost.order.dates
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: cm.cost.order.dates/cost_order_id
+    seq: 0
+  - col: cm.cost.order.dates/cost_date
+    seq: 10
+  - col: cm.cost.order.dates/cost
+    seq: 20
+  - col: cm.cost.order.dates/note
+    seq: 30
+  obj: cm.cost.order.dates
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: cm.cost.order.dates/cost_order_id
     seq: 0
@@ -767,7 +767,7 @@
     seq: 20
   obj: cm.cost.order.dates
   type_obj: models
-  vtype: element-plus/calendar
+  vtype: models/element-plus/calendar
 - cols:
   - col: cm.cost.order.dates/cost_order_id
     seq: 0
@@ -777,7 +777,7 @@
     seq: 20
   obj: cm.cost.order.dates
   type_obj: models
-  vtype: element-plus/o2m-calendar
+  vtype: models/element-plus/o2m-calendar
 - cols:
   - col: cm.cost.order.dates/cost_order_id
     seq: 0
@@ -787,7 +787,7 @@
     seq: 20
   obj: cm.cost.order.dates
   type_obj: models
-  vtype: element-plus/graph
+  vtype: models/element-plus/graph
 - cols:
   - col: cm.cost.order.dates/cost_order_id
     seq: 0
@@ -797,7 +797,7 @@
     seq: 20
   obj: cm.cost.order.dates
   type_obj: models
-  vtype: element-plus/o2m-graph
+  vtype: models/element-plus/o2m-graph
 - cols:
   - col: cm.cost.order.dates/cost_order_id
     seq: 0
@@ -807,7 +807,7 @@
     seq: 20
   obj: cm.cost.order.dates
   type_obj: models
-  vtype: element-plus/mdx
+  vtype: models/element-plus/mdx
 - cols:
   - col: cm.cost.order.dates/cost_order_id
     seq: 0
@@ -817,7 +817,7 @@
     seq: 20
   obj: cm.cost.order.dates
   type_obj: models
-  vtype: element-plus/o2m-mdx
+  vtype: models/element-plus/o2m-mdx
 - cols:
   - col: cm.cost.order.dates/cost_order_id
     seq: 0
@@ -827,7 +827,7 @@
     seq: 20
   obj: cm.cost.order.dates
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: cm.cost.collector/name
     seq: 0
@@ -839,7 +839,7 @@
     seq: 30
   obj: cm.cost.collector
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: cm.cost.collector/name
     seq: 0
@@ -851,7 +851,7 @@
     seq: 30
   obj: cm.cost.collector
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: cm.cost.collector/name
     seq: 0
@@ -865,7 +865,7 @@
     seq: 40
   obj: cm.cost.collector
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: cm.cost.collector/name
     seq: 0
@@ -881,7 +881,7 @@
     seq: 50
   obj: cm.cost.collector
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: cm.cost.collector/name
     seq: 0
@@ -897,7 +897,7 @@
     seq: 50
   obj: cm.cost.collector
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: cm.cost.collector/name
     seq: 0
@@ -913,7 +913,7 @@
     seq: 50
   obj: cm.cost.collector
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: cm.cost.collector/name
     seq: 0
@@ -927,7 +927,7 @@
     seq: 40
   obj: cm.cost.collector
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: cm.cost.collector.dates/cost_collector_id
     seq: 0
@@ -937,7 +937,7 @@
     seq: 20
   obj: cm.cost.collector.dates
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: cm.cost.collector.dates/cost_collector_id
     seq: 0
@@ -947,19 +947,7 @@
     seq: 20
   obj: cm.cost.collector.dates
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: cm.cost.collector.dates/cost_collector_id
-    seq: 0
-  - col: cm.cost.collector.dates/cost_date
-    seq: 10
-  - col: cm.cost.collector.dates/cost
-    seq: 20
-  - col: cm.cost.collector.dates/note
-    seq: 30
-  obj: cm.cost.collector.dates
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: cm.cost.collector.dates/cost_collector_id
     seq: 0
@@ -971,7 +959,7 @@
     seq: 30
   obj: cm.cost.collector.dates
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: cm.cost.collector.dates/cost_collector_id
     seq: 0
@@ -983,7 +971,19 @@
     seq: 30
   obj: cm.cost.collector.dates
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: cm.cost.collector.dates/cost_collector_id
+    seq: 0
+  - col: cm.cost.collector.dates/cost_date
+    seq: 10
+  - col: cm.cost.collector.dates/cost
+    seq: 20
+  - col: cm.cost.collector.dates/note
+    seq: 30
+  obj: cm.cost.collector.dates
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: cm.cost.collector.dates/cost_collector_id
     seq: 0
@@ -993,7 +993,7 @@
     seq: 20
   obj: cm.cost.collector.dates
   type_obj: models
-  vtype: element-plus/calendar
+  vtype: models/element-plus/calendar
 - cols:
   - col: cm.cost.collector.dates/cost_collector_id
     seq: 0
@@ -1003,7 +1003,7 @@
     seq: 20
   obj: cm.cost.collector.dates
   type_obj: models
-  vtype: element-plus/o2m-calendar
+  vtype: models/element-plus/o2m-calendar
 - cols:
   - col: cm.cost.collector.dates/cost_collector_id
     seq: 0
@@ -1013,7 +1013,7 @@
     seq: 20
   obj: cm.cost.collector.dates
   type_obj: models
-  vtype: element-plus/graph
+  vtype: models/element-plus/graph
 - cols:
   - col: cm.cost.collector.dates/cost_collector_id
     seq: 0
@@ -1023,7 +1023,7 @@
     seq: 20
   obj: cm.cost.collector.dates
   type_obj: models
-  vtype: element-plus/o2m-graph
+  vtype: models/element-plus/o2m-graph
 - cols:
   - col: cm.cost.collector.dates/cost_collector_id
     seq: 0
@@ -1033,7 +1033,7 @@
     seq: 20
   obj: cm.cost.collector.dates
   type_obj: models
-  vtype: element-plus/mdx
+  vtype: models/element-plus/mdx
 - cols:
   - col: cm.cost.collector.dates/cost_collector_id
     seq: 0
@@ -1043,7 +1043,7 @@
     seq: 20
   obj: cm.cost.collector.dates
   type_obj: models
-  vtype: element-plus/o2m-mdx
+  vtype: models/element-plus/o2m-mdx
 - cols:
   - col: cm.cost.collector.dates/cost_collector_id
     seq: 0
@@ -1053,7 +1053,7 @@
     seq: 20
   obj: cm.cost.collector.dates
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: cm.corporations/name
     seq: 0
@@ -1063,7 +1063,7 @@
     seq: 20
   obj: cm.corporations
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: cm.corporations/name
     seq: 0
@@ -1073,7 +1073,7 @@
     seq: 20
   obj: cm.corporations
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: cm.corporations/name
     seq: 0
@@ -1085,7 +1085,7 @@
     seq: 30
   obj: cm.corporations
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: cm.corporations/name
     seq: 0
@@ -1099,7 +1099,7 @@
     seq: 40
   obj: cm.corporations
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: cm.corporations/name
     seq: 0
@@ -1113,7 +1113,7 @@
     seq: 40
   obj: cm.corporations
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: cm.corporations/name
     seq: 0
@@ -1127,7 +1127,7 @@
     seq: 40
   obj: cm.corporations
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: cm.corporations/name
     seq: 0
@@ -1139,4 +1139,4 @@
     seq: 30
   obj: cm.corporations
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list

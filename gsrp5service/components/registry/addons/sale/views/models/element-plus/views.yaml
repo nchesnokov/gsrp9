@@ -7,7 +7,7 @@
     seq: 20
   obj: sale.unit.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.unit.categories/name
     seq: 0
@@ -17,21 +17,7 @@
     seq: 20
   obj: sale.unit.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: sale.unit.categories/name
-    seq: 0
-  - col: sale.unit.categories/parent_id
-    seq: 10
-  - col: sale.unit.categories/childs_id
-    seq: 20
-  - col: sale.unit.categories/fullname
-    seq: 30
-  - col: sale.unit.categories/units
-    seq: 40
-  obj: sale.unit.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: sale.unit.categories/name
     seq: 0
@@ -43,11 +29,9 @@
     seq: 30
   - col: sale.unit.categories/units
     seq: 40
-  - col: sale.unit.categories/note
-    seq: 50
   obj: sale.unit.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.unit.categories/name
     seq: 0
@@ -63,7 +47,7 @@
     seq: 50
   obj: sale.unit.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.unit.categories/name
     seq: 0
@@ -79,7 +63,23 @@
     seq: 50
   obj: sale.unit.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.unit.categories/name
+    seq: 0
+  - col: sale.unit.categories/parent_id
+    seq: 10
+  - col: sale.unit.categories/childs_id
+    seq: 20
+  - col: sale.unit.categories/fullname
+    seq: 30
+  - col: sale.unit.categories/units
+    seq: 40
+  - col: sale.unit.categories/note
+    seq: 50
+  obj: sale.unit.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.unit.categories/name
     seq: 0
@@ -89,7 +89,7 @@
     seq: 20
   obj: sale.unit.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: sale.unit.categories/name
     seq: 0
@@ -99,7 +99,7 @@
     seq: 20
   obj: sale.unit.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: sale.unit.categories/name
     seq: 0
@@ -113,7 +113,7 @@
     seq: 40
   obj: sale.unit.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.units/category_id
     seq: 0
@@ -123,7 +123,7 @@
     seq: 20
   obj: sale.units
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.units/category_id
     seq: 0
@@ -133,7 +133,7 @@
     seq: 20
   obj: sale.units
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.units/category_id
     seq: 0
@@ -151,7 +151,7 @@
     seq: 60
   obj: sale.units
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: md.company/name
     seq: 0
@@ -163,7 +163,7 @@
     seq: 30
   obj: md.company
   type_obj: models
-  vtype: element-plus/m2mlist
+  vtype: models/element-plus/m2mlist
 - cols:
   - col: sale.units/category_id
     seq: 0
@@ -183,7 +183,7 @@
     seq: 70
   obj: sale.units
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.units/category_id
     seq: 0
@@ -203,7 +203,7 @@
     seq: 70
   obj: sale.units
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.units/category_id
     seq: 0
@@ -223,7 +223,7 @@
     seq: 70
   obj: sale.units
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.units/category_id
     seq: 0
@@ -241,7 +241,7 @@
     seq: 60
   obj: sale.units
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.channel.categories/name
     seq: 0
@@ -251,7 +251,7 @@
     seq: 20
   obj: sale.channel.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.channel.categories/name
     seq: 0
@@ -261,21 +261,7 @@
     seq: 20
   obj: sale.channel.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: sale.channel.categories/name
-    seq: 0
-  - col: sale.channel.categories/parent_id
-    seq: 10
-  - col: sale.channel.categories/childs_id
-    seq: 20
-  - col: sale.channel.categories/fullname
-    seq: 30
-  - col: sale.channel.categories/channels
-    seq: 40
-  obj: sale.channel.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: sale.channel.categories/name
     seq: 0
@@ -287,11 +273,9 @@
     seq: 30
   - col: sale.channel.categories/channels
     seq: 40
-  - col: sale.channel.categories/note
-    seq: 50
   obj: sale.channel.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.channel.categories/name
     seq: 0
@@ -307,7 +291,7 @@
     seq: 50
   obj: sale.channel.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.channel.categories/name
     seq: 0
@@ -323,7 +307,23 @@
     seq: 50
   obj: sale.channel.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.channel.categories/name
+    seq: 0
+  - col: sale.channel.categories/parent_id
+    seq: 10
+  - col: sale.channel.categories/childs_id
+    seq: 20
+  - col: sale.channel.categories/fullname
+    seq: 30
+  - col: sale.channel.categories/channels
+    seq: 40
+  - col: sale.channel.categories/note
+    seq: 50
+  obj: sale.channel.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.channel.categories/name
     seq: 0
@@ -333,7 +333,7 @@
     seq: 20
   obj: sale.channel.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: sale.channel.categories/name
     seq: 0
@@ -343,7 +343,7 @@
     seq: 20
   obj: sale.channel.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: sale.channel.categories/name
     seq: 0
@@ -357,7 +357,7 @@
     seq: 40
   obj: sale.channel.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.channels/category_id
     seq: 0
@@ -367,7 +367,7 @@
     seq: 20
   obj: sale.channels
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.channels/category_id
     seq: 0
@@ -377,7 +377,7 @@
     seq: 20
   obj: sale.channels
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.channels/category_id
     seq: 0
@@ -387,7 +387,7 @@
     seq: 20
   obj: sale.channels
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.channels/category_id
     seq: 0
@@ -397,7 +397,7 @@
     seq: 20
   obj: sale.channels
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.channels/category_id
     seq: 0
@@ -407,7 +407,7 @@
     seq: 20
   obj: sale.channels
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.channels/category_id
     seq: 0
@@ -417,7 +417,7 @@
     seq: 20
   obj: sale.channels
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.channels/category_id
     seq: 0
@@ -427,7 +427,7 @@
     seq: 20
   obj: sale.channels
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.segment.categories/name
     seq: 0
@@ -437,7 +437,7 @@
     seq: 20
   obj: sale.segment.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.segment.categories/name
     seq: 0
@@ -447,21 +447,7 @@
     seq: 20
   obj: sale.segment.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: sale.segment.categories/name
-    seq: 0
-  - col: sale.segment.categories/parent_id
-    seq: 10
-  - col: sale.segment.categories/childs_id
-    seq: 20
-  - col: sale.segment.categories/fullname
-    seq: 30
-  - col: sale.segment.categories/segments
-    seq: 40
-  obj: sale.segment.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: sale.segment.categories/name
     seq: 0
@@ -473,11 +459,9 @@
     seq: 30
   - col: sale.segment.categories/segments
     seq: 40
-  - col: sale.segment.categories/note
-    seq: 50
   obj: sale.segment.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.segment.categories/name
     seq: 0
@@ -493,7 +477,7 @@
     seq: 50
   obj: sale.segment.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.segment.categories/name
     seq: 0
@@ -509,7 +493,23 @@
     seq: 50
   obj: sale.segment.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.segment.categories/name
+    seq: 0
+  - col: sale.segment.categories/parent_id
+    seq: 10
+  - col: sale.segment.categories/childs_id
+    seq: 20
+  - col: sale.segment.categories/fullname
+    seq: 30
+  - col: sale.segment.categories/segments
+    seq: 40
+  - col: sale.segment.categories/note
+    seq: 50
+  obj: sale.segment.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.segment.categories/name
     seq: 0
@@ -519,7 +519,7 @@
     seq: 20
   obj: sale.segment.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: sale.segment.categories/name
     seq: 0
@@ -529,7 +529,7 @@
     seq: 20
   obj: sale.segment.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: sale.segment.categories/name
     seq: 0
@@ -543,7 +543,7 @@
     seq: 40
   obj: sale.segment.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.segments/category_id
     seq: 0
@@ -553,7 +553,7 @@
     seq: 20
   obj: sale.segments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.segments/category_id
     seq: 0
@@ -563,7 +563,7 @@
     seq: 20
   obj: sale.segments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.segments/category_id
     seq: 0
@@ -573,7 +573,7 @@
     seq: 20
   obj: sale.segments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.segments/category_id
     seq: 0
@@ -583,7 +583,7 @@
     seq: 20
   obj: sale.segments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.segments/category_id
     seq: 0
@@ -593,7 +593,7 @@
     seq: 20
   obj: sale.segments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.segments/category_id
     seq: 0
@@ -603,7 +603,7 @@
     seq: 20
   obj: sale.segments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.segments/category_id
     seq: 0
@@ -613,7 +613,7 @@
     seq: 20
   obj: sale.segments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.area.categories/name
     seq: 0
@@ -623,7 +623,7 @@
     seq: 20
   obj: sale.area.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.area.categories/name
     seq: 0
@@ -633,21 +633,7 @@
     seq: 20
   obj: sale.area.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: sale.area.categories/name
-    seq: 0
-  - col: sale.area.categories/parent_id
-    seq: 10
-  - col: sale.area.categories/childs_id
-    seq: 20
-  - col: sale.area.categories/fullname
-    seq: 30
-  - col: sale.area.categories/areas
-    seq: 40
-  obj: sale.area.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: sale.area.categories/name
     seq: 0
@@ -659,11 +645,9 @@
     seq: 30
   - col: sale.area.categories/areas
     seq: 40
-  - col: sale.area.categories/note
-    seq: 50
   obj: sale.area.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.area.categories/name
     seq: 0
@@ -679,7 +663,7 @@
     seq: 50
   obj: sale.area.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.area.categories/name
     seq: 0
@@ -695,7 +679,23 @@
     seq: 50
   obj: sale.area.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.area.categories/name
+    seq: 0
+  - col: sale.area.categories/parent_id
+    seq: 10
+  - col: sale.area.categories/childs_id
+    seq: 20
+  - col: sale.area.categories/fullname
+    seq: 30
+  - col: sale.area.categories/areas
+    seq: 40
+  - col: sale.area.categories/note
+    seq: 50
+  obj: sale.area.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.area.categories/name
     seq: 0
@@ -705,7 +705,7 @@
     seq: 20
   obj: sale.area.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: sale.area.categories/name
     seq: 0
@@ -715,7 +715,7 @@
     seq: 20
   obj: sale.area.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: sale.area.categories/name
     seq: 0
@@ -729,7 +729,7 @@
     seq: 40
   obj: sale.area.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.areas/category_id
     seq: 0
@@ -739,7 +739,7 @@
     seq: 20
   obj: sale.areas
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.areas/category_id
     seq: 0
@@ -749,7 +749,7 @@
     seq: 20
   obj: sale.areas
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.areas/category_id
     seq: 0
@@ -759,7 +759,7 @@
     seq: 20
   obj: sale.areas
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.areas/category_id
     seq: 0
@@ -769,7 +769,7 @@
     seq: 20
   obj: sale.areas
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.areas/category_id
     seq: 0
@@ -779,7 +779,7 @@
     seq: 20
   obj: sale.areas
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.areas/category_id
     seq: 0
@@ -789,7 +789,7 @@
     seq: 20
   obj: sale.areas
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.areas/category_id
     seq: 0
@@ -799,7 +799,7 @@
     seq: 20
   obj: sale.areas
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.region.categories/name
     seq: 0
@@ -809,7 +809,7 @@
     seq: 20
   obj: sale.region.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.region.categories/name
     seq: 0
@@ -819,21 +819,7 @@
     seq: 20
   obj: sale.region.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: sale.region.categories/name
-    seq: 0
-  - col: sale.region.categories/parent_id
-    seq: 10
-  - col: sale.region.categories/childs_id
-    seq: 20
-  - col: sale.region.categories/fullname
-    seq: 30
-  - col: sale.region.categories/segments
-    seq: 40
-  obj: sale.region.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: sale.region.categories/name
     seq: 0
@@ -845,11 +831,9 @@
     seq: 30
   - col: sale.region.categories/segments
     seq: 40
-  - col: sale.region.categories/note
-    seq: 50
   obj: sale.region.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.region.categories/name
     seq: 0
@@ -865,7 +849,7 @@
     seq: 50
   obj: sale.region.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.region.categories/name
     seq: 0
@@ -881,7 +865,23 @@
     seq: 50
   obj: sale.region.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.region.categories/name
+    seq: 0
+  - col: sale.region.categories/parent_id
+    seq: 10
+  - col: sale.region.categories/childs_id
+    seq: 20
+  - col: sale.region.categories/fullname
+    seq: 30
+  - col: sale.region.categories/segments
+    seq: 40
+  - col: sale.region.categories/note
+    seq: 50
+  obj: sale.region.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.region.categories/name
     seq: 0
@@ -891,7 +891,7 @@
     seq: 20
   obj: sale.region.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: sale.region.categories/name
     seq: 0
@@ -901,7 +901,7 @@
     seq: 20
   obj: sale.region.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: sale.region.categories/name
     seq: 0
@@ -915,7 +915,7 @@
     seq: 40
   obj: sale.region.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.regions/category_id
     seq: 0
@@ -925,7 +925,7 @@
     seq: 20
   obj: sale.regions
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.regions/category_id
     seq: 0
@@ -935,7 +935,7 @@
     seq: 20
   obj: sale.regions
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.regions/category_id
     seq: 0
@@ -945,7 +945,7 @@
     seq: 20
   obj: sale.regions
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.regions/category_id
     seq: 0
@@ -955,7 +955,7 @@
     seq: 20
   obj: sale.regions
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.regions/category_id
     seq: 0
@@ -965,7 +965,7 @@
     seq: 20
   obj: sale.regions
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.regions/category_id
     seq: 0
@@ -975,7 +975,7 @@
     seq: 20
   obj: sale.regions
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.regions/category_id
     seq: 0
@@ -985,7 +985,7 @@
     seq: 20
   obj: sale.regions
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.division.categories/name
     seq: 0
@@ -995,7 +995,7 @@
     seq: 20
   obj: sale.division.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.division.categories/name
     seq: 0
@@ -1005,21 +1005,7 @@
     seq: 20
   obj: sale.division.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: sale.division.categories/name
-    seq: 0
-  - col: sale.division.categories/parent_id
-    seq: 10
-  - col: sale.division.categories/childs_id
-    seq: 20
-  - col: sale.division.categories/fullname
-    seq: 30
-  - col: sale.division.categories/divisions
-    seq: 40
-  obj: sale.division.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: sale.division.categories/name
     seq: 0
@@ -1031,11 +1017,9 @@
     seq: 30
   - col: sale.division.categories/divisions
     seq: 40
-  - col: sale.division.categories/note
-    seq: 50
   obj: sale.division.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.division.categories/name
     seq: 0
@@ -1051,7 +1035,7 @@
     seq: 50
   obj: sale.division.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.division.categories/name
     seq: 0
@@ -1067,7 +1051,23 @@
     seq: 50
   obj: sale.division.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.division.categories/name
+    seq: 0
+  - col: sale.division.categories/parent_id
+    seq: 10
+  - col: sale.division.categories/childs_id
+    seq: 20
+  - col: sale.division.categories/fullname
+    seq: 30
+  - col: sale.division.categories/divisions
+    seq: 40
+  - col: sale.division.categories/note
+    seq: 50
+  obj: sale.division.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.division.categories/name
     seq: 0
@@ -1077,7 +1077,7 @@
     seq: 20
   obj: sale.division.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: sale.division.categories/name
     seq: 0
@@ -1087,7 +1087,7 @@
     seq: 20
   obj: sale.division.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: sale.division.categories/name
     seq: 0
@@ -1101,7 +1101,7 @@
     seq: 40
   obj: sale.division.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.divisions/category_id
     seq: 0
@@ -1111,7 +1111,7 @@
     seq: 20
   obj: sale.divisions
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.divisions/category_id
     seq: 0
@@ -1121,19 +1121,7 @@
     seq: 20
   obj: sale.divisions
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: sale.divisions/category_id
-    seq: 0
-  - col: sale.divisions/code
-    seq: 10
-  - col: sale.divisions/descr
-    seq: 20
-  - col: sale.divisions/subdivisions
-    seq: 30
-  obj: sale.divisions
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: sale.divisions/category_id
     seq: 0
@@ -1145,7 +1133,7 @@
     seq: 30
   obj: sale.divisions
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.divisions/category_id
     seq: 0
@@ -1157,7 +1145,7 @@
     seq: 30
   obj: sale.divisions
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.divisions/category_id
     seq: 0
@@ -1169,7 +1157,7 @@
     seq: 30
   obj: sale.divisions
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.divisions/category_id
     seq: 0
@@ -1181,7 +1169,19 @@
     seq: 30
   obj: sale.divisions
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-form
+- cols:
+  - col: sale.divisions/category_id
+    seq: 0
+  - col: sale.divisions/code
+    seq: 10
+  - col: sale.divisions/descr
+    seq: 20
+  - col: sale.divisions/subdivisions
+    seq: 30
+  obj: sale.divisions
+  type_obj: models
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.subdivision.categories/name
     seq: 0
@@ -1191,7 +1191,7 @@
     seq: 20
   obj: sale.subdivision.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.subdivision.categories/name
     seq: 0
@@ -1201,21 +1201,7 @@
     seq: 20
   obj: sale.subdivision.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: sale.subdivision.categories/name
-    seq: 0
-  - col: sale.subdivision.categories/parent_id
-    seq: 10
-  - col: sale.subdivision.categories/childs_id
-    seq: 20
-  - col: sale.subdivision.categories/fullname
-    seq: 30
-  - col: sale.subdivision.categories/subdivisions
-    seq: 40
-  obj: sale.subdivision.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: sale.subdivision.categories/name
     seq: 0
@@ -1227,11 +1213,9 @@
     seq: 30
   - col: sale.subdivision.categories/subdivisions
     seq: 40
-  - col: sale.subdivision.categories/note
-    seq: 50
   obj: sale.subdivision.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.subdivision.categories/name
     seq: 0
@@ -1247,7 +1231,7 @@
     seq: 50
   obj: sale.subdivision.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.subdivision.categories/name
     seq: 0
@@ -1263,7 +1247,23 @@
     seq: 50
   obj: sale.subdivision.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.subdivision.categories/name
+    seq: 0
+  - col: sale.subdivision.categories/parent_id
+    seq: 10
+  - col: sale.subdivision.categories/childs_id
+    seq: 20
+  - col: sale.subdivision.categories/fullname
+    seq: 30
+  - col: sale.subdivision.categories/subdivisions
+    seq: 40
+  - col: sale.subdivision.categories/note
+    seq: 50
+  obj: sale.subdivision.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.subdivision.categories/name
     seq: 0
@@ -1273,7 +1273,7 @@
     seq: 20
   obj: sale.subdivision.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: sale.subdivision.categories/name
     seq: 0
@@ -1283,7 +1283,7 @@
     seq: 20
   obj: sale.subdivision.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: sale.subdivision.categories/name
     seq: 0
@@ -1297,7 +1297,7 @@
     seq: 40
   obj: sale.subdivision.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.subdivisions/category_id
     seq: 0
@@ -1307,7 +1307,7 @@
     seq: 20
   obj: sale.subdivisions
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.subdivisions/category_id
     seq: 0
@@ -1317,7 +1317,7 @@
     seq: 20
   obj: sale.subdivisions
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.subdivisions/category_id
     seq: 0
@@ -1327,7 +1327,7 @@
     seq: 20
   obj: sale.subdivisions
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.subdivisions/category_id
     seq: 0
@@ -1337,7 +1337,7 @@
     seq: 20
   obj: sale.subdivisions
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.subdivisions/category_id
     seq: 0
@@ -1347,7 +1347,7 @@
     seq: 20
   obj: sale.subdivisions
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.subdivisions/category_id
     seq: 0
@@ -1357,7 +1357,7 @@
     seq: 20
   obj: sale.subdivisions
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.subdivisions/category_id
     seq: 0
@@ -1367,7 +1367,7 @@
     seq: 20
   obj: sale.subdivisions
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.unit.channel.assigments/unit_id
     seq: 0
@@ -1377,7 +1377,7 @@
     seq: 20
   obj: sale.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.unit.channel.assigments/unit_id
     seq: 0
@@ -1387,7 +1387,7 @@
     seq: 20
   obj: sale.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.unit.channel.assigments/unit_id
     seq: 0
@@ -1397,7 +1397,7 @@
     seq: 20
   obj: sale.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.unit.channel.assigments/unit_id
     seq: 0
@@ -1407,7 +1407,7 @@
     seq: 20
   obj: sale.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.unit.channel.assigments/unit_id
     seq: 0
@@ -1417,7 +1417,7 @@
     seq: 20
   obj: sale.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.unit.channel.assigments/unit_id
     seq: 0
@@ -1427,7 +1427,7 @@
     seq: 20
   obj: sale.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.unit.channel.assigments/unit_id
     seq: 0
@@ -1437,7 +1437,7 @@
     seq: 20
   obj: sale.unit.channel.assigments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.unit.segment.assigments/unit_id
     seq: 0
@@ -1447,7 +1447,7 @@
     seq: 20
   obj: sale.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.unit.segment.assigments/unit_id
     seq: 0
@@ -1457,7 +1457,7 @@
     seq: 20
   obj: sale.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.unit.segment.assigments/unit_id
     seq: 0
@@ -1467,7 +1467,7 @@
     seq: 20
   obj: sale.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.unit.segment.assigments/unit_id
     seq: 0
@@ -1477,7 +1477,7 @@
     seq: 20
   obj: sale.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.unit.segment.assigments/unit_id
     seq: 0
@@ -1487,7 +1487,7 @@
     seq: 20
   obj: sale.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.unit.segment.assigments/unit_id
     seq: 0
@@ -1497,7 +1497,7 @@
     seq: 20
   obj: sale.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.unit.segment.assigments/unit_id
     seq: 0
@@ -1507,7 +1507,7 @@
     seq: 20
   obj: sale.unit.segment.assigments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.unit.area.assigments/unit_id
     seq: 0
@@ -1517,7 +1517,7 @@
     seq: 20
   obj: sale.unit.area.assigments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.unit.area.assigments/unit_id
     seq: 0
@@ -1527,7 +1527,7 @@
     seq: 20
   obj: sale.unit.area.assigments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.unit.area.assigments/unit_id
     seq: 0
@@ -1537,7 +1537,7 @@
     seq: 20
   obj: sale.unit.area.assigments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.unit.area.assigments/unit_id
     seq: 0
@@ -1547,7 +1547,7 @@
     seq: 20
   obj: sale.unit.area.assigments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.unit.area.assigments/unit_id
     seq: 0
@@ -1557,7 +1557,7 @@
     seq: 20
   obj: sale.unit.area.assigments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.unit.area.assigments/unit_id
     seq: 0
@@ -1567,7 +1567,7 @@
     seq: 20
   obj: sale.unit.area.assigments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.unit.area.assigments/unit_id
     seq: 0
@@ -1577,7 +1577,7 @@
     seq: 20
   obj: sale.unit.area.assigments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.unit.region.assigments/unit_id
     seq: 0
@@ -1587,7 +1587,7 @@
     seq: 20
   obj: sale.unit.region.assigments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.unit.region.assigments/unit_id
     seq: 0
@@ -1597,7 +1597,7 @@
     seq: 20
   obj: sale.unit.region.assigments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.unit.region.assigments/unit_id
     seq: 0
@@ -1607,7 +1607,7 @@
     seq: 20
   obj: sale.unit.region.assigments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.unit.region.assigments/unit_id
     seq: 0
@@ -1617,7 +1617,7 @@
     seq: 20
   obj: sale.unit.region.assigments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.unit.region.assigments/unit_id
     seq: 0
@@ -1627,7 +1627,7 @@
     seq: 20
   obj: sale.unit.region.assigments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.unit.region.assigments/unit_id
     seq: 0
@@ -1637,7 +1637,7 @@
     seq: 20
   obj: sale.unit.region.assigments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.unit.region.assigments/unit_id
     seq: 0
@@ -1647,7 +1647,7 @@
     seq: 20
   obj: sale.unit.region.assigments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.division.subdivision.assigments/division_id
     seq: 0
@@ -1657,7 +1657,7 @@
     seq: 20
   obj: sale.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.division.subdivision.assigments/division_id
     seq: 0
@@ -1667,7 +1667,7 @@
     seq: 20
   obj: sale.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.division.subdivision.assigments/division_id
     seq: 0
@@ -1677,7 +1677,7 @@
     seq: 20
   obj: sale.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.division.subdivision.assigments/division_id
     seq: 0
@@ -1687,7 +1687,7 @@
     seq: 20
   obj: sale.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.division.subdivision.assigments/division_id
     seq: 0
@@ -1697,7 +1697,7 @@
     seq: 20
   obj: sale.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.division.subdivision.assigments/division_id
     seq: 0
@@ -1707,7 +1707,7 @@
     seq: 20
   obj: sale.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.division.subdivision.assigments/division_id
     seq: 0
@@ -1717,7 +1717,7 @@
     seq: 20
   obj: sale.division.subdivision.assigments
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.markets/unit_id
     seq: 0
@@ -1733,7 +1733,7 @@
     seq: 50
   obj: sale.markets
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.markets/unit_id
     seq: 0
@@ -1749,7 +1749,7 @@
     seq: 50
   obj: sale.markets
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.markets/unit_id
     seq: 0
@@ -1765,7 +1765,7 @@
     seq: 50
   obj: sale.markets
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.markets/unit_id
     seq: 0
@@ -1783,7 +1783,7 @@
     seq: 60
   obj: sale.markets
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.markets/unit_id
     seq: 0
@@ -1801,7 +1801,7 @@
     seq: 60
   obj: sale.markets
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.markets/unit_id
     seq: 0
@@ -1819,7 +1819,7 @@
     seq: 60
   obj: sale.markets
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.markets/unit_id
     seq: 0
@@ -1835,7 +1835,7 @@
     seq: 50
   obj: sale.markets
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.teams/division_id
     seq: 0
@@ -1845,7 +1845,7 @@
     seq: 20
   obj: sale.teams
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.teams/division_id
     seq: 0
@@ -1855,7 +1855,7 @@
     seq: 20
   obj: sale.teams
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.teams/division_id
     seq: 0
@@ -1865,19 +1865,7 @@
     seq: 20
   obj: sale.teams
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: sale.teams/division_id
-    seq: 0
-  - col: sale.teams/subdivision_id
-    seq: 10
-  - col: sale.teams/fullname
-    seq: 20
-  - col: sale.teams/note
-    seq: 30
-  obj: sale.teams
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.teams/division_id
     seq: 0
@@ -1889,7 +1877,7 @@
     seq: 30
   obj: sale.teams
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.teams/division_id
     seq: 0
@@ -1901,7 +1889,19 @@
     seq: 30
   obj: sale.teams
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.teams/division_id
+    seq: 0
+  - col: sale.teams/subdivision_id
+    seq: 10
+  - col: sale.teams/fullname
+    seq: 20
+  - col: sale.teams/note
+    seq: 30
+  obj: sale.teams
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.teams/division_id
     seq: 0
@@ -1911,7 +1911,7 @@
     seq: 20
   obj: sale.teams
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.pricing.group.levels/code
     seq: 0
@@ -1919,7 +1919,7 @@
     seq: 10
   obj: sale.pricing.group.levels
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.pricing.group.levels/code
     seq: 0
@@ -1927,7 +1927,7 @@
     seq: 10
   obj: sale.pricing.group.levels
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.pricing.group.levels/code
     seq: 0
@@ -1935,7 +1935,7 @@
     seq: 10
   obj: sale.pricing.group.levels
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.pricing.group.levels/code
     seq: 0
@@ -1943,7 +1943,7 @@
     seq: 10
   obj: sale.pricing.group.levels
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.pricing.group.levels/code
     seq: 0
@@ -1951,7 +1951,7 @@
     seq: 10
   obj: sale.pricing.group.levels
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.texts/code
     seq: 0
@@ -1959,7 +1959,7 @@
     seq: 10
   obj: sale.texts
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.texts/code
     seq: 0
@@ -1967,7 +1967,7 @@
     seq: 10
   obj: sale.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.texts/code
     seq: 0
@@ -1975,7 +1975,7 @@
     seq: 10
   obj: sale.texts
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.texts/code
     seq: 0
@@ -1983,7 +1983,7 @@
     seq: 10
   obj: sale.texts
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.texts/code
     seq: 0
@@ -1991,7 +1991,7 @@
     seq: 10
   obj: sale.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.schema.texts/usage
     seq: 0
@@ -2001,7 +2001,7 @@
     seq: 20
   obj: sale.schema.texts
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.schema.texts/usage
     seq: 0
@@ -2011,19 +2011,7 @@
     seq: 20
   obj: sale.schema.texts
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: sale.schema.texts/usage
-    seq: 0
-  - col: sale.schema.texts/code
-    seq: 10
-  - col: sale.schema.texts/descr
-    seq: 20
-  - col: sale.schema.texts/texts
-    seq: 30
-  obj: sale.schema.texts
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: sale.schema.texts/usage
     seq: 0
@@ -2035,7 +2023,7 @@
     seq: 30
   obj: sale.schema.texts
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.schema.texts/usage
     seq: 0
@@ -2047,7 +2035,19 @@
     seq: 30
   obj: sale.schema.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
+- cols:
+  - col: sale.schema.texts/usage
+    seq: 0
+  - col: sale.schema.texts/code
+    seq: 10
+  - col: sale.schema.texts/descr
+    seq: 20
+  - col: sale.schema.texts/texts
+    seq: 30
+  obj: sale.schema.texts
+  type_obj: models
+  vtype: models/element-plus/form
 - cols:
   - col: sale.schema.text.items/schema_id
     seq: 0
@@ -2059,7 +2059,7 @@
     seq: 30
   obj: sale.schema.text.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.schema.text.items/schema_id
     seq: 0
@@ -2071,7 +2071,7 @@
     seq: 30
   obj: sale.schema.text.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.schema.text.items/schema_id
     seq: 0
@@ -2083,7 +2083,7 @@
     seq: 30
   obj: sale.schema.text.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.schema.text.items/schema_id
     seq: 0
@@ -2095,7 +2095,7 @@
     seq: 30
   obj: sale.schema.text.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.schema.text.items/schema_id
     seq: 0
@@ -2107,7 +2107,7 @@
     seq: 30
   obj: sale.schema.text.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.schema.text.items/schema_id
     seq: 0
@@ -2119,7 +2119,7 @@
     seq: 30
   obj: sale.schema.text.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.types/otype
     seq: 0
@@ -2133,7 +2133,7 @@
     seq: 40
   obj: sale.order.types
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.order.types/otype
     seq: 0
@@ -2147,7 +2147,7 @@
     seq: 40
   obj: sale.order.types
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.types/otype
     seq: 0
@@ -2165,7 +2165,7 @@
     seq: 60
   obj: sale.order.types
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.types/otype
     seq: 0
@@ -2185,7 +2185,7 @@
     seq: 70
   obj: sale.order.types
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.types/otype
     seq: 0
@@ -2205,7 +2205,7 @@
     seq: 70
   obj: sale.order.types
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.order.types/otype
     seq: 0
@@ -2225,7 +2225,7 @@
     seq: 70
   obj: sale.order.types
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.types/otype
     seq: 0
@@ -2243,7 +2243,7 @@
     seq: 60
   obj: sale.order.types
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.type.roles/type_id
     seq: 0
@@ -2251,7 +2251,7 @@
     seq: 10
   obj: sale.order.type.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.type.roles/type_id
     seq: 0
@@ -2259,17 +2259,7 @@
     seq: 10
   obj: sale.order.type.roles
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: sale.order.type.roles/type_id
-    seq: 0
-  - col: sale.order.type.roles/role_id
-    seq: 10
-  - col: sale.order.type.roles/note
-    seq: 20
-  obj: sale.order.type.roles
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.type.roles/type_id
     seq: 0
@@ -2279,7 +2269,7 @@
     seq: 20
   obj: sale.order.type.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.type.roles/type_id
     seq: 0
@@ -2289,7 +2279,17 @@
     seq: 20
   obj: sale.order.type.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.order.type.roles/type_id
+    seq: 0
+  - col: sale.order.type.roles/role_id
+    seq: 10
+  - col: sale.order.type.roles/note
+    seq: 20
+  obj: sale.order.type.roles
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.type.roles/type_id
     seq: 0
@@ -2297,7 +2297,7 @@
     seq: 10
   obj: sale.order.type.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.type.items/type_id
     seq: 0
@@ -2307,7 +2307,7 @@
     seq: 20
   obj: sale.order.type.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.type.items/type_id
     seq: 0
@@ -2317,7 +2317,7 @@
     seq: 20
   obj: sale.order.type.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.type.items/type_id
     seq: 0
@@ -2329,7 +2329,7 @@
     seq: 30
   obj: sale.order.type.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.type.items/type_id
     seq: 0
@@ -2341,7 +2341,7 @@
     seq: 30
   obj: sale.order.type.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.order.type.items/type_id
     seq: 0
@@ -2353,7 +2353,7 @@
     seq: 30
   obj: sale.order.type.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.type.items/type_id
     seq: 0
@@ -2363,7 +2363,7 @@
     seq: 20
   obj: sale.order.type.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.invoice.types/name
     seq: 0
@@ -2373,7 +2373,7 @@
     seq: 20
   obj: sale.invoice.types
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.invoice.types/name
     seq: 0
@@ -2383,7 +2383,7 @@
     seq: 20
   obj: sale.invoice.types
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.invoice.types/name
     seq: 0
@@ -2395,7 +2395,7 @@
     seq: 30
   obj: sale.invoice.types
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.invoice.types/name
     seq: 0
@@ -2409,7 +2409,7 @@
     seq: 40
   obj: sale.invoice.types
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.invoice.types/name
     seq: 0
@@ -2423,7 +2423,7 @@
     seq: 40
   obj: sale.invoice.types
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.invoice.types/name
     seq: 0
@@ -2437,7 +2437,7 @@
     seq: 40
   obj: sale.invoice.types
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.invoice.types/name
     seq: 0
@@ -2449,7 +2449,7 @@
     seq: 30
   obj: sale.invoice.types
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.invoice.type.roles/type_id
     seq: 0
@@ -2459,7 +2459,7 @@
     seq: 20
   obj: sale.invoice.type.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.invoice.type.roles/type_id
     seq: 0
@@ -2469,19 +2469,7 @@
     seq: 20
   obj: sale.invoice.type.roles
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: sale.invoice.type.roles/type_id
-    seq: 0
-  - col: sale.invoice.type.roles/role_id
-    seq: 10
-  - col: sale.invoice.type.roles/required
-    seq: 20
-  - col: sale.invoice.type.roles/note
-    seq: 30
-  obj: sale.invoice.type.roles
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.invoice.type.roles/type_id
     seq: 0
@@ -2493,7 +2481,7 @@
     seq: 30
   obj: sale.invoice.type.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.invoice.type.roles/type_id
     seq: 0
@@ -2505,7 +2493,19 @@
     seq: 30
   obj: sale.invoice.type.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.invoice.type.roles/type_id
+    seq: 0
+  - col: sale.invoice.type.roles/role_id
+    seq: 10
+  - col: sale.invoice.type.roles/required
+    seq: 20
+  - col: sale.invoice.type.roles/note
+    seq: 30
+  obj: sale.invoice.type.roles
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.invoice.type.roles/type_id
     seq: 0
@@ -2515,7 +2515,7 @@
     seq: 20
   obj: sale.invoice.type.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.categories/name
     seq: 0
@@ -2525,7 +2525,7 @@
     seq: 20
   obj: sale.order.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.order.categories/name
     seq: 0
@@ -2535,7 +2535,7 @@
     seq: 20
   obj: sale.order.categories
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.categories/name
     seq: 0
@@ -2549,7 +2549,7 @@
     seq: 40
   obj: sale.order.categories
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.categories/name
     seq: 0
@@ -2565,7 +2565,7 @@
     seq: 50
   obj: sale.order.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.categories/name
     seq: 0
@@ -2581,7 +2581,7 @@
     seq: 50
   obj: sale.order.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.order.categories/name
     seq: 0
@@ -2597,7 +2597,7 @@
     seq: 50
   obj: sale.order.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.categories/name
     seq: 0
@@ -2607,7 +2607,7 @@
     seq: 20
   obj: sale.order.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: sale.order.categories/name
     seq: 0
@@ -2617,7 +2617,7 @@
     seq: 20
   obj: sale.order.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: sale.order.categories/name
     seq: 0
@@ -2631,7 +2631,7 @@
     seq: 40
   obj: sale.order.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.invoice.categories/name
     seq: 0
@@ -2641,7 +2641,7 @@
     seq: 20
   obj: sale.invoice.categories
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.invoice.categories/name
     seq: 0
@@ -2651,21 +2651,7 @@
     seq: 20
   obj: sale.invoice.categories
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: sale.invoice.categories/name
-    seq: 0
-  - col: sale.invoice.categories/parent_id
-    seq: 10
-  - col: sale.invoice.categories/childs_id
-    seq: 20
-  - col: sale.invoice.categories/fullname
-    seq: 30
-  - col: sale.invoice.categories/invoices
-    seq: 40
-  obj: sale.invoice.categories
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: sale.invoice.categories/name
     seq: 0
@@ -2677,11 +2663,9 @@
     seq: 30
   - col: sale.invoice.categories/invoices
     seq: 40
-  - col: sale.invoice.categories/note
-    seq: 50
   obj: sale.invoice.categories
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.invoice.categories/name
     seq: 0
@@ -2697,7 +2681,7 @@
     seq: 50
   obj: sale.invoice.categories
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.invoice.categories/name
     seq: 0
@@ -2713,7 +2697,23 @@
     seq: 50
   obj: sale.invoice.categories
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.invoice.categories/name
+    seq: 0
+  - col: sale.invoice.categories/parent_id
+    seq: 10
+  - col: sale.invoice.categories/childs_id
+    seq: 20
+  - col: sale.invoice.categories/fullname
+    seq: 30
+  - col: sale.invoice.categories/invoices
+    seq: 40
+  - col: sale.invoice.categories/note
+    seq: 50
+  obj: sale.invoice.categories
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.invoice.categories/name
     seq: 0
@@ -2723,7 +2723,7 @@
     seq: 20
   obj: sale.invoice.categories
   type_obj: models
-  vtype: element-plus/tree
+  vtype: models/element-plus/tree
 - cols:
   - col: sale.invoice.categories/name
     seq: 0
@@ -2733,7 +2733,7 @@
     seq: 20
   obj: sale.invoice.categories
   type_obj: models
-  vtype: element-plus/o2m-tree
+  vtype: models/element-plus/o2m-tree
 - cols:
   - col: sale.invoice.categories/name
     seq: 0
@@ -2747,7 +2747,7 @@
     seq: 40
   obj: sale.invoice.categories
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -2793,7 +2793,7 @@
     seq: 200
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -2839,7 +2839,7 @@
     seq: 200
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -2897,7 +2897,7 @@
     seq: 260
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -2957,7 +2957,7 @@
     seq: 270
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3017,7 +3017,7 @@
     seq: 270
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3077,7 +3077,7 @@
     seq: 270
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3123,7 +3123,7 @@
     seq: 200
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/gantt
+  vtype: models/element-plus/gantt
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3169,7 +3169,7 @@
     seq: 200
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/o2m-gantt
+  vtype: models/element-plus/o2m-gantt
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3215,7 +3215,7 @@
     seq: 200
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/schedule
+  vtype: models/element-plus/schedule
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3261,7 +3261,7 @@
     seq: 200
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/o2m-schedule
+  vtype: models/element-plus/o2m-schedule
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3307,7 +3307,7 @@
     seq: 200
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/calendar
+  vtype: models/element-plus/calendar
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3353,7 +3353,7 @@
     seq: 200
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/o2m-calendar
+  vtype: models/element-plus/o2m-calendar
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3399,7 +3399,7 @@
     seq: 200
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/graph
+  vtype: models/element-plus/graph
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3445,55 +3445,7 @@
     seq: 200
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/o2m-graph
-- cols:
-  - col: sale.orders/otype
-    seq: 0
-  - col: sale.orders/name
-    seq: 10
-  - col: sale.orders/company
-    seq: 20
-  - col: sale.orders/fullname
-    seq: 30
-  - col: sale.orders/market
-    seq: 40
-  - col: sale.orders/team
-    seq: 50
-  - col: sale.orders/category_id
-    seq: 60
-  - col: sale.orders/origin
-    seq: 70
-  - col: sale.orders/manager
-    seq: 80
-  - col: sale.orders/doo
-    seq: 90
-  - col: sale.orders/from_date
-    seq: 100
-  - col: sale.orders/to_date
-    seq: 110
-  - col: sale.orders/partner
-    seq: 120
-  - col: sale.orders/currency
-    seq: 130
-  - col: sale.orders/incoterms1
-    seq: 140
-  - col: sale.orders/incoterms2
-    seq: 150
-  - col: sale.orders/state
-    seq: 160
-  - col: sale.orders/amount
-    seq: 170
-  - col: sale.orders/vat_amount
-    seq: 180
-  - col: sale.orders/total_amount
-    seq: 190
-  - col: sale.orders/mob
-    seq: 200
-  - col: sale.orders/note
-    seq: 210
-  obj: sale.orders
-  type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-graph
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3541,7 +3493,55 @@
     seq: 210
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: sale.orders/otype
+    seq: 0
+  - col: sale.orders/name
+    seq: 10
+  - col: sale.orders/company
+    seq: 20
+  - col: sale.orders/fullname
+    seq: 30
+  - col: sale.orders/market
+    seq: 40
+  - col: sale.orders/team
+    seq: 50
+  - col: sale.orders/category_id
+    seq: 60
+  - col: sale.orders/origin
+    seq: 70
+  - col: sale.orders/manager
+    seq: 80
+  - col: sale.orders/doo
+    seq: 90
+  - col: sale.orders/from_date
+    seq: 100
+  - col: sale.orders/to_date
+    seq: 110
+  - col: sale.orders/partner
+    seq: 120
+  - col: sale.orders/currency
+    seq: 130
+  - col: sale.orders/incoterms1
+    seq: 140
+  - col: sale.orders/incoterms2
+    seq: 150
+  - col: sale.orders/state
+    seq: 160
+  - col: sale.orders/amount
+    seq: 170
+  - col: sale.orders/vat_amount
+    seq: 180
+  - col: sale.orders/total_amount
+    seq: 190
+  - col: sale.orders/mob
+    seq: 200
+  - col: sale.orders/note
+    seq: 210
+  obj: sale.orders
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3587,7 +3587,7 @@
     seq: 200
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/mdx
+  vtype: models/element-plus/mdx
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3633,7 +3633,7 @@
     seq: 200
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/o2m-mdx
+  vtype: models/element-plus/o2m-mdx
 - cols:
   - col: sale.orders/otype
     seq: 0
@@ -3691,7 +3691,7 @@
     seq: 260
   obj: sale.orders
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.texts/order_id
     seq: 0
@@ -3703,7 +3703,7 @@
     seq: 30
   obj: sale.order.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.texts/order_id
     seq: 0
@@ -3715,21 +3715,7 @@
     seq: 30
   obj: sale.order.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: sale.order.texts/order_id
-    seq: 0
-  - col: sale.order.texts/seq
-    seq: 10
-  - col: sale.order.texts/text_id
-    seq: 20
-  - col: sale.order.texts/descr
-    seq: 30
-  - col: sale.order.texts/content
-    seq: 40
-  obj: sale.order.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.texts/order_id
     seq: 0
@@ -3743,7 +3729,7 @@
     seq: 40
   obj: sale.order.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.texts/order_id
     seq: 0
@@ -3757,7 +3743,21 @@
     seq: 40
   obj: sale.order.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.order.texts/order_id
+    seq: 0
+  - col: sale.order.texts/seq
+    seq: 10
+  - col: sale.order.texts/text_id
+    seq: 20
+  - col: sale.order.texts/descr
+    seq: 30
+  - col: sale.order.texts/content
+    seq: 40
+  obj: sale.order.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.texts/order_id
     seq: 0
@@ -3769,7 +3769,7 @@
     seq: 30
   obj: sale.order.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.roles/order_id
     seq: 0
@@ -3779,7 +3779,7 @@
     seq: 20
   obj: sale.order.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.roles/order_id
     seq: 0
@@ -3789,7 +3789,7 @@
     seq: 20
   obj: sale.order.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.roles/order_id
     seq: 0
@@ -3799,7 +3799,7 @@
     seq: 20
   obj: sale.order.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.roles/order_id
     seq: 0
@@ -3809,7 +3809,7 @@
     seq: 20
   obj: sale.order.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.order.roles/order_id
     seq: 0
@@ -3819,7 +3819,7 @@
     seq: 20
   obj: sale.order.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.roles/order_id
     seq: 0
@@ -3829,7 +3829,7 @@
     seq: 20
   obj: sale.order.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.pricing/order_id
     seq: 0
@@ -3849,7 +3849,7 @@
     seq: 70
   obj: sale.order.pricing
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.pricing/order_id
     seq: 0
@@ -3869,7 +3869,7 @@
     seq: 70
   obj: sale.order.pricing
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.pricing/order_id
     seq: 0
@@ -3889,7 +3889,7 @@
     seq: 70
   obj: sale.order.pricing
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.pricing/order_id
     seq: 0
@@ -3909,7 +3909,7 @@
     seq: 70
   obj: sale.order.pricing
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.order.pricing/order_id
     seq: 0
@@ -3929,7 +3929,7 @@
     seq: 70
   obj: sale.order.pricing
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.pricing/order_id
     seq: 0
@@ -3949,7 +3949,7 @@
     seq: 70
   obj: sale.order.pricing
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.payment.schedules/order_id
     seq: 0
@@ -3961,7 +3961,7 @@
     seq: 30
   obj: sale.order.payment.schedules
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.payment.schedules/order_id
     seq: 0
@@ -3973,21 +3973,7 @@
     seq: 30
   obj: sale.order.payment.schedules
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: sale.order.payment.schedules/order_id
-    seq: 0
-  - col: sale.order.payment.schedules/amount
-    seq: 10
-  - col: sale.order.payment.schedules/currency
-    seq: 20
-  - col: sale.order.payment.schedules/schedule
-    seq: 30
-  - col: sale.order.payment.schedules/note
-    seq: 40
-  obj: sale.order.payment.schedules
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.payment.schedules/order_id
     seq: 0
@@ -4001,7 +3987,7 @@
     seq: 40
   obj: sale.order.payment.schedules
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.payment.schedules/order_id
     seq: 0
@@ -4015,7 +4001,21 @@
     seq: 40
   obj: sale.order.payment.schedules
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.order.payment.schedules/order_id
+    seq: 0
+  - col: sale.order.payment.schedules/amount
+    seq: 10
+  - col: sale.order.payment.schedules/currency
+    seq: 20
+  - col: sale.order.payment.schedules/schedule
+    seq: 30
+  - col: sale.order.payment.schedules/note
+    seq: 40
+  obj: sale.order.payment.schedules
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.payment.schedules/order_id
     seq: 0
@@ -4027,7 +4027,7 @@
     seq: 30
   obj: sale.order.payment.schedules
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.output.plates/order_id
     seq: 0
@@ -4047,7 +4047,7 @@
     seq: 70
   obj: sale.order.output.plates
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.output.plates/order_id
     seq: 0
@@ -4067,29 +4067,7 @@
     seq: 70
   obj: sale.order.output.plates
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: sale.order.output.plates/order_id
-    seq: 0
-  - col: sale.order.output.plates/state
-    seq: 10
-  - col: sale.order.output.plates/otype
-    seq: 20
-  - col: sale.order.output.plates/partner
-    seq: 30
-  - col: sale.order.output.plates/role
-    seq: 40
-  - col: sale.order.output.plates/language
-    seq: 50
-  - col: sale.order.output.plates/msm
-    seq: 60
-  - col: sale.order.output.plates/schedule
-    seq: 70
-  - col: sale.order.output.plates/note
-    seq: 80
-  obj: sale.order.output.plates
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.output.plates/order_id
     seq: 0
@@ -4111,7 +4089,7 @@
     seq: 80
   obj: sale.order.output.plates
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.output.plates/order_id
     seq: 0
@@ -4133,7 +4111,7 @@
     seq: 80
   obj: sale.order.output.plates
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.order.output.plates/order_id
     seq: 0
@@ -4155,7 +4133,7 @@
     seq: 80
   obj: sale.order.output.plates
   type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.output.plates/order_id
     seq: 0
@@ -4177,7 +4155,29 @@
     seq: 80
   obj: sale.order.output.plates
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: sale.order.output.plates/order_id
+    seq: 0
+  - col: sale.order.output.plates/state
+    seq: 10
+  - col: sale.order.output.plates/otype
+    seq: 20
+  - col: sale.order.output.plates/partner
+    seq: 30
+  - col: sale.order.output.plates/role
+    seq: 40
+  - col: sale.order.output.plates/language
+    seq: 50
+  - col: sale.order.output.plates/msm
+    seq: 60
+  - col: sale.order.output.plates/schedule
+    seq: 70
+  - col: sale.order.output.plates/note
+    seq: 80
+  obj: sale.order.output.plates
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: sale.order.output.plates/order_id
     seq: 0
@@ -4197,7 +4197,7 @@
     seq: 70
   obj: sale.order.output.plates
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.items/order_id
     seq: 0
@@ -4239,7 +4239,7 @@
     seq: 180
   obj: sale.order.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.items/order_id
     seq: 0
@@ -4293,7 +4293,7 @@
     seq: 240
   obj: sale.order.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.items/order_id
     seq: 0
@@ -4349,7 +4349,7 @@
     seq: 250
   obj: sale.order.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.items/order_id
     seq: 0
@@ -4405,7 +4405,7 @@
     seq: 250
   obj: sale.order.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.order.items/order_id
     seq: 0
@@ -4461,7 +4461,7 @@
     seq: 250
   obj: sale.order.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.items/order_id
     seq: 0
@@ -4515,7 +4515,7 @@
     seq: 240
   obj: sale.order.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.pricing.items/item_id
     seq: 0
@@ -4543,7 +4543,7 @@
     seq: 110
   obj: sale.order.pricing.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.pricing.items/item_id
     seq: 0
@@ -4571,7 +4571,7 @@
     seq: 110
   obj: sale.order.pricing.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.pricing.items/item_id
     seq: 0
@@ -4599,7 +4599,7 @@
     seq: 110
   obj: sale.order.pricing.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.pricing.items/item_id
     seq: 0
@@ -4627,7 +4627,7 @@
     seq: 110
   obj: sale.order.pricing.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.order.pricing.items/item_id
     seq: 0
@@ -4655,7 +4655,7 @@
     seq: 110
   obj: sale.order.pricing.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.pricing.items/item_id
     seq: 0
@@ -4683,7 +4683,7 @@
     seq: 110
   obj: sale.order.pricing.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.item.texts/item_id
     seq: 0
@@ -4695,7 +4695,7 @@
     seq: 30
   obj: sale.order.item.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.item.texts/item_id
     seq: 0
@@ -4707,21 +4707,7 @@
     seq: 30
   obj: sale.order.item.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: sale.order.item.texts/item_id
-    seq: 0
-  - col: sale.order.item.texts/seq
-    seq: 10
-  - col: sale.order.item.texts/text_id
-    seq: 20
-  - col: sale.order.item.texts/descr
-    seq: 30
-  - col: sale.order.item.texts/content
-    seq: 40
-  obj: sale.order.item.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.item.texts/item_id
     seq: 0
@@ -4735,7 +4721,7 @@
     seq: 40
   obj: sale.order.item.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.item.texts/item_id
     seq: 0
@@ -4749,7 +4735,21 @@
     seq: 40
   obj: sale.order.item.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.order.item.texts/item_id
+    seq: 0
+  - col: sale.order.item.texts/seq
+    seq: 10
+  - col: sale.order.item.texts/text_id
+    seq: 20
+  - col: sale.order.item.texts/descr
+    seq: 30
+  - col: sale.order.item.texts/content
+    seq: 40
+  obj: sale.order.item.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.item.texts/item_id
     seq: 0
@@ -4761,7 +4761,7 @@
     seq: 30
   obj: sale.order.item.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.item.roles/item_id
     seq: 0
@@ -4771,7 +4771,7 @@
     seq: 20
   obj: sale.order.item.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.item.roles/item_id
     seq: 0
@@ -4781,7 +4781,7 @@
     seq: 20
   obj: sale.order.item.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.item.roles/item_id
     seq: 0
@@ -4791,7 +4791,7 @@
     seq: 20
   obj: sale.order.item.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.item.roles/item_id
     seq: 0
@@ -4801,7 +4801,7 @@
     seq: 20
   obj: sale.order.item.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.order.item.roles/item_id
     seq: 0
@@ -4811,7 +4811,7 @@
     seq: 20
   obj: sale.order.item.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.item.roles/item_id
     seq: 0
@@ -4821,7 +4821,7 @@
     seq: 20
   obj: sale.order.item.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.item.delivery.schedules/item_id
     seq: 0
@@ -4831,7 +4831,7 @@
     seq: 20
   obj: sale.order.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.item.delivery.schedules/item_id
     seq: 0
@@ -4841,19 +4841,7 @@
     seq: 20
   obj: sale.order.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: sale.order.item.delivery.schedules/item_id
-    seq: 0
-  - col: sale.order.item.delivery.schedules/quantity
-    seq: 10
-  - col: sale.order.item.delivery.schedules/schedule
-    seq: 20
-  - col: sale.order.item.delivery.schedules/note
-    seq: 30
-  obj: sale.order.item.delivery.schedules
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.item.delivery.schedules/item_id
     seq: 0
@@ -4865,7 +4853,7 @@
     seq: 30
   obj: sale.order.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.item.delivery.schedules/item_id
     seq: 0
@@ -4877,7 +4865,19 @@
     seq: 30
   obj: sale.order.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.order.item.delivery.schedules/item_id
+    seq: 0
+  - col: sale.order.item.delivery.schedules/quantity
+    seq: 10
+  - col: sale.order.item.delivery.schedules/schedule
+    seq: 20
+  - col: sale.order.item.delivery.schedules/note
+    seq: 30
+  obj: sale.order.item.delivery.schedules
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.item.delivery.schedules/item_id
     seq: 0
@@ -4887,7 +4887,7 @@
     seq: 20
   obj: sale.order.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.item.output.plates/item_id
     seq: 0
@@ -4907,7 +4907,7 @@
     seq: 70
   obj: sale.order.item.output.plates
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.item.output.plates/item_id
     seq: 0
@@ -4927,29 +4927,7 @@
     seq: 70
   obj: sale.order.item.output.plates
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: sale.order.item.output.plates/item_id
-    seq: 0
-  - col: sale.order.item.output.plates/state
-    seq: 10
-  - col: sale.order.item.output.plates/otype
-    seq: 20
-  - col: sale.order.item.output.plates/partner
-    seq: 30
-  - col: sale.order.item.output.plates/role
-    seq: 40
-  - col: sale.order.item.output.plates/language
-    seq: 50
-  - col: sale.order.item.output.plates/msm
-    seq: 60
-  - col: sale.order.item.output.plates/schedule
-    seq: 70
-  - col: sale.order.item.output.plates/note
-    seq: 80
-  obj: sale.order.item.output.plates
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.item.output.plates/item_id
     seq: 0
@@ -4971,7 +4949,7 @@
     seq: 80
   obj: sale.order.item.output.plates
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.item.output.plates/item_id
     seq: 0
@@ -4993,7 +4971,7 @@
     seq: 80
   obj: sale.order.item.output.plates
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.order.item.output.plates/item_id
     seq: 0
@@ -5015,7 +4993,7 @@
     seq: 80
   obj: sale.order.item.output.plates
   type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.item.output.plates/item_id
     seq: 0
@@ -5037,7 +5015,29 @@
     seq: 80
   obj: sale.order.item.output.plates
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: sale.order.item.output.plates/item_id
+    seq: 0
+  - col: sale.order.item.output.plates/state
+    seq: 10
+  - col: sale.order.item.output.plates/otype
+    seq: 20
+  - col: sale.order.item.output.plates/partner
+    seq: 30
+  - col: sale.order.item.output.plates/role
+    seq: 40
+  - col: sale.order.item.output.plates/language
+    seq: 50
+  - col: sale.order.item.output.plates/msm
+    seq: 60
+  - col: sale.order.item.output.plates/schedule
+    seq: 70
+  - col: sale.order.item.output.plates/note
+    seq: 80
+  obj: sale.order.item.output.plates
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: sale.order.item.output.plates/item_id
     seq: 0
@@ -5057,7 +5057,7 @@
     seq: 70
   obj: sale.order.item.output.plates
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.order.item.payment.schedules/item_id
     seq: 0
@@ -5069,7 +5069,7 @@
     seq: 30
   obj: sale.order.item.payment.schedules
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.order.item.payment.schedules/item_id
     seq: 0
@@ -5081,7 +5081,7 @@
     seq: 30
   obj: sale.order.item.payment.schedules
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.order.item.payment.schedules/item_id
     seq: 0
@@ -5095,7 +5095,7 @@
     seq: 40
   obj: sale.order.item.payment.schedules
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.order.item.payment.schedules/item_id
     seq: 0
@@ -5109,7 +5109,7 @@
     seq: 40
   obj: sale.order.item.payment.schedules
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.order.item.payment.schedules/item_id
     seq: 0
@@ -5123,7 +5123,7 @@
     seq: 40
   obj: sale.order.item.payment.schedules
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.order.item.payment.schedules/item_id
     seq: 0
@@ -5135,7 +5135,7 @@
     seq: 30
   obj: sale.order.item.payment.schedules
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5173,7 +5173,7 @@
     seq: 160
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5211,7 +5211,7 @@
     seq: 160
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5255,7 +5255,7 @@
     seq: 190
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5301,7 +5301,7 @@
     seq: 200
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5347,7 +5347,7 @@
     seq: 200
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5393,7 +5393,7 @@
     seq: 200
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5431,7 +5431,7 @@
     seq: 160
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/calendar
+  vtype: models/element-plus/calendar
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5469,7 +5469,7 @@
     seq: 160
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/o2m-calendar
+  vtype: models/element-plus/o2m-calendar
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5507,7 +5507,7 @@
     seq: 160
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/graph
+  vtype: models/element-plus/graph
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5545,47 +5545,7 @@
     seq: 160
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/o2m-graph
-- cols:
-  - col: sale.invoices/itype
-    seq: 0
-  - col: sale.invoices/name
-    seq: 10
-  - col: sale.invoices/company
-    seq: 20
-  - col: sale.invoices/fullname
-    seq: 30
-  - col: sale.invoices/market_id
-    seq: 40
-  - col: sale.invoices/team_id
-    seq: 50
-  - col: sale.invoices/category_id
-    seq: 60
-  - col: sale.invoices/origin
-    seq: 70
-  - col: sale.invoices/doi
-    seq: 80
-  - col: sale.invoices/partner
-    seq: 90
-  - col: sale.invoices/currency
-    seq: 100
-  - col: sale.invoices/incoterms1
-    seq: 110
-  - col: sale.invoices/incoterms2
-    seq: 120
-  - col: sale.invoices/state
-    seq: 130
-  - col: sale.invoices/amount
-    seq: 140
-  - col: sale.invoices/vat_amount
-    seq: 150
-  - col: sale.invoices/total_amount
-    seq: 160
-  - col: sale.invoices/note
-    seq: 170
-  obj: sale.invoices
-  type_obj: models
-  vtype: element-plus/kanban
+  vtype: models/element-plus/o2m-graph
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5625,7 +5585,47 @@
     seq: 170
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/o2m-kanban
+  vtype: models/element-plus/kanban
+- cols:
+  - col: sale.invoices/itype
+    seq: 0
+  - col: sale.invoices/name
+    seq: 10
+  - col: sale.invoices/company
+    seq: 20
+  - col: sale.invoices/fullname
+    seq: 30
+  - col: sale.invoices/market_id
+    seq: 40
+  - col: sale.invoices/team_id
+    seq: 50
+  - col: sale.invoices/category_id
+    seq: 60
+  - col: sale.invoices/origin
+    seq: 70
+  - col: sale.invoices/doi
+    seq: 80
+  - col: sale.invoices/partner
+    seq: 90
+  - col: sale.invoices/currency
+    seq: 100
+  - col: sale.invoices/incoterms1
+    seq: 110
+  - col: sale.invoices/incoterms2
+    seq: 120
+  - col: sale.invoices/state
+    seq: 130
+  - col: sale.invoices/amount
+    seq: 140
+  - col: sale.invoices/vat_amount
+    seq: 150
+  - col: sale.invoices/total_amount
+    seq: 160
+  - col: sale.invoices/note
+    seq: 170
+  obj: sale.invoices
+  type_obj: models
+  vtype: models/element-plus/o2m-kanban
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5663,7 +5663,7 @@
     seq: 160
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/mdx
+  vtype: models/element-plus/mdx
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5701,7 +5701,7 @@
     seq: 160
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/o2m-mdx
+  vtype: models/element-plus/o2m-mdx
 - cols:
   - col: sale.invoices/itype
     seq: 0
@@ -5745,7 +5745,7 @@
     seq: 190
   obj: sale.invoices
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.invoice.texts/invoice_id
     seq: 0
@@ -5757,7 +5757,7 @@
     seq: 30
   obj: sale.invoice.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.invoice.texts/invoice_id
     seq: 0
@@ -5769,21 +5769,7 @@
     seq: 30
   obj: sale.invoice.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: sale.invoice.texts/invoice_id
-    seq: 0
-  - col: sale.invoice.texts/seq
-    seq: 10
-  - col: sale.invoice.texts/text_id
-    seq: 20
-  - col: sale.invoice.texts/descr
-    seq: 30
-  - col: sale.invoice.texts/content
-    seq: 40
-  obj: sale.invoice.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.invoice.texts/invoice_id
     seq: 0
@@ -5797,7 +5783,7 @@
     seq: 40
   obj: sale.invoice.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.invoice.texts/invoice_id
     seq: 0
@@ -5811,7 +5797,21 @@
     seq: 40
   obj: sale.invoice.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.invoice.texts/invoice_id
+    seq: 0
+  - col: sale.invoice.texts/seq
+    seq: 10
+  - col: sale.invoice.texts/text_id
+    seq: 20
+  - col: sale.invoice.texts/descr
+    seq: 30
+  - col: sale.invoice.texts/content
+    seq: 40
+  obj: sale.invoice.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.invoice.texts/invoice_id
     seq: 0
@@ -5823,7 +5823,7 @@
     seq: 30
   obj: sale.invoice.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.invoice.roles/invoice_id
     seq: 0
@@ -5833,7 +5833,7 @@
     seq: 20
   obj: sale.invoice.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.invoice.roles/invoice_id
     seq: 0
@@ -5843,7 +5843,7 @@
     seq: 20
   obj: sale.invoice.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.invoice.roles/invoice_id
     seq: 0
@@ -5853,7 +5853,7 @@
     seq: 20
   obj: sale.invoice.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.invoice.roles/invoice_id
     seq: 0
@@ -5863,7 +5863,7 @@
     seq: 20
   obj: sale.invoice.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.invoice.roles/invoice_id
     seq: 0
@@ -5873,7 +5873,7 @@
     seq: 20
   obj: sale.invoice.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.invoice.roles/invoice_id
     seq: 0
@@ -5883,7 +5883,7 @@
     seq: 20
   obj: sale.invoice.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.invoice.items/invoice_id
     seq: 0
@@ -5911,7 +5911,7 @@
     seq: 110
   obj: sale.invoice.items
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.invoice.items/invoice_id
     seq: 0
@@ -5945,7 +5945,7 @@
     seq: 140
   obj: sale.invoice.items
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.invoice.items/invoice_id
     seq: 0
@@ -5981,7 +5981,7 @@
     seq: 150
   obj: sale.invoice.items
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.invoice.items/invoice_id
     seq: 0
@@ -6017,7 +6017,7 @@
     seq: 150
   obj: sale.invoice.items
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.invoice.items/invoice_id
     seq: 0
@@ -6053,7 +6053,7 @@
     seq: 150
   obj: sale.invoice.items
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.invoice.items/invoice_id
     seq: 0
@@ -6087,7 +6087,7 @@
     seq: 140
   obj: sale.invoice.items
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.invoice.item.texts/item_id
     seq: 0
@@ -6099,7 +6099,7 @@
     seq: 30
   obj: sale.invoice.item.texts
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.invoice.item.texts/item_id
     seq: 0
@@ -6111,21 +6111,7 @@
     seq: 30
   obj: sale.invoice.item.texts
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: sale.invoice.item.texts/item_id
-    seq: 0
-  - col: sale.invoice.item.texts/seq
-    seq: 10
-  - col: sale.invoice.item.texts/text_id
-    seq: 20
-  - col: sale.invoice.item.texts/descr
-    seq: 30
-  - col: sale.invoice.item.texts/content
-    seq: 40
-  obj: sale.invoice.item.texts
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.invoice.item.texts/item_id
     seq: 0
@@ -6139,7 +6125,7 @@
     seq: 40
   obj: sale.invoice.item.texts
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.invoice.item.texts/item_id
     seq: 0
@@ -6153,7 +6139,21 @@
     seq: 40
   obj: sale.invoice.item.texts
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.invoice.item.texts/item_id
+    seq: 0
+  - col: sale.invoice.item.texts/seq
+    seq: 10
+  - col: sale.invoice.item.texts/text_id
+    seq: 20
+  - col: sale.invoice.item.texts/descr
+    seq: 30
+  - col: sale.invoice.item.texts/content
+    seq: 40
+  obj: sale.invoice.item.texts
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.invoice.item.texts/item_id
     seq: 0
@@ -6165,7 +6165,7 @@
     seq: 30
   obj: sale.invoice.item.texts
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.invoice.item.roles/item_id
     seq: 0
@@ -6175,7 +6175,7 @@
     seq: 20
   obj: sale.invoice.item.roles
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.invoice.item.roles/item_id
     seq: 0
@@ -6185,7 +6185,7 @@
     seq: 20
   obj: sale.invoice.item.roles
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: sale.invoice.item.roles/item_id
     seq: 0
@@ -6195,7 +6195,7 @@
     seq: 20
   obj: sale.invoice.item.roles
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.invoice.item.roles/item_id
     seq: 0
@@ -6205,7 +6205,7 @@
     seq: 20
   obj: sale.invoice.item.roles
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: sale.invoice.item.roles/item_id
     seq: 0
@@ -6215,7 +6215,7 @@
     seq: 20
   obj: sale.invoice.item.roles
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.invoice.item.roles/item_id
     seq: 0
@@ -6225,7 +6225,7 @@
     seq: 20
   obj: sale.invoice.item.roles
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: sale.invoice.item.delivery.schedules/item_id
     seq: 0
@@ -6235,7 +6235,7 @@
     seq: 20
   obj: sale.invoice.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: sale.invoice.item.delivery.schedules/item_id
     seq: 0
@@ -6245,19 +6245,7 @@
     seq: 20
   obj: sale.invoice.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: sale.invoice.item.delivery.schedules/item_id
-    seq: 0
-  - col: sale.invoice.item.delivery.schedules/quantity
-    seq: 10
-  - col: sale.invoice.item.delivery.schedules/schedule
-    seq: 20
-  - col: sale.invoice.item.delivery.schedules/note
-    seq: 30
-  obj: sale.invoice.item.delivery.schedules
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: sale.invoice.item.delivery.schedules/item_id
     seq: 0
@@ -6269,7 +6257,7 @@
     seq: 30
   obj: sale.invoice.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: sale.invoice.item.delivery.schedules/item_id
     seq: 0
@@ -6281,7 +6269,19 @@
     seq: 30
   obj: sale.invoice.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: sale.invoice.item.delivery.schedules/item_id
+    seq: 0
+  - col: sale.invoice.item.delivery.schedules/quantity
+    seq: 10
+  - col: sale.invoice.item.delivery.schedules/schedule
+    seq: 20
+  - col: sale.invoice.item.delivery.schedules/note
+    seq: 30
+  obj: sale.invoice.item.delivery.schedules
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: sale.invoice.item.delivery.schedules/item_id
     seq: 0
@@ -6291,7 +6291,7 @@
     seq: 20
   obj: sale.invoice.item.delivery.schedules
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: md.sale.product/product_id
     seq: 0
@@ -6309,7 +6309,7 @@
     seq: 60
   obj: md.sale.product
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: md.sale.product/product_id
     seq: 0
@@ -6327,7 +6327,7 @@
     seq: 60
   obj: md.sale.product
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: md.sale.product/product_id
     seq: 0
@@ -6347,7 +6347,7 @@
     seq: 70
   obj: md.sale.product
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: md.sale.product/product_id
     seq: 0
@@ -6367,7 +6367,7 @@
     seq: 70
   obj: md.sale.product
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: md.sale.product/product_id
     seq: 0
@@ -6387,7 +6387,7 @@
     seq: 70
   obj: md.sale.product
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: md.sale.product/product_id
     seq: 0
@@ -6405,4 +6405,4 @@
     seq: 60
   obj: md.sale.product
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list

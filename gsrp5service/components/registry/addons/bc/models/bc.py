@@ -271,9 +271,9 @@ class bc_obj_columns(Model):
 	_order_by="seq"
 	_columns = {
 	'obj_id': fields.many2one(label = 'Object', obj = 'bc.objs',rel='columns',readonly=True, on_delete = 'c'),
-	'obj_type_name': fields.varchar(label='Type Name',size=64,required = True,readonly=True),
+	'type_obj_name': fields.varchar(label='Object Type Name',size=64,required = True,readonly=True),
 	'obj_name': fields.varchar(label='Object Name',size=64,required = True,readonly=True),
-	'name': fields.composite(label='Name Column', cols = ['obj_type_name','obj_name','col'], required = True),
+	'name': fields.composite(label='Name Column', cols = ['type_obj_name','obj_name','col'], required = True),
 	'seq': fields.integer(label='Sequence', readonly = True),
 	'col': fields.varchar(label='Column', readonly=True),
 	'moc': fields.json(label='Meta Of Column', readonly = True),
@@ -374,7 +374,7 @@ class bc_obj_data(Model):
 	#'type_obj': fields.varchar(label = 'Type Object',size = 32,selectable=True,readonly=True),
 	'obj': fields.varchar(label = 'Object',size = 64,selectable=True,readonly=True),
 	'name': fields.varchar(label = 'Name',size = 256,readonly=True),
-	'fullname': fields.composite(label = 'Full Name',cols=['type_obj','name'],readonly=True),
+	#'fullname': fields.composite(label = 'Full Name',cols=['type_obj','name'],readonly=True),
 	'rec_id': fields.uuid(label = 'ID record',readonly=True),
 	'file_id': fields.related(label='File',obj='bc.module.files',relatedy = ['module'],readonly=True),
 	'timestamp_init': fields.datetime(label = 'Timestamp init', timezone = False,readonly=True),
@@ -627,14 +627,15 @@ class bc_ui_obj_menus(Model):
 	_class_object = 'K'
 	_order_by = 'sequence,label'
 	_columns = {
-	'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs',readonly=True, on_delete = 'c'),
+	#'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs',readonly=True, on_delete = 'c'),
 	'name': fields.varchar(label = 'Name',readonly=True),
-	'fullname': fields.composite(label='Fullname',cols=['type_obj','name'],readonly=True),
+	#'fullname': fields.composite(label='Fullname',cols=['type_obj','name'],readonly=True),
 	'label': fields.varchar(label = 'Label',readonly=True),
 	'parent_id': fields.many2one(label='Parent',obj='bc.ui.obj.menus',rel='childs_id',readonly=True,on_delete='c'),
 	'childs_id': fields.one2many(label='Childs',obj='bc.ui.obj.menus',rel='parent_id',readonly=True),
 	'sequence': fields.integer(label='Sequence'),
-	'action_id': fields.related(label='Action', obj='bc.ui.obj.actions',relatedy=['type_obj'],readonly=True, on_delete = 'c')
+	#'action_id': fields.related(label='Action', obj='bc.ui.obj.actions',relatedy=['type_obj'],readonly=True, on_delete = 'c')
+	'action_id': fields.referenced(label='Action', obj='bc.ui.obj.actions',readonly=True, on_delete = 'c')
 	}
 
 class bc_access_objs(Model):

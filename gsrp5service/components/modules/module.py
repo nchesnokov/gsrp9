@@ -706,21 +706,14 @@ def _loadMetaModule(self,name,context):
 	
 	for model in models:
 		m = _loadMetaModel(self,model,name,context)
+		#web_pdb.set_trace()
 		if len(m) > 0:
 			m['module_id'] = module_id
-			#model_records.append(m)
 			self._session._models.get('bc.objs').create(m,context)
-			obj_m = m.copy()
-			for r in obj_m:
-				obj_m['type_obj'] = 'model'
-				for c in r['columns']:
-					c['obj_type_name'] = 'model'
-			self._session._models.get('bc.objs').create(obj_m,context)
 		else:
 			im = _loadMetaInherit(self,model,name,context)
 			if len(im) > 0:
 				im['module_id'] = module_id
-				#imodel_records.append(im)
 				oid = self._session._models.get('bc.obj.inherits').create(im,context)[0]
 				icols = {}
 				imcols = self._session._models.get('bc.obj.inherit.columns').select(fields=['inherit_id','col','moc'],cond=[('inherit_id','=',model)],context=context)
@@ -795,19 +788,19 @@ def _loadMetaModel(self,model,module,context):
 	del info_model['columns']
 	
 	type_obj_name = 'models'
-	type_obj = self._session._models.get('bc.type.objs').search(cond=[('code','=',type_obj_name)])
+	type_obj = self._session._models.get('bc.type.objs').search(cond=[('code','=',type_obj_name)])[0]
 	record['type_obj'] = type_obj
 	record['code'] = info_model['name']
 	record['descr'] = info_model['description']
-	record['class_model'] = class_model.search([('code','=', info_model['class_model'])])[0]
+	record['class_obj'] = class_model.search([('code','=', info_model['class_model'])])[0]
 	if info_model['class_model_category']:
 		cat = class_model_category.search([('code','=', info_model['class_model_category'])],context)
 		if len(cat) > 0:
-			record['class_model_category'] = cat
+			record['class_obj_category'] = cat
 	record['oom'] = info_model
 	
 	for idx,col in enumerate(columns.keys()):
-		record.setdefault('columns',[]).append({'seq':idx * 10,'model_name':model,'col':col,'moc':columns[col]})
+		record.setdefault('columns',[]).append({'seq':idx * 10,'type_obj_name':type_obj_name,'obj_name':model,'col':col,'moc':columns[col]})
 
 	return record		
 
@@ -1026,8 +1019,7 @@ def _loadXMLFile(self,info,path,name,fl,context):
 			if event == 'start':
 				records = []
 				datarecords = []
-				obj = el.attrib['model']
-
+				model = el.attrib['model']
 				modelinfo = self._session._models.get(model).modelInfo()
 				columnsinfo = modelinfo['columns']
 				columns = list(columnsinfo.keys())
@@ -1082,7 +1074,7 @@ def _loadXMLFile(self,info,path,name,fl,context):
 				#datarecord['type_obj'] = 'models'
 				datarecord['obj'] = model
 				datarecord['file_id'] = file_id
-				datarecord['date_init'] = datetime.utcnow()
+				datarecord['timestamp_init'] = datetime.utcnow()
 				
 				datarecords.append(datarecord)
 		elif el.tag == 'column':

@@ -7,7 +7,7 @@
     seq: 20
   obj: ewm.warehouse
   type_obj: models
-  vtype: element-plus/search
+  vtype: models/element-plus/search
 - cols:
   - col: ewm.warehouse/stock
     seq: 0
@@ -17,19 +17,7 @@
     seq: 20
   obj: ewm.warehouse
   type_obj: models
-  vtype: element-plus/find
-- cols:
-  - col: ewm.warehouse/stock
-    seq: 0
-  - col: ewm.warehouse/name
-    seq: 10
-  - col: ewm.warehouse/fullname
-    seq: 20
-  - col: ewm.warehouse/products
-    seq: 30
-  obj: ewm.warehouse
-  type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/find
 - cols:
   - col: ewm.warehouse/stock
     seq: 0
@@ -39,11 +27,9 @@
     seq: 20
   - col: ewm.warehouse/products
     seq: 30
-  - col: ewm.warehouse/note
-    seq: 40
   obj: ewm.warehouse
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: ewm.warehouse/stock
     seq: 0
@@ -57,7 +43,7 @@
     seq: 40
   obj: ewm.warehouse
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: ewm.warehouse/stock
     seq: 0
@@ -71,7 +57,21 @@
     seq: 40
   obj: ewm.warehouse
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: ewm.warehouse/stock
+    seq: 0
+  - col: ewm.warehouse/name
+    seq: 10
+  - col: ewm.warehouse/fullname
+    seq: 20
+  - col: ewm.warehouse/products
+    seq: 30
+  - col: ewm.warehouse/note
+    seq: 40
+  obj: ewm.warehouse
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: ewm.warehouse/stock
     seq: 0
@@ -83,7 +83,7 @@
     seq: 30
   obj: ewm.warehouse
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: st.company.product.quantites/company_id
     seq: 0
@@ -101,7 +101,7 @@
     seq: 60
   obj: st.company.product.quantites
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: st.company.product.quantites/company_id
     seq: 0
@@ -119,7 +119,7 @@
     seq: 60
   obj: st.company.product.quantites
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: st.company.product.quantites/company_id
     seq: 0
@@ -137,7 +137,7 @@
     seq: 60
   obj: st.company.product.quantites
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: st.company.product.quantites/company_id
     seq: 0
@@ -155,7 +155,7 @@
     seq: 60
   obj: st.company.product.quantites
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: st.company.product.quantites/company_id
     seq: 0
@@ -173,7 +173,7 @@
     seq: 60
   obj: st.company.product.quantites
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: st.company.product.quantites/company_id
     seq: 0
@@ -191,7 +191,7 @@
     seq: 60
   obj: st.company.product.quantites
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: st.stock.product.quantites/stock_id
     seq: 0
@@ -209,7 +209,7 @@
     seq: 60
   obj: st.stock.product.quantites
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: st.stock.product.quantites/stock_id
     seq: 0
@@ -227,7 +227,7 @@
     seq: 60
   obj: st.stock.product.quantites
   type_obj: models
-  vtype: element-plus/list
+  vtype: models/element-plus/list
 - cols:
   - col: st.stock.product.quantites/stock_id
     seq: 0
@@ -245,7 +245,7 @@
     seq: 60
   obj: st.stock.product.quantites
   type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/form.modal
 - cols:
   - col: st.stock.product.quantites/stock_id
     seq: 0
@@ -263,7 +263,7 @@
     seq: 60
   obj: st.stock.product.quantites
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form
 - cols:
   - col: st.stock.product.quantites/stock_id
     seq: 0
@@ -281,7 +281,7 @@
     seq: 60
   obj: st.stock.product.quantites
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: st.stock.product.quantites/stock_id
     seq: 0
@@ -299,7 +299,7 @@
     seq: 60
   obj: st.stock.product.quantites
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
 - cols:
   - col: md.ewm.product/product_id
     seq: 0
@@ -307,7 +307,7 @@
     seq: 10
   obj: md.ewm.product
   type_obj: models
-  vtype: element-plus/find
+  vtype: models/element-plus/find
 - cols:
   - col: md.ewm.product/product_id
     seq: 0
@@ -315,17 +315,7 @@
     seq: 10
   obj: md.ewm.product
   type_obj: models
-  vtype: element-plus/list
-- cols:
-  - col: md.ewm.product/product_id
-    seq: 0
-  - col: md.ewm.product/uom
-    seq: 10
-  - col: md.ewm.product/note
-    seq: 20
-  obj: md.ewm.product
-  type_obj: models
-  vtype: element-plus/form.modal
+  vtype: models/element-plus/list
 - cols:
   - col: md.ewm.product/product_id
     seq: 0
@@ -335,7 +325,7 @@
     seq: 20
   obj: md.ewm.product
   type_obj: models
-  vtype: element-plus/form
+  vtype: models/element-plus/form.modal
 - cols:
   - col: md.ewm.product/product_id
     seq: 0
@@ -345,7 +335,17 @@
     seq: 20
   obj: md.ewm.product
   type_obj: models
-  vtype: element-plus/o2m-form
+  vtype: models/element-plus/form
+- cols:
+  - col: md.ewm.product/product_id
+    seq: 0
+  - col: md.ewm.product/uom
+    seq: 10
+  - col: md.ewm.product/note
+    seq: 20
+  obj: md.ewm.product
+  type_obj: models
+  vtype: models/element-plus/o2m-form
 - cols:
   - col: md.ewm.product/product_id
     seq: 0
@@ -353,4 +353,4 @@
     seq: 10
   obj: md.ewm.product
   type_obj: models
-  vtype: element-plus/o2m-list
+  vtype: models/element-plus/o2m-list
