@@ -403,7 +403,7 @@ class bc_ui_obj_views(Model):
 	'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs',readonly=True, on_delete = 'c'),
 	'obj': fields.related(label='Object',obj='bc.objs',relatedy=['type_obj'], on_delete = 'c'),
 	'vtype': fields.referenced(label='View Type',obj='bc.ui.view.obj.types', on_delete = 'c'),
-	'fullname': fields.composite(label='Full Name', cols = ['type_obj','obj','vtype'], translate = True,required = True),
+	'fullname': fields.composite(label='Full Name', cols = ['obj','vtype'], translate = True,required = True),
 	'created': fields.datetime('Created', readonly = True),
 	'modified': fields.datetime('Modified', readonly = True),
 	'standalone': fields.boolean(label='Standalone View'),
@@ -614,11 +614,11 @@ class bc_ui_framework_obj_actions(Model):
 	_description = 'Object UI Framework Actions'
 	_class_object = 'K'
 	_columns = {
-	'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs',readonly=True, on_delete = 'c'),
+	#'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs',readonly=True, on_delete = 'c'),
 	'framework_id': fields.referenced(label='Framework',obj = 'bc.web.frameworks'),
 	'action_id': fields.referenced(label='Action',obj = 'bc.ui.obj.actions'),
-	'fullname': fields.composite(label='Full Name', cols = ['type_obj','framework_id','action_id'], required = True),
-	'view_id': fields.related(label='View',obj='bc.ui.obj.views',relatedy=['type_obj',('framework_id','code')],readonly=True, on_delete = 'c')
+	'fullname': fields.composite(label='Full Name', cols = ['framework_id','action_id'], required = True),
+	'view_id': fields.referenced(label='View',obj='bc.ui.obj.views',readonly=True, on_delete = 'c')
 	}
 
 class bc_ui_obj_menus(Model):
@@ -627,14 +627,14 @@ class bc_ui_obj_menus(Model):
 	_class_object = 'K'
 	_order_by = 'sequence,label'
 	_columns = {
-	#'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs',readonly=True, on_delete = 'c'),
+	'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs',readonly=True, on_delete = 'c'),
 	'name': fields.varchar(label = 'Name',readonly=True),
 	#'fullname': fields.composite(label='Fullname',cols=['type_obj','name'],readonly=True),
 	'label': fields.varchar(label = 'Label',readonly=True),
 	'parent_id': fields.many2one(label='Parent',obj='bc.ui.obj.menus',rel='childs_id',readonly=True,on_delete='c'),
 	'childs_id': fields.one2many(label='Childs',obj='bc.ui.obj.menus',rel='parent_id',readonly=True),
 	'sequence': fields.integer(label='Sequence'),
-	#'action_id': fields.related(label='Action', obj='bc.ui.obj.actions',relatedy=['type_obj'],readonly=True, on_delete = 'c')
+	#'action_id': fields.related(label='Action', obj='bc.ui.obj.actions',relatedy=['type_obj','name'],readonly=True, on_delete = 'c')
 	'action_id': fields.referenced(label='Action', obj='bc.ui.obj.actions',readonly=True, on_delete = 'c')
 	}
 
@@ -647,6 +647,7 @@ class bc_access_objs(Model):
 	'name': fields.varchar(label = 'Name',readonly=True),
 	'fullname': fields.composite(label='Fullname',cols=['type_obj','name']),
 	'obj': fields.related(label = 'Object',obj='bc.objs',relatedy=['type_obj'],readonly=True,on_delete='c'),
+	'access': fields.json(label='Object Access',readonly=True),
 	'note': fields.text(label='Note',readonly=True)
 	}
 

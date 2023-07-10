@@ -24,18 +24,18 @@ GENTEMPLATES = {'element-plus':gen_template_el,'vuetify':gen_template_vuetify,'d
 GENSRCIPTS = {'element-plus':gen_script_el,'vuetify':gen_script_vuetify,'devextrme':gen_script_devextrme}
 GENSTYLES = {'element-plus':gen_style_el,'vuetify':gen_style_vuetify,'devextrme':gen_style_devextrme}
 
-def ModelsColumns( view, vmodel, columns):
-	return [{'seq':idx * 10,'col':vmodel + '/' + col} for idx,col in enumerate(columns)]
+def ModelsColumns( view, vmodel, columns, cat = 'models'):
+	return [{'seq':idx * 10,'col': '/'.join([cat,vmodel,col])} for idx,col in enumerate(columns)]
 
-def Views(framework,model,views):
-	return [ {'model':vmodel,'vtype':framework + '/' + view,'cols':ModelsColumns(view,vmodel,columns)} for view,vmodel,columns in views]
+def Views(framework,model,views,cat = 'models'):
+	return [ {'model':vmodel,'vtype':cat + '/' + framework + '/' + view,'cols':ModelsColumns(view,vmodel,columns)} for view,vmodel,columns in views]
 	
 
-def ObjsViewsColumns( view, vmodel, columns):
-	return [{'seq':idx * 10,'col':vmodel + '/' + col} for idx,col in enumerate(columns)]
+def ObjsViewsColumns( view, vmodel, columns, type_obj):
+	return [{'seq':idx * 10,'col':'/'.join([type_obj,vmodel,col])} for idx,col in enumerate(columns)]
 
 def ObjsViews(obj,framework,model,views):
-	return [ {'type_obj':obj,'obj':vobj,'vtype':obj + '/' + framework + '/' + view,'cols':ObjsViewsColumns(view,vobj,columns)} for view,vobj,columns in views]
+	return [ {'type_obj':type_obj,'obj':vobj,'vtype':'/'.join([type_obj,framework,view]),'cols':ObjsViewsColumns(view,vobj,columns,type_obj)} for view,vobj,columns,type_obj in views]
 
 
 def iViews(framework, views):
@@ -145,41 +145,41 @@ def isAllow(registry,obj):
 	for view in VIEWS['models']:
 		cols = list(filter(lambda x:obj._columns[x]._type not in EXCLUDE['models'][view] and obj._columns[x]._type != 'iProperty', obj._columns.keys()))
 		if view == 'search' and (obj._RowNameName or obj._RecNameName or obj._FullNameName):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view in ('form','form.modal','list'):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'tree' and obj._ParentIdName and obj._ChildsIdName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'find' and (len(obj._findfields) > 0 or obj._RowNameName or obj._RecNameName or obj._FullNameName):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'm2mlist' and len(obj._m2mfields) > 0:
 			for m2mfield in obj._m2mfields:
 				mobj = registry._create_module_object('models',obj._columns[m2mfield].obj,registry._getLastModuleObject('models',obj._columns[m2mfield].obj))
-				allows.append((view,obj._columns[m2mfield].obj,list(filter(lambda x: mobj._columns[x]._type not in EXCLUDE['models']['m2mlist'],mobj._columns.keys()))))
+				allows.append((view,obj._columns[m2mfield].obj,list(filter(lambda x: mobj._columns[x]._type not in EXCLUDE['models']['m2mlist'],mobj._columns.keys())),'models'))
 		elif view in ('calendar','graph','mdx') and obj._DateName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view in ('schedule','gantt') and (obj._FromDateName and obj._ToDateName or obj._StartDateName and obj._EndDateName):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'kanban' and obj._StateName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'geo' and (obj._FromLatitudeName and obj._FromLongitudeName or obj._ToLatitudeName and obj._ToLongitudeName or obj._LatitudeName and obj._LongitudeName ):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'flow' and  obj._PrevNameName and obj._NextNameName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view in ('o2m-form','o2m-list') and len(obj._m2ofields) > 0:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'o2m-tree' and len(obj._m2ofields) > 0 and obj._ParentIdName and obj._ChildsIdName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view in ('o2m-calendar','o2m-graph','o2m-mdx') and len(obj._m2ofields) > 0 and obj._DateName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view in ('o2m-schedule','o2m-gantt') and len(obj._m2ofields) > 0 and (obj._FromDateName and obj._ToDateName or obj._StartDateName and obj._EndDateName):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'o2m-kanban' and len(obj._m2ofields) > 0 and obj._StateName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'o2m-geo' and len(obj._m2ofields) > 0 and (obj._FromLatitudeName and obj._FromLongitudeName or obj._ToLatitudeName and obj._ToLongitudeName or obj._LatitudeName and obj._LongitudeName ):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'o2m-flow' and len(obj._m2ofields) > 0 and  obj._PrevNameName and obj._NextNameName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 
 	return allows
 

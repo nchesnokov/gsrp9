@@ -29,9 +29,10 @@ def RecordsRole(module,models,cat):
 	return res
 	
 def RecordAccess(module,model,grant, cat):
-	cols = {'access_id':concat(['role',module,cat,model,grant]),'model': model}
+	cols = {'obj_access_id':concat(['role',module,cat,model,grant]),'obj': model}
+	cols['access'] = {} 
 	for column in ACCESS[grant]:
-		cols[column] = True
+		cols['access'][column] = True
 	
 	return cols
 	

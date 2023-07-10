@@ -4,6 +4,8 @@ from .action import run
 from serviceloader.tools.common import Component
 from configparser import ConfigParser
 
+import web_pdb
+
 class serviceui_exception(Exception): pass
 
 class Uis(Component):
@@ -54,8 +56,8 @@ class Uis(Component):
 
 		return rmsg
 
-	def action(self,action_id,context):
-		rc = run(self._pool,action_id,context)
+	def action(self,type_obj,action_id,context):
+		rc = run(self._pool,type_obj,action_id,context)
 		self._cr.rollback()
 		return rc
 	

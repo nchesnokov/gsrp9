@@ -936,7 +936,10 @@ def _convertFromYAML(self,model,records,context):
 					cond = [(recname,'=',record[key])]
 					if columns_info[key]['type'] == 'related':
 						for rel in columns_info[key]['relatedy']:
-							cond.append((rel,'=',record[rel]))
+							if type(rel)  == tuple:
+								cond.append((rel[1],'=',record[rel[0]]))
+							else:
+								cond.append((rel,'=',record[rel]))
 					oids = self._session._models.get(columns_info[key]['obj']).search(cond,context,1)
 					if len(oids) > 0:
 						record[key] = oids[0]

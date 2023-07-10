@@ -26,22 +26,22 @@ def get_viewname_by_window_action_id2(cr,pool,uid,action_id):
 
 
 def get_model_by_window_action_id_v2(pool,action_id, context = {'framework':'element-plus'}):
-	af_id = pool.get('bc.ui.framework.model.actions').select(fields=['action_id','framework_id','view_id'],cond=[('fullname','=',action_id + '/' + context['framework'])])
+	#web_pdb.set_trace()
+	af_id = pool.get('bc.ui.framework.obj.actions').select(fields=['action_id','framework_id','view_id'],cond=[('fullname','=',context['framework'] + '/' + action_id)])
 
 	if len(af_id) > 0:
-		act = pool.get('bc.ui.model.actions').select(fields=['name','model'],cond=[('name','=',af_id[0]['action_id']['name'])])
+		act = pool.get('bc.ui.obj.actions').select(fields=['name','obj'],cond=[('fullname','=',af_id[0]['action_id']['name'])])
 		if len(act) > 0:
-			return act[0]['model']['name']
+			return act[0]['obj']['name']
 			
 
 
 
 def get_meta_of_model_v2(pool,model,context):
-	trs = pool.get('bc.model.translations').select(['tr'],[('lang','=',context['lang']),('model','=',model)])
+	trs = pool.get('bc.obj.translations').select(['tr'],[('lang','=',context['lang']),('obj','=',model),('type_obj','=','models')])
 	m = pool.get(model)
 	attrs = m.modelInfo() #attributes=['type','compute','name','label','readonly','invisible','priority','required','unique','pattern','selections','selectable','size','domain','context','manual','help','default','timezone','ref','relatedy','obj','rel','id1','id2','offset','limit','accept','icon','cols','delimiter'])
 					
-	#web_pdb.set_trace()
 	if len(trs) > 0:
 		tr = json.loads(trs[0]['tr'])
 		attrs['description'] = tr['_description']
@@ -119,19 +119,18 @@ def get_meta_of_models_v2(pool,model,context):
 			
 def get_views_of_model_v2(pool,model,info,context):
 	o = {}
-	#web_pdb.set_trace()
-	views = pool.get('bc.ui.model.views').select(fields=['fullname','model','vtype','standalone','template','script','style','i18n','scoped','sfc',{'cols':['col']},{'inherit_cols':['col']}],cond=[('vtype','like',context['framework'] + '/%'),('model','=',model)],context=context)
+	views = pool.get('bc.ui.obj.views').select(fields=['fullname','model','vtype','standalone','template','script','style','i18n','scoped','sfc',{'cols':['col']},{'inherit_cols':['col']}],cond=[('vtype','like','models/' + context['framework'] + '/%'),('obj','=',model),('type_obj','=','models')],context=context)
 	for view in views:
-		confs = pool.get('bc.tuning.ui.model.views').select(fields=['fullname','name','view','tuser','values'],cond=[('view','=',view['fullname']),('tuser','=', context['user'])],context=context)
+		confs = pool.get('bc.tuning.ui.obj.views').select(fields=['fullname','name','view','tuser','values'],cond=[('view','=',view['fullname']),('tuser','=', context['user'])],context=context)
 		v  = {'columns':[],'id':view['id'],'confs':confs}
 		for r in view['cols']:
-			r['col'] = r['col']['name'].split('/')[1]
+			r['col'] = r['col']['name'].split('/')[2]
 		v['columns'].extend(view['cols'])
 		for r in view['inherit_cols']:
-			r['col'] = r['col']['name'].split('/')[1]
+			r['col'] = r['col']['name'].split('/')[2]
 		v['columns'].extend(view['inherit_cols'])
 		
-		o[view['vtype']['name'].split('/')[1]] = v
+		o[view['vtype']['name'].split('/')[2]] = v
 
 	return {model:o}
 	

@@ -16,12 +16,12 @@ _logger = logging.getLogger('listener.' + __name__)
 #FRAMEWORKS = ('element-plus','vuetify','devextrme')
 FRAMEWORKS = ('element-plus',)
 
-def FrameworkRecordAction(framework,model,action):
-	return {'type_obj':'models','framework_id':framework,'action_id': action,'view_id':concat([model,framework,'search'],'/')}
+def FrameworkRecordAction(framework,obj,action,cat='models'):
+	return {'framework_id':framework,'action_id': '/'.join([cat,action]),'view_id':concat([obj,cat,framework,'search'],'/')}
 
 
 def RecordAction(obj,cat='models'):
-	return {'type_obj':'models','name': concat([cat,'action',obj,'search']),'obj':obj}
+	return {'type_obj':cat,'name': concat(['action',obj,'search']),'obj':obj}
 
 
 def RecordMenu(name,label,parent=None):
@@ -31,7 +31,7 @@ def RecordMenu(name,label,parent=None):
 	return record
 
 def RecordMenuItem(idx,module,obj,label,menu,cat='models'):
-	record = {'sequence':idx,'name': concat([cat,'ui.menu',obj,'search']),'label':label,'action_id':concat([cat,'action',obj,'search'])}
+	record = {'type_obj':cat,'sequence':idx,'name': cat + '/' + concat(['ui.menu',obj,'search']),'label':label,'action_id': cat + '/' + concat(['action',obj,'search'])}
 	if menu:
 		record['parent_id'] = menu
 	

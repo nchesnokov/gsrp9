@@ -128,7 +128,8 @@ class seq_models(Model):
 	_columns = {
 	'access_id': fields.many2one(label='Access Sequence',obj='seq.access',rel='models'),
 	'sequence': fields.integer(label='Sequence'),
-	'model': fields.referenced(label='Model', obj = 'bc.models'),
+	'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs', on_delete = 'c'),
+	'obj': fields.referenced(label='Model', obj = 'bc.objs'),
 	'columns': fields.one2many(label='Columns',obj='seq.model.columns',rel='model_id'),
 	'values': fields.one2many(label='Values',obj='seq.model.column.values',rel='model_id'),
 	
@@ -143,8 +144,8 @@ class seq_model_columns(Model):
 	_columns = {
 	'model_id': fields.many2one(label='Model',obj='seq.models',rel='columns'),
 	'sequence': fields.integer(label='Sequence'),
-	'col': fields.referenced(label='Column', obj='bc.model.columns'),
-	'inherit_col': fields.referenced(label='Inherit Column', obj='bc.model.inherit.inherits')
+	'col': fields.referenced(label='Column', obj='bc.obj.columns'),
+	'inherit_col': fields.referenced(label='Inherit Column', obj='bc.obj.inherit.inherits')
 	}
 	
 #seq_model_columns()
@@ -156,8 +157,8 @@ class seq_model_column_values(Model):
 	_columns = {
 	'model_id': fields.many2one(label='Model',obj='seq.models',rel='values'),
 	'sequence': fields.integer(label='Sequence'),
-	'col': fields.referenced(label='Column', obj='bc.model.columns'),
-	'inherit_col': fields.referenced(label='Inherit Column', obj='bc.model.inherit.inherits'),
+	'col': fields.referenced(label='Column', obj='bc.obj.columns'),
+	'inherit_col': fields.referenced(label='Inherit Column', obj='bc.obj.inherit.inherits'),
 	'values': fields.json(label='Values')
 	}
 

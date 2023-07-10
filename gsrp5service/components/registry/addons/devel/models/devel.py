@@ -61,8 +61,9 @@ class devel_ui_model_views(Model):
 	_rec_name='fullname'
 	_class_object = 'K'
 	_columns = {
-	'fullname': fields.composite(label='Full Name', cols = ['model','vtype'], translate = True,required = True),
-	'model': fields.referenced(label='Model',obj='bc.models'),
+	'fullname': fields.composite(label='Full Name', cols = ['obj','vtype'], translate = True,required = True),
+	'type_obj': fields.referenced(label='ObjectType',obj='bc.type.objs'),
+	'obj': fields.related(label='Object',obj='bc.objs',relatedy = ['type_obj']),
 	'vtype': fields.referenced(label='View Type',obj='devel.ui.view.model.types'),
 	'standalone': fields.boolean(label='Standalone View'),
 	'template': fields.text(label='Template'),
