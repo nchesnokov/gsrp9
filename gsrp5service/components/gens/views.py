@@ -28,7 +28,7 @@ def ModelsColumns( view, vmodel, columns, cat = 'models'):
 	return [{'seq':idx * 10,'col': '/'.join([cat,vmodel,col])} for idx,col in enumerate(columns)]
 
 def Views(framework,model,views,cat = 'models'):
-	return [ {'model':vmodel,'vtype':cat + '/' + framework + '/' + view,'cols':ModelsColumns(view,vmodel,columns)} for view,vmodel,columns in views]
+	return [ {'model':vmodel,'vtype':cat + '/' + framework + '/' + view,'cols':ModelsColumns(view,vmodel,columns,cat)} for view,vmodel,columns,cat in views]
 	
 
 def ObjsViewsColumns( view, vmodel, columns, type_obj):
@@ -41,9 +41,9 @@ def ObjsViews(obj,framework,model,views):
 def iViews(framework, views):
 	res = []
 
-	for view,model,cols in views:
+	for view,model,cols,cat in views:
 		for col in cols:
-			res.append({'view_id':model + '/' + framework + '/' + view,'col': model + '/' + col})
+			res.append({'view_id':model + '/' + cat + '/' + framework + '/' + view,'col': '/'.join([cat,model,col])})
 
 	return res
 
@@ -131,7 +131,7 @@ def Area(self, modules = None,context={}):
 						
 											if len(m2mviews) > 0:
 												with open(opj(path,module,'views','inherits',cat,framework,'m2m_' + nm.replace('.','_') + '.yaml'),'w') as outfile:
-													yaml.dump(Views(framework,m,m2mviews), outfile, Dumper, default_flow_style=False)
+													yaml.dump( ObjsViews(cat,framework,m,m2mviews), outfile, Dumper, default_flow_style=False)
 								
 												aw.writerow({'model': 'bc.ui.obj.views','file':opj('views','inherits',cat,framework,'m2m_' + nm.replace('.','_') + '.yaml' )})
 
@@ -195,11 +195,11 @@ def isAllowView(registry,model,imodel):
 		if len(cols) == 0 and view != 'm2mlist':
 			continue
 		if view == 'search' and (obj._RowNameName or obj._RecNameName or obj._FullNameName):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view in ('form','form.modal','list'):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'tree' and obj._ParentIdName and obj._ChildsIdName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'find' and (len(obj._findfields) > 0 or obj._RowNameName or obj._RecNameName or obj._FullNameName):
 			allows.append((view,obj._name,cols))
 		elif view == 'm2mlist':
@@ -207,31 +207,31 @@ def isAllowView(registry,model,imodel):
 				for m2mcol in m2mcols:
 					mobj = registry._create_module_object('models',imodel._columns[m2mcol].obj,registry._getLastModuleObject('models',imodel._columns[m2mcol].obj))
 					#allows.append((view,imodel._columns[m2mcol].obj,list(filter(lambda x: mobj._columns[x]._type not in EXCLUDE['models']['m2mlist'],mobj._columns.keys()))))
-					allows.append((view,mobj._name,list(filter(lambda x: mobj._columns[x]._type not in EXCLUDE['models']['m2mlist'],mobj._columns.keys()))))
+					allows.append((view,mobj._name,list(filter(lambda x: mobj._columns[x]._type not in EXCLUDE['models']['m2mlist'],mobj._columns.keys())),'models'))
 		elif view in ('calendar','graph','mdx') and hasattr(obj,'_DateName') and obj._DateName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view in ('schedule','gantt') and (obj._FromDateName and obj._ToDateName or obj._StartDateName and obj._EndDateName):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'kanban' and obj._StateName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'geo' and (obj._FromLatitudeName and obj._FromLongitudeName or obj._ToLatitudeName and obj._ToLongitudeName or obj._LatitudeName and obj._LongitudeName ):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'flow' and  obj._PrevNameName and obj._NextNameName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view in ('o2m-form','o2m-list') and len(obj._m2ofields) > 0:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'o2m-tree' and len(obj._m2ofields) > 0 and obj._ParentIdName and obj._ChildsIdName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view in ('o2m-calendar','o2m-graph','o2m-mdx') and len(obj._m2ofields) > 0 and obj._DateName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view in ('o2m-schedule','o2m-gantt') and len(obj._m2ofields) > 0 and (obj._FromDateName and obj._ToDateName or obj._StartDateName and obj._EndDateName):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'o2m-kanban' and len(obj._m2ofields) > 0 and obj._StateName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'o2m-geo' and len(obj._m2ofields) > 0 and (obj._FromLatitudeName and obj._FromLongitudeName or obj._ToLatitudeName and obj._ToLongitudeName or obj._LatitudeName and obj._LongitudeName ):
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 		elif view == 'o2m-flow' and len(obj._m2ofields) > 0 and  obj._PrevNameName and obj._NextNameName:
-			allows.append((view,obj._name,cols))
+			allows.append((view,obj._name,cols,'models'))
 	
 	return allows
 

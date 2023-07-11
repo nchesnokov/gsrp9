@@ -290,7 +290,7 @@ class bc_obj_inherits(Model):
 	'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs',readonly=True, on_delete = 'c'),
 	'code': fields.varchar(label = 'Name', size = 64,readonly=True),
 	'descr': fields.varchar(label = 'Description', size = 256,readonly=True),
-	'momi': fields.json(label='Meta Of Model Inherit', readonly = True),
+	'momi': fields.json(label='Meta Of Obj Inherit', readonly = True),
 	'columns': fields.one2many(label='Columns', obj = 'bc.obj.inherit.columns', rel = 'inherit_id'),
 	'objs': fields.one2many(label='Objects', obj = 'bc.obj.inherit.inherits', rel = 'inherit_id'),
 	}
@@ -303,7 +303,7 @@ class bc_obj_inherit_columns(Model):
 	_columns = {
 	'inherit_id': fields.many2one(label = 'Object Inherit', obj = 'bc.obj.inherits', rel='columns',readonly=True, on_delete = 'c'),
 	'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs',readonly=True, on_delete = 'c'),
-	'name': fields.composite(label='Name Column', cols = ['type_obj','inherit_id','col'], required = True),
+	'name': fields.composite(label='Name Column', cols = ['type_obj','col'], required = True),
 	'seq': fields.integer(label='Sequence', readonly = True),
 	'col': fields.varchar(label='Column', size = 64, readonly=True),
 	'moc': fields.json(label='Meta Of Column', readonly = True),
@@ -319,7 +319,7 @@ class bc_obj_inherit_inherits(Model):
 	'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs',readonly=True, on_delete = 'c'),
 	'obj_id': fields.referenced(label = 'Object', obj = 'bc.objs',readonly=True, on_delete = 'c'),
 	'col': fields.referenced(label='Column', obj = 'bc.obj.inherit.columns', on_delete = 'c', readonly=True),
-	'name': fields.composite(label='Name Column', cols = ['obj_id','col'], required = True)
+	'name': fields.composite(label='Name Column', cols = ['type_obj','obj_id','col'], required = True)
 	}
 
 class bc_group_obj_access(Model):
@@ -524,7 +524,7 @@ class bc_ui_obj_views(Model):
 
 class bc_ui_obj_view_columns(Model):
 	_name = 'bc.ui.obj.view.columns'
-	_description = 'UI Model View Columns'
+	_description = 'UI Objects View Columns'
 	_class_object = 'K'
 	_order_by="seq"
 	_columns = {

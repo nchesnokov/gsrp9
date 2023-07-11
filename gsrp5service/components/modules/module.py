@@ -819,12 +819,16 @@ def _loadMetaInherit(self,model,module,context):
 
 	del info_model['columns']
 	
+	type_obj_name = 'models'
+	type_obj = self._session._models.get('bc.type.objs').search(cond=[('code','=',type_obj_name)])[0]
+
+	record['type_obj'] = type_obj
 	record['code'] = info_model['name']
 	record['descr'] = info_model['description']
 	record['momi'] = info_model
 	
 	for idx,col in enumerate(columns.keys()):
-		record.setdefault('columns',[]).append({'seq':idx * 10,'col':col,'moc':columns[col]})
+		record.setdefault('columns',[]).append({'type_obj': type_obj,'seq':idx * 10,'col':col,'moc':columns[col]})
 
 	return record		
 
