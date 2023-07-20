@@ -545,7 +545,7 @@ class crm_group_contracts(Model):
 	# 'otype': fields.many2one(label='Type',obj='crm.contract.types',on_change='_on_change_otype'),
 	'name': fields.varchar(label = 'Name'),
 	'company': fields.many2one(label='Company',obj='md.company'),
-	'fullname': fields.composite(label='Full Name', cols = ['company','otype','name'], translate = True,required = True),
+	'fullname': fields.composite(label='Full Name', cols = ['company','name'], translate = True,required = True),
 	'market': fields.many2one(label='Market',obj='crm.markets'),
 	'team': fields.many2one(label='Team',obj='crm.teams'),
 	'category_id': fields.many2one(label='Category',obj='crm.contract.categories'),

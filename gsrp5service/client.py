@@ -63,7 +63,7 @@ def ext_hook(code,data):
 			return datetime.strptime(data.decode('utf-8'),"%Y-%m-%d").date()
 	elif code == 14:
 		if data is not None:
-			return datetime.strptime(data.decode('utf-8'),"%H:%M:%S").time()
+			return datetime.strptime(data.decode('utf-8'),"%H:%M:%S%z").time()
 	elif code == 15:
 		if data is not None:
 			return datetime.strptime(data.decode('utf-8'),"%H:%M:%S").time()
@@ -95,7 +95,7 @@ async def _execute(args):
 	omsg = await ws.recv()
 	#rmsg =pickle.loads(omsg)	
 	rmsg = unpackb(omsg,ext_hook=ext_hook,use_list=True)
-	#print('RMSG:',rmsg)
+	print('RMSG:',rmsg)
 	if hasattr(rmsg,'_class__') and issubclass(rmsg,Exception):
 		print('Exception: %s' % (rmsg,))
 		return None
@@ -134,7 +134,7 @@ async def hello():
 		#async with websockets.connect('ws://www.gsrp5labs.com:8170') as ws:
 		#async with websockets.connect('ws://localhost:8170/ws') as ws:
 		async with websockets.connect('ws://localhost:8170') as ws:
-			if True and False:
+			if True or False:
 				msg = await _execute([ws, '_open','gsrp5.system',{'profile':'system'}])
 				#msg = await _execute([ws,'modules','upgrademoduleslist',{'db':'test001'}])
 				#return
@@ -152,6 +152,7 @@ async def hello():
 				#msg = await _execute([ws, 'gens','tests',{'modules': ['md']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['bc','devel','common','md']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['crm']}])
+				msg = await _execute([ws, 'gens','i18n',{'modules': None}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': None}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['common']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['md','common','purchase','sale']}])
@@ -159,7 +160,7 @@ async def hello():
 				#msg = await _execute([ws, 'gens','examples',{'modules': ['ai','bc','cm','crm','fa','hcm','ml','mm','mrp','purchase','sale','srm','srm_ru','stock','qm','wkf','wkf_srm','tm','trm','cf','common','wm']}])
 				#msg = await _execute([ws, 'gens','tests',{'modules': ['crm','purchase','sale','le','cf','ai','cm','fa','hcm']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': None}])
-				msg = await _execute([ws, 'gens','ui',{'modules': ['bc','devel','md','common','crm']}])
+				#msg = await _execute([ws, 'gens','ui',{'modules': ['bc','devel','md','common','crm']}])
 				#msg = await _execute([ws, 'gens','ui',{'modules': ['common','crm']}])
 				#msg = await _execute([ws, 'gens','view',{'modules': ['trm','ehs','scm']}])
 				#msg = await _execute([ws, 'gens','menu',{'modules': ['trm','ehs','scm']}])

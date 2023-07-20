@@ -65,6 +65,9 @@ class DCacheDict(object):
 	def _getCData(self,path):
 		return ctypes.cast(int(self._cdata[path]), ctypes.py_object).value
 
+	def _getOData(self,path):
+		return ctypes.cast(int(self._odata[path]), ctypes.py_object).value
+
 	def _getAData(self,path):
 		return ctypes.cast(int(path), ctypes.py_object).value
 
@@ -1177,6 +1180,7 @@ class MCache(object):
 		if name:
 			method = getattr(self._pool.get(model),name,None)
 			if method:
+				#r0 = copy.deepcopy(self._data._getOData(path))
 				r1 = copy.deepcopy(self._data._getCData(path))
 				_on_change = method(self._data._getCData(path),context)
 				if _on_change:

@@ -10,7 +10,7 @@ from gsrp5service.orm.model import Model, ModelInherit
 
 _logger = logging.getLogger('listener.' + __name__)
 
-def _download_i18n(path,module,models):
+def _download_i18n(path,module,models,cat):
 	import polib
 
 	po = polib.POFile()
@@ -29,10 +29,10 @@ def _download_i18n(path,module,models):
 	oc = []
 	for model in models:
 		msgid = model._description
-		mt.setdefault(msgid,[]).append(('model@'+model._name + '|_description@', 1))
+		mt.setdefault(msgid,[]).append(('%s@'  % (cat,) + model._name + '|_description@', 1))
 		if model.__doc__:
 			msgid = model.__doc__
-			mt.setdefault(msgid,[]).append(('model@'+model._name + '|__doc__@', 1))
+			mt.setdefault(msgid,[]).append(('%s@' % (cat,) + model._name + '|__doc__@', 1))
 
 		ci = model.columnsInfo(attributes=['label','selections','manual','help'])
 		for k in ci.keys():
@@ -41,19 +41,19 @@ def _download_i18n(path,module,models):
 			else:
 				msgid = ci[k]['label']
 			
-			mt.setdefault(msgid,[]).append(('model@'+model._name+'|_columns@'+k+'$label', 1))
+			mt.setdefault(msgid,[]).append(('%s@'  % (cat,) + model._name + '|_columns@'+k+'$label', 1))
 			if 'selections' in ci[k] and ci[k]['selections']:
 				for ks1,ks2 in ci[k]['selections']:
 					msgid = ks2
-					mt.setdefault(msgid,[]).append(('model@'+model._name+'|_columns@'+k+'$selections#'+ks1, 1))
+					mt.setdefault(msgid,[]).append(('$%s@' % (cat,) + model._name + '|_columns@'+k+'$selections#'+ks1, 1))
 
 			if 'manual' in ci[k] and ci[k]['manual']:
 				msgid = ci[k]['manual']
-				mt.setdefault(msgid,[]).append(('model@'+model._name+'|_columns@'+k+'$manual', 1))
+				mt.setdefault(msgid,[]).append(('%s@' % (cat,) + model._name + '|_columns@' + k + '$manual', 1))
 
 			if 'help' in ci[k] and ci[k]['help']:
 				msgid = ci[k]['help']
-				mt.setdefault(msgid,[]).append(('model@'+model._name+'|_columns@'+k+'$help', 1))
+				mt.setdefault(msgid,[]).append(('%s@' % (cat,) + model._name + '|_columns@' + k + '$help', 1))
 
 
 	for k in mt.keys():
@@ -98,7 +98,7 @@ def Area(self, modules = None,context={}):
 			for cat in objs.keys():
 				if cat == 'models':
 					if len(objs[cat]) > 0:
-						_download_i18n(path,module,objs[cat])
+						_download_i18n(path,module,objs[cat],cat)
 			logmodules.append(module)
 
 

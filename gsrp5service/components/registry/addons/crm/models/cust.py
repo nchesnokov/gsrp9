@@ -471,7 +471,7 @@ class crm_offer_type_roles(Model):
 
 class crm_request_categories(Model):
 	_name = 'crm.request.categories'
-	_description = 'Category CRM Regiset'
+	_description = 'Category CRM Request'
 	_class_model = 'C'
 	_class_category = 'crm-obj'
 	_columns = {
@@ -483,7 +483,7 @@ class crm_request_categories(Model):
 	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
-#sales_request_categories()
+# s_request_categories()
 
 class crm_offer_categories(Model):
 	_name = 'crm.offer.categories'
@@ -554,7 +554,7 @@ class crm_contract_type_items(Model):
 
 class crm_order_types(Model):
 	_name = 'crm.order.types'
-	_description = 'Types Sale Order'
+	_description = 'Types CRM Order'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -582,7 +582,7 @@ class crm_order_type_roles(Model):
 
 class crm_order_type_items(Model):
 	_name = 'crm.order.type.items'
-	_description = 'Role Sale Order Items'
+	_description = 'Role CRM Order Items'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -594,7 +594,7 @@ class crm_order_type_items(Model):
 
 class crm_invoice_types(Model):
 	_name = 'crm.invoice.types'
-	_description = 'Types Sale Invoice'
+	_description = 'Types CRM Invoice'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_columns = {
@@ -607,7 +607,7 @@ class crm_invoice_types(Model):
 
 class crm_invoice_type_roles(Model):
 	_name = 'crm.invoice.type.roles'
-	_description = 'Role sale Invoice Types'
+	_description = 'Role CRM Invoice Types'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_columns = {
@@ -633,7 +633,7 @@ class crm_contract_categories(Model):
 
 class crm_order_categories(Model):
 	_name = 'crm.order.categories'
-	_description = 'Category Sale Order'
+	_description = 'Category CRM Order'
 	_class_model = 'C'
 	_class_category = 'order'
 	_columns = {
@@ -648,7 +648,7 @@ class crm_order_categories(Model):
 
 class crm_invoice_categories(Model):
 	_name = 'crm.invoice.categories'
-	_description = 'Category Sale Invoice'
+	_description = 'Category CRM Invoice'
 	_class_model = 'C'
 	_class_category = 'invoice'
 	_columns = {
