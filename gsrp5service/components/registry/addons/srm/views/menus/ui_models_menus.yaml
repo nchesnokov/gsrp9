@@ -1,316 +1,246 @@
-- label: Supplyer Relationship Managament
-  name: ui.menu.module.srm
+- label: Customer Relationship Managament
+  name: ui.menu.module.crm
   parent_id: null
-- action_id: action.srm.demands.search
-  label: SRM Demand
-  name: ui.menu.srm.demands.search
-  parent_id: ui.menu.module.srm
+- action_id: models/action.crm.requests.search
+  label: CRM Requests
+  name: models/ui.menu.crm.requests.search
+  parent_id: ui.menu.module.crm
   sequence: 0
-- action_id: action.srm.parts.search
-  label: SRM Part
-  name: ui.menu.srm.parts.search
-  parent_id: ui.menu.module.srm
+  type_obj: models
+- action_id: models/action.crm.offers.search
+  label: CRM Offers
+  name: models/ui.menu.crm.offers.search
+  parent_id: ui.menu.module.crm
   sequence: 1
-- action_id: action.srm.plans.search
-  label: SRM Plan
-  name: ui.menu.srm.plans.search
-  parent_id: ui.menu.module.srm
+  type_obj: models
+- action_id: models/action.crm.group.contracts.search
+  label: CRM Group Contracts
+  name: models/ui.menu.crm.group.contracts.search
+  parent_id: ui.menu.module.crm
   sequence: 2
-- action_id: action.srm.requests.search
-  label: SRM Request
-  name: ui.menu.srm.requests.search
-  parent_id: ui.menu.module.srm
+  type_obj: models
+- action_id: models/action.crm.contracts.search
+  label: CRM Contracts
+  name: models/ui.menu.crm.contracts.search
+  parent_id: ui.menu.module.crm
   sequence: 3
-- action_id: action.srm.responses.search
-  label: SRM Response
-  name: ui.menu.srm.responses.search
-  parent_id: ui.menu.module.srm
+  type_obj: models
+- action_id: models/action.crm.orders.search
+  label: CRM Orders
+  name: models/ui.menu.crm.orders.search
+  parent_id: ui.menu.module.crm
   sequence: 4
-- action_id: action.srm.rfxs.search
-  label: SRM RFX
-  name: ui.menu.srm.rfxs.search
-  parent_id: ui.menu.module.srm
+  type_obj: models
+- action_id: models/action.crm.invoices.search
+  label: CRM Invoices
+  name: models/ui.menu.crm.invoices.search
+  parent_id: ui.menu.module.crm
   sequence: 5
-- action_id: action.srm.auctions.search
-  label: SRM Auction
-  name: ui.menu.srm.auctions.search
-  parent_id: ui.menu.module.srm
-  sequence: 6
-- action_id: action.srm.offers.search
-  label: SRM Offer
-  name: ui.menu.srm.offers.search
-  parent_id: ui.menu.module.srm
-  sequence: 7
-- action_id: action.srm.evolutions.search
-  label: SRM Evolution
-  name: ui.menu.srm.evolutions.search
-  parent_id: ui.menu.module.srm
-  sequence: 8
-- action_id: action.srm.decisions.search
-  label: SRM Decision
-  name: ui.menu.srm.decisions.search
-  parent_id: ui.menu.module.srm
-  sequence: 9
-- action_id: action.srm.contracts.search
-  label: SRM Contract
-  name: ui.menu.srm.contracts.search
-  parent_id: ui.menu.module.srm
-  sequence: 10
-- action_id: action.srm.blacklist.partner.search
-  label: SRM Partner Blacklist
-  name: ui.menu.srm.blacklist.partner.search
-  parent_id: ui.menu.module.srm
-  sequence: 11
-- action_id: action.srm.partner.validation.search
-  label: SRM Partner Validation
-  name: ui.menu.srm.partner.validation.search
-  parent_id: ui.menu.module.srm
-  sequence: 12
-- action_id: action.srm.product.source.supply.search
-  label: SRM Partner Source Of Supply
-  name: ui.menu.srm.product.source.supply.search
-  parent_id: ui.menu.module.srm
-  sequence: 13
-- label: Supplyer Relationship Managament
-  name: ui.menu.customize.srm
+  type_obj: models
+- label: Customer Relationship Managament
+  name: ui.menu.customize.crm
   parent_id: ui.menu.customize
-- action_id: action.srm.unit.categories.search
-  label: Categories Purchase Unit
-  name: ui.menu.srm.unit.categories.search
-  parent_id: ui.menu.customize.srm
+- action_id: models/action.crm.unit.categories.search
+  label: Categories CRM Unit
+  name: models/ui.menu.crm.unit.categories.search
+  parent_id: ui.menu.customize.crm
   sequence: 0
-- action_id: action.srm.units.search
-  label: Purchase Units
-  name: ui.menu.srm.units.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.units.search
+  label: CRM Units
+  name: models/ui.menu.crm.units.search
+  parent_id: ui.menu.customize.crm
   sequence: 1
-- action_id: action.srm.channel.categories.search
-  label: Categories Purchase Chanel
-  name: ui.menu.srm.channel.categories.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.channel.categories.search
+  label: Categories CRM Chanel
+  name: models/ui.menu.crm.channel.categories.search
+  parent_id: ui.menu.customize.crm
   sequence: 2
-- action_id: action.srm.channels.search
-  label: Purchase Channels
-  name: ui.menu.srm.channels.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.channels.search
+  label: CRM Channels
+  name: models/ui.menu.crm.channels.search
+  parent_id: ui.menu.customize.crm
   sequence: 3
-- action_id: action.srm.segment.categories.search
-  label: Categories Purchase Segment
-  name: ui.menu.srm.segment.categories.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.segment.categories.search
+  label: Categories CRM Segment
+  name: models/ui.menu.crm.segment.categories.search
+  parent_id: ui.menu.customize.crm
   sequence: 4
-- action_id: action.srm.segments.search
-  label: Purchase Segments
-  name: ui.menu.srm.segments.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.segments.search
+  label: CRM Segments
+  name: models/ui.menu.crm.segments.search
+  parent_id: ui.menu.customize.crm
   sequence: 5
-- action_id: action.srm.area.categories.search
-  label: Categories Purchase Area
-  name: ui.menu.srm.area.categories.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.area.categories.search
+  label: Categories CRM Area
+  name: models/ui.menu.crm.area.categories.search
+  parent_id: ui.menu.customize.crm
   sequence: 6
-- action_id: action.srm.areas.search
-  label: Purchase Areas
-  name: ui.menu.srm.areas.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.areas.search
+  label: CRM Areas
+  name: models/ui.menu.crm.areas.search
+  parent_id: ui.menu.customize.crm
   sequence: 7
-- action_id: action.srm.region.categories.search
-  label: Categories Purchase Region
-  name: ui.menu.srm.region.categories.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.region.categories.search
+  label: Categories CRM Region
+  name: models/ui.menu.crm.region.categories.search
+  parent_id: ui.menu.customize.crm
   sequence: 8
-- action_id: action.srm.regions.search
-  label: Purchase Regions
-  name: ui.menu.srm.regions.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.regions.search
+  label: CRM Regions
+  name: models/ui.menu.crm.regions.search
+  parent_id: ui.menu.customize.crm
   sequence: 9
-- action_id: action.srm.division.categories.search
-  label: Categories Purchase Division
-  name: ui.menu.srm.division.categories.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.division.categories.search
+  label: Categories CRM Division
+  name: models/ui.menu.crm.division.categories.search
+  parent_id: ui.menu.customize.crm
   sequence: 10
-- action_id: action.srm.divisions.search
-  label: Purchase Divisions
-  name: ui.menu.srm.divisions.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.divisions.search
+  label: CRM Divisions
+  name: models/ui.menu.crm.divisions.search
+  parent_id: ui.menu.customize.crm
   sequence: 11
-- action_id: action.srm.subdivision.categories.search
-  label: Categories Purchase Subdivision
-  name: ui.menu.srm.subdivision.categories.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.subdivision.categories.search
+  label: Categories CRM Subdivision
+  name: models/ui.menu.crm.subdivision.categories.search
+  parent_id: ui.menu.customize.crm
   sequence: 12
-- action_id: action.srm.subdivisions.search
-  label: Purchase Subdivisions
-  name: ui.menu.srm.subdivisions.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.subdivisions.search
+  label: CRM Subdivisions
+  name: models/ui.menu.crm.subdivisions.search
+  parent_id: ui.menu.customize.crm
   sequence: 13
-- action_id: action.srm.unit.channel.assigments.search
-  label: Purchase Unit Of Channel Assigment
-  name: ui.menu.srm.unit.channel.assigments.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.unit.channel.assigments.search
+  label: CRM Unit Of Channel Assigment
+  name: models/ui.menu.crm.unit.channel.assigments.search
+  parent_id: ui.menu.customize.crm
   sequence: 14
-- action_id: action.srm.unit.segment.assigments.search
-  label: Purchase Unit Of Segment Assigment
-  name: ui.menu.srm.unit.segment.assigments.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.unit.segment.assigments.search
+  label: CRM Unit Of Segment Assigment
+  name: models/ui.menu.crm.unit.segment.assigments.search
+  parent_id: ui.menu.customize.crm
   sequence: 15
-- action_id: action.srm.unit.area.assigments.search
-  label: Purchase Unit Of Area Assigment
-  name: ui.menu.srm.unit.area.assigments.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.unit.area.assigments.search
+  label: CRM Unit Of Area Assigment
+  name: models/ui.menu.crm.unit.area.assigments.search
+  parent_id: ui.menu.customize.crm
   sequence: 16
-- action_id: action.srm.unit.region.assigments.search
-  label: Purchase Unit Of Region Assigment
-  name: ui.menu.srm.unit.region.assigments.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.unit.region.assigments.search
+  label: CRM Unit Of Region Assigment
+  name: models/ui.menu.crm.unit.region.assigments.search
+  parent_id: ui.menu.customize.crm
   sequence: 17
-- action_id: action.srm.division.subdivision.assigments.search
-  label: Purchase Division Of Subdivision Assigment
-  name: ui.menu.srm.division.subdivision.assigments.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.division.subdivision.assigments.search
+  label: CRM Division Of Subdivision Assigment
+  name: models/ui.menu.crm.division.subdivision.assigments.search
+  parent_id: ui.menu.customize.crm
   sequence: 18
-- action_id: action.srm.markets.search
-  label: Purchase Market
-  name: ui.menu.srm.markets.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.markets.search
+  label: CRM Market
+  name: models/ui.menu.crm.markets.search
+  parent_id: ui.menu.customize.crm
   sequence: 19
-- action_id: action.srm.teams.search
-  label: Purchase Teams
-  name: ui.menu.srm.teams.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.teams.search
+  label: CRM Teams
+  name: models/ui.menu.crm.teams.search
+  parent_id: ui.menu.customize.crm
   sequence: 20
-- action_id: action.srm.routes.search
-  label: SRM Route
-  name: ui.menu.srm.routes.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.pricing.group.levels.search
+  label: CRM Pricing Group Levels
+  name: models/ui.menu.crm.pricing.group.levels.search
+  parent_id: ui.menu.customize.crm
   sequence: 21
-- action_id: action.srm.demand.category.search
-  label: Category SRM Demand
-  name: ui.menu.srm.demand.category.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.texts.search
+  label: CRM Texts
+  name: models/ui.menu.crm.texts.search
+  parent_id: ui.menu.customize.crm
   sequence: 22
-- action_id: action.srm.part.category.search
-  label: Category SRM Part
-  name: ui.menu.srm.part.category.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.schema.texts.search
+  label: Schema Of CRM Texts
+  name: models/ui.menu.crm.schema.texts.search
+  parent_id: ui.menu.customize.crm
   sequence: 23
-- action_id: action.srm.plan.category.search
-  label: Category SRM Plan
-  name: ui.menu.srm.plan.category.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.request.types.search
+  label: Types CRM Request
+  name: models/ui.menu.crm.request.types.search
+  parent_id: ui.menu.customize.crm
   sequence: 24
-- action_id: action.srm.request.category.search
-  label: Category SRM Request
-  name: ui.menu.srm.request.category.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.offer.types.search
+  label: Types CRM Offer
+  name: models/ui.menu.crm.offer.types.search
+  parent_id: ui.menu.customize.crm
   sequence: 25
-- action_id: action.srm.response.category.search
-  label: Category SRM Response
-  name: ui.menu.srm.response.category.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.request.categories.search
+  label: Category CRM Regiset
+  name: models/ui.menu.crm.request.categories.search
+  parent_id: ui.menu.customize.crm
   sequence: 26
-- action_id: action.srm.rfx.category.search
-  label: Category SRM RFX
-  name: ui.menu.srm.rfx.category.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.offer.categories.search
+  label: Category CRM Offer
+  name: models/ui.menu.crm.offer.categories.search
+  parent_id: ui.menu.customize.crm
   sequence: 27
-- action_id: action.srm.auction.category.search
-  label: Category SRM Auction
-  name: ui.menu.srm.auction.category.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.contract.types.search
+  label: Types Contract
+  name: models/ui.menu.crm.contract.types.search
+  parent_id: ui.menu.customize.crm
   sequence: 28
-- action_id: action.srm.offer.category.search
-  label: Category SRM Offer
-  name: ui.menu.srm.offer.category.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.order.types.search
+  label: Types Sale Order
+  name: models/ui.menu.crm.order.types.search
+  parent_id: ui.menu.customize.crm
   sequence: 29
-- action_id: action.srm.evolution.category.search
-  label: Category SRM Evolution
-  name: ui.menu.srm.evolution.category.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.invoice.types.search
+  label: Types Sale Invoice
+  name: models/ui.menu.crm.invoice.types.search
+  parent_id: ui.menu.customize.crm
   sequence: 30
-- action_id: action.srm.decision.category.search
-  label: Category SRM Decision
-  name: ui.menu.srm.decision.category.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.contract.categories.search
+  label: Category Contract
+  name: models/ui.menu.crm.contract.categories.search
+  parent_id: ui.menu.customize.crm
   sequence: 31
-- action_id: action.srm.contract.category.search
-  label: Category SRM Contract
-  name: ui.menu.srm.contract.category.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.order.categories.search
+  label: Category Sale Order
+  name: models/ui.menu.crm.order.categories.search
+  parent_id: ui.menu.customize.crm
   sequence: 32
-- action_id: action.srm.pricing.group.levels.search
-  label: SRM Pricing Group Levels
-  name: ui.menu.srm.pricing.group.levels.search
-  parent_id: ui.menu.customize.srm
+  type_obj: models
+- action_id: models/action.crm.invoice.categories.search
+  label: Category Sale Invoice
+  name: models/ui.menu.crm.invoice.categories.search
+  parent_id: ui.menu.customize.crm
   sequence: 33
-- action_id: action.srm.texts.search
-  label: SRM Texts
-  name: ui.menu.srm.texts.search
-  parent_id: ui.menu.customize.srm
-  sequence: 34
-- action_id: action.srm.schema.texts.search
-  label: Schema Of SRM Texts
-  name: ui.menu.srm.schema.texts.search
-  parent_id: ui.menu.customize.srm
-  sequence: 35
-- action_id: action.srm.deadlines.search
-  label: SRM Deadlines
-  name: ui.menu.srm.deadlines.search
-  parent_id: ui.menu.customize.srm
-  sequence: 36
-- action_id: action.srm.demand.types.search
-  label: Types SRM Demand
-  name: ui.menu.srm.demand.types.search
-  parent_id: ui.menu.customize.srm
-  sequence: 37
-- action_id: action.srm.part.types.search
-  label: Types SRM Part
-  name: ui.menu.srm.part.types.search
-  parent_id: ui.menu.customize.srm
-  sequence: 38
-- action_id: action.srm.plan.types.search
-  label: Types SRM Plan
-  name: ui.menu.srm.plan.types.search
-  parent_id: ui.menu.customize.srm
-  sequence: 39
-- action_id: action.srm.request.types.search
-  label: Types SRM Request
-  name: ui.menu.srm.request.types.search
-  parent_id: ui.menu.customize.srm
-  sequence: 40
-- action_id: action.srm.response.types.search
-  label: Types SRM Response
-  name: ui.menu.srm.response.types.search
-  parent_id: ui.menu.customize.srm
-  sequence: 41
-- action_id: action.srm.rfx.types.search
-  label: Types SRM RFX
-  name: ui.menu.srm.rfx.types.search
-  parent_id: ui.menu.customize.srm
-  sequence: 42
-- action_id: action.srm.auction.types.search
-  label: Types SRM Auction
-  name: ui.menu.srm.auction.types.search
-  parent_id: ui.menu.customize.srm
-  sequence: 43
-- action_id: action.srm.offer.types.search
-  label: Types SRM Offer
-  name: ui.menu.srm.offer.types.search
-  parent_id: ui.menu.customize.srm
-  sequence: 44
-- action_id: action.srm.evolution.types.search
-  label: Types SRM Evolution
-  name: ui.menu.srm.evolution.types.search
-  parent_id: ui.menu.customize.srm
-  sequence: 45
-- action_id: action.srm.decision.types.search
-  label: Types SRM Decision
-  name: ui.menu.srm.decision.types.search
-  parent_id: ui.menu.customize.srm
-  sequence: 46
-- action_id: action.srm.contract.types.search
-  label: Types SRM Contract
-  name: ui.menu.srm.contract.types.search
-  parent_id: ui.menu.customize.srm
-  sequence: 47
+  type_obj: models

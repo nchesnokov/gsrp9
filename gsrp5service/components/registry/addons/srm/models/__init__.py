@@ -1,2 +1,2 @@
 from . import cust
-from . import srm
+from . import crm

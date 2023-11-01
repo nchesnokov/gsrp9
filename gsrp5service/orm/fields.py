@@ -165,6 +165,18 @@ class text(_column):
 	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, translate = False, manual = None, help = None,family = 'Secondary',compute = None, store = True,state=None, actions=None, icon = None):
 		super(text,self).__init__(label = label, readonly = readonly, invisible=invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, translate = translate, manual = manual, help = help, family = family,compute = compute, store = store, state = state, actions = actions,icon = icon)
 
+class richtext(_column):
+	_type = 'richtext'
+	_db_type = 'STRING'
+	_symbol_c = "%s"
+	_symbol_f = _set_symbol
+	_symbol_set = (_symbol_c, _symbol_f)
+	_symbol_get = None
+
+	def __init__(self, label = 'unknown', readonly = None, invisible = None, priority = 0, context = {}, required = None, on_change = None, on_check = None, translate = False, manual = None, help = None,family = 'Secondary',compute = None, store = True,state=None, actions=None, icon = None):
+		super(text,self).__init__(label = label, readonly = readonly, invisible=invisible, priority = priority, context = context, required = required, on_change = on_change, on_check = on_check, translate = translate, manual = manual, help = help, family = family,compute = compute, store = store, state = state, actions = actions,icon = icon)
+
+
 class xml(_column):
 	_type = 'xml'
 	_db_type = 'STRING'
