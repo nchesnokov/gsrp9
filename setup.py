@@ -43,7 +43,8 @@ data_files.append((opj(sys.base_prefix,'lib64','python'+('%s.%s') % (sys.version
 
 packages = ['gsrp5service']
 
-setup (name = __package_name__,package_data = package_data, data_files = data_files, packages = packages,package_dir = {__package_name__:'gsrp5service'},version = '1.0.0.0', description = 'Global System Resource Planing',long_description = 'Global System Resource Planing & Executing', author='Nikolay Chesnokov', author_email='nikolaychesnokov@gmail.com' , url='http://www.gsrp5.org', license='AGPL-3', ext_modules = cythonize(modules))
+setup (name = __package_name__,package_data = package_data, data_files = data_files, packages = packages,package_dir = {__package_name__:'gsrp5service'},version = '1.0.0.0', description = 'Global System Resource Planing',long_description = 'Global System Resource Planing & Executing', author='Nikolay Chesnokov', author_email='nikolaychesnokov@gmail.com' , url='http://www.gsrp5.org', license='AGPL-3')
+#, ext_modules = cythonize(modules))
 
 
 
