@@ -12,7 +12,7 @@ import web_pdb
 
 from gsrp5service.orm.common import DEFAULT_MODEL_NAMES as DMN
 
-from .generate import * 
+from .generate import *
 
 FRAMEWORKS_1 = ('element-plus','vuetify','devextrme')
 FRAMEWORKS = ('element-plus',)
@@ -29,7 +29,7 @@ def ModelsColumns( view, vmodel, columns, cat = 'models'):
 
 def Views(framework,model,views,cat = 'models'):
 	return [ {'model':vmodel,'vtype':cat + '/' + framework + '/' + view,'cols':ModelsColumns(view,vmodel,columns,cat)} for view,vmodel,columns,cat in views]
-	
+
 
 def ObjsViewsColumns( view, vmodel, columns, type_obj):
 	return [{'seq':idx * 10,'col':'/'.join([type_obj,vmodel,col])} for idx,col in enumerate(columns)]
@@ -47,10 +47,63 @@ def iViews(framework, views):
 
 	return res
 
-def gen_models(path,module,cat,objs,iobjs):
-	pass
+def gen_model_view_form(name, description,columns):
+	s = 'from gsrp5service.obj.view import ViewModelForm\n\n'
+	s += 'class ViewModelForm' + ''.join([n.title() for n in name.split('.')]) + '(ViewModelForm):\n'
+	s += '\t_name = "model.form.' + name + '"\n'
+	s += '\t_model = "' + name + '"\n'
+	s += '\t_description = "' + description + '"\n'
+	s += '\t_columns = ' + str(columns) + '\n'
 
-_gen_methods = {'models':gen_models}
+	return s
+
+def gen_model_view_form_modal(name, description,columns):
+	s = 'from gsrp5service.obj.view import ViewModelFormModal\n\n'
+	s += 'class ViewModelFormModal' + ''.join([n.title() for n in name.split('.')]) + '(ViewModelFormModal):\n'
+	s += '\t_name = "model.form.modal.' + name + '"\n'
+	s += '\t_model = "' + name + '"\n'
+	s += '\t_description = "' + description + '"\n'
+	s += '\t_columns = ' + str(columns) + '\n'
+
+	return s
+
+
+def gen_model_view_form(name, description,columns):
+	s = 'from gsrp5service.obj.view import ViewModelForm\n\n'
+	s += 'class ViewModelForm' + ''.join([n.title() for n in name.split('.')]) + '(ViewModelForm):\n'
+	s += '\t_name = "model.form.' + name + '"\n'
+	s += '\t_model = "' + name + '"\n'
+	s += '\t_description = "' + description + '"\n'
+	s += '\t_columns = ' + str(columns) + '\n'
+
+	return s
+#['search','find','list','m2mlist','form.modal','form','o2m-form','gantt','o2m-gantt','schedule', 'o2m-schedule','calendar', 'o2m-calendar','graph','o2m-graph','kanban','o2m-kanban','mdx','o2m-mdx','matrix','o2m-matrix','geo','o2m-geo','flow','o2m-flow','tree','o2m-tree','o2m-list']
+_gen_type_view_class = {'form':'ModelForm','form.modal':'ModelFormModal','search':'ModelSearch','find':'ModelFind','list':'ModelList','o2m-list':'ModelO2MList','m2mlist':'ModelM2MList','o2m-form':'ModelO2MForm','gantt':'ModelGantt','o2m-gantt':'ModelO2MGantt','schedule':'ModelSchedule','o2m-schedule':'ModelO2MSchedule','calendar':'ModelCalendar','o2m-calendar':'ModelO2MCalendar','graph':'ModelGraph','o2m-graph':'ModelO2MGraph','kanban':'ModelKanban','o2m-kanban':'ModelO2MKanban','mdx':'ModelMdx','o2m-mdx':'ModelO2MMdx','matrix':'ModelMatrix','o2m-matrix':'ModelO2MMatrix','geo':'ModelGeo','o2m-geo':'ModelO2MGeo','flow':'ModelFlow','o2m-flow':'ModelO2MFlow','tree':'ModelTree','o2m-tree':'ModelO2MTree'}
+_get_type_view_prefix_name = {'form':'model.form','form.modal':'model.form.modal','search':'model.search','find':'model.find','list':'model.list','o2m-list':'model.o2mlist','m2mlist':'model.m2mlist','o2m-form':'model.o2mform','gantt':'model.gantt','o2m-gantt':'model.o2mgantt','schedule':'model.schedule','o2m-schedule':'model.o2mschedule','calendar':'model.calendar','o2m-calendar':'vodel.o2mcalendar','graph':'model.graph','o2m-graph':'model.o2mgraph','kanban':'model.kanban','o2m-kanban':'model.o2mkanban','mdx':'model.mdx','o2m-mdx':'model.o2mmdx','matrix':'model.matrix','o2m-matrix':'model.o2mmatrix','geo':'model.geo','o2m-geo':'model.o2mgeo','flow':'model.flow','o2m-flow':'model.o2mflow','tree':'model.tree','o2m-tree':'model.o2mtree'}
+def gen_model_views(model, views):
+	v = []
+	#web_pdb.set_trace()
+	for view,vobj,columns,type_obj in views:
+#		if view in ('form','form.modal','search','find'):
+		v.append('from gsrp5service.obj.view import View%s' % (_gen_type_view_class[view],))
+	v.append('')
+	for view,vobj,columns,type_obj in views:
+#		if view in ('form','form.modal','search','find'):
+		v.append('class View%s%s(View%s):' %( _gen_type_view_class[view],''.join([n.title() for n in model._name.split('.')]),_gen_type_view_class[view]))
+		v.append('\t_name = "%s.%s"' % (_get_type_view_prefix_name[view],model._name))
+		v.append('\t_model = "%s"' % (model._name,))
+		v.append('\t_description = "%s"' % (model._description,))
+		v.append('\t_columns = ' + str(columns))
+		v.append('')
+		# match view:
+			# case 'form':
+				# v.append(gen_model_view_form(model._name,model._description,columns))
+			# case 'form.modal':
+				# v.append(gen_model_view_form_modal(model._name,model._description,columns))
+
+
+	return '\n'.join(v)
+
 def Area(self, modules = None,context={}):
 	pwd = os.getcwd()
 	pool = self._models
@@ -73,7 +126,7 @@ def Area(self, modules = None,context={}):
 					elif isinstance(obj,ModelInherit):
 						if hasattr(obj,'_inherit') and getattr(obj,'_inherit',None):
 							iobjs.setdefault(cat,[]).append(obj)
-		
+
 				if len(objs) + len(iobjs) > 0:
 					if not os.path.exists(opj(path,module,'views',cat)):
 						os.mkdir(opj(path,module,'views',cat))
@@ -88,16 +141,27 @@ def Area(self, modules = None,context={}):
 							for framework in FRAMEWORKS:
 								if os.path.exists(opj(path,module,'views',cat,framework)):
 									_remove_dirs(opj(path,module,'views',cat,framework))
-		
+
 						for framework in FRAMEWORKS:
 							if not os.path.exists(opj(path,module,'views',cat,framework)):
 								os.mkdir(opj(path,module,'views',cat,framework))
 
-							with open(opj(path,module,'views',cat,framework,'views.yaml'),'w') as outfile:					
+							with open(opj(path,module,'views',cat,framework,'views.yaml'),'w') as outfile:
 								yaml.dump([record for model in objs[cat] for record in ObjsViews(cat,framework,model._name,isAllow(registry,model))], outfile, Dumper, default_flow_style=False)
-							
+
 							aw.writerow({'model': 'bc.ui.obj.views','file':opj('views',cat,framework,'views.yaml' )})
-		
+
+							_i_ = []
+							for model in objs[cat]:
+								record = gen_model_views(model,isAllow(registry,model))
+								_i_.append('from . import ' + model._name.replace('.','_'))
+								with open(opj(path,module,'views',model._name.replace('.','_')+'.py'),'w') as outfile:
+									outfile.write(record)
+
+							with open(opj(path,module,'views','__init__.py'),'w') as outfile:
+								outfile.write('\n'.join(_i_))
+
+
 					if len(iobjs) > 0:
 						if len(objs) == 0:
 							a = open(opj(path,module,'views',cat,'views.csv'),'w')
@@ -105,14 +169,14 @@ def Area(self, modules = None,context={}):
 							aw.writeheader()
 						for framework in FRAMEWORKS_1:
 							_remove_dirs(opj(path,module,'inherits',cat,framework))
-	
+
 						if not os.path.exists(opj(path,module,'views','inherits',cat)):
 							os.mkdir(opj(path,module,'views','inherits',cat))
-						
+
 						for framework in FRAMEWORKS:
 							if not os.path.exists(opj(path,module,'views','inherits',cat,framework)):
 								os.mkdir(opj(path,module,'views','inherits',cat,framework))
-							for imodel in iobjs[cat]:	
+							for imodel in iobjs[cat]:
 								inherit = getattr(imodel,'_inherit')
 								for m in inherit.keys():
 									if '_columns' in inherit[m]:
@@ -126,13 +190,13 @@ def Area(self, modules = None,context={}):
 											if len(views) > 0:
 												with open(opj(path,module,'views','inherits',cat,framework,nm.replace('.','_') + '.yaml'),'w') as outfile:
 													yaml.dump(iViews(framework, views), outfile, Dumper, default_flow_style=False)
-								
+
 												aw.writerow({'model': 'bc.ui.obj.view.column.inherits','file':opj('views','inherits',cat,framework,nm.replace('.','_') + '.yaml' )})
-						
+
 											if len(m2mviews) > 0:
 												with open(opj(path,module,'views','inherits',cat,framework,'m2m_' + nm.replace('.','_') + '.yaml'),'w') as outfile:
 													yaml.dump( ObjsViews(cat,framework,m,m2mviews), outfile, Dumper, default_flow_style=False)
-								
+
 												aw.writerow({'model': 'bc.ui.obj.views','file':opj('views','inherits',cat,framework,'m2m_' + nm.replace('.','_') + '.yaml' )})
 
 			logmodules.append(module)
@@ -146,7 +210,7 @@ def isAllow(registry,obj):
 		cols = list(filter(lambda x:obj._columns[x]._type not in EXCLUDE['models'][view] and obj._columns[x]._type != 'iProperty', obj._columns.keys()))
 		if view == 'search' and (obj._RowNameName or obj._RecNameName or obj._FullNameName):
 			allows.append((view,obj._name,cols,'models'))
-		elif view in ('form','form.modal','list'):
+		elif view in ('form','form.modal','list') and len(obj._m2ofields) == 0:
 			allows.append((view,obj._name,cols,'models'))
 		elif view == 'tree' and obj._ParentIdName and obj._ChildsIdName:
 			allows.append((view,obj._name,cols,'models'))
@@ -203,7 +267,7 @@ def isAllowView(registry,model,imodel):
 		elif view == 'find' and (len(obj._findfields) > 0 or obj._RowNameName or obj._RecNameName or obj._FullNameName):
 			allows.append((view,obj._name,cols))
 		elif view == 'm2mlist':
-			if len(m2mcols) > 0:			
+			if len(m2mcols) > 0:
 				for m2mcol in m2mcols:
 					mobj = registry._create_module_object('models',imodel._columns[m2mcol].obj,registry._getLastModuleObject('models',imodel._columns[m2mcol].obj))
 					#allows.append((view,imodel._columns[m2mcol].obj,list(filter(lambda x: mobj._columns[x]._type not in EXCLUDE['models']['m2mlist'],mobj._columns.keys()))))
@@ -232,20 +296,20 @@ def isAllowView(registry,model,imodel):
 			allows.append((view,obj._name,cols,'models'))
 		elif view == 'o2m-flow' and len(obj._m2ofields) > 0 and  obj._PrevNameName and obj._NextNameName:
 			allows.append((view,obj._name,cols,'models'))
-	
+
 	return allows
 
-	
+
 def isAllowInherit(iobj):
 	iallows = []
 	for view in VIEWS['models']:
 		icols = list(filter(lambda x: iobj._columns[x]._type != 'iProperty' and obj._columns[x]._type not in EXCLUDE['models'][view],iobj._columns.keys()))
 		if len(icols) > 0:
 			iallows.append((view,[]))
-		
-	
+
+
 	return iallows
-	
+
 VIEWS = {}
 VIEWS['models'] = ['search','find','list','m2mlist','form.modal','form','o2m-form','gantt','o2m-gantt','schedule', 'o2m-schedule','calendar', 'o2m-calendar','graph','o2m-graph','kanban','o2m-kanban','mdx','o2m-mdx','matrix','o2m-matrix','geo','o2m-geo','flow','o2m-flow','tree','o2m-tree','o2m-list']
 

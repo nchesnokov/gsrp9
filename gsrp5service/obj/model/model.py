@@ -5,7 +5,7 @@ import sys
 import time
 import logging
 from functools import reduce
-from .metaobjects import MetaObjects
+from gsrp5service.obj.metaobjects import MetaObjects
 from tools.translations import trlocal as _
 from . import mm
 from .mm import orm_exception
