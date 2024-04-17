@@ -3,7 +3,7 @@ import sys
 import time
 import logging
 from functools import reduce
-from .metaobjects import MetaObjects
+from gsrp5service.obj.metaobjects import MetaObjects
 from tools.translations import trlocal as _
 #from . import mm
 #from .mm import orm_exception
@@ -15,7 +15,7 @@ _logger = logging.getLogger(__name__)
 class Trigger(object, metaclass = MetaObjects):
 	_name = None
 	_actions = {}
-	
+
 	def __init__(self):
 		for o in ('Read','Write','Create','Unlink'):
 			for b in ('Before','After'):
@@ -27,6 +27,6 @@ class Trigger(object, metaclass = MetaObjects):
 							self._actions.setdefault(o,{}).setdefault(b,{}).setdefault(a,{})[n] = method
 					else:
 						self._actions.setdefault(o,{}).setdefault(b,{}).setdefault(a,{})[n] = None
-		
+
 class TriggerInherit(object, metaclass = MetaObjects):
 	_name = None

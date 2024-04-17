@@ -1,0 +1,745 @@
+- cols:
+  - col: md.cost.product/product_id
+    seq: 0
+  - col: md.cost.product/quantity
+    seq: 10
+  - col: md.cost.product/uom
+    seq: 20
+  - col: md.cost.product/price
+    seq: 30
+  - col: md.cost.product/currency
+    seq: 40
+  - col: md.cost.product/unit
+    seq: 50
+  - col: md.cost.product/uop
+    seq: 60
+  controller: find:md.cost.product
+  model: md.cost.product
+  standalone: true
+  vtype: find
+- cols:
+  - col: md.cost.product/product_id
+    seq: 0
+  - col: md.cost.product/quantity
+    seq: 10
+  - col: md.cost.product/uom
+    seq: 20
+  - col: md.cost.product/price
+    seq: 30
+  - col: md.cost.product/currency
+    seq: 40
+  - col: md.cost.product/unit
+    seq: 50
+  - col: md.cost.product/uop
+    seq: 60
+  - col: md.cost.product/note
+    seq: 70
+  controller: o2m-form:md.cost.product
+  model: md.cost.product
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: md.cost.product/product_id
+    seq: 0
+  - col: md.cost.product/quantity
+    seq: 10
+  - col: md.cost.product/uom
+    seq: 20
+  - col: md.cost.product/price
+    seq: 30
+  - col: md.cost.product/currency
+    seq: 40
+  - col: md.cost.product/unit
+    seq: 50
+  - col: md.cost.product/uop
+    seq: 60
+  controller: o2m-list:md.cost.product
+  model: md.cost.product
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cm.cost.center.category/name
+    seq: 0
+  - col: cm.cost.center.category/parent_id
+    seq: 10
+  controller: search:cm.cost.center.category
+  model: cm.cost.center.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: cm.cost.center.category/name
+    seq: 0
+  - col: cm.cost.center.category/parent_id
+    seq: 10
+  controller: find:cm.cost.center.category
+  model: cm.cost.center.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: cm.cost.center.category/name
+    seq: 0
+  - col: cm.cost.center.category/parent_id
+    seq: 10
+  - col: cm.cost.center.category/childs_id
+    seq: 20
+  controller: list:cm.cost.center.category
+  model: cm.cost.center.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: cm.cost.center.category/name
+    seq: 0
+  - col: cm.cost.center.category/parent_id
+    seq: 10
+  - col: cm.cost.center.category/childs_id
+    seq: 20
+  - col: cm.cost.center.category/note
+    seq: 30
+  controller: form.modal:cm.cost.center.category
+  model: cm.cost.center.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: cm.cost.center.category/name
+    seq: 0
+  - col: cm.cost.center.category/parent_id
+    seq: 10
+  - col: cm.cost.center.category/childs_id
+    seq: 20
+  - col: cm.cost.center.category/note
+    seq: 30
+  controller: form:cm.cost.center.category
+  model: cm.cost.center.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: cm.cost.center.category/name
+    seq: 0
+  - col: cm.cost.center.category/parent_id
+    seq: 10
+  controller: tree:cm.cost.center.category
+  model: cm.cost.center.category
+  standalone: true
+  vtype: tree
+- cols:
+  - col: cm.cost.order.category/name
+    seq: 0
+  - col: cm.cost.order.category/parent_id
+    seq: 10
+  controller: search:cm.cost.order.category
+  model: cm.cost.order.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: cm.cost.order.category/name
+    seq: 0
+  - col: cm.cost.order.category/parent_id
+    seq: 10
+  controller: find:cm.cost.order.category
+  model: cm.cost.order.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: cm.cost.order.category/name
+    seq: 0
+  - col: cm.cost.order.category/parent_id
+    seq: 10
+  - col: cm.cost.order.category/childs_id
+    seq: 20
+  controller: list:cm.cost.order.category
+  model: cm.cost.order.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: cm.cost.order.category/name
+    seq: 0
+  - col: cm.cost.order.category/parent_id
+    seq: 10
+  - col: cm.cost.order.category/childs_id
+    seq: 20
+  - col: cm.cost.order.category/note
+    seq: 30
+  controller: form.modal:cm.cost.order.category
+  model: cm.cost.order.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: cm.cost.order.category/name
+    seq: 0
+  - col: cm.cost.order.category/parent_id
+    seq: 10
+  - col: cm.cost.order.category/childs_id
+    seq: 20
+  - col: cm.cost.order.category/note
+    seq: 30
+  controller: form:cm.cost.order.category
+  model: cm.cost.order.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: cm.cost.order.category/name
+    seq: 0
+  - col: cm.cost.order.category/parent_id
+    seq: 10
+  controller: tree:cm.cost.order.category
+  model: cm.cost.order.category
+  standalone: true
+  vtype: tree
+- cols:
+  - col: cm.cost.collector.category/name
+    seq: 0
+  - col: cm.cost.collector.category/parent_id
+    seq: 10
+  controller: search:cm.cost.collector.category
+  model: cm.cost.collector.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: cm.cost.collector.category/name
+    seq: 0
+  - col: cm.cost.collector.category/parent_id
+    seq: 10
+  controller: find:cm.cost.collector.category
+  model: cm.cost.collector.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: cm.cost.collector.category/name
+    seq: 0
+  - col: cm.cost.collector.category/parent_id
+    seq: 10
+  - col: cm.cost.collector.category/childs_id
+    seq: 20
+  controller: list:cm.cost.collector.category
+  model: cm.cost.collector.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: cm.cost.collector.category/name
+    seq: 0
+  - col: cm.cost.collector.category/parent_id
+    seq: 10
+  - col: cm.cost.collector.category/childs_id
+    seq: 20
+  - col: cm.cost.collector.category/note
+    seq: 30
+  controller: form.modal:cm.cost.collector.category
+  model: cm.cost.collector.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: cm.cost.collector.category/name
+    seq: 0
+  - col: cm.cost.collector.category/parent_id
+    seq: 10
+  - col: cm.cost.collector.category/childs_id
+    seq: 20
+  - col: cm.cost.collector.category/note
+    seq: 30
+  controller: form:cm.cost.collector.category
+  model: cm.cost.collector.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: cm.cost.collector.category/name
+    seq: 0
+  - col: cm.cost.collector.category/parent_id
+    seq: 10
+  controller: tree:cm.cost.collector.category
+  model: cm.cost.collector.category
+  standalone: true
+  vtype: tree
+- cols:
+  - col: cm.cost.center/name
+    seq: 0
+  - col: cm.cost.center/category
+    seq: 10
+  - col: cm.cost.center/company
+    seq: 20
+  - col: cm.cost.center/currency
+    seq: 30
+  controller: search:cm.cost.center
+  model: cm.cost.center
+  standalone: true
+  vtype: search
+- cols:
+  - col: cm.cost.center/name
+    seq: 0
+  - col: cm.cost.center/category
+    seq: 10
+  - col: cm.cost.center/company
+    seq: 20
+  - col: cm.cost.center/currency
+    seq: 30
+  controller: find:cm.cost.center
+  model: cm.cost.center
+  standalone: true
+  vtype: find
+- cols:
+  - col: cm.cost.center/name
+    seq: 0
+  - col: cm.cost.center/category
+    seq: 10
+  - col: cm.cost.center/company
+    seq: 20
+  - col: cm.cost.center/currency
+    seq: 30
+  - col: cm.cost.center/dates
+    seq: 40
+  controller: list:cm.cost.center
+  model: cm.cost.center
+  standalone: true
+  vtype: list
+- cols:
+  - col: cm.cost.center/name
+    seq: 0
+  - col: cm.cost.center/category
+    seq: 10
+  - col: cm.cost.center/company
+    seq: 20
+  - col: cm.cost.center/currency
+    seq: 30
+  - col: cm.cost.center/dates
+    seq: 40
+  - col: cm.cost.center/note
+    seq: 50
+  controller: form.modal:cm.cost.center
+  model: cm.cost.center
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: cm.cost.center/name
+    seq: 0
+  - col: cm.cost.center/category
+    seq: 10
+  - col: cm.cost.center/company
+    seq: 20
+  - col: cm.cost.center/currency
+    seq: 30
+  - col: cm.cost.center/dates
+    seq: 40
+  - col: cm.cost.center/note
+    seq: 50
+  controller: form:cm.cost.center
+  model: cm.cost.center
+  standalone: true
+  vtype: form
+- cols:
+  - col: cm.cost.center.dates/cost_center_id
+    seq: 0
+  - col: cm.cost.center.dates/cost_date
+    seq: 10
+  - col: cm.cost.center.dates/cost
+    seq: 20
+  controller: find:cm.cost.center.dates
+  model: cm.cost.center.dates
+  standalone: true
+  vtype: find
+- cols:
+  - col: cm.cost.center.dates/cost_center_id
+    seq: 0
+  - col: cm.cost.center.dates/cost_date
+    seq: 10
+  - col: cm.cost.center.dates/cost
+    seq: 20
+  - col: cm.cost.center.dates/note
+    seq: 30
+  controller: o2m-form:cm.cost.center.dates
+  model: cm.cost.center.dates
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: cm.cost.center.dates/cost_center_id
+    seq: 0
+  - col: cm.cost.center.dates/cost_date
+    seq: 10
+  - col: cm.cost.center.dates/cost
+    seq: 20
+  controller: o2m-calendar:cm.cost.center.dates
+  model: cm.cost.center.dates
+  standalone: true
+  vtype: o2m-calendar
+- cols:
+  - col: cm.cost.center.dates/cost_center_id
+    seq: 0
+  - col: cm.cost.center.dates/cost_date
+    seq: 10
+  - col: cm.cost.center.dates/cost
+    seq: 20
+  controller: o2m-graph:cm.cost.center.dates
+  model: cm.cost.center.dates
+  standalone: true
+  vtype: o2m-graph
+- cols:
+  - col: cm.cost.center.dates/cost_center_id
+    seq: 0
+  - col: cm.cost.center.dates/cost_date
+    seq: 10
+  - col: cm.cost.center.dates/cost
+    seq: 20
+  controller: o2m-mdx:cm.cost.center.dates
+  model: cm.cost.center.dates
+  standalone: true
+  vtype: o2m-mdx
+- cols:
+  - col: cm.cost.center.dates/cost_center_id
+    seq: 0
+  - col: cm.cost.center.dates/cost_date
+    seq: 10
+  - col: cm.cost.center.dates/cost
+    seq: 20
+  controller: o2m-list:cm.cost.center.dates
+  model: cm.cost.center.dates
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cm.cost.order/name
+    seq: 0
+  - col: cm.cost.order/category
+    seq: 10
+  - col: cm.cost.order/company
+    seq: 20
+  - col: cm.cost.order/currency
+    seq: 30
+  controller: search:cm.cost.order
+  model: cm.cost.order
+  standalone: true
+  vtype: search
+- cols:
+  - col: cm.cost.order/name
+    seq: 0
+  - col: cm.cost.order/category
+    seq: 10
+  - col: cm.cost.order/company
+    seq: 20
+  - col: cm.cost.order/currency
+    seq: 30
+  controller: find:cm.cost.order
+  model: cm.cost.order
+  standalone: true
+  vtype: find
+- cols:
+  - col: cm.cost.order/name
+    seq: 0
+  - col: cm.cost.order/category
+    seq: 10
+  - col: cm.cost.order/company
+    seq: 20
+  - col: cm.cost.order/currency
+    seq: 30
+  - col: cm.cost.order/dates
+    seq: 40
+  controller: list:cm.cost.order
+  model: cm.cost.order
+  standalone: true
+  vtype: list
+- cols:
+  - col: cm.cost.order/name
+    seq: 0
+  - col: cm.cost.order/category
+    seq: 10
+  - col: cm.cost.order/company
+    seq: 20
+  - col: cm.cost.order/currency
+    seq: 30
+  - col: cm.cost.order/dates
+    seq: 40
+  - col: cm.cost.order/note
+    seq: 50
+  controller: form.modal:cm.cost.order
+  model: cm.cost.order
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: cm.cost.order/name
+    seq: 0
+  - col: cm.cost.order/category
+    seq: 10
+  - col: cm.cost.order/company
+    seq: 20
+  - col: cm.cost.order/currency
+    seq: 30
+  - col: cm.cost.order/dates
+    seq: 40
+  - col: cm.cost.order/note
+    seq: 50
+  controller: form:cm.cost.order
+  model: cm.cost.order
+  standalone: true
+  vtype: form
+- cols:
+  - col: cm.cost.order.dates/cost_order_id
+    seq: 0
+  - col: cm.cost.order.dates/cost_date
+    seq: 10
+  - col: cm.cost.order.dates/cost
+    seq: 20
+  controller: find:cm.cost.order.dates
+  model: cm.cost.order.dates
+  standalone: true
+  vtype: find
+- cols:
+  - col: cm.cost.order.dates/cost_order_id
+    seq: 0
+  - col: cm.cost.order.dates/cost_date
+    seq: 10
+  - col: cm.cost.order.dates/cost
+    seq: 20
+  - col: cm.cost.order.dates/note
+    seq: 30
+  controller: o2m-form:cm.cost.order.dates
+  model: cm.cost.order.dates
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: cm.cost.order.dates/cost_order_id
+    seq: 0
+  - col: cm.cost.order.dates/cost_date
+    seq: 10
+  - col: cm.cost.order.dates/cost
+    seq: 20
+  controller: o2m-calendar:cm.cost.order.dates
+  model: cm.cost.order.dates
+  standalone: true
+  vtype: o2m-calendar
+- cols:
+  - col: cm.cost.order.dates/cost_order_id
+    seq: 0
+  - col: cm.cost.order.dates/cost_date
+    seq: 10
+  - col: cm.cost.order.dates/cost
+    seq: 20
+  controller: o2m-graph:cm.cost.order.dates
+  model: cm.cost.order.dates
+  standalone: true
+  vtype: o2m-graph
+- cols:
+  - col: cm.cost.order.dates/cost_order_id
+    seq: 0
+  - col: cm.cost.order.dates/cost_date
+    seq: 10
+  - col: cm.cost.order.dates/cost
+    seq: 20
+  controller: o2m-mdx:cm.cost.order.dates
+  model: cm.cost.order.dates
+  standalone: true
+  vtype: o2m-mdx
+- cols:
+  - col: cm.cost.order.dates/cost_order_id
+    seq: 0
+  - col: cm.cost.order.dates/cost_date
+    seq: 10
+  - col: cm.cost.order.dates/cost
+    seq: 20
+  controller: o2m-list:cm.cost.order.dates
+  model: cm.cost.order.dates
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cm.cost.collector/name
+    seq: 0
+  - col: cm.cost.collector/category
+    seq: 10
+  - col: cm.cost.collector/company
+    seq: 20
+  - col: cm.cost.collector/currency
+    seq: 30
+  controller: search:cm.cost.collector
+  model: cm.cost.collector
+  standalone: true
+  vtype: search
+- cols:
+  - col: cm.cost.collector/name
+    seq: 0
+  - col: cm.cost.collector/category
+    seq: 10
+  - col: cm.cost.collector/company
+    seq: 20
+  - col: cm.cost.collector/currency
+    seq: 30
+  controller: find:cm.cost.collector
+  model: cm.cost.collector
+  standalone: true
+  vtype: find
+- cols:
+  - col: cm.cost.collector/name
+    seq: 0
+  - col: cm.cost.collector/category
+    seq: 10
+  - col: cm.cost.collector/company
+    seq: 20
+  - col: cm.cost.collector/currency
+    seq: 30
+  - col: cm.cost.collector/dates
+    seq: 40
+  controller: list:cm.cost.collector
+  model: cm.cost.collector
+  standalone: true
+  vtype: list
+- cols:
+  - col: cm.cost.collector/name
+    seq: 0
+  - col: cm.cost.collector/category
+    seq: 10
+  - col: cm.cost.collector/company
+    seq: 20
+  - col: cm.cost.collector/currency
+    seq: 30
+  - col: cm.cost.collector/dates
+    seq: 40
+  - col: cm.cost.collector/note
+    seq: 50
+  controller: form.modal:cm.cost.collector
+  model: cm.cost.collector
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: cm.cost.collector/name
+    seq: 0
+  - col: cm.cost.collector/category
+    seq: 10
+  - col: cm.cost.collector/company
+    seq: 20
+  - col: cm.cost.collector/currency
+    seq: 30
+  - col: cm.cost.collector/dates
+    seq: 40
+  - col: cm.cost.collector/note
+    seq: 50
+  controller: form:cm.cost.collector
+  model: cm.cost.collector
+  standalone: true
+  vtype: form
+- cols:
+  - col: cm.cost.collector.dates/cost_collector_id
+    seq: 0
+  - col: cm.cost.collector.dates/cost_date
+    seq: 10
+  - col: cm.cost.collector.dates/cost
+    seq: 20
+  controller: find:cm.cost.collector.dates
+  model: cm.cost.collector.dates
+  standalone: true
+  vtype: find
+- cols:
+  - col: cm.cost.collector.dates/cost_collector_id
+    seq: 0
+  - col: cm.cost.collector.dates/cost_date
+    seq: 10
+  - col: cm.cost.collector.dates/cost
+    seq: 20
+  - col: cm.cost.collector.dates/note
+    seq: 30
+  controller: o2m-form:cm.cost.collector.dates
+  model: cm.cost.collector.dates
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: cm.cost.collector.dates/cost_collector_id
+    seq: 0
+  - col: cm.cost.collector.dates/cost_date
+    seq: 10
+  - col: cm.cost.collector.dates/cost
+    seq: 20
+  controller: o2m-calendar:cm.cost.collector.dates
+  model: cm.cost.collector.dates
+  standalone: true
+  vtype: o2m-calendar
+- cols:
+  - col: cm.cost.collector.dates/cost_collector_id
+    seq: 0
+  - col: cm.cost.collector.dates/cost_date
+    seq: 10
+  - col: cm.cost.collector.dates/cost
+    seq: 20
+  controller: o2m-graph:cm.cost.collector.dates
+  model: cm.cost.collector.dates
+  standalone: true
+  vtype: o2m-graph
+- cols:
+  - col: cm.cost.collector.dates/cost_collector_id
+    seq: 0
+  - col: cm.cost.collector.dates/cost_date
+    seq: 10
+  - col: cm.cost.collector.dates/cost
+    seq: 20
+  controller: o2m-mdx:cm.cost.collector.dates
+  model: cm.cost.collector.dates
+  standalone: true
+  vtype: o2m-mdx
+- cols:
+  - col: cm.cost.collector.dates/cost_collector_id
+    seq: 0
+  - col: cm.cost.collector.dates/cost_date
+    seq: 10
+  - col: cm.cost.collector.dates/cost
+    seq: 20
+  controller: o2m-list:cm.cost.collector.dates
+  model: cm.cost.collector.dates
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cm.corporations/name
+    seq: 0
+  - col: cm.corporations/usage
+    seq: 10
+  - col: cm.corporations/currency
+    seq: 20
+  controller: search:cm.corporations
+  model: cm.corporations
+  standalone: true
+  vtype: search
+- cols:
+  - col: cm.corporations/name
+    seq: 0
+  - col: cm.corporations/usage
+    seq: 10
+  - col: cm.corporations/currency
+    seq: 20
+  controller: find:cm.corporations
+  model: cm.corporations
+  standalone: true
+  vtype: find
+- cols:
+  - col: cm.corporations/name
+    seq: 0
+  - col: cm.corporations/usage
+    seq: 10
+  - col: cm.corporations/currency
+    seq: 20
+  - col: cm.corporations/companies
+    seq: 30
+  controller: list:cm.corporations
+  model: cm.corporations
+  standalone: true
+  vtype: list
+- cols:
+  - col: cm.corporations/name
+    seq: 0
+  - col: cm.corporations/usage
+    seq: 10
+  - col: cm.corporations/currency
+    seq: 20
+  - col: cm.corporations/companies
+    seq: 30
+  - col: cm.corporations/note
+    seq: 40
+  controller: form.modal:cm.corporations
+  model: cm.corporations
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: cm.corporations/name
+    seq: 0
+  - col: cm.corporations/usage
+    seq: 10
+  - col: cm.corporations/currency
+    seq: 20
+  - col: cm.corporations/companies
+    seq: 30
+  - col: cm.corporations/note
+    seq: 40
+  controller: form:cm.corporations
+  model: cm.corporations
+  standalone: true
+  vtype: form

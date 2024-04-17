@@ -1,0 +1,685 @@
+- cols:
+  - col: wkf.locations/usage
+    seq: 0
+  - col: wkf.locations/name
+    seq: 10
+  - col: wkf.locations/parent_id
+    seq: 20
+  controller: search:wkf.locations
+  model: wkf.locations
+  standalone: true
+  vtype: search
+- cols:
+  - col: wkf.locations/usage
+    seq: 0
+  - col: wkf.locations/name
+    seq: 10
+  - col: wkf.locations/parent_id
+    seq: 20
+  controller: find:wkf.locations
+  model: wkf.locations
+  standalone: true
+  vtype: find
+- cols:
+  - col: wkf.locations/usage
+    seq: 0
+  - col: wkf.locations/name
+    seq: 10
+  - col: wkf.locations/parent_id
+    seq: 20
+  - col: wkf.locations/childs_id
+    seq: 30
+  controller: list:wkf.locations
+  model: wkf.locations
+  standalone: true
+  vtype: list
+- cols:
+  - col: wkf.locations/usage
+    seq: 0
+  - col: wkf.locations/name
+    seq: 10
+  - col: wkf.locations/parent_id
+    seq: 20
+  - col: wkf.locations/childs_id
+    seq: 30
+  - col: wkf.locations/note
+    seq: 40
+  controller: form.modal:wkf.locations
+  model: wkf.locations
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: wkf.locations/usage
+    seq: 0
+  - col: wkf.locations/name
+    seq: 10
+  - col: wkf.locations/parent_id
+    seq: 20
+  - col: wkf.locations/childs_id
+    seq: 30
+  - col: wkf.locations/note
+    seq: 40
+  controller: form:wkf.locations
+  model: wkf.locations
+  standalone: true
+  vtype: form
+- cols:
+  - col: wkf.locations/usage
+    seq: 0
+  - col: wkf.locations/name
+    seq: 10
+  - col: wkf.locations/parent_id
+    seq: 20
+  controller: tree:wkf.locations
+  model: wkf.locations
+  standalone: true
+  vtype: tree
+- cols:
+  - col: wkf.workplice.categories/name
+    seq: 0
+  - col: wkf.workplice.categories/parent_id
+    seq: 10
+  controller: search:wkf.workplice.categories
+  model: wkf.workplice.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: wkf.workplice.categories/name
+    seq: 0
+  - col: wkf.workplice.categories/parent_id
+    seq: 10
+  controller: find:wkf.workplice.categories
+  model: wkf.workplice.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: wkf.workplice.categories/name
+    seq: 0
+  - col: wkf.workplice.categories/parent_id
+    seq: 10
+  - col: wkf.workplice.categories/childs_id
+    seq: 20
+  controller: list:wkf.workplice.categories
+  model: wkf.workplice.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: wkf.workplice.categories/name
+    seq: 0
+  - col: wkf.workplice.categories/parent_id
+    seq: 10
+  - col: wkf.workplice.categories/childs_id
+    seq: 20
+  - col: wkf.workplice.categories/note
+    seq: 30
+  controller: form.modal:wkf.workplice.categories
+  model: wkf.workplice.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: wkf.workplice.categories/name
+    seq: 0
+  - col: wkf.workplice.categories/parent_id
+    seq: 10
+  - col: wkf.workplice.categories/childs_id
+    seq: 20
+  - col: wkf.workplice.categories/note
+    seq: 30
+  controller: form:wkf.workplice.categories
+  model: wkf.workplice.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: wkf.workplice.categories/name
+    seq: 0
+  - col: wkf.workplice.categories/parent_id
+    seq: 10
+  controller: tree:wkf.workplice.categories
+  model: wkf.workplice.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: wkf.workplace/name
+    seq: 0
+  - col: wkf.workplace/category_id
+    seq: 10
+  - col: wkf.workplace/location_id
+    seq: 20
+  - col: wkf.workplace/inactive
+    seq: 30
+  controller: search:wkf.workplace
+  model: wkf.workplace
+  standalone: true
+  vtype: search
+- cols:
+  - col: wkf.workplace/name
+    seq: 0
+  - col: wkf.workplace/category_id
+    seq: 10
+  - col: wkf.workplace/location_id
+    seq: 20
+  - col: wkf.workplace/inactive
+    seq: 30
+  controller: find:wkf.workplace
+  model: wkf.workplace
+  standalone: true
+  vtype: find
+- cols:
+  - col: wkf.workplace/name
+    seq: 0
+  - col: wkf.workplace/category_id
+    seq: 10
+  - col: wkf.workplace/location_id
+    seq: 20
+  - col: wkf.workplace/inactive
+    seq: 30
+  controller: list:wkf.workplace
+  model: wkf.workplace
+  standalone: true
+  vtype: list
+- cols:
+  - col: wkf.workplace/name
+    seq: 0
+  - col: wkf.workplace/category_id
+    seq: 10
+  - col: wkf.workplace/location_id
+    seq: 20
+  - col: wkf.workplace/inactive
+    seq: 30
+  - col: wkf.workplace/note
+    seq: 40
+  controller: form.modal:wkf.workplace
+  model: wkf.workplace
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: wkf.workplace/name
+    seq: 0
+  - col: wkf.workplace/category_id
+    seq: 10
+  - col: wkf.workplace/location_id
+    seq: 20
+  - col: wkf.workplace/inactive
+    seq: 30
+  - col: wkf.workplace/note
+    seq: 40
+  controller: form:wkf.workplace
+  model: wkf.workplace
+  standalone: true
+  vtype: form
+- cols:
+  - col: wkf.element.categories/name
+    seq: 0
+  - col: wkf.element.categories/parent_id
+    seq: 10
+  controller: search:wkf.element.categories
+  model: wkf.element.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: wkf.element.categories/name
+    seq: 0
+  - col: wkf.element.categories/parent_id
+    seq: 10
+  controller: find:wkf.element.categories
+  model: wkf.element.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: wkf.element.categories/name
+    seq: 0
+  - col: wkf.element.categories/parent_id
+    seq: 10
+  - col: wkf.element.categories/childs_id
+    seq: 20
+  controller: list:wkf.element.categories
+  model: wkf.element.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: wkf.element.categories/name
+    seq: 0
+  - col: wkf.element.categories/parent_id
+    seq: 10
+  - col: wkf.element.categories/childs_id
+    seq: 20
+  - col: wkf.element.categories/note
+    seq: 30
+  controller: form.modal:wkf.element.categories
+  model: wkf.element.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: wkf.element.categories/name
+    seq: 0
+  - col: wkf.element.categories/parent_id
+    seq: 10
+  - col: wkf.element.categories/childs_id
+    seq: 20
+  - col: wkf.element.categories/note
+    seq: 30
+  controller: form:wkf.element.categories
+  model: wkf.element.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: wkf.element.categories/name
+    seq: 0
+  - col: wkf.element.categories/parent_id
+    seq: 10
+  controller: tree:wkf.element.categories
+  model: wkf.element.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: wkf.elements/name
+    seq: 0
+  - col: wkf.elements/wkf_element_category_id
+    seq: 10
+  - col: wkf.elements/etype
+    seq: 20
+  - col: wkf.elements/parent_id
+    seq: 30
+  - col: wkf.elements/value
+    seq: 40
+  controller: search:wkf.elements
+  model: wkf.elements
+  standalone: true
+  vtype: search
+- cols:
+  - col: wkf.elements/name
+    seq: 0
+  - col: wkf.elements/wkf_element_category_id
+    seq: 10
+  - col: wkf.elements/etype
+    seq: 20
+  - col: wkf.elements/parent_id
+    seq: 30
+  - col: wkf.elements/value
+    seq: 40
+  controller: find:wkf.elements
+  model: wkf.elements
+  standalone: true
+  vtype: find
+- cols:
+  - col: wkf.elements/name
+    seq: 0
+  - col: wkf.elements/wkf_element_category_id
+    seq: 10
+  - col: wkf.elements/etype
+    seq: 20
+  - col: wkf.elements/parent_id
+    seq: 30
+  - col: wkf.elements/childs_id
+    seq: 40
+  - col: wkf.elements/value
+    seq: 50
+  controller: list:wkf.elements
+  model: wkf.elements
+  standalone: true
+  vtype: list
+- cols:
+  - col: wkf.elements/name
+    seq: 0
+  - col: wkf.elements/wkf_element_category_id
+    seq: 10
+  - col: wkf.elements/etype
+    seq: 20
+  - col: wkf.elements/parent_id
+    seq: 30
+  - col: wkf.elements/childs_id
+    seq: 40
+  - col: wkf.elements/value
+    seq: 50
+  - col: wkf.elements/note
+    seq: 60
+  controller: form.modal:wkf.elements
+  model: wkf.elements
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: wkf.elements/name
+    seq: 0
+  - col: wkf.elements/wkf_element_category_id
+    seq: 10
+  - col: wkf.elements/etype
+    seq: 20
+  - col: wkf.elements/parent_id
+    seq: 30
+  - col: wkf.elements/childs_id
+    seq: 40
+  - col: wkf.elements/value
+    seq: 50
+  - col: wkf.elements/note
+    seq: 60
+  controller: form:wkf.elements
+  model: wkf.elements
+  standalone: true
+  vtype: form
+- cols:
+  - col: wkf.elements/name
+    seq: 0
+  - col: wkf.elements/wkf_element_category_id
+    seq: 10
+  - col: wkf.elements/etype
+    seq: 20
+  - col: wkf.elements/parent_id
+    seq: 30
+  - col: wkf.elements/value
+    seq: 40
+  controller: tree:wkf.elements
+  model: wkf.elements
+  standalone: true
+  vtype: tree
+- cols:
+  - col: wkf.routes/name
+    seq: 0
+  - col: wkf.routes/element_id
+    seq: 10
+  - col: wkf.routes/inactive
+    seq: 20
+  controller: search:wkf.routes
+  model: wkf.routes
+  standalone: true
+  vtype: search
+- cols:
+  - col: wkf.routes/name
+    seq: 0
+  - col: wkf.routes/element_id
+    seq: 10
+  - col: wkf.routes/inactive
+    seq: 20
+  controller: find:wkf.routes
+  model: wkf.routes
+  standalone: true
+  vtype: find
+- cols:
+  - col: wkf.routes/name
+    seq: 0
+  - col: wkf.routes/element_id
+    seq: 10
+  - col: wkf.routes/inactive
+    seq: 20
+  controller: list:wkf.routes
+  model: wkf.routes
+  standalone: true
+  vtype: list
+- cols:
+  - col: wkf.routes/name
+    seq: 0
+  - col: wkf.routes/element_id
+    seq: 10
+  - col: wkf.routes/inactive
+    seq: 20
+  - col: wkf.routes/note
+    seq: 30
+  controller: form.modal:wkf.routes
+  model: wkf.routes
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: wkf.routes/name
+    seq: 0
+  - col: wkf.routes/element_id
+    seq: 10
+  - col: wkf.routes/inactive
+    seq: 20
+  - col: wkf.routes/note
+    seq: 30
+  controller: form:wkf.routes
+  model: wkf.routes
+  standalone: true
+  vtype: form
+- cols:
+  - col: wkf.jobs/name
+    seq: 0
+  - col: wkf.jobs/parent_id
+    seq: 10
+  - col: wkf.jobs/start_date
+    seq: 20
+  - col: wkf.jobs/end_date
+    seq: 30
+  - col: wkf.jobs/state
+    seq: 40
+  - col: wkf.jobs/department_id
+    seq: 50
+  - col: wkf.jobs/employee_id
+    seq: 60
+  controller: search:wkf.jobs
+  model: wkf.jobs
+  standalone: true
+  vtype: search
+- cols:
+  - col: wkf.jobs/name
+    seq: 0
+  - col: wkf.jobs/parent_id
+    seq: 10
+  - col: wkf.jobs/start_date
+    seq: 20
+  - col: wkf.jobs/end_date
+    seq: 30
+  - col: wkf.jobs/state
+    seq: 40
+  - col: wkf.jobs/department_id
+    seq: 50
+  - col: wkf.jobs/employee_id
+    seq: 60
+  controller: find:wkf.jobs
+  model: wkf.jobs
+  standalone: true
+  vtype: find
+- cols:
+  - col: wkf.jobs/name
+    seq: 0
+  - col: wkf.jobs/parent_id
+    seq: 10
+  - col: wkf.jobs/childs_id
+    seq: 20
+  - col: wkf.jobs/start_date
+    seq: 30
+  - col: wkf.jobs/end_date
+    seq: 40
+  - col: wkf.jobs/state
+    seq: 50
+  - col: wkf.jobs/department_id
+    seq: 60
+  - col: wkf.jobs/employee_id
+    seq: 70
+  - col: wkf.jobs/history
+    seq: 80
+  controller: list:wkf.jobs
+  model: wkf.jobs
+  standalone: true
+  vtype: list
+- cols:
+  - col: wkf.jobs/name
+    seq: 0
+  - col: wkf.jobs/parent_id
+    seq: 10
+  - col: wkf.jobs/childs_id
+    seq: 20
+  - col: wkf.jobs/start_date
+    seq: 30
+  - col: wkf.jobs/end_date
+    seq: 40
+  - col: wkf.jobs/state
+    seq: 50
+  - col: wkf.jobs/department_id
+    seq: 60
+  - col: wkf.jobs/employee_id
+    seq: 70
+  - col: wkf.jobs/history
+    seq: 80
+  - col: wkf.jobs/note
+    seq: 90
+  controller: form.modal:wkf.jobs
+  model: wkf.jobs
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: wkf.jobs/name
+    seq: 0
+  - col: wkf.jobs/parent_id
+    seq: 10
+  - col: wkf.jobs/childs_id
+    seq: 20
+  - col: wkf.jobs/start_date
+    seq: 30
+  - col: wkf.jobs/end_date
+    seq: 40
+  - col: wkf.jobs/state
+    seq: 50
+  - col: wkf.jobs/department_id
+    seq: 60
+  - col: wkf.jobs/employee_id
+    seq: 70
+  - col: wkf.jobs/history
+    seq: 80
+  - col: wkf.jobs/note
+    seq: 90
+  controller: form:wkf.jobs
+  model: wkf.jobs
+  standalone: true
+  vtype: form
+- cols:
+  - col: wkf.jobs/name
+    seq: 0
+  - col: wkf.jobs/parent_id
+    seq: 10
+  - col: wkf.jobs/start_date
+    seq: 20
+  - col: wkf.jobs/end_date
+    seq: 30
+  - col: wkf.jobs/state
+    seq: 40
+  - col: wkf.jobs/department_id
+    seq: 50
+  - col: wkf.jobs/employee_id
+    seq: 60
+  controller: gantt:wkf.jobs
+  model: wkf.jobs
+  standalone: true
+  vtype: gantt
+- cols:
+  - col: wkf.jobs/name
+    seq: 0
+  - col: wkf.jobs/parent_id
+    seq: 10
+  - col: wkf.jobs/start_date
+    seq: 20
+  - col: wkf.jobs/end_date
+    seq: 30
+  - col: wkf.jobs/state
+    seq: 40
+  - col: wkf.jobs/department_id
+    seq: 50
+  - col: wkf.jobs/employee_id
+    seq: 60
+  controller: schedule:wkf.jobs
+  model: wkf.jobs
+  standalone: true
+  vtype: schedule
+- cols:
+  - col: wkf.jobs/name
+    seq: 0
+  - col: wkf.jobs/parent_id
+    seq: 10
+  - col: wkf.jobs/start_date
+    seq: 20
+  - col: wkf.jobs/end_date
+    seq: 30
+  - col: wkf.jobs/state
+    seq: 40
+  - col: wkf.jobs/department_id
+    seq: 50
+  - col: wkf.jobs/employee_id
+    seq: 60
+  - col: wkf.jobs/note
+    seq: 70
+  controller: kanban:wkf.jobs
+  model: wkf.jobs
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: wkf.jobs/name
+    seq: 0
+  - col: wkf.jobs/parent_id
+    seq: 10
+  - col: wkf.jobs/start_date
+    seq: 20
+  - col: wkf.jobs/end_date
+    seq: 30
+  - col: wkf.jobs/state
+    seq: 40
+  - col: wkf.jobs/department_id
+    seq: 50
+  - col: wkf.jobs/employee_id
+    seq: 60
+  controller: tree:wkf.jobs
+  model: wkf.jobs
+  standalone: true
+  vtype: tree
+- cols:
+  - col: wkf.job.history/job_id
+    seq: 0
+  - col: wkf.job.history/ts
+    seq: 10
+  - col: wkf.job.history/state
+    seq: 20
+  - col: wkf.job.history/department_id
+    seq: 30
+  - col: wkf.job.history/employee_id
+    seq: 40
+  controller: find:wkf.job.history
+  model: wkf.job.history
+  standalone: true
+  vtype: find
+- cols:
+  - col: wkf.job.history/job_id
+    seq: 0
+  - col: wkf.job.history/ts
+    seq: 10
+  - col: wkf.job.history/state
+    seq: 20
+  - col: wkf.job.history/department_id
+    seq: 30
+  - col: wkf.job.history/employee_id
+    seq: 40
+  - col: wkf.job.history/note
+    seq: 50
+  controller: o2m-form:wkf.job.history
+  model: wkf.job.history
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: wkf.job.history/job_id
+    seq: 0
+  - col: wkf.job.history/ts
+    seq: 10
+  - col: wkf.job.history/state
+    seq: 20
+  - col: wkf.job.history/department_id
+    seq: 30
+  - col: wkf.job.history/employee_id
+    seq: 40
+  - col: wkf.job.history/note
+    seq: 50
+  controller: o2m-kanban:wkf.job.history
+  model: wkf.job.history
+  standalone: true
+  vtype: o2m-kanban
+- cols:
+  - col: wkf.job.history/job_id
+    seq: 0
+  - col: wkf.job.history/ts
+    seq: 10
+  - col: wkf.job.history/state
+    seq: 20
+  - col: wkf.job.history/department_id
+    seq: 30
+  - col: wkf.job.history/employee_id
+    seq: 40
+  controller: o2m-list:wkf.job.history
+  model: wkf.job.history
+  standalone: true
+  vtype: o2m-list

@@ -1,4 +1,5 @@
 from . import action
+from . import controller
 from . import dashboard
 from . import dialog
 from . import lib

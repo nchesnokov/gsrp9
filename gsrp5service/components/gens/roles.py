@@ -25,24 +25,24 @@ def RecordsRole(module,models,cat):
 		for grant in GRANTS:
 			#res.append({model._name:RecordRole(module,model._name,grant,cat)})
 			res.append(RecordRole(module,model._name,grant,cat))
-	
+
 	return res
-	
+
 def RecordAccess(module,model,grant, cat):
 	cols = {'obj_access_id':concat(['role',module,cat,model,grant]),'obj': model}
-	cols['access'] = {} 
+	cols['access'] = {}
 	for column in ACCESS[grant]:
 		cols['access'][column] = True
-	
+
 	return cols
-	
+
 
 def RecordsAccess(module,models,cat):
 	res = []
 	for model in models:
 		for grant in GRANTS:
 			res.append(RecordAccess(module,model._name,grant,cat))
-	
+
 	return res
 
 def Group(module,cat):
@@ -84,27 +84,33 @@ def Area(self, modules = None, context={}):
 				res_roles = Role(module,models,cat)
 				res_access = Access(module,models,cat)
 				if len(res_group) + len(res_roles) + len(res_access) > 0:
-					if not os.path.exists(opj(path,module,'views','roles')):
-						os.mkdir(opj(path,module,'views','roles'))
-					a = open(opj(path,module,'views','roles.csv'),'w')
+					if not os.path.exists(opj(path,module,cat,'roles')):
+						os.mkdir(opj(path,module,cat,'roles'))
+					a = open(opj(path,module,cat,'roles.csv'),'w')
 					aw = csv.DictWriter(a,['model','file'])
 					aw.writeheader()
-	
+
 					if len(res_group) > 0:
-						with open(opj(path,module,'views','roles',('bc.group.' + cat + '.access').replace('.','_') + '.yaml'),'w') as outfile:
+						#with open(opj(path,module,'views','roles',('bc.group.' + cat + '.access').replace('.','_') + '.yaml'),'w') as outfile:
+						with open(opj(path,module,cat,'roles',('bc.group.' + cat + '.access').replace('.','_') + '.yaml'),'w') as outfile:
 							yaml.dump(res_group, outfile, Dumper, default_flow_style=False)
-						aw.writerow({'model': 'bc.group.obj.access','file':opj('views','roles',('bc.group.' + cat + '.access').replace('.','_') + '.yaml' )})
-	
+						#aw.writerow({'model': 'bc.group.obj.access','file':opj('views','roles',('bc.group.' + cat + '.access').replace('.','_') + '.yaml' )})
+						aw.writerow({'model': 'bc.group.model.access','file':opj(cat,'roles',('bc.group.' + cat + '.access').replace('.','_') + '.yaml' )})
+
 					if len(res_roles) > 0:
-						with open(opj(path,module,'views','roles',('bc.' + cat + '.access').replace('.','_') + '.yaml'),'w') as outfile:
+						#with open(opj(path,module,'views','roles',('bc.' + cat + '.access').replace('.','_') + '.yaml'),'w') as outfile:
+						with open(opj(path,module,cat,'roles',('bc.' + cat + '.access').replace('.','_') + '.yaml'),'w') as outfile:
 							yaml.dump(res_roles, outfile, Dumper, default_flow_style=False)
-						aw.writerow({'model': 'bc.obj.access','file':opj('views','roles',('bc.' + cat + '.access').replace('.','_') + '.yaml' )})
-	
+						#aw.writerow({'model': 'bc.obj.access','file':opj('views','roles',('bc.' + cat + '.access').replace('.','_') + '.yaml' )})
+						aw.writerow({'model': 'bc.model.access','file':opj(cat,'roles',('bc.' + cat + '.access').replace('.','_') + '.yaml' )})
+
 					if len(res_access) > 0:
-						with open(opj(path,module,'views','roles',('bc.' + cat + '.object.access').replace('.','_') + '.yaml'),'w') as outfile:
+						#with open(opj(path,module,'views','roles',('bc.' + cat + '.object.access').replace('.','_') + '.yaml'),'w') as outfile:
+						with open(opj(path,module,cat,'roles',('bc.' + cat + '.object.access').replace('.','_') + '.yaml'),'w') as outfile:
 							yaml.dump(res_access, outfile, Dumper, default_flow_style=False)
-						aw.writerow({'model': 'bc.obj.object.access','file':opj('views','roles',('bc.' + cat + '.object.access').replace('.','_') + '.yaml' )})
-	
+						#aw.writerow({'model': 'bc.obj.object.access','file':opj('views','roles',('bc.' + cat + '.object.access').replace('.','_') + '.yaml' )})
+						aw.writerow({'model': 'bc.model.object.access','file':opj(cat,'roles',('bc.' + cat + '.object.access').replace('.','_') + '.yaml' )})
+
 				logmodules.append(module)
 	log.append('Gen roles of modules %s' % (logmodules,))
 	_logger.info('Gen roles of modules %s' % (logmodules,))

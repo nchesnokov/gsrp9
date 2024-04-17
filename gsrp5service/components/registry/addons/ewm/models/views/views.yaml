@@ -1,0 +1,208 @@
+- cols:
+  - col: ewm.warehouse/stock
+    seq: 0
+  - col: ewm.warehouse/name
+    seq: 10
+  - col: ewm.warehouse/fullname
+    seq: 20
+  controller: search:ewm.warehouse
+  model: ewm.warehouse
+  standalone: true
+  vtype: search
+- cols:
+  - col: ewm.warehouse/stock
+    seq: 0
+  - col: ewm.warehouse/name
+    seq: 10
+  - col: ewm.warehouse/fullname
+    seq: 20
+  controller: find:ewm.warehouse
+  model: ewm.warehouse
+  standalone: true
+  vtype: find
+- cols:
+  - col: ewm.warehouse/stock
+    seq: 0
+  - col: ewm.warehouse/name
+    seq: 10
+  - col: ewm.warehouse/fullname
+    seq: 20
+  - col: ewm.warehouse/products
+    seq: 30
+  controller: list:ewm.warehouse
+  model: ewm.warehouse
+  standalone: true
+  vtype: list
+- cols:
+  - col: ewm.warehouse/stock
+    seq: 0
+  - col: ewm.warehouse/name
+    seq: 10
+  - col: ewm.warehouse/fullname
+    seq: 20
+  - col: ewm.warehouse/products
+    seq: 30
+  - col: ewm.warehouse/note
+    seq: 40
+  controller: form.modal:ewm.warehouse
+  model: ewm.warehouse
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: ewm.warehouse/stock
+    seq: 0
+  - col: ewm.warehouse/name
+    seq: 10
+  - col: ewm.warehouse/fullname
+    seq: 20
+  - col: ewm.warehouse/products
+    seq: 30
+  - col: ewm.warehouse/note
+    seq: 40
+  controller: form:ewm.warehouse
+  model: ewm.warehouse
+  standalone: true
+  vtype: form
+- cols:
+  - col: st.company.product.quantites/company_id
+    seq: 0
+  - col: "st.company.product.quantites/sto\u0441k_type"
+    seq: 10
+  - col: st.company.product.quantites/product
+    seq: 20
+  - col: st.company.product.quantites/quantity
+    seq: 30
+  - col: st.company.product.quantites/uom
+    seq: 40
+  - col: st.company.product.quantites/amount
+    seq: 50
+  - col: st.company.product.quantites/currency
+    seq: 60
+  controller: find:st.company.product.quantites
+  model: st.company.product.quantites
+  standalone: true
+  vtype: find
+- cols:
+  - col: st.company.product.quantites/company_id
+    seq: 0
+  - col: "st.company.product.quantites/sto\u0441k_type"
+    seq: 10
+  - col: st.company.product.quantites/product
+    seq: 20
+  - col: st.company.product.quantites/quantity
+    seq: 30
+  - col: st.company.product.quantites/uom
+    seq: 40
+  - col: st.company.product.quantites/amount
+    seq: 50
+  - col: st.company.product.quantites/currency
+    seq: 60
+  controller: o2m-form:st.company.product.quantites
+  model: st.company.product.quantites
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: st.company.product.quantites/company_id
+    seq: 0
+  - col: "st.company.product.quantites/sto\u0441k_type"
+    seq: 10
+  - col: st.company.product.quantites/product
+    seq: 20
+  - col: st.company.product.quantites/quantity
+    seq: 30
+  - col: st.company.product.quantites/uom
+    seq: 40
+  - col: st.company.product.quantites/amount
+    seq: 50
+  - col: st.company.product.quantites/currency
+    seq: 60
+  controller: o2m-list:st.company.product.quantites
+  model: st.company.product.quantites
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: st.stock.product.quantites/stock_id
+    seq: 0
+  - col: "st.stock.product.quantites/sto\u0441k_type"
+    seq: 10
+  - col: st.stock.product.quantites/product
+    seq: 20
+  - col: st.stock.product.quantites/quantity
+    seq: 30
+  - col: st.stock.product.quantites/uom
+    seq: 40
+  - col: st.stock.product.quantites/amount
+    seq: 50
+  - col: st.stock.product.quantites/currency
+    seq: 60
+  controller: find:st.stock.product.quantites
+  model: st.stock.product.quantites
+  standalone: true
+  vtype: find
+- cols:
+  - col: st.stock.product.quantites/stock_id
+    seq: 0
+  - col: "st.stock.product.quantites/sto\u0441k_type"
+    seq: 10
+  - col: st.stock.product.quantites/product
+    seq: 20
+  - col: st.stock.product.quantites/quantity
+    seq: 30
+  - col: st.stock.product.quantites/uom
+    seq: 40
+  - col: st.stock.product.quantites/amount
+    seq: 50
+  - col: st.stock.product.quantites/currency
+    seq: 60
+  controller: o2m-form:st.stock.product.quantites
+  model: st.stock.product.quantites
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: st.stock.product.quantites/stock_id
+    seq: 0
+  - col: "st.stock.product.quantites/sto\u0441k_type"
+    seq: 10
+  - col: st.stock.product.quantites/product
+    seq: 20
+  - col: st.stock.product.quantites/quantity
+    seq: 30
+  - col: st.stock.product.quantites/uom
+    seq: 40
+  - col: st.stock.product.quantites/amount
+    seq: 50
+  - col: st.stock.product.quantites/currency
+    seq: 60
+  controller: o2m-list:st.stock.product.quantites
+  model: st.stock.product.quantites
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: md.ewm.product/product_id
+    seq: 0
+  - col: md.ewm.product/uom
+    seq: 10
+  controller: find:md.ewm.product
+  model: md.ewm.product
+  standalone: true
+  vtype: find
+- cols:
+  - col: md.ewm.product/product_id
+    seq: 0
+  - col: md.ewm.product/uom
+    seq: 10
+  - col: md.ewm.product/note
+    seq: 20
+  controller: o2m-form:md.ewm.product
+  model: md.ewm.product
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: md.ewm.product/product_id
+    seq: 0
+  - col: md.ewm.product/uom
+    seq: 10
+  controller: o2m-list:md.ewm.product
+  model: md.ewm.product
+  standalone: true
+  vtype: o2m-list

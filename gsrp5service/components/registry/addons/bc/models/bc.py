@@ -30,7 +30,7 @@ class bc_users(Model):
 	}
 
 	_sql_constraints = [('full_name_unique','unique (firstname, lastname)', 'Login unique fullname of user')]
-	
+
 	def create(self, records,context={}):
 		if type(records) in (list,tuple):
 			for record in records:
@@ -97,9 +97,9 @@ class bc_users(Model):
 			for record in records:
 				if 'password' in record:
 					record['password'] = '******'
-		
+
 		return records
-				
+
 	def select(self, fields = None ,cond = None, context = {}, limit = None, offset = None):
 		records = super(Model,self).select(fields, cond, context, limit, offset)
 		if type(records) == dict:
@@ -361,7 +361,7 @@ class bc_obj_object_access(Model):
 	'access': fields.json(label="Object Access"),
 	'note': fields.text(label='Note',readonly=True)
 	}
-	
+
 	_sql_constraints = [('obj_unique','unique (type_obj, obj)', 'Obj to be  unique in access')]
 
 class bc_obj_data(Model):
@@ -381,6 +381,175 @@ class bc_obj_data(Model):
 	'timestamp_update': fields.datetime(label = 'Timestamp update', timezone = False,readonly=True)
 	}
 
+# Start Models
+class bc_class_model_categories(Model):
+	_name = 'bc.class.model.categories'
+	_description = 'Category Class Models'
+	_class_object = 'K'
+	_rec_name = 'code'
+	_columns = {
+	'code': fields.varchar(label='Code', size = 32,readonly=True),
+	'descr': fields.varchar(label='Description', size = 64,readonly=True),
+	'note': fields.text(label='Note',readonly=True),
+	}
+
+class bc_class_models(Model):
+	_name = 'bc.class.models'
+	_description = 'Class M<odels'
+	_class_object = 'K'
+	_rec_name = 'code'
+	_columns = {
+	'code': fields.varchar(label='Code', size = 8,readonly=True),
+	'descr': fields.varchar(label='Description', size = 64,readonly=True),
+	'note': fields.text(label='Note',readonly=True)
+	}
+
+class bc_models(Model):
+	_name = 'bc.models'
+	_description = 'Models'
+	_class_object = 'K'
+	_order_by="module_id,code"
+	_rec_name = 'code'
+	_columns = {
+	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',rel='objs',readonly=True, on_delete = 'c'),
+	'code': fields.varchar(label = 'Name', size = 64,readonly=True),
+	'descr': fields.varchar(label = 'Description', size = 256,readonly=True),
+	'class_obj': fields.related(label = 'Class Model', obj = 'bc.class.models', readonly=True),
+	'class_obj_category': fields.related(label = 'Class Model Category', obj = 'bc.class.model.categories', readonly=True),
+	'oom': fields.json(label='Meta Of Model', readonly = True),
+	'columns': fields.one2many(label='Columns',obj='bc.model.columns', rel='model_id',readonly = True),
+	'inherits':fields.one2many(label = 'Inherits', obj = 'bc.model.inherit.inherits', rel = 'model_id',readonly=True)
+	}
+
+class bc_model_columns(Model):
+	_name = 'bc.model.columns'
+	_description = 'Columns Of Model'
+	_class_obj = 'K'
+	#_rec_name = 'name'
+	_order_by="seq"
+	_columns = {
+	'model_id': fields.many2one(label = 'Model', obj = 'bc.models',rel='columns',readonly=True, on_delete = 'c'),
+	'model_name': fields.varchar(label='Model Name',size=64,required = True,readonly=True),
+	'name': fields.composite(label='Name Column', cols = ['model_name','col'], required = True),
+	'seq': fields.integer(label='Sequence', readonly = True),
+	'col': fields.varchar(label='Column', readonly=True),
+	'moc': fields.json(label='Meta Of Column', readonly = True),
+	}
+
+class bc_model_inherits(Model):
+	_name = 'bc.model.inherits'
+	_description = 'Model Inherits'
+	_class_object = 'K'
+	_order_by="code"
+	_rec_name = 'code'
+	_columns = {
+	'module_id': fields.many2one(label = 'Module', obj = 'bc.modules',rel='inherits',readonly=True, on_delete = 'c'),
+	'code': fields.varchar(label = 'Name', size = 64,readonly=True),
+	'descr': fields.varchar(label = 'Description', size = 256,readonly=True),
+	'momi': fields.json(label='Meta Of Model Inherit', readonly = True),
+	'columns': fields.one2many(label='Columns', obj = 'bc.model.inherit.columns', rel = 'inherit_id'),
+	'models': fields.one2many(label='Models', obj = 'bc.model.inherit.inherits', rel = 'inherit_id'),
+	}
+
+class bc_model_inherit_columns(Model):
+	_name = 'bc.model.inherit.columns'
+	_description = 'Models Columns Inherits'
+	_class_object = 'K'
+	_order_by="col"
+	_columns = {
+	'inherit_id': fields.many2one(label = 'Object Inherit', obj = 'bc.obj.inherits', rel='columns',readonly=True, on_delete = 'c'),
+	'name': fields.composite(label='Name Column', cols = ['type_obj','col'], required = True),
+	'seq': fields.integer(label='Sequence', readonly = True),
+	'col': fields.varchar(label='Column', size = 64, readonly=True),
+	'moc': fields.json(label='Meta Of Column', readonly = True),
+	}
+
+class bc_model_inherit_inherits(Model):
+	_name = 'bc.model.inherit.inherits'
+	_description = 'Inherit Columns To Models'
+	_class_object = 'K'
+	_order_by="col"
+	_columns = {
+	'inherit_id': fields.many2one(label = 'Inherit', obj = 'bc.obj.inherits', rel='objs',readonly=True, on_delete = 'c'),
+	'model_id': fields.referenced(label = 'model', obj = 'bc.models',readonly=True, on_delete = 'c'),
+	'col': fields.referenced(label='Column', obj = 'bc.model.inherit.columns', on_delete = 'c', readonly=True),
+	'name': fields.composite(label='Name Column', cols = ['model_id','col'], required = True)
+	}
+
+
+class bc_ui_view_model_types(Model):
+	_name = 'bc.ui.view.model.types'
+	_description = 'UI Type Of View'
+	_class_object = 'K'
+	_columns = {
+	'name': fields.varchar(label='Name', size = 64,required=True),
+	'exclude': fields.json(label='Exclude'),
+	'note': fields.text(label='Note')
+	}
+
+
+class bc_ui_view_model_controllers(Model):
+	_name = 'bc.ui.view.model.controllers'
+	_description = 'UI Model Controller Of View'
+	_class_object = 'K'
+	_columns = {
+	'name': fields.varchar(label='Name', size = 64,required=True),
+	'model': fields.referenced(label='Model',obj='bc.models', required=True, on_delete = 'c'),
+	'description': fields.varchar(label='Description', size = 64,required=True),
+	'note': fields.text(label='Note')
+	}
+
+class bc_ui_model_views(Model):
+	_name = 'bc.ui.model.views'
+	_description = 'UI Model Views'
+	_rec_name='fullname'
+	_class_object = 'K'
+	_columns = {
+	'vtype': fields.referenced(label='Type Of View',obj='bc.ui.view.model.types', on_delete = 'c',required=True),
+	'model': fields.referenced(label='Object',obj='bc.models', on_delete = 'c',required=True),
+	'controller': fields.referenced(label='Controller', obj = 'bc.ui.view.model.controllers',required=True),
+	'fullname': fields.composite(label='Full Name', cols = ['vtype','model'], required = True),
+	'standalone': fields.boolean(label='Standalone View'),
+	'cols': fields.one2many(label='Columns', obj = 'bc.ui.model.view.columns',rel = 'view_id'),
+	'inherit_cols': fields.one2many(label='Columns Inherit', obj = 'bc.ui.model.view.column.inherits',rel = 'view_id'),
+	'web_component': fields.one2many(label='Web Component', obj = 'bc.ui.model.view.webcomponents',rel = 'view_id'),
+	'note': fields.text(label='Note')
+	}
+
+class bc_ui_obj_model_columns(Model):
+	_name = 'bc.ui.model.view.columns'
+	_description = 'UI Model View Columns'
+	_class_object = 'K'
+	_order_by="seq"
+	_columns = {
+	'view_id': fields.many2one(label='Model View',obj='bc.ui.model.views',rel='cols', on_delete = 'c', required=True),
+	'seq': fields.integer(label='Sequence', required=True, readonly = True),
+	'col': fields.referenced(label='Column',obj='bc.model.columns', required=True, on_delete = 'c'),
+	}
+class bc_ui_model_view_column_inherits(Model):
+	_name = 'bc.ui.model.view.column.inherits'
+	_description = 'UI Model View Columns Inherit'
+	_class_object = 'K'
+	_columns = {
+	'view_id': fields.many2one(label='Object View',obj='bc.ui.model.views',rel='inherit_cols', on_delete = 'c',required=True),
+	'col': fields.referenced(label='Column',obj='bc.obj.inherit.inherits', required=True, on_delete = 'c'),
+	}
+
+class bc_ui_model_view_webcomponents(Model):
+	_name = 'bc.ui.model.view.webcomponents'
+	_description = 'UI Model View Webcomponent'
+	_class_object = 'K'
+	_columns = {
+	'view_id': fields.many2one(label='Object View',obj='bc.ui.model.views',rel='inherit_cols', on_delete = 'c', readonly = True, required=True),
+	'framework': fields.referenced(label='Web Framework',obj='bc.web.frameworks', required=True, readonly = True),
+	'srcfile': fields.varchar(label = 'Source File Component', required=True, readonly = True),
+	'created': fields.datetime('Created', required=True, readonly = True),
+	'modified': fields.datetime('Modified', required=True, readonly = True),
+	}
+
+
+# End Models
+
 class bc_ui_view_obj_types(Model):
 	_name = 'bc.ui.view.obj.types'
 	_description = 'UI Type Of View'
@@ -394,6 +563,19 @@ class bc_ui_view_obj_types(Model):
 	'note': fields.text(label='Note')
 	}
 
+class bc_ui_view_obj_controllers(Model):
+	_name = 'bc.ui.view.obj.controllers'
+	_description = 'UI Controller Of View'
+	_class_object = 'K'
+	_columns = {
+	'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs',readonly=True, on_delete = 'c'),
+	'name': fields.varchar(label='Name', size = 64,required=True),
+	'fullname': fields.composite(label='Full Name', cols = ['type_obj' ,'name  '], translate = True,required = True),
+	'obj': fields.related(label='Object',obj='bc.objs',relatedy=['type_obj'], on_delete = 'c'),
+	'description': fields.varchar(label='Description', size = 64,required=True),
+	'note': fields.text(label='Note')
+	}
+
 class bc_ui_obj_views(Model):
 	_name = 'bc.ui.obj.views'
 	_description = 'UI Views'
@@ -402,6 +584,7 @@ class bc_ui_obj_views(Model):
 	_columns = {
 	'type_obj': fields.referenced(label = 'Type Object', obj = 'bc.type.objs',readonly=True, on_delete = 'c'),
 	'obj': fields.related(label='Object',obj='bc.objs',relatedy=['type_obj'], on_delete = 'c'),
+	'controller': fields.referenced(label='Controller', obj = 'bc.ui.view.obj.controllers',required=True),
 	'vtype': fields.referenced(label='View Type',obj='bc.ui.view.obj.types', on_delete = 'c'),
 	'fullname': fields.composite(label='Full Name', cols = ['obj','vtype'], translate = True,required = True),
 	'created': fields.datetime('Created', readonly = True),
@@ -416,11 +599,12 @@ class bc_ui_obj_views(Model):
 	'style': fields.text(label='Style'),
 	'i18n': fields.text(label='I18N'),
 	'sfc': fields.text(label='Single File Component'),
+	'sfc_file': fields.varchar(label = ' SFC File'),
 	'cols': fields.one2many(label='Columns', obj = 'bc.ui.obj.view.columns',rel = 'view_id'),
 	'inherit_cols': fields.one2many(label='Columns Inherit', obj = 'bc.ui.obj.view.column.inherits',rel = 'view_id'),
 	'note': fields.text(label='Note')
 	}
-	
+
 	# def _generateTemplateColumns(self,record,context):
 		# #web_pdb.set_trace()
 		# if record['vtype']['name'] in _GENERATEVIEW: #and (record['template'] is  None or len(record['template']) == 0):
@@ -437,11 +621,11 @@ class bc_ui_obj_views(Model):
 			# record['render'] = _GENERATEVIEW[record['vtype']['name']].view._generateRender(META,record['obj']['name'],self._proxy.pool,context)
 
 
-	# def _generateScript(self,record,context):	
+	# def _generateScript(self,record,context):
 		# if record['vtype']['name'] in _GENERATEVIEW: #and (record['script'] is  None or len(record['script']) == 0):
 			# record['script'] = _GENERATEVIEW[record['vtype']['name']].view._generateScript(META,record['obj']['name'],self._proxy.pool,context)
 
-	# def _generateScriptSetup(self,record,context):	
+	# def _generateScriptSetup(self,record,context):
 		# if record['vtype']['name'] in _GENERATEVIEW: #and (record['script'] is  None or len(record['script']) == 0):
 			# record['script_setup'] = _GENERATEVIEW[record['vtype']['name']].view._generateScriptSetup(META,record['obj']['name'],self._proxy.pool,context)
 
@@ -465,13 +649,13 @@ class bc_ui_obj_views(Model):
 		# self._generateScript(record,context)
 		# self._generateScriptSetup(record,context)
 		# self._generateStyle(record,context)
-		# #record['sfc'] = record[record['render']] if len(record['render']) > 0 else record['template'] + record['script'] + '\n' + record['style'] 
+		# #record['sfc'] = record[record['render']] if len(record['render']) > 0 else record['template'] + record['script'] + '\n' + record['style']
 		# if 'template' in record and record['template']:
 			# record['sfc'] = record['template']
 		# if 'script' in record and record['script']:
 			# record['sfc'] += record['script']
 		# if 'script_setup' in record and record['script_setup']:
-			# record['sfc'] += record['script_setup']	
+			# record['sfc'] += record['script_setup']
 		# if 'style' in record and record['style']:
 			# record['sfc'] += record['style']
 
@@ -479,13 +663,13 @@ class bc_ui_obj_views(Model):
 		# if 'i18n' in record and record['i18n']:
 			# record['sfc'] += record['i18n']
 
-		# #record['sfc'] = record['template'] if record['template'] else '' + '\n'+ record['script'] if record['script'] else ''  + '\n' + record['style'] if record['style'] else '' 
+		# #record['sfc'] = record['template'] if record['template'] else '' + '\n'+ record['script'] if record['script'] else ''  + '\n' + record['style'] if record['style'] else ''
 		# #print('RECORD:',self._name,record)
 	# def create(self,records,context):
 		# pass
 		# #return self._generateSFC(record,context)
 
-	
+
 	# def getSFC(self, obj, vtype,context):
 		# records = super(Model,self).select(fields=["fullname", "obj", "vtype", "standalone",'template','script', 'style', 'i18n','sfc',{'cols':['seq','col','template','render'],'inherit_cols':[]}], cond=[('obj','=',obj),('vtype','=', vtype)], context=context)
 
@@ -499,7 +683,7 @@ class bc_ui_obj_views(Model):
 				# self._generateSFC(records,context)
 				# for k in ('template','script','script_setup', 'style','i18n'):
 					# del records[k]
-			
+
 			# #web_pdb.set_trace()
 			# #print('RECORDS:',self._name,records[0]['__data__'])
 		# return records
@@ -513,7 +697,7 @@ class bc_ui_obj_views(Model):
 					# # self._generateSFC(record,context)
 			# # elif type(records) == dict:
 				# # self._generateSFC(records,context)
-			
+
 			# #web_pdb.set_trace()
 			# #print('RECORDS:',self._name,records[0]['__data__'])
 		# return records

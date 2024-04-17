@@ -1,0 +1,76 @@
+- cols:
+  - col: wm.category/name
+    seq: 0
+  controller: search:wm.category
+  model: wm.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: wm.category/name
+    seq: 0
+  controller: find:wm.category
+  model: wm.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: wm.category/name
+    seq: 0
+  controller: list:wm.category
+  model: wm.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: wm.category/name
+    seq: 0
+  controller: form.modal:wm.category
+  model: wm.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: wm.category/name
+    seq: 0
+  controller: form:wm.category
+  model: wm.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: md.warehouse.product/product_id
+    seq: 0
+  - col: md.warehouse.product/category
+    seq: 10
+  - col: md.warehouse.product/strategy
+    seq: 20
+  - col: md.warehouse.product/uom
+    seq: 30
+  controller: find:md.warehouse.product
+  model: md.warehouse.product
+  standalone: true
+  vtype: find
+- cols:
+  - col: md.warehouse.product/product_id
+    seq: 0
+  - col: md.warehouse.product/category
+    seq: 10
+  - col: md.warehouse.product/strategy
+    seq: 20
+  - col: md.warehouse.product/uom
+    seq: 30
+  - col: md.warehouse.product/note
+    seq: 40
+  controller: o2m-form:md.warehouse.product
+  model: md.warehouse.product
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: md.warehouse.product/product_id
+    seq: 0
+  - col: md.warehouse.product/category
+    seq: 10
+  - col: md.warehouse.product/strategy
+    seq: 20
+  - col: md.warehouse.product/uom
+    seq: 30
+  controller: o2m-list:md.warehouse.product
+  model: md.warehouse.product
+  standalone: true
+  vtype: o2m-list

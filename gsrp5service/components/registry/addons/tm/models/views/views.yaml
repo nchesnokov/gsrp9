@@ -1,0 +1,1269 @@
+- cols:
+  - col: md.tm.product/product_id
+    seq: 0
+  - col: md.tm.product/vat
+    seq: 10
+  - col: md.tm.product/uom
+    seq: 20
+  - col: md.tm.product/price
+    seq: 30
+  - col: md.tm.product/currency
+    seq: 40
+  - col: md.tm.product/unit
+    seq: 50
+  - col: md.tm.product/uop
+    seq: 60
+  controller: find:md.tm.product
+  model: md.tm.product
+  standalone: true
+  vtype: find
+- cols:
+  - col: md.tm.product/product_id
+    seq: 0
+  - col: md.tm.product/vat
+    seq: 10
+  - col: md.tm.product/uom
+    seq: 20
+  - col: md.tm.product/price
+    seq: 30
+  - col: md.tm.product/currency
+    seq: 40
+  - col: md.tm.product/unit
+    seq: 50
+  - col: md.tm.product/uop
+    seq: 60
+  - col: md.tm.product/note
+    seq: 70
+  controller: o2m-form:md.tm.product
+  model: md.tm.product
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: md.tm.product/product_id
+    seq: 0
+  - col: md.tm.product/vat
+    seq: 10
+  - col: md.tm.product/uom
+    seq: 20
+  - col: md.tm.product/price
+    seq: 30
+  - col: md.tm.product/currency
+    seq: 40
+  - col: md.tm.product/unit
+    seq: 50
+  - col: md.tm.product/uop
+    seq: 60
+  controller: o2m-list:md.tm.product
+  model: md.tm.product
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: tm.locations/usage
+    seq: 0
+  - col: tm.locations/name
+    seq: 10
+  - col: tm.locations/parent_id
+    seq: 20
+  controller: search:tm.locations
+  model: tm.locations
+  standalone: true
+  vtype: search
+- cols:
+  - col: tm.locations/usage
+    seq: 0
+  - col: tm.locations/name
+    seq: 10
+  - col: tm.locations/parent_id
+    seq: 20
+  controller: find:tm.locations
+  model: tm.locations
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.locations/usage
+    seq: 0
+  - col: tm.locations/name
+    seq: 10
+  - col: tm.locations/parent_id
+    seq: 20
+  - col: tm.locations/childs_id
+    seq: 30
+  controller: list:tm.locations
+  model: tm.locations
+  standalone: true
+  vtype: list
+- cols:
+  - col: tm.locations/usage
+    seq: 0
+  - col: tm.locations/name
+    seq: 10
+  - col: tm.locations/parent_id
+    seq: 20
+  - col: tm.locations/childs_id
+    seq: 30
+  - col: tm.locations/note
+    seq: 40
+  controller: form.modal:tm.locations
+  model: tm.locations
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: tm.locations/usage
+    seq: 0
+  - col: tm.locations/name
+    seq: 10
+  - col: tm.locations/parent_id
+    seq: 20
+  - col: tm.locations/childs_id
+    seq: 30
+  - col: tm.locations/note
+    seq: 40
+  controller: form:tm.locations
+  model: tm.locations
+  standalone: true
+  vtype: form
+- cols:
+  - col: tm.locations/usage
+    seq: 0
+  - col: tm.locations/name
+    seq: 10
+  - col: tm.locations/parent_id
+    seq: 20
+  controller: tree:tm.locations
+  model: tm.locations
+  standalone: true
+  vtype: tree
+- cols:
+  - col: tm.maps/name
+    seq: 0
+  - col: tm.maps/otype
+    seq: 10
+  - col: tm.maps/state
+    seq: 20
+  - col: tm.maps/bom_id
+    seq: 30
+  controller: search:tm.maps
+  model: tm.maps
+  standalone: true
+  vtype: search
+- cols:
+  - col: tm.maps/name
+    seq: 0
+  - col: tm.maps/otype
+    seq: 10
+  - col: tm.maps/state
+    seq: 20
+  - col: tm.maps/bom_id
+    seq: 30
+  controller: find:tm.maps
+  model: tm.maps
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.maps/name
+    seq: 0
+  - col: tm.maps/otype
+    seq: 10
+  - col: tm.maps/state
+    seq: 20
+  - col: tm.maps/bom_id
+    seq: 30
+  controller: list:tm.maps
+  model: tm.maps
+  standalone: true
+  vtype: list
+- cols:
+  - col: tm.maps/name
+    seq: 0
+  - col: tm.maps/otype
+    seq: 10
+  - col: tm.maps/state
+    seq: 20
+  - col: tm.maps/bom_id
+    seq: 30
+  - col: tm.maps/note
+    seq: 40
+  controller: form.modal:tm.maps
+  model: tm.maps
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: tm.maps/name
+    seq: 0
+  - col: tm.maps/otype
+    seq: 10
+  - col: tm.maps/state
+    seq: 20
+  - col: tm.maps/bom_id
+    seq: 30
+  - col: tm.maps/note
+    seq: 40
+  controller: form:tm.maps
+  model: tm.maps
+  standalone: true
+  vtype: form
+- cols:
+  - col: tm.maps/name
+    seq: 0
+  - col: tm.maps/otype
+    seq: 10
+  - col: tm.maps/state
+    seq: 20
+  - col: tm.maps/bom_id
+    seq: 30
+  - col: tm.maps/note
+    seq: 40
+  controller: kanban:tm.maps
+  model: tm.maps
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: tm.handlings/name
+    seq: 0
+  - col: tm.handlings/state
+    seq: 10
+  - col: tm.handlings/map_id
+    seq: 20
+  controller: search:tm.handlings
+  model: tm.handlings
+  standalone: true
+  vtype: search
+- cols:
+  - col: tm.handlings/name
+    seq: 0
+  - col: tm.handlings/state
+    seq: 10
+  - col: tm.handlings/map_id
+    seq: 20
+  controller: find:tm.handlings
+  model: tm.handlings
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.handlings/name
+    seq: 0
+  - col: tm.handlings/state
+    seq: 10
+  - col: tm.handlings/map_id
+    seq: 20
+  controller: list:tm.handlings
+  model: tm.handlings
+  standalone: true
+  vtype: list
+- cols:
+  - col: tm.handlings/name
+    seq: 0
+  - col: tm.handlings/state
+    seq: 10
+  - col: tm.handlings/map_id
+    seq: 20
+  - col: tm.handlings/note
+    seq: 30
+  controller: form.modal:tm.handlings
+  model: tm.handlings
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: tm.handlings/name
+    seq: 0
+  - col: tm.handlings/state
+    seq: 10
+  - col: tm.handlings/map_id
+    seq: 20
+  - col: tm.handlings/note
+    seq: 30
+  controller: form:tm.handlings
+  model: tm.handlings
+  standalone: true
+  vtype: form
+- cols:
+  - col: tm.handlings/name
+    seq: 0
+  - col: tm.handlings/state
+    seq: 10
+  - col: tm.handlings/map_id
+    seq: 20
+  - col: tm.handlings/note
+    seq: 30
+  controller: kanban:tm.handlings
+  model: tm.handlings
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: tm.category.node/name
+    seq: 0
+  - col: tm.category.node/parent_id
+    seq: 10
+  controller: search:tm.category.node
+  model: tm.category.node
+  standalone: true
+  vtype: search
+- cols:
+  - col: tm.category.node/name
+    seq: 0
+  - col: tm.category.node/parent_id
+    seq: 10
+  controller: find:tm.category.node
+  model: tm.category.node
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.category.node/name
+    seq: 0
+  - col: tm.category.node/parent_id
+    seq: 10
+  - col: tm.category.node/childs_id
+    seq: 20
+  controller: list:tm.category.node
+  model: tm.category.node
+  standalone: true
+  vtype: list
+- cols:
+  - col: tm.category.node/name
+    seq: 0
+  - col: tm.category.node/parent_id
+    seq: 10
+  - col: tm.category.node/childs_id
+    seq: 20
+  - col: tm.category.node/note
+    seq: 30
+  controller: form.modal:tm.category.node
+  model: tm.category.node
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: tm.category.node/name
+    seq: 0
+  - col: tm.category.node/parent_id
+    seq: 10
+  - col: tm.category.node/childs_id
+    seq: 20
+  - col: tm.category.node/note
+    seq: 30
+  controller: form:tm.category.node
+  model: tm.category.node
+  standalone: true
+  vtype: form
+- cols:
+  - col: tm.category.node/name
+    seq: 0
+  - col: tm.category.node/parent_id
+    seq: 10
+  controller: tree:tm.category.node
+  model: tm.category.node
+  standalone: true
+  vtype: tree
+- cols:
+  - col: tm.nodes/name
+    seq: 0
+  - col: tm.nodes/category_id
+    seq: 10
+  - col: tm.nodes/parent_id
+    seq: 20
+  - col: tm.nodes/inactive
+    seq: 30
+  controller: search:tm.nodes
+  model: tm.nodes
+  standalone: true
+  vtype: search
+- cols:
+  - col: tm.nodes/name
+    seq: 0
+  - col: tm.nodes/category_id
+    seq: 10
+  - col: tm.nodes/parent_id
+    seq: 20
+  - col: tm.nodes/inactive
+    seq: 30
+  controller: find:tm.nodes
+  model: tm.nodes
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.nodes/name
+    seq: 0
+  - col: tm.nodes/category_id
+    seq: 10
+  - col: tm.nodes/parent_id
+    seq: 20
+  - col: tm.nodes/childs_id
+    seq: 30
+  - col: tm.nodes/items
+    seq: 40
+  - col: tm.nodes/inactive
+    seq: 50
+  controller: list:tm.nodes
+  model: tm.nodes
+  standalone: true
+  vtype: list
+- cols:
+  - col: tm.nodes/name
+    seq: 0
+  - col: tm.nodes/category_id
+    seq: 10
+  - col: tm.nodes/parent_id
+    seq: 20
+  - col: tm.nodes/childs_id
+    seq: 30
+  - col: tm.nodes/items
+    seq: 40
+  - col: tm.nodes/inactive
+    seq: 50
+  - col: tm.nodes/note
+    seq: 60
+  controller: form.modal:tm.nodes
+  model: tm.nodes
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: tm.nodes/name
+    seq: 0
+  - col: tm.nodes/category_id
+    seq: 10
+  - col: tm.nodes/parent_id
+    seq: 20
+  - col: tm.nodes/childs_id
+    seq: 30
+  - col: tm.nodes/items
+    seq: 40
+  - col: tm.nodes/inactive
+    seq: 50
+  - col: tm.nodes/note
+    seq: 60
+  controller: form:tm.nodes
+  model: tm.nodes
+  standalone: true
+  vtype: form
+- cols:
+  - col: tm.nodes/name
+    seq: 0
+  - col: tm.nodes/category_id
+    seq: 10
+  - col: tm.nodes/parent_id
+    seq: 20
+  - col: tm.nodes/inactive
+    seq: 30
+  controller: tree:tm.nodes
+  model: tm.nodes
+  standalone: true
+  vtype: tree
+- cols:
+  - col: tm.node.items/name
+    seq: 0
+  - col: tm.node.items/node_id
+    seq: 10
+  - col: tm.node.items/parent_id
+    seq: 20
+  controller: search:tm.node.items
+  model: tm.node.items
+  standalone: true
+  vtype: search
+- cols:
+  - col: tm.node.items/name
+    seq: 0
+  - col: tm.node.items/node_id
+    seq: 10
+  - col: tm.node.items/parent_id
+    seq: 20
+  controller: find:tm.node.items
+  model: tm.node.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.node.items/name
+    seq: 0
+  - col: tm.node.items/node_id
+    seq: 10
+  - col: tm.node.items/parent_id
+    seq: 20
+  - col: tm.node.items/childs_id
+    seq: 30
+  controller: list:tm.node.items
+  model: tm.node.items
+  standalone: true
+  vtype: list
+- cols:
+  - col: tm.node.items/name
+    seq: 0
+  - col: tm.node.items/node_id
+    seq: 10
+  - col: tm.node.items/parent_id
+    seq: 20
+  - col: tm.node.items/childs_id
+    seq: 30
+  - col: tm.node.items/note
+    seq: 40
+  controller: form.modal:tm.node.items
+  model: tm.node.items
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: tm.node.items/name
+    seq: 0
+  - col: tm.node.items/node_id
+    seq: 10
+  - col: tm.node.items/parent_id
+    seq: 20
+  - col: tm.node.items/childs_id
+    seq: 30
+  - col: tm.node.items/note
+    seq: 40
+  controller: form:tm.node.items
+  model: tm.node.items
+  standalone: true
+  vtype: form
+- cols:
+  - col: tm.node.items/name
+    seq: 0
+  - col: tm.node.items/node_id
+    seq: 10
+  - col: tm.node.items/parent_id
+    seq: 20
+  controller: tree:tm.node.items
+  model: tm.node.items
+  standalone: true
+  vtype: tree
+- cols:
+  - col: tm.category.equipment/name
+    seq: 0
+  - col: tm.category.equipment/parent_id
+    seq: 10
+  controller: search:tm.category.equipment
+  model: tm.category.equipment
+  standalone: true
+  vtype: search
+- cols:
+  - col: tm.category.equipment/name
+    seq: 0
+  - col: tm.category.equipment/parent_id
+    seq: 10
+  controller: find:tm.category.equipment
+  model: tm.category.equipment
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.category.equipment/name
+    seq: 0
+  - col: tm.category.equipment/parent_id
+    seq: 10
+  - col: tm.category.equipment/childs_id
+    seq: 20
+  controller: list:tm.category.equipment
+  model: tm.category.equipment
+  standalone: true
+  vtype: list
+- cols:
+  - col: tm.category.equipment/name
+    seq: 0
+  - col: tm.category.equipment/parent_id
+    seq: 10
+  - col: tm.category.equipment/childs_id
+    seq: 20
+  - col: tm.category.equipment/note
+    seq: 30
+  controller: form.modal:tm.category.equipment
+  model: tm.category.equipment
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: tm.category.equipment/name
+    seq: 0
+  - col: tm.category.equipment/parent_id
+    seq: 10
+  - col: tm.category.equipment/childs_id
+    seq: 20
+  - col: tm.category.equipment/note
+    seq: 30
+  controller: form:tm.category.equipment
+  model: tm.category.equipment
+  standalone: true
+  vtype: form
+- cols:
+  - col: tm.category.equipment/name
+    seq: 0
+  - col: tm.category.equipment/parent_id
+    seq: 10
+  controller: tree:tm.category.equipment
+  model: tm.category.equipment
+  standalone: true
+  vtype: tree
+- cols:
+  - col: tm.template.equipment/name
+    seq: 0
+  - col: tm.template.equipment/state
+    seq: 10
+  - col: tm.template.equipment/inactive
+    seq: 20
+  controller: search:tm.template.equipment
+  model: tm.template.equipment
+  standalone: true
+  vtype: search
+- cols:
+  - col: tm.template.equipment/name
+    seq: 0
+  - col: tm.template.equipment/state
+    seq: 10
+  - col: tm.template.equipment/inactive
+    seq: 20
+  controller: find:tm.template.equipment
+  model: tm.template.equipment
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.template.equipment/name
+    seq: 0
+  - col: tm.template.equipment/state
+    seq: 10
+  - col: tm.template.equipment/nodes
+    seq: 20
+  - col: tm.template.equipment/maps
+    seq: 30
+  - col: tm.template.equipment/handlings
+    seq: 40
+  - col: tm.template.equipment/inactive
+    seq: 50
+  controller: list:tm.template.equipment
+  model: tm.template.equipment
+  standalone: true
+  vtype: list
+- cols:
+  - col: tm.template.equipment/name
+    seq: 0
+  - col: tm.template.equipment/state
+    seq: 10
+  - col: tm.template.equipment/nodes
+    seq: 20
+  - col: tm.template.equipment/maps
+    seq: 30
+  - col: tm.template.equipment/handlings
+    seq: 40
+  - col: tm.template.equipment/inactive
+    seq: 50
+  - col: tm.template.equipment/note
+    seq: 60
+  controller: form.modal:tm.template.equipment
+  model: tm.template.equipment
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: tm.template.equipment/name
+    seq: 0
+  - col: tm.template.equipment/state
+    seq: 10
+  - col: tm.template.equipment/nodes
+    seq: 20
+  - col: tm.template.equipment/maps
+    seq: 30
+  - col: tm.template.equipment/handlings
+    seq: 40
+  - col: tm.template.equipment/inactive
+    seq: 50
+  - col: tm.template.equipment/note
+    seq: 60
+  controller: form:tm.template.equipment
+  model: tm.template.equipment
+  standalone: true
+  vtype: form
+- cols:
+  - col: tm.template.equipment/name
+    seq: 0
+  - col: tm.template.equipment/state
+    seq: 10
+  - col: tm.template.equipment/inactive
+    seq: 20
+  - col: tm.template.equipment/note
+    seq: 30
+  controller: kanban:tm.template.equipment
+  model: tm.template.equipment
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: tm.template.nodes/template_equipment_id
+    seq: 0
+  - col: tm.template.nodes/node_id
+    seq: 10
+  controller: find:tm.template.nodes
+  model: tm.template.nodes
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.template.nodes/template_equipment_id
+    seq: 0
+  - col: tm.template.nodes/node_id
+    seq: 10
+  - col: tm.template.nodes/note
+    seq: 20
+  controller: o2m-form:tm.template.nodes
+  model: tm.template.nodes
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: tm.template.nodes/template_equipment_id
+    seq: 0
+  - col: tm.template.nodes/node_id
+    seq: 10
+  controller: o2m-list:tm.template.nodes
+  model: tm.template.nodes
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: tm.template.maps/template_equipment_id
+    seq: 0
+  - col: tm.template.maps/map_id
+    seq: 10
+  controller: find:tm.template.maps
+  model: tm.template.maps
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.template.maps/template_equipment_id
+    seq: 0
+  - col: tm.template.maps/map_id
+    seq: 10
+  - col: tm.template.maps/note
+    seq: 20
+  controller: o2m-form:tm.template.maps
+  model: tm.template.maps
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: tm.template.maps/template_equipment_id
+    seq: 0
+  - col: tm.template.maps/map_id
+    seq: 10
+  controller: o2m-list:tm.template.maps
+  model: tm.template.maps
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: tm.template.handlings/template_equipment_id
+    seq: 0
+  - col: tm.template.handlings/handling_id
+    seq: 10
+  - col: tm.template.handlings/otype
+    seq: 20
+  - col: tm.template.handlings/period
+    seq: 30
+  - col: tm.template.handlings/unit
+    seq: 40
+  controller: find:tm.template.handlings
+  model: tm.template.handlings
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.template.handlings/template_equipment_id
+    seq: 0
+  - col: tm.template.handlings/handling_id
+    seq: 10
+  - col: tm.template.handlings/otype
+    seq: 20
+  - col: tm.template.handlings/period
+    seq: 30
+  - col: tm.template.handlings/unit
+    seq: 40
+  - col: tm.template.handlings/note
+    seq: 50
+  controller: o2m-form:tm.template.handlings
+  model: tm.template.handlings
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: tm.template.handlings/template_equipment_id
+    seq: 0
+  - col: tm.template.handlings/handling_id
+    seq: 10
+  - col: tm.template.handlings/otype
+    seq: 20
+  - col: tm.template.handlings/period
+    seq: 30
+  - col: tm.template.handlings/unit
+    seq: 40
+  controller: o2m-list:tm.template.handlings
+  model: tm.template.handlings
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: tm.unit.equipments/name
+    seq: 0
+  - col: tm.unit.equipments/location_id
+    seq: 10
+  - col: tm.unit.equipments/template_id
+    seq: 20
+  - col: tm.unit.equipments/category_id
+    seq: 30
+  - col: tm.unit.equipments/serial_no
+    seq: 40
+  - col: tm.unit.equipments/state
+    seq: 50
+  - col: tm.unit.equipments/inactive
+    seq: 60
+  controller: search:tm.unit.equipments
+  model: tm.unit.equipments
+  standalone: true
+  vtype: search
+- cols:
+  - col: tm.unit.equipments/name
+    seq: 0
+  - col: tm.unit.equipments/location_id
+    seq: 10
+  - col: tm.unit.equipments/template_id
+    seq: 20
+  - col: tm.unit.equipments/category_id
+    seq: 30
+  - col: tm.unit.equipments/serial_no
+    seq: 40
+  - col: tm.unit.equipments/state
+    seq: 50
+  - col: tm.unit.equipments/inactive
+    seq: 60
+  controller: find:tm.unit.equipments
+  model: tm.unit.equipments
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.unit.equipments/name
+    seq: 0
+  - col: tm.unit.equipments/location_id
+    seq: 10
+  - col: tm.unit.equipments/template_id
+    seq: 20
+  - col: tm.unit.equipments/category_id
+    seq: 30
+  - col: tm.unit.equipments/serial_no
+    seq: 40
+  - col: tm.unit.equipments/state
+    seq: 50
+  - col: tm.unit.equipments/inactive
+    seq: 60
+  - col: tm.unit.equipments/orders
+    seq: 70
+  controller: list:tm.unit.equipments
+  model: tm.unit.equipments
+  standalone: true
+  vtype: list
+- cols:
+  - col: tm.unit.equipments/name
+    seq: 0
+  - col: tm.unit.equipments/location_id
+    seq: 10
+  - col: tm.unit.equipments/template_id
+    seq: 20
+  - col: tm.unit.equipments/category_id
+    seq: 30
+  - col: tm.unit.equipments/serial_no
+    seq: 40
+  - col: tm.unit.equipments/state
+    seq: 50
+  - col: tm.unit.equipments/inactive
+    seq: 60
+  - col: tm.unit.equipments/orders
+    seq: 70
+  - col: tm.unit.equipments/note
+    seq: 80
+  controller: form.modal:tm.unit.equipments
+  model: tm.unit.equipments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: tm.unit.equipments/name
+    seq: 0
+  - col: tm.unit.equipments/location_id
+    seq: 10
+  - col: tm.unit.equipments/template_id
+    seq: 20
+  - col: tm.unit.equipments/category_id
+    seq: 30
+  - col: tm.unit.equipments/serial_no
+    seq: 40
+  - col: tm.unit.equipments/state
+    seq: 50
+  - col: tm.unit.equipments/inactive
+    seq: 60
+  - col: tm.unit.equipments/orders
+    seq: 70
+  - col: tm.unit.equipments/note
+    seq: 80
+  controller: form:tm.unit.equipments
+  model: tm.unit.equipments
+  standalone: true
+  vtype: form
+- cols:
+  - col: tm.unit.equipments/name
+    seq: 0
+  - col: tm.unit.equipments/location_id
+    seq: 10
+  - col: tm.unit.equipments/template_id
+    seq: 20
+  - col: tm.unit.equipments/category_id
+    seq: 30
+  - col: tm.unit.equipments/serial_no
+    seq: 40
+  - col: tm.unit.equipments/state
+    seq: 50
+  - col: tm.unit.equipments/inactive
+    seq: 60
+  - col: tm.unit.equipments/note
+    seq: 70
+  controller: kanban:tm.unit.equipments
+  model: tm.unit.equipments
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: tm.orders/name
+    seq: 0
+  - col: tm.orders/origin
+    seq: 10
+  - col: tm.orders/otype
+    seq: 20
+  - col: tm.orders/unit_equipment_id
+    seq: 30
+  - col: tm.orders/doo
+    seq: 40
+  - col: tm.orders/from_date
+    seq: 50
+  - col: tm.orders/to_date
+    seq: 60
+  - col: tm.orders/state
+    seq: 70
+  - col: tm.orders/bom
+    seq: 80
+  controller: search:tm.orders
+  model: tm.orders
+  standalone: true
+  vtype: search
+- cols:
+  - col: tm.orders/name
+    seq: 0
+  - col: tm.orders/origin
+    seq: 10
+  - col: tm.orders/otype
+    seq: 20
+  - col: tm.orders/unit_equipment_id
+    seq: 30
+  - col: tm.orders/doo
+    seq: 40
+  - col: tm.orders/from_date
+    seq: 50
+  - col: tm.orders/to_date
+    seq: 60
+  - col: tm.orders/state
+    seq: 70
+  - col: tm.orders/bom
+    seq: 80
+  controller: find:tm.orders
+  model: tm.orders
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.orders/name
+    seq: 0
+  - col: tm.orders/origin
+    seq: 10
+  - col: tm.orders/otype
+    seq: 20
+  - col: tm.orders/unit_equipment_id
+    seq: 30
+  - col: tm.orders/doo
+    seq: 40
+  - col: tm.orders/from_date
+    seq: 50
+  - col: tm.orders/to_date
+    seq: 60
+  - col: tm.orders/state
+    seq: 70
+  - col: tm.orders/bom
+    seq: 80
+  - col: tm.orders/items
+    seq: 90
+  controller: list:tm.orders
+  model: tm.orders
+  standalone: true
+  vtype: list
+- cols:
+  - col: tm.orders/name
+    seq: 0
+  - col: tm.orders/origin
+    seq: 10
+  - col: tm.orders/otype
+    seq: 20
+  - col: tm.orders/unit_equipment_id
+    seq: 30
+  - col: tm.orders/doo
+    seq: 40
+  - col: tm.orders/from_date
+    seq: 50
+  - col: tm.orders/to_date
+    seq: 60
+  - col: tm.orders/state
+    seq: 70
+  - col: tm.orders/bom
+    seq: 80
+  - col: tm.orders/items
+    seq: 90
+  - col: tm.orders/note
+    seq: 100
+  controller: form.modal:tm.orders
+  model: tm.orders
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: tm.orders/name
+    seq: 0
+  - col: tm.orders/origin
+    seq: 10
+  - col: tm.orders/otype
+    seq: 20
+  - col: tm.orders/unit_equipment_id
+    seq: 30
+  - col: tm.orders/doo
+    seq: 40
+  - col: tm.orders/from_date
+    seq: 50
+  - col: tm.orders/to_date
+    seq: 60
+  - col: tm.orders/state
+    seq: 70
+  - col: tm.orders/bom
+    seq: 80
+  - col: tm.orders/items
+    seq: 90
+  - col: tm.orders/note
+    seq: 100
+  controller: form:tm.orders
+  model: tm.orders
+  standalone: true
+  vtype: form
+- cols:
+  - col: tm.orders/name
+    seq: 0
+  - col: tm.orders/origin
+    seq: 10
+  - col: tm.orders/otype
+    seq: 20
+  - col: tm.orders/unit_equipment_id
+    seq: 30
+  - col: tm.orders/doo
+    seq: 40
+  - col: tm.orders/from_date
+    seq: 50
+  - col: tm.orders/to_date
+    seq: 60
+  - col: tm.orders/state
+    seq: 70
+  - col: tm.orders/bom
+    seq: 80
+  controller: gantt:tm.orders
+  model: tm.orders
+  standalone: true
+  vtype: gantt
+- cols:
+  - col: tm.orders/name
+    seq: 0
+  - col: tm.orders/origin
+    seq: 10
+  - col: tm.orders/otype
+    seq: 20
+  - col: tm.orders/unit_equipment_id
+    seq: 30
+  - col: tm.orders/doo
+    seq: 40
+  - col: tm.orders/from_date
+    seq: 50
+  - col: tm.orders/to_date
+    seq: 60
+  - col: tm.orders/state
+    seq: 70
+  - col: tm.orders/bom
+    seq: 80
+  controller: schedule:tm.orders
+  model: tm.orders
+  standalone: true
+  vtype: schedule
+- cols:
+  - col: tm.orders/name
+    seq: 0
+  - col: tm.orders/origin
+    seq: 10
+  - col: tm.orders/otype
+    seq: 20
+  - col: tm.orders/unit_equipment_id
+    seq: 30
+  - col: tm.orders/doo
+    seq: 40
+  - col: tm.orders/from_date
+    seq: 50
+  - col: tm.orders/to_date
+    seq: 60
+  - col: tm.orders/state
+    seq: 70
+  - col: tm.orders/bom
+    seq: 80
+  controller: calendar:tm.orders
+  model: tm.orders
+  standalone: true
+  vtype: calendar
+- cols:
+  - col: tm.orders/name
+    seq: 0
+  - col: tm.orders/origin
+    seq: 10
+  - col: tm.orders/otype
+    seq: 20
+  - col: tm.orders/unit_equipment_id
+    seq: 30
+  - col: tm.orders/doo
+    seq: 40
+  - col: tm.orders/from_date
+    seq: 50
+  - col: tm.orders/to_date
+    seq: 60
+  - col: tm.orders/state
+    seq: 70
+  - col: tm.orders/bom
+    seq: 80
+  controller: graph:tm.orders
+  model: tm.orders
+  standalone: true
+  vtype: graph
+- cols:
+  - col: tm.orders/name
+    seq: 0
+  - col: tm.orders/origin
+    seq: 10
+  - col: tm.orders/otype
+    seq: 20
+  - col: tm.orders/unit_equipment_id
+    seq: 30
+  - col: tm.orders/doo
+    seq: 40
+  - col: tm.orders/from_date
+    seq: 50
+  - col: tm.orders/to_date
+    seq: 60
+  - col: tm.orders/state
+    seq: 70
+  - col: tm.orders/bom
+    seq: 80
+  - col: tm.orders/note
+    seq: 90
+  controller: kanban:tm.orders
+  model: tm.orders
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: tm.orders/name
+    seq: 0
+  - col: tm.orders/origin
+    seq: 10
+  - col: tm.orders/otype
+    seq: 20
+  - col: tm.orders/unit_equipment_id
+    seq: 30
+  - col: tm.orders/doo
+    seq: 40
+  - col: tm.orders/from_date
+    seq: 50
+  - col: tm.orders/to_date
+    seq: 60
+  - col: tm.orders/state
+    seq: 70
+  - col: tm.orders/bom
+    seq: 80
+  controller: mdx:tm.orders
+  model: tm.orders
+  standalone: true
+  vtype: mdx
+- cols:
+  - col: tm.order.items/order_id
+    seq: 0
+  - col: tm.order.items/product
+    seq: 10
+  - col: tm.order.items/quantity
+    seq: 20
+  - col: tm.order.items/uom
+    seq: 30
+  controller: find:tm.order.items
+  model: tm.order.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.order.items/order_id
+    seq: 0
+  - col: tm.order.items/product
+    seq: 10
+  - col: tm.order.items/quantity
+    seq: 20
+  - col: tm.order.items/uom
+    seq: 30
+  - col: tm.order.items/note
+    seq: 40
+  controller: o2m-form:tm.order.items
+  model: tm.order.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: tm.order.items/order_id
+    seq: 0
+  - col: tm.order.items/product
+    seq: 10
+  - col: tm.order.items/quantity
+    seq: 20
+  - col: tm.order.items/uom
+    seq: 30
+  controller: o2m-list:tm.order.items
+  model: tm.order.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: tm.unit.equipment.orders/unit_equipment_id
+    seq: 0
+  - col: tm.unit.equipment.orders/order_id
+    seq: 10
+  - col: tm.unit.equipment.orders/state
+    seq: 20
+  - col: tm.unit.equipment.orders/start_date
+    seq: 30
+  - col: tm.unit.equipment.orders/end_date
+    seq: 40
+  - col: tm.unit.equipment.orders/otype
+    seq: 50
+  controller: find:tm.unit.equipment.orders
+  model: tm.unit.equipment.orders
+  standalone: true
+  vtype: find
+- cols:
+  - col: tm.unit.equipment.orders/unit_equipment_id
+    seq: 0
+  - col: tm.unit.equipment.orders/order_id
+    seq: 10
+  - col: tm.unit.equipment.orders/state
+    seq: 20
+  - col: tm.unit.equipment.orders/start_date
+    seq: 30
+  - col: tm.unit.equipment.orders/end_date
+    seq: 40
+  - col: tm.unit.equipment.orders/otype
+    seq: 50
+  - col: tm.unit.equipment.orders/note
+    seq: 60
+  controller: o2m-form:tm.unit.equipment.orders
+  model: tm.unit.equipment.orders
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: tm.unit.equipment.orders/unit_equipment_id
+    seq: 0
+  - col: tm.unit.equipment.orders/order_id
+    seq: 10
+  - col: tm.unit.equipment.orders/state
+    seq: 20
+  - col: tm.unit.equipment.orders/start_date
+    seq: 30
+  - col: tm.unit.equipment.orders/end_date
+    seq: 40
+  - col: tm.unit.equipment.orders/otype
+    seq: 50
+  controller: o2m-list:tm.unit.equipment.orders
+  model: tm.unit.equipment.orders
+  standalone: true
+  vtype: o2m-list

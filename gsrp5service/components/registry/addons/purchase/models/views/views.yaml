@@ -1,0 +1,4581 @@
+- cols:
+  - col: purchase.unit.categories/name
+    seq: 0
+  - col: purchase.unit.categories/parent_id
+    seq: 10
+  - col: purchase.unit.categories/fullname
+    seq: 20
+  - col: purchase.unit.categories/note
+    seq: 30
+  controller: search:purchase.unit.categories
+  model: purchase.unit.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.unit.categories/name
+    seq: 0
+  - col: purchase.unit.categories/parent_id
+    seq: 10
+  - col: purchase.unit.categories/fullname
+    seq: 20
+  - col: purchase.unit.categories/note
+    seq: 30
+  controller: find:purchase.unit.categories
+  model: purchase.unit.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.unit.categories/name
+    seq: 0
+  - col: purchase.unit.categories/parent_id
+    seq: 10
+  - col: purchase.unit.categories/childs_id
+    seq: 20
+  - col: purchase.unit.categories/fullname
+    seq: 30
+  - col: purchase.unit.categories/units
+    seq: 40
+  - col: purchase.unit.categories/note
+    seq: 50
+  controller: list:purchase.unit.categories
+  model: purchase.unit.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.unit.categories/name
+    seq: 0
+  - col: purchase.unit.categories/parent_id
+    seq: 10
+  - col: purchase.unit.categories/childs_id
+    seq: 20
+  - col: purchase.unit.categories/fullname
+    seq: 30
+  - col: purchase.unit.categories/units
+    seq: 40
+  - col: purchase.unit.categories/note
+    seq: 50
+  controller: form.modal:purchase.unit.categories
+  model: purchase.unit.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.unit.categories/name
+    seq: 0
+  - col: purchase.unit.categories/parent_id
+    seq: 10
+  - col: purchase.unit.categories/childs_id
+    seq: 20
+  - col: purchase.unit.categories/fullname
+    seq: 30
+  - col: purchase.unit.categories/units
+    seq: 40
+  - col: purchase.unit.categories/note
+    seq: 50
+  controller: form:purchase.unit.categories
+  model: purchase.unit.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.unit.categories/name
+    seq: 0
+  - col: purchase.unit.categories/parent_id
+    seq: 10
+  - col: purchase.unit.categories/fullname
+    seq: 20
+  - col: purchase.unit.categories/note
+    seq: 30
+  controller: tree:purchase.unit.categories
+  model: purchase.unit.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: purchase.units/category_id
+    seq: 0
+  - col: purchase.units/code
+    seq: 10
+  - col: purchase.units/descr
+    seq: 20
+  - col: purchase.units/note
+    seq: 30
+  controller: search:purchase.units
+  model: purchase.units
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.units/category_id
+    seq: 0
+  - col: purchase.units/code
+    seq: 10
+  - col: purchase.units/descr
+    seq: 20
+  - col: purchase.units/note
+    seq: 30
+  controller: find:purchase.units
+  model: purchase.units
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.units/category_id
+    seq: 0
+  - col: purchase.units/code
+    seq: 10
+  - col: purchase.units/descr
+    seq: 20
+  - col: purchase.units/channels
+    seq: 30
+  - col: purchase.units/segments
+    seq: 40
+  - col: purchase.units/areas
+    seq: 50
+  - col: purchase.units/regions
+    seq: 60
+  - col: purchase.units/note
+    seq: 70
+  controller: list:purchase.units
+  model: purchase.units
+  standalone: true
+  vtype: list
+- cols:
+  - col: md.company/name
+    seq: 0
+  - col: md.company/country
+    seq: 10
+  - col: md.company/currency
+    seq: 20
+  - col: md.company/note
+    seq: 30
+  controller: m2mlist:md.company
+  model: md.company
+  standalone: true
+  vtype: m2mlist
+- cols:
+  - col: purchase.units/category_id
+    seq: 0
+  - col: purchase.units/company_ids
+    seq: 10
+  - col: purchase.units/code
+    seq: 20
+  - col: purchase.units/descr
+    seq: 30
+  - col: purchase.units/channels
+    seq: 40
+  - col: purchase.units/segments
+    seq: 50
+  - col: purchase.units/areas
+    seq: 60
+  - col: purchase.units/regions
+    seq: 70
+  - col: purchase.units/note
+    seq: 80
+  controller: form.modal:purchase.units
+  model: purchase.units
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.units/category_id
+    seq: 0
+  - col: purchase.units/company_ids
+    seq: 10
+  - col: purchase.units/code
+    seq: 20
+  - col: purchase.units/descr
+    seq: 30
+  - col: purchase.units/channels
+    seq: 40
+  - col: purchase.units/segments
+    seq: 50
+  - col: purchase.units/areas
+    seq: 60
+  - col: purchase.units/regions
+    seq: 70
+  - col: purchase.units/note
+    seq: 80
+  controller: form:purchase.units
+  model: purchase.units
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.channel.categories/name
+    seq: 0
+  - col: purchase.channel.categories/parent_id
+    seq: 10
+  - col: purchase.channel.categories/fullname
+    seq: 20
+  - col: purchase.channel.categories/note
+    seq: 30
+  controller: search:purchase.channel.categories
+  model: purchase.channel.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.channel.categories/name
+    seq: 0
+  - col: purchase.channel.categories/parent_id
+    seq: 10
+  - col: purchase.channel.categories/fullname
+    seq: 20
+  - col: purchase.channel.categories/note
+    seq: 30
+  controller: find:purchase.channel.categories
+  model: purchase.channel.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.channel.categories/name
+    seq: 0
+  - col: purchase.channel.categories/parent_id
+    seq: 10
+  - col: purchase.channel.categories/childs_id
+    seq: 20
+  - col: purchase.channel.categories/fullname
+    seq: 30
+  - col: purchase.channel.categories/channels
+    seq: 40
+  - col: purchase.channel.categories/note
+    seq: 50
+  controller: list:purchase.channel.categories
+  model: purchase.channel.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.channel.categories/name
+    seq: 0
+  - col: purchase.channel.categories/parent_id
+    seq: 10
+  - col: purchase.channel.categories/childs_id
+    seq: 20
+  - col: purchase.channel.categories/fullname
+    seq: 30
+  - col: purchase.channel.categories/channels
+    seq: 40
+  - col: purchase.channel.categories/note
+    seq: 50
+  controller: form.modal:purchase.channel.categories
+  model: purchase.channel.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.channel.categories/name
+    seq: 0
+  - col: purchase.channel.categories/parent_id
+    seq: 10
+  - col: purchase.channel.categories/childs_id
+    seq: 20
+  - col: purchase.channel.categories/fullname
+    seq: 30
+  - col: purchase.channel.categories/channels
+    seq: 40
+  - col: purchase.channel.categories/note
+    seq: 50
+  controller: form:purchase.channel.categories
+  model: purchase.channel.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.channel.categories/name
+    seq: 0
+  - col: purchase.channel.categories/parent_id
+    seq: 10
+  - col: purchase.channel.categories/fullname
+    seq: 20
+  - col: purchase.channel.categories/note
+    seq: 30
+  controller: tree:purchase.channel.categories
+  model: purchase.channel.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: purchase.channels/category_id
+    seq: 0
+  - col: purchase.channels/code
+    seq: 10
+  - col: purchase.channels/descr
+    seq: 20
+  - col: purchase.channels/note
+    seq: 30
+  controller: search:purchase.channels
+  model: purchase.channels
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.channels/category_id
+    seq: 0
+  - col: purchase.channels/code
+    seq: 10
+  - col: purchase.channels/descr
+    seq: 20
+  - col: purchase.channels/note
+    seq: 30
+  controller: find:purchase.channels
+  model: purchase.channels
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.channels/category_id
+    seq: 0
+  - col: purchase.channels/code
+    seq: 10
+  - col: purchase.channels/descr
+    seq: 20
+  - col: purchase.channels/note
+    seq: 30
+  controller: list:purchase.channels
+  model: purchase.channels
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.channels/category_id
+    seq: 0
+  - col: purchase.channels/code
+    seq: 10
+  - col: purchase.channels/descr
+    seq: 20
+  - col: purchase.channels/note
+    seq: 30
+  controller: form.modal:purchase.channels
+  model: purchase.channels
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.channels/category_id
+    seq: 0
+  - col: purchase.channels/code
+    seq: 10
+  - col: purchase.channels/descr
+    seq: 20
+  - col: purchase.channels/note
+    seq: 30
+  controller: form:purchase.channels
+  model: purchase.channels
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.segment.categories/name
+    seq: 0
+  - col: purchase.segment.categories/parent_id
+    seq: 10
+  - col: purchase.segment.categories/fullname
+    seq: 20
+  - col: purchase.segment.categories/note
+    seq: 30
+  controller: search:purchase.segment.categories
+  model: purchase.segment.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.segment.categories/name
+    seq: 0
+  - col: purchase.segment.categories/parent_id
+    seq: 10
+  - col: purchase.segment.categories/fullname
+    seq: 20
+  - col: purchase.segment.categories/note
+    seq: 30
+  controller: find:purchase.segment.categories
+  model: purchase.segment.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.segment.categories/name
+    seq: 0
+  - col: purchase.segment.categories/parent_id
+    seq: 10
+  - col: purchase.segment.categories/childs_id
+    seq: 20
+  - col: purchase.segment.categories/fullname
+    seq: 30
+  - col: purchase.segment.categories/segments
+    seq: 40
+  - col: purchase.segment.categories/note
+    seq: 50
+  controller: list:purchase.segment.categories
+  model: purchase.segment.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.segment.categories/name
+    seq: 0
+  - col: purchase.segment.categories/parent_id
+    seq: 10
+  - col: purchase.segment.categories/childs_id
+    seq: 20
+  - col: purchase.segment.categories/fullname
+    seq: 30
+  - col: purchase.segment.categories/segments
+    seq: 40
+  - col: purchase.segment.categories/note
+    seq: 50
+  controller: form.modal:purchase.segment.categories
+  model: purchase.segment.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.segment.categories/name
+    seq: 0
+  - col: purchase.segment.categories/parent_id
+    seq: 10
+  - col: purchase.segment.categories/childs_id
+    seq: 20
+  - col: purchase.segment.categories/fullname
+    seq: 30
+  - col: purchase.segment.categories/segments
+    seq: 40
+  - col: purchase.segment.categories/note
+    seq: 50
+  controller: form:purchase.segment.categories
+  model: purchase.segment.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.segment.categories/name
+    seq: 0
+  - col: purchase.segment.categories/parent_id
+    seq: 10
+  - col: purchase.segment.categories/fullname
+    seq: 20
+  - col: purchase.segment.categories/note
+    seq: 30
+  controller: tree:purchase.segment.categories
+  model: purchase.segment.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: purchase.segments/category_id
+    seq: 0
+  - col: purchase.segments/code
+    seq: 10
+  - col: purchase.segments/descr
+    seq: 20
+  - col: purchase.segments/note
+    seq: 30
+  controller: search:purchase.segments
+  model: purchase.segments
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.segments/category_id
+    seq: 0
+  - col: purchase.segments/code
+    seq: 10
+  - col: purchase.segments/descr
+    seq: 20
+  - col: purchase.segments/note
+    seq: 30
+  controller: find:purchase.segments
+  model: purchase.segments
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.segments/category_id
+    seq: 0
+  - col: purchase.segments/code
+    seq: 10
+  - col: purchase.segments/descr
+    seq: 20
+  - col: purchase.segments/note
+    seq: 30
+  controller: list:purchase.segments
+  model: purchase.segments
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.segments/category_id
+    seq: 0
+  - col: purchase.segments/code
+    seq: 10
+  - col: purchase.segments/descr
+    seq: 20
+  - col: purchase.segments/note
+    seq: 30
+  controller: form.modal:purchase.segments
+  model: purchase.segments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.segments/category_id
+    seq: 0
+  - col: purchase.segments/code
+    seq: 10
+  - col: purchase.segments/descr
+    seq: 20
+  - col: purchase.segments/note
+    seq: 30
+  controller: form:purchase.segments
+  model: purchase.segments
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.area.categories/name
+    seq: 0
+  - col: purchase.area.categories/parent_id
+    seq: 10
+  - col: purchase.area.categories/fullname
+    seq: 20
+  - col: purchase.area.categories/note
+    seq: 30
+  controller: search:purchase.area.categories
+  model: purchase.area.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.area.categories/name
+    seq: 0
+  - col: purchase.area.categories/parent_id
+    seq: 10
+  - col: purchase.area.categories/fullname
+    seq: 20
+  - col: purchase.area.categories/note
+    seq: 30
+  controller: find:purchase.area.categories
+  model: purchase.area.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.area.categories/name
+    seq: 0
+  - col: purchase.area.categories/parent_id
+    seq: 10
+  - col: purchase.area.categories/childs_id
+    seq: 20
+  - col: purchase.area.categories/areas
+    seq: 30
+  - col: purchase.area.categories/fullname
+    seq: 40
+  - col: purchase.area.categories/note
+    seq: 50
+  controller: list:purchase.area.categories
+  model: purchase.area.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.area.categories/name
+    seq: 0
+  - col: purchase.area.categories/parent_id
+    seq: 10
+  - col: purchase.area.categories/childs_id
+    seq: 20
+  - col: purchase.area.categories/areas
+    seq: 30
+  - col: purchase.area.categories/fullname
+    seq: 40
+  - col: purchase.area.categories/note
+    seq: 50
+  controller: form.modal:purchase.area.categories
+  model: purchase.area.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.area.categories/name
+    seq: 0
+  - col: purchase.area.categories/parent_id
+    seq: 10
+  - col: purchase.area.categories/childs_id
+    seq: 20
+  - col: purchase.area.categories/areas
+    seq: 30
+  - col: purchase.area.categories/fullname
+    seq: 40
+  - col: purchase.area.categories/note
+    seq: 50
+  controller: form:purchase.area.categories
+  model: purchase.area.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.area.categories/name
+    seq: 0
+  - col: purchase.area.categories/parent_id
+    seq: 10
+  - col: purchase.area.categories/fullname
+    seq: 20
+  - col: purchase.area.categories/note
+    seq: 30
+  controller: tree:purchase.area.categories
+  model: purchase.area.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: purchase.areas/category_id
+    seq: 0
+  - col: purchase.areas/code
+    seq: 10
+  - col: purchase.areas/descr
+    seq: 20
+  - col: purchase.areas/note
+    seq: 30
+  controller: search:purchase.areas
+  model: purchase.areas
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.areas/category_id
+    seq: 0
+  - col: purchase.areas/code
+    seq: 10
+  - col: purchase.areas/descr
+    seq: 20
+  - col: purchase.areas/note
+    seq: 30
+  controller: find:purchase.areas
+  model: purchase.areas
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.areas/category_id
+    seq: 0
+  - col: purchase.areas/code
+    seq: 10
+  - col: purchase.areas/descr
+    seq: 20
+  - col: purchase.areas/note
+    seq: 30
+  controller: list:purchase.areas
+  model: purchase.areas
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.areas/category_id
+    seq: 0
+  - col: purchase.areas/code
+    seq: 10
+  - col: purchase.areas/descr
+    seq: 20
+  - col: purchase.areas/note
+    seq: 30
+  controller: form.modal:purchase.areas
+  model: purchase.areas
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.areas/category_id
+    seq: 0
+  - col: purchase.areas/code
+    seq: 10
+  - col: purchase.areas/descr
+    seq: 20
+  - col: purchase.areas/note
+    seq: 30
+  controller: form:purchase.areas
+  model: purchase.areas
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.region.categories/name
+    seq: 0
+  - col: purchase.region.categories/parent_id
+    seq: 10
+  - col: purchase.region.categories/fullname
+    seq: 20
+  - col: purchase.region.categories/note
+    seq: 30
+  controller: search:purchase.region.categories
+  model: purchase.region.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.region.categories/name
+    seq: 0
+  - col: purchase.region.categories/parent_id
+    seq: 10
+  - col: purchase.region.categories/fullname
+    seq: 20
+  - col: purchase.region.categories/note
+    seq: 30
+  controller: find:purchase.region.categories
+  model: purchase.region.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.region.categories/name
+    seq: 0
+  - col: purchase.region.categories/parent_id
+    seq: 10
+  - col: purchase.region.categories/childs_id
+    seq: 20
+  - col: purchase.region.categories/fullname
+    seq: 30
+  - col: purchase.region.categories/regions
+    seq: 40
+  - col: purchase.region.categories/note
+    seq: 50
+  controller: list:purchase.region.categories
+  model: purchase.region.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.region.categories/name
+    seq: 0
+  - col: purchase.region.categories/parent_id
+    seq: 10
+  - col: purchase.region.categories/childs_id
+    seq: 20
+  - col: purchase.region.categories/fullname
+    seq: 30
+  - col: purchase.region.categories/regions
+    seq: 40
+  - col: purchase.region.categories/note
+    seq: 50
+  controller: form.modal:purchase.region.categories
+  model: purchase.region.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.region.categories/name
+    seq: 0
+  - col: purchase.region.categories/parent_id
+    seq: 10
+  - col: purchase.region.categories/childs_id
+    seq: 20
+  - col: purchase.region.categories/fullname
+    seq: 30
+  - col: purchase.region.categories/regions
+    seq: 40
+  - col: purchase.region.categories/note
+    seq: 50
+  controller: form:purchase.region.categories
+  model: purchase.region.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.region.categories/name
+    seq: 0
+  - col: purchase.region.categories/parent_id
+    seq: 10
+  - col: purchase.region.categories/fullname
+    seq: 20
+  - col: purchase.region.categories/note
+    seq: 30
+  controller: tree:purchase.region.categories
+  model: purchase.region.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: purchase.regions/category_id
+    seq: 0
+  - col: purchase.regions/code
+    seq: 10
+  - col: purchase.regions/descr
+    seq: 20
+  - col: purchase.regions/note
+    seq: 30
+  controller: search:purchase.regions
+  model: purchase.regions
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.regions/category_id
+    seq: 0
+  - col: purchase.regions/code
+    seq: 10
+  - col: purchase.regions/descr
+    seq: 20
+  - col: purchase.regions/note
+    seq: 30
+  controller: find:purchase.regions
+  model: purchase.regions
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.regions/category_id
+    seq: 0
+  - col: purchase.regions/code
+    seq: 10
+  - col: purchase.regions/descr
+    seq: 20
+  - col: purchase.regions/note
+    seq: 30
+  controller: list:purchase.regions
+  model: purchase.regions
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.regions/category_id
+    seq: 0
+  - col: purchase.regions/code
+    seq: 10
+  - col: purchase.regions/descr
+    seq: 20
+  - col: purchase.regions/note
+    seq: 30
+  controller: form.modal:purchase.regions
+  model: purchase.regions
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.regions/category_id
+    seq: 0
+  - col: purchase.regions/code
+    seq: 10
+  - col: purchase.regions/descr
+    seq: 20
+  - col: purchase.regions/note
+    seq: 30
+  controller: form:purchase.regions
+  model: purchase.regions
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.division.categories/name
+    seq: 0
+  - col: purchase.division.categories/parent_id
+    seq: 10
+  - col: purchase.division.categories/fullname
+    seq: 20
+  - col: purchase.division.categories/note
+    seq: 30
+  controller: search:purchase.division.categories
+  model: purchase.division.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.division.categories/name
+    seq: 0
+  - col: purchase.division.categories/parent_id
+    seq: 10
+  - col: purchase.division.categories/fullname
+    seq: 20
+  - col: purchase.division.categories/note
+    seq: 30
+  controller: find:purchase.division.categories
+  model: purchase.division.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.division.categories/name
+    seq: 0
+  - col: purchase.division.categories/parent_id
+    seq: 10
+  - col: purchase.division.categories/childs_id
+    seq: 20
+  - col: purchase.division.categories/fullname
+    seq: 30
+  - col: purchase.division.categories/divisions
+    seq: 40
+  - col: purchase.division.categories/note
+    seq: 50
+  controller: list:purchase.division.categories
+  model: purchase.division.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.division.categories/name
+    seq: 0
+  - col: purchase.division.categories/parent_id
+    seq: 10
+  - col: purchase.division.categories/childs_id
+    seq: 20
+  - col: purchase.division.categories/fullname
+    seq: 30
+  - col: purchase.division.categories/divisions
+    seq: 40
+  - col: purchase.division.categories/note
+    seq: 50
+  controller: form.modal:purchase.division.categories
+  model: purchase.division.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.division.categories/name
+    seq: 0
+  - col: purchase.division.categories/parent_id
+    seq: 10
+  - col: purchase.division.categories/childs_id
+    seq: 20
+  - col: purchase.division.categories/fullname
+    seq: 30
+  - col: purchase.division.categories/divisions
+    seq: 40
+  - col: purchase.division.categories/note
+    seq: 50
+  controller: form:purchase.division.categories
+  model: purchase.division.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.division.categories/name
+    seq: 0
+  - col: purchase.division.categories/parent_id
+    seq: 10
+  - col: purchase.division.categories/fullname
+    seq: 20
+  - col: purchase.division.categories/note
+    seq: 30
+  controller: tree:purchase.division.categories
+  model: purchase.division.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: purchase.divisions/category_id
+    seq: 0
+  - col: purchase.divisions/code
+    seq: 10
+  - col: purchase.divisions/descr
+    seq: 20
+  - col: purchase.divisions/note
+    seq: 30
+  controller: search:purchase.divisions
+  model: purchase.divisions
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.divisions/category_id
+    seq: 0
+  - col: purchase.divisions/code
+    seq: 10
+  - col: purchase.divisions/descr
+    seq: 20
+  - col: purchase.divisions/note
+    seq: 30
+  controller: find:purchase.divisions
+  model: purchase.divisions
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.divisions/category_id
+    seq: 0
+  - col: purchase.divisions/code
+    seq: 10
+  - col: purchase.divisions/descr
+    seq: 20
+  - col: purchase.divisions/subdivisions
+    seq: 30
+  - col: purchase.divisions/note
+    seq: 40
+  controller: list:purchase.divisions
+  model: purchase.divisions
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.divisions/category_id
+    seq: 0
+  - col: purchase.divisions/code
+    seq: 10
+  - col: purchase.divisions/descr
+    seq: 20
+  - col: purchase.divisions/subdivisions
+    seq: 30
+  - col: purchase.divisions/note
+    seq: 40
+  controller: form.modal:purchase.divisions
+  model: purchase.divisions
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.divisions/category_id
+    seq: 0
+  - col: purchase.divisions/code
+    seq: 10
+  - col: purchase.divisions/descr
+    seq: 20
+  - col: purchase.divisions/subdivisions
+    seq: 30
+  - col: purchase.divisions/note
+    seq: 40
+  controller: form:purchase.divisions
+  model: purchase.divisions
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.subdivision.categories/name
+    seq: 0
+  - col: purchase.subdivision.categories/parent_id
+    seq: 10
+  - col: purchase.subdivision.categories/fullname
+    seq: 20
+  - col: purchase.subdivision.categories/note
+    seq: 30
+  controller: search:purchase.subdivision.categories
+  model: purchase.subdivision.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.subdivision.categories/name
+    seq: 0
+  - col: purchase.subdivision.categories/parent_id
+    seq: 10
+  - col: purchase.subdivision.categories/fullname
+    seq: 20
+  - col: purchase.subdivision.categories/note
+    seq: 30
+  controller: find:purchase.subdivision.categories
+  model: purchase.subdivision.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.subdivision.categories/name
+    seq: 0
+  - col: purchase.subdivision.categories/parent_id
+    seq: 10
+  - col: purchase.subdivision.categories/childs_id
+    seq: 20
+  - col: purchase.subdivision.categories/fullname
+    seq: 30
+  - col: purchase.subdivision.categories/subdivisions
+    seq: 40
+  - col: purchase.subdivision.categories/note
+    seq: 50
+  controller: list:purchase.subdivision.categories
+  model: purchase.subdivision.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.subdivision.categories/name
+    seq: 0
+  - col: purchase.subdivision.categories/parent_id
+    seq: 10
+  - col: purchase.subdivision.categories/childs_id
+    seq: 20
+  - col: purchase.subdivision.categories/fullname
+    seq: 30
+  - col: purchase.subdivision.categories/subdivisions
+    seq: 40
+  - col: purchase.subdivision.categories/note
+    seq: 50
+  controller: form.modal:purchase.subdivision.categories
+  model: purchase.subdivision.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.subdivision.categories/name
+    seq: 0
+  - col: purchase.subdivision.categories/parent_id
+    seq: 10
+  - col: purchase.subdivision.categories/childs_id
+    seq: 20
+  - col: purchase.subdivision.categories/fullname
+    seq: 30
+  - col: purchase.subdivision.categories/subdivisions
+    seq: 40
+  - col: purchase.subdivision.categories/note
+    seq: 50
+  controller: form:purchase.subdivision.categories
+  model: purchase.subdivision.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.subdivision.categories/name
+    seq: 0
+  - col: purchase.subdivision.categories/parent_id
+    seq: 10
+  - col: purchase.subdivision.categories/fullname
+    seq: 20
+  - col: purchase.subdivision.categories/note
+    seq: 30
+  controller: tree:purchase.subdivision.categories
+  model: purchase.subdivision.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: purchase.subdivisions/category_id
+    seq: 0
+  - col: purchase.subdivisions/code
+    seq: 10
+  - col: purchase.subdivisions/descr
+    seq: 20
+  - col: purchase.subdivisions/note
+    seq: 30
+  controller: search:purchase.subdivisions
+  model: purchase.subdivisions
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.subdivisions/category_id
+    seq: 0
+  - col: purchase.subdivisions/code
+    seq: 10
+  - col: purchase.subdivisions/descr
+    seq: 20
+  - col: purchase.subdivisions/note
+    seq: 30
+  controller: find:purchase.subdivisions
+  model: purchase.subdivisions
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.subdivisions/category_id
+    seq: 0
+  - col: purchase.subdivisions/code
+    seq: 10
+  - col: purchase.subdivisions/descr
+    seq: 20
+  - col: purchase.subdivisions/note
+    seq: 30
+  controller: list:purchase.subdivisions
+  model: purchase.subdivisions
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.subdivisions/category_id
+    seq: 0
+  - col: purchase.subdivisions/code
+    seq: 10
+  - col: purchase.subdivisions/descr
+    seq: 20
+  - col: purchase.subdivisions/note
+    seq: 30
+  controller: form.modal:purchase.subdivisions
+  model: purchase.subdivisions
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.subdivisions/category_id
+    seq: 0
+  - col: purchase.subdivisions/code
+    seq: 10
+  - col: purchase.subdivisions/descr
+    seq: 20
+  - col: purchase.subdivisions/note
+    seq: 30
+  controller: form:purchase.subdivisions
+  model: purchase.subdivisions
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.unit.channel.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.channel.assigments/channel_id
+    seq: 10
+  - col: purchase.unit.channel.assigments/fullname
+    seq: 20
+  controller: search:purchase.unit.channel.assigments
+  model: purchase.unit.channel.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.unit.channel.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.channel.assigments/channel_id
+    seq: 10
+  - col: purchase.unit.channel.assigments/fullname
+    seq: 20
+  controller: find:purchase.unit.channel.assigments
+  model: purchase.unit.channel.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.unit.channel.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.channel.assigments/channel_id
+    seq: 10
+  - col: purchase.unit.channel.assigments/fullname
+    seq: 20
+  controller: list:purchase.unit.channel.assigments
+  model: purchase.unit.channel.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.unit.channel.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.channel.assigments/channel_id
+    seq: 10
+  - col: purchase.unit.channel.assigments/fullname
+    seq: 20
+  controller: form.modal:purchase.unit.channel.assigments
+  model: purchase.unit.channel.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.unit.channel.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.channel.assigments/channel_id
+    seq: 10
+  - col: purchase.unit.channel.assigments/fullname
+    seq: 20
+  controller: form:purchase.unit.channel.assigments
+  model: purchase.unit.channel.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.unit.segment.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.segment.assigments/segment_id
+    seq: 10
+  - col: purchase.unit.segment.assigments/fullname
+    seq: 20
+  controller: search:purchase.unit.segment.assigments
+  model: purchase.unit.segment.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.unit.segment.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.segment.assigments/segment_id
+    seq: 10
+  - col: purchase.unit.segment.assigments/fullname
+    seq: 20
+  controller: find:purchase.unit.segment.assigments
+  model: purchase.unit.segment.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.unit.segment.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.segment.assigments/segment_id
+    seq: 10
+  - col: purchase.unit.segment.assigments/fullname
+    seq: 20
+  controller: list:purchase.unit.segment.assigments
+  model: purchase.unit.segment.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.unit.segment.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.segment.assigments/segment_id
+    seq: 10
+  - col: purchase.unit.segment.assigments/fullname
+    seq: 20
+  controller: form.modal:purchase.unit.segment.assigments
+  model: purchase.unit.segment.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.unit.segment.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.segment.assigments/segment_id
+    seq: 10
+  - col: purchase.unit.segment.assigments/fullname
+    seq: 20
+  controller: form:purchase.unit.segment.assigments
+  model: purchase.unit.segment.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.unit.area.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.area.assigments/area_id
+    seq: 10
+  - col: purchase.unit.area.assigments/fullname
+    seq: 20
+  controller: search:purchase.unit.area.assigments
+  model: purchase.unit.area.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.unit.area.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.area.assigments/area_id
+    seq: 10
+  - col: purchase.unit.area.assigments/fullname
+    seq: 20
+  controller: find:purchase.unit.area.assigments
+  model: purchase.unit.area.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.unit.area.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.area.assigments/area_id
+    seq: 10
+  - col: purchase.unit.area.assigments/fullname
+    seq: 20
+  controller: list:purchase.unit.area.assigments
+  model: purchase.unit.area.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.unit.area.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.area.assigments/area_id
+    seq: 10
+  - col: purchase.unit.area.assigments/fullname
+    seq: 20
+  controller: form.modal:purchase.unit.area.assigments
+  model: purchase.unit.area.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.unit.area.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.area.assigments/area_id
+    seq: 10
+  - col: purchase.unit.area.assigments/fullname
+    seq: 20
+  controller: form:purchase.unit.area.assigments
+  model: purchase.unit.area.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.unit.region.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.region.assigments/region_id
+    seq: 10
+  - col: purchase.unit.region.assigments/fullname
+    seq: 20
+  controller: search:purchase.unit.region.assigments
+  model: purchase.unit.region.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.unit.region.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.region.assigments/region_id
+    seq: 10
+  - col: purchase.unit.region.assigments/fullname
+    seq: 20
+  controller: find:purchase.unit.region.assigments
+  model: purchase.unit.region.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.unit.region.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.region.assigments/region_id
+    seq: 10
+  - col: purchase.unit.region.assigments/fullname
+    seq: 20
+  controller: list:purchase.unit.region.assigments
+  model: purchase.unit.region.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.unit.region.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.region.assigments/region_id
+    seq: 10
+  - col: purchase.unit.region.assigments/fullname
+    seq: 20
+  controller: form.modal:purchase.unit.region.assigments
+  model: purchase.unit.region.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.unit.region.assigments/unit_id
+    seq: 0
+  - col: purchase.unit.region.assigments/region_id
+    seq: 10
+  - col: purchase.unit.region.assigments/fullname
+    seq: 20
+  controller: form:purchase.unit.region.assigments
+  model: purchase.unit.region.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.division.subdivision.assigments/division_id
+    seq: 0
+  - col: purchase.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: purchase.division.subdivision.assigments/fullname
+    seq: 20
+  controller: search:purchase.division.subdivision.assigments
+  model: purchase.division.subdivision.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.division.subdivision.assigments/division_id
+    seq: 0
+  - col: purchase.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: purchase.division.subdivision.assigments/fullname
+    seq: 20
+  controller: find:purchase.division.subdivision.assigments
+  model: purchase.division.subdivision.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.division.subdivision.assigments/division_id
+    seq: 0
+  - col: purchase.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: purchase.division.subdivision.assigments/fullname
+    seq: 20
+  controller: list:purchase.division.subdivision.assigments
+  model: purchase.division.subdivision.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.division.subdivision.assigments/division_id
+    seq: 0
+  - col: purchase.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: purchase.division.subdivision.assigments/fullname
+    seq: 20
+  controller: form.modal:purchase.division.subdivision.assigments
+  model: purchase.division.subdivision.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.division.subdivision.assigments/division_id
+    seq: 0
+  - col: purchase.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: purchase.division.subdivision.assigments/fullname
+    seq: 20
+  controller: form:purchase.division.subdivision.assigments
+  model: purchase.division.subdivision.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.markets/unit_id
+    seq: 0
+  - col: purchase.markets/channel_id
+    seq: 10
+  - col: purchase.markets/segment_id
+    seq: 20
+  - col: purchase.markets/area_id
+    seq: 30
+  - col: purchase.markets/region_id
+    seq: 40
+  - col: purchase.markets/fullname
+    seq: 50
+  - col: purchase.markets/note
+    seq: 60
+  controller: search:purchase.markets
+  model: purchase.markets
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.markets/unit_id
+    seq: 0
+  - col: purchase.markets/channel_id
+    seq: 10
+  - col: purchase.markets/segment_id
+    seq: 20
+  - col: purchase.markets/area_id
+    seq: 30
+  - col: purchase.markets/region_id
+    seq: 40
+  - col: purchase.markets/fullname
+    seq: 50
+  - col: purchase.markets/note
+    seq: 60
+  controller: find:purchase.markets
+  model: purchase.markets
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.markets/unit_id
+    seq: 0
+  - col: purchase.markets/channel_id
+    seq: 10
+  - col: purchase.markets/segment_id
+    seq: 20
+  - col: purchase.markets/area_id
+    seq: 30
+  - col: purchase.markets/region_id
+    seq: 40
+  - col: purchase.markets/fullname
+    seq: 50
+  - col: purchase.markets/note
+    seq: 60
+  controller: list:purchase.markets
+  model: purchase.markets
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.markets/unit_id
+    seq: 0
+  - col: purchase.markets/channel_id
+    seq: 10
+  - col: purchase.markets/segment_id
+    seq: 20
+  - col: purchase.markets/area_id
+    seq: 30
+  - col: purchase.markets/region_id
+    seq: 40
+  - col: purchase.markets/fullname
+    seq: 50
+  - col: purchase.markets/note
+    seq: 60
+  controller: form.modal:purchase.markets
+  model: purchase.markets
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.markets/unit_id
+    seq: 0
+  - col: purchase.markets/channel_id
+    seq: 10
+  - col: purchase.markets/segment_id
+    seq: 20
+  - col: purchase.markets/area_id
+    seq: 30
+  - col: purchase.markets/region_id
+    seq: 40
+  - col: purchase.markets/fullname
+    seq: 50
+  - col: purchase.markets/note
+    seq: 60
+  controller: form:purchase.markets
+  model: purchase.markets
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.teams/division_id
+    seq: 0
+  - col: purchase.teams/subdivision_id
+    seq: 10
+  - col: purchase.teams/fullname
+    seq: 20
+  - col: purchase.teams/note
+    seq: 30
+  controller: search:purchase.teams
+  model: purchase.teams
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.teams/division_id
+    seq: 0
+  - col: purchase.teams/subdivision_id
+    seq: 10
+  - col: purchase.teams/fullname
+    seq: 20
+  - col: purchase.teams/note
+    seq: 30
+  controller: find:purchase.teams
+  model: purchase.teams
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.teams/division_id
+    seq: 0
+  - col: purchase.teams/subdivision_id
+    seq: 10
+  - col: purchase.teams/fullname
+    seq: 20
+  - col: purchase.teams/note
+    seq: 30
+  controller: list:purchase.teams
+  model: purchase.teams
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.teams/division_id
+    seq: 0
+  - col: purchase.teams/subdivision_id
+    seq: 10
+  - col: purchase.teams/fullname
+    seq: 20
+  - col: purchase.teams/note
+    seq: 30
+  controller: form.modal:purchase.teams
+  model: purchase.teams
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.teams/division_id
+    seq: 0
+  - col: purchase.teams/subdivision_id
+    seq: 10
+  - col: purchase.teams/fullname
+    seq: 20
+  - col: purchase.teams/note
+    seq: 30
+  controller: form:purchase.teams
+  model: purchase.teams
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.pricing.group.levels/code
+    seq: 0
+  - col: purchase.pricing.group.levels/descr
+    seq: 10
+  - col: purchase.pricing.group.levels/note
+    seq: 20
+  controller: search:purchase.pricing.group.levels
+  model: purchase.pricing.group.levels
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.pricing.group.levels/code
+    seq: 0
+  - col: purchase.pricing.group.levels/descr
+    seq: 10
+  - col: purchase.pricing.group.levels/note
+    seq: 20
+  controller: find:purchase.pricing.group.levels
+  model: purchase.pricing.group.levels
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.pricing.group.levels/code
+    seq: 0
+  - col: purchase.pricing.group.levels/descr
+    seq: 10
+  - col: purchase.pricing.group.levels/note
+    seq: 20
+  controller: list:purchase.pricing.group.levels
+  model: purchase.pricing.group.levels
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.pricing.group.levels/code
+    seq: 0
+  - col: purchase.pricing.group.levels/descr
+    seq: 10
+  - col: purchase.pricing.group.levels/note
+    seq: 20
+  controller: form.modal:purchase.pricing.group.levels
+  model: purchase.pricing.group.levels
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.pricing.group.levels/code
+    seq: 0
+  - col: purchase.pricing.group.levels/descr
+    seq: 10
+  - col: purchase.pricing.group.levels/note
+    seq: 20
+  controller: form:purchase.pricing.group.levels
+  model: purchase.pricing.group.levels
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.texts/code
+    seq: 0
+  - col: purchase.texts/descr
+    seq: 10
+  - col: purchase.texts/note
+    seq: 20
+  controller: search:purchase.texts
+  model: purchase.texts
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.texts/code
+    seq: 0
+  - col: purchase.texts/descr
+    seq: 10
+  - col: purchase.texts/note
+    seq: 20
+  controller: find:purchase.texts
+  model: purchase.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.texts/code
+    seq: 0
+  - col: purchase.texts/descr
+    seq: 10
+  - col: purchase.texts/note
+    seq: 20
+  controller: list:purchase.texts
+  model: purchase.texts
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.texts/code
+    seq: 0
+  - col: purchase.texts/descr
+    seq: 10
+  - col: purchase.texts/note
+    seq: 20
+  controller: form.modal:purchase.texts
+  model: purchase.texts
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.texts/code
+    seq: 0
+  - col: purchase.texts/descr
+    seq: 10
+  - col: purchase.texts/note
+    seq: 20
+  controller: form:purchase.texts
+  model: purchase.texts
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.schema.texts/usage
+    seq: 0
+  - col: purchase.schema.texts/code
+    seq: 10
+  - col: purchase.schema.texts/descr
+    seq: 20
+  - col: purchase.schema.texts/note
+    seq: 30
+  controller: search:purchase.schema.texts
+  model: purchase.schema.texts
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.schema.texts/usage
+    seq: 0
+  - col: purchase.schema.texts/code
+    seq: 10
+  - col: purchase.schema.texts/descr
+    seq: 20
+  - col: purchase.schema.texts/note
+    seq: 30
+  controller: find:purchase.schema.texts
+  model: purchase.schema.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.schema.texts/usage
+    seq: 0
+  - col: purchase.schema.texts/code
+    seq: 10
+  - col: purchase.schema.texts/descr
+    seq: 20
+  - col: purchase.schema.texts/texts
+    seq: 30
+  - col: purchase.schema.texts/note
+    seq: 40
+  controller: list:purchase.schema.texts
+  model: purchase.schema.texts
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.schema.texts/usage
+    seq: 0
+  - col: purchase.schema.texts/code
+    seq: 10
+  - col: purchase.schema.texts/descr
+    seq: 20
+  - col: purchase.schema.texts/texts
+    seq: 30
+  - col: purchase.schema.texts/note
+    seq: 40
+  controller: form.modal:purchase.schema.texts
+  model: purchase.schema.texts
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.schema.texts/usage
+    seq: 0
+  - col: purchase.schema.texts/code
+    seq: 10
+  - col: purchase.schema.texts/descr
+    seq: 20
+  - col: purchase.schema.texts/texts
+    seq: 30
+  - col: purchase.schema.texts/note
+    seq: 40
+  controller: form:purchase.schema.texts
+  model: purchase.schema.texts
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.schema.text.items/schema_id
+    seq: 0
+  - col: purchase.schema.text.items/seq
+    seq: 10
+  - col: purchase.schema.text.items/text_id
+    seq: 20
+  controller: find:purchase.schema.text.items
+  model: purchase.schema.text.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.schema.text.items/schema_id
+    seq: 0
+  - col: purchase.schema.text.items/seq
+    seq: 10
+  - col: purchase.schema.text.items/text_id
+    seq: 20
+  controller: o2m-form:purchase.schema.text.items
+  model: purchase.schema.text.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.schema.text.items/schema_id
+    seq: 0
+  - col: purchase.schema.text.items/seq
+    seq: 10
+  - col: purchase.schema.text.items/text_id
+    seq: 20
+  controller: o2m-list:purchase.schema.text.items
+  model: purchase.schema.text.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.types/otype
+    seq: 0
+  - col: purchase.order.types/name
+    seq: 10
+  - col: purchase.order.types/htschema
+    seq: 20
+  - col: purchase.order.types/itschema
+    seq: 30
+  - col: purchase.order.types/note
+    seq: 40
+  controller: search:purchase.order.types
+  model: purchase.order.types
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.order.types/otype
+    seq: 0
+  - col: purchase.order.types/name
+    seq: 10
+  - col: purchase.order.types/htschema
+    seq: 20
+  - col: purchase.order.types/itschema
+    seq: 30
+  - col: purchase.order.types/note
+    seq: 40
+  controller: find:purchase.order.types
+  model: purchase.order.types
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.types/otype
+    seq: 0
+  - col: purchase.order.types/name
+    seq: 10
+  - col: purchase.order.types/htschema
+    seq: 20
+  - col: purchase.order.types/itschema
+    seq: 30
+  - col: purchase.order.types/roles
+    seq: 40
+  - col: purchase.order.types/plates
+    seq: 50
+  - col: purchase.order.types/tis
+    seq: 60
+  - col: purchase.order.types/note
+    seq: 70
+  controller: list:purchase.order.types
+  model: purchase.order.types
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.order.types/otype
+    seq: 0
+  - col: purchase.order.types/name
+    seq: 10
+  - col: purchase.order.types/htschema
+    seq: 20
+  - col: purchase.order.types/itschema
+    seq: 30
+  - col: purchase.order.types/roles
+    seq: 40
+  - col: purchase.order.types/plates
+    seq: 50
+  - col: purchase.order.types/tis
+    seq: 60
+  - col: purchase.order.types/note
+    seq: 70
+  controller: form.modal:purchase.order.types
+  model: purchase.order.types
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.order.types/otype
+    seq: 0
+  - col: purchase.order.types/name
+    seq: 10
+  - col: purchase.order.types/htschema
+    seq: 20
+  - col: purchase.order.types/itschema
+    seq: 30
+  - col: purchase.order.types/roles
+    seq: 40
+  - col: purchase.order.types/plates
+    seq: 50
+  - col: purchase.order.types/tis
+    seq: 60
+  - col: purchase.order.types/note
+    seq: 70
+  controller: form:purchase.order.types
+  model: purchase.order.types
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.order.type.roles/type_id
+    seq: 0
+  - col: purchase.order.type.roles/role_id
+    seq: 10
+  - col: purchase.order.type.roles/required
+    seq: 20
+  - col: purchase.order.type.roles/note
+    seq: 30
+  controller: find:purchase.order.type.roles
+  model: purchase.order.type.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.type.roles/type_id
+    seq: 0
+  - col: purchase.order.type.roles/role_id
+    seq: 10
+  - col: purchase.order.type.roles/required
+    seq: 20
+  - col: purchase.order.type.roles/note
+    seq: 30
+  controller: o2m-form:purchase.order.type.roles
+  model: purchase.order.type.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.type.roles/type_id
+    seq: 0
+  - col: purchase.order.type.roles/role_id
+    seq: 10
+  - col: purchase.order.type.roles/required
+    seq: 20
+  - col: purchase.order.type.roles/note
+    seq: 30
+  controller: o2m-list:purchase.order.type.roles
+  model: purchase.order.type.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.type.plates/type_id
+    seq: 0
+  - col: purchase.order.type.plates/seq
+    seq: 10
+  - col: purchase.order.type.plates/plate
+    seq: 20
+  - col: purchase.order.type.plates/required
+    seq: 30
+  - col: purchase.order.type.plates/note
+    seq: 40
+  controller: find:purchase.order.type.plates
+  model: purchase.order.type.plates
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.type.plates/type_id
+    seq: 0
+  - col: purchase.order.type.plates/seq
+    seq: 10
+  - col: purchase.order.type.plates/plate
+    seq: 20
+  - col: purchase.order.type.plates/required
+    seq: 30
+  - col: purchase.order.type.plates/note
+    seq: 40
+  controller: o2m-form:purchase.order.type.plates
+  model: purchase.order.type.plates
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.type.plates/type_id
+    seq: 0
+  - col: purchase.order.type.plates/seq
+    seq: 10
+  - col: purchase.order.type.plates/plate
+    seq: 20
+  - col: purchase.order.type.plates/required
+    seq: 30
+  - col: purchase.order.type.plates/note
+    seq: 40
+  controller: o2m-list:purchase.order.type.plates
+  model: purchase.order.type.plates
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.type.items/type_id
+    seq: 0
+  - col: purchase.order.type.items/gti_id
+    seq: 10
+  - col: purchase.order.type.items/itype_id
+    seq: 20
+  - col: purchase.order.type.items/note
+    seq: 30
+  controller: find:purchase.order.type.items
+  model: purchase.order.type.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.type.items/type_id
+    seq: 0
+  - col: purchase.order.type.items/gti_id
+    seq: 10
+  - col: purchase.order.type.items/itype_id
+    seq: 20
+  - col: purchase.order.type.items/note
+    seq: 30
+  controller: o2m-form:purchase.order.type.items
+  model: purchase.order.type.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.type.items/type_id
+    seq: 0
+  - col: purchase.order.type.items/gti_id
+    seq: 10
+  - col: purchase.order.type.items/itype_id
+    seq: 20
+  - col: purchase.order.type.items/note
+    seq: 30
+  controller: o2m-list:purchase.order.type.items
+  model: purchase.order.type.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.invoice.types/itype
+    seq: 0
+  - col: purchase.invoice.types/name
+    seq: 10
+  - col: purchase.invoice.types/htschema
+    seq: 20
+  - col: purchase.invoice.types/itschema
+    seq: 30
+  - col: purchase.invoice.types/note
+    seq: 40
+  controller: search:purchase.invoice.types
+  model: purchase.invoice.types
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.invoice.types/itype
+    seq: 0
+  - col: purchase.invoice.types/name
+    seq: 10
+  - col: purchase.invoice.types/htschema
+    seq: 20
+  - col: purchase.invoice.types/itschema
+    seq: 30
+  - col: purchase.invoice.types/note
+    seq: 40
+  controller: find:purchase.invoice.types
+  model: purchase.invoice.types
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.invoice.types/itype
+    seq: 0
+  - col: purchase.invoice.types/name
+    seq: 10
+  - col: purchase.invoice.types/htschema
+    seq: 20
+  - col: purchase.invoice.types/itschema
+    seq: 30
+  - col: purchase.invoice.types/roles
+    seq: 40
+  - col: purchase.invoice.types/note
+    seq: 50
+  controller: list:purchase.invoice.types
+  model: purchase.invoice.types
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.invoice.types/itype
+    seq: 0
+  - col: purchase.invoice.types/name
+    seq: 10
+  - col: purchase.invoice.types/htschema
+    seq: 20
+  - col: purchase.invoice.types/itschema
+    seq: 30
+  - col: purchase.invoice.types/roles
+    seq: 40
+  - col: purchase.invoice.types/note
+    seq: 50
+  controller: form.modal:purchase.invoice.types
+  model: purchase.invoice.types
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.invoice.types/itype
+    seq: 0
+  - col: purchase.invoice.types/name
+    seq: 10
+  - col: purchase.invoice.types/htschema
+    seq: 20
+  - col: purchase.invoice.types/itschema
+    seq: 30
+  - col: purchase.invoice.types/roles
+    seq: 40
+  - col: purchase.invoice.types/note
+    seq: 50
+  controller: form:purchase.invoice.types
+  model: purchase.invoice.types
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.invoice.type.roles/type_id
+    seq: 0
+  - col: purchase.invoice.type.roles/role_id
+    seq: 10
+  - col: purchase.invoice.type.roles/required
+    seq: 20
+  - col: purchase.invoice.type.roles/note
+    seq: 30
+  controller: find:purchase.invoice.type.roles
+  model: purchase.invoice.type.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.invoice.type.roles/type_id
+    seq: 0
+  - col: purchase.invoice.type.roles/role_id
+    seq: 10
+  - col: purchase.invoice.type.roles/required
+    seq: 20
+  - col: purchase.invoice.type.roles/note
+    seq: 30
+  controller: o2m-form:purchase.invoice.type.roles
+  model: purchase.invoice.type.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.invoice.type.roles/type_id
+    seq: 0
+  - col: purchase.invoice.type.roles/role_id
+    seq: 10
+  - col: purchase.invoice.type.roles/required
+    seq: 20
+  - col: purchase.invoice.type.roles/note
+    seq: 30
+  controller: o2m-list:purchase.invoice.type.roles
+  model: purchase.invoice.type.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.categories/name
+    seq: 0
+  - col: purchase.order.categories/parent_id
+    seq: 10
+  - col: purchase.order.categories/fullname
+    seq: 20
+  - col: purchase.order.categories/note
+    seq: 30
+  controller: search:purchase.order.categories
+  model: purchase.order.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.order.categories/name
+    seq: 0
+  - col: purchase.order.categories/parent_id
+    seq: 10
+  - col: purchase.order.categories/fullname
+    seq: 20
+  - col: purchase.order.categories/note
+    seq: 30
+  controller: find:purchase.order.categories
+  model: purchase.order.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.categories/name
+    seq: 0
+  - col: purchase.order.categories/parent_id
+    seq: 10
+  - col: purchase.order.categories/childs_id
+    seq: 20
+  - col: purchase.order.categories/fullname
+    seq: 30
+  - col: purchase.order.categories/orders
+    seq: 40
+  - col: purchase.order.categories/note
+    seq: 50
+  controller: list:purchase.order.categories
+  model: purchase.order.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.order.categories/name
+    seq: 0
+  - col: purchase.order.categories/parent_id
+    seq: 10
+  - col: purchase.order.categories/childs_id
+    seq: 20
+  - col: purchase.order.categories/fullname
+    seq: 30
+  - col: purchase.order.categories/orders
+    seq: 40
+  - col: purchase.order.categories/note
+    seq: 50
+  controller: form.modal:purchase.order.categories
+  model: purchase.order.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.order.categories/name
+    seq: 0
+  - col: purchase.order.categories/parent_id
+    seq: 10
+  - col: purchase.order.categories/childs_id
+    seq: 20
+  - col: purchase.order.categories/fullname
+    seq: 30
+  - col: purchase.order.categories/orders
+    seq: 40
+  - col: purchase.order.categories/note
+    seq: 50
+  controller: form:purchase.order.categories
+  model: purchase.order.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.order.categories/name
+    seq: 0
+  - col: purchase.order.categories/parent_id
+    seq: 10
+  - col: purchase.order.categories/fullname
+    seq: 20
+  - col: purchase.order.categories/note
+    seq: 30
+  controller: tree:purchase.order.categories
+  model: purchase.order.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: purchase.invoce.categories/name
+    seq: 0
+  - col: purchase.invoce.categories/parent_id
+    seq: 10
+  - col: purchase.invoce.categories/fullname
+    seq: 20
+  - col: purchase.invoce.categories/note
+    seq: 30
+  controller: search:purchase.invoce.categories
+  model: purchase.invoce.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.invoce.categories/name
+    seq: 0
+  - col: purchase.invoce.categories/parent_id
+    seq: 10
+  - col: purchase.invoce.categories/fullname
+    seq: 20
+  - col: purchase.invoce.categories/note
+    seq: 30
+  controller: find:purchase.invoce.categories
+  model: purchase.invoce.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.invoce.categories/name
+    seq: 0
+  - col: purchase.invoce.categories/parent_id
+    seq: 10
+  - col: purchase.invoce.categories/childs_id
+    seq: 20
+  - col: purchase.invoce.categories/fullname
+    seq: 30
+  - col: purchase.invoce.categories/invoices
+    seq: 40
+  - col: purchase.invoce.categories/note
+    seq: 50
+  controller: list:purchase.invoce.categories
+  model: purchase.invoce.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.invoce.categories/name
+    seq: 0
+  - col: purchase.invoce.categories/parent_id
+    seq: 10
+  - col: purchase.invoce.categories/childs_id
+    seq: 20
+  - col: purchase.invoce.categories/fullname
+    seq: 30
+  - col: purchase.invoce.categories/invoices
+    seq: 40
+  - col: purchase.invoce.categories/note
+    seq: 50
+  controller: form.modal:purchase.invoce.categories
+  model: purchase.invoce.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.invoce.categories/name
+    seq: 0
+  - col: purchase.invoce.categories/parent_id
+    seq: 10
+  - col: purchase.invoce.categories/childs_id
+    seq: 20
+  - col: purchase.invoce.categories/fullname
+    seq: 30
+  - col: purchase.invoce.categories/invoices
+    seq: 40
+  - col: purchase.invoce.categories/note
+    seq: 50
+  controller: form:purchase.invoce.categories
+  model: purchase.invoce.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.invoce.categories/name
+    seq: 0
+  - col: purchase.invoce.categories/parent_id
+    seq: 10
+  - col: purchase.invoce.categories/fullname
+    seq: 20
+  - col: purchase.invoce.categories/note
+    seq: 30
+  controller: tree:purchase.invoce.categories
+  model: purchase.invoce.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: purchase.orders/otype
+    seq: 0
+  - col: purchase.orders/name
+    seq: 10
+  - col: purchase.orders/company
+    seq: 20
+  - col: purchase.orders/fullname
+    seq: 30
+  - col: purchase.orders/market_id
+    seq: 40
+  - col: purchase.orders/team_id
+    seq: 50
+  - col: purchase.orders/category_id
+    seq: 60
+  - col: purchase.orders/manager
+    seq: 70
+  - col: purchase.orders/origin
+    seq: 80
+  - col: purchase.orders/doo
+    seq: 90
+  - col: purchase.orders/from_date
+    seq: 100
+  - col: purchase.orders/to_date
+    seq: 110
+  - col: purchase.orders/partner
+    seq: 120
+  - col: purchase.orders/currency
+    seq: 130
+  - col: purchase.orders/incoterms1
+    seq: 140
+  - col: purchase.orders/incoterms2
+    seq: 150
+  - col: purchase.orders/pm
+    seq: 160
+  - col: purchase.orders/state
+    seq: 170
+  - col: purchase.orders/amount
+    seq: 180
+  - col: purchase.orders/vat_amount
+    seq: 190
+  - col: purchase.orders/total_amount
+    seq: 200
+  - col: purchase.orders/bom
+    seq: 210
+  controller: search:purchase.orders
+  model: purchase.orders
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.orders/otype
+    seq: 0
+  - col: purchase.orders/name
+    seq: 10
+  - col: purchase.orders/company
+    seq: 20
+  - col: purchase.orders/fullname
+    seq: 30
+  - col: purchase.orders/market_id
+    seq: 40
+  - col: purchase.orders/team_id
+    seq: 50
+  - col: purchase.orders/category_id
+    seq: 60
+  - col: purchase.orders/manager
+    seq: 70
+  - col: purchase.orders/origin
+    seq: 80
+  - col: purchase.orders/doo
+    seq: 90
+  - col: purchase.orders/from_date
+    seq: 100
+  - col: purchase.orders/to_date
+    seq: 110
+  - col: purchase.orders/partner
+    seq: 120
+  - col: purchase.orders/currency
+    seq: 130
+  - col: purchase.orders/incoterms1
+    seq: 140
+  - col: purchase.orders/incoterms2
+    seq: 150
+  - col: purchase.orders/pm
+    seq: 160
+  - col: purchase.orders/state
+    seq: 170
+  - col: purchase.orders/amount
+    seq: 180
+  - col: purchase.orders/vat_amount
+    seq: 190
+  - col: purchase.orders/total_amount
+    seq: 200
+  - col: purchase.orders/bom
+    seq: 210
+  controller: find:purchase.orders
+  model: purchase.orders
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.orders/otype
+    seq: 0
+  - col: purchase.orders/name
+    seq: 10
+  - col: purchase.orders/company
+    seq: 20
+  - col: purchase.orders/fullname
+    seq: 30
+  - col: purchase.orders/market_id
+    seq: 40
+  - col: purchase.orders/team_id
+    seq: 50
+  - col: purchase.orders/category_id
+    seq: 60
+  - col: purchase.orders/manager
+    seq: 70
+  - col: purchase.orders/origin
+    seq: 80
+  - col: purchase.orders/doo
+    seq: 90
+  - col: purchase.orders/from_date
+    seq: 100
+  - col: purchase.orders/to_date
+    seq: 110
+  - col: purchase.orders/partner
+    seq: 120
+  - col: purchase.orders/currency
+    seq: 130
+  - col: purchase.orders/incoterms1
+    seq: 140
+  - col: purchase.orders/incoterms2
+    seq: 150
+  - col: purchase.orders/pm
+    seq: 160
+  - col: purchase.orders/state
+    seq: 170
+  - col: purchase.orders/amount
+    seq: 180
+  - col: purchase.orders/vat_amount
+    seq: 190
+  - col: purchase.orders/total_amount
+    seq: 200
+  - col: purchase.orders/bom
+    seq: 210
+  - col: purchase.orders/items
+    seq: 220
+  - col: purchase.orders/pricing
+    seq: 230
+  - col: purchase.orders/roles
+    seq: 240
+  - col: purchase.orders/texts
+    seq: 250
+  - col: purchase.orders/plates
+    seq: 260
+  - col: purchase.orders/payments
+    seq: 270
+  controller: list:purchase.orders
+  model: purchase.orders
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.orders/otype
+    seq: 0
+  - col: purchase.orders/name
+    seq: 10
+  - col: purchase.orders/company
+    seq: 20
+  - col: purchase.orders/fullname
+    seq: 30
+  - col: purchase.orders/market_id
+    seq: 40
+  - col: purchase.orders/team_id
+    seq: 50
+  - col: purchase.orders/category_id
+    seq: 60
+  - col: purchase.orders/manager
+    seq: 70
+  - col: purchase.orders/origin
+    seq: 80
+  - col: purchase.orders/doo
+    seq: 90
+  - col: purchase.orders/from_date
+    seq: 100
+  - col: purchase.orders/to_date
+    seq: 110
+  - col: purchase.orders/partner
+    seq: 120
+  - col: purchase.orders/currency
+    seq: 130
+  - col: purchase.orders/incoterms1
+    seq: 140
+  - col: purchase.orders/incoterms2
+    seq: 150
+  - col: purchase.orders/pm
+    seq: 160
+  - col: purchase.orders/state
+    seq: 170
+  - col: purchase.orders/amount
+    seq: 180
+  - col: purchase.orders/vat_amount
+    seq: 190
+  - col: purchase.orders/total_amount
+    seq: 200
+  - col: purchase.orders/bom
+    seq: 210
+  - col: purchase.orders/items
+    seq: 220
+  - col: purchase.orders/pricing
+    seq: 230
+  - col: purchase.orders/roles
+    seq: 240
+  - col: purchase.orders/texts
+    seq: 250
+  - col: purchase.orders/plates
+    seq: 260
+  - col: purchase.orders/payments
+    seq: 270
+  - col: purchase.orders/note
+    seq: 280
+  controller: form.modal:purchase.orders
+  model: purchase.orders
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.orders/otype
+    seq: 0
+  - col: purchase.orders/name
+    seq: 10
+  - col: purchase.orders/company
+    seq: 20
+  - col: purchase.orders/fullname
+    seq: 30
+  - col: purchase.orders/market_id
+    seq: 40
+  - col: purchase.orders/team_id
+    seq: 50
+  - col: purchase.orders/category_id
+    seq: 60
+  - col: purchase.orders/manager
+    seq: 70
+  - col: purchase.orders/origin
+    seq: 80
+  - col: purchase.orders/doo
+    seq: 90
+  - col: purchase.orders/from_date
+    seq: 100
+  - col: purchase.orders/to_date
+    seq: 110
+  - col: purchase.orders/partner
+    seq: 120
+  - col: purchase.orders/currency
+    seq: 130
+  - col: purchase.orders/incoterms1
+    seq: 140
+  - col: purchase.orders/incoterms2
+    seq: 150
+  - col: purchase.orders/pm
+    seq: 160
+  - col: purchase.orders/state
+    seq: 170
+  - col: purchase.orders/amount
+    seq: 180
+  - col: purchase.orders/vat_amount
+    seq: 190
+  - col: purchase.orders/total_amount
+    seq: 200
+  - col: purchase.orders/bom
+    seq: 210
+  - col: purchase.orders/items
+    seq: 220
+  - col: purchase.orders/pricing
+    seq: 230
+  - col: purchase.orders/roles
+    seq: 240
+  - col: purchase.orders/texts
+    seq: 250
+  - col: purchase.orders/plates
+    seq: 260
+  - col: purchase.orders/payments
+    seq: 270
+  - col: purchase.orders/note
+    seq: 280
+  controller: form:purchase.orders
+  model: purchase.orders
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.orders/otype
+    seq: 0
+  - col: purchase.orders/name
+    seq: 10
+  - col: purchase.orders/company
+    seq: 20
+  - col: purchase.orders/fullname
+    seq: 30
+  - col: purchase.orders/market_id
+    seq: 40
+  - col: purchase.orders/team_id
+    seq: 50
+  - col: purchase.orders/category_id
+    seq: 60
+  - col: purchase.orders/manager
+    seq: 70
+  - col: purchase.orders/origin
+    seq: 80
+  - col: purchase.orders/doo
+    seq: 90
+  - col: purchase.orders/from_date
+    seq: 100
+  - col: purchase.orders/to_date
+    seq: 110
+  - col: purchase.orders/partner
+    seq: 120
+  - col: purchase.orders/currency
+    seq: 130
+  - col: purchase.orders/incoterms1
+    seq: 140
+  - col: purchase.orders/incoterms2
+    seq: 150
+  - col: purchase.orders/pm
+    seq: 160
+  - col: purchase.orders/state
+    seq: 170
+  - col: purchase.orders/amount
+    seq: 180
+  - col: purchase.orders/vat_amount
+    seq: 190
+  - col: purchase.orders/total_amount
+    seq: 200
+  - col: purchase.orders/bom
+    seq: 210
+  controller: gantt:purchase.orders
+  model: purchase.orders
+  standalone: true
+  vtype: gantt
+- cols:
+  - col: purchase.orders/otype
+    seq: 0
+  - col: purchase.orders/name
+    seq: 10
+  - col: purchase.orders/company
+    seq: 20
+  - col: purchase.orders/fullname
+    seq: 30
+  - col: purchase.orders/market_id
+    seq: 40
+  - col: purchase.orders/team_id
+    seq: 50
+  - col: purchase.orders/category_id
+    seq: 60
+  - col: purchase.orders/manager
+    seq: 70
+  - col: purchase.orders/origin
+    seq: 80
+  - col: purchase.orders/doo
+    seq: 90
+  - col: purchase.orders/from_date
+    seq: 100
+  - col: purchase.orders/to_date
+    seq: 110
+  - col: purchase.orders/partner
+    seq: 120
+  - col: purchase.orders/currency
+    seq: 130
+  - col: purchase.orders/incoterms1
+    seq: 140
+  - col: purchase.orders/incoterms2
+    seq: 150
+  - col: purchase.orders/pm
+    seq: 160
+  - col: purchase.orders/state
+    seq: 170
+  - col: purchase.orders/amount
+    seq: 180
+  - col: purchase.orders/vat_amount
+    seq: 190
+  - col: purchase.orders/total_amount
+    seq: 200
+  - col: purchase.orders/bom
+    seq: 210
+  controller: schedule:purchase.orders
+  model: purchase.orders
+  standalone: true
+  vtype: schedule
+- cols:
+  - col: purchase.orders/otype
+    seq: 0
+  - col: purchase.orders/name
+    seq: 10
+  - col: purchase.orders/company
+    seq: 20
+  - col: purchase.orders/fullname
+    seq: 30
+  - col: purchase.orders/market_id
+    seq: 40
+  - col: purchase.orders/team_id
+    seq: 50
+  - col: purchase.orders/category_id
+    seq: 60
+  - col: purchase.orders/manager
+    seq: 70
+  - col: purchase.orders/origin
+    seq: 80
+  - col: purchase.orders/doo
+    seq: 90
+  - col: purchase.orders/from_date
+    seq: 100
+  - col: purchase.orders/to_date
+    seq: 110
+  - col: purchase.orders/partner
+    seq: 120
+  - col: purchase.orders/currency
+    seq: 130
+  - col: purchase.orders/incoterms1
+    seq: 140
+  - col: purchase.orders/incoterms2
+    seq: 150
+  - col: purchase.orders/pm
+    seq: 160
+  - col: purchase.orders/state
+    seq: 170
+  - col: purchase.orders/amount
+    seq: 180
+  - col: purchase.orders/vat_amount
+    seq: 190
+  - col: purchase.orders/total_amount
+    seq: 200
+  - col: purchase.orders/bom
+    seq: 210
+  controller: calendar:purchase.orders
+  model: purchase.orders
+  standalone: true
+  vtype: calendar
+- cols:
+  - col: purchase.orders/otype
+    seq: 0
+  - col: purchase.orders/name
+    seq: 10
+  - col: purchase.orders/company
+    seq: 20
+  - col: purchase.orders/fullname
+    seq: 30
+  - col: purchase.orders/market_id
+    seq: 40
+  - col: purchase.orders/team_id
+    seq: 50
+  - col: purchase.orders/category_id
+    seq: 60
+  - col: purchase.orders/manager
+    seq: 70
+  - col: purchase.orders/origin
+    seq: 80
+  - col: purchase.orders/doo
+    seq: 90
+  - col: purchase.orders/from_date
+    seq: 100
+  - col: purchase.orders/to_date
+    seq: 110
+  - col: purchase.orders/partner
+    seq: 120
+  - col: purchase.orders/currency
+    seq: 130
+  - col: purchase.orders/incoterms1
+    seq: 140
+  - col: purchase.orders/incoterms2
+    seq: 150
+  - col: purchase.orders/pm
+    seq: 160
+  - col: purchase.orders/state
+    seq: 170
+  - col: purchase.orders/amount
+    seq: 180
+  - col: purchase.orders/vat_amount
+    seq: 190
+  - col: purchase.orders/total_amount
+    seq: 200
+  - col: purchase.orders/bom
+    seq: 210
+  controller: graph:purchase.orders
+  model: purchase.orders
+  standalone: true
+  vtype: graph
+- cols:
+  - col: purchase.orders/otype
+    seq: 0
+  - col: purchase.orders/name
+    seq: 10
+  - col: purchase.orders/company
+    seq: 20
+  - col: purchase.orders/fullname
+    seq: 30
+  - col: purchase.orders/market_id
+    seq: 40
+  - col: purchase.orders/team_id
+    seq: 50
+  - col: purchase.orders/category_id
+    seq: 60
+  - col: purchase.orders/manager
+    seq: 70
+  - col: purchase.orders/origin
+    seq: 80
+  - col: purchase.orders/doo
+    seq: 90
+  - col: purchase.orders/from_date
+    seq: 100
+  - col: purchase.orders/to_date
+    seq: 110
+  - col: purchase.orders/partner
+    seq: 120
+  - col: purchase.orders/currency
+    seq: 130
+  - col: purchase.orders/incoterms1
+    seq: 140
+  - col: purchase.orders/incoterms2
+    seq: 150
+  - col: purchase.orders/pm
+    seq: 160
+  - col: purchase.orders/state
+    seq: 170
+  - col: purchase.orders/amount
+    seq: 180
+  - col: purchase.orders/vat_amount
+    seq: 190
+  - col: purchase.orders/total_amount
+    seq: 200
+  - col: purchase.orders/bom
+    seq: 210
+  - col: purchase.orders/note
+    seq: 220
+  controller: kanban:purchase.orders
+  model: purchase.orders
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: purchase.orders/otype
+    seq: 0
+  - col: purchase.orders/name
+    seq: 10
+  - col: purchase.orders/company
+    seq: 20
+  - col: purchase.orders/fullname
+    seq: 30
+  - col: purchase.orders/market_id
+    seq: 40
+  - col: purchase.orders/team_id
+    seq: 50
+  - col: purchase.orders/category_id
+    seq: 60
+  - col: purchase.orders/manager
+    seq: 70
+  - col: purchase.orders/origin
+    seq: 80
+  - col: purchase.orders/doo
+    seq: 90
+  - col: purchase.orders/from_date
+    seq: 100
+  - col: purchase.orders/to_date
+    seq: 110
+  - col: purchase.orders/partner
+    seq: 120
+  - col: purchase.orders/currency
+    seq: 130
+  - col: purchase.orders/incoterms1
+    seq: 140
+  - col: purchase.orders/incoterms2
+    seq: 150
+  - col: purchase.orders/pm
+    seq: 160
+  - col: purchase.orders/state
+    seq: 170
+  - col: purchase.orders/amount
+    seq: 180
+  - col: purchase.orders/vat_amount
+    seq: 190
+  - col: purchase.orders/total_amount
+    seq: 200
+  - col: purchase.orders/bom
+    seq: 210
+  controller: mdx:purchase.orders
+  model: purchase.orders
+  standalone: true
+  vtype: mdx
+- cols:
+  - col: purchase.order.texts/order_id
+    seq: 0
+  - col: purchase.order.texts/seq
+    seq: 10
+  - col: purchase.order.texts/text_id
+    seq: 20
+  - col: purchase.order.texts/descr
+    seq: 30
+  controller: find:purchase.order.texts
+  model: purchase.order.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.texts/order_id
+    seq: 0
+  - col: purchase.order.texts/seq
+    seq: 10
+  - col: purchase.order.texts/text_id
+    seq: 20
+  - col: purchase.order.texts/descr
+    seq: 30
+  - col: purchase.order.texts/content
+    seq: 40
+  controller: o2m-form:purchase.order.texts
+  model: purchase.order.texts
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.texts/order_id
+    seq: 0
+  - col: purchase.order.texts/seq
+    seq: 10
+  - col: purchase.order.texts/text_id
+    seq: 20
+  - col: purchase.order.texts/descr
+    seq: 30
+  controller: o2m-list:purchase.order.texts
+  model: purchase.order.texts
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.roles/order_id
+    seq: 0
+  - col: purchase.order.roles/role_id
+    seq: 10
+  - col: purchase.order.roles/patner_id
+    seq: 20
+  controller: find:purchase.order.roles
+  model: purchase.order.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.roles/order_id
+    seq: 0
+  - col: purchase.order.roles/role_id
+    seq: 10
+  - col: purchase.order.roles/patner_id
+    seq: 20
+  controller: o2m-form:purchase.order.roles
+  model: purchase.order.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.roles/order_id
+    seq: 0
+  - col: purchase.order.roles/role_id
+    seq: 10
+  - col: purchase.order.roles/patner_id
+    seq: 20
+  controller: o2m-list:purchase.order.roles
+  model: purchase.order.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.pricing/order_id
+    seq: 0
+  - col: purchase.order.pricing/level
+    seq: 10
+  - col: purchase.order.pricing/cond
+    seq: 20
+  - col: purchase.order.pricing/from_level
+    seq: 30
+  - col: purchase.order.pricing/to_level
+    seq: 40
+  - col: purchase.order.pricing/group_level
+    seq: 50
+  - col: purchase.order.pricing/amount
+    seq: 60
+  - col: purchase.order.pricing/currency
+    seq: 70
+  controller: find:purchase.order.pricing
+  model: purchase.order.pricing
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.pricing/order_id
+    seq: 0
+  - col: purchase.order.pricing/level
+    seq: 10
+  - col: purchase.order.pricing/cond
+    seq: 20
+  - col: purchase.order.pricing/from_level
+    seq: 30
+  - col: purchase.order.pricing/to_level
+    seq: 40
+  - col: purchase.order.pricing/group_level
+    seq: 50
+  - col: purchase.order.pricing/amount
+    seq: 60
+  - col: purchase.order.pricing/currency
+    seq: 70
+  controller: o2m-form:purchase.order.pricing
+  model: purchase.order.pricing
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.pricing/order_id
+    seq: 0
+  - col: purchase.order.pricing/level
+    seq: 10
+  - col: purchase.order.pricing/cond
+    seq: 20
+  - col: purchase.order.pricing/from_level
+    seq: 30
+  - col: purchase.order.pricing/to_level
+    seq: 40
+  - col: purchase.order.pricing/group_level
+    seq: 50
+  - col: purchase.order.pricing/amount
+    seq: 60
+  - col: purchase.order.pricing/currency
+    seq: 70
+  controller: o2m-list:purchase.order.pricing
+  model: purchase.order.pricing
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.payment.schedules/order_id
+    seq: 0
+  - col: purchase.order.payment.schedules/amount
+    seq: 10
+  - col: purchase.order.payment.schedules/currency
+    seq: 20
+  - col: purchase.order.payment.schedules/schedule
+    seq: 30
+  controller: find:purchase.order.payment.schedules
+  model: purchase.order.payment.schedules
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.payment.schedules/order_id
+    seq: 0
+  - col: purchase.order.payment.schedules/amount
+    seq: 10
+  - col: purchase.order.payment.schedules/currency
+    seq: 20
+  - col: purchase.order.payment.schedules/schedule
+    seq: 30
+  - col: purchase.order.payment.schedules/note
+    seq: 40
+  controller: o2m-form:purchase.order.payment.schedules
+  model: purchase.order.payment.schedules
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.payment.schedules/order_id
+    seq: 0
+  - col: purchase.order.payment.schedules/amount
+    seq: 10
+  - col: purchase.order.payment.schedules/currency
+    seq: 20
+  - col: purchase.order.payment.schedules/schedule
+    seq: 30
+  controller: o2m-list:purchase.order.payment.schedules
+  model: purchase.order.payment.schedules
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.output.plates/order_id
+    seq: 0
+  - col: purchase.order.output.plates/state
+    seq: 10
+  - col: purchase.order.output.plates/otype
+    seq: 20
+  - col: purchase.order.output.plates/partner
+    seq: 30
+  - col: purchase.order.output.plates/role
+    seq: 40
+  - col: purchase.order.output.plates/language
+    seq: 50
+  - col: purchase.order.output.plates/msm
+    seq: 60
+  - col: purchase.order.output.plates/schedule
+    seq: 70
+  controller: find:purchase.order.output.plates
+  model: purchase.order.output.plates
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.output.plates/order_id
+    seq: 0
+  - col: purchase.order.output.plates/state
+    seq: 10
+  - col: purchase.order.output.plates/otype
+    seq: 20
+  - col: purchase.order.output.plates/partner
+    seq: 30
+  - col: purchase.order.output.plates/role
+    seq: 40
+  - col: purchase.order.output.plates/language
+    seq: 50
+  - col: purchase.order.output.plates/msm
+    seq: 60
+  - col: purchase.order.output.plates/schedule
+    seq: 70
+  - col: purchase.order.output.plates/note
+    seq: 80
+  controller: o2m-form:purchase.order.output.plates
+  model: purchase.order.output.plates
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.output.plates/order_id
+    seq: 0
+  - col: purchase.order.output.plates/state
+    seq: 10
+  - col: purchase.order.output.plates/otype
+    seq: 20
+  - col: purchase.order.output.plates/partner
+    seq: 30
+  - col: purchase.order.output.plates/role
+    seq: 40
+  - col: purchase.order.output.plates/language
+    seq: 50
+  - col: purchase.order.output.plates/msm
+    seq: 60
+  - col: purchase.order.output.plates/schedule
+    seq: 70
+  - col: purchase.order.output.plates/note
+    seq: 80
+  controller: o2m-kanban:purchase.order.output.plates
+  model: purchase.order.output.plates
+  standalone: true
+  vtype: o2m-kanban
+- cols:
+  - col: purchase.order.output.plates/order_id
+    seq: 0
+  - col: purchase.order.output.plates/state
+    seq: 10
+  - col: purchase.order.output.plates/otype
+    seq: 20
+  - col: purchase.order.output.plates/partner
+    seq: 30
+  - col: purchase.order.output.plates/role
+    seq: 40
+  - col: purchase.order.output.plates/language
+    seq: 50
+  - col: purchase.order.output.plates/msm
+    seq: 60
+  - col: purchase.order.output.plates/schedule
+    seq: 70
+  controller: o2m-list:purchase.order.output.plates
+  model: purchase.order.output.plates
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.items/order_id
+    seq: 0
+  - col: purchase.order.items/itype_id
+    seq: 10
+  - col: purchase.order.items/product
+    seq: 20
+  - col: purchase.order.items/quantity
+    seq: 30
+  - col: purchase.order.items/uom
+    seq: 40
+  - col: purchase.order.items/price
+    seq: 50
+  - col: purchase.order.items/currency
+    seq: 60
+  - col: purchase.order.items/unit
+    seq: 70
+  - col: purchase.order.items/uop
+    seq: 80
+  - col: purchase.order.items/amount
+    seq: 90
+  - col: purchase.order.items/vat_code
+    seq: 100
+  - col: purchase.order.items/vat_amount
+    seq: 110
+  - col: purchase.order.items/total_amount
+    seq: 120
+  - col: purchase.order.items/volume
+    seq: 130
+  - col: purchase.order.items/volume_total
+    seq: 140
+  - col: purchase.order.items/volume_uom
+    seq: 150
+  - col: purchase.order.items/weight
+    seq: 160
+  - col: purchase.order.items/weight_total
+    seq: 170
+  - col: purchase.order.items/weight_uom
+    seq: 180
+  controller: find:purchase.order.items
+  model: purchase.order.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.items/order_id
+    seq: 0
+  - col: purchase.order.items/itype_id
+    seq: 10
+  - col: purchase.order.items/product
+    seq: 20
+  - col: purchase.order.items/quantity
+    seq: 30
+  - col: purchase.order.items/uom
+    seq: 40
+  - col: purchase.order.items/price
+    seq: 50
+  - col: purchase.order.items/currency
+    seq: 60
+  - col: purchase.order.items/unit
+    seq: 70
+  - col: purchase.order.items/uop
+    seq: 80
+  - col: purchase.order.items/amount
+    seq: 90
+  - col: purchase.order.items/vat_code
+    seq: 100
+  - col: purchase.order.items/vat_amount
+    seq: 110
+  - col: purchase.order.items/total_amount
+    seq: 120
+  - col: purchase.order.items/volume
+    seq: 130
+  - col: purchase.order.items/volume_total
+    seq: 140
+  - col: purchase.order.items/volume_uom
+    seq: 150
+  - col: purchase.order.items/weight
+    seq: 160
+  - col: purchase.order.items/weight_total
+    seq: 170
+  - col: purchase.order.items/weight_uom
+    seq: 180
+  - col: purchase.order.items/delivery_schedules
+    seq: 190
+  - col: purchase.order.items/pricing
+    seq: 200
+  - col: purchase.order.items/roles
+    seq: 210
+  - col: purchase.order.items/texts
+    seq: 220
+  - col: purchase.order.items/plates
+    seq: 230
+  - col: purchase.order.items/payments
+    seq: 240
+  - col: purchase.order.items/note
+    seq: 250
+  controller: o2m-form:purchase.order.items
+  model: purchase.order.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.items/order_id
+    seq: 0
+  - col: purchase.order.items/itype_id
+    seq: 10
+  - col: purchase.order.items/product
+    seq: 20
+  - col: purchase.order.items/quantity
+    seq: 30
+  - col: purchase.order.items/uom
+    seq: 40
+  - col: purchase.order.items/price
+    seq: 50
+  - col: purchase.order.items/currency
+    seq: 60
+  - col: purchase.order.items/unit
+    seq: 70
+  - col: purchase.order.items/uop
+    seq: 80
+  - col: purchase.order.items/amount
+    seq: 90
+  - col: purchase.order.items/vat_code
+    seq: 100
+  - col: purchase.order.items/vat_amount
+    seq: 110
+  - col: purchase.order.items/total_amount
+    seq: 120
+  - col: purchase.order.items/volume
+    seq: 130
+  - col: purchase.order.items/volume_total
+    seq: 140
+  - col: purchase.order.items/volume_uom
+    seq: 150
+  - col: purchase.order.items/weight
+    seq: 160
+  - col: purchase.order.items/weight_total
+    seq: 170
+  - col: purchase.order.items/weight_uom
+    seq: 180
+  - col: purchase.order.items/delivery_schedules
+    seq: 190
+  - col: purchase.order.items/pricing
+    seq: 200
+  - col: purchase.order.items/roles
+    seq: 210
+  - col: purchase.order.items/texts
+    seq: 220
+  - col: purchase.order.items/plates
+    seq: 230
+  - col: purchase.order.items/payments
+    seq: 240
+  controller: o2m-list:purchase.order.items
+  model: purchase.order.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.pricing.items/item_id
+    seq: 0
+  - col: purchase.order.pricing.items/level
+    seq: 10
+  - col: purchase.order.pricing.items/cond
+    seq: 20
+  - col: purchase.order.pricing.items/from_level
+    seq: 30
+  - col: purchase.order.pricing.items/to_level
+    seq: 40
+  - col: purchase.order.pricing.items/group_level
+    seq: 50
+  - col: purchase.order.pricing.items/price
+    seq: 60
+  - col: purchase.order.pricing.items/cop
+    seq: 70
+  - col: purchase.order.pricing.items/unit
+    seq: 80
+  - col: purchase.order.pricing.items/uop
+    seq: 90
+  - col: purchase.order.pricing.items/amount
+    seq: 100
+  - col: purchase.order.pricing.items/currency
+    seq: 110
+  controller: find:purchase.order.pricing.items
+  model: purchase.order.pricing.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.pricing.items/item_id
+    seq: 0
+  - col: purchase.order.pricing.items/level
+    seq: 10
+  - col: purchase.order.pricing.items/cond
+    seq: 20
+  - col: purchase.order.pricing.items/from_level
+    seq: 30
+  - col: purchase.order.pricing.items/to_level
+    seq: 40
+  - col: purchase.order.pricing.items/group_level
+    seq: 50
+  - col: purchase.order.pricing.items/price
+    seq: 60
+  - col: purchase.order.pricing.items/cop
+    seq: 70
+  - col: purchase.order.pricing.items/unit
+    seq: 80
+  - col: purchase.order.pricing.items/uop
+    seq: 90
+  - col: purchase.order.pricing.items/amount
+    seq: 100
+  - col: purchase.order.pricing.items/currency
+    seq: 110
+  controller: o2m-form:purchase.order.pricing.items
+  model: purchase.order.pricing.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.pricing.items/item_id
+    seq: 0
+  - col: purchase.order.pricing.items/level
+    seq: 10
+  - col: purchase.order.pricing.items/cond
+    seq: 20
+  - col: purchase.order.pricing.items/from_level
+    seq: 30
+  - col: purchase.order.pricing.items/to_level
+    seq: 40
+  - col: purchase.order.pricing.items/group_level
+    seq: 50
+  - col: purchase.order.pricing.items/price
+    seq: 60
+  - col: purchase.order.pricing.items/cop
+    seq: 70
+  - col: purchase.order.pricing.items/unit
+    seq: 80
+  - col: purchase.order.pricing.items/uop
+    seq: 90
+  - col: purchase.order.pricing.items/amount
+    seq: 100
+  - col: purchase.order.pricing.items/currency
+    seq: 110
+  controller: o2m-list:purchase.order.pricing.items
+  model: purchase.order.pricing.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.item.texts/item_id
+    seq: 0
+  - col: purchase.order.item.texts/seq
+    seq: 10
+  - col: purchase.order.item.texts/text_id
+    seq: 20
+  - col: purchase.order.item.texts/descr
+    seq: 30
+  controller: find:purchase.order.item.texts
+  model: purchase.order.item.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.item.texts/item_id
+    seq: 0
+  - col: purchase.order.item.texts/seq
+    seq: 10
+  - col: purchase.order.item.texts/text_id
+    seq: 20
+  - col: purchase.order.item.texts/descr
+    seq: 30
+  - col: purchase.order.item.texts/content
+    seq: 40
+  controller: o2m-form:purchase.order.item.texts
+  model: purchase.order.item.texts
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.item.texts/item_id
+    seq: 0
+  - col: purchase.order.item.texts/seq
+    seq: 10
+  - col: purchase.order.item.texts/text_id
+    seq: 20
+  - col: purchase.order.item.texts/descr
+    seq: 30
+  controller: o2m-list:purchase.order.item.texts
+  model: purchase.order.item.texts
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.item.roles/item_id
+    seq: 0
+  - col: purchase.order.item.roles/role_id
+    seq: 10
+  - col: purchase.order.item.roles/patner_id
+    seq: 20
+  controller: find:purchase.order.item.roles
+  model: purchase.order.item.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.item.roles/item_id
+    seq: 0
+  - col: purchase.order.item.roles/role_id
+    seq: 10
+  - col: purchase.order.item.roles/patner_id
+    seq: 20
+  controller: o2m-form:purchase.order.item.roles
+  model: purchase.order.item.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.item.roles/item_id
+    seq: 0
+  - col: purchase.order.item.roles/role_id
+    seq: 10
+  - col: purchase.order.item.roles/patner_id
+    seq: 20
+  controller: o2m-list:purchase.order.item.roles
+  model: purchase.order.item.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.item.delivery.schedules/item_id
+    seq: 0
+  - col: purchase.order.item.delivery.schedules/quantity
+    seq: 10
+  - col: purchase.order.item.delivery.schedules/schedule
+    seq: 20
+  controller: find:purchase.order.item.delivery.schedules
+  model: purchase.order.item.delivery.schedules
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.item.delivery.schedules/item_id
+    seq: 0
+  - col: purchase.order.item.delivery.schedules/quantity
+    seq: 10
+  - col: purchase.order.item.delivery.schedules/schedule
+    seq: 20
+  - col: purchase.order.item.delivery.schedules/note
+    seq: 30
+  controller: o2m-form:purchase.order.item.delivery.schedules
+  model: purchase.order.item.delivery.schedules
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.item.delivery.schedules/item_id
+    seq: 0
+  - col: purchase.order.item.delivery.schedules/quantity
+    seq: 10
+  - col: purchase.order.item.delivery.schedules/schedule
+    seq: 20
+  controller: o2m-list:purchase.order.item.delivery.schedules
+  model: purchase.order.item.delivery.schedules
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.item.output.plates/item_id
+    seq: 0
+  - col: purchase.order.item.output.plates/state
+    seq: 10
+  - col: purchase.order.item.output.plates/otype
+    seq: 20
+  - col: purchase.order.item.output.plates/partner
+    seq: 30
+  - col: purchase.order.item.output.plates/role
+    seq: 40
+  - col: purchase.order.item.output.plates/language
+    seq: 50
+  - col: purchase.order.item.output.plates/msm
+    seq: 60
+  - col: purchase.order.item.output.plates/schedule
+    seq: 70
+  controller: find:purchase.order.item.output.plates
+  model: purchase.order.item.output.plates
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.item.output.plates/item_id
+    seq: 0
+  - col: purchase.order.item.output.plates/state
+    seq: 10
+  - col: purchase.order.item.output.plates/otype
+    seq: 20
+  - col: purchase.order.item.output.plates/partner
+    seq: 30
+  - col: purchase.order.item.output.plates/role
+    seq: 40
+  - col: purchase.order.item.output.plates/language
+    seq: 50
+  - col: purchase.order.item.output.plates/msm
+    seq: 60
+  - col: purchase.order.item.output.plates/schedule
+    seq: 70
+  - col: purchase.order.item.output.plates/note
+    seq: 80
+  controller: o2m-form:purchase.order.item.output.plates
+  model: purchase.order.item.output.plates
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.item.output.plates/item_id
+    seq: 0
+  - col: purchase.order.item.output.plates/state
+    seq: 10
+  - col: purchase.order.item.output.plates/otype
+    seq: 20
+  - col: purchase.order.item.output.plates/partner
+    seq: 30
+  - col: purchase.order.item.output.plates/role
+    seq: 40
+  - col: purchase.order.item.output.plates/language
+    seq: 50
+  - col: purchase.order.item.output.plates/msm
+    seq: 60
+  - col: purchase.order.item.output.plates/schedule
+    seq: 70
+  - col: purchase.order.item.output.plates/note
+    seq: 80
+  controller: o2m-kanban:purchase.order.item.output.plates
+  model: purchase.order.item.output.plates
+  standalone: true
+  vtype: o2m-kanban
+- cols:
+  - col: purchase.order.item.output.plates/item_id
+    seq: 0
+  - col: purchase.order.item.output.plates/state
+    seq: 10
+  - col: purchase.order.item.output.plates/otype
+    seq: 20
+  - col: purchase.order.item.output.plates/partner
+    seq: 30
+  - col: purchase.order.item.output.plates/role
+    seq: 40
+  - col: purchase.order.item.output.plates/language
+    seq: 50
+  - col: purchase.order.item.output.plates/msm
+    seq: 60
+  - col: purchase.order.item.output.plates/schedule
+    seq: 70
+  controller: o2m-list:purchase.order.item.output.plates
+  model: purchase.order.item.output.plates
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.order.item.payment.schedules/item_id
+    seq: 0
+  - col: purchase.order.item.payment.schedules/amount
+    seq: 10
+  - col: purchase.order.item.payment.schedules/currency
+    seq: 20
+  - col: purchase.order.item.payment.schedules/schedule
+    seq: 30
+  controller: find:purchase.order.item.payment.schedules
+  model: purchase.order.item.payment.schedules
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.order.item.payment.schedules/item_id
+    seq: 0
+  - col: purchase.order.item.payment.schedules/amount
+    seq: 10
+  - col: purchase.order.item.payment.schedules/currency
+    seq: 20
+  - col: purchase.order.item.payment.schedules/schedule
+    seq: 30
+  - col: purchase.order.item.payment.schedules/note
+    seq: 40
+  controller: o2m-form:purchase.order.item.payment.schedules
+  model: purchase.order.item.payment.schedules
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.order.item.payment.schedules/item_id
+    seq: 0
+  - col: purchase.order.item.payment.schedules/amount
+    seq: 10
+  - col: purchase.order.item.payment.schedules/currency
+    seq: 20
+  - col: purchase.order.item.payment.schedules/schedule
+    seq: 30
+  controller: o2m-list:purchase.order.item.payment.schedules
+  model: purchase.order.item.payment.schedules
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.invoices/itype
+    seq: 0
+  - col: purchase.invoices/name
+    seq: 10
+  - col: purchase.invoices/company
+    seq: 20
+  - col: purchase.invoices/fullname
+    seq: 30
+  - col: purchase.invoices/market_id
+    seq: 40
+  - col: purchase.invoices/team_id
+    seq: 50
+  - col: purchase.invoices/category_id
+    seq: 60
+  - col: purchase.invoices/origin
+    seq: 70
+  - col: purchase.invoices/doi
+    seq: 80
+  - col: purchase.invoices/partner
+    seq: 90
+  - col: purchase.invoices/currency
+    seq: 100
+  - col: purchase.invoices/incoterms1
+    seq: 110
+  - col: purchase.invoices/incoterms2
+    seq: 120
+  - col: purchase.invoices/state
+    seq: 130
+  - col: purchase.invoices/amount
+    seq: 140
+  - col: purchase.invoices/vat_amount
+    seq: 150
+  - col: purchase.invoices/total_amount
+    seq: 160
+  - col: purchase.invoices/bom
+    seq: 170
+  controller: search:purchase.invoices
+  model: purchase.invoices
+  standalone: true
+  vtype: search
+- cols:
+  - col: purchase.invoices/itype
+    seq: 0
+  - col: purchase.invoices/name
+    seq: 10
+  - col: purchase.invoices/company
+    seq: 20
+  - col: purchase.invoices/fullname
+    seq: 30
+  - col: purchase.invoices/market_id
+    seq: 40
+  - col: purchase.invoices/team_id
+    seq: 50
+  - col: purchase.invoices/category_id
+    seq: 60
+  - col: purchase.invoices/origin
+    seq: 70
+  - col: purchase.invoices/doi
+    seq: 80
+  - col: purchase.invoices/partner
+    seq: 90
+  - col: purchase.invoices/currency
+    seq: 100
+  - col: purchase.invoices/incoterms1
+    seq: 110
+  - col: purchase.invoices/incoterms2
+    seq: 120
+  - col: purchase.invoices/state
+    seq: 130
+  - col: purchase.invoices/amount
+    seq: 140
+  - col: purchase.invoices/vat_amount
+    seq: 150
+  - col: purchase.invoices/total_amount
+    seq: 160
+  - col: purchase.invoices/bom
+    seq: 170
+  controller: find:purchase.invoices
+  model: purchase.invoices
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.invoices/itype
+    seq: 0
+  - col: purchase.invoices/name
+    seq: 10
+  - col: purchase.invoices/company
+    seq: 20
+  - col: purchase.invoices/fullname
+    seq: 30
+  - col: purchase.invoices/market_id
+    seq: 40
+  - col: purchase.invoices/team_id
+    seq: 50
+  - col: purchase.invoices/category_id
+    seq: 60
+  - col: purchase.invoices/origin
+    seq: 70
+  - col: purchase.invoices/doi
+    seq: 80
+  - col: purchase.invoices/partner
+    seq: 90
+  - col: purchase.invoices/currency
+    seq: 100
+  - col: purchase.invoices/incoterms1
+    seq: 110
+  - col: purchase.invoices/incoterms2
+    seq: 120
+  - col: purchase.invoices/state
+    seq: 130
+  - col: purchase.invoices/amount
+    seq: 140
+  - col: purchase.invoices/vat_amount
+    seq: 150
+  - col: purchase.invoices/total_amount
+    seq: 160
+  - col: purchase.invoices/bom
+    seq: 170
+  - col: purchase.invoices/items
+    seq: 180
+  - col: purchase.invoices/pricing
+    seq: 190
+  - col: purchase.invoices/roles
+    seq: 200
+  - col: purchase.invoices/texts
+    seq: 210
+  controller: list:purchase.invoices
+  model: purchase.invoices
+  standalone: true
+  vtype: list
+- cols:
+  - col: purchase.invoices/itype
+    seq: 0
+  - col: purchase.invoices/name
+    seq: 10
+  - col: purchase.invoices/company
+    seq: 20
+  - col: purchase.invoices/fullname
+    seq: 30
+  - col: purchase.invoices/market_id
+    seq: 40
+  - col: purchase.invoices/team_id
+    seq: 50
+  - col: purchase.invoices/category_id
+    seq: 60
+  - col: purchase.invoices/origin
+    seq: 70
+  - col: purchase.invoices/doi
+    seq: 80
+  - col: purchase.invoices/partner
+    seq: 90
+  - col: purchase.invoices/currency
+    seq: 100
+  - col: purchase.invoices/incoterms1
+    seq: 110
+  - col: purchase.invoices/incoterms2
+    seq: 120
+  - col: purchase.invoices/state
+    seq: 130
+  - col: purchase.invoices/amount
+    seq: 140
+  - col: purchase.invoices/vat_amount
+    seq: 150
+  - col: purchase.invoices/total_amount
+    seq: 160
+  - col: purchase.invoices/bom
+    seq: 170
+  - col: purchase.invoices/items
+    seq: 180
+  - col: purchase.invoices/pricing
+    seq: 190
+  - col: purchase.invoices/roles
+    seq: 200
+  - col: purchase.invoices/texts
+    seq: 210
+  - col: purchase.invoices/note
+    seq: 220
+  controller: form.modal:purchase.invoices
+  model: purchase.invoices
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: purchase.invoices/itype
+    seq: 0
+  - col: purchase.invoices/name
+    seq: 10
+  - col: purchase.invoices/company
+    seq: 20
+  - col: purchase.invoices/fullname
+    seq: 30
+  - col: purchase.invoices/market_id
+    seq: 40
+  - col: purchase.invoices/team_id
+    seq: 50
+  - col: purchase.invoices/category_id
+    seq: 60
+  - col: purchase.invoices/origin
+    seq: 70
+  - col: purchase.invoices/doi
+    seq: 80
+  - col: purchase.invoices/partner
+    seq: 90
+  - col: purchase.invoices/currency
+    seq: 100
+  - col: purchase.invoices/incoterms1
+    seq: 110
+  - col: purchase.invoices/incoterms2
+    seq: 120
+  - col: purchase.invoices/state
+    seq: 130
+  - col: purchase.invoices/amount
+    seq: 140
+  - col: purchase.invoices/vat_amount
+    seq: 150
+  - col: purchase.invoices/total_amount
+    seq: 160
+  - col: purchase.invoices/bom
+    seq: 170
+  - col: purchase.invoices/items
+    seq: 180
+  - col: purchase.invoices/pricing
+    seq: 190
+  - col: purchase.invoices/roles
+    seq: 200
+  - col: purchase.invoices/texts
+    seq: 210
+  - col: purchase.invoices/note
+    seq: 220
+  controller: form:purchase.invoices
+  model: purchase.invoices
+  standalone: true
+  vtype: form
+- cols:
+  - col: purchase.invoices/itype
+    seq: 0
+  - col: purchase.invoices/name
+    seq: 10
+  - col: purchase.invoices/company
+    seq: 20
+  - col: purchase.invoices/fullname
+    seq: 30
+  - col: purchase.invoices/market_id
+    seq: 40
+  - col: purchase.invoices/team_id
+    seq: 50
+  - col: purchase.invoices/category_id
+    seq: 60
+  - col: purchase.invoices/origin
+    seq: 70
+  - col: purchase.invoices/doi
+    seq: 80
+  - col: purchase.invoices/partner
+    seq: 90
+  - col: purchase.invoices/currency
+    seq: 100
+  - col: purchase.invoices/incoterms1
+    seq: 110
+  - col: purchase.invoices/incoterms2
+    seq: 120
+  - col: purchase.invoices/state
+    seq: 130
+  - col: purchase.invoices/amount
+    seq: 140
+  - col: purchase.invoices/vat_amount
+    seq: 150
+  - col: purchase.invoices/total_amount
+    seq: 160
+  - col: purchase.invoices/bom
+    seq: 170
+  controller: calendar:purchase.invoices
+  model: purchase.invoices
+  standalone: true
+  vtype: calendar
+- cols:
+  - col: purchase.invoices/itype
+    seq: 0
+  - col: purchase.invoices/name
+    seq: 10
+  - col: purchase.invoices/company
+    seq: 20
+  - col: purchase.invoices/fullname
+    seq: 30
+  - col: purchase.invoices/market_id
+    seq: 40
+  - col: purchase.invoices/team_id
+    seq: 50
+  - col: purchase.invoices/category_id
+    seq: 60
+  - col: purchase.invoices/origin
+    seq: 70
+  - col: purchase.invoices/doi
+    seq: 80
+  - col: purchase.invoices/partner
+    seq: 90
+  - col: purchase.invoices/currency
+    seq: 100
+  - col: purchase.invoices/incoterms1
+    seq: 110
+  - col: purchase.invoices/incoterms2
+    seq: 120
+  - col: purchase.invoices/state
+    seq: 130
+  - col: purchase.invoices/amount
+    seq: 140
+  - col: purchase.invoices/vat_amount
+    seq: 150
+  - col: purchase.invoices/total_amount
+    seq: 160
+  - col: purchase.invoices/bom
+    seq: 170
+  controller: graph:purchase.invoices
+  model: purchase.invoices
+  standalone: true
+  vtype: graph
+- cols:
+  - col: purchase.invoices/itype
+    seq: 0
+  - col: purchase.invoices/name
+    seq: 10
+  - col: purchase.invoices/company
+    seq: 20
+  - col: purchase.invoices/fullname
+    seq: 30
+  - col: purchase.invoices/market_id
+    seq: 40
+  - col: purchase.invoices/team_id
+    seq: 50
+  - col: purchase.invoices/category_id
+    seq: 60
+  - col: purchase.invoices/origin
+    seq: 70
+  - col: purchase.invoices/doi
+    seq: 80
+  - col: purchase.invoices/partner
+    seq: 90
+  - col: purchase.invoices/currency
+    seq: 100
+  - col: purchase.invoices/incoterms1
+    seq: 110
+  - col: purchase.invoices/incoterms2
+    seq: 120
+  - col: purchase.invoices/state
+    seq: 130
+  - col: purchase.invoices/amount
+    seq: 140
+  - col: purchase.invoices/vat_amount
+    seq: 150
+  - col: purchase.invoices/total_amount
+    seq: 160
+  - col: purchase.invoices/bom
+    seq: 170
+  - col: purchase.invoices/note
+    seq: 180
+  controller: kanban:purchase.invoices
+  model: purchase.invoices
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: purchase.invoices/itype
+    seq: 0
+  - col: purchase.invoices/name
+    seq: 10
+  - col: purchase.invoices/company
+    seq: 20
+  - col: purchase.invoices/fullname
+    seq: 30
+  - col: purchase.invoices/market_id
+    seq: 40
+  - col: purchase.invoices/team_id
+    seq: 50
+  - col: purchase.invoices/category_id
+    seq: 60
+  - col: purchase.invoices/origin
+    seq: 70
+  - col: purchase.invoices/doi
+    seq: 80
+  - col: purchase.invoices/partner
+    seq: 90
+  - col: purchase.invoices/currency
+    seq: 100
+  - col: purchase.invoices/incoterms1
+    seq: 110
+  - col: purchase.invoices/incoterms2
+    seq: 120
+  - col: purchase.invoices/state
+    seq: 130
+  - col: purchase.invoices/amount
+    seq: 140
+  - col: purchase.invoices/vat_amount
+    seq: 150
+  - col: purchase.invoices/total_amount
+    seq: 160
+  - col: purchase.invoices/bom
+    seq: 170
+  controller: mdx:purchase.invoices
+  model: purchase.invoices
+  standalone: true
+  vtype: mdx
+- cols:
+  - col: purchase.invoice.pricing/invoice_id
+    seq: 0
+  - col: purchase.invoice.pricing/level
+    seq: 10
+  - col: purchase.invoice.pricing/cond
+    seq: 20
+  - col: purchase.invoice.pricing/from_level
+    seq: 30
+  - col: purchase.invoice.pricing/to_level
+    seq: 40
+  - col: purchase.invoice.pricing/group_level
+    seq: 50
+  - col: purchase.invoice.pricing/amount
+    seq: 60
+  - col: purchase.invoice.pricing/currency
+    seq: 70
+  controller: find:purchase.invoice.pricing
+  model: purchase.invoice.pricing
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.invoice.pricing/invoice_id
+    seq: 0
+  - col: purchase.invoice.pricing/level
+    seq: 10
+  - col: purchase.invoice.pricing/cond
+    seq: 20
+  - col: purchase.invoice.pricing/from_level
+    seq: 30
+  - col: purchase.invoice.pricing/to_level
+    seq: 40
+  - col: purchase.invoice.pricing/group_level
+    seq: 50
+  - col: purchase.invoice.pricing/amount
+    seq: 60
+  - col: purchase.invoice.pricing/currency
+    seq: 70
+  controller: o2m-form:purchase.invoice.pricing
+  model: purchase.invoice.pricing
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.invoice.pricing/invoice_id
+    seq: 0
+  - col: purchase.invoice.pricing/level
+    seq: 10
+  - col: purchase.invoice.pricing/cond
+    seq: 20
+  - col: purchase.invoice.pricing/from_level
+    seq: 30
+  - col: purchase.invoice.pricing/to_level
+    seq: 40
+  - col: purchase.invoice.pricing/group_level
+    seq: 50
+  - col: purchase.invoice.pricing/amount
+    seq: 60
+  - col: purchase.invoice.pricing/currency
+    seq: 70
+  controller: o2m-list:purchase.invoice.pricing
+  model: purchase.invoice.pricing
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.invoice.texts/invoice_id
+    seq: 0
+  - col: purchase.invoice.texts/seq
+    seq: 10
+  - col: purchase.invoice.texts/text_id
+    seq: 20
+  - col: purchase.invoice.texts/descr
+    seq: 30
+  controller: find:purchase.invoice.texts
+  model: purchase.invoice.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.invoice.texts/invoice_id
+    seq: 0
+  - col: purchase.invoice.texts/seq
+    seq: 10
+  - col: purchase.invoice.texts/text_id
+    seq: 20
+  - col: purchase.invoice.texts/descr
+    seq: 30
+  - col: purchase.invoice.texts/content
+    seq: 40
+  controller: o2m-form:purchase.invoice.texts
+  model: purchase.invoice.texts
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.invoice.texts/invoice_id
+    seq: 0
+  - col: purchase.invoice.texts/seq
+    seq: 10
+  - col: purchase.invoice.texts/text_id
+    seq: 20
+  - col: purchase.invoice.texts/descr
+    seq: 30
+  controller: o2m-list:purchase.invoice.texts
+  model: purchase.invoice.texts
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.invoice.roles/invoice_id
+    seq: 0
+  - col: purchase.invoice.roles/role_id
+    seq: 10
+  - col: purchase.invoice.roles/patner_id
+    seq: 20
+  controller: find:purchase.invoice.roles
+  model: purchase.invoice.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.invoice.roles/invoice_id
+    seq: 0
+  - col: purchase.invoice.roles/role_id
+    seq: 10
+  - col: purchase.invoice.roles/patner_id
+    seq: 20
+  controller: o2m-form:purchase.invoice.roles
+  model: purchase.invoice.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.invoice.roles/invoice_id
+    seq: 0
+  - col: purchase.invoice.roles/role_id
+    seq: 10
+  - col: purchase.invoice.roles/patner_id
+    seq: 20
+  controller: o2m-list:purchase.invoice.roles
+  model: purchase.invoice.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.invoice.items/invoice_id
+    seq: 0
+  - col: purchase.invoice.items/product
+    seq: 10
+  - col: purchase.invoice.items/quantity
+    seq: 20
+  - col: purchase.invoice.items/uom
+    seq: 30
+  - col: purchase.invoice.items/price
+    seq: 40
+  - col: purchase.invoice.items/currency
+    seq: 50
+  - col: purchase.invoice.items/unit
+    seq: 60
+  - col: purchase.invoice.items/uop
+    seq: 70
+  - col: purchase.invoice.items/amount
+    seq: 80
+  - col: purchase.invoice.items/vat_code
+    seq: 90
+  - col: purchase.invoice.items/vat_amount
+    seq: 100
+  - col: purchase.invoice.items/total_amount
+    seq: 110
+  controller: find:purchase.invoice.items
+  model: purchase.invoice.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.invoice.items/invoice_id
+    seq: 0
+  - col: purchase.invoice.items/product
+    seq: 10
+  - col: purchase.invoice.items/quantity
+    seq: 20
+  - col: purchase.invoice.items/uom
+    seq: 30
+  - col: purchase.invoice.items/price
+    seq: 40
+  - col: purchase.invoice.items/currency
+    seq: 50
+  - col: purchase.invoice.items/unit
+    seq: 60
+  - col: purchase.invoice.items/uop
+    seq: 70
+  - col: purchase.invoice.items/amount
+    seq: 80
+  - col: purchase.invoice.items/vat_code
+    seq: 90
+  - col: purchase.invoice.items/vat_amount
+    seq: 100
+  - col: purchase.invoice.items/total_amount
+    seq: 110
+  - col: purchase.invoice.items/delivery_schedules
+    seq: 120
+  - col: purchase.invoice.items/pricing
+    seq: 130
+  - col: purchase.invoice.items/roles
+    seq: 140
+  - col: purchase.invoice.items/texts
+    seq: 150
+  - col: purchase.invoice.items/note
+    seq: 160
+  controller: o2m-form:purchase.invoice.items
+  model: purchase.invoice.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.invoice.items/invoice_id
+    seq: 0
+  - col: purchase.invoice.items/product
+    seq: 10
+  - col: purchase.invoice.items/quantity
+    seq: 20
+  - col: purchase.invoice.items/uom
+    seq: 30
+  - col: purchase.invoice.items/price
+    seq: 40
+  - col: purchase.invoice.items/currency
+    seq: 50
+  - col: purchase.invoice.items/unit
+    seq: 60
+  - col: purchase.invoice.items/uop
+    seq: 70
+  - col: purchase.invoice.items/amount
+    seq: 80
+  - col: purchase.invoice.items/vat_code
+    seq: 90
+  - col: purchase.invoice.items/vat_amount
+    seq: 100
+  - col: purchase.invoice.items/total_amount
+    seq: 110
+  - col: purchase.invoice.items/delivery_schedules
+    seq: 120
+  - col: purchase.invoice.items/pricing
+    seq: 130
+  - col: purchase.invoice.items/roles
+    seq: 140
+  - col: purchase.invoice.items/texts
+    seq: 150
+  controller: o2m-list:purchase.invoice.items
+  model: purchase.invoice.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.invoice.item.texts/item_id
+    seq: 0
+  - col: purchase.invoice.item.texts/seq
+    seq: 10
+  - col: purchase.invoice.item.texts/text_id
+    seq: 20
+  - col: purchase.invoice.item.texts/descr
+    seq: 30
+  controller: find:purchase.invoice.item.texts
+  model: purchase.invoice.item.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.invoice.item.texts/item_id
+    seq: 0
+  - col: purchase.invoice.item.texts/seq
+    seq: 10
+  - col: purchase.invoice.item.texts/text_id
+    seq: 20
+  - col: purchase.invoice.item.texts/descr
+    seq: 30
+  - col: purchase.invoice.item.texts/content
+    seq: 40
+  controller: o2m-form:purchase.invoice.item.texts
+  model: purchase.invoice.item.texts
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.invoice.item.texts/item_id
+    seq: 0
+  - col: purchase.invoice.item.texts/seq
+    seq: 10
+  - col: purchase.invoice.item.texts/text_id
+    seq: 20
+  - col: purchase.invoice.item.texts/descr
+    seq: 30
+  controller: o2m-list:purchase.invoice.item.texts
+  model: purchase.invoice.item.texts
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.invoice.item.roles/item_id
+    seq: 0
+  - col: purchase.invoice.item.roles/role_id
+    seq: 10
+  - col: purchase.invoice.item.roles/patner_id
+    seq: 20
+  controller: find:purchase.invoice.item.roles
+  model: purchase.invoice.item.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.invoice.item.roles/item_id
+    seq: 0
+  - col: purchase.invoice.item.roles/role_id
+    seq: 10
+  - col: purchase.invoice.item.roles/patner_id
+    seq: 20
+  controller: o2m-form:purchase.invoice.item.roles
+  model: purchase.invoice.item.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.invoice.item.roles/item_id
+    seq: 0
+  - col: purchase.invoice.item.roles/role_id
+    seq: 10
+  - col: purchase.invoice.item.roles/patner_id
+    seq: 20
+  controller: o2m-list:purchase.invoice.item.roles
+  model: purchase.invoice.item.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.invoice.pricing.items/item_id
+    seq: 0
+  - col: purchase.invoice.pricing.items/level
+    seq: 10
+  - col: purchase.invoice.pricing.items/cond
+    seq: 20
+  - col: purchase.invoice.pricing.items/from_level
+    seq: 30
+  - col: purchase.invoice.pricing.items/to_level
+    seq: 40
+  - col: purchase.invoice.pricing.items/group_level
+    seq: 50
+  - col: purchase.invoice.pricing.items/price
+    seq: 60
+  - col: purchase.invoice.pricing.items/cop
+    seq: 70
+  - col: purchase.invoice.pricing.items/unit
+    seq: 80
+  - col: purchase.invoice.pricing.items/uop
+    seq: 90
+  - col: purchase.invoice.pricing.items/amount
+    seq: 100
+  - col: purchase.invoice.pricing.items/currency
+    seq: 110
+  controller: find:purchase.invoice.pricing.items
+  model: purchase.invoice.pricing.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.invoice.pricing.items/item_id
+    seq: 0
+  - col: purchase.invoice.pricing.items/level
+    seq: 10
+  - col: purchase.invoice.pricing.items/cond
+    seq: 20
+  - col: purchase.invoice.pricing.items/from_level
+    seq: 30
+  - col: purchase.invoice.pricing.items/to_level
+    seq: 40
+  - col: purchase.invoice.pricing.items/group_level
+    seq: 50
+  - col: purchase.invoice.pricing.items/price
+    seq: 60
+  - col: purchase.invoice.pricing.items/cop
+    seq: 70
+  - col: purchase.invoice.pricing.items/unit
+    seq: 80
+  - col: purchase.invoice.pricing.items/uop
+    seq: 90
+  - col: purchase.invoice.pricing.items/amount
+    seq: 100
+  - col: purchase.invoice.pricing.items/currency
+    seq: 110
+  controller: o2m-form:purchase.invoice.pricing.items
+  model: purchase.invoice.pricing.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.invoice.pricing.items/item_id
+    seq: 0
+  - col: purchase.invoice.pricing.items/level
+    seq: 10
+  - col: purchase.invoice.pricing.items/cond
+    seq: 20
+  - col: purchase.invoice.pricing.items/from_level
+    seq: 30
+  - col: purchase.invoice.pricing.items/to_level
+    seq: 40
+  - col: purchase.invoice.pricing.items/group_level
+    seq: 50
+  - col: purchase.invoice.pricing.items/price
+    seq: 60
+  - col: purchase.invoice.pricing.items/cop
+    seq: 70
+  - col: purchase.invoice.pricing.items/unit
+    seq: 80
+  - col: purchase.invoice.pricing.items/uop
+    seq: 90
+  - col: purchase.invoice.pricing.items/amount
+    seq: 100
+  - col: purchase.invoice.pricing.items/currency
+    seq: 110
+  controller: o2m-list:purchase.invoice.pricing.items
+  model: purchase.invoice.pricing.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: purchase.invoce.item.delivery.schedules/item_id
+    seq: 0
+  - col: purchase.invoce.item.delivery.schedules/quantity
+    seq: 10
+  - col: purchase.invoce.item.delivery.schedules/schedule
+    seq: 20
+  controller: find:purchase.invoce.item.delivery.schedules
+  model: purchase.invoce.item.delivery.schedules
+  standalone: true
+  vtype: find
+- cols:
+  - col: purchase.invoce.item.delivery.schedules/item_id
+    seq: 0
+  - col: purchase.invoce.item.delivery.schedules/quantity
+    seq: 10
+  - col: purchase.invoce.item.delivery.schedules/schedule
+    seq: 20
+  - col: purchase.invoce.item.delivery.schedules/note
+    seq: 30
+  controller: o2m-form:purchase.invoce.item.delivery.schedules
+  model: purchase.invoce.item.delivery.schedules
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: purchase.invoce.item.delivery.schedules/item_id
+    seq: 0
+  - col: purchase.invoce.item.delivery.schedules/quantity
+    seq: 10
+  - col: purchase.invoce.item.delivery.schedules/schedule
+    seq: 20
+  controller: o2m-list:purchase.invoce.item.delivery.schedules
+  model: purchase.invoce.item.delivery.schedules
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: md.purchase.product/product_id
+    seq: 0
+  - col: md.purchase.product/vat
+    seq: 10
+  - col: md.purchase.product/uom
+    seq: 20
+  - col: md.purchase.product/price
+    seq: 30
+  - col: md.purchase.product/currency
+    seq: 40
+  - col: md.purchase.product/unit
+    seq: 50
+  - col: md.purchase.product/uop
+    seq: 60
+  - col: md.purchase.product/note
+    seq: 70
+  controller: find:md.purchase.product
+  model: md.purchase.product
+  standalone: true
+  vtype: find
+- cols:
+  - col: md.purchase.product/product_id
+    seq: 0
+  - col: md.purchase.product/vat
+    seq: 10
+  - col: md.purchase.product/uom
+    seq: 20
+  - col: md.purchase.product/price
+    seq: 30
+  - col: md.purchase.product/currency
+    seq: 40
+  - col: md.purchase.product/unit
+    seq: 50
+  - col: md.purchase.product/uop
+    seq: 60
+  - col: md.purchase.product/note
+    seq: 70
+  controller: o2m-form:md.purchase.product
+  model: md.purchase.product
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: md.purchase.product/product_id
+    seq: 0
+  - col: md.purchase.product/vat
+    seq: 10
+  - col: md.purchase.product/uom
+    seq: 20
+  - col: md.purchase.product/price
+    seq: 30
+  - col: md.purchase.product/currency
+    seq: 40
+  - col: md.purchase.product/unit
+    seq: 50
+  - col: md.purchase.product/uop
+    seq: 60
+  - col: md.purchase.product/note
+    seq: 70
+  controller: o2m-list:md.purchase.product
+  model: md.purchase.product
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: pricing.purchase.b0001/product
+    seq: 0
+  - col: pricing.purchase.b0001/uom
+    seq: 10
+  - col: pricing.purchase.b0001/price
+    seq: 20
+  - col: pricing.purchase.b0001/currency
+    seq: 30
+  - col: pricing.purchase.b0001/unit
+    seq: 40
+  - col: pricing.purchase.b0001/uop
+    seq: 50
+  - col: pricing.purchase.b0001/note
+    seq: 60
+  controller: find:pricing.purchase.b0001
+  model: pricing.purchase.b0001
+  standalone: true
+  vtype: find
+- cols:
+  - col: pricing.purchase.b0002/product
+    seq: 0
+  - col: pricing.purchase.b0002/uom
+    seq: 10
+  - col: pricing.purchase.b0002/price
+    seq: 20
+  - col: pricing.purchase.b0002/currency
+    seq: 30
+  - col: pricing.purchase.b0002/unit
+    seq: 40
+  - col: pricing.purchase.b0002/uop
+    seq: 50
+  - col: pricing.purchase.b0002/note
+    seq: 60
+  controller: find:pricing.purchase.b0002
+  model: pricing.purchase.b0002
+  standalone: true
+  vtype: find
+- cols:
+  - col: pricing.purchase.b0003/product
+    seq: 0
+  - col: pricing.purchase.b0003/uom
+    seq: 10
+  - col: pricing.purchase.b0003/price
+    seq: 20
+  - col: pricing.purchase.b0003/currency
+    seq: 30
+  - col: pricing.purchase.b0003/unit
+    seq: 40
+  - col: pricing.purchase.b0003/uop
+    seq: 50
+  - col: pricing.purchase.b0003/note
+    seq: 60
+  controller: find:pricing.purchase.b0003
+  model: pricing.purchase.b0003
+  standalone: true
+  vtype: find

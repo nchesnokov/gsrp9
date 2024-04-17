@@ -27,14 +27,14 @@ def RecordAction(obj,cat='models'):
 def RecordMenu(name,label,parent=None):
 	record = {'name':name,'label':label}
 	record['parent_id'] = parent
-	
+
 	return record
 
 def RecordMenuItem(idx,module,obj,label,menu,cat='models'):
 	record = {'type_obj':cat,'sequence':idx,'name': cat + '/' + concat(['ui.menu',obj,'search']),'label':label,'action_id': cat + '/' + concat(['action',obj,'search'])}
 	if menu:
 		record['parent_id'] = menu
-	
+
 	return record
 
 #
@@ -65,15 +65,15 @@ def Area(self, modules = None, context={}):
 								models.append(obj)
 							elif 'class_model' in info and info['class_model'] in ('C','E'):
 								cust_models.append(obj)
-	
+
 			if len(models) > 0 or len(cust_models) > 0:
 				res_menu =[]
 				res_actions = []
 				res_framework_actions = []
-	
+
 				if module == 'bc':
 					res_menu.append(RecordMenu(concat(['ui','menu','customize']),'Customizing'))
-	
+
 				if len(models) > 0:
 					res_menu.append(RecordMenu(concat(['ui','menu','module',module]),label))
 					for idx,model in enumerate(models):
@@ -82,8 +82,8 @@ def Area(self, modules = None, context={}):
 						res_menu.append(RecordMenuItem(idx,module,model._name,model._description,concat(['ui','menu','module',module])))
 						for framework in FRAMEWORKS:
 							res_framework_actions.append(FrameworkRecordAction(framework,model._name,action['name']))
-	
-							
+
+
 				if len(cust_models) > 0:
 					res_menu.append(RecordMenu(concat(['ui','menu','customize',module]),label,concat(['ui','menu','customize'])))
 					for idx,cust_model in enumerate(cust_models):
@@ -92,29 +92,29 @@ def Area(self, modules = None, context={}):
 						res_menu.append(RecordMenuItem(idx,module,cust_model._name,cust_model._description,concat(['ui','menu','customize',module])))
 						for framework in FRAMEWORKS:
 							res_framework_actions.append(FrameworkRecordAction(framework,cust_model._name,action['name']))
-				
+
 				if len(res_menu) + len(res_actions) + len(res_framework_actions) > 0:
-					if not os.path.exists(opj(path,module,'views','menus')):
-						os.mkdir(opj(path,module,'views','menus'))
-			
-					a = open(opj(path,module,'views','menus.csv'),'w')
+					if not os.path.exists(opj(path,module,cat,'menus')):
+						os.mkdir(opj(path,module,cat,'menus'))
+
+					a = open(opj(path,module,cat,'menus.csv'),'w')
 					aw = csv.DictWriter(a,['model','file'])
 					aw.writeheader()
 					if len(res_actions) > 0:
-						with open(opj(path,module,'views','menus',('ui.' + cat + '.actions').replace('.','_') + '.yaml'),'w') as outfile:
+						with open(opj(path,module,cat,'menus',('ui.' + cat + '.actions').replace('.','_') + '.yaml'),'w') as outfile:
 							yaml.dump(res_actions, outfile, Dumper, default_flow_style=False)
-						aw.writerow({'model': 'bc.ui.obj.actions','file':opj('views','menus',('ui.' + cat + '.actions').replace('.','_') + '.yaml' )})
-	
+						aw.writerow({'model': 'bc.ui.model.actions','file':opj(cat,'menus',('ui.' + cat + '.actions').replace('.','_') + '.yaml' )})
+
 					if len(res_menu) > 0:
-						with open(opj(path,module,'views','menus',('ui.' + cat + '.menus').replace('.','_') + '.yaml'),'w') as outfile:
+						with open(opj(path,module,cat,'menus',('ui.' + cat + '.menus').replace('.','_') + '.yaml'),'w') as outfile:
 							yaml.dump(res_menu, outfile, Dumper, default_flow_style=False)
-						aw.writerow({'model': 'bc.ui.obj.menus','file':opj('views','menus',('ui.' + cat + '.menus').replace('.','_') + '.yaml' )})
-	
+						aw.writerow({'model': 'bc.ui.model.menus','file':opj(cat,'menus',('ui.' + cat + '.menus').replace('.','_') + '.yaml' )})
+
 					if len(res_framework_actions) > 0:
-						with open(opj(path,module,'views','menus',('ui.framework.' + cat + '.actions').replace('.','_') + '.yaml'),'w') as outfile:
+						with open(opj(path,module,cat,'menus',('ui.framework.' + cat + '.actions').replace('.','_') + '.yaml'),'w') as outfile:
 							yaml.dump(res_framework_actions, outfile, Dumper, default_flow_style=False)
-						aw.writerow({'model': 'bc.ui.framework.obj.actions','file':opj('views','menus',('ui.framework.' + cat + '.actions').replace('.','_') + '.yaml' )})
-	
+						aw.writerow({'model': 'bc.ui.framework.model.actions','file':opj(cat,'menus',('ui.framework.' + cat + '.actions').replace('.','_') + '.yaml' )})
+
 
 			logmodules.append(module)
 	log.append('Gen menus of modules %s' % (logmodules,))

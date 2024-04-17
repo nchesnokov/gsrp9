@@ -1,0 +1,3923 @@
+- cols:
+  - col: prj.unit.categories/name
+    seq: 0
+  - col: prj.unit.categories/parent_id
+    seq: 10
+  - col: prj.unit.categories/fullname
+    seq: 20
+  controller: search:prj.unit.categories
+  model: prj.unit.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.unit.categories/name
+    seq: 0
+  - col: prj.unit.categories/parent_id
+    seq: 10
+  - col: prj.unit.categories/fullname
+    seq: 20
+  controller: find:prj.unit.categories
+  model: prj.unit.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.unit.categories/name
+    seq: 0
+  - col: prj.unit.categories/parent_id
+    seq: 10
+  - col: prj.unit.categories/childs_id
+    seq: 20
+  - col: prj.unit.categories/fullname
+    seq: 30
+  - col: prj.unit.categories/units
+    seq: 40
+  controller: list:prj.unit.categories
+  model: prj.unit.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.unit.categories/name
+    seq: 0
+  - col: prj.unit.categories/parent_id
+    seq: 10
+  - col: prj.unit.categories/childs_id
+    seq: 20
+  - col: prj.unit.categories/fullname
+    seq: 30
+  - col: prj.unit.categories/units
+    seq: 40
+  - col: prj.unit.categories/note
+    seq: 50
+  controller: form.modal:prj.unit.categories
+  model: prj.unit.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.unit.categories/name
+    seq: 0
+  - col: prj.unit.categories/parent_id
+    seq: 10
+  - col: prj.unit.categories/childs_id
+    seq: 20
+  - col: prj.unit.categories/fullname
+    seq: 30
+  - col: prj.unit.categories/units
+    seq: 40
+  - col: prj.unit.categories/note
+    seq: 50
+  controller: form:prj.unit.categories
+  model: prj.unit.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.unit.categories/name
+    seq: 0
+  - col: prj.unit.categories/parent_id
+    seq: 10
+  - col: prj.unit.categories/fullname
+    seq: 20
+  controller: tree:prj.unit.categories
+  model: prj.unit.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.units/category_id
+    seq: 0
+  - col: prj.units/code
+    seq: 10
+  - col: prj.units/descr
+    seq: 20
+  controller: search:prj.units
+  model: prj.units
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.units/category_id
+    seq: 0
+  - col: prj.units/code
+    seq: 10
+  - col: prj.units/descr
+    seq: 20
+  controller: find:prj.units
+  model: prj.units
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.units/category_id
+    seq: 0
+  - col: prj.units/code
+    seq: 10
+  - col: prj.units/descr
+    seq: 20
+  - col: prj.units/channels
+    seq: 30
+  - col: prj.units/segments
+    seq: 40
+  - col: prj.units/areas
+    seq: 50
+  - col: prj.units/regions
+    seq: 60
+  controller: list:prj.units
+  model: prj.units
+  standalone: true
+  vtype: list
+- cols:
+  - col: md.company/name
+    seq: 0
+  - col: md.company/country
+    seq: 10
+  - col: md.company/currency
+    seq: 20
+  - col: md.company/note
+    seq: 30
+  controller: m2mlist:md.company
+  model: md.company
+  standalone: true
+  vtype: m2mlist
+- cols:
+  - col: prj.units/category_id
+    seq: 0
+  - col: prj.units/company_ids
+    seq: 10
+  - col: prj.units/code
+    seq: 20
+  - col: prj.units/descr
+    seq: 30
+  - col: prj.units/channels
+    seq: 40
+  - col: prj.units/segments
+    seq: 50
+  - col: prj.units/areas
+    seq: 60
+  - col: prj.units/regions
+    seq: 70
+  controller: form.modal:prj.units
+  model: prj.units
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.units/category_id
+    seq: 0
+  - col: prj.units/company_ids
+    seq: 10
+  - col: prj.units/code
+    seq: 20
+  - col: prj.units/descr
+    seq: 30
+  - col: prj.units/channels
+    seq: 40
+  - col: prj.units/segments
+    seq: 50
+  - col: prj.units/areas
+    seq: 60
+  - col: prj.units/regions
+    seq: 70
+  controller: form:prj.units
+  model: prj.units
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.channel.categories/name
+    seq: 0
+  - col: prj.channel.categories/parent_id
+    seq: 10
+  - col: prj.channel.categories/fullname
+    seq: 20
+  controller: search:prj.channel.categories
+  model: prj.channel.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.channel.categories/name
+    seq: 0
+  - col: prj.channel.categories/parent_id
+    seq: 10
+  - col: prj.channel.categories/fullname
+    seq: 20
+  controller: find:prj.channel.categories
+  model: prj.channel.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.channel.categories/name
+    seq: 0
+  - col: prj.channel.categories/parent_id
+    seq: 10
+  - col: prj.channel.categories/childs_id
+    seq: 20
+  - col: prj.channel.categories/fullname
+    seq: 30
+  - col: prj.channel.categories/channels
+    seq: 40
+  controller: list:prj.channel.categories
+  model: prj.channel.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.channel.categories/name
+    seq: 0
+  - col: prj.channel.categories/parent_id
+    seq: 10
+  - col: prj.channel.categories/childs_id
+    seq: 20
+  - col: prj.channel.categories/fullname
+    seq: 30
+  - col: prj.channel.categories/channels
+    seq: 40
+  - col: prj.channel.categories/note
+    seq: 50
+  controller: form.modal:prj.channel.categories
+  model: prj.channel.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.channel.categories/name
+    seq: 0
+  - col: prj.channel.categories/parent_id
+    seq: 10
+  - col: prj.channel.categories/childs_id
+    seq: 20
+  - col: prj.channel.categories/fullname
+    seq: 30
+  - col: prj.channel.categories/channels
+    seq: 40
+  - col: prj.channel.categories/note
+    seq: 50
+  controller: form:prj.channel.categories
+  model: prj.channel.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.channel.categories/name
+    seq: 0
+  - col: prj.channel.categories/parent_id
+    seq: 10
+  - col: prj.channel.categories/fullname
+    seq: 20
+  controller: tree:prj.channel.categories
+  model: prj.channel.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.channels/category_id
+    seq: 0
+  - col: prj.channels/code
+    seq: 10
+  - col: prj.channels/descr
+    seq: 20
+  controller: search:prj.channels
+  model: prj.channels
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.channels/category_id
+    seq: 0
+  - col: prj.channels/code
+    seq: 10
+  - col: prj.channels/descr
+    seq: 20
+  controller: find:prj.channels
+  model: prj.channels
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.channels/category_id
+    seq: 0
+  - col: prj.channels/code
+    seq: 10
+  - col: prj.channels/descr
+    seq: 20
+  controller: list:prj.channels
+  model: prj.channels
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.channels/category_id
+    seq: 0
+  - col: prj.channels/code
+    seq: 10
+  - col: prj.channels/descr
+    seq: 20
+  controller: form.modal:prj.channels
+  model: prj.channels
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.channels/category_id
+    seq: 0
+  - col: prj.channels/code
+    seq: 10
+  - col: prj.channels/descr
+    seq: 20
+  controller: form:prj.channels
+  model: prj.channels
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.segment.categories/name
+    seq: 0
+  - col: prj.segment.categories/parent_id
+    seq: 10
+  - col: prj.segment.categories/fullname
+    seq: 20
+  controller: search:prj.segment.categories
+  model: prj.segment.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.segment.categories/name
+    seq: 0
+  - col: prj.segment.categories/parent_id
+    seq: 10
+  - col: prj.segment.categories/fullname
+    seq: 20
+  controller: find:prj.segment.categories
+  model: prj.segment.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.segment.categories/name
+    seq: 0
+  - col: prj.segment.categories/parent_id
+    seq: 10
+  - col: prj.segment.categories/childs_id
+    seq: 20
+  - col: prj.segment.categories/fullname
+    seq: 30
+  - col: prj.segment.categories/segments
+    seq: 40
+  controller: list:prj.segment.categories
+  model: prj.segment.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.segment.categories/name
+    seq: 0
+  - col: prj.segment.categories/parent_id
+    seq: 10
+  - col: prj.segment.categories/childs_id
+    seq: 20
+  - col: prj.segment.categories/fullname
+    seq: 30
+  - col: prj.segment.categories/segments
+    seq: 40
+  - col: prj.segment.categories/note
+    seq: 50
+  controller: form.modal:prj.segment.categories
+  model: prj.segment.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.segment.categories/name
+    seq: 0
+  - col: prj.segment.categories/parent_id
+    seq: 10
+  - col: prj.segment.categories/childs_id
+    seq: 20
+  - col: prj.segment.categories/fullname
+    seq: 30
+  - col: prj.segment.categories/segments
+    seq: 40
+  - col: prj.segment.categories/note
+    seq: 50
+  controller: form:prj.segment.categories
+  model: prj.segment.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.segment.categories/name
+    seq: 0
+  - col: prj.segment.categories/parent_id
+    seq: 10
+  - col: prj.segment.categories/fullname
+    seq: 20
+  controller: tree:prj.segment.categories
+  model: prj.segment.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.segments/category_id
+    seq: 0
+  - col: prj.segments/code
+    seq: 10
+  - col: prj.segments/descr
+    seq: 20
+  controller: search:prj.segments
+  model: prj.segments
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.segments/category_id
+    seq: 0
+  - col: prj.segments/code
+    seq: 10
+  - col: prj.segments/descr
+    seq: 20
+  controller: find:prj.segments
+  model: prj.segments
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.segments/category_id
+    seq: 0
+  - col: prj.segments/code
+    seq: 10
+  - col: prj.segments/descr
+    seq: 20
+  controller: list:prj.segments
+  model: prj.segments
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.segments/category_id
+    seq: 0
+  - col: prj.segments/code
+    seq: 10
+  - col: prj.segments/descr
+    seq: 20
+  controller: form.modal:prj.segments
+  model: prj.segments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.segments/category_id
+    seq: 0
+  - col: prj.segments/code
+    seq: 10
+  - col: prj.segments/descr
+    seq: 20
+  controller: form:prj.segments
+  model: prj.segments
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.area.categories/name
+    seq: 0
+  - col: prj.area.categories/parent_id
+    seq: 10
+  - col: prj.area.categories/fullname
+    seq: 20
+  controller: search:prj.area.categories
+  model: prj.area.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.area.categories/name
+    seq: 0
+  - col: prj.area.categories/parent_id
+    seq: 10
+  - col: prj.area.categories/fullname
+    seq: 20
+  controller: find:prj.area.categories
+  model: prj.area.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.area.categories/name
+    seq: 0
+  - col: prj.area.categories/parent_id
+    seq: 10
+  - col: prj.area.categories/childs_id
+    seq: 20
+  - col: prj.area.categories/areas
+    seq: 30
+  - col: prj.area.categories/fullname
+    seq: 40
+  controller: list:prj.area.categories
+  model: prj.area.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.area.categories/name
+    seq: 0
+  - col: prj.area.categories/parent_id
+    seq: 10
+  - col: prj.area.categories/childs_id
+    seq: 20
+  - col: prj.area.categories/areas
+    seq: 30
+  - col: prj.area.categories/fullname
+    seq: 40
+  - col: prj.area.categories/note
+    seq: 50
+  controller: form.modal:prj.area.categories
+  model: prj.area.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.area.categories/name
+    seq: 0
+  - col: prj.area.categories/parent_id
+    seq: 10
+  - col: prj.area.categories/childs_id
+    seq: 20
+  - col: prj.area.categories/areas
+    seq: 30
+  - col: prj.area.categories/fullname
+    seq: 40
+  - col: prj.area.categories/note
+    seq: 50
+  controller: form:prj.area.categories
+  model: prj.area.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.area.categories/name
+    seq: 0
+  - col: prj.area.categories/parent_id
+    seq: 10
+  - col: prj.area.categories/fullname
+    seq: 20
+  controller: tree:prj.area.categories
+  model: prj.area.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.areas/category_id
+    seq: 0
+  - col: prj.areas/code
+    seq: 10
+  - col: prj.areas/descr
+    seq: 20
+  controller: search:prj.areas
+  model: prj.areas
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.areas/category_id
+    seq: 0
+  - col: prj.areas/code
+    seq: 10
+  - col: prj.areas/descr
+    seq: 20
+  controller: find:prj.areas
+  model: prj.areas
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.areas/category_id
+    seq: 0
+  - col: prj.areas/code
+    seq: 10
+  - col: prj.areas/descr
+    seq: 20
+  controller: list:prj.areas
+  model: prj.areas
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.areas/category_id
+    seq: 0
+  - col: prj.areas/code
+    seq: 10
+  - col: prj.areas/descr
+    seq: 20
+  controller: form.modal:prj.areas
+  model: prj.areas
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.areas/category_id
+    seq: 0
+  - col: prj.areas/code
+    seq: 10
+  - col: prj.areas/descr
+    seq: 20
+  controller: form:prj.areas
+  model: prj.areas
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.region.categories/name
+    seq: 0
+  - col: prj.region.categories/parent_id
+    seq: 10
+  - col: prj.region.categories/fullname
+    seq: 20
+  controller: search:prj.region.categories
+  model: prj.region.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.region.categories/name
+    seq: 0
+  - col: prj.region.categories/parent_id
+    seq: 10
+  - col: prj.region.categories/fullname
+    seq: 20
+  controller: find:prj.region.categories
+  model: prj.region.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.region.categories/name
+    seq: 0
+  - col: prj.region.categories/parent_id
+    seq: 10
+  - col: prj.region.categories/childs_id
+    seq: 20
+  - col: prj.region.categories/fullname
+    seq: 30
+  - col: prj.region.categories/segments
+    seq: 40
+  controller: list:prj.region.categories
+  model: prj.region.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.region.categories/name
+    seq: 0
+  - col: prj.region.categories/parent_id
+    seq: 10
+  - col: prj.region.categories/childs_id
+    seq: 20
+  - col: prj.region.categories/fullname
+    seq: 30
+  - col: prj.region.categories/segments
+    seq: 40
+  - col: prj.region.categories/note
+    seq: 50
+  controller: form.modal:prj.region.categories
+  model: prj.region.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.region.categories/name
+    seq: 0
+  - col: prj.region.categories/parent_id
+    seq: 10
+  - col: prj.region.categories/childs_id
+    seq: 20
+  - col: prj.region.categories/fullname
+    seq: 30
+  - col: prj.region.categories/segments
+    seq: 40
+  - col: prj.region.categories/note
+    seq: 50
+  controller: form:prj.region.categories
+  model: prj.region.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.region.categories/name
+    seq: 0
+  - col: prj.region.categories/parent_id
+    seq: 10
+  - col: prj.region.categories/fullname
+    seq: 20
+  controller: tree:prj.region.categories
+  model: prj.region.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.regions/category_id
+    seq: 0
+  - col: prj.regions/code
+    seq: 10
+  - col: prj.regions/descr
+    seq: 20
+  controller: search:prj.regions
+  model: prj.regions
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.regions/category_id
+    seq: 0
+  - col: prj.regions/code
+    seq: 10
+  - col: prj.regions/descr
+    seq: 20
+  controller: find:prj.regions
+  model: prj.regions
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.regions/category_id
+    seq: 0
+  - col: prj.regions/code
+    seq: 10
+  - col: prj.regions/descr
+    seq: 20
+  controller: list:prj.regions
+  model: prj.regions
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.regions/category_id
+    seq: 0
+  - col: prj.regions/code
+    seq: 10
+  - col: prj.regions/descr
+    seq: 20
+  controller: form.modal:prj.regions
+  model: prj.regions
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.regions/category_id
+    seq: 0
+  - col: prj.regions/code
+    seq: 10
+  - col: prj.regions/descr
+    seq: 20
+  controller: form:prj.regions
+  model: prj.regions
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.division.categories/name
+    seq: 0
+  - col: prj.division.categories/parent_id
+    seq: 10
+  - col: prj.division.categories/fullname
+    seq: 20
+  controller: search:prj.division.categories
+  model: prj.division.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.division.categories/name
+    seq: 0
+  - col: prj.division.categories/parent_id
+    seq: 10
+  - col: prj.division.categories/fullname
+    seq: 20
+  controller: find:prj.division.categories
+  model: prj.division.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.division.categories/name
+    seq: 0
+  - col: prj.division.categories/parent_id
+    seq: 10
+  - col: prj.division.categories/childs_id
+    seq: 20
+  - col: prj.division.categories/fullname
+    seq: 30
+  - col: prj.division.categories/divisions
+    seq: 40
+  controller: list:prj.division.categories
+  model: prj.division.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.division.categories/name
+    seq: 0
+  - col: prj.division.categories/parent_id
+    seq: 10
+  - col: prj.division.categories/childs_id
+    seq: 20
+  - col: prj.division.categories/fullname
+    seq: 30
+  - col: prj.division.categories/divisions
+    seq: 40
+  - col: prj.division.categories/note
+    seq: 50
+  controller: form.modal:prj.division.categories
+  model: prj.division.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.division.categories/name
+    seq: 0
+  - col: prj.division.categories/parent_id
+    seq: 10
+  - col: prj.division.categories/childs_id
+    seq: 20
+  - col: prj.division.categories/fullname
+    seq: 30
+  - col: prj.division.categories/divisions
+    seq: 40
+  - col: prj.division.categories/note
+    seq: 50
+  controller: form:prj.division.categories
+  model: prj.division.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.division.categories/name
+    seq: 0
+  - col: prj.division.categories/parent_id
+    seq: 10
+  - col: prj.division.categories/fullname
+    seq: 20
+  controller: tree:prj.division.categories
+  model: prj.division.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.divisions/category_id
+    seq: 0
+  - col: prj.divisions/code
+    seq: 10
+  - col: prj.divisions/descr
+    seq: 20
+  controller: search:prj.divisions
+  model: prj.divisions
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.divisions/category_id
+    seq: 0
+  - col: prj.divisions/code
+    seq: 10
+  - col: prj.divisions/descr
+    seq: 20
+  controller: find:prj.divisions
+  model: prj.divisions
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.divisions/category_id
+    seq: 0
+  - col: prj.divisions/code
+    seq: 10
+  - col: prj.divisions/descr
+    seq: 20
+  - col: prj.divisions/subdivisions
+    seq: 30
+  controller: list:prj.divisions
+  model: prj.divisions
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.divisions/category_id
+    seq: 0
+  - col: prj.divisions/code
+    seq: 10
+  - col: prj.divisions/descr
+    seq: 20
+  - col: prj.divisions/subdivisions
+    seq: 30
+  controller: form.modal:prj.divisions
+  model: prj.divisions
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.divisions/category_id
+    seq: 0
+  - col: prj.divisions/code
+    seq: 10
+  - col: prj.divisions/descr
+    seq: 20
+  - col: prj.divisions/subdivisions
+    seq: 30
+  controller: form:prj.divisions
+  model: prj.divisions
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.subdivision.categories/name
+    seq: 0
+  - col: prj.subdivision.categories/parent_id
+    seq: 10
+  - col: prj.subdivision.categories/fullname
+    seq: 20
+  controller: search:prj.subdivision.categories
+  model: prj.subdivision.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.subdivision.categories/name
+    seq: 0
+  - col: prj.subdivision.categories/parent_id
+    seq: 10
+  - col: prj.subdivision.categories/fullname
+    seq: 20
+  controller: find:prj.subdivision.categories
+  model: prj.subdivision.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.subdivision.categories/name
+    seq: 0
+  - col: prj.subdivision.categories/parent_id
+    seq: 10
+  - col: prj.subdivision.categories/childs_id
+    seq: 20
+  - col: prj.subdivision.categories/fullname
+    seq: 30
+  - col: prj.subdivision.categories/subdivisions
+    seq: 40
+  controller: list:prj.subdivision.categories
+  model: prj.subdivision.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.subdivision.categories/name
+    seq: 0
+  - col: prj.subdivision.categories/parent_id
+    seq: 10
+  - col: prj.subdivision.categories/childs_id
+    seq: 20
+  - col: prj.subdivision.categories/fullname
+    seq: 30
+  - col: prj.subdivision.categories/subdivisions
+    seq: 40
+  - col: prj.subdivision.categories/note
+    seq: 50
+  controller: form.modal:prj.subdivision.categories
+  model: prj.subdivision.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.subdivision.categories/name
+    seq: 0
+  - col: prj.subdivision.categories/parent_id
+    seq: 10
+  - col: prj.subdivision.categories/childs_id
+    seq: 20
+  - col: prj.subdivision.categories/fullname
+    seq: 30
+  - col: prj.subdivision.categories/subdivisions
+    seq: 40
+  - col: prj.subdivision.categories/note
+    seq: 50
+  controller: form:prj.subdivision.categories
+  model: prj.subdivision.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.subdivision.categories/name
+    seq: 0
+  - col: prj.subdivision.categories/parent_id
+    seq: 10
+  - col: prj.subdivision.categories/fullname
+    seq: 20
+  controller: tree:prj.subdivision.categories
+  model: prj.subdivision.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.subdivisions/category_id
+    seq: 0
+  - col: prj.subdivisions/code
+    seq: 10
+  - col: prj.subdivisions/descr
+    seq: 20
+  controller: search:prj.subdivisions
+  model: prj.subdivisions
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.subdivisions/category_id
+    seq: 0
+  - col: prj.subdivisions/code
+    seq: 10
+  - col: prj.subdivisions/descr
+    seq: 20
+  controller: find:prj.subdivisions
+  model: prj.subdivisions
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.subdivisions/category_id
+    seq: 0
+  - col: prj.subdivisions/code
+    seq: 10
+  - col: prj.subdivisions/descr
+    seq: 20
+  controller: list:prj.subdivisions
+  model: prj.subdivisions
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.subdivisions/category_id
+    seq: 0
+  - col: prj.subdivisions/code
+    seq: 10
+  - col: prj.subdivisions/descr
+    seq: 20
+  controller: form.modal:prj.subdivisions
+  model: prj.subdivisions
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.subdivisions/category_id
+    seq: 0
+  - col: prj.subdivisions/code
+    seq: 10
+  - col: prj.subdivisions/descr
+    seq: 20
+  controller: form:prj.subdivisions
+  model: prj.subdivisions
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.unit.channel.assigments/unit_id
+    seq: 0
+  - col: prj.unit.channel.assigments/channel_id
+    seq: 10
+  - col: prj.unit.channel.assigments/fullname
+    seq: 20
+  controller: search:prj.unit.channel.assigments
+  model: prj.unit.channel.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.unit.channel.assigments/unit_id
+    seq: 0
+  - col: prj.unit.channel.assigments/channel_id
+    seq: 10
+  - col: prj.unit.channel.assigments/fullname
+    seq: 20
+  controller: find:prj.unit.channel.assigments
+  model: prj.unit.channel.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.unit.channel.assigments/unit_id
+    seq: 0
+  - col: prj.unit.channel.assigments/channel_id
+    seq: 10
+  - col: prj.unit.channel.assigments/fullname
+    seq: 20
+  controller: list:prj.unit.channel.assigments
+  model: prj.unit.channel.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.unit.channel.assigments/unit_id
+    seq: 0
+  - col: prj.unit.channel.assigments/channel_id
+    seq: 10
+  - col: prj.unit.channel.assigments/fullname
+    seq: 20
+  controller: form.modal:prj.unit.channel.assigments
+  model: prj.unit.channel.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.unit.channel.assigments/unit_id
+    seq: 0
+  - col: prj.unit.channel.assigments/channel_id
+    seq: 10
+  - col: prj.unit.channel.assigments/fullname
+    seq: 20
+  controller: form:prj.unit.channel.assigments
+  model: prj.unit.channel.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.unit.segment.assigments/unit_id
+    seq: 0
+  - col: prj.unit.segment.assigments/segment_id
+    seq: 10
+  - col: prj.unit.segment.assigments/fullname
+    seq: 20
+  controller: search:prj.unit.segment.assigments
+  model: prj.unit.segment.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.unit.segment.assigments/unit_id
+    seq: 0
+  - col: prj.unit.segment.assigments/segment_id
+    seq: 10
+  - col: prj.unit.segment.assigments/fullname
+    seq: 20
+  controller: find:prj.unit.segment.assigments
+  model: prj.unit.segment.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.unit.segment.assigments/unit_id
+    seq: 0
+  - col: prj.unit.segment.assigments/segment_id
+    seq: 10
+  - col: prj.unit.segment.assigments/fullname
+    seq: 20
+  controller: list:prj.unit.segment.assigments
+  model: prj.unit.segment.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.unit.segment.assigments/unit_id
+    seq: 0
+  - col: prj.unit.segment.assigments/segment_id
+    seq: 10
+  - col: prj.unit.segment.assigments/fullname
+    seq: 20
+  controller: form.modal:prj.unit.segment.assigments
+  model: prj.unit.segment.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.unit.segment.assigments/unit_id
+    seq: 0
+  - col: prj.unit.segment.assigments/segment_id
+    seq: 10
+  - col: prj.unit.segment.assigments/fullname
+    seq: 20
+  controller: form:prj.unit.segment.assigments
+  model: prj.unit.segment.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.unit.area.assigments/unit_id
+    seq: 0
+  - col: prj.unit.area.assigments/area_id
+    seq: 10
+  - col: prj.unit.area.assigments/fullname
+    seq: 20
+  controller: search:prj.unit.area.assigments
+  model: prj.unit.area.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.unit.area.assigments/unit_id
+    seq: 0
+  - col: prj.unit.area.assigments/area_id
+    seq: 10
+  - col: prj.unit.area.assigments/fullname
+    seq: 20
+  controller: find:prj.unit.area.assigments
+  model: prj.unit.area.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.unit.area.assigments/unit_id
+    seq: 0
+  - col: prj.unit.area.assigments/area_id
+    seq: 10
+  - col: prj.unit.area.assigments/fullname
+    seq: 20
+  controller: list:prj.unit.area.assigments
+  model: prj.unit.area.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.unit.area.assigments/unit_id
+    seq: 0
+  - col: prj.unit.area.assigments/area_id
+    seq: 10
+  - col: prj.unit.area.assigments/fullname
+    seq: 20
+  controller: form.modal:prj.unit.area.assigments
+  model: prj.unit.area.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.unit.area.assigments/unit_id
+    seq: 0
+  - col: prj.unit.area.assigments/area_id
+    seq: 10
+  - col: prj.unit.area.assigments/fullname
+    seq: 20
+  controller: form:prj.unit.area.assigments
+  model: prj.unit.area.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.unit.region.assigments/unit_id
+    seq: 0
+  - col: prj.unit.region.assigments/region_id
+    seq: 10
+  - col: prj.unit.region.assigments/fullname
+    seq: 20
+  controller: search:prj.unit.region.assigments
+  model: prj.unit.region.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.unit.region.assigments/unit_id
+    seq: 0
+  - col: prj.unit.region.assigments/region_id
+    seq: 10
+  - col: prj.unit.region.assigments/fullname
+    seq: 20
+  controller: find:prj.unit.region.assigments
+  model: prj.unit.region.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.unit.region.assigments/unit_id
+    seq: 0
+  - col: prj.unit.region.assigments/region_id
+    seq: 10
+  - col: prj.unit.region.assigments/fullname
+    seq: 20
+  controller: list:prj.unit.region.assigments
+  model: prj.unit.region.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.unit.region.assigments/unit_id
+    seq: 0
+  - col: prj.unit.region.assigments/region_id
+    seq: 10
+  - col: prj.unit.region.assigments/fullname
+    seq: 20
+  controller: form.modal:prj.unit.region.assigments
+  model: prj.unit.region.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.unit.region.assigments/unit_id
+    seq: 0
+  - col: prj.unit.region.assigments/region_id
+    seq: 10
+  - col: prj.unit.region.assigments/fullname
+    seq: 20
+  controller: form:prj.unit.region.assigments
+  model: prj.unit.region.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.division.subdivision.assigments/division_id
+    seq: 0
+  - col: prj.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: prj.division.subdivision.assigments/fullname
+    seq: 20
+  controller: search:prj.division.subdivision.assigments
+  model: prj.division.subdivision.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.division.subdivision.assigments/division_id
+    seq: 0
+  - col: prj.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: prj.division.subdivision.assigments/fullname
+    seq: 20
+  controller: find:prj.division.subdivision.assigments
+  model: prj.division.subdivision.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.division.subdivision.assigments/division_id
+    seq: 0
+  - col: prj.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: prj.division.subdivision.assigments/fullname
+    seq: 20
+  controller: list:prj.division.subdivision.assigments
+  model: prj.division.subdivision.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.division.subdivision.assigments/division_id
+    seq: 0
+  - col: prj.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: prj.division.subdivision.assigments/fullname
+    seq: 20
+  controller: form.modal:prj.division.subdivision.assigments
+  model: prj.division.subdivision.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.division.subdivision.assigments/division_id
+    seq: 0
+  - col: prj.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: prj.division.subdivision.assigments/fullname
+    seq: 20
+  controller: form:prj.division.subdivision.assigments
+  model: prj.division.subdivision.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.markets/unit_id
+    seq: 0
+  - col: prj.markets/channel_id
+    seq: 10
+  - col: prj.markets/segment_id
+    seq: 20
+  - col: prj.markets/area_id
+    seq: 30
+  - col: prj.markets/region_id
+    seq: 40
+  - col: prj.markets/fullname
+    seq: 50
+  controller: search:prj.markets
+  model: prj.markets
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.markets/unit_id
+    seq: 0
+  - col: prj.markets/channel_id
+    seq: 10
+  - col: prj.markets/segment_id
+    seq: 20
+  - col: prj.markets/area_id
+    seq: 30
+  - col: prj.markets/region_id
+    seq: 40
+  - col: prj.markets/fullname
+    seq: 50
+  controller: find:prj.markets
+  model: prj.markets
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.markets/unit_id
+    seq: 0
+  - col: prj.markets/channel_id
+    seq: 10
+  - col: prj.markets/segment_id
+    seq: 20
+  - col: prj.markets/area_id
+    seq: 30
+  - col: prj.markets/region_id
+    seq: 40
+  - col: prj.markets/fullname
+    seq: 50
+  controller: list:prj.markets
+  model: prj.markets
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.markets/unit_id
+    seq: 0
+  - col: prj.markets/channel_id
+    seq: 10
+  - col: prj.markets/segment_id
+    seq: 20
+  - col: prj.markets/area_id
+    seq: 30
+  - col: prj.markets/region_id
+    seq: 40
+  - col: prj.markets/fullname
+    seq: 50
+  - col: prj.markets/note
+    seq: 60
+  controller: form.modal:prj.markets
+  model: prj.markets
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.markets/unit_id
+    seq: 0
+  - col: prj.markets/channel_id
+    seq: 10
+  - col: prj.markets/segment_id
+    seq: 20
+  - col: prj.markets/area_id
+    seq: 30
+  - col: prj.markets/region_id
+    seq: 40
+  - col: prj.markets/fullname
+    seq: 50
+  - col: prj.markets/note
+    seq: 60
+  controller: form:prj.markets
+  model: prj.markets
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.teams/division_id
+    seq: 0
+  - col: prj.teams/subdivision_id
+    seq: 10
+  - col: prj.teams/fullname
+    seq: 20
+  controller: search:prj.teams
+  model: prj.teams
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.teams/division_id
+    seq: 0
+  - col: prj.teams/subdivision_id
+    seq: 10
+  - col: prj.teams/fullname
+    seq: 20
+  controller: find:prj.teams
+  model: prj.teams
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.teams/division_id
+    seq: 0
+  - col: prj.teams/subdivision_id
+    seq: 10
+  - col: prj.teams/fullname
+    seq: 20
+  controller: list:prj.teams
+  model: prj.teams
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.teams/division_id
+    seq: 0
+  - col: prj.teams/subdivision_id
+    seq: 10
+  - col: prj.teams/fullname
+    seq: 20
+  - col: prj.teams/note
+    seq: 30
+  controller: form.modal:prj.teams
+  model: prj.teams
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.teams/division_id
+    seq: 0
+  - col: prj.teams/subdivision_id
+    seq: 10
+  - col: prj.teams/fullname
+    seq: 20
+  - col: prj.teams/note
+    seq: 30
+  controller: form:prj.teams
+  model: prj.teams
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.pricing.group.levels/code
+    seq: 0
+  - col: prj.pricing.group.levels/descr
+    seq: 10
+  controller: search:prj.pricing.group.levels
+  model: prj.pricing.group.levels
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.pricing.group.levels/code
+    seq: 0
+  - col: prj.pricing.group.levels/descr
+    seq: 10
+  controller: find:prj.pricing.group.levels
+  model: prj.pricing.group.levels
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.pricing.group.levels/code
+    seq: 0
+  - col: prj.pricing.group.levels/descr
+    seq: 10
+  controller: list:prj.pricing.group.levels
+  model: prj.pricing.group.levels
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.pricing.group.levels/code
+    seq: 0
+  - col: prj.pricing.group.levels/descr
+    seq: 10
+  controller: form.modal:prj.pricing.group.levels
+  model: prj.pricing.group.levels
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.pricing.group.levels/code
+    seq: 0
+  - col: prj.pricing.group.levels/descr
+    seq: 10
+  controller: form:prj.pricing.group.levels
+  model: prj.pricing.group.levels
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.texts/code
+    seq: 0
+  - col: prj.texts/descr
+    seq: 10
+  controller: search:prj.texts
+  model: prj.texts
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.texts/code
+    seq: 0
+  - col: prj.texts/descr
+    seq: 10
+  controller: find:prj.texts
+  model: prj.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.texts/code
+    seq: 0
+  - col: prj.texts/descr
+    seq: 10
+  controller: list:prj.texts
+  model: prj.texts
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.texts/code
+    seq: 0
+  - col: prj.texts/descr
+    seq: 10
+  controller: form.modal:prj.texts
+  model: prj.texts
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.texts/code
+    seq: 0
+  - col: prj.texts/descr
+    seq: 10
+  controller: form:prj.texts
+  model: prj.texts
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.schema.texts/usage
+    seq: 0
+  - col: prj.schema.texts/code
+    seq: 10
+  - col: prj.schema.texts/descr
+    seq: 20
+  controller: search:prj.schema.texts
+  model: prj.schema.texts
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.schema.texts/usage
+    seq: 0
+  - col: prj.schema.texts/code
+    seq: 10
+  - col: prj.schema.texts/descr
+    seq: 20
+  controller: find:prj.schema.texts
+  model: prj.schema.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.schema.texts/usage
+    seq: 0
+  - col: prj.schema.texts/code
+    seq: 10
+  - col: prj.schema.texts/descr
+    seq: 20
+  - col: prj.schema.texts/texts
+    seq: 30
+  controller: list:prj.schema.texts
+  model: prj.schema.texts
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.schema.texts/usage
+    seq: 0
+  - col: prj.schema.texts/code
+    seq: 10
+  - col: prj.schema.texts/descr
+    seq: 20
+  - col: prj.schema.texts/texts
+    seq: 30
+  controller: form.modal:prj.schema.texts
+  model: prj.schema.texts
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.schema.texts/usage
+    seq: 0
+  - col: prj.schema.texts/code
+    seq: 10
+  - col: prj.schema.texts/descr
+    seq: 20
+  - col: prj.schema.texts/texts
+    seq: 30
+  controller: form:prj.schema.texts
+  model: prj.schema.texts
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.schema.text.items/schema_id
+    seq: 0
+  - col: prj.schema.text.items/seq
+    seq: 10
+  - col: prj.schema.text.items/text_id
+    seq: 20
+  - col: prj.schema.text.items/descr
+    seq: 30
+  controller: find:prj.schema.text.items
+  model: prj.schema.text.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.schema.text.items/schema_id
+    seq: 0
+  - col: prj.schema.text.items/seq
+    seq: 10
+  - col: prj.schema.text.items/text_id
+    seq: 20
+  - col: prj.schema.text.items/descr
+    seq: 30
+  controller: o2m-form:prj.schema.text.items
+  model: prj.schema.text.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: prj.schema.text.items/schema_id
+    seq: 0
+  - col: prj.schema.text.items/seq
+    seq: 10
+  - col: prj.schema.text.items/text_id
+    seq: 20
+  - col: prj.schema.text.items/descr
+    seq: 30
+  controller: o2m-list:prj.schema.text.items
+  model: prj.schema.text.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: prj.bill.types/ptype
+    seq: 0
+  - col: prj.bill.types/name
+    seq: 10
+  - col: prj.bill.types/htschema
+    seq: 20
+  - col: prj.bill.types/itschema
+    seq: 30
+  controller: search:prj.bill.types
+  model: prj.bill.types
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.bill.types/ptype
+    seq: 0
+  - col: prj.bill.types/name
+    seq: 10
+  - col: prj.bill.types/htschema
+    seq: 20
+  - col: prj.bill.types/itschema
+    seq: 30
+  controller: find:prj.bill.types
+  model: prj.bill.types
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.bill.types/ptype
+    seq: 0
+  - col: prj.bill.types/name
+    seq: 10
+  - col: prj.bill.types/htschema
+    seq: 20
+  - col: prj.bill.types/itschema
+    seq: 30
+  - col: prj.bill.types/roles
+    seq: 40
+  - col: prj.bill.types/plates
+    seq: 50
+  - col: prj.bill.types/tis
+    seq: 60
+  controller: list:prj.bill.types
+  model: prj.bill.types
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.bill.types/ptype
+    seq: 0
+  - col: prj.bill.types/name
+    seq: 10
+  - col: prj.bill.types/htschema
+    seq: 20
+  - col: prj.bill.types/itschema
+    seq: 30
+  - col: prj.bill.types/roles
+    seq: 40
+  - col: prj.bill.types/plates
+    seq: 50
+  - col: prj.bill.types/tis
+    seq: 60
+  - col: prj.bill.types/note
+    seq: 70
+  controller: form.modal:prj.bill.types
+  model: prj.bill.types
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.bill.types/ptype
+    seq: 0
+  - col: prj.bill.types/name
+    seq: 10
+  - col: prj.bill.types/htschema
+    seq: 20
+  - col: prj.bill.types/itschema
+    seq: 30
+  - col: prj.bill.types/roles
+    seq: 40
+  - col: prj.bill.types/plates
+    seq: 50
+  - col: prj.bill.types/tis
+    seq: 60
+  - col: prj.bill.types/note
+    seq: 70
+  controller: form:prj.bill.types
+  model: prj.bill.types
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.bill.type.roles/type_id
+    seq: 0
+  - col: prj.bill.type.roles/role_id
+    seq: 10
+  - col: prj.bill.type.roles/required
+    seq: 20
+  controller: find:prj.bill.type.roles
+  model: prj.bill.type.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.bill.type.roles/type_id
+    seq: 0
+  - col: prj.bill.type.roles/role_id
+    seq: 10
+  - col: prj.bill.type.roles/required
+    seq: 20
+  - col: prj.bill.type.roles/note
+    seq: 30
+  controller: o2m-form:prj.bill.type.roles
+  model: prj.bill.type.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: prj.bill.type.roles/type_id
+    seq: 0
+  - col: prj.bill.type.roles/role_id
+    seq: 10
+  - col: prj.bill.type.roles/required
+    seq: 20
+  controller: o2m-list:prj.bill.type.roles
+  model: prj.bill.type.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: prj.bill.type.plates/type_id
+    seq: 0
+  - col: prj.bill.type.plates/seq
+    seq: 10
+  - col: prj.bill.type.plates/plate
+    seq: 20
+  - col: prj.bill.type.plates/required
+    seq: 30
+  controller: find:prj.bill.type.plates
+  model: prj.bill.type.plates
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.bill.type.plates/type_id
+    seq: 0
+  - col: prj.bill.type.plates/seq
+    seq: 10
+  - col: prj.bill.type.plates/plate
+    seq: 20
+  - col: prj.bill.type.plates/required
+    seq: 30
+  - col: prj.bill.type.plates/note
+    seq: 40
+  controller: o2m-form:prj.bill.type.plates
+  model: prj.bill.type.plates
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: prj.bill.type.plates/type_id
+    seq: 0
+  - col: prj.bill.type.plates/seq
+    seq: 10
+  - col: prj.bill.type.plates/plate
+    seq: 20
+  - col: prj.bill.type.plates/required
+    seq: 30
+  controller: o2m-list:prj.bill.type.plates
+  model: prj.bill.type.plates
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: prj.bill.type.items/type_id
+    seq: 0
+  - col: prj.bill.type.items/gti_id
+    seq: 10
+  - col: prj.bill.type.items/itype_id
+    seq: 20
+  controller: find:prj.bill.type.items
+  model: prj.bill.type.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.bill.type.items/type_id
+    seq: 0
+  - col: prj.bill.type.items/gti_id
+    seq: 10
+  - col: prj.bill.type.items/itype_id
+    seq: 20
+  - col: prj.bill.type.items/note
+    seq: 30
+  controller: o2m-form:prj.bill.type.items
+  model: prj.bill.type.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: prj.bill.type.items/type_id
+    seq: 0
+  - col: prj.bill.type.items/gti_id
+    seq: 10
+  - col: prj.bill.type.items/itype_id
+    seq: 20
+  controller: o2m-list:prj.bill.type.items
+  model: prj.bill.type.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: prj.resource.category/name
+    seq: 0
+  - col: prj.resource.category/parent_id
+    seq: 10
+  - col: prj.resource.category/fullname
+    seq: 20
+  controller: search:prj.resource.category
+  model: prj.resource.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.resource.category/name
+    seq: 0
+  - col: prj.resource.category/parent_id
+    seq: 10
+  - col: prj.resource.category/fullname
+    seq: 20
+  controller: find:prj.resource.category
+  model: prj.resource.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.resource.category/name
+    seq: 0
+  - col: prj.resource.category/parent_id
+    seq: 10
+  - col: prj.resource.category/childs_id
+    seq: 20
+  - col: prj.resource.category/fullname
+    seq: 30
+  - col: prj.resource.category/projects
+    seq: 40
+  controller: list:prj.resource.category
+  model: prj.resource.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.resource.category/name
+    seq: 0
+  - col: prj.resource.category/parent_id
+    seq: 10
+  - col: prj.resource.category/childs_id
+    seq: 20
+  - col: prj.resource.category/fullname
+    seq: 30
+  - col: prj.resource.category/projects
+    seq: 40
+  - col: prj.resource.category/note
+    seq: 50
+  controller: form.modal:prj.resource.category
+  model: prj.resource.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.resource.category/name
+    seq: 0
+  - col: prj.resource.category/parent_id
+    seq: 10
+  - col: prj.resource.category/childs_id
+    seq: 20
+  - col: prj.resource.category/fullname
+    seq: 30
+  - col: prj.resource.category/projects
+    seq: 40
+  - col: prj.resource.category/note
+    seq: 50
+  controller: form:prj.resource.category
+  model: prj.resource.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.resource.category/name
+    seq: 0
+  - col: prj.resource.category/parent_id
+    seq: 10
+  - col: prj.resource.category/fullname
+    seq: 20
+  controller: tree:prj.resource.category
+  model: prj.resource.category
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.bill.category/name
+    seq: 0
+  - col: prj.bill.category/parent_id
+    seq: 10
+  - col: prj.bill.category/fullname
+    seq: 20
+  controller: search:prj.bill.category
+  model: prj.bill.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.bill.category/name
+    seq: 0
+  - col: prj.bill.category/parent_id
+    seq: 10
+  - col: prj.bill.category/fullname
+    seq: 20
+  controller: find:prj.bill.category
+  model: prj.bill.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.bill.category/name
+    seq: 0
+  - col: prj.bill.category/parent_id
+    seq: 10
+  - col: prj.bill.category/childs_id
+    seq: 20
+  - col: prj.bill.category/fullname
+    seq: 30
+  - col: prj.bill.category/bills
+    seq: 40
+  controller: list:prj.bill.category
+  model: prj.bill.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.bill.category/name
+    seq: 0
+  - col: prj.bill.category/parent_id
+    seq: 10
+  - col: prj.bill.category/childs_id
+    seq: 20
+  - col: prj.bill.category/fullname
+    seq: 30
+  - col: prj.bill.category/bills
+    seq: 40
+  - col: prj.bill.category/note
+    seq: 50
+  controller: form.modal:prj.bill.category
+  model: prj.bill.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.bill.category/name
+    seq: 0
+  - col: prj.bill.category/parent_id
+    seq: 10
+  - col: prj.bill.category/childs_id
+    seq: 20
+  - col: prj.bill.category/fullname
+    seq: 30
+  - col: prj.bill.category/bills
+    seq: 40
+  - col: prj.bill.category/note
+    seq: 50
+  controller: form:prj.bill.category
+  model: prj.bill.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.bill.category/name
+    seq: 0
+  - col: prj.bill.category/parent_id
+    seq: 10
+  - col: prj.bill.category/fullname
+    seq: 20
+  controller: tree:prj.bill.category
+  model: prj.bill.category
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.portfolio.category/name
+    seq: 0
+  - col: prj.portfolio.category/parent_id
+    seq: 10
+  - col: prj.portfolio.category/fullname
+    seq: 20
+  controller: search:prj.portfolio.category
+  model: prj.portfolio.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.portfolio.category/name
+    seq: 0
+  - col: prj.portfolio.category/parent_id
+    seq: 10
+  - col: prj.portfolio.category/fullname
+    seq: 20
+  controller: find:prj.portfolio.category
+  model: prj.portfolio.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.portfolio.category/name
+    seq: 0
+  - col: prj.portfolio.category/parent_id
+    seq: 10
+  - col: prj.portfolio.category/childs_id
+    seq: 20
+  - col: prj.portfolio.category/fullname
+    seq: 30
+  - col: prj.portfolio.category/portfolios
+    seq: 40
+  controller: list:prj.portfolio.category
+  model: prj.portfolio.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.portfolio.category/name
+    seq: 0
+  - col: prj.portfolio.category/parent_id
+    seq: 10
+  - col: prj.portfolio.category/childs_id
+    seq: 20
+  - col: prj.portfolio.category/fullname
+    seq: 30
+  - col: prj.portfolio.category/portfolios
+    seq: 40
+  - col: prj.portfolio.category/note
+    seq: 50
+  controller: form.modal:prj.portfolio.category
+  model: prj.portfolio.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.portfolio.category/name
+    seq: 0
+  - col: prj.portfolio.category/parent_id
+    seq: 10
+  - col: prj.portfolio.category/childs_id
+    seq: 20
+  - col: prj.portfolio.category/fullname
+    seq: 30
+  - col: prj.portfolio.category/portfolios
+    seq: 40
+  - col: prj.portfolio.category/note
+    seq: 50
+  controller: form:prj.portfolio.category
+  model: prj.portfolio.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.portfolio.category/name
+    seq: 0
+  - col: prj.portfolio.category/parent_id
+    seq: 10
+  - col: prj.portfolio.category/fullname
+    seq: 20
+  controller: tree:prj.portfolio.category
+  model: prj.portfolio.category
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.prj.category/name
+    seq: 0
+  - col: prj.prj.category/parent_id
+    seq: 10
+  - col: prj.prj.category/fullname
+    seq: 20
+  controller: search:prj.prj.category
+  model: prj.prj.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.prj.category/name
+    seq: 0
+  - col: prj.prj.category/parent_id
+    seq: 10
+  - col: prj.prj.category/fullname
+    seq: 20
+  controller: find:prj.prj.category
+  model: prj.prj.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.prj.category/name
+    seq: 0
+  - col: prj.prj.category/parent_id
+    seq: 10
+  - col: prj.prj.category/childs_id
+    seq: 20
+  - col: prj.prj.category/fullname
+    seq: 30
+  - col: prj.prj.category/projects
+    seq: 40
+  controller: list:prj.prj.category
+  model: prj.prj.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.prj.category/name
+    seq: 0
+  - col: prj.prj.category/parent_id
+    seq: 10
+  - col: prj.prj.category/childs_id
+    seq: 20
+  - col: prj.prj.category/fullname
+    seq: 30
+  - col: prj.prj.category/projects
+    seq: 40
+  - col: prj.prj.category/note
+    seq: 50
+  controller: form.modal:prj.prj.category
+  model: prj.prj.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.prj.category/name
+    seq: 0
+  - col: prj.prj.category/parent_id
+    seq: 10
+  - col: prj.prj.category/childs_id
+    seq: 20
+  - col: prj.prj.category/fullname
+    seq: 30
+  - col: prj.prj.category/projects
+    seq: 40
+  - col: prj.prj.category/note
+    seq: 50
+  controller: form:prj.prj.category
+  model: prj.prj.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.prj.category/name
+    seq: 0
+  - col: prj.prj.category/parent_id
+    seq: 10
+  - col: prj.prj.category/fullname
+    seq: 20
+  controller: tree:prj.prj.category
+  model: prj.prj.category
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.stage.category/name
+    seq: 0
+  - col: prj.stage.category/parent_id
+    seq: 10
+  - col: prj.stage.category/fullname
+    seq: 20
+  controller: search:prj.stage.category
+  model: prj.stage.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.stage.category/name
+    seq: 0
+  - col: prj.stage.category/parent_id
+    seq: 10
+  - col: prj.stage.category/fullname
+    seq: 20
+  controller: find:prj.stage.category
+  model: prj.stage.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.stage.category/name
+    seq: 0
+  - col: prj.stage.category/parent_id
+    seq: 10
+  - col: prj.stage.category/childs_id
+    seq: 20
+  - col: prj.stage.category/fullname
+    seq: 30
+  - col: prj.stage.category/stages
+    seq: 40
+  controller: list:prj.stage.category
+  model: prj.stage.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.stage.category/name
+    seq: 0
+  - col: prj.stage.category/parent_id
+    seq: 10
+  - col: prj.stage.category/childs_id
+    seq: 20
+  - col: prj.stage.category/fullname
+    seq: 30
+  - col: prj.stage.category/stages
+    seq: 40
+  - col: prj.stage.category/note
+    seq: 50
+  controller: form.modal:prj.stage.category
+  model: prj.stage.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.stage.category/name
+    seq: 0
+  - col: prj.stage.category/parent_id
+    seq: 10
+  - col: prj.stage.category/childs_id
+    seq: 20
+  - col: prj.stage.category/fullname
+    seq: 30
+  - col: prj.stage.category/stages
+    seq: 40
+  - col: prj.stage.category/note
+    seq: 50
+  controller: form:prj.stage.category
+  model: prj.stage.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.stage.category/name
+    seq: 0
+  - col: prj.stage.category/parent_id
+    seq: 10
+  - col: prj.stage.category/fullname
+    seq: 20
+  controller: tree:prj.stage.category
+  model: prj.stage.category
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.task.category/name
+    seq: 0
+  - col: prj.task.category/parent_id
+    seq: 10
+  - col: prj.task.category/fullname
+    seq: 20
+  controller: search:prj.task.category
+  model: prj.task.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.task.category/name
+    seq: 0
+  - col: prj.task.category/parent_id
+    seq: 10
+  - col: prj.task.category/fullname
+    seq: 20
+  controller: find:prj.task.category
+  model: prj.task.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.task.category/name
+    seq: 0
+  - col: prj.task.category/parent_id
+    seq: 10
+  - col: prj.task.category/childs_id
+    seq: 20
+  - col: prj.task.category/fullname
+    seq: 30
+  - col: prj.task.category/tasks
+    seq: 40
+  controller: list:prj.task.category
+  model: prj.task.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.task.category/name
+    seq: 0
+  - col: prj.task.category/parent_id
+    seq: 10
+  - col: prj.task.category/childs_id
+    seq: 20
+  - col: prj.task.category/fullname
+    seq: 30
+  - col: prj.task.category/tasks
+    seq: 40
+  - col: prj.task.category/note
+    seq: 50
+  controller: form.modal:prj.task.category
+  model: prj.task.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.task.category/name
+    seq: 0
+  - col: prj.task.category/parent_id
+    seq: 10
+  - col: prj.task.category/childs_id
+    seq: 20
+  - col: prj.task.category/fullname
+    seq: 30
+  - col: prj.task.category/tasks
+    seq: 40
+  - col: prj.task.category/note
+    seq: 50
+  controller: form:prj.task.category
+  model: prj.task.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.task.category/name
+    seq: 0
+  - col: prj.task.category/parent_id
+    seq: 10
+  - col: prj.task.category/fullname
+    seq: 20
+  controller: tree:prj.task.category
+  model: prj.task.category
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.element.category/name
+    seq: 0
+  - col: prj.element.category/parent_id
+    seq: 10
+  - col: prj.element.category/fullname
+    seq: 20
+  controller: search:prj.element.category
+  model: prj.element.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.element.category/name
+    seq: 0
+  - col: prj.element.category/parent_id
+    seq: 10
+  - col: prj.element.category/fullname
+    seq: 20
+  controller: find:prj.element.category
+  model: prj.element.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.element.category/name
+    seq: 0
+  - col: prj.element.category/parent_id
+    seq: 10
+  - col: prj.element.category/childs_id
+    seq: 20
+  - col: prj.element.category/fullname
+    seq: 30
+  - col: prj.element.category/elements
+    seq: 40
+  controller: list:prj.element.category
+  model: prj.element.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.element.category/name
+    seq: 0
+  - col: prj.element.category/parent_id
+    seq: 10
+  - col: prj.element.category/childs_id
+    seq: 20
+  - col: prj.element.category/fullname
+    seq: 30
+  - col: prj.element.category/elements
+    seq: 40
+  - col: prj.element.category/note
+    seq: 50
+  controller: form.modal:prj.element.category
+  model: prj.element.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.element.category/name
+    seq: 0
+  - col: prj.element.category/parent_id
+    seq: 10
+  - col: prj.element.category/childs_id
+    seq: 20
+  - col: prj.element.category/fullname
+    seq: 30
+  - col: prj.element.category/elements
+    seq: 40
+  - col: prj.element.category/note
+    seq: 50
+  controller: form:prj.element.category
+  model: prj.element.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.element.category/name
+    seq: 0
+  - col: prj.element.category/parent_id
+    seq: 10
+  - col: prj.element.category/fullname
+    seq: 20
+  controller: tree:prj.element.category
+  model: prj.element.category
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.resource/name
+    seq: 0
+  - col: prj.resource/category_id
+    seq: 10
+  - col: prj.resource/cost
+    seq: 20
+  - col: prj.resource/currency
+    seq: 30
+  controller: search:prj.resource
+  model: prj.resource
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.resource/name
+    seq: 0
+  - col: prj.resource/category_id
+    seq: 10
+  - col: prj.resource/cost
+    seq: 20
+  - col: prj.resource/currency
+    seq: 30
+  controller: find:prj.resource
+  model: prj.resource
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.resource/name
+    seq: 0
+  - col: prj.resource/category_id
+    seq: 10
+  - col: prj.resource/cost
+    seq: 20
+  - col: prj.resource/currency
+    seq: 30
+  controller: list:prj.resource
+  model: prj.resource
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.resource/name
+    seq: 0
+  - col: prj.resource/category_id
+    seq: 10
+  - col: prj.resource/cost
+    seq: 20
+  - col: prj.resource/currency
+    seq: 30
+  - col: prj.resource/note
+    seq: 40
+  controller: form.modal:prj.resource
+  model: prj.resource
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.resource/name
+    seq: 0
+  - col: prj.resource/category_id
+    seq: 10
+  - col: prj.resource/cost
+    seq: 20
+  - col: prj.resource/currency
+    seq: 30
+  - col: prj.resource/note
+    seq: 40
+  controller: form:prj.resource
+  model: prj.resource
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.bill/btype
+    seq: 0
+  - col: prj.bill/name
+    seq: 10
+  - col: prj.bill/company
+    seq: 20
+  - col: prj.bill/fullname
+    seq: 30
+  - col: prj.bill/category_id
+    seq: 40
+  - col: prj.bill/parent_id
+    seq: 50
+  - col: prj.bill/start_date
+    seq: 60
+  - col: prj.bill/end_date
+    seq: 70
+  - col: prj.bill/progress
+    seq: 80
+  - col: prj.bill/prj_type
+    seq: 90
+  - col: prj.bill/state
+    seq: 100
+  controller: search:prj.bill
+  model: prj.bill
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.bill/btype
+    seq: 0
+  - col: prj.bill/name
+    seq: 10
+  - col: prj.bill/company
+    seq: 20
+  - col: prj.bill/fullname
+    seq: 30
+  - col: prj.bill/category_id
+    seq: 40
+  - col: prj.bill/parent_id
+    seq: 50
+  - col: prj.bill/start_date
+    seq: 60
+  - col: prj.bill/end_date
+    seq: 70
+  - col: prj.bill/progress
+    seq: 80
+  - col: prj.bill/prj_type
+    seq: 90
+  - col: prj.bill/state
+    seq: 100
+  controller: find:prj.bill
+  model: prj.bill
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.bill/btype
+    seq: 0
+  - col: prj.bill/name
+    seq: 10
+  - col: prj.bill/company
+    seq: 20
+  - col: prj.bill/fullname
+    seq: 30
+  - col: prj.bill/category_id
+    seq: 40
+  - col: prj.bill/parent_id
+    seq: 50
+  - col: prj.bill/childs_id
+    seq: 60
+  - col: prj.bill/start_date
+    seq: 70
+  - col: prj.bill/end_date
+    seq: 80
+  - col: prj.bill/progress
+    seq: 90
+  - col: prj.bill/prj_type
+    seq: 100
+  - col: prj.bill/state
+    seq: 110
+  - col: prj.bill/portfolios
+    seq: 120
+  controller: list:prj.bill
+  model: prj.bill
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.bill/btype
+    seq: 0
+  - col: prj.bill/name
+    seq: 10
+  - col: prj.bill/company
+    seq: 20
+  - col: prj.bill/fullname
+    seq: 30
+  - col: prj.bill/category_id
+    seq: 40
+  - col: prj.bill/parent_id
+    seq: 50
+  - col: prj.bill/childs_id
+    seq: 60
+  - col: prj.bill/start_date
+    seq: 70
+  - col: prj.bill/end_date
+    seq: 80
+  - col: prj.bill/progress
+    seq: 90
+  - col: prj.bill/prj_type
+    seq: 100
+  - col: prj.bill/state
+    seq: 110
+  - col: prj.bill/portfolios
+    seq: 120
+  - col: prj.bill/note
+    seq: 130
+  controller: form.modal:prj.bill
+  model: prj.bill
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.bill/btype
+    seq: 0
+  - col: prj.bill/name
+    seq: 10
+  - col: prj.bill/company
+    seq: 20
+  - col: prj.bill/fullname
+    seq: 30
+  - col: prj.bill/category_id
+    seq: 40
+  - col: prj.bill/parent_id
+    seq: 50
+  - col: prj.bill/childs_id
+    seq: 60
+  - col: prj.bill/start_date
+    seq: 70
+  - col: prj.bill/end_date
+    seq: 80
+  - col: prj.bill/progress
+    seq: 90
+  - col: prj.bill/prj_type
+    seq: 100
+  - col: prj.bill/state
+    seq: 110
+  - col: prj.bill/portfolios
+    seq: 120
+  - col: prj.bill/note
+    seq: 130
+  controller: form:prj.bill
+  model: prj.bill
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.bill/btype
+    seq: 0
+  - col: prj.bill/name
+    seq: 10
+  - col: prj.bill/company
+    seq: 20
+  - col: prj.bill/fullname
+    seq: 30
+  - col: prj.bill/category_id
+    seq: 40
+  - col: prj.bill/parent_id
+    seq: 50
+  - col: prj.bill/start_date
+    seq: 60
+  - col: prj.bill/end_date
+    seq: 70
+  - col: prj.bill/progress
+    seq: 80
+  - col: prj.bill/prj_type
+    seq: 90
+  - col: prj.bill/state
+    seq: 100
+  controller: gantt:prj.bill
+  model: prj.bill
+  standalone: true
+  vtype: gantt
+- cols:
+  - col: prj.bill/btype
+    seq: 0
+  - col: prj.bill/name
+    seq: 10
+  - col: prj.bill/company
+    seq: 20
+  - col: prj.bill/fullname
+    seq: 30
+  - col: prj.bill/category_id
+    seq: 40
+  - col: prj.bill/parent_id
+    seq: 50
+  - col: prj.bill/start_date
+    seq: 60
+  - col: prj.bill/end_date
+    seq: 70
+  - col: prj.bill/progress
+    seq: 80
+  - col: prj.bill/prj_type
+    seq: 90
+  - col: prj.bill/state
+    seq: 100
+  controller: schedule:prj.bill
+  model: prj.bill
+  standalone: true
+  vtype: schedule
+- cols:
+  - col: prj.bill/btype
+    seq: 0
+  - col: prj.bill/name
+    seq: 10
+  - col: prj.bill/company
+    seq: 20
+  - col: prj.bill/fullname
+    seq: 30
+  - col: prj.bill/category_id
+    seq: 40
+  - col: prj.bill/parent_id
+    seq: 50
+  - col: prj.bill/start_date
+    seq: 60
+  - col: prj.bill/end_date
+    seq: 70
+  - col: prj.bill/progress
+    seq: 80
+  - col: prj.bill/prj_type
+    seq: 90
+  - col: prj.bill/state
+    seq: 100
+  - col: prj.bill/note
+    seq: 110
+  controller: kanban:prj.bill
+  model: prj.bill
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: prj.bill/btype
+    seq: 0
+  - col: prj.bill/name
+    seq: 10
+  - col: prj.bill/company
+    seq: 20
+  - col: prj.bill/fullname
+    seq: 30
+  - col: prj.bill/category_id
+    seq: 40
+  - col: prj.bill/parent_id
+    seq: 50
+  - col: prj.bill/start_date
+    seq: 60
+  - col: prj.bill/end_date
+    seq: 70
+  - col: prj.bill/progress
+    seq: 80
+  - col: prj.bill/prj_type
+    seq: 90
+  - col: prj.bill/state
+    seq: 100
+  controller: tree:prj.bill
+  model: prj.bill
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.portfolio/bill_id
+    seq: 0
+  - col: prj.portfolio/name
+    seq: 10
+  - col: prj.portfolio/category_id
+    seq: 20
+  - col: prj.portfolio/parent_id
+    seq: 30
+  - col: prj.portfolio/start_date
+    seq: 40
+  - col: prj.portfolio/end_date
+    seq: 50
+  - col: prj.portfolio/progress
+    seq: 60
+  - col: prj.portfolio/prj_type
+    seq: 70
+  - col: prj.portfolio/state
+    seq: 80
+  controller: search:prj.portfolio
+  model: prj.portfolio
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.portfolio/bill_id
+    seq: 0
+  - col: prj.portfolio/name
+    seq: 10
+  - col: prj.portfolio/category_id
+    seq: 20
+  - col: prj.portfolio/parent_id
+    seq: 30
+  - col: prj.portfolio/start_date
+    seq: 40
+  - col: prj.portfolio/end_date
+    seq: 50
+  - col: prj.portfolio/progress
+    seq: 60
+  - col: prj.portfolio/prj_type
+    seq: 70
+  - col: prj.portfolio/state
+    seq: 80
+  controller: find:prj.portfolio
+  model: prj.portfolio
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.portfolio/bill_id
+    seq: 0
+  - col: prj.portfolio/name
+    seq: 10
+  - col: prj.portfolio/category_id
+    seq: 20
+  - col: prj.portfolio/parent_id
+    seq: 30
+  - col: prj.portfolio/childs_id
+    seq: 40
+  - col: prj.portfolio/start_date
+    seq: 50
+  - col: prj.portfolio/end_date
+    seq: 60
+  - col: prj.portfolio/progress
+    seq: 70
+  - col: prj.portfolio/prj_type
+    seq: 80
+  - col: prj.portfolio/state
+    seq: 90
+  - col: prj.portfolio/projects
+    seq: 100
+  controller: list:prj.portfolio
+  model: prj.portfolio
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.portfolio/bill_id
+    seq: 0
+  - col: prj.portfolio/name
+    seq: 10
+  - col: prj.portfolio/category_id
+    seq: 20
+  - col: prj.portfolio/parent_id
+    seq: 30
+  - col: prj.portfolio/childs_id
+    seq: 40
+  - col: prj.portfolio/start_date
+    seq: 50
+  - col: prj.portfolio/end_date
+    seq: 60
+  - col: prj.portfolio/progress
+    seq: 70
+  - col: prj.portfolio/prj_type
+    seq: 80
+  - col: prj.portfolio/state
+    seq: 90
+  - col: prj.portfolio/projects
+    seq: 100
+  - col: prj.portfolio/note
+    seq: 110
+  controller: form.modal:prj.portfolio
+  model: prj.portfolio
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.portfolio/bill_id
+    seq: 0
+  - col: prj.portfolio/name
+    seq: 10
+  - col: prj.portfolio/category_id
+    seq: 20
+  - col: prj.portfolio/parent_id
+    seq: 30
+  - col: prj.portfolio/childs_id
+    seq: 40
+  - col: prj.portfolio/start_date
+    seq: 50
+  - col: prj.portfolio/end_date
+    seq: 60
+  - col: prj.portfolio/progress
+    seq: 70
+  - col: prj.portfolio/prj_type
+    seq: 80
+  - col: prj.portfolio/state
+    seq: 90
+  - col: prj.portfolio/projects
+    seq: 100
+  - col: prj.portfolio/note
+    seq: 110
+  controller: form:prj.portfolio
+  model: prj.portfolio
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.portfolio/bill_id
+    seq: 0
+  - col: prj.portfolio/name
+    seq: 10
+  - col: prj.portfolio/category_id
+    seq: 20
+  - col: prj.portfolio/parent_id
+    seq: 30
+  - col: prj.portfolio/start_date
+    seq: 40
+  - col: prj.portfolio/end_date
+    seq: 50
+  - col: prj.portfolio/progress
+    seq: 60
+  - col: prj.portfolio/prj_type
+    seq: 70
+  - col: prj.portfolio/state
+    seq: 80
+  controller: gantt:prj.portfolio
+  model: prj.portfolio
+  standalone: true
+  vtype: gantt
+- cols:
+  - col: prj.portfolio/bill_id
+    seq: 0
+  - col: prj.portfolio/name
+    seq: 10
+  - col: prj.portfolio/category_id
+    seq: 20
+  - col: prj.portfolio/parent_id
+    seq: 30
+  - col: prj.portfolio/start_date
+    seq: 40
+  - col: prj.portfolio/end_date
+    seq: 50
+  - col: prj.portfolio/progress
+    seq: 60
+  - col: prj.portfolio/prj_type
+    seq: 70
+  - col: prj.portfolio/state
+    seq: 80
+  controller: schedule:prj.portfolio
+  model: prj.portfolio
+  standalone: true
+  vtype: schedule
+- cols:
+  - col: prj.portfolio/bill_id
+    seq: 0
+  - col: prj.portfolio/name
+    seq: 10
+  - col: prj.portfolio/category_id
+    seq: 20
+  - col: prj.portfolio/parent_id
+    seq: 30
+  - col: prj.portfolio/start_date
+    seq: 40
+  - col: prj.portfolio/end_date
+    seq: 50
+  - col: prj.portfolio/progress
+    seq: 60
+  - col: prj.portfolio/prj_type
+    seq: 70
+  - col: prj.portfolio/state
+    seq: 80
+  - col: prj.portfolio/note
+    seq: 90
+  controller: kanban:prj.portfolio
+  model: prj.portfolio
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: prj.portfolio/bill_id
+    seq: 0
+  - col: prj.portfolio/name
+    seq: 10
+  - col: prj.portfolio/category_id
+    seq: 20
+  - col: prj.portfolio/parent_id
+    seq: 30
+  - col: prj.portfolio/start_date
+    seq: 40
+  - col: prj.portfolio/end_date
+    seq: 50
+  - col: prj.portfolio/progress
+    seq: 60
+  - col: prj.portfolio/prj_type
+    seq: 70
+  - col: prj.portfolio/state
+    seq: 80
+  controller: tree:prj.portfolio
+  model: prj.portfolio
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.project/portfolio_id
+    seq: 0
+  - col: prj.project/name
+    seq: 10
+  - col: prj.project/category_id
+    seq: 20
+  - col: prj.project/parent_id
+    seq: 30
+  - col: prj.project/start_date
+    seq: 40
+  - col: prj.project/end_date
+    seq: 50
+  - col: prj.project/progress
+    seq: 60
+  - col: prj.project/prj_type
+    seq: 70
+  - col: prj.project/state
+    seq: 80
+  controller: search:prj.project
+  model: prj.project
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.project/portfolio_id
+    seq: 0
+  - col: prj.project/name
+    seq: 10
+  - col: prj.project/category_id
+    seq: 20
+  - col: prj.project/parent_id
+    seq: 30
+  - col: prj.project/start_date
+    seq: 40
+  - col: prj.project/end_date
+    seq: 50
+  - col: prj.project/progress
+    seq: 60
+  - col: prj.project/prj_type
+    seq: 70
+  - col: prj.project/state
+    seq: 80
+  controller: find:prj.project
+  model: prj.project
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.project/portfolio_id
+    seq: 0
+  - col: prj.project/name
+    seq: 10
+  - col: prj.project/category_id
+    seq: 20
+  - col: prj.project/parent_id
+    seq: 30
+  - col: prj.project/childs_id
+    seq: 40
+  - col: prj.project/start_date
+    seq: 50
+  - col: prj.project/end_date
+    seq: 60
+  - col: prj.project/progress
+    seq: 70
+  - col: prj.project/prj_type
+    seq: 80
+  - col: prj.project/state
+    seq: 90
+  - col: prj.project/stages
+    seq: 100
+  controller: list:prj.project
+  model: prj.project
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.project/portfolio_id
+    seq: 0
+  - col: prj.project/name
+    seq: 10
+  - col: prj.project/category_id
+    seq: 20
+  - col: prj.project/parent_id
+    seq: 30
+  - col: prj.project/childs_id
+    seq: 40
+  - col: prj.project/start_date
+    seq: 50
+  - col: prj.project/end_date
+    seq: 60
+  - col: prj.project/progress
+    seq: 70
+  - col: prj.project/prj_type
+    seq: 80
+  - col: prj.project/state
+    seq: 90
+  - col: prj.project/stages
+    seq: 100
+  - col: prj.project/note
+    seq: 110
+  controller: form.modal:prj.project
+  model: prj.project
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.project/portfolio_id
+    seq: 0
+  - col: prj.project/name
+    seq: 10
+  - col: prj.project/category_id
+    seq: 20
+  - col: prj.project/parent_id
+    seq: 30
+  - col: prj.project/childs_id
+    seq: 40
+  - col: prj.project/start_date
+    seq: 50
+  - col: prj.project/end_date
+    seq: 60
+  - col: prj.project/progress
+    seq: 70
+  - col: prj.project/prj_type
+    seq: 80
+  - col: prj.project/state
+    seq: 90
+  - col: prj.project/stages
+    seq: 100
+  - col: prj.project/note
+    seq: 110
+  controller: form:prj.project
+  model: prj.project
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.project/portfolio_id
+    seq: 0
+  - col: prj.project/name
+    seq: 10
+  - col: prj.project/category_id
+    seq: 20
+  - col: prj.project/parent_id
+    seq: 30
+  - col: prj.project/start_date
+    seq: 40
+  - col: prj.project/end_date
+    seq: 50
+  - col: prj.project/progress
+    seq: 60
+  - col: prj.project/prj_type
+    seq: 70
+  - col: prj.project/state
+    seq: 80
+  controller: gantt:prj.project
+  model: prj.project
+  standalone: true
+  vtype: gantt
+- cols:
+  - col: prj.project/portfolio_id
+    seq: 0
+  - col: prj.project/name
+    seq: 10
+  - col: prj.project/category_id
+    seq: 20
+  - col: prj.project/parent_id
+    seq: 30
+  - col: prj.project/start_date
+    seq: 40
+  - col: prj.project/end_date
+    seq: 50
+  - col: prj.project/progress
+    seq: 60
+  - col: prj.project/prj_type
+    seq: 70
+  - col: prj.project/state
+    seq: 80
+  controller: schedule:prj.project
+  model: prj.project
+  standalone: true
+  vtype: schedule
+- cols:
+  - col: prj.project/portfolio_id
+    seq: 0
+  - col: prj.project/name
+    seq: 10
+  - col: prj.project/category_id
+    seq: 20
+  - col: prj.project/parent_id
+    seq: 30
+  - col: prj.project/start_date
+    seq: 40
+  - col: prj.project/end_date
+    seq: 50
+  - col: prj.project/progress
+    seq: 60
+  - col: prj.project/prj_type
+    seq: 70
+  - col: prj.project/state
+    seq: 80
+  - col: prj.project/note
+    seq: 90
+  controller: kanban:prj.project
+  model: prj.project
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: prj.project/portfolio_id
+    seq: 0
+  - col: prj.project/name
+    seq: 10
+  - col: prj.project/category_id
+    seq: 20
+  - col: prj.project/parent_id
+    seq: 30
+  - col: prj.project/start_date
+    seq: 40
+  - col: prj.project/end_date
+    seq: 50
+  - col: prj.project/progress
+    seq: 60
+  - col: prj.project/prj_type
+    seq: 70
+  - col: prj.project/state
+    seq: 80
+  controller: tree:prj.project
+  model: prj.project
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.stage/prj_id
+    seq: 0
+  - col: prj.stage/category_id
+    seq: 10
+  - col: prj.stage/name
+    seq: 20
+  - col: prj.stage/type
+    seq: 30
+  - col: prj.stage/parent_id
+    seq: 40
+  - col: prj.stage/start_date
+    seq: 50
+  - col: prj.stage/end_date
+    seq: 60
+  - col: prj.stage/progress
+    seq: 70
+  - col: prj.stage/prj_type
+    seq: 80
+  - col: prj.stage/state
+    seq: 90
+  controller: search:prj.stage
+  model: prj.stage
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.stage/prj_id
+    seq: 0
+  - col: prj.stage/category_id
+    seq: 10
+  - col: prj.stage/name
+    seq: 20
+  - col: prj.stage/type
+    seq: 30
+  - col: prj.stage/parent_id
+    seq: 40
+  - col: prj.stage/start_date
+    seq: 50
+  - col: prj.stage/end_date
+    seq: 60
+  - col: prj.stage/progress
+    seq: 70
+  - col: prj.stage/prj_type
+    seq: 80
+  - col: prj.stage/state
+    seq: 90
+  controller: find:prj.stage
+  model: prj.stage
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.stage/prj_id
+    seq: 0
+  - col: prj.stage/category_id
+    seq: 10
+  - col: prj.stage/name
+    seq: 20
+  - col: prj.stage/type
+    seq: 30
+  - col: prj.stage/parent_id
+    seq: 40
+  - col: prj.stage/childs_id
+    seq: 50
+  - col: prj.stage/start_date
+    seq: 60
+  - col: prj.stage/end_date
+    seq: 70
+  - col: prj.stage/progress
+    seq: 80
+  - col: prj.stage/prj_type
+    seq: 90
+  - col: prj.stage/state
+    seq: 100
+  - col: prj.stage/tasks
+    seq: 110
+  - col: prj.stage/elements
+    seq: 120
+  controller: list:prj.stage
+  model: prj.stage
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.stage/prj_id
+    seq: 0
+  - col: prj.stage/category_id
+    seq: 10
+  - col: prj.stage/name
+    seq: 20
+  - col: prj.stage/type
+    seq: 30
+  - col: prj.stage/parent_id
+    seq: 40
+  - col: prj.stage/childs_id
+    seq: 50
+  - col: prj.stage/start_date
+    seq: 60
+  - col: prj.stage/end_date
+    seq: 70
+  - col: prj.stage/progress
+    seq: 80
+  - col: prj.stage/prj_type
+    seq: 90
+  - col: prj.stage/state
+    seq: 100
+  - col: prj.stage/tasks
+    seq: 110
+  - col: prj.stage/elements
+    seq: 120
+  - col: prj.stage/note
+    seq: 130
+  controller: form.modal:prj.stage
+  model: prj.stage
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.stage/prj_id
+    seq: 0
+  - col: prj.stage/category_id
+    seq: 10
+  - col: prj.stage/name
+    seq: 20
+  - col: prj.stage/type
+    seq: 30
+  - col: prj.stage/parent_id
+    seq: 40
+  - col: prj.stage/childs_id
+    seq: 50
+  - col: prj.stage/start_date
+    seq: 60
+  - col: prj.stage/end_date
+    seq: 70
+  - col: prj.stage/progress
+    seq: 80
+  - col: prj.stage/prj_type
+    seq: 90
+  - col: prj.stage/state
+    seq: 100
+  - col: prj.stage/tasks
+    seq: 110
+  - col: prj.stage/elements
+    seq: 120
+  - col: prj.stage/note
+    seq: 130
+  controller: form:prj.stage
+  model: prj.stage
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.stage/prj_id
+    seq: 0
+  - col: prj.stage/category_id
+    seq: 10
+  - col: prj.stage/name
+    seq: 20
+  - col: prj.stage/type
+    seq: 30
+  - col: prj.stage/parent_id
+    seq: 40
+  - col: prj.stage/start_date
+    seq: 50
+  - col: prj.stage/end_date
+    seq: 60
+  - col: prj.stage/progress
+    seq: 70
+  - col: prj.stage/prj_type
+    seq: 80
+  - col: prj.stage/state
+    seq: 90
+  controller: gantt:prj.stage
+  model: prj.stage
+  standalone: true
+  vtype: gantt
+- cols:
+  - col: prj.stage/prj_id
+    seq: 0
+  - col: prj.stage/category_id
+    seq: 10
+  - col: prj.stage/name
+    seq: 20
+  - col: prj.stage/type
+    seq: 30
+  - col: prj.stage/parent_id
+    seq: 40
+  - col: prj.stage/start_date
+    seq: 50
+  - col: prj.stage/end_date
+    seq: 60
+  - col: prj.stage/progress
+    seq: 70
+  - col: prj.stage/prj_type
+    seq: 80
+  - col: prj.stage/state
+    seq: 90
+  controller: schedule:prj.stage
+  model: prj.stage
+  standalone: true
+  vtype: schedule
+- cols:
+  - col: prj.stage/prj_id
+    seq: 0
+  - col: prj.stage/category_id
+    seq: 10
+  - col: prj.stage/name
+    seq: 20
+  - col: prj.stage/type
+    seq: 30
+  - col: prj.stage/parent_id
+    seq: 40
+  - col: prj.stage/start_date
+    seq: 50
+  - col: prj.stage/end_date
+    seq: 60
+  - col: prj.stage/progress
+    seq: 70
+  - col: prj.stage/prj_type
+    seq: 80
+  - col: prj.stage/state
+    seq: 90
+  - col: prj.stage/note
+    seq: 100
+  controller: kanban:prj.stage
+  model: prj.stage
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: prj.stage/prj_id
+    seq: 0
+  - col: prj.stage/category_id
+    seq: 10
+  - col: prj.stage/name
+    seq: 20
+  - col: prj.stage/type
+    seq: 30
+  - col: prj.stage/parent_id
+    seq: 40
+  - col: prj.stage/start_date
+    seq: 50
+  - col: prj.stage/end_date
+    seq: 60
+  - col: prj.stage/progress
+    seq: 70
+  - col: prj.stage/prj_type
+    seq: 80
+  - col: prj.stage/state
+    seq: 90
+  controller: tree:prj.stage
+  model: prj.stage
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.task/stage_id
+    seq: 0
+  - col: prj.task/name
+    seq: 10
+  - col: prj.task/category_id
+    seq: 20
+  - col: prj.task/parent_id
+    seq: 30
+  - col: prj.task/start_date
+    seq: 40
+  - col: prj.task/end_date
+    seq: 50
+  - col: prj.task/progress
+    seq: 60
+  - col: prj.task/prj_type
+    seq: 70
+  - col: prj.task/state
+    seq: 80
+  controller: search:prj.task
+  model: prj.task
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.task/stage_id
+    seq: 0
+  - col: prj.task/name
+    seq: 10
+  - col: prj.task/category_id
+    seq: 20
+  - col: prj.task/parent_id
+    seq: 30
+  - col: prj.task/start_date
+    seq: 40
+  - col: prj.task/end_date
+    seq: 50
+  - col: prj.task/progress
+    seq: 60
+  - col: prj.task/prj_type
+    seq: 70
+  - col: prj.task/state
+    seq: 80
+  controller: find:prj.task
+  model: prj.task
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.task/stage_id
+    seq: 0
+  - col: prj.task/name
+    seq: 10
+  - col: prj.task/category_id
+    seq: 20
+  - col: prj.task/parent_id
+    seq: 30
+  - col: prj.task/childs_id
+    seq: 40
+  - col: prj.task/start_date
+    seq: 50
+  - col: prj.task/end_date
+    seq: 60
+  - col: prj.task/progress
+    seq: 70
+  - col: prj.task/prj_type
+    seq: 80
+  - col: prj.task/state
+    seq: 90
+  - col: prj.task/resources
+    seq: 100
+  controller: list:prj.task
+  model: prj.task
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.task/stage_id
+    seq: 0
+  - col: prj.task/name
+    seq: 10
+  - col: prj.task/category_id
+    seq: 20
+  - col: prj.task/parent_id
+    seq: 30
+  - col: prj.task/childs_id
+    seq: 40
+  - col: prj.task/start_date
+    seq: 50
+  - col: prj.task/end_date
+    seq: 60
+  - col: prj.task/progress
+    seq: 70
+  - col: prj.task/prj_type
+    seq: 80
+  - col: prj.task/state
+    seq: 90
+  - col: prj.task/resources
+    seq: 100
+  - col: prj.task/note
+    seq: 110
+  controller: form.modal:prj.task
+  model: prj.task
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.task/stage_id
+    seq: 0
+  - col: prj.task/name
+    seq: 10
+  - col: prj.task/category_id
+    seq: 20
+  - col: prj.task/parent_id
+    seq: 30
+  - col: prj.task/childs_id
+    seq: 40
+  - col: prj.task/start_date
+    seq: 50
+  - col: prj.task/end_date
+    seq: 60
+  - col: prj.task/progress
+    seq: 70
+  - col: prj.task/prj_type
+    seq: 80
+  - col: prj.task/state
+    seq: 90
+  - col: prj.task/resources
+    seq: 100
+  - col: prj.task/note
+    seq: 110
+  controller: form:prj.task
+  model: prj.task
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.task/stage_id
+    seq: 0
+  - col: prj.task/name
+    seq: 10
+  - col: prj.task/category_id
+    seq: 20
+  - col: prj.task/parent_id
+    seq: 30
+  - col: prj.task/start_date
+    seq: 40
+  - col: prj.task/end_date
+    seq: 50
+  - col: prj.task/progress
+    seq: 60
+  - col: prj.task/prj_type
+    seq: 70
+  - col: prj.task/state
+    seq: 80
+  controller: gantt:prj.task
+  model: prj.task
+  standalone: true
+  vtype: gantt
+- cols:
+  - col: prj.task/stage_id
+    seq: 0
+  - col: prj.task/name
+    seq: 10
+  - col: prj.task/category_id
+    seq: 20
+  - col: prj.task/parent_id
+    seq: 30
+  - col: prj.task/start_date
+    seq: 40
+  - col: prj.task/end_date
+    seq: 50
+  - col: prj.task/progress
+    seq: 60
+  - col: prj.task/prj_type
+    seq: 70
+  - col: prj.task/state
+    seq: 80
+  controller: schedule:prj.task
+  model: prj.task
+  standalone: true
+  vtype: schedule
+- cols:
+  - col: prj.task/stage_id
+    seq: 0
+  - col: prj.task/name
+    seq: 10
+  - col: prj.task/category_id
+    seq: 20
+  - col: prj.task/parent_id
+    seq: 30
+  - col: prj.task/start_date
+    seq: 40
+  - col: prj.task/end_date
+    seq: 50
+  - col: prj.task/progress
+    seq: 60
+  - col: prj.task/prj_type
+    seq: 70
+  - col: prj.task/state
+    seq: 80
+  - col: prj.task/note
+    seq: 90
+  controller: kanban:prj.task
+  model: prj.task
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: prj.task/stage_id
+    seq: 0
+  - col: prj.task/name
+    seq: 10
+  - col: prj.task/category_id
+    seq: 20
+  - col: prj.task/parent_id
+    seq: 30
+  - col: prj.task/start_date
+    seq: 40
+  - col: prj.task/end_date
+    seq: 50
+  - col: prj.task/progress
+    seq: 60
+  - col: prj.task/prj_type
+    seq: 70
+  - col: prj.task/state
+    seq: 80
+  controller: tree:prj.task
+  model: prj.task
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.element/stage_id
+    seq: 0
+  - col: prj.element/category_id
+    seq: 10
+  - col: prj.element/name
+    seq: 20
+  - col: prj.element/parent_id
+    seq: 30
+  controller: search:prj.element
+  model: prj.element
+  standalone: true
+  vtype: search
+- cols:
+  - col: prj.element/stage_id
+    seq: 0
+  - col: prj.element/category_id
+    seq: 10
+  - col: prj.element/name
+    seq: 20
+  - col: prj.element/parent_id
+    seq: 30
+  controller: find:prj.element
+  model: prj.element
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.element/stage_id
+    seq: 0
+  - col: prj.element/category_id
+    seq: 10
+  - col: prj.element/name
+    seq: 20
+  - col: prj.element/parent_id
+    seq: 30
+  - col: prj.element/childs_id
+    seq: 40
+  - col: prj.element/products
+    seq: 50
+  - col: prj.element/resources
+    seq: 60
+  controller: list:prj.element
+  model: prj.element
+  standalone: true
+  vtype: list
+- cols:
+  - col: prj.element/stage_id
+    seq: 0
+  - col: prj.element/category_id
+    seq: 10
+  - col: prj.element/name
+    seq: 20
+  - col: prj.element/parent_id
+    seq: 30
+  - col: prj.element/childs_id
+    seq: 40
+  - col: prj.element/products
+    seq: 50
+  - col: prj.element/resources
+    seq: 60
+  - col: prj.element/note
+    seq: 70
+  controller: form.modal:prj.element
+  model: prj.element
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: prj.element/stage_id
+    seq: 0
+  - col: prj.element/category_id
+    seq: 10
+  - col: prj.element/name
+    seq: 20
+  - col: prj.element/parent_id
+    seq: 30
+  - col: prj.element/childs_id
+    seq: 40
+  - col: prj.element/products
+    seq: 50
+  - col: prj.element/resources
+    seq: 60
+  - col: prj.element/note
+    seq: 70
+  controller: form:prj.element
+  model: prj.element
+  standalone: true
+  vtype: form
+- cols:
+  - col: prj.element/stage_id
+    seq: 0
+  - col: prj.element/category_id
+    seq: 10
+  - col: prj.element/name
+    seq: 20
+  - col: prj.element/parent_id
+    seq: 30
+  controller: tree:prj.element
+  model: prj.element
+  standalone: true
+  vtype: tree
+- cols:
+  - col: prj.element.products/element_id
+    seq: 0
+  - col: prj.element.products/product_id
+    seq: 10
+  - col: prj.element.products/quantity
+    seq: 20
+  - col: prj.element.products/uom
+    seq: 30
+  controller: find:prj.element.products
+  model: prj.element.products
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.element.products/element_id
+    seq: 0
+  - col: prj.element.products/product_id
+    seq: 10
+  - col: prj.element.products/quantity
+    seq: 20
+  - col: prj.element.products/uom
+    seq: 30
+  - col: prj.element.products/note
+    seq: 40
+  controller: o2m-form:prj.element.products
+  model: prj.element.products
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: prj.element.products/element_id
+    seq: 0
+  - col: prj.element.products/product_id
+    seq: 10
+  - col: prj.element.products/quantity
+    seq: 20
+  - col: prj.element.products/uom
+    seq: 30
+  controller: o2m-list:prj.element.products
+  model: prj.element.products
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: prj.task.resources/task_id
+    seq: 0
+  - col: prj.task.resources/resource_id
+    seq: 10
+  - col: prj.task.resources/quantiny
+    seq: 20
+  - col: prj.task.resources/uom
+    seq: 30
+  controller: find:prj.task.resources
+  model: prj.task.resources
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.task.resources/task_id
+    seq: 0
+  - col: prj.task.resources/resource_id
+    seq: 10
+  - col: prj.task.resources/quantiny
+    seq: 20
+  - col: prj.task.resources/uom
+    seq: 30
+  controller: o2m-form:prj.task.resources
+  model: prj.task.resources
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: prj.task.resources/task_id
+    seq: 0
+  - col: prj.task.resources/resource_id
+    seq: 10
+  - col: prj.task.resources/quantiny
+    seq: 20
+  - col: prj.task.resources/uom
+    seq: 30
+  controller: o2m-list:prj.task.resources
+  model: prj.task.resources
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: prj.element.resources/element_id
+    seq: 0
+  - col: prj.element.resources/resource_id
+    seq: 10
+  - col: prj.element.resources/quantiny
+    seq: 20
+  - col: prj.element.resources/uom
+    seq: 30
+  controller: find:prj.element.resources
+  model: prj.element.resources
+  standalone: true
+  vtype: find
+- cols:
+  - col: prj.element.resources/element_id
+    seq: 0
+  - col: prj.element.resources/resource_id
+    seq: 10
+  - col: prj.element.resources/quantiny
+    seq: 20
+  - col: prj.element.resources/uom
+    seq: 30
+  controller: o2m-form:prj.element.resources
+  model: prj.element.resources
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: prj.element.resources/element_id
+    seq: 0
+  - col: prj.element.resources/resource_id
+    seq: 10
+  - col: prj.element.resources/quantiny
+    seq: 20
+  - col: prj.element.resources/uom
+    seq: 30
+  controller: o2m-list:prj.element.resources
+  model: prj.element.resources
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: md.prj.product/product_id
+    seq: 0
+  - col: md.prj.product/vat
+    seq: 10
+  - col: md.prj.product/uom
+    seq: 20
+  - col: md.prj.product/price
+    seq: 30
+  - col: md.prj.product/currency
+    seq: 40
+  - col: md.prj.product/unit
+    seq: 50
+  - col: md.prj.product/uop
+    seq: 60
+  controller: find:md.prj.product
+  model: md.prj.product
+  standalone: true
+  vtype: find
+- cols:
+  - col: md.prj.product/product_id
+    seq: 0
+  - col: md.prj.product/vat
+    seq: 10
+  - col: md.prj.product/uom
+    seq: 20
+  - col: md.prj.product/price
+    seq: 30
+  - col: md.prj.product/currency
+    seq: 40
+  - col: md.prj.product/unit
+    seq: 50
+  - col: md.prj.product/uop
+    seq: 60
+  - col: md.prj.product/note
+    seq: 70
+  controller: o2m-form:md.prj.product
+  model: md.prj.product
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: md.prj.product/product_id
+    seq: 0
+  - col: md.prj.product/vat
+    seq: 10
+  - col: md.prj.product/uom
+    seq: 20
+  - col: md.prj.product/price
+    seq: 30
+  - col: md.prj.product/currency
+    seq: 40
+  - col: md.prj.product/unit
+    seq: 50
+  - col: md.prj.product/uop
+    seq: 60
+  controller: o2m-list:md.prj.product
+  model: md.prj.product
+  standalone: true
+  vtype: o2m-list

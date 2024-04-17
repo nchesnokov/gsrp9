@@ -1,0 +1,4061 @@
+- cols:
+  - col: sale.unit.categories/name
+    seq: 0
+  - col: sale.unit.categories/parent_id
+    seq: 10
+  - col: sale.unit.categories/fullname
+    seq: 20
+  controller: search:sale.unit.categories
+  model: sale.unit.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.unit.categories/name
+    seq: 0
+  - col: sale.unit.categories/parent_id
+    seq: 10
+  - col: sale.unit.categories/fullname
+    seq: 20
+  controller: find:sale.unit.categories
+  model: sale.unit.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.unit.categories/name
+    seq: 0
+  - col: sale.unit.categories/parent_id
+    seq: 10
+  - col: sale.unit.categories/childs_id
+    seq: 20
+  - col: sale.unit.categories/fullname
+    seq: 30
+  - col: sale.unit.categories/units
+    seq: 40
+  controller: list:sale.unit.categories
+  model: sale.unit.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.unit.categories/name
+    seq: 0
+  - col: sale.unit.categories/parent_id
+    seq: 10
+  - col: sale.unit.categories/childs_id
+    seq: 20
+  - col: sale.unit.categories/fullname
+    seq: 30
+  - col: sale.unit.categories/units
+    seq: 40
+  - col: sale.unit.categories/note
+    seq: 50
+  controller: form.modal:sale.unit.categories
+  model: sale.unit.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.unit.categories/name
+    seq: 0
+  - col: sale.unit.categories/parent_id
+    seq: 10
+  - col: sale.unit.categories/childs_id
+    seq: 20
+  - col: sale.unit.categories/fullname
+    seq: 30
+  - col: sale.unit.categories/units
+    seq: 40
+  - col: sale.unit.categories/note
+    seq: 50
+  controller: form:sale.unit.categories
+  model: sale.unit.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.unit.categories/name
+    seq: 0
+  - col: sale.unit.categories/parent_id
+    seq: 10
+  - col: sale.unit.categories/fullname
+    seq: 20
+  controller: tree:sale.unit.categories
+  model: sale.unit.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: sale.units/category_id
+    seq: 0
+  - col: sale.units/code
+    seq: 10
+  - col: sale.units/descr
+    seq: 20
+  controller: search:sale.units
+  model: sale.units
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.units/category_id
+    seq: 0
+  - col: sale.units/code
+    seq: 10
+  - col: sale.units/descr
+    seq: 20
+  controller: find:sale.units
+  model: sale.units
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.units/category_id
+    seq: 0
+  - col: sale.units/code
+    seq: 10
+  - col: sale.units/descr
+    seq: 20
+  - col: sale.units/channels
+    seq: 30
+  - col: sale.units/segments
+    seq: 40
+  - col: sale.units/areas
+    seq: 50
+  - col: sale.units/regions
+    seq: 60
+  controller: list:sale.units
+  model: sale.units
+  standalone: true
+  vtype: list
+- cols:
+  - col: md.company/name
+    seq: 0
+  - col: md.company/country
+    seq: 10
+  - col: md.company/currency
+    seq: 20
+  - col: md.company/note
+    seq: 30
+  controller: m2mlist:md.company
+  model: md.company
+  standalone: true
+  vtype: m2mlist
+- cols:
+  - col: sale.units/category_id
+    seq: 0
+  - col: sale.units/company_ids
+    seq: 10
+  - col: sale.units/code
+    seq: 20
+  - col: sale.units/descr
+    seq: 30
+  - col: sale.units/channels
+    seq: 40
+  - col: sale.units/segments
+    seq: 50
+  - col: sale.units/areas
+    seq: 60
+  - col: sale.units/regions
+    seq: 70
+  controller: form.modal:sale.units
+  model: sale.units
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.units/category_id
+    seq: 0
+  - col: sale.units/company_ids
+    seq: 10
+  - col: sale.units/code
+    seq: 20
+  - col: sale.units/descr
+    seq: 30
+  - col: sale.units/channels
+    seq: 40
+  - col: sale.units/segments
+    seq: 50
+  - col: sale.units/areas
+    seq: 60
+  - col: sale.units/regions
+    seq: 70
+  controller: form:sale.units
+  model: sale.units
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.channel.categories/name
+    seq: 0
+  - col: sale.channel.categories/parent_id
+    seq: 10
+  - col: sale.channel.categories/fullname
+    seq: 20
+  controller: search:sale.channel.categories
+  model: sale.channel.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.channel.categories/name
+    seq: 0
+  - col: sale.channel.categories/parent_id
+    seq: 10
+  - col: sale.channel.categories/fullname
+    seq: 20
+  controller: find:sale.channel.categories
+  model: sale.channel.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.channel.categories/name
+    seq: 0
+  - col: sale.channel.categories/parent_id
+    seq: 10
+  - col: sale.channel.categories/childs_id
+    seq: 20
+  - col: sale.channel.categories/fullname
+    seq: 30
+  - col: sale.channel.categories/channels
+    seq: 40
+  controller: list:sale.channel.categories
+  model: sale.channel.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.channel.categories/name
+    seq: 0
+  - col: sale.channel.categories/parent_id
+    seq: 10
+  - col: sale.channel.categories/childs_id
+    seq: 20
+  - col: sale.channel.categories/fullname
+    seq: 30
+  - col: sale.channel.categories/channels
+    seq: 40
+  - col: sale.channel.categories/note
+    seq: 50
+  controller: form.modal:sale.channel.categories
+  model: sale.channel.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.channel.categories/name
+    seq: 0
+  - col: sale.channel.categories/parent_id
+    seq: 10
+  - col: sale.channel.categories/childs_id
+    seq: 20
+  - col: sale.channel.categories/fullname
+    seq: 30
+  - col: sale.channel.categories/channels
+    seq: 40
+  - col: sale.channel.categories/note
+    seq: 50
+  controller: form:sale.channel.categories
+  model: sale.channel.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.channel.categories/name
+    seq: 0
+  - col: sale.channel.categories/parent_id
+    seq: 10
+  - col: sale.channel.categories/fullname
+    seq: 20
+  controller: tree:sale.channel.categories
+  model: sale.channel.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: sale.channels/category_id
+    seq: 0
+  - col: sale.channels/code
+    seq: 10
+  - col: sale.channels/descr
+    seq: 20
+  controller: search:sale.channels
+  model: sale.channels
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.channels/category_id
+    seq: 0
+  - col: sale.channels/code
+    seq: 10
+  - col: sale.channels/descr
+    seq: 20
+  controller: find:sale.channels
+  model: sale.channels
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.channels/category_id
+    seq: 0
+  - col: sale.channels/code
+    seq: 10
+  - col: sale.channels/descr
+    seq: 20
+  controller: list:sale.channels
+  model: sale.channels
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.channels/category_id
+    seq: 0
+  - col: sale.channels/code
+    seq: 10
+  - col: sale.channels/descr
+    seq: 20
+  controller: form.modal:sale.channels
+  model: sale.channels
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.channels/category_id
+    seq: 0
+  - col: sale.channels/code
+    seq: 10
+  - col: sale.channels/descr
+    seq: 20
+  controller: form:sale.channels
+  model: sale.channels
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.segment.categories/name
+    seq: 0
+  - col: sale.segment.categories/parent_id
+    seq: 10
+  - col: sale.segment.categories/fullname
+    seq: 20
+  controller: search:sale.segment.categories
+  model: sale.segment.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.segment.categories/name
+    seq: 0
+  - col: sale.segment.categories/parent_id
+    seq: 10
+  - col: sale.segment.categories/fullname
+    seq: 20
+  controller: find:sale.segment.categories
+  model: sale.segment.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.segment.categories/name
+    seq: 0
+  - col: sale.segment.categories/parent_id
+    seq: 10
+  - col: sale.segment.categories/childs_id
+    seq: 20
+  - col: sale.segment.categories/fullname
+    seq: 30
+  - col: sale.segment.categories/segments
+    seq: 40
+  controller: list:sale.segment.categories
+  model: sale.segment.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.segment.categories/name
+    seq: 0
+  - col: sale.segment.categories/parent_id
+    seq: 10
+  - col: sale.segment.categories/childs_id
+    seq: 20
+  - col: sale.segment.categories/fullname
+    seq: 30
+  - col: sale.segment.categories/segments
+    seq: 40
+  - col: sale.segment.categories/note
+    seq: 50
+  controller: form.modal:sale.segment.categories
+  model: sale.segment.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.segment.categories/name
+    seq: 0
+  - col: sale.segment.categories/parent_id
+    seq: 10
+  - col: sale.segment.categories/childs_id
+    seq: 20
+  - col: sale.segment.categories/fullname
+    seq: 30
+  - col: sale.segment.categories/segments
+    seq: 40
+  - col: sale.segment.categories/note
+    seq: 50
+  controller: form:sale.segment.categories
+  model: sale.segment.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.segment.categories/name
+    seq: 0
+  - col: sale.segment.categories/parent_id
+    seq: 10
+  - col: sale.segment.categories/fullname
+    seq: 20
+  controller: tree:sale.segment.categories
+  model: sale.segment.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: sale.segments/category_id
+    seq: 0
+  - col: sale.segments/code
+    seq: 10
+  - col: sale.segments/descr
+    seq: 20
+  controller: search:sale.segments
+  model: sale.segments
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.segments/category_id
+    seq: 0
+  - col: sale.segments/code
+    seq: 10
+  - col: sale.segments/descr
+    seq: 20
+  controller: find:sale.segments
+  model: sale.segments
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.segments/category_id
+    seq: 0
+  - col: sale.segments/code
+    seq: 10
+  - col: sale.segments/descr
+    seq: 20
+  controller: list:sale.segments
+  model: sale.segments
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.segments/category_id
+    seq: 0
+  - col: sale.segments/code
+    seq: 10
+  - col: sale.segments/descr
+    seq: 20
+  controller: form.modal:sale.segments
+  model: sale.segments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.segments/category_id
+    seq: 0
+  - col: sale.segments/code
+    seq: 10
+  - col: sale.segments/descr
+    seq: 20
+  controller: form:sale.segments
+  model: sale.segments
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.area.categories/name
+    seq: 0
+  - col: sale.area.categories/parent_id
+    seq: 10
+  - col: sale.area.categories/fullname
+    seq: 20
+  controller: search:sale.area.categories
+  model: sale.area.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.area.categories/name
+    seq: 0
+  - col: sale.area.categories/parent_id
+    seq: 10
+  - col: sale.area.categories/fullname
+    seq: 20
+  controller: find:sale.area.categories
+  model: sale.area.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.area.categories/name
+    seq: 0
+  - col: sale.area.categories/parent_id
+    seq: 10
+  - col: sale.area.categories/childs_id
+    seq: 20
+  - col: sale.area.categories/fullname
+    seq: 30
+  - col: sale.area.categories/areas
+    seq: 40
+  controller: list:sale.area.categories
+  model: sale.area.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.area.categories/name
+    seq: 0
+  - col: sale.area.categories/parent_id
+    seq: 10
+  - col: sale.area.categories/childs_id
+    seq: 20
+  - col: sale.area.categories/fullname
+    seq: 30
+  - col: sale.area.categories/areas
+    seq: 40
+  - col: sale.area.categories/note
+    seq: 50
+  controller: form.modal:sale.area.categories
+  model: sale.area.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.area.categories/name
+    seq: 0
+  - col: sale.area.categories/parent_id
+    seq: 10
+  - col: sale.area.categories/childs_id
+    seq: 20
+  - col: sale.area.categories/fullname
+    seq: 30
+  - col: sale.area.categories/areas
+    seq: 40
+  - col: sale.area.categories/note
+    seq: 50
+  controller: form:sale.area.categories
+  model: sale.area.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.area.categories/name
+    seq: 0
+  - col: sale.area.categories/parent_id
+    seq: 10
+  - col: sale.area.categories/fullname
+    seq: 20
+  controller: tree:sale.area.categories
+  model: sale.area.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: sale.areas/category_id
+    seq: 0
+  - col: sale.areas/code
+    seq: 10
+  - col: sale.areas/descr
+    seq: 20
+  controller: search:sale.areas
+  model: sale.areas
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.areas/category_id
+    seq: 0
+  - col: sale.areas/code
+    seq: 10
+  - col: sale.areas/descr
+    seq: 20
+  controller: find:sale.areas
+  model: sale.areas
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.areas/category_id
+    seq: 0
+  - col: sale.areas/code
+    seq: 10
+  - col: sale.areas/descr
+    seq: 20
+  controller: list:sale.areas
+  model: sale.areas
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.areas/category_id
+    seq: 0
+  - col: sale.areas/code
+    seq: 10
+  - col: sale.areas/descr
+    seq: 20
+  controller: form.modal:sale.areas
+  model: sale.areas
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.areas/category_id
+    seq: 0
+  - col: sale.areas/code
+    seq: 10
+  - col: sale.areas/descr
+    seq: 20
+  controller: form:sale.areas
+  model: sale.areas
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.region.categories/name
+    seq: 0
+  - col: sale.region.categories/parent_id
+    seq: 10
+  - col: sale.region.categories/fullname
+    seq: 20
+  controller: search:sale.region.categories
+  model: sale.region.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.region.categories/name
+    seq: 0
+  - col: sale.region.categories/parent_id
+    seq: 10
+  - col: sale.region.categories/fullname
+    seq: 20
+  controller: find:sale.region.categories
+  model: sale.region.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.region.categories/name
+    seq: 0
+  - col: sale.region.categories/parent_id
+    seq: 10
+  - col: sale.region.categories/childs_id
+    seq: 20
+  - col: sale.region.categories/fullname
+    seq: 30
+  - col: sale.region.categories/segments
+    seq: 40
+  controller: list:sale.region.categories
+  model: sale.region.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.region.categories/name
+    seq: 0
+  - col: sale.region.categories/parent_id
+    seq: 10
+  - col: sale.region.categories/childs_id
+    seq: 20
+  - col: sale.region.categories/fullname
+    seq: 30
+  - col: sale.region.categories/segments
+    seq: 40
+  - col: sale.region.categories/note
+    seq: 50
+  controller: form.modal:sale.region.categories
+  model: sale.region.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.region.categories/name
+    seq: 0
+  - col: sale.region.categories/parent_id
+    seq: 10
+  - col: sale.region.categories/childs_id
+    seq: 20
+  - col: sale.region.categories/fullname
+    seq: 30
+  - col: sale.region.categories/segments
+    seq: 40
+  - col: sale.region.categories/note
+    seq: 50
+  controller: form:sale.region.categories
+  model: sale.region.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.region.categories/name
+    seq: 0
+  - col: sale.region.categories/parent_id
+    seq: 10
+  - col: sale.region.categories/fullname
+    seq: 20
+  controller: tree:sale.region.categories
+  model: sale.region.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: sale.regions/category_id
+    seq: 0
+  - col: sale.regions/code
+    seq: 10
+  - col: sale.regions/descr
+    seq: 20
+  controller: search:sale.regions
+  model: sale.regions
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.regions/category_id
+    seq: 0
+  - col: sale.regions/code
+    seq: 10
+  - col: sale.regions/descr
+    seq: 20
+  controller: find:sale.regions
+  model: sale.regions
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.regions/category_id
+    seq: 0
+  - col: sale.regions/code
+    seq: 10
+  - col: sale.regions/descr
+    seq: 20
+  controller: list:sale.regions
+  model: sale.regions
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.regions/category_id
+    seq: 0
+  - col: sale.regions/code
+    seq: 10
+  - col: sale.regions/descr
+    seq: 20
+  controller: form.modal:sale.regions
+  model: sale.regions
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.regions/category_id
+    seq: 0
+  - col: sale.regions/code
+    seq: 10
+  - col: sale.regions/descr
+    seq: 20
+  controller: form:sale.regions
+  model: sale.regions
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.division.categories/name
+    seq: 0
+  - col: sale.division.categories/parent_id
+    seq: 10
+  - col: sale.division.categories/fullname
+    seq: 20
+  controller: search:sale.division.categories
+  model: sale.division.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.division.categories/name
+    seq: 0
+  - col: sale.division.categories/parent_id
+    seq: 10
+  - col: sale.division.categories/fullname
+    seq: 20
+  controller: find:sale.division.categories
+  model: sale.division.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.division.categories/name
+    seq: 0
+  - col: sale.division.categories/parent_id
+    seq: 10
+  - col: sale.division.categories/childs_id
+    seq: 20
+  - col: sale.division.categories/fullname
+    seq: 30
+  - col: sale.division.categories/divisions
+    seq: 40
+  controller: list:sale.division.categories
+  model: sale.division.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.division.categories/name
+    seq: 0
+  - col: sale.division.categories/parent_id
+    seq: 10
+  - col: sale.division.categories/childs_id
+    seq: 20
+  - col: sale.division.categories/fullname
+    seq: 30
+  - col: sale.division.categories/divisions
+    seq: 40
+  - col: sale.division.categories/note
+    seq: 50
+  controller: form.modal:sale.division.categories
+  model: sale.division.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.division.categories/name
+    seq: 0
+  - col: sale.division.categories/parent_id
+    seq: 10
+  - col: sale.division.categories/childs_id
+    seq: 20
+  - col: sale.division.categories/fullname
+    seq: 30
+  - col: sale.division.categories/divisions
+    seq: 40
+  - col: sale.division.categories/note
+    seq: 50
+  controller: form:sale.division.categories
+  model: sale.division.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.division.categories/name
+    seq: 0
+  - col: sale.division.categories/parent_id
+    seq: 10
+  - col: sale.division.categories/fullname
+    seq: 20
+  controller: tree:sale.division.categories
+  model: sale.division.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: sale.divisions/category_id
+    seq: 0
+  - col: sale.divisions/code
+    seq: 10
+  - col: sale.divisions/descr
+    seq: 20
+  controller: search:sale.divisions
+  model: sale.divisions
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.divisions/category_id
+    seq: 0
+  - col: sale.divisions/code
+    seq: 10
+  - col: sale.divisions/descr
+    seq: 20
+  controller: find:sale.divisions
+  model: sale.divisions
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.divisions/category_id
+    seq: 0
+  - col: sale.divisions/code
+    seq: 10
+  - col: sale.divisions/descr
+    seq: 20
+  - col: sale.divisions/subdivisions
+    seq: 30
+  controller: list:sale.divisions
+  model: sale.divisions
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.divisions/category_id
+    seq: 0
+  - col: sale.divisions/code
+    seq: 10
+  - col: sale.divisions/descr
+    seq: 20
+  - col: sale.divisions/subdivisions
+    seq: 30
+  controller: form.modal:sale.divisions
+  model: sale.divisions
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.divisions/category_id
+    seq: 0
+  - col: sale.divisions/code
+    seq: 10
+  - col: sale.divisions/descr
+    seq: 20
+  - col: sale.divisions/subdivisions
+    seq: 30
+  controller: form:sale.divisions
+  model: sale.divisions
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.subdivision.categories/name
+    seq: 0
+  - col: sale.subdivision.categories/parent_id
+    seq: 10
+  - col: sale.subdivision.categories/fullname
+    seq: 20
+  controller: search:sale.subdivision.categories
+  model: sale.subdivision.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.subdivision.categories/name
+    seq: 0
+  - col: sale.subdivision.categories/parent_id
+    seq: 10
+  - col: sale.subdivision.categories/fullname
+    seq: 20
+  controller: find:sale.subdivision.categories
+  model: sale.subdivision.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.subdivision.categories/name
+    seq: 0
+  - col: sale.subdivision.categories/parent_id
+    seq: 10
+  - col: sale.subdivision.categories/childs_id
+    seq: 20
+  - col: sale.subdivision.categories/fullname
+    seq: 30
+  - col: sale.subdivision.categories/subdivisions
+    seq: 40
+  controller: list:sale.subdivision.categories
+  model: sale.subdivision.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.subdivision.categories/name
+    seq: 0
+  - col: sale.subdivision.categories/parent_id
+    seq: 10
+  - col: sale.subdivision.categories/childs_id
+    seq: 20
+  - col: sale.subdivision.categories/fullname
+    seq: 30
+  - col: sale.subdivision.categories/subdivisions
+    seq: 40
+  - col: sale.subdivision.categories/note
+    seq: 50
+  controller: form.modal:sale.subdivision.categories
+  model: sale.subdivision.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.subdivision.categories/name
+    seq: 0
+  - col: sale.subdivision.categories/parent_id
+    seq: 10
+  - col: sale.subdivision.categories/childs_id
+    seq: 20
+  - col: sale.subdivision.categories/fullname
+    seq: 30
+  - col: sale.subdivision.categories/subdivisions
+    seq: 40
+  - col: sale.subdivision.categories/note
+    seq: 50
+  controller: form:sale.subdivision.categories
+  model: sale.subdivision.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.subdivision.categories/name
+    seq: 0
+  - col: sale.subdivision.categories/parent_id
+    seq: 10
+  - col: sale.subdivision.categories/fullname
+    seq: 20
+  controller: tree:sale.subdivision.categories
+  model: sale.subdivision.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: sale.subdivisions/category_id
+    seq: 0
+  - col: sale.subdivisions/code
+    seq: 10
+  - col: sale.subdivisions/descr
+    seq: 20
+  controller: search:sale.subdivisions
+  model: sale.subdivisions
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.subdivisions/category_id
+    seq: 0
+  - col: sale.subdivisions/code
+    seq: 10
+  - col: sale.subdivisions/descr
+    seq: 20
+  controller: find:sale.subdivisions
+  model: sale.subdivisions
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.subdivisions/category_id
+    seq: 0
+  - col: sale.subdivisions/code
+    seq: 10
+  - col: sale.subdivisions/descr
+    seq: 20
+  controller: list:sale.subdivisions
+  model: sale.subdivisions
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.subdivisions/category_id
+    seq: 0
+  - col: sale.subdivisions/code
+    seq: 10
+  - col: sale.subdivisions/descr
+    seq: 20
+  controller: form.modal:sale.subdivisions
+  model: sale.subdivisions
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.subdivisions/category_id
+    seq: 0
+  - col: sale.subdivisions/code
+    seq: 10
+  - col: sale.subdivisions/descr
+    seq: 20
+  controller: form:sale.subdivisions
+  model: sale.subdivisions
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.unit.channel.assigments/unit_id
+    seq: 0
+  - col: sale.unit.channel.assigments/channel_id
+    seq: 10
+  - col: sale.unit.channel.assigments/fullname
+    seq: 20
+  controller: search:sale.unit.channel.assigments
+  model: sale.unit.channel.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.unit.channel.assigments/unit_id
+    seq: 0
+  - col: sale.unit.channel.assigments/channel_id
+    seq: 10
+  - col: sale.unit.channel.assigments/fullname
+    seq: 20
+  controller: find:sale.unit.channel.assigments
+  model: sale.unit.channel.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.unit.channel.assigments/unit_id
+    seq: 0
+  - col: sale.unit.channel.assigments/channel_id
+    seq: 10
+  - col: sale.unit.channel.assigments/fullname
+    seq: 20
+  controller: list:sale.unit.channel.assigments
+  model: sale.unit.channel.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.unit.channel.assigments/unit_id
+    seq: 0
+  - col: sale.unit.channel.assigments/channel_id
+    seq: 10
+  - col: sale.unit.channel.assigments/fullname
+    seq: 20
+  controller: form.modal:sale.unit.channel.assigments
+  model: sale.unit.channel.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.unit.channel.assigments/unit_id
+    seq: 0
+  - col: sale.unit.channel.assigments/channel_id
+    seq: 10
+  - col: sale.unit.channel.assigments/fullname
+    seq: 20
+  controller: form:sale.unit.channel.assigments
+  model: sale.unit.channel.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.unit.segment.assigments/unit_id
+    seq: 0
+  - col: sale.unit.segment.assigments/segment_id
+    seq: 10
+  - col: sale.unit.segment.assigments/fullname
+    seq: 20
+  controller: search:sale.unit.segment.assigments
+  model: sale.unit.segment.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.unit.segment.assigments/unit_id
+    seq: 0
+  - col: sale.unit.segment.assigments/segment_id
+    seq: 10
+  - col: sale.unit.segment.assigments/fullname
+    seq: 20
+  controller: find:sale.unit.segment.assigments
+  model: sale.unit.segment.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.unit.segment.assigments/unit_id
+    seq: 0
+  - col: sale.unit.segment.assigments/segment_id
+    seq: 10
+  - col: sale.unit.segment.assigments/fullname
+    seq: 20
+  controller: list:sale.unit.segment.assigments
+  model: sale.unit.segment.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.unit.segment.assigments/unit_id
+    seq: 0
+  - col: sale.unit.segment.assigments/segment_id
+    seq: 10
+  - col: sale.unit.segment.assigments/fullname
+    seq: 20
+  controller: form.modal:sale.unit.segment.assigments
+  model: sale.unit.segment.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.unit.segment.assigments/unit_id
+    seq: 0
+  - col: sale.unit.segment.assigments/segment_id
+    seq: 10
+  - col: sale.unit.segment.assigments/fullname
+    seq: 20
+  controller: form:sale.unit.segment.assigments
+  model: sale.unit.segment.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.unit.area.assigments/unit_id
+    seq: 0
+  - col: sale.unit.area.assigments/area_id
+    seq: 10
+  - col: sale.unit.area.assigments/fullname
+    seq: 20
+  controller: search:sale.unit.area.assigments
+  model: sale.unit.area.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.unit.area.assigments/unit_id
+    seq: 0
+  - col: sale.unit.area.assigments/area_id
+    seq: 10
+  - col: sale.unit.area.assigments/fullname
+    seq: 20
+  controller: find:sale.unit.area.assigments
+  model: sale.unit.area.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.unit.area.assigments/unit_id
+    seq: 0
+  - col: sale.unit.area.assigments/area_id
+    seq: 10
+  - col: sale.unit.area.assigments/fullname
+    seq: 20
+  controller: list:sale.unit.area.assigments
+  model: sale.unit.area.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.unit.area.assigments/unit_id
+    seq: 0
+  - col: sale.unit.area.assigments/area_id
+    seq: 10
+  - col: sale.unit.area.assigments/fullname
+    seq: 20
+  controller: form.modal:sale.unit.area.assigments
+  model: sale.unit.area.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.unit.area.assigments/unit_id
+    seq: 0
+  - col: sale.unit.area.assigments/area_id
+    seq: 10
+  - col: sale.unit.area.assigments/fullname
+    seq: 20
+  controller: form:sale.unit.area.assigments
+  model: sale.unit.area.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.unit.region.assigments/unit_id
+    seq: 0
+  - col: sale.unit.region.assigments/region_id
+    seq: 10
+  - col: sale.unit.region.assigments/fullname
+    seq: 20
+  controller: search:sale.unit.region.assigments
+  model: sale.unit.region.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.unit.region.assigments/unit_id
+    seq: 0
+  - col: sale.unit.region.assigments/region_id
+    seq: 10
+  - col: sale.unit.region.assigments/fullname
+    seq: 20
+  controller: find:sale.unit.region.assigments
+  model: sale.unit.region.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.unit.region.assigments/unit_id
+    seq: 0
+  - col: sale.unit.region.assigments/region_id
+    seq: 10
+  - col: sale.unit.region.assigments/fullname
+    seq: 20
+  controller: list:sale.unit.region.assigments
+  model: sale.unit.region.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.unit.region.assigments/unit_id
+    seq: 0
+  - col: sale.unit.region.assigments/region_id
+    seq: 10
+  - col: sale.unit.region.assigments/fullname
+    seq: 20
+  controller: form.modal:sale.unit.region.assigments
+  model: sale.unit.region.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.unit.region.assigments/unit_id
+    seq: 0
+  - col: sale.unit.region.assigments/region_id
+    seq: 10
+  - col: sale.unit.region.assigments/fullname
+    seq: 20
+  controller: form:sale.unit.region.assigments
+  model: sale.unit.region.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.division.subdivision.assigments/division_id
+    seq: 0
+  - col: sale.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: sale.division.subdivision.assigments/fullname
+    seq: 20
+  controller: search:sale.division.subdivision.assigments
+  model: sale.division.subdivision.assigments
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.division.subdivision.assigments/division_id
+    seq: 0
+  - col: sale.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: sale.division.subdivision.assigments/fullname
+    seq: 20
+  controller: find:sale.division.subdivision.assigments
+  model: sale.division.subdivision.assigments
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.division.subdivision.assigments/division_id
+    seq: 0
+  - col: sale.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: sale.division.subdivision.assigments/fullname
+    seq: 20
+  controller: list:sale.division.subdivision.assigments
+  model: sale.division.subdivision.assigments
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.division.subdivision.assigments/division_id
+    seq: 0
+  - col: sale.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: sale.division.subdivision.assigments/fullname
+    seq: 20
+  controller: form.modal:sale.division.subdivision.assigments
+  model: sale.division.subdivision.assigments
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.division.subdivision.assigments/division_id
+    seq: 0
+  - col: sale.division.subdivision.assigments/subdivision_id
+    seq: 10
+  - col: sale.division.subdivision.assigments/fullname
+    seq: 20
+  controller: form:sale.division.subdivision.assigments
+  model: sale.division.subdivision.assigments
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.markets/unit_id
+    seq: 0
+  - col: sale.markets/channel_id
+    seq: 10
+  - col: sale.markets/segment_id
+    seq: 20
+  - col: sale.markets/area_id
+    seq: 30
+  - col: sale.markets/region_id
+    seq: 40
+  - col: sale.markets/fullname
+    seq: 50
+  controller: search:sale.markets
+  model: sale.markets
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.markets/unit_id
+    seq: 0
+  - col: sale.markets/channel_id
+    seq: 10
+  - col: sale.markets/segment_id
+    seq: 20
+  - col: sale.markets/area_id
+    seq: 30
+  - col: sale.markets/region_id
+    seq: 40
+  - col: sale.markets/fullname
+    seq: 50
+  controller: find:sale.markets
+  model: sale.markets
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.markets/unit_id
+    seq: 0
+  - col: sale.markets/channel_id
+    seq: 10
+  - col: sale.markets/segment_id
+    seq: 20
+  - col: sale.markets/area_id
+    seq: 30
+  - col: sale.markets/region_id
+    seq: 40
+  - col: sale.markets/fullname
+    seq: 50
+  controller: list:sale.markets
+  model: sale.markets
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.markets/unit_id
+    seq: 0
+  - col: sale.markets/channel_id
+    seq: 10
+  - col: sale.markets/segment_id
+    seq: 20
+  - col: sale.markets/area_id
+    seq: 30
+  - col: sale.markets/region_id
+    seq: 40
+  - col: sale.markets/fullname
+    seq: 50
+  - col: sale.markets/note
+    seq: 60
+  controller: form.modal:sale.markets
+  model: sale.markets
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.markets/unit_id
+    seq: 0
+  - col: sale.markets/channel_id
+    seq: 10
+  - col: sale.markets/segment_id
+    seq: 20
+  - col: sale.markets/area_id
+    seq: 30
+  - col: sale.markets/region_id
+    seq: 40
+  - col: sale.markets/fullname
+    seq: 50
+  - col: sale.markets/note
+    seq: 60
+  controller: form:sale.markets
+  model: sale.markets
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.teams/division_id
+    seq: 0
+  - col: sale.teams/subdivision_id
+    seq: 10
+  - col: sale.teams/fullname
+    seq: 20
+  controller: search:sale.teams
+  model: sale.teams
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.teams/division_id
+    seq: 0
+  - col: sale.teams/subdivision_id
+    seq: 10
+  - col: sale.teams/fullname
+    seq: 20
+  controller: find:sale.teams
+  model: sale.teams
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.teams/division_id
+    seq: 0
+  - col: sale.teams/subdivision_id
+    seq: 10
+  - col: sale.teams/fullname
+    seq: 20
+  controller: list:sale.teams
+  model: sale.teams
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.teams/division_id
+    seq: 0
+  - col: sale.teams/subdivision_id
+    seq: 10
+  - col: sale.teams/fullname
+    seq: 20
+  - col: sale.teams/note
+    seq: 30
+  controller: form.modal:sale.teams
+  model: sale.teams
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.teams/division_id
+    seq: 0
+  - col: sale.teams/subdivision_id
+    seq: 10
+  - col: sale.teams/fullname
+    seq: 20
+  - col: sale.teams/note
+    seq: 30
+  controller: form:sale.teams
+  model: sale.teams
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.pricing.group.levels/code
+    seq: 0
+  - col: sale.pricing.group.levels/descr
+    seq: 10
+  controller: search:sale.pricing.group.levels
+  model: sale.pricing.group.levels
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.pricing.group.levels/code
+    seq: 0
+  - col: sale.pricing.group.levels/descr
+    seq: 10
+  controller: find:sale.pricing.group.levels
+  model: sale.pricing.group.levels
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.pricing.group.levels/code
+    seq: 0
+  - col: sale.pricing.group.levels/descr
+    seq: 10
+  controller: list:sale.pricing.group.levels
+  model: sale.pricing.group.levels
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.pricing.group.levels/code
+    seq: 0
+  - col: sale.pricing.group.levels/descr
+    seq: 10
+  controller: form.modal:sale.pricing.group.levels
+  model: sale.pricing.group.levels
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.pricing.group.levels/code
+    seq: 0
+  - col: sale.pricing.group.levels/descr
+    seq: 10
+  controller: form:sale.pricing.group.levels
+  model: sale.pricing.group.levels
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.texts/code
+    seq: 0
+  - col: sale.texts/descr
+    seq: 10
+  controller: search:sale.texts
+  model: sale.texts
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.texts/code
+    seq: 0
+  - col: sale.texts/descr
+    seq: 10
+  controller: find:sale.texts
+  model: sale.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.texts/code
+    seq: 0
+  - col: sale.texts/descr
+    seq: 10
+  controller: list:sale.texts
+  model: sale.texts
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.texts/code
+    seq: 0
+  - col: sale.texts/descr
+    seq: 10
+  controller: form.modal:sale.texts
+  model: sale.texts
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.texts/code
+    seq: 0
+  - col: sale.texts/descr
+    seq: 10
+  controller: form:sale.texts
+  model: sale.texts
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.schema.texts/usage
+    seq: 0
+  - col: sale.schema.texts/code
+    seq: 10
+  - col: sale.schema.texts/descr
+    seq: 20
+  controller: search:sale.schema.texts
+  model: sale.schema.texts
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.schema.texts/usage
+    seq: 0
+  - col: sale.schema.texts/code
+    seq: 10
+  - col: sale.schema.texts/descr
+    seq: 20
+  controller: find:sale.schema.texts
+  model: sale.schema.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.schema.texts/usage
+    seq: 0
+  - col: sale.schema.texts/code
+    seq: 10
+  - col: sale.schema.texts/descr
+    seq: 20
+  - col: sale.schema.texts/texts
+    seq: 30
+  controller: list:sale.schema.texts
+  model: sale.schema.texts
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.schema.texts/usage
+    seq: 0
+  - col: sale.schema.texts/code
+    seq: 10
+  - col: sale.schema.texts/descr
+    seq: 20
+  - col: sale.schema.texts/texts
+    seq: 30
+  controller: form.modal:sale.schema.texts
+  model: sale.schema.texts
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.schema.texts/usage
+    seq: 0
+  - col: sale.schema.texts/code
+    seq: 10
+  - col: sale.schema.texts/descr
+    seq: 20
+  - col: sale.schema.texts/texts
+    seq: 30
+  controller: form:sale.schema.texts
+  model: sale.schema.texts
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.schema.text.items/schema_id
+    seq: 0
+  - col: sale.schema.text.items/seq
+    seq: 10
+  - col: sale.schema.text.items/text_id
+    seq: 20
+  - col: sale.schema.text.items/descr
+    seq: 30
+  controller: find:sale.schema.text.items
+  model: sale.schema.text.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.schema.text.items/schema_id
+    seq: 0
+  - col: sale.schema.text.items/seq
+    seq: 10
+  - col: sale.schema.text.items/text_id
+    seq: 20
+  - col: sale.schema.text.items/descr
+    seq: 30
+  controller: o2m-form:sale.schema.text.items
+  model: sale.schema.text.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.schema.text.items/schema_id
+    seq: 0
+  - col: sale.schema.text.items/seq
+    seq: 10
+  - col: sale.schema.text.items/text_id
+    seq: 20
+  - col: sale.schema.text.items/descr
+    seq: 30
+  controller: o2m-list:sale.schema.text.items
+  model: sale.schema.text.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.types/otype
+    seq: 0
+  - col: sale.order.types/name
+    seq: 10
+  - col: sale.order.types/htschema
+    seq: 20
+  - col: sale.order.types/itschema
+    seq: 30
+  - col: sale.order.types/required
+    seq: 40
+  controller: search:sale.order.types
+  model: sale.order.types
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.order.types/otype
+    seq: 0
+  - col: sale.order.types/name
+    seq: 10
+  - col: sale.order.types/htschema
+    seq: 20
+  - col: sale.order.types/itschema
+    seq: 30
+  - col: sale.order.types/required
+    seq: 40
+  controller: find:sale.order.types
+  model: sale.order.types
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.types/otype
+    seq: 0
+  - col: sale.order.types/name
+    seq: 10
+  - col: sale.order.types/htschema
+    seq: 20
+  - col: sale.order.types/itschema
+    seq: 30
+  - col: sale.order.types/roles
+    seq: 40
+  - col: sale.order.types/tis
+    seq: 50
+  - col: sale.order.types/required
+    seq: 60
+  controller: list:sale.order.types
+  model: sale.order.types
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.order.types/otype
+    seq: 0
+  - col: sale.order.types/name
+    seq: 10
+  - col: sale.order.types/htschema
+    seq: 20
+  - col: sale.order.types/itschema
+    seq: 30
+  - col: sale.order.types/roles
+    seq: 40
+  - col: sale.order.types/tis
+    seq: 50
+  - col: sale.order.types/required
+    seq: 60
+  - col: sale.order.types/note
+    seq: 70
+  controller: form.modal:sale.order.types
+  model: sale.order.types
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.order.types/otype
+    seq: 0
+  - col: sale.order.types/name
+    seq: 10
+  - col: sale.order.types/htschema
+    seq: 20
+  - col: sale.order.types/itschema
+    seq: 30
+  - col: sale.order.types/roles
+    seq: 40
+  - col: sale.order.types/tis
+    seq: 50
+  - col: sale.order.types/required
+    seq: 60
+  - col: sale.order.types/note
+    seq: 70
+  controller: form:sale.order.types
+  model: sale.order.types
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.order.type.roles/type_id
+    seq: 0
+  - col: sale.order.type.roles/role_id
+    seq: 10
+  controller: find:sale.order.type.roles
+  model: sale.order.type.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.type.roles/type_id
+    seq: 0
+  - col: sale.order.type.roles/role_id
+    seq: 10
+  - col: sale.order.type.roles/note
+    seq: 20
+  controller: o2m-form:sale.order.type.roles
+  model: sale.order.type.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.type.roles/type_id
+    seq: 0
+  - col: sale.order.type.roles/role_id
+    seq: 10
+  controller: o2m-list:sale.order.type.roles
+  model: sale.order.type.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.type.items/type_id
+    seq: 0
+  - col: sale.order.type.items/gti_id
+    seq: 10
+  - col: sale.order.type.items/itype_id
+    seq: 20
+  controller: find:sale.order.type.items
+  model: sale.order.type.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.type.items/type_id
+    seq: 0
+  - col: sale.order.type.items/gti_id
+    seq: 10
+  - col: sale.order.type.items/itype_id
+    seq: 20
+  - col: sale.order.type.items/note
+    seq: 30
+  controller: o2m-form:sale.order.type.items
+  model: sale.order.type.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.type.items/type_id
+    seq: 0
+  - col: sale.order.type.items/gti_id
+    seq: 10
+  - col: sale.order.type.items/itype_id
+    seq: 20
+  controller: o2m-list:sale.order.type.items
+  model: sale.order.type.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.invoice.types/name
+    seq: 0
+  - col: sale.invoice.types/htschema
+    seq: 10
+  - col: sale.invoice.types/itschema
+    seq: 20
+  controller: search:sale.invoice.types
+  model: sale.invoice.types
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.invoice.types/name
+    seq: 0
+  - col: sale.invoice.types/htschema
+    seq: 10
+  - col: sale.invoice.types/itschema
+    seq: 20
+  controller: find:sale.invoice.types
+  model: sale.invoice.types
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.invoice.types/name
+    seq: 0
+  - col: sale.invoice.types/htschema
+    seq: 10
+  - col: sale.invoice.types/itschema
+    seq: 20
+  - col: sale.invoice.types/roles
+    seq: 30
+  controller: list:sale.invoice.types
+  model: sale.invoice.types
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.invoice.types/name
+    seq: 0
+  - col: sale.invoice.types/htschema
+    seq: 10
+  - col: sale.invoice.types/itschema
+    seq: 20
+  - col: sale.invoice.types/roles
+    seq: 30
+  - col: sale.invoice.types/note
+    seq: 40
+  controller: form.modal:sale.invoice.types
+  model: sale.invoice.types
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.invoice.types/name
+    seq: 0
+  - col: sale.invoice.types/htschema
+    seq: 10
+  - col: sale.invoice.types/itschema
+    seq: 20
+  - col: sale.invoice.types/roles
+    seq: 30
+  - col: sale.invoice.types/note
+    seq: 40
+  controller: form:sale.invoice.types
+  model: sale.invoice.types
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.invoice.type.roles/type_id
+    seq: 0
+  - col: sale.invoice.type.roles/role_id
+    seq: 10
+  - col: sale.invoice.type.roles/required
+    seq: 20
+  controller: find:sale.invoice.type.roles
+  model: sale.invoice.type.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.invoice.type.roles/type_id
+    seq: 0
+  - col: sale.invoice.type.roles/role_id
+    seq: 10
+  - col: sale.invoice.type.roles/required
+    seq: 20
+  - col: sale.invoice.type.roles/note
+    seq: 30
+  controller: o2m-form:sale.invoice.type.roles
+  model: sale.invoice.type.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.invoice.type.roles/type_id
+    seq: 0
+  - col: sale.invoice.type.roles/role_id
+    seq: 10
+  - col: sale.invoice.type.roles/required
+    seq: 20
+  controller: o2m-list:sale.invoice.type.roles
+  model: sale.invoice.type.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.categories/name
+    seq: 0
+  - col: sale.order.categories/parent_id
+    seq: 10
+  - col: sale.order.categories/fullname
+    seq: 20
+  controller: search:sale.order.categories
+  model: sale.order.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.order.categories/name
+    seq: 0
+  - col: sale.order.categories/parent_id
+    seq: 10
+  - col: sale.order.categories/fullname
+    seq: 20
+  controller: find:sale.order.categories
+  model: sale.order.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.categories/name
+    seq: 0
+  - col: sale.order.categories/parent_id
+    seq: 10
+  - col: sale.order.categories/childs_id
+    seq: 20
+  - col: sale.order.categories/fullname
+    seq: 30
+  - col: sale.order.categories/orders
+    seq: 40
+  controller: list:sale.order.categories
+  model: sale.order.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.order.categories/name
+    seq: 0
+  - col: sale.order.categories/parent_id
+    seq: 10
+  - col: sale.order.categories/childs_id
+    seq: 20
+  - col: sale.order.categories/fullname
+    seq: 30
+  - col: sale.order.categories/orders
+    seq: 40
+  - col: sale.order.categories/note
+    seq: 50
+  controller: form.modal:sale.order.categories
+  model: sale.order.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.order.categories/name
+    seq: 0
+  - col: sale.order.categories/parent_id
+    seq: 10
+  - col: sale.order.categories/childs_id
+    seq: 20
+  - col: sale.order.categories/fullname
+    seq: 30
+  - col: sale.order.categories/orders
+    seq: 40
+  - col: sale.order.categories/note
+    seq: 50
+  controller: form:sale.order.categories
+  model: sale.order.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.order.categories/name
+    seq: 0
+  - col: sale.order.categories/parent_id
+    seq: 10
+  - col: sale.order.categories/fullname
+    seq: 20
+  controller: tree:sale.order.categories
+  model: sale.order.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: sale.invoice.categories/name
+    seq: 0
+  - col: sale.invoice.categories/parent_id
+    seq: 10
+  - col: sale.invoice.categories/fullname
+    seq: 20
+  controller: search:sale.invoice.categories
+  model: sale.invoice.categories
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.invoice.categories/name
+    seq: 0
+  - col: sale.invoice.categories/parent_id
+    seq: 10
+  - col: sale.invoice.categories/fullname
+    seq: 20
+  controller: find:sale.invoice.categories
+  model: sale.invoice.categories
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.invoice.categories/name
+    seq: 0
+  - col: sale.invoice.categories/parent_id
+    seq: 10
+  - col: sale.invoice.categories/childs_id
+    seq: 20
+  - col: sale.invoice.categories/fullname
+    seq: 30
+  - col: sale.invoice.categories/invoices
+    seq: 40
+  controller: list:sale.invoice.categories
+  model: sale.invoice.categories
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.invoice.categories/name
+    seq: 0
+  - col: sale.invoice.categories/parent_id
+    seq: 10
+  - col: sale.invoice.categories/childs_id
+    seq: 20
+  - col: sale.invoice.categories/fullname
+    seq: 30
+  - col: sale.invoice.categories/invoices
+    seq: 40
+  - col: sale.invoice.categories/note
+    seq: 50
+  controller: form.modal:sale.invoice.categories
+  model: sale.invoice.categories
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.invoice.categories/name
+    seq: 0
+  - col: sale.invoice.categories/parent_id
+    seq: 10
+  - col: sale.invoice.categories/childs_id
+    seq: 20
+  - col: sale.invoice.categories/fullname
+    seq: 30
+  - col: sale.invoice.categories/invoices
+    seq: 40
+  - col: sale.invoice.categories/note
+    seq: 50
+  controller: form:sale.invoice.categories
+  model: sale.invoice.categories
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.invoice.categories/name
+    seq: 0
+  - col: sale.invoice.categories/parent_id
+    seq: 10
+  - col: sale.invoice.categories/fullname
+    seq: 20
+  controller: tree:sale.invoice.categories
+  model: sale.invoice.categories
+  standalone: true
+  vtype: tree
+- cols:
+  - col: sale.orders/otype
+    seq: 0
+  - col: sale.orders/name
+    seq: 10
+  - col: sale.orders/company
+    seq: 20
+  - col: sale.orders/fullname
+    seq: 30
+  - col: sale.orders/market
+    seq: 40
+  - col: sale.orders/team
+    seq: 50
+  - col: sale.orders/category_id
+    seq: 60
+  - col: sale.orders/origin
+    seq: 70
+  - col: sale.orders/manager
+    seq: 80
+  - col: sale.orders/doo
+    seq: 90
+  - col: sale.orders/from_date
+    seq: 100
+  - col: sale.orders/to_date
+    seq: 110
+  - col: sale.orders/partner
+    seq: 120
+  - col: sale.orders/currency
+    seq: 130
+  - col: sale.orders/incoterms1
+    seq: 140
+  - col: sale.orders/incoterms2
+    seq: 150
+  - col: sale.orders/state
+    seq: 160
+  - col: sale.orders/amount
+    seq: 170
+  - col: sale.orders/vat_amount
+    seq: 180
+  - col: sale.orders/total_amount
+    seq: 190
+  - col: sale.orders/mob
+    seq: 200
+  controller: search:sale.orders
+  model: sale.orders
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.orders/otype
+    seq: 0
+  - col: sale.orders/name
+    seq: 10
+  - col: sale.orders/company
+    seq: 20
+  - col: sale.orders/fullname
+    seq: 30
+  - col: sale.orders/market
+    seq: 40
+  - col: sale.orders/team
+    seq: 50
+  - col: sale.orders/category_id
+    seq: 60
+  - col: sale.orders/origin
+    seq: 70
+  - col: sale.orders/manager
+    seq: 80
+  - col: sale.orders/doo
+    seq: 90
+  - col: sale.orders/from_date
+    seq: 100
+  - col: sale.orders/to_date
+    seq: 110
+  - col: sale.orders/partner
+    seq: 120
+  - col: sale.orders/currency
+    seq: 130
+  - col: sale.orders/incoterms1
+    seq: 140
+  - col: sale.orders/incoterms2
+    seq: 150
+  - col: sale.orders/state
+    seq: 160
+  - col: sale.orders/amount
+    seq: 170
+  - col: sale.orders/vat_amount
+    seq: 180
+  - col: sale.orders/total_amount
+    seq: 190
+  - col: sale.orders/mob
+    seq: 200
+  controller: find:sale.orders
+  model: sale.orders
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.orders/otype
+    seq: 0
+  - col: sale.orders/name
+    seq: 10
+  - col: sale.orders/company
+    seq: 20
+  - col: sale.orders/fullname
+    seq: 30
+  - col: sale.orders/market
+    seq: 40
+  - col: sale.orders/team
+    seq: 50
+  - col: sale.orders/category_id
+    seq: 60
+  - col: sale.orders/origin
+    seq: 70
+  - col: sale.orders/manager
+    seq: 80
+  - col: sale.orders/doo
+    seq: 90
+  - col: sale.orders/from_date
+    seq: 100
+  - col: sale.orders/to_date
+    seq: 110
+  - col: sale.orders/partner
+    seq: 120
+  - col: sale.orders/currency
+    seq: 130
+  - col: sale.orders/incoterms1
+    seq: 140
+  - col: sale.orders/incoterms2
+    seq: 150
+  - col: sale.orders/state
+    seq: 160
+  - col: sale.orders/amount
+    seq: 170
+  - col: sale.orders/vat_amount
+    seq: 180
+  - col: sale.orders/total_amount
+    seq: 190
+  - col: sale.orders/mob
+    seq: 200
+  - col: sale.orders/items
+    seq: 210
+  - col: sale.orders/pricing
+    seq: 220
+  - col: sale.orders/roles
+    seq: 230
+  - col: sale.orders/texts
+    seq: 240
+  - col: sale.orders/plates
+    seq: 250
+  - col: sale.orders/payments
+    seq: 260
+  controller: list:sale.orders
+  model: sale.orders
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.orders/otype
+    seq: 0
+  - col: sale.orders/name
+    seq: 10
+  - col: sale.orders/company
+    seq: 20
+  - col: sale.orders/fullname
+    seq: 30
+  - col: sale.orders/market
+    seq: 40
+  - col: sale.orders/team
+    seq: 50
+  - col: sale.orders/category_id
+    seq: 60
+  - col: sale.orders/origin
+    seq: 70
+  - col: sale.orders/manager
+    seq: 80
+  - col: sale.orders/doo
+    seq: 90
+  - col: sale.orders/from_date
+    seq: 100
+  - col: sale.orders/to_date
+    seq: 110
+  - col: sale.orders/partner
+    seq: 120
+  - col: sale.orders/currency
+    seq: 130
+  - col: sale.orders/incoterms1
+    seq: 140
+  - col: sale.orders/incoterms2
+    seq: 150
+  - col: sale.orders/state
+    seq: 160
+  - col: sale.orders/amount
+    seq: 170
+  - col: sale.orders/vat_amount
+    seq: 180
+  - col: sale.orders/total_amount
+    seq: 190
+  - col: sale.orders/mob
+    seq: 200
+  - col: sale.orders/items
+    seq: 210
+  - col: sale.orders/pricing
+    seq: 220
+  - col: sale.orders/roles
+    seq: 230
+  - col: sale.orders/texts
+    seq: 240
+  - col: sale.orders/plates
+    seq: 250
+  - col: sale.orders/payments
+    seq: 260
+  - col: sale.orders/note
+    seq: 270
+  controller: form.modal:sale.orders
+  model: sale.orders
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.orders/otype
+    seq: 0
+  - col: sale.orders/name
+    seq: 10
+  - col: sale.orders/company
+    seq: 20
+  - col: sale.orders/fullname
+    seq: 30
+  - col: sale.orders/market
+    seq: 40
+  - col: sale.orders/team
+    seq: 50
+  - col: sale.orders/category_id
+    seq: 60
+  - col: sale.orders/origin
+    seq: 70
+  - col: sale.orders/manager
+    seq: 80
+  - col: sale.orders/doo
+    seq: 90
+  - col: sale.orders/from_date
+    seq: 100
+  - col: sale.orders/to_date
+    seq: 110
+  - col: sale.orders/partner
+    seq: 120
+  - col: sale.orders/currency
+    seq: 130
+  - col: sale.orders/incoterms1
+    seq: 140
+  - col: sale.orders/incoterms2
+    seq: 150
+  - col: sale.orders/state
+    seq: 160
+  - col: sale.orders/amount
+    seq: 170
+  - col: sale.orders/vat_amount
+    seq: 180
+  - col: sale.orders/total_amount
+    seq: 190
+  - col: sale.orders/mob
+    seq: 200
+  - col: sale.orders/items
+    seq: 210
+  - col: sale.orders/pricing
+    seq: 220
+  - col: sale.orders/roles
+    seq: 230
+  - col: sale.orders/texts
+    seq: 240
+  - col: sale.orders/plates
+    seq: 250
+  - col: sale.orders/payments
+    seq: 260
+  - col: sale.orders/note
+    seq: 270
+  controller: form:sale.orders
+  model: sale.orders
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.orders/otype
+    seq: 0
+  - col: sale.orders/name
+    seq: 10
+  - col: sale.orders/company
+    seq: 20
+  - col: sale.orders/fullname
+    seq: 30
+  - col: sale.orders/market
+    seq: 40
+  - col: sale.orders/team
+    seq: 50
+  - col: sale.orders/category_id
+    seq: 60
+  - col: sale.orders/origin
+    seq: 70
+  - col: sale.orders/manager
+    seq: 80
+  - col: sale.orders/doo
+    seq: 90
+  - col: sale.orders/from_date
+    seq: 100
+  - col: sale.orders/to_date
+    seq: 110
+  - col: sale.orders/partner
+    seq: 120
+  - col: sale.orders/currency
+    seq: 130
+  - col: sale.orders/incoterms1
+    seq: 140
+  - col: sale.orders/incoterms2
+    seq: 150
+  - col: sale.orders/state
+    seq: 160
+  - col: sale.orders/amount
+    seq: 170
+  - col: sale.orders/vat_amount
+    seq: 180
+  - col: sale.orders/total_amount
+    seq: 190
+  - col: sale.orders/mob
+    seq: 200
+  controller: gantt:sale.orders
+  model: sale.orders
+  standalone: true
+  vtype: gantt
+- cols:
+  - col: sale.orders/otype
+    seq: 0
+  - col: sale.orders/name
+    seq: 10
+  - col: sale.orders/company
+    seq: 20
+  - col: sale.orders/fullname
+    seq: 30
+  - col: sale.orders/market
+    seq: 40
+  - col: sale.orders/team
+    seq: 50
+  - col: sale.orders/category_id
+    seq: 60
+  - col: sale.orders/origin
+    seq: 70
+  - col: sale.orders/manager
+    seq: 80
+  - col: sale.orders/doo
+    seq: 90
+  - col: sale.orders/from_date
+    seq: 100
+  - col: sale.orders/to_date
+    seq: 110
+  - col: sale.orders/partner
+    seq: 120
+  - col: sale.orders/currency
+    seq: 130
+  - col: sale.orders/incoterms1
+    seq: 140
+  - col: sale.orders/incoterms2
+    seq: 150
+  - col: sale.orders/state
+    seq: 160
+  - col: sale.orders/amount
+    seq: 170
+  - col: sale.orders/vat_amount
+    seq: 180
+  - col: sale.orders/total_amount
+    seq: 190
+  - col: sale.orders/mob
+    seq: 200
+  controller: schedule:sale.orders
+  model: sale.orders
+  standalone: true
+  vtype: schedule
+- cols:
+  - col: sale.orders/otype
+    seq: 0
+  - col: sale.orders/name
+    seq: 10
+  - col: sale.orders/company
+    seq: 20
+  - col: sale.orders/fullname
+    seq: 30
+  - col: sale.orders/market
+    seq: 40
+  - col: sale.orders/team
+    seq: 50
+  - col: sale.orders/category_id
+    seq: 60
+  - col: sale.orders/origin
+    seq: 70
+  - col: sale.orders/manager
+    seq: 80
+  - col: sale.orders/doo
+    seq: 90
+  - col: sale.orders/from_date
+    seq: 100
+  - col: sale.orders/to_date
+    seq: 110
+  - col: sale.orders/partner
+    seq: 120
+  - col: sale.orders/currency
+    seq: 130
+  - col: sale.orders/incoterms1
+    seq: 140
+  - col: sale.orders/incoterms2
+    seq: 150
+  - col: sale.orders/state
+    seq: 160
+  - col: sale.orders/amount
+    seq: 170
+  - col: sale.orders/vat_amount
+    seq: 180
+  - col: sale.orders/total_amount
+    seq: 190
+  - col: sale.orders/mob
+    seq: 200
+  controller: calendar:sale.orders
+  model: sale.orders
+  standalone: true
+  vtype: calendar
+- cols:
+  - col: sale.orders/otype
+    seq: 0
+  - col: sale.orders/name
+    seq: 10
+  - col: sale.orders/company
+    seq: 20
+  - col: sale.orders/fullname
+    seq: 30
+  - col: sale.orders/market
+    seq: 40
+  - col: sale.orders/team
+    seq: 50
+  - col: sale.orders/category_id
+    seq: 60
+  - col: sale.orders/origin
+    seq: 70
+  - col: sale.orders/manager
+    seq: 80
+  - col: sale.orders/doo
+    seq: 90
+  - col: sale.orders/from_date
+    seq: 100
+  - col: sale.orders/to_date
+    seq: 110
+  - col: sale.orders/partner
+    seq: 120
+  - col: sale.orders/currency
+    seq: 130
+  - col: sale.orders/incoterms1
+    seq: 140
+  - col: sale.orders/incoterms2
+    seq: 150
+  - col: sale.orders/state
+    seq: 160
+  - col: sale.orders/amount
+    seq: 170
+  - col: sale.orders/vat_amount
+    seq: 180
+  - col: sale.orders/total_amount
+    seq: 190
+  - col: sale.orders/mob
+    seq: 200
+  controller: graph:sale.orders
+  model: sale.orders
+  standalone: true
+  vtype: graph
+- cols:
+  - col: sale.orders/otype
+    seq: 0
+  - col: sale.orders/name
+    seq: 10
+  - col: sale.orders/company
+    seq: 20
+  - col: sale.orders/fullname
+    seq: 30
+  - col: sale.orders/market
+    seq: 40
+  - col: sale.orders/team
+    seq: 50
+  - col: sale.orders/category_id
+    seq: 60
+  - col: sale.orders/origin
+    seq: 70
+  - col: sale.orders/manager
+    seq: 80
+  - col: sale.orders/doo
+    seq: 90
+  - col: sale.orders/from_date
+    seq: 100
+  - col: sale.orders/to_date
+    seq: 110
+  - col: sale.orders/partner
+    seq: 120
+  - col: sale.orders/currency
+    seq: 130
+  - col: sale.orders/incoterms1
+    seq: 140
+  - col: sale.orders/incoterms2
+    seq: 150
+  - col: sale.orders/state
+    seq: 160
+  - col: sale.orders/amount
+    seq: 170
+  - col: sale.orders/vat_amount
+    seq: 180
+  - col: sale.orders/total_amount
+    seq: 190
+  - col: sale.orders/mob
+    seq: 200
+  - col: sale.orders/note
+    seq: 210
+  controller: kanban:sale.orders
+  model: sale.orders
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: sale.orders/otype
+    seq: 0
+  - col: sale.orders/name
+    seq: 10
+  - col: sale.orders/company
+    seq: 20
+  - col: sale.orders/fullname
+    seq: 30
+  - col: sale.orders/market
+    seq: 40
+  - col: sale.orders/team
+    seq: 50
+  - col: sale.orders/category_id
+    seq: 60
+  - col: sale.orders/origin
+    seq: 70
+  - col: sale.orders/manager
+    seq: 80
+  - col: sale.orders/doo
+    seq: 90
+  - col: sale.orders/from_date
+    seq: 100
+  - col: sale.orders/to_date
+    seq: 110
+  - col: sale.orders/partner
+    seq: 120
+  - col: sale.orders/currency
+    seq: 130
+  - col: sale.orders/incoterms1
+    seq: 140
+  - col: sale.orders/incoterms2
+    seq: 150
+  - col: sale.orders/state
+    seq: 160
+  - col: sale.orders/amount
+    seq: 170
+  - col: sale.orders/vat_amount
+    seq: 180
+  - col: sale.orders/total_amount
+    seq: 190
+  - col: sale.orders/mob
+    seq: 200
+  controller: mdx:sale.orders
+  model: sale.orders
+  standalone: true
+  vtype: mdx
+- cols:
+  - col: sale.order.texts/order_id
+    seq: 0
+  - col: sale.order.texts/seq
+    seq: 10
+  - col: sale.order.texts/text_id
+    seq: 20
+  - col: sale.order.texts/descr
+    seq: 30
+  controller: find:sale.order.texts
+  model: sale.order.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.texts/order_id
+    seq: 0
+  - col: sale.order.texts/seq
+    seq: 10
+  - col: sale.order.texts/text_id
+    seq: 20
+  - col: sale.order.texts/descr
+    seq: 30
+  - col: sale.order.texts/content
+    seq: 40
+  controller: o2m-form:sale.order.texts
+  model: sale.order.texts
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.texts/order_id
+    seq: 0
+  - col: sale.order.texts/seq
+    seq: 10
+  - col: sale.order.texts/text_id
+    seq: 20
+  - col: sale.order.texts/descr
+    seq: 30
+  controller: o2m-list:sale.order.texts
+  model: sale.order.texts
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.roles/order_id
+    seq: 0
+  - col: sale.order.roles/role_id
+    seq: 10
+  - col: sale.order.roles/patner_id
+    seq: 20
+  controller: find:sale.order.roles
+  model: sale.order.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.roles/order_id
+    seq: 0
+  - col: sale.order.roles/role_id
+    seq: 10
+  - col: sale.order.roles/patner_id
+    seq: 20
+  controller: o2m-form:sale.order.roles
+  model: sale.order.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.roles/order_id
+    seq: 0
+  - col: sale.order.roles/role_id
+    seq: 10
+  - col: sale.order.roles/patner_id
+    seq: 20
+  controller: o2m-list:sale.order.roles
+  model: sale.order.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.pricing/order_id
+    seq: 0
+  - col: sale.order.pricing/level
+    seq: 10
+  - col: sale.order.pricing/cond
+    seq: 20
+  - col: sale.order.pricing/from_level
+    seq: 30
+  - col: sale.order.pricing/to_level
+    seq: 40
+  - col: sale.order.pricing/group_level
+    seq: 50
+  - col: sale.order.pricing/amount
+    seq: 60
+  - col: sale.order.pricing/currency
+    seq: 70
+  controller: find:sale.order.pricing
+  model: sale.order.pricing
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.pricing/order_id
+    seq: 0
+  - col: sale.order.pricing/level
+    seq: 10
+  - col: sale.order.pricing/cond
+    seq: 20
+  - col: sale.order.pricing/from_level
+    seq: 30
+  - col: sale.order.pricing/to_level
+    seq: 40
+  - col: sale.order.pricing/group_level
+    seq: 50
+  - col: sale.order.pricing/amount
+    seq: 60
+  - col: sale.order.pricing/currency
+    seq: 70
+  controller: o2m-form:sale.order.pricing
+  model: sale.order.pricing
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.pricing/order_id
+    seq: 0
+  - col: sale.order.pricing/level
+    seq: 10
+  - col: sale.order.pricing/cond
+    seq: 20
+  - col: sale.order.pricing/from_level
+    seq: 30
+  - col: sale.order.pricing/to_level
+    seq: 40
+  - col: sale.order.pricing/group_level
+    seq: 50
+  - col: sale.order.pricing/amount
+    seq: 60
+  - col: sale.order.pricing/currency
+    seq: 70
+  controller: o2m-list:sale.order.pricing
+  model: sale.order.pricing
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.payment.schedules/order_id
+    seq: 0
+  - col: sale.order.payment.schedules/amount
+    seq: 10
+  - col: sale.order.payment.schedules/currency
+    seq: 20
+  - col: sale.order.payment.schedules/schedule
+    seq: 30
+  controller: find:sale.order.payment.schedules
+  model: sale.order.payment.schedules
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.payment.schedules/order_id
+    seq: 0
+  - col: sale.order.payment.schedules/amount
+    seq: 10
+  - col: sale.order.payment.schedules/currency
+    seq: 20
+  - col: sale.order.payment.schedules/schedule
+    seq: 30
+  - col: sale.order.payment.schedules/note
+    seq: 40
+  controller: o2m-form:sale.order.payment.schedules
+  model: sale.order.payment.schedules
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.payment.schedules/order_id
+    seq: 0
+  - col: sale.order.payment.schedules/amount
+    seq: 10
+  - col: sale.order.payment.schedules/currency
+    seq: 20
+  - col: sale.order.payment.schedules/schedule
+    seq: 30
+  controller: o2m-list:sale.order.payment.schedules
+  model: sale.order.payment.schedules
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.output.plates/order_id
+    seq: 0
+  - col: sale.order.output.plates/state
+    seq: 10
+  - col: sale.order.output.plates/otype
+    seq: 20
+  - col: sale.order.output.plates/partner
+    seq: 30
+  - col: sale.order.output.plates/role
+    seq: 40
+  - col: sale.order.output.plates/language
+    seq: 50
+  - col: sale.order.output.plates/msm
+    seq: 60
+  - col: sale.order.output.plates/schedule
+    seq: 70
+  controller: find:sale.order.output.plates
+  model: sale.order.output.plates
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.output.plates/order_id
+    seq: 0
+  - col: sale.order.output.plates/state
+    seq: 10
+  - col: sale.order.output.plates/otype
+    seq: 20
+  - col: sale.order.output.plates/partner
+    seq: 30
+  - col: sale.order.output.plates/role
+    seq: 40
+  - col: sale.order.output.plates/language
+    seq: 50
+  - col: sale.order.output.plates/msm
+    seq: 60
+  - col: sale.order.output.plates/schedule
+    seq: 70
+  - col: sale.order.output.plates/note
+    seq: 80
+  controller: o2m-form:sale.order.output.plates
+  model: sale.order.output.plates
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.output.plates/order_id
+    seq: 0
+  - col: sale.order.output.plates/state
+    seq: 10
+  - col: sale.order.output.plates/otype
+    seq: 20
+  - col: sale.order.output.plates/partner
+    seq: 30
+  - col: sale.order.output.plates/role
+    seq: 40
+  - col: sale.order.output.plates/language
+    seq: 50
+  - col: sale.order.output.plates/msm
+    seq: 60
+  - col: sale.order.output.plates/schedule
+    seq: 70
+  - col: sale.order.output.plates/note
+    seq: 80
+  controller: o2m-kanban:sale.order.output.plates
+  model: sale.order.output.plates
+  standalone: true
+  vtype: o2m-kanban
+- cols:
+  - col: sale.order.output.plates/order_id
+    seq: 0
+  - col: sale.order.output.plates/state
+    seq: 10
+  - col: sale.order.output.plates/otype
+    seq: 20
+  - col: sale.order.output.plates/partner
+    seq: 30
+  - col: sale.order.output.plates/role
+    seq: 40
+  - col: sale.order.output.plates/language
+    seq: 50
+  - col: sale.order.output.plates/msm
+    seq: 60
+  - col: sale.order.output.plates/schedule
+    seq: 70
+  controller: o2m-list:sale.order.output.plates
+  model: sale.order.output.plates
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.items/order_id
+    seq: 0
+  - col: sale.order.items/itype_id
+    seq: 10
+  - col: sale.order.items/product
+    seq: 20
+  - col: sale.order.items/quantity
+    seq: 30
+  - col: sale.order.items/uom
+    seq: 40
+  - col: sale.order.items/price
+    seq: 50
+  - col: sale.order.items/currency
+    seq: 60
+  - col: sale.order.items/unit
+    seq: 70
+  - col: sale.order.items/uop
+    seq: 80
+  - col: sale.order.items/amount
+    seq: 90
+  - col: sale.order.items/vat_code
+    seq: 100
+  - col: sale.order.items/vat_amount
+    seq: 110
+  - col: sale.order.items/total_amount
+    seq: 120
+  - col: sale.order.items/volume
+    seq: 130
+  - col: sale.order.items/volume_total
+    seq: 140
+  - col: sale.order.items/volume_uom
+    seq: 150
+  - col: sale.order.items/weight
+    seq: 160
+  - col: sale.order.items/weight_total
+    seq: 170
+  - col: sale.order.items/weight_uom
+    seq: 180
+  controller: find:sale.order.items
+  model: sale.order.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.items/order_id
+    seq: 0
+  - col: sale.order.items/itype_id
+    seq: 10
+  - col: sale.order.items/product
+    seq: 20
+  - col: sale.order.items/quantity
+    seq: 30
+  - col: sale.order.items/uom
+    seq: 40
+  - col: sale.order.items/price
+    seq: 50
+  - col: sale.order.items/currency
+    seq: 60
+  - col: sale.order.items/unit
+    seq: 70
+  - col: sale.order.items/uop
+    seq: 80
+  - col: sale.order.items/amount
+    seq: 90
+  - col: sale.order.items/vat_code
+    seq: 100
+  - col: sale.order.items/vat_amount
+    seq: 110
+  - col: sale.order.items/total_amount
+    seq: 120
+  - col: sale.order.items/volume
+    seq: 130
+  - col: sale.order.items/volume_total
+    seq: 140
+  - col: sale.order.items/volume_uom
+    seq: 150
+  - col: sale.order.items/weight
+    seq: 160
+  - col: sale.order.items/weight_total
+    seq: 170
+  - col: sale.order.items/weight_uom
+    seq: 180
+  - col: sale.order.items/delivery_schedules
+    seq: 190
+  - col: sale.order.items/pricing
+    seq: 200
+  - col: sale.order.items/roles
+    seq: 210
+  - col: sale.order.items/texts
+    seq: 220
+  - col: sale.order.items/plates
+    seq: 230
+  - col: sale.order.items/payments
+    seq: 240
+  - col: sale.order.items/note
+    seq: 250
+  controller: o2m-form:sale.order.items
+  model: sale.order.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.items/order_id
+    seq: 0
+  - col: sale.order.items/itype_id
+    seq: 10
+  - col: sale.order.items/product
+    seq: 20
+  - col: sale.order.items/quantity
+    seq: 30
+  - col: sale.order.items/uom
+    seq: 40
+  - col: sale.order.items/price
+    seq: 50
+  - col: sale.order.items/currency
+    seq: 60
+  - col: sale.order.items/unit
+    seq: 70
+  - col: sale.order.items/uop
+    seq: 80
+  - col: sale.order.items/amount
+    seq: 90
+  - col: sale.order.items/vat_code
+    seq: 100
+  - col: sale.order.items/vat_amount
+    seq: 110
+  - col: sale.order.items/total_amount
+    seq: 120
+  - col: sale.order.items/volume
+    seq: 130
+  - col: sale.order.items/volume_total
+    seq: 140
+  - col: sale.order.items/volume_uom
+    seq: 150
+  - col: sale.order.items/weight
+    seq: 160
+  - col: sale.order.items/weight_total
+    seq: 170
+  - col: sale.order.items/weight_uom
+    seq: 180
+  - col: sale.order.items/delivery_schedules
+    seq: 190
+  - col: sale.order.items/pricing
+    seq: 200
+  - col: sale.order.items/roles
+    seq: 210
+  - col: sale.order.items/texts
+    seq: 220
+  - col: sale.order.items/plates
+    seq: 230
+  - col: sale.order.items/payments
+    seq: 240
+  controller: o2m-list:sale.order.items
+  model: sale.order.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.pricing.items/item_id
+    seq: 0
+  - col: sale.order.pricing.items/level
+    seq: 10
+  - col: sale.order.pricing.items/cond
+    seq: 20
+  - col: sale.order.pricing.items/from_level
+    seq: 30
+  - col: sale.order.pricing.items/to_level
+    seq: 40
+  - col: sale.order.pricing.items/group_level
+    seq: 50
+  - col: sale.order.pricing.items/price
+    seq: 60
+  - col: sale.order.pricing.items/cop
+    seq: 70
+  - col: sale.order.pricing.items/unit
+    seq: 80
+  - col: sale.order.pricing.items/uop
+    seq: 90
+  - col: sale.order.pricing.items/amount
+    seq: 100
+  - col: sale.order.pricing.items/currency
+    seq: 110
+  controller: find:sale.order.pricing.items
+  model: sale.order.pricing.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.pricing.items/item_id
+    seq: 0
+  - col: sale.order.pricing.items/level
+    seq: 10
+  - col: sale.order.pricing.items/cond
+    seq: 20
+  - col: sale.order.pricing.items/from_level
+    seq: 30
+  - col: sale.order.pricing.items/to_level
+    seq: 40
+  - col: sale.order.pricing.items/group_level
+    seq: 50
+  - col: sale.order.pricing.items/price
+    seq: 60
+  - col: sale.order.pricing.items/cop
+    seq: 70
+  - col: sale.order.pricing.items/unit
+    seq: 80
+  - col: sale.order.pricing.items/uop
+    seq: 90
+  - col: sale.order.pricing.items/amount
+    seq: 100
+  - col: sale.order.pricing.items/currency
+    seq: 110
+  controller: o2m-form:sale.order.pricing.items
+  model: sale.order.pricing.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.pricing.items/item_id
+    seq: 0
+  - col: sale.order.pricing.items/level
+    seq: 10
+  - col: sale.order.pricing.items/cond
+    seq: 20
+  - col: sale.order.pricing.items/from_level
+    seq: 30
+  - col: sale.order.pricing.items/to_level
+    seq: 40
+  - col: sale.order.pricing.items/group_level
+    seq: 50
+  - col: sale.order.pricing.items/price
+    seq: 60
+  - col: sale.order.pricing.items/cop
+    seq: 70
+  - col: sale.order.pricing.items/unit
+    seq: 80
+  - col: sale.order.pricing.items/uop
+    seq: 90
+  - col: sale.order.pricing.items/amount
+    seq: 100
+  - col: sale.order.pricing.items/currency
+    seq: 110
+  controller: o2m-list:sale.order.pricing.items
+  model: sale.order.pricing.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.item.texts/item_id
+    seq: 0
+  - col: sale.order.item.texts/seq
+    seq: 10
+  - col: sale.order.item.texts/text_id
+    seq: 20
+  - col: sale.order.item.texts/descr
+    seq: 30
+  controller: find:sale.order.item.texts
+  model: sale.order.item.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.item.texts/item_id
+    seq: 0
+  - col: sale.order.item.texts/seq
+    seq: 10
+  - col: sale.order.item.texts/text_id
+    seq: 20
+  - col: sale.order.item.texts/descr
+    seq: 30
+  - col: sale.order.item.texts/content
+    seq: 40
+  controller: o2m-form:sale.order.item.texts
+  model: sale.order.item.texts
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.item.texts/item_id
+    seq: 0
+  - col: sale.order.item.texts/seq
+    seq: 10
+  - col: sale.order.item.texts/text_id
+    seq: 20
+  - col: sale.order.item.texts/descr
+    seq: 30
+  controller: o2m-list:sale.order.item.texts
+  model: sale.order.item.texts
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.item.roles/item_id
+    seq: 0
+  - col: sale.order.item.roles/role_id
+    seq: 10
+  - col: sale.order.item.roles/patner_id
+    seq: 20
+  controller: find:sale.order.item.roles
+  model: sale.order.item.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.item.roles/item_id
+    seq: 0
+  - col: sale.order.item.roles/role_id
+    seq: 10
+  - col: sale.order.item.roles/patner_id
+    seq: 20
+  controller: o2m-form:sale.order.item.roles
+  model: sale.order.item.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.item.roles/item_id
+    seq: 0
+  - col: sale.order.item.roles/role_id
+    seq: 10
+  - col: sale.order.item.roles/patner_id
+    seq: 20
+  controller: o2m-list:sale.order.item.roles
+  model: sale.order.item.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.item.delivery.schedules/item_id
+    seq: 0
+  - col: sale.order.item.delivery.schedules/quantity
+    seq: 10
+  - col: sale.order.item.delivery.schedules/schedule
+    seq: 20
+  controller: find:sale.order.item.delivery.schedules
+  model: sale.order.item.delivery.schedules
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.item.delivery.schedules/item_id
+    seq: 0
+  - col: sale.order.item.delivery.schedules/quantity
+    seq: 10
+  - col: sale.order.item.delivery.schedules/schedule
+    seq: 20
+  - col: sale.order.item.delivery.schedules/note
+    seq: 30
+  controller: o2m-form:sale.order.item.delivery.schedules
+  model: sale.order.item.delivery.schedules
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.item.delivery.schedules/item_id
+    seq: 0
+  - col: sale.order.item.delivery.schedules/quantity
+    seq: 10
+  - col: sale.order.item.delivery.schedules/schedule
+    seq: 20
+  controller: o2m-list:sale.order.item.delivery.schedules
+  model: sale.order.item.delivery.schedules
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.item.output.plates/item_id
+    seq: 0
+  - col: sale.order.item.output.plates/state
+    seq: 10
+  - col: sale.order.item.output.plates/otype
+    seq: 20
+  - col: sale.order.item.output.plates/partner
+    seq: 30
+  - col: sale.order.item.output.plates/role
+    seq: 40
+  - col: sale.order.item.output.plates/language
+    seq: 50
+  - col: sale.order.item.output.plates/msm
+    seq: 60
+  - col: sale.order.item.output.plates/schedule
+    seq: 70
+  controller: find:sale.order.item.output.plates
+  model: sale.order.item.output.plates
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.item.output.plates/item_id
+    seq: 0
+  - col: sale.order.item.output.plates/state
+    seq: 10
+  - col: sale.order.item.output.plates/otype
+    seq: 20
+  - col: sale.order.item.output.plates/partner
+    seq: 30
+  - col: sale.order.item.output.plates/role
+    seq: 40
+  - col: sale.order.item.output.plates/language
+    seq: 50
+  - col: sale.order.item.output.plates/msm
+    seq: 60
+  - col: sale.order.item.output.plates/schedule
+    seq: 70
+  - col: sale.order.item.output.plates/note
+    seq: 80
+  controller: o2m-form:sale.order.item.output.plates
+  model: sale.order.item.output.plates
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.item.output.plates/item_id
+    seq: 0
+  - col: sale.order.item.output.plates/state
+    seq: 10
+  - col: sale.order.item.output.plates/otype
+    seq: 20
+  - col: sale.order.item.output.plates/partner
+    seq: 30
+  - col: sale.order.item.output.plates/role
+    seq: 40
+  - col: sale.order.item.output.plates/language
+    seq: 50
+  - col: sale.order.item.output.plates/msm
+    seq: 60
+  - col: sale.order.item.output.plates/schedule
+    seq: 70
+  - col: sale.order.item.output.plates/note
+    seq: 80
+  controller: o2m-kanban:sale.order.item.output.plates
+  model: sale.order.item.output.plates
+  standalone: true
+  vtype: o2m-kanban
+- cols:
+  - col: sale.order.item.output.plates/item_id
+    seq: 0
+  - col: sale.order.item.output.plates/state
+    seq: 10
+  - col: sale.order.item.output.plates/otype
+    seq: 20
+  - col: sale.order.item.output.plates/partner
+    seq: 30
+  - col: sale.order.item.output.plates/role
+    seq: 40
+  - col: sale.order.item.output.plates/language
+    seq: 50
+  - col: sale.order.item.output.plates/msm
+    seq: 60
+  - col: sale.order.item.output.plates/schedule
+    seq: 70
+  controller: o2m-list:sale.order.item.output.plates
+  model: sale.order.item.output.plates
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.order.item.payment.schedules/item_id
+    seq: 0
+  - col: sale.order.item.payment.schedules/amount
+    seq: 10
+  - col: sale.order.item.payment.schedules/currency
+    seq: 20
+  - col: sale.order.item.payment.schedules/schedule
+    seq: 30
+  controller: find:sale.order.item.payment.schedules
+  model: sale.order.item.payment.schedules
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.order.item.payment.schedules/item_id
+    seq: 0
+  - col: sale.order.item.payment.schedules/amount
+    seq: 10
+  - col: sale.order.item.payment.schedules/currency
+    seq: 20
+  - col: sale.order.item.payment.schedules/schedule
+    seq: 30
+  - col: sale.order.item.payment.schedules/note
+    seq: 40
+  controller: o2m-form:sale.order.item.payment.schedules
+  model: sale.order.item.payment.schedules
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.order.item.payment.schedules/item_id
+    seq: 0
+  - col: sale.order.item.payment.schedules/amount
+    seq: 10
+  - col: sale.order.item.payment.schedules/currency
+    seq: 20
+  - col: sale.order.item.payment.schedules/schedule
+    seq: 30
+  controller: o2m-list:sale.order.item.payment.schedules
+  model: sale.order.item.payment.schedules
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.invoices/itype
+    seq: 0
+  - col: sale.invoices/name
+    seq: 10
+  - col: sale.invoices/company
+    seq: 20
+  - col: sale.invoices/fullname
+    seq: 30
+  - col: sale.invoices/market_id
+    seq: 40
+  - col: sale.invoices/team_id
+    seq: 50
+  - col: sale.invoices/category_id
+    seq: 60
+  - col: sale.invoices/origin
+    seq: 70
+  - col: sale.invoices/doi
+    seq: 80
+  - col: sale.invoices/partner
+    seq: 90
+  - col: sale.invoices/currency
+    seq: 100
+  - col: sale.invoices/incoterms1
+    seq: 110
+  - col: sale.invoices/incoterms2
+    seq: 120
+  - col: sale.invoices/state
+    seq: 130
+  - col: sale.invoices/amount
+    seq: 140
+  - col: sale.invoices/vat_amount
+    seq: 150
+  - col: sale.invoices/total_amount
+    seq: 160
+  controller: search:sale.invoices
+  model: sale.invoices
+  standalone: true
+  vtype: search
+- cols:
+  - col: sale.invoices/itype
+    seq: 0
+  - col: sale.invoices/name
+    seq: 10
+  - col: sale.invoices/company
+    seq: 20
+  - col: sale.invoices/fullname
+    seq: 30
+  - col: sale.invoices/market_id
+    seq: 40
+  - col: sale.invoices/team_id
+    seq: 50
+  - col: sale.invoices/category_id
+    seq: 60
+  - col: sale.invoices/origin
+    seq: 70
+  - col: sale.invoices/doi
+    seq: 80
+  - col: sale.invoices/partner
+    seq: 90
+  - col: sale.invoices/currency
+    seq: 100
+  - col: sale.invoices/incoterms1
+    seq: 110
+  - col: sale.invoices/incoterms2
+    seq: 120
+  - col: sale.invoices/state
+    seq: 130
+  - col: sale.invoices/amount
+    seq: 140
+  - col: sale.invoices/vat_amount
+    seq: 150
+  - col: sale.invoices/total_amount
+    seq: 160
+  controller: find:sale.invoices
+  model: sale.invoices
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.invoices/itype
+    seq: 0
+  - col: sale.invoices/name
+    seq: 10
+  - col: sale.invoices/company
+    seq: 20
+  - col: sale.invoices/fullname
+    seq: 30
+  - col: sale.invoices/market_id
+    seq: 40
+  - col: sale.invoices/team_id
+    seq: 50
+  - col: sale.invoices/category_id
+    seq: 60
+  - col: sale.invoices/origin
+    seq: 70
+  - col: sale.invoices/doi
+    seq: 80
+  - col: sale.invoices/partner
+    seq: 90
+  - col: sale.invoices/currency
+    seq: 100
+  - col: sale.invoices/incoterms1
+    seq: 110
+  - col: sale.invoices/incoterms2
+    seq: 120
+  - col: sale.invoices/state
+    seq: 130
+  - col: sale.invoices/amount
+    seq: 140
+  - col: sale.invoices/vat_amount
+    seq: 150
+  - col: sale.invoices/total_amount
+    seq: 160
+  - col: sale.invoices/items
+    seq: 170
+  - col: sale.invoices/roles
+    seq: 180
+  - col: sale.invoices/texts
+    seq: 190
+  controller: list:sale.invoices
+  model: sale.invoices
+  standalone: true
+  vtype: list
+- cols:
+  - col: sale.invoices/itype
+    seq: 0
+  - col: sale.invoices/name
+    seq: 10
+  - col: sale.invoices/company
+    seq: 20
+  - col: sale.invoices/fullname
+    seq: 30
+  - col: sale.invoices/market_id
+    seq: 40
+  - col: sale.invoices/team_id
+    seq: 50
+  - col: sale.invoices/category_id
+    seq: 60
+  - col: sale.invoices/origin
+    seq: 70
+  - col: sale.invoices/doi
+    seq: 80
+  - col: sale.invoices/partner
+    seq: 90
+  - col: sale.invoices/currency
+    seq: 100
+  - col: sale.invoices/incoterms1
+    seq: 110
+  - col: sale.invoices/incoterms2
+    seq: 120
+  - col: sale.invoices/state
+    seq: 130
+  - col: sale.invoices/amount
+    seq: 140
+  - col: sale.invoices/vat_amount
+    seq: 150
+  - col: sale.invoices/total_amount
+    seq: 160
+  - col: sale.invoices/items
+    seq: 170
+  - col: sale.invoices/roles
+    seq: 180
+  - col: sale.invoices/texts
+    seq: 190
+  - col: sale.invoices/note
+    seq: 200
+  controller: form.modal:sale.invoices
+  model: sale.invoices
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: sale.invoices/itype
+    seq: 0
+  - col: sale.invoices/name
+    seq: 10
+  - col: sale.invoices/company
+    seq: 20
+  - col: sale.invoices/fullname
+    seq: 30
+  - col: sale.invoices/market_id
+    seq: 40
+  - col: sale.invoices/team_id
+    seq: 50
+  - col: sale.invoices/category_id
+    seq: 60
+  - col: sale.invoices/origin
+    seq: 70
+  - col: sale.invoices/doi
+    seq: 80
+  - col: sale.invoices/partner
+    seq: 90
+  - col: sale.invoices/currency
+    seq: 100
+  - col: sale.invoices/incoterms1
+    seq: 110
+  - col: sale.invoices/incoterms2
+    seq: 120
+  - col: sale.invoices/state
+    seq: 130
+  - col: sale.invoices/amount
+    seq: 140
+  - col: sale.invoices/vat_amount
+    seq: 150
+  - col: sale.invoices/total_amount
+    seq: 160
+  - col: sale.invoices/items
+    seq: 170
+  - col: sale.invoices/roles
+    seq: 180
+  - col: sale.invoices/texts
+    seq: 190
+  - col: sale.invoices/note
+    seq: 200
+  controller: form:sale.invoices
+  model: sale.invoices
+  standalone: true
+  vtype: form
+- cols:
+  - col: sale.invoices/itype
+    seq: 0
+  - col: sale.invoices/name
+    seq: 10
+  - col: sale.invoices/company
+    seq: 20
+  - col: sale.invoices/fullname
+    seq: 30
+  - col: sale.invoices/market_id
+    seq: 40
+  - col: sale.invoices/team_id
+    seq: 50
+  - col: sale.invoices/category_id
+    seq: 60
+  - col: sale.invoices/origin
+    seq: 70
+  - col: sale.invoices/doi
+    seq: 80
+  - col: sale.invoices/partner
+    seq: 90
+  - col: sale.invoices/currency
+    seq: 100
+  - col: sale.invoices/incoterms1
+    seq: 110
+  - col: sale.invoices/incoterms2
+    seq: 120
+  - col: sale.invoices/state
+    seq: 130
+  - col: sale.invoices/amount
+    seq: 140
+  - col: sale.invoices/vat_amount
+    seq: 150
+  - col: sale.invoices/total_amount
+    seq: 160
+  controller: calendar:sale.invoices
+  model: sale.invoices
+  standalone: true
+  vtype: calendar
+- cols:
+  - col: sale.invoices/itype
+    seq: 0
+  - col: sale.invoices/name
+    seq: 10
+  - col: sale.invoices/company
+    seq: 20
+  - col: sale.invoices/fullname
+    seq: 30
+  - col: sale.invoices/market_id
+    seq: 40
+  - col: sale.invoices/team_id
+    seq: 50
+  - col: sale.invoices/category_id
+    seq: 60
+  - col: sale.invoices/origin
+    seq: 70
+  - col: sale.invoices/doi
+    seq: 80
+  - col: sale.invoices/partner
+    seq: 90
+  - col: sale.invoices/currency
+    seq: 100
+  - col: sale.invoices/incoterms1
+    seq: 110
+  - col: sale.invoices/incoterms2
+    seq: 120
+  - col: sale.invoices/state
+    seq: 130
+  - col: sale.invoices/amount
+    seq: 140
+  - col: sale.invoices/vat_amount
+    seq: 150
+  - col: sale.invoices/total_amount
+    seq: 160
+  controller: graph:sale.invoices
+  model: sale.invoices
+  standalone: true
+  vtype: graph
+- cols:
+  - col: sale.invoices/itype
+    seq: 0
+  - col: sale.invoices/name
+    seq: 10
+  - col: sale.invoices/company
+    seq: 20
+  - col: sale.invoices/fullname
+    seq: 30
+  - col: sale.invoices/market_id
+    seq: 40
+  - col: sale.invoices/team_id
+    seq: 50
+  - col: sale.invoices/category_id
+    seq: 60
+  - col: sale.invoices/origin
+    seq: 70
+  - col: sale.invoices/doi
+    seq: 80
+  - col: sale.invoices/partner
+    seq: 90
+  - col: sale.invoices/currency
+    seq: 100
+  - col: sale.invoices/incoterms1
+    seq: 110
+  - col: sale.invoices/incoterms2
+    seq: 120
+  - col: sale.invoices/state
+    seq: 130
+  - col: sale.invoices/amount
+    seq: 140
+  - col: sale.invoices/vat_amount
+    seq: 150
+  - col: sale.invoices/total_amount
+    seq: 160
+  - col: sale.invoices/note
+    seq: 170
+  controller: kanban:sale.invoices
+  model: sale.invoices
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: sale.invoices/itype
+    seq: 0
+  - col: sale.invoices/name
+    seq: 10
+  - col: sale.invoices/company
+    seq: 20
+  - col: sale.invoices/fullname
+    seq: 30
+  - col: sale.invoices/market_id
+    seq: 40
+  - col: sale.invoices/team_id
+    seq: 50
+  - col: sale.invoices/category_id
+    seq: 60
+  - col: sale.invoices/origin
+    seq: 70
+  - col: sale.invoices/doi
+    seq: 80
+  - col: sale.invoices/partner
+    seq: 90
+  - col: sale.invoices/currency
+    seq: 100
+  - col: sale.invoices/incoterms1
+    seq: 110
+  - col: sale.invoices/incoterms2
+    seq: 120
+  - col: sale.invoices/state
+    seq: 130
+  - col: sale.invoices/amount
+    seq: 140
+  - col: sale.invoices/vat_amount
+    seq: 150
+  - col: sale.invoices/total_amount
+    seq: 160
+  controller: mdx:sale.invoices
+  model: sale.invoices
+  standalone: true
+  vtype: mdx
+- cols:
+  - col: sale.invoice.texts/invoice_id
+    seq: 0
+  - col: sale.invoice.texts/seq
+    seq: 10
+  - col: sale.invoice.texts/text_id
+    seq: 20
+  - col: sale.invoice.texts/descr
+    seq: 30
+  controller: find:sale.invoice.texts
+  model: sale.invoice.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.invoice.texts/invoice_id
+    seq: 0
+  - col: sale.invoice.texts/seq
+    seq: 10
+  - col: sale.invoice.texts/text_id
+    seq: 20
+  - col: sale.invoice.texts/descr
+    seq: 30
+  - col: sale.invoice.texts/content
+    seq: 40
+  controller: o2m-form:sale.invoice.texts
+  model: sale.invoice.texts
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.invoice.texts/invoice_id
+    seq: 0
+  - col: sale.invoice.texts/seq
+    seq: 10
+  - col: sale.invoice.texts/text_id
+    seq: 20
+  - col: sale.invoice.texts/descr
+    seq: 30
+  controller: o2m-list:sale.invoice.texts
+  model: sale.invoice.texts
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.invoice.roles/invoice_id
+    seq: 0
+  - col: sale.invoice.roles/role_id
+    seq: 10
+  - col: sale.invoice.roles/patner_id
+    seq: 20
+  controller: find:sale.invoice.roles
+  model: sale.invoice.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.invoice.roles/invoice_id
+    seq: 0
+  - col: sale.invoice.roles/role_id
+    seq: 10
+  - col: sale.invoice.roles/patner_id
+    seq: 20
+  controller: o2m-form:sale.invoice.roles
+  model: sale.invoice.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.invoice.roles/invoice_id
+    seq: 0
+  - col: sale.invoice.roles/role_id
+    seq: 10
+  - col: sale.invoice.roles/patner_id
+    seq: 20
+  controller: o2m-list:sale.invoice.roles
+  model: sale.invoice.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.invoice.items/invoice_id
+    seq: 0
+  - col: sale.invoice.items/product
+    seq: 10
+  - col: sale.invoice.items/quantity
+    seq: 20
+  - col: sale.invoice.items/uom
+    seq: 30
+  - col: sale.invoice.items/price
+    seq: 40
+  - col: sale.invoice.items/currency
+    seq: 50
+  - col: sale.invoice.items/unit
+    seq: 60
+  - col: sale.invoice.items/uop
+    seq: 70
+  - col: sale.invoice.items/amount
+    seq: 80
+  - col: sale.invoice.items/vat_code
+    seq: 90
+  - col: sale.invoice.items/vat_amount
+    seq: 100
+  - col: sale.invoice.items/total_amount
+    seq: 110
+  controller: find:sale.invoice.items
+  model: sale.invoice.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.invoice.items/invoice_id
+    seq: 0
+  - col: sale.invoice.items/product
+    seq: 10
+  - col: sale.invoice.items/quantity
+    seq: 20
+  - col: sale.invoice.items/uom
+    seq: 30
+  - col: sale.invoice.items/price
+    seq: 40
+  - col: sale.invoice.items/currency
+    seq: 50
+  - col: sale.invoice.items/unit
+    seq: 60
+  - col: sale.invoice.items/uop
+    seq: 70
+  - col: sale.invoice.items/amount
+    seq: 80
+  - col: sale.invoice.items/vat_code
+    seq: 90
+  - col: sale.invoice.items/vat_amount
+    seq: 100
+  - col: sale.invoice.items/total_amount
+    seq: 110
+  - col: sale.invoice.items/delivery_schedules
+    seq: 120
+  - col: sale.invoice.items/roles
+    seq: 130
+  - col: sale.invoice.items/texts
+    seq: 140
+  - col: sale.invoice.items/note
+    seq: 150
+  controller: o2m-form:sale.invoice.items
+  model: sale.invoice.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.invoice.items/invoice_id
+    seq: 0
+  - col: sale.invoice.items/product
+    seq: 10
+  - col: sale.invoice.items/quantity
+    seq: 20
+  - col: sale.invoice.items/uom
+    seq: 30
+  - col: sale.invoice.items/price
+    seq: 40
+  - col: sale.invoice.items/currency
+    seq: 50
+  - col: sale.invoice.items/unit
+    seq: 60
+  - col: sale.invoice.items/uop
+    seq: 70
+  - col: sale.invoice.items/amount
+    seq: 80
+  - col: sale.invoice.items/vat_code
+    seq: 90
+  - col: sale.invoice.items/vat_amount
+    seq: 100
+  - col: sale.invoice.items/total_amount
+    seq: 110
+  - col: sale.invoice.items/delivery_schedules
+    seq: 120
+  - col: sale.invoice.items/roles
+    seq: 130
+  - col: sale.invoice.items/texts
+    seq: 140
+  controller: o2m-list:sale.invoice.items
+  model: sale.invoice.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.invoice.item.texts/item_id
+    seq: 0
+  - col: sale.invoice.item.texts/seq
+    seq: 10
+  - col: sale.invoice.item.texts/text_id
+    seq: 20
+  - col: sale.invoice.item.texts/descr
+    seq: 30
+  controller: find:sale.invoice.item.texts
+  model: sale.invoice.item.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.invoice.item.texts/item_id
+    seq: 0
+  - col: sale.invoice.item.texts/seq
+    seq: 10
+  - col: sale.invoice.item.texts/text_id
+    seq: 20
+  - col: sale.invoice.item.texts/descr
+    seq: 30
+  - col: sale.invoice.item.texts/content
+    seq: 40
+  controller: o2m-form:sale.invoice.item.texts
+  model: sale.invoice.item.texts
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.invoice.item.texts/item_id
+    seq: 0
+  - col: sale.invoice.item.texts/seq
+    seq: 10
+  - col: sale.invoice.item.texts/text_id
+    seq: 20
+  - col: sale.invoice.item.texts/descr
+    seq: 30
+  controller: o2m-list:sale.invoice.item.texts
+  model: sale.invoice.item.texts
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.invoice.item.roles/item_id
+    seq: 0
+  - col: sale.invoice.item.roles/role_id
+    seq: 10
+  - col: sale.invoice.item.roles/patner_id
+    seq: 20
+  controller: find:sale.invoice.item.roles
+  model: sale.invoice.item.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.invoice.item.roles/item_id
+    seq: 0
+  - col: sale.invoice.item.roles/role_id
+    seq: 10
+  - col: sale.invoice.item.roles/patner_id
+    seq: 20
+  controller: o2m-form:sale.invoice.item.roles
+  model: sale.invoice.item.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.invoice.item.roles/item_id
+    seq: 0
+  - col: sale.invoice.item.roles/role_id
+    seq: 10
+  - col: sale.invoice.item.roles/patner_id
+    seq: 20
+  controller: o2m-list:sale.invoice.item.roles
+  model: sale.invoice.item.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: sale.invoice.item.delivery.schedules/item_id
+    seq: 0
+  - col: sale.invoice.item.delivery.schedules/quantity
+    seq: 10
+  - col: sale.invoice.item.delivery.schedules/schedule
+    seq: 20
+  controller: find:sale.invoice.item.delivery.schedules
+  model: sale.invoice.item.delivery.schedules
+  standalone: true
+  vtype: find
+- cols:
+  - col: sale.invoice.item.delivery.schedules/item_id
+    seq: 0
+  - col: sale.invoice.item.delivery.schedules/quantity
+    seq: 10
+  - col: sale.invoice.item.delivery.schedules/schedule
+    seq: 20
+  - col: sale.invoice.item.delivery.schedules/note
+    seq: 30
+  controller: o2m-form:sale.invoice.item.delivery.schedules
+  model: sale.invoice.item.delivery.schedules
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: sale.invoice.item.delivery.schedules/item_id
+    seq: 0
+  - col: sale.invoice.item.delivery.schedules/quantity
+    seq: 10
+  - col: sale.invoice.item.delivery.schedules/schedule
+    seq: 20
+  controller: o2m-list:sale.invoice.item.delivery.schedules
+  model: sale.invoice.item.delivery.schedules
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: md.sale.product/product_id
+    seq: 0
+  - col: md.sale.product/vat
+    seq: 10
+  - col: md.sale.product/uom
+    seq: 20
+  - col: md.sale.product/price
+    seq: 30
+  - col: md.sale.product/currency
+    seq: 40
+  - col: md.sale.product/unit
+    seq: 50
+  - col: md.sale.product/uop
+    seq: 60
+  controller: find:md.sale.product
+  model: md.sale.product
+  standalone: true
+  vtype: find
+- cols:
+  - col: md.sale.product/product_id
+    seq: 0
+  - col: md.sale.product/vat
+    seq: 10
+  - col: md.sale.product/uom
+    seq: 20
+  - col: md.sale.product/price
+    seq: 30
+  - col: md.sale.product/currency
+    seq: 40
+  - col: md.sale.product/unit
+    seq: 50
+  - col: md.sale.product/uop
+    seq: 60
+  - col: md.sale.product/note
+    seq: 70
+  controller: o2m-form:md.sale.product
+  model: md.sale.product
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: md.sale.product/product_id
+    seq: 0
+  - col: md.sale.product/vat
+    seq: 10
+  - col: md.sale.product/uom
+    seq: 20
+  - col: md.sale.product/price
+    seq: 30
+  - col: md.sale.product/currency
+    seq: 40
+  - col: md.sale.product/unit
+    seq: 50
+  - col: md.sale.product/uop
+    seq: 60
+  controller: o2m-list:md.sale.product
+  model: md.sale.product
+  standalone: true
+  vtype: o2m-list

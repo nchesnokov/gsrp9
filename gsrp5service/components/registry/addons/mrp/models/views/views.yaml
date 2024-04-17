@@ -1,0 +1,1832 @@
+- cols:
+  - col: mrp.texts/code
+    seq: 0
+  - col: mrp.texts/descr
+    seq: 10
+  controller: search:mrp.texts
+  model: mrp.texts
+  standalone: true
+  vtype: search
+- cols:
+  - col: mrp.texts/code
+    seq: 0
+  - col: mrp.texts/descr
+    seq: 10
+  controller: find:mrp.texts
+  model: mrp.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.texts/code
+    seq: 0
+  - col: mrp.texts/descr
+    seq: 10
+  controller: list:mrp.texts
+  model: mrp.texts
+  standalone: true
+  vtype: list
+- cols:
+  - col: mrp.texts/code
+    seq: 0
+  - col: mrp.texts/descr
+    seq: 10
+  controller: form.modal:mrp.texts
+  model: mrp.texts
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: mrp.texts/code
+    seq: 0
+  - col: mrp.texts/descr
+    seq: 10
+  controller: form:mrp.texts
+  model: mrp.texts
+  standalone: true
+  vtype: form
+- cols:
+  - col: mrp.schema.texts/usage
+    seq: 0
+  - col: mrp.schema.texts/code
+    seq: 10
+  - col: mrp.schema.texts/descr
+    seq: 20
+  controller: search:mrp.schema.texts
+  model: mrp.schema.texts
+  standalone: true
+  vtype: search
+- cols:
+  - col: mrp.schema.texts/usage
+    seq: 0
+  - col: mrp.schema.texts/code
+    seq: 10
+  - col: mrp.schema.texts/descr
+    seq: 20
+  controller: find:mrp.schema.texts
+  model: mrp.schema.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.schema.texts/usage
+    seq: 0
+  - col: mrp.schema.texts/code
+    seq: 10
+  - col: mrp.schema.texts/descr
+    seq: 20
+  - col: mrp.schema.texts/texts
+    seq: 30
+  controller: list:mrp.schema.texts
+  model: mrp.schema.texts
+  standalone: true
+  vtype: list
+- cols:
+  - col: mrp.schema.texts/usage
+    seq: 0
+  - col: mrp.schema.texts/code
+    seq: 10
+  - col: mrp.schema.texts/descr
+    seq: 20
+  - col: mrp.schema.texts/texts
+    seq: 30
+  controller: form.modal:mrp.schema.texts
+  model: mrp.schema.texts
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: mrp.schema.texts/usage
+    seq: 0
+  - col: mrp.schema.texts/code
+    seq: 10
+  - col: mrp.schema.texts/descr
+    seq: 20
+  - col: mrp.schema.texts/texts
+    seq: 30
+  controller: form:mrp.schema.texts
+  model: mrp.schema.texts
+  standalone: true
+  vtype: form
+- cols:
+  - col: mrp.schema.text.items/schema_id
+    seq: 0
+  - col: mrp.schema.text.items/seq
+    seq: 10
+  - col: mrp.schema.text.items/text_id
+    seq: 20
+  - col: mrp.schema.text.items/descr
+    seq: 30
+  controller: find:mrp.schema.text.items
+  model: mrp.schema.text.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.schema.text.items/schema_id
+    seq: 0
+  - col: mrp.schema.text.items/seq
+    seq: 10
+  - col: mrp.schema.text.items/text_id
+    seq: 20
+  - col: mrp.schema.text.items/descr
+    seq: 30
+  controller: o2m-form:mrp.schema.text.items
+  model: mrp.schema.text.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.schema.text.items/schema_id
+    seq: 0
+  - col: mrp.schema.text.items/seq
+    seq: 10
+  - col: mrp.schema.text.items/text_id
+    seq: 20
+  - col: mrp.schema.text.items/descr
+    seq: 30
+  controller: o2m-list:mrp.schema.text.items
+  model: mrp.schema.text.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.demand.types/name
+    seq: 0
+  - col: mrp.demand.types/htschema
+    seq: 10
+  - col: mrp.demand.types/itschema
+    seq: 20
+  controller: search:mrp.demand.types
+  model: mrp.demand.types
+  standalone: true
+  vtype: search
+- cols:
+  - col: mrp.demand.types/name
+    seq: 0
+  - col: mrp.demand.types/htschema
+    seq: 10
+  - col: mrp.demand.types/itschema
+    seq: 20
+  controller: find:mrp.demand.types
+  model: mrp.demand.types
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.demand.types/name
+    seq: 0
+  - col: mrp.demand.types/htschema
+    seq: 10
+  - col: mrp.demand.types/itschema
+    seq: 20
+  - col: mrp.demand.types/roles
+    seq: 30
+  controller: list:mrp.demand.types
+  model: mrp.demand.types
+  standalone: true
+  vtype: list
+- cols:
+  - col: mrp.demand.types/name
+    seq: 0
+  - col: mrp.demand.types/htschema
+    seq: 10
+  - col: mrp.demand.types/itschema
+    seq: 20
+  - col: mrp.demand.types/roles
+    seq: 30
+  - col: mrp.demand.types/note
+    seq: 40
+  controller: form.modal:mrp.demand.types
+  model: mrp.demand.types
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: mrp.demand.types/name
+    seq: 0
+  - col: mrp.demand.types/htschema
+    seq: 10
+  - col: mrp.demand.types/itschema
+    seq: 20
+  - col: mrp.demand.types/roles
+    seq: 30
+  - col: mrp.demand.types/note
+    seq: 40
+  controller: form:mrp.demand.types
+  model: mrp.demand.types
+  standalone: true
+  vtype: form
+- cols:
+  - col: mrp.demand.type.roles/type_id
+    seq: 0
+  - col: mrp.demand.type.roles/role_id
+    seq: 10
+  - col: mrp.demand.type.roles/required
+    seq: 20
+  controller: find:mrp.demand.type.roles
+  model: mrp.demand.type.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.demand.type.roles/type_id
+    seq: 0
+  - col: mrp.demand.type.roles/role_id
+    seq: 10
+  - col: mrp.demand.type.roles/required
+    seq: 20
+  - col: mrp.demand.type.roles/note
+    seq: 30
+  controller: o2m-form:mrp.demand.type.roles
+  model: mrp.demand.type.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.demand.type.roles/type_id
+    seq: 0
+  - col: mrp.demand.type.roles/role_id
+    seq: 10
+  - col: mrp.demand.type.roles/required
+    seq: 20
+  controller: o2m-list:mrp.demand.type.roles
+  model: mrp.demand.type.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.request.types/name
+    seq: 0
+  - col: mrp.request.types/htschema
+    seq: 10
+  - col: mrp.request.types/itschema
+    seq: 20
+  controller: search:mrp.request.types
+  model: mrp.request.types
+  standalone: true
+  vtype: search
+- cols:
+  - col: mrp.request.types/name
+    seq: 0
+  - col: mrp.request.types/htschema
+    seq: 10
+  - col: mrp.request.types/itschema
+    seq: 20
+  controller: find:mrp.request.types
+  model: mrp.request.types
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.request.types/name
+    seq: 0
+  - col: mrp.request.types/htschema
+    seq: 10
+  - col: mrp.request.types/itschema
+    seq: 20
+  - col: mrp.request.types/roles
+    seq: 30
+  controller: list:mrp.request.types
+  model: mrp.request.types
+  standalone: true
+  vtype: list
+- cols:
+  - col: mrp.request.types/name
+    seq: 0
+  - col: mrp.request.types/htschema
+    seq: 10
+  - col: mrp.request.types/itschema
+    seq: 20
+  - col: mrp.request.types/roles
+    seq: 30
+  - col: mrp.request.types/note
+    seq: 40
+  controller: form.modal:mrp.request.types
+  model: mrp.request.types
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: mrp.request.types/name
+    seq: 0
+  - col: mrp.request.types/htschema
+    seq: 10
+  - col: mrp.request.types/itschema
+    seq: 20
+  - col: mrp.request.types/roles
+    seq: 30
+  - col: mrp.request.types/note
+    seq: 40
+  controller: form:mrp.request.types
+  model: mrp.request.types
+  standalone: true
+  vtype: form
+- cols:
+  - col: mrp.request.type.roles/type_id
+    seq: 0
+  - col: mrp.request.type.roles/role_id
+    seq: 10
+  - col: mrp.request.type.roles/required
+    seq: 20
+  controller: find:mrp.request.type.roles
+  model: mrp.request.type.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.request.type.roles/type_id
+    seq: 0
+  - col: mrp.request.type.roles/role_id
+    seq: 10
+  - col: mrp.request.type.roles/required
+    seq: 20
+  - col: mrp.request.type.roles/note
+    seq: 30
+  controller: o2m-form:mrp.request.type.roles
+  model: mrp.request.type.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.request.type.roles/type_id
+    seq: 0
+  - col: mrp.request.type.roles/role_id
+    seq: 10
+  - col: mrp.request.type.roles/required
+    seq: 20
+  controller: o2m-list:mrp.request.type.roles
+  model: mrp.request.type.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.demand.category/name
+    seq: 0
+  - col: mrp.demand.category/parent_id
+    seq: 10
+  - col: mrp.demand.category/fullname
+    seq: 20
+  controller: search:mrp.demand.category
+  model: mrp.demand.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: mrp.demand.category/name
+    seq: 0
+  - col: mrp.demand.category/parent_id
+    seq: 10
+  - col: mrp.demand.category/fullname
+    seq: 20
+  controller: find:mrp.demand.category
+  model: mrp.demand.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.demand.category/name
+    seq: 0
+  - col: mrp.demand.category/parent_id
+    seq: 10
+  - col: mrp.demand.category/childs_id
+    seq: 20
+  - col: mrp.demand.category/fullname
+    seq: 30
+  - col: mrp.demand.category/demands
+    seq: 40
+  controller: list:mrp.demand.category
+  model: mrp.demand.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: mrp.demand.category/name
+    seq: 0
+  - col: mrp.demand.category/parent_id
+    seq: 10
+  - col: mrp.demand.category/childs_id
+    seq: 20
+  - col: mrp.demand.category/fullname
+    seq: 30
+  - col: mrp.demand.category/demands
+    seq: 40
+  - col: mrp.demand.category/note
+    seq: 50
+  controller: form.modal:mrp.demand.category
+  model: mrp.demand.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: mrp.demand.category/name
+    seq: 0
+  - col: mrp.demand.category/parent_id
+    seq: 10
+  - col: mrp.demand.category/childs_id
+    seq: 20
+  - col: mrp.demand.category/fullname
+    seq: 30
+  - col: mrp.demand.category/demands
+    seq: 40
+  - col: mrp.demand.category/note
+    seq: 50
+  controller: form:mrp.demand.category
+  model: mrp.demand.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: mrp.demand.category/name
+    seq: 0
+  - col: mrp.demand.category/parent_id
+    seq: 10
+  - col: mrp.demand.category/fullname
+    seq: 20
+  controller: tree:mrp.demand.category
+  model: mrp.demand.category
+  standalone: true
+  vtype: tree
+- cols:
+  - col: mrp.request.category/name
+    seq: 0
+  - col: mrp.request.category/parent_id
+    seq: 10
+  - col: mrp.request.category/fullname
+    seq: 20
+  controller: search:mrp.request.category
+  model: mrp.request.category
+  standalone: true
+  vtype: search
+- cols:
+  - col: mrp.request.category/name
+    seq: 0
+  - col: mrp.request.category/parent_id
+    seq: 10
+  - col: mrp.request.category/fullname
+    seq: 20
+  controller: find:mrp.request.category
+  model: mrp.request.category
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.request.category/name
+    seq: 0
+  - col: mrp.request.category/parent_id
+    seq: 10
+  - col: mrp.request.category/childs_id
+    seq: 20
+  - col: mrp.request.category/fullname
+    seq: 30
+  - col: mrp.request.category/requests
+    seq: 40
+  controller: list:mrp.request.category
+  model: mrp.request.category
+  standalone: true
+  vtype: list
+- cols:
+  - col: mrp.request.category/name
+    seq: 0
+  - col: mrp.request.category/parent_id
+    seq: 10
+  - col: mrp.request.category/childs_id
+    seq: 20
+  - col: mrp.request.category/fullname
+    seq: 30
+  - col: mrp.request.category/requests
+    seq: 40
+  - col: mrp.request.category/note
+    seq: 50
+  controller: form.modal:mrp.request.category
+  model: mrp.request.category
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: mrp.request.category/name
+    seq: 0
+  - col: mrp.request.category/parent_id
+    seq: 10
+  - col: mrp.request.category/childs_id
+    seq: 20
+  - col: mrp.request.category/fullname
+    seq: 30
+  - col: mrp.request.category/requests
+    seq: 40
+  - col: mrp.request.category/note
+    seq: 50
+  controller: form:mrp.request.category
+  model: mrp.request.category
+  standalone: true
+  vtype: form
+- cols:
+  - col: mrp.request.category/name
+    seq: 0
+  - col: mrp.request.category/parent_id
+    seq: 10
+  - col: mrp.request.category/fullname
+    seq: 20
+  controller: tree:mrp.request.category
+  model: mrp.request.category
+  standalone: true
+  vtype: tree
+- cols:
+  - col: mrp.demand/dtype
+    seq: 0
+  - col: mrp.demand/name
+    seq: 10
+  - col: mrp.demand/company
+    seq: 20
+  - col: mrp.demand/fullname
+    seq: 30
+  - col: mrp.demand/category_id
+    seq: 40
+  - col: mrp.demand/origin
+    seq: 50
+  - col: mrp.demand/dod
+    seq: 60
+  - col: mrp.demand/from_date
+    seq: 70
+  - col: mrp.demand/to_date
+    seq: 80
+  - col: mrp.demand/state
+    seq: 90
+  controller: search:mrp.demand
+  model: mrp.demand
+  standalone: true
+  vtype: search
+- cols:
+  - col: mrp.demand/dtype
+    seq: 0
+  - col: mrp.demand/name
+    seq: 10
+  - col: mrp.demand/company
+    seq: 20
+  - col: mrp.demand/fullname
+    seq: 30
+  - col: mrp.demand/category_id
+    seq: 40
+  - col: mrp.demand/origin
+    seq: 50
+  - col: mrp.demand/dod
+    seq: 60
+  - col: mrp.demand/from_date
+    seq: 70
+  - col: mrp.demand/to_date
+    seq: 80
+  - col: mrp.demand/state
+    seq: 90
+  controller: find:mrp.demand
+  model: mrp.demand
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.demand/dtype
+    seq: 0
+  - col: mrp.demand/name
+    seq: 10
+  - col: mrp.demand/company
+    seq: 20
+  - col: mrp.demand/fullname
+    seq: 30
+  - col: mrp.demand/category_id
+    seq: 40
+  - col: mrp.demand/origin
+    seq: 50
+  - col: mrp.demand/dod
+    seq: 60
+  - col: mrp.demand/from_date
+    seq: 70
+  - col: mrp.demand/to_date
+    seq: 80
+  - col: mrp.demand/state
+    seq: 90
+  - col: mrp.demand/items
+    seq: 100
+  - col: mrp.demand/roles
+    seq: 110
+  - col: mrp.demand/texts
+    seq: 120
+  - col: mrp.demand/plates
+    seq: 130
+  controller: list:mrp.demand
+  model: mrp.demand
+  standalone: true
+  vtype: list
+- cols:
+  - col: mrp.demand/dtype
+    seq: 0
+  - col: mrp.demand/name
+    seq: 10
+  - col: mrp.demand/company
+    seq: 20
+  - col: mrp.demand/fullname
+    seq: 30
+  - col: mrp.demand/category_id
+    seq: 40
+  - col: mrp.demand/origin
+    seq: 50
+  - col: mrp.demand/dod
+    seq: 60
+  - col: mrp.demand/from_date
+    seq: 70
+  - col: mrp.demand/to_date
+    seq: 80
+  - col: mrp.demand/state
+    seq: 90
+  - col: mrp.demand/items
+    seq: 100
+  - col: mrp.demand/roles
+    seq: 110
+  - col: mrp.demand/texts
+    seq: 120
+  - col: mrp.demand/plates
+    seq: 130
+  - col: mrp.demand/note
+    seq: 140
+  controller: form.modal:mrp.demand
+  model: mrp.demand
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: mrp.demand/dtype
+    seq: 0
+  - col: mrp.demand/name
+    seq: 10
+  - col: mrp.demand/company
+    seq: 20
+  - col: mrp.demand/fullname
+    seq: 30
+  - col: mrp.demand/category_id
+    seq: 40
+  - col: mrp.demand/origin
+    seq: 50
+  - col: mrp.demand/dod
+    seq: 60
+  - col: mrp.demand/from_date
+    seq: 70
+  - col: mrp.demand/to_date
+    seq: 80
+  - col: mrp.demand/state
+    seq: 90
+  - col: mrp.demand/items
+    seq: 100
+  - col: mrp.demand/roles
+    seq: 110
+  - col: mrp.demand/texts
+    seq: 120
+  - col: mrp.demand/plates
+    seq: 130
+  - col: mrp.demand/note
+    seq: 140
+  controller: form:mrp.demand
+  model: mrp.demand
+  standalone: true
+  vtype: form
+- cols:
+  - col: mrp.demand/dtype
+    seq: 0
+  - col: mrp.demand/name
+    seq: 10
+  - col: mrp.demand/company
+    seq: 20
+  - col: mrp.demand/fullname
+    seq: 30
+  - col: mrp.demand/category_id
+    seq: 40
+  - col: mrp.demand/origin
+    seq: 50
+  - col: mrp.demand/dod
+    seq: 60
+  - col: mrp.demand/from_date
+    seq: 70
+  - col: mrp.demand/to_date
+    seq: 80
+  - col: mrp.demand/state
+    seq: 90
+  controller: gantt:mrp.demand
+  model: mrp.demand
+  standalone: true
+  vtype: gantt
+- cols:
+  - col: mrp.demand/dtype
+    seq: 0
+  - col: mrp.demand/name
+    seq: 10
+  - col: mrp.demand/company
+    seq: 20
+  - col: mrp.demand/fullname
+    seq: 30
+  - col: mrp.demand/category_id
+    seq: 40
+  - col: mrp.demand/origin
+    seq: 50
+  - col: mrp.demand/dod
+    seq: 60
+  - col: mrp.demand/from_date
+    seq: 70
+  - col: mrp.demand/to_date
+    seq: 80
+  - col: mrp.demand/state
+    seq: 90
+  controller: schedule:mrp.demand
+  model: mrp.demand
+  standalone: true
+  vtype: schedule
+- cols:
+  - col: mrp.demand/dtype
+    seq: 0
+  - col: mrp.demand/name
+    seq: 10
+  - col: mrp.demand/company
+    seq: 20
+  - col: mrp.demand/fullname
+    seq: 30
+  - col: mrp.demand/category_id
+    seq: 40
+  - col: mrp.demand/origin
+    seq: 50
+  - col: mrp.demand/dod
+    seq: 60
+  - col: mrp.demand/from_date
+    seq: 70
+  - col: mrp.demand/to_date
+    seq: 80
+  - col: mrp.demand/state
+    seq: 90
+  controller: calendar:mrp.demand
+  model: mrp.demand
+  standalone: true
+  vtype: calendar
+- cols:
+  - col: mrp.demand/dtype
+    seq: 0
+  - col: mrp.demand/name
+    seq: 10
+  - col: mrp.demand/company
+    seq: 20
+  - col: mrp.demand/fullname
+    seq: 30
+  - col: mrp.demand/category_id
+    seq: 40
+  - col: mrp.demand/origin
+    seq: 50
+  - col: mrp.demand/dod
+    seq: 60
+  - col: mrp.demand/from_date
+    seq: 70
+  - col: mrp.demand/to_date
+    seq: 80
+  - col: mrp.demand/state
+    seq: 90
+  controller: graph:mrp.demand
+  model: mrp.demand
+  standalone: true
+  vtype: graph
+- cols:
+  - col: mrp.demand/dtype
+    seq: 0
+  - col: mrp.demand/name
+    seq: 10
+  - col: mrp.demand/company
+    seq: 20
+  - col: mrp.demand/fullname
+    seq: 30
+  - col: mrp.demand/category_id
+    seq: 40
+  - col: mrp.demand/origin
+    seq: 50
+  - col: mrp.demand/dod
+    seq: 60
+  - col: mrp.demand/from_date
+    seq: 70
+  - col: mrp.demand/to_date
+    seq: 80
+  - col: mrp.demand/state
+    seq: 90
+  - col: mrp.demand/note
+    seq: 100
+  controller: kanban:mrp.demand
+  model: mrp.demand
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: mrp.demand/dtype
+    seq: 0
+  - col: mrp.demand/name
+    seq: 10
+  - col: mrp.demand/company
+    seq: 20
+  - col: mrp.demand/fullname
+    seq: 30
+  - col: mrp.demand/category_id
+    seq: 40
+  - col: mrp.demand/origin
+    seq: 50
+  - col: mrp.demand/dod
+    seq: 60
+  - col: mrp.demand/from_date
+    seq: 70
+  - col: mrp.demand/to_date
+    seq: 80
+  - col: mrp.demand/state
+    seq: 90
+  controller: mdx:mrp.demand
+  model: mrp.demand
+  standalone: true
+  vtype: mdx
+- cols:
+  - col: mrp.demand.texts/demand_id
+    seq: 0
+  - col: mrp.demand.texts/seq
+    seq: 10
+  - col: mrp.demand.texts/text_id
+    seq: 20
+  - col: mrp.demand.texts/descr
+    seq: 30
+  controller: find:mrp.demand.texts
+  model: mrp.demand.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.demand.texts/demand_id
+    seq: 0
+  - col: mrp.demand.texts/seq
+    seq: 10
+  - col: mrp.demand.texts/text_id
+    seq: 20
+  - col: mrp.demand.texts/descr
+    seq: 30
+  - col: mrp.demand.texts/content
+    seq: 40
+  controller: o2m-form:mrp.demand.texts
+  model: mrp.demand.texts
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.demand.texts/demand_id
+    seq: 0
+  - col: mrp.demand.texts/seq
+    seq: 10
+  - col: mrp.demand.texts/text_id
+    seq: 20
+  - col: mrp.demand.texts/descr
+    seq: 30
+  controller: o2m-list:mrp.demand.texts
+  model: mrp.demand.texts
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.demand.roles/demand_id
+    seq: 0
+  - col: mrp.demand.roles/role_id
+    seq: 10
+  - col: mrp.demand.roles/patner_id
+    seq: 20
+  controller: find:mrp.demand.roles
+  model: mrp.demand.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.demand.roles/demand_id
+    seq: 0
+  - col: mrp.demand.roles/role_id
+    seq: 10
+  - col: mrp.demand.roles/patner_id
+    seq: 20
+  controller: o2m-form:mrp.demand.roles
+  model: mrp.demand.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.demand.roles/demand_id
+    seq: 0
+  - col: mrp.demand.roles/role_id
+    seq: 10
+  - col: mrp.demand.roles/patner_id
+    seq: 20
+  controller: o2m-list:mrp.demand.roles
+  model: mrp.demand.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.demand.output.plates/demand_id
+    seq: 0
+  - col: mrp.demand.output.plates/state
+    seq: 10
+  - col: mrp.demand.output.plates/otype
+    seq: 20
+  - col: mrp.demand.output.plates/partner
+    seq: 30
+  - col: mrp.demand.output.plates/role
+    seq: 40
+  - col: mrp.demand.output.plates/language
+    seq: 50
+  - col: mrp.demand.output.plates/msm
+    seq: 60
+  - col: mrp.demand.output.plates/schedule
+    seq: 70
+  controller: find:mrp.demand.output.plates
+  model: mrp.demand.output.plates
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.demand.output.plates/demand_id
+    seq: 0
+  - col: mrp.demand.output.plates/state
+    seq: 10
+  - col: mrp.demand.output.plates/otype
+    seq: 20
+  - col: mrp.demand.output.plates/partner
+    seq: 30
+  - col: mrp.demand.output.plates/role
+    seq: 40
+  - col: mrp.demand.output.plates/language
+    seq: 50
+  - col: mrp.demand.output.plates/msm
+    seq: 60
+  - col: mrp.demand.output.plates/schedule
+    seq: 70
+  - col: mrp.demand.output.plates/note
+    seq: 80
+  controller: o2m-form:mrp.demand.output.plates
+  model: mrp.demand.output.plates
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.demand.output.plates/demand_id
+    seq: 0
+  - col: mrp.demand.output.plates/state
+    seq: 10
+  - col: mrp.demand.output.plates/otype
+    seq: 20
+  - col: mrp.demand.output.plates/partner
+    seq: 30
+  - col: mrp.demand.output.plates/role
+    seq: 40
+  - col: mrp.demand.output.plates/language
+    seq: 50
+  - col: mrp.demand.output.plates/msm
+    seq: 60
+  - col: mrp.demand.output.plates/schedule
+    seq: 70
+  - col: mrp.demand.output.plates/note
+    seq: 80
+  controller: o2m-kanban:mrp.demand.output.plates
+  model: mrp.demand.output.plates
+  standalone: true
+  vtype: o2m-kanban
+- cols:
+  - col: mrp.demand.output.plates/demand_id
+    seq: 0
+  - col: mrp.demand.output.plates/state
+    seq: 10
+  - col: mrp.demand.output.plates/otype
+    seq: 20
+  - col: mrp.demand.output.plates/partner
+    seq: 30
+  - col: mrp.demand.output.plates/role
+    seq: 40
+  - col: mrp.demand.output.plates/language
+    seq: 50
+  - col: mrp.demand.output.plates/msm
+    seq: 60
+  - col: mrp.demand.output.plates/schedule
+    seq: 70
+  controller: o2m-list:mrp.demand.output.plates
+  model: mrp.demand.output.plates
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.demand.items/demand_id
+    seq: 0
+  - col: mrp.demand.items/product
+    seq: 10
+  - col: mrp.demand.items/uom
+    seq: 20
+  - col: mrp.demand.items/quantity
+    seq: 30
+  controller: find:mrp.demand.items
+  model: mrp.demand.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.demand.items/demand_id
+    seq: 0
+  - col: mrp.demand.items/product
+    seq: 10
+  - col: mrp.demand.items/uom
+    seq: 20
+  - col: mrp.demand.items/quantity
+    seq: 30
+  - col: mrp.demand.items/schedules
+    seq: 40
+  - col: mrp.demand.items/roles
+    seq: 50
+  - col: mrp.demand.items/texts
+    seq: 60
+  - col: mrp.demand.items/note
+    seq: 70
+  controller: o2m-form:mrp.demand.items
+  model: mrp.demand.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.demand.items/demand_id
+    seq: 0
+  - col: mrp.demand.items/product
+    seq: 10
+  - col: mrp.demand.items/uom
+    seq: 20
+  - col: mrp.demand.items/quantity
+    seq: 30
+  - col: mrp.demand.items/schedules
+    seq: 40
+  - col: mrp.demand.items/roles
+    seq: 50
+  - col: mrp.demand.items/texts
+    seq: 60
+  controller: o2m-list:mrp.demand.items
+  model: mrp.demand.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.demand.item.texts/item_id
+    seq: 0
+  - col: mrp.demand.item.texts/seq
+    seq: 10
+  - col: mrp.demand.item.texts/text_id
+    seq: 20
+  - col: mrp.demand.item.texts/descr
+    seq: 30
+  controller: find:mrp.demand.item.texts
+  model: mrp.demand.item.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.demand.item.texts/item_id
+    seq: 0
+  - col: mrp.demand.item.texts/seq
+    seq: 10
+  - col: mrp.demand.item.texts/text_id
+    seq: 20
+  - col: mrp.demand.item.texts/descr
+    seq: 30
+  - col: mrp.demand.item.texts/content
+    seq: 40
+  controller: o2m-form:mrp.demand.item.texts
+  model: mrp.demand.item.texts
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.demand.item.texts/item_id
+    seq: 0
+  - col: mrp.demand.item.texts/seq
+    seq: 10
+  - col: mrp.demand.item.texts/text_id
+    seq: 20
+  - col: mrp.demand.item.texts/descr
+    seq: 30
+  controller: o2m-list:mrp.demand.item.texts
+  model: mrp.demand.item.texts
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.demand.item.roles/item_id
+    seq: 0
+  - col: mrp.demand.item.roles/role_id
+    seq: 10
+  - col: mrp.demand.item.roles/patner_id
+    seq: 20
+  controller: find:mrp.demand.item.roles
+  model: mrp.demand.item.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.demand.item.roles/item_id
+    seq: 0
+  - col: mrp.demand.item.roles/role_id
+    seq: 10
+  - col: mrp.demand.item.roles/patner_id
+    seq: 20
+  controller: o2m-form:mrp.demand.item.roles
+  model: mrp.demand.item.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.demand.item.roles/item_id
+    seq: 0
+  - col: mrp.demand.item.roles/role_id
+    seq: 10
+  - col: mrp.demand.item.roles/patner_id
+    seq: 20
+  controller: o2m-list:mrp.demand.item.roles
+  model: mrp.demand.item.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.demand.delivery.schedules/item_id
+    seq: 0
+  - col: mrp.demand.delivery.schedules/quantity
+    seq: 10
+  - col: mrp.demand.delivery.schedules/uom
+    seq: 20
+  - col: mrp.demand.delivery.schedules/schedule
+    seq: 30
+  controller: find:mrp.demand.delivery.schedules
+  model: mrp.demand.delivery.schedules
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.demand.delivery.schedules/item_id
+    seq: 0
+  - col: mrp.demand.delivery.schedules/quantity
+    seq: 10
+  - col: mrp.demand.delivery.schedules/uom
+    seq: 20
+  - col: mrp.demand.delivery.schedules/schedule
+    seq: 30
+  - col: mrp.demand.delivery.schedules/note
+    seq: 40
+  controller: o2m-form:mrp.demand.delivery.schedules
+  model: mrp.demand.delivery.schedules
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.demand.delivery.schedules/item_id
+    seq: 0
+  - col: mrp.demand.delivery.schedules/quantity
+    seq: 10
+  - col: mrp.demand.delivery.schedules/uom
+    seq: 20
+  - col: mrp.demand.delivery.schedules/schedule
+    seq: 30
+  controller: o2m-list:mrp.demand.delivery.schedules
+  model: mrp.demand.delivery.schedules
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.request/rtype
+    seq: 0
+  - col: mrp.request/name
+    seq: 10
+  - col: mrp.request/company
+    seq: 20
+  - col: mrp.request/fullname
+    seq: 30
+  - col: mrp.request/category_id
+    seq: 40
+  - col: mrp.request/origin
+    seq: 50
+  - col: mrp.request/dor
+    seq: 60
+  - col: mrp.request/from_date
+    seq: 70
+  - col: mrp.request/to_date
+    seq: 80
+  - col: mrp.request/state
+    seq: 90
+  controller: search:mrp.request
+  model: mrp.request
+  standalone: true
+  vtype: search
+- cols:
+  - col: mrp.request/rtype
+    seq: 0
+  - col: mrp.request/name
+    seq: 10
+  - col: mrp.request/company
+    seq: 20
+  - col: mrp.request/fullname
+    seq: 30
+  - col: mrp.request/category_id
+    seq: 40
+  - col: mrp.request/origin
+    seq: 50
+  - col: mrp.request/dor
+    seq: 60
+  - col: mrp.request/from_date
+    seq: 70
+  - col: mrp.request/to_date
+    seq: 80
+  - col: mrp.request/state
+    seq: 90
+  controller: find:mrp.request
+  model: mrp.request
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.request/rtype
+    seq: 0
+  - col: mrp.request/name
+    seq: 10
+  - col: mrp.request/company
+    seq: 20
+  - col: mrp.request/fullname
+    seq: 30
+  - col: mrp.request/category_id
+    seq: 40
+  - col: mrp.request/origin
+    seq: 50
+  - col: mrp.request/dor
+    seq: 60
+  - col: mrp.request/from_date
+    seq: 70
+  - col: mrp.request/to_date
+    seq: 80
+  - col: mrp.request/state
+    seq: 90
+  - col: mrp.request/items
+    seq: 100
+  - col: mrp.request/roles
+    seq: 110
+  - col: mrp.request/texts
+    seq: 120
+  - col: mrp.request/plates
+    seq: 130
+  controller: list:mrp.request
+  model: mrp.request
+  standalone: true
+  vtype: list
+- cols:
+  - col: mrp.request/rtype
+    seq: 0
+  - col: mrp.request/name
+    seq: 10
+  - col: mrp.request/company
+    seq: 20
+  - col: mrp.request/fullname
+    seq: 30
+  - col: mrp.request/category_id
+    seq: 40
+  - col: mrp.request/origin
+    seq: 50
+  - col: mrp.request/dor
+    seq: 60
+  - col: mrp.request/from_date
+    seq: 70
+  - col: mrp.request/to_date
+    seq: 80
+  - col: mrp.request/state
+    seq: 90
+  - col: mrp.request/items
+    seq: 100
+  - col: mrp.request/roles
+    seq: 110
+  - col: mrp.request/texts
+    seq: 120
+  - col: mrp.request/plates
+    seq: 130
+  - col: mrp.request/note
+    seq: 140
+  controller: form.modal:mrp.request
+  model: mrp.request
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: mrp.request/rtype
+    seq: 0
+  - col: mrp.request/name
+    seq: 10
+  - col: mrp.request/company
+    seq: 20
+  - col: mrp.request/fullname
+    seq: 30
+  - col: mrp.request/category_id
+    seq: 40
+  - col: mrp.request/origin
+    seq: 50
+  - col: mrp.request/dor
+    seq: 60
+  - col: mrp.request/from_date
+    seq: 70
+  - col: mrp.request/to_date
+    seq: 80
+  - col: mrp.request/state
+    seq: 90
+  - col: mrp.request/items
+    seq: 100
+  - col: mrp.request/roles
+    seq: 110
+  - col: mrp.request/texts
+    seq: 120
+  - col: mrp.request/plates
+    seq: 130
+  - col: mrp.request/note
+    seq: 140
+  controller: form:mrp.request
+  model: mrp.request
+  standalone: true
+  vtype: form
+- cols:
+  - col: mrp.request/rtype
+    seq: 0
+  - col: mrp.request/name
+    seq: 10
+  - col: mrp.request/company
+    seq: 20
+  - col: mrp.request/fullname
+    seq: 30
+  - col: mrp.request/category_id
+    seq: 40
+  - col: mrp.request/origin
+    seq: 50
+  - col: mrp.request/dor
+    seq: 60
+  - col: mrp.request/from_date
+    seq: 70
+  - col: mrp.request/to_date
+    seq: 80
+  - col: mrp.request/state
+    seq: 90
+  controller: gantt:mrp.request
+  model: mrp.request
+  standalone: true
+  vtype: gantt
+- cols:
+  - col: mrp.request/rtype
+    seq: 0
+  - col: mrp.request/name
+    seq: 10
+  - col: mrp.request/company
+    seq: 20
+  - col: mrp.request/fullname
+    seq: 30
+  - col: mrp.request/category_id
+    seq: 40
+  - col: mrp.request/origin
+    seq: 50
+  - col: mrp.request/dor
+    seq: 60
+  - col: mrp.request/from_date
+    seq: 70
+  - col: mrp.request/to_date
+    seq: 80
+  - col: mrp.request/state
+    seq: 90
+  controller: schedule:mrp.request
+  model: mrp.request
+  standalone: true
+  vtype: schedule
+- cols:
+  - col: mrp.request/rtype
+    seq: 0
+  - col: mrp.request/name
+    seq: 10
+  - col: mrp.request/company
+    seq: 20
+  - col: mrp.request/fullname
+    seq: 30
+  - col: mrp.request/category_id
+    seq: 40
+  - col: mrp.request/origin
+    seq: 50
+  - col: mrp.request/dor
+    seq: 60
+  - col: mrp.request/from_date
+    seq: 70
+  - col: mrp.request/to_date
+    seq: 80
+  - col: mrp.request/state
+    seq: 90
+  controller: calendar:mrp.request
+  model: mrp.request
+  standalone: true
+  vtype: calendar
+- cols:
+  - col: mrp.request/rtype
+    seq: 0
+  - col: mrp.request/name
+    seq: 10
+  - col: mrp.request/company
+    seq: 20
+  - col: mrp.request/fullname
+    seq: 30
+  - col: mrp.request/category_id
+    seq: 40
+  - col: mrp.request/origin
+    seq: 50
+  - col: mrp.request/dor
+    seq: 60
+  - col: mrp.request/from_date
+    seq: 70
+  - col: mrp.request/to_date
+    seq: 80
+  - col: mrp.request/state
+    seq: 90
+  controller: graph:mrp.request
+  model: mrp.request
+  standalone: true
+  vtype: graph
+- cols:
+  - col: mrp.request/rtype
+    seq: 0
+  - col: mrp.request/name
+    seq: 10
+  - col: mrp.request/company
+    seq: 20
+  - col: mrp.request/fullname
+    seq: 30
+  - col: mrp.request/category_id
+    seq: 40
+  - col: mrp.request/origin
+    seq: 50
+  - col: mrp.request/dor
+    seq: 60
+  - col: mrp.request/from_date
+    seq: 70
+  - col: mrp.request/to_date
+    seq: 80
+  - col: mrp.request/state
+    seq: 90
+  - col: mrp.request/note
+    seq: 100
+  controller: kanban:mrp.request
+  model: mrp.request
+  standalone: true
+  vtype: kanban
+- cols:
+  - col: mrp.request/rtype
+    seq: 0
+  - col: mrp.request/name
+    seq: 10
+  - col: mrp.request/company
+    seq: 20
+  - col: mrp.request/fullname
+    seq: 30
+  - col: mrp.request/category_id
+    seq: 40
+  - col: mrp.request/origin
+    seq: 50
+  - col: mrp.request/dor
+    seq: 60
+  - col: mrp.request/from_date
+    seq: 70
+  - col: mrp.request/to_date
+    seq: 80
+  - col: mrp.request/state
+    seq: 90
+  controller: mdx:mrp.request
+  model: mrp.request
+  standalone: true
+  vtype: mdx
+- cols:
+  - col: mrp.request.texts/request_id
+    seq: 0
+  - col: mrp.request.texts/seq
+    seq: 10
+  - col: mrp.request.texts/text_id
+    seq: 20
+  - col: mrp.request.texts/descr
+    seq: 30
+  controller: find:mrp.request.texts
+  model: mrp.request.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.request.texts/request_id
+    seq: 0
+  - col: mrp.request.texts/seq
+    seq: 10
+  - col: mrp.request.texts/text_id
+    seq: 20
+  - col: mrp.request.texts/descr
+    seq: 30
+  - col: mrp.request.texts/content
+    seq: 40
+  controller: o2m-form:mrp.request.texts
+  model: mrp.request.texts
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.request.texts/request_id
+    seq: 0
+  - col: mrp.request.texts/seq
+    seq: 10
+  - col: mrp.request.texts/text_id
+    seq: 20
+  - col: mrp.request.texts/descr
+    seq: 30
+  controller: o2m-list:mrp.request.texts
+  model: mrp.request.texts
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.request.roles/request_id
+    seq: 0
+  - col: mrp.request.roles/role_id
+    seq: 10
+  - col: mrp.request.roles/patner_id
+    seq: 20
+  controller: find:mrp.request.roles
+  model: mrp.request.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.request.roles/request_id
+    seq: 0
+  - col: mrp.request.roles/role_id
+    seq: 10
+  - col: mrp.request.roles/patner_id
+    seq: 20
+  controller: o2m-form:mrp.request.roles
+  model: mrp.request.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.request.roles/request_id
+    seq: 0
+  - col: mrp.request.roles/role_id
+    seq: 10
+  - col: mrp.request.roles/patner_id
+    seq: 20
+  controller: o2m-list:mrp.request.roles
+  model: mrp.request.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.request.output.plates/request_id
+    seq: 0
+  - col: mrp.request.output.plates/state
+    seq: 10
+  - col: mrp.request.output.plates/otype
+    seq: 20
+  - col: mrp.request.output.plates/partner
+    seq: 30
+  - col: mrp.request.output.plates/role
+    seq: 40
+  - col: mrp.request.output.plates/language
+    seq: 50
+  - col: mrp.request.output.plates/msm
+    seq: 60
+  - col: mrp.request.output.plates/schedule
+    seq: 70
+  controller: find:mrp.request.output.plates
+  model: mrp.request.output.plates
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.request.output.plates/request_id
+    seq: 0
+  - col: mrp.request.output.plates/state
+    seq: 10
+  - col: mrp.request.output.plates/otype
+    seq: 20
+  - col: mrp.request.output.plates/partner
+    seq: 30
+  - col: mrp.request.output.plates/role
+    seq: 40
+  - col: mrp.request.output.plates/language
+    seq: 50
+  - col: mrp.request.output.plates/msm
+    seq: 60
+  - col: mrp.request.output.plates/schedule
+    seq: 70
+  - col: mrp.request.output.plates/note
+    seq: 80
+  controller: o2m-form:mrp.request.output.plates
+  model: mrp.request.output.plates
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.request.output.plates/request_id
+    seq: 0
+  - col: mrp.request.output.plates/state
+    seq: 10
+  - col: mrp.request.output.plates/otype
+    seq: 20
+  - col: mrp.request.output.plates/partner
+    seq: 30
+  - col: mrp.request.output.plates/role
+    seq: 40
+  - col: mrp.request.output.plates/language
+    seq: 50
+  - col: mrp.request.output.plates/msm
+    seq: 60
+  - col: mrp.request.output.plates/schedule
+    seq: 70
+  - col: mrp.request.output.plates/note
+    seq: 80
+  controller: o2m-kanban:mrp.request.output.plates
+  model: mrp.request.output.plates
+  standalone: true
+  vtype: o2m-kanban
+- cols:
+  - col: mrp.request.output.plates/request_id
+    seq: 0
+  - col: mrp.request.output.plates/state
+    seq: 10
+  - col: mrp.request.output.plates/otype
+    seq: 20
+  - col: mrp.request.output.plates/partner
+    seq: 30
+  - col: mrp.request.output.plates/role
+    seq: 40
+  - col: mrp.request.output.plates/language
+    seq: 50
+  - col: mrp.request.output.plates/msm
+    seq: 60
+  - col: mrp.request.output.plates/schedule
+    seq: 70
+  controller: o2m-list:mrp.request.output.plates
+  model: mrp.request.output.plates
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.request.items/request_id
+    seq: 0
+  - col: mrp.request.items/product
+    seq: 10
+  - col: mrp.request.items/uom
+    seq: 20
+  controller: find:mrp.request.items
+  model: mrp.request.items
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.request.items/request_id
+    seq: 0
+  - col: mrp.request.items/product
+    seq: 10
+  - col: mrp.request.items/uom
+    seq: 20
+  - col: mrp.request.items/schedules
+    seq: 30
+  - col: mrp.request.items/roles
+    seq: 40
+  - col: mrp.request.items/texts
+    seq: 50
+  - col: mrp.request.items/note
+    seq: 60
+  controller: o2m-form:mrp.request.items
+  model: mrp.request.items
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.request.items/request_id
+    seq: 0
+  - col: mrp.request.items/product
+    seq: 10
+  - col: mrp.request.items/uom
+    seq: 20
+  - col: mrp.request.items/schedules
+    seq: 30
+  - col: mrp.request.items/roles
+    seq: 40
+  - col: mrp.request.items/texts
+    seq: 50
+  controller: o2m-list:mrp.request.items
+  model: mrp.request.items
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.request.item.texts/item_id
+    seq: 0
+  - col: mrp.request.item.texts/seq
+    seq: 10
+  - col: mrp.request.item.texts/text_id
+    seq: 20
+  - col: mrp.request.item.texts/descr
+    seq: 30
+  controller: find:mrp.request.item.texts
+  model: mrp.request.item.texts
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.request.item.texts/item_id
+    seq: 0
+  - col: mrp.request.item.texts/seq
+    seq: 10
+  - col: mrp.request.item.texts/text_id
+    seq: 20
+  - col: mrp.request.item.texts/descr
+    seq: 30
+  - col: mrp.request.item.texts/content
+    seq: 40
+  controller: o2m-form:mrp.request.item.texts
+  model: mrp.request.item.texts
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.request.item.texts/item_id
+    seq: 0
+  - col: mrp.request.item.texts/seq
+    seq: 10
+  - col: mrp.request.item.texts/text_id
+    seq: 20
+  - col: mrp.request.item.texts/descr
+    seq: 30
+  controller: o2m-list:mrp.request.item.texts
+  model: mrp.request.item.texts
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.request.item.roles/item_id
+    seq: 0
+  - col: mrp.request.item.roles/role_id
+    seq: 10
+  - col: mrp.request.item.roles/patner_id
+    seq: 20
+  controller: find:mrp.request.item.roles
+  model: mrp.request.item.roles
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.request.item.roles/item_id
+    seq: 0
+  - col: mrp.request.item.roles/role_id
+    seq: 10
+  - col: mrp.request.item.roles/patner_id
+    seq: 20
+  controller: o2m-form:mrp.request.item.roles
+  model: mrp.request.item.roles
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.request.item.roles/item_id
+    seq: 0
+  - col: mrp.request.item.roles/role_id
+    seq: 10
+  - col: mrp.request.item.roles/patner_id
+    seq: 20
+  controller: o2m-list:mrp.request.item.roles
+  model: mrp.request.item.roles
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: mrp.request.delivery.schedules/item_id
+    seq: 0
+  - col: mrp.request.delivery.schedules/quantity
+    seq: 10
+  - col: mrp.request.delivery.schedules/uom
+    seq: 20
+  - col: mrp.request.delivery.schedules/schedule
+    seq: 30
+  controller: find:mrp.request.delivery.schedules
+  model: mrp.request.delivery.schedules
+  standalone: true
+  vtype: find
+- cols:
+  - col: mrp.request.delivery.schedules/item_id
+    seq: 0
+  - col: mrp.request.delivery.schedules/quantity
+    seq: 10
+  - col: mrp.request.delivery.schedules/uom
+    seq: 20
+  - col: mrp.request.delivery.schedules/schedule
+    seq: 30
+  - col: mrp.request.delivery.schedules/note
+    seq: 40
+  controller: o2m-form:mrp.request.delivery.schedules
+  model: mrp.request.delivery.schedules
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: mrp.request.delivery.schedules/item_id
+    seq: 0
+  - col: mrp.request.delivery.schedules/quantity
+    seq: 10
+  - col: mrp.request.delivery.schedules/uom
+    seq: 20
+  - col: mrp.request.delivery.schedules/schedule
+    seq: 30
+  controller: o2m-list:mrp.request.delivery.schedules
+  model: mrp.request.delivery.schedules
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: md.mrp.product/product_id
+    seq: 0
+  - col: md.mrp.product/strategy
+    seq: 10
+  - col: md.mrp.product/quantity
+    seq: 20
+  - col: md.mrp.product/reserved_quantity
+    seq: 30
+  - col: md.mrp.product/min_quantity
+    seq: 40
+  - col: md.mrp.product/max_quantity
+    seq: 50
+  - col: md.mrp.product/uom
+    seq: 60
+  controller: find:md.mrp.product
+  model: md.mrp.product
+  standalone: true
+  vtype: find
+- cols:
+  - col: md.mrp.product/product_id
+    seq: 0
+  - col: md.mrp.product/strategy
+    seq: 10
+  - col: md.mrp.product/quantity
+    seq: 20
+  - col: md.mrp.product/reserved_quantity
+    seq: 30
+  - col: md.mrp.product/min_quantity
+    seq: 40
+  - col: md.mrp.product/max_quantity
+    seq: 50
+  - col: md.mrp.product/uom
+    seq: 60
+  - col: md.mrp.product/note
+    seq: 70
+  controller: o2m-form:md.mrp.product
+  model: md.mrp.product
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: md.mrp.product/product_id
+    seq: 0
+  - col: md.mrp.product/strategy
+    seq: 10
+  - col: md.mrp.product/quantity
+    seq: 20
+  - col: md.mrp.product/reserved_quantity
+    seq: 30
+  - col: md.mrp.product/min_quantity
+    seq: 40
+  - col: md.mrp.product/max_quantity
+    seq: 50
+  - col: md.mrp.product/uom
+    seq: 60
+  controller: o2m-list:md.mrp.product
+  model: md.mrp.product
+  standalone: true
+  vtype: o2m-list

@@ -3,7 +3,7 @@ import sys
 import time
 import logging
 from functools import reduce
-from .metaobjects import MetaObjects
+from gsrp5service.obj.metaobjects import MetaObjects
 from tools.translations import trlocal as _
 #from . import mm
 #from .mm import orm_exception
@@ -20,9 +20,9 @@ _logger = logging.getLogger(__name__)
 			# _module = attrs['__module__']
 
 			# if _m[0] == 'gsrp5service':
-				# _module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[3:5])	
-			# else:	
-				# _module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[:2])	
+				# _module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[3:5])
+			# else:
+				# _module = reduce(lambda x,y: x + '.' + y,attrs['__module__'].split('.')[:2])
 
 			# MetaDialog.__modules__.setdefault(_module,{})[attrs['_name']] = {'name':name,'bases':bases,'attrs':attrs}
 
@@ -37,6 +37,6 @@ _logger = logging.getLogger(__name__)
 
 class Dialog(object, metaclass = MetaObjects):
 	_name = None
-	
+
 class DialogInherit(object, metaclass = MetaObjects):
 	_name = None

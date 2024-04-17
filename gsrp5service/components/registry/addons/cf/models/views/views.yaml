@@ -1,0 +1,968 @@
+- cols:
+  - col: cf.groups/name
+    seq: 0
+  - col: cf.groups/code
+    seq: 10
+  controller: search:cf.groups
+  model: cf.groups
+  standalone: true
+  vtype: search
+- cols:
+  - col: cf.groups/name
+    seq: 0
+  - col: cf.groups/code
+    seq: 10
+  controller: find:cf.groups
+  model: cf.groups
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.groups/name
+    seq: 0
+  - col: cf.groups/code
+    seq: 10
+  controller: list:cf.groups
+  model: cf.groups
+  standalone: true
+  vtype: list
+- cols:
+  - col: bc.users/login
+    seq: 0
+  - col: bc.users/password
+    seq: 10
+  - col: bc.users/firstname
+    seq: 20
+  - col: bc.users/lastname
+    seq: 30
+  - col: bc.users/issuperuser
+    seq: 40
+  - col: bc.users/user_type
+    seq: 50
+  controller: m2mlist:bc.users
+  model: bc.users
+  standalone: true
+  vtype: m2mlist
+- cols:
+  - col: cf.groups/name
+    seq: 0
+  - col: cf.groups/code
+    seq: 10
+  - col: cf.groups/users_id
+    seq: 20
+  controller: form.modal:cf.groups
+  model: cf.groups
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: cf.groups/name
+    seq: 0
+  - col: cf.groups/code
+    seq: 10
+  - col: cf.groups/users_id
+    seq: 20
+  controller: form:cf.groups
+  model: cf.groups
+  standalone: true
+  vtype: form
+- cols:
+  - col: cf.tags/tag
+    seq: 0
+  controller: search:cf.tags
+  model: cf.tags
+  standalone: true
+  vtype: search
+- cols:
+  - col: cf.tags/tag
+    seq: 0
+  controller: find:cf.tags
+  model: cf.tags
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.tags/tag
+    seq: 0
+  controller: list:cf.tags
+  model: cf.tags
+  standalone: true
+  vtype: list
+- cols:
+  - col: cf.folders/name
+    seq: 0
+  - col: cf.folders/created_by
+    seq: 10
+  - col: cf.folders/created
+    seq: 20
+  - col: cf.folders/modified_by
+    seq: 30
+  - col: cf.folders/modified
+    seq: 40
+  - col: cf.folders/parent_id
+    seq: 50
+  controller: m2mlist:cf.folders
+  model: cf.folders
+  standalone: true
+  vtype: m2mlist
+- cols:
+  - col: cf.files/name
+    seq: 0
+  - col: cf.files/size
+    seq: 10
+  - col: cf.files/created_by
+    seq: 20
+  - col: cf.files/created
+    seq: 30
+  - col: cf.files/modified_by
+    seq: 40
+  - col: cf.files/modified
+    seq: 50
+  - col: cf.files/url
+    seq: 60
+  - col: cf.files/folder_id
+    seq: 70
+  controller: m2mlist:cf.files
+  model: cf.files
+  standalone: true
+  vtype: m2mlist
+- cols:
+  - col: cf.links/folder_id
+    seq: 0
+  - col: cf.links/name
+    seq: 10
+  - col: cf.links/file_id
+    seq: 20
+  - col: cf.links/created_by
+    seq: 30
+  - col: cf.links/created
+    seq: 40
+  - col: cf.links/modified_by
+    seq: 50
+  - col: cf.links/modified
+    seq: 60
+  controller: m2mlist:cf.links
+  model: cf.links
+  standalone: true
+  vtype: m2mlist
+- cols:
+  - col: cf.tags/tag
+    seq: 0
+  - col: cf.tags/folders
+    seq: 10
+  - col: cf.tags/files
+    seq: 20
+  - col: cf.tags/links
+    seq: 30
+  controller: form.modal:cf.tags
+  model: cf.tags
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: cf.tags/tag
+    seq: 0
+  - col: cf.tags/folders
+    seq: 10
+  - col: cf.tags/files
+    seq: 20
+  - col: cf.tags/links
+    seq: 30
+  controller: form:cf.tags
+  model: cf.tags
+  standalone: true
+  vtype: form
+- cols:
+  - col: cf.file.access.users/file_id
+    seq: 0
+  - col: cf.file.access.users/user_id
+    seq: 10
+  - col: cf.file.access.users/r
+    seq: 20
+  - col: cf.file.access.users/w
+    seq: 30
+  - col: cf.file.access.users/x
+    seq: 40
+  controller: find:cf.file.access.users
+  model: cf.file.access.users
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.file.access.users/file_id
+    seq: 0
+  - col: cf.file.access.users/user_id
+    seq: 10
+  - col: cf.file.access.users/r
+    seq: 20
+  - col: cf.file.access.users/w
+    seq: 30
+  - col: cf.file.access.users/x
+    seq: 40
+  controller: o2m-form:cf.file.access.users
+  model: cf.file.access.users
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: cf.file.access.users/file_id
+    seq: 0
+  - col: cf.file.access.users/user_id
+    seq: 10
+  - col: cf.file.access.users/r
+    seq: 20
+  - col: cf.file.access.users/w
+    seq: 30
+  - col: cf.file.access.users/x
+    seq: 40
+  controller: o2m-list:cf.file.access.users
+  model: cf.file.access.users
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cf.file.access.groups/file_id
+    seq: 0
+  - col: cf.file.access.groups/group_id
+    seq: 10
+  - col: cf.file.access.groups/r
+    seq: 20
+  - col: cf.file.access.groups/w
+    seq: 30
+  - col: cf.file.access.groups/x
+    seq: 40
+  controller: find:cf.file.access.groups
+  model: cf.file.access.groups
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.file.access.groups/file_id
+    seq: 0
+  - col: cf.file.access.groups/group_id
+    seq: 10
+  - col: cf.file.access.groups/r
+    seq: 20
+  - col: cf.file.access.groups/w
+    seq: 30
+  - col: cf.file.access.groups/x
+    seq: 40
+  controller: o2m-form:cf.file.access.groups
+  model: cf.file.access.groups
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: cf.file.access.groups/file_id
+    seq: 0
+  - col: cf.file.access.groups/group_id
+    seq: 10
+  - col: cf.file.access.groups/r
+    seq: 20
+  - col: cf.file.access.groups/w
+    seq: 30
+  - col: cf.file.access.groups/x
+    seq: 40
+  controller: o2m-list:cf.file.access.groups
+  model: cf.file.access.groups
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cf.file.access.others/file_id
+    seq: 0
+  - col: cf.file.access.others/r
+    seq: 10
+  - col: cf.file.access.others/w
+    seq: 20
+  - col: cf.file.access.others/x
+    seq: 30
+  controller: find:cf.file.access.others
+  model: cf.file.access.others
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.file.access.others/file_id
+    seq: 0
+  - col: cf.file.access.others/r
+    seq: 10
+  - col: cf.file.access.others/w
+    seq: 20
+  - col: cf.file.access.others/x
+    seq: 30
+  controller: o2m-form:cf.file.access.others
+  model: cf.file.access.others
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: cf.file.access.others/file_id
+    seq: 0
+  - col: cf.file.access.others/r
+    seq: 10
+  - col: cf.file.access.others/w
+    seq: 20
+  - col: cf.file.access.others/x
+    seq: 30
+  controller: o2m-list:cf.file.access.others
+  model: cf.file.access.others
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cf.files/name
+    seq: 0
+  - col: cf.files/size
+    seq: 10
+  - col: cf.files/created_by
+    seq: 20
+  - col: cf.files/created
+    seq: 30
+  - col: cf.files/modified_by
+    seq: 40
+  - col: cf.files/modified
+    seq: 50
+  - col: cf.files/url
+    seq: 60
+  - col: cf.files/folder_id
+    seq: 70
+  controller: search:cf.files
+  model: cf.files
+  standalone: true
+  vtype: search
+- cols:
+  - col: cf.files/name
+    seq: 0
+  - col: cf.files/size
+    seq: 10
+  - col: cf.files/created_by
+    seq: 20
+  - col: cf.files/created
+    seq: 30
+  - col: cf.files/modified_by
+    seq: 40
+  - col: cf.files/modified
+    seq: 50
+  - col: cf.files/url
+    seq: 60
+  - col: cf.files/folder_id
+    seq: 70
+  controller: find:cf.files
+  model: cf.files
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.files/name
+    seq: 0
+  - col: cf.files/size
+    seq: 10
+  - col: cf.files/created_by
+    seq: 20
+  - col: cf.files/created
+    seq: 30
+  - col: cf.files/modified_by
+    seq: 40
+  - col: cf.files/modified
+    seq: 50
+  - col: cf.files/url
+    seq: 60
+  - col: cf.files/folder_id
+    seq: 70
+  - col: cf.files/users_access
+    seq: 80
+  - col: cf.files/groups_access
+    seq: 90
+  - col: cf.files/others_access
+    seq: 100
+  controller: list:cf.files
+  model: cf.files
+  standalone: true
+  vtype: list
+- cols:
+  - col: cf.tags/tag
+    seq: 0
+  controller: m2mlist:cf.tags
+  model: cf.tags
+  standalone: true
+  vtype: m2mlist
+- cols:
+  - col: cf.files/name
+    seq: 0
+  - col: cf.files/size
+    seq: 10
+  - col: cf.files/created_by
+    seq: 20
+  - col: cf.files/created
+    seq: 30
+  - col: cf.files/modified_by
+    seq: 40
+  - col: cf.files/modified
+    seq: 50
+  - col: cf.files/url
+    seq: 60
+  - col: cf.files/data
+    seq: 70
+  - col: cf.files/folder_id
+    seq: 80
+  - col: cf.files/users_access
+    seq: 90
+  - col: cf.files/groups_access
+    seq: 100
+  - col: cf.files/others_access
+    seq: 110
+  - col: cf.files/tags_id
+    seq: 120
+  controller: form.modal:cf.files
+  model: cf.files
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: cf.files/name
+    seq: 0
+  - col: cf.files/size
+    seq: 10
+  - col: cf.files/created_by
+    seq: 20
+  - col: cf.files/created
+    seq: 30
+  - col: cf.files/modified_by
+    seq: 40
+  - col: cf.files/modified
+    seq: 50
+  - col: cf.files/url
+    seq: 60
+  - col: cf.files/data
+    seq: 70
+  - col: cf.files/folder_id
+    seq: 80
+  - col: cf.files/users_access
+    seq: 90
+  - col: cf.files/groups_access
+    seq: 100
+  - col: cf.files/others_access
+    seq: 110
+  - col: cf.files/tags_id
+    seq: 120
+  controller: form:cf.files
+  model: cf.files
+  standalone: true
+  vtype: form
+- cols:
+  - col: cf.link.access.users/link_id
+    seq: 0
+  - col: cf.link.access.users/user_id
+    seq: 10
+  - col: cf.link.access.users/r
+    seq: 20
+  - col: cf.link.access.users/w
+    seq: 30
+  - col: cf.link.access.users/x
+    seq: 40
+  controller: find:cf.link.access.users
+  model: cf.link.access.users
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.link.access.users/link_id
+    seq: 0
+  - col: cf.link.access.users/user_id
+    seq: 10
+  - col: cf.link.access.users/r
+    seq: 20
+  - col: cf.link.access.users/w
+    seq: 30
+  - col: cf.link.access.users/x
+    seq: 40
+  controller: o2m-form:cf.link.access.users
+  model: cf.link.access.users
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: cf.link.access.users/link_id
+    seq: 0
+  - col: cf.link.access.users/user_id
+    seq: 10
+  - col: cf.link.access.users/r
+    seq: 20
+  - col: cf.link.access.users/w
+    seq: 30
+  - col: cf.link.access.users/x
+    seq: 40
+  controller: o2m-list:cf.link.access.users
+  model: cf.link.access.users
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cf.link.access.groups/link_id
+    seq: 0
+  - col: cf.link.access.groups/group_id
+    seq: 10
+  - col: cf.link.access.groups/r
+    seq: 20
+  - col: cf.link.access.groups/w
+    seq: 30
+  - col: cf.link.access.groups/x
+    seq: 40
+  controller: find:cf.link.access.groups
+  model: cf.link.access.groups
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.link.access.groups/link_id
+    seq: 0
+  - col: cf.link.access.groups/group_id
+    seq: 10
+  - col: cf.link.access.groups/r
+    seq: 20
+  - col: cf.link.access.groups/w
+    seq: 30
+  - col: cf.link.access.groups/x
+    seq: 40
+  controller: o2m-form:cf.link.access.groups
+  model: cf.link.access.groups
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: cf.link.access.groups/link_id
+    seq: 0
+  - col: cf.link.access.groups/group_id
+    seq: 10
+  - col: cf.link.access.groups/r
+    seq: 20
+  - col: cf.link.access.groups/w
+    seq: 30
+  - col: cf.link.access.groups/x
+    seq: 40
+  controller: o2m-list:cf.link.access.groups
+  model: cf.link.access.groups
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cf.link.access.others/link_id
+    seq: 0
+  - col: cf.link.access.others/r
+    seq: 10
+  - col: cf.link.access.others/w
+    seq: 20
+  - col: cf.link.access.others/x
+    seq: 30
+  controller: find:cf.link.access.others
+  model: cf.link.access.others
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.link.access.others/link_id
+    seq: 0
+  - col: cf.link.access.others/r
+    seq: 10
+  - col: cf.link.access.others/w
+    seq: 20
+  - col: cf.link.access.others/x
+    seq: 30
+  controller: o2m-form:cf.link.access.others
+  model: cf.link.access.others
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: cf.link.access.others/link_id
+    seq: 0
+  - col: cf.link.access.others/r
+    seq: 10
+  - col: cf.link.access.others/w
+    seq: 20
+  - col: cf.link.access.others/x
+    seq: 30
+  controller: o2m-list:cf.link.access.others
+  model: cf.link.access.others
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cf.links/folder_id
+    seq: 0
+  - col: cf.links/name
+    seq: 10
+  - col: cf.links/file_id
+    seq: 20
+  - col: cf.links/created_by
+    seq: 30
+  - col: cf.links/created
+    seq: 40
+  - col: cf.links/modified_by
+    seq: 50
+  - col: cf.links/modified
+    seq: 60
+  controller: search:cf.links
+  model: cf.links
+  standalone: true
+  vtype: search
+- cols:
+  - col: cf.links/folder_id
+    seq: 0
+  - col: cf.links/name
+    seq: 10
+  - col: cf.links/file_id
+    seq: 20
+  - col: cf.links/created_by
+    seq: 30
+  - col: cf.links/created
+    seq: 40
+  - col: cf.links/modified_by
+    seq: 50
+  - col: cf.links/modified
+    seq: 60
+  controller: find:cf.links
+  model: cf.links
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.links/folder_id
+    seq: 0
+  - col: cf.links/name
+    seq: 10
+  - col: cf.links/file_id
+    seq: 20
+  - col: cf.links/created_by
+    seq: 30
+  - col: cf.links/created
+    seq: 40
+  - col: cf.links/modified_by
+    seq: 50
+  - col: cf.links/modified
+    seq: 60
+  - col: cf.links/users_access
+    seq: 70
+  - col: cf.links/groups_access
+    seq: 80
+  - col: cf.links/others_access
+    seq: 90
+  controller: list:cf.links
+  model: cf.links
+  standalone: true
+  vtype: list
+- cols:
+  - col: cf.tags/tag
+    seq: 0
+  controller: m2mlist:cf.tags
+  model: cf.tags
+  standalone: true
+  vtype: m2mlist
+- cols:
+  - col: cf.links/folder_id
+    seq: 0
+  - col: cf.links/name
+    seq: 10
+  - col: cf.links/file_id
+    seq: 20
+  - col: cf.links/created_by
+    seq: 30
+  - col: cf.links/created
+    seq: 40
+  - col: cf.links/modified_by
+    seq: 50
+  - col: cf.links/modified
+    seq: 60
+  - col: cf.links/users_access
+    seq: 70
+  - col: cf.links/groups_access
+    seq: 80
+  - col: cf.links/others_access
+    seq: 90
+  - col: cf.links/tags_id
+    seq: 100
+  controller: form.modal:cf.links
+  model: cf.links
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: cf.links/folder_id
+    seq: 0
+  - col: cf.links/name
+    seq: 10
+  - col: cf.links/file_id
+    seq: 20
+  - col: cf.links/created_by
+    seq: 30
+  - col: cf.links/created
+    seq: 40
+  - col: cf.links/modified_by
+    seq: 50
+  - col: cf.links/modified
+    seq: 60
+  - col: cf.links/users_access
+    seq: 70
+  - col: cf.links/groups_access
+    seq: 80
+  - col: cf.links/others_access
+    seq: 90
+  - col: cf.links/tags_id
+    seq: 100
+  controller: form:cf.links
+  model: cf.links
+  standalone: true
+  vtype: form
+- cols:
+  - col: cf.folder.access.users/folder_id
+    seq: 0
+  - col: cf.folder.access.users/user_id
+    seq: 10
+  - col: cf.folder.access.users/r
+    seq: 20
+  - col: cf.folder.access.users/w
+    seq: 30
+  - col: cf.folder.access.users/x
+    seq: 40
+  controller: find:cf.folder.access.users
+  model: cf.folder.access.users
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.folder.access.users/folder_id
+    seq: 0
+  - col: cf.folder.access.users/user_id
+    seq: 10
+  - col: cf.folder.access.users/r
+    seq: 20
+  - col: cf.folder.access.users/w
+    seq: 30
+  - col: cf.folder.access.users/x
+    seq: 40
+  controller: o2m-form:cf.folder.access.users
+  model: cf.folder.access.users
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: cf.folder.access.users/folder_id
+    seq: 0
+  - col: cf.folder.access.users/user_id
+    seq: 10
+  - col: cf.folder.access.users/r
+    seq: 20
+  - col: cf.folder.access.users/w
+    seq: 30
+  - col: cf.folder.access.users/x
+    seq: 40
+  controller: o2m-list:cf.folder.access.users
+  model: cf.folder.access.users
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cf.folder.access.groups/folder_id
+    seq: 0
+  - col: cf.folder.access.groups/group_id
+    seq: 10
+  - col: cf.folder.access.groups/r
+    seq: 20
+  - col: cf.folder.access.groups/w
+    seq: 30
+  - col: cf.folder.access.groups/x
+    seq: 40
+  controller: find:cf.folder.access.groups
+  model: cf.folder.access.groups
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.folder.access.groups/folder_id
+    seq: 0
+  - col: cf.folder.access.groups/group_id
+    seq: 10
+  - col: cf.folder.access.groups/r
+    seq: 20
+  - col: cf.folder.access.groups/w
+    seq: 30
+  - col: cf.folder.access.groups/x
+    seq: 40
+  controller: o2m-form:cf.folder.access.groups
+  model: cf.folder.access.groups
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: cf.folder.access.groups/folder_id
+    seq: 0
+  - col: cf.folder.access.groups/group_id
+    seq: 10
+  - col: cf.folder.access.groups/r
+    seq: 20
+  - col: cf.folder.access.groups/w
+    seq: 30
+  - col: cf.folder.access.groups/x
+    seq: 40
+  controller: o2m-list:cf.folder.access.groups
+  model: cf.folder.access.groups
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cf.folder.access.others/folder_id
+    seq: 0
+  - col: cf.folder.access.others/r
+    seq: 10
+  - col: cf.folder.access.others/w
+    seq: 20
+  - col: cf.folder.access.others/x
+    seq: 30
+  controller: find:cf.folder.access.others
+  model: cf.folder.access.others
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.folder.access.others/folder_id
+    seq: 0
+  - col: cf.folder.access.others/r
+    seq: 10
+  - col: cf.folder.access.others/w
+    seq: 20
+  - col: cf.folder.access.others/x
+    seq: 30
+  controller: o2m-form:cf.folder.access.others
+  model: cf.folder.access.others
+  standalone: true
+  vtype: o2m-form
+- cols:
+  - col: cf.folder.access.others/folder_id
+    seq: 0
+  - col: cf.folder.access.others/r
+    seq: 10
+  - col: cf.folder.access.others/w
+    seq: 20
+  - col: cf.folder.access.others/x
+    seq: 30
+  controller: o2m-list:cf.folder.access.others
+  model: cf.folder.access.others
+  standalone: true
+  vtype: o2m-list
+- cols:
+  - col: cf.folders/name
+    seq: 0
+  - col: cf.folders/created_by
+    seq: 10
+  - col: cf.folders/created
+    seq: 20
+  - col: cf.folders/modified_by
+    seq: 30
+  - col: cf.folders/modified
+    seq: 40
+  - col: cf.folders/parent_id
+    seq: 50
+  controller: search:cf.folders
+  model: cf.folders
+  standalone: true
+  vtype: search
+- cols:
+  - col: cf.folders/name
+    seq: 0
+  - col: cf.folders/created_by
+    seq: 10
+  - col: cf.folders/created
+    seq: 20
+  - col: cf.folders/modified_by
+    seq: 30
+  - col: cf.folders/modified
+    seq: 40
+  - col: cf.folders/parent_id
+    seq: 50
+  controller: find:cf.folders
+  model: cf.folders
+  standalone: true
+  vtype: find
+- cols:
+  - col: cf.folders/name
+    seq: 0
+  - col: cf.folders/created_by
+    seq: 10
+  - col: cf.folders/created
+    seq: 20
+  - col: cf.folders/modified_by
+    seq: 30
+  - col: cf.folders/modified
+    seq: 40
+  - col: cf.folders/parent_id
+    seq: 50
+  - col: cf.folders/childs_id
+    seq: 60
+  - col: cf.folders/files
+    seq: 70
+  - col: cf.folders/links
+    seq: 80
+  - col: cf.folders/users_access
+    seq: 90
+  - col: cf.folders/groups_access
+    seq: 100
+  - col: cf.folders/others_access
+    seq: 110
+  controller: list:cf.folders
+  model: cf.folders
+  standalone: true
+  vtype: list
+- cols:
+  - col: cf.tags/tag
+    seq: 0
+  controller: m2mlist:cf.tags
+  model: cf.tags
+  standalone: true
+  vtype: m2mlist
+- cols:
+  - col: cf.folders/name
+    seq: 0
+  - col: cf.folders/created_by
+    seq: 10
+  - col: cf.folders/created
+    seq: 20
+  - col: cf.folders/modified_by
+    seq: 30
+  - col: cf.folders/modified
+    seq: 40
+  - col: cf.folders/parent_id
+    seq: 50
+  - col: cf.folders/childs_id
+    seq: 60
+  - col: cf.folders/files
+    seq: 70
+  - col: cf.folders/links
+    seq: 80
+  - col: cf.folders/users_access
+    seq: 90
+  - col: cf.folders/groups_access
+    seq: 100
+  - col: cf.folders/others_access
+    seq: 110
+  - col: cf.folders/tags_id
+    seq: 120
+  controller: form.modal:cf.folders
+  model: cf.folders
+  standalone: true
+  vtype: form.modal
+- cols:
+  - col: cf.folders/name
+    seq: 0
+  - col: cf.folders/created_by
+    seq: 10
+  - col: cf.folders/created
+    seq: 20
+  - col: cf.folders/modified_by
+    seq: 30
+  - col: cf.folders/modified
+    seq: 40
+  - col: cf.folders/parent_id
+    seq: 50
+  - col: cf.folders/childs_id
+    seq: 60
+  - col: cf.folders/files
+    seq: 70
+  - col: cf.folders/links
+    seq: 80
+  - col: cf.folders/users_access
+    seq: 90
+  - col: cf.folders/groups_access
+    seq: 100
+  - col: cf.folders/others_access
+    seq: 110
+  - col: cf.folders/tags_id
+    seq: 120
+  controller: form:cf.folders
+  model: cf.folders
+  standalone: true
+  vtype: form
+- cols:
+  - col: cf.folders/name
+    seq: 0
+  - col: cf.folders/created_by
+    seq: 10
+  - col: cf.folders/created
+    seq: 20
+  - col: cf.folders/modified_by
+    seq: 30
+  - col: cf.folders/modified
+    seq: 40
+  - col: cf.folders/parent_id
+    seq: 50
+  controller: tree:cf.folders
+  model: cf.folders
+  standalone: true
+  vtype: tree
