@@ -44,14 +44,14 @@ class crm_requests(Model):
 	'note': fields.i18n(fields.text('Note'))
 	}
 
-	def _on_change_otype(self ,item,context={}):		
+	def _on_change_otype(self, key, ovalue,item, context={}):
 		roles = self.selectFor('crm.request.type.roles',['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
 			item_role = self._model('crm.request.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
-		
-		types = self.selectFor('crm.request.types', ['htschema'],[('name','=',item['otype']['name'])],context)	
+
+		types = self.selectFor('crm.request.types', ['htschema'],[('name','=',item['otype']['name'])],context)
 		texts1 = self.selectFor('crm.schema.texts', ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		if len(texts1) > 0:
 			texts = texts1[0]['texts']
@@ -66,7 +66,7 @@ class crm_requests(Model):
 				item_text['text_id'] = text['text_id']
 				item['texts'].append(item_text)
 
-	def _on_change_mob(self ,item,context={}):		
+	def _on_change_mob(self, key, ovalue ,item,context={}):
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
 			p = self.selectFor('md.bom.items', ['product','quantity','uom'],[('bom_id','=',item['mob']['name'])],context)
 			for i in p:
@@ -165,7 +165,7 @@ class crm_request_output_plates(Model):
 	'schedule': fields.datetime(label='Schedule',required=True),
 	'note': fields.i18n(fields.text(label = 'Note'))
 	}
-	
+
 	_default = {
 		'state':'c'
 	}
@@ -206,7 +206,7 @@ class crm_request_items(Model):
 	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
-	def _on_change_product(self ,item,context={}):		
+	def _on_change_product(self, key, ovalue ,item,context={}):
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
 			i = self._proxy.get('crm.request.type.items').select( ['gti_id','itype_id'],[],context)
 			gti = {}
@@ -222,7 +222,7 @@ class crm_request_items(Model):
 							for m in ('uom','price','currency','unit','uop','vat'):
 								if m not in item or item[m] != d[m]:
 									if m == 'vat':
-										item['vat_code'] = d['vat']				
+										item['vat_code'] = d['vat']
 									else:
 										item[m] = d[m]
 					else:
@@ -335,7 +335,7 @@ class crm_request_item_output_plates(Model):
 	'schedule': fields.datetime(label='Schedule',required=True),
 	'note': fields.i18n(fields.text(label = 'Note'))
 	}
-	
+
 	_default = {
 		'state':'c'
 	}
@@ -387,14 +387,14 @@ class crm_offers(Model):
 	'note': fields.i18n(fields.text('Note'))
 	}
 
-	def _on_change_itype(self ,item,context={}):		
+	def _on_change_itype(self , key, ovalue,item,context={}):
 		roles = self.selectFor('crm.offer.type.roles',['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
 			item_role = self._model('crm.offer.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
-		
-		types = self.selectFor('crm.offer.types', ['htschema'],[('name','=',item['otype']['name'])],context)	
+
+		types = self.selectFor('crm.offer.types', ['htschema'],[('name','=',item['otype']['name'])],context)
 		texts1 = self.selectFor('crm.schema.texts', ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		if len(texts1) > 0:
 			texts = texts1[0]['texts']
@@ -468,12 +468,12 @@ class crm_offer_items(Model):
 	'note': fields.i18n(fields.text(label = 'Note'))
 	}
 
-	def _on_change_product(self ,item,context={}):		
+	def _on_change_product(self, key, ovalue ,item,context={}):
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
 			p = self.selectFor('md.crm.product',['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
-					item['vat_code'] = p[0]['vat']				
+					item['vat_code'] = p[0]['vat']
 				for f in ('uom','price','currency','unit','uop'):
 					if item[f] != p[0][f]:
 						item[f] = p[0][f]
@@ -605,14 +605,14 @@ class crm_contracts(Model):
 	'note': fields.text('Note')
 	}
 
-	def _on_change_otype(self ,item,context={}):		
+	def _on_change_otype(self, key, ovalue ,item,context={}):
 		roles = self._proxy.get('crm.contract.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
 			item_role = self._proxy.get('crm.contract.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
-		
-		types = self._proxy.get('crm.contract.types').select( ['htschema'],[('name','=',item['otype']['name'])],context)	
+
+		types = self._proxy.get('crm.contract.types').select( ['htschema'],[('name','=',item['otype']['name'])],context)
 		texts1 = self._proxy.get('crm.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		if len(texts1) > 0:
 			texts = texts1[0]['texts']
@@ -627,7 +627,7 @@ class crm_contracts(Model):
 				item_text['text_id'] = text['text_id']
 				item['texts'].append(item_text)
 
-	def _on_change_mob(self ,item,context={}):		
+	def _on_change_mob(self, key, ovalue ,item,context={}):
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
 			p = self._proxy.get('md.mob.output.items').select( ['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
 			for i in p:
@@ -716,7 +716,7 @@ class crm_contract_output_plates(Model):
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
 	}
-	
+
 	_default = {
 		'state':'c'
 	}
@@ -755,7 +755,7 @@ class crm_contract_items(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _on_change_product(self ,item,context={}):		
+	def _on_change_product(self, key, ovalue ,item,context={}):
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
 			i = self._proxy.get('crm.contract.type.items').select( ['gti_id','itype_id'],[],context)
 			gti = {}
@@ -771,7 +771,7 @@ class crm_contract_items(Model):
 							for m in ('uom','price','currency','unit','uop','vat'):
 								if m not in item or item[m] != d[m]:
 									if m == 'vat':
-										item['vat_code'] = d['vat']				
+										item['vat_code'] = d['vat']
 									else:
 										item[m] = d[m]
 					else:
@@ -928,7 +928,7 @@ class crm_contract_item_output_plates(Model):
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
 	}
-	
+
 	_default = {
 		'state':'c'
 	}
@@ -983,14 +983,14 @@ class crm_orders(Model):
 	'note': fields.text('Note')
 	}
 
-	def _on_change_otype(self ,item,context={}):		
+	def _on_change_otype(self, key, ovalue ,item,context={}):
 		roles = self._proxy.get('crm.order.type.roles').select(['role_id'],[('type_id','=',item['otype']['name'])],context)
 		for role in roles:
 			item_role = self._proxy.get('crm.order.roles')._buildEmptyItem()
 			item_role['role_id'] = role['role_id']
 			item['roles'].append(item_role)
-		
-		types = self._proxy.get('crm.order.types').select( ['htschema'],[('name','=',item['otype']['name'])],context)	
+
+		types = self._proxy.get('crm.order.types').select( ['htschema'],[('name','=',item['otype']['name'])],context)
 		texts1 = self._proxy.get('crm.schema.texts').select( ['usage','code',{'texts':['seq','text_id']}],[('code','=',types[0]['htschema']['name'])],context)
 		if len(texts1) > 0:
 			texts = texts1[0]['texts']
@@ -1005,7 +1005,7 @@ class crm_orders(Model):
 				item_text['text_id'] = text['text_id']
 				item['texts'].append(item_text)
 
-	def _on_change_mob(self ,item,context={}):		
+	def _on_change_mob(self, key, ovalue ,item,context={}):
 		if item['mob'] and 'name' in item['mob'] and item['mob']['name']:
 			p = self._proxy.get('md.mob.output.items').select( ['product','quantity','uom'],[('mob_id','=',item['mob']['name'])],context)
 			for i in p:
@@ -1094,7 +1094,7 @@ class crm_order_output_plates(Model):
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
 	}
-	
+
 	_default = {
 		'state':'c'
 	}
@@ -1133,7 +1133,7 @@ class crm_order_items(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _on_change_product(self ,item,context={}):		
+	def _on_change_product(self, key, ovalue ,item,context={}):
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
 			i = self._proxy.get('crm.order.type.items').select( ['gti_id','itype_id'],[],context)
 			gti = {}
@@ -1149,7 +1149,7 @@ class crm_order_items(Model):
 							for m in ('uom','price','currency','unit','uop','vat'):
 								if m not in item or item[m] != d[m]:
 									if m == 'vat':
-										item['vat_code'] = d['vat']				
+										item['vat_code'] = d['vat']
 									else:
 										item[m] = d[m]
 					else:
@@ -1305,7 +1305,7 @@ class crm_order_item_output_plates(Model):
 	'schedule': fields.datetime(label='Schedule'),
 	'note': fields.text(label = 'Note')
 	}
-	
+
 	_default = {
 		'state':'c'
 	}
@@ -1353,7 +1353,7 @@ class crm_invoices(Model):
 	'note': fields.text('Note')
 	}
 
-	def _on_change_itype(self ,item,context={}):		
+	def _on_change_itype(self, key, ovalue ,item,context={}):
 			roles = self._proxy.get('crm.invoice.type.roles').select(['role_id'],[('type_id','=',item['otype'])],context)
 			if len(roles) > 0:
 				if 'roles' not in item:
@@ -1415,12 +1415,12 @@ class crm_invoice_items(Model):
 	'note': fields.text(label = 'Note')
 	}
 
-	def _on_change_product(self ,item,context={}):		
+	def _on_change_product(self, key, ovalue ,item,context={}):
 		if item['product'] and 'name' in item['product'] and item['product']['name']:
 			p = self._proxy.get('md.crm.product').select(['vat','uom','price','currency','unit','uop'],[('product_id','=',item['product']['name'])],context)
 			if len(p) > 0:
 				if item['vat_code'] != p[0]['vat']:
-					item['vat_code'] = p[0]['vat']				
+					item['vat_code'] = p[0]['vat']
 				for f in ('uom','price','currency','unit','uop'):
 					if item[f] != p[0][f]:
 						item[f] = p[0][f]
@@ -1499,6 +1499,6 @@ class md_crm_product_inherit(ModelInherit):
 		'crm': fields.one2many(label='CRMs',obj='md.crm.product',rel='product_id'),
 		'usage': fields.iProperty(selections=[('crm','CRM')])
 	}
-	
+
 #md_crm_product_inherit()
 

@@ -16,7 +16,7 @@ def _set_symbol(self, symb):
 
 class _column(object):
 
-	__slots__ = ('__dict__','accept','actions','label', 'column', 'readonly','invisible', 'priority', 'domain', 'context', 'pattern','required', 'size', 'on_delete', 'on_update','on_change','on_check', 'translate', 'selections', 'selectable', 'manual', 'help', 'unique','check','family','timezone','relatedy','obj','rel','id1','id2','ref','offset','limit','compute','store','state','icon','cols','delimiter','model')
+	__slots__ = ('__dict__','accept','actions','label', 'column', 'readonly','invisible', 'priority', 'domain', 'context', 'pattern','required', 'size', 'on_delete', 'on_update','on_change','on_check', 'translate', 'selections', 'selectable', 'manual', 'help', 'unique','check','family','timezone','relatedy','obj','rel','ref','id1','id2','ref','offset','limit','compute','store','state','icon','cols','delimiter','model','xstate')
 
 	def __init__(self, **kwargs):
 
@@ -24,13 +24,13 @@ class _column(object):
 			raise AttributeError
 
 		for key in kwargs.keys():
-			if key in self.__slots__ and key != "__dict__":			
+			if key in self.__slots__ and key != "__dict__":
 				if 'store' in kwargs and not kwargs['store']:
 					if 'required' in kwargs:
 						kwargs['required'] = False
 					if 'selectable' in kwargs:
 						kwargs['selectable'] = False
-						
+
 		for key in kwargs.keys():
 			if key in self.__slots__ and key != "__dict__":
 				setattr(self,key,kwargs[key])
@@ -91,8 +91,8 @@ class _column(object):
 			result['symbol_get'] = self._symbol_get
 
 		if 'readonly' in result:
-			result['readonly'] = result['readonly'] or 'compute' in self.__dict__ and self.__dict__['compute'] and type(self.__dict__['compute']) in (list,tuple) 
-		
+			result['readonly'] = result['readonly'] or 'compute' in self.__dict__ and self.__dict__['compute'] and type(self.__dict__['compute']) in (list,tuple)
+
 		return result
 
 class char(_column):
@@ -193,7 +193,7 @@ class i18n(_column):
 
 	def __init__(self, column, store = True):
 		super(i18n, self).__init__(column=column, store = store)
-	
+
 
 class boolean(_column):
 	_type = 'boolean'
@@ -294,6 +294,18 @@ class selection(_column):
 
 	def __init__(self, label = 'unknown', selections = [],readonly = None, invisible = None, priority = 0, context = {}, required = None, size = 32, on_change = None, on_check = None, translate = False, selectable = False, manual = None, help = None, unique = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
 		super(selection,self).__init__(label = label, selections = selections,readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, size = size, on_change = on_change, on_check = on_check, translate = translate, selectable = selectable, manual = manual, help = help, unique = unique,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
+
+class state(_column):
+	_type = 'state'
+	_db_type = 'STRING'
+	_symbol_c = "%s"
+	_symbol_f = _set_symbol
+	_symbol_set = (_symbol_c, _symbol_f)
+	_symbol_get = None
+
+	def __init__(self, label = 'unknown', xstate = {}, obj = None, readonly = None, invisible = None, priority = 0, context = {}, required = None, size = 32, on_change = None, on_check = None, translate = False, selectable = False, manual = None, help = None, unique = None,family = 'Primary', compute = None, store = True,state=None, actions=None, icon = None):
+		super(selection,self).__init__(label = label, xstate = xstate, obj=obj, readonly = readonly, invisible = invisible, priority = priority, context = context, required = required, size = size, on_change = on_change, on_check = on_check, translate = translate, selectable = selectable, manual = manual, help = help, unique = unique,family = family, compute = compute, store = store, state = state, actions = actions, icon = icon)
+
 
 # class iSelection(_column):
 	# _type = 'iSelection'
@@ -543,8 +555,8 @@ class one2one(_column):
 class many2many(_column):
 	_type = 'many2many'
 	_db_type = None
-	def __init__(self, label='unknown', obj = None, rel = None, id1 = None, id2 = None, readonly = None, invisible = None, required = None, on_change = None, on_check = None, manual = None, help = None,offset = None,limit=None, domain = None,state=None):
-		super(many2many,self).__init__(label = label, obj = obj, rel = rel, id1 = id1, id2 = id2, readonly = readonly, invisible = invisible, required = required, on_change = on_change, on_check = on_check, manual=manual, help = help, domain = domain, state = state)
+	def __init__(self, label='unknown', obj = None, rel = None, ref = None, id1 = None, id2 = None, readonly = None, invisible = None, required = None, on_change = None, on_check = None, manual = None, help = None,offset = None,limit=None, domain = None,state=None):
+		super(many2many,self).__init__(label = label, obj = obj, rel = rel, ref=ref, id1 = id1, id2 = id2, readonly = readonly, invisible = invisible, required = required, on_change = on_change, on_check = on_check, manual=manual, help = help, domain = domain, state = state)
 
 class related(_column):
 	_type = 'related'

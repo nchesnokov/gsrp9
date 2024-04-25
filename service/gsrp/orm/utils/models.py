@@ -98,7 +98,7 @@ def _conv_record_to_ext(self,record,context):
 					if len(v) > 0:
 						if type(v[0]) == dict:
 							record[key] = {'id':v[0],'name':record[key]}
-	
+
 	return record
 
 def _gen_record(fields,value):
@@ -118,7 +118,7 @@ def _gen_records(fields,values):
 def _do_checks(self, record, context = {}):
 	results = []
 	if type(record) == dict:
-		res = {} 			
+		res = {}
 		for check in self._checks:
 			method = getattr(self,check,None)
 			if method and callable(method):
@@ -154,12 +154,12 @@ def _conv_dict_to_list_records(self,fields,records,context):
 							row.append(_conv_dict_to_list_records(self,field[key],record[key]))
 						elif type(record[key]) in (list,tuple):
 							row.append(record[key])
-		
+
 		#print('CONV-RECORD:',row,record)
 		#if 'cache' in context:
 			#row.append({'path':uuid.uuid4().hex,'model':self._name})
 		rows.append(row)
-		
+
 	return rows
 
 def _conv_dict_to_raw_records(self,fields,records,context):
@@ -177,15 +177,15 @@ def _conv_dict_to_raw_records(self,fields,records,context):
 							record[key] = _conv_dict_to_raw_records(self,field[key],record[key])
 						elif type(record[key]) in (list,tuple):
 							record[key] = _conv_dict_to_raw_records(self,field[key],record[key])
-		
-	#print('RECORDS:',records)	
-		
+
+	#print('RECORDS:',records)
+
 	return records
 
 def _fetch_results(self,cr, uid, pool, model, fields,context):
-	
+
 	res = []
-	
+
 	if 'FETCH' not in context:
 		context['FETCH'] = 'DICT'
 
@@ -222,7 +222,7 @@ def _fetch_results(self,cr, uid, pool, model, fields,context):
 		_computes = model._compute(record,context)
 		if _computes is not None:
 			record.update(_computes)
-	if fetch == 'DICT':		
+	if fetch == 'DICT':
 		res.extend(records)
 	elif fetch == 'LIST':
 		res.extend(_conv_dict_to_list_records(self,fields,records,context))
@@ -240,9 +240,9 @@ def _createRecords(self, cr, uid, pool, model, records, context):
 		if method and callable(method):
 			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':records,'context':context}
 			method(**kwargs)
-	
+
 	for record in records:
-		oid = _createRecord(self, cr, uid, pool, model, record, context)		
+		oid = _createRecord(self, cr, uid, pool, model, record, context)
 		res.append(oid)
 
 	for tn in model._triggers:
@@ -251,12 +251,12 @@ def _createRecords(self, cr, uid, pool, model, records, context):
 		if method and callable(method):
 			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':records,'context':context}
 			method(**kwargs)
-	
+
 	return res
 
 def _createRecord(self, cr, uid, pool, model, record, context):
 	oid = None
-	
+
 	i18nfields = model._i18nfields
 	fields = list(filter(lambda x: x != 'id',record.keys()))
 	modelfields = list(model._columns.keys())
@@ -272,8 +272,8 @@ def _createRecord(self, cr, uid, pool, model, record, context):
 	for nonefield in list(filter(lambda x: x in record and record[x] is None,fields)):
 		if nonefield in record:
 			del record[nonefield]
-	
-	emptyfields = list(filter(lambda x: not x in record and not x in MAGIC_COLUMNS,model._requiredfields))		
+
+	emptyfields = list(filter(lambda x: not x in record and not x in MAGIC_COLUMNS,model._requiredfields))
 	if len(emptyfields) > 0:
 		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, model.modelInfo(['name'])['name'], record))
 
@@ -290,7 +290,7 @@ def _createRecord(self, cr, uid, pool, model, record, context):
 	else:
 		record_m = {}
 		record_t = {}
-			
+
 	for k in filter(lambda x: x != 'id',record.keys()):
 		if k in i18nfields:
 			record_t[k] = record[k]
@@ -336,9 +336,9 @@ def _writeRecords(self, cr, uid, pool, model, records, context):
 		if method and callable(method):
 			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':records,'r2':records21,'context':context}
 			method(**kwargs)
-	
+
 	for record in records:
-		oid = self._writeRecord(model, cr, uid, pool, model, record, context)		
+		oid = self._writeRecord(model, cr, uid, pool, model, record, context)
 		res.append(oid)
 
 	for tn in model._triggers:
@@ -347,7 +347,7 @@ def _writeRecords(self, cr, uid, pool, model, records, context):
 		if method and callable(method):
 			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':records,'r2':records21,'context':context}
 			method(**kwargs)
-	
+
 	return res
 
 def _writeRecord(self, cr, uid, pool, model, record, context):
@@ -363,8 +363,8 @@ def _writeRecord(self, cr, uid, pool, model, record, context):
 		if nosavedfield in record:
 			del record[nosavedfield]
 	columnsinfo = model.columnsInfo(columns = fields)
-	
-	emptyfields = list(filter(lambda x: x in fields and record[x] is None,model._requiredfields))		
+
+	emptyfields = list(filter(lambda x: x in fields and record[x] is None,model._requiredfields))
 
 	if len(emptyfields) > 0:
 		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, model._name, record))
@@ -386,7 +386,7 @@ def _writeRecord(self, cr, uid, pool, model, record, context):
 	else:
 		record_m = {}
 		record_t = {}
-			
+
 	for k in filter(lambda x: x != 'id',record.keys()):
 		if k in i18nfields:
 			record_t[k] = record[k]
@@ -433,9 +433,9 @@ def _modifyRecords(self, cr, uid, pool, model, records, context):
 		if method and callable(method):
 			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':records,'r2':records21,'context':context}
 			method(**kwargs)
-	
+
 	for record in records:
-		oid = self._writeRecord(model, cr, uid, pool, model, record, context)		
+		oid = self._writeRecord(model, cr, uid, pool, model, record, context)
 		res.append(oid)
 
 	for tn in model._triggers:
@@ -444,7 +444,7 @@ def _modifyRecords(self, cr, uid, pool, model, records, context):
 		if method and callable(method):
 			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r1':records,'r2':records21,'context':context}
 			method(**kwargs)
-	
+
 	return res
 
 def _modifyRecord(self, cr, uid, pool, model, record, context):
@@ -460,8 +460,8 @@ def _modifyRecord(self, cr, uid, pool, model, record, context):
 		if nosavedfield in record:
 			del record[nosavedfield]
 	columnsinfo = model.columnsInfo(columns = fields)
-	
-	emptyfields = list(filter(lambda x: x in fields and record[x] is None,model._requiredfields))		
+
+	emptyfields = list(filter(lambda x: x in fields and record[x] is None,model._requiredfields))
 
 	if len(emptyfields) > 0:
 		raise orm_exception("Fields: %s of model: %s is required and not found in record: %s" % (emptyfields, model._name, record))
@@ -483,7 +483,7 @@ def _modifyRecord(self, cr, uid, pool, model, record, context):
 	else:
 		record_m = {}
 		record_t = {}
-			
+
 	for k in filter(lambda x: x != 'id',record.keys()):
 		if k in i18nfields:
 			record_t[k] = record[k]
@@ -527,9 +527,9 @@ def _unlinkRecords(self, cr, uid, pool, model, records, context):
 		if method and callable(method):
 			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r2':records,'context':context}
 			method(**kwargs)
-	
+
 	for record in records:
-		oid = self._unlinkRecord(model, cr, uid, pool, model, record, context)		
+		oid = self._unlinkRecord(model, cr, uid, pool, model, record, context)
 		res.append(oid)
 
 	for tn in model._triggers:
@@ -538,7 +538,7 @@ def _unlinkRecords(self, cr, uid, pool, model, records, context):
 		if method and callable(method):
 			kwargs = {'cr':cr, 'uid':uid, 'pool':pool,'r2':records,'context':context}
 			method(**kwargs)
-	
+
 	return res
 
 def _unlinkRecord(self, cr, uid, pool, model, record, context = {}):
@@ -604,16 +604,16 @@ def count(self, cr, uid, pool, model, cond = None, context = {}):
 	rowcount = cr._execute(sql,vals)
 	if rowcount > 0:
 		if fetch == "LIST":
-			res.extend(cr.fetchone(['count'], {'count':'integer'})) 
+			res.extend(cr.fetchone(['count'], {'count':'integer'}))
 		elif fetch == "DICT":
-			res.extend(cr.dictfetchone(['count'], {'count':'integer'})) 
-	
+			res.extend(cr.dictfetchone(['count'], {'count':'integer'}))
+
 	return res
-	
+
 #tested
 def search(self, cr, uid, pool, model, cond = None, context = {}, limit = None, offset = None):
 	return list(map(lambda x: x['id'],select(self, cr, uid, pool, model, [] ,cond, context, limit, offset)))
-	
+
 	# if not self._proxy_access.get(model._name)._checkRead():
 		# orm_exception("Read:access dennied of model % s" % (self._name,))
 
@@ -640,9 +640,9 @@ def search(self, cr, uid, pool, model, cond = None, context = {}, limit = None, 
 	# rowcount = cr.execute(sql,vals)
 	# if rowcount > 0:
 		# if fetch == "LIST":
-			# res.extend(list(map(lambda x: x[0], cr.fetchall()))) 
+			# res.extend(list(map(lambda x: x[0], cr.fetchall())))
 		# elif fetch == "DICT":
-			# res.extend(list(map(lambda x: x['id'], cr.dictfetchall()))) 
+			# res.extend(list(map(lambda x: x['id'], cr.dictfetchall())))
 	# return res
 
 def _readchunk(self, cr, uid, pool, model, chunk_ids, fields, context):
@@ -654,19 +654,19 @@ def _readchunk(self, cr, uid, pool, model, chunk_ids, fields, context):
 				kwargs = {'r1':oid,'context':context}
 				method(**kwargs)
 
-	rowfields = list(filter(lambda x: x in fields,model._rowfields)) 
+	rowfields = list(filter(lambda x: x in fields,model._rowfields))
 	sql,vals = gensql.Read(self,cr,uid,pool,model,chunk_ids,rowfields,context)
 	rowcount = cr.execute(sql,vals)
 	if rowcount > 0:
 		selectablefields = list(filter(lambda x: x in fields,model._rowfields))
-		nostorecomputefields = list(filter(lambda x: x in fields,model._nostorecomputefields))		
+		nostorecomputefields = list(filter(lambda x: x in fields,model._nostorecomputefields))
 		records = cr.dictfetchall(selectablefields,model._columnsmeta)
 		for record in records:
 			for jk in model._jsonfields:
 				if jk in record:
 					if type(record[jk]) == str:
 						record[jk] = json.loads(record[jk])
-			
+
 			for tn in model._triggers:
 				tr = self._session._triggers[tn]
 				method = tr._actions['_onReadAfterForEachRow']
@@ -709,7 +709,7 @@ def _readchunk(self, cr, uid, pool, model, chunk_ids, fields, context):
 
 			for m2mfield in m2mfields:
 				record[m2mfield] = _m2mread(self,cr,uid,pool,model,record['id'],m2mfield,m2mfields[m2mfield],context)
-#def _m2mread(self, cr, uid, pool, model, oid, field, fields, context)		
+#def _m2mread(self, cr, uid, pool, model, oid, field, fields, context)
 		return records
 
 
@@ -740,7 +740,7 @@ def _read(self, cr, uid, pool, model, ids, fields = None, context = {}):
 		if method and callable(method):
 			kwargs = {'r1':ids,'context':context}
 			method(**kwargs)
-	
+
 	for count in range(0,len(ids),MAX_CHUNK_READ):
 		chunk_ids = ids[count: (count + MAX_CHUNK_READ) if count % MAX_CHUNK_READ  == 0 else len(ids)]
 		res.extend(_readchunk(self,cr,uid,pool,model,chunk_ids,fields,context))
@@ -751,9 +751,9 @@ def _read(self, cr, uid, pool, model, ids, fields = None, context = {}):
 		if method and callable(method):
 			kwargs = {'r1':res,'context':context}
 			method(**kwargs)
-	
+
 	return res
-	
+
 def read(self, cr, uid, pool, model, ids, fields = None, context = {}):
 	if not self._proxy_access.get(model._name)._checkRead():
 		orm_exception("Read:access dennied of model % s" % (model._name,))
@@ -794,7 +794,7 @@ def _select(self, cr, uid, pool, model, fields = None ,cond = None, context = {}
 	if fields is None:
 		fields = model._selectablefields
 
-	rowfields = list(filter(lambda x: x in fields,model._rowfields)) 
+	rowfields = list(filter(lambda x: x in fields,model._rowfields))
 	if cond is None:
 		cond = []
 
@@ -811,7 +811,7 @@ def _select(self, cr, uid, pool, model, fields = None ,cond = None, context = {}
 				if jk in record:
 					if type(record[jk]) == str:
 						record[jk] = json.loads(record[jk])
-				
+
 			o2mfields = {}
 			m2mfields = {}
 			fds = list(filter(lambda x: type(x) == dict,fields))
@@ -837,8 +837,9 @@ def _select(self, cr, uid, pool, model, fields = None ,cond = None, context = {}
 				record[o2mfield] = _o2mread(self,cr,uid,pool,pool[model._columns[o2mfield].obj],oid,model._columns[o2mfield].rel,o2mfields[o2mfield],context)
 
 			for m2mfield in m2mfields:
-				record[m2mfield] = _m2mread(self,cr,uid,pool,pool[model._columns[o2mfield].obj],oid,m2mfield,m2mfields[m2mfield],context)
-		
+				#record[m2mfield] = _m2mread(self,cr,uid,pool,pool[model._columns[m2mfield].obj],oid,m2mfield,m2mfields[m2mfield],context)
+				record[m2mfield] = _m2mread(self,cr,uid,pool,model,record['id'],m2mfield,m2mfields[m2mfield],context)
+
 		res.extend(records)
 
 	return res
@@ -846,7 +847,7 @@ def _select(self, cr, uid, pool, model, fields = None ,cond = None, context = {}
 def select(self, cr, uid, pool, model, fields = None ,cond = None, context = {}, limit = None, offset = None):
 	if not self._proxy_access.get(model._name)._checkRead():
 		orm_exception("Select:access dennied of model % s" % (self._name,))
-	
+
 	return _select(self, cr,uid, pool, model, fields, cond, context, limit, offset)
 
 # Other start
@@ -897,14 +898,14 @@ def unlink(self, cr, uid, pool, model, ids, context = {}):
 		sql,vals = gensql.Unlink(self, cr, uid, pool, model, chunk_ids, context)
 		rowcount = cr.execute(sql,vals)
 		if rowcount > 0:
-			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+			res.extend(list(map(lambda x: x[0],cr.fetchall())))
 	if chunk > 0:
 		j = count * MAX_CHUNK_DELETE
 		chunk_ids = ids[j:]
 		sql,vals = gensql.Unlink(self, cr, uid, pool, model, chunk_ids,context)
 		rowcount = cr.execute(sql,vals)
 		if rowcount > 0:
-			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+			res.extend(list(map(lambda x: x[0],cr.fetchall())))
 
 
 	trg3 = model._getTriger('adr')
@@ -927,7 +928,7 @@ def delete(self, cr, uid, pool, model, cond, context = {}):
 	oids = search(self, cr, uid, pool, model, cond, context)
 	if len(oids) > 0:
 		res = unlink(self, cr, uid, pool, model, oids, context)
-	
+
 	return res
 
 def create(self, cr, uid, pool, model, records, context = {}):
@@ -938,13 +939,13 @@ def create(self, cr, uid, pool, model, records, context = {}):
 	if type(records) == dict:
 		for check in checks:
 			for key in check.keys():
-				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):
 					orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
 	elif type(records) in (list,tuple):
 		for ch in checks:
 			for check in ch:
 				for key in check.keys():
-					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):
 						orm_exception("Create:Check errors of model %s\nChecks:%s" % (model._name,checks))
 
 	if 'lang' not in context:
@@ -966,7 +967,7 @@ def write(self, records, context = {}):
 	for ch in checks:
 		for check in ch:
 			for key in check.keys():
-				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):
 					orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
 
 	if 'lang' not in context:
@@ -988,13 +989,13 @@ def modify(self, records, context = {}):
 	if type(records) == dict:
 		for check in checks:
 			for key in check.keys():
-				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):
 					orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
 	elif type(records) in (list,tuple):
 		for ch in checks:
 			for check in ch:
 				for key in check.keys():
-					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):
 						orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
 
 	if 'lang' not in context:
@@ -1007,7 +1008,7 @@ def modify(self, records, context = {}):
 
 	elif type(records) == dict:
 		return [_modifyRecord(self, records, context)]
-	
+
 def update(self, record, cond = None,context = {}):
 	if not self._proxy_access.get(model._name)._checkWrite():
 		orm_exception("Update:access dennied of model % s" % (self._name,))
@@ -1020,13 +1021,13 @@ def update(self, record, cond = None,context = {}):
 		context['tz'] = tm.tzname[1]
 	if cond is None:
 		cond = []
-	
+
 	fields = list(record.keys())
 	recs = search(self, cond, context)
 	_fields =[]
 	_fields.extend(fields)
 	_fields.append('id')
-	
+
 	values = []
 	_value = []
 	for idx,field in enumerate(fields):
@@ -1038,7 +1039,7 @@ def update(self, record, cond = None,context = {}):
 		#value.append(rec['id'])
 		value.append(rec)
 		values.append(value)
-		
+
 	res = upsert(self,  _fields, values,context)
 	return res
 
@@ -1051,13 +1052,13 @@ def insert(self, fields, values,context = {}):
 	if type(checks) == dict:
 		for check in checks:
 			for key in check.keys():
-				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):
 					orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
 	elif type(checks) in (list,tuple):
 		for ch in checks:
 			for check in ch:
 				for key in check.keys():
-					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):
 						orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
 
 
@@ -1068,9 +1069,9 @@ def insert(self, fields, values,context = {}):
 			for f in enumerate(fields):
 				if f[1] in _computes:
 					value[f[0]] = _computes[f[1]]
-	
+
 	nosavedfields = list(filter(lambda x: x in fields, self._nosavedfields))
-	if len(nosavedfields) > 0:	
+	if len(nosavedfields) > 0:
 		for v in values:
 			_v = []
 			for idx,f in enumerate(fields):
@@ -1079,7 +1080,7 @@ def insert(self, fields, values,context = {}):
 				_v.append(v[1][idx])
 			v[1] = []
 			v[1].extend(_v)
-			
+
 	_fields = list(filter(lambda x: not x in nosavedfields,fields))
 
 	res = []
@@ -1103,7 +1104,7 @@ def insert(self, fields, values,context = {}):
 	sql,vals = gensql.Insert(self, _fields, values, context)
 	rowcount = self._execute(sql,vals)
 	if rowcount > 0:
-		res.extend(self._cr.fetchall()) 
+		res.extend(self._cr.fetchall())
 		info = self.modelInfo()
 		columnsinfo = info['columns']
 		fm = {}
@@ -1116,11 +1117,11 @@ def insert(self, fields, values,context = {}):
 		for r in res:
 			for o2mfield in o2mfields:
 				columninfo = columnsinfo[o2mfield]
-				_o2mfields = values[fm[o2mfield]]['fields'] 
-				_o2mvalues = values[fm[o2mfield]]['values'] 
+				_o2mfields = values[fm[o2mfield]]['fields']
+				_o2mvalues = values[fm[o2mfield]]['values']
 				obj = columninfo['obj']
 				rel = columninfo['rel']
-				
+
 				for _idx,_o2mfield in enumerate(_o2mfields):
 					if _o2mfield == rel:
 						for _o2mvalue in _o2mvalues:
@@ -1138,7 +1139,7 @@ def insert(self, fields, values,context = {}):
 					id2 = self._getSpecName(columninfo['id2'])
 				else:
 					id2 = _m2mfieldid2(self._pool,obj,rel)
-		
+
 				oid = r[0]
 				if len(rels) > 0:
 					_m2mcreate(self,rel,id1,id2,oid,rels,context)
@@ -1167,13 +1168,13 @@ def upsert(self, fields, values,context = {}):
 	if type(checks) == dict:
 		for check in checks:
 			for key in check.keys():
-				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+				if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):
 					orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
 	elif type(checks) in (list,tuple):
 		for ch in checks:
 			for check in ch:
 				for key in check.keys():
-					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):  
+					if check[key] and type(check[key]) in (list,tuple) and len(check[key]) and check[key][0] in ('A','E','C'):
 						orm_exception("Create:Check errors of model %s\nChecks:%s" % (self._name,checks))
 
 	storecomputefields = list(filter(lambda x: x in fields, self._storecomputefields))
@@ -1183,9 +1184,9 @@ def upsert(self, fields, values,context = {}):
 			for f in enumerate(fields):
 				if f[1] in _computes:
 					value[f[0]] = _computes[f[1]]
-	
+
 	nosavedfields = list(filter(lambda x: x in fields, self._nosavedfields))
-	if len(nosavedfields) > 0:	
+	if len(nosavedfields) > 0:
 		for v in values:
 			_v = []
 			for idx,f in enumerate(fields):
@@ -1194,7 +1195,7 @@ def upsert(self, fields, values,context = {}):
 				_v.append(v[1][idx])
 			v[1] = []
 			v[1].extend(_v)
-			
+
 		fields = list(filter(lambda x: not x in nosavedfields,fields))
 
 	res = []
@@ -1219,7 +1220,7 @@ def upsert(self, fields, values,context = {}):
 	sql,vals = gensql.Upsert(self, fields, values, context)
 	rowcount = self._.execute(sql,vals)
 	if rowcount > 0:
-		res.extend(self._cr.fetchall()) 
+		res.extend(self._cr.fetchall())
 		info = self.modelInfo()
 		columnsinfo = info['columns']
 		fm = {}
@@ -1232,11 +1233,11 @@ def upsert(self, fields, values,context = {}):
 		for r in res:
 			for o2mfield in o2mfields:
 				columninfo = columnsinfo[o2mfield]
-				_o2mfields = values[fm[o2mfield]]['fields'] 
-				_o2mvalues = values[fm[o2mfield]]['values'] 
+				_o2mfields = values[fm[o2mfield]]['fields']
+				_o2mvalues = values[fm[o2mfield]]['values']
 				obj = columninfo['obj']
 				rel = columninfo['rel']
-				
+
 				for _idx,_o2mfield in enumerate(_o2mfields):
 					if _o2mfield == rel:
 						for _o2mvalue in _o2mvalues:
@@ -1254,7 +1255,7 @@ def upsert(self, fields, values,context = {}):
 					id2 = self._getSpecName(columninfo['id2'])
 				else:
 					id2 = _m2mfieldid2(self._pool,obj,rel)
-		
+
 				oid = r[0]
 				_m2mmodify(self,rel,id1,id2,oid,rels,context)
 
@@ -1277,7 +1278,7 @@ def browse(self, ids, fields = None, context = {}):
 		orm_exception("Browse:access dennied of model % s" % (self._name,))
 
 	brl = browse_record_list()
-	
+
 	for r in _read(self, ids, fields, context):
 		brl.append(browse_record(self._uid,r))
 
@@ -1332,17 +1333,18 @@ def _o2mread(self, cr, uid, pool, model, oid, field,fields, context):
 			record[o2mfield] = _o2mread(self,cr,uid,pool,pool[model._columns[o2mfield].obj],oid,model._columns[o2mfield].rel,dictfields[o2mfield],context)
 
 		for m2mfield in m2mfields:
-			record[m2mfield] = _m2mread(self,cr,uid,pool,pool[self._columns[o2mfield].obj],oid,m2mfield,dictfields[m2mfield],context)
+			#record[m2mfield] = _m2mread(self,cr,uid,pool,pool[self._columns[m2mfield].obj],oid,m2mfield,dictfields[m2mfield],context)
+			record[m2mfield] = _m2mread(self,cr,uid,pool,model,record['id'],m2mfield,dictfields[m2mfield],context)
 
 	res.extend(records)
-	
+
 	return res
 
 
 	# res = []
 	# modelinfo = model.modelInfo()
 	# columnsinfo = model.columnsInfo()
-	
+
 	# sql,vals = gensql.Select(self,cr,uid,pool,model,fields, [(field,'=',oid)], context)
 	# rowcount = cr.execute(sql,vals)
 	# if rowcount > 0:
@@ -1378,7 +1380,7 @@ def _o2mread(self, cr, uid, pool, model, oid, field,fields, context):
 				# record[m2mfield] = _m2mread(self,cr,uid,pool,pool[self._columns[o2mfield].obj],oid,m2mfield,dictfields[m2mfield],context)
 
 		# res.extend(records)
-	
+
 	# return res
 
 def _m2mread(self, cr, uid, pool, model, oid, field, fields, context):
@@ -1397,11 +1399,11 @@ def _m2mread(self, cr, uid, pool, model, oid, field, fields, context):
 	rowcount = cr.execute("SELECT id,%s,%s FROM %s WHERE %s = '%s'" % (id1,id2,rel,id1,oid))
 	if rowcount > 0:
 		if len(fields) > 0:
-			ids.extend(list(map(lambda x: x[2],cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})))) 
+			ids.extend(list(map(lambda x: x[2],cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'}))))
 			if len(ids) > 0:
 				res.extend(model.readFor(obj,ids,fields , context))
 		else:
-			res.extend(cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'})) 
+			res.extend(cr.fetchall([id1,id2], {id1:'uuid',id2:'uuid'}))
 
 	return res
 
@@ -1419,15 +1421,15 @@ def _m2mcreate(self, cr, uid, pool, model,rel,id1,id2,oid,rels,context):
 		sql += str(values[0])
 	else:
 		sql += reduce(lambda x,y: str(x) + ',' + str(y),values)
-		
+
 	sql += ' returning id'
 	cr.execute(sql)
 	if cr.rowcount > 0:
 		if context['FETCH'] == 'LIST':
-			res.extend(list(map(lambda x: x[0],cr.fetchall()))) 
+			res.extend(list(map(lambda x: x[0],cr.fetchall())))
 		elif context['FETCH'] == 'DICT':
-			res.extend(list(map(lambda x: x['id'],cr.dictfetchall()))) 
-	
+			res.extend(list(map(lambda x: x['id'],cr.dictfetchall())))
+
 	return res
 
 def _m2mwrite(self,rel,id1,id2,oid,rels,context):
@@ -1442,7 +1444,7 @@ def _m2mwrite(self,rel,id1,id2,oid,rels,context):
 		ids2 = list(map(lambda x: x[2],self._cr.fetchall(fields = ['id',id1,id2], columnsmeta = {'id':'uuid',id1:'uuid',id2:'uuid'})))
 		toInsert = list(filter(lambda x: not x in ids2,rels))
 		toUnlink = list(filter(lambda x: not x in rels,ids2))
-	
+
 	for i in toInsert:
 		iValues.append((oid,i))
 	if len(iValues) > 0:
@@ -1451,7 +1453,7 @@ def _m2mwrite(self,rel,id1,id2,oid,rels,context):
 			sql += '(' + reduce(lambda x,y: str(x)+','+str(y),iValues) + ')'
 		else:
 			sql += str(iValues[0])
-		
+
 		sql += " returning id"
 		sqls.append(sql)
 
@@ -1469,8 +1471,8 @@ def _m2mwrite(self,rel,id1,id2,oid,rels,context):
 			sql += ';' + sqls[1]
 		self._execute(sql)
 	if self._cr.rowcount > 0:
-		res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
-	
+		res.extend(list(map(lambda x: x[0],self._cr.fetchall())))
+
 	res.extend(filter(lambda x: not x in toUnlink,ids2))
 	res.extend(toInsert)
 
@@ -1488,7 +1490,7 @@ def _m2mmodify(self,rel,id1,id2,oid,rels,context):
 		ids2 = list(map(lambda x: x[2],self._cr.fetchall(fields = ['id',id1,id2], columnsmeta = {'id':'uuid',id1:'uuid',id2:'uuid'})))
 		toInsert = list(filter(lambda x: not x in ids2,rels))
 		toUnlink = list(filter(lambda x: not x in rels,ids2))
-	
+
 	for i in toInsert:
 		iValues.append((oid,i))
 	if len(iValues) > 0:
@@ -1497,7 +1499,7 @@ def _m2mmodify(self,rel,id1,id2,oid,rels,context):
 			sql += '(' + reduce(lambda x,y: str(x)+','+str(y),iValues) + ')'
 		else:
 			sql += str(iValues[0])
-		
+
 		sql += " returning id"
 		sqls.append(sql)
 
@@ -1515,8 +1517,8 @@ def _m2mmodify(self,rel,id1,id2,oid,rels,context):
 			sql += ';' + sqls[1]
 		self._execute(sql)
 	if self._cr.rowcount > 0:
-		res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
-	
+		res.extend(list(map(lambda x: x[0],self._cr.fetchall())))
+
 	res.extend(filter(lambda x: not x in toUnlink,ids2))
 	res.extend(toInsert)
 
@@ -1534,8 +1536,8 @@ def _m2munlink(self,rel,id1,id2,oid,rels,context):
 	sql += ' returning id'
 	self._execute(sql)
 	if self._cr.rowcount > 0:
-		res.extend(list(map(lambda x: x[0],self._cr.fetchall()))) 
-	
+		res.extend(list(map(lambda x: x[0],self._cr.fetchall())))
+
 	return res
 
 def _tree(self, cr, uid, pool, model, fields = None ,parent = None, context = {}):
@@ -1574,7 +1576,7 @@ def _tree(self, cr, uid, pool, model, fields = None ,parent = None, context = {}
 def tree(self, cr, uid, pool, model, fields = None ,parent = None, context = {}):
 	if not self._proxy_access.get(model._name)._checkRead():
 		orm_exception("Tree:access dennied of model % s" % (self._name,))
-	
+
 	return _tree(self, cr, uid, pool, model, fields, parent, context)
 
-	
+

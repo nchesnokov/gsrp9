@@ -1,0 +1,19 @@
+[Unit]
+Description=Global System Service  Listener
+
+Wants=network-online.target
+
+# Remove postgresql.service if db is running on another host.
+Requires=network.target
+
+[Service]
+User = gsrp
+Group = gsrp
+ExecStart=/usr/bin/service-listener --config=/etc/service-listener.d/service-listener.conf 
+
+ExecStop=/usr/bin/kill -TERM $MAINPID
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

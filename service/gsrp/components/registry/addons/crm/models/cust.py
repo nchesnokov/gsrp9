@@ -182,7 +182,6 @@ class crm_division_categories(Model):
 	'divisions': fields.one2many(label='Divisions',obj='crm.divisions',rel='category_id'),
 	'note': fields.i18n(fields.text(label = 'Note'))
 	}
-
 #crm_division_categories()
 
 
